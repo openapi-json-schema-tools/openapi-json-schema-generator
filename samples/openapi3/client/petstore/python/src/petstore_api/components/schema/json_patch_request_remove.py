@@ -107,7 +107,10 @@ class JSONPatchRequestRemove(
     @classmethod
     def validate(
         cls,
-        arg: JSONPatchRequestRemoveDictInput,
+        arg: typing.Union[
+            JSONPatchRequestRemoveDictInput,
+            JSONPatchRequestRemoveDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> JSONPatchRequestRemoveDict:
         return super().validate(

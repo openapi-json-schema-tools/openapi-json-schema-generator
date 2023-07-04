@@ -65,7 +65,10 @@ class File(
     @classmethod
     def validate(
         cls,
-        arg: FileDictInput,
+        arg: typing.Union[
+            FileDictInput,
+            FileDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> FileDict:
         return super().validate(

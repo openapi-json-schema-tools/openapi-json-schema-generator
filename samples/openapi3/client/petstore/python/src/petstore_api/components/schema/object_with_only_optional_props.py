@@ -78,7 +78,10 @@ class ObjectWithOnlyOptionalProps(
     @classmethod
     def validate(
         cls,
-        arg: ObjectWithOnlyOptionalPropsDictInput,
+        arg: typing.Union[
+            ObjectWithOnlyOptionalPropsDictInput,
+            ObjectWithOnlyOptionalPropsDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithOnlyOptionalPropsDict:
         return super().validate(

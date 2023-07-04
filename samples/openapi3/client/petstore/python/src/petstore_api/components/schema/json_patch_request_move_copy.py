@@ -121,7 +121,10 @@ class JSONPatchRequestMoveCopy(
     @classmethod
     def validate(
         cls,
-        arg: JSONPatchRequestMoveCopyDictInput,
+        arg: typing.Union[
+            JSONPatchRequestMoveCopyDictInput,
+            JSONPatchRequestMoveCopyDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> JSONPatchRequestMoveCopyDict:
         return super().validate(

@@ -77,7 +77,10 @@ class JSONPatchRequest(
     @classmethod
     def validate(
         cls,
-        arg: JSONPatchRequestTupleInput,
+        arg: typing.Union[
+            JSONPatchRequestTupleInput,
+            JSONPatchRequestTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> JSONPatchRequestTuple:
         return super().validate(

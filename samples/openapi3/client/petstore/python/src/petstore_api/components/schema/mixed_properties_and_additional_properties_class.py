@@ -49,7 +49,10 @@ class Map(
     @classmethod
     def validate(
         cls,
-        arg: MapDictInput,
+        arg: typing.Union[
+            MapDictInput,
+            MapDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapDict:
         return super().validate(
@@ -121,7 +124,10 @@ class MixedPropertiesAndAdditionalPropertiesClass(
     @classmethod
     def validate(
         cls,
-        arg: MixedPropertiesAndAdditionalPropertiesClassDictInput,
+        arg: typing.Union[
+            MixedPropertiesAndAdditionalPropertiesClassDictInput,
+            MixedPropertiesAndAdditionalPropertiesClassDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MixedPropertiesAndAdditionalPropertiesClassDict:
         return super().validate(

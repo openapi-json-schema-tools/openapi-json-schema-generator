@@ -92,7 +92,10 @@ class ArrayEnum(
     @classmethod
     def validate(
         cls,
-        arg: ArrayEnumTupleInput,
+        arg: typing.Union[
+            ArrayEnumTupleInput,
+            ArrayEnumTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayEnumTuple:
         return super().validate(
@@ -157,7 +160,10 @@ class EnumArrays(
     @classmethod
     def validate(
         cls,
-        arg: EnumArraysDictInput,
+        arg: typing.Union[
+            EnumArraysDictInput,
+            EnumArraysDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> EnumArraysDict:
         return super().validate(

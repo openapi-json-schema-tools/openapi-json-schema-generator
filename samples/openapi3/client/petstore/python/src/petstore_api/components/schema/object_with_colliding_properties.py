@@ -72,7 +72,10 @@ class ObjectWithCollidingProperties(
     @classmethod
     def validate(
         cls,
-        arg: ObjectWithCollidingPropertiesDictInput,
+        arg: typing.Union[
+            ObjectWithCollidingPropertiesDictInput,
+            ObjectWithCollidingPropertiesDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithCollidingPropertiesDict:
         return super().validate(

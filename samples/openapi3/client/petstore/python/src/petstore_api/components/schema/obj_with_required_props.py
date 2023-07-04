@@ -73,7 +73,10 @@ class ObjWithRequiredProps(
     @classmethod
     def validate(
         cls,
-        arg: ObjWithRequiredPropsDictInput,
+        arg: typing.Union[
+            ObjWithRequiredPropsDictInput,
+            ObjWithRequiredPropsDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjWithRequiredPropsDict:
         return super().validate(

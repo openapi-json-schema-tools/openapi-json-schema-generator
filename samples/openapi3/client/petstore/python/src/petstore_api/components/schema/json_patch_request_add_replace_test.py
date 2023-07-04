@@ -146,7 +146,10 @@ class JSONPatchRequestAddReplaceTest(
     @classmethod
     def validate(
         cls,
-        arg: JSONPatchRequestAddReplaceTestDictInput,
+        arg: typing.Union[
+            JSONPatchRequestAddReplaceTestDictInput,
+            JSONPatchRequestAddReplaceTestDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> JSONPatchRequestAddReplaceTestDict:
         return super().validate(

@@ -47,7 +47,10 @@ class StringBooleanMap(
     @classmethod
     def validate(
         cls,
-        arg: StringBooleanMapDictInput,
+        arg: typing.Union[
+            StringBooleanMapDictInput,
+            StringBooleanMapDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> StringBooleanMapDict:
         return super().validate(

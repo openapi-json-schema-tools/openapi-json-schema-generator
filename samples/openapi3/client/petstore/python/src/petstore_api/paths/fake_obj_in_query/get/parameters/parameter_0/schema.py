@@ -58,7 +58,10 @@ class Schema(
     @classmethod
     def validate(
         cls,
-        arg: SchemaDictInput,
+        arg: typing.Union[
+            SchemaDictInput,
+            SchemaDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> SchemaDict:
         return super().validate(

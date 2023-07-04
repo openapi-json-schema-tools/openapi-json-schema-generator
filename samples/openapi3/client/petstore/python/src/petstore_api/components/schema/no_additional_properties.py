@@ -91,7 +91,10 @@ class NoAdditionalProperties(
     @classmethod
     def validate(
         cls,
-        arg: NoAdditionalPropertiesDictInput,
+        arg: typing.Union[
+            NoAdditionalPropertiesDictInput,
+            NoAdditionalPropertiesDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> NoAdditionalPropertiesDict:
         return super().validate(

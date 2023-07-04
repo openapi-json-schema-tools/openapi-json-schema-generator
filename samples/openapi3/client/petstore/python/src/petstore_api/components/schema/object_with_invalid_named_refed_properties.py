@@ -75,7 +75,10 @@ class ObjectWithInvalidNamedRefedProperties(
     @classmethod
     def validate(
         cls,
-        arg: ObjectWithInvalidNamedRefedPropertiesDictInput,
+        arg: typing.Union[
+            ObjectWithInvalidNamedRefedPropertiesDictInput,
+            ObjectWithInvalidNamedRefedPropertiesDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithInvalidNamedRefedPropertiesDict:
         return super().validate(

@@ -39,7 +39,10 @@ class _0(
     @classmethod
     def validate(
         cls,
-        arg: _0DictInput,
+        arg: typing.Union[
+            _0DictInput,
+            _0Dict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> _0Dict:
         return super().validate(
@@ -103,7 +106,10 @@ class _1(
     @classmethod
     def validate(
         cls,
-        arg: _1DictInput,
+        arg: typing.Union[
+            _1DictInput,
+            _1Dict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> _1Dict:
         return super().validate(
@@ -167,7 +173,10 @@ class _2(
     @classmethod
     def validate(
         cls,
-        arg: _2DictInput,
+        arg: typing.Union[
+            _2DictInput,
+            _2Dict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> _2Dict:
         return super().validate(
@@ -199,7 +208,7 @@ class AdditionalPropertiesValidator(
     @classmethod
     def validate(
         cls,
-        arg: typing.Dict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]:
         return super().validate(

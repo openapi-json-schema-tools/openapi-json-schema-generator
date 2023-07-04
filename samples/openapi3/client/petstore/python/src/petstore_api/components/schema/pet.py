@@ -41,7 +41,10 @@ class PhotoUrls(
     @classmethod
     def validate(
         cls,
-        arg: PhotoUrlsTupleInput,
+        arg: typing.Union[
+            PhotoUrlsTupleInput,
+            PhotoUrlsTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> PhotoUrlsTuple:
         return super().validate(
@@ -115,7 +118,10 @@ class Tags(
     @classmethod
     def validate(
         cls,
-        arg: TagsTupleInput,
+        arg: typing.Union[
+            TagsTupleInput,
+            TagsTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> TagsTuple:
         return super().validate(
@@ -218,7 +224,10 @@ class Pet(
     @classmethod
     def validate(
         cls,
-        arg: PetDictInput,
+        arg: typing.Union[
+            PetDictInput,
+            PetDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> PetDict:
         return super().validate(

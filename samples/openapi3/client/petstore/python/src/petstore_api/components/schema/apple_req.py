@@ -91,7 +91,10 @@ class AppleReq(
     @classmethod
     def validate(
         cls,
-        arg: AppleReqDictInput,
+        arg: typing.Union[
+            AppleReqDictInput,
+            AppleReqDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AppleReqDict:
         return super().validate(

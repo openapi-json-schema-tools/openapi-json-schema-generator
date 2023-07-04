@@ -78,7 +78,10 @@ class ReqPropsFromExplicitAddProps(
     @classmethod
     def validate(
         cls,
-        arg: ReqPropsFromExplicitAddPropsDictInput,
+        arg: typing.Union[
+            ReqPropsFromExplicitAddPropsDictInput,
+            ReqPropsFromExplicitAddPropsDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ReqPropsFromExplicitAddPropsDict:
         return super().validate(

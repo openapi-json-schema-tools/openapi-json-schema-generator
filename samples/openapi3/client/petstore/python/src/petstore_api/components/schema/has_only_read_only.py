@@ -70,7 +70,10 @@ class HasOnlyReadOnly(
     @classmethod
     def validate(
         cls,
-        arg: HasOnlyReadOnlyDictInput,
+        arg: typing.Union[
+            HasOnlyReadOnlyDictInput,
+            HasOnlyReadOnlyDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> HasOnlyReadOnlyDict:
         return super().validate(

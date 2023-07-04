@@ -42,7 +42,10 @@ class Items(
     @classmethod
     def validate(
         cls,
-        arg: ItemsTupleInput,
+        arg: typing.Union[
+            ItemsTupleInput,
+            ItemsTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ItemsTuple:
         return super().validate(
@@ -81,7 +84,10 @@ class ArrayArrayNumber(
     @classmethod
     def validate(
         cls,
-        arg: ArrayArrayNumberTupleInput,
+        arg: typing.Union[
+            ArrayArrayNumberTupleInput,
+            ArrayArrayNumberTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayArrayNumberTuple:
         return super().validate(
@@ -140,7 +146,10 @@ class ArrayOfArrayOfNumberOnly(
     @classmethod
     def validate(
         cls,
-        arg: ArrayOfArrayOfNumberOnlyDictInput,
+        arg: typing.Union[
+            ArrayOfArrayOfNumberOnlyDictInput,
+            ArrayOfArrayOfNumberOnlyDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayOfArrayOfNumberOnlyDict:
         return super().validate(

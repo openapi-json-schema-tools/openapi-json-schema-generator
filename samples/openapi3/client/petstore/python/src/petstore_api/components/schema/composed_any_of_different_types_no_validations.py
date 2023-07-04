@@ -64,7 +64,10 @@ class _9(
     @classmethod
     def validate(
         cls,
-        arg: _9TupleInput,
+        arg: typing.Union[
+            _9TupleInput,
+            _9Tuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> _9Tuple:
         return super().validate(

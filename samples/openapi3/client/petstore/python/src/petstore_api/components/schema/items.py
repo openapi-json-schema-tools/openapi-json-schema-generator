@@ -49,7 +49,10 @@ class Items(
     @classmethod
     def validate(
         cls,
-        arg: ItemsTupleInput,
+        arg: typing.Union[
+            ItemsTupleInput,
+            ItemsTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ItemsTuple:
         return super().validate(

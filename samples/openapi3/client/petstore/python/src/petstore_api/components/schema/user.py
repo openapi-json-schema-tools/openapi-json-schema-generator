@@ -41,7 +41,7 @@ class ObjectWithNoDeclaredPropsNullable(
     @classmethod
     def validate(
         cls,
-        arg: typing.Dict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
     @classmethod
@@ -193,7 +193,10 @@ class User(
     @classmethod
     def validate(
         cls,
-        arg: UserDictInput,
+        arg: typing.Union[
+            UserDictInput,
+            UserDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> UserDict:
         return super().validate(

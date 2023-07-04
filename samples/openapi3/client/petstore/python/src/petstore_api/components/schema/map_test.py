@@ -42,7 +42,10 @@ class AdditionalProperties(
     @classmethod
     def validate(
         cls,
-        arg: AdditionalPropertiesDictInput,
+        arg: typing.Union[
+            AdditionalPropertiesDictInput,
+            AdditionalPropertiesDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesDict:
         return super().validate(
@@ -85,7 +88,10 @@ class MapMapOfString(
     @classmethod
     def validate(
         cls,
-        arg: MapMapOfStringDictInput,
+        arg: typing.Union[
+            MapMapOfStringDictInput,
+            MapMapOfStringDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapMapOfStringDict:
         return super().validate(
@@ -151,7 +157,10 @@ class MapOfEnumString(
     @classmethod
     def validate(
         cls,
-        arg: MapOfEnumStringDictInput,
+        arg: typing.Union[
+            MapOfEnumStringDictInput,
+            MapOfEnumStringDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapOfEnumStringDict:
         return super().validate(
@@ -191,7 +200,10 @@ class DirectMap(
     @classmethod
     def validate(
         cls,
-        arg: DirectMapDictInput,
+        arg: typing.Union[
+            DirectMapDictInput,
+            DirectMapDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> DirectMapDict:
         return super().validate(
@@ -271,7 +283,10 @@ class MapTest(
     @classmethod
     def validate(
         cls,
-        arg: MapTestDictInput,
+        arg: typing.Union[
+            MapTestDictInput,
+            MapTestDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapTestDict:
         return super().validate(

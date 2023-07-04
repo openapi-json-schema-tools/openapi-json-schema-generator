@@ -89,7 +89,10 @@ class Money(
     @classmethod
     def validate(
         cls,
-        arg: MoneyDictInput,
+        arg: typing.Union[
+            MoneyDictInput,
+            MoneyDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MoneyDict:
         return super().validate(

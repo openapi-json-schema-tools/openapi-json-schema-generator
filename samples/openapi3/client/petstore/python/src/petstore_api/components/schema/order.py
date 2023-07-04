@@ -138,7 +138,10 @@ class Order(
     @classmethod
     def validate(
         cls,
-        arg: OrderDictInput,
+        arg: typing.Union[
+            OrderDictInput,
+            OrderDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> OrderDict:
         return super().validate(

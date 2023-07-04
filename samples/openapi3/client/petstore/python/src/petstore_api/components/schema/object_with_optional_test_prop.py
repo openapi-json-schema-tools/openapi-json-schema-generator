@@ -63,7 +63,10 @@ class ObjectWithOptionalTestProp(
     @classmethod
     def validate(
         cls,
-        arg: ObjectWithOptionalTestPropDictInput,
+        arg: typing.Union[
+            ObjectWithOptionalTestPropDictInput,
+            ObjectWithOptionalTestPropDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithOptionalTestPropDict:
         return super().validate(

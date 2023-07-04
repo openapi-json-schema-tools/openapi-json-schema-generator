@@ -82,7 +82,10 @@ class ObjectModelWithArgAndArgsProperties(
     @classmethod
     def validate(
         cls,
-        arg: ObjectModelWithArgAndArgsPropertiesDictInput,
+        arg: typing.Union[
+            ObjectModelWithArgAndArgsPropertiesDictInput,
+            ObjectModelWithArgAndArgsPropertiesDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectModelWithArgAndArgsPropertiesDict:
         return super().validate(

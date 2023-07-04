@@ -71,7 +71,10 @@ class Schema(
     @classmethod
     def validate(
         cls,
-        arg: SchemaTupleInput,
+        arg: typing.Union[
+            SchemaTupleInput,
+            SchemaTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> SchemaTuple:
         return super().validate(

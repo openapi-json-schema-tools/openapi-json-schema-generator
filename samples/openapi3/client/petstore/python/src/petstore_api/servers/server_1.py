@@ -91,7 +91,10 @@ class Variables(
     @classmethod
     def validate(
         cls,
-        arg: VariablesDictInput,
+        arg: typing.Union[
+            VariablesDictInput,
+            VariablesDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> VariablesDict:
         return super().validate(

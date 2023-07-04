@@ -68,7 +68,10 @@ class ReqPropsFromUnsetAddProps(
     @classmethod
     def validate(
         cls,
-        arg: ReqPropsFromUnsetAddPropsDictInput,
+        arg: typing.Union[
+            ReqPropsFromUnsetAddPropsDictInput,
+            ReqPropsFromUnsetAddPropsDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ReqPropsFromUnsetAddPropsDict:
         return super().validate(

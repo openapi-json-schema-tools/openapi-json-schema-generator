@@ -40,7 +40,10 @@ class AdditionalProperties(
     @classmethod
     def validate(
         cls,
-        arg: AdditionalPropertiesTupleInput,
+        arg: typing.Union[
+            AdditionalPropertiesTupleInput,
+            AdditionalPropertiesTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesTuple:
         return super().validate(
@@ -87,7 +90,10 @@ class AdditionalPropertiesWithArrayOfEnums(
     @classmethod
     def validate(
         cls,
-        arg: AdditionalPropertiesWithArrayOfEnumsDictInput,
+        arg: typing.Union[
+            AdditionalPropertiesWithArrayOfEnumsDictInput,
+            AdditionalPropertiesWithArrayOfEnumsDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesWithArrayOfEnumsDict:
         return super().validate(

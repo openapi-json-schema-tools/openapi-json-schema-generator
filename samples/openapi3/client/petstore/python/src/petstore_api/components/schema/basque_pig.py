@@ -91,7 +91,10 @@ class BasquePig(
     @classmethod
     def validate(
         cls,
-        arg: BasquePigDictInput,
+        arg: typing.Union[
+            BasquePigDictInput,
+            BasquePigDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> BasquePigDict:
         return super().validate(

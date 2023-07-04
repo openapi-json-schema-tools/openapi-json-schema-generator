@@ -390,7 +390,10 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[typing.Sequence[INPUT_TYPES_ALL_INCL_SCHEMA], U],
+        arg: typing.Union[
+            typing.Sequence[INPUT_TYPES_ALL_INCL_SCHEMA],
+            U
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> U: ...
 
@@ -398,7 +401,10 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[typing.Mapping, T],
+        arg: typing.Union[
+            typing.Mapping[str, INPUT_TYPES_ALL_INCL_SCHEMA],
+            T
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> T: ...
 

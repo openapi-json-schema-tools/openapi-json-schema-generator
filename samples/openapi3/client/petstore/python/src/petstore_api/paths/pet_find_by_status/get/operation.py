@@ -85,7 +85,10 @@ class QueryParameters(
     @classmethod
     def validate(
         cls,
-        arg: QueryParametersDictInput,
+        arg: typing.Union[
+            QueryParametersDictInput,
+            QueryParametersDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> QueryParametersDict:
         return super().validate(

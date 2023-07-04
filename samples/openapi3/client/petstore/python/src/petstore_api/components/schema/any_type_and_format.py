@@ -191,7 +191,10 @@ class AnyTypeAndFormat(
     @classmethod
     def validate(
         cls,
-        arg: AnyTypeAndFormatDictInput,
+        arg: typing.Union[
+            AnyTypeAndFormatDictInput,
+            AnyTypeAndFormatDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AnyTypeAndFormatDict:
         return super().validate(

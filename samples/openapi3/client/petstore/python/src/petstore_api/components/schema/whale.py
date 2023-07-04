@@ -105,7 +105,10 @@ class Whale(
     @classmethod
     def validate(
         cls,
-        arg: WhaleDictInput,
+        arg: typing.Union[
+            WhaleDictInput,
+            WhaleDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> WhaleDict:
         return super().validate(

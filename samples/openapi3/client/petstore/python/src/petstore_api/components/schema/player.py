@@ -71,7 +71,10 @@ class Player(
     @classmethod
     def validate(
         cls,
-        arg: PlayerDictInput,
+        arg: typing.Union[
+            PlayerDictInput,
+            PlayerDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> PlayerDict:
         return super().validate(

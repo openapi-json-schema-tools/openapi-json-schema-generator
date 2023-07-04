@@ -111,7 +111,10 @@ class ArrayWithUniqueItems(
     @classmethod
     def validate(
         cls,
-        arg: ArrayWithUniqueItemsTupleInput,
+        arg: typing.Union[
+            ArrayWithUniqueItemsTupleInput,
+            ArrayWithUniqueItemsTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayWithUniqueItemsTuple:
         return super().validate(
@@ -369,7 +372,10 @@ class FormatTest(
     @classmethod
     def validate(
         cls,
-        arg: FormatTestDictInput,
+        arg: typing.Union[
+            FormatTestDictInput,
+            FormatTestDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> FormatTestDict:
         return super().validate(

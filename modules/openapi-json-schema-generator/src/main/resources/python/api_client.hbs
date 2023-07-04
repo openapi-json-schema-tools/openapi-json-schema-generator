@@ -852,8 +852,7 @@ class OpenApiResponse(JSONDetector, typing.Generic[T]):
         streamed = response.supports_chunked_reads()
 
         deserialized_headers = schemas.unset
-        if cls.headers is not None:
-            # TODO ensure that headers are instances of dict output class
+        if cls.headers is not None and cls.headers_schema is not None:
             deserialized_headers = {}
             for header_name, header_param in cls.headers.items():
                 header_value = response.headers.get(header_name)
@@ -1139,9 +1138,9 @@ class Api:
     def _get_used_path(
         used_path: str,
         path_parameters: typing.Tuple[typing.Type[PathParameter], ...] = (),
-        path_params: typing.Optional[typing_extensions.TypedDict] = None,
+        path_params: typing.Optional[typing.Mapping[str, schemas.OUTPUT_BASE_TYPES]] = None,
         query_parameters: typing.Tuple[typing.Type[QueryParameter], ...] = (),
-        query_params: typing.Optional[typing_extensions.TypedDict] = None,
+        query_params: typing.Optional[typing.Mapping[str, schemas.OUTPUT_BASE_TYPES]] = None,
         skip_validation: bool = False
     ) -> str:
         used_path_params = {}
@@ -1150,7 +1149,7 @@ class Api:
                 parameter_data = path_params.get(parameter.name, schemas.unset)
                 if isinstance(parameter_data, schemas.Unset):
                     continue
-                parameter_data = typing.cast(_SERIALIZE_TYPES, parameter_data)
+                assert not isinstance(parameter_data, (bytes, schemas.FileIO))
                 serialized_data = parameter.serialize(parameter_data, skip_validation=skip_validation)
                 used_path_params.update(serialized_data)
 
@@ -1165,7 +1164,7 @@ class Api:
                     continue
                 if prefix_separator_iterator is None:
                     prefix_separator_iterator = parameter.get_prefix_separator_iterator()
-                parameter_data = typing.cast(_SERIALIZE_TYPES, parameter_data)
+                assert not isinstance(parameter_data, (bytes, schemas.FileIO))
                 serialized_data = parameter.serialize(
                     parameter_data, prefix_separator_iterator, skip_validation=skip_validation)
                 for serialized_value in serialized_data.values():
@@ -1175,7 +1174,7 @@ class Api:
     @staticmethod
     def _get_headers(
         header_parameters: typing.Tuple[typing.Type[HeaderParameter], ...] = (),
-        header_params: typing.Optional[typing_extensions.TypedDict] = None,
+        header_params: typing.Optional[typing.Mapping[str, schemas.OUTPUT_BASE_TYPES]] = None,
         accept_content_types: typing.Tuple[str, ...] = (),
         skip_validation: bool = False
     ) -> _collections.HTTPHeaderDict:
@@ -1185,7 +1184,7 @@ class Api:
                 parameter_data = header_params.get(parameter.name, schemas.unset)
                 if isinstance(parameter_data, schemas.Unset):
                     continue
-                parameter_data = typing.cast(_SERIALIZE_TYPES, parameter_data)
+                assert not isinstance(parameter_data, (bytes, schemas.FileIO))
                 serialized_data = parameter.serialize(parameter_data, skip_validation=skip_validation)
                 headers.extend(serialized_data)
         if accept_content_types:

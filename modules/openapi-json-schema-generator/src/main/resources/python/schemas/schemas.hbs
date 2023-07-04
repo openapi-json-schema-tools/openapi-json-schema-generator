@@ -28,7 +28,10 @@ class ListSchema(schema.Schema[immutabledict.immutabledict, U]):
     @classmethod
     def validate(
         cls,
-        arg: typing.Sequence[schema.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Union[
+            typing.Sequence[schema.INPUT_TYPES_ALL_INCL_SCHEMA],
+            U
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> U:
         return super().validate(arg, configuration=configuration)
@@ -370,10 +373,30 @@ OUTPUT_BASE_TYPES = typing.Union[
 class DictSchema(schema.Schema[T, typing.Tuple[OUTPUT_BASE_TYPES, ...]]):
     types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
 
+    @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Mapping[str, schema.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: T,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> T: ...
+
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Mapping[str, object],  # object needed as value type for typeddict inputs
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> T: ...
+
+    @classmethod
+    def validate(
+        cls,
+        arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ) -> T:
+        if isinstance(arg, immutabledict.immutabledict):
+            # T use case
+            return super().validate(arg, configuration=configuration)
+        arg = typing.cast(typing.Mapping[str, schema.INPUT_TYPES_ALL_INCL_SCHEMA], arg)
         return super().validate(arg, configuration=configuration)

@@ -95,9 +95,6 @@ class TestUserApi(ApiTestMixin):
                     "ref-content-schema-header": '"1234567"',
                 }
             )
-
-            import pdb
-            pdb.set_trace()
             api_response = self.api.login_user(
                 query_params={'username': 'user', 'password': 'pass'},
                 accept_content_types=("application/json",)

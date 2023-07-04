@@ -80,7 +80,10 @@ class ObjectModelWithRefProps(
     @classmethod
     def validate(
         cls,
-        arg: ObjectModelWithRefPropsDictInput,
+        arg: typing.Union[
+            ObjectModelWithRefPropsDictInput,
+            ObjectModelWithRefPropsDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectModelWithRefPropsDict:
         return super().validate(

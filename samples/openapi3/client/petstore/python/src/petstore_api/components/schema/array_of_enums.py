@@ -51,7 +51,10 @@ class ArrayOfEnums(
     @classmethod
     def validate(
         cls,
-        arg: ArrayOfEnumsTupleInput,
+        arg: typing.Union[
+            ArrayOfEnumsTupleInput,
+            ArrayOfEnumsTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayOfEnumsTuple:
         return super().validate(

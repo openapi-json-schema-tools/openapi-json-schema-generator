@@ -60,7 +60,10 @@ class ComposedArray(
     @classmethod
     def validate(
         cls,
-        arg: ComposedArrayTupleInput,
+        arg: typing.Union[
+            ComposedArrayTupleInput,
+            ComposedArrayTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ComposedArrayTuple:
         return super().validate(

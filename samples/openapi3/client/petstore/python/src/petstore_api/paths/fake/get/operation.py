@@ -109,7 +109,10 @@ class QueryParameters(
     @classmethod
     def validate(
         cls,
-        arg: QueryParametersDictInput,
+        arg: typing.Union[
+            QueryParametersDictInput,
+            QueryParametersDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> QueryParametersDict:
         return super().validate(
@@ -183,7 +186,10 @@ class HeaderParameters(
     @classmethod
     def validate(
         cls,
-        arg: HeaderParametersDictInput,
+        arg: typing.Union[
+            HeaderParametersDictInput,
+            HeaderParametersDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> HeaderParametersDict:
         return super().validate(

@@ -132,7 +132,10 @@ class Zebra(
     @classmethod
     def validate(
         cls,
-        arg: ZebraDictInput,
+        arg: typing.Union[
+            ZebraDictInput,
+            ZebraDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ZebraDict:
         return super().validate(

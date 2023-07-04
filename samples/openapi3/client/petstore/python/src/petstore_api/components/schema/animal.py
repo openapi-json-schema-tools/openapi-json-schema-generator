@@ -94,7 +94,10 @@ class Animal(
     @classmethod
     def validate(
         cls,
-        arg: AnimalDictInput,
+        arg: typing.Union[
+            AnimalDictInput,
+            AnimalDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AnimalDict:
         return super().validate(

@@ -44,7 +44,10 @@ class Files(
     @classmethod
     def validate(
         cls,
-        arg: FilesTupleInput,
+        arg: typing.Union[
+            FilesTupleInput,
+            FilesTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> FilesTuple:
         return super().validate(
@@ -109,7 +112,10 @@ class FileSchemaTestClass(
     @classmethod
     def validate(
         cls,
-        arg: FileSchemaTestClassDictInput,
+        arg: typing.Union[
+            FileSchemaTestClassDictInput,
+            FileSchemaTestClassDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> FileSchemaTestClassDict:
         return super().validate(

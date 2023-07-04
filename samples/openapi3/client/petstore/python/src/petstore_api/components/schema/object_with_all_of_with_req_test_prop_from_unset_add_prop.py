@@ -70,7 +70,10 @@ class _1(
     @classmethod
     def validate(
         cls,
-        arg: _1DictInput,
+        arg: typing.Union[
+            _1DictInput,
+            _1Dict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> _1Dict:
         return super().validate(

@@ -2,42 +2,14 @@
     {{#if ../arrayOutputJsonPathPiece}}
 {{../arrayOutputJsonPathPiece.camelCase}}: ...
     {{else}}
-typing.Tuple[schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+typing.Tuple[schemas.OUTPUT_BASE_TYPES]: ...
     {{/if}}
 {{else}}
     {{#eq this "object"}}
         {{#if ../mapOutputJsonPathPiece.camelCase}}
 {{../mapOutputJsonPathPiece.camelCase}}: ...
         {{else}}
-immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]: ...
         {{/if}}
-    {{else}}
-        {{#eq this "string"}}
-str: ...
-        {{else}}
-            {{#eq this "number"}}
-typing.Union[float, int]: ...
-            {{else}}
-                {{#eq this "integer"}}
-int: ...
-                {{else}}
-                    {{#eq this "boolean"}}
-bool: ...
-                    {{else}}
-                        {{#eq this "null"}}
-None: ...
-                        {{else}}
-                            {{#eq this "bytes"}}
-bytes: ...
-                            {{else}}
-                                {{#eq this "file"}}
-schemas.FileIO: ...
-                                {{/eq}}
-                            {{/eq}}
-                        {{/eq}}
-                    {{/eq}}
-                {{/eq}}
-            {{/eq}}
-        {{/eq}}
     {{/eq}}
 {{/eq}}

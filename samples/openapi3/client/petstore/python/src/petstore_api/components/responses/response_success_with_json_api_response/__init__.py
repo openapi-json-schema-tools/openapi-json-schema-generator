@@ -131,7 +131,10 @@ class Headers(
     @classmethod
     def validate(
         cls,
-        arg: HeadersDictInput,
+        arg: typing.Union[
+            HeadersDictInput,
+            HeadersDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> HeadersDict:
         return super().validate(

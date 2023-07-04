@@ -63,7 +63,10 @@ class NumberOnly(
     @classmethod
     def validate(
         cls,
-        arg: NumberOnlyDictInput,
+        arg: typing.Union[
+            NumberOnlyDictInput,
+            NumberOnlyDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> NumberOnlyDict:
         return super().validate(

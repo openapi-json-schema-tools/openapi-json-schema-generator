@@ -91,7 +91,10 @@ class DanishPig(
     @classmethod
     def validate(
         cls,
-        arg: DanishPigDictInput,
+        arg: typing.Union[
+            DanishPigDictInput,
+            DanishPigDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> DanishPigDict:
         return super().validate(

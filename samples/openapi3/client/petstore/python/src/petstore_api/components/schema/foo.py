@@ -64,7 +64,10 @@ class Foo(
     @classmethod
     def validate(
         cls,
-        arg: FooDictInput,
+        arg: typing.Union[
+            FooDictInput,
+            FooDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> FooDict:
         return super().validate(

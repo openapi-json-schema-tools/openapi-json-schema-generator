@@ -77,7 +77,10 @@ class ApiResponse(
     @classmethod
     def validate(
         cls,
-        arg: ApiResponseDictInput,
+        arg: typing.Union[
+            ApiResponseDictInput,
+            ApiResponseDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ApiResponseDict:
         return super().validate(

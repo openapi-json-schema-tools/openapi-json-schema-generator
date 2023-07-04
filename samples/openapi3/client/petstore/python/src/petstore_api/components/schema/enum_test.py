@@ -247,7 +247,10 @@ class EnumTest(
     @classmethod
     def validate(
         cls,
-        arg: EnumTestDictInput,
+        arg: typing.Union[
+            EnumTestDictInput,
+            EnumTestDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> EnumTestDict:
         return super().validate(

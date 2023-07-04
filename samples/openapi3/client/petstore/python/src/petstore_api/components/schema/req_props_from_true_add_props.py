@@ -71,7 +71,10 @@ class ReqPropsFromTrueAddProps(
     @classmethod
     def validate(
         cls,
-        arg: ReqPropsFromTrueAddPropsDictInput,
+        arg: typing.Union[
+            ReqPropsFromTrueAddPropsDictInput,
+            ReqPropsFromTrueAddPropsDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ReqPropsFromTrueAddPropsDict:
         return super().validate(

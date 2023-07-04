@@ -59,7 +59,10 @@ class Shapes(
     @classmethod
     def validate(
         cls,
-        arg: ShapesTupleInput,
+        arg: typing.Union[
+            ShapesTupleInput,
+            ShapesTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ShapesTuple:
         return super().validate(
@@ -215,7 +218,10 @@ class Drawing(
     @classmethod
     def validate(
         cls,
-        arg: DrawingDictInput,
+        arg: typing.Union[
+            DrawingDictInput,
+            DrawingDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> DrawingDict:
         return super().validate(

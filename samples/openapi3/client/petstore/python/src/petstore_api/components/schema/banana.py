@@ -70,7 +70,10 @@ class Banana(
     @classmethod
     def validate(
         cls,
-        arg: BananaDictInput,
+        arg: typing.Union[
+            BananaDictInput,
+            BananaDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> BananaDict:
         return super().validate(

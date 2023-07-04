@@ -102,7 +102,10 @@ class AbstractStepMessage(
     @classmethod
     def validate(
         cls,
-        arg: AbstractStepMessageDictInput,
+        arg: typing.Union[
+            AbstractStepMessageDictInput,
+            AbstractStepMessageDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AbstractStepMessageDict:
         return super().validate(

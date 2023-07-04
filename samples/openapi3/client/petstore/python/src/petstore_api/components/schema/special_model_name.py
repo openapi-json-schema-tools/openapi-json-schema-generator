@@ -65,7 +65,10 @@ class SpecialModelName(
     @classmethod
     def validate(
         cls,
-        arg: SpecialModelNameDictInput,
+        arg: typing.Union[
+            SpecialModelNameDictInput,
+            SpecialModelNameDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> SpecialModelNameDict:
         return super().validate(

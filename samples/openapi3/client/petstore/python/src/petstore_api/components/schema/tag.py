@@ -70,7 +70,10 @@ class Tag(
     @classmethod
     def validate(
         cls,
-        arg: TagDictInput,
+        arg: typing.Union[
+            TagDictInput,
+            TagDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> TagDict:
         return super().validate(

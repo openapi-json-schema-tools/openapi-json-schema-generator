@@ -66,7 +66,10 @@ class EnumFormStringArray(
     @classmethod
     def validate(
         cls,
-        arg: EnumFormStringArrayTupleInput,
+        arg: typing.Union[
+            EnumFormStringArrayTupleInput,
+            EnumFormStringArrayTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> EnumFormStringArrayTuple:
         return super().validate(
@@ -159,7 +162,10 @@ class Schema(
     @classmethod
     def validate(
         cls,
-        arg: SchemaDictInput,
+        arg: typing.Union[
+            SchemaDictInput,
+            SchemaDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> SchemaDict:
         return super().validate(

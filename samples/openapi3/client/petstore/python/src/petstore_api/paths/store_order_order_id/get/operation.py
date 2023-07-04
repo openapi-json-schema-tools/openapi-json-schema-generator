@@ -77,7 +77,10 @@ class PathParameters(
     @classmethod
     def validate(
         cls,
-        arg: PathParametersDictInput,
+        arg: typing.Union[
+            PathParametersDictInput,
+            PathParametersDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> PathParametersDict:
         return super().validate(

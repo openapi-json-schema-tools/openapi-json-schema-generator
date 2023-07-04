@@ -98,7 +98,10 @@ class Capitalization(
     @classmethod
     def validate(
         cls,
-        arg: CapitalizationDictInput,
+        arg: typing.Union[
+            CapitalizationDictInput,
+            CapitalizationDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> CapitalizationDict:
         return super().validate(

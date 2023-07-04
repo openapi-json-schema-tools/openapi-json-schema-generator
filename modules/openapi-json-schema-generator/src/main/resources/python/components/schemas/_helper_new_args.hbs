@@ -1,16 +1,22 @@
 cls,
 {{#eq this "array"}}
     {{#if arrayInputJsonPathPiece}}
-arg: {{arrayInputJsonPathPiece.camelCase}},
+arg: typing.Union[
+    {{arrayInputJsonPathPiece.camelCase}},
+    {{arrayOutputJsonPathPiece.camelCase}},
+],
     {{else}}
 arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
     {{/if}}
 {{else}}
     {{#eq this "object"}}
         {{#if mapInputJsonPathPiece}}
-arg: {{mapInputJsonPathPiece.camelCase}},
+arg: typing.Union[
+    {{mapInputJsonPathPiece.camelCase}},
+    {{mapOutputJsonPathPiece.camelCase}},
+],
         {{else}}
-arg: typing.Dict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         {{/if}}
     {{else}}
         {{#eq this "string"}}

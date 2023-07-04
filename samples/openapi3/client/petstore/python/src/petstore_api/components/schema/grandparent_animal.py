@@ -78,7 +78,10 @@ class GrandparentAnimal(
     @classmethod
     def validate(
         cls,
-        arg: GrandparentAnimalDictInput,
+        arg: typing.Union[
+            GrandparentAnimalDictInput,
+            GrandparentAnimalDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> GrandparentAnimalDict:
         return super().validate(

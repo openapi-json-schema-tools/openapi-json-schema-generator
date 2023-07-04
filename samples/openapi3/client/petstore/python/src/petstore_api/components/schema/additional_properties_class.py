@@ -42,7 +42,10 @@ class MapProperty(
     @classmethod
     def validate(
         cls,
-        arg: MapPropertyDictInput,
+        arg: typing.Union[
+            MapPropertyDictInput,
+            MapPropertyDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapPropertyDict:
         return super().validate(
@@ -82,7 +85,10 @@ class AdditionalProperties2(
     @classmethod
     def validate(
         cls,
-        arg: AdditionalPropertiesDictInput,
+        arg: typing.Union[
+            AdditionalPropertiesDictInput,
+            AdditionalPropertiesDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesDict:
         return super().validate(
@@ -125,7 +131,10 @@ class MapOfMapProperty(
     @classmethod
     def validate(
         cls,
-        arg: MapOfMapPropertyDictInput,
+        arg: typing.Union[
+            MapOfMapPropertyDictInput,
+            MapOfMapPropertyDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapOfMapPropertyDict:
         return super().validate(
@@ -165,7 +174,10 @@ class MapWithUndeclaredPropertiesAnytype3(
     @classmethod
     def validate(
         cls,
-        arg: MapWithUndeclaredPropertiesAnytype3DictInput,
+        arg: typing.Union[
+            MapWithUndeclaredPropertiesAnytype3DictInput,
+            MapWithUndeclaredPropertiesAnytype3Dict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapWithUndeclaredPropertiesAnytype3Dict:
         return super().validate(
@@ -200,7 +212,10 @@ class EmptyMap(
     @classmethod
     def validate(
         cls,
-        arg: EmptyMapDictInput,
+        arg: typing.Union[
+            EmptyMapDictInput,
+            EmptyMapDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> EmptyMapDict:
         return super().validate(
@@ -240,7 +255,10 @@ class MapWithUndeclaredPropertiesString(
     @classmethod
     def validate(
         cls,
-        arg: MapWithUndeclaredPropertiesStringDictInput,
+        arg: typing.Union[
+            MapWithUndeclaredPropertiesStringDictInput,
+            MapWithUndeclaredPropertiesStringDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapWithUndeclaredPropertiesStringDict:
         return super().validate(
@@ -342,7 +360,10 @@ class AdditionalPropertiesClass(
     @classmethod
     def validate(
         cls,
-        arg: AdditionalPropertiesClassDictInput,
+        arg: typing.Union[
+            AdditionalPropertiesClassDictInput,
+            AdditionalPropertiesClassDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesClassDict:
         return super().validate(

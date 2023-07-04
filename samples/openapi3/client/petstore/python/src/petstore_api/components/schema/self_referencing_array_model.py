@@ -47,7 +47,10 @@ class SelfReferencingArrayModel(
     @classmethod
     def validate(
         cls,
-        arg: SelfReferencingArrayModelTupleInput,
+        arg: typing.Union[
+            SelfReferencingArrayModelTupleInput,
+            SelfReferencingArrayModelTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> SelfReferencingArrayModelTuple:
         return super().validate(

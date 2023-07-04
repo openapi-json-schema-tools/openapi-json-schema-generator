@@ -70,7 +70,10 @@ class ObjWithRequiredPropsBase(
     @classmethod
     def validate(
         cls,
-        arg: ObjWithRequiredPropsBaseDictInput,
+        arg: typing.Union[
+            ObjWithRequiredPropsBaseDictInput,
+            ObjWithRequiredPropsBaseDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjWithRequiredPropsBaseDict:
         return super().validate(

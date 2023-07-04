@@ -70,7 +70,10 @@ class FromSchema(
     @classmethod
     def validate(
         cls,
-        arg: FromSchemaDictInput,
+        arg: typing.Union[
+            FromSchemaDictInput,
+            FromSchemaDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> FromSchemaDict:
         return super().validate(

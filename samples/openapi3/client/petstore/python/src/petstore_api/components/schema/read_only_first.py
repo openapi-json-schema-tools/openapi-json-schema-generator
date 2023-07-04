@@ -70,7 +70,10 @@ class ReadOnlyFirst(
     @classmethod
     def validate(
         cls,
-        arg: ReadOnlyFirstDictInput,
+        arg: typing.Union[
+            ReadOnlyFirstDictInput,
+            ReadOnlyFirstDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ReadOnlyFirstDict:
         return super().validate(

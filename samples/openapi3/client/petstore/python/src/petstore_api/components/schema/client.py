@@ -63,7 +63,10 @@ class Client(
     @classmethod
     def validate(
         cls,
-        arg: ClientDictInput,
+        arg: typing.Union[
+            ClientDictInput,
+            ClientDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ClientDict:
         return super().validate(

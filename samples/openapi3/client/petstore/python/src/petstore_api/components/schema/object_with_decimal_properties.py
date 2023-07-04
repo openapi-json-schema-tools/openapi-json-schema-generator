@@ -78,7 +78,10 @@ class ObjectWithDecimalProperties(
     @classmethod
     def validate(
         cls,
-        arg: ObjectWithDecimalPropertiesDictInput,
+        arg: typing.Union[
+            ObjectWithDecimalPropertiesDictInput,
+            ObjectWithDecimalPropertiesDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithDecimalPropertiesDict:
         return super().validate(

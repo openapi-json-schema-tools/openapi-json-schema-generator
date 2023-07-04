@@ -82,7 +82,10 @@ class ObjectWithDifficultlyNamedProps(
     @classmethod
     def validate(
         cls,
-        arg: ObjectWithDifficultlyNamedPropsDictInput,
+        arg: typing.Union[
+            ObjectWithDifficultlyNamedPropsDictInput,
+            ObjectWithDifficultlyNamedPropsDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithDifficultlyNamedPropsDict:
         return super().validate(

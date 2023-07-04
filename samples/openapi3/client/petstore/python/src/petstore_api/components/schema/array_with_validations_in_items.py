@@ -55,7 +55,10 @@ class ArrayWithValidationsInItems(
     @classmethod
     def validate(
         cls,
-        arg: ArrayWithValidationsInItemsTupleInput,
+        arg: typing.Union[
+            ArrayWithValidationsInItemsTupleInput,
+            ArrayWithValidationsInItemsTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayWithValidationsInItemsTuple:
         return super().validate(

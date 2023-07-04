@@ -78,7 +78,10 @@ class SelfReferencingObjectModel(
     @classmethod
     def validate(
         cls,
-        arg: SelfReferencingObjectModelDictInput,
+        arg: typing.Union[
+            SelfReferencingObjectModelDictInput,
+            SelfReferencingObjectModelDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> SelfReferencingObjectModelDict:
         return super().validate(

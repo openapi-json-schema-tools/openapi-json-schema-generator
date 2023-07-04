@@ -86,7 +86,10 @@ class Category(
     @classmethod
     def validate(
         cls,
-        arg: CategoryDictInput,
+        arg: typing.Union[
+            CategoryDictInput,
+            CategoryDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> CategoryDict:
         return super().validate(

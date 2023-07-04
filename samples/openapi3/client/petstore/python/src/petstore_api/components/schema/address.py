@@ -47,7 +47,10 @@ class Address(
     @classmethod
     def validate(
         cls,
-        arg: AddressDictInput,
+        arg: typing.Union[
+            AddressDictInput,
+            AddressDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AddressDict:
         return super().validate(

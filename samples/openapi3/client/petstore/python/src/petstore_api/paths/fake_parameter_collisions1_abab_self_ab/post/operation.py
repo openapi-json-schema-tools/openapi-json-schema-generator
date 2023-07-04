@@ -134,7 +134,10 @@ class QueryParameters(
     @classmethod
     def validate(
         cls,
-        arg: QueryParametersDictInput,
+        arg: typing.Union[
+            QueryParametersDictInput,
+            QueryParametersDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> QueryParametersDict:
         return super().validate(
@@ -220,7 +223,10 @@ class HeaderParameters(
     @classmethod
     def validate(
         cls,
-        arg: HeaderParametersDictInput,
+        arg: typing.Union[
+            HeaderParametersDictInput,
+            HeaderParametersDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> HeaderParametersDict:
         return super().validate(
@@ -328,7 +334,10 @@ class PathParameters(
     @classmethod
     def validate(
         cls,
-        arg: PathParametersDictInput,
+        arg: typing.Union[
+            PathParametersDictInput,
+            PathParametersDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> PathParametersDict:
         return super().validate(
@@ -422,7 +431,10 @@ class CookieParameters(
     @classmethod
     def validate(
         cls,
-        arg: CookieParametersDictInput,
+        arg: typing.Union[
+            CookieParametersDictInput,
+            CookieParametersDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> CookieParametersDict:
         return super().validate(

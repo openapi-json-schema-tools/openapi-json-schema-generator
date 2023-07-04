@@ -84,7 +84,10 @@ class ObjectWithInlineCompositionProperty(
     @classmethod
     def validate(
         cls,
-        arg: ObjectWithInlineCompositionPropertyDictInput,
+        arg: typing.Union[
+            ObjectWithInlineCompositionPropertyDictInput,
+            ObjectWithInlineCompositionPropertyDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithInlineCompositionPropertyDict:
         return super().validate(

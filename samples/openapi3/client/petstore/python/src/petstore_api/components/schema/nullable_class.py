@@ -32,7 +32,7 @@ class AdditionalProperties4(
     @classmethod
     def validate(
         cls,
-        arg: typing.Dict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
     @classmethod
@@ -302,7 +302,10 @@ class ArrayNullableProp(
     @classmethod
     def validate(
         cls,
-        arg: ArrayNullablePropTupleInput,
+        arg: typing.Union[
+            ArrayNullablePropTupleInput,
+            ArrayNullablePropTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayNullablePropTuple: ...
 
@@ -338,7 +341,7 @@ class Items2(
     @classmethod
     def validate(
         cls,
-        arg: typing.Dict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
     @classmethod
@@ -397,7 +400,10 @@ class ArrayAndItemsNullableProp(
     @classmethod
     def validate(
         cls,
-        arg: ArrayAndItemsNullablePropTupleInput,
+        arg: typing.Union[
+            ArrayAndItemsNullablePropTupleInput,
+            ArrayAndItemsNullablePropTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayAndItemsNullablePropTuple: ...
 
@@ -433,7 +439,7 @@ class Items3(
     @classmethod
     def validate(
         cls,
-        arg: typing.Dict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
     @classmethod
@@ -481,7 +487,10 @@ class ArrayItemsNullable(
     @classmethod
     def validate(
         cls,
-        arg: ArrayItemsNullableTupleInput,
+        arg: typing.Union[
+            ArrayItemsNullableTupleInput,
+            ArrayItemsNullableTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayItemsNullableTuple:
         return super().validate(
@@ -534,7 +543,10 @@ class ObjectNullableProp(
     @classmethod
     def validate(
         cls,
-        arg: ObjectNullablePropDictInput,
+        arg: typing.Union[
+            ObjectNullablePropDictInput,
+            ObjectNullablePropDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectNullablePropDict: ...
     @classmethod
@@ -569,7 +581,7 @@ class AdditionalProperties2(
     @classmethod
     def validate(
         cls,
-        arg: typing.Dict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
     @classmethod
@@ -631,7 +643,10 @@ class ObjectAndItemsNullableProp(
     @classmethod
     def validate(
         cls,
-        arg: ObjectAndItemsNullablePropDictInput,
+        arg: typing.Union[
+            ObjectAndItemsNullablePropDictInput,
+            ObjectAndItemsNullablePropDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectAndItemsNullablePropDict: ...
     @classmethod
@@ -666,7 +681,7 @@ class AdditionalProperties3(
     @classmethod
     def validate(
         cls,
-        arg: typing.Dict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
     @classmethod
@@ -717,7 +732,10 @@ class ObjectItemsNullable(
     @classmethod
     def validate(
         cls,
-        arg: ObjectItemsNullableDictInput,
+        arg: typing.Union[
+            ObjectItemsNullableDictInput,
+            ObjectItemsNullableDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectItemsNullableDict:
         return super().validate(
@@ -948,7 +966,10 @@ class NullableClass(
     @classmethod
     def validate(
         cls,
-        arg: NullableClassDictInput,
+        arg: typing.Union[
+            NullableClassDictInput,
+            NullableClassDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> NullableClassDict:
         return super().validate(

@@ -49,7 +49,10 @@ class AnimalFarm(
     @classmethod
     def validate(
         cls,
-        arg: AnimalFarmTupleInput,
+        arg: typing.Union[
+            AnimalFarmTupleInput,
+            AnimalFarmTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AnimalFarmTuple:
         return super().validate(

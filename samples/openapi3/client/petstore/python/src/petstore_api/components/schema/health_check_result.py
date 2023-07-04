@@ -102,7 +102,10 @@ class HealthCheckResult(
     @classmethod
     def validate(
         cls,
-        arg: HealthCheckResultDictInput,
+        arg: typing.Union[
+            HealthCheckResultDictInput,
+            HealthCheckResultDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> HealthCheckResultDict:
         return super().validate(

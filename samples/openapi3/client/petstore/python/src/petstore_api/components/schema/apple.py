@@ -111,7 +111,10 @@ class Apple(
     @classmethod
     def validate(
         cls,
-        arg: AppleDictInput,
+        arg: typing.Union[
+            AppleDictInput,
+            AppleDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AppleDict: ...
     @classmethod

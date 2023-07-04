@@ -39,7 +39,10 @@ class ArrayOfString(
     @classmethod
     def validate(
         cls,
-        arg: ArrayOfStringTupleInput,
+        arg: typing.Union[
+            ArrayOfStringTupleInput,
+            ArrayOfStringTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayOfStringTuple:
         return super().validate(
@@ -75,7 +78,10 @@ class Items2(
     @classmethod
     def validate(
         cls,
-        arg: ItemsTupleInput,
+        arg: typing.Union[
+            ItemsTupleInput,
+            ItemsTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ItemsTuple:
         return super().validate(
@@ -114,7 +120,10 @@ class ArrayArrayOfInteger(
     @classmethod
     def validate(
         cls,
-        arg: ArrayArrayOfIntegerTupleInput,
+        arg: typing.Union[
+            ArrayArrayOfIntegerTupleInput,
+            ArrayArrayOfIntegerTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayArrayOfIntegerTuple:
         return super().validate(
@@ -155,7 +164,10 @@ class Items4(
     @classmethod
     def validate(
         cls,
-        arg: ItemsTupleInput2,
+        arg: typing.Union[
+            ItemsTupleInput2,
+            ItemsTuple2,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ItemsTuple2:
         return super().validate(
@@ -194,7 +206,10 @@ class ArrayArrayOfModel(
     @classmethod
     def validate(
         cls,
-        arg: ArrayArrayOfModelTupleInput,
+        arg: typing.Union[
+            ArrayArrayOfModelTupleInput,
+            ArrayArrayOfModelTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayArrayOfModelTuple:
         return super().validate(
@@ -265,7 +280,10 @@ class ArrayTest(
     @classmethod
     def validate(
         cls,
-        arg: ArrayTestDictInput,
+        arg: typing.Union[
+            ArrayTestDictInput,
+            ArrayTestDict,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayTestDict:
         return super().validate(

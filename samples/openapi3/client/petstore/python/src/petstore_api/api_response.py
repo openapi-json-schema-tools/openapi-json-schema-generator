@@ -9,7 +9,6 @@
 import dataclasses
 import typing
 
-import typing_extensions
 import urllib3
 
 from petstore_api import schemas
@@ -19,7 +18,7 @@ from petstore_api import schemas
 class ApiResponse:
     response: urllib3.HTTPResponse
     body: typing.Union[schemas.Unset, schemas.OUTPUT_BASE_TYPES] = schemas.unset
-    headers: typing.Union[schemas.Unset, typing_extensions.TypedDict] = schemas.unset
+    headers: typing.Union[schemas.Unset, typing.Mapping[str, schemas.OUTPUT_BASE_TYPES]] = schemas.unset
 
 
 @dataclasses.dataclass

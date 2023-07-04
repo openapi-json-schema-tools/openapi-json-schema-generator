@@ -60,7 +60,10 @@ class ArrayHoldingAnyType(
     @classmethod
     def validate(
         cls,
-        arg: ArrayHoldingAnyTypeTupleInput,
+        arg: typing.Union[
+            ArrayHoldingAnyTypeTupleInput,
+            ArrayHoldingAnyTypeTuple,
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayHoldingAnyTypeTuple:
         return super().validate(
