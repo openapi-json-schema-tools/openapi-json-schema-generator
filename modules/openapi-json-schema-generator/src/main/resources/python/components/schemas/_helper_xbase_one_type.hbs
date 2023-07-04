@@ -1,6 +1,6 @@
 {{#each types}}
     {{#eq this "array"}}
-schemas.ListSchema[schemas.T]
+schemas.ListSchema[{{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.camelCase}}{{else}}tuple{{/if}}]
     {{/eq}}
     {{#eq this "object"}}
 schemas.DictSchema[{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}}immutabledict.immutabledict{{/if}}]

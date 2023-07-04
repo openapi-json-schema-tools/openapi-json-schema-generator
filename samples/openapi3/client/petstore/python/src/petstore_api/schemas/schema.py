@@ -343,9 +343,8 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
             used_arg = arg
         if isinstance(used_arg, (none_type_, bool, str, int, float, bytes, FileIO)):
             return used_arg
-        schema = cls()
-        if hasattr(schema, 'type_to_output_cls'):
-            type_to_output_cls = schema.type_to_output_cls
+        type_to_output_cls = cls.__get_type_to_output_cls()
+        if type_to_output_cls is not None:
             arg_type = type(arg)
             if arg_type in type_to_output_cls:
                 output_cls = type_to_output_cls[arg_type]
@@ -455,6 +454,12 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
     ) -> FileIO: ...
 
     @classmethod
+    def __get_type_to_output_cls(cls) -> typing.Optional[typing.Mapping[type, type]]:
+        type_to_output_cls = getattr(cls(), 'type_to_output_cls', None)
+        type_to_output_cls = typing.cast(typing.Optional[typing.Mapping[type, type]], type_to_output_cls)
+        return type_to_output_cls
+
+    @classmethod
     def validate(
         cls,
         arg,
@@ -467,10 +472,15 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
             arg (int/float/str/list/tuple/dict/immutabledict.immutabledict/bool/None): the value
             configuration: contains the schema_configuration.SchemaConfiguration that enables json schema validation keywords
                 like minItems, minLength etc
-
-        Note: double underscores are used here because pycharm thinks that these variables
-        are instance properties if they are named normally :(
         """
+        if isinstance(arg, (tuple, immutabledict.immutabledict)):
+            type_to_output_cls = cls.__get_type_to_output_cls()
+            if type_to_output_cls is not None:
+                for output_cls in type_to_output_cls.values():
+                    if isinstance(arg, output_cls):
+                        # U + T use case, don't run validations twice
+                        return arg
+
         from_server = False
         validated_path_to_schemas = {}
         path_to_type = {}
@@ -485,7 +495,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
         return cls._get_new_instance_without_conversion(
             cast_arg,
             validation_metadata.path_to_item,
-            path_to_schemas
+            path_to_schemas,
         )
 
 def get_class(
