@@ -239,7 +239,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    query_params: operation.RequestQueryParameters.Params = {
+    query_params: operation.QueryParametersDictInput = {
         'enum_query_string_array': [
         "$"
     ],
@@ -247,7 +247,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'enum_query_integer': 1,
         'enum_query_double': 1.1,
     }
-    header_params: operation.RequestHeaderParameters.Params = {
+    header_params: operation.HeaderParametersDictInput = {
         'enum_header_string_array': [
         "$"
     ],

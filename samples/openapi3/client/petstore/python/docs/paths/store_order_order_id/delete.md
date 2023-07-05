@@ -115,7 +115,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = store_api.StoreApi(api_client)
 
     # example passing only required values which don't have defaults set
-    path_params: operation.RequestPathParameters.Params = {
+    path_params: operation.PathParametersDictInput = {
         'order_id': "order_id_example",
     }
     try:

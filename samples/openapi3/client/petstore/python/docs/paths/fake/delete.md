@@ -191,11 +191,11 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    query_params: operation.RequestQueryParameters.Params = {
+    query_params: operation.QueryParametersDictInput = {
         'required_string_group': "required_string_group_example",
         'required_int64_group': 1,
     }
-    header_params: operation.RequestHeaderParameters.Params = {
+    header_params: operation.HeaderParametersDictInput = {
         'required_boolean_group': "true",
     }
     try:
@@ -209,13 +209,13 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         print("Exception when calling FakeApi->group_parameters: %s\n" % e)
 
     # example passing only optional values
-    query_params: operation.RequestQueryParameters.Params = {
+    query_params: operation.QueryParametersDictInput = {
         'required_string_group': "required_string_group_example",
         'required_int64_group': 1,
         'string_group': "string_group_example",
         'int64_group': 1,
     }
-    header_params: operation.RequestHeaderParameters.Params = {
+    header_params: operation.HeaderParametersDictInput = {
         'required_boolean_group': "true",
         'boolean_group': "true",
     }

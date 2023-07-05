@@ -163,10 +163,10 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = pet_api.PetApi(api_client)
 
     # example passing only required values which don't have defaults set
-    path_params: operation.RequestPathParameters.Params = {
+    path_params: operation.PathParametersDictInput = {
         'petId': 1,
     }
-    header_params: operation.RequestHeaderParameters.Params = {
+    header_params: operation.HeaderParametersDictInput = {
     }
     try:
         # Deletes a pet
@@ -182,7 +182,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     path_params = {
         'petId': 1,
     }
-    header_params: operation.RequestHeaderParameters.Params = {
+    header_params: operation.HeaderParametersDictInput = {
         'api_key': "api_key_example",
     }
     try:

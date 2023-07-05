@@ -34,7 +34,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     {{#if pathParams}}
-    path_params: operation.RequestPathParameters.Params = {
+    path_params: operation.PathParametersDictInput = {
         {{#each pathParams}}
             {{#if refInfo}}
                 {{#if getDeepestRef.required}}
@@ -49,7 +49,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     }
     {{/if}}
     {{#if queryParams}}
-    query_params: operation.RequestQueryParameters.Params = {
+    query_params: operation.QueryParametersDictInput = {
         {{#each queryParams}}
             {{#if refInfo}}
                 {{#if getDeepestRef.required}}
@@ -64,7 +64,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     }
     {{/if}}
     {{#if cookieParams}}
-    cookie_params: operation.RequestCookieParameters.Params = {
+    cookie_params: operation.CookieParametersDictInput = {
         {{#each cookieParams}}
             {{#if refInfo}}
                 {{#if getDeepestRef.required}}
@@ -79,7 +79,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     }
     {{/if}}
     {{#if headerParams}}
-    header_params: operation.RequestHeaderParameters.Params = {
+    header_params: operation.HeaderParametersDictInput = {
         {{#each headerParams}}
             {{#if refInfo}}
                 {{#if getDeepestRef.required}}
@@ -172,7 +172,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     }
     {{/if}}
     {{#if queryParams}}
-    query_params: operation.RequestQueryParameters.Params = {
+    query_params: operation.QueryParametersDictInput = {
         {{#each queryParams}}
             {{#if refInfo}}
         '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
@@ -183,7 +183,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     }
     {{/if}}
     {{#if cookieParams}}
-    cookie_params: operation.RequestCookieParameters.Params = {
+    cookie_params: operation.CookieParametersDictInput = {
         {{#each cookieParams}}
             {{#if refInfo}}
         '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
@@ -194,7 +194,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     }
     {{/if}}
     {{#if headerParams}}
-    header_params: operation.RequestHeaderParameters.Params = {
+    header_params: operation.HeaderParametersDictInput = {
         {{#each headerParams}}
             {{#if refInfo}}
         '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},

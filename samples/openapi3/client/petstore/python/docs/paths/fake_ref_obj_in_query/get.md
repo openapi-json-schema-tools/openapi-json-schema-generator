@@ -89,7 +89,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    query_params: operation.RequestQueryParameters.Params = {
+    query_params: operation.QueryParametersDictInput = {
         'mapBean': foo.Foo({
         "bar": bar.Bar("bar"),
     }),
