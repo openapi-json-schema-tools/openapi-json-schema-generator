@@ -3,22 +3,22 @@
         {{#with refInfo.ref}}
             {{#eq fullRefModule "" }}
                 {{#if ../refInfo.refModuleAlias}}
-{{> components/schemas/_helper_new_ref_property_value_type fullRefModule=../refInfo.refModuleAlias }}
+{{> components/schemas/_helper_prefix_ref_property_value_type fullRefModule=../refInfo.refModuleAlias }}
                 {{else}}
-{{> components/schemas/_helper_new_ref_property_value_type fullRefModule=../refInfo.refModule }}
+{{> components/schemas/_helper_prefix_ref_property_value_type fullRefModule=../refInfo.refModule }}
                 {{/if}}
             {{else}}
                 {{#if ../refInfo.refModuleAlias}}
-{{> components/schemas/_helper_new_ref_property_value_type fullRefModule=(join fullRefModule ../refInfo.refModuleAlias ".") }}
+{{> components/schemas/_helper_prefix_ref_property_value_type fullRefModule=(join fullRefModule ../refInfo.refModuleAlias ".") }}
                 {{else}}
-{{> components/schemas/_helper_new_ref_property_value_type fullRefModule=(join fullRefModule ../refInfo.refModule ".") }}
+{{> components/schemas/_helper_prefix_ref_property_value_type fullRefModule=(join fullRefModule ../refInfo.refModule ".") }}
                 {{/if}}
             {{/eq}}
         {{/with}}
     {{else}}
         {{! self reference }}
         {{#with refInfo.ref}}
-{{> components/schemas/_helper_new_ref_property_value_type }}
+{{> components/schemas/_helper_prefix_ref_property_value_type }}
         {{/with}}
     {{/or}}
 {{else}}

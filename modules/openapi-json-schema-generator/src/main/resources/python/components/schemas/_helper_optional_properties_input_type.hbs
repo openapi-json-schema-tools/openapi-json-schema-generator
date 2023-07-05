@@ -7,9 +7,9 @@
         {{#each optionalProperties}}
             {{#with this}}
                 {{#if refInfo.refClass}}
-        {{> components/schemas/_helper_new_ref_property_value_type prefix=@key.original fullRefModule="" }}
+        {{> components/schemas/_helper_prefix_ref_property_value_type prefix=@key.original fullRefModule="" }}
                 {{else}}
-        {{> components/schemas/_helper_new_property_value_type prefix=@key.original }}
+        {{> components/schemas/_helper_prefix_property_value_type prefix=@key.original }}
                 {{/if}}
             {{/with}}
         {{/each}}
