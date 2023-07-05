@@ -2591,19 +2591,28 @@ public class DefaultCodegen implements CodegenConfig {
 
         RequestBody opRequestBody = operation.getRequestBody();
         CodegenRequestBody requestBody = null;
+        List<CodegenSchema> requestBodySchemas = null;
         if (opRequestBody != null) {
             requestBody = fromRequestBody(opRequestBody, jsonPath + "/requestBody");
-            if (requestBody.refInfo != null) {
-                if (Boolean.TRUE.equals(requestBody.getDeepestRef().required)) {
-                    hasRequiredParamOrBody = true;
-                } else {
-                    hasOptionalParamOrBody = true;
-                }
+            CodegenRequestBody derefRequestBody = requestBody.getSelfOrDeepestRef();
+            if (Boolean.TRUE.equals(derefRequestBody.required)) {
+                hasRequiredParamOrBody = true;
             } else {
-                if (Boolean.TRUE.equals(requestBody.required)) {
-                    hasRequiredParamOrBody = true;
-                } else {
-                    hasOptionalParamOrBody = true;
+                hasOptionalParamOrBody = true;
+            }
+            requestBodySchemas = new ArrayList<>();
+            int schemaNum = 0;
+            for (CodegenMediaType mediaType: derefRequestBody.content.values()) {
+                if (mediaType.schema != null) {
+                    String schemaJsonPath = mediaType.schema.getSelfOrDeepestRef().jsonPath;
+                    Schema contentTypeSchema = new Schema();
+                    contentTypeSchema.set$ref(schemaJsonPath);
+
+                    CodegenSchema schema = fromSchema(contentTypeSchema, jsonPath, jsonPath + "/RequestBodySchema" + schemaNum);
+                    schema.imports = new TreeSet<>();
+                    addImports(schema.imports, getImports(schema, generatorMetadata.getFeatureSet()));
+                    requestBodySchemas.add(schema);
+                    schemaNum += 1;
                 }
             }
         }
@@ -2717,6 +2726,7 @@ public class DefaultCodegen implements CodegenConfig {
                 produces,
                 codegenServers,
                 requestBody,
+                requestBodySchemas,
                 allParams,
                 pathParams,
                 pathParameters,
