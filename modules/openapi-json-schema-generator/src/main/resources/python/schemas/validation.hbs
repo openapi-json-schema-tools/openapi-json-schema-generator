@@ -12,13 +12,19 @@ import types
 import typing
 import uuid
 
-import immutabledict
+import immutabledict as original_immutabledict
 import typing_extensions
 
 from petstore_api import exceptions
 from petstore_api.configurations import schema_configuration
 
 from . import format
+
+
+class immutabledict(original_immutabledict.immutabledict[T, U]):
+    def __init__(self, arg: typing.Any, **kwargs: typing.Any):
+        super().__init__(arg)  # needed to omit passing on kwargs
+
 
 @dataclasses.dataclass
 class ValidationMetadata:
@@ -130,7 +136,7 @@ PathToSchemasType = typing.Dict[
             typing.Type[float],
             typing.Type[bool],
             typing.Type[None],
-            typing.Type[immutabledict.immutabledict],
+            typing.Type[immutabledict],
             typing.Type[tuple]
         ],
         None
@@ -348,7 +354,7 @@ def validate_min_properties(
     **kwargs
 {{/if}}
 ) -> None:
-    if not isinstance(arg, immutabledict.immutabledict):
+    if not isinstance(arg, immutabledict):
         return None
     if len(arg) < min_properties:
         _raise_validation_error_message(
@@ -369,7 +375,7 @@ def validate_max_properties(
     **kwargs
 {{/if}}
 ) -> None:
-    if not isinstance(arg, immutabledict.immutabledict):
+    if not isinstance(arg, immutabledict):
         return None
     if len(arg) > max_properties:
         _raise_validation_error_message(
@@ -688,7 +694,7 @@ def validate_required(
     **kwargs
 {{/if}}
 ) -> None:
-    if not isinstance(arg, immutabledict.immutabledict):
+    if not isinstance(arg, immutabledict):
         return None
     missing_required_arguments = required - arg.keys()
     if missing_required_arguments:
@@ -742,7 +748,7 @@ def validate_properties(
     **kwargs
 {{/if}}
 ) -> typing.Optional[PathToSchemasType]:
-    if not isinstance(arg, immutabledict.immutabledict):
+    if not isinstance(arg, immutabledict):
         return None
     path_to_schemas = {}
     present_properties = {k: v for k, v, in arg.items() if k in properties}
@@ -773,7 +779,7 @@ def validate_additional_properties(
     **kwargs
 {{/if}}
 ) -> typing.Optional[PathToSchemasType]:
-    if not isinstance(arg, immutabledict.immutabledict):
+    if not isinstance(arg, immutabledict):
         return None
     schema = _get_class(additional_properties_cls)
     path_to_schemas = {}
@@ -1023,7 +1029,7 @@ def _get_discriminated_class_and_exception(
     cls: typing.Type,
     validation_metadata: ValidationMetadata
 ) -> typing.Tuple[typing.Optional[SchemaValidator], typing.Optional[Exception]]:
-    if not isinstance(arg, immutabledict.immutabledict):
+    if not isinstance(arg, immutabledict):
         return None, None
     cls_schema = cls()
     discriminator = cls_schema.discriminator
@@ -1051,7 +1057,7 @@ def validate_discriminator(
     ensure_discriminator_value_present_exc: typing.Optional[Exception],
 {{/if}}
 ) -> typing.Optional[PathToSchemasType]:
-    if not isinstance(arg, immutabledict.immutabledict):
+    if not isinstance(arg, immutabledict):
         return None
     disc_prop_name = list(discriminator.keys())[0]
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}

@@ -44,7 +44,7 @@ class JSONEncoder(json.JSONEncoder):
             return obj
         elif isinstance(obj, schemas.none_type_):
             return None
-        elif isinstance(obj, (dict, immutabledict.immutabledict)):
+        elif isinstance(obj, (dict, schemas.immutabledict)):
             return {key: self.default(val) for key, val in obj.items()}
         elif isinstance(obj, (list, tuple)):
             return [self.default(item) for item in obj]
@@ -382,7 +382,7 @@ _SERIALIZE_TYPES = typing.Union[
     list,
     tuple,
     dict,
-    immutabledict.immutabledict
+    schemas.immutabledict
 ]
 
 @dataclasses.dataclass
@@ -1251,8 +1251,8 @@ class RequestBody(StyleFormSerializer, JSONDetector):
 
     @staticmethod
     def __serialize_text_plain(in_data: typing.Any) -> SerializedRequestBody:
-        if isinstance(in_data, immutabledict.immutabledict):
-            raise ValueError('Unable to serialize type immutabledict.immutabledict to text/plain')
+        if isinstance(in_data, schemas.immutabledict):
+            raise ValueError('Unable to serialize type schemas.immutabledict to text/plain')
         elif isinstance(in_data, tuple):
             raise ValueError('Unable to serialize type tuple to text/plain')
         elif isinstance(in_data, schemas.none_type_):
@@ -1289,7 +1289,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
     def __serialize_multipart_form_data(
         cls, in_data: schemas.Schema
     ) -> SerializedRequestBody:
-        if not isinstance(in_data, immutabledict.immutabledict):
+        if not isinstance(in_data, schemas.immutabledict):
             raise ValueError(f'Unable to serialize {in_data} to multipart/form-data because it is not a dict of data')
         """
         In a multipart/form-data request body, each schema property, or each element of a schema array property,
@@ -1338,7 +1338,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         """
         POST submission of form data in body
         """
-        if not isinstance(in_data, immutabledict.immutabledict):
+        if not isinstance(in_data, schemas.immutabledict):
             raise ValueError(
                 f'Unable to serialize {in_data} to application/x-www-form-urlencoded because it is not a dict of data')
         cast_in_data = cls.__json_encoder.default(in_data)

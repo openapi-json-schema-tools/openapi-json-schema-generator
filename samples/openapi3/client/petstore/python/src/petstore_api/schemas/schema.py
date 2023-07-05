@@ -6,7 +6,7 @@ import types
 import typing
 import uuid
 
-import immutabledict
+import immutabledict as original_immutabledict
 import typing_extensions
 
 from petstore_api import exceptions
@@ -17,6 +17,11 @@ from . import validation
 none_type_ = type(None)
 T = typing.TypeVar('T')
 U = typing.TypeVar('U')
+
+class immutabledict(original_immutabledict.immutabledict[T, U]):
+    def __init__(self, arg: typing.Any, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
+
 
 class SchemaTyped:
     additional_properties: typing.Type[Schema]

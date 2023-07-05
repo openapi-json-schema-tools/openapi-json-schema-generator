@@ -1,6 +1,6 @@
 
 
-class {{mapOutputJsonPathPiece.camelCase}}(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class {{mapOutputJsonPathPiece.camelCase}}(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     {{#eq optionalProperties null}}
         {{#eq requiredProperties null}}
             {{#if additionalProperties}}

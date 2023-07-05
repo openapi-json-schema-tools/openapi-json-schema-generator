@@ -5,7 +5,7 @@ types: typing.FrozenSet[typing.Type] = frozenset({
     schemas.none_type_,
 {{/eq}}
 {{#eq this "object"}}
-    immutabledict.immutabledict,
+    schemas.immutabledict,
 {{/eq}}
 {{#eq this "array"}}
     tuple,

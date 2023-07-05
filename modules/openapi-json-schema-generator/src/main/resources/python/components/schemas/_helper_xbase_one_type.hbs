@@ -3,7 +3,7 @@
 schemas.ListSchema[{{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.camelCase}}{{else}}tuple{{/if}}]
     {{/eq}}
     {{#eq this "object"}}
-schemas.DictSchema[{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}}immutabledict.immutabledict{{/if}}]
+schemas.DictSchema[{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}}schemas.immutabledict{{/if}}]
     {{/eq}}
     {{#eq this "string"}}
         {{#eq ../format "date"}}

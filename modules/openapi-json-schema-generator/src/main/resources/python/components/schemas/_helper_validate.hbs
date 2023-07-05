@@ -9,7 +9,7 @@ def validate(
                 {{#if ../mapOutputJsonPathPiece}}
 ) -> {{../mapOutputJsonPathPiece.camelCase}}: ...
                 {{else}}
-) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
                 {{/if}}
             {{else}}
                 {{#eq this "boolean"}}
@@ -59,7 +59,7 @@ def validate(
 @classmethod
 def validate(
     {{> components/schemas/_helper_validate_args }}
-) -> {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.camelCase}}{{else}}immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{/if}}: ...
+) -> {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.camelCase}}{{else}}schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{/if}}: ...
                                         {{/eq}}
                                     {{/eq}}
                                 {{/eq}}
@@ -87,7 +87,7 @@ def validate(
                 {{#if mapOutputJsonPathPiece}}
 ) -> {{mapOutputJsonPathPiece.camelCase}}:
                 {{else}}
-) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]:
+) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]:
                 {{/if}}
             {{else}}
                 {{#eq this "boolean"}}

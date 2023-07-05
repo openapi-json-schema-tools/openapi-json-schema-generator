@@ -1,5 +1,5 @@
 {{#eq types null}}
-immutabledict.immutabledict,
+schemas.immutabledict,
 str,
 float,
 int,
@@ -14,7 +14,7 @@ schemas.FileIO
 tuple{{#unless @last}},{{/unless}}
         {{/eq}}
         {{#eq this "object"}}
-immutabledict.immutabledict{{#unless @last}},{{/unless}}
+schemas.immutabledict{{#unless @last}},{{/unless}}
         {{/eq}}
         {{#eq this "null"}}
 None{{#unless @last}},{{/unless}}

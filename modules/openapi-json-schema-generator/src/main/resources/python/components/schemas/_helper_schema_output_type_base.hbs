@@ -30,7 +30,7 @@ typing.Tuple[schemas.OUTPUT_BASE_TYPES]{{endChar}}
                                     {{#if mapOutputJsonPathPiece}}
 {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}}{{endChar}}
                                     {{else}}
-immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{endChar}}
+schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{endChar}}
                                     {{/if}}
                                 {{/eq}}
                             {{/eq}}

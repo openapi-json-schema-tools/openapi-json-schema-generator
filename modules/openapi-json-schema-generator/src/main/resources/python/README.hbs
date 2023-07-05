@@ -65,14 +65,14 @@ which subclasses all validated schema classes. This ensure that
 Here is the mapping from json schema types to python subclassed types:
 | Json Schema Type | Python Base Class |
 | ---------------- | ----------------- |
-| object           | immutabledict.immutabledict |
+| object           | schemas.immutabledict |
 | array            | tuple |
 | string           | str |
 | number           | float, int |
 | integer          | int |
 | boolean          | bool |
 | null             | None |
-| AnyType (unset)  | typing.Union[immutabledict.immutabledict, tuple, str, float, int, bool, None] |
+| AnyType (unset)  | typing.Union[schemas.immutabledict, tuple, str, float, int, bool, None] |
 
 ### Storage of Json Schema Definition in Python Classes
 In openapi v3.0.3 there are ~ 28 json schema keywords. Almost all of them can apply if
@@ -101,7 +101,7 @@ invalid python variable names. Names like:
 - " "
 - "from"
 
-To allow these use cases to work, immutabledict.immutabledict is used as the base class of type object schemas.
+To allow these use cases to work, schemas.immutabledict is used as the base class of type object schemas.
 This means that one can use normal dict methods on instances of these classes.
 
 <details>
