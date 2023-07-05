@@ -308,7 +308,6 @@ class ArrayNullableProp(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayNullablePropTuple: ...
-
     @classmethod
     def validate(
         cls,
@@ -406,7 +405,6 @@ class ArrayAndItemsNullableProp(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayAndItemsNullablePropTuple: ...
-
     @classmethod
     def validate(
         cls,
