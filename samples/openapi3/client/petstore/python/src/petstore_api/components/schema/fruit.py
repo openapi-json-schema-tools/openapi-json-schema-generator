@@ -19,7 +19,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class FruitDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class FruitDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["color"]) -> str:
@@ -40,9 +40,6 @@ class FruitDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: FruitDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Fruit.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: FruitDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 FruitDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -63,7 +60,7 @@ class Fruit(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: FruitDict,
+            schemas.immutabledict: FruitDict,
         }
     )
 

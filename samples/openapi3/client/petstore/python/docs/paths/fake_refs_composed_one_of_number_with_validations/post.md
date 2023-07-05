@@ -25,7 +25,7 @@ petstore_api.paths.fake_refs_composed_one_of_number_with_validations.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), Unset, dict, immutabledict.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader] | optional, default is unset |
+[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), Unset, dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader] | optional, default is unset |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
@@ -48,7 +48,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ComposedOneOfDifferentTypes](../../components/schema/composed_one_of_different_types.md) | dict, immutabledict.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | immutabledict.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
+[ComposedOneOfDifferentTypes](../../components/schema/composed_one_of_different_types.md) | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## Return Types
 
@@ -80,7 +80,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ComposedOneOfDifferentTypes](../../components/schema/composed_one_of_different_types.md) | dict, immutabledict.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | immutabledict.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
+[ComposedOneOfDifferentTypes](../../components/schema/composed_one_of_different_types.md) | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## Servers
 

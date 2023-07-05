@@ -19,7 +19,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class GmFruitDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class GmFruitDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["color"]) -> str:
@@ -40,9 +40,6 @@ class GmFruitDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: GmFruitDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return GmFruit.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: GmFruitDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 GmFruitDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -63,7 +60,7 @@ class GmFruit(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: GmFruitDict,
+            schemas.immutabledict: GmFruitDict,
         }
     )
 

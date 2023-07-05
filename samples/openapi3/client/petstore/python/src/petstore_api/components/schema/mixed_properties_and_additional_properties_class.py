@@ -16,7 +16,7 @@ DateTime: typing_extensions.TypeAlias = schemas.DateTimeSchema
 from petstore_api.components.schema import animal
 
 
-class MapDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class MapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __getitem__(self, name: str) -> animal.AnimalDict:
         # dict_instance[name] accessor
@@ -24,15 +24,12 @@ class MapDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: MapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Map.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: MapDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 MapDictInput = typing.Mapping[
     str,
     typing.Union[
         animal.AnimalDict,
         dict,
-        immutabledict.immutabledict
+        schemas.immutabledict
     ],
 ]
 
@@ -41,14 +38,14 @@ MapDictInput = typing.Mapping[
 class Map(
     schemas.DictSchema[MapDict]
 ):
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     additional_properties: typing.Type[animal.Animal] = dataclasses.field(default_factory=lambda: animal.Animal) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: MapDict
+            schemas.immutabledict: MapDict
         }
     )
 
@@ -76,7 +73,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class MixedPropertiesAndAdditionalPropertiesClassDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["uuid"]) -> str:
@@ -107,9 +104,6 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(immutabledict.immutabledic
 
     def __new__(cls, arg: MixedPropertiesAndAdditionalPropertiesClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MixedPropertiesAndAdditionalPropertiesClass.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: MixedPropertiesAndAdditionalPropertiesClassDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 MixedPropertiesAndAdditionalPropertiesClassDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -122,14 +116,14 @@ class MixedPropertiesAndAdditionalPropertiesClass(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: MixedPropertiesAndAdditionalPropertiesClassDict
+            schemas.immutabledict: MixedPropertiesAndAdditionalPropertiesClassDict
         }
     )
 

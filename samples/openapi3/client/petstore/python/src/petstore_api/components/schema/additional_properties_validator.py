@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *
 AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 
 
-class _0Dict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class _0Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         # dict_instance[name] accessor
@@ -21,9 +21,6 @@ class _0Dict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: _0DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _0.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: _0DictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 _0DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -31,14 +28,14 @@ _0DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 class _0(
     schemas.DictSchema[_0Dict]
 ):
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: _0Dict
+            schemas.immutabledict: _0Dict
         }
     )
 
@@ -60,14 +57,14 @@ class _0(
 
 @dataclasses.dataclass(frozen=True)
 class AdditionalProperties2(
-    schemas.AnyTypeSchema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
     min_length: int = 3
 
 
 
-class _1Dict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         # dict_instance[name] accessor
@@ -75,14 +72,11 @@ class _1Dict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: _1DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _1.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: _1DictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 _1DictInput = typing.Mapping[
     str,
     typing.Union[
         dict,
-        immutabledict.immutabledict,
+        schemas.immutabledict,
         str,
         datetime.date,
         datetime.datetime,
@@ -104,14 +98,14 @@ _1DictInput = typing.Mapping[
 class _1(
     schemas.DictSchema[_1Dict]
 ):
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: _1Dict
+            schemas.immutabledict: _1Dict
         }
     )
 
@@ -133,14 +127,14 @@ class _1(
 
 @dataclasses.dataclass(frozen=True)
 class AdditionalProperties3(
-    schemas.AnyTypeSchema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
     max_length: int = 5
 
 
 
-class _2Dict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class _2Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         # dict_instance[name] accessor
@@ -148,14 +142,11 @@ class _2Dict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: _2DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _2.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: _2DictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 _2DictInput = typing.Mapping[
     str,
     typing.Union[
         dict,
-        immutabledict.immutabledict,
+        schemas.immutabledict,
         str,
         datetime.date,
         datetime.datetime,
@@ -177,14 +168,14 @@ _2DictInput = typing.Mapping[
 class _2(
     schemas.DictSchema[_2Dict]
 ):
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     additional_properties: typing.Type[AdditionalProperties3] = dataclasses.field(default_factory=lambda: AdditionalProperties3) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: _2Dict
+            schemas.immutabledict: _2Dict
         }
     )
 
@@ -211,7 +202,7 @@ AllOf = typing.Tuple[
 
 @dataclasses.dataclass(frozen=True)
 class AdditionalPropertiesValidator(
-    schemas.DictSchema[immutabledict.immutabledict]
+    schemas.DictSchema[schemas.immutabledict]
 ):
     """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -219,7 +210,7 @@ class AdditionalPropertiesValidator(
     Do not edit the class manually.
     """
     types: typing.FrozenSet[typing.Type] = frozenset({
-        immutabledict.immutabledict,
+        schemas.immutabledict,
     })
     all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
@@ -228,7 +219,7 @@ class AdditionalPropertiesValidator(
         cls,
         arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]:
+    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]:
         return super().validate(
             arg,
             configuration=configuration,

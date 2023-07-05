@@ -69,7 +69,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class OrderDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["id"]) -> int:
@@ -115,9 +115,6 @@ class OrderDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: OrderDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Order.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: OrderDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 OrderDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -130,14 +127,14 @@ class Order(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: OrderDict
+            schemas.immutabledict: OrderDict
         }
     )
 

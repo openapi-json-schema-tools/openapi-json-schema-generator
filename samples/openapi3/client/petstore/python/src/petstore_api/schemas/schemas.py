@@ -14,12 +14,11 @@ import io
 import typing
 import uuid
 
-import immutabledict
 import typing_extensions
 
 from petstore_api.configurations import schema_configuration
 
-from . import schema
+from . import schema, validation
 
 
 T = typing.TypeVar('T')
@@ -27,7 +26,7 @@ U = typing.TypeVar('U')
 
 
 @dataclasses.dataclass(frozen=True)
-class ListSchema(schema.Schema[immutabledict.immutabledict, U]):
+class ListSchema(schema.Schema[validation.immutabledict, U]):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
 
     @classmethod
@@ -362,7 +361,7 @@ class NotAnyTypeSchema(schema.AnyTypeSchema):
         return super().validate(arg, configuration=configuration)
 
 OUTPUT_BASE_TYPES = typing.Union[
-    immutabledict.immutabledict[str, 'OUTPUT_BASE_TYPES'],
+    validation.immutabledict[str, 'OUTPUT_BASE_TYPES'],
     str,
     int,
     float,
@@ -376,7 +375,7 @@ OUTPUT_BASE_TYPES = typing.Union[
 
 @dataclasses.dataclass(frozen=True)
 class DictSchema(schema.Schema[T, typing.Tuple[OUTPUT_BASE_TYPES, ...]]):
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({validation.immutabledict})
 
     @typing.overload
     @classmethod
@@ -400,7 +399,7 @@ class DictSchema(schema.Schema[T, typing.Tuple[OUTPUT_BASE_TYPES, ...]]):
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ) -> T:
-        if isinstance(arg, immutabledict.immutabledict):
+        if isinstance(arg, validation.immutabledict):
             # T use case
             return super().validate(arg, configuration=configuration)
         arg = typing.cast(typing.Mapping[str, schema.INPUT_TYPES_ALL_INCL_SCHEMA], arg)

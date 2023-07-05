@@ -24,7 +24,7 @@ SchemaTupleInput = typing.Sequence[
     typing.Union[
         ref_pet.pet.PetDict,
         dict,
-        immutabledict.immutabledict
+        schemas.immutabledict
     ],
 ]
 

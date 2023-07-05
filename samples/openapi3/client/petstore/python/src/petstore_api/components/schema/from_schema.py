@@ -21,7 +21,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class FromSchemaDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class FromSchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["data"]) -> str:
@@ -47,9 +47,6 @@ class FromSchemaDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
     def __new__(cls, arg: FromSchemaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return FromSchema.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: FromSchemaDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 FromSchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -62,14 +59,14 @@ class FromSchema(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: FromSchemaDict
+            schemas.immutabledict: FromSchemaDict
         }
     )
 

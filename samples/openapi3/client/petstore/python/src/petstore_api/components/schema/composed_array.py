@@ -22,7 +22,7 @@ class ComposedArrayTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 ComposedArrayTupleInput = typing.Sequence[
     typing.Union[
         dict,
-        immutabledict.immutabledict,
+        schemas.immutabledict,
         str,
         datetime.date,
         datetime.datetime,

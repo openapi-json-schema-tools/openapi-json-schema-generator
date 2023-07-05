@@ -20,8 +20,11 @@ from petstore_api.configurations import schema_configuration
 
 from . import format
 
+_K = typing.TypeVar('_K')
+_V = typing.TypeVar('_V')
 
-class immutabledict(original_immutabledict.immutabledict[T, U]):
+
+class immutabledict(original_immutabledict.immutabledict[_K, _V]):
     def __init__(self, arg: typing.Any, **kwargs: typing.Any):
         super().__init__(arg)  # needed to omit passing on kwargs
 

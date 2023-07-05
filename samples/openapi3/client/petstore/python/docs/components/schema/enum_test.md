@@ -4,7 +4,7 @@ petstore_api.components.schema.enum_test
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, immutabledict.immutabledict | immutabledict.immutabledict |  |
+dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
@@ -18,6 +18,6 @@ Key | Input Type | Accessed Type | Description | Notes
 **StringEnumWithDefaultValue** | [**StringEnumWithDefaultValue**](string_enum_with_default_value.md), str | [**StringEnumWithDefaultValue**](string_enum_with_default_value.md) |  | [optional]
 **IntegerEnumWithDefaultValue** | [**IntegerEnumWithDefaultValue**](integer_enum_with_default_value.md), int | [**IntegerEnumWithDefaultValue**](integer_enum_with_default_value.md) |  | [optional]
 **IntegerEnumOneValue** | [**IntegerEnumOneValue**](integer_enum_one_value.md), int | [**IntegerEnumOneValue**](integer_enum_one_value.md) |  | [optional]
-**any_string_name** | dict, immutabledict.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | immutabledict.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -74,13 +74,13 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[User](../../components/schema/user.md) | dict, immutabledict.immutabledict | immutabledict.immutabledict |
+[User](../../components/schema/user.md) | dict, schemas.immutabledict | schemas.immutabledict |
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[User](../../components/schema/user.md) | dict, immutabledict.immutabledict | immutabledict.immutabledict |
+[User](../../components/schema/user.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 ## ResponseFor400
 

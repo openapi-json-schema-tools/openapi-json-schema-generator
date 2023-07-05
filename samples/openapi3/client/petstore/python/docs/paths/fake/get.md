@@ -26,7 +26,7 @@ petstore_api.paths.fake.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_x_www_form_urlencoded.schema](#RequestBody-content-applicationxwwwformurlencoded-schema), Unset, dict, immutabledict.immutabledict] | optional, default is unset |
+[body](#requestbody) | typing.Union[[RequestBody.content.application_x_www_form_urlencoded.schema](#RequestBody-content-applicationxwwwformurlencoded-schema), Unset, dict, schemas.immutabledict] | optional, default is unset |
 [query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
 [header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
@@ -48,14 +48,14 @@ Content-Type | Schema
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, immutabledict.immutabledict | immutabledict.immutabledict |  |
+dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ##### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **enum_form_string_array** | list, tuple | [properties.EnumFormStringArray](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray) | Form parameter enum test (string array) | [optional]
 **enum_form_string** | str | str | Form parameter enum test (string) | [optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
-**any_string_name** | dict, immutabledict.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | immutabledict.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 #### RequestBody content ApplicationXWwwFormUrlencoded Schema properties EnumFormStringArray
 
@@ -207,7 +207,7 @@ Content-Type | Schema
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, immutabledict.immutabledict | immutabledict.immutabledict |  |
+dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Servers
 

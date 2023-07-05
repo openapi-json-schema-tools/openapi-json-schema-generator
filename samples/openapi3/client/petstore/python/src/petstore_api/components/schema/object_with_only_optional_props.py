@@ -22,7 +22,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class ObjectWithOnlyOptionalPropsDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["a"]) -> str:
@@ -44,9 +44,6 @@ class ObjectWithOnlyOptionalPropsDict(immutabledict.immutabledict[str, schemas.O
 
     def __new__(cls, arg: ObjectWithOnlyOptionalPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithOnlyOptionalProps.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: ObjectWithOnlyOptionalPropsDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjectWithOnlyOptionalPropsDictInput = typing_extensions.TypedDict(
     'ObjectWithOnlyOptionalPropsDictInput',
     {
@@ -69,7 +66,7 @@ class ObjectWithOnlyOptionalProps(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     type_to_output_cls: typing.Mapping[
@@ -77,7 +74,7 @@ class ObjectWithOnlyOptionalProps(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: ObjectWithOnlyOptionalPropsDict
+            schemas.immutabledict: ObjectWithOnlyOptionalPropsDict
         }
     )
 

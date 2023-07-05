@@ -209,7 +209,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class FormatTestDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def byte(self) -> str:
@@ -346,9 +346,6 @@ class FormatTestDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
     def __new__(cls, arg: FormatTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return FormatTest.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: FormatTestDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 FormatTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -361,7 +358,7 @@ class FormatTest(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "byte",
         "date",
@@ -374,7 +371,7 @@ class FormatTest(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: FormatTestDict
+            schemas.immutabledict: FormatTestDict
         }
     )
 

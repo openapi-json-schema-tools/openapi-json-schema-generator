@@ -26,7 +26,7 @@ petstore_api.paths.pet.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[**body**](../../components/request_bodies/request_body_pet.md) | typing.Union[[Pet.content.application_json.schema](../../components/request_bodies/request_body_pet.md#content-applicationjson-schema), [Pet.content.application_xml.schema](../../components/request_bodies/request_body_pet.md#content-applicationxml-schema), dict, immutabledict.immutabledict] | required |
+[**body**](../../components/request_bodies/request_body_pet.md) | typing.Union[[Pet.content.application_json.schema](../../components/request_bodies/request_body_pet.md#content-applicationjson-schema), [Pet.content.application_xml.schema](../../components/request_bodies/request_body_pet.md#content-applicationxml-schema), dict, schemas.immutabledict] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [0, 1]
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]

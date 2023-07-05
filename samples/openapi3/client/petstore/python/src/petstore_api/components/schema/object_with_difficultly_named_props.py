@@ -23,7 +23,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class ObjectWithDifficultlyNamedPropsDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ObjectWithDifficultlyNamedPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["123-list"]) -> str:
@@ -54,9 +54,6 @@ class ObjectWithDifficultlyNamedPropsDict(immutabledict.immutabledict[str, schem
 
     def __new__(cls, arg: ObjectWithDifficultlyNamedPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithDifficultlyNamedProps.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: ObjectWithDifficultlyNamedPropsDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjectWithDifficultlyNamedPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -71,7 +68,7 @@ class ObjectWithDifficultlyNamedProps(
 
     model with properties that have invalid names for python
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "123-list",
     })
@@ -81,7 +78,7 @@ class ObjectWithDifficultlyNamedProps(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: ObjectWithDifficultlyNamedPropsDict
+            schemas.immutabledict: ObjectWithDifficultlyNamedPropsDict
         }
     )
 

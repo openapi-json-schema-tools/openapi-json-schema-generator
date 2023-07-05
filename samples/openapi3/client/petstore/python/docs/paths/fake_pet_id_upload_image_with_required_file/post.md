@@ -26,7 +26,7 @@ petstore_api.paths.fake_pet_id_upload_image_with_required_file.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.multipart_form_data.schema](#RequestBody-content-multipartformdata-schema), Unset, dict, immutabledict.immutabledict] | optional, default is unset |
+[body](#requestbody) | typing.Union[[RequestBody.content.multipart_form_data.schema](#RequestBody-content-multipartformdata-schema), Unset, dict, schemas.immutabledict] | optional, default is unset |
 [path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
 content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
@@ -48,14 +48,14 @@ Content-Type | Schema
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, immutabledict.immutabledict | immutabledict.immutabledict |  |
+dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ##### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **requiredFile** | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO | file to upload |
 **additionalMetadata** | str | str | Additional data to pass to server | [optional]
-**any_string_name** | dict, immutabledict.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | immutabledict.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ### path_params
 #### RequestPathParameters.Params
@@ -108,7 +108,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ApiResponse](../../components/schema/api_response.md) | dict, immutabledict.immutabledict | immutabledict.immutabledict |
+[ApiResponse](../../components/schema/api_response.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 ## Security
 

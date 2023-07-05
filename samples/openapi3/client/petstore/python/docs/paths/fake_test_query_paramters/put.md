@@ -42,7 +42,7 @@ ioutil | [Parameter1.schema](#parameter1-schema), list, tuple | |
 http | [Parameter2.schema](#parameter2-schema), list, tuple | | 
 url | [Parameter3.schema](#parameter3-schema), list, tuple | | 
 context | [Parameter4.schema](#parameter4-schema), list, tuple | | 
-refParam | [Parameter5.schema](#parameter5-schema), dict, immutabledict.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | | 
+refParam | [Parameter5.schema](#parameter5-schema), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | | 
 
 
 #### Parameter0

@@ -30,7 +30,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class AnimalDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class AnimalDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def className(self) -> str:
@@ -60,9 +60,6 @@ class AnimalDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: AnimalDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Animal.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: AnimalDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 AnimalDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -75,7 +72,7 @@ class Animal(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "className",
     })
@@ -93,7 +90,7 @@ class Animal(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: AnimalDict
+            schemas.immutabledict: AnimalDict
         }
     )
 

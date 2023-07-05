@@ -6,7 +6,6 @@ import types
 import typing
 import uuid
 
-import immutabledict as original_immutabledict
 import typing_extensions
 
 from petstore_api import exceptions
@@ -17,10 +16,6 @@ from . import validation
 none_type_ = type(None)
 T = typing.TypeVar('T')
 U = typing.TypeVar('U')
-
-class immutabledict(original_immutabledict.immutabledict[T, U]):
-    def __init__(self, arg: typing.Any, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 
 
 class SchemaTyped:
@@ -79,7 +74,7 @@ class FileIO(io.FileIO):
 def cast_to_allowed_types(
     arg: typing.Union[
         dict,
-        immutabledict.immutabledict,
+        validation.immutabledict,
         list,
         tuple,
         float,
@@ -93,14 +88,13 @@ def cast_to_allowed_types(
         bytes,
         io.FileIO,
         io.BufferedReader,
-        'Schema',
     ],
     from_server: bool,
-    validated_path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Union['Schema', str, int, float, bool, None, immutabledict.immutabledict, tuple]]],
+    validated_path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Union['Schema', str, int, float, bool, None, validation.immutabledict, tuple]]],
     path_to_item: typing.Tuple[typing.Union[str, int], ...],
     path_to_type: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type]
 ) -> typing.Union[
-    immutabledict.immutabledict,
+    validation.immutabledict,
     tuple,
     float,
     int,
@@ -108,7 +102,8 @@ def cast_to_allowed_types(
     bytes,
     bool,
     None,
-    FileIO]:
+    FileIO
+]:
     """
     Casts the input payload arg into the allowed types
     The input validated_path_to_schemas is mutated by running this function
@@ -133,9 +128,9 @@ def cast_to_allowed_types(
     if isinstance(arg, str):
         path_to_type[path_to_item] = str
         return str(arg)
-    elif isinstance(arg, (dict, immutabledict.immutabledict)):
-        path_to_type[path_to_item] = immutabledict.immutabledict
-        return immutabledict.immutabledict(
+    elif isinstance(arg, (dict, validation.immutabledict)):
+        path_to_type[path_to_item] = validation.immutabledict
+        return validation.immutabledict(
             {
                 key: cast_to_allowed_types(
                     val,
@@ -225,7 +220,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
             bool: (bool, UnsetAnyTypeSchema),
             none_type_: (none_type_, UnsetAnyTypeSchema),
             tuple: (tuple, UnsetAnyTypeSchema),
-            immutabledict.immutabledict: (immutabledict.immutabledict, UnsetAnyTypeSchema),
+            validation.immutabledict: (validation.immutabledict, UnsetAnyTypeSchema),
             bytes: (bytes, UnsetAnyTypeSchema),
             FileIO: (FileIO, UnsetAnyTypeSchema),
         }
@@ -290,7 +285,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
 
     @staticmethod
     def __get_properties(
-        arg: immutabledict.immutabledict[str, typing.Any],
+        arg: validation.immutabledict[str, typing.Any],
         path_to_item: typing.Tuple[typing.Union[str, int], ...],
         path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Tuple[typing.Type]]
     ):
@@ -310,7 +305,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
             )
             dict_items[property_name_js] = new_value
 
-        return immutabledict.immutabledict(dict_items)
+        return validation.immutabledict(dict_items)
 
     @classmethod
     def _get_new_instance_without_conversion(
@@ -320,7 +315,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
         path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Tuple[typing.Type]]
     ):
         # We have a Dynamic class and we are making an instance of it
-        if isinstance(arg, immutabledict.immutabledict):
+        if isinstance(arg, validation.immutabledict):
             used_arg = cls.__get_properties(arg, path_to_item, path_to_schemas)
         elif isinstance(arg, tuple):
             used_arg = cls.__get_items(arg, path_to_item, path_to_schemas)
@@ -340,7 +335,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
         output_cls = type_to_output_cls[arg_type]
         if arg_type is tuple and issubclass(output_cls, typing.Tuple):
             return super(output_cls, output_cls).__new__(output_cls, used_arg)
-        assert issubclass(output_cls, immutabledict.immutabledict)
+        assert issubclass(output_cls, validation.immutabledict)
         inst = super(output_cls, output_cls).__new__(output_cls, used_arg)
         inst.__init__(used_arg)
         return inst
@@ -463,11 +458,11 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
         Schema validate
 
         Args:
-            arg (int/float/str/list/tuple/dict/immutabledict.immutabledict/bool/None): the value
+            arg (int/float/str/list/tuple/dict/validation.immutabledict/bool/None): the value
             configuration: contains the schema_configuration.SchemaConfiguration that enables json schema validation keywords
                 like minItems, minLength etc
         """
-        if isinstance(arg, (tuple, immutabledict.immutabledict)):
+        if isinstance(arg, (tuple, validation.immutabledict)):
             type_to_output_cls = cls.__get_type_to_output_cls()
             if type_to_output_cls is not None:
                 for output_cls in type_to_output_cls.values():
@@ -483,7 +478,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
         validation_metadata = validation.ValidationMetadata(
             path_to_item=('args[0]',),
             configuration=configuration or schema_configuration.SchemaConfiguration(),
-            validated_path_to_schemas=immutabledict.immutabledict(validated_path_to_schemas)
+            validated_path_to_schemas=validation.immutabledict(validated_path_to_schemas)
         )
         path_to_schemas = cls.__get_path_to_schemas(cast_arg, validation_metadata, path_to_type)
         return cls._get_new_instance_without_conversion(
@@ -527,7 +522,7 @@ class UnsetAnyTypeSchema(AnyTypeSchema[T, U]):
 
 INPUT_TYPES_ALL_INCL_SCHEMA = typing.Union[
     dict,
-    immutabledict.immutabledict,
+    validation.immutabledict,
     list,
     tuple,
     float,

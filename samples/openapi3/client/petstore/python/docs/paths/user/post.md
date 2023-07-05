@@ -26,7 +26,7 @@ petstore_api.paths.user.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), dict, immutabledict.immutabledict] | required |
+[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), dict, schemas.immutabledict] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -48,7 +48,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[User](../../components/schema/user.md) | dict, immutabledict.immutabledict | immutabledict.immutabledict |
+[User](../../components/schema/user.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 ## Return Types
 

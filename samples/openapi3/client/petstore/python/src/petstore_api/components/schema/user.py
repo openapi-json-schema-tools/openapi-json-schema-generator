@@ -23,11 +23,11 @@ ObjectWithNoDeclaredProps: typing_extensions.TypeAlias = schemas.DictSchema
 
 @dataclasses.dataclass(frozen=True)
 class ObjectWithNoDeclaredPropsNullable(
-    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         schemas.none_type_,
-        immutabledict.immutabledict,
+        schemas.immutabledict,
     })
 
     @typing.overload
@@ -43,7 +43,7 @@ class ObjectWithNoDeclaredPropsNullable(
         cls,
         arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
     @classmethod
     def validate(
         cls,
@@ -60,7 +60,7 @@ _Not: typing_extensions.TypeAlias = schemas.NoneSchema
 
 @dataclasses.dataclass(frozen=True)
 class AnyTypeExceptNullProp(
-    schemas.AnyTypeSchema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
     not_: typing.Type[_Not] = dataclasses.field(default_factory=lambda: _Not) # type: ignore
@@ -86,7 +86,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class UserDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["id"]) -> int:
@@ -121,13 +121,13 @@ class UserDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["objectWithNoDeclaredProps"]) -> immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+    def __getitem__(self, name: typing_extensions.Literal["objectWithNoDeclaredProps"]) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
         ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["objectWithNoDeclaredPropsNullable"]) -> typing.Union[
        None,
-       immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+       schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
         ...
     
@@ -170,9 +170,6 @@ class UserDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: UserDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return User.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: UserDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 UserDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -185,14 +182,14 @@ class User(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: UserDict
+            schemas.immutabledict: UserDict
         }
     )
 

@@ -4,19 +4,19 @@ petstore_api.components.schema.composed_any_of_different_types_no_validations
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, immutabledict.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | immutabledict.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## anyOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#anyof-_0) | dict, immutabledict.immutabledict | immutabledict.immutabledict |  |
+[_0](#anyof-_0) | dict, schemas.immutabledict | schemas.immutabledict |  |
 [_1](#anyof-_1) | str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 [_2](#anyof-_2) | str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
 [_3](#anyof-_3) | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |  |
 [_4](#anyof-_4) | str | str |  |
 [_5](#anyof-_5) | str | str |  |
-[_6](#anyof-_6) | dict, immutabledict.immutabledict | immutabledict.immutabledict |  |
+[_6](#anyof-_6) | dict, schemas.immutabledict | schemas.immutabledict |  |
 [_7](#anyof-_7) | bool | bool |  |
 [_8](#anyof-_8) | None | None |  |
 [_9](#anyof-_9) | list, tuple | tuple |  |
@@ -32,7 +32,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, immutabledict.immutabledict | immutabledict.immutabledict |  |
+dict, schemas.immutabledict | schemas.immutabledict |  |
 
 # anyof _1
 
@@ -74,7 +74,7 @@ str | str |  |
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, immutabledict.immutabledict | immutabledict.immutabledict |  |
+dict, schemas.immutabledict | schemas.immutabledict |  |
 
 # anyof _7
 
@@ -100,7 +100,7 @@ list, tuple | tuple |  |
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | dict, immutabledict.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | immutabledict.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+items | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 
 # anyof _10
 

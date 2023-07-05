@@ -26,7 +26,7 @@ petstore_api.paths.user_username.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), dict, immutabledict.immutabledict] | required |
+[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), dict, schemas.immutabledict] | required |
 [path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
@@ -49,7 +49,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[User](../../components/schema/user.md) | dict, immutabledict.immutabledict | immutabledict.immutabledict |
+[User](../../components/schema/user.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 ### path_params
 #### RequestPathParameters.Params

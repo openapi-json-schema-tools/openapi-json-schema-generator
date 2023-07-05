@@ -7,7 +7,4 @@ def __new__(cls, arg: {{arrayInputJsonPathPiece.camelCase}}, configuration: typi
 def __new__(cls, arg: {{mapInputJsonPathPiece.camelCase}}, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
     return {{jsonPathPiece.camelCase}}.validate(arg, configuration=configuration)
     {{/eq}}
-
-def __init__(self, arg: {{mapInputJsonPathPiece.camelCase}}, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-    super().__init__(arg)  # needed to omit passing on configuration in kwargs
 {{/eq}}

@@ -47,7 +47,8 @@ from .schemas import (
 )
 from .validation import (
     PatternInfo,
-    ValidationMetadata
+    ValidationMetadata,
+    immutabledict
 )
 from .format import (
     as_date_,

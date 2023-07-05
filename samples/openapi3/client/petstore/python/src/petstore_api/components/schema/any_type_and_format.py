@@ -14,7 +14,7 @@ from petstore_api.shared_imports.schema_imports import *
 
 @dataclasses.dataclass(frozen=True)
 class Uuid(
-    schemas.AnyTypeSchema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
     format: str = 'uuid'
@@ -23,7 +23,7 @@ class Uuid(
 
 @dataclasses.dataclass(frozen=True)
 class Date(
-    schemas.AnyTypeSchema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
     format: str = 'date'
@@ -32,7 +32,7 @@ class Date(
 
 @dataclasses.dataclass(frozen=True)
 class DateTime(
-    schemas.AnyTypeSchema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
     format: str = 'date-time'
@@ -41,7 +41,7 @@ class DateTime(
 
 @dataclasses.dataclass(frozen=True)
 class Number(
-    schemas.AnyTypeSchema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
     format: str = 'number'
@@ -50,7 +50,7 @@ class Number(
 
 @dataclasses.dataclass(frozen=True)
 class Binary(
-    schemas.AnyTypeSchema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
     format: str = 'binary'
@@ -59,7 +59,7 @@ class Binary(
 
 @dataclasses.dataclass(frozen=True)
 class Int32(
-    schemas.AnyTypeSchema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
     format: str = 'int32'
@@ -68,7 +68,7 @@ class Int32(
 
 @dataclasses.dataclass(frozen=True)
 class Int64(
-    schemas.AnyTypeSchema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
     format: str = 'int64'
@@ -77,7 +77,7 @@ class Int64(
 
 @dataclasses.dataclass(frozen=True)
 class Double(
-    schemas.AnyTypeSchema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
     format: str = 'double'
@@ -86,7 +86,7 @@ class Double(
 
 @dataclasses.dataclass(frozen=True)
 class _Float(
-    schemas.AnyTypeSchema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
     format: str = 'float'
@@ -107,7 +107,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class AnyTypeAndFormatDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["uuid"]) -> schemas.OUTPUT_BASE_TYPES:
@@ -168,9 +168,6 @@ class AnyTypeAndFormatDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_
 
     def __new__(cls, arg: AnyTypeAndFormatDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AnyTypeAndFormat.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: AnyTypeAndFormatDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 AnyTypeAndFormatDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -183,14 +180,14 @@ class AnyTypeAndFormat(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: AnyTypeAndFormatDict
+            schemas.immutabledict: AnyTypeAndFormatDict
         }
     )
 

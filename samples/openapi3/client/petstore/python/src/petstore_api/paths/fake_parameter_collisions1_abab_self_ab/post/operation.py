@@ -54,7 +54,7 @@ Properties2 = typing_extensions.TypedDict(
 )
 
 
-class QueryParametersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def Ab(self) -> str:
@@ -99,9 +99,6 @@ class QueryParametersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_T
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: QueryParametersDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {
@@ -118,7 +115,7 @@ QueryParametersDictInput = typing_extensions.TypedDict(
 class QueryParameters(
     schemas.DictSchema[QueryParametersDict]
 ):
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "1",
         "A-B",
@@ -133,7 +130,7 @@ class QueryParameters(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: QueryParametersDict
+            schemas.immutabledict: QueryParametersDict
         }
     )
 
@@ -169,7 +166,7 @@ Properties3 = typing_extensions.TypedDict(
 )
 
 
-class HeaderParametersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["1"]) -> str:
@@ -201,9 +198,6 @@ class HeaderParametersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_
 
     def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return HeaderParameters.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: HeaderParametersDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 HeaderParametersDictInput = typing_extensions.TypedDict(
     'HeaderParametersDictInput',
     {
@@ -220,7 +214,7 @@ HeaderParametersDictInput = typing_extensions.TypedDict(
 class HeaderParameters(
     schemas.DictSchema[HeaderParametersDict]
 ):
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties3 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties3)) # type: ignore
     additional_properties: typing.Type[AdditionalProperties3] = dataclasses.field(default_factory=lambda: AdditionalProperties3) # type: ignore
     type_to_output_cls: typing.Mapping[
@@ -228,7 +222,7 @@ class HeaderParameters(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: HeaderParametersDict
+            schemas.immutabledict: HeaderParametersDict
         }
     )
 
@@ -266,7 +260,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class PathParametersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def Ab(self) -> str:
@@ -311,9 +305,6 @@ class PathParametersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TY
 
     def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return PathParameters.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: PathParametersDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 PathParametersDictInput = typing_extensions.TypedDict(
     'PathParametersDictInput',
     {
@@ -330,7 +321,7 @@ PathParametersDictInput = typing_extensions.TypedDict(
 class PathParameters(
     schemas.DictSchema[PathParametersDict]
 ):
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "1",
         "A-B",
@@ -345,7 +336,7 @@ class PathParameters(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: PathParametersDict
+            schemas.immutabledict: PathParametersDict
         }
     )
 
@@ -383,7 +374,7 @@ Properties4 = typing_extensions.TypedDict(
 )
 
 
-class CookieParametersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class CookieParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["1"]) -> str:
@@ -420,9 +411,6 @@ class CookieParametersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_
 
     def __new__(cls, arg: CookieParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return CookieParameters.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: CookieParametersDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 CookieParametersDictInput = typing_extensions.TypedDict(
     'CookieParametersDictInput',
     {
@@ -440,7 +428,7 @@ CookieParametersDictInput = typing_extensions.TypedDict(
 class CookieParameters(
     schemas.DictSchema[CookieParametersDict]
 ):
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties4 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties4)) # type: ignore
     additional_properties: typing.Type[AdditionalProperties4] = dataclasses.field(default_factory=lambda: AdditionalProperties4) # type: ignore
     type_to_output_cls: typing.Mapping[
@@ -448,7 +436,7 @@ class CookieParameters(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: CookieParametersDict
+            schemas.immutabledict: CookieParametersDict
         }
     )
 

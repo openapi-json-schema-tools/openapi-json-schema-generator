@@ -61,7 +61,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[HealthCheckResult](../../components/schema/health_check_result.md) | dict, immutabledict.immutabledict | immutabledict.immutabledict |
+[HealthCheckResult](../../components/schema/health_check_result.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 ## Servers
 

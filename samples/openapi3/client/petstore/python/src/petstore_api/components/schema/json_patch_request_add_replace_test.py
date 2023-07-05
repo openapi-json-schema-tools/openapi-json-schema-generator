@@ -55,7 +55,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class JSONPatchRequestAddReplaceTestDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def op(self) -> str:
@@ -94,9 +94,6 @@ class JSONPatchRequestAddReplaceTestDict(immutabledict.immutabledict[str, schema
 
     def __new__(cls, arg: JSONPatchRequestAddReplaceTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return JSONPatchRequestAddReplaceTest.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: JSONPatchRequestAddReplaceTestDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 JSONPatchRequestAddReplaceTestDictInput = typing_extensions.TypedDict(
     'JSONPatchRequestAddReplaceTestDictInput',
     {
@@ -104,7 +101,7 @@ JSONPatchRequestAddReplaceTestDictInput = typing_extensions.TypedDict(
         "path": str,
         "value": typing.Union[
             dict,
-            immutabledict.immutabledict,
+            schemas.immutabledict,
             str,
             datetime.date,
             datetime.datetime,
@@ -132,7 +129,7 @@ class JSONPatchRequestAddReplaceTest(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "op",
         "path",
@@ -145,7 +142,7 @@ class JSONPatchRequestAddReplaceTest(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: JSONPatchRequestAddReplaceTestDict
+            schemas.immutabledict: JSONPatchRequestAddReplaceTestDict
         }
     )
 

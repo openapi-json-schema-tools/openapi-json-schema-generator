@@ -87,13 +87,13 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../components/schema/order.md) | dict, immutabledict.immutabledict | immutabledict.immutabledict |
+[Order](../../components/schema/order.md) | dict, schemas.immutabledict | schemas.immutabledict |
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../components/schema/order.md) | dict, immutabledict.immutabledict | immutabledict.immutabledict |
+[Order](../../components/schema/order.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 ## ResponseFor400
 

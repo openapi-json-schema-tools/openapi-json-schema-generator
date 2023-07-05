@@ -19,7 +19,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class ReturnDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ReturnDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["return"]) -> int:
@@ -40,9 +40,6 @@ class ReturnDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ReturnDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _Return.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: ReturnDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ReturnDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -64,7 +61,7 @@ class _Return(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: ReturnDict,
+            schemas.immutabledict: ReturnDict,
         }
     )
 

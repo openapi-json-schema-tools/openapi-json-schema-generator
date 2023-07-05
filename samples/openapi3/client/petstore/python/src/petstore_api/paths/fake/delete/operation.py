@@ -54,7 +54,7 @@ QueryParametersOptionalDictInput = typing_extensions.TypedDict(
 )
 
 
-class QueryParametersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def required_int64_group(self) -> int:
@@ -94,9 +94,6 @@ class QueryParametersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_T
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: QueryParametersDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 
 
 class QueryParametersDictInput(QueryParametersRequiredDictInput, QueryParametersOptionalDictInput):
@@ -107,7 +104,7 @@ class QueryParametersDictInput(QueryParametersRequiredDictInput, QueryParameters
 class QueryParameters(
     schemas.DictSchema[QueryParametersDict]
 ):
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "required_int64_group",
         "required_string_group",
@@ -119,7 +116,7 @@ class QueryParameters(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: QueryParametersDict
+            schemas.immutabledict: QueryParametersDict
         }
     )
 
@@ -164,7 +161,7 @@ HeaderParametersOptionalDictInput = typing_extensions.TypedDict(
 )
 
 
-class HeaderParametersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def required_boolean_group(self) -> str:
@@ -190,9 +187,6 @@ class HeaderParametersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_
 
     def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return HeaderParameters.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: HeaderParametersDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 
 
 class HeaderParametersDictInput(HeaderParametersRequiredDictInput, HeaderParametersOptionalDictInput):
@@ -203,7 +197,7 @@ class HeaderParametersDictInput(HeaderParametersRequiredDictInput, HeaderParamet
 class HeaderParameters(
     schemas.DictSchema[HeaderParametersDict]
 ):
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "required_boolean_group",
     })
@@ -214,7 +208,7 @@ class HeaderParameters(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: HeaderParametersDict
+            schemas.immutabledict: HeaderParametersDict
         }
     )
 

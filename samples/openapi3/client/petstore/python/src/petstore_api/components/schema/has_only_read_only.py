@@ -21,7 +21,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class HasOnlyReadOnlyDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class HasOnlyReadOnlyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["bar"]) -> str:
@@ -47,9 +47,6 @@ class HasOnlyReadOnlyDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_T
 
     def __new__(cls, arg: HasOnlyReadOnlyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return HasOnlyReadOnly.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: HasOnlyReadOnlyDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 HasOnlyReadOnlyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -62,14 +59,14 @@ class HasOnlyReadOnly(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: HasOnlyReadOnlyDict
+            schemas.immutabledict: HasOnlyReadOnlyDict
         }
     )
 

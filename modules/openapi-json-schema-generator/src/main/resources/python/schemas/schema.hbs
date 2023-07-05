@@ -73,14 +73,36 @@ class FileIO(io.FileIO):
 
 def cast_to_allowed_types(
     arg: typing.Union[
-        {{> _helper_types_all_incl_schema }}
+        dict,
+        validation.immutabledict,
+        list,
+        tuple,
+        float,
+        int,
+        str,
+        datetime.date,
+        datetime.datetime,
+        uuid.UUID,
+        bool,
+        None,
+        bytes,
+        io.FileIO,
+        io.BufferedReader,
     ],
     from_server: bool,
     validated_path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Union['Schema', str, int, float, bool, None, validation.immutabledict, tuple]]],
     path_to_item: typing.Tuple[typing.Union[str, int], ...],
     path_to_type: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type]
 ) -> typing.Union[
-    {{> _helper_types_all_accessed }}
+    validation.immutabledict,
+    tuple,
+    float,
+    int,
+    str,
+    bytes,
+    bool,
+    None,
+    FileIO
 ]:
     """
     Casts the input payload arg into the allowed types

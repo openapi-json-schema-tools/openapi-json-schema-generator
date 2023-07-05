@@ -4,7 +4,7 @@ petstore_api.components.schema.user
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, immutabledict.immutabledict | immutabledict.immutabledict |  |
+dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
@@ -17,12 +17,12 @@ Key | Input Type | Accessed Type | Description | Notes
 **password** | str | str |  | [optional]
 **phone** | str | str |  | [optional]
 **userStatus** | int | int | User Status | [optional] value must be a 32 bit integer
-**objectWithNoDeclaredProps** | dict, immutabledict.immutabledict | [properties.ObjectWithNoDeclaredProps](#properties-objectwithnodeclaredprops) | test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value. | [optional]
-**objectWithNoDeclaredPropsNullable** | None, dict, immutabledict.immutabledict | [properties.ObjectWithNoDeclaredPropsNullable](#properties-objectwithnodeclaredpropsnullable) | test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value. | [optional]
-**anyTypeProp** | dict, immutabledict.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | immutabledict.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. See https://github.com/OAI/OpenAPI-Specification/issues/1389 | [optional]
-**anyTypeExceptNullProp** | dict, immutabledict.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [properties.AnyTypeExceptNullProp](#properties-anytypeexceptnullprop) | any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. | [optional]
-**anyTypePropNullable** | dict, immutabledict.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | immutabledict.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. The &#x27;nullable&#x27; attribute does not change the allowed values. | [optional]
-**any_string_name** | dict, immutabledict.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | immutabledict.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
+**objectWithNoDeclaredProps** | dict, schemas.immutabledict | [properties.ObjectWithNoDeclaredProps](#properties-objectwithnodeclaredprops) | test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value. | [optional]
+**objectWithNoDeclaredPropsNullable** | None, dict, schemas.immutabledict | [properties.ObjectWithNoDeclaredPropsNullable](#properties-objectwithnodeclaredpropsnullable) | test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value. | [optional]
+**anyTypeProp** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. See https://github.com/OAI/OpenAPI-Specification/issues/1389 | [optional]
+**anyTypeExceptNullProp** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [properties.AnyTypeExceptNullProp](#properties-anytypeexceptnullprop) | any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. | [optional]
+**anyTypePropNullable** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. The &#x27;nullable&#x27; attribute does not change the allowed values. | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # properties ObjectWithNoDeclaredProps
 
@@ -32,7 +32,7 @@ test code generation for objects Value must be a map of strings to values. It ca
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, immutabledict.immutabledict | immutabledict.immutabledict | test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value. |
+dict, schemas.immutabledict | schemas.immutabledict | test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value. |
 
 # properties ObjectWithNoDeclaredPropsNullable
 
@@ -42,7 +42,7 @@ test code generation for nullable objects. Value must be a map of strings to val
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-None, dict, immutabledict.immutabledict | None, immutabledict.immutabledict | test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value. |
+None, dict, schemas.immutabledict | None, schemas.immutabledict | test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value. |
 
 # properties AnyTypeExceptNullProp
 
@@ -52,7 +52,7 @@ any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not spec
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, immutabledict.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | immutabledict.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. |
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## not

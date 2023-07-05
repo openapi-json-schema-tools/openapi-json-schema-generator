@@ -19,7 +19,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class ObjWithRequiredPropsDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ObjWithRequiredPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def a(self) -> str:
@@ -44,9 +44,6 @@ class ObjWithRequiredPropsDict(immutabledict.immutabledict[str, schemas.OUTPUT_B
 
     def __new__(cls, arg: ObjWithRequiredPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjWithRequiredProps.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: ObjWithRequiredPropsDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjWithRequiredPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -60,7 +57,7 @@ class ObjWithRequiredProps(
     Do not edit the class manually.
     """
     types: typing.FrozenSet[typing.Type] = frozenset({
-        immutabledict.immutabledict,
+        schemas.immutabledict,
     })
     required: typing.FrozenSet[str] = frozenset({
         "a",
@@ -72,7 +69,7 @@ class ObjWithRequiredProps(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: ObjWithRequiredPropsDict,
+            schemas.immutabledict: ObjWithRequiredPropsDict,
         }
     )
 

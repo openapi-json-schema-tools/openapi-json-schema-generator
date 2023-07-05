@@ -153,7 +153,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class EnumTestDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def enum_string_required(self) -> str:
@@ -221,9 +221,6 @@ class EnumTestDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: EnumTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return EnumTest.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: EnumTestDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 EnumTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -236,7 +233,7 @@ class EnumTest(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "enum_string_required",
     })
@@ -246,7 +243,7 @@ class EnumTest(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: EnumTestDict
+            schemas.immutabledict: EnumTestDict
         }
     )
 

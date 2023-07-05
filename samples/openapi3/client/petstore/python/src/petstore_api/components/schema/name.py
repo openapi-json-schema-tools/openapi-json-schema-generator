@@ -23,7 +23,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class NameDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def name(self) -> int:
@@ -58,9 +58,6 @@ class NameDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: NameDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Name.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: NameDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 NameDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -85,7 +82,7 @@ class Name(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: NameDict,
+            schemas.immutabledict: NameDict,
         }
     )
 

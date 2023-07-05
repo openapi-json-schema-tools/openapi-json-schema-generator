@@ -19,7 +19,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class ClassModelDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ClassModelDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["_class"]) -> str:
@@ -40,9 +40,6 @@ class ClassModelDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
     def __new__(cls, arg: ClassModelDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ClassModel.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: ClassModelDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ClassModelDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -64,7 +61,7 @@ class ClassModel(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: ClassModelDict,
+            schemas.immutabledict: ClassModelDict,
         }
     )
 

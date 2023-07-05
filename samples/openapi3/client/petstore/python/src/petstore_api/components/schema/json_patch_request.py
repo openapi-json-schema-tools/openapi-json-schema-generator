@@ -14,7 +14,7 @@ from petstore_api.shared_imports.schema_imports import *
 
 @dataclasses.dataclass(frozen=True)
 class Items(
-    schemas.AnyTypeSchema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
     one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
@@ -39,7 +39,7 @@ class JSONPatchRequestTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 JSONPatchRequestTupleInput = typing.Sequence[
     typing.Union[
         dict,
-        immutabledict.immutabledict,
+        schemas.immutabledict,
         str,
         datetime.date,
         datetime.datetime,

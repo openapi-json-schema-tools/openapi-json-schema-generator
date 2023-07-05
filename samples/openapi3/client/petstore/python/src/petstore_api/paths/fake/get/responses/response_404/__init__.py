@@ -12,7 +12,7 @@ from . import content
 @dataclasses.dataclass
 class ApiResponseFor404(api_response.ApiResponse):
     response: urllib3.HTTPResponse
-    body: immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+    body: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     headers: schemas.Unset = schemas.unset
 
 

@@ -24,7 +24,7 @@ AnimalFarmTupleInput = typing.Sequence[
     typing.Union[
         animal.AnimalDict,
         dict,
-        immutabledict.immutabledict
+        schemas.immutabledict
     ],
 ]
 

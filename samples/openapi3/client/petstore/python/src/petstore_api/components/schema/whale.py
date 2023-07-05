@@ -44,7 +44,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class WhaleDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def className(self) -> str:
@@ -79,9 +79,6 @@ class WhaleDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: WhaleDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Whale.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: WhaleDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 WhaleDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -94,7 +91,7 @@ class Whale(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "className",
     })
@@ -104,7 +101,7 @@ class Whale(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: WhaleDict
+            schemas.immutabledict: WhaleDict
         }
     )
 

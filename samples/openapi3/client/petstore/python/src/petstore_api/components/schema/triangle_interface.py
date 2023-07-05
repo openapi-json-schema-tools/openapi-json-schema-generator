@@ -42,7 +42,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class TriangleInterfaceDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class TriangleInterfaceDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def shapeType(self) -> str:
@@ -76,9 +76,6 @@ class TriangleInterfaceDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE
 
     def __new__(cls, arg: TriangleInterfaceDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return TriangleInterface.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: TriangleInterfaceDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 TriangleInterfaceDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -102,7 +99,7 @@ class TriangleInterface(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: TriangleInterfaceDict,
+            schemas.immutabledict: TriangleInterfaceDict,
         }
     )
 

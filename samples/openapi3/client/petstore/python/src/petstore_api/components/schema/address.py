@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *
 AdditionalProperties: typing_extensions.TypeAlias = schemas.IntSchema
 
 
-class AddressDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class AddressDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __getitem__(self, name: str) -> int:
         # dict_instance[name] accessor
@@ -21,9 +21,6 @@ class AddressDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: AddressDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Address.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: AddressDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 AddressDictInput = typing.Mapping[
     str,
     int,
@@ -39,14 +36,14 @@ class Address(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: AddressDict
+            schemas.immutabledict: AddressDict
         }
     )
 

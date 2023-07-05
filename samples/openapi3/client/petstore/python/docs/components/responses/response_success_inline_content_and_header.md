@@ -27,7 +27,7 @@ someHeader | [headers.header_some_header.schema](#headers-someheader-schema) | |
 #### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, immutabledict.immutabledict | immutabledict.immutabledict |  |
+dict, schemas.immutabledict | schemas.immutabledict |  |
 
 #### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes

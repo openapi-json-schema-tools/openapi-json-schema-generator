@@ -22,7 +22,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class ObjectWithInvalidNamedRefedPropertiesDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ObjectWithInvalidNamedRefedPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["!reference"]) -> array_with_validations_in_items.ArrayWithValidationsInItemsTuple:
@@ -48,9 +48,6 @@ class ObjectWithInvalidNamedRefedPropertiesDict(immutabledict.immutabledict[str,
 
     def __new__(cls, arg: ObjectWithInvalidNamedRefedPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithInvalidNamedRefedProperties.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: ObjectWithInvalidNamedRefedPropertiesDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjectWithInvalidNamedRefedPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -63,7 +60,7 @@ class ObjectWithInvalidNamedRefedProperties(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "!reference",
         "from",
@@ -74,7 +71,7 @@ class ObjectWithInvalidNamedRefedProperties(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: ObjectWithInvalidNamedRefedPropertiesDict
+            schemas.immutabledict: ObjectWithInvalidNamedRefedPropertiesDict
         }
     )
 

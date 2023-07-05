@@ -21,7 +21,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class ObjectModelWithArgAndArgsPropertiesDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ObjectModelWithArgAndArgsPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def arg(self) -> str:
@@ -55,9 +55,6 @@ class ObjectModelWithArgAndArgsPropertiesDict(immutabledict.immutabledict[str, s
 
     def __new__(cls, arg: ObjectModelWithArgAndArgsPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectModelWithArgAndArgsProperties.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: ObjectModelWithArgAndArgsPropertiesDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjectModelWithArgAndArgsPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -70,7 +67,7 @@ class ObjectModelWithArgAndArgsProperties(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "arg",
         "args",
@@ -81,7 +78,7 @@ class ObjectModelWithArgAndArgsProperties(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: ObjectModelWithArgAndArgsPropertiesDict
+            schemas.immutabledict: ObjectModelWithArgAndArgsPropertiesDict
         }
     )
 

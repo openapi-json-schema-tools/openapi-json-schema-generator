@@ -4,8 +4,6 @@ from decimal import Decimal
 from unittest.mock import patch, call
 import unittest
 
-import immutabledict
-
 from petstore_api.components.schema import string_with_validation
 from petstore_api.components.schema import string_enum
 from petstore_api.components.schema import number_with_validations
@@ -80,31 +78,31 @@ class TestValidateResults(unittest.TestCase):
 
     def test_empty_dict_validate(self):
         vm = ValidationMetadata(path_to_item=("args[0]",), configuration=schema_configuration.SchemaConfiguration())
-        path_to_schemas = foo.Foo._validate(immutabledict.immutabledict({}), validation_metadata=vm)
-        assert path_to_schemas == {("args[0]",): {immutabledict.immutabledict: None, foo.Foo: None}}
+        path_to_schemas = foo.Foo._validate(schemas.immutabledict({}), validation_metadata=vm)
+        assert path_to_schemas == {("args[0]",): {schemas.immutabledict: None, foo.Foo: None}}
 
     def test_dict_validate(self):
         vm = ValidationMetadata(path_to_item=("args[0]",), configuration=schema_configuration.SchemaConfiguration())
         path_to_schemas = foo.Foo._validate(
-            immutabledict.immutabledict({"bar": "a", "additional": Decimal(0)}),
+            schemas.immutabledict({"bar": "a", "additional": Decimal(0)}),
             validation_metadata=vm,
         )
         assert path_to_schemas == {
-            ("args[0]",): {immutabledict.immutabledict: None, foo.Foo: None},
+            ("args[0]",): {schemas.immutabledict: None, foo.Foo: None},
             ("args[0]", "bar"): {str: None, Bar: None},
         }
 
     def test_discriminated_dict_validate(self):
         vm = ValidationMetadata(path_to_item=("args[0]",), configuration=schema_configuration.SchemaConfiguration())
         path_to_schemas = animal.Animal._validate(
-            immutabledict.immutabledict(
+            schemas.immutabledict(dict(
                 className="Dog",
                 color="black"
-            ),
+            )),
             validation_metadata=vm
         )
         assert path_to_schemas == {
-            ("args[0]",): {immutabledict.immutabledict: None, dog._1: None, dog.Dog: None, animal.Animal: None},
+            ("args[0]",): {schemas.immutabledict: None, dog._1: None, dog.Dog: None, animal.Animal: None},
             ("args[0]", "className"): {str: None, StrSchema: None},
             ("args[0]", "color"): {str: None, animal.Color: None},
         }
@@ -117,18 +115,18 @@ class TestValidateResults(unittest.TestCase):
     def test_oneof_composition_pig_validate(self):
         vm = ValidationMetadata(path_to_item=("args[0]",), configuration=schema_configuration.SchemaConfiguration())
         path_to_schemas = Pig._validate(
-            immutabledict.immutabledict(className=str("DanishPig")),
+            schemas.immutabledict(dict(className=str("DanishPig"))),
             validation_metadata=vm
         )
         assert path_to_schemas == {
-            ("args[0]",): {immutabledict.immutabledict: None, danish_pig.DanishPig: None, Pig: None},
+            ("args[0]",): {schemas.immutabledict: None, danish_pig.DanishPig: None, Pig: None},
             ("args[0]", "className"): {str: None, danish_pig.ClassName: None},
         }
 
     def test_anyof_composition_gm_fruit_validate(self):
         vm = ValidationMetadata(path_to_item=("args[0]",), configuration=schema_configuration.SchemaConfiguration())
         path_to_schemas = GmFruit._validate(
-            immutabledict.immutabledict(
+            schemas.immutabledict(
                 {
                     'cultivar': "GoldenDelicious",
                     'lengthCm': 10
@@ -137,7 +135,7 @@ class TestValidateResults(unittest.TestCase):
             validation_metadata=vm,
         )
         assert path_to_schemas == {
-            ("args[0]",): {immutabledict.immutabledict: None, apple.Apple: None, Banana: None, GmFruit: None},
+            ("args[0]",): {schemas.immutabledict: None, apple.Apple: None, Banana: None, GmFruit: None},
             ("args[0]", "cultivar"): {str: None, apple.Cultivar: None},
             ("args[0]", "lengthCm"): {int: None, NumberSchema: None},
         }
@@ -159,7 +157,7 @@ class TestValidateCalls(unittest.TestCase):
             assert mock_validate.call_count == 1
 
     def test_empty_dict_validate(self):
-        return_value = {("args[0]",): {immutabledict.immutabledict: None, foo.Foo: None}}
+        return_value = {("args[0]",): {schemas.immutabledict: None, foo.Foo: None}}
         with patch.object(
             Schema, "_validate", return_value=return_value
         ) as mock_validate:
@@ -250,7 +248,7 @@ class TestValidateCalls(unittest.TestCase):
                 used_configuration = schema_configuration.SchemaConfiguration()
                 foo.Foo.validate({'bar': "a"}, configuration=used_configuration)
                 mock_outer_validate.assert_called_once_with(
-                    immutabledict.immutabledict({"bar": "a"}),
+                    schemas.immutabledict({"bar": "a"}),
                     validation_metadata=ValidationMetadata(
                         path_to_item=("args[0]",),
                         configuration=used_configuration
@@ -276,7 +274,7 @@ class TestValidateCalls(unittest.TestCase):
             ) as mock_inner_validate:
                 foo.Foo.validate({'bar': bar}, configuration=used_configuration)
                 mock_outer_validate.assert_called_once_with(
-                    immutabledict.immutabledict(dict(bar='a')),
+                    schemas.immutabledict(dict(bar='a')),
                     validation_metadata=ValidationMetadata(
                         path_to_item=('args[0]',),
                         configuration=used_configuration,
@@ -301,7 +299,7 @@ class TestValidateCalls(unittest.TestCase):
                 used_configuration = schema_configuration.SchemaConfiguration()
                 foo.Foo.validate({"bar": "a"}, configuration=used_configuration)
                 mock_outer_validate.assert_called_once_with(
-                    immutabledict.immutabledict({"bar": "a"}),
+                    schemas.immutabledict({"bar": "a"}),
                     validation_metadata=ValidationMetadata(
                         path_to_item=("args[0]",),
                         configuration=used_configuration
@@ -339,10 +337,9 @@ class TestValidateCalls(unittest.TestCase):
             ) as mock_inner_validate:
                 used_configuration = schema_configuration.SchemaConfiguration()
                 inst = foo.FooDict({'bar': "a"}, configuration=used_configuration)
-                print(inst)
                 assert inst == {'bar': "a"}
                 mock_outer_validate.assert_called_once_with(
-                    immutabledict.immutabledict({"bar": "a"}),
+                    schemas.immutabledict({"bar": "a"}),
                     validation_metadata=ValidationMetadata(
                         path_to_item=("args[0]",),
                         configuration=used_configuration

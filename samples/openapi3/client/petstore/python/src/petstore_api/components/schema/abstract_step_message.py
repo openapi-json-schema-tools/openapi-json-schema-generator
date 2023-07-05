@@ -19,7 +19,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class AbstractStepMessageDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class AbstractStepMessageDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def description(self) -> schemas.OUTPUT_BASE_TYPES:
@@ -62,9 +62,6 @@ class AbstractStepMessageDict(immutabledict.immutabledict[str, schemas.OUTPUT_BA
 
     def __new__(cls, arg: AbstractStepMessageDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AbstractStepMessage.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: AbstractStepMessageDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 AbstractStepMessageDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -80,7 +77,7 @@ class AbstractStepMessage(
     Abstract Step
     """
     types: typing.FrozenSet[typing.Type] = frozenset({
-        immutabledict.immutabledict,
+        schemas.immutabledict,
     })
     required: typing.FrozenSet[str] = frozenset({
         "description",
@@ -101,7 +98,7 @@ class AbstractStepMessage(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: AbstractStepMessageDict,
+            schemas.immutabledict: AbstractStepMessageDict,
         }
     )
 

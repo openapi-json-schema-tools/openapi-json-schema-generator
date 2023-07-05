@@ -40,7 +40,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class BasquePigDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class BasquePigDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def className(self) -> str:
@@ -65,9 +65,6 @@ class BasquePigDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
 
     def __new__(cls, arg: BasquePigDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return BasquePig.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: BasquePigDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 BasquePigDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -80,7 +77,7 @@ class BasquePig(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "className",
     })
@@ -90,7 +87,7 @@ class BasquePig(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: BasquePigDict
+            schemas.immutabledict: BasquePigDict
         }
     )
 

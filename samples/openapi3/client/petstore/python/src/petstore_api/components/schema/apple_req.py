@@ -35,7 +35,7 @@ AppleReqOptionalDictInput = typing_extensions.TypedDict(
 )
 
 
-class AppleReqDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class AppleReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def cultivar(self) -> str:
@@ -61,9 +61,6 @@ class AppleReqDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: AppleReqDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AppleReq.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: AppleReqDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 
 
 class AppleReqDictInput(AppleReqRequiredDictInput, AppleReqOptionalDictInput):
@@ -79,7 +76,7 @@ class AppleReq(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "cultivar",
     })
@@ -90,7 +87,7 @@ class AppleReq(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: AppleReqDict
+            schemas.immutabledict: AppleReqDict
         }
     )
 

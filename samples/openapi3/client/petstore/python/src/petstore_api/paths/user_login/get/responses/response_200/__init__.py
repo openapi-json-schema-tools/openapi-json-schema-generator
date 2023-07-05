@@ -62,7 +62,7 @@ HeadersOptionalDictInput = typing_extensions.TypedDict(
 )
 
 
-class HeadersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def int32(self) -> int:
@@ -103,9 +103,6 @@ class HeadersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: HeadersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Headers.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: HeadersDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 
 
 class HeadersDictInput(HeadersRequiredDictInput, HeadersOptionalDictInput):
@@ -116,7 +113,7 @@ class HeadersDictInput(HeadersRequiredDictInput, HeadersOptionalDictInput):
 class Headers(
     schemas.DictSchema[HeadersDict]
 ):
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "X-Rate-Limit",
         "int32",
@@ -129,7 +126,7 @@ class Headers(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: HeadersDict
+            schemas.immutabledict: HeadersDict
         }
     )
 

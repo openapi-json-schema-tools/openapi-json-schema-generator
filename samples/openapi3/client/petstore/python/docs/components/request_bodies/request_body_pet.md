@@ -15,12 +15,12 @@ Content-Type | Schema
 ### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Pet](../../components/schema/pet.md) | dict, immutabledict.immutabledict | immutabledict.immutabledict |
+[Pet](../../components/schema/pet.md) | dict, schemas.immutabledict | schemas.immutabledict |
 ## content ApplicationXml Schema
 
 ### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[RefPet](../../components/schema/ref_pet.md) | dict, immutabledict.immutabledict | immutabledict.immutabledict |
+[RefPet](../../components/schema/ref_pet.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 [[Back to top]](#top) [[Back to Component RequestBodies]](../../../README.md#Component-RequestBodies) [[Back to README]](../../../README.md)

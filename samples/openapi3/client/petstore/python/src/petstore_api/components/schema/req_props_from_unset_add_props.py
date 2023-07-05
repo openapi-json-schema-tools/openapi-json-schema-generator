@@ -12,7 +12,7 @@ from petstore_api.shared_imports.schema_imports import *
 
 
 
-class ReqPropsFromUnsetAddPropsDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ReqPropsFromUnsetAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def validName(self) -> schemas.OUTPUT_BASE_TYPES:
@@ -42,9 +42,6 @@ class ReqPropsFromUnsetAddPropsDict(immutabledict.immutabledict[str, schemas.OUT
 
     def __new__(cls, arg: ReqPropsFromUnsetAddPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ReqPropsFromUnsetAddProps.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: ReqPropsFromUnsetAddPropsDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ReqPropsFromUnsetAddPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -57,7 +54,7 @@ class ReqPropsFromUnsetAddProps(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "invalid-name",
         "validName",
@@ -67,7 +64,7 @@ class ReqPropsFromUnsetAddProps(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: ReqPropsFromUnsetAddPropsDict
+            schemas.immutabledict: ReqPropsFromUnsetAddPropsDict
         }
     )
 

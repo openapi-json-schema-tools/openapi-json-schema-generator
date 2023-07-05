@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *
 AdditionalProperties2: typing_extensions.TypeAlias = schemas.StrSchema
 
 
-class AdditionalPropertiesDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class AdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __getitem__(self, name: str) -> str:
         # dict_instance[name] accessor
@@ -21,9 +21,6 @@ class AdditionalPropertiesDict(immutabledict.immutabledict[str, schemas.OUTPUT_B
 
     def __new__(cls, arg: AdditionalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AdditionalProperties.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: AdditionalPropertiesDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 AdditionalPropertiesDictInput = typing.Mapping[
     str,
     str,
@@ -34,14 +31,14 @@ AdditionalPropertiesDictInput = typing.Mapping[
 class AdditionalProperties(
     schemas.DictSchema[AdditionalPropertiesDict]
 ):
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: AdditionalPropertiesDict
+            schemas.immutabledict: AdditionalPropertiesDict
         }
     )
 
@@ -61,7 +58,7 @@ class AdditionalProperties(
 
 
 
-class MapMapOfStringDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class MapMapOfStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __getitem__(self, name: str) -> AdditionalPropertiesDict:
         # dict_instance[name] accessor
@@ -69,15 +66,12 @@ class MapMapOfStringDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TY
 
     def __new__(cls, arg: MapMapOfStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapMapOfString.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: MapMapOfStringDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 MapMapOfStringDictInput = typing.Mapping[
     str,
     typing.Union[
         AdditionalPropertiesDict,
         dict,
-        immutabledict.immutabledict
+        schemas.immutabledict
     ],
 ]
 
@@ -86,14 +80,14 @@ MapMapOfStringDictInput = typing.Mapping[
 class MapMapOfString(
     schemas.DictSchema[MapMapOfStringDict]
 ):
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: MapMapOfStringDict
+            schemas.immutabledict: MapMapOfStringDict
         }
     )
 
@@ -140,7 +134,7 @@ class AdditionalProperties3(
     enums = AdditionalPropertiesEnums
 
 
-class MapOfEnumStringDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class MapOfEnumStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __getitem__(self, name: str) -> str:
         # dict_instance[name] accessor
@@ -148,9 +142,6 @@ class MapOfEnumStringDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_T
 
     def __new__(cls, arg: MapOfEnumStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapOfEnumString.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: MapOfEnumStringDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 MapOfEnumStringDictInput = typing.Mapping[
     str,
     str,
@@ -161,14 +152,14 @@ MapOfEnumStringDictInput = typing.Mapping[
 class MapOfEnumString(
     schemas.DictSchema[MapOfEnumStringDict]
 ):
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     additional_properties: typing.Type[AdditionalProperties3] = dataclasses.field(default_factory=lambda: AdditionalProperties3) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: MapOfEnumStringDict
+            schemas.immutabledict: MapOfEnumStringDict
         }
     )
 
@@ -189,7 +180,7 @@ class MapOfEnumString(
 AdditionalProperties4: typing_extensions.TypeAlias = schemas.BoolSchema
 
 
-class DirectMapDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class DirectMapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __getitem__(self, name: str) -> bool:
         # dict_instance[name] accessor
@@ -197,9 +188,6 @@ class DirectMapDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
 
     def __new__(cls, arg: DirectMapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return DirectMap.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: DirectMapDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 DirectMapDictInput = typing.Mapping[
     str,
     bool,
@@ -210,14 +198,14 @@ DirectMapDictInput = typing.Mapping[
 class DirectMap(
     schemas.DictSchema[DirectMapDict]
 ):
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     additional_properties: typing.Type[AdditionalProperties4] = dataclasses.field(default_factory=lambda: AdditionalProperties4) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: DirectMapDict
+            schemas.immutabledict: DirectMapDict
         }
     )
 
@@ -248,7 +236,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class MapTestDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["map_map_of_string"]) -> MapMapOfStringDict:
@@ -284,9 +272,6 @@ class MapTestDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: MapTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapTest.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: MapTestDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 MapTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -299,14 +284,14 @@ class MapTest(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: MapTestDict
+            schemas.immutabledict: MapTestDict
         }
     )
 

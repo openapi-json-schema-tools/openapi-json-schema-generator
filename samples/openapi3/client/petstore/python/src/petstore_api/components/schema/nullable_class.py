@@ -14,11 +14,11 @@ from petstore_api.shared_imports.schema_imports import *
 
 @dataclasses.dataclass(frozen=True)
 class AdditionalProperties4(
-    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         schemas.none_type_,
-        immutabledict.immutabledict,
+        schemas.immutabledict,
     })
 
     @typing.overload
@@ -34,7 +34,7 @@ class AdditionalProperties4(
         cls,
         arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
     @classmethod
     def validate(
         cls,
@@ -49,7 +49,7 @@ class AdditionalProperties4(
 
 @dataclasses.dataclass(frozen=True)
 class IntegerProp(
-    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         schemas.none_type_,
@@ -85,7 +85,7 @@ class IntegerProp(
 
 @dataclasses.dataclass(frozen=True)
 class NumberProp(
-    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         schemas.none_type_,
@@ -121,7 +121,7 @@ class NumberProp(
 
 @dataclasses.dataclass(frozen=True)
 class BooleanProp(
-    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         schemas.none_type_,
@@ -156,7 +156,7 @@ class BooleanProp(
 
 @dataclasses.dataclass(frozen=True)
 class StringProp(
-    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         schemas.none_type_,
@@ -191,7 +191,7 @@ class StringProp(
 
 @dataclasses.dataclass(frozen=True)
 class DateProp(
-    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         schemas.none_type_,
@@ -227,7 +227,7 @@ class DateProp(
 
 @dataclasses.dataclass(frozen=True)
 class DatetimeProp(
-    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         schemas.none_type_,
@@ -263,7 +263,7 @@ Items: typing_extensions.TypeAlias = schemas.DictSchema
 
 
 class ArrayNullablePropTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+    def __getitem__(self, name: int) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
         return super().__getitem__(name)
 
     def __new__(cls, arg: ArrayNullablePropTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -271,14 +271,14 @@ class ArrayNullablePropTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 ArrayNullablePropTupleInput = typing.Sequence[
     typing.Union[
         dict,
-        immutabledict.immutabledict
+        schemas.immutabledict
     ],
 ]
 
 
 @dataclasses.dataclass(frozen=True)
 class ArrayNullableProp(
-    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], ArrayNullablePropTuple],
+    schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], ArrayNullablePropTuple],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         schemas.none_type_,
@@ -325,11 +325,11 @@ class ArrayNullableProp(
 
 @dataclasses.dataclass(frozen=True)
 class Items2(
-    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         schemas.none_type_,
-        immutabledict.immutabledict,
+        schemas.immutabledict,
     })
 
     @typing.overload
@@ -345,7 +345,7 @@ class Items2(
         cls,
         arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
     @classmethod
     def validate(
         cls,
@@ -361,7 +361,7 @@ class Items2(
 class ArrayAndItemsNullablePropTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> typing.Union[
        None,
-       immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+       schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
         return super().__getitem__(name)
 
@@ -371,14 +371,14 @@ ArrayAndItemsNullablePropTupleInput = typing.Sequence[
     typing.Union[
         None,
         dict,
-        immutabledict.immutabledict
+        schemas.immutabledict
     ],
 ]
 
 
 @dataclasses.dataclass(frozen=True)
 class ArrayAndItemsNullableProp(
-    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], ArrayAndItemsNullablePropTuple],
+    schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], ArrayAndItemsNullablePropTuple],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         schemas.none_type_,
@@ -425,11 +425,11 @@ class ArrayAndItemsNullableProp(
 
 @dataclasses.dataclass(frozen=True)
 class Items3(
-    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         schemas.none_type_,
-        immutabledict.immutabledict,
+        schemas.immutabledict,
     })
 
     @typing.overload
@@ -445,7 +445,7 @@ class Items3(
         cls,
         arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
     @classmethod
     def validate(
         cls,
@@ -461,7 +461,7 @@ class Items3(
 class ArrayItemsNullableTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> typing.Union[
        None,
-       immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+       schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
         return super().__getitem__(name)
 
@@ -471,7 +471,7 @@ ArrayItemsNullableTupleInput = typing.Sequence[
     typing.Union[
         None,
         dict,
-        immutabledict.immutabledict
+        schemas.immutabledict
     ],
 ]
 
@@ -507,22 +507,19 @@ class ArrayItemsNullable(
 AdditionalProperties: typing_extensions.TypeAlias = schemas.DictSchema
 
 
-class ObjectNullablePropDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ObjectNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    def __getitem__(self, name: str) -> immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+    def __getitem__(self, name: str) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
     def __new__(cls, arg: ObjectNullablePropDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectNullableProp.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: ObjectNullablePropDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjectNullablePropDictInput = typing.Mapping[
     str,
     typing.Union[
         dict,
-        immutabledict.immutabledict
+        schemas.immutabledict
     ],
 ]
 
@@ -533,7 +530,7 @@ class ObjectNullableProp(
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         schemas.none_type_,
-        immutabledict.immutabledict,
+        schemas.immutabledict,
     })
     additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     type_to_output_cls: typing.Mapping[
@@ -541,7 +538,7 @@ class ObjectNullableProp(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: ObjectNullablePropDict,
+            schemas.immutabledict: ObjectNullablePropDict,
         }
     )
 
@@ -576,11 +573,11 @@ class ObjectNullableProp(
 
 @dataclasses.dataclass(frozen=True)
 class AdditionalProperties2(
-    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         schemas.none_type_,
-        immutabledict.immutabledict,
+        schemas.immutabledict,
     })
 
     @typing.overload
@@ -596,7 +593,7 @@ class AdditionalProperties2(
         cls,
         arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
     @classmethod
     def validate(
         cls,
@@ -609,26 +606,23 @@ class AdditionalProperties2(
         )
 
 
-class ObjectAndItemsNullablePropDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ObjectAndItemsNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __getitem__(self, name: str) -> typing.Union[
        None,
-       immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+       schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
     def __new__(cls, arg: ObjectAndItemsNullablePropDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectAndItemsNullableProp.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: ObjectAndItemsNullablePropDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjectAndItemsNullablePropDictInput = typing.Mapping[
     str,
     typing.Union[
         None,
         dict,
-        immutabledict.immutabledict
+        schemas.immutabledict
     ],
 ]
 
@@ -639,7 +633,7 @@ class ObjectAndItemsNullableProp(
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         schemas.none_type_,
-        immutabledict.immutabledict,
+        schemas.immutabledict,
     })
     additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
     type_to_output_cls: typing.Mapping[
@@ -647,7 +641,7 @@ class ObjectAndItemsNullableProp(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: ObjectAndItemsNullablePropDict,
+            schemas.immutabledict: ObjectAndItemsNullablePropDict,
         }
     )
 
@@ -682,11 +676,11 @@ class ObjectAndItemsNullableProp(
 
 @dataclasses.dataclass(frozen=True)
 class AdditionalProperties3(
-    schemas.Schema[immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+    schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         schemas.none_type_,
-        immutabledict.immutabledict,
+        schemas.immutabledict,
     })
 
     @typing.overload
@@ -702,7 +696,7 @@ class AdditionalProperties3(
         cls,
         arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> immutabledict.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
     @classmethod
     def validate(
         cls,
@@ -715,26 +709,23 @@ class AdditionalProperties3(
         )
 
 
-class ObjectItemsNullableDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ObjectItemsNullableDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __getitem__(self, name: str) -> typing.Union[
        None,
-       immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+       schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
     def __new__(cls, arg: ObjectItemsNullableDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectItemsNullable.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: ObjectItemsNullableDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjectItemsNullableDictInput = typing.Mapping[
     str,
     typing.Union[
         None,
         dict,
-        immutabledict.immutabledict
+        schemas.immutabledict
     ],
 ]
 
@@ -743,14 +734,14 @@ ObjectItemsNullableDictInput = typing.Mapping[
 class ObjectItemsNullable(
     schemas.DictSchema[ObjectItemsNullableDict]
 ):
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     additional_properties: typing.Type[AdditionalProperties3] = dataclasses.field(default_factory=lambda: AdditionalProperties3) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: ObjectItemsNullableDict
+            schemas.immutabledict: ObjectItemsNullableDict
         }
     )
 
@@ -787,7 +778,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class NullableClassDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["integer_prop"]) -> typing.Union[
@@ -870,7 +861,7 @@ class NullableClassDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYP
     @typing.overload
     def __getitem__(self, name: str) -> typing.Union[
        None,
-       immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+       schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
         ...
     
@@ -897,9 +888,6 @@ class NullableClassDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYP
 
     def __new__(cls, arg: NullableClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return NullableClass.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: NullableClassDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 NullableClassDictInput = typing.Mapping[
     str,
     typing.Union[
@@ -951,23 +939,23 @@ NullableClassDictInput = typing.Mapping[
             ObjectNullablePropDict,
             None,
             dict,
-            immutabledict.immutabledict
+            schemas.immutabledict
         ],
         typing.Union[
             ObjectAndItemsNullablePropDict,
             None,
             dict,
-            immutabledict.immutabledict
+            schemas.immutabledict
         ],
         typing.Union[
             ObjectItemsNullableDict,
             dict,
-            immutabledict.immutabledict
+            schemas.immutabledict
         ],
         typing.Union[
             None,
             dict,
-            immutabledict.immutabledict
+            schemas.immutabledict
         ],
     ]
 ]
@@ -982,7 +970,7 @@ class NullableClass(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     additional_properties: typing.Type[AdditionalProperties4] = dataclasses.field(default_factory=lambda: AdditionalProperties4) # type: ignore
     type_to_output_cls: typing.Mapping[
@@ -990,7 +978,7 @@ class NullableClass(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: NullableClassDict
+            schemas.immutabledict: NullableClassDict
         }
     )
 

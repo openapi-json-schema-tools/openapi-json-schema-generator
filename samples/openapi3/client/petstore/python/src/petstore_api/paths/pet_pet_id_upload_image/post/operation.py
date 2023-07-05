@@ -27,7 +27,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class PathParametersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def petId(self) -> int:
@@ -48,9 +48,6 @@ class PathParametersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TY
 
     def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return PathParameters.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: PathParametersDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 PathParametersDictInput = typing_extensions.TypedDict(
     'PathParametersDictInput',
     {
@@ -63,7 +60,7 @@ PathParametersDictInput = typing_extensions.TypedDict(
 class PathParameters(
     schemas.DictSchema[PathParametersDict]
 ):
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "petId",
     })
@@ -74,7 +71,7 @@ class PathParameters(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: PathParametersDict
+            schemas.immutabledict: PathParametersDict
         }
     )
 

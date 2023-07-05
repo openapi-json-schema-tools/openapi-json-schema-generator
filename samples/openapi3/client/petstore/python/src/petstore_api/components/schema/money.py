@@ -23,7 +23,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class MoneyDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def amount(self) -> str:
@@ -53,9 +53,6 @@ class MoneyDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: MoneyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Money.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: MoneyDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 MoneyDictInput = typing_extensions.TypedDict(
     'MoneyDictInput',
     {
@@ -76,7 +73,7 @@ class Money(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "amount",
         "currency",
@@ -88,7 +85,7 @@ class Money(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: MoneyDict
+            schemas.immutabledict: MoneyDict
         }
     )
 

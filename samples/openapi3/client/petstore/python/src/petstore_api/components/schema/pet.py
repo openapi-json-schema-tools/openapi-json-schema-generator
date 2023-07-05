@@ -101,7 +101,7 @@ TagsTupleInput = typing.Sequence[
     typing.Union[
         tag.TagDict,
         dict,
-        immutabledict.immutabledict
+        schemas.immutabledict
     ],
 ]
 
@@ -147,7 +147,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class PetDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def name(self) -> str:
@@ -201,9 +201,6 @@ class PetDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: PetDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Pet.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: PetDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 PetDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -218,7 +215,7 @@ class Pet(
 
     Pet object that needs to be added to the store
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "name",
         "photoUrls",
@@ -229,7 +226,7 @@ class Pet(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: PetDict
+            schemas.immutabledict: PetDict
         }
     )
 

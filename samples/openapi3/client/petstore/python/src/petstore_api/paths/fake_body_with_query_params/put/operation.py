@@ -26,7 +26,7 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class QueryParametersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def query(self) -> str:
@@ -47,9 +47,6 @@ class QueryParametersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_T
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: QueryParametersDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {
@@ -62,7 +59,7 @@ QueryParametersDictInput = typing_extensions.TypedDict(
 class QueryParameters(
     schemas.DictSchema[QueryParametersDict]
 ):
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "query",
     })
@@ -73,7 +70,7 @@ class QueryParameters(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: QueryParametersDict
+            schemas.immutabledict: QueryParametersDict
         }
     )
 

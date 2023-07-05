@@ -89,13 +89,13 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Pet](../../components/schema/pet.md) | dict, immutabledict.immutabledict | immutabledict.immutabledict |
+[Pet](../../components/schema/pet.md) | dict, schemas.immutabledict | schemas.immutabledict |
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[RefPet](../../components/schema/ref_pet.md) | dict, immutabledict.immutabledict | immutabledict.immutabledict |
+[RefPet](../../components/schema/ref_pet.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 ## ResponseFor400
 

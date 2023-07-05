@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *
 AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema
 
 
-class ReqPropsFromExplicitAddPropsDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ReqPropsFromExplicitAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def validName(self) -> str:
@@ -44,9 +44,6 @@ class ReqPropsFromExplicitAddPropsDict(immutabledict.immutabledict[str, schemas.
 
     def __new__(cls, arg: ReqPropsFromExplicitAddPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ReqPropsFromExplicitAddProps.validate(arg, configuration=configuration)
-    
-    def __init__(self, arg: ReqPropsFromExplicitAddPropsDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
-        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ReqPropsFromExplicitAddPropsDictInput = typing.Mapping[
     str,
     typing.Union[
@@ -66,7 +63,7 @@ class ReqPropsFromExplicitAddProps(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({immutabledict.immutabledict})
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "invalid-name",
         "validName",
@@ -77,7 +74,7 @@ class ReqPropsFromExplicitAddProps(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            immutabledict.immutabledict: ReqPropsFromExplicitAddPropsDict
+            schemas.immutabledict: ReqPropsFromExplicitAddPropsDict
         }
     )
 
