@@ -1303,10 +1303,16 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         }
         if (null != schema.get$ref()) {
             Map<String, Schema> allDefinitions = ModelUtils.getSchemas(this.openAPI);
-            String ref = ModelUtils.getSimpleRef(schema.get$ref());
+            String refValue = schema.get$ref();
+            String ref = ModelUtils.getSimpleRef(refValue);
             Schema refSchema = allDefinitions.get(ref);
             if (null == refSchema) {
-                LOGGER.warn("Unable to find referenced schema " + schema.get$ref() + "\n");
+                if (refValue.startsWith("#/components/schemas/")) {
+                    LOGGER.warn("Unable to find referenced schema " + refValue + "\n");
+                }
+                // TODO get examples working for refs like
+                // #/paths/~1fake~1parameterCollisions~1{1}~1{aB}~1{Ab}~1{self}~1{A-B}~1/post/parameters/5/schema
+                // #/components/responses/SuccessInlineContentAndHeader/headers/someHeader/schema
                 return fullPrefix + "None" + closeChars;
             }
             String refModelName = getRefClassWithRefModule(schema);
