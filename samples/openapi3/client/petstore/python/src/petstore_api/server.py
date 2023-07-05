@@ -11,8 +11,6 @@ import abc
 import dataclasses
 import typing
 
-import immutabledict
-
 
 @dataclasses.dataclass
 class ServerWithoutVariables(abc.ABC):
@@ -22,7 +20,7 @@ class ServerWithoutVariables(abc.ABC):
 @dataclasses.dataclass
 class ServerWithVariables(abc.ABC):
     _url: str
-    variables: schemas.DictSchema
+    variables: schemas.immutabledict[str, str]
     variables_schema: typing.Type[schemas.DictSchema]
     url: str = dataclasses.field(init=False)
 
@@ -30,8 +28,7 @@ class ServerWithVariables(abc.ABC):
         url = self._url
         assert isinstance (self.variables, self.variables_schema().type_to_output_cls[schemas.immutabledict])
         for (key, value) in self.variables.items():
-            cast_value = typing.cast(str, value)
-            url = url.replace("{" + key + "}", cast_value)
+            url = url.replace("{" + key + "}", value)
         self.url = url
 
 from petstore_api import schemas

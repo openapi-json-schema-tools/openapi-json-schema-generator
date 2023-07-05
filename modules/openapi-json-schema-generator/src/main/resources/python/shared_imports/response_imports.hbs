@@ -5,7 +5,6 @@ import io
 import typing
 import uuid
 
-import immutabledict
 import typing_extensions
 import urllib3
 

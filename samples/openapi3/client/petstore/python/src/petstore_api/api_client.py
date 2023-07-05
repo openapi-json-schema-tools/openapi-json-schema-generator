@@ -25,7 +25,6 @@ from urllib import parse
 import urllib3
 from urllib3 import _collections, fields
 
-import immutabledict
 
 from petstore_api import exceptions, rest, schemas, security_schemes, api_response
 from petstore_api.configurations import api_configuration, schema_configuration as schema_configuration_

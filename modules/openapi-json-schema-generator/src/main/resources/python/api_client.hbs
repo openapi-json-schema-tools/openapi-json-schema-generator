@@ -23,7 +23,6 @@ from urllib3 import _collections, fields
 {{#if tornado}}
 import tornado.gen
 {{/if}}
-import immutabledict
 
 from {{packageName}} import exceptions, rest, schemas, security_schemes, api_response
 from {{packageName}}.configurations import api_configuration, schema_configuration as schema_configuration_

@@ -8,8 +8,6 @@ import typing
 import typing_extensions
 import uuid
 
-import immutabledict
-
 from petstore_api import schemas
 from petstore_api.configurations import schema_configuration
 
