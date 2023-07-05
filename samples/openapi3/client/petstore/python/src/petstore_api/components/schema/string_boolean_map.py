@@ -18,6 +18,9 @@ class StringBooleanMapDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_
     def __getitem__(self, name: str) -> bool:
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: StringBooleanMapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return StringBooleanMap.validate(arg, configuration=configuration)
 StringBooleanMapDictInput = typing.Mapping[
     str,
     bool,

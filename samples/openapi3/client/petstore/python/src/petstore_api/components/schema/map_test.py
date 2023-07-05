@@ -18,6 +18,9 @@ class AdditionalPropertiesDict(immutabledict.immutabledict[str, schemas.OUTPUT_B
     def __getitem__(self, name: str) -> str:
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: AdditionalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return AdditionalProperties.validate(arg, configuration=configuration)
 AdditionalPropertiesDictInput = typing.Mapping[
     str,
     str,
@@ -60,6 +63,9 @@ class MapMapOfStringDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TY
     def __getitem__(self, name: str) -> AdditionalPropertiesDict:
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: MapMapOfStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return MapMapOfString.validate(arg, configuration=configuration)
 MapMapOfStringDictInput = typing.Mapping[
     str,
     typing.Union[
@@ -133,6 +139,9 @@ class MapOfEnumStringDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_T
     def __getitem__(self, name: str) -> str:
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: MapOfEnumStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return MapOfEnumString.validate(arg, configuration=configuration)
 MapOfEnumStringDictInput = typing.Mapping[
     str,
     str,
@@ -176,6 +185,9 @@ class DirectMapDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     def __getitem__(self, name: str) -> bool:
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: DirectMapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return DirectMap.validate(arg, configuration=configuration)
 DirectMapDictInput = typing.Mapping[
     str,
     bool,
@@ -257,6 +269,9 @@ class MapTestDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: MapTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return MapTest.validate(arg, configuration=configuration)
 MapTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

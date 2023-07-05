@@ -329,6 +329,9 @@ public class CodegenSchema {
             mapOut.requiredProperties = requiredProperties;
             mapOut.additionalProperties = additionalProperties;
             mapOut.mapOutputJsonPathPiece = mapOutputJsonPathPiece;
+            // inputs needed for Schema validate invocation in new method
+            mapOut.mapInputJsonPathPiece = mapInputJsonPathPiece;
+            mapOut.jsonPathPiece = jsonPathPiece;
             if (requiredProperties.allAreInline()) {
                 if (mapOutputJsonPathPiece != mapInputJsonPathPiece && optionalProperties == null) {
                     schemasBeforeImports.add(mapOut);
@@ -355,6 +358,9 @@ public class CodegenSchema {
             mapOut.optionalProperties = optionalProperties;
             mapOut.additionalProperties = additionalProperties;
             mapOut.mapOutputJsonPathPiece = mapOutputJsonPathPiece;
+            // inputs needed for Schema validate invocation in new method
+            mapOut.mapInputJsonPathPiece = mapInputJsonPathPiece;
+            mapOut.jsonPathPiece = jsonPathPiece;
             if (optionalProperties.allAreInline()) {
                 if (mapOutputJsonPathPiece != mapInputJsonPathPiece && requiredProperties == null) {
                     schemasBeforeImports.add(mapOut);
@@ -401,6 +407,9 @@ public class CodegenSchema {
             mapOut.requiredProperties = requiredProperties;
             mapOut.additionalProperties = additionalProperties;
             mapOut.mapOutputJsonPathPiece = mapOutputJsonPathPiece;
+            // inputs needed for Schema validate invocation in new method
+            mapOut.mapInputJsonPathPiece = mapInputJsonPathPiece;
+            mapOut.jsonPathPiece = jsonPathPiece;
             if (allAreInline) {
                 if (mapOutputJsonPathPiece != mapInputJsonPathPiece) {
                     schemasBeforeImports.add(mapOut);

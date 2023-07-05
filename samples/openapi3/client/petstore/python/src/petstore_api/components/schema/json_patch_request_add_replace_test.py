@@ -91,6 +91,9 @@ class JSONPatchRequestAddReplaceTestDict(immutabledict.immutabledict[str, schema
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: JSONPatchRequestAddReplaceTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return JSONPatchRequestAddReplaceTest.validate(arg, configuration=configuration)
 JSONPatchRequestAddReplaceTestDictInput = typing_extensions.TypedDict(
     'JSONPatchRequestAddReplaceTestDictInput',
     {

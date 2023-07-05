@@ -37,6 +37,9 @@ class SpecialModelNameDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: SpecialModelNameDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return SpecialModelName.validate(arg, configuration=configuration)
 SpecialModelNameDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

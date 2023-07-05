@@ -37,6 +37,9 @@ class SchemaDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: SchemaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Schema.validate(arg, configuration=configuration)
 SchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

@@ -62,6 +62,9 @@ class BasquePigDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: BasquePigDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return BasquePig.validate(arg, configuration=configuration)
 BasquePigDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

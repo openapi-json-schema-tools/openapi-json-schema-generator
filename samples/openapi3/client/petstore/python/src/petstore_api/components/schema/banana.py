@@ -41,6 +41,9 @@ class BananaDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: BananaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Banana.validate(arg, configuration=configuration)
 BananaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

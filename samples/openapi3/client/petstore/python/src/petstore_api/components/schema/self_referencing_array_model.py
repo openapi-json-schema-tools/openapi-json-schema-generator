@@ -18,7 +18,6 @@ class SelfReferencingArrayModelTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: SelfReferencingArrayModelTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return SelfReferencingArrayModel.validate(arg, configuration=configuration)
-
 SelfReferencingArrayModelTupleInput = typing.Sequence[
     typing.Union[
         SelfReferencingArrayModelTuple,

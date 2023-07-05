@@ -19,7 +19,6 @@ class ArrayHoldingAnyTypeTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayHoldingAnyTypeTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayHoldingAnyType.validate(arg, configuration=configuration)
-
 ArrayHoldingAnyTypeTupleInput = typing.Sequence[
     typing.Union[
         dict,

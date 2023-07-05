@@ -45,6 +45,9 @@ class ObjectWithInvalidNamedRefedPropertiesDict(immutabledict.immutabledict[str,
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ObjectWithInvalidNamedRefedPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ObjectWithInvalidNamedRefedProperties.validate(arg, configuration=configuration)
 ObjectWithInvalidNamedRefedPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

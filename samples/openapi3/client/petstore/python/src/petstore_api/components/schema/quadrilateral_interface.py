@@ -73,6 +73,9 @@ class QuadrilateralInterfaceDict(immutabledict.immutabledict[str, schemas.OUTPUT
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: QuadrilateralInterfaceDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return QuadrilateralInterface.validate(arg, configuration=configuration)
 QuadrilateralInterfaceDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

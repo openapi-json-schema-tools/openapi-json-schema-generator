@@ -20,7 +20,6 @@ class AdditionalPropertiesTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: AdditionalPropertiesTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AdditionalProperties.validate(arg, configuration=configuration)
-
 AdditionalPropertiesTupleInput = typing.Sequence[
     str,
 ]
@@ -61,6 +60,9 @@ class AdditionalPropertiesWithArrayOfEnumsDict(immutabledict.immutabledict[str, 
     def __getitem__(self, name: str) -> AdditionalPropertiesTuple:
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: AdditionalPropertiesWithArrayOfEnumsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return AdditionalPropertiesWithArrayOfEnums.validate(arg, configuration=configuration)
 AdditionalPropertiesWithArrayOfEnumsDictInput = typing.Mapping[
     str,
     typing.Union[

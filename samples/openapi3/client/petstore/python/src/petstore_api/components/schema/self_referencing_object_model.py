@@ -37,6 +37,9 @@ class SelfReferencingObjectModelDict(immutabledict.immutabledict[str, schemas.OU
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: SelfReferencingObjectModelDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return SelfReferencingObjectModel.validate(arg, configuration=configuration)
 SelfReferencingObjectModelDictInput = typing.Mapping[
     str,
     typing.Union[

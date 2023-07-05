@@ -69,6 +69,9 @@ class QueryParametersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_T
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return QueryParameters.validate(arg, configuration=configuration)
 QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {

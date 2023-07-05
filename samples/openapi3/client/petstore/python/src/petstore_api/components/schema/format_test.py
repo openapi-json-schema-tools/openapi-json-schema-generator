@@ -87,7 +87,6 @@ class ArrayWithUniqueItemsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayWithUniqueItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayWithUniqueItems.validate(arg, configuration=configuration)
-
 ArrayWithUniqueItemsTupleInput = typing.Sequence[
     typing.Union[
         float,
@@ -344,6 +343,9 @@ class FormatTestDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: FormatTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return FormatTest.validate(arg, configuration=configuration)
 FormatTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

@@ -50,6 +50,9 @@ class MoneyDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: MoneyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Money.validate(arg, configuration=configuration)
 MoneyDictInput = typing_extensions.TypedDict(
     'MoneyDictInput',
     {

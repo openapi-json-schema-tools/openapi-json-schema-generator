@@ -18,6 +18,9 @@ class MapPropertyDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES
     def __getitem__(self, name: str) -> str:
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: MapPropertyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return MapProperty.validate(arg, configuration=configuration)
 MapPropertyDictInput = typing.Mapping[
     str,
     str,
@@ -61,6 +64,9 @@ class AdditionalPropertiesDict(immutabledict.immutabledict[str, schemas.OUTPUT_B
     def __getitem__(self, name: str) -> str:
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: AdditionalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return AdditionalProperties2.validate(arg, configuration=configuration)
 AdditionalPropertiesDictInput = typing.Mapping[
     str,
     str,
@@ -103,6 +109,9 @@ class MapOfMapPropertyDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_
     def __getitem__(self, name: str) -> AdditionalPropertiesDict:
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: MapOfMapPropertyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return MapOfMapProperty.validate(arg, configuration=configuration)
 MapOfMapPropertyDictInput = typing.Mapping[
     str,
     typing.Union[
@@ -153,6 +162,9 @@ class MapWithUndeclaredPropertiesAnytype3Dict(immutabledict.immutabledict[str, s
     def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: MapWithUndeclaredPropertiesAnytype3DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return MapWithUndeclaredPropertiesAnytype3.validate(arg, configuration=configuration)
 MapWithUndeclaredPropertiesAnytype3DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -191,6 +203,9 @@ AdditionalProperties5: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 class EmptyMapDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     # empty mapping
     pass
+
+    def __new__(cls, arg: EmptyMapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return EmptyMap.validate(arg, configuration=configuration)
 EmptyMapDictInput = typing.Mapping # mapping must be empty
 
 
@@ -231,6 +246,9 @@ class MapWithUndeclaredPropertiesStringDict(immutabledict.immutabledict[str, sch
     def __getitem__(self, name: str) -> str:
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: MapWithUndeclaredPropertiesStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return MapWithUndeclaredPropertiesString.validate(arg, configuration=configuration)
 MapWithUndeclaredPropertiesStringDictInput = typing.Mapping[
     str,
     str,
@@ -334,6 +352,9 @@ class AdditionalPropertiesClassDict(immutabledict.immutabledict[str, schemas.OUT
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: AdditionalPropertiesClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return AdditionalPropertiesClass.validate(arg, configuration=configuration)
 AdditionalPropertiesClassDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

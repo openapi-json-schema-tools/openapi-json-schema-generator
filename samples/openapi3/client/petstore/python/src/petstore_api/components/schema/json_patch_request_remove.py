@@ -70,6 +70,9 @@ class JSONPatchRequestRemoveDict(immutabledict.immutabledict[str, schemas.OUTPUT
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: JSONPatchRequestRemoveDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return JSONPatchRequestRemove.validate(arg, configuration=configuration)
 JSONPatchRequestRemoveDictInput = typing_extensions.TypedDict(
     'JSONPatchRequestRemoveDictInput',
     {

@@ -52,6 +52,9 @@ class ObjectWithDecimalPropertiesDict(immutabledict.immutabledict[str, schemas.O
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ObjectWithDecimalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ObjectWithDecimalProperties.validate(arg, configuration=configuration)
 ObjectWithDecimalPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

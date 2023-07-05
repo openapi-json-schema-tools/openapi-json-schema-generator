@@ -37,6 +37,9 @@ class FruitDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: FruitDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Fruit.validate(arg, configuration=configuration)
 FruitDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

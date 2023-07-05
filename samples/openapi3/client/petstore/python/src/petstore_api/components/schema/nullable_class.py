@@ -268,7 +268,6 @@ class ArrayNullablePropTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayNullablePropTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayNullableProp.validate(arg, configuration=configuration)
-
 ArrayNullablePropTupleInput = typing.Sequence[
     typing.Union[
         dict,
@@ -368,7 +367,6 @@ class ArrayAndItemsNullablePropTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayAndItemsNullablePropTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayAndItemsNullableProp.validate(arg, configuration=configuration)
-
 ArrayAndItemsNullablePropTupleInput = typing.Sequence[
     typing.Union[
         None,
@@ -469,7 +467,6 @@ class ArrayItemsNullableTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayItemsNullableTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayItemsNullable.validate(arg, configuration=configuration)
-
 ArrayItemsNullableTupleInput = typing.Sequence[
     typing.Union[
         None,
@@ -515,6 +512,9 @@ class ObjectNullablePropDict(immutabledict.immutabledict[str, schemas.OUTPUT_BAS
     def __getitem__(self, name: str) -> immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ObjectNullablePropDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ObjectNullableProp.validate(arg, configuration=configuration)
 ObjectNullablePropDictInput = typing.Mapping[
     str,
     typing.Union[
@@ -614,6 +614,9 @@ class ObjectAndItemsNullablePropDict(immutabledict.immutabledict[str, schemas.OU
     ]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ObjectAndItemsNullablePropDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ObjectAndItemsNullableProp.validate(arg, configuration=configuration)
 ObjectAndItemsNullablePropDictInput = typing.Mapping[
     str,
     typing.Union[
@@ -714,6 +717,9 @@ class ObjectItemsNullableDict(immutabledict.immutabledict[str, schemas.OUTPUT_BA
     ]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ObjectItemsNullableDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ObjectItemsNullable.validate(arg, configuration=configuration)
 ObjectItemsNullableDictInput = typing.Mapping[
     str,
     typing.Union[
@@ -879,6 +885,9 @@ class NullableClassDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYP
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: NullableClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return NullableClass.validate(arg, configuration=configuration)
 NullableClassDictInput = typing.Mapping[
     str,
     typing.Union[

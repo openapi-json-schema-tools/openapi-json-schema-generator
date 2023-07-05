@@ -59,6 +59,9 @@ class AbstractStepMessageDict(immutabledict.immutabledict[str, schemas.OUTPUT_BA
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: AbstractStepMessageDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return AbstractStepMessage.validate(arg, configuration=configuration)
 AbstractStepMessageDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

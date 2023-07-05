@@ -44,6 +44,9 @@ class _200ResponseDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPE
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: _200ResponseDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return _200Response.validate(arg, configuration=configuration)
 _200ResponseDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

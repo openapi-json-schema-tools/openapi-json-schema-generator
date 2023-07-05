@@ -44,6 +44,9 @@ class HasOnlyReadOnlyDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_T
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: HasOnlyReadOnlyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return HasOnlyReadOnly.validate(arg, configuration=configuration)
 HasOnlyReadOnlyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

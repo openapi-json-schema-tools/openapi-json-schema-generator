@@ -73,6 +73,9 @@ class TriangleInterfaceDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: TriangleInterfaceDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return TriangleInterface.validate(arg, configuration=configuration)
 TriangleInterfaceDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

@@ -102,6 +102,9 @@ class ZebraDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ZebraDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Zebra.validate(arg, configuration=configuration)
 ZebraDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

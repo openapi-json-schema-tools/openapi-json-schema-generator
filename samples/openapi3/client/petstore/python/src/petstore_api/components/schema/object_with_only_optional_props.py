@@ -41,6 +41,9 @@ class ObjectWithOnlyOptionalPropsDict(immutabledict.immutabledict[str, schemas.O
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ObjectWithOnlyOptionalPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ObjectWithOnlyOptionalProps.validate(arg, configuration=configuration)
 ObjectWithOnlyOptionalPropsDictInput = typing_extensions.TypedDict(
     'ObjectWithOnlyOptionalPropsDictInput',
     {

@@ -62,6 +62,9 @@ class DanishPigDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: DanishPigDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return DanishPig.validate(arg, configuration=configuration)
 DanishPigDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

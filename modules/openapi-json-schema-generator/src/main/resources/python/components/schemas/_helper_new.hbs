@@ -2,4 +2,9 @@
 {{#eq instanceType "arrayOutputType" }}
 def __new__(cls, arg: {{arrayInputJsonPathPiece.camelCase}}, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
     return {{jsonPathPiece.camelCase}}.validate(arg, configuration=configuration)
+{{else}}
+    {{#eq instanceType "propertiesOutputType" }}
+def __new__(cls, arg: {{mapInputJsonPathPiece.camelCase}}, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    return {{jsonPathPiece.camelCase}}.validate(arg, configuration=configuration)
+    {{/eq}}
 {{/eq}}

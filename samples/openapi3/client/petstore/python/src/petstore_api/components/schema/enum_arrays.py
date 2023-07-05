@@ -72,7 +72,6 @@ class ArrayEnumTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayEnumTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayEnum.validate(arg, configuration=configuration)
-
 ArrayEnumTupleInput = typing.Sequence[
     str,
 ]
@@ -138,6 +137,9 @@ class EnumArraysDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: EnumArraysDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return EnumArrays.validate(arg, configuration=configuration)
 EnumArraysDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

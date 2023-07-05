@@ -19,7 +19,6 @@ class ArrayOfStringTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayOfStringTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayOfString.validate(arg, configuration=configuration)
-
 ArrayOfStringTupleInput = typing.Sequence[
     str,
 ]
@@ -62,7 +61,6 @@ class ItemsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Items2.validate(arg, configuration=configuration)
-
 ItemsTupleInput = typing.Sequence[
     int,
 ]
@@ -104,7 +102,6 @@ class ArrayArrayOfIntegerTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayArrayOfIntegerTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayArrayOfInteger.validate(arg, configuration=configuration)
-
 ArrayArrayOfIntegerTupleInput = typing.Sequence[
     typing.Union[
         ItemsTuple,
@@ -152,7 +149,6 @@ class ItemsTuple2(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ItemsTupleInput2, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Items4.validate(arg, configuration=configuration)
-
 ItemsTupleInput2 = typing.Sequence[
     typing.Union[
         read_only_first.ReadOnlyFirstDict,
@@ -198,7 +194,6 @@ class ArrayArrayOfModelTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayArrayOfModelTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayArrayOfModel.validate(arg, configuration=configuration)
-
 ArrayArrayOfModelTupleInput = typing.Sequence[
     typing.Union[
         ItemsTuple2,
@@ -274,6 +269,9 @@ class ArrayTestDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ArrayTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ArrayTest.validate(arg, configuration=configuration)
 ArrayTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

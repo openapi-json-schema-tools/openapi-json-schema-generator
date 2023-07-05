@@ -57,6 +57,9 @@ class AnimalDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: AnimalDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Animal.validate(arg, configuration=configuration)
 AnimalDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

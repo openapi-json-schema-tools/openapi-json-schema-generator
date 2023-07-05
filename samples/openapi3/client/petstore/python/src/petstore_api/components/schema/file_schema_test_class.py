@@ -20,7 +20,6 @@ class FilesTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: FilesTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Files.validate(arg, configuration=configuration)
-
 FilesTupleInput = typing.Sequence[
     typing.Union[
         file.FileDict,
@@ -90,6 +89,9 @@ class FileSchemaTestClassDict(immutabledict.immutabledict[str, schemas.OUTPUT_BA
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: FileSchemaTestClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return FileSchemaTestClass.validate(arg, configuration=configuration)
 FileSchemaTestClassDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

@@ -36,7 +36,6 @@ class JSONPatchRequestTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: JSONPatchRequestTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return JSONPatchRequest.validate(arg, configuration=configuration)
-
 JSONPatchRequestTupleInput = typing.Sequence[
     typing.Union[
         dict,

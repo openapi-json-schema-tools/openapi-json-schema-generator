@@ -37,6 +37,9 @@ class FileDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: FileDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return File.validate(arg, configuration=configuration)
 FileDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

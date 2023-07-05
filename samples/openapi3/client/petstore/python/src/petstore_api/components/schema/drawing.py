@@ -23,7 +23,6 @@ class ShapesTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ShapesTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Shapes.validate(arg, configuration=configuration)
-
 ShapesTupleInput = typing.Sequence[
     typing.Union[
         dict,
@@ -118,6 +117,9 @@ class DrawingDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: DrawingDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Drawing.validate(arg, configuration=configuration)
 DrawingDictInput = typing.Mapping[
     str,
     typing.Union[

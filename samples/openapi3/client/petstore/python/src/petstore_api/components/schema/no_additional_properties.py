@@ -59,6 +59,9 @@ class NoAdditionalPropertiesDict(immutabledict.immutabledict[str, schemas.OUTPUT
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
+    def __new__(cls, arg: NoAdditionalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return NoAdditionalProperties.validate(arg, configuration=configuration)
+
 
 class NoAdditionalPropertiesDictInput(NoAdditionalPropertiesRequiredDictInput, NoAdditionalPropertiesOptionalDictInput):
     pass

@@ -19,7 +19,6 @@ class ArrayNumberTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayNumberTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayNumber.validate(arg, configuration=configuration)
-
 ArrayNumberTupleInput = typing.Sequence[
     typing.Union[
         float,
@@ -82,6 +81,9 @@ class ArrayOfNumberOnlyDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ArrayOfNumberOnlyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ArrayOfNumberOnly.validate(arg, configuration=configuration)
 ArrayOfNumberOnlyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

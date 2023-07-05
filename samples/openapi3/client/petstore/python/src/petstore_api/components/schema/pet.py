@@ -21,7 +21,6 @@ class PhotoUrlsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: PhotoUrlsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return PhotoUrls.validate(arg, configuration=configuration)
-
 PhotoUrlsTupleInput = typing.Sequence[
     str,
 ]
@@ -98,7 +97,6 @@ class TagsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: TagsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Tags.validate(arg, configuration=configuration)
-
 TagsTupleInput = typing.Sequence[
     typing.Union[
         tag.TagDict,
@@ -200,6 +198,9 @@ class PetDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: PetDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Pet.validate(arg, configuration=configuration)
 PetDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

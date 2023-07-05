@@ -51,6 +51,9 @@ class ApiResponseDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ApiResponseDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ApiResponse.validate(arg, configuration=configuration)
 ApiResponseDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

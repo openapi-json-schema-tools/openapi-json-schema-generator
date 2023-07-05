@@ -42,7 +42,6 @@ class _5Tuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: _5TupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _5.validate(arg, configuration=configuration)
-
 _5TupleInput = typing.Sequence[
     typing.Union[
         dict,

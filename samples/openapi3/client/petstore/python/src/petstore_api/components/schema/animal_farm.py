@@ -20,7 +20,6 @@ class AnimalFarmTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: AnimalFarmTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AnimalFarm.validate(arg, configuration=configuration)
-
 AnimalFarmTupleInput = typing.Sequence[
     typing.Union[
         animal.AnimalDict,

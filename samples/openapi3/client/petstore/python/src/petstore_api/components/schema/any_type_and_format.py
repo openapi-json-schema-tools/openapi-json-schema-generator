@@ -165,6 +165,9 @@ class AnyTypeAndFormatDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: AnyTypeAndFormatDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return AnyTypeAndFormat.validate(arg, configuration=configuration)
 AnyTypeAndFormatDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

@@ -74,6 +74,9 @@ class HealthCheckResultDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: HealthCheckResultDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return HealthCheckResult.validate(arg, configuration=configuration)
 HealthCheckResultDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

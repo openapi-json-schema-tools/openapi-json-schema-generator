@@ -39,6 +39,9 @@ class HeadersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: HeadersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Headers.validate(arg, configuration=configuration)
 HeadersDictInput = typing_extensions.TypedDict(
     'HeadersDictInput',
     {

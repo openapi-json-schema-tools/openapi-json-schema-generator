@@ -18,6 +18,9 @@ class AddressDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: str) -> int:
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: AddressDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Address.validate(arg, configuration=configuration)
 AddressDictInput = typing.Mapping[
     str,
     int,

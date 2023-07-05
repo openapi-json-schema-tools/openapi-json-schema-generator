@@ -44,6 +44,9 @@ class ReadOnlyFirstDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYP
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ReadOnlyFirstDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ReadOnlyFirst.validate(arg, configuration=configuration)
 ReadOnlyFirstDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

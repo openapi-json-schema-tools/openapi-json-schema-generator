@@ -46,6 +46,9 @@ class HeaderParametersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return HeaderParameters.validate(arg, configuration=configuration)
 HeaderParametersDictInput = typing_extensions.TypedDict(
     'HeaderParametersDictInput',
     {
@@ -115,6 +118,9 @@ class PathParametersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TY
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return PathParameters.validate(arg, configuration=configuration)
 PathParametersDictInput = typing_extensions.TypedDict(
     'PathParametersDictInput',
     {

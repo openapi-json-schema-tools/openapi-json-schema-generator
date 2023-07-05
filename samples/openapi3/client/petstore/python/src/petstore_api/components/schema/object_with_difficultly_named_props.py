@@ -51,6 +51,9 @@ class ObjectWithDifficultlyNamedPropsDict(immutabledict.immutabledict[str, schem
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ObjectWithDifficultlyNamedPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ObjectWithDifficultlyNamedProps.validate(arg, configuration=configuration)
 ObjectWithDifficultlyNamedPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

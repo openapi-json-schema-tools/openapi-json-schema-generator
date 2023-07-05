@@ -37,6 +37,9 @@ class ObjectWithOptionalTestPropDict(immutabledict.immutabledict[str, schemas.OU
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ObjectWithOptionalTestPropDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ObjectWithOptionalTestProp.validate(arg, configuration=configuration)
 ObjectWithOptionalTestPropDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

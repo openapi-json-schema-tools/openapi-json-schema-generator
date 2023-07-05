@@ -167,6 +167,9 @@ class UserDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: UserDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return User.validate(arg, configuration=configuration)
 UserDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

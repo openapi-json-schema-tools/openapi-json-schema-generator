@@ -41,6 +41,9 @@ class ObjWithRequiredPropsDict(immutabledict.immutabledict[str, schemas.OUTPUT_B
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ObjWithRequiredPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ObjWithRequiredProps.validate(arg, configuration=configuration)
 ObjWithRequiredPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

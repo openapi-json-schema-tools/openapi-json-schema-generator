@@ -82,6 +82,9 @@ class JSONPatchRequestMoveCopyDict(immutabledict.immutabledict[str, schemas.OUTP
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: JSONPatchRequestMoveCopyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return JSONPatchRequestMoveCopy.validate(arg, configuration=configuration)
 JSONPatchRequestMoveCopyDictInput = typing_extensions.TypedDict(
     'JSONPatchRequestMoveCopyDictInput',
     {

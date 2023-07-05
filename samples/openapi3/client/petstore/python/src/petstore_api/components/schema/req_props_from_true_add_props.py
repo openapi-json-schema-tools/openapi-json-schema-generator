@@ -41,6 +41,9 @@ class ReqPropsFromTrueAddPropsDict(immutabledict.immutabledict[str, schemas.OUTP
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ReqPropsFromTrueAddPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ReqPropsFromTrueAddProps.validate(arg, configuration=configuration)
 ReqPropsFromTrueAddPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

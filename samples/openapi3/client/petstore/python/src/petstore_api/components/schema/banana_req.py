@@ -62,6 +62,9 @@ class BananaReqDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
+    def __new__(cls, arg: BananaReqDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return BananaReq.validate(arg, configuration=configuration)
+
 
 class BananaReqDictInput(BananaReqRequiredDictInput, BananaReqOptionalDictInput):
     pass

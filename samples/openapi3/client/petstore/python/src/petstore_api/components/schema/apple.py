@@ -71,6 +71,9 @@ class AppleDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
+
+    def __new__(cls, arg: AppleDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Apple.validate(arg, configuration=configuration)
 AppleDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
