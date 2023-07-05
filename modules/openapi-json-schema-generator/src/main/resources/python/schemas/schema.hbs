@@ -204,30 +204,15 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
         }
 
     @classmethod
-    def __get_new_cls(
+    def __get_path_to_schemas(
         cls,
         arg,
         validation_metadata: validation.ValidationMetadata,
         path_to_type: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type]
     ) -> typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Tuple[typing.Type]]:
         """
-        Make a new dynamic class and return an instance of that class
-        We are making an instance of cls, but instead of making cls
-        make a new class, new_cls
-        which includes dynamic bases including cls
-        return an instance of that new class
-
-        Dict property + List Item Assignment Use cases:
-        1. value is NOT an instance of the required schema class
-            the value is validated by _validate
-            _validate returns a key value pair
-            where the key is the path to the item, and the value will be the required manufactured class
-            made out of the matching schemas
-        2. value is an instance of the correct schema type
-            the value is NOT validated by _validate, _validate only checks that the instance is of the correct schema type
-            for this value, _validate does NOT return an entry for it in _path_to_schemas
-            and in list/dict _get_items,_get_properties the value will be directly assigned
-            because value is of the correct type, and validation was run earlier when the instance was created
+        Run all validations in the json schema and return a dict of
+        json schema to tuple of validated schemas
         """
         _path_to_schemas = {}
         if validation_metadata.validation_ran_earlier(cls):
@@ -242,8 +227,8 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
             path_to_schemas[path] = tuple(schema_classes)
         """
         For locations that validation did not check
-        the code still needs to mfg a class to hold those values
-        All of these classes will be based on UnsetAnyTypeSchema
+        the code still needs to store type + schema information for instantiation
+        All of those schemas will be UnsetAnyTypeSchema
         """
         missing_paths = path_to_type.keys() - path_to_schemas.keys()
         for missing_path in missing_paths:
@@ -274,7 +259,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
             )
             cast_items.append(new_value)
 
-        return cast_items
+        return tuple(cast_items)
 
     @staticmethod
     def __get_properties(
@@ -298,7 +283,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
             )
             dict_items[property_name_js] = new_value
 
-        return dict_items
+        return immutabledict.immutabledict(dict_items)
 
     @classmethod
     def _get_new_instance_without_conversion(
@@ -318,16 +303,23 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
             FileIO = openapi binary type and the user inputs a file
             bytes = openapi binary type and the user inputs bytes
             """
-            used_arg = arg
-        if isinstance(used_arg, (none_type_, bool, str, int, float, bytes, FileIO)):
-            return used_arg
+            return arg
+        arg_type = type(arg)
         type_to_output_cls = cls.__get_type_to_output_cls()
-        if type_to_output_cls is not None:
-            arg_type = type(arg)
-            if arg_type in type_to_output_cls:
-                output_cls = type_to_output_cls[arg_type]
-                return output_cls(arg)
-        return arg
+        if type_to_output_cls is None:
+            return used_arg
+        if arg_type not in type_to_output_cls:
+            return used_arg
+        output_cls = type_to_output_cls[arg_type]
+        if arg_type is tuple and issubclass(output_cls, typing.Tuple):
+            # return output_cls(used_arg)
+            inst = super(output_cls, output_cls).__new__(output_cls, used_arg)
+            return inst
+        # return output_cls(used_arg)
+        assert issubclass(output_cls, immutabledict.immutabledict)
+        inst = super(output_cls, output_cls).__new__(output_cls, used_arg)
+        inst.__init__(used_arg)
+        return inst
 
     @typing.overload
     @classmethod
@@ -469,7 +461,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
             configuration=configuration or schema_configuration.SchemaConfiguration(),
             validated_path_to_schemas=immutabledict.immutabledict(validated_path_to_schemas)
         )
-        path_to_schemas = cls.__get_new_cls(cast_arg, validation_metadata, path_to_type)
+        path_to_schemas = cls.__get_path_to_schemas(cast_arg, validation_metadata, path_to_type)
         return cls._get_new_instance_without_conversion(
             cast_arg,
             validation_metadata.path_to_item,
