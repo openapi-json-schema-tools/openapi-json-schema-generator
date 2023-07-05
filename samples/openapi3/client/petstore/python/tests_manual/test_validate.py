@@ -216,6 +216,30 @@ class TestValidateCalls(unittest.TestCase):
                 assert isinstance(new_inst, array_with_validations_in_items.ArrayWithValidationsInItemsTuple)
                 assert new_inst == inst
 
+    def test_list_validate_using_output_class(self):
+        with patch.object(
+            array_with_validations_in_items.ArrayWithValidationsInItems,
+            "_validate",
+            side_effect=array_with_validations_in_items.ArrayWithValidationsInItems._validate,
+        ) as mock_outer_validate:
+            with patch.object(
+                array_with_validations_in_items.Items,
+                "_validate",
+                side_effect=array_with_validations_in_items.Items._validate,
+            ) as mock_inner_validate:
+                used_configuration = schema_configuration.SchemaConfiguration()
+                inst = array_with_validations_in_items.ArrayWithValidationsInItemsTuple([7], configuration=used_configuration)
+                assert inst == (7,)
+                mock_outer_validate.assert_called_once_with(
+                    (7,),
+                    validation_metadata=ValidationMetadata(path_to_item=("args[0]",), configuration=used_configuration)
+                )
+                mock_inner_validate.assert_called_once_with(
+                    7,
+                    validation_metadata=ValidationMetadata(path_to_item=("args[0]", 0), configuration=used_configuration)
+                )
+
+
     def test_dict_validate_direct_instantiation(self):
         with patch.object(foo.Foo, "_validate", side_effect=foo.Foo._validate) as mock_outer_validate:
             with patch.object(
@@ -316,7 +340,7 @@ class TestValidateCalls(unittest.TestCase):
                 used_configuration = schema_configuration.SchemaConfiguration()
                 inst = foo.FooDict({'bar': "a"}, configuration=used_configuration)
                 print(inst)
-                assert inst == immutabledict.immutabledict({'bar': "a"})
+                assert inst == {'bar': "a"}
                 mock_outer_validate.assert_called_once_with(
                     immutabledict.immutabledict({"bar": "a"}),
                     validation_metadata=ValidationMetadata(
