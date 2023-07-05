@@ -17,6 +17,10 @@ from petstore_api.components.schema import ref_pet
 class SchemaTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> ref_pet.pet.PetDict:
         return super().__getitem__(name)
+
+    def __new__(cls, arg: SchemaTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Schema.validate(arg, configuration=configuration)
+
 SchemaTupleInput = typing.Sequence[
     typing.Union[
         ref_pet.pet.PetDict,

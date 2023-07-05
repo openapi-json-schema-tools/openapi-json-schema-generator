@@ -20,6 +20,10 @@ class ArrayOfEnumsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
         str,
     ]:
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ArrayOfEnumsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ArrayOfEnums.validate(arg, configuration=configuration)
+
 ArrayOfEnumsTupleInput = typing.Sequence[
     typing.Union[
         None,

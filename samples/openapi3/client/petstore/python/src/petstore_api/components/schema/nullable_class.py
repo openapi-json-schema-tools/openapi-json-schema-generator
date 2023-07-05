@@ -265,6 +265,10 @@ Items: typing_extensions.TypeAlias = schemas.DictSchema
 class ArrayNullablePropTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ArrayNullablePropTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ArrayNullableProp.validate(arg, configuration=configuration)
+
 ArrayNullablePropTupleInput = typing.Sequence[
     typing.Union[
         dict,
@@ -361,6 +365,10 @@ class ArrayAndItemsNullablePropTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
        immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ArrayAndItemsNullablePropTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ArrayAndItemsNullableProp.validate(arg, configuration=configuration)
+
 ArrayAndItemsNullablePropTupleInput = typing.Sequence[
     typing.Union[
         None,
@@ -458,6 +466,10 @@ class ArrayItemsNullableTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
        immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ArrayItemsNullableTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ArrayItemsNullable.validate(arg, configuration=configuration)
+
 ArrayItemsNullableTupleInput = typing.Sequence[
     typing.Union[
         None,

@@ -16,6 +16,10 @@ Items: typing_extensions.TypeAlias = schemas.StrSchema
 class ArrayOfStringTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> str:
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ArrayOfStringTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ArrayOfString.validate(arg, configuration=configuration)
+
 ArrayOfStringTupleInput = typing.Sequence[
     str,
 ]
@@ -55,6 +59,10 @@ Items3: typing_extensions.TypeAlias = schemas.Int64Schema
 class ItemsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> int:
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Items2.validate(arg, configuration=configuration)
+
 ItemsTupleInput = typing.Sequence[
     int,
 ]
@@ -93,6 +101,10 @@ class Items2(
 class ArrayArrayOfIntegerTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> ItemsTuple:
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ArrayArrayOfIntegerTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ArrayArrayOfInteger.validate(arg, configuration=configuration)
+
 ArrayArrayOfIntegerTupleInput = typing.Sequence[
     typing.Union[
         ItemsTuple,
@@ -137,6 +149,10 @@ from petstore_api.components.schema import read_only_first
 class ItemsTuple2(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> read_only_first.ReadOnlyFirstDict:
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ItemsTupleInput2, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Items4.validate(arg, configuration=configuration)
+
 ItemsTupleInput2 = typing.Sequence[
     typing.Union[
         read_only_first.ReadOnlyFirstDict,
@@ -179,6 +195,10 @@ class Items4(
 class ArrayArrayOfModelTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> ItemsTuple2:
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ArrayArrayOfModelTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ArrayArrayOfModel.validate(arg, configuration=configuration)
+
 ArrayArrayOfModelTupleInput = typing.Sequence[
     typing.Union[
         ItemsTuple2,

@@ -9,3 +9,6 @@ class {{arrayOutputJsonPathPiece.camelCase}}(typing.Tuple[schemas.OUTPUT_BASE_TY
     {{/if}}
         return super().__getitem__(name)
 {{/with}}
+
+    {{> components/schemas/_helper_new }}
+

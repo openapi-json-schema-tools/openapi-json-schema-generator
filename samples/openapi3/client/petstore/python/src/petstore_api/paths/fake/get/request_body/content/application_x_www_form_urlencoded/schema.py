@@ -43,6 +43,10 @@ class Items(
 class EnumFormStringArrayTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> str:
         return super().__getitem__(name)
+
+    def __new__(cls, arg: EnumFormStringArrayTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return EnumFormStringArray.validate(arg, configuration=configuration)
+
 EnumFormStringArrayTupleInput = typing.Sequence[
     str,
 ]

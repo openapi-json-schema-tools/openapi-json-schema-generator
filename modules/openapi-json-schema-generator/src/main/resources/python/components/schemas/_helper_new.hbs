@@ -1,0 +1,5 @@
+{{! array and object output classes need this new method to ensure that validation is run when making instances }}
+{{#eq instanceType "arrayOutputType" }}
+def __new__(cls, arg: {{arrayInputJsonPathPiece.camelCase}}, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    return {{jsonPathPiece.camelCase}}.validate(arg, configuration=configuration)
+{{/eq}}

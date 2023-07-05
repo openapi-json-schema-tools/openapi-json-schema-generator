@@ -69,6 +69,10 @@ class Items(
 class ArrayEnumTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> str:
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ArrayEnumTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ArrayEnum.validate(arg, configuration=configuration)
+
 ArrayEnumTupleInput = typing.Sequence[
     str,
 ]

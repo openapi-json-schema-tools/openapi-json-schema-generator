@@ -264,6 +264,10 @@ public class CodegenSchema {
             extraSchema.instanceType = "arrayOutputType";
             extraSchema.items = items;
             extraSchema.arrayOutputJsonPathPiece = arrayOutputJsonPathPiece;
+            // needed to define input type for new method
+            extraSchema.arrayInputJsonPathPiece = arrayInputJsonPathPiece;
+            // needed to invoke Schema validation from the output class
+            extraSchema.jsonPathPiece = jsonPathPiece;
             if (items.hasAnyRefs()) {
                 schemaAllAreInline = false;
                 schemasAfterImports.add(extraSchema);

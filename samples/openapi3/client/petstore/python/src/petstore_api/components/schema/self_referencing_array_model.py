@@ -15,6 +15,10 @@ from petstore_api.shared_imports.schema_imports import *
 class SelfReferencingArrayModelTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> SelfReferencingArrayModelTuple:
         return super().__getitem__(name)
+
+    def __new__(cls, arg: SelfReferencingArrayModelTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return SelfReferencingArrayModel.validate(arg, configuration=configuration)
+
 SelfReferencingArrayModelTupleInput = typing.Sequence[
     typing.Union[
         SelfReferencingArrayModelTuple,

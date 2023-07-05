@@ -16,6 +16,10 @@ Items2: typing_extensions.TypeAlias = schemas.NumberSchema
 class ItemsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> typing.Union[float, int]:
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Items.validate(arg, configuration=configuration)
+
 ItemsTupleInput = typing.Sequence[
     typing.Union[
         float,
@@ -57,6 +61,10 @@ class Items(
 class ArrayArrayNumberTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> ItemsTuple:
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ArrayArrayNumberTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ArrayArrayNumber.validate(arg, configuration=configuration)
+
 ArrayArrayNumberTupleInput = typing.Sequence[
     typing.Union[
         ItemsTuple,

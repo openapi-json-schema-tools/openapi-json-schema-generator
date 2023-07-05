@@ -84,6 +84,10 @@ Items: typing_extensions.TypeAlias = schemas.NumberSchema
 class ArrayWithUniqueItemsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> typing.Union[float, int]:
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ArrayWithUniqueItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return ArrayWithUniqueItems.validate(arg, configuration=configuration)
+
 ArrayWithUniqueItemsTupleInput = typing.Sequence[
     typing.Union[
         float,

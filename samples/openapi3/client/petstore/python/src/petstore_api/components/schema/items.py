@@ -16,6 +16,10 @@ Items2: typing_extensions.TypeAlias = schemas.DictSchema
 class ItemsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
         return super().__getitem__(name)
+
+    def __new__(cls, arg: ItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Items.validate(arg, configuration=configuration)
+
 ItemsTupleInput = typing.Sequence[
     typing.Union[
         dict,
