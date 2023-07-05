@@ -2601,18 +2601,18 @@ public class DefaultCodegen implements CodegenConfig {
                 hasOptionalParamOrBody = true;
             }
             requestBodySchemas = new ArrayList<>();
-            int schemaNum = 0;
-            for (CodegenMediaType mediaType: derefRequestBody.content.values()) {
+            for (Entry<CodegenKey, CodegenMediaType> entry: derefRequestBody.content.entrySet()) {
+                CodegenKey contentType = entry.getKey();
+                CodegenMediaType mediaType = entry.getValue();
                 if (mediaType.schema != null) {
                     String schemaJsonPath = mediaType.schema.getSelfOrDeepestRef().jsonPath;
                     Schema contentTypeSchema = new Schema();
                     contentTypeSchema.set$ref(schemaJsonPath);
 
-                    CodegenSchema schema = fromSchema(contentTypeSchema, jsonPath, jsonPath + "/RequestBodySchema" + schemaNum);
+                    CodegenSchema schema = fromSchema(contentTypeSchema, jsonPath, jsonPath + "/RequestBody" + contentType.camelCase + "Schema");
                     schema.imports = new TreeSet<>();
                     addImports(schema.imports, getImports(schema, generatorMetadata.getFeatureSet()));
                     requestBodySchemas.add(schema);
-                    schemaNum += 1;
                 }
             }
         }
