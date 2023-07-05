@@ -47,6 +47,9 @@ class ReadOnlyFirstDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYP
 
     def __new__(cls, arg: ReadOnlyFirstDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ReadOnlyFirst.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: ReadOnlyFirstDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ReadOnlyFirstDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

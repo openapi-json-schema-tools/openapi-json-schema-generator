@@ -24,6 +24,9 @@ class MapDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: MapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Map.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: MapDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 MapDictInput = typing.Mapping[
     str,
     typing.Union[
@@ -104,6 +107,9 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(immutabledict.immutabledic
 
     def __new__(cls, arg: MixedPropertiesAndAdditionalPropertiesClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MixedPropertiesAndAdditionalPropertiesClass.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: MixedPropertiesAndAdditionalPropertiesClassDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 MixedPropertiesAndAdditionalPropertiesClassDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

@@ -21,6 +21,9 @@ class MapPropertyDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES
 
     def __new__(cls, arg: MapPropertyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapProperty.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: MapPropertyDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 MapPropertyDictInput = typing.Mapping[
     str,
     str,
@@ -67,6 +70,9 @@ class AdditionalPropertiesDict(immutabledict.immutabledict[str, schemas.OUTPUT_B
 
     def __new__(cls, arg: AdditionalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AdditionalProperties2.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: AdditionalPropertiesDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 AdditionalPropertiesDictInput = typing.Mapping[
     str,
     str,
@@ -112,6 +118,9 @@ class MapOfMapPropertyDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_
 
     def __new__(cls, arg: MapOfMapPropertyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapOfMapProperty.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: MapOfMapPropertyDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 MapOfMapPropertyDictInput = typing.Mapping[
     str,
     typing.Union[
@@ -165,6 +174,9 @@ class MapWithUndeclaredPropertiesAnytype3Dict(immutabledict.immutabledict[str, s
 
     def __new__(cls, arg: MapWithUndeclaredPropertiesAnytype3DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapWithUndeclaredPropertiesAnytype3.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: MapWithUndeclaredPropertiesAnytype3DictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 MapWithUndeclaredPropertiesAnytype3DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
@@ -206,6 +218,9 @@ class EmptyMapDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: EmptyMapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return EmptyMap.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: EmptyMapDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 EmptyMapDictInput = typing.Mapping # mapping must be empty
 
 
@@ -249,6 +264,9 @@ class MapWithUndeclaredPropertiesStringDict(immutabledict.immutabledict[str, sch
 
     def __new__(cls, arg: MapWithUndeclaredPropertiesStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapWithUndeclaredPropertiesString.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: MapWithUndeclaredPropertiesStringDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 MapWithUndeclaredPropertiesStringDictInput = typing.Mapping[
     str,
     str,
@@ -355,6 +373,9 @@ class AdditionalPropertiesClassDict(immutabledict.immutabledict[str, schemas.OUT
 
     def __new__(cls, arg: AdditionalPropertiesClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AdditionalPropertiesClass.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: AdditionalPropertiesClassDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 AdditionalPropertiesClassDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

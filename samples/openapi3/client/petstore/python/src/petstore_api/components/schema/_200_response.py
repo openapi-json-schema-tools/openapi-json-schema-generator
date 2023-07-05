@@ -47,6 +47,9 @@ class _200ResponseDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPE
 
     def __new__(cls, arg: _200ResponseDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _200Response.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: _200ResponseDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 _200ResponseDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

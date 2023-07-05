@@ -40,6 +40,9 @@ class ObjectWithOptionalTestPropDict(immutabledict.immutabledict[str, schemas.OU
 
     def __new__(cls, arg: ObjectWithOptionalTestPropDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithOptionalTestProp.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: ObjectWithOptionalTestPropDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjectWithOptionalTestPropDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

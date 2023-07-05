@@ -44,6 +44,9 @@ class ReqPropsFromTrueAddPropsDict(immutabledict.immutabledict[str, schemas.OUTP
 
     def __new__(cls, arg: ReqPropsFromTrueAddPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ReqPropsFromTrueAddProps.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: ReqPropsFromTrueAddPropsDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ReqPropsFromTrueAddPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

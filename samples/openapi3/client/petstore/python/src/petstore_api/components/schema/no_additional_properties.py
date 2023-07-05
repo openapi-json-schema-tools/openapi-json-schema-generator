@@ -61,6 +61,9 @@ class NoAdditionalPropertiesDict(immutabledict.immutabledict[str, schemas.OUTPUT
 
     def __new__(cls, arg: NoAdditionalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return NoAdditionalProperties.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: NoAdditionalPropertiesDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 
 
 class NoAdditionalPropertiesDictInput(NoAdditionalPropertiesRequiredDictInput, NoAdditionalPropertiesOptionalDictInput):

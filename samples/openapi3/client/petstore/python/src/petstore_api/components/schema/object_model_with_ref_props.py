@@ -55,6 +55,9 @@ class ObjectModelWithRefPropsDict(immutabledict.immutabledict[str, schemas.OUTPU
 
     def __new__(cls, arg: ObjectModelWithRefPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectModelWithRefProps.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: ObjectModelWithRefPropsDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjectModelWithRefPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

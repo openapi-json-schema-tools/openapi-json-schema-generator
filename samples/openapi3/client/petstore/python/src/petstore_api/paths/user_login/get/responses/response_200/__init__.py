@@ -103,6 +103,9 @@ class HeadersDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: HeadersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Headers.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: HeadersDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 
 
 class HeadersDictInput(HeadersRequiredDictInput, HeadersOptionalDictInput):

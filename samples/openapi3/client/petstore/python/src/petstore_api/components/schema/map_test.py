@@ -21,6 +21,9 @@ class AdditionalPropertiesDict(immutabledict.immutabledict[str, schemas.OUTPUT_B
 
     def __new__(cls, arg: AdditionalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AdditionalProperties.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: AdditionalPropertiesDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 AdditionalPropertiesDictInput = typing.Mapping[
     str,
     str,
@@ -66,6 +69,9 @@ class MapMapOfStringDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TY
 
     def __new__(cls, arg: MapMapOfStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapMapOfString.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: MapMapOfStringDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 MapMapOfStringDictInput = typing.Mapping[
     str,
     typing.Union[
@@ -142,6 +148,9 @@ class MapOfEnumStringDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_T
 
     def __new__(cls, arg: MapOfEnumStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapOfEnumString.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: MapOfEnumStringDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 MapOfEnumStringDictInput = typing.Mapping[
     str,
     str,
@@ -188,6 +197,9 @@ class DirectMapDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
 
     def __new__(cls, arg: DirectMapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return DirectMap.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: DirectMapDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 DirectMapDictInput = typing.Mapping[
     str,
     bool,
@@ -272,6 +284,9 @@ class MapTestDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: MapTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapTest.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: MapTestDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 MapTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

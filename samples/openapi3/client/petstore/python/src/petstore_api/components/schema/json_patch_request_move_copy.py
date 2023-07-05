@@ -85,6 +85,9 @@ class JSONPatchRequestMoveCopyDict(immutabledict.immutabledict[str, schemas.OUTP
 
     def __new__(cls, arg: JSONPatchRequestMoveCopyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return JSONPatchRequestMoveCopy.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: JSONPatchRequestMoveCopyDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 JSONPatchRequestMoveCopyDictInput = typing_extensions.TypedDict(
     'JSONPatchRequestMoveCopyDictInput',
     {

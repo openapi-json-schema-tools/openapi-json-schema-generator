@@ -74,6 +74,9 @@ class AppleDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: AppleDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Apple.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: AppleDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 AppleDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

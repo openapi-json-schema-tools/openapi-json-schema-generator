@@ -55,6 +55,9 @@ class ObjectWithDecimalPropertiesDict(immutabledict.immutabledict[str, schemas.O
 
     def __new__(cls, arg: ObjectWithDecimalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithDecimalProperties.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: ObjectWithDecimalPropertiesDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjectWithDecimalPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

@@ -168,6 +168,9 @@ class AnyTypeAndFormatDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_
 
     def __new__(cls, arg: AnyTypeAndFormatDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AnyTypeAndFormat.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: AnyTypeAndFormatDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 AnyTypeAndFormatDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

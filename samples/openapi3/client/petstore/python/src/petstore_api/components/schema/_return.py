@@ -40,6 +40,9 @@ class ReturnDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ReturnDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _Return.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: ReturnDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ReturnDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

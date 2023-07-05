@@ -54,6 +54,9 @@ class ObjectWithDifficultlyNamedPropsDict(immutabledict.immutabledict[str, schem
 
     def __new__(cls, arg: ObjectWithDifficultlyNamedPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithDifficultlyNamedProps.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: ObjectWithDifficultlyNamedPropsDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjectWithDifficultlyNamedPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

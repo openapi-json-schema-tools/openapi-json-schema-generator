@@ -44,6 +44,9 @@ class ObjectWithOnlyOptionalPropsDict(immutabledict.immutabledict[str, schemas.O
 
     def __new__(cls, arg: ObjectWithOnlyOptionalPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithOnlyOptionalProps.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: ObjectWithOnlyOptionalPropsDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjectWithOnlyOptionalPropsDictInput = typing_extensions.TypedDict(
     'ObjectWithOnlyOptionalPropsDictInput',
     {

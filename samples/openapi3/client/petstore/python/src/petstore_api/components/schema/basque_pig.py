@@ -65,6 +65,9 @@ class BasquePigDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
 
     def __new__(cls, arg: BasquePigDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return BasquePig.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: BasquePigDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 BasquePigDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

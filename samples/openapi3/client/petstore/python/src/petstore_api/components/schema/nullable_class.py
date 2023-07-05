@@ -515,6 +515,9 @@ class ObjectNullablePropDict(immutabledict.immutabledict[str, schemas.OUTPUT_BAS
 
     def __new__(cls, arg: ObjectNullablePropDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectNullableProp.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: ObjectNullablePropDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjectNullablePropDictInput = typing.Mapping[
     str,
     typing.Union[
@@ -617,6 +620,9 @@ class ObjectAndItemsNullablePropDict(immutabledict.immutabledict[str, schemas.OU
 
     def __new__(cls, arg: ObjectAndItemsNullablePropDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectAndItemsNullableProp.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: ObjectAndItemsNullablePropDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjectAndItemsNullablePropDictInput = typing.Mapping[
     str,
     typing.Union[
@@ -720,6 +726,9 @@ class ObjectItemsNullableDict(immutabledict.immutabledict[str, schemas.OUTPUT_BA
 
     def __new__(cls, arg: ObjectItemsNullableDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectItemsNullable.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: ObjectItemsNullableDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjectItemsNullableDictInput = typing.Mapping[
     str,
     typing.Union[
@@ -888,6 +897,9 @@ class NullableClassDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYP
 
     def __new__(cls, arg: NullableClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return NullableClass.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: NullableClassDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 NullableClassDictInput = typing.Mapping[
     str,
     typing.Union[

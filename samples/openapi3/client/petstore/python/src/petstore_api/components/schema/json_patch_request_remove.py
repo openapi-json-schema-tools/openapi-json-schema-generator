@@ -73,6 +73,9 @@ class JSONPatchRequestRemoveDict(immutabledict.immutabledict[str, schemas.OUTPUT
 
     def __new__(cls, arg: JSONPatchRequestRemoveDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return JSONPatchRequestRemove.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: JSONPatchRequestRemoveDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 JSONPatchRequestRemoveDictInput = typing_extensions.TypedDict(
     'JSONPatchRequestRemoveDictInput',
     {

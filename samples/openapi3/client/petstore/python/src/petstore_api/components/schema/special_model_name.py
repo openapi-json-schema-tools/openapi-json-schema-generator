@@ -40,6 +40,9 @@ class SpecialModelNameDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_
 
     def __new__(cls, arg: SpecialModelNameDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return SpecialModelName.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: SpecialModelNameDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 SpecialModelNameDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

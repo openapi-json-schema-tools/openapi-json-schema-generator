@@ -334,10 +334,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
             return used_arg
         output_cls = type_to_output_cls[arg_type]
         if arg_type is tuple and issubclass(output_cls, typing.Tuple):
-            # return output_cls(used_arg)
-            inst = super(output_cls, output_cls).__new__(output_cls, used_arg)
-            return inst
-        # return output_cls(used_arg)
+            return super(output_cls, output_cls).__new__(output_cls, used_arg)
         assert issubclass(output_cls, immutabledict.immutabledict)
         inst = super(output_cls, output_cls).__new__(output_cls, used_arg)
         inst.__init__(used_arg)

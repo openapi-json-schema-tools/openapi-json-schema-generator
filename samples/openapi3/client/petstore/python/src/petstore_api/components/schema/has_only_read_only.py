@@ -47,6 +47,9 @@ class HasOnlyReadOnlyDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_T
 
     def __new__(cls, arg: HasOnlyReadOnlyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return HasOnlyReadOnly.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: HasOnlyReadOnlyDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 HasOnlyReadOnlyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

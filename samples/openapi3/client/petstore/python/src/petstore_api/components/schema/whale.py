@@ -79,6 +79,9 @@ class WhaleDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: WhaleDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Whale.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: WhaleDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 WhaleDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

@@ -94,6 +94,9 @@ class JSONPatchRequestAddReplaceTestDict(immutabledict.immutabledict[str, schema
 
     def __new__(cls, arg: JSONPatchRequestAddReplaceTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return JSONPatchRequestAddReplaceTest.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: JSONPatchRequestAddReplaceTestDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 JSONPatchRequestAddReplaceTestDictInput = typing_extensions.TypedDict(
     'JSONPatchRequestAddReplaceTestDictInput',
     {

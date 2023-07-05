@@ -54,6 +54,9 @@ class ApiResponseDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES
 
     def __new__(cls, arg: ApiResponseDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ApiResponse.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: ApiResponseDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ApiResponseDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

@@ -48,6 +48,9 @@ class ObjectWithInvalidNamedRefedPropertiesDict(immutabledict.immutabledict[str,
 
     def __new__(cls, arg: ObjectWithInvalidNamedRefedPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithInvalidNamedRefedProperties.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: ObjectWithInvalidNamedRefedPropertiesDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjectWithInvalidNamedRefedPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

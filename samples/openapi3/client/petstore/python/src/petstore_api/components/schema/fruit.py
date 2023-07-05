@@ -40,6 +40,9 @@ class FruitDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: FruitDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Fruit.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: FruitDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 FruitDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

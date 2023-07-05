@@ -40,6 +40,9 @@ class SelfReferencingObjectModelDict(immutabledict.immutabledict[str, schemas.OU
 
     def __new__(cls, arg: SelfReferencingObjectModelDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return SelfReferencingObjectModel.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: SelfReferencingObjectModelDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 SelfReferencingObjectModelDictInput = typing.Mapping[
     str,
     typing.Union[

@@ -75,6 +75,9 @@ class CapitalizationDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TY
 
     def __new__(cls, arg: CapitalizationDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Capitalization.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: CapitalizationDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 CapitalizationDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

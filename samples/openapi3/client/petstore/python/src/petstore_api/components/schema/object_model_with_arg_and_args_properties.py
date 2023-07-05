@@ -55,6 +55,9 @@ class ObjectModelWithArgAndArgsPropertiesDict(immutabledict.immutabledict[str, s
 
     def __new__(cls, arg: ObjectModelWithArgAndArgsPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectModelWithArgAndArgsProperties.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: ObjectModelWithArgAndArgsPropertiesDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjectModelWithArgAndArgsPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

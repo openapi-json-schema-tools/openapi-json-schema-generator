@@ -63,6 +63,9 @@ class AdditionalPropertiesWithArrayOfEnumsDict(immutabledict.immutabledict[str, 
 
     def __new__(cls, arg: AdditionalPropertiesWithArrayOfEnumsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AdditionalPropertiesWithArrayOfEnums.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: AdditionalPropertiesWithArrayOfEnumsDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 AdditionalPropertiesWithArrayOfEnumsDictInput = typing.Mapping[
     str,
     typing.Union[

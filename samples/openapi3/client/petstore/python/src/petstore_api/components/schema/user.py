@@ -170,6 +170,9 @@ class UserDict(immutabledict.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: UserDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return User.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: UserDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 UserDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

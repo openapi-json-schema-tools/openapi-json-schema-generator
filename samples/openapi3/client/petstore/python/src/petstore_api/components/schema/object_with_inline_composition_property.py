@@ -61,6 +61,9 @@ class ObjectWithInlineCompositionPropertyDict(immutabledict.immutabledict[str, s
 
     def __new__(cls, arg: ObjectWithInlineCompositionPropertyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithInlineCompositionProperty.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: ObjectWithInlineCompositionPropertyDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjectWithInlineCompositionPropertyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 

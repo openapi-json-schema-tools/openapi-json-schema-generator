@@ -47,6 +47,9 @@ class ObjectWithCollidingPropertiesDict(immutabledict.immutabledict[str, schemas
 
     def __new__(cls, arg: ObjectWithCollidingPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithCollidingProperties.validate(arg, configuration=configuration)
+    
+    def __init__(self, arg: ObjectWithCollidingPropertiesDictInput, **kwargs: typing.Optional[schema_configuration.SchemaConfiguration]):
+        super().__init__(arg)  # needed to omit passing on configuration in kwargs
 ObjectWithCollidingPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
