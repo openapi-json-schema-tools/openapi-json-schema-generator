@@ -2639,9 +2639,6 @@ public class DefaultCodegen implements CodegenConfig {
                 }
                 CodegenParameter derefParam = p.getSelfOrDeepestRef();
                 String paramName = derefParam.name;
-                if (derefParam.required) {
-                    queryParametersRequired.add(paramName);
-                }
                 String schemaJsonPath = p.getSchemaJsonPath();
                 Schema parameterSchema = new Schema();
                 parameterSchema.set$ref(schemaJsonPath);
@@ -2649,28 +2646,28 @@ public class DefaultCodegen implements CodegenConfig {
                 switch (paramOrRef.in) {
                     case "query":
                         queryParams.add(p);
-                        if (derefParam.required) {
+                        if (Boolean.TRUE.equals(derefParam.required)) {
                             queryParametersRequired.add(paramName);
                         }
                         queryParametersProperties.put(paramName, parameterSchema);
                         break;
                     case "path":
                         pathParams.add(p);
-                        if (derefParam.required) {
+                        if (Boolean.TRUE.equals(derefParam.required)) {
                             pathParametersRequired.add(paramName);
                         }
                         pathParametersProperties.put(paramName, parameterSchema);
                         break;
                     case "header":
                         headerParams.add(p);
-                        if (derefParam.required) {
+                        if (Boolean.TRUE.equals(derefParam.required)) {
                             headerParametersRequired.add(paramName);
                         }
                         headerParametersProperties.put(paramName, parameterSchema);
                         break;
                     case "cookie":
                         cookieParams.add(p);
-                        if (derefParam.required) {
+                        if (Boolean.TRUE.equals(derefParam.required)) {
                             cookieParametersRequired.add(paramName);
                         }
                         cookieParametersProperties.put(paramName, parameterSchema);
