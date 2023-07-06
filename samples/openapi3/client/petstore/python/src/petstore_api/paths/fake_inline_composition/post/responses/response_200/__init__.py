@@ -15,7 +15,7 @@ class ApiResponseFor200(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
         schemas.OUTPUT_BASE_TYPES,
-        content.multipart_form_data.schema.SchemaDict,
+        multipart_form_data_schema.SchemaDict,
     ]
     headers: schemas.Unset = schemas.unset
 

@@ -150,7 +150,7 @@ class Headers(
 @dataclasses.dataclass
 class ApiSuccessWithJsonApiResponse(api_response.ApiResponse):
     response: urllib3.HTTPResponse
-    body: content.application_json.schema.api_response.ApiResponseDict
+    body: application_json_schema.api_response.ApiResponseDict
     headers: HeadersDict
 
 

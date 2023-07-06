@@ -12,7 +12,7 @@ from .content.application_json import schema as application_json_schema
 @dataclasses.dataclass
 class ApiResponseFor200(api_response.ApiResponse):
     response: urllib3.HTTPResponse
-    body: content.application_json.schema.animal_farm.AnimalFarmTuple
+    body: application_json_schema.animal_farm.AnimalFarmTuple
     headers: schemas.Unset = schemas.unset
 
 

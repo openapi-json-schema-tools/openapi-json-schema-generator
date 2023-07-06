@@ -14,8 +14,8 @@ from .content.application_json import schema as application_json_schema
 class ApiSuccessfulXmlAndJsonArrayOfPet(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        content.application_xml.schema.SchemaTuple,
-        content.application_json.schema.SchemaTuple,
+        application_xml_schema.SchemaTuple,
+        application_json_schema.SchemaTuple,
     ]
     headers: schemas.Unset = schemas.unset
 

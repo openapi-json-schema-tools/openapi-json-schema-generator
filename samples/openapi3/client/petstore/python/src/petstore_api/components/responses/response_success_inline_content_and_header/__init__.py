@@ -86,7 +86,7 @@ class Headers(
 @dataclasses.dataclass
 class ApiSuccessInlineContentAndHeader(api_response.ApiResponse):
     response: urllib3.HTTPResponse
-    body: content.application_json.schema.SchemaDict
+    body: application_json_schema.SchemaDict
     headers: HeadersDict
 
 

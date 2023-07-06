@@ -14,8 +14,8 @@ from .content.application_json import schema as application_json_schema
 class ApiResponseFor200(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        content.application_xml.schema.order.OrderDict,
-        content.application_json.schema.order.OrderDict,
+        application_xml_schema.order.OrderDict,
+        application_json_schema.order.OrderDict,
     ]
     headers: schemas.Unset = schemas.unset
 
