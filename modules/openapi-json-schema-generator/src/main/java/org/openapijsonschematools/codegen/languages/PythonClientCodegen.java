@@ -592,13 +592,13 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT,
                 new HashMap<String, String>() {{
-                    put("__init__content.hbs", File.separatorChar + "__init__.py");
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
                 }}
         );
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT_TYPE,
                 new HashMap<String, String>() {{
-                    put("__init__content_type.hbs", File.separatorChar + "__init__.py");
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
                 }}
         );
 
