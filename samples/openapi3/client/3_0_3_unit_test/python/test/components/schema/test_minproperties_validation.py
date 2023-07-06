@@ -20,7 +20,7 @@ class TestMinpropertiesValidation(unittest.TestCase):
 
     def test_ignores_arrays_passes(self):
         # ignores arrays
-        MinpropertiesValidation(
+        MinpropertiesValidation.validate(
             [
             ],
             configuration=self.configuration
@@ -28,7 +28,7 @@ class TestMinpropertiesValidation(unittest.TestCase):
 
     def test_ignores_other_non_objects_passes(self):
         # ignores other non-objects
-        MinpropertiesValidation(
+        MinpropertiesValidation.validate(
             12,
             configuration=self.configuration
         )
@@ -36,7 +36,7 @@ class TestMinpropertiesValidation(unittest.TestCase):
     def test_too_short_is_invalid_fails(self):
         # too short is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            MinpropertiesValidation(
+            MinpropertiesValidation.validate(
                 {
                 },
                 configuration=self.configuration
@@ -44,14 +44,14 @@ class TestMinpropertiesValidation(unittest.TestCase):
 
     def test_ignores_strings_passes(self):
         # ignores strings
-        MinpropertiesValidation(
+        MinpropertiesValidation.validate(
             "",
             configuration=self.configuration
         )
 
     def test_longer_is_valid_passes(self):
         # longer is valid
-        MinpropertiesValidation(
+        MinpropertiesValidation.validate(
             {
                 "foo":
                     1,
@@ -63,7 +63,7 @@ class TestMinpropertiesValidation(unittest.TestCase):
 
     def test_exact_length_is_valid_passes(self):
         # exact length is valid
-        MinpropertiesValidation(
+        MinpropertiesValidation.validate(
             {
                 "foo":
                     1,

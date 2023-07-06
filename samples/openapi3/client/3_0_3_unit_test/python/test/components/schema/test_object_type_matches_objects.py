@@ -21,7 +21,7 @@ class TestObjectTypeMatchesObjects(unittest.TestCase):
     def test_a_float_is_not_an_object_fails(self):
         # a float is not an object
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ObjectTypeMatchesObjects(
+            ObjectTypeMatchesObjects.validate(
                 1.1,
                 configuration=self.configuration
             )
@@ -29,7 +29,7 @@ class TestObjectTypeMatchesObjects(unittest.TestCase):
     def test_null_is_not_an_object_fails(self):
         # null is not an object
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ObjectTypeMatchesObjects(
+            ObjectTypeMatchesObjects.validate(
                 None,
                 configuration=self.configuration
             )
@@ -37,7 +37,7 @@ class TestObjectTypeMatchesObjects(unittest.TestCase):
     def test_an_array_is_not_an_object_fails(self):
         # an array is not an object
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ObjectTypeMatchesObjects(
+            ObjectTypeMatchesObjects.validate(
                 [
                 ],
                 configuration=self.configuration
@@ -45,7 +45,7 @@ class TestObjectTypeMatchesObjects(unittest.TestCase):
 
     def test_an_object_is_an_object_passes(self):
         # an object is an object
-        ObjectTypeMatchesObjects(
+        ObjectTypeMatchesObjects.validate(
             {
             },
             configuration=self.configuration
@@ -54,7 +54,7 @@ class TestObjectTypeMatchesObjects(unittest.TestCase):
     def test_a_string_is_not_an_object_fails(self):
         # a string is not an object
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ObjectTypeMatchesObjects(
+            ObjectTypeMatchesObjects.validate(
                 "foo",
                 configuration=self.configuration
             )
@@ -62,7 +62,7 @@ class TestObjectTypeMatchesObjects(unittest.TestCase):
     def test_an_integer_is_not_an_object_fails(self):
         # an integer is not an object
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ObjectTypeMatchesObjects(
+            ObjectTypeMatchesObjects.validate(
                 1,
                 configuration=self.configuration
             )
@@ -70,7 +70,7 @@ class TestObjectTypeMatchesObjects(unittest.TestCase):
     def test_a_boolean_is_not_an_object_fails(self):
         # a boolean is not an object
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ObjectTypeMatchesObjects(
+            ObjectTypeMatchesObjects.validate(
                 True,
                 configuration=self.configuration
             )

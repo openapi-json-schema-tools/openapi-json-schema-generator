@@ -38,7 +38,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 {
                 }
             )
-            body = post.request_body.RequestBody.content["application/json"].schema(
+            body = post.request_body.RequestBody.content["application/json"].schema.validate(
                 payload,
                 configuration=self.schema_config
             )
@@ -68,7 +68,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             payload = (
                 False
             )
-            body = post.request_body.RequestBody.content["application/json"].schema(
+            body = post.request_body.RequestBody.content["application/json"].schema.validate(
                 payload,
                 configuration=self.schema_config
             )
@@ -98,7 +98,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             payload = (
                 12
             )
-            body = post.request_body.RequestBody.content["application/json"].schema(
+            body = post.request_body.RequestBody.content["application/json"].schema.validate(
                 payload,
                 configuration=self.schema_config
             )
@@ -128,7 +128,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             payload = (
                 13.7
             )
-            body = post.request_body.RequestBody.content["application/json"].schema(
+            body = post.request_body.RequestBody.content["application/json"].schema.validate(
                 payload,
                 configuration=self.schema_config
             )
@@ -159,7 +159,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 [
                 ]
             )
-            body = post.request_body.RequestBody.content["application/json"].schema(
+            body = post.request_body.RequestBody.content["application/json"].schema.validate(
                 payload,
                 configuration=self.schema_config
             )
@@ -189,7 +189,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             payload = (
                 None
             )
-            body = post.request_body.RequestBody.content["application/json"].schema(
+            body = post.request_body.RequestBody.content["application/json"].schema.validate(
                 payload,
                 configuration=self.schema_config
             )

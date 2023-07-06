@@ -20,7 +20,7 @@ class TestOneof(unittest.TestCase):
 
     def test_second_oneof_valid_passes(self):
         # second oneOf valid
-        Oneof(
+        Oneof.validate(
             2.5,
             configuration=self.configuration
         )
@@ -28,14 +28,14 @@ class TestOneof(unittest.TestCase):
     def test_both_oneof_valid_fails(self):
         # both oneOf valid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            Oneof(
+            Oneof.validate(
                 3,
                 configuration=self.configuration
             )
 
     def test_first_oneof_valid_passes(self):
         # first oneOf valid
-        Oneof(
+        Oneof.validate(
             1,
             configuration=self.configuration
         )
@@ -43,7 +43,7 @@ class TestOneof(unittest.TestCase):
     def test_neither_oneof_valid_fails(self):
         # neither oneOf valid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            Oneof(
+            Oneof.validate(
                 1.5,
                 configuration=self.configuration
             )

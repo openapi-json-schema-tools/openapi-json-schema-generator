@@ -20,7 +20,7 @@ class TestUriReferenceFormat(unittest.TestCase):
 
     def test_all_string_formats_ignore_objects_passes(self):
         # all string formats ignore objects
-        UriReferenceFormat(
+        UriReferenceFormat.validate(
             {
             },
             configuration=self.configuration
@@ -28,28 +28,28 @@ class TestUriReferenceFormat(unittest.TestCase):
 
     def test_all_string_formats_ignore_booleans_passes(self):
         # all string formats ignore booleans
-        UriReferenceFormat(
+        UriReferenceFormat.validate(
             False,
             configuration=self.configuration
         )
 
     def test_all_string_formats_ignore_integers_passes(self):
         # all string formats ignore integers
-        UriReferenceFormat(
+        UriReferenceFormat.validate(
             12,
             configuration=self.configuration
         )
 
     def test_all_string_formats_ignore_floats_passes(self):
         # all string formats ignore floats
-        UriReferenceFormat(
+        UriReferenceFormat.validate(
             13.7,
             configuration=self.configuration
         )
 
     def test_all_string_formats_ignore_arrays_passes(self):
         # all string formats ignore arrays
-        UriReferenceFormat(
+        UriReferenceFormat.validate(
             [
             ],
             configuration=self.configuration
@@ -57,7 +57,7 @@ class TestUriReferenceFormat(unittest.TestCase):
 
     def test_all_string_formats_ignore_nulls_passes(self):
         # all string formats ignore nulls
-        UriReferenceFormat(
+        UriReferenceFormat.validate(
             None,
             configuration=self.configuration
         )

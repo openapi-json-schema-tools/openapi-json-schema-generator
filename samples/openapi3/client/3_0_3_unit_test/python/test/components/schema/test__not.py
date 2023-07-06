@@ -20,7 +20,7 @@ class Test_Not(unittest.TestCase):
 
     def test_allowed_passes(self):
         # allowed
-        _Not(
+        _Not.validate(
             "foo",
             configuration=self.configuration
         )
@@ -28,7 +28,7 @@ class Test_Not(unittest.TestCase):
     def test_disallowed_fails(self):
         # disallowed
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            _Not(
+            _Not.validate(
                 1,
                 configuration=self.configuration
             )

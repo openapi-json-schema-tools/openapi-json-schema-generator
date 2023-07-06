@@ -20,7 +20,7 @@ class TestPatternIsNotAnchored(unittest.TestCase):
 
     def test_matches_a_substring_passes(self):
         # matches a substring
-        PatternIsNotAnchored(
+        PatternIsNotAnchored.validate(
             "xxaayy",
             configuration=self.configuration
         )

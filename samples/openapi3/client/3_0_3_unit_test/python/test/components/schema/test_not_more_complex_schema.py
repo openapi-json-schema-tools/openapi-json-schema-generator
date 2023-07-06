@@ -20,7 +20,7 @@ class TestNotMoreComplexSchema(unittest.TestCase):
 
     def test_other_match_passes(self):
         # other match
-        NotMoreComplexSchema(
+        NotMoreComplexSchema.validate(
             {
                 "foo":
                     1,
@@ -31,7 +31,7 @@ class TestNotMoreComplexSchema(unittest.TestCase):
     def test_mismatch_fails(self):
         # mismatch
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            NotMoreComplexSchema(
+            NotMoreComplexSchema.validate(
                 {
                     "foo":
                         "bar",
@@ -41,7 +41,7 @@ class TestNotMoreComplexSchema(unittest.TestCase):
 
     def test_match_passes(self):
         # match
-        NotMoreComplexSchema(
+        NotMoreComplexSchema.validate(
             1,
             configuration=self.configuration
         )

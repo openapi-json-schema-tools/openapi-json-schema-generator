@@ -20,7 +20,7 @@ class TestByNumber(unittest.TestCase):
 
     def test_45_is_multiple_of15_passes(self):
         # 4.5 is multiple of 1.5
-        ByNumber(
+        ByNumber.validate(
             4.5,
             configuration=self.configuration
         )
@@ -28,14 +28,14 @@ class TestByNumber(unittest.TestCase):
     def test_35_is_not_multiple_of15_fails(self):
         # 35 is not multiple of 1.5
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ByNumber(
+            ByNumber.validate(
                 35,
                 configuration=self.configuration
             )
 
     def test_zero_is_multiple_of_anything_passes(self):
         # zero is multiple of anything
-        ByNumber(
+        ByNumber.validate(
             0,
             configuration=self.configuration
         )

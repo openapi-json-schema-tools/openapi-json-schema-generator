@@ -150,7 +150,6 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
-            assert isinstance(api_response.body, self.response_body_schema)
             deserialized_response_body = self.response_body_schema(
                 payload,
                 configuration=self.schema_config
