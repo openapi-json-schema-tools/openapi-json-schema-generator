@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import forbidden_property
-Schema: typing_extensions.TypeAlias = forbidden_property.ForbiddenProperty[U]
+Schema: typing_extensions.TypeAlias = forbidden_property.ForbiddenProperty

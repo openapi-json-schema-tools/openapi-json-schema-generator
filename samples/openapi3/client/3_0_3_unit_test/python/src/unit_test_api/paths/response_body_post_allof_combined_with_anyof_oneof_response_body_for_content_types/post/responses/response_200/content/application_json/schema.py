@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import allof_combined_with_anyof_oneof
-Schema: typing_extensions.TypeAlias = allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof[U]
+Schema: typing_extensions.TypeAlias = allof_combined_with_anyof_oneof.AllofCombinedWithAnyofOneof

@@ -27,7 +27,7 @@ unit_test_api.paths.request_body_post_enum_with0_does_not_match_false_request_bo
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), decimal.Decimal, int, float] | required |
+[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), float, int] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -46,7 +46,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[EnumWith0DoesNotMatchFalse](../../components/schema/enum_with0_does_not_match_false.md) | decimal.Decimal, int, float | decimal.Decimal |
+[EnumWith0DoesNotMatchFalse](../../components/schema/enum_with0_does_not_match_false.md) | float, int | float, int |
 
 ## Return Types
 

@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import null_type_matches_only_the_null_object
-Schema: typing_extensions.TypeAlias = null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject[U]
+Schema: typing_extensions.TypeAlias = null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject

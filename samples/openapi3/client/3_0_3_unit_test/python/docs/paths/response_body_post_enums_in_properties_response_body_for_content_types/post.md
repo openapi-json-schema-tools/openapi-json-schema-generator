@@ -63,7 +63,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[EnumsInProperties](../../components/schema/enums_in_properties.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[EnumsInProperties](../../components/schema/enums_in_properties.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 ## Servers
 

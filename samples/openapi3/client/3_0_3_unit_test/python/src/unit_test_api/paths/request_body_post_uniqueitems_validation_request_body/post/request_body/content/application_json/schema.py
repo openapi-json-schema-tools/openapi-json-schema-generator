@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import uniqueitems_validation
-Schema: typing_extensions.TypeAlias = uniqueitems_validation.UniqueitemsValidation[U]
+Schema: typing_extensions.TypeAlias = uniqueitems_validation.UniqueitemsValidation

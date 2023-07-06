@@ -63,7 +63,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[RefInAdditionalproperties](../../components/schema/ref_in_additionalproperties.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[RefInAdditionalproperties](../../components/schema/ref_in_additionalproperties.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 ## Servers
 

@@ -57,20 +57,12 @@ Properties2 = typing_extensions.TypedDict(
 
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
-    def Ab(self) -> str:
-        return self.__getitem__("Ab")
-    
-    @property
-    def aB(self) -> str:
-        return self.__getitem__("aB")
-    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["1"]) -> str:
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["A-B"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["aB"]) -> str:
         ...
     
     @typing.overload
@@ -78,7 +70,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["aB"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["A-B"]) -> str:
         ...
     
     @typing.overload
@@ -89,9 +81,9 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         self,
         name: typing.Union[
             typing_extensions.Literal["1"],
-            typing_extensions.Literal["A-B"],
-            typing_extensions.Literal["Ab"],
             typing_extensions.Literal["aB"],
+            typing_extensions.Literal["Ab"],
+            typing_extensions.Literal["A-B"],
             typing_extensions.Literal["self"],
         ]
     ):
@@ -104,11 +96,12 @@ QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {
         "1": str,
-        "A-B": str,
-        "Ab": str,
         "aB": str,
+        "Ab": str,
+        "A-B": str,
         "self": str,
-    }
+    },
+    total=False
 )
 
 
@@ -117,13 +110,6 @@ class QueryParameters(
     schemas.DictSchema[QueryParametersDict]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
-    required: typing.FrozenSet[str] = frozenset({
-        "1",
-        "A-B",
-        "Ab",
-        "aB",
-        "self",
-    })
     properties: Properties2 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties2)) # type: ignore
     additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
     type_to_output_cls: typing.Mapping[
@@ -507,15 +493,16 @@ class BaseApi(api_client.Api):
             PathParametersDictInput,
             PathParametersDict
         ],
-        query_params: typing.Union[
-            QueryParametersDictInput,
-            QueryParametersDict
-        ],
         body: typing.Union[
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
             schemas.OUTPUT_BASE_TYPES,
             schemas.Unset
         ] = schemas.unset,
+        query_params: typing.Union[
+            QueryParametersDictInput,
+            QueryParametersDict,
+            None
+        ] = None,
         header_params: typing.Union[
             HeaderParametersDictInput,
             HeaderParametersDict,
@@ -541,15 +528,16 @@ class BaseApi(api_client.Api):
             PathParametersDictInput,
             PathParametersDict
         ],
-        query_params: typing.Union[
-            QueryParametersDictInput,
-            QueryParametersDict
-        ],
         body: typing.Union[
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
             schemas.OUTPUT_BASE_TYPES,
             schemas.Unset
         ] = schemas.unset,
+        query_params: typing.Union[
+            QueryParametersDictInput,
+            QueryParametersDict,
+            None
+        ] = None,
         header_params: typing.Union[
             HeaderParametersDictInput,
             HeaderParametersDict,
@@ -574,15 +562,16 @@ class BaseApi(api_client.Api):
             PathParametersDictInput,
             PathParametersDict
         ],
-        query_params: typing.Union[
-            QueryParametersDictInput,
-            QueryParametersDict
-        ],
         body: typing.Union[
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
             schemas.OUTPUT_BASE_TYPES,
             schemas.Unset
         ] = schemas.unset,
+        query_params: typing.Union[
+            QueryParametersDictInput,
+            QueryParametersDict,
+            None
+        ] = None,
         header_params: typing.Union[
             HeaderParametersDictInput,
             HeaderParametersDict,
@@ -607,7 +596,8 @@ class BaseApi(api_client.Api):
             class instances
         """
         path_params = PathParameters.validate(path_params)
-        query_params = QueryParameters.validate(query_params)
+        if query_params is not None:
+            query_params = QueryParameters.validate(query_params)
         if header_params is not None:
             header_params = HeaderParameters.validate(header_params)
         if cookie_params is not None:

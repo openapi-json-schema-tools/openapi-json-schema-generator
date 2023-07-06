@@ -10,5 +10,4 @@
 from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
-DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
-ObjectTypeMatchesObjects: typing_extensions.TypeAlias = schemas.DictSchema[U]
+ObjectTypeMatchesObjects: typing_extensions.TypeAlias = schemas.DictSchema

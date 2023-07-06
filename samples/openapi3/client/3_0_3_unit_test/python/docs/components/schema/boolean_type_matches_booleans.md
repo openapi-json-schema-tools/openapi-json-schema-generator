@@ -4,6 +4,6 @@ unit_test_api.components.schema.boolean_type_matches_booleans
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-bool | BoolClass |  |
+bool | bool |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

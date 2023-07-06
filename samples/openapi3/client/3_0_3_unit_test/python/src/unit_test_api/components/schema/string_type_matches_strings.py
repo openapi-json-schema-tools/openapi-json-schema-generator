@@ -10,4 +10,4 @@
 from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
-StringTypeMatchesStrings: typing_extensions.TypeAlias = schemas.StrSchema[U]
+StringTypeMatchesStrings: typing_extensions.TypeAlias = schemas.StrSchema

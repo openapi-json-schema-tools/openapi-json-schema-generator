@@ -12,7 +12,7 @@ from .content.application_json import schema as application_json_schema
 @dataclasses.dataclass
 class ApiResponseFor200(api_response.ApiResponse):
     response: urllib3.HTTPResponse
-    body: application_json_schema.Schema[tuple]
+    body: application_json_schema.array_type_matches_arrays.ArrayTypeMatchesArraysTuple
     headers: schemas.Unset = schemas.unset
 
 
@@ -21,7 +21,7 @@ class ResponseFor200(api_client.OpenApiResponse[ApiResponseFor200]):
 
 
     class ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = application_json_schema.Schema[tuple]
+        schema: typing_extensions.TypeAlias = application_json_schema.Schema
     Content = typing_extensions.TypedDict(
         'Content',
         {

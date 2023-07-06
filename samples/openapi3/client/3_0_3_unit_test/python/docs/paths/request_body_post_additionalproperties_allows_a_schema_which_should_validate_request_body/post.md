@@ -27,7 +27,7 @@ unit_test_api.paths.request_body_post_additionalproperties_allows_a_schema_which
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), dict, frozendict.frozendict] | required |
+[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), dict, schemas.immutabledict] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -46,7 +46,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[AdditionalpropertiesAllowsASchemaWhichShouldValidate](../../components/schema/additionalproperties_allows_a_schema_which_should_validate.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[AdditionalpropertiesAllowsASchemaWhichShouldValidate](../../components/schema/additionalproperties_allows_a_schema_which_should_validate.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 ## Return Types
 

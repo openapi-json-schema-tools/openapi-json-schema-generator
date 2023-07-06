@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import enum_with_escaped_characters
-Schema: typing_extensions.TypeAlias = enum_with_escaped_characters.EnumWithEscapedCharacters[U]
+Schema: typing_extensions.TypeAlias = enum_with_escaped_characters.EnumWithEscapedCharacters

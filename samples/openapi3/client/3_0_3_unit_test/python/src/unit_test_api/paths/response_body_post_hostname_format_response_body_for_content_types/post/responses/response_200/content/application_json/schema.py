@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import hostname_format
-Schema: typing_extensions.TypeAlias = hostname_format.HostnameFormat[U]
+Schema: typing_extensions.TypeAlias = hostname_format.HostnameFormat

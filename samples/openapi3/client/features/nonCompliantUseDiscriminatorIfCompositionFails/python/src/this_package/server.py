@@ -20,16 +20,15 @@ class ServerWithoutVariables(abc.ABC):
 @dataclasses.dataclass
 class ServerWithVariables(abc.ABC):
     _url: str
-    variables: schemas.DictSchema
-    variables_cls: typing.Type[schemas.DictSchema]
+    variables: schemas.immutabledict[str, str]
+    variables_schema: typing.Type[schemas.DictSchema]
     url: str = dataclasses.field(init=False)
 
     def __post_init__(self):
         url = self._url
-        assert isinstance (self.variables, self.variables_cls)
+        assert isinstance (self.variables, self.variables_schema().type_to_output_cls[schemas.immutabledict])
         for (key, value) in self.variables.items():
-            cast_value = typing.cast(str, value)
-            url = url.replace("{" + key + "}", cast_value)
+            url = url.replace("{" + key + "}", value)
         self.url = url
 
 from this_package import schemas

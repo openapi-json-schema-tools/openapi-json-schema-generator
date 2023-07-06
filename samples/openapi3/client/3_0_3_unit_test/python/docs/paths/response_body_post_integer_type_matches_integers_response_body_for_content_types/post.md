@@ -63,7 +63,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[IntegerTypeMatchesIntegers](../../components/schema/integer_type_matches_integers.md) | decimal.Decimal, int | decimal.Decimal |
+[IntegerTypeMatchesIntegers](../../components/schema/integer_type_matches_integers.md) | int | int |
 
 ## Servers
 
