@@ -12,6 +12,7 @@ from petstore_api.shared_imports.operation_imports import *
 from .. import path
 from .responses import response_200
 from . import request_body
+from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.request_body.content.application_json import schema as request_body_application_json_schema
 from .parameters import (
     parameter_0,
     parameter_1,

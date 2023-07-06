@@ -15,6 +15,7 @@ from .responses import (
     response_404,
 )
 from . import request_body
+from petstore_api.paths.fake.get.request_body.content.application_x_www_form_urlencoded import schema as request_body_application_x_www_form_urlencoded_schema
 from .parameters import (
     parameter_0,
     parameter_1,

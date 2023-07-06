@@ -3,7 +3,7 @@
 {{> _helper_header }}
 
 {{#with operation}}
-    {{#or queryParameters headerParameters pathParameters cookieParameters}}
+    {{#or queryParameters headerParameters pathParameters cookieParameters requestBodySchemas}}
 from __future__ import annotations
 from {{packageName}}.shared_imports.schema_imports import *
     {{/or}}
@@ -49,6 +49,9 @@ from .responses import (
 {{/if}}
 {{#if requestBody}}
 from . import request_body
+{{#each requestBodySchemas}}
+from {{refInfo.refModuleLocation}} import {{refInfo.refModule}} as {{jsonPathPiece.snakeCase}}
+{{/each}}
 {{/if}}
 {{#gt allParams.size 0}}
     {{#eq allParams.size 1}}

@@ -12,6 +12,7 @@ from petstore_api.shared_imports.operation_imports import *
 from .. import path
 from .responses import response_405
 from . import request_body
+from petstore_api.paths.pet_pet_id.post.request_body.content.application_x_www_form_urlencoded import schema as request_body_application_x_www_form_urlencoded_schema
 from .parameters import parameter_0
 from .security import (
     security_requirement_object_0,

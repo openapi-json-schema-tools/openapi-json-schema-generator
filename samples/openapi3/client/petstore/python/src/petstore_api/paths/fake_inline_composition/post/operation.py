@@ -12,6 +12,8 @@ from petstore_api.shared_imports.operation_imports import *
 from .. import path
 from .responses import response_200
 from . import request_body
+from petstore_api.paths.fake_inline_composition.post.request_body.content.application_json import schema as request_body_application_json_schema
+from petstore_api.paths.fake_inline_composition.post.request_body.content.multipart_form_data import schema as request_body_multipart_form_data_schema
 from .parameters import (
     parameter_0,
     parameter_1,

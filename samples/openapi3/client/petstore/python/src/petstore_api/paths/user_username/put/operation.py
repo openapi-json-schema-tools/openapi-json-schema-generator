@@ -15,6 +15,7 @@ from .responses import (
     response_404,
 )
 from . import request_body
+from petstore_api.components.schema import user as request_body_application_json_schema
 from .parameters import parameter_0
 
 

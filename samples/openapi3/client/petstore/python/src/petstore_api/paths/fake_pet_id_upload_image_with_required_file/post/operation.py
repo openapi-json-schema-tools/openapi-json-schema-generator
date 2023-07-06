@@ -12,6 +12,7 @@ from petstore_api.shared_imports.operation_imports import *
 from .. import path
 from .responses import response_200
 from . import request_body
+from petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.request_body.content.multipart_form_data import schema as request_body_multipart_form_data_schema
 from .parameters import parameter_0
 from .security import security_requirement_object_0
 
