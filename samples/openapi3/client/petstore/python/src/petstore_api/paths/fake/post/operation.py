@@ -42,8 +42,8 @@ class BaseApi(api_client.Api):
     def _endpoint_parameters(
         self,
         body: typing.Union[
-            request_body.content.application_x_www_form_urlencoded.schema.SchemaDictInput,
-            request_body.content.application_x_www_form_urlencoded.schema.SchemaDict,
+            request_body_application_x_www_form_urlencoded_schema.SchemaDictInput,
+            request_body_application_x_www_form_urlencoded_schema.SchemaDict,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = "application/x-www-form-urlencoded",
@@ -58,8 +58,8 @@ class BaseApi(api_client.Api):
     def _endpoint_parameters(
         self,
         body: typing.Union[
-            request_body.content.application_x_www_form_urlencoded.schema.SchemaDictInput,
-            request_body.content.application_x_www_form_urlencoded.schema.SchemaDict,
+            request_body_application_x_www_form_urlencoded_schema.SchemaDictInput,
+            request_body_application_x_www_form_urlencoded_schema.SchemaDict,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = "application/x-www-form-urlencoded",
@@ -73,8 +73,8 @@ class BaseApi(api_client.Api):
     def _endpoint_parameters(
         self,
         body: typing.Union[
-            request_body.content.application_x_www_form_urlencoded.schema.SchemaDictInput,
-            request_body.content.application_x_www_form_urlencoded.schema.SchemaDict,
+            request_body_application_x_www_form_urlencoded_schema.SchemaDictInput,
+            request_body_application_x_www_form_urlencoded_schema.SchemaDict,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = "application/x-www-form-urlencoded",

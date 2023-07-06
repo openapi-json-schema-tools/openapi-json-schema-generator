@@ -1,11 +1,7 @@
 {{#if requestBody}}
-    {{#with requestBody}}
-        {{#if refInfo}}
-{{> paths/path/verb/_helper_operation_args_body fullRefModule="" requiredValue=true }}
-        {{else}}
+    {{#if requestBody.getSelfOrDeepestRef.required}}
 {{> paths/path/verb/_helper_operation_args_body fullRefModule=null requiredValue=true }}
-        {{/if}}
-    {{/with}}
+    {{/if}}
 {{/if}}
 {{#and pathParameters pathParameters.requiredProperties}}
 path_params: typing.Union[

@@ -41,8 +41,8 @@ class BaseApi(api_client.Api):
     def _classname(
         self,
         body: typing.Union[
-            request_body.request_body_client.content.application_json.schema.client.ClientDictInput,
-            request_body.request_body_client.content.application_json.schema.client.ClientDict,
+            request_body_application_json_schema.ClientDictInput,
+            request_body_application_json_schema.ClientDict,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
@@ -57,8 +57,8 @@ class BaseApi(api_client.Api):
     def _classname(
         self,
         body: typing.Union[
-            request_body.request_body_client.content.application_json.schema.client.ClientDictInput,
-            request_body.request_body_client.content.application_json.schema.client.ClientDict,
+            request_body_application_json_schema.ClientDictInput,
+            request_body_application_json_schema.ClientDict,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
@@ -72,8 +72,8 @@ class BaseApi(api_client.Api):
     def _classname(
         self,
         body: typing.Union[
-            request_body.request_body_client.content.application_json.schema.client.ClientDictInput,
-            request_body.request_body_client.content.application_json.schema.client.ClientDict,
+            request_body_application_json_schema.ClientDictInput,
+            request_body_application_json_schema.ClientDict,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,

@@ -115,8 +115,8 @@ class BaseApi(api_client.Api):
     def _update_user(
         self,
         body: typing.Union[
-            request_body.content.application_json.schema.user.UserDictInput,
-            request_body.content.application_json.schema.user.UserDict,
+            request_body_application_json_schema.UserDictInput,
+            request_body_application_json_schema.UserDict,
         ],
         path_params: typing.Union[
             PathParametersDictInput,
@@ -132,8 +132,8 @@ class BaseApi(api_client.Api):
     def _update_user(
         self,
         body: typing.Union[
-            request_body.content.application_json.schema.user.UserDictInput,
-            request_body.content.application_json.schema.user.UserDict,
+            request_body_application_json_schema.UserDictInput,
+            request_body_application_json_schema.UserDict,
         ],
         path_params: typing.Union[
             PathParametersDictInput,
@@ -149,8 +149,8 @@ class BaseApi(api_client.Api):
     def _update_user(
         self,
         body: typing.Union[
-            request_body.content.application_json.schema.user.UserDictInput,
-            request_body.content.application_json.schema.user.UserDict,
+            request_body_application_json_schema.UserDictInput,
+            request_body_application_json_schema.UserDict,
         ],
         path_params: typing.Union[
             PathParametersDictInput,

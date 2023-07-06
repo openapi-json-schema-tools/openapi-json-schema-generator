@@ -36,8 +36,8 @@ class BaseApi(api_client.Api):
     def _object_model_with_ref_props(
         self,
         body: typing.Union[
-            request_body.content.application_json.schema.object_model_with_ref_props.ObjectModelWithRefPropsDictInput,
-            request_body.content.application_json.schema.object_model_with_ref_props.ObjectModelWithRefPropsDict,
+            request_body_application_json_schema.ObjectModelWithRefPropsDictInput,
+            request_body_application_json_schema.ObjectModelWithRefPropsDict,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -52,8 +52,8 @@ class BaseApi(api_client.Api):
     def _object_model_with_ref_props(
         self,
         body: typing.Union[
-            request_body.content.application_json.schema.object_model_with_ref_props.ObjectModelWithRefPropsDictInput,
-            request_body.content.application_json.schema.object_model_with_ref_props.ObjectModelWithRefPropsDict,
+            request_body_application_json_schema.ObjectModelWithRefPropsDictInput,
+            request_body_application_json_schema.ObjectModelWithRefPropsDict,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -67,8 +67,8 @@ class BaseApi(api_client.Api):
     def _object_model_with_ref_props(
         self,
         body: typing.Union[
-            request_body.content.application_json.schema.object_model_with_ref_props.ObjectModelWithRefPropsDictInput,
-            request_body.content.application_json.schema.object_model_with_ref_props.ObjectModelWithRefPropsDict,
+            request_body_application_json_schema.ObjectModelWithRefPropsDictInput,
+            request_body_application_json_schema.ObjectModelWithRefPropsDict,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",

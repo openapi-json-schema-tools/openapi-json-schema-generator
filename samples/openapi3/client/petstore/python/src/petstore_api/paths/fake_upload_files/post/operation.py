@@ -36,8 +36,8 @@ class BaseApi(api_client.Api):
     def _upload_files(
         self,
         body: typing.Union[
-            request_body.content.multipart_form_data.schema.SchemaDictInput,
-            request_body.content.multipart_form_data.schema.SchemaDict,
+            request_body_multipart_form_data_schema.SchemaDictInput,
+            request_body_multipart_form_data_schema.SchemaDict,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["multipart/form-data"] = "multipart/form-data",
@@ -52,8 +52,8 @@ class BaseApi(api_client.Api):
     def _upload_files(
         self,
         body: typing.Union[
-            request_body.content.multipart_form_data.schema.SchemaDictInput,
-            request_body.content.multipart_form_data.schema.SchemaDict,
+            request_body_multipart_form_data_schema.SchemaDictInput,
+            request_body_multipart_form_data_schema.SchemaDict,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["multipart/form-data"] = "multipart/form-data",
@@ -67,8 +67,8 @@ class BaseApi(api_client.Api):
     def _upload_files(
         self,
         body: typing.Union[
-            request_body.content.multipart_form_data.schema.SchemaDictInput,
-            request_body.content.multipart_form_data.schema.SchemaDict,
+            request_body_multipart_form_data_schema.SchemaDictInput,
+            request_body_multipart_form_data_schema.SchemaDict,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["multipart/form-data"] = "multipart/form-data",

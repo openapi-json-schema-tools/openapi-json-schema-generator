@@ -360,8 +360,8 @@ class Items2(
 
 class ArrayAndItemsNullablePropTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> typing.Union[
-       None,
-       schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        None,
+        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
         return super().__getitem__(name)
 
@@ -460,8 +460,8 @@ class Items3(
 
 class ArrayItemsNullableTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> typing.Union[
-       None,
-       schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        None,
+        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
         return super().__getitem__(name)
 
@@ -609,8 +609,8 @@ class AdditionalProperties2(
 class ObjectAndItemsNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __getitem__(self, name: str) -> typing.Union[
-       None,
-       schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        None,
+        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
@@ -712,8 +712,8 @@ class AdditionalProperties3(
 class ObjectItemsNullableDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __getitem__(self, name: str) -> typing.Union[
-       None,
-       schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        None,
+        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
@@ -782,57 +782,57 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["integer_prop"]) -> typing.Union[
-       None,
-       int,
+        None,
+        int,
     ]:
         ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["number_prop"]) -> typing.Union[
-       None,
-       typing.Union[float, int],
+        None,
+        typing.Union[float, int],
     ]:
         ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["boolean_prop"]) -> typing.Union[
-       None,
-       bool,
+        None,
+        bool,
     ]:
         ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["string_prop"]) -> typing.Union[
-       None,
-       str,
+        None,
+        str,
     ]:
         ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["date_prop"]) -> typing.Union[
-       None,
-       str,
+        None,
+        str,
     ]:
         ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["datetime_prop"]) -> typing.Union[
-       None,
-       str,
+        None,
+        str,
     ]:
         ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["array_nullable_prop"]) -> typing.Union[
-       None,
-       ArrayNullablePropTuple,
+        None,
+        ArrayNullablePropTuple,
     ]:
         ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["array_and_items_nullable_prop"]) -> typing.Union[
-       None,
-       ArrayAndItemsNullablePropTuple,
+        None,
+        ArrayAndItemsNullablePropTuple,
     ]:
         ...
     
@@ -842,15 +842,15 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["object_nullable_prop"]) -> typing.Union[
-       None,
-       ObjectNullablePropDict,
+        None,
+        ObjectNullablePropDict,
     ]:
         ...
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["object_and_items_nullable_prop"]) -> typing.Union[
-       None,
-       ObjectAndItemsNullablePropDict,
+        None,
+        ObjectAndItemsNullablePropDict,
     ]:
         ...
     
@@ -860,8 +860,8 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: str) -> typing.Union[
-       None,
-       schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        None,
+        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
         ...
     

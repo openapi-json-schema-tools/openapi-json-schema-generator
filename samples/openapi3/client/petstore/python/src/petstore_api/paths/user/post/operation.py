@@ -24,8 +24,8 @@ class BaseApi(api_client.Api):
     def _create_user(
         self,
         body: typing.Union[
-            request_body.content.application_json.schema.user.UserDictInput,
-            request_body.content.application_json.schema.user.UserDict,
+            request_body_application_json_schema.UserDictInput,
+            request_body_application_json_schema.UserDict,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
@@ -38,8 +38,8 @@ class BaseApi(api_client.Api):
     def _create_user(
         self,
         body: typing.Union[
-            request_body.content.application_json.schema.user.UserDictInput,
-            request_body.content.application_json.schema.user.UserDict,
+            request_body_application_json_schema.UserDictInput,
+            request_body_application_json_schema.UserDict,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
@@ -51,8 +51,8 @@ class BaseApi(api_client.Api):
     def _create_user(
         self,
         body: typing.Union[
-            request_body.content.application_json.schema.user.UserDictInput,
-            request_body.content.application_json.schema.user.UserDict,
+            request_body_application_json_schema.UserDictInput,
+            request_body_application_json_schema.UserDict,
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,

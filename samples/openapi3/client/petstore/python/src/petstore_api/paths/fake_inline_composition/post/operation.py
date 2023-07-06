@@ -144,8 +144,8 @@ class BaseApi(api_client.Api):
         body: typing.Union[
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
             schemas.OUTPUT_BASE_TYPES,
-            request_body.content.multipart_form_data.schema.SchemaDictInput,
-            request_body.content.multipart_form_data.schema.SchemaDict,
+            request_body_multipart_form_data_schema.SchemaDictInput,
+            request_body_multipart_form_data_schema.SchemaDict,
             schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
@@ -170,8 +170,8 @@ class BaseApi(api_client.Api):
         body: typing.Union[
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
             schemas.OUTPUT_BASE_TYPES,
-            request_body.content.multipart_form_data.schema.SchemaDictInput,
-            request_body.content.multipart_form_data.schema.SchemaDict,
+            request_body_multipart_form_data_schema.SchemaDictInput,
+            request_body_multipart_form_data_schema.SchemaDict,
             schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
@@ -195,8 +195,8 @@ class BaseApi(api_client.Api):
         body: typing.Union[
             schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
             schemas.OUTPUT_BASE_TYPES,
-            request_body.content.multipart_form_data.schema.SchemaDictInput,
-            request_body.content.multipart_form_data.schema.SchemaDict,
+            request_body_multipart_form_data_schema.SchemaDictInput,
+            request_body_multipart_form_data_schema.SchemaDict,
             schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[

@@ -238,8 +238,8 @@ class BaseApi(api_client.Api):
     def _enum_parameters(
         self,
         body: typing.Union[
-            request_body.content.application_x_www_form_urlencoded.schema.SchemaDictInput,
-            request_body.content.application_x_www_form_urlencoded.schema.SchemaDict,
+            request_body_application_x_www_form_urlencoded_schema.SchemaDictInput,
+            request_body_application_x_www_form_urlencoded_schema.SchemaDict,
             schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
@@ -264,8 +264,8 @@ class BaseApi(api_client.Api):
     def _enum_parameters(
         self,
         body: typing.Union[
-            request_body.content.application_x_www_form_urlencoded.schema.SchemaDictInput,
-            request_body.content.application_x_www_form_urlencoded.schema.SchemaDict,
+            request_body_application_x_www_form_urlencoded_schema.SchemaDictInput,
+            request_body_application_x_www_form_urlencoded_schema.SchemaDict,
             schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
@@ -289,8 +289,8 @@ class BaseApi(api_client.Api):
     def _enum_parameters(
         self,
         body: typing.Union[
-            request_body.content.application_x_www_form_urlencoded.schema.SchemaDictInput,
-            request_body.content.application_x_www_form_urlencoded.schema.SchemaDict,
+            request_body_application_x_www_form_urlencoded_schema.SchemaDictInput,
+            request_body_application_x_www_form_urlencoded_schema.SchemaDict,
             schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[

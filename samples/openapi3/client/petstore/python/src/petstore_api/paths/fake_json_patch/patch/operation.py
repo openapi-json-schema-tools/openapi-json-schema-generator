@@ -32,8 +32,8 @@ class BaseApi(api_client.Api):
     def _json_patch(
         self,
         body: typing.Union[
-            request_body.content.application_json_patchjson.schema.json_patch_request.JSONPatchRequestTupleInput,
-            request_body.content.application_json_patchjson.schema.json_patch_request.JSONPatchRequestTuple,
+            request_body_application_json_patchjson_schema.JSONPatchRequestTupleInput,
+            request_body_application_json_patchjson_schema.JSONPatchRequestTuple,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json-patch+json"] = "application/json-patch+json",
@@ -47,8 +47,8 @@ class BaseApi(api_client.Api):
     def _json_patch(
         self,
         body: typing.Union[
-            request_body.content.application_json_patchjson.schema.json_patch_request.JSONPatchRequestTupleInput,
-            request_body.content.application_json_patchjson.schema.json_patch_request.JSONPatchRequestTuple,
+            request_body_application_json_patchjson_schema.JSONPatchRequestTupleInput,
+            request_body_application_json_patchjson_schema.JSONPatchRequestTuple,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json-patch+json"] = "application/json-patch+json",
@@ -61,8 +61,8 @@ class BaseApi(api_client.Api):
     def _json_patch(
         self,
         body: typing.Union[
-            request_body.content.application_json_patchjson.schema.json_patch_request.JSONPatchRequestTupleInput,
-            request_body.content.application_json_patchjson.schema.json_patch_request.JSONPatchRequestTuple,
+            request_body_application_json_patchjson_schema.JSONPatchRequestTupleInput,
+            request_body_application_json_patchjson_schema.JSONPatchRequestTuple,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json-patch+json"] = "application/json-patch+json",

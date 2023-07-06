@@ -3,7 +3,7 @@
 {{> components/schemas/_helper_schema_output_type_single }}
     {{else}}
 {{#eq mode "getitem"}}def __getitem__(self, name: {{#if literal}}typing_extensions.Literal["{{{key}}}"]{{else}}{{key}}{{/if}}) -> {{else}}{{#eq mode "def_property"}}def {{@key.original}}(self) -> {{else}}{{#eq mode "typehint"}}{{key}}: {{#eq key "schema"}}typing_extensions.TypeAlias = {{/eq}}{{/eq}}{{/eq}}{{/eq}}typing.Union[
-   {{> components/schemas/_helper_schema_output_type_base endChar="," }}
+    {{> components/schemas/_helper_schema_output_type_base endChar="," }}
 ]{{endChar}}
     {{/eq}}
 {{else}}

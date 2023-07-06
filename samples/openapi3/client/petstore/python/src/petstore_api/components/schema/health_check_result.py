@@ -57,8 +57,8 @@ class HealthCheckResultDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["NullableMessage"]) -> typing.Union[
-       None,
-       str,
+        None,
+        str,
     ]:
         ...
     

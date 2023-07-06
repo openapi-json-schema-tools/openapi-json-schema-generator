@@ -1,19 +1,11 @@
-{{#if refInfo}}
+body: typing.Union[
+{{#each requestBodySchemas}}
     {{#with refInfo.ref}}
-        {{#eq fullRefModule "" }}
-{{> paths/path/verb/_helper_operation_args_body fullRefModule=../refInfo.refModule }}
-        {{else}}
-{{> paths/path/verb/_helper_operation_args_body fullRefModule=(join fullRefModule ../refInfo.refModule ".") }}
-        {{/eq}}
+    {{> components/schemas/_helper_schema_input_type fullRefModule=../jsonPathPiece.snakeCase endChar="," }}
+    {{> components/schemas/_helper_schema_output_type mode="unprefixed" fullRefModule=../jsonPathPiece.snakeCase endChar="," }}
     {{/with}}
-{{else}}
-    {{#if requiredValue}}
-        {{#if required}}
-{{> paths/path/verb/_helper_operation_args_body_nonref }}
-        {{/if}}
-    {{else}}
-        {{#unless required}}
-{{> paths/path/verb/_helper_operation_args_body_nonref }}
-        {{/unless}}
-    {{/if}}
-{{/if}}
+{{/each}}
+{{#unless requiredValue}}
+    schemas.Unset
+{{/unless}}
+]{{#unless requiredValue}} = schemas.unset{{/unless}},

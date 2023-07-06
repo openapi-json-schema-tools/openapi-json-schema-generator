@@ -50,10 +50,10 @@ class BaseApi(api_client.Api):
     def _update_pet(
         self,
         body: typing.Union[
-            request_body.request_body_pet.content.application_json.schema.pet.PetDictInput,
-            request_body.request_body_pet.content.application_json.schema.pet.PetDict,
-            request_body.request_body_pet.content.application_xml.schema.ref_pet.pet.PetDictInput,
-            request_body.request_body_pet.content.application_xml.schema.ref_pet.pet.PetDict,
+            request_body_application_json_schema.PetDictInput,
+            request_body_application_json_schema.PetDict,
+            request_body_application_xml_schema.PetDictInput,
+            request_body_application_xml_schema.PetDict,
         ],
         content_type: typing_extensions.Literal[
             "application/json",
@@ -69,10 +69,10 @@ class BaseApi(api_client.Api):
     def _update_pet(
         self,
         body: typing.Union[
-            request_body.request_body_pet.content.application_json.schema.pet.PetDictInput,
-            request_body.request_body_pet.content.application_json.schema.pet.PetDict,
-            request_body.request_body_pet.content.application_xml.schema.ref_pet.pet.PetDictInput,
-            request_body.request_body_pet.content.application_xml.schema.ref_pet.pet.PetDict,
+            request_body_application_json_schema.PetDictInput,
+            request_body_application_json_schema.PetDict,
+            request_body_application_xml_schema.PetDictInput,
+            request_body_application_xml_schema.PetDict,
         ],
         content_type: typing_extensions.Literal[
             "application/json",
@@ -88,10 +88,10 @@ class BaseApi(api_client.Api):
     def _update_pet(
         self,
         body: typing.Union[
-            request_body.request_body_pet.content.application_json.schema.pet.PetDictInput,
-            request_body.request_body_pet.content.application_json.schema.pet.PetDict,
-            request_body.request_body_pet.content.application_xml.schema.ref_pet.pet.PetDictInput,
-            request_body.request_body_pet.content.application_xml.schema.ref_pet.pet.PetDict,
+            request_body_application_json_schema.PetDictInput,
+            request_body_application_json_schema.PetDict,
+            request_body_application_xml_schema.PetDictInput,
+            request_body_application_xml_schema.PetDict,
         ],
         content_type: typing_extensions.Literal[
             "application/json",

@@ -36,8 +36,8 @@ class BaseApi(api_client.Api):
     def _array_model(
         self,
         body: typing.Union[
-            request_body.content.application_json.schema.animal_farm.AnimalFarmTupleInput,
-            request_body.content.application_json.schema.animal_farm.AnimalFarmTuple,
+            request_body_application_json_schema.AnimalFarmTupleInput,
+            request_body_application_json_schema.AnimalFarmTuple,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -52,8 +52,8 @@ class BaseApi(api_client.Api):
     def _array_model(
         self,
         body: typing.Union[
-            request_body.content.application_json.schema.animal_farm.AnimalFarmTupleInput,
-            request_body.content.application_json.schema.animal_farm.AnimalFarmTuple,
+            request_body_application_json_schema.AnimalFarmTupleInput,
+            request_body_application_json_schema.AnimalFarmTuple,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -67,8 +67,8 @@ class BaseApi(api_client.Api):
     def _array_model(
         self,
         body: typing.Union[
-            request_body.content.application_json.schema.animal_farm.AnimalFarmTupleInput,
-            request_body.content.application_json.schema.animal_farm.AnimalFarmTuple,
+            request_body_application_json_schema.AnimalFarmTupleInput,
+            request_body_application_json_schema.AnimalFarmTuple,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",

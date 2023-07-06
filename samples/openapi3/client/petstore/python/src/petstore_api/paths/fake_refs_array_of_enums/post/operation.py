@@ -36,8 +36,8 @@ class BaseApi(api_client.Api):
     def _array_of_enums(
         self,
         body: typing.Union[
-            request_body.content.application_json.schema.array_of_enums.ArrayOfEnumsTupleInput,
-            request_body.content.application_json.schema.array_of_enums.ArrayOfEnumsTuple,
+            request_body_application_json_schema.ArrayOfEnumsTupleInput,
+            request_body_application_json_schema.ArrayOfEnumsTuple,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -52,8 +52,8 @@ class BaseApi(api_client.Api):
     def _array_of_enums(
         self,
         body: typing.Union[
-            request_body.content.application_json.schema.array_of_enums.ArrayOfEnumsTupleInput,
-            request_body.content.application_json.schema.array_of_enums.ArrayOfEnumsTuple,
+            request_body_application_json_schema.ArrayOfEnumsTupleInput,
+            request_body_application_json_schema.ArrayOfEnumsTuple,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -67,8 +67,8 @@ class BaseApi(api_client.Api):
     def _array_of_enums(
         self,
         body: typing.Union[
-            request_body.content.application_json.schema.array_of_enums.ArrayOfEnumsTupleInput,
-            request_body.content.application_json.schema.array_of_enums.ArrayOfEnumsTuple,
+            request_body_application_json_schema.ArrayOfEnumsTupleInput,
+            request_body_application_json_schema.ArrayOfEnumsTuple,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",

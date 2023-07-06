@@ -36,8 +36,8 @@ class BaseApi(api_client.Api):
     def _additional_properties_with_array_of_enums(
         self,
         body: typing.Union[
-            request_body.content.application_json.schema.additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnumsDictInput,
-            request_body.content.application_json.schema.additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnumsDict,
+            request_body_application_json_schema.AdditionalPropertiesWithArrayOfEnumsDictInput,
+            request_body_application_json_schema.AdditionalPropertiesWithArrayOfEnumsDict,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -52,8 +52,8 @@ class BaseApi(api_client.Api):
     def _additional_properties_with_array_of_enums(
         self,
         body: typing.Union[
-            request_body.content.application_json.schema.additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnumsDictInput,
-            request_body.content.application_json.schema.additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnumsDict,
+            request_body_application_json_schema.AdditionalPropertiesWithArrayOfEnumsDictInput,
+            request_body_application_json_schema.AdditionalPropertiesWithArrayOfEnumsDict,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -67,8 +67,8 @@ class BaseApi(api_client.Api):
     def _additional_properties_with_array_of_enums(
         self,
         body: typing.Union[
-            request_body.content.application_json.schema.additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnumsDictInput,
-            request_body.content.application_json.schema.additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnumsDict,
+            request_body_application_json_schema.AdditionalPropertiesWithArrayOfEnumsDictInput,
+            request_body_application_json_schema.AdditionalPropertiesWithArrayOfEnumsDict,
             schemas.Unset
         ] = schemas.unset,
         content_type: typing_extensions.Literal["application/json"] = "application/json",

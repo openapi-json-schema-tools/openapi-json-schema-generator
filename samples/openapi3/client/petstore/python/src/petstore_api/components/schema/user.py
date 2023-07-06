@@ -126,8 +126,8 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["objectWithNoDeclaredPropsNullable"]) -> typing.Union[
-       None,
-       schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        None,
+        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
         ...
     

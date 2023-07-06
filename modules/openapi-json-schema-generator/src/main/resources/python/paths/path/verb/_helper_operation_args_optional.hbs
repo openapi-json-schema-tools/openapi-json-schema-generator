@@ -1,11 +1,7 @@
 {{#if requestBody}}
-    {{#with requestBody}}
-        {{#if refInfo}}
-{{> paths/path/verb/_helper_operation_args_body fullRefModule="" requiredValue=false }}
-        {{else}}
+    {{#unless requestBody.getSelfOrDeepestRef.required}}
 {{> paths/path/verb/_helper_operation_args_body fullRefModule=null requiredValue=false }}
-        {{/if}}
-    {{/with}}
+    {{/unless}}
 {{/if}}
 {{#if pathParameters}}
     {{#unless pathParameters.requiredProperties}}
