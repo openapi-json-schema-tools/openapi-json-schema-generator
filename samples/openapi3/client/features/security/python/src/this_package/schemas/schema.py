@@ -8,8 +8,8 @@ import uuid
 
 import typing_extensions
 
-from petstore_api import exceptions
-from petstore_api.configurations import schema_configuration
+from this_package import exceptions
+from this_package.configurations import schema_configuration
 
 from . import validation
 

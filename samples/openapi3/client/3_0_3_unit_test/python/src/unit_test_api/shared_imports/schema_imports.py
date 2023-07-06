@@ -9,6 +9,6 @@ import typing_extensions
 import uuid
 
 from unit_test_api import schemas
-from petstore_api.configurations import schema_configuration
+from unit_test_api.configurations import schema_configuration
 
 U = typing.TypeVar('U')
