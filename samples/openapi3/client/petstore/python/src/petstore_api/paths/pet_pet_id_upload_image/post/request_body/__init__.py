@@ -6,13 +6,13 @@
 
 from petstore_api.shared_imports.header_imports import *
 
-from . import content
+from .content.multipart_form_data import schema as multipart_form_data_schema
 
 class RequestBody(api_client.RequestBody):
 
 
     class MultipartFormDataMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = content.multipart_form_data.schema.Schema
+        schema: typing_extensions.TypeAlias = multipart_form_data_schema.Schema
     Content = typing_extensions.TypedDict(
         'Content',
         {

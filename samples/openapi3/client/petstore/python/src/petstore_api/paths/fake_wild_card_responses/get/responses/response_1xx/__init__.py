@@ -6,7 +6,7 @@
 
 from petstore_api.shared_imports.response_imports import *
 
-from . import content
+from .content.application_json import schema as application_json_schema
 
 
 @dataclasses.dataclass
@@ -21,7 +21,7 @@ class ResponseFor1XX(api_client.OpenApiResponse[ApiResponseFor1XX]):
 
 
     class ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = content.application_json.schema.Schema
+        schema: typing_extensions.TypeAlias = application_json_schema.Schema
     Content = typing_extensions.TypedDict(
         'Content',
         {

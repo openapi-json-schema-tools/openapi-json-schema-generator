@@ -1,1 +1,1 @@
-{{#if paramName}}{{paramName}}: typing_extensions.TypeAlias = {{/if}}content.{{contentTypeModule}}.{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}
+{{#if paramName}}{{paramName}}: typing_extensions.TypeAlias = {{/if}}{{contentTypeModule}}_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}

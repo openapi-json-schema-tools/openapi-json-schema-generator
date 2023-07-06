@@ -6,7 +6,8 @@
 
 from petstore_api.shared_imports.response_imports import *
 
-from . import content
+from .content.application_json import schema as application_json_schema
+from .content.multipart_form_data import schema as multipart_form_data_schema
 
 
 @dataclasses.dataclass
@@ -24,11 +25,11 @@ class ResponseFor200(api_client.OpenApiResponse[ApiResponseFor200]):
 
 
     class ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = content.application_json.schema.Schema
+        schema: typing_extensions.TypeAlias = application_json_schema.Schema
 
 
     class MultipartFormDataMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = content.multipart_form_data.schema.Schema
+        schema: typing_extensions.TypeAlias = multipart_form_data_schema.Schema
     Content = typing_extensions.TypedDict(
         'Content',
         {

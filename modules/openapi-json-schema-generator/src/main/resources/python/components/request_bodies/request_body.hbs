@@ -12,9 +12,11 @@
 {{else}}
 from {{packageName}}.shared_imports.header_imports import *
 
-    {{#if content}}
-from . import content
-    {{/if}}
+    {{#each content}}
+        {{#with schema}}
+from .content.{{../@key.snakeCase}} import {{jsonPathPiece.snakeCase}} as {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}
+        {{/with}}
+    {{/each}}
 
 class {{jsonPathPiece.camelCase}}(api_client.RequestBody):
     {{#each content}}

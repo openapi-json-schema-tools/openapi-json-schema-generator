@@ -7,6 +7,7 @@
 from petstore_api.shared_imports.response_imports import *
 
 
+
 @dataclasses.dataclass
 class ApiResponseFor200(api_response.ApiResponse):
     response: urllib3.HTTPResponse

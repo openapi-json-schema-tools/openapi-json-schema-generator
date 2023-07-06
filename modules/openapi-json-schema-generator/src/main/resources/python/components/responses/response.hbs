@@ -15,9 +15,13 @@ from __future__ import annotations
 from {{packageName}}.shared_imports.schema_imports import *
     {{/if}}
 from {{packageName}}.shared_imports.response_imports import *
-    {{#if hasContentSchema}}
+    {{#if content}}
 
-from . import content
+        {{#each content}}
+            {{#with schema}}
+from .content.{{../@key.snakeCase}} import {{jsonPathPiece.snakeCase}} as {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}
+            {{/with}}
+        {{/each}}
     {{/if}}
     {{#if headers}}
         {{#unless content}}

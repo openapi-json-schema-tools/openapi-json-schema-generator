@@ -18,7 +18,11 @@ from . import {{jsonPathPiece.snakeCase}}
         {{/with}}
     {{else}}
         {{#if content}}
-from . import content
+            {{#each content}}
+                {{#with schema}}
+from .content.{{../@key.snakeCase}} import {{jsonPathPiece.snakeCase}} as {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}
+                {{/with}}
+            {{/each}}
         {{/if}}
     {{/if}}
 
