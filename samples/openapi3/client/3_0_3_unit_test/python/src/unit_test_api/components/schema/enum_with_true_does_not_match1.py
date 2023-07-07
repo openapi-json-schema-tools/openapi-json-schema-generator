@@ -33,7 +33,7 @@ class EnumWithTrueDoesNotMatch1(
     })
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
         default_factory=lambda: {
-            True: "TRUE",
+            schemas.Bool.TRUE: "TRUE",
         }
     )
     enums = EnumWithTrueDoesNotMatch1Enums

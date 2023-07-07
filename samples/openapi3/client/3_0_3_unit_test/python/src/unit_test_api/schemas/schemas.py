@@ -308,7 +308,7 @@ class BinarySchema(schema.Schema):
 
 @dataclasses.dataclass(frozen=True)
 class BoolSchema(schema.Schema):
-    types: typing.FrozenSet[typing.Type] = frozenset({bool})
+    types: typing.FrozenSet[typing.Type] = frozenset({schema.Bool})
 
     @typing.overload
     @classmethod

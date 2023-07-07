@@ -296,14 +296,14 @@ def validate_unique_items(
 ) -> None:
     if not unique_items_value or not isinstance(arg, tuple):
         return None
-    if len(arg) > len(set(arg)):
-        _raise_validation_error_message(
-            value=arg,
-            constraint_msg="duplicate items were found, and the tuple must not contain duplicates because",
-            constraint_value='unique_items==True',
-            path_to_item=validation_metadata.path_to_item
-        )
-    return None
+    if len(arg) == len(set(arg)):
+        return None
+    _raise_validation_error_message(
+        value=arg,
+        constraint_msg="duplicate items were found, and the tuple must not contain duplicates because",
+        constraint_value='unique_items==True',
+        path_to_item=validation_metadata.path_to_item
+    )
 
 
 def validate_min_items(

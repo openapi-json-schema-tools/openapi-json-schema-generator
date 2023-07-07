@@ -6,6 +6,7 @@ import types
 import typing
 import uuid
 
+import functools
 import typing_extensions
 
 from {{packageName}} import exceptions
@@ -71,6 +72,65 @@ class FileIO(io.FileIO):
         pass
 
 
+class classproperty(typing.Generic[T]):
+    def __init__(self, method: typing.Callable[..., T]):
+        self.__method = method
+        functools.update_wrapper(self, method) # type: ignore
+
+    def __get__(self, obj, cls=None) -> T:
+        if cls is None:
+            cls = type(obj)
+        return self.__method(cls)
+
+
+class Bool:
+    _instances = {}
+    """
+    This class is needed to replace bool during validation processing
+    json schema requires that 0 != False and 1 != True
+    python implementation defines 0 == False and 1 == True
+    To meet the json schema requirements, all bool instances are replaced with Bool singletons
+    during validation only, and then bool values are returned from validation
+    """
+
+    def __new__(cls, arg_: bool, **kwargs):
+        """
+        Method that implements singleton
+        cls base classes: BoolClass, NoneClass, str, decimal.Decimal
+        The 3rd key is used in the tuple below for a corner case where an enum contains integer 1
+        However 1.0  can also be ingested into that enum schema because 1.0 == 1 and
+        Decimal('1.0') == Decimal('1')
+        But if we omitted the 3rd value in the key, then Decimal('1.0') would be stored as Decimal('1')
+        and json serializing that instance would be '1' rather than the expected '1.0'
+        Adding the 3rd value, the str of arg_ ensures that 1.0 -> Decimal('1.0') which is serialized as 1.0
+        """
+        key = (cls, arg_)
+        if key not in cls._instances:
+            inst = super().__new__(cls)
+            cls._instances[key] = inst
+        return cls._instances[key]
+
+    def __repr__(self):
+        if bool(self):
+            return f'<Bool: True>'
+        return f'<Bool: False>'
+
+    @classproperty
+    def TRUE(cls):
+        return cls(True)
+
+    @classproperty
+    def FALSE(cls):
+        return cls(False)
+
+    @functools.lru_cache()
+    def __bool__(self) -> bool:
+        for key, instance in self._instances.items():
+            if self is instance:
+                return bool(key[1])
+        raise ValueError('Unable to find the boolean value of this instance')
+
+
 def cast_to_allowed_types(
     arg: typing.Union[
         dict,
@@ -100,7 +160,7 @@ def cast_to_allowed_types(
     int,
     str,
     bytes,
-    bool,
+    Bool,
     None,
     FileIO
 ]:
@@ -143,14 +203,14 @@ def cast_to_allowed_types(
             }
         )
     elif isinstance(arg, bool):
-        path_to_type[path_to_item] = bool
         """
         this check must come before isinstance(arg, (int, float))
         because isinstance(True, int) is True
         """
+        path_to_type[path_to_item] = Bool
         if arg:
-            return True
-        return False
+            return Bool.TRUE
+        return Bool.FALSE
     elif isinstance(arg, int):
         path_to_type[path_to_item] = int
         return arg
@@ -217,7 +277,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
             str: (str, UnsetAnyTypeSchema),
             int: (int, UnsetAnyTypeSchema),
             float: (float, UnsetAnyTypeSchema),
-            bool: (bool, UnsetAnyTypeSchema),
+            Bool: (Bool, UnsetAnyTypeSchema),
             none_type_: (none_type_, UnsetAnyTypeSchema),
             tuple: (tuple, UnsetAnyTypeSchema),
             validation.immutabledict: (validation.immutabledict, UnsetAnyTypeSchema),
@@ -319,9 +379,11 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
             used_arg = cls.__get_properties(arg, path_to_item, path_to_schemas)
         elif isinstance(arg, tuple):
             used_arg = cls.__get_items(arg, path_to_item, path_to_schemas)
+        elif isinstance(arg, Bool):
+            return bool(arg)
         else:
             """
-            str = openapi str, datetime.date, and datetime.datetime
+            str, int, float, FileIO, bytes
             FileIO = openapi binary type and the user inputs a file
             bytes = openapi binary type and the user inputs bytes
             """

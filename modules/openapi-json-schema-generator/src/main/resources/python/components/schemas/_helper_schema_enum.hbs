@@ -12,9 +12,9 @@ enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.n
     {{/eq}}
     {{#eq @key.type "boolean"}}
         {{#if @key.value}}
-        True: "{{this}}",
+        schemas.Bool.TRUE: "{{this}}",
         {{else}}
-        False: "{{this}}",
+        schemas.Bool.FALSE: "{{this}}",
         {{/if}}
     {{/eq}}
     {{#eq @key.type "null"}}

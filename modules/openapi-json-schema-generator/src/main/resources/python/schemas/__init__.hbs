@@ -2,7 +2,6 @@
 
 {{> _helper_header }}
 
-import functools
 import typing
 
 import typing_extensions
@@ -10,6 +9,8 @@ import typing_extensions
 from .schema import (
     get_class,
     none_type_,
+    classproperty,
+    Bool,
     FileIO,
     Schema,
     SingletonMeta,
@@ -51,20 +52,6 @@ from .format import (
     as_decimal_,
     as_uuid_
 )
-
-T = typing.TypeVar('T')
-
-
-class classproperty(typing.Generic[T]):
-    def __init__(self, method: typing.Callable[..., T]):
-        self.__method = method
-        functools.update_wrapper(self, method) # type: ignore
-
-    def __get__(self, obj, cls=None) -> T:
-        if cls is None:
-            cls = type(obj)
-        return self.__method(cls)
-
 
 W = typing.TypeVar('W', bound=typing_extensions.TypedDict)
 
