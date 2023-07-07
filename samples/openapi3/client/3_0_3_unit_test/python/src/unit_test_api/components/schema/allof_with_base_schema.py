@@ -10,57 +10,27 @@
 from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
-Foo: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Foo: typing_extensions.TypeAlias = schemas.StrSchema
 Properties2 = typing_extensions.TypedDict(
     'Properties2',
     {
         "foo": typing.Type[Foo],
     }
 )
-DictInput = typing.Mapping[
-    str,
-    typing.Union[
-        typing.Union[
-            Foo[str],
-            str
-        ],
-        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-    ]
-]
 
 
-class _0(
-    schemas.AnyTypeSchema[schemas.T],
-):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        # any type
-        required: typing.FrozenSet[str] = frozenset({
-            "foo",
-        })
-        properties: Properties2 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties2)) # type: ignore
-
+class _0Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def foo(self) -> Foo[str]:
+    def foo(self) -> str:
         return self.__getitem__("foo")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> Foo[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> str:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
-        frozendict.frozendict,
-        str,
-        decimal.Decimal,
-        schemas.BoolClass,
-        schemas.NoneClass,
-        tuple,
-        bytes,
-        schemas.FileIO
-    ]]: ...
+    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
     
     def __getitem__(
         self,
@@ -72,127 +42,50 @@ class _0(
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _0[schemas.NoneClass]: ...
+    def __new__(cls, arg: _0DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return _0.validate(arg, configuration=configuration)
+_0DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[bool, schemas.BoolClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _0[schemas.BoolClass]: ...
 
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[decimal.Decimal, float, int],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _0[decimal.Decimal]: ...
+@dataclasses.dataclass(frozen=True)
+class _0(
+    schemas.AnyTypeSchema[_0Dict, typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+):
+    # any type
+    required: typing.FrozenSet[str] = frozenset({
+        "foo",
+    })
+    properties: Properties2 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties2)) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            schemas.immutabledict: _0Dict,
+        }
+    )
 
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _0[str]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _0[tuple]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[
-            DictInput,
-            _0[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _0[frozendict.frozendict]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: bytes,
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _0[bytes]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: io.FileIO,
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _0[schemas.FileIO]: ...
-
-    def __new__(
-        cls,
-        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ):
-        return super().__new__(
-            cls,
-            arg,
-            configuration=configuration,
-        )
-
-Baz: typing_extensions.TypeAlias = schemas.NoneSchema[U]
+Baz: typing_extensions.TypeAlias = schemas.NoneSchema
 Properties3 = typing_extensions.TypedDict(
     'Properties3',
     {
         "baz": typing.Type[Baz],
     }
 )
-DictInput2 = typing.Mapping[
-    str,
-    typing.Union[
-        typing.Union[
-            Baz[schemas.NoneClass],
-            None
-        ],
-        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-    ]
-]
 
 
-class _1(
-    schemas.AnyTypeSchema[schemas.T],
-):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        # any type
-        required: typing.FrozenSet[str] = frozenset({
-            "baz",
-        })
-        properties: Properties3 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties3)) # type: ignore
-
+class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def baz(self) -> Baz[schemas.NoneClass]:
+    def baz(self) -> None:
         return self.__getitem__("baz")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["baz"]) -> Baz[schemas.NoneClass]: ...
+    def __getitem__(self, name: typing_extensions.Literal["baz"]) -> None:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
-        frozendict.frozendict,
-        str,
-        decimal.Decimal,
-        schemas.BoolClass,
-        schemas.NoneClass,
-        tuple,
-        bytes,
-        schemas.FileIO
-    ]]: ...
+    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
     
     def __getitem__(
         self,
@@ -204,138 +97,54 @@ class _1(
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _1[schemas.NoneClass]: ...
+    def __new__(cls, arg: _1DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return _1.validate(arg, configuration=configuration)
+_1DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[bool, schemas.BoolClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _1[schemas.BoolClass]: ...
 
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[decimal.Decimal, float, int],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _1[decimal.Decimal]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _1[str]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _1[tuple]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[
-            DictInput2,
-            _1[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _1[frozendict.frozendict]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: bytes,
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _1[bytes]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: io.FileIO,
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _1[schemas.FileIO]: ...
-
-    def __new__(
-        cls,
-        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ):
-        return super().__new__(
-            cls,
-            arg,
-            configuration=configuration,
-        )
+@dataclasses.dataclass(frozen=True)
+class _1(
+    schemas.AnyTypeSchema[_1Dict, typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+):
+    # any type
+    required: typing.FrozenSet[str] = frozenset({
+        "baz",
+    })
+    properties: Properties3 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties3)) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            schemas.immutabledict: _1Dict,
+        }
+    )
 
 AllOf = typing.Tuple[
-    typing.Type[_0[schemas.U]],
-    typing.Type[_1[schemas.U]],
+    typing.Type[_0],
+    typing.Type[_1],
 ]
-Bar: typing_extensions.TypeAlias = schemas.IntSchema[U]
+Bar: typing_extensions.TypeAlias = schemas.IntSchema
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
         "bar": typing.Type[Bar],
     }
 )
-DictInput3 = typing.Mapping[
-    str,
-    typing.Union[
-        typing.Union[
-            Bar[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
-        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-    ]
-]
 
 
-class AllofWithBaseSchema(
-    schemas.AnyTypeSchema[schemas.T],
-):
-    """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
-    Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
-
-    Do not edit the class manually.
-    """
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        # any type
-        required: typing.FrozenSet[str] = frozenset({
-            "bar",
-        })
-        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
-        all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
-
+class AllofWithBaseSchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def bar(self) -> Bar[decimal.Decimal]:
+    def bar(self) -> int:
         return self.__getitem__("bar")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> Bar[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> int:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
-        frozendict.frozendict,
-        str,
-        decimal.Decimal,
-        schemas.BoolClass,
-        schemas.NoneClass,
-        tuple,
-        bytes,
-        schemas.FileIO
-    ]]: ...
+    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
     
     def __getitem__(
         self,
@@ -347,73 +156,32 @@ class AllofWithBaseSchema(
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> AllofWithBaseSchema[schemas.NoneClass]: ...
+    def __new__(cls, arg: AllofWithBaseSchemaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return AllofWithBaseSchema.validate(arg, configuration=configuration)
+AllofWithBaseSchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[bool, schemas.BoolClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> AllofWithBaseSchema[schemas.BoolClass]: ...
 
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[decimal.Decimal, float, int],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> AllofWithBaseSchema[decimal.Decimal]: ...
+@dataclasses.dataclass(frozen=True)
+class AllofWithBaseSchema(
+    schemas.AnyTypeSchema[AllofWithBaseSchemaDict, typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+):
+    """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
+    Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
 
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> AllofWithBaseSchema[str]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> AllofWithBaseSchema[tuple]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[
-            DictInput3,
-            AllofWithBaseSchema[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> AllofWithBaseSchema[frozendict.frozendict]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: bytes,
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> AllofWithBaseSchema[bytes]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: io.FileIO,
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> AllofWithBaseSchema[schemas.FileIO]: ...
-
-    def __new__(
-        cls,
-        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ):
-        return super().__new__(
-            cls,
-            arg,
-            configuration=configuration,
-        )
+    Do not edit the class manually.
+    """
+    # any type
+    required: typing.FrozenSet[str] = frozenset({
+        "bar",
+    })
+    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+    all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            schemas.immutabledict: AllofWithBaseSchemaDict,
+        }
+    )
 

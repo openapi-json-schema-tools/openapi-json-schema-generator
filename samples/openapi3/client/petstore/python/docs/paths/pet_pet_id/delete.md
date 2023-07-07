@@ -58,7 +58,7 @@ This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [Parameter1.schema](#parameter1-schema), decimal.Decimal, int | | 
+petId | [Parameter1.schema](#parameter1-schema), int | | 
 
 
 #### Parameter1
@@ -71,7 +71,7 @@ Pet id to delete
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int | decimal.Decimal |  | value must be a 64 bit integer
+int | int |  | value must be a 64 bit integer
 
 ## Return Types
 
@@ -163,10 +163,10 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = pet_api.PetApi(api_client)
 
     # example passing only required values which don't have defaults set
-    path_params: operation.RequestPathParameters.Params = {
+    path_params: operation.PathParametersDictInput = {
         'petId': 1,
     }
-    header_params: operation.RequestHeaderParameters.Params = {
+    header_params: operation.HeaderParametersDictInput = {
     }
     try:
         # Deletes a pet
@@ -182,7 +182,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     path_params = {
         'petId': 1,
     }
-    header_params: operation.RequestHeaderParameters.Params = {
+    header_params: operation.HeaderParametersDictInput = {
         'api_key': "api_key_example",
     }
     try:

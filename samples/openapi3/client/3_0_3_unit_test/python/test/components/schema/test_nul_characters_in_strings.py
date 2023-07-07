@@ -20,7 +20,7 @@ class TestNulCharactersInStrings(unittest.TestCase):
 
     def test_match_string_with_nul_passes(self):
         # match string with nul
-        NulCharactersInStrings(
+        NulCharactersInStrings.validate(
             "hello\x00there",
             configuration=self.configuration
         )
@@ -28,7 +28,7 @@ class TestNulCharactersInStrings(unittest.TestCase):
     def test_do_not_match_string_lacking_nul_fails(self):
         # do not match string lacking nul
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            NulCharactersInStrings(
+            NulCharactersInStrings.validate(
                 "hellothere",
                 configuration=self.configuration
             )

@@ -11,4 +11,4 @@ from . import schema
 
 class XExpiresAfter(api_client.HeaderParameterWithoutName):
     style = api_client.ParameterStyle.SIMPLE
-    schema: typing_extensions.TypeAlias = schema.Schema[str]
+    schema: typing_extensions.TypeAlias = schema.Schema

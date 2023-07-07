@@ -1,0 +1,37 @@
+{{#if refInfo}}
+    {{#or refInfo.refModuleAlias refInfo.refModule}}
+        {{#with refInfo.ref}}
+            {{#eq fullRefModule "" }}
+                {{#if ../refInfo.refModuleAlias}}
+{{> components/schemas/_helper_schema_output_ref_type fullRefModule=../refInfo.refModuleAlias }}
+                {{else}}
+{{> components/schemas/_helper_schema_output_ref_type fullRefModule=../refInfo.refModule }}
+                {{/if}}
+            {{else}}
+                {{#if ../refInfo.refModuleAlias}}
+{{> components/schemas/_helper_schema_output_ref_type fullRefModule=(join fullRefModule ../refInfo.refModuleAlias ".") }}
+                {{else}}
+{{> components/schemas/_helper_schema_output_ref_type fullRefModule=(join fullRefModule ../refInfo.refModule ".") }}
+                {{/if}}
+            {{/eq}}
+        {{/with}}
+    {{else}}
+        {{! self reference }}
+        {{#with refInfo.ref}}
+{{> components/schemas/_helper_schema_output_ref_type }}
+        {{/with}}
+    {{/or}}
+{{else}}
+    {{! no more refs }}
+    {{#if types}}
+        {{#eq types.size 1}}
+{{> components/schemas/_helper_schema_output_ref_single }}
+        {{else}}
+{{#eq mode "getitem"}}def __getitem__(self, name: {{#if literal}}typing_extensions.Literal["{{{key}}}"]{{else}}{{key}}{{/if}}) -> {{else}}{{#eq mode "def_property"}}def {{@key.original}}(self) -> {{else}}{{#eq mode "typehint"}}{{key}}: {{#eq key "schema"}}typing_extensions.TypeAlias = {{/eq}}{{/eq}}{{/eq}}{{/eq}}typing.Union[
+    {{> components/schemas/_helper_schema_output_type_base endChar="," }}
+]{{endChar}}
+        {{/eq}}
+    {{else}}
+{{> components/schemas/_helper_schema_output_ref_single }}
+    {{/if}}
+{{/if}}

@@ -11,6 +11,7 @@
 import decimal
 import unittest
 
+from petstore_api import schemas
 from petstore_api.components.schema.money import Money
 
 
@@ -19,11 +20,11 @@ class TestMoney(unittest.TestCase):
 
     def test_Money(self):
         """Test Money"""
-        price = Money({
+        price = Money.validate({
             'currency': 'usd',
             'amount': '10.99'
         })
-        self.assertEqual(price.amount.as_decimal_, decimal.Decimal('10.99'))
+        self.assertEqual(schemas.as_decimal_(price.amount), decimal.Decimal('10.99'))
         self.assertEqual(
             price,
             dict(currency='usd', amount='10.99')

@@ -12,6 +12,6 @@ from . import schema
 class Parameter2(api_client.QueryParameter):
     name = "required_int64_group"
     style = api_client.ParameterStyle.FORM
-    schema: typing_extensions.TypeAlias = schema.Schema[decimal.Decimal]
+    schema: typing_extensions.TypeAlias = schema.Schema
     required = True
     explode = True

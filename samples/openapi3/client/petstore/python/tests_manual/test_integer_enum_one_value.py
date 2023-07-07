@@ -39,17 +39,13 @@ class TestIntegerEnumOneValue(unittest.TestCase):
             - one can have default value collisions
             - the added data will make expected schemas not match payloads
             """
-            model = IntegerEnumOneValue()
+            model = IntegerEnumOneValue.validate()
 
-        model = IntegerEnumOneValue(0)
-        assert model == 0, "We can also pass in the value as a positional arg"
-
-        # one cannot pass the value with the value keyword
-        with self.assertRaises(TypeError):
-            model = IntegerEnumOneValue(value=0)
+        model = IntegerEnumOneValue.validate(0)
+        assert model == 0, "We can pass in the value as a positional arg"
 
         # one can pass in the enum value
-        model = IntegerEnumOneValue(IntegerEnumOneValue.POSITIVE_0)
+        model = IntegerEnumOneValue.validate(IntegerEnumOneValue.enums.POSITIVE_0)
 
 if __name__ == '__main__':
     unittest.main()

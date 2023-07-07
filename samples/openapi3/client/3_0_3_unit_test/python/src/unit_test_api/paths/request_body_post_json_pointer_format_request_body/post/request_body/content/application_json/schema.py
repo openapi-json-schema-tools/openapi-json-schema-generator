@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import json_pointer_format
-Schema: typing_extensions.TypeAlias = json_pointer_format.JsonPointerFormat[U]
+Schema: typing_extensions.TypeAlias = json_pointer_format.JsonPointerFormat

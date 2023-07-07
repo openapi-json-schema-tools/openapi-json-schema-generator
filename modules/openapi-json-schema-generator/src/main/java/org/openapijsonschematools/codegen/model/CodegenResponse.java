@@ -22,6 +22,7 @@ import java.util.*;
 public class CodegenResponse {
     public final String description;
     public final Map<String, CodegenHeader> headers;
+    public final CodegenSchema headersObjectSchema;
     public final LinkedHashMap<CodegenKey, CodegenMediaType> content;
     public final CodegenRefInfo<CodegenResponse> refInfo;
     // TODO add links in the future
@@ -30,9 +31,10 @@ public class CodegenResponse {
     public final TreeSet<String> imports;
     public final boolean componentModule;
 
-    public CodegenResponse(CodegenKey jsonPathPiece, Map<String, CodegenHeader> headers, String description, Map<String, Object> vendorExtensions, LinkedHashMap<CodegenKey, CodegenMediaType> content, CodegenRefInfo<CodegenResponse> refInfo, TreeSet<String> imports, boolean componentModule) {
+    public CodegenResponse(CodegenKey jsonPathPiece, Map<String, CodegenHeader> headers, CodegenSchema headersObjectSchema, String description, Map<String, Object> vendorExtensions, LinkedHashMap<CodegenKey, CodegenMediaType> content, CodegenRefInfo<CodegenResponse> refInfo, TreeSet<String> imports, boolean componentModule) {
         this.jsonPathPiece = jsonPathPiece;
         this.headers = headers;
+        this.headersObjectSchema = headersObjectSchema;
         this.description = description;
         this.vendorExtensions = vendorExtensions;
         this.content = content;
@@ -79,7 +81,7 @@ public class CodegenResponse {
     @Override
     public int hashCode() {
         return Objects.hash(jsonPathPiece, description,
-                vendorExtensions, headers, content,
+                vendorExtensions, headers, headersObjectSchema, content,
                 refInfo, imports, componentModule);
     }
 
@@ -93,6 +95,7 @@ public class CodegenResponse {
                 Objects.equals(refInfo, that.refInfo) &&
                 Objects.equals(content, that.content) &&
                 Objects.equals(headers, that.headers) &&
+                Objects.equals(headersObjectSchema, that.headersObjectSchema) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
                 Objects.equals(componentModule, that.componentModule);
@@ -105,6 +108,7 @@ public class CodegenResponse {
         sb.append(", message='").append(description).append('\'');
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", headers=").append(headers);
+        sb.append(", headersObjectSchema=").append(headersObjectSchema);
         sb.append(", content=").append(content);
         sb.append(", refInfo=").append(refInfo);
         sb.append(", imports=").append(imports);

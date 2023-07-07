@@ -14,7 +14,7 @@ import unittest
 import petstore_api
 from petstore_api.components.schema import apple
 from petstore_api.components.schema import banana
-from petstore_api.components.schema.fruit import Fruit
+from petstore_api.components.schema import fruit
 from petstore_api import schemas
 
 
@@ -28,16 +28,16 @@ class TestFruit(unittest.TestCase):
         # banana test
         length_cm = 20.3
         color = 'yellow'
-        fruit = Fruit({'lengthCm': length_cm, 'color': color})
+        inst = fruit.Fruit.validate({'lengthCm': length_cm, 'color': color})
         # check its properties
-        self.assertEqual(fruit['lengthCm'], length_cm)
-        self.assertEqual(fruit.get('lengthCm'), length_cm)
-        self.assertEqual(fruit['color'], color)
-        self.assertEqual(fruit.get('color'), color)
+        self.assertEqual(inst['lengthCm'], length_cm)
+        self.assertEqual(inst.get('lengthCm'), length_cm)
+        self.assertEqual(inst['color'], color)
+        self.assertEqual(inst.get('color'), color)
 
         # check the dict representation
         self.assertEqual(
-            fruit,
+            inst,
             {
                 'lengthCm': length_cm,
                 'color': color
@@ -45,13 +45,13 @@ class TestFruit(unittest.TestCase):
         )
         # setting values after instance creation is not allowed
         with self.assertRaises(TypeError):
-            fruit['color'] = 'some value'
+            inst['color'] = 'some value'
 
         # getting a value that doesn't exist raises an exception
         # with a key
         with self.assertRaises(KeyError):
-            assert fruit['cultivar']
-        assert fruit.get('cultivar', schemas.unset) is schemas.unset
+            assert inst['cultivar']
+        assert inst.get('cultivar', schemas.unset) is schemas.unset
 
         """
         including extra parameters does not raise an exception
@@ -64,21 +64,21 @@ class TestFruit(unittest.TestCase):
             additional_date='2021-01-02',
         )
 
-        fruit = Fruit(kwargs)
+        inst = fruit.Fruit.validate(kwargs)
         self.assertEqual(
-            fruit,
+            inst,
             kwargs
         )
 
-        fruit = Fruit(kwargs)
+        inst = fruit.Fruit.validate(kwargs)
         self.assertEqual(
-            fruit,
+            inst,
             kwargs
         )
 
         # including input parameters for two oneOf instances raise an exception
         with self.assertRaises(petstore_api.ApiValueError):
-            Fruit({
+            fruit.Fruit.validate({
                 'lengthCm': length_cm,
                 'cultivar': 'granny smith'
             })
@@ -87,13 +87,13 @@ class TestFruit(unittest.TestCase):
         # apple test
         color = 'red'
         cultivar = 'golden delicious'
-        fruit = Fruit({'color': color, 'cultivar': cultivar})
+        inst = fruit.Fruit.validate({'color': color, 'cultivar': cultivar})
         # check its properties
-        self.assertEqual(fruit['color'], color)
-        self.assertEqual(fruit['cultivar'], cultivar)
+        self.assertEqual(inst['color'], color)
+        self.assertEqual(inst['cultivar'], cultivar)
         # check the dict representation
         self.assertEqual(
-            fruit,
+            inst,
             {
                 'color': color,
                 'cultivar': cultivar
@@ -102,23 +102,20 @@ class TestFruit(unittest.TestCase):
 
     def testFruitNullValue(self):
         # Since 'apple' is nullable, validate we can create an apple with the 'null' value.
-        fruit = apple.Apple(None)
-        assert isinstance(fruit, schemas.Singleton)
-        assert isinstance(fruit, apple.Apple)
-        assert fruit.is_none_() is True
+        inst = apple.Apple.validate(None)
+        assert isinstance(inst, schemas.none_type_)
+        assert inst is None
 
         # 'banana' is not nullable.
         # TODO cast this into ApiTypeError?
         with self.assertRaises(TypeError):
-            banana.Banana(None)
+            banana.Banana.validate(None)
 
         # Since 'fruit' has oneOf 'apple', 'banana' and 'apple' is nullable,
         # validate we can create a fruit with the 'null' value.
-        fruit = Fruit(None)
-        assert isinstance(fruit, schemas.Singleton)
-        assert isinstance(fruit, apple.Apple)
-        assert isinstance(fruit, Fruit)
-        assert fruit.is_none_() is True
+        inst = fruit.Fruit.validate(None)
+        assert isinstance(inst, schemas.none_type_)
+        assert inst is None
 
 
 if __name__ == '__main__':

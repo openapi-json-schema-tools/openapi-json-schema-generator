@@ -12,33 +12,34 @@ from petstore_api.shared_imports.schema_imports import *
 
 
 
+class SchemaEnums:
+
+    @schemas.classproperty
+    def _ABC(cls) -> str:
+        return Schema.validate("_abc")
+
+    @schemas.classproperty
+    def HYPHEN_MINUS_EFG(cls) -> str:
+        return Schema.validate("-efg")
+
+    @schemas.classproperty
+    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls) -> str:
+        return Schema.validate("(xyz)")
+
+
+@dataclasses.dataclass(frozen=True)
 class Schema(
-    schemas.StrSchema[schemas.T]
+    schemas.StrSchema
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            str,
-        })
-        default: str = "-efg"
-        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
-            default_factory=lambda: {
-                "_abc": "_ABC",
-                "-efg": "HYPHEN_MINUS_EFG",
-                "(xyz)": "LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS",
-            }
-        )
-    
-    @schemas.classproperty
-    def _ABC(cls) -> Schema[str]:
-        return cls("_abc") # type: ignore
-    
-    @schemas.classproperty
-    def HYPHEN_MINUS_EFG(cls) -> Schema[str]:
-        return cls("-efg") # type: ignore
-    
-    @schemas.classproperty
-    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls) -> Schema[str]:
-        return cls("(xyz)") # type: ignore
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        str,
+    })
+    default: str = "-efg"
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+        default_factory=lambda: {
+            "_abc": "_ABC",
+            "-efg": "HYPHEN_MINUS_EFG",
+            "(xyz)": "LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS",
+        }
+    )
+    enums = SchemaEnums

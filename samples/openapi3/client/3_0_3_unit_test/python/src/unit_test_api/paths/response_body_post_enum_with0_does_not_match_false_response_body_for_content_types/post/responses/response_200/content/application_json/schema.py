@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import enum_with0_does_not_match_false
-Schema: typing_extensions.TypeAlias = enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse[U]
+Schema: typing_extensions.TypeAlias = enum_with0_does_not_match_false.EnumWith0DoesNotMatchFalse

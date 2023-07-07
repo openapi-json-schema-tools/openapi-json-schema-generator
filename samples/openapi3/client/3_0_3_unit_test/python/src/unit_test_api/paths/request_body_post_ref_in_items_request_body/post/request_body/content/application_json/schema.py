@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import ref_in_items
-Schema: typing_extensions.TypeAlias = ref_in_items.RefInItems[U]
+Schema: typing_extensions.TypeAlias = ref_in_items.RefInItems

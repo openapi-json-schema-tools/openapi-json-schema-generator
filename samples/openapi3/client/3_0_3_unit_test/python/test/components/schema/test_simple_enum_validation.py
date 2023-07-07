@@ -21,14 +21,14 @@ class TestSimpleEnumValidation(unittest.TestCase):
     def test_something_else_is_invalid_fails(self):
         # something else is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            SimpleEnumValidation(
+            SimpleEnumValidation.validate(
                 4,
                 configuration=self.configuration
             )
 
     def test_one_of_the_enum_is_valid_passes(self):
         # one of the enum is valid
-        SimpleEnumValidation(
+        SimpleEnumValidation.validate(
             1,
             configuration=self.configuration
         )

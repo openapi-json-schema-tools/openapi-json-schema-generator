@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import required_with_empty_array
-Schema: typing_extensions.TypeAlias = required_with_empty_array.RequiredWithEmptyArray[U]
+Schema: typing_extensions.TypeAlias = required_with_empty_array.RequiredWithEmptyArray

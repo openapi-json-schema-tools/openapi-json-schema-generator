@@ -21,7 +21,7 @@ class TestArrayTypeMatchesArrays(unittest.TestCase):
     def test_a_float_is_not_an_array_fails(self):
         # a float is not an array
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ArrayTypeMatchesArrays(
+            ArrayTypeMatchesArrays.validate(
                 1.1,
                 configuration=self.configuration
             )
@@ -29,7 +29,7 @@ class TestArrayTypeMatchesArrays(unittest.TestCase):
     def test_a_boolean_is_not_an_array_fails(self):
         # a boolean is not an array
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ArrayTypeMatchesArrays(
+            ArrayTypeMatchesArrays.validate(
                 True,
                 configuration=self.configuration
             )
@@ -37,7 +37,7 @@ class TestArrayTypeMatchesArrays(unittest.TestCase):
     def test_null_is_not_an_array_fails(self):
         # null is not an array
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ArrayTypeMatchesArrays(
+            ArrayTypeMatchesArrays.validate(
                 None,
                 configuration=self.configuration
             )
@@ -45,7 +45,7 @@ class TestArrayTypeMatchesArrays(unittest.TestCase):
     def test_an_object_is_not_an_array_fails(self):
         # an object is not an array
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ArrayTypeMatchesArrays(
+            ArrayTypeMatchesArrays.validate(
                 {
                 },
                 configuration=self.configuration
@@ -54,14 +54,14 @@ class TestArrayTypeMatchesArrays(unittest.TestCase):
     def test_a_string_is_not_an_array_fails(self):
         # a string is not an array
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ArrayTypeMatchesArrays(
+            ArrayTypeMatchesArrays.validate(
                 "foo",
                 configuration=self.configuration
             )
 
     def test_an_array_is_an_array_passes(self):
         # an array is an array
-        ArrayTypeMatchesArrays(
+        ArrayTypeMatchesArrays.validate(
             [
             ],
             configuration=self.configuration
@@ -70,7 +70,7 @@ class TestArrayTypeMatchesArrays(unittest.TestCase):
     def test_an_integer_is_not_an_array_fails(self):
         # an integer is not an array
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ArrayTypeMatchesArrays(
+            ArrayTypeMatchesArrays.validate(
                 1,
                 configuration=self.configuration
             )

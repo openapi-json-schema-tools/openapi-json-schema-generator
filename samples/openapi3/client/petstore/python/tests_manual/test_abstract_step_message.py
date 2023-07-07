@@ -19,12 +19,12 @@ class TestAbstractStepMessage(unittest.TestCase):
     """AbstractStepMessage unit test stubs"""
 
     def test_model_instantiation(self):
-        arg: abstract_step_message.DictInput = {
+        arg: abstract_step_message.AbstractStepMessageDictInput = {
             'discriminator': 'AbstractStepMessage',
             'sequenceNumber': 1,
             'description': 'some description'
         }
-        inst = abstract_step_message.AbstractStepMessage(
+        inst = abstract_step_message.AbstractStepMessage.validate(
             arg
         )
         assert inst == {
@@ -50,7 +50,7 @@ class TestAbstractStepMessage(unittest.TestCase):
         ]
         for invalid_kwarg in invalid_kwargs:
             with self.assertRaises(TypeError):
-                abstract_step_message.AbstractStepMessage(invalid_kwarg)
+                abstract_step_message.AbstractStepMessage.validate(invalid_kwarg)
 
 if __name__ == '__main__':
     unittest.main()

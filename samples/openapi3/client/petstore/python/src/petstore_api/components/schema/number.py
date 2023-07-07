@@ -10,4 +10,4 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-Number: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+Number: typing_extensions.TypeAlias = schemas.NumberSchema

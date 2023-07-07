@@ -63,7 +63,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[AdditionalpropertiesCanExistByItself](../../components/schema/additionalproperties_can_exist_by_itself.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[AdditionalpropertiesCanExistByItself](../../components/schema/additionalproperties_can_exist_by_itself.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 ## Servers
 

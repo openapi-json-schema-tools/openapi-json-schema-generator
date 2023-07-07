@@ -20,7 +20,7 @@ class TestAllofWithTwoEmptySchemas(unittest.TestCase):
 
     def test_any_data_is_valid_passes(self):
         # any data is valid
-        AllofWithTwoEmptySchemas(
+        AllofWithTwoEmptySchemas.validate(
             1,
             configuration=self.configuration
         )

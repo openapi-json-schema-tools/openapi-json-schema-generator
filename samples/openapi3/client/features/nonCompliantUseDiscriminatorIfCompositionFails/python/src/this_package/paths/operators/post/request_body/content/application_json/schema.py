@@ -10,4 +10,4 @@
 
 from this_package.shared_imports.schema_imports import *
 from this_package.components.schema import operator
-Schema: typing_extensions.TypeAlias = operator.Operator[U]
+Schema: typing_extensions.TypeAlias = operator.Operator

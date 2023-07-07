@@ -20,14 +20,14 @@ class TestMinimumValidationWithSignedInteger(unittest.TestCase):
 
     def test_boundary_point_is_valid_passes(self):
         # boundary point is valid
-        MinimumValidationWithSignedInteger(
+        MinimumValidationWithSignedInteger.validate(
             -2,
             configuration=self.configuration
         )
 
     def test_positive_above_the_minimum_is_valid_passes(self):
         # positive above the minimum is valid
-        MinimumValidationWithSignedInteger(
+        MinimumValidationWithSignedInteger.validate(
             0,
             configuration=self.configuration
         )
@@ -35,7 +35,7 @@ class TestMinimumValidationWithSignedInteger(unittest.TestCase):
     def test_int_below_the_minimum_is_invalid_fails(self):
         # int below the minimum is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            MinimumValidationWithSignedInteger(
+            MinimumValidationWithSignedInteger.validate(
                 -3,
                 configuration=self.configuration
             )
@@ -43,28 +43,28 @@ class TestMinimumValidationWithSignedInteger(unittest.TestCase):
     def test_float_below_the_minimum_is_invalid_fails(self):
         # float below the minimum is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            MinimumValidationWithSignedInteger(
+            MinimumValidationWithSignedInteger.validate(
                 -2.0001,
                 configuration=self.configuration
             )
 
     def test_boundary_point_with_float_is_valid_passes(self):
         # boundary point with float is valid
-        MinimumValidationWithSignedInteger(
+        MinimumValidationWithSignedInteger.validate(
             -2.0,
             configuration=self.configuration
         )
 
     def test_negative_above_the_minimum_is_valid_passes(self):
         # negative above the minimum is valid
-        MinimumValidationWithSignedInteger(
+        MinimumValidationWithSignedInteger.validate(
             -1,
             configuration=self.configuration
         )
 
     def test_ignores_non_numbers_passes(self):
         # ignores non-numbers
-        MinimumValidationWithSignedInteger(
+        MinimumValidationWithSignedInteger.validate(
             "x",
             configuration=self.configuration
         )

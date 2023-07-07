@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import enums_in_properties
-Schema: typing_extensions.TypeAlias = enums_in_properties.EnumsInProperties[U]
+Schema: typing_extensions.TypeAlias = enums_in_properties.EnumsInProperties

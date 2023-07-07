@@ -21,14 +21,14 @@ class TestBySmallNumber(unittest.TestCase):
     def test_000751_is_not_multiple_of00001_fails(self):
         # 0.00751 is not multiple of 0.0001
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            BySmallNumber(
+            BySmallNumber.validate(
                 0.00751,
                 configuration=self.configuration
             )
 
     def test_00075_is_multiple_of00001_passes(self):
         # 0.0075 is multiple of 0.0001
-        BySmallNumber(
+        BySmallNumber.validate(
             0.0075,
             configuration=self.configuration
         )

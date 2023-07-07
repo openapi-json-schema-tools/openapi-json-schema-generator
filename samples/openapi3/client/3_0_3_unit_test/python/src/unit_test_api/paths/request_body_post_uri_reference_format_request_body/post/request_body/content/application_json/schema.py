@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import uri_reference_format
-Schema: typing_extensions.TypeAlias = uri_reference_format.UriReferenceFormat[U]
+Schema: typing_extensions.TypeAlias = uri_reference_format.UriReferenceFormat

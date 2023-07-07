@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import allof_simple_types
-Schema: typing_extensions.TypeAlias = allof_simple_types.AllofSimpleTypes[U]
+Schema: typing_extensions.TypeAlias = allof_simple_types.AllofSimpleTypes

@@ -1,0 +1,91 @@
+{{#if requiredProperties}}
+    {{#each requiredProperties}}
+        {{#with this}}
+
+@typing.overload
+            {{#if refInfo.refClass}}
+{{> components/schemas/_helper_schema_output_ref_type literal=true key=@key.original fullRefModule="" mode="getitem" endChar=":" }}
+    ...
+            {{else}}
+                {{#if jsonPathPiece}}
+{{> components/schemas/_helper_schema_output_type literal=true key=@key.original mode="getitem" fullRefModule=null endChar=":" }}
+    ...
+                {{else}}
+        {{! for when additionalProperties is unset, use schemas.AnyTypeSchema because val is not always schemas.UnsetAnyTypeSchema }}
+def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> schemas.OUTPUT_BASE_TYPES:
+    ...
+                {{/if}}
+            {{/if}}
+        {{/with}}
+    {{/each}}
+{{/if}}
+{{#if optionalProperties}}
+    {{#each optionalProperties}}
+
+@typing.overload
+        {{#if refInfo.refClass}}
+{{> components/schemas/_helper_schema_output_ref_type literal=true key=@key.original fullRefModule="" mode="getitem" endChar=":" }}
+    ...
+        {{else}}
+{{> components/schemas/_helper_schema_output_type literal=true key=@key.original mode="getitem" fullRefModule=null endChar=":" }}
+    ...
+        {{/if}}
+    {{/each}}
+{{/if}}
+{{#or optionalProperties requiredProperties}}
+    {{#with additionalProperties}}
+        {{#unless isBooleanSchemaFalse}}
+
+@typing.overload
+            {{#if refInfo.refClass}}
+{{> components/schemas/_helper_schema_output_ref_type literal=false key="str" fullRefModule="" mode="getitem" endChar=":" }}
+    ...
+            {{else}}
+{{> components/schemas/_helper_schema_output_type literal=false key="str" mode="getitem" fullRefModule=null endChar=":" }}
+    ...
+            {{/if}}
+        {{/unless}}
+    {{else}}
+        {{! for when additionalProperties is unset, use schemas.OUTPUT_BASE_TYPES }}
+
+@typing.overload
+def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
+    {{/with}}
+
+def __getitem__(
+    self,
+    name: typing.Union[
+    {{#each requiredProperties}}
+        {{#if this}}
+        typing_extensions.Literal["{{{@key.original}}}"],
+        {{/if}}
+    {{/each}}
+    {{#each optionalProperties}}
+        typing_extensions.Literal["{{{@key.original}}}"],
+    {{/each}}
+    {{#with additionalProperties}}
+        {{#unless isBooleanSchemaFalse}}
+        str
+        {{/unless}}
+    {{else}}
+        str
+    {{/with}}
+    ]
+):
+    # dict_instance[name] accessor
+    return super().__getitem__(name)
+{{else}}
+    {{! no properties or requiredProperties }}
+    {{#with additionalProperties}}
+        {{#unless isBooleanSchemaFalse}}
+
+            {{#if refInfo.refClass}}
+{{> components/schemas/_helper_schema_output_ref_type literal=false key="str" fullRefModule="" mode="getitem" endChar=":" }}
+            {{else}}
+{{> components/schemas/_helper_schema_output_type literal=false key="str" mode="getitem" fullRefModule=null endChar=":" }}
+            {{/if}}
+    # dict_instance[name] accessor
+    return super().__getitem__(name)
+        {{/unless}}
+    {{/with}}
+{{/or}}

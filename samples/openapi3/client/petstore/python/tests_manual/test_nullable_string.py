@@ -14,7 +14,7 @@ import unittest
 
 import petstore_api
 from petstore_api.components.schema.nullable_string import NullableString
-from petstore_api.schemas import Schema, Singleton
+from petstore_api.schemas import Schema, none_type_
 
 
 class TestNullableString(unittest.TestCase):
@@ -28,27 +28,21 @@ class TestNullableString(unittest.TestCase):
 
     def testNullableString(self):
         """Test NullableString"""
-        inst = NullableString(None)
-        assert isinstance(inst, Singleton)
-        assert isinstance(inst, NullableString)
-        assert isinstance(inst, Schema)
-        assert inst.is_none_() is True
-        assert repr(inst) == '<DynamicSchema: None>'
+        inst = NullableString.validate(None)
+        assert isinstance(inst, none_type_)
+        assert inst is None
 
-        inst = NullableString('approved')
-        assert inst.is_none_() is False
-        assert isinstance(inst, NullableString)
-        assert isinstance(inst, Schema)
+        inst = NullableString.validate('approved')
         assert isinstance(inst, str)
         assert inst == 'approved'
 
-        invalid_values = [1]
+        invalid_values = (1,)
         for invalid_value in invalid_values:
             with self.assertRaisesRegex(
                 petstore_api.ApiTypeError,
-                r"Invalid type. Required value type is one of \[NoneClass, str\] and passed type was Decimal at \['args\[0\]'\]"
+                r"Invalid type. Required value type is one of \[NoneType, str\] and passed type was int at \['args\[0\]'\]"
             ):
-                NullableString(invalid_value)
+                NullableString.validate(invalid_value)
 
 
 if __name__ == '__main__':

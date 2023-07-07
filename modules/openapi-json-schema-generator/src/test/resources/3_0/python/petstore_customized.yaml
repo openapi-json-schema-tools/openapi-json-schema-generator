@@ -448,14 +448,10 @@ paths:
               schema:
                 type: string
                 format: date-time
-            stringHeader:
-              $ref: '#/components/headers/RefStringHeader'
             numberHeader:
               $ref: '#/components/headers/NumberHeader'
             int32:
               $ref: '#/components/headers/Int32JsonContentTypeHeader'
-            ref-schema-header:
-              $ref: '#/components/headers/RefSchemaHeader'
             ref-content-schema-header:
               $ref: '#/components/headers/RefContentSchemaHeader'
           content:
@@ -3080,6 +3076,7 @@ components:
       required:
         - amount
         - currency
+      additionalProperties: false
     DecimalPayload:
       type: string
       format: number
@@ -3290,3 +3287,10 @@ components:
         - a
       allOf:
         - $ref: '#/components/schemas/ObjWithRequiredPropsBase'
+    ObjectWithOnlyOptionalProps:
+      properties:
+        a:
+          type: string
+        b:
+          type: number
+      additionalProperties: false

@@ -38,7 +38,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 2
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.RequestBody.content["application/json"].schema(
+                body = post.request_body.RequestBody.content["application/json"].schema.validate(
                     payload,
                     configuration=self.schema_config
                 )
@@ -52,7 +52,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 5
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.RequestBody.content["application/json"].schema(
+                body = post.request_body.RequestBody.content["application/json"].schema.validate(
                     payload,
                     configuration=self.schema_config
                 )
@@ -66,7 +66,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 15
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.RequestBody.content["application/json"].schema(
+                body = post.request_body.RequestBody.content["application/json"].schema.validate(
                     payload,
                     configuration=self.schema_config
                 )
@@ -80,7 +80,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 6
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.RequestBody.content["application/json"].schema(
+                body = post.request_body.RequestBody.content["application/json"].schema.validate(
                     payload,
                     configuration=self.schema_config
                 )
@@ -93,7 +93,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             payload = (
                 30
             )
-            body = post.request_body.RequestBody.content["application/json"].schema(
+            body = post.request_body.RequestBody.content["application/json"].schema.validate(
                 payload,
                 configuration=self.schema_config
             )
@@ -124,7 +124,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 10
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.RequestBody.content["application/json"].schema(
+                body = post.request_body.RequestBody.content["application/json"].schema.validate(
                     payload,
                     configuration=self.schema_config
                 )
@@ -138,7 +138,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 3
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.RequestBody.content["application/json"].schema(
+                body = post.request_body.RequestBody.content["application/json"].schema.validate(
                     payload,
                     configuration=self.schema_config
                 )
@@ -152,7 +152,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 1
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.RequestBody.content["application/json"].schema(
+                body = post.request_body.RequestBody.content["application/json"].schema.validate(
                     payload,
                     configuration=self.schema_config
                 )

@@ -21,16 +21,16 @@ class TestObjectWithInvalidNamedRefedProperties(unittest.TestCase):
     """ObjectWithInvalidNamedRefedProperties unit test stubs"""
 
     def test_instantiation_success(self):
-        array_value = ArrayWithValidationsInItems(
+        array_value = ArrayWithValidationsInItems.validate(
             [4, 5]
         )
-        from_value = FromSchema({'data': 'abc', 'id': 1})
+        from_value = FromSchema.validate({'data': 'abc', 'id': 1})
         kwargs = {
             'from': from_value,
             '!reference': array_value
         }
         # __new__ creation works
-        inst = ObjectWithInvalidNamedRefedProperties(
+        inst = ObjectWithInvalidNamedRefedProperties.validate(
             kwargs
         )
         primitive_data = {
@@ -38,34 +38,34 @@ class TestObjectWithInvalidNamedRefedProperties(unittest.TestCase):
             '!reference': (4, 5)
         }
         assert inst == primitive_data
-        inst = ObjectWithInvalidNamedRefedProperties(primitive_data)
+        inst = ObjectWithInvalidNamedRefedProperties.validate(primitive_data)
         assert inst == primitive_data
 
     def test_omitting_required_properties_fails(self):
-        array_value = ArrayWithValidationsInItems(
+        array_value = ArrayWithValidationsInItems.validate(
             [4, 5]
         )
-        from_value = FromSchema({'data': 'abc', 'id': 1})
+        from_value = FromSchema.validate({'data': 'abc', 'id': 1})
         with self.assertRaises(exceptions.ApiTypeError):
-            ObjectWithInvalidNamedRefedProperties(
+            ObjectWithInvalidNamedRefedProperties.validate(
                 {
                     'from': from_value,
                 }
             )
         with self.assertRaises(exceptions.ApiTypeError):
-            ObjectWithInvalidNamedRefedProperties(
+            ObjectWithInvalidNamedRefedProperties.validate(
                 {
                     '!reference': array_value
                 }
             )
         with self.assertRaises(exceptions.ApiTypeError):
-            ObjectWithInvalidNamedRefedProperties(
+            ObjectWithInvalidNamedRefedProperties.validate(
                 {
                     'from': {'data': 'abc', 'id': 1},
                 }
             )
         with self.assertRaises(exceptions.ApiTypeError):
-            ObjectWithInvalidNamedRefedProperties(
+            ObjectWithInvalidNamedRefedProperties.validate(
                 {
                     '!reference': [4, 5]
                 }

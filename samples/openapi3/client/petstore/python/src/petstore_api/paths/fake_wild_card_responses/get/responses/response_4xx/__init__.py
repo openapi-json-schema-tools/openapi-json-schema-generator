@@ -12,16 +12,7 @@ from .content.application_json import schema as application_json_schema
 @dataclasses.dataclass
 class ApiResponseFor4XX(api_response.ApiResponse):
     response: urllib3.HTTPResponse
-    body: application_json_schema.Schema[typing.Union[
-        frozendict.frozendict,
-        str,
-        decimal.Decimal,
-        schemas.BoolClass,
-        schemas.NoneClass,
-        tuple,
-        bytes,
-        schemas.FileIO
-    ]]
+    body: schemas.OUTPUT_BASE_TYPES
     headers: schemas.Unset = schemas.unset
 
 
@@ -30,16 +21,7 @@ class ResponseFor4XX(api_client.OpenApiResponse[ApiResponseFor4XX]):
 
 
     class ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = application_json_schema.Schema[typing.Union[
-            frozendict.frozendict,
-            str,
-            decimal.Decimal,
-            schemas.BoolClass,
-            schemas.NoneClass,
-            tuple,
-            bytes,
-            schemas.FileIO
-        ]]
+        schema: typing_extensions.TypeAlias = application_json_schema.Schema
     Content = typing_extensions.TypedDict(
         'Content',
         {

@@ -1,0 +1,7 @@
+{{#if types}}
+    {{#eq types.size 1}}
+{{> components/schemas/_helper_schema_input_type_base }}
+    {{/eq}}
+{{else}}
+{{> components/schemas/_helper_schema_input_type_base }}
+{{/if}}

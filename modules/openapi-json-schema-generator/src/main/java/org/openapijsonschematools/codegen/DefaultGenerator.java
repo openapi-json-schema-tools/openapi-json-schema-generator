@@ -581,8 +581,10 @@ public class DefaultGenerator implements Generator {
                     String templateFile = contentTypeEntry.getKey();
                     String outputFile = contentTypeEntry.getValue();
                     String outputFilepath = config.getFilepath(contentTypeJsonPath) + File.separatorChar + outputFile;
+                    HashMap<String, Object> contentTypeTemplateData = new HashMap<>();
+                    contentTypeTemplateData.put("schema", schema);
                     try {
-                        File written = processTemplateToFile(new HashMap<>(), templateFile, outputFilepath, true, CodegenConstants.CONTENT);
+                        File written = processTemplateToFile(contentTypeTemplateData, templateFile, outputFilepath, true, CodegenConstants.CONTENT);
                         if (written != null) {
                             files.add(written);
                             if (config.isEnablePostProcessFile() && !dryRun) {
@@ -602,8 +604,10 @@ public class DefaultGenerator implements Generator {
                 String contentTemplateFile = contentEntry.getKey();
                 String outputFile = contentEntry.getValue();
                 String outputFilepath = config.getFilepath(contentJsonPath) + File.separatorChar + outputFile;
+                HashMap<String, Object> contentTemplateData = new HashMap<>();
+                contentTemplateData.put("content", content);
                 try {
-                    File written = processTemplateToFile(new HashMap<>(), contentTemplateFile, outputFilepath, true, CodegenConstants.CONTENT);
+                    File written = processTemplateToFile(contentTemplateData, contentTemplateFile, outputFilepath, true, CodegenConstants.CONTENT);
                     if (written != null) {
                         files.add(written);
                         if (config.isEnablePostProcessFile() && !dryRun) {

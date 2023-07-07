@@ -42,7 +42,7 @@ ioutil | [Parameter1.schema](#parameter1-schema), list, tuple | |
 http | [Parameter2.schema](#parameter2-schema), list, tuple | | 
 url | [Parameter3.schema](#parameter3-schema), list, tuple | | 
 context | [Parameter4.schema](#parameter4-schema), list, tuple | | 
-refParam | [Parameter5.schema](#parameter5-schema), dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | | 
+refParam | [Parameter5.schema](#parameter5-schema), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | | 
 
 
 #### Parameter0
@@ -161,7 +161,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    query_params: operation.RequestQueryParameters.Params = {
+    query_params: operation.QueryParametersDictInput = {
         'pipe': [
         "pipe_example"
     ],

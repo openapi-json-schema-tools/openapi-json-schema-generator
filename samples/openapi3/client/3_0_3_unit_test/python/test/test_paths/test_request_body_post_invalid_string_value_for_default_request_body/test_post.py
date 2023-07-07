@@ -40,7 +40,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                         "good",
                 }
             )
-            body = post.request_body.RequestBody.content["application/json"].schema(
+            body = post.request_body.RequestBody.content["application/json"].schema.validate(
                 payload,
                 configuration=self.schema_config
             )
@@ -71,7 +71,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 {
                 }
             )
-            body = post.request_body.RequestBody.content["application/json"].schema(
+            body = post.request_body.RequestBody.content["application/json"].schema.validate(
                 payload,
                 configuration=self.schema_config
             )

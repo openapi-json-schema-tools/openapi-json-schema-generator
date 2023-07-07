@@ -11,10 +11,9 @@
 
 import unittest
 
-import frozendict
+import immutabledict
 import typing_extensions
 
-from petstore_api.schemas import BoolClass
 from petstore_api.components.schema import object_model_with_ref_props
 from petstore_api.components.schema.number_with_validations import NumberWithValidations
 
@@ -30,21 +29,15 @@ class TestObjectModelWithRefProps(unittest.TestCase):
 
     def testObjectModelWithRefProps(self):
         """Test ObjectModelWithRefProps"""
-        inst = object_model_with_ref_props.ObjectModelWithRefProps({'myNumber': 15.0, 'myString': "a", 'myBoolean': True})
-        assert isinstance(inst, object_model_with_ref_props.ObjectModelWithRefProps)
-        assert isinstance(inst, frozendict.frozendict)
+        inst = object_model_with_ref_props.ObjectModelWithRefProps.validate({'myNumber': 15.0, 'myString': "a", 'myBoolean': True})
+        assert isinstance(inst, object_model_with_ref_props.ObjectModelWithRefPropsDict)
+        assert isinstance(inst, immutabledict.immutabledict)
         assert set(inst.keys()) == {"myNumber", "myString", "myBoolean"}
         assert inst["myNumber"] == 15.0
-        assert isinstance(inst["myNumber"], NumberWithValidations)
+        assert isinstance(inst["myNumber"], float)
         assert inst["myString"] == 'a'
-        origin_cls = typing_extensions.get_origin(object_model_with_ref_props.string.String)
-        assert origin_cls is not None
-        assert isinstance(inst["myString"], origin_cls)
-        assert bool(inst["myBoolean"]) is True
-        origin_cls = typing_extensions.get_origin(object_model_with_ref_props.boolean.Boolean)
-        assert origin_cls is not None
-        assert isinstance(inst["myBoolean"], origin_cls)
-        assert isinstance(inst["myBoolean"], BoolClass)
+        assert isinstance(inst["myString"], str)
+        assert inst["myBoolean"] is True
 
 
 if __name__ == '__main__':

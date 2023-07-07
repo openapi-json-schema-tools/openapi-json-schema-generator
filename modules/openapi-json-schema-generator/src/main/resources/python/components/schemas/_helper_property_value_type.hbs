@@ -1,17 +1,11 @@
 {{#if refInfo.refClass}}
-typing.Union[
-    {{> components/schemas/_helper_new_ref_property_value_type optional=false }}
-],
+{{> components/schemas/_helper_prefix_ref_property_value_type prefix=null fullRefModule="" }}
 {{else}}
     {{#if jsonPathPiece}}
-typing.Union[
-    {{> components/schemas/_helper_new_property_value_type optional=false }}
-],
+{{> components/schemas/_helper_prefix_property_value_type prefix=null }}
     {{else}}
 typing.Union[
-    schemas.AnyTypeSchema[typing.Union[
-        {{> components/schemas/_helper_schema_python_base_types_newline }}
-    ]],
+    schemas.AnyTypeSchema,
     {{> _helper_schema_python_types_newline }}
 ],
     {{/if}}

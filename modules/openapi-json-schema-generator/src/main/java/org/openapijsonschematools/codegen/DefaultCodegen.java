@@ -2063,7 +2063,13 @@ public class DefaultCodegen implements CodegenConfig {
 
     protected String getImport(CodegenRefInfo refInfo) {
         String prefix = "from " + packageName + ".components.";
-        if (refInfo.ref instanceof CodegenRequestBody) {
+        if (refInfo.ref instanceof CodegenSchema) {
+            if (refInfo.refModuleAlias == null) {
+                return prefix + "schema import " + refInfo.refModule;
+            } else {
+                return "from " + refInfo.refModuleLocation + " import " + refInfo.refModule + " as " + refInfo.refModuleAlias;
+            }
+        } else if (refInfo.ref instanceof CodegenRequestBody) {
             return prefix + "request_bodies import " + refInfo.refModule;
         } else if (refInfo.ref instanceof CodegenHeader) {
             return prefix + "headers import " + refInfo.refModule;
@@ -2075,13 +2081,6 @@ public class DefaultCodegen implements CodegenConfig {
             return prefix + "security_schemes import " + refInfo.refModule;
         }
         return null;
-    }
-
-    protected String getImport(String className, CodegenSchema schema) {
-        if (className == null) {
-            return schema.refInfo.refClass;
-        }
-        return className;
     }
 
     /**
@@ -2098,7 +2097,9 @@ public class DefaultCodegen implements CodegenConfig {
                 if (!"".equals(mm.modelName)) {
                     String complexType = mm.modelName;
                     if (shouldAddImport(complexType)) {
-                        imports.add(getImport(complexType, null));
+                        String refModule = complexType.split("\\.")[0];
+                        CodegenRefInfo<CodegenSchema> refInfo = new CodegenRefInfo<>(new CodegenSchema(), null, refModule, null, null);
+                        imports.add(getImport(refInfo));
                     }
                 }
             }
@@ -2143,7 +2144,7 @@ public class DefaultCodegen implements CodegenConfig {
         // referenced or inline schemas
         if (schema.refInfo != null && schema.refInfo.refModule != null) {
             // self reference classes do not contain refModule
-            imports.add(getImport(null, schema));
+            imports.add(getImport(schema.refInfo));
         }
         return imports;
     }
@@ -2214,6 +2215,7 @@ public class DefaultCodegen implements CodegenConfig {
         PairCacheKey ck = new PairCacheKey(sourceJsonPath, currentJsonPath);
         CodegenSchema property = codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
         property.instanceType = "schema";
+        property.jsonPath = currentJsonPath;
 
         String ref = p.get$ref();
         // put toExampleValue in a try-catch block to log the error as example values are not critical
@@ -2241,7 +2243,6 @@ public class DefaultCodegen implements CodegenConfig {
         } else if (p.equals(falseSchema)) {
             property.isBooleanSchemaFalse = true;
         }
-        property.enumValueToName = getEnumValueToName(p);
         property.type = p.getType();
         property.types = getTypes(p);
 
@@ -2281,6 +2282,7 @@ public class DefaultCodegen implements CodegenConfig {
             property.items = fromSchema(
                     p.getItems(), sourceJsonPath, currentJsonPath + "/items");
         }
+        property.enumValueToName = getEnumValueToName(p, currentJsonPath, sourceJsonPath);
         List<Schema> anyOfs = ((Schema<?>) p).getAnyOf();
         if (anyOfs != null && !anyOfs.isEmpty()) {
             property.anyOf = getComposedProperties(anyOfs, "anyOf", sourceJsonPath, currentJsonPath);
@@ -2291,18 +2293,35 @@ public class DefaultCodegen implements CodegenConfig {
         }
         property.additionalProperties = getAdditionalProperties(p, sourceJsonPath, currentJsonPath);
         // ideally requiredProperties would come before properties
-        property.requiredProperties = getRequiredProperties(required, property.properties, property.additionalProperties, requiredAndOptionalProperties, sourceJsonPath, ((Schema<?>) p).getProperties());
-        property.optionalProperties = getOptionalProperties(property.properties, required, sourceJsonPath);
-        if ((property.types == null || property.types.contains("object")) && sourceJsonPath != null) {
-            // only set mapInputJsonPathPiece when object input is possible
-            if (property.requiredProperties != null && property.optionalProperties == null) {
-                property.mapInputJsonPathPiece = property.requiredProperties.jsonPathPiece();
-            } else if (property.requiredProperties == null && property.optionalProperties != null) {
-                property.mapInputJsonPathPiece = property.optionalProperties.jsonPathPiece();
-            } else if (property.requiredProperties != null && property.optionalProperties != null) {
-                property.mapInputJsonPathPiece = getKey("DictInput", "schemaProperty", sourceJsonPath);
-            } else {
-                property.mapInputJsonPathPiece = getKey("DictInput", "schemaProperty", sourceJsonPath);
+        if (currentJsonPath != null) {
+            String currentName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
+            property.requiredProperties = getRequiredProperties(required, property.properties, property.additionalProperties, requiredAndOptionalProperties, sourceJsonPath, ((Schema<?>) p).getProperties(), currentName);
+            property.optionalProperties = getOptionalProperties(property.properties, required, sourceJsonPath, currentName);
+            if ((property.types == null || property.types.contains("object")) && sourceJsonPath != null) {
+                // only set mapInputJsonPathPiece when object input is possible
+                if (property.requiredProperties != null && property.optionalProperties == null) {
+                    // only required
+                    property.mapInputJsonPathPiece = property.requiredProperties.jsonPathPiece();
+                    property.mapOutputJsonPathPiece = getKey(currentName + "Dict", "schemaProperty", sourceJsonPath);
+                } else if (property.requiredProperties == null && property.optionalProperties != null) {
+                    // only optional
+                    property.mapInputJsonPathPiece = property.optionalProperties.jsonPathPiece();
+                    property.mapOutputJsonPathPiece = getKey(currentName + "Dict", "schemaProperty", sourceJsonPath);
+                } else if (property.requiredProperties != null && property.optionalProperties != null) {
+                    // optional + required
+                    property.mapInputJsonPathPiece = getKey(currentName + "DictInput", "schemaProperty", sourceJsonPath);
+                    property.mapOutputJsonPathPiece = getKey(currentName + "Dict", "schemaProperty", sourceJsonPath);
+                } else if (property.additionalProperties != null) {
+                    // only addProps
+                    property.mapInputJsonPathPiece = getKey(currentName + "DictInput", "schemaProperty", sourceJsonPath);
+                    // even though the definition is the same, mapOutputJsonPathPiece needs to be different
+                    // so an implementing class can be written
+                    property.mapOutputJsonPathPiece = getKey(currentName + "Dict", "schemaProperty", sourceJsonPath);
+                }
+            }
+            if ((property.types == null || property.types.contains("array")) && sourceJsonPath != null && property.items != null) {
+                property.arrayOutputJsonPathPiece = getKey(currentName + "Tuple", "schemaProperty", sourceJsonPath);
+                property.arrayInputJsonPathPiece = getKey(currentName + "TupleInput", "schemaProperty", sourceJsonPath);
             }
         }
         // end of properties that need to be ordered to set correct camelCase jsonPathPieces
@@ -2572,23 +2591,40 @@ public class DefaultCodegen implements CodegenConfig {
 
         RequestBody opRequestBody = operation.getRequestBody();
         CodegenRequestBody requestBody = null;
+        List<CodegenSchema> requestBodySchemas = null;
         if (opRequestBody != null) {
             requestBody = fromRequestBody(opRequestBody, jsonPath + "/requestBody");
-            if (requestBody.refInfo != null) {
-                if (Boolean.TRUE.equals(requestBody.getDeepestRef().required)) {
-                    hasRequiredParamOrBody = true;
-                } else {
-                    hasOptionalParamOrBody = true;
-                }
+            CodegenRequestBody derefRequestBody = requestBody.getSelfOrDeepestRef();
+            if (Boolean.TRUE.equals(derefRequestBody.required)) {
+                hasRequiredParamOrBody = true;
             } else {
-                if (Boolean.TRUE.equals(requestBody.required)) {
-                    hasRequiredParamOrBody = true;
-                } else {
-                    hasOptionalParamOrBody = true;
+                hasOptionalParamOrBody = true;
+            }
+            requestBodySchemas = new ArrayList<>();
+            for (Entry<CodegenKey, CodegenMediaType> entry: derefRequestBody.content.entrySet()) {
+                CodegenKey contentType = entry.getKey();
+                CodegenMediaType mediaType = entry.getValue();
+                if (mediaType.schema != null) {
+                    String schemaJsonPath = mediaType.schema.getSelfOrDeepestRef().jsonPath;
+                    Schema contentTypeSchema = new Schema();
+                    contentTypeSchema.set$ref(schemaJsonPath);
+
+                    CodegenSchema schema = fromSchema(contentTypeSchema, jsonPath, jsonPath + "/RequestBody" + contentType.camelCase + "Schema");
+                    schema.imports = new TreeSet<>();
+                    addImports(schema.imports, getImports(schema, generatorMetadata.getFeatureSet()));
+                    requestBodySchemas.add(schema);
                 }
             }
         }
 
+        HashMap<String, Schema> pathParametersProperties = new HashMap<>();
+        List<String> pathParametersRequired = new ArrayList<>();
+        HashMap<String, Schema> queryParametersProperties = new HashMap<>();
+        List<String> queryParametersRequired = new ArrayList<>();
+        HashMap<String, Schema> headerParametersProperties = new HashMap<>();
+        List<String> headerParametersRequired = new ArrayList<>();
+        HashMap<String, Schema> cookieParametersProperties = new HashMap<>();
+        List<String> cookieParametersRequired = new ArrayList<>();
         if (parameters != null) {
             int i = 0;
             for (Parameter param : parameters) {
@@ -2601,24 +2637,45 @@ public class DefaultCodegen implements CodegenConfig {
                 if (p.refInfo != null) {
                     paramOrRef = p.getDeepestRef();
                 }
+                CodegenParameter derefParam = p.getSelfOrDeepestRef();
+                String paramName = derefParam.name;
+                String schemaJsonPath = p.getSchemaJsonPath();
+                Schema parameterSchema = new Schema();
+                parameterSchema.set$ref(schemaJsonPath);
+
                 switch (paramOrRef.in) {
                     case "query":
                         queryParams.add(p);
+                        if (Boolean.TRUE.equals(derefParam.required)) {
+                            queryParametersRequired.add(paramName);
+                        }
+                        queryParametersProperties.put(paramName, parameterSchema);
                         break;
                     case "path":
                         pathParams.add(p);
+                        if (Boolean.TRUE.equals(derefParam.required)) {
+                            pathParametersRequired.add(paramName);
+                        }
+                        pathParametersProperties.put(paramName, parameterSchema);
                         break;
                     case "header":
                         headerParams.add(p);
+                        if (Boolean.TRUE.equals(derefParam.required)) {
+                            headerParametersRequired.add(paramName);
+                        }
+                        headerParametersProperties.put(paramName, parameterSchema);
                         break;
                     case "cookie":
                         cookieParams.add(p);
+                        if (Boolean.TRUE.equals(derefParam.required)) {
+                            cookieParametersRequired.add(paramName);
+                        }
+                        cookieParametersProperties.put(paramName, parameterSchema);
                         break;
                     default:
                         LOGGER.warn("Unknown parameter type for {}", p.name);
                         break;
                 }
-
             }
         }
 
@@ -2650,9 +2707,13 @@ public class DefaultCodegen implements CodegenConfig {
             });
         }
         List<HashMap<String, CodegenSecurityRequirementValue>> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
-
         ExternalDocumentation externalDocs = operation.getExternalDocs();
         CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1], "verb");
+        CodegenSchema pathParameters = getXParametersSchema(pathParametersProperties, pathParametersRequired, jsonPath, "PathParameters");
+        CodegenSchema queryParameters = getXParametersSchema(queryParametersProperties, queryParametersRequired, jsonPath, "QueryParameters");
+        CodegenSchema headerParameters = getXParametersSchema(headerParametersProperties, headerParametersRequired, jsonPath, "HeaderParameters");
+        CodegenSchema cookieParameters = getXParametersSchema(cookieParametersProperties, cookieParametersRequired, jsonPath, "CookieParameters");
+
         return new CodegenOperation(
                 deprecated,
                 hasErrorResponseObject,
@@ -2662,11 +2723,16 @@ public class DefaultCodegen implements CodegenConfig {
                 produces,
                 codegenServers,
                 requestBody,
+                requestBodySchemas,
                 allParams,
                 pathParams,
+                pathParameters,
                 queryParams,
+                queryParameters,
                 headerParams,
+                headerParameters,
                 cookieParams,
+                cookieParameters,
                 hasRequiredParamOrBody,
                 hasOptionalParamOrBody,
                 security,
@@ -2681,6 +2747,20 @@ public class DefaultCodegen implements CodegenConfig {
                 vendorExtensions,
                 operationId,
                 jsonPathPiece);
+    }
+
+    private CodegenSchema getXParametersSchema(HashMap<String, Schema> xParametersProperties, List<String> xParametersRequired, String jsonPath, String schemaName) {
+        if (xParametersProperties.isEmpty()) {
+            return null;
+        }
+        ObjectSchema xParametersSchema = new ObjectSchema();
+        xParametersSchema.setProperties(xParametersProperties);
+        xParametersSchema.setRequired(xParametersRequired);
+        xParametersSchema.setAdditionalProperties(Boolean.FALSE);
+        CodegenSchema schema = fromSchema(xParametersSchema, jsonPath, jsonPath + "/" + schemaName);
+        schema.imports = new TreeSet<>();
+        addImports(schema.imports, getImports(schema, generatorMetadata.getFeatureSet()));
+        return schema;
     }
 
     @Override
@@ -2725,6 +2805,8 @@ public class DefaultCodegen implements CodegenConfig {
 
         Map<String, Header> responseHeaders = response.getHeaders();
         Map<String, CodegenHeader> headers = null;
+        HashMap<String, Schema> headersProperties = new HashMap<>();
+        List<String> headersRequired = new ArrayList<>();
         if (responseHeaders != null && !responseHeaders.isEmpty()) {
             headers = new HashMap<>();
             for (Entry<String, Header> entry : responseHeaders.entrySet()) {
@@ -2733,6 +2815,14 @@ public class DefaultCodegen implements CodegenConfig {
                 String headerSourceJsonPath = sourceJsonPath + "/headers/" + headerName;
                 CodegenHeader responseHeader = fromHeader(header, headerSourceJsonPath);
                 headers.put(headerName, responseHeader);
+                CodegenHeader derefParam = responseHeader.getSelfOrDeepestRef();
+                if (Boolean.TRUE.equals(derefParam.required)) {
+                    headersRequired.add(headerName);
+                }
+                String schemaJsonPath = responseHeader.getSchemaJsonPath();
+                Schema parameterSchema = new Schema();
+                parameterSchema.set$ref(schemaJsonPath);
+                headersProperties.put(headerName, parameterSchema);
             }
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = getContent(response.getContent(), sourceJsonPath + "/content");
@@ -2744,7 +2834,7 @@ public class DefaultCodegen implements CodegenConfig {
             String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
             String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);
             CodegenResponse rb = fromResponse(ModelUtils.getReferencedApiResponse(openAPI, response), ref);
-            refInfo = new CodegenRefInfo<>(rb, refClass, refModule);
+            refInfo = new CodegenRefInfo<>(rb, refClass, refModule, getRefModuleLocation(ref), null);
             imports = new TreeSet<>();
             imports.add(getImport(refInfo));
         }
@@ -2753,10 +2843,10 @@ public class DefaultCodegen implements CodegenConfig {
         // #/components/responses/A
         boolean componentModule = pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
-        Map<String, CodegenHeader> finalHeaders = headers;
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         TreeSet<String> finalImports = imports;
-        r = new CodegenResponse(jsonPathPiece, finalHeaders, description, finalVendorExtensions, content, refInfo, finalImports, componentModule);
+        CodegenSchema headersObjectSchema = getXParametersSchema(headersProperties, headersRequired, sourceJsonPath, "Headers");
+        r = new CodegenResponse(jsonPathPiece, headers, headersObjectSchema, description, finalVendorExtensions, content, refInfo, finalImports, componentModule);
         codegenResponseCache.put(sourceJsonPath, r);
         return r;
     }
@@ -2850,7 +2940,7 @@ public class DefaultCodegen implements CodegenConfig {
             String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
             String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);
             CodegenHeader rb = fromHeader(ModelUtils.getReferencedHeader(openAPI, header), ref);
-            refInfo = new CodegenRefInfo<>(rb, refClass, refModule);
+            refInfo = new CodegenRefInfo<>(rb, refClass, refModule, getRefModuleLocation(ref), null);
             imports =  new TreeSet<>();
             imports.add(getImport(refInfo));
         }
@@ -2931,7 +3021,7 @@ public class DefaultCodegen implements CodegenConfig {
             String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
             String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);
             CodegenParameter rb = fromParameter(ModelUtils.getReferencedParameter(openAPI, parameter), ref);
-            refInfo = new CodegenRefInfo<>(rb, refClass, refModule);
+            refInfo = new CodegenRefInfo<>(rb, refClass, refModule, getRefModuleLocation(ref), null);
             imports = new TreeSet<>();
             imports.add(getImport(refInfo));
         }
@@ -3020,7 +3110,7 @@ public class DefaultCodegen implements CodegenConfig {
             SecurityScheme ss = new SecurityScheme();
             ss.set$ref(ref);
             CodegenSecurityScheme refCs = fromSecurityScheme(ModelUtils.getReferencedSecurityScheme(openAPI, ss), ref);
-            CodegenRefInfo<CodegenSecurityScheme> refInfo = new CodegenRefInfo<>(refCs, refClass, refModule);
+            CodegenRefInfo<CodegenSecurityScheme> refInfo = new CodegenRefInfo<>(refCs, refClass, refModule, getRefModuleLocation(ref), null);
             TreeSet<String> imports = new TreeSet<>();
             imports.add(getImport(refInfo));
             ArrayList<String> scopeNames = (ArrayList<String>) entry.getValue();
@@ -3064,7 +3154,7 @@ public class DefaultCodegen implements CodegenConfig {
             String refModule = toRefModule(ref, jsonPath, expectedComponentType);
             String refClass = toRefClass(ref, jsonPath, expectedComponentType);
             CodegenSecurityScheme refCs = fromSecurityScheme(ModelUtils.getReferencedSecurityScheme(openAPI, securityScheme), ref);
-            refInfo = new CodegenRefInfo<>(refCs, refClass, refModule);
+            refInfo = new CodegenRefInfo<>(refCs, refClass, refModule, getRefModuleLocation(ref), null);
             imports = new TreeSet<>();
             imports.add(getImport(refInfo));
         }
@@ -3285,13 +3375,13 @@ public class DefaultCodegen implements CodegenConfig {
             if (prop == null) {
                 LOGGER.warn("Please report the issue. There shouldn't be null property for {}", propertyName);
             } else {
-                if (prop.get$ref() != null) {
-                    allAreInline = false;
-                }
                 final CodegenSchema cp;
 
                 String propertyJsonPath = currentJsonPath + "/properties/" + ModelUtils.encodeSlashes(propertyName);
                 cp = fromSchema(prop, sourceJsonPath, propertyJsonPath);
+                if (cp.hasAnyRefs()) {
+                    allAreInline = false;
+                }
                 requiredAndOptionalProperties.put(propertyName, cp.jsonPathPiece);
 
                 propertiesMap.put(cp.jsonPathPiece, cp);
@@ -3310,7 +3400,7 @@ public class DefaultCodegen implements CodegenConfig {
      * @param required  a set of required properties' name
      * @return the optional properties
      */
-    protected LinkedHashMapWithContext<CodegenKey, CodegenSchema> getOptionalProperties(LinkedHashMapWithContext<CodegenKey, CodegenSchema> properties, Set<String> required, String sourceJsonPath) {
+    protected LinkedHashMapWithContext<CodegenKey, CodegenSchema> getOptionalProperties(LinkedHashMapWithContext<CodegenKey, CodegenSchema> properties, Set<String> required, String sourceJsonPath, String currentName) {
         if (properties == null) {
             return null;
         }
@@ -3319,7 +3409,8 @@ public class DefaultCodegen implements CodegenConfig {
             LinkedHashMapWithContext<CodegenKey, CodegenSchema> optionalProperties = new LinkedHashMapWithContext<>();
             optionalProperties.putAll(properties);
             optionalProperties.setAllAreInline(properties.allAreInline());
-            CodegenKey jsonPathPiece = getKey("DictInput", "schemaProperty", sourceJsonPath);
+            CodegenKey jsonPathPiece;
+            jsonPathPiece = getKey(currentName + "DictInput", "schemaProperty", sourceJsonPath);
             optionalProperties.setJsonPathPiece(jsonPathPiece);
             return optionalProperties;
         }
@@ -3343,7 +3434,7 @@ public class DefaultCodegen implements CodegenConfig {
             return null;
         }
         optionalProperties.setAllAreInline(allAreInline);
-        CodegenKey jsonPathPiece = getKey("OptionalDictInput", "schemaProperty", sourceJsonPath);
+        CodegenKey jsonPathPiece = getKey(currentName + "OptionalDictInput", "schemaProperty", sourceJsonPath);
         optionalProperties.setJsonPathPiece(jsonPathPiece);
         return optionalProperties;
     }
@@ -3855,13 +3946,13 @@ public class DefaultCodegen implements CodegenConfig {
         return tag;
     }
 
-    protected LinkedHashMap<EnumValue, String> getEnumValueToName(Schema schema) {
+    protected LinkedHashMapWithContext<EnumValue, String> getEnumValueToName(Schema schema, String currentJsonPath, String sourceJsonPath) {
         if (schema.getEnum() == null) {
             return null;
         }
 
         ArrayList<Object> values = new ArrayList<>(((Schema<?>) schema).getEnum());
-        LinkedHashMap<EnumValue, String> enumValueToName = new LinkedHashMap<>();
+        LinkedHashMapWithContext<EnumValue, String> enumValueToName = new LinkedHashMapWithContext<>();
         LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
         int truncateIdx = 0;
 
@@ -3935,6 +4026,11 @@ public class DefaultCodegen implements CodegenConfig {
                         usedName);
             }
             i += 1;
+        }
+        if (currentJsonPath != null) {
+            String currentName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
+            CodegenKey key = getKey(currentName + "Enums", "schemaProperty", sourceJsonPath);
+            enumValueToName.setJsonPathPiece(key);
         }
 
         return enumValueToName;
@@ -4196,14 +4292,16 @@ public class DefaultCodegen implements CodegenConfig {
         // ref #/components/headers/SomeHeader -> some_header
 
         String[] refPieces = ref.split("/");
-        if (!ref.startsWith("#/components/")) {
-            throw new RuntimeException("The ref must be to a component");
-        }
-        if (refPieces.length != 4) {
-            throw new RuntimeException("The ref must be to a named key in one of the components");
-        }
-        if (!refPieces[2].equals(expectedComponentType)) {
-            throw new RuntimeException("Incorrect component type in ref, expected "+expectedComponentType+" and saw "+refPieces[2]);
+        if (!expectedComponentType.equals("schemas")) {
+            if (!ref.startsWith("#/components/")) {
+                throw new RuntimeException("The ref must be to a component");
+            }
+            if (refPieces.length != 4) {
+                throw new RuntimeException("The ref must be to a named key in one of the components");
+            }
+            if (!refPieces[2].equals(expectedComponentType)) {
+                throw new RuntimeException("Incorrect component type in ref, expected "+expectedComponentType+" and saw "+refPieces[2]);
+            }
         }
         switch (expectedComponentType) {
             case "requestBodies":
@@ -4219,7 +4317,10 @@ public class DefaultCodegen implements CodegenConfig {
                     // property is of type self
                     return null;
                 }
-                String usedKey = handleSpecialCharacters(refPieces[3]);
+                // Two use cases
+                // 1. #/components/schemas/SomeSchema (component schemas)
+                // 2. #/paths/~1pet~1{petId}/get/parameters/0/schema (other schemas: parameters, response headers etc)
+                String usedKey = handleSpecialCharacters(refPieces[refPieces.length-1]);
                 return toModelFilename(usedKey, ref);
             case "securitySchemes":
                 return toSecuritySchemeFilename(refPieces[3], ref);
@@ -4246,7 +4347,9 @@ public class DefaultCodegen implements CodegenConfig {
             String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);
             PairCacheKey ck = new PairCacheKey(ref, ref);
             CodegenSchema cs = codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
-            instance.refInfo = new CodegenRefInfo<>(cs, refClass, refModule);
+            String refModuleLocation = getRefModuleLocation(ref);
+            String refModuleAlias = getRefModuleAlias(refModuleLocation, refModule);
+            instance.refInfo = new CodegenRefInfo<>(cs, refClass, refModule, refModuleLocation, refModuleAlias);
         }
         if (currentJsonPath == null) {
             return;
@@ -4257,6 +4360,28 @@ public class DefaultCodegen implements CodegenConfig {
         if (pathPieces.length == 4 && currentJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
             instance.componentModule = true;
         }
+    }
+
+    private String getRefModuleLocation(String ref) {
+        String filePath = getFilepath(ref);
+        String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar;
+        int endIndex = filePath.lastIndexOf(File.separatorChar);
+        String localFilepath = filePath.substring(prefix.length(), endIndex);
+        String refModuleLocation = localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
+        return refModuleLocation;
+    }
+
+    private String getRefModuleAlias(String refModuleLocation, String refModule) {
+        if (refModuleLocation.contains(".components.schema")) {
+            return null;
+        }
+        String[] locationPieces = refModuleLocation.split("\\.");
+        if (locationPieces[locationPieces.length-2].equals("content")) {
+            // petstore_api.components.headers.header_int32_json_content_type_header.content.application_json
+            return locationPieces[locationPieces.length-3] + "_" + refModule;
+        }
+        // petstore_api.components.headers.header_string_header
+        return locationPieces[locationPieces.length-1] + "_" + refModule;
     }
 
     public CodegenRequestBody fromRequestBody(RequestBody requestBody, String sourceJsonPath) {
@@ -4279,7 +4404,7 @@ public class DefaultCodegen implements CodegenConfig {
             String refModule = toRefModule(ref, sourceJsonPath, expectedComponentType);
             String refClass = toRefClass(ref, sourceJsonPath, expectedComponentType);
             CodegenRequestBody rb = fromRequestBody(ModelUtils.getReferencedRequestBody(openAPI, requestBody), ref);
-            refInfo = new CodegenRefInfo<>(rb, refClass, refModule);
+            refInfo = new CodegenRefInfo<>(rb, refClass, refModule, getRefModuleLocation(ref), null);
             imports = new TreeSet<>();
             imports.add(getImport(refInfo));
         }
@@ -4386,7 +4511,7 @@ public class DefaultCodegen implements CodegenConfig {
         );
     }
 
-    protected LinkedHashMapWithContext<CodegenKey, CodegenSchema> getRequiredProperties(LinkedHashSet<String> required, LinkedHashMap<CodegenKey, CodegenSchema> properties, CodegenSchema additionalProperties, HashMap<String, CodegenKey> requiredAndOptionalProperties, String sourceJsonPath, Map<String, Schema> schemaProperties) {
+    protected LinkedHashMapWithContext<CodegenKey, CodegenSchema> getRequiredProperties(LinkedHashSet<String> required, LinkedHashMap<CodegenKey, CodegenSchema> properties, CodegenSchema additionalProperties, HashMap<String, CodegenKey> requiredAndOptionalProperties, String sourceJsonPath, Map<String, Schema> schemaProperties, String currentName) {
         if (required.isEmpty()) {
             return null;
         }
@@ -4411,6 +4536,7 @@ public class DefaultCodegen implements CodegenConfig {
         int reqPropsWithDef = 0;
         LinkedHashMapWithContext<CodegenKey, CodegenSchema> requiredProperties = new LinkedHashMapWithContext<>();
         boolean allAreInline = true;
+        boolean addPropsIsFalse = additionalProperties != null && additionalProperties.isBooleanSchemaFalse;
         for (String requiredPropertyName: required) {
             // required property is defined in properties, value is that CodegenSchema
             if (properties != null && requiredAndOptionalProperties.containsKey(requiredPropertyName)) {
@@ -4428,7 +4554,7 @@ public class DefaultCodegen implements CodegenConfig {
                 } else {
                     throw new RuntimeException("Property " + requiredPropertyName + " is missing from getVars");
                 }
-            } else if (additionalProperties != null && additionalProperties.isBooleanSchemaFalse) {
+            } else if (addPropsIsFalse) {
                 // required property is not defined in properties, and additionalProperties is false, value is null
                 // no schema definition: error use case?
                 CodegenKey key = getKey(requiredPropertyName, "schemas", null);
@@ -4466,9 +4592,9 @@ public class DefaultCodegen implements CodegenConfig {
         boolean onlyReqPropsCase2 = (requiredPropsWithDefAllFromAddProp && properties == null);
         boolean onlyReqPropsCase3 = (propReqProps != 0 && addPropReqProps != 0 && propReqProps + addPropReqProps == reqPropsWithDef && schemaProperties != null && required.containsAll(schemaProperties.keySet()));
         if (onlyReqPropsCase1 || onlyReqPropsCase2 || onlyReqPropsCase3) {
-            keyName = "DictInput";
+            keyName = currentName + "DictInput";
         } else {
-            keyName = "RequiredDictInput";
+            keyName = currentName + "RequiredDictInput";
         }
         requiredProperties.setAllAreInline(allAreInline);
         CodegenKey jsonPathPiece = getKey(keyName, "schemaProperty", sourceJsonPath);
@@ -4847,10 +4973,10 @@ public class DefaultCodegen implements CodegenConfig {
         int i = 0;
         boolean allAreInline = true;
         for (Schema xOfSchema : xOfCollection) {
-            if (xOfSchema.get$ref() != null) {
+            CodegenSchema cp = fromSchema(xOfSchema, sourceJsonPath, currentJsonPath + "/" + collectionName + "/" + i);
+            if (cp.hasAnyRefs()) {
                 allAreInline = false;
             }
-            CodegenSchema cp = fromSchema(xOfSchema, sourceJsonPath, currentJsonPath + "/" + collectionName + "/" + i);
             xOf.add(cp);
             i += 1;
         }

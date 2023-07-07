@@ -12,27 +12,28 @@ from petstore_api.shared_imports.schema_imports import *
 
 
 
+class SchemaEnums:
+
+    @schemas.classproperty
+    def TRUE(cls) -> str:
+        return Schema.validate("true")
+
+    @schemas.classproperty
+    def FALSE(cls) -> str:
+        return Schema.validate("false")
+
+
+@dataclasses.dataclass(frozen=True)
 class Schema(
-    schemas.StrSchema[schemas.T]
+    schemas.StrSchema
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            str,
-        })
-        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
-            default_factory=lambda: {
-                "true": "TRUE",
-                "false": "FALSE",
-            }
-        )
-    
-    @schemas.classproperty
-    def TRUE(cls) -> Schema[str]:
-        return cls("true") # type: ignore
-    
-    @schemas.classproperty
-    def FALSE(cls) -> Schema[str]:
-        return cls("false") # type: ignore
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        str,
+    })
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+        default_factory=lambda: {
+            "true": "TRUE",
+            "false": "FALSE",
+        }
+    )
+    enums = SchemaEnums

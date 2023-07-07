@@ -20,19 +20,15 @@ class TestAdditionalPropertiesValidator(unittest.TestCase):
 
     def test_additional_properties_validator(self):
         with self.assertRaises(exceptions.ApiValueError):
-            AdditionalPropertiesValidator({'tooShort': 'ab'})
+            AdditionalPropertiesValidator.validate({'tooShort': 'ab'})
 
         with self.assertRaises(exceptions.ApiValueError):
-            AdditionalPropertiesValidator({'tooLong': 'abcdef'})
+            AdditionalPropertiesValidator.validate({'tooLong': 'abcdef'})
 
-        inst = AdditionalPropertiesValidator({'addProp': 'abc'})
+        inst = AdditionalPropertiesValidator.validate({'addProp': 'abc'})
         add_prop = inst['addProp']
         assert add_prop == 'abc'
         assert isinstance(add_prop, str)
-        assert isinstance(add_prop, schemas.AnyTypeSchema)
-        assert isinstance(add_prop, AdditionalPropertiesValidator.Schema_().all_of[1].Schema_().additional_properties)
-        assert isinstance(add_prop, AdditionalPropertiesValidator.Schema_().all_of[2].Schema_().additional_properties)
-        assert not isinstance(add_prop, schemas.UnsetAnyTypeSchema)
 
 
 if __name__ == '__main__':

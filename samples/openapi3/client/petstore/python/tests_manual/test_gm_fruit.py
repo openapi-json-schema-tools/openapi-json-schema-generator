@@ -12,11 +12,11 @@
 
 import unittest
 
-import frozendict
+import immutabledict
 
 from petstore_api.components.schema import apple
 from petstore_api.components.schema import banana
-from petstore_api.components.schema.gm_fruit import GmFruit
+from petstore_api.components.schema import gm_fruit
 from petstore_api import schemas
 
 class TestGmFruit(unittest.TestCase):
@@ -36,11 +36,8 @@ class TestGmFruit(unittest.TestCase):
         length_cm = 20.3
         color = 'yellow'
         cultivar = 'banaple'
-        fruit = GmFruit({'lengthCm': length_cm, 'color': color, 'cultivar': cultivar})
-        assert isinstance(fruit, banana.Banana)
-        assert isinstance(fruit, apple.Apple)
-        assert isinstance(fruit, frozendict.frozendict)
-        assert isinstance(fruit, GmFruit)
+        fruit = gm_fruit.GmFruit.validate({'lengthCm': length_cm, 'color': color, 'cultivar': cultivar})
+        assert isinstance(fruit, gm_fruit.GmFruitDict)
         # check its properties
         self.assertEqual(fruit['lengthCm'], length_cm)
         self.assertEqual(fruit['color'], color)
@@ -69,7 +66,7 @@ class TestGmFruit(unittest.TestCase):
         self.assertTrue(getattr(fruit, 'origin', 'some value'), 'some value')
 
         # including extra parameters works
-        GmFruit({
+        gm_fruit.GmFruit.validate({
             'color': color,
             'length_cm': length_cm,
             'cultivar': cultivar,
@@ -78,7 +75,7 @@ class TestGmFruit(unittest.TestCase):
 
         # including input parameters for both anyOf instances works
         color = 'orange'
-        fruit = GmFruit({
+        fruit = gm_fruit.GmFruit.validate({
             'color': color,
             'cultivar': cultivar,
             'length_cm': length_cm
@@ -92,7 +89,7 @@ class TestGmFruit(unittest.TestCase):
         color = 'red'
         cultivar = 'golden delicious'
         origin = 'California'
-        fruit = GmFruit({'color': color, 'cultivar': cultivar, 'origin': origin})
+        fruit = gm_fruit.GmFruit.validate({'color': color, 'cultivar': cultivar, 'origin': origin})
         # check its properties
         self.assertEqual(fruit['color'], color)
         self.assertEqual(fruit['cultivar'], cultivar)

@@ -20,7 +20,7 @@ class TestEnumsInProperties(unittest.TestCase):
 
     def test_missing_optional_property_is_valid_passes(self):
         # missing optional property is valid
-        EnumsInProperties(
+        EnumsInProperties.validate(
             {
                 "bar":
                     "bar",
@@ -31,7 +31,7 @@ class TestEnumsInProperties(unittest.TestCase):
     def test_wrong_foo_value_fails(self):
         # wrong foo value
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            EnumsInProperties(
+            EnumsInProperties.validate(
                 {
                     "foo":
                         "foot",
@@ -43,7 +43,7 @@ class TestEnumsInProperties(unittest.TestCase):
 
     def test_both_properties_are_valid_passes(self):
         # both properties are valid
-        EnumsInProperties(
+        EnumsInProperties.validate(
             {
                 "foo":
                     "foo",
@@ -56,7 +56,7 @@ class TestEnumsInProperties(unittest.TestCase):
     def test_wrong_bar_value_fails(self):
         # wrong bar value
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            EnumsInProperties(
+            EnumsInProperties.validate(
                 {
                     "foo":
                         "foo",
@@ -69,7 +69,7 @@ class TestEnumsInProperties(unittest.TestCase):
     def test_missing_all_properties_is_invalid_fails(self):
         # missing all properties is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            EnumsInProperties(
+            EnumsInProperties.validate(
                 {
                 },
                 configuration=self.configuration
@@ -78,7 +78,7 @@ class TestEnumsInProperties(unittest.TestCase):
     def test_missing_required_property_is_invalid_fails(self):
         # missing required property is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            EnumsInProperties(
+            EnumsInProperties.validate(
                 {
                     "foo":
                         "foo",

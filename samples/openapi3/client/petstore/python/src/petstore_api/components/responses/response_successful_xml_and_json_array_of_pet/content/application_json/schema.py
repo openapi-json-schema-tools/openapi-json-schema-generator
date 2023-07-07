@@ -11,36 +11,49 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
 
+from petstore_api.components.schema import ref_pet
 
+
+class SchemaTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+    def __getitem__(self, name: int) -> ref_pet.pet.PetDict:
+        return super().__getitem__(name)
+
+    def __new__(cls, arg: SchemaTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Schema.validate(arg, configuration=configuration)
+SchemaTupleInput = typing.Sequence[
+    typing.Union[
+        ref_pet.pet.PetDict,
+        dict,
+        schemas.immutabledict
+    ],
+]
+
+
+@dataclasses.dataclass(frozen=True)
 class Schema(
-    schemas.ListSchema[schemas.T]
+    schemas.ListSchema[SchemaTuple]
 ):
+    types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+    items: typing.Type[ref_pet.RefPet] = dataclasses.field(default_factory=lambda: ref_pet.RefPet) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            tuple: SchemaTuple
+        }
+    )
 
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        items: typing.Type[ref_pet.RefPet] = dataclasses.field(default_factory=lambda: ref_pet.RefPet) # type: ignore
-
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Sequence[
-            typing.Union[
-                ref_pet.RefPet[frozendict.frozendict],
-                dict,
-                frozendict.frozendict
-            ]
+        arg: typing.Union[
+            SchemaTupleInput,
+            SchemaTuple,
         ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Schema[tuple]:
-        return super().__new__(
-            cls,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SchemaTuple:
+        return super().validate(
             arg,
             configuration=configuration,
         )
-
-    def __getitem__(self, name: int) -> ref_pet.RefPet[frozendict.frozendict]:
-        return super().__getitem__(name)
-
-
-from petstore_api.components.schema import ref_pet

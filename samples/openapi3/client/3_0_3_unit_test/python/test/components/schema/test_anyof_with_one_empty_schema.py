@@ -20,14 +20,14 @@ class TestAnyofWithOneEmptySchema(unittest.TestCase):
 
     def test_string_is_valid_passes(self):
         # string is valid
-        AnyofWithOneEmptySchema(
+        AnyofWithOneEmptySchema.validate(
             "foo",
             configuration=self.configuration
         )
 
     def test_number_is_valid_passes(self):
         # number is valid
-        AnyofWithOneEmptySchema(
+        AnyofWithOneEmptySchema.validate(
             123,
             configuration=self.configuration
         )

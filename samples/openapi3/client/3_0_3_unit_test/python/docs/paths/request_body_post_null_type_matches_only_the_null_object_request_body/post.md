@@ -46,7 +46,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[NullTypeMatchesOnlyTheNullObject](../../components/schema/null_type_matches_only_the_null_object.md) | None | NoneClass |
+[NullTypeMatchesOnlyTheNullObject](../../components/schema/null_type_matches_only_the_null_object.md) | None | None |
 
 ## Return Types
 

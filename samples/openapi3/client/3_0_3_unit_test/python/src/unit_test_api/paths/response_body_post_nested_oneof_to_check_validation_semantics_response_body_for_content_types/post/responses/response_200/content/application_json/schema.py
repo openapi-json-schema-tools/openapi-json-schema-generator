@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import nested_oneof_to_check_validation_semantics
-Schema: typing_extensions.TypeAlias = nested_oneof_to_check_validation_semantics.NestedOneofToCheckValidationSemantics[U]
+Schema: typing_extensions.TypeAlias = nested_oneof_to_check_validation_semantics.NestedOneofToCheckValidationSemantics

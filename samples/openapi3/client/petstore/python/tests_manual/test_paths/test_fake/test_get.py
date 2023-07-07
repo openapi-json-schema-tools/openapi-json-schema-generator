@@ -10,6 +10,7 @@ import unittest
 from unittest.mock import patch
 
 import urllib3
+import immutabledict
 
 from petstore_api.paths.fake.get import operation as get  # noqa: E501
 from petstore_api import schemas, api_client, exceptions
@@ -95,7 +96,7 @@ class TestFake(ApiTestMixin, unittest.TestCase):
         self.assertEqual(exc.api_response.response.reason, expected_reason)
         self.assertEqual(exc.api_response.response.data, response_body_bytes)
         self.assertEqual(exc.api_response.response.headers, expected_headers)
-        self.assertTrue(isinstance(exc.api_response.body, schemas.DictSchema))
+        assert isinstance(exc.api_response.body, immutabledict.immutabledict)
         self.assertEqual(exc.api_response.body, error_dict)
 
         self.assert_pool_manager_request_called_with(

@@ -27,13 +27,11 @@ class TestBooleanEnum(unittest.TestCase):
 
     def test_BooleanEnum(self):
         """Test BooleanEnum"""
-        model = BooleanEnum(True)
-        assert model is BooleanEnum.TRUE
-        assert model.is_true_()
-        assert model.is_false_() is False
-        assert repr(model) == '<DynamicSchema: True>'
+        model = BooleanEnum.validate(True)
+        assert model is BooleanEnum.enums.TRUE
+        assert model is True
         with self.assertRaises(petstore_api.ApiValueError):
-            BooleanEnum(False)
+            BooleanEnum.validate(False)
 
 
 if __name__ == '__main__':

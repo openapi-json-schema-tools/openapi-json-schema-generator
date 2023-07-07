@@ -79,6 +79,17 @@ public class CodegenRequestBody {
         this.refInfo = refInfo;
     }
 
+    public CodegenRequestBody getSelfOrDeepestRef() {
+        if (refInfo == null) {
+            return this;
+        }
+        CodegenRequestBody refObject = refInfo.ref;
+        while (refObject.refInfo != null) {
+            refObject = refObject.refInfo.ref;
+        }
+        return refObject;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(description, unescapedDescription, jsonPathPiece, vendorExtensions, required, content, refInfo, imports, componentModule);

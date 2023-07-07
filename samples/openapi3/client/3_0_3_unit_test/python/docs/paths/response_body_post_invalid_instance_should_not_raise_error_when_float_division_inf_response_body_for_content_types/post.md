@@ -63,7 +63,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf](../../components/schema/invalid_instance_should_not_raise_error_when_float_division_inf.md) | decimal.Decimal, int | decimal.Decimal |
+[InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf](../../components/schema/invalid_instance_should_not_raise_error_when_float_division_inf.md) | int | int |
 
 ## Servers
 

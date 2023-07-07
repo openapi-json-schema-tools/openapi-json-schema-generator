@@ -20,7 +20,7 @@ class TestDateTimeFormat(unittest.TestCase):
 
     def test_all_string_formats_ignore_objects_passes(self):
         # all string formats ignore objects
-        DateTimeFormat(
+        DateTimeFormat.validate(
             {
             },
             configuration=self.configuration
@@ -28,28 +28,28 @@ class TestDateTimeFormat(unittest.TestCase):
 
     def test_all_string_formats_ignore_booleans_passes(self):
         # all string formats ignore booleans
-        DateTimeFormat(
+        DateTimeFormat.validate(
             False,
             configuration=self.configuration
         )
 
     def test_all_string_formats_ignore_integers_passes(self):
         # all string formats ignore integers
-        DateTimeFormat(
+        DateTimeFormat.validate(
             12,
             configuration=self.configuration
         )
 
     def test_all_string_formats_ignore_floats_passes(self):
         # all string formats ignore floats
-        DateTimeFormat(
+        DateTimeFormat.validate(
             13.7,
             configuration=self.configuration
         )
 
     def test_all_string_formats_ignore_arrays_passes(self):
         # all string formats ignore arrays
-        DateTimeFormat(
+        DateTimeFormat.validate(
             [
             ],
             configuration=self.configuration
@@ -57,7 +57,7 @@ class TestDateTimeFormat(unittest.TestCase):
 
     def test_all_string_formats_ignore_nulls_passes(self):
         # all string formats ignore nulls
-        DateTimeFormat(
+        DateTimeFormat.validate(
             None,
             configuration=self.configuration
         )

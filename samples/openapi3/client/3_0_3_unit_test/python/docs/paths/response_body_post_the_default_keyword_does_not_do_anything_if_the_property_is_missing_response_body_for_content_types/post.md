@@ -63,7 +63,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing](../../components/schema/the_default_keyword_does_not_do_anything_if_the_property_is_missing.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing](../../components/schema/the_default_keyword_does_not_do_anything_if_the_property_is_missing.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 ## Servers
 

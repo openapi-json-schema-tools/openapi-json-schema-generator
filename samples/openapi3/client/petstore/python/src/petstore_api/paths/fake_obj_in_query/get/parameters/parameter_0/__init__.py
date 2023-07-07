@@ -12,5 +12,5 @@ from . import schema
 class Parameter0(api_client.QueryParameter):
     name = "mapBean"
     style=api_client.ParameterStyle.DEEP_OBJECT
-    schema: typing_extensions.TypeAlias = schema.Schema[frozendict.frozendict]
+    schema: typing_extensions.TypeAlias = schema.Schema
     explode = True

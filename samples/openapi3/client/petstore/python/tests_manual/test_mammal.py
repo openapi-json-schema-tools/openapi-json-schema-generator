@@ -10,12 +10,11 @@
 """
 
 
-import sys
 import unittest
 
-import petstore_api
-from petstore_api.components.schema.mammal import Mammal
+from petstore_api.components.schema import mammal
 
+import immutabledict
 
 class TestMammal(unittest.TestCase):
     """Mammal unit test stubs"""
@@ -30,25 +29,21 @@ class TestMammal(unittest.TestCase):
         """Test Mammal"""
 
         # tests that we can make a BasquePig by traveling through discriminator in Pig
-        m = Mammal({'className': "BasquePig"})
-        from petstore_api.components.schema import pig
-        from petstore_api.components.schema import basque_pig
-        assert isinstance(m, Mammal)
-        assert isinstance(m, basque_pig.BasquePig)
-        assert isinstance(m, pig.Pig)
+        m = mammal.Mammal.validate({'className': "BasquePig"})
+        assert isinstance(m, immutabledict.immutabledict)
 
         # can make a Whale
-        m = Mammal({'className': "whale"})
-        from petstore_api.components.schema import whale
-        assert isinstance(m, whale.Whale)
+        m = mammal.Mammal.validate({'className': "whale"})
+        assert isinstance(m, immutabledict.immutabledict)
 
         # can use the enum value
-        m = Mammal({'className': whale.ClassName.WHALE})
-        assert isinstance(m, whale.Whale)
+        from petstore_api.components.schema import whale
+        m = mammal.Mammal.validate({'className': whale.ClassName.enums.WHALE})
+        assert isinstance(m, immutabledict.immutabledict)
+        assert m['className'] == whale.ClassName.enums.WHALE
 
-        from petstore_api.components.schema import zebra
-        m = Mammal({'className': 'zebra'})
-        assert isinstance(m, zebra.Zebra)
+        m = mammal.Mammal.validate({'className': 'zebra'})
+        assert isinstance(m, immutabledict.immutabledict)
 
 
 if __name__ == '__main__':

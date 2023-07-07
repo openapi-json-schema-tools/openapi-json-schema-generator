@@ -63,7 +63,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[OneofWithRequired](../../components/schema/oneof_with_required.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[OneofWithRequired](../../components/schema/oneof_with_required.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 ## Servers
 

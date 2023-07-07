@@ -1,51 +1,41 @@
 {{#if requestBody}}
-    {{#with requestBody}}
-        {{#if refInfo}}
-            {{#with getDeepestRef}}
-                {{#unless required}}
-body: typing.Union[
-                    {{#each content}}
-    request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
-                    {{/each}}
-    schemas.Unset,
-                    {{#each getContentSchemas}}
-    {{> _helper_schema_python_types_newline }}
-                    {{/each}}
-] = schemas.unset,
-                {{/unless}}
-            {{/with}}
-        {{else}}
-            {{#unless required}}
-body: typing.Union[
-                {{#each content}}
-    request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
-                {{/each}}
-    schemas.Unset,
-                {{#each getContentSchemas}}
-    {{> _helper_schema_python_types_newline }}
-                {{/each}}
-] = schemas.unset,
-            {{/unless}}
-        {{/if}}
-    {{/with}}
-{{/if}}
-{{#if pathParams}}
-    {{#unless hasRequiredPathParams}}
-path_params: typing.Optional[RequestPathParameters.Params] = None,
+    {{#unless requestBody.getSelfOrDeepestRef.required}}
+{{> paths/path/verb/_helper_operation_args_body fullRefModule=null requiredValue=false }}
     {{/unless}}
 {{/if}}
-{{#if queryParams}}
-    {{#unless hasRequiredQueryParams}}
-query_params: typing.Optional[RequestQueryParameters.Params] = None,
+{{#if pathParameters}}
+    {{#unless pathParameters.requiredProperties}}
+path_params: typing.Union[
+    {{pathParameters.mapInputJsonPathPiece.camelCase}},
+    {{pathParameters.mapOutputJsonPathPiece.camelCase}},
+    None
+] = None,
     {{/unless}}
 {{/if}}
-{{#if headerParams}}
-    {{#unless hasRequiredHeaderParams}}
-header_params: typing.Optional[RequestHeaderParameters.Params] = None,
+{{#if queryParameters}}
+    {{#unless queryParameters.requiredProperties}}
+query_params: typing.Union[
+    {{queryParameters.mapInputJsonPathPiece.camelCase}},
+    {{queryParameters.mapOutputJsonPathPiece.camelCase}},
+    None
+] = None,
     {{/unless}}
 {{/if}}
-{{#if cookieParams}}
-    {{#unless hasRequiredCookieParams}}
-cookie_params: typing.Optional[RequestCookieParameters.Params] = None,
+{{#if headerParameters}}
+    {{#unless headerParameters.requiredProperties}}
+header_params: typing.Union[
+    {{headerParameters.mapInputJsonPathPiece.camelCase}},
+    {{headerParameters.mapOutputJsonPathPiece.camelCase}},
+    None
+] = None,
+    {{/unless}}
+{{/if}}
+{{#if cookieParameters}}
+    {{#unless cookieParameters.requiredProperties}}
+cookie_params: typing.Union[
+    {{cookieParameters.mapInputJsonPathPiece.camelCase}},
+    {{cookieParameters.mapOutputJsonPathPiece.camelCase}},
+    None
+] = None,
     {{/unless}}
 {{/if}}

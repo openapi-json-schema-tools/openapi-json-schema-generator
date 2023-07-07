@@ -14,12 +14,12 @@ import unittest
 from datetime import date, datetime, timezone
 from dateutil.tz import tzutc
 
-import frozendict
+import immutabledict
 
-from petstore_api.schemas import DateSchema, DateTimeSchema, Singleton, NoneClass
+from petstore_api import schemas
 from petstore_api.components.schema.animal import Animal
 from petstore_api.components.schema.cat import Cat
-from petstore_api.components.schema.composed_one_of_different_types import ComposedOneOfDifferentTypes
+from petstore_api.components.schema import composed_one_of_different_types
 from petstore_api.components.schema.number_with_validations import NumberWithValidations
 
 class TestComposedOneOfDifferentTypes(unittest.TestCase):
@@ -34,74 +34,57 @@ class TestComposedOneOfDifferentTypes(unittest.TestCase):
     def test_ComposedOneOfDifferentTypes(self):
         """Test ComposedOneOfDifferentTypes"""
         # we can make an instance that stores float data
-        inst = ComposedOneOfDifferentTypes(10.0)
-        assert isinstance(inst, NumberWithValidations)
+        inst = composed_one_of_different_types.ComposedOneOfDifferentTypes.validate(10.0)
+        assert isinstance(inst, float)
 
         # we can make an instance that stores object (dict) data
-        inst = ComposedOneOfDifferentTypes({'className': "Cat", 'color': "black"})
-        assert isinstance(inst, ComposedOneOfDifferentTypes)
-        assert isinstance(inst, Animal)
-        assert isinstance(inst, Cat)
-        assert isinstance(inst, frozendict.frozendict)
+        inst = composed_one_of_different_types.ComposedOneOfDifferentTypes.validate({'className': "Cat", 'color': "black"})
+        assert isinstance(inst, immutabledict.immutabledict)
 
         # object that holds 4 properties and is not an Animal
-        inst = ComposedOneOfDifferentTypes({'a': "a", 'b': "b", 'c': "c", 'd': "d"})
-        assert isinstance(inst, ComposedOneOfDifferentTypes)
-        assert not isinstance(inst, Animal)
-        assert isinstance(inst, frozendict.frozendict)
+        inst = composed_one_of_different_types.ComposedOneOfDifferentTypes.validate({'a': "a", 'b': "b", 'c': "c", 'd': "d"})
+        assert isinstance(inst, immutabledict.immutabledict)
 
         # None
-        inst = ComposedOneOfDifferentTypes(None)
-        inst.is_none_()
-        assert isinstance(inst, ComposedOneOfDifferentTypes)
-        assert isinstance(inst, Singleton)
-        assert isinstance(inst, NoneClass)
-        assert inst.is_none_() is True
+        inst = composed_one_of_different_types.ComposedOneOfDifferentTypes.validate(None)
+        assert inst is None
 
         # date
-        inst = ComposedOneOfDifferentTypes('2019-01-10')
-        assert isinstance(inst, ComposedOneOfDifferentTypes)
-        assert isinstance(inst, DateSchema)
+        inst = composed_one_of_different_types.ComposedOneOfDifferentTypes.validate('2019-01-10')
         assert isinstance(inst, str)
-        assert inst.as_date_.year == 2019
-        assert inst.as_date_.month == 1
-        assert inst.as_date_.day == 10
+        assert schemas.as_date_(inst).year == 2019
+        assert schemas.as_date_(inst).month == 1
+        assert schemas.as_date_(inst).day == 10
 
         # date
-        inst = ComposedOneOfDifferentTypes(date(2019, 1, 10))
-        assert isinstance(inst, ComposedOneOfDifferentTypes)
-        assert isinstance(inst, DateSchema)
+        inst = composed_one_of_different_types.ComposedOneOfDifferentTypes.validate(date(2019, 1, 10))
         assert isinstance(inst, str)
-        assert inst.as_date_.year == 2019
-        assert inst.as_date_.month == 1
-        assert inst.as_date_.day == 10
+        assert schemas.as_date_(inst).year == 2019
+        assert schemas.as_date_(inst).month == 1
+        assert schemas.as_date_(inst).day == 10
 
         # date-time
-        inst = ComposedOneOfDifferentTypes('2020-01-02T03:04:05Z')
-        assert isinstance(inst, ComposedOneOfDifferentTypes)
-        assert isinstance(inst, DateTimeSchema)
+        inst = composed_one_of_different_types.ComposedOneOfDifferentTypes.validate('2020-01-02T03:04:05Z')
         assert isinstance(inst, str)
-        assert inst.as_datetime_.year == 2020
-        assert inst.as_datetime_.month == 1
-        assert inst.as_datetime_.day == 2
-        assert inst.as_datetime_.hour == 3
-        assert inst.as_datetime_.minute == 4
-        assert inst.as_datetime_.second == 5
+        assert schemas.as_datetime_(inst).year == 2020
+        assert schemas.as_datetime_(inst).month == 1
+        assert schemas.as_datetime_(inst).day == 2
+        assert schemas.as_datetime_(inst).hour == 3
+        assert schemas.as_datetime_(inst).minute == 4
+        assert schemas.as_datetime_(inst).second == 5
         utc_tz = tzutc()
-        assert inst.as_datetime_.tzinfo == utc_tz
+        assert schemas.as_datetime_(inst).tzinfo == utc_tz
 
         # date-time
-        inst = ComposedOneOfDifferentTypes(datetime(2020, 1, 2, 3, 4, 5, tzinfo=timezone.utc))
-        assert isinstance(inst, ComposedOneOfDifferentTypes)
-        assert isinstance(inst, DateTimeSchema)
+        inst = composed_one_of_different_types.ComposedOneOfDifferentTypes.validate(datetime(2020, 1, 2, 3, 4, 5, tzinfo=timezone.utc))
         assert isinstance(inst, str)
-        assert inst.as_datetime_.year == 2020
-        assert inst.as_datetime_.month == 1
-        assert inst.as_datetime_.day == 2
-        assert inst.as_datetime_.hour == 3
-        assert inst.as_datetime_.minute == 4
-        assert inst.as_datetime_.second == 5
-        assert inst.as_datetime_.tzinfo == utc_tz
+        assert schemas.as_datetime_(inst).year == 2020
+        assert schemas.as_datetime_(inst).month == 1
+        assert schemas.as_datetime_(inst).day == 2
+        assert schemas.as_datetime_(inst).hour == 3
+        assert schemas.as_datetime_(inst).minute == 4
+        assert schemas.as_datetime_(inst).second == 5
+        assert schemas.as_datetime_(inst).tzinfo == utc_tz
 
 
 if __name__ == '__main__':

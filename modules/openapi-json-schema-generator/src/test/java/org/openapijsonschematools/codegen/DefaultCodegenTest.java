@@ -1442,6 +1442,7 @@ public class DefaultCodegenTest {
         ApiResponse response2XX = new ApiResponse()
                 .description("OK")
                 .addHeaderObject("x-custom-header", new Header()
+                        .content(new Content().addMediaType("text/plain", new MediaType().schema(new StringSchema())))
                         .description("a custom header")
                         .style(Header.StyleEnum.SIMPLE));
         Operation operation1 = new Operation().operationId("op1").responses(new ApiResponses().addApiResponse("2XX", response2XX));

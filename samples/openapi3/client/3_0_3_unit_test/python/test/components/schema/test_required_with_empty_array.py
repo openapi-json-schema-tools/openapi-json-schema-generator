@@ -20,7 +20,7 @@ class TestRequiredWithEmptyArray(unittest.TestCase):
 
     def test_property_not_required_passes(self):
         # property not required
-        RequiredWithEmptyArray(
+        RequiredWithEmptyArray.validate(
             {
             },
             configuration=self.configuration

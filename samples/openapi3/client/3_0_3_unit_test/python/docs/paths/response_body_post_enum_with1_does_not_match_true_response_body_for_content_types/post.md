@@ -63,7 +63,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[EnumWith1DoesNotMatchTrue](../../components/schema/enum_with1_does_not_match_true.md) | decimal.Decimal, int, float | decimal.Decimal |
+[EnumWith1DoesNotMatchTrue](../../components/schema/enum_with1_does_not_match_true.md) | float, int | float, int |
 
 ## Servers
 

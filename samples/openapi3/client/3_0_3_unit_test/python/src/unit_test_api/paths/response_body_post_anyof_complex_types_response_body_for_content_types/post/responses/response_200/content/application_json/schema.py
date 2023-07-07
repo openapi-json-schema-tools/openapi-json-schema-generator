@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import anyof_complex_types
-Schema: typing_extensions.TypeAlias = anyof_complex_types.AnyofComplexTypes[U]
+Schema: typing_extensions.TypeAlias = anyof_complex_types.AnyofComplexTypes

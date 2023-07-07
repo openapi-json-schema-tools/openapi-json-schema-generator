@@ -63,7 +63,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ObjectTypeMatchesObjects](../../components/schema/object_type_matches_objects.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[ObjectTypeMatchesObjects](../../components/schema/object_type_matches_objects.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 ## Servers
 

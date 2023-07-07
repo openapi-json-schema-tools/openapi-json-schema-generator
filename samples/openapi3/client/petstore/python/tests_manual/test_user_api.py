@@ -64,7 +64,7 @@ class TestUserApi(ApiTestMixin):
                 firstName='first',
                 lastName='last'
             )
-            body = user.User(value_simple)
+            body = user.User.validate(value_simple)
             mock_request.return_value = self.response(
                 self.json_bytes(value_simple)
             )
@@ -80,15 +80,40 @@ class TestUserApi(ApiTestMixin):
                 content_type=None
             )
 
-            assert isinstance(api_response.body, user.User)
+            assert isinstance(api_response.body, user.UserDict)
             assert api_response.body == body
 
     def test_login_user(self):
-        """Test case for login_user
+        # serialization + deserialization works
+        with patch.object(RESTClientObject, 'request') as mock_request:
+            value_simple = 'success'
+            mock_request.return_value = self.response(
+                self.json_bytes(value_simple),
+                headers={
+                    'X-Rate-Limit': '1',
+                    "int32": '2',
+                    "ref-content-schema-header": '"1234567"',
+                }
+            )
+            api_response = self.api.login_user(
+                query_params={'username': 'user', 'password': 'pass'},
+                accept_content_types=("application/json",)
+            )
+            self.assert_request_called_with(
+                mock_request,
+                'http://petstore.swagger.io:80/v2/user/login?username=user&password=pass',
+                method='GET',
+                accept_content_type='application/json',
+                content_type=None
+            )
 
-        Logs user into the system  # noqa: E501
-        """
-        pass
+            assert isinstance(api_response.body, str)
+            assert api_response.body == value_simple
+            assert api_response.headers == {
+                'X-Rate-Limit': 1,
+                "int32": 2,
+                "ref-content-schema-header": '1234567',
+            }
 
     def test_logout_user(self):
         """Test case for logout_user

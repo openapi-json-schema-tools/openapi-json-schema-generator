@@ -18,6 +18,8 @@ import typing
 from unittest.mock import patch
 
 import urllib3
+import immutabledict
+
 import petstore_api
 from petstore_api import api_client, schemas, exceptions, rest
 from petstore_api.apis.tags.fake_api import FakeApi  # noqa: E501
@@ -49,8 +51,8 @@ class TestFakeApi(ApiTestMixin):
                 self.json_bytes(json_data)
             )
 
-            cat = animal.Animal({'className': "Cat", 'color': "black"})
-            body = animal_farm.AnimalFarm([cat])
+            cat = animal.Animal.validate({'className': "Cat", 'color': "black"})
+            body = animal_farm.AnimalFarm.validate([cat])
             api_response = self.api.array_model(body=body)
             self.assert_request_called_with(
                 mock_request,
@@ -58,7 +60,7 @@ class TestFakeApi(ApiTestMixin):
                 body=self.json_bytes(json_data)
             )
 
-            assert isinstance(api_response.body, animal_farm.AnimalFarm)
+            assert isinstance(api_response.body, animal_farm.AnimalFarmTuple)
             assert api_response.body == body
 
     def test_recursionlimit(self):
@@ -72,8 +74,8 @@ class TestFakeApi(ApiTestMixin):
 
         # serialization + deserialization works
         with patch.object(RESTClientObject, 'request') as mock_request:
-            value = [string_enum.StringEnum("placed")]
-            body = array_of_enums.ArrayOfEnums(value)
+            value = [string_enum.StringEnum.validate("placed")]
+            body = array_of_enums.ArrayOfEnums.validate(value)
             value_simple = ["placed"]
             mock_request.return_value = self.response(
                 self.json_bytes(value_simple)
@@ -86,7 +88,7 @@ class TestFakeApi(ApiTestMixin):
                 body=self.json_bytes(value_simple)
             )
 
-            assert isinstance(api_response.body, array_of_enums.ArrayOfEnums)
+            assert isinstance(api_response.body, array_of_enums.ArrayOfEnumsTuple)
             assert api_response.body == body
 
     def test_number_with_validations(self):
@@ -95,7 +97,7 @@ class TestFakeApi(ApiTestMixin):
         # serialization + deserialization works
         with patch.object(RESTClientObject, 'request') as mock_request:
             value = 10.0
-            body = number_with_validations.NumberWithValidations(value)
+            body = number_with_validations.NumberWithValidations.validate(value)
             mock_request.return_value = self.response(
                 self.json_bytes(value)
             )
@@ -107,25 +109,25 @@ class TestFakeApi(ApiTestMixin):
                 body=self.json_bytes(value)
             )
 
-            assert isinstance(api_response.body, number_with_validations.NumberWithValidations)
+            assert isinstance(api_response.body, float)
             assert api_response.body == value
 
     def test_composed_one_of_different_types(self):
         from petstore_api.components.schema import composed_one_of_different_types
 
         # serialization + deserialization works
-        number = composed_one_of_different_types.ComposedOneOfDifferentTypes(10.0)
-        cat = composed_one_of_different_types.ComposedOneOfDifferentTypes({
+        number = composed_one_of_different_types.ComposedOneOfDifferentTypes.validate(10.0)
+        cat = composed_one_of_different_types.ComposedOneOfDifferentTypes.validate({
             'className': "Cat", 'color': "black"
         })
-        none_instance = composed_one_of_different_types.ComposedOneOfDifferentTypes(None)
-        date_instance = composed_one_of_different_types.ComposedOneOfDifferentTypes('1970-01-01')
-        cast_to_simple_value = [
+        none_instance = composed_one_of_different_types.ComposedOneOfDifferentTypes.validate(None)
+        date_instance = composed_one_of_different_types.ComposedOneOfDifferentTypes.validate('1970-01-01')
+        cast_to_simple_value = (
             (number, 10.0),
             (cat, {"className": "Cat", "color": "black"}),
             (none_instance, None),
             (date_instance, '1970-01-01'),
-        ]
+        )
         for (body, value_simple) in cast_to_simple_value:
             with patch.object(RESTClientObject, 'request') as mock_request:
                 mock_request.return_value = self.response(
@@ -139,8 +141,9 @@ class TestFakeApi(ApiTestMixin):
                     body=self.json_bytes(value_simple)
                 )
 
-                assert isinstance(api_response.body, composed_one_of_different_types.ComposedOneOfDifferentTypes)
                 assert api_response.body == body
+                if isinstance(value_simple, dict):
+                    assert isinstance(api_response.body, immutabledict.immutabledict)
 
         # inputting the uncast values into the endpoint also works
         for (body, value_simple) in cast_to_simple_value:
@@ -156,8 +159,9 @@ class TestFakeApi(ApiTestMixin):
                     body=self.json_bytes(value_simple)
                 )
 
-                assert isinstance(api_response.body, composed_one_of_different_types.ComposedOneOfDifferentTypes)
                 assert api_response.body == body
+                if isinstance(value_simple, dict):
+                    assert isinstance(api_response.body, immutabledict.immutabledict)
 
     def test_string(self):
         # serialization + deserialization works
@@ -183,7 +187,7 @@ class TestFakeApi(ApiTestMixin):
         # serialization + deserialization works
         with patch.object(RESTClientObject, 'request') as mock_request:
             value = "placed"
-            body = string_enum.StringEnum(value)
+            body = string_enum.StringEnum.validate(value)
             mock_request.return_value = self.response(
                 self.json_bytes(value)
             )
@@ -195,14 +199,14 @@ class TestFakeApi(ApiTestMixin):
                 body=self.json_bytes(value)
             )
 
-            assert isinstance(api_response.body, string_enum.StringEnum)
+            assert isinstance(api_response.body, str)
             assert api_response.body == value
 
     def test_mammal(self):
         # serialization + deserialization works
         from petstore_api.components.schema.mammal import Mammal
         with patch.object(RESTClientObject, 'request') as mock_request:
-            body = Mammal({'className': "BasquePig"})
+            body = Mammal.validate({'className': "BasquePig"})
             value_simple = dict(className='BasquePig')
             mock_request.return_value = self.response(
                 self.json_bytes(value_simple)
@@ -215,7 +219,7 @@ class TestFakeApi(ApiTestMixin):
                 body=self.json_bytes(value_simple)
             )
 
-            assert isinstance(api_response.body, Mammal)
+            assert isinstance(api_response.body, immutabledict.immutabledict)
             assert api_response.body == value_simple
 
     def test_missing_or_unset_required_body(self):
@@ -228,12 +232,12 @@ class TestFakeApi(ApiTestMixin):
 
     def test_missing_or_unset_required_query_parameter(self):
         from petstore_api.components.schema.user import User
-        user = User({})
+        user = User.validate({})
         # missing required query param
         with self.assertRaises(TypeError):
             self.api.body_with_query_params(body=user)
         # required query param may not be unset
-        with self.assertRaises(petstore_api.ApiValueError):
+        with self.assertRaises(petstore_api.ApiTypeError):
             self.api.body_with_query_params(body={}, query_params={'query': schemas.unset})
 
     def test_body_with_query_params(self):
@@ -246,7 +250,7 @@ class TestFakeApi(ApiTestMixin):
                 'firstName': 'first',
                 'lastName': 'last'
             }
-            body = user.User(value_simple)
+            body = user.User.validate(value_simple)
             mock_request.return_value = self.response(
                 b''
             )
@@ -295,8 +299,6 @@ class TestFakeApi(ApiTestMixin):
                     content_type='application/octet-stream',
                     accept_content_type='application/octet-stream'
                 )
-                self.assertTrue(isinstance(api_response.body, schemas.BinarySchema))
-                self.assertTrue(isinstance(api_response.body, schemas.BytesSchema))
                 self.assertTrue(isinstance(api_response.body, bytes))
                 self.assertEqual(api_response.body, file_bytes)
         except petstore_api.ApiException as e:
@@ -362,9 +364,7 @@ class TestFakeApi(ApiTestMixin):
                 stream=True
             )
         self.assertTrue(file1.closed)
-        self.assertTrue(isinstance(api_response.body, schemas.BinarySchema))
-        self.assertTrue(isinstance(api_response.body, schemas.FileSchema))
-        self.assertTrue(isinstance(api_response.body, schemas.FileIO))
+        assert isinstance(api_response.body, schemas.FileIO)
         self.assertEqual(api_response.body.read(), file_bytes)
         api_response.body.close()
         os.unlink(str(api_response.body.name))
@@ -395,9 +395,7 @@ class TestFakeApi(ApiTestMixin):
                 stream=True
             )
         self.assertTrue(file1.closed)
-        self.assertTrue(isinstance(api_response.body, schemas.BinarySchema))
-        self.assertTrue(isinstance(api_response.body, schemas.FileSchema))
-        self.assertTrue(isinstance(api_response.body, schemas.FileIO))
+        assert isinstance(api_response.body, schemas.FileIO)
         self.assertTrue(str(api_response.body.name).endswith(saved_file_name))
         self.assertEqual(api_response.body.read(), file_bytes)
         api_response.body.close()
@@ -431,9 +429,7 @@ class TestFakeApi(ApiTestMixin):
                 stream=True
             )
         self.assertTrue(file1.closed)
-        self.assertTrue(isinstance(api_response.body, schemas.BinarySchema))
-        self.assertTrue(isinstance(api_response.body, schemas.FileSchema))
-        self.assertTrue(isinstance(api_response.body, schemas.FileIO))
+        assert isinstance(api_response.body, schemas.FileIO)
         self.assertTrue(str(api_response.body.name).endswith(expected_filename))
         self.assertEqual(api_response.body.read(), file_bytes)
         api_response.body.close()
@@ -658,7 +654,7 @@ class TestFakeApi(ApiTestMixin):
            body=json_bytes
        )
        self.assertEqual(api_response.body, single_char_str)
-       self.assertTrue(isinstance(api_response.body, schemas.StrSchema))
+       self.assertTrue(isinstance(api_response.body, str))
 
        # tx and rx json with composition at property level of schema for request + response body
        content_type = 'multipart/form-data'
@@ -693,8 +689,10 @@ class TestFakeApi(ApiTestMixin):
                 ),
            ),
        )
+       from petstore_api.paths.fake_inline_composition.post.responses.response_200.content.multipart_form_data import schema
+       assert isinstance(api_response.body, schema.SchemaDict)
        self.assertEqual(api_response.body, {'someProp': single_char_str})
-       self.assertTrue(isinstance(api_response.body["someProp"], schemas.StrSchema))
+       self.assertTrue(isinstance(api_response.body["someProp"], str))
 
        # error thrown when a str is input which doesn't meet the composed schema length constraint
        invalid_value = ''
@@ -737,15 +735,13 @@ class TestFakeApi(ApiTestMixin):
                 accept_content_type=content_type_with_charset
             )
 
-            assert isinstance(api_response.body, schemas.AnyTypeSchema)
-            assert isinstance(api_response.body, schemas.NoneClass)
-            assert api_response.body.is_none_()
+            assert isinstance(api_response.body, schemas.none_type_)
+            assert api_response.body is None
 
     def test_response_without_schema(self):
         # received response is not loaded into body because there is no deserialization schema defined
         with patch.object(RESTClientObject, 'request') as mock_request:
             body = None
-            content_type = 'application/json'
             mock_request.return_value = self.response(
                 self.json_bytes(body),
             )
@@ -799,9 +795,9 @@ class TestFakeApi(ApiTestMixin):
             from petstore_api.components.schema import json_patch_request_add_replace_test
 
             mock_request.return_value = self.response("")
-            body = json_patch_request.JSONPatchRequest(
+            body = json_patch_request.JSONPatchRequest.validate(
                 [
-                    json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest({
+                    json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest.validate({
                         'op': 'add',
                         'path': '/a/b/c',
                         'value': 'foo',

@@ -1,5 +1,6 @@
 {{#if additionalProperties}}
     {{#if additionalProperties.isBooleanSchemaFalse}}
+        {{! TypedDict use case }}
         {{#and requiredProperties optionalProperties}}
 
 
@@ -10,54 +11,83 @@ class {{mapInputJsonPathPiece.camelCase}}({{requiredProperties.jsonPathPiece.cam
 {{mapInputJsonPathPiece.camelCase}} = typing.Mapping # mapping must be empty
         {{/and}}
     {{else}}
-        {{! addProps True/schema}}
-        {{#and requiredProperties optionalProperties}}
+        {{! addProps True/schema }}
+        {{#if additionalProperties.isBooleanSchemaTrue }}
+            {{! addProps True, does not matter what properties are because they are always covered by base types }}
+{{mapInputJsonPathPiece.camelCase}} = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+        {{else}}
+            {{! addProps schema }}
+            {{#and requiredProperties optionalProperties}}
 {{mapInputJsonPathPiece.camelCase}} = typing.Mapping[
     str,
     typing.Union[
-            {{#each requiredProperties}}
-                {{#with this}}
+                {{#each requiredProperties}}
+                    {{#with this}}
+        {{> components/schemas/_helper_property_value_type }}
+                    {{/with}}
+                {{/each}}
+                {{#each optionalProperties}}
+                    {{#with this}}
+        {{> components/schemas/_helper_property_value_type }}
+                    {{/with}}
+                {{/each}}
+                {{#with additionalProperties}}
         {{> components/schemas/_helper_property_value_type }}
                 {{/with}}
-            {{/each}}
-            {{#each optionalProperties}}
-                {{#with this}}
-        {{> components/schemas/_helper_property_value_type }}
-                {{/with}}
-            {{/each}}
-            {{#with additionalProperties}}
-        {{> components/schemas/_helper_property_value_type }}
-            {{/with}}
     ]
 ]
-        {{else}}
+            {{else}}
+                {{! no requiredProperties or optionalProperties or just one of them }}
+                {{#if requiredProperties}}
+                    {{! requiredProperties + addProp }}
 {{mapInputJsonPathPiece.camelCase}} = typing.Mapping[
     str,
-            {{#with additionalProperties}}
-    {{> components/schemas/_helper_property_value_type }}
-            {{/with}}
+    typing.Union[
+                    {{#each requiredProperties}}
+                        {{#with this}}
+        {{> components/schemas/_helper_property_value_type }}
+                        {{/with}}
+                    {{/each}}
+                    {{#with additionalProperties}}
+        {{> components/schemas/_helper_property_value_type }}
+                    {{/with}}
+    ]
 ]
-        {{/and}}
+                {{else}}
+                    {{#if optionalProperties}}
+                        {{! optionalProperties + addProp }}
+{{mapInputJsonPathPiece.camelCase}} = typing.Mapping[
+    str,
+    typing.Union[
+                        {{#each requiredProperties}}
+                            {{#with this}}
+        {{> components/schemas/_helper_property_value_type }}
+                            {{/with}}
+                        {{/each}}
+                        {{#each optionalProperties}}
+                            {{#with this}}
+        {{> components/schemas/_helper_property_value_type }}
+                            {{/with}}
+                        {{/each}}
+                        {{#with additionalProperties}}
+        {{> components/schemas/_helper_property_value_type }}
+                        {{/with}}
+    ]
+]
+                    {{else}}
+                        {{! only addProp }}
+{{mapInputJsonPathPiece.camelCase}} = typing.Mapping[
+    str,
+                        {{#with additionalProperties}}
+    {{> components/schemas/_helper_property_value_type }}
+                        {{/with}}
+]
+                    {{/if}}
+                {{/if}}
+            {{/and}}
+        {{/if}}
     {{/if}}
 {{else}}
-    {{#and requiredProperties optionalProperties}}
-{{mapInputJsonPathPiece.camelCase}} = typing.Mapping[
-    str,
-    typing.Union[
-        {{#each requiredProperties}}
-            {{#with this}}
-        {{> components/schemas/_helper_property_value_type }}
-            {{/with}}
-        {{/each}}
-        {{#each optionalProperties}}
-            {{#with this}}
-        {{> components/schemas/_helper_property_value_type }}
-            {{/with}}
-        {{/each}}
-        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-    ]
-]
-    {{else}}
+    {{! addProps unset, does not matter what required and optional props are }}
 {{mapInputJsonPathPiece.camelCase}} = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
-    {{/and}}
 {{/if}}

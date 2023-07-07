@@ -5,7 +5,6 @@
 """
 
 from petstore_api.shared_imports.header_imports import *
-
 from .content.application_json import schema as application_json_schema
 
 
@@ -14,7 +13,7 @@ class XRateLimit(api_client.HeaderParameterWithoutName):
 
 
     class ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = application_json_schema.Schema[decimal.Decimal]
+        schema: typing_extensions.TypeAlias = application_json_schema.Schema
     Content = typing_extensions.TypedDict(
         'Content',
         {

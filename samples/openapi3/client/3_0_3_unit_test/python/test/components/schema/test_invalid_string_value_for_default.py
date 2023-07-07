@@ -20,7 +20,7 @@ class TestInvalidStringValueForDefault(unittest.TestCase):
 
     def test_valid_when_property_is_specified_passes(self):
         # valid when property is specified
-        InvalidStringValueForDefault(
+        InvalidStringValueForDefault.validate(
             {
                 "bar":
                     "good",
@@ -30,7 +30,7 @@ class TestInvalidStringValueForDefault(unittest.TestCase):
 
     def test_still_valid_when_the_invalid_default_is_used_passes(self):
         # still valid when the invalid default is used
-        InvalidStringValueForDefault(
+        InvalidStringValueForDefault.validate(
             {
             },
             configuration=self.configuration

@@ -1,7 +1,7 @@
 {{#if content}}
 {{#each content}}
     {{#if schema}}
-response_body_schema = typing_extensions.get_origin({{httpMethod.original}}.{{responseModuleName}}.{{responseClassName}}.content["{{{@key.original}}}"].schema)
+response_body_schema = {{httpMethod.original}}.{{responseModuleName}}.{{responseClassName}}.content["{{{@key.original}}}"].schema
 assert response_body_schema is not None
     {{/if}}
 {{#if this.testCases}}
@@ -26,8 +26,7 @@ def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
         {{> paths/path/verb/_helper_operation_test_partial }}
 
         assert isinstance(api_response.response, urllib3.HTTPResponse)
-        assert isinstance(api_response.body, self.response_body_schema)
-        deserialized_response_body = self.response_body_schema(
+        deserialized_response_body = self.response_body_schema.validate(
             payload,
             configuration=self.schema_config
         )

@@ -74,13 +74,13 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[User](../../components/schema/user.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[User](../../components/schema/user.md) | dict, schemas.immutabledict | schemas.immutabledict |
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[User](../../components/schema/user.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[User](../../components/schema/user.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 ## ResponseFor400
 
@@ -136,7 +136,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = user_api.UserApi(api_client)
 
     # example passing only required values which don't have defaults set
-    path_params: operation.RequestPathParameters.Params = {
+    path_params: operation.PathParametersDictInput = {
         'username': "username_example",
     }
     try:

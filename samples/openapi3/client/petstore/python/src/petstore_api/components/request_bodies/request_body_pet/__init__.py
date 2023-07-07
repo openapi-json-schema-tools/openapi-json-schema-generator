@@ -13,11 +13,11 @@ class Pet(api_client.RequestBody):
 
 
     class ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = application_json_schema.Schema[frozendict.frozendict]
+        schema: typing_extensions.TypeAlias = application_json_schema.Schema
 
 
     class ApplicationXmlMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = application_xml_schema.Schema[frozendict.frozendict]
+        schema: typing_extensions.TypeAlias = application_xml_schema.Schema
     Content = typing_extensions.TypedDict(
         'Content',
         {

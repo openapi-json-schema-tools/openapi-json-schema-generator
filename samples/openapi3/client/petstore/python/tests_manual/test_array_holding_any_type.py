@@ -10,13 +10,11 @@
 """
 
 
-import sys
 import unittest
 from datetime import date, datetime, timezone
 
-import petstore_api
-from petstore_api.components.schema.array_holding_any_type import ArrayHoldingAnyType
-from petstore_api.schemas import NoneClass, BoolClass
+from petstore_api.components.schema import array_holding_any_type
+from petstore_api.schemas import none_type_
 
 
 class TestArrayHoldingAnyType(unittest.TestCase):
@@ -33,16 +31,19 @@ class TestArrayHoldingAnyType(unittest.TestCase):
 
         enum_values = [True, False]
         for enum_value in enum_values:
-            inst = ArrayHoldingAnyType([enum_value])
-            assert isinstance(inst, ArrayHoldingAnyType)
+            inst = array_holding_any_type.ArrayHoldingAnyType.validate([enum_value])
+            assert isinstance(inst, array_holding_any_type.ArrayHoldingAnyTypeTuple)
             assert isinstance(inst, tuple)
-            assert isinstance(inst[0], BoolClass)
-            assert bool(inst[0]) is enum_value
+            assert isinstance(inst[0], bool)
+            if enum_value:
+                assert inst[0] is True
+            else:
+                assert inst[0] is False
 
-        inst = ArrayHoldingAnyType([None])
-        assert isinstance(inst, ArrayHoldingAnyType)
+        inst = array_holding_any_type.ArrayHoldingAnyType.validate([None])
+        assert isinstance(inst, array_holding_any_type.ArrayHoldingAnyTypeTuple)
         assert isinstance(inst, tuple)
-        assert isinstance(inst[0], NoneClass)
+        assert isinstance(inst[0], none_type_)
 
         input_to_stored_value = [
             (0, 0),
@@ -55,8 +56,8 @@ class TestArrayHoldingAnyType(unittest.TestCase):
             ('hi', 'hi'),
         ]
         for input, stored_value in input_to_stored_value:
-            inst = ArrayHoldingAnyType([input])
-            assert isinstance(inst, ArrayHoldingAnyType)
+            inst = array_holding_any_type.ArrayHoldingAnyType.validate([input])
+            assert isinstance(inst, array_holding_any_type.ArrayHoldingAnyTypeTuple)
             assert isinstance(inst, tuple)
             assert inst[0] == stored_value
 

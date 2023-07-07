@@ -19,14 +19,14 @@ class TestAdditionalPropertiesClass(unittest.TestCase):
     """AdditionalPropertiesClass unit test stubs"""
 
     def test_additional_properties_class(self):
-        inst = AdditionalPropertiesClass({})
+        inst = AdditionalPropertiesClass.validate({})
         with self.assertRaises(KeyError):
             inst["map_property"]
         assert inst.get("map_property", schemas.unset) is schemas.unset
         with self.assertRaises(AttributeError):
             inst.map_property
 
-        inst = AdditionalPropertiesClass({'map_property': {}})
+        inst = AdditionalPropertiesClass.validate({'map_property': {}})
         map_property = inst["map_property"]
         assert map_property == {}
 

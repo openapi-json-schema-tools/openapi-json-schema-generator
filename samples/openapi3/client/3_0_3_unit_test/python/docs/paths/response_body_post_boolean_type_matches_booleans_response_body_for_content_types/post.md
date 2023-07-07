@@ -63,7 +63,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[BooleanTypeMatchesBooleans](../../components/schema/boolean_type_matches_booleans.md) | bool | BoolClass |
+[BooleanTypeMatchesBooleans](../../components/schema/boolean_type_matches_booleans.md) | bool | bool |
 
 ## Servers
 

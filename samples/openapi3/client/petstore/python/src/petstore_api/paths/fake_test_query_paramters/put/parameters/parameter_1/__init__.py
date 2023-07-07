@@ -12,5 +12,5 @@ from . import schema
 class Parameter1(api_client.QueryParameter):
     name = "ioutil"
     style = api_client.ParameterStyle.FORM
-    schema: typing_extensions.TypeAlias = schema.Schema[tuple]
+    schema: typing_extensions.TypeAlias = schema.Schema
     required = True

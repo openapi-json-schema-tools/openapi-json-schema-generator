@@ -29,11 +29,11 @@ class TestAnyTypeNotString(unittest.TestCase):
             {}
         ]
         for valid_value in valid_values:
-            AnyTypeNotString(valid_value)
+            AnyTypeNotString.validate(valid_value)
 
         # invalid value raises an exception
         with self.assertRaises(petstore_api.ApiValueError):
-            AnyTypeNotString('')
+            AnyTypeNotString.validate('')
 
 
 if __name__ == '__main__':

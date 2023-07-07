@@ -21,7 +21,7 @@ class TestAllofCombinedWithAnyofOneof(unittest.TestCase):
     def test_allof_true_anyof_false_oneof_false_fails(self):
         # allOf: true, anyOf: false, oneOf: false
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AllofCombinedWithAnyofOneof(
+            AllofCombinedWithAnyofOneof.validate(
                 2,
                 configuration=self.configuration
             )
@@ -29,7 +29,7 @@ class TestAllofCombinedWithAnyofOneof(unittest.TestCase):
     def test_allof_false_anyof_false_oneof_true_fails(self):
         # allOf: false, anyOf: false, oneOf: true
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AllofCombinedWithAnyofOneof(
+            AllofCombinedWithAnyofOneof.validate(
                 5,
                 configuration=self.configuration
             )
@@ -37,7 +37,7 @@ class TestAllofCombinedWithAnyofOneof(unittest.TestCase):
     def test_allof_false_anyof_true_oneof_true_fails(self):
         # allOf: false, anyOf: true, oneOf: true
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AllofCombinedWithAnyofOneof(
+            AllofCombinedWithAnyofOneof.validate(
                 15,
                 configuration=self.configuration
             )
@@ -45,14 +45,14 @@ class TestAllofCombinedWithAnyofOneof(unittest.TestCase):
     def test_allof_true_anyof_true_oneof_false_fails(self):
         # allOf: true, anyOf: true, oneOf: false
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AllofCombinedWithAnyofOneof(
+            AllofCombinedWithAnyofOneof.validate(
                 6,
                 configuration=self.configuration
             )
 
     def test_allof_true_anyof_true_oneof_true_passes(self):
         # allOf: true, anyOf: true, oneOf: true
-        AllofCombinedWithAnyofOneof(
+        AllofCombinedWithAnyofOneof.validate(
             30,
             configuration=self.configuration
         )
@@ -60,7 +60,7 @@ class TestAllofCombinedWithAnyofOneof(unittest.TestCase):
     def test_allof_true_anyof_false_oneof_true_fails(self):
         # allOf: true, anyOf: false, oneOf: true
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AllofCombinedWithAnyofOneof(
+            AllofCombinedWithAnyofOneof.validate(
                 10,
                 configuration=self.configuration
             )
@@ -68,7 +68,7 @@ class TestAllofCombinedWithAnyofOneof(unittest.TestCase):
     def test_allof_false_anyof_true_oneof_false_fails(self):
         # allOf: false, anyOf: true, oneOf: false
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AllofCombinedWithAnyofOneof(
+            AllofCombinedWithAnyofOneof.validate(
                 3,
                 configuration=self.configuration
             )
@@ -76,7 +76,7 @@ class TestAllofCombinedWithAnyofOneof(unittest.TestCase):
     def test_allof_false_anyof_false_oneof_false_fails(self):
         # allOf: false, anyOf: false, oneOf: false
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AllofCombinedWithAnyofOneof(
+            AllofCombinedWithAnyofOneof.validate(
                 1,
                 configuration=self.configuration
             )

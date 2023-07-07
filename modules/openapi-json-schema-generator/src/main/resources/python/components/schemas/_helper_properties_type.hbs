@@ -3,7 +3,7 @@
     {
         {{#each properties}}
             {{#if refInfo.refClass}}
-        "{{{@key.original}}}": typing.Type[{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}],
+        "{{{@key.original}}}": typing.Type[{{#if refInfo.refModuleAlias}}{{refInfo.refModuleAlias}}.{{refInfo.refClass}}{{else}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{refInfo.refClass}}{{else}}{{! self reference }}'{{refInfo.refClass}}'{{/if}}{{/if}}],
             {{else}}
         "{{{@key.original}}}": typing.Type[{{jsonPathPiece.camelCase}}],
             {{/if}}

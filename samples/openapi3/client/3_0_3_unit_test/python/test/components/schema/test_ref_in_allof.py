@@ -20,7 +20,7 @@ class TestRefInAllof(unittest.TestCase):
 
     def test_property_named_ref_valid_passes(self):
         # property named $ref valid
-        RefInAllof(
+        RefInAllof.validate(
             {
                 "$ref":
                     "a",
@@ -31,7 +31,7 @@ class TestRefInAllof(unittest.TestCase):
     def test_property_named_ref_invalid_fails(self):
         # property named $ref invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            RefInAllof(
+            RefInAllof.validate(
                 {
                     "$ref":
                         2,

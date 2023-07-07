@@ -20,14 +20,14 @@ class TestEnumWithEscapedCharacters(unittest.TestCase):
 
     def test_member2_is_valid_passes(self):
         # member 2 is valid
-        EnumWithEscapedCharacters(
+        EnumWithEscapedCharacters.validate(
             "foo\rbar",
             configuration=self.configuration
         )
 
     def test_member1_is_valid_passes(self):
         # member 1 is valid
-        EnumWithEscapedCharacters(
+        EnumWithEscapedCharacters.validate(
             "foo\nbar",
             configuration=self.configuration
         )
@@ -35,7 +35,7 @@ class TestEnumWithEscapedCharacters(unittest.TestCase):
     def test_another_string_is_invalid_fails(self):
         # another string is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            EnumWithEscapedCharacters(
+            EnumWithEscapedCharacters.validate(
                 "abc",
                 configuration=self.configuration
             )

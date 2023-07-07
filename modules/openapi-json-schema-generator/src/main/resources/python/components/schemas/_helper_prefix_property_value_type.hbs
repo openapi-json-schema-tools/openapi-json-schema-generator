@@ -1,0 +1,69 @@
+{{#if types}}
+    {{#eq types.size 1}}
+        {{#each types}}
+            {{#eq this "boolean"}}
+{{#if prefix}}"{{{prefix}}}": {{/if}}bool,
+            {{else}}
+                {{#eq this "null"}}
+{{#if prefix}}"{{{prefix}}}": {{/if}}None,
+                {{else}}
+                    {{#eq this "integer"}}
+{{#if prefix}}"{{{prefix}}}": {{/if}}int,
+                    {{else}}
+                        {{#eq this "string"}}
+                            {{#eq format null}}
+{{#if prefix}}"{{{prefix}}}": {{/if}}str,
+                            {{else}}
+{{#if prefix}}"{{{prefix}}}": {{/if}}typing.Union[
+                                {{#eq this "object"}}
+                                    {{#if mapOutputJsonPathPiece}}
+    {{mapOutputJsonPathPiece.camelCase}},
+                                    {{/if}}
+                                {{/eq}}
+                                {{#eq this "array"}}
+                                    {{#if arrayOutputJsonPathPiece}}
+    {{arrayOutputJsonPathPiece.camelCase}},
+                                    {{/if}}
+                                {{/eq}}
+    {{> _helper_schema_python_types_newline }}
+],
+                            {{/eq}}
+                        {{else}}
+{{#if prefix}}"{{{prefix}}}": {{/if}}typing.Union[
+                            {{#eq this "object"}}
+                                {{#if mapOutputJsonPathPiece}}
+    {{mapOutputJsonPathPiece.camelCase}},
+                                {{/if}}
+                            {{/eq}}
+                            {{#eq this "array"}}
+                                {{#if arrayOutputJsonPathPiece}}
+    {{arrayOutputJsonPathPiece.camelCase}},
+                                {{/if}}
+                            {{/eq}}
+    {{> _helper_schema_python_types_newline }}
+],
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/each}}
+    {{else}}
+{{#if prefix}}"{{{prefix}}}": {{/if}}typing.Union[
+        {{#contains types "object"}}
+            {{#if mapOutputJsonPathPiece}}
+    {{mapOutputJsonPathPiece.camelCase}},
+            {{/if}}
+        {{/contains}}
+        {{#contains types "array"}}
+            {{#if arrayOutputJsonPathPiece}}
+    {{arrayOutputJsonPathPiece.camelCase}},
+            {{/if}}
+        {{/contains}}
+    {{> _helper_schema_python_types_newline }}
+],
+    {{/eq}}
+{{else}}
+{{#if prefix}}"{{{prefix}}}": {{/if}}typing.Union[
+    {{> _helper_schema_python_types_newline }}
+],
+{{/if}}

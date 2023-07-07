@@ -21,16 +21,10 @@ from petstore_api.configurations import schema_configuration
 class TestObjWithRequiredProps(unittest.TestCase):
     """ObjWithRequiredProps unit test stubs"""
     configuration_ = schema_configuration.SchemaConfiguration()
-    obj = obj_with_required_props.ObjWithRequiredProps({'a': 'a', 'b': 'b'})
-    assert isinstance(obj, obj_with_required_props.ObjWithRequiredProps) and isinstance(obj, obj_with_required_props_base.ObjWithRequiredPropsBase)
-    a = obj.a
-    orgin_cls = typing_extensions.get_origin(obj_with_required_props.A)
-    assert orgin_cls is not None
-    assert isinstance(a, orgin_cls)
-    b = obj.b
-    orgin_cls = typing_extensions.get_origin(obj_with_required_props_base.B)
-    assert orgin_cls is not None
-    assert isinstance(a, orgin_cls)
+    obj = obj_with_required_props.ObjWithRequiredProps.validate({'a': 'a', 'b': 'b'})
+    assert isinstance(obj, obj_with_required_props.ObjWithRequiredPropsDict)
+    assert isinstance(obj.a, str)
+    assert isinstance(obj['b'], str)
 
 
 if __name__ == '__main__':

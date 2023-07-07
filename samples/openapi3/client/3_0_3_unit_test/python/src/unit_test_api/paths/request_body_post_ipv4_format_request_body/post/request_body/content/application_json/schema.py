@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import ipv4_format
-Schema: typing_extensions.TypeAlias = ipv4_format.Ipv4Format[U]
+Schema: typing_extensions.TypeAlias = ipv4_format.Ipv4Format

@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import by_small_number
-Schema: typing_extensions.TypeAlias = by_small_number.BySmallNumber[U]
+Schema: typing_extensions.TypeAlias = by_small_number.BySmallNumber

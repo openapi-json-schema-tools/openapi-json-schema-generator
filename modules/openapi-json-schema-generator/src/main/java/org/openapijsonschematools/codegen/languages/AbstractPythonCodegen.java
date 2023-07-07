@@ -69,7 +69,7 @@ public abstract class AbstractPythonCodegen extends DefaultCodegen implements Co
                         "False", "async", "await",
                         // imports, imports_schema_types.handlebars, include these to prevent name collision
                         "datetime", "decimal", "functools", "io", "re",
-                        "typing", "typing_extensions", "uuid", "frozendict", "schemas"
+                        "typing", "typing_extensions", "uuid", "immutabledict", "schemas"
                 ));
 
         languageSpecificPrimitives.clear();

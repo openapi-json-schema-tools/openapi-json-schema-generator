@@ -37,7 +37,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             payload = (
                 1.1
             )
-            body = post.request_body.RequestBody.content["application/json"].schema(
+            body = post.request_body.RequestBody.content["application/json"].schema.validate(
                 payload,
                 configuration=self.schema_config
             )
@@ -68,7 +68,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 0.6
             )
             with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-                body = post.request_body.RequestBody.content["application/json"].schema(
+                body = post.request_body.RequestBody.content["application/json"].schema.validate(
                     payload,
                     configuration=self.schema_config
                 )
@@ -81,7 +81,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             payload = (
                 2.6
             )
-            body = post.request_body.RequestBody.content["application/json"].schema(
+            body = post.request_body.RequestBody.content["application/json"].schema.validate(
                 payload,
                 configuration=self.schema_config
             )
@@ -111,7 +111,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             payload = (
                 "x"
             )
-            body = post.request_body.RequestBody.content["application/json"].schema(
+            body = post.request_body.RequestBody.content["application/json"].schema.validate(
                 payload,
                 configuration=self.schema_config
             )

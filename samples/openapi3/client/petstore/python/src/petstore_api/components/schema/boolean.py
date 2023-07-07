@@ -10,4 +10,4 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-Boolean: typing_extensions.TypeAlias = schemas.BoolSchema[U]
+Boolean: typing_extensions.TypeAlias = schemas.BoolSchema

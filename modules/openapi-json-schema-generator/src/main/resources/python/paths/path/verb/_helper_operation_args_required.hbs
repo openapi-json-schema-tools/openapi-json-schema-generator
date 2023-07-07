@@ -1,41 +1,29 @@
 {{#if requestBody}}
-    {{#with requestBody}}
-        {{#if refInfo}}
-            {{#with getDeepestRef}}
-                {{#if required}}
-body: typing.Union[
-                    {{#each content}}
-    request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
-                    {{/each}}
-                    {{#each getContentSchemas}}
-    {{> _helper_schema_python_types_newline }}
-                    {{/each}}
+    {{#if requestBody.getSelfOrDeepestRef.required}}
+{{> paths/path/verb/_helper_operation_args_body fullRefModule=null requiredValue=true }}
+    {{/if}}
+{{/if}}
+{{#and pathParameters pathParameters.requiredProperties}}
+path_params: typing.Union[
+    {{pathParameters.mapInputJsonPathPiece.camelCase}},
+    {{pathParameters.mapOutputJsonPathPiece.camelCase}}
 ],
-                {{/if}}
-            {{/with}}
-        {{else}}
-            {{#if required}}
-body: typing.Union[
-                {{#each content}}
-    request_body.{{../../requestBody.jsonPathPiece.camelCase}}.content["{{{@key.original}}}"].schema,
-                {{/each}}
-                {{#each getContentSchemas}}
-    {{> _helper_schema_python_types_newline }}
-                {{/each}}
+{{/and}}
+{{#and queryParameters queryParameters.requiredProperties}}
+query_params: typing.Union[
+    {{queryParameters.mapInputJsonPathPiece.camelCase}},
+    {{queryParameters.mapOutputJsonPathPiece.camelCase}}
 ],
-            {{/if}}
-        {{/if}}
-    {{/with}}
-{{/if}}
-{{#if hasRequiredPathParams}}
-path_params: RequestPathParameters.Params,
-{{/if}}
-{{#if hasRequiredQueryParams}}
-query_params: RequestQueryParameters.Params,
-{{/if}}
-{{#if hasRequiredHeaderParams}}
-header_params: RequestHeaderParameters.Params,
-{{/if}}
-{{#if hasRequiredCookieParams}}
-cookie_params: RequestCookieParameters.Params,
-{{/if}}
+{{/and}}
+{{#and headerParameters headerParameters.requiredProperties}}
+header_params: typing.Union[
+    {{headerParameters.mapInputJsonPathPiece.camelCase}},
+    {{headerParameters.mapOutputJsonPathPiece.camelCase}}
+],
+{{/and}}
+{{#and cookieParameters cookieParameters.requiredProperties}}
+cookie_params: typing.Union[
+    {{cookieParameters.mapInputJsonPathPiece.camelCase}},
+    {{cookieParameters.mapOutputJsonPathPiece.camelCase}}
+],
+{{/and}}

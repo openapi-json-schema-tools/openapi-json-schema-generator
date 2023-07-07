@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import string_type_matches_strings
-Schema: typing_extensions.TypeAlias = string_type_matches_strings.StringTypeMatchesStrings[U]
+Schema: typing_extensions.TypeAlias = string_type_matches_strings.StringTypeMatchesStrings

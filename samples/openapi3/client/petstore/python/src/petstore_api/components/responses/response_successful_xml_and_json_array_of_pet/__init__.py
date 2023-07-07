@@ -14,8 +14,8 @@ from .content.application_json import schema as application_json_schema
 class ApiSuccessfulXmlAndJsonArrayOfPet(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_xml_schema.Schema[tuple],
-        application_json_schema.Schema[tuple],
+        application_xml_schema.SchemaTuple,
+        application_json_schema.SchemaTuple,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -25,11 +25,11 @@ class SuccessfulXmlAndJsonArrayOfPet(api_client.OpenApiResponse[ApiSuccessfulXml
 
 
     class ApplicationXmlMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = application_xml_schema.Schema[tuple]
+        schema: typing_extensions.TypeAlias = application_xml_schema.Schema
 
 
     class ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = application_json_schema.Schema[tuple]
+        schema: typing_extensions.TypeAlias = application_json_schema.Schema
     Content = typing_extensions.TypedDict(
         'Content',
         {

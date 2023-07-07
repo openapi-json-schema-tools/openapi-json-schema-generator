@@ -20,7 +20,7 @@ class TestAnyofWithBaseSchema(unittest.TestCase):
 
     def test_one_anyof_valid_passes(self):
         # one anyOf valid
-        AnyofWithBaseSchema(
+        AnyofWithBaseSchema.validate(
             "foobar",
             configuration=self.configuration
         )
@@ -28,7 +28,7 @@ class TestAnyofWithBaseSchema(unittest.TestCase):
     def test_both_anyof_invalid_fails(self):
         # both anyOf invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AnyofWithBaseSchema(
+            AnyofWithBaseSchema.validate(
                 "foo",
                 configuration=self.configuration
             )
@@ -36,7 +36,7 @@ class TestAnyofWithBaseSchema(unittest.TestCase):
     def test_mismatch_base_schema_fails(self):
         # mismatch base schema
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AnyofWithBaseSchema(
+            AnyofWithBaseSchema.validate(
                 3,
                 configuration=self.configuration
             )

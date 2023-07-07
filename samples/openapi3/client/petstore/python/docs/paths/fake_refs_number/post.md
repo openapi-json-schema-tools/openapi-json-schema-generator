@@ -25,7 +25,7 @@ petstore_api.paths.fake_refs_number.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), Unset, decimal.Decimal, int, float] | optional, default is unset |
+[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), Unset, float, int] | optional, default is unset |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
@@ -48,7 +48,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[NumberWithValidations](../../components/schema/number_with_validations.md) | decimal.Decimal, int, float | decimal.Decimal |
+[NumberWithValidations](../../components/schema/number_with_validations.md) | float, int | float, int |
 
 ## Return Types
 
@@ -80,7 +80,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[NumberWithValidations](../../components/schema/number_with_validations.md) | decimal.Decimal, int, float | decimal.Decimal |
+[NumberWithValidations](../../components/schema/number_with_validations.md) | float, int | float, int |
 
 ## Servers
 

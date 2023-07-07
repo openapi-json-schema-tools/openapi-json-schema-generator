@@ -63,7 +63,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[AdditionalpropertiesAllowsASchemaWhichShouldValidate](../../components/schema/additionalproperties_allows_a_schema_which_should_validate.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[AdditionalpropertiesAllowsASchemaWhichShouldValidate](../../components/schema/additionalproperties_allows_a_schema_which_should_validate.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 ## Servers
 

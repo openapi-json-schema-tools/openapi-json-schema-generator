@@ -1,0 +1,11 @@
+{{#if items}}
+{{arrayInputJsonPathPiece.camelCase}} = typing.Sequence[
+    {{#with items}}
+        {{#if refInfo.refClass}}
+    {{> components/schemas/_helper_prefix_ref_property_value_type prefix=null fullRefModule="" }}
+        {{else}}
+    {{> components/schemas/_helper_prefix_property_value_type prefix=null }}
+        {{/if}}
+    {{/with}}
+]
+{{/if}}

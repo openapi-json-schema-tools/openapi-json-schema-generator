@@ -10,5 +10,4 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
-Schema: typing_extensions.TypeAlias = schemas.DictSchema[U]
+Schema: typing_extensions.TypeAlias = schemas.DictSchema

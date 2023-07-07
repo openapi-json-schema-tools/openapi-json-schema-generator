@@ -28,7 +28,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     api = post.ApiForPost(api_client=used_api_client)  # noqa: E501
 
     response_status = 200
-    response_body_schema = typing_extensions.get_origin(post.response_200.ResponseFor200.content["application/json"].schema)
+    response_body_schema = post.response_200.ResponseFor200.content["application/json"].schema
     assert response_body_schema is not None
     
     def test_an_empty_string_is_not_a_boolean_fails(self):
@@ -199,8 +199,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
-            assert isinstance(api_response.body, self.response_body_schema)
-            deserialized_response_body = self.response_body_schema(
+            deserialized_response_body = self.response_body_schema.validate(
                 payload,
                 configuration=self.schema_config
             )
@@ -253,8 +252,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
-            assert isinstance(api_response.body, self.response_body_schema)
-            deserialized_response_body = self.response_body_schema(
+            deserialized_response_body = self.response_body_schema.validate(
                 payload,
                 configuration=self.schema_config
             )

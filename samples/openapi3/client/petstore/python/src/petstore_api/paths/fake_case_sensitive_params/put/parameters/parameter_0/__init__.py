@@ -12,6 +12,6 @@ from . import schema
 class Parameter0(api_client.QueryParameter):
     name = "someVar"
     style = api_client.ParameterStyle.FORM
-    schema: typing_extensions.TypeAlias = schema.Schema[str]
+    schema: typing_extensions.TypeAlias = schema.Schema
     required = True
     explode = True

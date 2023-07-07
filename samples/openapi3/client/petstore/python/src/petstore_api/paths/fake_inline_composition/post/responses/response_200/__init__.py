@@ -14,17 +14,8 @@ from .content.multipart_form_data import schema as multipart_form_data_schema
 class ApiResponseFor200(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_json_schema.Schema[typing.Union[
-            frozendict.frozendict,
-            str,
-            decimal.Decimal,
-            schemas.BoolClass,
-            schemas.NoneClass,
-            tuple,
-            bytes,
-            schemas.FileIO
-        ]],
-        multipart_form_data_schema.Schema[frozendict.frozendict],
+        schemas.OUTPUT_BASE_TYPES,
+        multipart_form_data_schema.SchemaDict,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -34,20 +25,11 @@ class ResponseFor200(api_client.OpenApiResponse[ApiResponseFor200]):
 
 
     class ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = application_json_schema.Schema[typing.Union[
-            frozendict.frozendict,
-            str,
-            decimal.Decimal,
-            schemas.BoolClass,
-            schemas.NoneClass,
-            tuple,
-            bytes,
-            schemas.FileIO
-        ]]
+        schema: typing_extensions.TypeAlias = application_json_schema.Schema
 
 
     class MultipartFormDataMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = multipart_form_data_schema.Schema[frozendict.frozendict]
+        schema: typing_extensions.TypeAlias = multipart_form_data_schema.Schema
     Content = typing_extensions.TypedDict(
         'Content',
         {

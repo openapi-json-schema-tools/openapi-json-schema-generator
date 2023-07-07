@@ -4,12 +4,12 @@ petstore_api.components.schema.banana_req
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict | frozendict.frozendict |  |
+dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**lengthCm** | decimal.Decimal, int, float | decimal.Decimal |  |
-**sweet** | bool | BoolClass |  | [optional]
+**lengthCm** | float, int | float, int |  |
+**sweet** | bool | bool |  | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

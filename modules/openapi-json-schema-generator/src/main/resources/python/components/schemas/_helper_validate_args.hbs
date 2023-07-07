@@ -1,0 +1,51 @@
+cls,
+{{#eq this "array"}}
+    {{#if arrayInputJsonPathPiece}}
+arg: typing.Union[
+    {{arrayInputJsonPathPiece.camelCase}},
+    {{arrayOutputJsonPathPiece.camelCase}},
+],
+    {{else}}
+arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+    {{/if}}
+{{else}}
+    {{#eq this "object"}}
+        {{#if mapInputJsonPathPiece}}
+arg: typing.Union[
+    {{mapInputJsonPathPiece.camelCase}},
+    {{mapOutputJsonPathPiece.camelCase}},
+],
+        {{else}}
+arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        {{/if}}
+    {{else}}
+        {{#eq this "string"}}
+arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        {{else}}
+            {{#eq this "number"}}
+arg: typing.Union[int, float],
+            {{else}}
+                {{#eq this "integer"}}
+arg: int,
+                {{else}}
+                    {{#eq this "boolean"}}
+arg: bool,
+                    {{else}}
+                        {{#eq this "null"}}
+arg: None,
+                        {{else}}
+                            {{#eq this "bytes"}}
+arg: bytes,
+                            {{else}}
+                                {{#eq this "file"}}
+arg: io.FileIO,
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{/eq}}
+configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None

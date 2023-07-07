@@ -28,16 +28,16 @@ class TestNoAdditionalProperties(unittest.TestCase):
         """Test NoAdditionalProperties"""
 
         # works with only required
-        arg: no_additional_properties.DictInput3 = {
+        arg: no_additional_properties.NoAdditionalPropertiesDictInput = {
             'id': 1
         }
-        inst = no_additional_properties.NoAdditionalProperties(arg)
+        inst = no_additional_properties.NoAdditionalProperties.validate(arg)
         id_by_items = inst["id"]
         assert id_by_items == 1
-        assert isinstance(id_by_items, (schemas.Int64Schema, decimal.Decimal))
+        assert isinstance(id_by_items, int)
         id_by_property = inst.id
         assert id_by_property == 1
-        assert isinstance(id_by_property, (schemas.Int64Schema, decimal.Decimal))
+        assert isinstance(id_by_property, int)
         with self.assertRaises(AttributeError):
             inst.petId
         with self.assertRaises(KeyError):
@@ -45,11 +45,11 @@ class TestNoAdditionalProperties(unittest.TestCase):
         assert inst.get("petId", schemas.unset) is schemas.unset
 
         # works with required + optional
-        arg: no_additional_properties.DictInput3 = {
+        arg: no_additional_properties.NoAdditionalPropertiesDictInput = {
             'petId': 2,
             'id': 1
         }
-        inst = no_additional_properties.NoAdditionalProperties(arg)
+        inst = no_additional_properties.NoAdditionalProperties.validate(arg)
 
         # needs required
         # TODO cast this to ApiTypeError?
@@ -57,7 +57,7 @@ class TestNoAdditionalProperties(unittest.TestCase):
             TypeError,
             r"missing 1 required argument: \['id'\]"
         ):
-            no_additional_properties.NoAdditionalProperties({'petId': 2})
+            no_additional_properties.NoAdditionalProperties.validate({'petId': 2})
 
         # may not be passed additional properties
         # TODO cast this to ApiTypeError?
@@ -65,7 +65,7 @@ class TestNoAdditionalProperties(unittest.TestCase):
             exceptions.ApiValueError,
             r"Value is invalid because it is disallowed by AnyTypeSchema"
         ):
-            no_additional_properties.NoAdditionalProperties({'id': 2, 'invalidArg': 1})
+            no_additional_properties.NoAdditionalProperties.validate({'id': 2, 'invalidArg': 1})
 
         # plural example
         # TODO cast this to ApiTypeError?
@@ -73,7 +73,7 @@ class TestNoAdditionalProperties(unittest.TestCase):
             exceptions.ApiValueError,
             r"Value is invalid because it is disallowed by AnyTypeSchema"
         ):
-            no_additional_properties.NoAdditionalProperties({'id': 2, 'firstInvalidArg': 1, 'secondInvalidArg': 3})
+            no_additional_properties.NoAdditionalProperties.validate({'id': 2, 'firstInvalidArg': 1, 'secondInvalidArg': 3})
 
 
 if __name__ == '__main__':

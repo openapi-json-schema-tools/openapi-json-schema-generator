@@ -21,7 +21,7 @@ class TestForbiddenProperty(unittest.TestCase):
     def test_property_present_fails(self):
         # property present
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            ForbiddenProperty(
+            ForbiddenProperty.validate(
                 {
                     "foo":
                         1,
@@ -33,7 +33,7 @@ class TestForbiddenProperty(unittest.TestCase):
 
     def test_property_absent_passes(self):
         # property absent
-        ForbiddenProperty(
+        ForbiddenProperty.validate(
             {
                 "bar":
                     1,

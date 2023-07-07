@@ -21,7 +21,7 @@ class TestBooleanTypeMatchesBooleans(unittest.TestCase):
     def test_an_empty_string_is_not_a_boolean_fails(self):
         # an empty string is not a boolean
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            BooleanTypeMatchesBooleans(
+            BooleanTypeMatchesBooleans.validate(
                 "",
                 configuration=self.configuration
             )
@@ -29,7 +29,7 @@ class TestBooleanTypeMatchesBooleans(unittest.TestCase):
     def test_a_float_is_not_a_boolean_fails(self):
         # a float is not a boolean
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            BooleanTypeMatchesBooleans(
+            BooleanTypeMatchesBooleans.validate(
                 1.1,
                 configuration=self.configuration
             )
@@ -37,7 +37,7 @@ class TestBooleanTypeMatchesBooleans(unittest.TestCase):
     def test_null_is_not_a_boolean_fails(self):
         # null is not a boolean
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            BooleanTypeMatchesBooleans(
+            BooleanTypeMatchesBooleans.validate(
                 None,
                 configuration=self.configuration
             )
@@ -45,7 +45,7 @@ class TestBooleanTypeMatchesBooleans(unittest.TestCase):
     def test_zero_is_not_a_boolean_fails(self):
         # zero is not a boolean
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            BooleanTypeMatchesBooleans(
+            BooleanTypeMatchesBooleans.validate(
                 0,
                 configuration=self.configuration
             )
@@ -53,7 +53,7 @@ class TestBooleanTypeMatchesBooleans(unittest.TestCase):
     def test_an_array_is_not_a_boolean_fails(self):
         # an array is not a boolean
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            BooleanTypeMatchesBooleans(
+            BooleanTypeMatchesBooleans.validate(
                 [
                 ],
                 configuration=self.configuration
@@ -62,14 +62,14 @@ class TestBooleanTypeMatchesBooleans(unittest.TestCase):
     def test_a_string_is_not_a_boolean_fails(self):
         # a string is not a boolean
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            BooleanTypeMatchesBooleans(
+            BooleanTypeMatchesBooleans.validate(
                 "foo",
                 configuration=self.configuration
             )
 
     def test_false_is_a_boolean_passes(self):
         # false is a boolean
-        BooleanTypeMatchesBooleans(
+        BooleanTypeMatchesBooleans.validate(
             False,
             configuration=self.configuration
         )
@@ -77,14 +77,14 @@ class TestBooleanTypeMatchesBooleans(unittest.TestCase):
     def test_an_integer_is_not_a_boolean_fails(self):
         # an integer is not a boolean
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            BooleanTypeMatchesBooleans(
+            BooleanTypeMatchesBooleans.validate(
                 1,
                 configuration=self.configuration
             )
 
     def test_true_is_a_boolean_passes(self):
         # true is a boolean
-        BooleanTypeMatchesBooleans(
+        BooleanTypeMatchesBooleans.validate(
             True,
             configuration=self.configuration
         )
@@ -92,7 +92,7 @@ class TestBooleanTypeMatchesBooleans(unittest.TestCase):
     def test_an_object_is_not_a_boolean_fails(self):
         # an object is not a boolean
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            BooleanTypeMatchesBooleans(
+            BooleanTypeMatchesBooleans.validate(
                 {
                 },
                 configuration=self.configuration

@@ -10,4 +10,4 @@
 
 from petstore_api.shared_imports.schema_imports import *
 from petstore_api.components.schema import array_of_enums
-Schema: typing_extensions.TypeAlias = array_of_enums.ArrayOfEnums[U]
+Schema: typing_extensions.TypeAlias = array_of_enums.ArrayOfEnums

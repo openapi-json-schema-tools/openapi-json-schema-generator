@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import pattern_validation
-Schema: typing_extensions.TypeAlias = pattern_validation.PatternValidation[U]
+Schema: typing_extensions.TypeAlias = pattern_validation.PatternValidation

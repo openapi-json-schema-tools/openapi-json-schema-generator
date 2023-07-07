@@ -37,7 +37,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             payload = (
                 "foo"
             )
-            body = post.request_body.RequestBody.content["application/json"].schema(
+            body = post.request_body.RequestBody.content["application/json"].schema.validate(
                 payload,
                 configuration=self.schema_config
             )
@@ -67,7 +67,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             payload = (
                 123
             )
-            body = post.request_body.RequestBody.content["application/json"].schema(
+            body = post.request_body.RequestBody.content["application/json"].schema.validate(
                 payload,
                 configuration=self.schema_config
             )
