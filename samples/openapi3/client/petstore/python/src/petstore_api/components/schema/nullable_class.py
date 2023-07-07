@@ -125,7 +125,7 @@ class BooleanProp(
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         schemas.none_type_,
-        bool,
+        schemas.Bool,
     })
 
     @typing.overload

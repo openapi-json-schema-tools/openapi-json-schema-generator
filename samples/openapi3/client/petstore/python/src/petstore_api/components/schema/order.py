@@ -53,7 +53,7 @@ class Complete(
     schemas.BoolSchema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        bool,
+        schemas.Bool,
     })
     default: bool = False
 Properties = typing_extensions.TypedDict(
