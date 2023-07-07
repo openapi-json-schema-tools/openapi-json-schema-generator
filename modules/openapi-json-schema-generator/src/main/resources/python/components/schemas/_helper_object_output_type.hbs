@@ -1,0 +1,17 @@
+
+
+class {{mapOutputJsonPathPiece.camelCase}}(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    {{#eq optionalProperties null}}
+        {{#eq requiredProperties null}}
+            {{#if additionalProperties}}
+                {{#if additionalProperties.isBooleanSchemaFalse}}
+    # empty mapping
+    pass
+                {{/if}}
+            {{/if}}
+        {{/eq}}
+    {{/eq}}
+    {{> components/schemas/_helper_object_output_properties }}
+    {{> components/schemas/_helper_object_output_getitems }}
+
+    {{> components/schemas/_helper_new }}

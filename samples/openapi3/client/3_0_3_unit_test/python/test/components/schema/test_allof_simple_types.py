@@ -20,7 +20,7 @@ class TestAllofSimpleTypes(unittest.TestCase):
 
     def test_valid_passes(self):
         # valid
-        AllofSimpleTypes(
+        AllofSimpleTypes.validate(
             25,
             configuration=self.configuration
         )
@@ -28,7 +28,7 @@ class TestAllofSimpleTypes(unittest.TestCase):
     def test_mismatch_one_fails(self):
         # mismatch one
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            AllofSimpleTypes(
+            AllofSimpleTypes.validate(
                 35,
                 configuration=self.configuration
             )

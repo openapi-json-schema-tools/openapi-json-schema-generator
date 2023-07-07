@@ -27,21 +27,17 @@ class TestComposedBool(unittest.TestCase):
 
     def test_ComposedBool(self):
         """Test ComposedBool"""
-        all_values = [None, True, False, 2, 3.14, '', {}, []]
+        all_values = (None, True, False, 2, 3.14, '', {}, [])
         for value in all_values:
             if isinstance(value, bool):
-                model = ComposedBool(value)
+                model = ComposedBool.validate(value)
                 if value is True:
-                    self.assertTrue(bool(model))
-                    self.assertTrue(model.is_true_())
-                    self.assertFalse(model.is_false_())
+                    assert model is True
                 else:
-                    self.assertTrue(model.is_false_())
-                    self.assertFalse(model.is_true_())
-                    self.assertFalse(bool(model))
+                    assert model is False
                 continue
             with self.assertRaises(petstore_api.ApiTypeError):
-                ComposedBool(value)
+                ComposedBool.validate(value)
             continue
 
 

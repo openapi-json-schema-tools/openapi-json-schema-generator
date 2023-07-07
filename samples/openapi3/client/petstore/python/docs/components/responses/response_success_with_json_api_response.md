@@ -31,6 +31,6 @@ numberHeader | [NumberHeader.schema](../../components/headers/header_number_head
 #### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[ApiResponse](../../components/schema/api_response.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[ApiResponse](../../components/schema/api_response.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 [[Back to top]](#top) [[Back to Component Responses]](../../../README.md#Component-Responses) [[Back to README]](../../../README.md)

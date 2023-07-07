@@ -37,7 +37,7 @@ This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-mapBean | [Parameter0.schema](#parameter0-schema), dict, frozendict.frozendict | | optional
+mapBean | [Parameter0.schema](#parameter0-schema), dict, schemas.immutabledict | | optional
 
 
 #### Parameter0
@@ -50,13 +50,13 @@ mapBean
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict | frozendict.frozendict |  |
+dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ###### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **keyword** | str | str |  | [optional]
-**any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ## Return Types
 
@@ -95,7 +95,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    query_params: operation.RequestQueryParameters.Params = {
+    query_params: operation.QueryParametersDictInput = {
         'mapBean': {
         "keyword": "keyword_example",
     },

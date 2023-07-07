@@ -33,9 +33,9 @@ class TestComposedNone(unittest.TestCase):
         for value in all_values:
             if value not in valid_values:
                 with self.assertRaises(petstore_api.ApiTypeError):
-                    model = ComposedNone(value)
+                    ComposedNone.validate(value)
                 continue
-            model = ComposedNone(value)
+            ComposedNone.validate(value)
 
 
 if __name__ == '__main__':

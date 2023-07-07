@@ -20,7 +20,7 @@ class TestRequiredValidation(unittest.TestCase):
 
     def test_ignores_arrays_passes(self):
         # ignores arrays
-        RequiredValidation(
+        RequiredValidation.validate(
             [
             ],
             configuration=self.configuration
@@ -28,7 +28,7 @@ class TestRequiredValidation(unittest.TestCase):
 
     def test_present_required_property_is_valid_passes(self):
         # present required property is valid
-        RequiredValidation(
+        RequiredValidation.validate(
             {
                 "foo":
                     1,
@@ -38,14 +38,14 @@ class TestRequiredValidation(unittest.TestCase):
 
     def test_ignores_other_non_objects_passes(self):
         # ignores other non-objects
-        RequiredValidation(
+        RequiredValidation.validate(
             12,
             configuration=self.configuration
         )
 
     def test_ignores_strings_passes(self):
         # ignores strings
-        RequiredValidation(
+        RequiredValidation.validate(
             "",
             configuration=self.configuration
         )
@@ -53,7 +53,7 @@ class TestRequiredValidation(unittest.TestCase):
     def test_non_present_required_property_is_invalid_fails(self):
         # non-present required property is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            RequiredValidation(
+            RequiredValidation.validate(
                 {
                     "bar":
                         1,

@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import object_type_matches_objects
-Schema: typing_extensions.TypeAlias = object_type_matches_objects.ObjectTypeMatchesObjects[U]
+Schema: typing_extensions.TypeAlias = object_type_matches_objects.ObjectTypeMatchesObjects

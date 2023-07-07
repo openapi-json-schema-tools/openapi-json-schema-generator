@@ -20,7 +20,7 @@ class TestIpv6Format(unittest.TestCase):
 
     def test_all_string_formats_ignore_objects_passes(self):
         # all string formats ignore objects
-        Ipv6Format(
+        Ipv6Format.validate(
             {
             },
             configuration=self.configuration
@@ -28,28 +28,28 @@ class TestIpv6Format(unittest.TestCase):
 
     def test_all_string_formats_ignore_booleans_passes(self):
         # all string formats ignore booleans
-        Ipv6Format(
+        Ipv6Format.validate(
             False,
             configuration=self.configuration
         )
 
     def test_all_string_formats_ignore_integers_passes(self):
         # all string formats ignore integers
-        Ipv6Format(
+        Ipv6Format.validate(
             12,
             configuration=self.configuration
         )
 
     def test_all_string_formats_ignore_floats_passes(self):
         # all string formats ignore floats
-        Ipv6Format(
+        Ipv6Format.validate(
             13.7,
             configuration=self.configuration
         )
 
     def test_all_string_formats_ignore_arrays_passes(self):
         # all string formats ignore arrays
-        Ipv6Format(
+        Ipv6Format.validate(
             [
             ],
             configuration=self.configuration
@@ -57,7 +57,7 @@ class TestIpv6Format(unittest.TestCase):
 
     def test_all_string_formats_ignore_nulls_passes(self):
         # all string formats ignore nulls
-        Ipv6Format(
+        Ipv6Format.validate(
             None,
             configuration=self.configuration
         )

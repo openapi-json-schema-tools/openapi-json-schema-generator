@@ -26,7 +26,7 @@ petstore_api.paths.pet_pet_id.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_x_www_form_urlencoded.schema](#RequestBody-content-applicationxwwwformurlencoded-schema), Unset, dict, frozendict.frozendict] | optional, default is unset |
+[body](#requestbody) | typing.Union[[RequestBody.content.application_x_www_form_urlencoded.schema](#RequestBody-content-applicationxwwwformurlencoded-schema), Unset, dict, schemas.immutabledict] | optional, default is unset |
 [path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
 security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [0, 1]
@@ -47,14 +47,14 @@ Content-Type | Schema
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict | frozendict.frozendict |  |
+dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ##### Dictionary Keys
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **name** | str | str | Updated name of the pet | [optional]
 **status** | str | str | Updated status of the pet | [optional]
-**any_string_name** | dict, frozendict.frozendict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | frozendict.frozendict, tuple, decimal.Decimal, str, bytes, BoolClass, NoneClass, FileIO | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ### path_params
 #### RequestPathParameters.Params
@@ -62,7 +62,7 @@ This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-petId | [Parameter0.schema](#parameter0-schema), decimal.Decimal, int | | 
+petId | [Parameter0.schema](#parameter0-schema), int | | 
 
 
 #### Parameter0
@@ -75,7 +75,7 @@ ID of pet that needs to be updated
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int | decimal.Decimal |  | value must be a 64 bit integer
+int | int |  | value must be a 64 bit integer
 
 ## Return Types
 
@@ -167,7 +167,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = pet_api.PetApi(api_client)
 
     # example passing only required values which don't have defaults set
-    path_params: operation.RequestPathParameters.Params = {
+    path_params: operation.PathParametersDictInput = {
         'petId': 1,
     }
     try:

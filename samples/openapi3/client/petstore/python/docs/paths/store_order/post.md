@@ -25,7 +25,7 @@ petstore_api.paths.store_order.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), dict, frozendict.frozendict] | required |
+[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), dict, schemas.immutabledict] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/xml", "application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
@@ -48,7 +48,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../components/schema/order.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[Order](../../components/schema/order.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 ## Return Types
 
@@ -82,13 +82,13 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../components/schema/order.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[Order](../../components/schema/order.md) | dict, schemas.immutabledict | schemas.immutabledict |
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../components/schema/order.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[Order](../../components/schema/order.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 ## ResponseFor400
 

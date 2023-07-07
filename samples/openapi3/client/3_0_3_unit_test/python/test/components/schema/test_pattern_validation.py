@@ -20,7 +20,7 @@ class TestPatternValidation(unittest.TestCase):
 
     def test_ignores_arrays_passes(self):
         # ignores arrays
-        PatternValidation(
+        PatternValidation.validate(
             [
             ],
             configuration=self.configuration
@@ -28,7 +28,7 @@ class TestPatternValidation(unittest.TestCase):
 
     def test_ignores_objects_passes(self):
         # ignores objects
-        PatternValidation(
+        PatternValidation.validate(
             {
             },
             configuration=self.configuration
@@ -36,14 +36,14 @@ class TestPatternValidation(unittest.TestCase):
 
     def test_ignores_null_passes(self):
         # ignores null
-        PatternValidation(
+        PatternValidation.validate(
             None,
             configuration=self.configuration
         )
 
     def test_ignores_floats_passes(self):
         # ignores floats
-        PatternValidation(
+        PatternValidation.validate(
             1.0,
             configuration=self.configuration
         )
@@ -51,28 +51,28 @@ class TestPatternValidation(unittest.TestCase):
     def test_a_non_matching_pattern_is_invalid_fails(self):
         # a non-matching pattern is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            PatternValidation(
+            PatternValidation.validate(
                 "abc",
                 configuration=self.configuration
             )
 
     def test_ignores_booleans_passes(self):
         # ignores booleans
-        PatternValidation(
+        PatternValidation.validate(
             True,
             configuration=self.configuration
         )
 
     def test_a_matching_pattern_is_valid_passes(self):
         # a matching pattern is valid
-        PatternValidation(
+        PatternValidation.validate(
             "aaa",
             configuration=self.configuration
         )
 
     def test_ignores_integers_passes(self):
         # ignores integers
-        PatternValidation(
+        PatternValidation.validate(
             123,
             configuration=self.configuration
         )

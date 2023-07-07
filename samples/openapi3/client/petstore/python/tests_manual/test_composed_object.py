@@ -28,14 +28,13 @@ class TestComposedObject(unittest.TestCase):
 
     def test_ComposedObject(self):
         """Test ComposedObject"""
-        valid_values = [{}]
-        all_values = [None, True, False, 2, 3.14, '', {}, []]
+        all_values = (None, True, False, 2, 3.14, '', {}, [])
         for value in all_values:
-            if value not in valid_values:
+            if not isinstance(value, dict):
                 with self.assertRaises(petstore_api.ApiTypeError):
-                    model = ComposedObject(value)
+                    ComposedObject.validate(value)
                 continue
-            model = ComposedObject(value)
+            ComposedObject.validate(value)
 
 
 if __name__ == '__main__':

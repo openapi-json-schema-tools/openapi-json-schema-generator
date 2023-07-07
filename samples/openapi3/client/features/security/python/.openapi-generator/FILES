@@ -64,7 +64,11 @@ src/this_package/paths/path_with_two_explicit_security/get/security/__init__.py
 src/this_package/paths/path_with_two_explicit_security/get/security/security_requirement_object_0.py
 src/this_package/paths/path_with_two_explicit_security/get/security/security_requirement_object_1.py
 src/this_package/rest.py
-src/this_package/schemas.py
+src/this_package/schemas/__init__.py
+src/this_package/schemas/format.py
+src/this_package/schemas/schema.py
+src/this_package/schemas/schemas.py
+src/this_package/schemas/validation.py
 src/this_package/security/__init__.py
 src/this_package/security/security_requirement_object_0.py
 src/this_package/security/security_requirement_object_1.py

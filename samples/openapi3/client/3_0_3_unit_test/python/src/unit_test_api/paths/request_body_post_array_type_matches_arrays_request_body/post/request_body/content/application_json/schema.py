@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import array_type_matches_arrays
-Schema: typing_extensions.TypeAlias = array_type_matches_arrays.ArrayTypeMatchesArrays[U]
+Schema: typing_extensions.TypeAlias = array_type_matches_arrays.ArrayTypeMatchesArrays

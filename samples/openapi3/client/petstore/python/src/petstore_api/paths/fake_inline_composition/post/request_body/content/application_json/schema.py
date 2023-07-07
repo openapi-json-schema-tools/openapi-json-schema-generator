@@ -12,101 +12,23 @@ from petstore_api.shared_imports.schema_imports import *
 
 
 
+@dataclasses.dataclass(frozen=True)
 class _0(
-    schemas.StrSchema[schemas.T]
+    schemas.StrSchema
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            str,
-        })
-        min_length: int = 1
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        str,
+    })
+    min_length: int = 1
 AllOf = typing.Tuple[
-    typing.Type[_0[schemas.U]],
+    typing.Type[_0],
 ]
-DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
+@dataclasses.dataclass(frozen=True)
 class Schema(
-    schemas.AnyTypeSchema[schemas.T],
+    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        # any type
-        all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
-
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Schema[schemas.NoneClass]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[bool, schemas.BoolClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Schema[schemas.BoolClass]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[decimal.Decimal, float, int],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Schema[decimal.Decimal]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Schema[str]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Schema[tuple]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[
-            DictInput,
-            Schema[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Schema[frozendict.frozendict]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: bytes,
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Schema[bytes]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: io.FileIO,
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Schema[schemas.FileIO]: ...
-
-    def __new__(
-        cls,
-        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ):
-        return super().__new__(
-            cls,
-            arg,
-            configuration=configuration,
-        )
+    # any type
+    all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 

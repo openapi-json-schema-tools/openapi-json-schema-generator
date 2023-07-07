@@ -19,14 +19,14 @@ class TestObjectWithAllOfWithReqTestPropFromUnsetAddProp(unittest.TestCase):
     """ObjectWithAllOfWithReqTestPropFromUnsetAddProp unit test stubs"""
 
     def test_model_instantiation(self):
-        inst = ObjectWithAllOfWithReqTestPropFromUnsetAddProp({
+        inst = ObjectWithAllOfWithReqTestPropFromUnsetAddProp.validate({
             'test': 'a'
         })
         assert inst == {'test': 'a'}
 
         # without the required test property an execption is thrown
         with self.assertRaises(exceptions.ApiTypeError):
-            ObjectWithAllOfWithReqTestPropFromUnsetAddProp({
+            ObjectWithAllOfWithReqTestPropFromUnsetAddProp.validate({
                 'name': 'a'
             })
 

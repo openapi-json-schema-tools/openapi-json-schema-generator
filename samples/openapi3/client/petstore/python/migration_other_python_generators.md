@@ -12,13 +12,8 @@ When switching from other python client generators you will need to make some ch
         - update your endpoint calls to pass in parameter data in path_params, query_params, header_params etc dict inputs
 3. Endpoint responses now include the original response, the deserialized response body, and (todo)the deserialized headers
     - So you will need to update your code to use response.body to access deserialized data
-4. All validated data is instantiated in an instance that subclasses all validated Schema classes and Decimal/str/tuple/frozendict/NoneClass/BoolClass/bytes/io.FileIO
+4. All validated data is instantiated in an instance that subclasses all validated Schema classes and Decimal/str/tuple/immutabledict/None/bool/bytes/io.FileIO
     - This means that you can use isinstance to check if a payload validated against a schema class
-    - This means that no data will be of type None/True/False
-        - ingested None will subclass NoneClass
-        - ingested True will subclass BoolClass
-        - ingested False will subclass BoolClass
-        - So if you need to check is True/False/None, instead use instance.is_true_()/.is_false_()/.is_none_()
 5. All validated class instances are immutable except for ones based on io.File
     - This is because if properties were changed after validation, that validation would no longer apply
     - So no changing values or property values after a class has been instantiated

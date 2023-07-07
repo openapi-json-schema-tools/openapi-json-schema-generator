@@ -3,7 +3,7 @@
             {{#if refInfo.refClass}}
     typing.Type[{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}],
             {{else}}
-    typing.Type[{{jsonPathPiece.camelCase}}[schemas.U]],
+    typing.Type[{{jsonPathPiece.camelCase}}],
             {{/if}}
         {{/each}}
 ]

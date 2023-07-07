@@ -1,0 +1,34 @@
+{{#if enumValueToName}}
+
+
+class {{enumValueToName.jsonPathPiece.camelCase}}:
+    {{#each enumValueToName}}
+
+    @schemas.classproperty
+        {{#eq @key.type "string"}}
+    def {{this}}(cls) -> str:
+        return {{jsonPathPiece.camelCase}}.validate("{{{@key.value}}}")
+        {{/eq}}
+        {{#eq @key.type "number"}}
+    def {{this}}(cls) -> typing.Union[float, int]:
+        return {{jsonPathPiece.camelCase}}.validate({{{@key.value}}})
+        {{/eq}}
+        {{#eq @key.type "integer"}}
+    def {{this}}(cls) -> int:
+        return {{jsonPathPiece.camelCase}}.validate({{{@key.value}}})
+        {{/eq}}
+        {{#eq @key.type "boolean"}}
+            {{#if @key.value}}
+    def {{this}}(cls) -> typing_extensions.Literal[True]:
+        return {{jsonPathPiece.camelCase}}.validate(True)
+            {{else}}
+    def {{this}}(cls) -> typing_extensions.Literal[False]:
+        return {{jsonPathPiece.camelCase}}.validate(False)
+            {{/if}}
+        {{/eq}}
+        {{#eq @key.type "null"}}
+    def {{this}}(cls) -> typing_extensions.Literal[None]:
+        return {{jsonPathPiece.camelCase}}.validate(None)
+        {{/eq}}
+    {{/each}}
+{{/if}}

@@ -20,7 +20,7 @@ class TestEnumWithFalseDoesNotMatch0(unittest.TestCase):
 
     def test_false_is_valid_passes(self):
         # false is valid
-        EnumWithFalseDoesNotMatch0(
+        EnumWithFalseDoesNotMatch0.validate(
             False,
             configuration=self.configuration
         )
@@ -28,7 +28,7 @@ class TestEnumWithFalseDoesNotMatch0(unittest.TestCase):
     def test_float_zero_is_invalid_fails(self):
         # float zero is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            EnumWithFalseDoesNotMatch0(
+            EnumWithFalseDoesNotMatch0.validate(
                 0.0,
                 configuration=self.configuration
             )
@@ -36,7 +36,7 @@ class TestEnumWithFalseDoesNotMatch0(unittest.TestCase):
     def test_integer_zero_is_invalid_fails(self):
         # integer zero is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            EnumWithFalseDoesNotMatch0(
+            EnumWithFalseDoesNotMatch0.validate(
                 0,
                 configuration=self.configuration
             )

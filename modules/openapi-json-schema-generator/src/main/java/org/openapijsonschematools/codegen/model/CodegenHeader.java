@@ -62,6 +62,31 @@ public class CodegenHeader {
         this.refInfo = refInfo;
     }
 
+    public CodegenHeader getSelfOrDeepestRef() {
+        CodegenHeader selfOrRefParam = this;
+        while (selfOrRefParam.refInfo != null) {
+            selfOrRefParam = selfOrRefParam.refInfo.ref;
+        }
+        return selfOrRefParam;
+    }
+
+    public String getSchemaJsonPath() {
+        CodegenHeader selfOrRefParam = this;
+        while (selfOrRefParam.refInfo != null) {
+            selfOrRefParam = selfOrRefParam.refInfo.ref;
+        }
+        // parameter is now de-referenced
+        CodegenSchema schema = null;
+        if (selfOrRefParam.schema != null) {
+            schema = selfOrRefParam.schema;
+        } else {
+            CodegenKey contentTypeKey = selfOrRefParam.content.keySet().iterator().next();
+            schema = selfOrRefParam.content.get(contentTypeKey).schema;
+        }
+        schema = schema.getSelfOrDeepestRef();
+        return schema.jsonPath;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(jsonPathPiece, explode, description, unescapedDescription, style, example, vendorExtensions, deprecated, required, schema, content, refInfo, imports, componentModule);

@@ -1,32 +1,32 @@
 {{#each types}}
     {{#eq this "array"}}
-schemas.ListSchema[schemas.T]
+schemas.ListSchema[{{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.camelCase}}{{else}}tuple{{/if}}]
     {{/eq}}
     {{#eq this "object"}}
-schemas.DictSchema[schemas.T]
+schemas.DictSchema[{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}}schemas.immutabledict{{/if}}]
     {{/eq}}
     {{#eq this "string"}}
         {{#eq ../format "date"}}
-schemas.DateSchema[schemas.T]
+schemas.DateSchema
         {{/eq}}
         {{#eq ../format "date-time"}}
-schemas.DateTimeSchema[schemas.T]
+schemas.DateTimeSchema
         {{/eq}}
         {{#eq ../format "uuid"}}
-schemas.UUIDSchema[schemas.T]
+schemas.UUIDSchema
         {{/eq}}
         {{#eq ../format "number"}}
-schemas.DecimalSchema[schemas.T]
+schemas.DecimalSchema
         {{/eq}}
         {{#eq ../format "binary"}}
-schemas.BinarySchema[schemas.T]
+schemas.BinarySchema
         {{/eq}}
         {{#neq ../format "date"}}
         {{#neq ../format "date-time"}}
         {{#neq ../format "uuid"}}
         {{#neq ../format "number"}}
         {{#neq ../format "binary"}}
-schemas.StrSchema[schemas.T]
+schemas.StrSchema
         {{/neq}}
         {{/neq}}
         {{/neq}}
@@ -35,34 +35,34 @@ schemas.StrSchema[schemas.T]
     {{/eq}}
     {{#eq this "number"}}
         {{#eq ../format "float"}}
-schemas.Float32Schema[schemas.T]
+schemas.Float32Schema
         {{/eq}}
         {{#eq ../format "double"}}
-schemas.Float64Schema[schemas.T]
+schemas.Float64Schema
         {{/eq}}
         {{#neq ../format "float"}}
         {{#neq ../format "double"}}
-schemas.NumberSchema[schemas.T]
+schemas.NumberSchema
         {{/neq}}
         {{/neq}}
     {{/eq}}
     {{#eq this "integer"}}
         {{#eq ../format "int32"}}
-schemas.Int32Schema[schemas.T]
+schemas.Int32Schema
         {{/eq}}
         {{#eq ../format "int64"}}
-schemas.Int64Schema[schemas.T]
+schemas.Int64Schema
         {{/eq}}
         {{#neq ../format "int32"}}
         {{#neq ../format "int64"}}
-schemas.IntSchema[schemas.T]
+schemas.IntSchema
         {{/neq}}
         {{/neq}}
     {{/eq}}
     {{#eq this "boolean"}}
-schemas.BoolSchema[schemas.T]
+schemas.BoolSchema
     {{/eq}}
     {{#eq this "null"}}
-schemas.NoneSchema[schemas.T]
+schemas.NoneSchema
     {{/eq}}
 {{/each}}

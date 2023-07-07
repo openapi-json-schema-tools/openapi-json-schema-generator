@@ -1,9 +1,10 @@
 {{#eq types null}}
-frozendict.frozendict,
+schemas.immutabledict,
 str,
-decimal.Decimal,
-schemas.BoolClass,
-schemas.NoneClass,
+float,
+int,
+bool,
+None,
 tuple,
 bytes,
 schemas.FileIO
@@ -13,10 +14,10 @@ schemas.FileIO
 tuple{{#unless @last}},{{/unless}}
         {{/eq}}
         {{#eq this "object"}}
-frozendict.frozendict{{#unless @last}},{{/unless}}
+schemas.immutabledict{{#unless @last}},{{/unless}}
         {{/eq}}
         {{#eq this "null"}}
-schemas.NoneClass{{#unless @last}},{{/unless}}
+None{{#unless @last}},{{/unless}}
         {{/eq}}
         {{#eq this "string" }}
             {{#eq ../format null}}
@@ -31,13 +32,14 @@ str{{#unless @last}},{{/unless}}
             {{/eq}}
         {{/eq}}
         {{#eq this "integer"}}
-decimal.Decimal{{#unless @last}},{{/unless}}
+int{{#unless @last}},{{/unless}}
         {{/eq}}
         {{#eq this "number"}}
-decimal.Decimal{{#unless @last}},{{/unless}}
+float,
+int{{#unless @last}},{{/unless}}
         {{/eq}}
         {{#eq this "boolean"}}
-schemas.BoolClass{{#unless @last}},{{/unless}}
+bool{{#unless @last}},{{/unless}}
         {{/eq}}
     {{/each}}
 {{/eq}}

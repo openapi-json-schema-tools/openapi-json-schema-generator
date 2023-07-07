@@ -14,8 +14,8 @@ from .content.application_json import schema as application_json_schema
 class ApiResponseFor200(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
-        application_xml_schema.Schema[frozendict.frozendict],
-        application_json_schema.Schema[frozendict.frozendict],
+        application_xml_schema.user.UserDict,
+        application_json_schema.user.UserDict,
     ]
     headers: schemas.Unset = schemas.unset
 
@@ -25,11 +25,11 @@ class ResponseFor200(api_client.OpenApiResponse[ApiResponseFor200]):
 
 
     class ApplicationXmlMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = application_xml_schema.Schema[frozendict.frozendict]
+        schema: typing_extensions.TypeAlias = application_xml_schema.Schema
 
 
     class ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = application_json_schema.Schema[frozendict.frozendict]
+        schema: typing_extensions.TypeAlias = application_json_schema.Schema
     Content = typing_extensions.TypedDict(
         'Content',
         {

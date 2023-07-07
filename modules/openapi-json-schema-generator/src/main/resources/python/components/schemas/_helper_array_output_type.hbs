@@ -1,0 +1,13 @@
+
+
+class {{arrayOutputJsonPathPiece.camelCase}}(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+{{#with items}}
+    {{#if refInfo.refClass}}
+    {{> components/schemas/_helper_schema_output_ref_type literal=false key="int" fullRefModule="" mode="getitem" endChar=":" }}
+    {{else}}
+    {{> components/schemas/_helper_schema_output_type literal=false key="int" mode="getitem" fullRefModule=null endChar=":" }}
+    {{/if}}
+        return super().__getitem__(name)
+{{/with}}
+
+    {{> components/schemas/_helper_new }}

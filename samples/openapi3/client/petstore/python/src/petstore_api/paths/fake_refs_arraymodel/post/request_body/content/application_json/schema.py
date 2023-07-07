@@ -10,4 +10,4 @@
 
 from petstore_api.shared_imports.schema_imports import *
 from petstore_api.components.schema import animal_farm
-Schema: typing_extensions.TypeAlias = animal_farm.AnimalFarm[U]
+Schema: typing_extensions.TypeAlias = animal_farm.AnimalFarm

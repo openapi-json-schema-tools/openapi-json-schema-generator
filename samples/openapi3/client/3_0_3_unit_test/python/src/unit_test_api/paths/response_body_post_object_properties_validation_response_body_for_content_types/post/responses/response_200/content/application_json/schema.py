@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import object_properties_validation
-Schema: typing_extensions.TypeAlias = object_properties_validation.ObjectPropertiesValidation[U]
+Schema: typing_extensions.TypeAlias = object_properties_validation.ObjectPropertiesValidation

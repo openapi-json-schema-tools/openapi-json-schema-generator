@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import anyof_with_base_schema
-Schema: typing_extensions.TypeAlias = anyof_with_base_schema.AnyofWithBaseSchema[U]
+Schema: typing_extensions.TypeAlias = anyof_with_base_schema.AnyofWithBaseSchema

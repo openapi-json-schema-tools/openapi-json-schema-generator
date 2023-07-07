@@ -128,6 +128,7 @@ docs/components/schema/object_with_decimal_properties.md
 docs/components/schema/object_with_difficultly_named_props.md
 docs/components/schema/object_with_inline_composition_property.md
 docs/components/schema/object_with_invalid_named_refed_properties.md
+docs/components/schema/object_with_only_optional_props.md
 docs/components/schema/object_with_optional_test_prop.md
 docs/components/schema/object_with_validations.md
 docs/components/schema/order.md
@@ -476,6 +477,7 @@ src/petstore_api/components/schema/object_with_decimal_properties.py
 src/petstore_api/components/schema/object_with_difficultly_named_props.py
 src/petstore_api/components/schema/object_with_inline_composition_property.py
 src/petstore_api/components/schema/object_with_invalid_named_refed_properties.py
+src/petstore_api/components/schema/object_with_only_optional_props.py
 src/petstore_api/components/schema/object_with_optional_test_prop.py
 src/petstore_api/components/schema/object_with_validations.py
 src/petstore_api/components/schema/order.py
@@ -1259,8 +1261,6 @@ src/petstore_api/paths/user_login/get/responses/response_200/headers/__init__.py
 src/petstore_api/paths/user_login/get/responses/response_200/headers/header_int32/__init__.py
 src/petstore_api/paths/user_login/get/responses/response_200/headers/header_number_header/__init__.py
 src/petstore_api/paths/user_login/get/responses/response_200/headers/header_ref_content_schema_header/__init__.py
-src/petstore_api/paths/user_login/get/responses/response_200/headers/header_ref_schema_header/__init__.py
-src/petstore_api/paths/user_login/get/responses/response_200/headers/header_string_header/__init__.py
 src/petstore_api/paths/user_login/get/responses/response_200/headers/header_x_expires_after/__init__.py
 src/petstore_api/paths/user_login/get/responses/response_200/headers/header_x_expires_after/schema.py
 src/petstore_api/paths/user_login/get/responses/response_200/headers/header_x_rate_limit/__init__.py
@@ -1306,7 +1306,11 @@ src/petstore_api/paths/user_username/put/responses/__init__.py
 src/petstore_api/paths/user_username/put/responses/response_400/__init__.py
 src/petstore_api/paths/user_username/put/responses/response_404/__init__.py
 src/petstore_api/rest.py
-src/petstore_api/schemas.py
+src/petstore_api/schemas/__init__.py
+src/petstore_api/schemas/format.py
+src/petstore_api/schemas/schema.py
+src/petstore_api/schemas/schemas.py
+src/petstore_api/schemas/validation.py
 src/petstore_api/security_schemes.py
 src/petstore_api/server.py
 src/petstore_api/servers/__init__.py

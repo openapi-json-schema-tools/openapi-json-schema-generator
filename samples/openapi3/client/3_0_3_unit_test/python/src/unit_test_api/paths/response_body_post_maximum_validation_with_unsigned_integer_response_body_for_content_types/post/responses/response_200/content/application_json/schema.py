@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import maximum_validation_with_unsigned_integer
-Schema: typing_extensions.TypeAlias = maximum_validation_with_unsigned_integer.MaximumValidationWithUnsignedInteger[U]
+Schema: typing_extensions.TypeAlias = maximum_validation_with_unsigned_integer.MaximumValidationWithUnsignedInteger

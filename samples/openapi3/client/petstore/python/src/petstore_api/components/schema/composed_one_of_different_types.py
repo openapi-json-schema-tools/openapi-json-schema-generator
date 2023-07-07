@@ -10,118 +10,107 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-_2: typing_extensions.TypeAlias = schemas.NoneSchema[U]
-_3: typing_extensions.TypeAlias = schemas.DateSchema[U]
-DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+_2: typing_extensions.TypeAlias = schemas.NoneSchema
+_3: typing_extensions.TypeAlias = schemas.DateSchema
 
 
+@dataclasses.dataclass(frozen=True)
 class _4(
-    schemas.DictSchema[schemas.T]
+    schemas.DictSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]]
 ):
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
+    max_properties: int = 4
+    min_properties: int = 4
 
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        max_properties: int = 4
-        min_properties: int = 4
-
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Union[
-            DictInput,
-            _4[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _4[frozendict.frozendict]:
-        return super().__new__(
-            cls,
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]:
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
-DictInput2 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
-Items: typing_extensions.TypeAlias = schemas.AnyTypeSchema[U]
+Items: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 
 
-class _5(
-    schemas.ListSchema[schemas.T]
-):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        max_items: int = 4
-        min_items: int = 4
-        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
-
-    def __new__(
-        cls,
-        arg: typing.Sequence[
-            typing.Union[
-                Items[
-                    schemas.INPUT_BASE_TYPES
-                ],
-                dict,
-                frozendict.frozendict,
-                str,
-                datetime.date,
-                datetime.datetime,
-                uuid.UUID,
-                int,
-                float,
-                decimal.Decimal,
-                bool,
-                None,
-                list,
-                tuple,
-                bytes,
-                io.FileIO,
-                io.BufferedReader
-            ]
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> _5[tuple]:
-        return super().__new__(
-            cls,
-            arg,
-            configuration=configuration,
-        )
-
-    def __getitem__(self, name: int) -> Items[typing.Union[
-        frozendict.frozendict,
-        str,
-        decimal.Decimal,
-        schemas.BoolClass,
-        schemas.NoneClass,
-        tuple,
-        bytes,
-        schemas.FileIO
-    ]]:
+class _5Tuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+    def __getitem__(self, name: int) -> schemas.OUTPUT_BASE_TYPES:
         return super().__getitem__(name)
 
+    def __new__(cls, arg: _5TupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return _5.validate(arg, configuration=configuration)
+_5TupleInput = typing.Sequence[
+    typing.Union[
+        dict,
+        schemas.immutabledict,
+        str,
+        datetime.date,
+        datetime.datetime,
+        uuid.UUID,
+        int,
+        float,
+        bool,
+        None,
+        list,
+        tuple,
+        bytes,
+        io.FileIO,
+        io.BufferedReader
+    ],
+]
 
 
-class _6(
-    schemas.DateTimeSchema[schemas.T]
+@dataclasses.dataclass(frozen=True)
+class _5(
+    schemas.ListSchema[_5Tuple]
 ):
+    types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+    max_items: int = 4
+    min_items: int = 4
+    items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            tuple: _5Tuple
+        }
+    )
 
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            str,
-        })
-        format: str = 'date-time'
-        pattern: schemas.PatternInfo = schemas.PatternInfo(
-            pattern=r'^2020.*'  # noqa: E501
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[
+            _5TupleInput,
+            _5Tuple,
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> _5Tuple:
+        return super().validate(
+            arg,
+            configuration=configuration,
         )
-DictInput3 = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 
+@dataclasses.dataclass(frozen=True)
+class _6(
+    schemas.DateTimeSchema
+):
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        str,
+    })
+    format: str = 'date-time'
+    pattern: schemas.PatternInfo = schemas.PatternInfo(
+        pattern=r'^2020.*'  # noqa: E501
+    )
+
+
+@dataclasses.dataclass(frozen=True)
 class ComposedOneOfDifferentTypes(
-    schemas.AnyTypeSchema[schemas.T],
+    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -130,83 +119,8 @@ class ComposedOneOfDifferentTypes(
 
     this is a model that allows payloads of type object or number
     """
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        # any type
-        one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
-
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[None, schemas.NoneClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ComposedOneOfDifferentTypes[schemas.NoneClass]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[bool, schemas.BoolClass],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ComposedOneOfDifferentTypes[schemas.BoolClass]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[decimal.Decimal, float, int],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ComposedOneOfDifferentTypes[decimal.Decimal]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ComposedOneOfDifferentTypes[str]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ComposedOneOfDifferentTypes[tuple]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: typing.Union[
-            DictInput3,
-            ComposedOneOfDifferentTypes[frozendict.frozendict],
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ComposedOneOfDifferentTypes[frozendict.frozendict]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: bytes,
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ComposedOneOfDifferentTypes[bytes]: ...
-
-    @typing.overload
-    def __new__(
-        cls,
-        arg: io.FileIO,
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> ComposedOneOfDifferentTypes[schemas.FileIO]: ...
-
-    def __new__(
-        cls,
-        arg: schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ):
-        return super().__new__(
-            cls,
-            arg,
-            configuration=configuration,
-        )
+    # any type
+    one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
 
 from petstore_api.components.schema import animal
@@ -214,9 +128,9 @@ from petstore_api.components.schema import number_with_validations
 OneOf = typing.Tuple[
     typing.Type[number_with_validations.NumberWithValidations],
     typing.Type[animal.Animal],
-    typing.Type[_2[schemas.U]],
-    typing.Type[_3[schemas.U]],
-    typing.Type[_4[schemas.U]],
-    typing.Type[_5[schemas.U]],
-    typing.Type[_6[schemas.U]],
+    typing.Type[_2],
+    typing.Type[_3],
+    typing.Type[_4],
+    typing.Type[_5],
+    typing.Type[_6],
 ]

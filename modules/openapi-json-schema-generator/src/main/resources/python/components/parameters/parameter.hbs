@@ -20,10 +20,8 @@ from . import {{jsonPathPiece.snakeCase}}
         {{#if content}}
 
             {{#each content}}
-                {{#with this}}
-                    {{#with schema}}
+                {{#with schema}}
 from .content.{{../@key.snakeCase}} import {{jsonPathPiece.snakeCase}} as {{../@key.snakeCase}}_{{jsonPathPiece.snakeCase}}
-                    {{/with}}
                 {{/with}}
             {{/each}}
         {{/if}}

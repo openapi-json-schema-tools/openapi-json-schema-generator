@@ -10,4 +10,4 @@
 from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
-NumberTypeMatchesNumbers: typing_extensions.TypeAlias = schemas.NumberSchema[U]
+NumberTypeMatchesNumbers: typing_extensions.TypeAlias = schemas.NumberSchema

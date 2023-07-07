@@ -10,4 +10,4 @@
 from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *
 
-NullTypeMatchesOnlyTheNullObject: typing_extensions.TypeAlias = schemas.NoneSchema[U]
+NullTypeMatchesOnlyTheNullObject: typing_extensions.TypeAlias = schemas.NoneSchema

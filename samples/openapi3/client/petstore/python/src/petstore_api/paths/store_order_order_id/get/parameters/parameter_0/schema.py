@@ -12,16 +12,13 @@ from petstore_api.shared_imports.schema_imports import *
 
 
 
+@dataclasses.dataclass(frozen=True)
 class Schema(
-    schemas.Int64Schema[schemas.T]
+    schemas.Int64Schema
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            decimal.Decimal,
-        })
-        format: str = 'int64'
-        inclusive_maximum: typing.Union[int, float] = 5
-        inclusive_minimum: typing.Union[int, float] = 1
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        int,
+    })
+    format: str = 'int64'
+    inclusive_maximum: typing.Union[int, float] = 5
+    inclusive_minimum: typing.Union[int, float] = 1

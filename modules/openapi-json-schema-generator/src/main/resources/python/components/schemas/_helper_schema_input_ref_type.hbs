@@ -1,0 +1,25 @@
+{{#if refInfo}}
+    {{#if refInfo.refModule}}
+        {{#with refInfo.ref}}
+            {{#eq fullRefModule "" }}
+{{> components/schemas/_helper_schema_input_ref_type fullRefModule=../refInfo.refModule }}
+            {{else}}
+{{> components/schemas/_helper_schema_input_ref_type fullRefModule=(join fullRefModule ../refInfo.refModule ".") }}
+            {{/eq}}
+        {{/with}}
+    {{else}}
+        {{! self reference }}
+        {{#with refInfo.ref}}
+{{> components/schemas/_helper_schema_input_ref_type }}
+        {{/with}}
+    {{/if}}
+{{else}}
+    {{! no more refs }}
+    {{#if types}}
+        {{#eq types.size 1}}
+{{> components/schemas/_helper_schema_input_type_base }}
+        {{/eq}}
+    {{else}}
+{{> components/schemas/_helper_schema_input_type_base }}
+    {{/if}}
+{{/if}}

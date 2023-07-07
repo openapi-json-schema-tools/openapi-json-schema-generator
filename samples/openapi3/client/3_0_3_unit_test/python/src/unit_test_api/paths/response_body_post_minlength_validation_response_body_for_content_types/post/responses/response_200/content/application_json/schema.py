@@ -10,4 +10,4 @@
 
 from unit_test_api.shared_imports.schema_imports import *
 from unit_test_api.components.schema import minlength_validation
-Schema: typing_extensions.TypeAlias = minlength_validation.MinlengthValidation[U]
+Schema: typing_extensions.TypeAlias = minlength_validation.MinlengthValidation

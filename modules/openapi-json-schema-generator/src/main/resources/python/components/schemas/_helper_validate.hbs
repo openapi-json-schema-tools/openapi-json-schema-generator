@@ -1,0 +1,129 @@
+{{#if types}}
+    {{#gt types.size 1}}
+        {{#each types}}
+            {{#eq this "object"}}
+@typing.overload
+@classmethod
+def validate(
+    {{> components/schemas/_helper_validate_args }}
+                {{#if ../mapOutputJsonPathPiece}}
+) -> {{../mapOutputJsonPathPiece.camelCase}}: ...
+                {{else}}
+) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+                {{/if}}
+            {{else}}
+                {{#eq this "boolean"}}
+@typing.overload
+@classmethod
+def validate(
+    {{> components/schemas/_helper_validate_args }}
+) -> bool: ...
+                {{else}}
+                    {{#eq this "null"}}
+@typing.overload
+@classmethod
+def validate(
+    {{> components/schemas/_helper_validate_args }}
+) -> None: ...
+                    {{else}}
+                        {{#eq this "string"}}
+@typing.overload
+@classmethod
+def validate(
+    {{> components/schemas/_helper_validate_args }}
+) -> str: ...
+                        {{else}}
+                            {{#eq this "number"}}
+@typing.overload
+@classmethod
+def validate(
+    {{> components/schemas/_helper_validate_args }}
+) -> typing.Union[float, int]: ...
+                            {{else}}
+                                {{#eq this "integer"}}
+@typing.overload
+@classmethod
+def validate(
+    {{> components/schemas/_helper_validate_args }}
+) -> int: ...
+                                {{else}}
+                                    {{#eq this "array"}}
+@typing.overload
+@classmethod
+def validate(
+    {{> components/schemas/_helper_validate_args }}
+) -> {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCase}}{{else}}typing.Tuple[schemas.OUTPUT_BASE_TYPES]{{/if}}: ...
+                                    {{else}}
+                                        {{#eq this "object"}}
+@typing.overload
+@classmethod
+def validate(
+    {{> components/schemas/_helper_validate_args }}
+) -> {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.camelCase}}{{else}}schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{/if}}: ...
+                                        {{/eq}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/each}}
+    {{/gt}}
+@classmethod
+def validate(
+    {{#eq types.size 1}}
+        {{#each types}}
+    {{> components/schemas/_helper_validate_args }}
+        {{/each}}
+    {{else}}
+    cls,
+    arg,
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    {{/eq}}
+    {{#eq types.size 1}}
+        {{#each types}}
+            {{#eq this "object"}}
+                {{#if mapOutputJsonPathPiece}}
+) -> {{mapOutputJsonPathPiece.camelCase}}:
+                {{else}}
+) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]:
+                {{/if}}
+            {{else}}
+                {{#eq this "boolean"}}
+) -> bool:
+                {{else}}
+                    {{#eq this "null"}}
+) -> None:
+                    {{else}}
+                        {{#eq this "string"}}
+) -> str:
+                        {{else}}
+                            {{#eq this "number"}}
+) -> typing.Union[float, int]:
+                            {{else}}
+                                {{#eq this "integer"}}
+) -> int:
+                                {{else}}
+                                    {{#eq this "array"}}
+                                        {{#if arrayOutputJsonPathPiece}}
+) -> {{arrayOutputJsonPathPiece.camelCase}}:
+                                        {{else}}
+) -> typing.Tuple[schemas.INPUT_TYPES_ALL_INCL_SCHEMA]:
+                                        {{/if}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/each}}
+    {{else}}
+):
+    {{/eq}}
+    return super().validate(
+        arg,
+        configuration=configuration,
+    )
+{{/if}}

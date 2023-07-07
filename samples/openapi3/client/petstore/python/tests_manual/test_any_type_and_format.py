@@ -23,94 +23,90 @@ class TestAnyTypeAndFormat(unittest.TestCase):
 
     def test_uuid(self):
         valid_uuid_str = '12345678-1234-5678-1234-567812345678'
-        valid_values = [
+        valid_values = (
             valid_uuid_str,
             {},
             uuid.UUID(valid_uuid_str),
             1,
             3.14,
-            decimal.Decimal('3.14'),
             True,
             None,
             [],
             (),
             b'abc'
-        ]
+        )
         for valid_value in valid_values:
-            AnyTypeAndFormat({'uuid': valid_value})
+            AnyTypeAndFormat.validate({'uuid': valid_value})
 
         # an invalid value does not work
         with self.assertRaises(exceptions.ApiValueError):
-            AnyTypeAndFormat({'uuid': '1'})
+            AnyTypeAndFormat.validate({'uuid': '1'})
 
     def test_date(self):
-        valid_values = [
+        valid_values = (
             '2022-01-02',
             {},
             datetime.date(2022, 1, 2),
             1,
             3.14,
-            decimal.Decimal('3.14'),
             True,
             None,
             [],
             (),
             b'abc'
-        ]
+        )
         for valid_value in valid_values:
-            AnyTypeAndFormat({'date': valid_value})
+            AnyTypeAndFormat.validate({'date': valid_value})
 
         # an invalid value does not work
         with self.assertRaises(exceptions.ApiValueError):
-            AnyTypeAndFormat({'date': '1'})
+            AnyTypeAndFormat.validate({'date': '1'})
 
     def test_date_time(self):
-        valid_values = [
+        valid_values = (
             "2020-01-01T00:00:00",
             {},
             datetime.datetime(2020, 1, 1),
             1,
             3.14,
-            decimal.Decimal('3.14'),
             True,
             None,
             [],
             (),
             b'abc'
-        ]
+        )
         for valid_value in valid_values:
-            AnyTypeAndFormat({'date-time': valid_value})
+            AnyTypeAndFormat.validate({'date-time': valid_value})
 
         # an invalid value does not work
         with self.assertRaises(exceptions.ApiValueError):
-            AnyTypeAndFormat({'date-time': 'abcd'})
+            AnyTypeAndFormat.validate({'date-time': 'abcd'})
 
     def test_number(self):
-        valid_values = [
+        valid_values = (
             '3.14',
             {},
             1,
             3.14,
-            decimal.Decimal('3.14'),
             True,
             None,
             [],
             (),
             b'abc'
-        ]
+        )
         for valid_value in valid_values:
-            AnyTypeAndFormat({'number': valid_value})
+            AnyTypeAndFormat.validate({'number': valid_value})
 
         # an invalid value does not work
         with self.assertRaises(exceptions.ApiValueError):
-            AnyTypeAndFormat({'number': 'a'})
+            AnyTypeAndFormat.validate({'number': 'a'})
 
     def test_int32(self):
-        min_bound = decimal.Decimal(-2147483648)
-        max_bound = decimal.Decimal(2147483647)
-        under_min_number = min_bound - decimal.Decimal('0.1')
-        over_max_number = max_bound + decimal.Decimal('0.1')
-        valid_values = [
+        min_bound = -2147483648
+        max_bound = 2147483647
+        under_min_number = min_bound - 1
+        over_max_number = max_bound + 1
+        valid_values = (
             'a',
             {},
             1,
@@ -121,9 +117,9 @@ class TestAnyTypeAndFormat(unittest.TestCase):
             [],
             (),
             b'abc'
-        ]
+        )
         for valid_value in valid_values:
-            AnyTypeAndFormat({'int32': valid_value})
+            AnyTypeAndFormat.validate({'int32': valid_value})
 
         # invalid values do not work
         invalid_values = (
@@ -135,14 +131,14 @@ class TestAnyTypeAndFormat(unittest.TestCase):
         )
         for invalid_value in invalid_values:
             with self.assertRaises(exceptions.ApiValueError):
-                AnyTypeAndFormat({'int32': invalid_value})
+                AnyTypeAndFormat.validate({'int32': invalid_value})
 
     def test_int64(self):
-        min_bound = decimal.Decimal(-9223372036854775808)
-        max_bound = decimal.Decimal(9223372036854775807)
-        under_min_number = min_bound - decimal.Decimal('0.1')
-        over_max_number = max_bound + decimal.Decimal('0.1')
-        valid_values = [
+        min_bound = -9223372036854775808
+        max_bound = 9223372036854775807
+        under_min_number = min_bound - 1
+        over_max_number = max_bound + 1
+        valid_values = (
             'a',
             {},
             1,
@@ -153,9 +149,9 @@ class TestAnyTypeAndFormat(unittest.TestCase):
             [],
             (),
             b'abc'
-        ]
+        )
         for valid_value in valid_values:
-            AnyTypeAndFormat({'int64': valid_value})
+            AnyTypeAndFormat.validate({'int64': valid_value})
 
         # invalid values do not work
         invalid_values = (
@@ -167,12 +163,12 @@ class TestAnyTypeAndFormat(unittest.TestCase):
         )
         for invalid_value in invalid_values:
             with self.assertRaises(exceptions.ApiValueError):
-                AnyTypeAndFormat({'int64': invalid_value})
+                AnyTypeAndFormat.validate({'int64': invalid_value})
 
     def test_float(self):
-        min_bound = decimal.Decimal(-3.4028234663852886e+38)
-        max_bound = decimal.Decimal(3.4028234663852886e+38)
-        valid_values = [
+        min_bound = -3.4028234663852886e+38
+        max_bound = 3.4028234663852886e+38
+        valid_values = (
             'a',
             {},
             1,
@@ -184,25 +180,23 @@ class TestAnyTypeAndFormat(unittest.TestCase):
             [],
             (),
             b'abc'
-        ]
+        )
         for valid_value in valid_values:
-            AnyTypeAndFormat({'double': valid_value})
+            AnyTypeAndFormat.validate({'double': valid_value})
 
         # invalid values do not work
         invalid_values = (
-            min_bound - decimal.Decimal('0.1'),
-            max_bound + decimal.Decimal('0.1'),
-            min_bound - 1,
-            max_bound + 1
+            3.402823466385289e+38, # used math.nextafter to find this value
+            -3.402823466385289e+38, # used math.nextafter to find this value
         )
         for invalid_value in invalid_values:
             with self.assertRaises(exceptions.ApiValueError):
-                AnyTypeAndFormat({'float': invalid_value})
+                AnyTypeAndFormat.validate({'float': invalid_value})
 
     def test_double(self):
-        min_bound = decimal.Decimal(-1.7976931348623157E+308)
-        max_bound = decimal.Decimal(1.7976931348623157E+308)
-        valid_values = [
+        min_bound = -1.7976931348623157E+308
+        max_bound = 1.7976931348623157E+308
+        valid_values = (
             'a',
             {},
             1,
@@ -214,23 +208,27 @@ class TestAnyTypeAndFormat(unittest.TestCase):
             [],
             (),
             b'abc'
-        ]
+        )
         for valid_value in valid_values:
-            AnyTypeAndFormat({'double': valid_value})
+            AnyTypeAndFormat.validate({'double': valid_value})
 
+        """
+        This only works if stored values use decimal.Decimal
+        float maxes out at 64 bit value so storing values greater than that is not possible
         with decimal.localcontext() as ctx:
             ctx.prec = 310
             # local higher precision context needed to correctly create these numbers
             invalid_values = (
-                min_bound - decimal.Decimal('0.1'),
-                max_bound + decimal.Decimal('0.1'),
+                min_bound - 0.1,
+                max_bound + 0.1,
                 min_bound - 1,
                 max_bound + 1
             )
         # invalid values do not work
         for invalid_value in invalid_values:
             with self.assertRaises(exceptions.ApiValueError):
-                AnyTypeAndFormat({'double': invalid_value})
+                AnyTypeAndFormat.validate({'double': invalid_value})
+        """
 
 
 if __name__ == '__main__':

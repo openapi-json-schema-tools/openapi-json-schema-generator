@@ -6,66 +6,68 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 from petstore_api.shared_imports.server_imports import *
-AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema[U]
+AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
 
+class ServerEnums:
+
+    @schemas.classproperty
+    def PETSTORE(cls) -> str:
+        return Server.validate("petstore")
+
+    @schemas.classproperty
+    def QA_HYPHEN_MINUS_PETSTORE(cls) -> str:
+        return Server.validate("qa-petstore")
+
+    @schemas.classproperty
+    def DEV_HYPHEN_MINUS_PETSTORE(cls) -> str:
+        return Server.validate("dev-petstore")
+
+
+@dataclasses.dataclass(frozen=True)
 class Server(
-    schemas.StrSchema[schemas.T]
+    schemas.StrSchema
 ):
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        str,
+    })
+    default: str = "petstore"
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+        default_factory=lambda: {
+            "petstore": "PETSTORE",
+            "qa-petstore": "QA_HYPHEN_MINUS_PETSTORE",
+            "dev-petstore": "DEV_HYPHEN_MINUS_PETSTORE",
+        }
+    )
+    enums = ServerEnums
 
 
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            str,
-        })
-        default: str = "petstore"
-        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
-            default_factory=lambda: {
-                "petstore": "PETSTORE",
-                "qa-petstore": "QA_HYPHEN_MINUS_PETSTORE",
-                "dev-petstore": "DEV_HYPHEN_MINUS_PETSTORE",
-            }
-        )
-    
+class PortEnums:
+
     @schemas.classproperty
-    def PETSTORE(cls) -> Server[str]:
-        return cls("petstore") # type: ignore
-    
+    def POSITIVE_80(cls) -> str:
+        return Port.validate("80")
+
     @schemas.classproperty
-    def QA_HYPHEN_MINUS_PETSTORE(cls) -> Server[str]:
-        return cls("qa-petstore") # type: ignore
-    
-    @schemas.classproperty
-    def DEV_HYPHEN_MINUS_PETSTORE(cls) -> Server[str]:
-        return cls("dev-petstore") # type: ignore
+    def POSITIVE_8080(cls) -> str:
+        return Port.validate("8080")
 
 
+@dataclasses.dataclass(frozen=True)
 class Port(
-    schemas.StrSchema[schemas.T]
+    schemas.StrSchema
 ):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            str,
-        })
-        default: str = "80"
-        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
-            default_factory=lambda: {
-                "80": "POSITIVE_80",
-                "8080": "POSITIVE_8080",
-            }
-        )
-    
-    @schemas.classproperty
-    def POSITIVE_80(cls) -> Port[str]:
-        return cls("80") # type: ignore
-    
-    @schemas.classproperty
-    def POSITIVE_8080(cls) -> Port[str]:
-        return cls("8080") # type: ignore
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        str,
+    })
+    default: str = "80"
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+        default_factory=lambda: {
+            "80": "POSITIVE_80",
+            "8080": "POSITIVE_8080",
+        }
+    )
+    enums = PortEnums
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
@@ -73,49 +75,25 @@ Properties = typing_extensions.TypedDict(
         "port": typing.Type[Port],
     }
 )
-DictInput3 = typing_extensions.TypedDict(
-    'DictInput3',
-    {
-        "port": typing.Union[
-            Port[str],
-            str
-        ],
-        "server": typing.Union[
-            Server[str],
-            str
-        ],
-    }
-)
 
 
-class Variables(
-    schemas.DictSchema[schemas.T]
-):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required: typing.FrozenSet[str] = frozenset({
-            "port",
-            "server",
-        })
-        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
-        additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+class VariablesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def port(self) -> Port[str]:
+    def port(self) -> str:
         return self.__getitem__("port")
     
     @property
-    def server(self) -> Server[str]:
+    def server(self) -> str:
         return self.__getitem__("server")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["port"]) -> Port[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["port"]) -> str:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["server"]) -> Server[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["server"]) -> str:
+        ...
     
     def __getitem__(
         self,
@@ -127,16 +105,47 @@ class Variables(
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
-    def __new__(
+    def __new__(cls, arg: VariablesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Variables.validate(arg, configuration=configuration)
+VariablesDictInput = typing_extensions.TypedDict(
+    'VariablesDictInput',
+    {
+        "port": str,
+        "server": str,
+    }
+)
+
+
+@dataclasses.dataclass(frozen=True)
+class Variables(
+    schemas.DictSchema[VariablesDict]
+):
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
+    required: typing.FrozenSet[str] = frozenset({
+        "port",
+        "server",
+    })
+    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+    additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            schemas.immutabledict: VariablesDict
+        }
+    )
+
+    @classmethod
+    def validate(
         cls,
         arg: typing.Union[
-            DictInput3,
-            Variables[frozendict.frozendict],
+            VariablesDictInput,
+            VariablesDict,
         ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Variables[frozendict.frozendict]:
-        return super().__new__(
-            cls,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> VariablesDict:
+        return super().validate(
             arg,
             configuration=configuration,
         )
@@ -148,9 +157,11 @@ class Server0(server.ServerWithVariables):
     '''
     petstore server
     '''
-    variables: Variables[frozendict.frozendict] = Variables({
-        "server": Server.Schema_.default,
-        "port": Port.Schema_.default,
-    })
-    variables_cls: typing.Type[Variables] = Variables
+    variables: VariablesDict = dataclasses.field(
+        default_factory=lambda: Variables.validate({
+            "server": Server.default,
+            "port": Port.default,
+        })
+    )
+    variables_schema: typing.Type[Variables] = Variables
     _url: str = "http://{server}.swagger.io:{port}/v2"

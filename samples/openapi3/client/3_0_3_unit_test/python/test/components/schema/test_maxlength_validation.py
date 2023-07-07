@@ -21,35 +21,35 @@ class TestMaxlengthValidation(unittest.TestCase):
     def test_too_long_is_invalid_fails(self):
         # too long is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            MaxlengthValidation(
+            MaxlengthValidation.validate(
                 "foo",
                 configuration=self.configuration
             )
 
     def test_ignores_non_strings_passes(self):
         # ignores non-strings
-        MaxlengthValidation(
+        MaxlengthValidation.validate(
             100,
             configuration=self.configuration
         )
 
     def test_shorter_is_valid_passes(self):
         # shorter is valid
-        MaxlengthValidation(
+        MaxlengthValidation.validate(
             "f",
             configuration=self.configuration
         )
 
     def test_two_supplementary_unicode_code_points_is_long_enough_passes(self):
         # two supplementary Unicode code points is long enough
-        MaxlengthValidation(
+        MaxlengthValidation.validate(
             "💩💩",
             configuration=self.configuration
         )
 
     def test_exact_length_is_valid_passes(self):
         # exact length is valid
-        MaxlengthValidation(
+        MaxlengthValidation.validate(
             "fo",
             configuration=self.configuration
         )

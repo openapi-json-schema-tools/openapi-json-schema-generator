@@ -21,7 +21,7 @@ class TestOneofWithRequired(unittest.TestCase):
     def test_both_valid_invalid_fails(self):
         # both valid - invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            OneofWithRequired(
+            OneofWithRequired.validate(
                 {
                     "foo":
                         1,
@@ -36,7 +36,7 @@ class TestOneofWithRequired(unittest.TestCase):
     def test_both_invalid_invalid_fails(self):
         # both invalid - invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            OneofWithRequired(
+            OneofWithRequired.validate(
                 {
                     "bar":
                         2,
@@ -46,7 +46,7 @@ class TestOneofWithRequired(unittest.TestCase):
 
     def test_first_valid_valid_passes(self):
         # first valid - valid
-        OneofWithRequired(
+        OneofWithRequired.validate(
             {
                 "foo":
                     1,
@@ -58,7 +58,7 @@ class TestOneofWithRequired(unittest.TestCase):
 
     def test_second_valid_valid_passes(self):
         # second valid - valid
-        OneofWithRequired(
+        OneofWithRequired.validate(
             {
                 "foo":
                     1,

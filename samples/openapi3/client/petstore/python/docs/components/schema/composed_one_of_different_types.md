@@ -7,7 +7,7 @@ this is a model that allows payloads of type object or number
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO | this is a model that allows payloads of type object or number |
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | this is a model that allows payloads of type object or number |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf
@@ -15,9 +15,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**NumberWithValidations**](number_with_validations.md) | [**NumberWithValidations**](number_with_validations.md) | [**NumberWithValidations**](number_with_validations.md) |  |
 [**Animal**](animal.md) | [**Animal**](animal.md) | [**Animal**](animal.md) |  |
-[_2](#oneof-_2) | None | NoneClass |  |
+[_2](#oneof-_2) | None | None |  |
 [_3](#oneof-_3) | str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
-[_4](#oneof-_4) | dict, frozendict.frozendict | frozendict.frozendict |  |
+[_4](#oneof-_4) | dict, schemas.immutabledict | schemas.immutabledict |  |
 [_5](#oneof-_5) | list, tuple | tuple |  |
 [_6](#oneof-_6) | str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
 
@@ -26,7 +26,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-None | NoneClass |  |
+None | None |  |
 
 # oneof _3
 
@@ -40,7 +40,7 @@ str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-D
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, frozendict.frozendict | frozendict.frozendict |  |
+dict, schemas.immutabledict | schemas.immutabledict |  |
 
 # oneof _5
 
@@ -52,7 +52,7 @@ list, tuple | tuple |  |
 ## List Items
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | dict, frozendict.frozendict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, decimal.Decimal, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | frozendict.frozendict, str, decimal.Decimal, BoolClass, NoneClass, tuple, bytes, io.FileIO |  |
+items | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 
 # oneof _6
 

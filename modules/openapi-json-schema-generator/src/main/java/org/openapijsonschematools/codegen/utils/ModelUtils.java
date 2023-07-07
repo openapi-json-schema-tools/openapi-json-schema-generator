@@ -321,8 +321,11 @@ public class ModelUtils {
         } else if (ref.startsWith("#/definitions/")) {
             ref = ref.substring(ref.lastIndexOf("/") + 1);
         } else {
-            OnceLogger.once(LOGGER).warn("Failed to get the schema name: {}", ref);
-            //throw new RuntimeException("Failed to get the schema: " + ref);
+            if (!ref.startsWith("#/paths")) {
+                OnceLogger.once(LOGGER).warn("Failed to get the schema at $ref: {}", ref);
+            }
+            // TODO get this working for refs like
+            //  #/paths/~1fake~1parameterCollisions~1{1}~1{aB}~1{Ab}~1{self}~1{A-B}~1/post/parameters/5/schema
             return null;
         }
 

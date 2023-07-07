@@ -20,14 +20,14 @@ class TestMaximumValidation(unittest.TestCase):
 
     def test_below_the_maximum_is_valid_passes(self):
         # below the maximum is valid
-        MaximumValidation(
+        MaximumValidation.validate(
             2.6,
             configuration=self.configuration
         )
 
     def test_boundary_point_is_valid_passes(self):
         # boundary point is valid
-        MaximumValidation(
+        MaximumValidation.validate(
             3.0,
             configuration=self.configuration
         )
@@ -35,14 +35,14 @@ class TestMaximumValidation(unittest.TestCase):
     def test_above_the_maximum_is_invalid_fails(self):
         # above the maximum is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            MaximumValidation(
+            MaximumValidation.validate(
                 3.5,
                 configuration=self.configuration
             )
 
     def test_ignores_non_numbers_passes(self):
         # ignores non-numbers
-        MaximumValidation(
+        MaximumValidation.validate(
             "x",
             configuration=self.configuration
         )

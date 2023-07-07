@@ -63,7 +63,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[SimpleEnumValidation](../../components/schema/simple_enum_validation.md) | decimal.Decimal, int, float | decimal.Decimal |
+[SimpleEnumValidation](../../components/schema/simple_enum_validation.md) | float, int | float, int |
 
 ## Servers
 

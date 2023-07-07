@@ -21,14 +21,14 @@ class TestNestedAllofToCheckValidationSemantics(unittest.TestCase):
     def test_anything_non_null_is_invalid_fails(self):
         # anything non-null is invalid
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            NestedAllofToCheckValidationSemantics(
+            NestedAllofToCheckValidationSemantics.validate(
                 123,
                 configuration=self.configuration
             )
 
     def test_null_is_valid_passes(self):
         # null is valid
-        NestedAllofToCheckValidationSemantics(
+        NestedAllofToCheckValidationSemantics.validate(
             None,
             configuration=self.configuration
         )

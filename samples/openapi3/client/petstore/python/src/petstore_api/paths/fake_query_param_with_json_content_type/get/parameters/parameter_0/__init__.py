@@ -14,16 +14,7 @@ class Parameter0(api_client.QueryParameter):
 
 
     class ApplicationJsonMediaType(api_client.MediaType):
-        schema: typing_extensions.TypeAlias = application_json_schema.Schema[typing.Union[
-            frozendict.frozendict,
-            str,
-            decimal.Decimal,
-            schemas.BoolClass,
-            schemas.NoneClass,
-            tuple,
-            bytes,
-            schemas.FileIO
-        ]]
+        schema: typing_extensions.TypeAlias = application_json_schema.Schema
     Content = typing_extensions.TypedDict(
         'Content',
         {

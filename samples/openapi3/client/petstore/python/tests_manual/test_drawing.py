@@ -10,14 +10,14 @@
 """
 
 
-import sys
 import unittest
 
 import petstore_api
-from petstore_api.schemas import NoneClass
+from petstore_api.schemas import none_type_
 from petstore_api.components.schema import shape
-from petstore_api.components.schema import shape_or_null
-from petstore_api.components.schema.drawing import Drawing
+from petstore_api.components.schema import drawing
+
+import immutabledict
 
 
 class TestDrawing(unittest.TestCase):
@@ -34,55 +34,51 @@ class TestDrawing(unittest.TestCase):
         Validate instance can be created
         """
 
-        inst = shape.Shape({
+        inst = shape.Shape.validate({
             'shapeType': "Triangle",
             'triangleType': "IsoscelesTriangle"
         })
-        from petstore_api.components.schema.isosceles_triangle import IsoscelesTriangle
-        assert isinstance(inst, IsoscelesTriangle)
+        assert isinstance(inst, immutabledict.immutabledict)
 
     def test_deserialize_oneof_reference(self):
         """
         Validate the scenario when the type of a OAS property is 'oneOf', and the 'oneOf'
         schema is specified as a reference ($ref), not an inline 'oneOf' schema.
         """
-        isosceles_triangle = shape.Shape({
+        isosceles_triangle = shape.Shape.validate({
             'shapeType': "Triangle",
             'triangleType': "IsoscelesTriangle"
         })
-        from petstore_api.components.schema.isosceles_triangle import IsoscelesTriangle
-        assert isinstance(isosceles_triangle, IsoscelesTriangle)
-        from petstore_api.components.schema.equilateral_triangle import EquilateralTriangle
+        assert isinstance(isosceles_triangle, immutabledict.immutabledict)
 
-        inst = Drawing({
+        inst = drawing.Drawing.validate({
             'mainShape': isosceles_triangle,
             'shapes': [
-                shape.Shape({
+                shape.Shape.validate({
                     'shapeType': "Triangle",
                     'triangleType': "EquilateralTriangle"
                 }),
-                shape.Shape({
+                shape.Shape.validate({
                     'shapeType': "Triangle",
                     'triangleType': "IsoscelesTriangle"
                 }),
-                shape.Shape({
+                shape.Shape.validate({
                     'shapeType': "Triangle",
                     'triangleType': "EquilateralTriangle"
                 }),
-                shape.Shape({
+                shape.Shape.validate({
                     'shapeType': "Quadrilateral",
                     'quadrilateralType': "ComplexQuadrilateral"
                 })
             ],
         })
-        assert isinstance(inst, Drawing)
-        assert isinstance(inst["mainShape"], IsoscelesTriangle)
+        assert isinstance(inst, drawing.DrawingDict)
+        assert isinstance(inst["mainShape"], immutabledict.immutabledict)
         self.assertEqual(len(inst["shapes"]), 4)
-        from petstore_api.components.schema.complex_quadrilateral import ComplexQuadrilateral
-        assert isinstance(inst["shapes"][0], EquilateralTriangle)
-        assert isinstance(inst["shapes"][1], IsoscelesTriangle)
-        assert isinstance(inst["shapes"][2], EquilateralTriangle)
-        assert isinstance(inst["shapes"][3], ComplexQuadrilateral)
+        assert isinstance(inst["shapes"][0], immutabledict.immutabledict)
+        assert isinstance(inst["shapes"][1], immutabledict.immutabledict)
+        assert isinstance(inst["shapes"][2], immutabledict.immutabledict)
+        assert isinstance(inst["shapes"][3], immutabledict.immutabledict)
 
         # Validate we cannot assign the None value to mainShape because the 'null' type
         # is not one of the allowed types in the 'Shape' schema.
@@ -92,7 +88,7 @@ class TestDrawing(unittest.TestCase):
                 petstore_api.ApiValueError,
                 err_msg
         ):
-            Drawing({
+            drawing.Drawing.validate({
                 # 'mainShape' has type 'Shape', which is a oneOf [triangle, quadrilateral]
                 # So the None value should not be allowed and an exception should be raised.
                 'mainShape': None,
@@ -104,22 +100,18 @@ class TestDrawing(unittest.TestCase):
         does validate as a Shape, so this works
         """
         from petstore_api.components.schema.triangle import Triangle
-        inst = Drawing({
+        inst = drawing.Drawing.validate({
             'mainShape': isosceles_triangle,
             'shapes': [
-                Triangle({
+                Triangle.validate({
                     'shapeType': "Triangle",
                     'triangleType': "EquilateralTriangle"
                 })
             ]
         })
         self.assertEqual(len(inst["shapes"]), 1)
-        from petstore_api.components.schema.triangle_interface import TriangleInterface
         shapes = inst["shapes"]
-        assert isinstance(shapes[0], shape.Shape)
-        assert isinstance(shapes[0], Triangle)
-        assert isinstance(shapes[0], EquilateralTriangle)
-        assert isinstance(shapes[0], TriangleInterface)
+        assert isinstance(shapes[0], immutabledict.immutabledict)
 
     def test_deserialize_oneof_reference_with_null_type(self):
         """
@@ -131,14 +123,14 @@ class TestDrawing(unittest.TestCase):
 
         # Validate we can assign the None value to shape_or_null, because the 'null' type
         # is one of the allowed types in the 'ShapeOrNull' schema.
-        inst = Drawing({
+        inst = drawing.Drawing.validate({
             # 'shapeOrNull' has type 'ShapeOrNull', which is a oneOf [null, triangle, quadrilateral]
             'shapeOrNull': None,
         })
-        assert isinstance(inst, Drawing)
+        assert isinstance(inst, drawing.DrawingDict)
         self.assertFalse('mainShape' in inst)
         self.assertTrue('shapeOrNull' in inst)
-        self.assertTrue(isinstance(inst["shapeOrNull"], NoneClass))
+        self.assertTrue(isinstance(inst["shapeOrNull"], none_type_))
 
     def test_deserialize_oneof_reference_with_nullable_type(self):
         """
@@ -150,15 +142,15 @@ class TestDrawing(unittest.TestCase):
 
         # Validate we can assign the None value to nullableShape, because the NullableShape
         # has the 'nullable: true' attribute.
-        inst = Drawing({
+        inst = drawing.Drawing.validate({
             # 'nullableShape' has type 'NullableShape', which is a oneOf [triangle, quadrilateral]
             # and the 'nullable: true' attribute.
             'nullableShape': None,
         })
-        assert isinstance(inst, Drawing)
+        assert isinstance(inst, drawing.DrawingDict)
         self.assertFalse('mainShape' in inst)
         self.assertTrue('nullableShape' in inst)
-        self.assertTrue(isinstance(inst["nullableShape"], NoneClass))
+        self.assertTrue(isinstance(inst["nullableShape"], none_type_))
 
 
 if __name__ == '__main__':

@@ -25,11 +25,9 @@ class {{jsonPathPiece.camelCase}}(api_client.{{#if noName}}Header{{/if}}{{#eq in
     style=api_client.ParameterStyle.DEEP_OBJECT
 {{/eq}}
 {{/if}}
-{{#if schema}}
-    {{#with schema}}
-    {{> components/_helper_content_schema_type paramName="schema" modulePrefix=null }}
-    {{/with}}
-{{/if}}
+{{#with schema}}
+    schema: typing_extensions.TypeAlias = {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}}
+{{/with}}
 {{#if content}}
 {{#each content}}
 
@@ -37,7 +35,7 @@ class {{jsonPathPiece.camelCase}}(api_client.{{#if noName}}Header{{/if}}{{#eq in
     class {{@key.camelCase}}MediaType(api_client.MediaType):
     {{#with this}}
         {{#with schema}}
-        {{> components/_helper_content_schema_type paramName="schema" modulePrefix=../@key.snakeCase }}
+        {{> components/_helper_content_schema_type paramName="schema" contentTypeModule=../@key.snakeCase }}
         {{/with}}
     {{/with}}
 {{/each}}

@@ -12,7 +12,6 @@
 
 import unittest
 
-from petstore_api.schemas import BoolClass
 from petstore_api.components.schema.whale import Whale
 
 
@@ -21,20 +20,20 @@ class TestWhale(unittest.TestCase):
 
     def test_Whale(self):
         # test that the hasBaleen __bool__ method is working, True input
-        whale = Whale({
+        whale = Whale.validate({
             'className': 'whale',
             'hasBaleen': True
         })
-        assert isinstance(whale["hasBaleen"], BoolClass)
-        self.assertTrue(whale["hasBaleen"])
+        assert isinstance(whale["hasBaleen"], bool)
+        assert whale["hasBaleen"] is True
 
         # test that the hasBaleen __bool__ method is working, False input
-        whale = Whale({
+        whale = Whale.validate({
             'className': 'whale',
             'hasBaleen': False
         })
-        assert isinstance(whale["hasBaleen"], BoolClass)
-        self.assertFalse(whale["hasBaleen"])
+        assert isinstance(whale["hasBaleen"], bool)
+        assert whale["hasBaleen"] is False
 
 
 if __name__ == '__main__':

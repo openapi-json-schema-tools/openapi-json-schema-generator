@@ -39,7 +39,7 @@ This is a TypedDict
 
 Key | Input Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-order_id | [Parameter0.schema](#parameter0-schema), decimal.Decimal, int | | 
+order_id | [Parameter0.schema](#parameter0-schema), int | | 
 
 
 #### Parameter0
@@ -52,7 +52,7 @@ ID of pet that needs to be fetched
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-decimal.Decimal, int | decimal.Decimal |  | value must be a 64 bit integer
+int | int |  | value must be a 64 bit integer
 
 ## Return Types
 
@@ -87,13 +87,13 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../components/schema/order.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[Order](../../components/schema/order.md) | dict, schemas.immutabledict | schemas.immutabledict |
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[Order](../../components/schema/order.md) | dict, frozendict.frozendict | frozendict.frozendict |
+[Order](../../components/schema/order.md) | dict, schemas.immutabledict | schemas.immutabledict |
 
 ## ResponseFor400
 
@@ -149,7 +149,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = store_api.StoreApi(api_client)
 
     # example passing only required values which don't have defaults set
-    path_params: operation.RequestPathParameters.Params = {
+    path_params: operation.PathParametersDictInput = {
         'order_id': 1,
     }
     try:

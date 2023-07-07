@@ -20,7 +20,7 @@ class TestOneofComplexTypes(unittest.TestCase):
 
     def test_first_oneof_valid_complex_passes(self):
         # first oneOf valid (complex)
-        OneofComplexTypes(
+        OneofComplexTypes.validate(
             {
                 "bar":
                     2,
@@ -31,7 +31,7 @@ class TestOneofComplexTypes(unittest.TestCase):
     def test_neither_oneof_valid_complex_fails(self):
         # neither oneOf valid (complex)
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            OneofComplexTypes(
+            OneofComplexTypes.validate(
                 {
                     "foo":
                         2,
@@ -44,7 +44,7 @@ class TestOneofComplexTypes(unittest.TestCase):
     def test_both_oneof_valid_complex_fails(self):
         # both oneOf valid (complex)
         with self.assertRaises((unit_test_api.ApiValueError, unit_test_api.ApiTypeError)):
-            OneofComplexTypes(
+            OneofComplexTypes.validate(
                 {
                     "foo":
                         "baz",
@@ -56,7 +56,7 @@ class TestOneofComplexTypes(unittest.TestCase):
 
     def test_second_oneof_valid_complex_passes(self):
         # second oneOf valid (complex)
-        OneofComplexTypes(
+        OneofComplexTypes.validate(
             {
                 "foo":
                     "baz",

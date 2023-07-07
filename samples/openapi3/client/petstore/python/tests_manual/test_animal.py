@@ -12,13 +12,8 @@
 
 import unittest
 
-import frozendict
-
 import petstore_api
-from petstore_api.components.schema import cat
-from petstore_api.components.schema import dog
-from petstore_api.components.schema.animal import Animal
-from petstore_api.schemas import StrSchema, BoolSchema
+from petstore_api.components.schema import animal
 
 
 class TestAnimal(unittest.TestCase):
@@ -38,58 +33,46 @@ class TestAnimal(unittest.TestCase):
             r"Only the values \['Cat', 'Dog'\] are allowed at \('args\[0\]', 'className'\)"
         )
         with self.assertRaisesRegex(petstore_api.ApiValueError, regex_err):
-            Animal({'className': 'Fox', 'color': 'red'})
+            animal.Animal.validate({'className': 'Fox', 'color': 'red'})
 
-        animal = Animal({'className': 'Cat', 'color': 'black'})
-        assert isinstance(animal, frozendict.frozendict)
-        assert isinstance(animal, cat.Cat)
-        assert isinstance(animal, cat._1)
-        assert isinstance(animal, Animal)
-        assert set(animal.keys()) == {'className', 'color'}
-        assert animal.className == 'Cat'
-        assert animal["color"] == 'black'
-        assert isinstance(animal["color"], StrSchema)
-        assert isinstance(animal.className, StrSchema)
+        inst = animal.Animal.validate({'className': 'Cat', 'color': 'black'})
+        assert isinstance(inst, animal.AnimalDict)
+        assert set(inst.keys()) == {'className', 'color'}
+        assert inst.className == 'Cat'
+        assert inst["color"] == 'black'
+        assert isinstance(inst["color"], str)
+        assert isinstance(inst.className, str)
 
         # pass in optional param
-        animal = Animal({'className': 'Cat', 'color': 'black', 'declawed': True})
-        assert isinstance(animal, Animal)
-        assert isinstance(animal, frozendict.frozendict)
-        assert isinstance(animal, cat.Cat)
-        assert isinstance(animal, cat._1)
-        assert set(animal.keys()) == {'className', 'color', 'declawed'}
-        assert animal.className == 'Cat'
-        assert animal["color"] == 'black'
-        assert bool(animal["declawed"]) is True
-        assert isinstance(animal["color"], StrSchema)
-        assert isinstance(animal.className, StrSchema)
-        assert isinstance(animal["declawed"], BoolSchema)
+        inst = animal.Animal.validate({'className': 'Cat', 'color': 'black', 'declawed': True})
+        assert isinstance(inst, animal.AnimalDict)
+        assert set(inst.keys()) == {'className', 'color', 'declawed'}
+        assert inst.className == 'Cat'
+        assert inst["color"] == 'black'
+        assert inst["declawed"] is True
+        assert isinstance(inst["color"], str)
+        assert isinstance(inst.className, str)
+        assert isinstance(inst["declawed"], bool)
 
         # make a Dog
-        animal = Animal({'className': 'Dog', 'color': 'black'})
-        assert isinstance(animal, Animal)
-        assert isinstance(animal, frozendict.frozendict)
-        assert isinstance(animal, dog.Dog)
-        assert isinstance(animal, dog._1)
-        assert set(animal.keys()) == {'className', 'color'}
-        assert animal.className == 'Dog'
-        assert animal["color"] == 'black'
-        assert isinstance(animal["color"], StrSchema)
-        assert isinstance(animal.className, StrSchema)
+        inst = animal.Animal.validate({'className': 'Dog', 'color': 'black'})
+        assert isinstance(inst, animal.AnimalDict)
+        assert set(inst.keys()) == {'className', 'color'}
+        assert inst.className == 'Dog'
+        assert inst["color"] == 'black'
+        assert isinstance(inst["color"], str)
+        assert isinstance(inst.className, str)
 
         # pass in optional param
-        animal = Animal({'className': 'Dog', 'color': 'black', 'breed':'Labrador'})
-        assert isinstance(animal, Animal)
-        assert isinstance(animal, frozendict.frozendict)
-        assert isinstance(animal, dog.Dog)
-        assert isinstance(animal, dog._1)
-        assert set(animal.keys()) == {'className', 'color', 'breed'}
-        assert animal.className == 'Dog'
-        assert animal["color"] == 'black'
-        assert animal["breed"] == 'Labrador'
-        assert isinstance(animal.className, StrSchema)
-        assert isinstance(animal["color"], StrSchema)
-        assert isinstance(animal["breed"], StrSchema)
+        inst = animal.Animal.validate({'className': 'Dog', 'color': 'black', 'breed':'Labrador'})
+        assert isinstance(inst, animal.AnimalDict)
+        assert set(inst.keys()) == {'className', 'color', 'breed'}
+        assert inst.className == 'Dog'
+        assert inst["color"] == 'black'
+        assert inst["breed"] == 'Labrador'
+        assert isinstance(inst.className, str)
+        assert isinstance(inst["color"], str)
+        assert isinstance(inst["breed"], str)
 
 
 if __name__ == '__main__':

@@ -46,7 +46,7 @@ Content-Type | Schema
 ##### Type Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[EnumWithTrueDoesNotMatch1](../../components/schema/enum_with_true_does_not_match1.md) | bool | BoolClass |
+[EnumWithTrueDoesNotMatch1](../../components/schema/enum_with_true_does_not_match1.md) | bool | bool |
 
 ## Return Types
 

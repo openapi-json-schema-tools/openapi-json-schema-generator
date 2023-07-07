@@ -22,14 +22,16 @@ class {{jsonPathPiece.camelCase}}(server.Server{{#if variables}}With{{else}}With
     '''
     {{/if}}
     {{#if variables}}
-    variables: Variables[frozendict.frozendict] = Variables({
-        {{#with variables}}
-            {{#each properties}}
-        "{{{@key.original}}}": {{jsonPathPiece.camelCase}}.Schema_.default,
-            {{/each}}
-        {{/with}}
-    })
-    variables_cls: typing.Type[Variables] = Variables
+    variables: {{variables.mapOutputJsonPathPiece.camelCase}} = dataclasses.field(
+        default_factory=lambda: {{variables.jsonPathPiece.camelCase}}.validate({
+            {{#with variables}}
+                {{#each properties}}
+            "{{{@key.original}}}": {{jsonPathPiece.camelCase}}.default,
+                {{/each}}
+            {{/with}}
+        })
+    )
+    variables_schema: typing.Type[{{variables.jsonPathPiece.camelCase}}] = {{variables.jsonPathPiece.camelCase}}
     _url: str = "{{url}}"
     {{else}}
     url: str = "{{url}}"

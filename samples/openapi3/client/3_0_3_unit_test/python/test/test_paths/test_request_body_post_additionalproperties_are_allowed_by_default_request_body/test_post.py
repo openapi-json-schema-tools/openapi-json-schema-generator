@@ -44,7 +44,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                         True,
                 }
             )
-            body = post.request_body.RequestBody.content["application/json"].schema(
+            body = post.request_body.RequestBody.content["application/json"].schema.validate(
                 payload,
                 configuration=self.schema_config
             )

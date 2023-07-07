@@ -31,7 +31,7 @@ class TestObjectWithDifficultlyNamedProps(unittest.TestCase):
             "123-list": 'a',
             "123Number": 3,
         }
-        model = ObjectWithDifficultlyNamedProps(arg)
+        model = ObjectWithDifficultlyNamedProps.validate(arg)
         assert model == arg
 
 

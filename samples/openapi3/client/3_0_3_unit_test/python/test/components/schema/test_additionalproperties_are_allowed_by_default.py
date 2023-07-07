@@ -20,7 +20,7 @@ class TestAdditionalpropertiesAreAllowedByDefault(unittest.TestCase):
 
     def test_additional_properties_are_allowed_passes(self):
         # additional properties are allowed
-        AdditionalpropertiesAreAllowedByDefault(
+        AdditionalpropertiesAreAllowedByDefault.validate(
             {
                 "foo":
                     1,

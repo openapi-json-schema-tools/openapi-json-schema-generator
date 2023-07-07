@@ -10,4 +10,4 @@
 
 from petstore_api.shared_imports.schema_imports import *
 from petstore_api.components.schema import string
-Schema: typing_extensions.TypeAlias = string.String[U]
+Schema: typing_extensions.TypeAlias = string.String

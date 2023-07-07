@@ -10,163 +10,179 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
 
-Id: typing_extensions.TypeAlias = schemas.Int64Schema[U]
-Name: typing_extensions.TypeAlias = schemas.StrSchema[U]
-Items: typing_extensions.TypeAlias = schemas.StrSchema[U]
+Id: typing_extensions.TypeAlias = schemas.Int64Schema
+Name: typing_extensions.TypeAlias = schemas.StrSchema
+Items: typing_extensions.TypeAlias = schemas.StrSchema
 
 
+class PhotoUrlsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+    def __getitem__(self, name: int) -> str:
+        return super().__getitem__(name)
+
+    def __new__(cls, arg: PhotoUrlsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return PhotoUrls.validate(arg, configuration=configuration)
+PhotoUrlsTupleInput = typing.Sequence[
+    str,
+]
+
+
+@dataclasses.dataclass(frozen=True)
 class PhotoUrls(
-    schemas.ListSchema[schemas.T]
+    schemas.ListSchema[PhotoUrlsTuple]
 ):
+    types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+    items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            tuple: PhotoUrlsTuple
+        }
+    )
 
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
-
-    def __new__(
+    @classmethod
+    def validate(
         cls,
-        arg: typing.Sequence[
-            typing.Union[
-                Items[str],
-                str
-            ]
+        arg: typing.Union[
+            PhotoUrlsTupleInput,
+            PhotoUrlsTuple,
         ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> PhotoUrls[tuple]:
-        return super().__new__(
-            cls,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> PhotoUrlsTuple:
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
-    def __getitem__(self, name: int) -> Items[str]:
-        return super().__getitem__(name)
+
+class StatusEnums:
+
+    @schemas.classproperty
+    def AVAILABLE(cls) -> str:
+        return Status.validate("available")
+
+    @schemas.classproperty
+    def PENDING(cls) -> str:
+        return Status.validate("pending")
+
+    @schemas.classproperty
+    def SOLD(cls) -> str:
+        return Status.validate("sold")
 
 
-
-class Tags(
-    schemas.ListSchema[schemas.T]
-):
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-        items: typing.Type[tag.Tag] = dataclasses.field(default_factory=lambda: tag.Tag) # type: ignore
-
-    def __new__(
-        cls,
-        arg: typing.Sequence[
-            typing.Union[
-                tag.Tag[frozendict.frozendict],
-                dict,
-                frozendict.frozendict
-            ]
-        ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Tags[tuple]:
-        return super().__new__(
-            cls,
-            arg,
-            configuration=configuration,
-        )
-
-    def __getitem__(self, name: int) -> tag.Tag[frozendict.frozendict]:
-        return super().__getitem__(name)
-
-
-
+@dataclasses.dataclass(frozen=True)
 class Status(
-    schemas.StrSchema[schemas.T]
+    schemas.StrSchema
 ):
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        str,
+    })
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+        default_factory=lambda: {
+            "available": "AVAILABLE",
+            "pending": "PENDING",
+            "sold": "SOLD",
+        }
+    )
+    enums = StatusEnums
+
+from petstore_api.components.schema import category
+from petstore_api.components.schema import tag
 
 
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({
-            str,
-        })
-        enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.BoolClass, schemas.NoneClass], str] = dataclasses.field(
-            default_factory=lambda: {
-                "available": "AVAILABLE",
-                "pending": "PENDING",
-                "sold": "SOLD",
-            }
+class TagsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+    def __getitem__(self, name: int) -> tag.TagDict:
+        return super().__getitem__(name)
+
+    def __new__(cls, arg: TagsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Tags.validate(arg, configuration=configuration)
+TagsTupleInput = typing.Sequence[
+    typing.Union[
+        tag.TagDict,
+        dict,
+        schemas.immutabledict
+    ],
+]
+
+
+@dataclasses.dataclass(frozen=True)
+class Tags(
+    schemas.ListSchema[TagsTuple]
+):
+    types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+    items: typing.Type[tag.Tag] = dataclasses.field(default_factory=lambda: tag.Tag) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            tuple: TagsTuple
+        }
+    )
+
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[
+            TagsTupleInput,
+            TagsTuple,
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> TagsTuple:
+        return super().validate(
+            arg,
+            configuration=configuration,
         )
-    
-    @schemas.classproperty
-    def AVAILABLE(cls) -> Status[str]:
-        return cls("available") # type: ignore
-    
-    @schemas.classproperty
-    def PENDING(cls) -> Status[str]:
-        return cls("pending") # type: ignore
-    
-    @schemas.classproperty
-    def SOLD(cls) -> Status[str]:
-        return cls("sold") # type: ignore
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "id": typing.Type[Id],
+        "category": typing.Type[category.Category],
+        "name": typing.Type[Name],
+        "photoUrls": typing.Type[PhotoUrls],
+        "tags": typing.Type[Tags],
+        "status": typing.Type[Status],
+    }
+)
 
 
-class Pet(
-    schemas.DictSchema[schemas.T]
-):
-    """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
-    Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
-
-    Do not edit the class manually.
-
-    Pet object that needs to be added to the store
-    """
-
-
-    @dataclasses.dataclass(frozen=True)
-    class Schema_(metaclass=schemas.SingletonMeta):
-        types: typing.FrozenSet[typing.Type] = frozenset({frozendict.frozendict})
-        required: typing.FrozenSet[str] = frozenset({
-            "name",
-            "photoUrls",
-        })
-        properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def name(self) -> Name[str]:
+    def name(self) -> str:
         return self.__getitem__("name")
     
     @property
-    def photoUrls(self) -> PhotoUrls[tuple]:
+    def photoUrls(self) -> PhotoUrlsTuple:
         return self.__getitem__("photoUrls")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> Name[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["name"]) -> str:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["photoUrls"]) -> PhotoUrls[tuple]: ...
+    def __getitem__(self, name: typing_extensions.Literal["photoUrls"]) -> PhotoUrlsTuple:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["id"]) -> Id[decimal.Decimal]: ...
+    def __getitem__(self, name: typing_extensions.Literal["id"]) -> int:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["category"]) -> category.Category[frozendict.frozendict]: ...
+    def __getitem__(self, name: typing_extensions.Literal["category"]) -> category.CategoryDict:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["tags"]) -> Tags[tuple]: ...
+    def __getitem__(self, name: typing_extensions.Literal["tags"]) -> TagsTuple:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["status"]) -> Status[str]: ...
+    def __getitem__(self, name: typing_extensions.Literal["status"]) -> str:
+        ...
     
     @typing.overload
-    def __getitem__(self, name: str) -> schemas.AnyTypeSchema[typing.Union[
-        frozendict.frozendict,
-        str,
-        decimal.Decimal,
-        schemas.BoolClass,
-        schemas.NoneClass,
-        tuple,
-        bytes,
-        schemas.FileIO
-    ]]: ...
+    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
     
     def __getitem__(
         self,
@@ -183,65 +199,48 @@ class Pet(
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
-    def __new__(
+    def __new__(cls, arg: PetDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Pet.validate(arg, configuration=configuration)
+PetDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+
+
+@dataclasses.dataclass(frozen=True)
+class Pet(
+    schemas.DictSchema[PetDict]
+):
+    """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
+    Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
+
+    Do not edit the class manually.
+
+    Pet object that needs to be added to the store
+    """
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
+    required: typing.FrozenSet[str] = frozenset({
+        "name",
+        "photoUrls",
+    })
+    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            schemas.immutabledict: PetDict
+        }
+    )
+
+    @classmethod
+    def validate(
         cls,
         arg: typing.Union[
-            DictInput,
-            Pet[frozendict.frozendict],
+            PetDictInput,
+            PetDict,
         ],
-        configuration: typing.Optional[schemas.schema_configuration.SchemaConfiguration] = None
-    ) -> Pet[frozendict.frozendict]:
-        return super().__new__(
-            cls,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> PetDict:
+        return super().validate(
             arg,
             configuration=configuration,
         )
 
-
-from petstore_api.components.schema import category
-from petstore_api.components.schema import tag
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "id": typing.Type[Id],
-        "category": typing.Type[category.Category],
-        "name": typing.Type[Name],
-        "photoUrls": typing.Type[PhotoUrls],
-        "tags": typing.Type[Tags],
-        "status": typing.Type[Status],
-    }
-)
-DictInput = typing.Mapping[
-    str,
-    typing.Union[
-        typing.Union[
-            Name[str],
-            str
-        ],
-        typing.Union[
-            PhotoUrls[tuple],
-            list,
-            tuple
-        ],
-        typing.Union[
-            Id[decimal.Decimal],
-            decimal.Decimal,
-            int
-        ],
-        typing.Union[
-            category.Category[frozendict.frozendict],
-            dict,
-            frozendict.frozendict
-        ],
-        typing.Union[
-            Tags[tuple],
-            list,
-            tuple
-        ],
-        typing.Union[
-            Status[str],
-            str
-        ],
-        schemas.INPUT_TYPES_ALL_INCL_SCHEMA
-    ]
-]

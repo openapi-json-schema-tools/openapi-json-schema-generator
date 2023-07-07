@@ -43,7 +43,11 @@ src/this_package/paths/operators/post/request_body/content/application_json/sche
 src/this_package/paths/operators/post/responses/__init__.py
 src/this_package/paths/operators/post/responses/response_200/__init__.py
 src/this_package/rest.py
-src/this_package/schemas.py
+src/this_package/schemas/__init__.py
+src/this_package/schemas/format.py
+src/this_package/schemas/schema.py
+src/this_package/schemas/schemas.py
+src/this_package/schemas/validation.py
 src/this_package/security_schemes.py
 src/this_package/server.py
 src/this_package/servers/__init__.py
