@@ -89,44 +89,44 @@ class NumberSchema(schema.Schema):
 
 @dataclasses.dataclass(frozen=True)
 class IntSchema(NumberSchema):
-    types: typing.FrozenSet[typing.Type] = frozenset({int})
+    types: typing.FrozenSet[typing.Type] = frozenset({int, float})
     format: str = 'int'
 
+    @typing.overload
     @classmethod
     def validate(
         cls,
         arg: int,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> int:
+    ) -> int: ...
+
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: float,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> float: ...  # when values are equal to int val, 1.0 == 1
+
+    @classmethod
+    def validate(
+        cls,
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Union[int, float]:
         return super().validate(arg, configuration)
 
 
 @dataclasses.dataclass(frozen=True)
 class Int32Schema(IntSchema):
-    types: typing.FrozenSet[typing.Type] = frozenset({int})
+    types: typing.FrozenSet[typing.Type] = frozenset({int, float})
     format: str = 'int32'
-
-    @classmethod
-    def validate(
-        cls,
-        arg: int,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> int:
-        return super().validate(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
 class Int64Schema(IntSchema):
-    types: typing.FrozenSet[typing.Type] = frozenset({int})
+    types: typing.FrozenSet[typing.Type] = frozenset({int, float})
     format: str = 'int64'
-
-    @classmethod
-    def validate(
-        cls,
-        arg: int,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> int:
-        return super().validate(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
