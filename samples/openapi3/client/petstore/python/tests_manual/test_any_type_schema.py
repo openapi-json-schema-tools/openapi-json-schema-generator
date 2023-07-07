@@ -99,7 +99,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         assert isinstance(m, int)
         assert m == 1
 
-        with self.assertRaises(petstore_api.ApiTypeError):
+        with self.assertRaises(petstore_api.ApiValueError):
             # can't pass in float into Int
             Model.validate(3.14)
 

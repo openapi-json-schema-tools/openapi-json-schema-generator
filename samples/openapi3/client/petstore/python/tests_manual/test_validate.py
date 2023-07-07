@@ -110,7 +110,7 @@ class TestValidateResults(unittest.TestCase):
     def test_bool_enum_validate(self):
         vm = ValidationMetadata(path_to_item=("args[0]",), configuration=schema_configuration.SchemaConfiguration())
         path_to_schemas = BooleanEnum._validate(True, validation_metadata=vm)
-        assert path_to_schemas == {("args[0]",): {bool: None, BooleanEnum: None}}
+        assert path_to_schemas == {("args[0]",): {schemas.Bool: None, BooleanEnum: None}}
 
     def test_oneof_composition_pig_validate(self):
         vm = ValidationMetadata(path_to_item=("args[0]",), configuration=schema_configuration.SchemaConfiguration())
