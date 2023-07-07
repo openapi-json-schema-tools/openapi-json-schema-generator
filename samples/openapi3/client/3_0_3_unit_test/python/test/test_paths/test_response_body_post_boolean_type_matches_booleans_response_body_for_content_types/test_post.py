@@ -199,7 +199,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
-            deserialized_response_body = self.response_body_schema(
+            deserialized_response_body = self.response_body_schema.validate(
                 payload,
                 configuration=self.schema_config
             )
@@ -252,7 +252,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
     
             assert isinstance(api_response.response, urllib3.HTTPResponse)
-            deserialized_response_body = self.response_body_schema(
+            deserialized_response_body = self.response_body_schema.validate(
                 payload,
                 configuration=self.schema_config
             )
