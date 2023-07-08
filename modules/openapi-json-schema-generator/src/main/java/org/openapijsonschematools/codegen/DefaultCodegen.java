@@ -2282,7 +2282,7 @@ public class DefaultCodegen implements CodegenConfig {
             property.items = fromSchema(
                     p.getItems(), sourceJsonPath, currentJsonPath + "/items");
         }
-        property.enumValueToName = getEnumValueToName(p, currentJsonPath, sourceJsonPath);
+        property.enumValueToName = getEnumValueToName(p, currentJsonPath, sourceJsonPath, property.types);
         List<Schema> anyOfs = ((Schema<?>) p).getAnyOf();
         if (anyOfs != null && !anyOfs.isEmpty()) {
             property.anyOf = getComposedProperties(anyOfs, "anyOf", sourceJsonPath, currentJsonPath);
@@ -3961,7 +3961,7 @@ public class DefaultCodegen implements CodegenConfig {
         return tag;
     }
 
-    protected LinkedHashMapWithContext<EnumValue, String> getEnumValueToName(Schema schema, String currentJsonPath, String sourceJsonPath) {
+    protected LinkedHashMapWithContext<EnumValue, String> getEnumValueToName(Schema schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types) {
         if (schema.getEnum() == null) {
             return null;
         }
@@ -4029,6 +4029,9 @@ public class DefaultCodegen implements CodegenConfig {
 
             String usedName = toEnumVarName(enumName, schema);
             EnumValue enumValue = getEnumValue(value, description);
+            if (types!=null && !types.contains(enumValue.type)) {
+                throw new RuntimeException("Enum value's type is not allowed by schema types for value="+enumValue.value+" types="+types + " jsonPath="+currentJsonPath);
+            }
             enumValueToName.put(enumValue, usedName);
 
             if (!enumNameToValue.containsKey(usedName)) {
