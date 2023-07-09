@@ -43,6 +43,20 @@ class Currency(
     )
     enums = CurrencyEnums
 
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Literal["eur"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal["eur"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Literal["usd"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal["usd"]: ...
     @classmethod
     def validate(
         cls,

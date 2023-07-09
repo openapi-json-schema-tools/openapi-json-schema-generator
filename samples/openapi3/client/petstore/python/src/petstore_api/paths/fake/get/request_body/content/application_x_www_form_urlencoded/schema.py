@@ -39,6 +39,20 @@ class Items(
     )
     enums = ItemsEnums
 
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Literal[">"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal[">"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Literal["$"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal["$"]: ...
     @classmethod
     def validate(
         cls,
@@ -127,6 +141,27 @@ class EnumFormString(
     )
     enums = EnumFormStringEnums
 
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Literal["_abc"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal["_abc"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Literal["-efg"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal["-efg"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Literal["(xyz)"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal["(xyz)"]: ...
     @classmethod
     def validate(
         cls,

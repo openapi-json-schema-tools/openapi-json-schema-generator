@@ -41,6 +41,27 @@ class Server(
     )
     enums = ServerEnums
 
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Literal["petstore"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal["petstore"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Literal["qa-petstore"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal["qa-petstore"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Literal["dev-petstore"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal["dev-petstore"]: ...
     @classmethod
     def validate(
         cls,
@@ -84,6 +105,20 @@ class Port(
     )
     enums = PortEnums
 
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Literal["80"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal["80"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Literal["8080"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal["8080"]: ...
     @classmethod
     def validate(
         cls,

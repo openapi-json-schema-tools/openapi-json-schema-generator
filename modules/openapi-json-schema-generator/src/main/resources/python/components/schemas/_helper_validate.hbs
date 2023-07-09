@@ -77,6 +77,26 @@ def validate(
                 {{/eq}}
             {{/eq}}
         {{/each}}
+    {{else}}
+        {{! only one type }}
+        {{#if enumInfo}}
+            {{#gt enumInfo.valueToName.size 1}}
+                {{#each enumInfo.valueToName}}
+                    {{#if @key.type eq ../type}}
+                        {{#eq @key.type "string"}}
+@typing.overload
+@classmethod
+def validate(
+    cls,
+    arg: typing.Literal["{{{@key.value}}}"],
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+) -> typing.Literal["{{{@key.value}}}"]: ...
+                        {{else}}
+                        {{/eq}}
+                    {{/if}}
+                {{/each}}
+            {{/gt}}
+        {{/if}}
     {{/gt}}
 @classmethod
 def validate(
