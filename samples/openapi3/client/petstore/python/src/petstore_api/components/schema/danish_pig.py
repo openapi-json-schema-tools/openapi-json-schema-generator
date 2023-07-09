@@ -75,11 +75,11 @@ Properties = typing_extensions.TypedDict(
 class DanishPigDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def className(self) -> str:
+    def className(self) -> typing_extensions.Literal["DanishPig"]:
         return self.__getitem__("className")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["className"]) -> typing_extensions.Literal["DanishPig"]:
         ...
     
     @typing.overload

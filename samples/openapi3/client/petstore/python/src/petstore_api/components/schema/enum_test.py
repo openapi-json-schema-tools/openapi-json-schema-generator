@@ -309,15 +309,15 @@ Properties = typing_extensions.TypedDict(
 class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def enum_string_required(self) -> str:
+    def enum_string_required(self) -> typing_extensions.Literal["UPPER", "lower", ""]:
         return self.__getitem__("enum_string_required")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_string_required"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["enum_string_required"]) -> typing_extensions.Literal["UPPER", "lower", ""]:
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_string"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["enum_string"]) -> typing_extensions.Literal["UPPER", "lower", ""]:
         ...
     
     @typing.overload
@@ -331,7 +331,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["stringEnum"]) -> typing.Union[
         None,
-        str,
+        typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
     ]:
         ...
     
@@ -340,7 +340,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["StringEnumWithDefaultValue"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["StringEnumWithDefaultValue"]) -> typing_extensions.Literal["placed", "approved", "delivered"]:
         ...
     
     @typing.overload

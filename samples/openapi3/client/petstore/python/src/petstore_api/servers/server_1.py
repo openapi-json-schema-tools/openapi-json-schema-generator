@@ -87,11 +87,11 @@ Properties = typing_extensions.TypedDict(
 class VariablesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def version(self) -> str:
+    def version(self) -> typing_extensions.Literal["v1", "v2"]:
         return self.__getitem__("version")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["version"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["version"]) -> typing_extensions.Literal["v1", "v2"]:
         ...
     
     def __getitem__(

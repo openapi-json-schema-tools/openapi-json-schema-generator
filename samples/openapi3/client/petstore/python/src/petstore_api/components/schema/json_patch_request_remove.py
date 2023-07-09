@@ -78,7 +78,7 @@ Properties = typing_extensions.TypedDict(
 class JSONPatchRequestRemoveDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def op(self) -> str:
+    def op(self) -> typing_extensions.Literal["remove"]:
         return self.__getitem__("op")
     
     @property
@@ -86,7 +86,7 @@ class JSONPatchRequestRemoveDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
         return self.__getitem__("path")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["op"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["op"]) -> typing_extensions.Literal["remove"]:
         ...
     
     @typing.overload

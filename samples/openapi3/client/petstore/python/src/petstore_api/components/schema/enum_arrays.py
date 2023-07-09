@@ -149,7 +149,7 @@ class Items(
 
 
 class ArrayEnumTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> str:
+    def __getitem__(self, name: int) -> typing_extensions.Literal["fish", "crab"]:
         return super().__getitem__(name)
 
     def __new__(cls, arg: ArrayEnumTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -199,7 +199,7 @@ Properties = typing_extensions.TypedDict(
 class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["just_symbol"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["just_symbol"]) -> typing_extensions.Literal[">=", "$"]:
         ...
     
     @typing.overload

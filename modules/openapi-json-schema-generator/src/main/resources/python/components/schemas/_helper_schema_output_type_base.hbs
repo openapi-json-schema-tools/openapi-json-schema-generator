@@ -14,7 +14,11 @@ None{{endChar}}
                     {{#eq format "binary"}}
 typing.Union[bytes, schemas.FileIO]{{endChar}}
                     {{else}}
+                        {{#and ../enumInfo ../enumInfo.typeToValues.string}}
+typing_extensions.Literal[{{#each ../enumInfo.typeToValues.string}}"{{{value}}}"{{#unless @last}}, {{/unless}}{{/each}}]{{endChar}}
+                        {{else}}
 str{{endChar}}
+                        {{/and}}
                     {{/eq}}
                 {{else}}
                     {{#eq this "number"}}

@@ -96,7 +96,7 @@ class Items(
 
 
 class SchemaTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> str:
+    def __getitem__(self, name: int) -> typing_extensions.Literal["available", "pending", "sold"]:
         return super().__getitem__(name)
 
     def __new__(cls, arg: SchemaTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

@@ -228,7 +228,7 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["status"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["status"]) -> typing_extensions.Literal["available", "pending", "sold"]:
         ...
     
     @typing.overload

@@ -177,7 +177,7 @@ class AdditionalProperties3(
 
 class MapOfEnumStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    def __getitem__(self, name: str) -> str:
+    def __getitem__(self, name: str) -> typing_extensions.Literal["UPPER", "lower"]:
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
