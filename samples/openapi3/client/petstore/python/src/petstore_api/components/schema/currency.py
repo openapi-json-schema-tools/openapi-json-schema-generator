@@ -60,13 +60,19 @@ class Currency(
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> typing.Literal[
         "eur",
         "usd",
     ]:
-        return super().validate(
+        validated_arg = super().validate(
             arg,
             configuration=configuration,
+        )
+        return typing.cast(typing.Literal[
+                "eur",
+                "usd",
+            ],
+            validated_arg
         )

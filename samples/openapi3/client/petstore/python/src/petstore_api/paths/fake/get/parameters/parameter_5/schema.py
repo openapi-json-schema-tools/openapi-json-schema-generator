@@ -46,7 +46,8 @@ class Schema(
         arg: typing.Union[int, float],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> typing.Union[float, int]:
-        return super().validate(
+        validated_arg = super().validate(
             arg,
             configuration=configuration,
         )
+        return validated_arg

@@ -58,15 +58,21 @@ class Op(
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> typing.Literal[
         "move",
         "copy",
     ]:
-        return super().validate(
+        validated_arg = super().validate(
             arg,
             configuration=configuration,
+        )
+        return typing.cast(typing.Literal[
+                "move",
+                "copy",
+            ],
+            validated_arg
         )
 Properties = typing_extensions.TypedDict(
     'Properties',

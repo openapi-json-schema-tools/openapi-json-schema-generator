@@ -38,13 +38,34 @@ class BooleanEnum(
     )
     enums = BooleanEnumEnums
 
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Literal[True],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal[True]: ...
+    @typing.overload
     @classmethod
     def validate(
         cls,
         arg: bool,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> bool:
-        return super().validate(
+    ) -> typing.Literal[True,]: ...
+    @classmethod
+    def validate(
+        cls,
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal[
+        True,
+    ]:
+        validated_arg = super().validate(
             arg,
             configuration=configuration,
+        )
+        return typing.cast(typing.Literal[
+                True,
+            ],
+            validated_arg
         )

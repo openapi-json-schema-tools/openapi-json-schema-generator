@@ -67,16 +67,23 @@ class EnumString(
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> typing.Literal[
         "UPPER",
         "lower",
         "",
     ]:
-        return super().validate(
+        validated_arg = super().validate(
             arg,
             configuration=configuration,
+        )
+        return typing.cast(typing.Literal[
+                "UPPER",
+                "lower",
+                "",
+            ],
+            validated_arg
         )
 
 
@@ -135,16 +142,23 @@ class EnumStringRequired(
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> typing.Literal[
         "UPPER",
         "lower",
         "",
     ]:
-        return super().validate(
+        validated_arg = super().validate(
             arg,
             configuration=configuration,
+        )
+        return typing.cast(typing.Literal[
+                "UPPER",
+                "lower",
+                "",
+            ],
+            validated_arg
         )
 
 
@@ -175,18 +189,38 @@ class EnumInteger(
     )
     enums = EnumIntegerEnums
 
+    @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: int,
+        arg: typing.Literal[1],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal[1]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Literal[-1],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal[-1]: ...
+    @classmethod
+    def validate(
+        cls,
+        arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> typing.Literal[
         1,
         -1,
     ]:
-        return super().validate(
+        validated_arg = super().validate(
             arg,
             configuration=configuration,
+        )
+        return typing.cast(typing.Literal[
+                1,
+                -1,
+            ],
+            validated_arg
         )
 
 
@@ -224,10 +258,11 @@ class EnumNumber(
         arg: typing.Union[int, float],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> typing.Union[float, int]:
-        return super().validate(
+        validated_arg = super().validate(
             arg,
             configuration=configuration,
         )
+        return validated_arg
 
 from petstore_api.components.schema import integer_enum
 from petstore_api.components.schema import integer_enum_one_value

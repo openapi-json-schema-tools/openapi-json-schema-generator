@@ -35,17 +35,29 @@ class Op(
     )
     enums = OpEnums
 
+    @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        arg: typing.Literal["remove"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal["remove"]: ...
+    @classmethod
+    def validate(
+        cls,
+        arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> typing.Literal[
         "remove",
     ]:
-        return super().validate(
+        validated_arg = super().validate(
             arg,
             configuration=configuration,
+        )
+        return typing.cast(typing.Literal[
+                "remove",
+            ],
+            validated_arg
         )
 Properties = typing_extensions.TypedDict(
     'Properties',

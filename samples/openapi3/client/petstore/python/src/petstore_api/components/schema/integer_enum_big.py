@@ -49,17 +49,45 @@ class IntegerEnumBig(
     )
     enums = IntegerEnumBigEnums
 
+    @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: int,
+        arg: typing.Literal[10],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal[10]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Literal[11],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal[11]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Literal[12],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal[12]: ...
+    @classmethod
+    def validate(
+        cls,
+        arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> typing.Literal[
         10,
         11,
         12,
     ]:
-        return super().validate(
+        validated_arg = super().validate(
             arg,
             configuration=configuration,
+        )
+        return typing.cast(typing.Literal[
+                10,
+                11,
+                12,
+            ],
+            validated_arg
         )

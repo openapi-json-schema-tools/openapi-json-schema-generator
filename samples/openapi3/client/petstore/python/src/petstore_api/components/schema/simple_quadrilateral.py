@@ -33,17 +33,29 @@ class QuadrilateralType(
     )
     enums = QuadrilateralTypeEnums
 
+    @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        arg: typing.Literal["SimpleQuadrilateral"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal["SimpleQuadrilateral"]: ...
+    @classmethod
+    def validate(
+        cls,
+        arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> typing.Literal[
         "SimpleQuadrilateral",
     ]:
-        return super().validate(
+        validated_arg = super().validate(
             arg,
             configuration=configuration,
+        )
+        return typing.cast(typing.Literal[
+                "SimpleQuadrilateral",
+            ],
+            validated_arg
         )
 Properties = typing_extensions.TypedDict(
     'Properties',

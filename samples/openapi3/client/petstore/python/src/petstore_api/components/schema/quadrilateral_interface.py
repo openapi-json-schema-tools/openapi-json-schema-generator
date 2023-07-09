@@ -33,17 +33,29 @@ class ShapeType(
     )
     enums = ShapeTypeEnums
 
+    @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        arg: typing.Literal["Quadrilateral"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal["Quadrilateral"]: ...
+    @classmethod
+    def validate(
+        cls,
+        arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> typing.Literal[
         "Quadrilateral",
     ]:
-        return super().validate(
+        validated_arg = super().validate(
             arg,
             configuration=configuration,
+        )
+        return typing.cast(typing.Literal[
+                "Quadrilateral",
+            ],
+            validated_arg
         )
 QuadrilateralType: typing_extensions.TypeAlias = schemas.StrSchema
 Properties = typing_extensions.TypedDict(

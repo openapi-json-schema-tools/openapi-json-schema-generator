@@ -65,16 +65,23 @@ class Server(
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> typing.Literal[
         "petstore",
         "qa-petstore",
         "dev-petstore",
     ]:
-        return super().validate(
+        validated_arg = super().validate(
             arg,
             configuration=configuration,
+        )
+        return typing.cast(typing.Literal[
+                "petstore",
+                "qa-petstore",
+                "dev-petstore",
+            ],
+            validated_arg
         )
 
 
@@ -122,15 +129,21 @@ class Port(
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> typing.Literal[
         "80",
         "8080",
     ]:
-        return super().validate(
+        validated_arg = super().validate(
             arg,
             configuration=configuration,
+        )
+        return typing.cast(typing.Literal[
+                "80",
+                "8080",
+            ],
+            validated_arg
         )
 Properties = typing_extensions.TypedDict(
     'Properties',
