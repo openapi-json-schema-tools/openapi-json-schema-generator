@@ -64,6 +64,7 @@ import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenTag;
 import org.openapijsonschematools.codegen.model.CodegenXml;
+import org.openapijsonschematools.codegen.model.EnumInfo;
 import org.openapijsonschematools.codegen.model.EnumValue;
 import org.openapijsonschematools.codegen.model.LinkedHashMapWithContext;
 import org.openapijsonschematools.codegen.model.PairCacheKey;
@@ -2282,7 +2283,7 @@ public class DefaultCodegen implements CodegenConfig {
             property.items = fromSchema(
                     p.getItems(), sourceJsonPath, currentJsonPath + "/items");
         }
-        property.enumValueToName = getEnumValueToName(p, currentJsonPath, sourceJsonPath, property.types);
+        property.enumInfo = getEnumInfo(p, currentJsonPath, sourceJsonPath, property.types);
         List<Schema> anyOfs = ((Schema<?>) p).getAnyOf();
         if (anyOfs != null && !anyOfs.isEmpty()) {
             property.anyOf = getComposedProperties(anyOfs, "anyOf", sourceJsonPath, currentJsonPath);
@@ -3961,7 +3962,7 @@ public class DefaultCodegen implements CodegenConfig {
         return tag;
     }
 
-    protected LinkedHashMapWithContext<EnumValue, String> getEnumValueToName(Schema schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types) {
+    protected EnumInfo getEnumInfo(Schema schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types) {
         if (schema.getEnum() == null) {
             return null;
         }
@@ -4051,7 +4052,7 @@ public class DefaultCodegen implements CodegenConfig {
             enumValueToName.setJsonPathPiece(key);
         }
 
-        return enumValueToName;
+        return new EnumInfo(enumValueToName, null);
     }
 
     /**
