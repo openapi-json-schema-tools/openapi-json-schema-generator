@@ -31,7 +31,11 @@ def validate(
 @classmethod
 def validate(
     {{> components/schemas/_helper_validate_args }}
-) -> str: ...
+) -> {{#if enumInfo}}typing.Literal[
+        {{#each enumInfo.typeToValues.string}}
+    "{{value}}",
+        {{/each}}
+]{{else}}str{{/if}}: ...
                         {{else}}
                             {{#eq this "number"}}
 @typing.overload

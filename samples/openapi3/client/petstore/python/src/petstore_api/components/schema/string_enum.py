@@ -82,7 +82,14 @@ class StringEnum(
         cls,
         arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> str: ...
+    ) -> typing.Literal[
+        "placed",
+        "approved",
+        "delivered",
+        "single quoted",
+        "multiple\nlines",
+        "double quote \n with newline",
+    ]: ...
     @classmethod
     def validate(
         cls,
