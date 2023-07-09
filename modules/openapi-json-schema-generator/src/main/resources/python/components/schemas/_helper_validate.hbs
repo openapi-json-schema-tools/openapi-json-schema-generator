@@ -79,25 +79,8 @@ def validate(
         {{/each}}
     {{else}}
         {{! only one type }}
+{{> components/schemas/_helper_validate_str_overload includeNonEnum=false }}
         {{#if enumInfo}}
-            {{#if enumInfo.typeToValues.string}}
-                {{#each enumInfo.typeToValues.string}}
-@typing.overload
-@classmethod
-def validate(
-    cls,
-    arg: typing_extensions.Literal["{{{value}}}"],
-    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-) -> typing_extensions.Literal["{{{value}}}"]: ...
-                {{/each}}
-@typing.overload
-@classmethod
-def validate(
-    cls,
-    arg: str,
-    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-) -> typing_extensions.Literal[{{#each enumInfo.typeToValues.string}}"{{{value}}}",{{/each}}]: ...
-            {{/if}}
             {{#if enumInfo.typeToValues.integer}}
                 {{#each enumInfo.typeToValues.integer}}
 @typing.overload
