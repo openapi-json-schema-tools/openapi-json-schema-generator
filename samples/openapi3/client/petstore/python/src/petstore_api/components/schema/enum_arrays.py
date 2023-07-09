@@ -30,7 +30,7 @@ class JustSymbol(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             ">=": "GREATER_THAN_SIGN_EQUALS_SIGN",
             "$": "DOLLAR_SIGN",
@@ -42,22 +42,29 @@ class JustSymbol(
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal[">="],
+        arg: typing_extensions.Literal[">="],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal[">="]: ...
+    ) -> typing_extensions.Literal[">="]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["$"],
+        arg: typing_extensions.Literal["$"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["$"]: ...
+    ) -> typing_extensions.Literal["$"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal[">=","$",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal[
+    ) -> typing_extensions.Literal[
         ">=",
         "$",
     ]:
@@ -65,7 +72,7 @@ class JustSymbol(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing.Literal[
+        return typing.cast(typing_extensions.Literal[
                 ">=",
                 "$",
             ],
@@ -91,7 +98,7 @@ class Items(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "fish": "FISH",
             "crab": "CRAB",
@@ -103,22 +110,29 @@ class Items(
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["fish"],
+        arg: typing_extensions.Literal["fish"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["fish"]: ...
+    ) -> typing_extensions.Literal["fish"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["crab"],
+        arg: typing_extensions.Literal["crab"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["crab"]: ...
+    ) -> typing_extensions.Literal["crab"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["fish","crab",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal[
+    ) -> typing_extensions.Literal[
         "fish",
         "crab",
     ]:
@@ -126,7 +140,7 @@ class Items(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing.Literal[
+        return typing.cast(typing_extensions.Literal[
                 "fish",
                 "crab",
             ],

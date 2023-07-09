@@ -40,7 +40,7 @@ class IntegerEnumBig(
         int,
     })
     format: str = 'int'
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             10: "POSITIVE_10",
             11: "POSITIVE_11",
@@ -53,29 +53,36 @@ class IntegerEnumBig(
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal[10],
+        arg: typing_extensions.Literal[10],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal[10]: ...
+    ) -> typing_extensions.Literal[10]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal[11],
+        arg: typing_extensions.Literal[11],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal[11]: ...
+    ) -> typing_extensions.Literal[11]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal[12],
+        arg: typing_extensions.Literal[12],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal[12]: ...
+    ) -> typing_extensions.Literal[12]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: int,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal[10,11,12,]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal[
+    ) -> typing_extensions.Literal[
         10,
         11,
         12,
@@ -84,7 +91,7 @@ class IntegerEnumBig(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing.Literal[
+        return typing.cast(typing_extensions.Literal[
                 10,
                 11,
                 12,

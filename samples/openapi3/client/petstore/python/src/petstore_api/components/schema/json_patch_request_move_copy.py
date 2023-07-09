@@ -33,7 +33,7 @@ class Op(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "move": "MOVE",
             "copy": "COPY",
@@ -45,22 +45,29 @@ class Op(
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["move"],
+        arg: typing_extensions.Literal["move"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["move"]: ...
+    ) -> typing_extensions.Literal["move"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["copy"],
+        arg: typing_extensions.Literal["copy"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["copy"]: ...
+    ) -> typing_extensions.Literal["copy"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["move","copy",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal[
+    ) -> typing_extensions.Literal[
         "move",
         "copy",
     ]:
@@ -68,7 +75,7 @@ class Op(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing.Literal[
+        return typing.cast(typing_extensions.Literal[
                 "move",
                 "copy",
             ],

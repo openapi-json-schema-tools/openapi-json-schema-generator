@@ -125,7 +125,7 @@ class AdditionalProperties3(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "UPPER": "UPPER",
             "lower": "LOWER",
@@ -137,22 +137,29 @@ class AdditionalProperties3(
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["UPPER"],
+        arg: typing_extensions.Literal["UPPER"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["UPPER"]: ...
+    ) -> typing_extensions.Literal["UPPER"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["lower"],
+        arg: typing_extensions.Literal["lower"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["lower"]: ...
+    ) -> typing_extensions.Literal["lower"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["UPPER","lower",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal[
+    ) -> typing_extensions.Literal[
         "UPPER",
         "lower",
     ]:
@@ -160,7 +167,7 @@ class AdditionalProperties3(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing.Literal[
+        return typing.cast(typing_extensions.Literal[
                 "UPPER",
                 "lower",
             ],

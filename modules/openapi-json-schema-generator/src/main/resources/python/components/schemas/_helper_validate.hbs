@@ -31,7 +31,7 @@ def validate(
 @classmethod
 def validate(
     {{> components/schemas/_helper_validate_args }}
-) -> {{#if ../enumInfo}}typing.Literal[
+) -> {{#if ../enumInfo}}typing_extensions.Literal[
         {{#each ../enumInfo.typeToValues.string}}
     "{{{value}}}",
         {{/each}}
@@ -49,7 +49,7 @@ def validate(
 @classmethod
 def validate(
     {{> components/schemas/_helper_validate_args }}
-) -> {{#if ../enumInfo}}typing.Literal[
+) -> {{#if ../enumInfo}}typing_extensions.Literal[
         {{#each ../enumInfo.typeToValues.integer}}
     {{value}},
         {{/each}}
@@ -80,50 +80,62 @@ def validate(
     {{else}}
         {{! only one type }}
         {{#if enumInfo}}
-            {{#each enumInfo.valueToName}}
-                {{#if @key.type eq ../type}}
-                    {{#eq @key.type "string"}}
+            {{#if enumInfo.typeToValues.string}}
+                {{#each enumInfo.typeToValues.string}}
 @typing.overload
 @classmethod
 def validate(
     cls,
-    arg: typing.Literal["{{{@key.value}}}"],
+    arg: typing_extensions.Literal["{{{value}}}"],
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-) -> typing.Literal["{{{@key.value}}}"]: ...
-                    {{else}}
-                        {{#eq @key.type "integer"}}
+) -> typing_extensions.Literal["{{{value}}}"]: ...
+                {{/each}}
 @typing.overload
 @classmethod
 def validate(
     cls,
-    arg: typing.Literal[{{@key.value}}],
+    arg: str,
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-) -> typing.Literal[{{@key.value}}]: ...
-                        {{else}}
-                            {{#eq @key.type "boolean"}}
+) -> typing_extensions.Literal[{{#each enumInfo.typeToValues.string}}"{{{value}}}",{{/each}}]: ...
+            {{/if}}
+            {{#if enumInfo.typeToValues.integer}}
+                {{#each enumInfo.typeToValues.integer}}
 @typing.overload
 @classmethod
 def validate(
     cls,
-    arg: typing.Literal[{{#if @key.value}}True{{else}}False{{/if}}],
+    arg: typing_extensions.Literal[{{value}}],
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-) -> typing.Literal[{{#if @key.value}}True{{else}}False{{/if}}]: ...
-                            {{/eq}}
-                        {{/eq}}
-                    {{/eq}}
-                {{/if}}
-            {{/each}}
-            {{! done with enum value handling }}
-            {{#eq type "boolean"}}
+) -> typing_extensions.Literal[{{value}}]: ...
+                {{/each}}
+@typing.overload
+@classmethod
+def validate(
+    cls,
+    arg: int,
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+) -> typing_extensions.Literal[{{#each enumInfo.typeToValues.integer}}{{value}},{{/each}}]: ...
+            {{/if}}
+            {{#if enumInfo.typeToValues.boolean}}
+                {{#each enumInfo.typeToValues.boolean}}
+@typing.overload
+@classmethod
+def validate(
+    cls,
+    arg: typing_extensions.Literal[{{#if value}}True{{else}}False{{/if}}],
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+) -> typing_extensions.Literal[{{#if value}}True{{else}}False{{/if}}]: ...
+                {{/each}}
 @typing.overload
 @classmethod
 def validate(
     cls,
     arg: bool,
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-) -> typing.Literal[{{#each enumInfo.typeToValues.boolean}}{{#if value}}True{{else}}False{{/if}},{{/each}}]: ...
-            {{/eq}}
+) -> typing_extensions.Literal[{{#each enumInfo.typeToValues.boolean}}{{#if value}}True{{else}}False{{/if}},{{/each}}]: ...
+            {{/if}}
         {{/if}}
+        {{! end of enum overloads }}
     {{/gt}}
 @classmethod
 def validate(
@@ -170,7 +182,7 @@ def validate(
                 {{/if}}
             {{else}}
                 {{#eq this "boolean"}}
-) -> {{#if ../enumInfo}}typing.Literal[
+) -> {{#if ../enumInfo}}typing_extensions.Literal[
         {{#each ../enumInfo.typeToValues.boolean}}
     {{#if value}}True{{else}}False{{/if}},
         {{/each}}
@@ -180,7 +192,7 @@ def validate(
 ) -> None:
                     {{else}}
                         {{#eq this "string"}}
-) -> {{#if ../enumInfo}}typing.Literal[
+) -> {{#if ../enumInfo}}typing_extensions.Literal[
         {{#each ../enumInfo.typeToValues.string}}
     "{{{value}}}",
         {{/each}}
@@ -190,7 +202,7 @@ def validate(
 ) -> typing.Union[float, int]:
                             {{else}}
                                 {{#eq this "integer"}}
-) -> {{#if ../enumInfo}}typing.Literal[
+) -> {{#if ../enumInfo}}typing_extensions.Literal[
         {{#each ../enumInfo.typeToValues.integer}}
     {{value}},
         {{/each}}
@@ -220,7 +232,7 @@ def validate(
     )
         {{#eq types.size 1}}
             {{#eq type "string"}}
-    return typing.cast(typing.Literal[
+    return typing.cast(typing_extensions.Literal[
                 {{#each enumInfo.typeToValues.string}}
             "{{{value}}}",
                 {{/each}}
@@ -229,7 +241,7 @@ def validate(
     )
             {{else}}
                 {{#eq type "integer"}}
-    return typing.cast(typing.Literal[
+    return typing.cast(typing_extensions.Literal[
                 {{#each enumInfo.typeToValues.integer}}
             {{value}},
                 {{/each}}
@@ -238,7 +250,7 @@ def validate(
     )
                 {{else}}
                     {{#eq type "boolean"}}
-    return typing.cast(typing.Literal[
+    return typing.cast(typing_extensions.Literal[
                 {{#each enumInfo.typeToValues.boolean}}
             {{#if value}}True{{else}}False{{/if}},
                 {{/each}}

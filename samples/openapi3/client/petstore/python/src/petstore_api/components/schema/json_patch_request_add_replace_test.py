@@ -37,7 +37,7 @@ class Op(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "add": "ADD",
             "replace": "REPLACE",
@@ -50,29 +50,36 @@ class Op(
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["add"],
+        arg: typing_extensions.Literal["add"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["add"]: ...
+    ) -> typing_extensions.Literal["add"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["replace"],
+        arg: typing_extensions.Literal["replace"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["replace"]: ...
+    ) -> typing_extensions.Literal["replace"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["test"],
+        arg: typing_extensions.Literal["test"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["test"]: ...
+    ) -> typing_extensions.Literal["test"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["add","replace","test",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal[
+    ) -> typing_extensions.Literal[
         "add",
         "replace",
         "test",
@@ -81,7 +88,7 @@ class Op(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing.Literal[
+        return typing.cast(typing_extensions.Literal[
                 "add",
                 "replace",
                 "test",

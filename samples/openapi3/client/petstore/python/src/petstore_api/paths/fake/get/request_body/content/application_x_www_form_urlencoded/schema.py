@@ -31,7 +31,7 @@ class Items(
         str,
     })
     default: str = "$"
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             ">": "GREATER_THAN_SIGN",
             "$": "DOLLAR_SIGN",
@@ -43,22 +43,29 @@ class Items(
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal[">"],
+        arg: typing_extensions.Literal[">"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal[">"]: ...
+    ) -> typing_extensions.Literal[">"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["$"],
+        arg: typing_extensions.Literal["$"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["$"]: ...
+    ) -> typing_extensions.Literal["$"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal[">","$",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal[
+    ) -> typing_extensions.Literal[
         ">",
         "$",
     ]:
@@ -66,7 +73,7 @@ class Items(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing.Literal[
+        return typing.cast(typing_extensions.Literal[
                 ">",
                 "$",
             ],
@@ -138,7 +145,7 @@ class EnumFormString(
         str,
     })
     default: str = "-efg"
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "_abc": "_ABC",
             "-efg": "HYPHEN_MINUS_EFG",
@@ -151,29 +158,36 @@ class EnumFormString(
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["_abc"],
+        arg: typing_extensions.Literal["_abc"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["_abc"]: ...
+    ) -> typing_extensions.Literal["_abc"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["-efg"],
+        arg: typing_extensions.Literal["-efg"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["-efg"]: ...
+    ) -> typing_extensions.Literal["-efg"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["(xyz)"],
+        arg: typing_extensions.Literal["(xyz)"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["(xyz)"]: ...
+    ) -> typing_extensions.Literal["(xyz)"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["_abc","-efg","(xyz)",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal[
+    ) -> typing_extensions.Literal[
         "_abc",
         "-efg",
         "(xyz)",
@@ -182,7 +196,7 @@ class EnumFormString(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing.Literal[
+        return typing.cast(typing_extensions.Literal[
                 "_abc",
                 "-efg",
                 "(xyz)",

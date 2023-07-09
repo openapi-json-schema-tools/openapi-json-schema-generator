@@ -32,7 +32,7 @@ class Server(
         str,
     })
     default: str = "petstore"
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "petstore": "PETSTORE",
             "qa-petstore": "QA_HYPHEN_MINUS_PETSTORE",
@@ -45,29 +45,36 @@ class Server(
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["petstore"],
+        arg: typing_extensions.Literal["petstore"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["petstore"]: ...
+    ) -> typing_extensions.Literal["petstore"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["qa-petstore"],
+        arg: typing_extensions.Literal["qa-petstore"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["qa-petstore"]: ...
+    ) -> typing_extensions.Literal["qa-petstore"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["dev-petstore"],
+        arg: typing_extensions.Literal["dev-petstore"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["dev-petstore"]: ...
+    ) -> typing_extensions.Literal["dev-petstore"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["petstore","qa-petstore","dev-petstore",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal[
+    ) -> typing_extensions.Literal[
         "petstore",
         "qa-petstore",
         "dev-petstore",
@@ -76,7 +83,7 @@ class Server(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing.Literal[
+        return typing.cast(typing_extensions.Literal[
                 "petstore",
                 "qa-petstore",
                 "dev-petstore",
@@ -104,7 +111,7 @@ class Port(
         str,
     })
     default: str = "80"
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "80": "POSITIVE_80",
             "8080": "POSITIVE_8080",
@@ -116,22 +123,29 @@ class Port(
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["80"],
+        arg: typing_extensions.Literal["80"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["80"]: ...
+    ) -> typing_extensions.Literal["80"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["8080"],
+        arg: typing_extensions.Literal["8080"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["8080"]: ...
+    ) -> typing_extensions.Literal["8080"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["80","8080",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal[
+    ) -> typing_extensions.Literal[
         "80",
         "8080",
     ]:
@@ -139,7 +153,7 @@ class Port(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing.Literal[
+        return typing.cast(typing_extensions.Literal[
                 "80",
                 "8080",
             ],

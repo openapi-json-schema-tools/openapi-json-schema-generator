@@ -26,7 +26,7 @@ class QuadrilateralType(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "SimpleQuadrilateral": "SIMPLE_QUADRILATERAL",
         }
@@ -37,22 +37,29 @@ class QuadrilateralType(
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["SimpleQuadrilateral"],
+        arg: typing_extensions.Literal["SimpleQuadrilateral"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["SimpleQuadrilateral"]: ...
+    ) -> typing_extensions.Literal["SimpleQuadrilateral"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["SimpleQuadrilateral",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal[
+    ) -> typing_extensions.Literal[
         "SimpleQuadrilateral",
     ]:
         validated_arg = super().validate(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing.Literal[
+        return typing.cast(typing_extensions.Literal[
                 "SimpleQuadrilateral",
             ],
             validated_arg

@@ -28,7 +28,7 @@ class Version(
         str,
     })
     default: str = "v1"
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "v1": "V1",
             "v2": "V2",
@@ -40,22 +40,29 @@ class Version(
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["v1"],
+        arg: typing_extensions.Literal["v1"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["v1"]: ...
+    ) -> typing_extensions.Literal["v1"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["v2"],
+        arg: typing_extensions.Literal["v2"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["v2"]: ...
+    ) -> typing_extensions.Literal["v2"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["v1","v2",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal[
+    ) -> typing_extensions.Literal[
         "v1",
         "v2",
     ]:
@@ -63,7 +70,7 @@ class Version(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing.Literal[
+        return typing.cast(typing_extensions.Literal[
                 "v1",
                 "v2",
             ],

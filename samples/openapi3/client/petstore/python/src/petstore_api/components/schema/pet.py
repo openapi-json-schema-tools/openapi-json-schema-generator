@@ -78,7 +78,7 @@ class Status(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "available": "AVAILABLE",
             "pending": "PENDING",
@@ -91,29 +91,36 @@ class Status(
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["available"],
+        arg: typing_extensions.Literal["available"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["available"]: ...
+    ) -> typing_extensions.Literal["available"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["pending"],
+        arg: typing_extensions.Literal["pending"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["pending"]: ...
+    ) -> typing_extensions.Literal["pending"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Literal["sold"],
+        arg: typing_extensions.Literal["sold"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal["sold"]: ...
+    ) -> typing_extensions.Literal["sold"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["available","pending","sold",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Literal[
+    ) -> typing_extensions.Literal[
         "available",
         "pending",
         "sold",
@@ -122,7 +129,7 @@ class Status(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing.Literal[
+        return typing.cast(typing_extensions.Literal[
                 "available",
                 "pending",
                 "sold",
