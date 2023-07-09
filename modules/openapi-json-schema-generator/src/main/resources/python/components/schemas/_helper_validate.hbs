@@ -105,13 +105,21 @@ def validate(
 ) -> None:
                     {{else}}
                         {{#eq this "string"}}
-) -> str:
+) -> {{#if ../enumInfo}}typing.Literal[
+        {{#each ../enumInfo.typeToValues.string}}
+    "{{{value}}}",
+        {{/each}}
+]{{else}}str{{/if}}:
                         {{else}}
                             {{#eq this "number"}}
 ) -> typing.Union[float, int]:
                             {{else}}
                                 {{#eq this "integer"}}
-) -> int:
+) -> {{#if ../enumInfo}}typing.Literal[
+        {{#each ../enumInfo.typeToValues.integer}}
+    {{value}},
+        {{/each}}
+]{{else}}int{{/if}}:
                                 {{else}}
                                     {{#eq this "array"}}
                                         {{#if arrayOutputJsonPathPiece}}

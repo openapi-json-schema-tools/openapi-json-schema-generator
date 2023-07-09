@@ -46,7 +46,10 @@ class Op(
         cls,
         arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> str:
+    ) -> typing.Literal[
+        "move",
+        "copy",
+    ]:
         return super().validate(
             arg,
             configuration=configuration,

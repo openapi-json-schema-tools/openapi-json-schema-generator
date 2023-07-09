@@ -64,7 +64,13 @@ class EnumClass(
         cls,
         arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> str:
+    ) -> typing.Literal[
+        "_abc",
+        "-efg",
+        "(xyz)",
+        "COUNT_1M",
+        "COUNT_50M",
+    ]:
         return super().validate(
             arg,
             configuration=configuration,

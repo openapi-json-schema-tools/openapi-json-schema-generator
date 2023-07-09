@@ -48,7 +48,11 @@ class EnumString(
         cls,
         arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> str:
+    ) -> typing.Literal[
+        "UPPER",
+        "lower",
+        "",
+    ]:
         return super().validate(
             arg,
             configuration=configuration,
@@ -91,7 +95,11 @@ class EnumStringRequired(
         cls,
         arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> str:
+    ) -> typing.Literal[
+        "UPPER",
+        "lower",
+        "",
+    ]:
         return super().validate(
             arg,
             configuration=configuration,
@@ -130,7 +138,10 @@ class EnumInteger(
         cls,
         arg: int,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> int:
+    ) -> typing.Literal[
+        1,
+        -1,
+    ]:
         return super().validate(
             arg,
             configuration=configuration,

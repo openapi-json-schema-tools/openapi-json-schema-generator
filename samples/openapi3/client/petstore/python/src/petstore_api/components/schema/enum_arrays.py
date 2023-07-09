@@ -43,7 +43,10 @@ class JustSymbol(
         cls,
         arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> str:
+    ) -> typing.Literal[
+        ">=",
+        "$",
+    ]:
         return super().validate(
             arg,
             configuration=configuration,
@@ -81,7 +84,10 @@ class Items(
         cls,
         arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> str:
+    ) -> typing.Literal[
+        "fish",
+        "crab",
+    ]:
         return super().validate(
             arg,
             configuration=configuration,

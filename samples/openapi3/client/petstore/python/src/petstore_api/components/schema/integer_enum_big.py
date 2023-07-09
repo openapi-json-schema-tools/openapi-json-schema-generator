@@ -54,7 +54,11 @@ class IntegerEnumBig(
         cls,
         arg: int,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> int:
+    ) -> typing.Literal[
+        10,
+        11,
+        12,
+    ]:
         return super().validate(
             arg,
             configuration=configuration,

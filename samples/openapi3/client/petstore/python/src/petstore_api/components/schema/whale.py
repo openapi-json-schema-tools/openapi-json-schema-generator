@@ -40,7 +40,9 @@ class ClassName(
         cls,
         arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> str:
+    ) -> typing.Literal[
+        "whale",
+    ]:
         return super().validate(
             arg,
             configuration=configuration,
