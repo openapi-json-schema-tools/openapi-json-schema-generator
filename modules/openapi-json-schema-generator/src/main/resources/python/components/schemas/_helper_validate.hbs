@@ -27,15 +27,7 @@ def validate(
 ) -> None: ...
                     {{else}}
                         {{#eq this "string"}}
-@typing.overload
-@classmethod
-def validate(
-    {{> components/schemas/_helper_validate_args }}
-) -> {{#if ../enumInfo}}typing_extensions.Literal[
-        {{#each ../enumInfo.typeToValues.string}}
-    "{{{value}}}",
-        {{/each}}
-]{{else}}str{{/if}}: ...
+{{> components/schemas/_helper_validate_str_overload includeNonEnum=true enumInfo=../enumInfo }}
                         {{else}}
                             {{#eq this "number"}}
 @typing.overload
