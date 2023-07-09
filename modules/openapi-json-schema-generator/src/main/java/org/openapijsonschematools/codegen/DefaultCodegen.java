@@ -3969,6 +3969,7 @@ public class DefaultCodegen implements CodegenConfig {
 
         ArrayList<Object> values = new ArrayList<>(((Schema<?>) schema).getEnum());
         LinkedHashMapWithContext<EnumValue, String> enumValueToName = new LinkedHashMapWithContext<>();
+        HashMap<String, List<EnumValue>> typeToValues = new LinkedHashMap<>();
         LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
         int truncateIdx = 0;
 
@@ -4034,6 +4035,10 @@ public class DefaultCodegen implements CodegenConfig {
                 throw new RuntimeException("Enum value's type is not allowed by schema types for value="+enumValue.value+" types="+types + " jsonPath="+currentJsonPath);
             }
             enumValueToName.put(enumValue, usedName);
+            if (!typeToValues.containsKey(enumValue.type)) {
+                typeToValues.put(enumValue.type, new ArrayList<>());
+            }
+            typeToValues.get(enumValue.type).add(enumValue);
 
             if (!enumNameToValue.containsKey(usedName)) {
                 enumNameToValue.put(usedName, enumValue);
@@ -4052,7 +4057,7 @@ public class DefaultCodegen implements CodegenConfig {
             enumValueToName.setJsonPathPiece(key);
         }
 
-        return new EnumInfo(enumValueToName, null);
+        return new EnumInfo(enumValueToName, typeToValues);
     }
 
     /**
