@@ -37,3 +37,14 @@ class BooleanEnum(
         }
     )
     enums = BooleanEnumEnums
+
+    @classmethod
+    def validate(
+        cls,
+        arg: bool,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> bool:
+        return super().validate(
+            arg,
+            configuration=configuration,
+        )

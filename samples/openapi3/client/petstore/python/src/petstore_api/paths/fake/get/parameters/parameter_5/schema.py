@@ -39,3 +39,14 @@ class Schema(
         }
     )
     enums = SchemaEnums
+
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[int, float],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Union[float, int]:
+        return super().validate(
+            arg,
+            configuration=configuration,
+        )

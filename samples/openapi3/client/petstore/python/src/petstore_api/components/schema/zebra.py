@@ -44,6 +44,17 @@ class Type(
     )
     enums = TypeEnums
 
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> str:
+        return super().validate(
+            arg,
+            configuration=configuration,
+        )
+
 
 class ClassNameEnums:
 
@@ -65,6 +76,17 @@ class ClassName(
         }
     )
     enums = ClassNameEnums
+
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> str:
+        return super().validate(
+            arg,
+            configuration=configuration,
+        )
 Properties = typing_extensions.TypedDict(
     'Properties',
     {

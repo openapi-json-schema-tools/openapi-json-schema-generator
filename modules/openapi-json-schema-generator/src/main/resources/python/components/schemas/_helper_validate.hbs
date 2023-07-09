@@ -31,9 +31,9 @@ def validate(
 @classmethod
 def validate(
     {{> components/schemas/_helper_validate_args }}
-) -> {{#if enumInfo}}typing.Literal[
-        {{#each enumInfo.typeToValues.string}}
-    "{{value}}",
+) -> {{#if ../enumInfo}}typing.Literal[
+        {{#each ../enumInfo.typeToValues.string}}
+    "{{{value}}}",
         {{/each}}
 ]{{else}}str{{/if}}: ...
                         {{else}}
@@ -49,7 +49,11 @@ def validate(
 @classmethod
 def validate(
     {{> components/schemas/_helper_validate_args }}
-) -> int: ...
+) -> {{#if ../enumInfo}}typing.Literal[
+        {{#each ../enumInfo.typeToValues.integer}}
+    {{value}},
+        {{/each}}
+]{{else}}int{{/if}}: ...
                                 {{else}}
                                     {{#eq this "array"}}
 @typing.overload

@@ -38,6 +38,17 @@ class JustSymbol(
     )
     enums = JustSymbolEnums
 
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> str:
+        return super().validate(
+            arg,
+            configuration=configuration,
+        )
+
 
 class ItemsEnums:
 
@@ -64,6 +75,17 @@ class Items(
         }
     )
     enums = ItemsEnums
+
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> str:
+        return super().validate(
+            arg,
+            configuration=configuration,
+        )
 
 
 class ArrayEnumTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):

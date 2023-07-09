@@ -43,6 +43,17 @@ class EnumString(
     )
     enums = EnumStringEnums
 
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> str:
+        return super().validate(
+            arg,
+            configuration=configuration,
+        )
+
 
 class EnumStringRequiredEnums:
 
@@ -75,6 +86,17 @@ class EnumStringRequired(
     )
     enums = EnumStringRequiredEnums
 
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> str:
+        return super().validate(
+            arg,
+            configuration=configuration,
+        )
+
 
 class EnumIntegerEnums:
 
@@ -102,6 +124,17 @@ class EnumInteger(
         }
     )
     enums = EnumIntegerEnums
+
+    @classmethod
+    def validate(
+        cls,
+        arg: int,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> int:
+        return super().validate(
+            arg,
+            configuration=configuration,
+        )
 
 
 class EnumNumberEnums:
@@ -131,6 +164,17 @@ class EnumNumber(
         }
     )
     enums = EnumNumberEnums
+
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[int, float],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Union[float, int]:
+        return super().validate(
+            arg,
+            configuration=configuration,
+        )
 
 from petstore_api.components.schema import integer_enum
 from petstore_api.components.schema import integer_enum_one_value

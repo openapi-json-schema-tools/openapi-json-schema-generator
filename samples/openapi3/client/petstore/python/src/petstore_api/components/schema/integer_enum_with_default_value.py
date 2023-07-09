@@ -49,3 +49,14 @@ class IntegerEnumWithDefaultValue(
         }
     )
     enums = IntegerEnumWithDefaultValueEnums
+
+    @classmethod
+    def validate(
+        cls,
+        arg: int,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> int:
+        return super().validate(
+            arg,
+            configuration=configuration,
+        )

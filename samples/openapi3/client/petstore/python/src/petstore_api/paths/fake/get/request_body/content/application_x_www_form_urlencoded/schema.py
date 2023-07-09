@@ -39,6 +39,17 @@ class Items(
     )
     enums = ItemsEnums
 
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> str:
+        return super().validate(
+            arg,
+            configuration=configuration,
+        )
+
 
 class EnumFormStringArrayTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> str:
@@ -112,6 +123,17 @@ class EnumFormString(
         }
     )
     enums = EnumFormStringEnums
+
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> str:
+        return super().validate(
+            arg,
+            configuration=configuration,
+        )
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
