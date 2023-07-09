@@ -54,7 +54,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_query_integer"]) -> int:
+    def __getitem__(self, name: typing_extensions.Literal["enum_query_integer"]) -> typing_extensions.Literal[1, -2]:
         ...
     
     @typing.overload

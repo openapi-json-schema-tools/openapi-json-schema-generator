@@ -321,7 +321,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_integer"]) -> int:
+    def __getitem__(self, name: typing_extensions.Literal["enum_integer"]) -> typing_extensions.Literal[1, -1]:
         ...
     
     @typing.overload
@@ -336,7 +336,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["IntegerEnum"]) -> int:
+    def __getitem__(self, name: typing_extensions.Literal["IntegerEnum"]) -> typing_extensions.Literal[0, 1, 2]:
         ...
     
     @typing.overload
@@ -344,11 +344,11 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["IntegerEnumWithDefaultValue"]) -> int:
+    def __getitem__(self, name: typing_extensions.Literal["IntegerEnumWithDefaultValue"]) -> typing_extensions.Literal[0, 1, 2]:
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["IntegerEnumOneValue"]) -> int:
+    def __getitem__(self, name: typing_extensions.Literal["IntegerEnumOneValue"]) -> typing_extensions.Literal[0]:
         ...
     
     @typing.overload
