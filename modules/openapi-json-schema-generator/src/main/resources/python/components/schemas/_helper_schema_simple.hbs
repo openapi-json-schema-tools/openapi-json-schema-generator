@@ -15,7 +15,7 @@ class {{jsonPathPiece.camelCase}}(
 {{/if}}
     """
 {{/if}}
-{{#or hasValidation enumValueToName format defaultValue}}
+{{#or hasValidation enumInfo format defaultValue}}
 {{#eq types null}}
     # any type
 {{/eq}}
@@ -47,8 +47,10 @@ class {{jsonPathPiece.camelCase}}(
         {{/eq}}
     {{/with}}
 {{/if}}
-{{#if enumValueToName}}
+{{#if enumInfo}}
     {{> components/schemas/_helper_schema_enum }}
-    enums = {{enumValueToName.jsonPathPiece.camelCase}}
+    enums = {{enumInfo.valueToName.jsonPathPiece.camelCase}}
+
+    {{> components/schemas/_helper_validate }}
 {{/if}}
 {{/or}}

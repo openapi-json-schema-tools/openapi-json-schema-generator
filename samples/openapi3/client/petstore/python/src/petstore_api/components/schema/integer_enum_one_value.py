@@ -32,9 +32,41 @@ class IntegerEnumOneValue(
         int,
     })
     format: str = 'int'
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             0: "POSITIVE_0",
         }
     )
     enums = IntegerEnumOneValueEnums
+
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing_extensions.Literal[0],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal[0]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: int,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal[0,]: ...
+    @classmethod
+    def validate(
+        cls,
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal[
+        0,
+    ]:
+        validated_arg = super().validate(
+            arg,
+            configuration=configuration,
+        )
+        return typing.cast(typing_extensions.Literal[
+                0,
+            ],
+            validated_arg
+        )

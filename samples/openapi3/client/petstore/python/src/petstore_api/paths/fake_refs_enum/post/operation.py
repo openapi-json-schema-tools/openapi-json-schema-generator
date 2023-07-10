@@ -38,7 +38,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[
             typing.Union[
                 None,
-                str,
+                typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
             ],
             schemas.Unset
         ] = schemas.unset,
@@ -56,7 +56,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[
             typing.Union[
                 None,
-                str,
+                typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
             ],
             schemas.Unset
         ] = schemas.unset,
@@ -73,7 +73,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[
             typing.Union[
                 None,
-                str,
+                typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
             ],
             schemas.Unset
         ] = schemas.unset,

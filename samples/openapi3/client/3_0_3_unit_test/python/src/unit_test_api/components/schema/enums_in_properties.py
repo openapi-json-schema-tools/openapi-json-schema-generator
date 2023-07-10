@@ -26,12 +26,44 @@ class Foo(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "foo": "FOO",
         }
     )
     enums = FooEnums
+
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing_extensions.Literal["foo"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["foo"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["foo",]: ...
+    @classmethod
+    def validate(
+        cls,
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal[
+        "foo",
+    ]:
+        validated_arg = super().validate(
+            arg,
+            configuration=configuration,
+        )
+        return typing.cast(typing_extensions.Literal[
+                "foo",
+            ],
+            validated_arg
+        )
 
 
 class BarEnums:
@@ -48,12 +80,44 @@ class Bar(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "bar": "BAR",
         }
     )
     enums = BarEnums
+
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing_extensions.Literal["bar"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["bar"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["bar",]: ...
+    @classmethod
+    def validate(
+        cls,
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal[
+        "bar",
+    ]:
+        validated_arg = super().validate(
+            arg,
+            configuration=configuration,
+        )
+        return typing.cast(typing_extensions.Literal[
+                "bar",
+            ],
+            validated_arg
+        )
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
@@ -66,15 +130,15 @@ Properties = typing_extensions.TypedDict(
 class EnumsInPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def bar(self) -> str:
+    def bar(self) -> typing_extensions.Literal["bar"]:
         return self.__getitem__("bar")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> typing_extensions.Literal["bar"]:
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> typing_extensions.Literal["foo"]:
         ...
     
     @typing.overload

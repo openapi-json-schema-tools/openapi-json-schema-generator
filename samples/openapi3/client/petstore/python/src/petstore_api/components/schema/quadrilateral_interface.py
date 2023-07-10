@@ -26,12 +26,44 @@ class ShapeType(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "Quadrilateral": "QUADRILATERAL",
         }
     )
     enums = ShapeTypeEnums
+
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing_extensions.Literal["Quadrilateral"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["Quadrilateral"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["Quadrilateral",]: ...
+    @classmethod
+    def validate(
+        cls,
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal[
+        "Quadrilateral",
+    ]:
+        validated_arg = super().validate(
+            arg,
+            configuration=configuration,
+        )
+        return typing.cast(typing_extensions.Literal[
+                "Quadrilateral",
+            ],
+            validated_arg
+        )
 QuadrilateralType: typing_extensions.TypeAlias = schemas.StrSchema
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -49,7 +81,7 @@ class QuadrilateralInterfaceDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
         return self.__getitem__("quadrilateralType")
     
     @property
-    def shapeType(self) -> str:
+    def shapeType(self) -> typing_extensions.Literal["Quadrilateral"]:
         return self.__getitem__("shapeType")
     
     @typing.overload
@@ -57,7 +89,7 @@ class QuadrilateralInterfaceDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shapeType"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["shapeType"]) -> typing_extensions.Literal["Quadrilateral"]:
         ...
     
     @typing.overload

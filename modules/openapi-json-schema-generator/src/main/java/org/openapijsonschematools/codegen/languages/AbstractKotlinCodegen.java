@@ -335,7 +335,7 @@ public abstract class AbstractKotlinCodegen extends DefaultCodegen implements Co
             }
 
             for (CodegenSchema var : cm.properties.values()) {
-                if (var.enumValueToName != null || isSerializableModel()) {
+                if (var.enumInfo != null || isSerializableModel()) {
                     cm.vendorExtensions.put("x-has-data-class-body", true);
                     break;
                 }

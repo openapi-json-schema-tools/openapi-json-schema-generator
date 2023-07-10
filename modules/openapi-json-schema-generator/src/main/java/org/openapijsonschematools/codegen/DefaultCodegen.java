@@ -64,6 +64,7 @@ import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.model.CodegenTag;
 import org.openapijsonschematools.codegen.model.CodegenXml;
+import org.openapijsonschematools.codegen.model.EnumInfo;
 import org.openapijsonschematools.codegen.model.EnumValue;
 import org.openapijsonschematools.codegen.model.LinkedHashMapWithContext;
 import org.openapijsonschematools.codegen.model.PairCacheKey;
@@ -2282,7 +2283,7 @@ public class DefaultCodegen implements CodegenConfig {
             property.items = fromSchema(
                     p.getItems(), sourceJsonPath, currentJsonPath + "/items");
         }
-        property.enumValueToName = getEnumValueToName(p, currentJsonPath, sourceJsonPath);
+        property.enumInfo = getEnumInfo(p, currentJsonPath, sourceJsonPath, property.types);
         List<Schema> anyOfs = ((Schema<?>) p).getAnyOf();
         if (anyOfs != null && !anyOfs.isEmpty()) {
             property.anyOf = getComposedProperties(anyOfs, "anyOf", sourceJsonPath, currentJsonPath);
@@ -2299,24 +2300,36 @@ public class DefaultCodegen implements CodegenConfig {
             property.optionalProperties = getOptionalProperties(property.properties, required, sourceJsonPath, currentName);
             if ((property.types == null || property.types.contains("object")) && sourceJsonPath != null) {
                 // only set mapInputJsonPathPiece when object input is possible
-                if (property.requiredProperties != null && property.optionalProperties == null) {
-                    // only required
-                    property.mapInputJsonPathPiece = property.requiredProperties.jsonPathPiece();
-                    property.mapOutputJsonPathPiece = getKey(currentName + "Dict", "schemaProperty", sourceJsonPath);
-                } else if (property.requiredProperties == null && property.optionalProperties != null) {
-                    // only optional
-                    property.mapInputJsonPathPiece = property.optionalProperties.jsonPathPiece();
-                    property.mapOutputJsonPathPiece = getKey(currentName + "Dict", "schemaProperty", sourceJsonPath);
-                } else if (property.requiredProperties != null && property.optionalProperties != null) {
-                    // optional + required
-                    property.mapInputJsonPathPiece = getKey(currentName + "DictInput", "schemaProperty", sourceJsonPath);
-                    property.mapOutputJsonPathPiece = getKey(currentName + "Dict", "schemaProperty", sourceJsonPath);
-                } else if (property.additionalProperties != null) {
-                    // only addProps
-                    property.mapInputJsonPathPiece = getKey(currentName + "DictInput", "schemaProperty", sourceJsonPath);
-                    // even though the definition is the same, mapOutputJsonPathPiece needs to be different
-                    // so an implementing class can be written
-                    property.mapOutputJsonPathPiece = getKey(currentName + "Dict", "schemaProperty", sourceJsonPath);
+                boolean requiredPropsExist = property.requiredProperties != null;
+                boolean optionalPropsExist = property.optionalProperties != null;
+                String firstBoolChar = requiredPropsExist? "1" : "0";
+                String SecondBoolChar = optionalPropsExist? "1" : "0";
+                String boolState = firstBoolChar + SecondBoolChar;
+                switch (boolState) {
+                    case "00":
+                        if (property.additionalProperties != null) {
+                            // only addProps
+                            property.mapInputJsonPathPiece = getKey(currentName + "DictInput", "schemaProperty", sourceJsonPath);
+                            // even though the definition is the same, mapOutputJsonPathPiece needs to be different
+                            // so an implementing class can be written
+                            property.mapOutputJsonPathPiece = getKey(currentName + "Dict", "schemaProperty", sourceJsonPath);
+                        }
+                        break;
+                    case "11":
+                        // optional + required
+                        property.mapInputJsonPathPiece = getKey(currentName + "DictInput", "schemaProperty", sourceJsonPath);
+                        property.mapOutputJsonPathPiece = getKey(currentName + "Dict", "schemaProperty", sourceJsonPath);
+                        break;
+                    case "10":
+                        // only required
+                        property.mapInputJsonPathPiece = property.requiredProperties.jsonPathPiece();
+                        property.mapOutputJsonPathPiece = getKey(currentName + "Dict", "schemaProperty", sourceJsonPath);
+                        break;
+                    case "01":
+                        // only optional
+                        property.mapInputJsonPathPiece = property.optionalProperties.jsonPathPiece();
+                        property.mapOutputJsonPathPiece = getKey(currentName + "Dict", "schemaProperty", sourceJsonPath);
+                        break;
                 }
             }
             if ((property.types == null || property.types.contains("array")) && sourceJsonPath != null && property.items != null) {
@@ -3479,19 +3492,22 @@ public class DefaultCodegen implements CodegenConfig {
         String requestBodiesIdentifier = "request_bodies";
         String securitySchemesIdentifier = "security_schemes";
         // rename schemas + requestBodies
-        if (pathPieces[2].equals("schemas")) {
-            // modelPackage replaces pathPieces[1] + pathPieces[2]
-            pathPieces[1] = modelPackagePathFragment();
-            pathPieces[2] = null;
-            if (pathPieces.length == 4) {
-                // #/components/schemas/SomeSchema
-                pathPieces[3] = getKey(pathPieces[3], "schemas").snakeCase;
-            }
-            return;
-        } else if (pathPieces[2].equals("requestBodies")) {
-            pathPieces[2] = requestBodiesIdentifier;
-        } else if (pathPieces[2].equals("securitySchemes")) {
-            pathPieces[2] = securitySchemesIdentifier;
+        switch (pathPieces[2]) {
+            case "schemas":
+                // modelPackage replaces pathPieces[1] + pathPieces[2]
+                pathPieces[1] = modelPackagePathFragment();
+                pathPieces[2] = null;
+                if (pathPieces.length == 4) {
+                    // #/components/schemas/SomeSchema
+                    pathPieces[3] = getKey(pathPieces[3], "schemas").snakeCase;
+                }
+                return;
+            case "requestBodies":
+                pathPieces[2] = requestBodiesIdentifier;
+                break;
+            case "securitySchemes":
+                pathPieces[2] = securitySchemesIdentifier;
+                break;
         }
         if (pathPieces.length < 4) {
             return;
@@ -3946,13 +3962,14 @@ public class DefaultCodegen implements CodegenConfig {
         return tag;
     }
 
-    protected LinkedHashMapWithContext<EnumValue, String> getEnumValueToName(Schema schema, String currentJsonPath, String sourceJsonPath) {
+    protected EnumInfo getEnumInfo(Schema schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types) {
         if (schema.getEnum() == null) {
             return null;
         }
 
         ArrayList<Object> values = new ArrayList<>(((Schema<?>) schema).getEnum());
         LinkedHashMapWithContext<EnumValue, String> enumValueToName = new LinkedHashMapWithContext<>();
+        HashMap<String, List<EnumValue>> typeToValues = new LinkedHashMap<>();
         LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
         int truncateIdx = 0;
 
@@ -4014,7 +4031,22 @@ public class DefaultCodegen implements CodegenConfig {
 
             String usedName = toEnumVarName(enumName, schema);
             EnumValue enumValue = getEnumValue(value, description);
+            boolean typeIsInteger = enumValue.type.equals("integer");
+            boolean intIsNumberUseCase = (typeIsInteger && types!=null && types.contains("number"));
+            if (types!=null && !types.contains(enumValue.type) && !intIsNumberUseCase) {
+                throw new RuntimeException("Enum value's type is not allowed by schema types for value="+enumValue.value+" types="+types + " jsonPath="+currentJsonPath);
+            }
             enumValueToName.put(enumValue, usedName);
+            if (!typeToValues.containsKey(enumValue.type)) {
+                typeToValues.put(enumValue.type, new ArrayList<>());
+            }
+            if (typeIsInteger && !typeToValues.containsKey("number")) {
+                typeToValues.put("number", new ArrayList<>());
+            }
+            typeToValues.get(enumValue.type).add(enumValue);
+            if (typeIsInteger) {
+                typeToValues.get("number").add(enumValue);
+            }
 
             if (!enumNameToValue.containsKey(usedName)) {
                 enumNameToValue.put(usedName, enumValue);
@@ -4033,7 +4065,7 @@ public class DefaultCodegen implements CodegenConfig {
             enumValueToName.setJsonPathPiece(key);
         }
 
-        return enumValueToName;
+        return new EnumInfo(enumValueToName, typeToValues);
     }
 
     /**
@@ -4367,8 +4399,7 @@ public class DefaultCodegen implements CodegenConfig {
         String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar;
         int endIndex = filePath.lastIndexOf(File.separatorChar);
         String localFilepath = filePath.substring(prefix.length(), endIndex);
-        String refModuleLocation = localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
-        return refModuleLocation;
+        return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
     }
 
     private String getRefModuleAlias(String refModuleLocation, String refModule) {

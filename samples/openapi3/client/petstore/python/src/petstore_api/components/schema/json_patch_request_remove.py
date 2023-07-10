@@ -28,12 +28,44 @@ class Op(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "remove": "REMOVE",
         }
     )
     enums = OpEnums
+
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing_extensions.Literal["remove"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["remove"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["remove",]: ...
+    @classmethod
+    def validate(
+        cls,
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal[
+        "remove",
+    ]:
+        validated_arg = super().validate(
+            arg,
+            configuration=configuration,
+        )
+        return typing.cast(typing_extensions.Literal[
+                "remove",
+            ],
+            validated_arg
+        )
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
@@ -46,7 +78,7 @@ Properties = typing_extensions.TypedDict(
 class JSONPatchRequestRemoveDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def op(self) -> str:
+    def op(self) -> typing_extensions.Literal["remove"]:
         return self.__getitem__("op")
     
     @property
@@ -54,7 +86,7 @@ class JSONPatchRequestRemoveDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
         return self.__getitem__("path")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["op"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["op"]) -> typing_extensions.Literal["remove"]:
         ...
     
     @typing.overload

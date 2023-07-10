@@ -30,7 +30,7 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("amount")
     
     @property
-    def currency(self) -> str:
+    def currency(self) -> typing_extensions.Literal["eur", "usd"]:
         return self.__getitem__("currency")
     
     @typing.overload
@@ -38,7 +38,7 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["currency"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["currency"]) -> typing_extensions.Literal["eur", "usd"]:
         ...
     
     def __getitem__(

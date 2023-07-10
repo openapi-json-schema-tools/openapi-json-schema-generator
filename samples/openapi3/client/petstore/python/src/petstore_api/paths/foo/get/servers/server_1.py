@@ -28,13 +28,54 @@ class Version(
         str,
     })
     default: str = "v1"
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "v1": "V1",
             "v2": "V2",
         }
     )
     enums = VersionEnums
+
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing_extensions.Literal["v1"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["v1"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing_extensions.Literal["v2"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["v2"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["v1","v2",]: ...
+    @classmethod
+    def validate(
+        cls,
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal[
+        "v1",
+        "v2",
+    ]:
+        validated_arg = super().validate(
+            arg,
+            configuration=configuration,
+        )
+        return typing.cast(typing_extensions.Literal[
+                "v1",
+                "v2",
+            ],
+            validated_arg
+        )
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
@@ -46,11 +87,11 @@ Properties = typing_extensions.TypedDict(
 class VariablesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def version(self) -> str:
+    def version(self) -> typing_extensions.Literal["v1", "v2"]:
         return self.__getitem__("version")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["version"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["version"]) -> typing_extensions.Literal["v1", "v2"]:
         ...
     
     def __getitem__(

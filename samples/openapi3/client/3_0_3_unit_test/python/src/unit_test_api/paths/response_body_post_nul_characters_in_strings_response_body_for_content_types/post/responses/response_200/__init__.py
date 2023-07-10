@@ -12,7 +12,7 @@ from .content.application_json import schema as application_json_schema
 @dataclasses.dataclass
 class ApiResponseFor200(api_response.ApiResponse):
     response: urllib3.HTTPResponse
-    body: str
+    body: typing_extensions.Literal["hello\x00there"]
     headers: schemas.Unset = schemas.unset
 
 

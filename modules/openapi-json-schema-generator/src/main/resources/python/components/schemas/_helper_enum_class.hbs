@@ -1,8 +1,8 @@
-{{#if enumValueToName}}
+{{#if enumInfo}}
 
 
-class {{enumValueToName.jsonPathPiece.camelCase}}:
-    {{#each enumValueToName}}
+class {{enumInfo.valueToName.jsonPathPiece.camelCase}}:
+    {{#each enumInfo.valueToName}}
 
     @schemas.classproperty
         {{#eq @key.type "string"}}
