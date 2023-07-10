@@ -72,12 +72,12 @@ class SchemaConfiguration:
         self.disabled_json_schema_keywords = disabled_json_schema_keywords
 
     @property
-    def disabled_json_schema_keywords(self) -> typing.Set[str]:
-        return self.__disabled_json_schema_keywords
-
-    @property
     def disabled_json_schema_python_keywords(self) -> typing.Set[str]:
         return self.__disabled_json_schema_python_keywords
+
+    @property
+    def disabled_json_schema_keywords(self) -> typing.Set[str]:
+        return self.__disabled_json_schema_keywords
 
     @disabled_json_schema_keywords.setter
     def disabled_json_schema_keywords(self, json_keywords: typing.Set[str]):
