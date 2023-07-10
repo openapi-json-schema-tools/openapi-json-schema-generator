@@ -1023,7 +1023,9 @@ class ApiClient:
             used_headers.update(headers)
 
         # request url
-        url = host + resource_path + query_params_suffix
+        url = host + resource_path
+        if query_params_suffix:
+            url += query_params_suffix
 
         # perform request and return response
         response = self.request(

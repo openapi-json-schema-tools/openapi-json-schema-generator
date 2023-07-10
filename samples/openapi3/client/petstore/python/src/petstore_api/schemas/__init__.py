@@ -81,11 +81,11 @@ def tuple_to_instance(tup: typing.Type[X]) -> X:
     return tuple(res) # type: ignore
 
 
-class Unset(object):
+class Unset:
     """
     An instance of this class is set as the default value for object type(dict) properties that are optional
     When a property has an unset value, that property will not be assigned in the dict
     """
     pass
 
-unset = Unset()
+unset: Unset = Unset()
