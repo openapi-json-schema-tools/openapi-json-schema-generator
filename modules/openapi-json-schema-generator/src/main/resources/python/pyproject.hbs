@@ -28,3 +28,6 @@ classifiers = [
 {{#if packageUrl}}"Homepage" = "{{{packageUrl}}}"{{/if}}
 {{#if infoUrl}}"Bug Tracker" = "{{{infoUrl}}}"{{/if}}
 {{/or}}
+
+[[tool.mypy.overrides]]
+module = '{{packageName}}'

@@ -22,6 +22,7 @@ dependencies = [
     "setuptools >= 61.0",
     "typing_extensions ~= 4.5.0",
     "urllib3 ~= 2.0.a3",
+    "types-python-dateutil"
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -30,3 +31,9 @@ classifiers = [
     "Topic :: Software Development :: Code Generators"
 ]
 
+
+[tool.mypy]
+warn_return_any = true
+
+[[tool.mypy.overrides]]
+module = 'src.petstore_api'

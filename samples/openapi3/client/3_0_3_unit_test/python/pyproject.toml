@@ -28,3 +28,6 @@ classifiers = [
     "Topic :: Software Development :: Code Generators"
 ]
 
+
+[[tool.mypy.overrides]]
+module = 'unit_test_api'
