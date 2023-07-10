@@ -17,7 +17,7 @@ from petstore_api.components.schema import string_enum
 class ArrayOfEnumsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
     def __getitem__(self, name: int) -> typing.Union[
         None,
-        str,
+        typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
     ]:
         return super().__getitem__(name)
 

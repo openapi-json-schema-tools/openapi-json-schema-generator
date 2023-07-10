@@ -1,7 +1,11 @@
 {{#if types}}
     {{#each types}}
         {{#eq this "boolean"}}
+            {{#and ../enumInfo ../enumInfo.typeToValues.boolean}}
+typing_extensions.Literal[{{#each ../enumInfo.typeToValues.boolean}}{{#if value}}True{{else}}False{{/if}}{{#unless @last}}, {{/unless}}{{/each}}]{{endChar}}
+            {{else}}
 bool{{endChar}}
+            {{/and}}
         {{else}}
             {{#eq this "null"}}
 None{{endChar}}
@@ -10,14 +14,22 @@ None{{endChar}}
                     {{#eq format "binary"}}
 typing.Union[bytes, schemas.FileIO]{{endChar}}
                     {{else}}
+                        {{#and ../enumInfo ../enumInfo.typeToValues.string}}
+typing_extensions.Literal[{{#each ../enumInfo.typeToValues.string}}"{{{value}}}"{{#unless @last}}, {{/unless}}{{/each}}]{{endChar}}
+                        {{else}}
 str{{endChar}}
+                        {{/and}}
                     {{/eq}}
                 {{else}}
                     {{#eq this "number"}}
 typing.Union[float, int]{{endChar}}
                     {{else}}
                         {{#eq this "integer"}}
+                            {{#and ../enumInfo ../enumInfo.typeToValues.integer}}
+typing_extensions.Literal[{{#each ../enumInfo.typeToValues.integer}}{{value}}{{#unless @last}}, {{/unless}}{{/each}}]{{endChar}}
+                            {{else}}
 int{{endChar}}
+                            {{/and}}
                         {{else}}
                             {{#eq this "array"}}
                                 {{#if arrayOutputJsonPathPiece}}

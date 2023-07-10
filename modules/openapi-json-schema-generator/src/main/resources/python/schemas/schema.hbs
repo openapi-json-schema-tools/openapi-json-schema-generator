@@ -25,7 +25,7 @@ class SchemaTyped:
     any_of: typing.Tuple[typing.Type[Schema], ...]
     discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[Schema]]]
     default: typing.Union[str, int, float, bool, None]
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, None], str]
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, Bool, None], str]
     exclusive_maximum: typing.Union[int, float]
     exclusive_minimum: typing.Union[int, float]
     format: str

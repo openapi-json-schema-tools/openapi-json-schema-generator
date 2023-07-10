@@ -45,7 +45,7 @@ public class CodegenSchema {
     public Integer maxProperties;
     public Integer minProperties;
     public LinkedHashMapWithContext<CodegenKey, CodegenSchema> requiredProperties; // used to store required info
-    public LinkedHashMapWithContext<EnumValue, String> enumValueToName; // enum info
+    public EnumInfo enumInfo;
     public String type;
     public ArrayListWithContext<CodegenSchema> allOf = null;
     public ArrayListWithContext<CodegenSchema> anyOf = null;
@@ -248,13 +248,13 @@ public class CodegenSchema {
                 schemasAfterImports.add(extraSchema);
             }
         }
-        if (enumValueToName != null) {
+        if (enumInfo != null) {
             // write the class as a separate entity so enum values do not collide with
             // json schema keywords
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.jsonPathPiece = jsonPathPiece;
             extraSchema.instanceType = "enumClass";
-            extraSchema.enumValueToName = enumValueToName;
+            extraSchema.enumInfo = enumInfo;
             schemasBeforeImports.add(extraSchema);
         }
         boolean schemaAllAreInline = true;
@@ -480,7 +480,7 @@ public class CodegenSchema {
         sb.append(", readOnly=").append(readOnly);
         sb.append(", writeOnly=").append(writeOnly);
         sb.append(", nullable=").append(nullable);
-        sb.append(", allowableValues=").append(enumValueToName);
+        sb.append(", allowableValues=").append(enumInfo);
         sb.append(", items=").append(items);
         sb.append(", additionalProperties=").append(additionalProperties);
         sb.append(", vendorExtensions=").append(vendorExtensions);
@@ -566,7 +566,7 @@ public class CodegenSchema {
                 Objects.equals(example, that.example) &&
                 Objects.equals(minimum, that.minimum) &&
                 Objects.equals(maximum, that.maximum) &&
-                Objects.equals(enumValueToName, that.enumValueToName) &&
+                Objects.equals(enumInfo, that.enumInfo) &&
                 Objects.equals(items, that.items) &&
                 Objects.equals(additionalProperties, that.additionalProperties) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
@@ -583,7 +583,7 @@ public class CodegenSchema {
                 maxLength, minLength, patternInfo, example, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, deprecated, types,
                 readOnly, writeOnly, nullable,
-                enumValueToName, items, additionalProperties,
+                enumInfo, items, additionalProperties,
                 vendorExtensions, maxItems, minItems, xml,
                 schemaIsFromAdditionalProperties, isBooleanSchemaTrue, isBooleanSchemaFalse,
                 format, dependentRequired, contains, allOf, anyOf, oneOf, not,

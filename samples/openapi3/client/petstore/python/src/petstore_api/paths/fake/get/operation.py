@@ -50,11 +50,11 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_query_string"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["enum_query_string"]) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_query_integer"]) -> int:
+    def __getitem__(self, name: typing_extensions.Literal["enum_query_integer"]) -> typing_extensions.Literal[1, -2]:
         ...
     
     @typing.overload
@@ -141,7 +141,7 @@ Properties2 = typing_extensions.TypedDict(
 class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_header_string"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["enum_header_string"]) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
         ...
     
     @typing.overload

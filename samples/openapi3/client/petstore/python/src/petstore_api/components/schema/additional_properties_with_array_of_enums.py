@@ -15,7 +15,7 @@ from petstore_api.components.schema import enum_class
 
 
 class AdditionalPropertiesTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> str:
+    def __getitem__(self, name: int) -> typing_extensions.Literal["_abc", "-efg", "(xyz)", "COUNT_1M", "COUNT_50M"]:
         return super().__getitem__(name)
 
     def __new__(cls, arg: AdditionalPropertiesTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

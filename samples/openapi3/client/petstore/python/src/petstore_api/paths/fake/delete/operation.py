@@ -164,15 +164,15 @@ HeaderParametersOptionalDictInput = typing_extensions.TypedDict(
 class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def required_boolean_group(self) -> str:
+    def required_boolean_group(self) -> typing_extensions.Literal["true", "false"]:
         return self.__getitem__("required_boolean_group")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["required_boolean_group"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["required_boolean_group"]) -> typing_extensions.Literal["true", "false"]:
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["boolean_group"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["boolean_group"]) -> typing_extensions.Literal["true", "false"]:
         ...
     
     def __getitem__(

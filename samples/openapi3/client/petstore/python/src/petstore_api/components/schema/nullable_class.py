@@ -174,7 +174,7 @@ class StringProp(
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> str: ...
     @classmethod
@@ -210,7 +210,7 @@ class DateProp(
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> str: ...
     @classmethod
@@ -246,7 +246,7 @@ class DatetimeProp(
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> str: ...
     @classmethod

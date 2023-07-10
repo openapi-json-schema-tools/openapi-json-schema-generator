@@ -89,7 +89,7 @@ public class JavaJerseyServerCodegen extends AbstractJavaJAXRSServerCodegen {
         }
 
         //Add imports for Jackson
-        if (model.enumValueToName == null) {
+        if (model.enumInfo == null) {
             model.imports.add("JsonProperty");
         }
     }

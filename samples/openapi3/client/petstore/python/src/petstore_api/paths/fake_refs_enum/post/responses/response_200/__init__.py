@@ -14,7 +14,7 @@ class ApiResponseFor200(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
         None,
-        str,
+        typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
     ]
     headers: schemas.Unset = schemas.unset
 

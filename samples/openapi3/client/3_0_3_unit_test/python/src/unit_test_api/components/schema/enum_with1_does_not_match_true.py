@@ -32,9 +32,35 @@ class EnumWith1DoesNotMatchTrue(
         float,
         int,
     })
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             1: "POSITIVE_1",
         }
     )
     enums = EnumWith1DoesNotMatchTrueEnums
+
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing_extensions.Literal[1],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal[1]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: int,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal[1,]: ...
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[int, float],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Union[float, int]:
+        validated_arg = super().validate(
+            arg,
+            configuration=configuration,
+        )
+        return validated_arg

@@ -13,11 +13,7 @@ def validate(
                 {{/if}}
             {{else}}
                 {{#eq this "boolean"}}
-@typing.overload
-@classmethod
-def validate(
-    {{> components/schemas/_helper_validate_args }}
-) -> bool: ...
+{{> components/schemas/_helper_validate_bool_overload includeNonEnum=true enumInfo=../enumInfo }}
                 {{else}}
                     {{#eq this "null"}}
 @typing.overload
@@ -27,11 +23,7 @@ def validate(
 ) -> None: ...
                     {{else}}
                         {{#eq this "string"}}
-@typing.overload
-@classmethod
-def validate(
-    {{> components/schemas/_helper_validate_args }}
-) -> str: ...
+{{> components/schemas/_helper_validate_str_overload includeNonEnum=true enumInfo=../enumInfo }}
                         {{else}}
                             {{#eq this "number"}}
 @typing.overload
@@ -41,11 +33,7 @@ def validate(
 ) -> typing.Union[float, int]: ...
                             {{else}}
                                 {{#eq this "integer"}}
-@typing.overload
-@classmethod
-def validate(
-    {{> components/schemas/_helper_validate_args }}
-) -> int: ...
+{{> components/schemas/_helper_validate_int_overload includeNonEnum=true enumInfo=../enumInfo }}
                                 {{else}}
                                     {{#eq this "array"}}
 @typing.overload
@@ -69,13 +57,43 @@ def validate(
                 {{/eq}}
             {{/eq}}
         {{/each}}
+    {{else}}
+        {{! only one type }}
+{{> components/schemas/_helper_validate_str_overload includeNonEnum=false }}
+{{> components/schemas/_helper_validate_bool_overload includeNonEnum=false }}
+{{> components/schemas/_helper_validate_int_overload includeNonEnum=false }}
+        {{! end of enum overloads }}
     {{/gt}}
 @classmethod
 def validate(
     {{#eq types.size 1}}
+        {{#if enumInfo}}
+            {{#eq type "integer"}}
+    cls,
+    arg,
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+            {{else}}
+                {{#eq type "boolean"}}
+    cls,
+    arg,
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+                {{else}}
+                    {{#eq type "string"}}
+    cls,
+    arg,
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+                    {{else}}
         {{#each types}}
     {{> components/schemas/_helper_validate_args }}
         {{/each}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{else}}
+        {{#each types}}
+    {{> components/schemas/_helper_validate_args }}
+        {{/each}}
+        {{/if}}
     {{else}}
     cls,
     arg,
@@ -91,19 +109,31 @@ def validate(
                 {{/if}}
             {{else}}
                 {{#eq this "boolean"}}
-) -> bool:
+) -> {{#if ../enumInfo}}typing_extensions.Literal[
+        {{#each ../enumInfo.typeToValues.boolean}}
+    {{#if value}}True{{else}}False{{/if}},
+        {{/each}}
+]{{else}}bool{{/if}}:
                 {{else}}
                     {{#eq this "null"}}
 ) -> None:
                     {{else}}
                         {{#eq this "string"}}
-) -> str:
+) -> {{#if ../enumInfo}}typing_extensions.Literal[
+        {{#each ../enumInfo.typeToValues.string}}
+    "{{{value}}}",
+        {{/each}}
+]{{else}}str{{/if}}:
                         {{else}}
                             {{#eq this "number"}}
 ) -> typing.Union[float, int]:
                             {{else}}
                                 {{#eq this "integer"}}
-) -> int:
+) -> {{#if ../enumInfo}}typing_extensions.Literal[
+        {{#each ../enumInfo.typeToValues.integer}}
+    {{value}},
+        {{/each}}
+]{{else}}int{{/if}}:
                                 {{else}}
                                     {{#eq this "array"}}
                                         {{#if arrayOutputJsonPathPiece}}
@@ -122,8 +152,52 @@ def validate(
     {{else}}
 ):
     {{/eq}}
+    {{#if enumInfo}}
+    validated_arg = super().validate(
+        arg,
+        configuration=configuration,
+    )
+        {{#eq types.size 1}}
+            {{#eq type "string"}}
+    return typing.cast(typing_extensions.Literal[
+                {{#each enumInfo.typeToValues.string}}
+            "{{{value}}}",
+                {{/each}}
+        ],
+        validated_arg
+    )
+            {{else}}
+                {{#eq type "integer"}}
+    return typing.cast(typing_extensions.Literal[
+                {{#each enumInfo.typeToValues.integer}}
+            {{value}},
+                {{/each}}
+        ],
+        validated_arg
+    )
+                {{else}}
+                    {{#eq type "boolean"}}
+    return typing.cast(typing_extensions.Literal[
+                {{#each enumInfo.typeToValues.boolean}}
+            {{#if value}}True{{else}}False{{/if}},
+                {{/each}}
+        ],
+        validated_arg
+    )
+                    {{else}}
+    return validated_arg
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{else}}
+            {{! no multiple enum types }}
+    return validated_arg
+        {{/eq}}
+    {{else}}
+        {{! no enumInfo }}
     return super().validate(
         arg,
         configuration=configuration,
     )
+    {{/if}}
 {{/if}}

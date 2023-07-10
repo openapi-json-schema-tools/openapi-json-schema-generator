@@ -1,0 +1,42 @@
+{{#if enumInfo}}
+    {{#if enumInfo.typeToValues.integer}}
+        {{#each enumInfo.typeToValues.integer}}
+@typing.overload
+@classmethod
+def validate(
+    cls,
+    arg: typing_extensions.Literal[{{value}}],
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+) -> typing_extensions.Literal[{{value}}]: ...
+        {{/each}}
+@typing.overload
+@classmethod
+def validate(
+    cls,
+    arg: int,
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+) -> typing_extensions.Literal[{{#each enumInfo.typeToValues.integer}}{{value}},{{/each}}]: ...
+    {{else}}
+        {{! enum is not int type }}
+        {{#if includeNonEnum}}
+@typing.overload
+@classmethod
+def validate(
+    cls,
+    arg: int,
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+) -> int: ...
+        {{/if}}
+    {{/if}}
+{{else}}
+    {{! no enum }}
+    {{#if includeNonEnum}}
+@typing.overload
+@classmethod
+def validate(
+    cls,
+    arg: int,
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+) -> int: ...
+    {{/if}}
+{{/if}}

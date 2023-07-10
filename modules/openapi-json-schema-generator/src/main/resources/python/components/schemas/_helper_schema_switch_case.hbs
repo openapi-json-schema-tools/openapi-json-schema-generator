@@ -5,7 +5,7 @@
 {{> components/schemas/_helper_schema_composed_or_anytype }}
     {{else}}
         {{#eq types null }}
-            {{#or enumValueToName hasValidation items properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties format}}
+            {{#or enumInfo hasValidation items properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties format}}
 {{> components/schemas/_helper_schema_composed_or_anytype }}
             {{else}}
 {{> components/schemas/_helper_var_equals_cls }}
@@ -29,7 +29,7 @@
 {{> components/schemas/_helper_var_equals_cls }}
                             {{/or}}
                         {{else}}
-                            {{#or enumValueToName hasValidation defaultValue}}
+                            {{#or enumInfo hasValidation defaultValue}}
 {{> components/schemas/_helper_schema_simple }}
                             {{else}}
 {{> components/schemas/_helper_var_equals_cls }}

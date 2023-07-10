@@ -26,12 +26,44 @@ class ShapeType(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "Triangle": "TRIANGLE",
         }
     )
     enums = ShapeTypeEnums
+
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing_extensions.Literal["Triangle"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["Triangle"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal["Triangle",]: ...
+    @classmethod
+    def validate(
+        cls,
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal[
+        "Triangle",
+    ]:
+        validated_arg = super().validate(
+            arg,
+            configuration=configuration,
+        )
+        return typing.cast(typing_extensions.Literal[
+                "Triangle",
+            ],
+            validated_arg
+        )
 TriangleType: typing_extensions.TypeAlias = schemas.StrSchema
 Properties = typing_extensions.TypedDict(
     'Properties',
@@ -45,7 +77,7 @@ Properties = typing_extensions.TypedDict(
 class TriangleInterfaceDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def shapeType(self) -> str:
+    def shapeType(self) -> typing_extensions.Literal["Triangle"]:
         return self.__getitem__("shapeType")
     
     @property
@@ -53,7 +85,7 @@ class TriangleInterfaceDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES
         return self.__getitem__("triangleType")
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shapeType"]) -> str:
+    def __getitem__(self, name: typing_extensions.Literal["shapeType"]) -> typing_extensions.Literal["Triangle"]:
         ...
     
     @typing.overload

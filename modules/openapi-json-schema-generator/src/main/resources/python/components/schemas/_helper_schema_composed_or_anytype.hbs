@@ -30,9 +30,9 @@ class {{jsonPathPiece.camelCase}}(
 {{#if format}}
     format: str = '{{format}}'
 {{/if}}
-{{#if enumValueToName}}
+{{#if enumInfo}}
     {{> components/schemas/_helper_schema_enum }}
-    enums = {{enumValueToName.jsonPathPiece.camelCase}}
+    enums = {{enumInfo.valueToName.jsonPathPiece.camelCase}}
 {{/if}}
 {{#if items}}
     {{> components/schemas/_helper_list_partial }}

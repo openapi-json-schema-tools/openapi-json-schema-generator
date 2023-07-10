@@ -32,10 +32,22 @@ class Schema(
         int,
     })
     format: str = 'double'
-    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, bool, schemas.none_type_], str] = dataclasses.field(
+    enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             1.1: "POSITIVE_1_PT_1",
             -1.2: "NEGATIVE_1_PT_2",
         }
     )
     enums = SchemaEnums
+
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[int, float],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Union[float, int]:
+        validated_arg = super().validate(
+            arg,
+            configuration=configuration,
+        )
+        return validated_arg
