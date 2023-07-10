@@ -43,14 +43,13 @@ class ValidationMetadata:
     configuration: schema_configuration.SchemaConfiguration
     validated_path_to_schemas: typing.Mapping[
         typing.Tuple[typing.Union[str, int], ...],
-        typing.Mapping[typing.Type, None]
+        typing.Mapping[type, None]
     ] = dataclasses.field(default_factory=dict)
-    seen_classes: typing.FrozenSet[typing.Type] = frozenset()
+    seen_classes: typing.FrozenSet[type] = frozenset()
 
     def validation_ran_earlier(self, cls: type) -> bool:
-        validated_schemas = self.validated_path_to_schemas.get(self.path_to_item, set())
-        validation_ran_earlier = validated_schemas and cls in validated_schemas
-        if validation_ran_earlier:
+        validated_schemas: typing.Union[typing.Mapping[type, None], None] = self.validated_path_to_schemas.get(self.path_to_item)
+        if validated_schemas and cls in validated_schemas:
             return True
         if cls in self.seen_classes:
             return True
