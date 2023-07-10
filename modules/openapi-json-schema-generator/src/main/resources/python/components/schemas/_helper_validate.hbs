@@ -33,15 +33,7 @@ def validate(
 ) -> typing.Union[float, int]: ...
                             {{else}}
                                 {{#eq this "integer"}}
-@typing.overload
-@classmethod
-def validate(
-    {{> components/schemas/_helper_validate_args }}
-) -> {{#if ../enumInfo}}typing_extensions.Literal[
-        {{#each ../enumInfo.typeToValues.integer}}
-    {{value}},
-        {{/each}}
-]{{else}}int{{/if}}: ...
+{{> components/schemas/_helper_validate_int_overload includeNonEnum=true enumInfo=../enumInfo }}
                                 {{else}}
                                     {{#eq this "array"}}
 @typing.overload
@@ -69,26 +61,7 @@ def validate(
         {{! only one type }}
 {{> components/schemas/_helper_validate_str_overload includeNonEnum=false }}
 {{> components/schemas/_helper_validate_bool_overload includeNonEnum=false }}
-        {{#if enumInfo}}
-            {{#if enumInfo.typeToValues.integer}}
-                {{#each enumInfo.typeToValues.integer}}
-@typing.overload
-@classmethod
-def validate(
-    cls,
-    arg: typing_extensions.Literal[{{value}}],
-    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-) -> typing_extensions.Literal[{{value}}]: ...
-                {{/each}}
-@typing.overload
-@classmethod
-def validate(
-    cls,
-    arg: int,
-    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-) -> typing_extensions.Literal[{{#each enumInfo.typeToValues.integer}}{{value}},{{/each}}]: ...
-            {{/if}}
-        {{/if}}
+{{> components/schemas/_helper_validate_int_overload includeNonEnum=false }}
         {{! end of enum overloads }}
     {{/gt}}
 @classmethod
