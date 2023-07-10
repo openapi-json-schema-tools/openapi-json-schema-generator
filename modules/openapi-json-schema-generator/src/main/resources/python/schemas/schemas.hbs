@@ -16,12 +16,8 @@ from {{packageName}}.configurations import schema_configuration
 from . import schema, validation
 
 
-T = typing.TypeVar('T')
-U = typing.TypeVar('U')
-
-
 @dataclasses.dataclass(frozen=True)
-class ListSchema(schema.Schema[validation.immutabledict, U]):
+class ListSchema(schema.Schema[validation.immutabledict, schema.U]):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
 
     @classmethod
@@ -29,16 +25,16 @@ class ListSchema(schema.Schema[validation.immutabledict, U]):
         cls,
         arg: typing.Union[
             typing.Sequence[schema.INPUT_TYPES_ALL_INCL_SCHEMA],
-            U
+            schema.U
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> U:
+    ) -> schema.U:
         return super().validate(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
 class NoneSchema(schema.Schema):
-    types: typing.FrozenSet[typing.Type] = frozenset({schema.none_type_})
+    types: typing.FrozenSet[typing.Type] = frozenset({type(None)})
 
     @classmethod
     def validate(
@@ -369,16 +365,16 @@ OUTPUT_BASE_TYPES = typing.Union[
 
 
 @dataclasses.dataclass(frozen=True)
-class DictSchema(schema.Schema[T, typing.Tuple[OUTPUT_BASE_TYPES, ...]]):
+class DictSchema(schema.Schema[schema.T, typing.Tuple[OUTPUT_BASE_TYPES, ...]]):
     types: typing.FrozenSet[typing.Type] = frozenset({validation.immutabledict})
 
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: T,
+        arg: schema.T,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> T: ...
+    ) -> schema.T: ...
 
     @typing.overload
     @classmethod
@@ -386,14 +382,14 @@ class DictSchema(schema.Schema[T, typing.Tuple[OUTPUT_BASE_TYPES, ...]]):
         cls,
         arg: typing.Mapping[str, object],  # object needed as value type for typeddict inputs
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> T: ...
+    ) -> schema.T: ...
 
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-    ) -> T:
+    ) -> schema.T:
         if isinstance(arg, validation.immutabledict):
             # T use case
             return super().validate(arg, configuration=configuration)

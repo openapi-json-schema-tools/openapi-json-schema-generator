@@ -15,8 +15,9 @@ from petstore_api.configurations import schema_configuration
 from . import validation
 
 none_type_ = type(None)
-T = typing.TypeVar('T')
-U = typing.TypeVar('U')
+T = typing.TypeVar('T', bound=typing.Mapping)
+U = typing.TypeVar('U', bound=typing.Tuple)
+W = typing.TypeVar('W')
 
 
 class SchemaTyped:
@@ -72,12 +73,12 @@ class FileIO(io.FileIO):
         pass
 
 
-class classproperty(typing.Generic[T]):
-    def __init__(self, method: typing.Callable[..., T]):
+class classproperty(typing.Generic[W]):
+    def __init__(self, method: typing.Callable[..., W]):
         self.__method = method
         functools.update_wrapper(self, method) # type: ignore
 
-    def __get__(self, obj, cls=None) -> T:
+    def __get__(self, obj, cls=None) -> W:
         if cls is None:
             cls = type(obj)
         return self.__method(cls)
@@ -505,12 +506,6 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
     ) -> FileIO: ...
 
     @classmethod
-    def __get_type_to_output_cls(cls) -> typing.Optional[typing.Mapping[type, type]]:
-        type_to_output_cls = getattr(cls(), 'type_to_output_cls', None)
-        type_to_output_cls = typing.cast(typing.Optional[typing.Mapping[type, type]], type_to_output_cls)
-        return type_to_output_cls
-
-    @classmethod
     def validate(
         cls,
         arg,
@@ -548,6 +543,13 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
             validation_metadata.path_to_item,
             path_to_schemas,
         )
+
+    @classmethod
+    def __get_type_to_output_cls(cls) -> typing.Optional[typing.Mapping[type, type]]:
+        type_to_output_cls = getattr(cls(), 'type_to_output_cls', None)
+        type_to_output_cls = typing.cast(typing.Optional[typing.Mapping[type, type]], type_to_output_cls)
+        return type_to_output_cls
+
 
 def get_class(
     item_cls: typing.Union[types.FunctionType, staticmethod, typing.Type[Schema]],
