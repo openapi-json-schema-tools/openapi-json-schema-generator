@@ -4031,14 +4031,22 @@ public class DefaultCodegen implements CodegenConfig {
 
             String usedName = toEnumVarName(enumName, schema);
             EnumValue enumValue = getEnumValue(value, description);
-            if (types!=null && !types.contains(enumValue.type)) {
+            boolean typeIsInteger = enumValue.type.equals("integer");
+            boolean intIsNumberUseCase = (typeIsInteger && types!=null && types.contains("number"));
+            if (types!=null && !types.contains(enumValue.type) && !intIsNumberUseCase) {
                 throw new RuntimeException("Enum value's type is not allowed by schema types for value="+enumValue.value+" types="+types + " jsonPath="+currentJsonPath);
             }
             enumValueToName.put(enumValue, usedName);
             if (!typeToValues.containsKey(enumValue.type)) {
                 typeToValues.put(enumValue.type, new ArrayList<>());
             }
+            if (typeIsInteger && !typeToValues.containsKey("number")) {
+                typeToValues.put("number", new ArrayList<>());
+            }
             typeToValues.get(enumValue.type).add(enumValue);
+            if (typeIsInteger) {
+                typeToValues.get("number").add(enumValue);
+            }
 
             if (!enumNameToValue.containsKey(usedName)) {
                 enumNameToValue.put(usedName, enumValue);

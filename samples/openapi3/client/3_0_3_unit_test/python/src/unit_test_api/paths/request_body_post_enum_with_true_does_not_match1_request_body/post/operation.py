@@ -32,7 +32,7 @@ class BaseApi(api_client.Api):
     def _post_enum_with_true_does_not_match1_request_body(
         self,
         body: typing.Union[
-            bool,
+            typing_extensions.Literal[True],
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
@@ -45,7 +45,7 @@ class BaseApi(api_client.Api):
     def _post_enum_with_true_does_not_match1_request_body(
         self,
         body: typing.Union[
-            bool,
+            typing_extensions.Literal[True],
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
@@ -57,7 +57,7 @@ class BaseApi(api_client.Api):
     def _post_enum_with_true_does_not_match1_request_body(
         self,
         body: typing.Union[
-            bool,
+            typing_extensions.Literal[True],
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,

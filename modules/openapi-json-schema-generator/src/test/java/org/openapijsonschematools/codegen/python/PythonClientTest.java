@@ -230,7 +230,7 @@ public class PythonClientTest {
 
         codegen.postProcessModels(schemas);
 
-        Map<EnumValue, String> enumVars = cm.enumValueToName;
+        Map<EnumValue, String> enumVars = cm.enumInfo.valueToName;
         Assert.assertEquals(enumVars.size(), 2);
         Assert.assertEquals(enumVars.get(new EnumValue("#367B9C", "string", null)), "NUMBER_SIGN_367B9C");
         Assert.assertEquals(enumVars.get(new EnumValue("#FFA5A4", "string", null)), "NUMBER_SIGN_FFA5A4");

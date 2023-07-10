@@ -32,7 +32,7 @@ class BaseApi(api_client.Api):
     def _post_enum_with_escaped_characters_request_body(
         self,
         body: typing.Union[
-            str,
+            typing_extensions.Literal["foo\nbar", "foo\rbar"],
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
@@ -45,7 +45,7 @@ class BaseApi(api_client.Api):
     def _post_enum_with_escaped_characters_request_body(
         self,
         body: typing.Union[
-            str,
+            typing_extensions.Literal["foo\nbar", "foo\rbar"],
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
@@ -57,7 +57,7 @@ class BaseApi(api_client.Api):
     def _post_enum_with_escaped_characters_request_body(
         self,
         body: typing.Union[
-            str,
+            typing_extensions.Literal["foo\nbar", "foo\rbar"],
         ],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
