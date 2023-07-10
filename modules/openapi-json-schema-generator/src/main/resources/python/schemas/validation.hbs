@@ -644,7 +644,7 @@ def __validate_string_format(
             )
     elif format_value == 'date':
         try:
-            format.DEFAULT_ISOPARSER.parse_isodate(arg)
+            format.DEFAULT_ISOPARSER.parse_isodate_str(arg)
             return None
         except ValueError:
             raise exceptions.ApiValueError(
