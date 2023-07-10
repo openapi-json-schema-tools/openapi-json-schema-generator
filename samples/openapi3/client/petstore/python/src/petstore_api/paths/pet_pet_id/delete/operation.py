@@ -250,7 +250,7 @@ class BaseApi(api_client.Api):
         path_params = PathParameters.validate(path_params)
         if header_params is not None:
             header_params = HeaderParameters.validate(header_params)
-        used_path = self._get_used_path(
+        used_path, query_params_suffix = self._get_used_path(
             path,
             path_parameters=path_parameter_classes,
             path_params=path_params

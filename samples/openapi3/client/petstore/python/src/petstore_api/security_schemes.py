@@ -40,6 +40,7 @@ class __SecuritySchemeBase(metaclass=abc.ABCMeta):
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
+        query_params_suffix: typing.Optional[str],
         scope_names: typing.Tuple[str, ...] = (),
     ) -> None:
         pass
@@ -58,6 +59,7 @@ class ApiKeySecurityScheme(__SecuritySchemeBase, abc.ABC):
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
+        query_params_suffix: typing.Optional[str],
         scope_names: typing.Tuple[str, ...] = (),
     ) -> None:
         if self.in_location is ApiKeyInLocation.COOKIE:
@@ -94,6 +96,7 @@ class HTTPBasicSecurityScheme(__SecuritySchemeBase):
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
+        query_params_suffix: typing.Optional[str],
         scope_names: typing.Tuple[str, ...] = (),
     ) -> None:
         user_pass = f"{self.user_id}:{self.password}"
@@ -114,6 +117,7 @@ class HTTPBearerSecurityScheme(__SecuritySchemeBase):
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
+        query_params_suffix: typing.Optional[str],
         scope_names: typing.Tuple[str, ...] = (),
     ) -> None:
         headers.add('Authorization', f"Bearer {self.access_token}")
@@ -131,11 +135,11 @@ class HTTPSignatureSecurityScheme(__SecuritySchemeBase):
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
+        query_params_suffix: typing.Optional[str],
         scope_names: typing.Tuple[str, ...] = (),
     ) -> None:
-        query_params = tuple()
         auth_headers = self.signing_info.get_http_signature_headers(
-                            resource_path, method, headers, body, query_params)
+                            resource_path, method, headers, body, query_params_suffix)
         for key, value in auth_headers.items():
             headers.add(key, value)
 
@@ -151,6 +155,7 @@ class HTTPDigestSecurityScheme(__SecuritySchemeBase):
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
+        query_params_suffix: typing.Optional[str],
         scope_names: typing.Tuple[str, ...] = (),
     ) -> None:
         raise NotImplementedError("HTTPDigestSecurityScheme not yet implemented")
@@ -166,6 +171,7 @@ class MutualTLSSecurityScheme(__SecuritySchemeBase):
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
+        query_params_suffix: typing.Optional[str],
         scope_names: typing.Tuple[str, ...] = (),
     ) -> None:
         raise NotImplementedError("MutualTLSSecurityScheme not yet implemented")
@@ -211,6 +217,7 @@ class OAuth2SecurityScheme(__SecuritySchemeBase, abc.ABC):
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
+        query_params_suffix: typing.Optional[str],
         scope_names: typing.Tuple[str, ...] = (),
     ) -> None:
         raise NotImplementedError("OAuth2SecurityScheme not yet implemented")
@@ -226,6 +233,7 @@ class OpenIdConnectSecurityScheme(__SecuritySchemeBase, abc.ABC):
         resource_path: str,
         method: str,
         body: typing.Optional[typing.Union[str, bytes]],
+        query_params_suffix: typing.Optional[str],
         scope_names: typing.Tuple[str, ...] = (),
     ) -> None:
         raise NotImplementedError("OpenIdConnectSecurityScheme not yet implemented")

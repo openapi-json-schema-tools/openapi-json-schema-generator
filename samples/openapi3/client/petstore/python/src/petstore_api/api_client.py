@@ -968,6 +968,7 @@ class ApiClient:
         resource_path: str,
         method: str,
         host: str,
+        query_params_suffix: typing.Optional[str] = None,
         headers: typing.Optional[_collections.HTTPHeaderDict] = None,
         body: typing.Union[str, bytes, None] = None,
         fields: typing.Optional[typing.Tuple[rest.RequestField, ...]] = None,
@@ -1013,7 +1014,8 @@ class ApiClient:
             security_requirement_object,
             resource_path,
             method,
-            body
+            body,
+            query_params_suffix
         )
 
         # must happen after auth setting in case user is overriding those
@@ -1021,7 +1023,7 @@ class ApiClient:
             used_headers.update(headers)
 
         # request url
-        url = host + resource_path
+        url = host + resource_path + query_params_suffix
 
         # perform request and return response
         response = self.request(
@@ -1102,7 +1104,8 @@ class ApiClient:
         security_requirement_object: typing.Optional[security_schemes.SecurityRequirementObject],
         resource_path: str,
         method: str,
-        body: typing.Union[str, bytes, None] = None
+        body: typing.Union[str, bytes, None] = None,
+        query_params_suffix: typing.Optional[str] = None
     ):
         """Updates header and query params based on authentication setting.
 
@@ -1123,6 +1126,7 @@ class ApiClient:
                 resource_path,
                 method,
                 body,
+                query_params_suffix,
                 scope_names
             )
 
@@ -1143,7 +1147,7 @@ class Api:
         query_parameters: typing.Tuple[typing.Type[QueryParameter], ...] = (),
         query_params: typing.Optional[typing.Mapping[str, schemas.OUTPUT_BASE_TYPES]] = None,
         skip_validation: bool = False
-    ) -> str:
+    ) -> typing.Tuple[str, str]:
         used_path_params = {}
         if path_params is not None:
             for parameter in path_parameters:
@@ -1157,6 +1161,7 @@ class Api:
         for k, v in used_path_params.items():
             used_path = used_path.replace('{%s}' % k, v)
 
+        query_params_suffix = ""
         if query_params is not None:
             prefix_separator_iterator = None
             for parameter in query_parameters:
@@ -1169,8 +1174,8 @@ class Api:
                 serialized_data = parameter.serialize(
                     parameter_data, prefix_separator_iterator, skip_validation=skip_validation)
                 for serialized_value in serialized_data.values():
-                    used_path += serialized_value
-        return used_path
+                    query_params_suffix += serialized_value
+        return used_path, query_params_suffix
 
     @staticmethod
     def _get_headers(

@@ -602,7 +602,7 @@ class BaseApi(api_client.Api):
             header_params = HeaderParameters.validate(header_params)
         if cookie_params is not None:
             cookie_params = CookieParameters.validate(cookie_params)
-        used_path = self._get_used_path(
+        used_path, query_params_suffix = self._get_used_path(
             path,
             path_parameters=path_parameter_classes,
             path_params=path_params,
@@ -629,6 +629,7 @@ class BaseApi(api_client.Api):
 
         raw_response = self.api_client.call_api(
             resource_path=used_path,
+            query_params_suffix=query_params_suffix,
             method='post',
             host=host,
             headers=_headers,

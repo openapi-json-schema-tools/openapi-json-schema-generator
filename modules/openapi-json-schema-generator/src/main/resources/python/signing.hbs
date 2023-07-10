@@ -11,6 +11,7 @@ import json
 import os
 import re
 from time import time
+import typing
 from urllib.parse import urlencode, urlparse
 
 # The constants below define a subset of HTTP headers that can be included in the
@@ -171,7 +172,7 @@ class HttpSigningConfiguration(object):
         """
         self._load_private_key()
 
-    def get_http_signature_headers(self, resource_path, method, headers, body, query_params):
+    def get_http_signature_headers(self, resource_path, method, headers, body, query_params: typing.Optional[str]):
         """Create a cryptographic message signature for the HTTP request and add the signed headers.
 
         :param resource_path : A string representation of the HTTP request resource path.
@@ -255,7 +256,7 @@ class HttpSigningConfiguration(object):
                         "Signing algorithm {0} is not compatible with private key".format(
                             self.signing_algorithm))
 
-    def _get_signed_header_info(self, resource_path, method, headers, body, query_params):
+    def _get_signed_header_info(self, resource_path, method, headers, body, query_params: typing.Optional[str]):
         """Build the HTTP headers (name, value) that need to be included in
         the HTTP signature scheme.
 
@@ -281,7 +282,7 @@ class HttpSigningConfiguration(object):
         target_path = urlparse(self.host).path
         request_target = method.lower() + " " + target_path + resource_path
         if query_params:
-            request_target += "?" + urlencode(query_params)
+            request_target += query_params
 
         # Get UNIX time, e.g. seconds since epoch, not including leap seconds.
         now = time()

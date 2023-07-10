@@ -222,7 +222,7 @@ class BaseApi(api_client.Api):
         """
         if query_params is not None:
             query_params = QueryParameters.validate(query_params)
-        used_path = self._get_used_path(
+        used_path, query_params_suffix = self._get_used_path(
             path,
             query_parameters=query_parameter_classes,
             query_params=query_params
@@ -242,6 +242,7 @@ class BaseApi(api_client.Api):
 
         raw_response = self.api_client.call_api(
             resource_path=used_path,
+            query_params_suffix=query_params_suffix,
             method='post',
             host=host,
             headers=_headers,

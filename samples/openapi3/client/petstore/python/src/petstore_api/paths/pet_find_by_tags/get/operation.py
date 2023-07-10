@@ -169,7 +169,7 @@ class BaseApi(api_client.Api):
             class instances
         """
         query_params = QueryParameters.validate(query_params)
-        used_path = self._get_used_path(
+        used_path, query_params_suffix = self._get_used_path(
             path,
             query_parameters=query_parameter_classes,
             query_params=query_params
@@ -186,6 +186,7 @@ class BaseApi(api_client.Api):
 
         raw_response = self.api_client.call_api(
             resource_path=used_path,
+            query_params_suffix=query_params_suffix,
             method='get',
             host=host,
             security_requirement_object=security_requirement_object,

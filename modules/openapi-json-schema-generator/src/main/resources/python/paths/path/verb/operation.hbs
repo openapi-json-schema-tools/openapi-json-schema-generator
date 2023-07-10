@@ -250,7 +250,7 @@ class BaseApi(api_client.Api):
         {{/if}}
     {{/if}}
     {{#or pathParams queryParams}}
-        used_path = self._get_used_path(
+        used_path, query_params_suffix = self._get_used_path(
             path,
         {{#if pathParams}}
             path_parameters=path_parameter_classes,
@@ -327,6 +327,9 @@ class BaseApi(api_client.Api):
 
         raw_response = self.api_client.call_api(
             resource_path=used_path,
+    {{#if queryParams}}
+            query_params_suffix=query_params_suffix,
+    {{/if}}
             method='{{httpMethod.original}}',
             host=host,
     {{#or headerParams requestBody produces}}

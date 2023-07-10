@@ -169,7 +169,7 @@ class BaseApi(api_client.Api):
             class instances
         """
         path_params = PathParameters.validate(path_params)
-        used_path = self._get_used_path(
+        used_path, query_params_suffix = self._get_used_path(
             path,
             path_parameters=path_parameter_classes,
             path_params=path_params
