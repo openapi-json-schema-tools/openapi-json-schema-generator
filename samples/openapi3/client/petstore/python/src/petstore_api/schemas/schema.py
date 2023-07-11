@@ -466,10 +466,23 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
     @classmethod
     def validate_base(
         cls,
-        arg: typing.Union[
-            typing.Sequence[INPUT_TYPES_ALL_INCL_SCHEMA],
-            U
-        ],
+        arg: typing.List[INPUT_TYPES_ALL_INCL_SCHEMA],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> U: ...
+
+    @typing.overload
+    @classmethod
+    def validate_base(
+        cls,
+        arg: typing.Tuple[INPUT_TYPES_ALL_INCL_SCHEMA, ...],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> U: ...
+
+    @typing.overload
+    @classmethod
+    def validate_base(
+        cls,
+        arg: U,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> U: ...
 
@@ -649,10 +662,23 @@ class AnyTypeSchema(Schema[T, U]):
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[
-            typing.Sequence[INPUT_TYPES_ALL_INCL_SCHEMA],
-            U
-        ],
+        arg: typing.List[INPUT_TYPES_ALL_INCL_SCHEMA],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> U: ...
+
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Tuple[INPUT_TYPES_ALL_INCL_SCHEMA, ...],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> U: ...
+
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: U,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> U: ...
 

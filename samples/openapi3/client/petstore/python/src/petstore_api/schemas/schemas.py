@@ -25,13 +25,33 @@ from . import schema, validation
 class ListSchema(schema.Schema[validation.immutabledict, schema.U]):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
 
+    @typing.overload
     @classmethod
     def validate(
         cls,
         arg: typing.Union[
-            typing.Sequence[schema.INPUT_TYPES_ALL_INCL_SCHEMA],
+            typing.List[schema.INPUT_TYPES_ALL_INCL_SCHEMA],
             schema.U
         ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> schema.U: ...
+
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[
+            typing.Tuple[schema.INPUT_TYPES_ALL_INCL_SCHEMA, ...],
+            schema.U
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> schema.U: ...
+
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> schema.U:
         return super().validate_base(arg, configuration=configuration)
