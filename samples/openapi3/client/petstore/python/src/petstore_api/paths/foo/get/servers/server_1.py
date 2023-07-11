@@ -115,7 +115,7 @@ VariablesDictInput = typing_extensions.TypedDict(
 
 @dataclasses.dataclass(frozen=True)
 class Variables(
-    schemas.Schema[VariablesDict, typing.Tuple]
+    schemas.Schema[VariablesDict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({

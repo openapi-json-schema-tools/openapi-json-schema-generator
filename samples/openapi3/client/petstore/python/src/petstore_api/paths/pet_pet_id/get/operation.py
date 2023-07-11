@@ -61,7 +61,7 @@ PathParametersDictInput = typing_extensions.TypedDict(
 
 @dataclasses.dataclass(frozen=True)
 class PathParameters(
-    schemas.Schema[PathParametersDict, typing.Tuple]
+    schemas.Schema[PathParametersDict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({

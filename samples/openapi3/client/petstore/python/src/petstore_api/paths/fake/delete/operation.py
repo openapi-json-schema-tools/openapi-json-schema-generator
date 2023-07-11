@@ -102,7 +102,7 @@ class QueryParametersDictInput(QueryParametersRequiredDictInput, QueryParameters
 
 @dataclasses.dataclass(frozen=True)
 class QueryParameters(
-    schemas.Schema[QueryParametersDict, typing.Tuple]
+    schemas.Schema[QueryParametersDict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
@@ -195,7 +195,7 @@ class HeaderParametersDictInput(HeaderParametersRequiredDictInput, HeaderParamet
 
 @dataclasses.dataclass(frozen=True)
 class HeaderParameters(
-    schemas.Schema[HeaderParametersDict, typing.Tuple]
+    schemas.Schema[HeaderParametersDict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({

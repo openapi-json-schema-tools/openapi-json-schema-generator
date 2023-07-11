@@ -323,7 +323,7 @@ OUTPUT_BASE_TYPES = typing.Union[
 
 
 @dataclasses.dataclass(frozen=True)
-class DictSchema(schema.Schema[schema.validation.immutabledict[str, OUTPUT_BASE_TYPES], typing.Tuple[OUTPUT_BASE_TYPES, ...]]):
+class DictSchema(schema.Schema[schema.validation.immutabledict[str, OUTPUT_BASE_TYPES], tuple]):
     types: typing.FrozenSet[typing.Type] = frozenset({validation.immutabledict})
 
     @typing.overload

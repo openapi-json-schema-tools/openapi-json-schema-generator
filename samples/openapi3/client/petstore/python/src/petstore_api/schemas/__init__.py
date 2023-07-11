@@ -58,16 +58,14 @@ from .format import (
     as_uuid_
 )
 
-W = typing.TypeVar('W', bound=typing_extensions.TypedDict)
-
-def typed_dict_to_instance(t_dict: typing.Type[W]) -> W:
+def typed_dict_to_instance(t_dict: typing_extensions._TypedDictMeta) -> typing.Mapping: # type: ignore
     res = {}
     for key, val in t_dict.__annotations__.items():
         if isinstance(val, typing._GenericAlias): # type: ignore
             # typing.Type[W] -> W
             val_cls = typing_extensions.get_args(val)[0]
             res[key] = val_cls
-    return res # type: ignore
+    return res
 
 X = typing.TypeVar('X', bound=typing.Tuple)
 

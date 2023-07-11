@@ -328,7 +328,7 @@ OUTPUT_BASE_TYPES = typing.Union[
 
 
 @dataclasses.dataclass(frozen=True)
-class DictSchema(schema.Schema[schema.validation.immutabledict[str, OUTPUT_BASE_TYPES], typing.Tuple[OUTPUT_BASE_TYPES, ...]]):
+class DictSchema(schema.Schema[schema.validation.immutabledict[str, OUTPUT_BASE_TYPES], tuple]):
     types: typing.FrozenSet[typing.Type] = frozenset({validation.immutabledict})
 
     @typing.overload
@@ -343,7 +343,7 @@ class DictSchema(schema.Schema[schema.validation.immutabledict[str, OUTPUT_BASE_
     @classmethod
     def validate(
         cls,
-        arg: typing.Mapping[str, schema.INPUT_TYPES_ALL_INCL_SCHEMA],  # object needed as value type for typeddict inputs
+        arg: typing.Mapping[str, schema.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> schema.validation.immutabledict[str, OUTPUT_BASE_TYPES]: ...
 
