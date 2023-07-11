@@ -93,7 +93,7 @@ class ObjectWithInlineCompositionProperty(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithInlineCompositionPropertyDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

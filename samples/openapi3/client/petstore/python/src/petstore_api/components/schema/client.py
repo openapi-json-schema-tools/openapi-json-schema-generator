@@ -72,7 +72,7 @@ class Client(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ClientDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

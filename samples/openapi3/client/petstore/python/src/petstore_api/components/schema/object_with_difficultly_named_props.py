@@ -91,7 +91,7 @@ class ObjectWithDifficultlyNamedProps(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithDifficultlyNamedPropsDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

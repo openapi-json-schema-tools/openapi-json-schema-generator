@@ -408,7 +408,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
 
     @typing.overload
     @classmethod
-    def validate_base_(
+    def validate_base(
         cls,
         arg: None,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
@@ -416,7 +416,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
 
     @typing.overload
     @classmethod
-    def validate_base_(
+    def validate_base(
         cls,
         arg: typing_extensions.Literal[True],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
@@ -424,7 +424,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
 
     @typing.overload
     @classmethod
-    def validate_base_(
+    def validate_base(
         cls,
         arg: typing_extensions.Literal[False],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
@@ -432,7 +432,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
 
     @typing.overload
     @classmethod
-    def validate_base_(
+    def validate_base(
         cls,
         arg: bool,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
@@ -440,7 +440,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
 
     @typing.overload
     @classmethod
-    def validate_base_(
+    def validate_base(
         cls,
         arg: int,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
@@ -448,7 +448,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
 
     @typing.overload
     @classmethod
-    def validate_base_(
+    def validate_base(
         cls,
         arg: float,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
@@ -456,7 +456,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
 
     @typing.overload
     @classmethod
-    def validate_base_(
+    def validate_base(
         cls,
         arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
@@ -464,7 +464,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
 
     @typing.overload
     @classmethod
-    def validate_base_(
+    def validate_base(
         cls,
         arg: typing.Union[
             typing.Sequence[INPUT_TYPES_ALL_INCL_SCHEMA],
@@ -475,7 +475,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
 
     @typing.overload
     @classmethod
-    def validate_base_(
+    def validate_base(
         cls,
         arg: typing.Union[
             typing.Mapping[str, INPUT_TYPES_ALL_INCL_SCHEMA],
@@ -486,7 +486,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
 
     @typing.overload
     @classmethod
-    def validate_base_(
+    def validate_base(
         cls,
         arg: bytes,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
@@ -494,7 +494,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
 
     @typing.overload
     @classmethod
-    def validate_base_(
+    def validate_base(
         cls,
         arg: typing.Union[io.FileIO, FileIO],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
@@ -502,20 +502,20 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
 
     @typing.overload
     @classmethod
-    def validate_base_(
+    def validate_base(
         cls,
         arg: io.BufferedReader,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> FileIO: ...
 
     @classmethod
-    def validate_base_(
+    def validate_base(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         """
-        Schema validate_base_
+        Schema validate_base
 
         Args:
             arg (int/float/str/list/tuple/dict/validation.immutabledict/bool/None): the value
@@ -689,7 +689,7 @@ class AnyTypeSchema(Schema[T, U]):
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
-        return cls.validate_base_(
+        return cls.validate_base(
             arg,
             configuration=configuration
         )

@@ -79,7 +79,7 @@ class ReadOnlyFirst(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ReadOnlyFirstDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

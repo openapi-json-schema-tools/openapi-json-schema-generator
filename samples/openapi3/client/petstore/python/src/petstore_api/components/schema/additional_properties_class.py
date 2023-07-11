@@ -51,7 +51,7 @@ class MapProperty(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapPropertyDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -97,7 +97,7 @@ class AdditionalProperties2(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -146,7 +146,7 @@ class MapOfMapProperty(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapOfMapPropertyDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -192,7 +192,7 @@ class MapWithUndeclaredPropertiesAnytype3(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapWithUndeclaredPropertiesAnytype3Dict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -233,7 +233,7 @@ class EmptyMap(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> EmptyMapDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -279,7 +279,7 @@ class MapWithUndeclaredPropertiesString(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapWithUndeclaredPropertiesStringDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -387,7 +387,7 @@ class AdditionalPropertiesClass(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesClassDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

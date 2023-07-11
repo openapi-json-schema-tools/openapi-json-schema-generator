@@ -82,7 +82,7 @@ class Items(
         "pending",
         "sold",
     ]:
-        validated_arg = super().validate_base_(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -130,7 +130,7 @@ class Schema(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> SchemaTuple:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

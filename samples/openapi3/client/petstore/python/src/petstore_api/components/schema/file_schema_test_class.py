@@ -53,7 +53,7 @@ class Files(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> FilesTuple:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -124,7 +124,7 @@ class FileSchemaTestClass(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> FileSchemaTestClassDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

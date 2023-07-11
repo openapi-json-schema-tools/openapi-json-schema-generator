@@ -50,7 +50,7 @@ class PhotoUrls(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> PhotoUrlsTuple:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -125,7 +125,7 @@ class Status(
         "pending",
         "sold",
     ]:
-        validated_arg = super().validate_base_(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -180,7 +180,7 @@ class Tags(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> TagsTuple:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -289,7 +289,7 @@ class Pet(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> PetDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

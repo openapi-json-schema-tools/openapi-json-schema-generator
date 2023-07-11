@@ -51,7 +51,7 @@ class ArrayNumber(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayNumberTuple:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -116,7 +116,7 @@ class ArrayOfNumberOnly(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayOfNumberOnlyDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

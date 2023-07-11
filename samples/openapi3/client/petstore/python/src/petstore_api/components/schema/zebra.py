@@ -82,7 +82,7 @@ class Type(
         "mountain",
         "grevys",
     ]:
-        validated_arg = super().validate_base_(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -138,7 +138,7 @@ class ClassName(
     ) -> typing_extensions.Literal[
         "zebra",
     ]:
-        validated_arg = super().validate_base_(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -223,7 +223,7 @@ class Zebra(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ZebraDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

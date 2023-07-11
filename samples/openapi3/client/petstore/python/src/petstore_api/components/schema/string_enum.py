@@ -131,7 +131,7 @@ class StringEnum(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        validated_arg = super().validate_base_(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )

@@ -89,7 +89,7 @@ class ObjectModelWithRefProps(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectModelWithRefPropsDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

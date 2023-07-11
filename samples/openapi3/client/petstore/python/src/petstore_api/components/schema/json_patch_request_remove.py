@@ -57,7 +57,7 @@ class Op(
     ) -> typing_extensions.Literal[
         "remove",
     ]:
-        validated_arg = super().validate_base_(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -148,7 +148,7 @@ class JSONPatchRequestRemove(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> JSONPatchRequestRemoveDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

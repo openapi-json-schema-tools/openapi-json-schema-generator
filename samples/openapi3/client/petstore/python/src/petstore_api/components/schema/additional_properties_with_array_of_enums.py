@@ -49,7 +49,7 @@ class AdditionalProperties(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesTuple:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -102,7 +102,7 @@ class AdditionalPropertiesWithArrayOfEnums(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesWithArrayOfEnumsDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

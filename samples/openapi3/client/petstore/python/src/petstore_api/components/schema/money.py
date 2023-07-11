@@ -98,7 +98,7 @@ class Money(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MoneyDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

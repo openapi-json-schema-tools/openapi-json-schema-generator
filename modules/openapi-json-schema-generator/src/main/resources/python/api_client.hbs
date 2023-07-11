@@ -445,7 +445,7 @@ class PathParameter(ParameterBase, StyleSimpleSerializer):
         skip_validation: bool = False
     ) -> typing.Dict[str, str]:
         if cls.schema:
-            cast_in_data = in_data if skip_validation else cls.schema.validate(in_data)
+            cast_in_data = in_data if skip_validation else cls.schema.validate_base(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             """
             simple -> path
@@ -466,7 +466,7 @@ class PathParameter(ParameterBase, StyleSimpleSerializer):
         assert cls.content is not None
         for content_type, media_type in cls.content.items():
             assert media_type.schema is not None
-            cast_in_data = in_data if skip_validation else media_type.schema.validate(in_data)
+            cast_in_data = in_data if skip_validation else media_type.schema.validate_base(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             if cls._content_type_is_json(content_type):
                 value = cls._serialize_json(cast_in_data)
@@ -559,7 +559,7 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
         skip_validation: bool = False
     ) -> typing.Dict[str, str]:
         if cls.schema:
-            cast_in_data = in_data if skip_validation else cls.schema.validate(in_data)
+            cast_in_data = in_data if skip_validation else cls.schema.validate_base(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             """
             form -> query
@@ -588,7 +588,7 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
         assert cls.content is not None
         for content_type, media_type in cls.content.items():
             assert media_type.schema is not None
-            cast_in_data = in_data if skip_validation else media_type.schema.validate(in_data)
+            cast_in_data = in_data if skip_validation else media_type.schema.validate_base(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             if cls._content_type_is_json(content_type):
                 value = cls._serialize_json(cast_in_data, eliminate_whitespace=True)
@@ -619,7 +619,7 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
         skip_validation: bool = False
     ) -> typing.Dict[str, str]:
         if cls.schema:
-            cast_in_data = in_data if skip_validation else cls.schema.validate(in_data)
+            cast_in_data = in_data if skip_validation else cls.schema.validate_base(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             """
             form -> cookie
@@ -642,7 +642,7 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
         assert cls.content is not None
         for content_type, media_type in cls.content.items():
             assert media_type.schema is not None
-            cast_in_data = in_data if skip_validation else media_type.schema.validate(in_data)
+            cast_in_data = in_data if skip_validation else media_type.schema.validate_base(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             if cls._content_type_is_json(content_type):
                 value = cls._serialize_json(cast_in_data)
@@ -675,7 +675,7 @@ class __HeaderParameterBase(ParameterBase, StyleSimpleSerializer):
         skip_validation: bool = False
     ) -> _collections.HTTPHeaderDict:
         if cls.schema:
-            cast_in_data = in_data if skip_validation else cls.schema.validate(in_data)
+            cast_in_data = in_data if skip_validation else cls.schema.validate_base(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             """
             simple -> header
@@ -688,7 +688,7 @@ class __HeaderParameterBase(ParameterBase, StyleSimpleSerializer):
         assert cls.content is not None
         for content_type, media_type in cls.content.items():
             assert media_type.schema is not None
-            cast_in_data = in_data if skip_validation else media_type.schema.validate(in_data)
+            cast_in_data = in_data if skip_validation else media_type.schema.validate_base(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             if cls._content_type_is_json(content_type):
                 value = cls._serialize_json(cast_in_data)
@@ -711,13 +711,13 @@ class __HeaderParameterBase(ParameterBase, StyleSimpleSerializer):
             """
             if cls.style:
                 extracted_data = cls._deserialize_simple(in_data, name, cls.explode, False)
-                return cls.schema.validate(extracted_data)
+                return cls.schema.validate_base(extracted_data)
         assert cls.content is not None
         for content_type, media_type in cls.content.items():
             if cls._content_type_is_json(content_type):
                 cast_in_data: typing.Union[dict, list, None, int, float, str] = json.loads(in_data)
                 assert media_type.schema is not None
-                return media_type.schema.validate(cast_in_data)
+                return media_type.schema.validate_base(cast_in_data)
             else:
                 raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
         raise ValueError('Invalid value for content, it was empty and must have 1 key value pair')
@@ -859,7 +859,7 @@ class OpenApiResponse(JSONDetector, typing.Generic[T]):
                     continue
                 header_value = header_param.deserialize(header_value, header_name)
                 deserialized_headers[header_name] = header_value
-            deserialized_headers = cls.headers_schema.validate(deserialized_headers, configuration=configuration)
+            deserialized_headers = cls.headers_schema.validate_base(deserialized_headers, configuration=configuration)
 
         if cls.content is not None:
             if content_type not in cls.content:
@@ -887,9 +887,9 @@ class OpenApiResponse(JSONDetector, typing.Generic[T]):
                 raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
             body_schema = schemas.get_class(body_schema)
             if body_schema is schemas.BinarySchema:
-                deserialized_body = body_schema.validate(body_data)
+                deserialized_body = body_schema.validate_base(body_data)
             else:
-                deserialized_body = body_schema.validate(
+                deserialized_body = body_schema.validate_base(
                     body_data, configuration=configuration)
         elif streamed:
             response.release_conn()
@@ -1367,7 +1367,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         media_type = cls.content[content_type]
         assert media_type.schema is not None
         schema = schemas.get_class(media_type.schema)
-        cast_in_data = schema.validate(in_data)
+        cast_in_data = schema.validate_base(in_data)
         # TODO check for and use encoding if it exists
         # and content_type is multipart or application/x-www-form-urlencoded
         if cls._content_type_is_json(content_type):

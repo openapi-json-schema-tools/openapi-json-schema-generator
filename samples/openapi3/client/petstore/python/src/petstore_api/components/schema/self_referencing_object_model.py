@@ -87,7 +87,7 @@ class SelfReferencingObjectModel(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> SelfReferencingObjectModelDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

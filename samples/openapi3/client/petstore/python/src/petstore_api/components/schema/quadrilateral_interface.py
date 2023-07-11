@@ -55,7 +55,7 @@ class ShapeType(
     ) -> typing_extensions.Literal[
         "Quadrilateral",
     ]:
-        validated_arg = super().validate_base_(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )

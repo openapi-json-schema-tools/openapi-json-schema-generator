@@ -84,7 +84,7 @@ class ObjectWithInvalidNamedRefedProperties(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithInvalidNamedRefedPropertiesDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

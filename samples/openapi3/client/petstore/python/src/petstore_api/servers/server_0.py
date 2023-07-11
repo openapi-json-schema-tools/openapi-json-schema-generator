@@ -79,7 +79,7 @@ class Server(
         "qa-petstore",
         "dev-petstore",
     ]:
-        validated_arg = super().validate_base_(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -149,7 +149,7 @@ class Port(
         "80",
         "8080",
     ]:
-        validated_arg = super().validate_base_(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -236,7 +236,7 @@ class Variables(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> VariablesDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

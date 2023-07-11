@@ -130,7 +130,7 @@ class QueryParameters(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> QueryParametersDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -222,7 +222,7 @@ class HeaderParameters(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> HeaderParametersDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -336,7 +336,7 @@ class PathParameters(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> PathParametersDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -436,7 +436,7 @@ class CookieParameters(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> CookieParametersDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

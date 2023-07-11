@@ -68,7 +68,7 @@ class Shapes(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ShapesTuple:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -230,7 +230,7 @@ class Drawing(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> DrawingDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

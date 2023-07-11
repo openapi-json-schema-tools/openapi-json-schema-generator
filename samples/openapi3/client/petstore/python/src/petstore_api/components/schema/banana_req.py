@@ -103,7 +103,7 @@ class BananaReq(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> BananaReqDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

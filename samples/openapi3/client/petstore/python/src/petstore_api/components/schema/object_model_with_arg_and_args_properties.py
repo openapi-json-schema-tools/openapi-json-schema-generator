@@ -91,7 +91,7 @@ class ObjectModelWithArgAndArgsProperties(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectModelWithArgAndArgsPropertiesDict:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

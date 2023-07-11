@@ -36,7 +36,7 @@ class ComposedBool(
         arg: bool,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> bool:
-        return super().validate_base_(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
