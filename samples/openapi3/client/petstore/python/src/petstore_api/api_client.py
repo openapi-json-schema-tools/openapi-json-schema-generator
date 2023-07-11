@@ -818,13 +818,13 @@ class OpenApiResponse(JSONDetector, typing.Generic[T]):
             else:
                 path = os.path.join(tempfile.gettempdir(), file_name)
 
-            with open(path, 'wb') as new_file:
+            with open(path, 'wb') as write_file:
                 chunk_size = 1024
                 while True:
                     data = response.read(chunk_size)
                     if not data:
                         break
-                    new_file.write(data)
+                    write_file.write(data)
             # release_conn is needed for streaming connections only
             response.release_conn()
             new_file = open(path, 'rb')
@@ -852,7 +852,7 @@ class OpenApiResponse(JSONDetector, typing.Generic[T]):
         deserialized_body = schemas.unset
         streamed = response.supports_chunked_reads()
 
-        deserialized_headers = schemas.unset
+        deserialized_headers: typing.Union[schemas.Unset, typing.Dict[str, typing.Any]] = schemas.unset
         if cls.headers is not None and cls.headers_schema is not None:
             deserialized_headers = {}
             for header_name, header_param in cls.headers.items():
@@ -960,7 +960,7 @@ class ApiClient:
             self._pool = pool.ThreadPool(self.pool_threads)
         return self._pool
 
-    def set_default_header(self, header_name, header_value):
+    def set_default_header(self, header_name: str, header_value: str):
         self.default_headers[header_name] = header_value
 
     def call_api(
