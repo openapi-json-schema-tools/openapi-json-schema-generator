@@ -353,7 +353,23 @@ class ApiConfiguration(object):
 
     def get_security_requirement_object(
         self,
-        key_prefix: str,
+        key_prefix: typing_extensions.Literal[
+            "security",
+            "paths//fake/delete/security",
+            "paths//fake/post/security",
+            "paths//fake/multipleSecurities/get/security",
+            "paths//fake/{petId}/uploadImageWithRequiredFile/post/security",
+            "paths//fake_classname_test/patch/security",
+            "paths//pet/post/security",
+            "paths//pet/put/security",
+            "paths//pet/findByStatus/get/security",
+            "paths//pet/findByTags/get/security",
+            "paths//pet/{petId}/delete/security",
+            "paths//pet/{petId}/get/security",
+            "paths//pet/{petId}/post/security",
+            "paths//pet/{petId}/uploadImage/post/security",
+            "paths//store/inventory/get/security",
+        ],
         security_requirement_objects: typing.List[security_schemes.SecurityRequirementObject],
         index: typing.Optional[int],
     ) -> security_schemes.SecurityRequirementObject:

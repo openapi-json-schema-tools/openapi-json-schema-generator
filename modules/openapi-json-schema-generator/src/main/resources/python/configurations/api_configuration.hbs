@@ -428,7 +428,18 @@ class ApiConfiguration(object):
 
     def get_security_requirement_object(
         self,
-        key_prefix: str,
+        key_prefix: typing_extensions.Literal[
+            "security",
+    {{#each paths}}
+        {{#if operations}}
+            {{#each operations}}
+                {{#if security}}
+            "paths/{{../@key.original}}/{{@key.original}}/security",
+                {{/if}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+        ],
         security_requirement_objects: typing.List[security_schemes.SecurityRequirementObject],
         index: typing.Optional[int],
     ) -> security_schemes.SecurityRequirementObject:
