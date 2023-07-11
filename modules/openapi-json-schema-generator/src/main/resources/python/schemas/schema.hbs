@@ -60,8 +60,7 @@ class FileIO(io.FileIO):
             if arg.closed:
                 raise exceptions.ApiValueError('Invalid file state; file is closed and must be open')
             arg.close()
-            super_cls: typing.Type = super(FileIO, cls)
-            inst = super_cls.__new__(cls, arg.name)
+            inst = super(FileIO, cls).__new__(cls, arg.name) # type: ignore
             super(FileIO, inst).__init__(arg.name)
             return inst
         raise exceptions.ApiValueError('FileIO must be passed arg which contains the open file')
