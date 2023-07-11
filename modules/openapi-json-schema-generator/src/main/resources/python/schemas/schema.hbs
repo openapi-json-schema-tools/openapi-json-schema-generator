@@ -297,7 +297,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
         Run all validations in the json schema and return a dict of
         json schema to tuple of validated schemas
         """
-        _path_to_schemas = {}
+        _path_to_schemas: validation.PathToSchemasType = {}
         if validation_metadata.validation_ran_earlier(cls):
             validation.add_deeper_validated_schemas(validation_metadata, _path_to_schemas)
         else:
@@ -305,7 +305,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
             validation.update(_path_to_schemas, other_path_to_schemas)
         # loop through it make a new class for each entry
         # do not modify the returned result because it is cached and we would be modifying the cached value
-        path_to_schemas = {}
+        path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Tuple[type]] = {}
         for path, schema_classes in _path_to_schemas.items():
             path_to_schemas[path] = tuple(schema_classes)
         """

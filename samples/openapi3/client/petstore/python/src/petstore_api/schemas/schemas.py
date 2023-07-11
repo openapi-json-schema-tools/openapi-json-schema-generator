@@ -209,8 +209,7 @@ class BytesSchema(schema.Schema):
         arg: bytes,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> bytes:
-        super_cls: typing.Type = super(schema.Schema, cls)
-        return super_cls.validate(arg)
+        return cls.validate_base(arg)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -239,8 +238,7 @@ class FileSchema(schema.Schema):
         arg: typing.Union[io.FileIO, io.BufferedReader],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> schema.FileIO:
-        super_cls: typing.Type = super(schema.Schema, cls)
-        return super_cls.validate(arg)
+        return cls.validate_base(arg)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -259,7 +257,7 @@ class BinarySchema(schema.Schema):
         arg: typing.Union[io.FileIO, io.BufferedReader, bytes],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> typing.Union[schema.FileIO, bytes]:
-        return super().validate_base(arg)
+        return cls.validate_base(arg)
 
 
 @dataclasses.dataclass(frozen=True)
