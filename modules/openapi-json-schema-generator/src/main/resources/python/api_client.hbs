@@ -668,7 +668,7 @@ class __HeaderParameterBase(ParameterBase, StyleSimpleSerializer):
         return headers
 
     @classmethod
-    def serialize(
+    def serialize_with_name(
         cls,
         in_data: _SERIALIZE_TYPES,
         name: str,
@@ -733,6 +733,19 @@ class HeaderParameterWithoutName(__HeaderParameterBase):
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
     content: typing.Optional[typing.Dict[str, typing.Type[MediaType]]] = None
 
+    @classmethod
+    def serialize(
+        cls,
+        in_data: _SERIALIZE_TYPES,
+        name: str,
+        skip_validation: bool = False
+    ) -> _collections.HTTPHeaderDict:
+        return cls.serialize_with_name(
+            in_data,
+            name,
+            skip_validation=skip_validation
+        )
+
 
 @dataclasses.dataclass
 class HeaderParameter(__HeaderParameterBase):
@@ -751,7 +764,7 @@ class HeaderParameter(__HeaderParameterBase):
         in_data: _SERIALIZE_TYPES,
         skip_validation: bool = False
     ) -> _collections.HTTPHeaderDict:
-        return super().serialize(
+        return cls.serialize_with_name(
             in_data,
             cls.name,
             skip_validation=skip_validation
