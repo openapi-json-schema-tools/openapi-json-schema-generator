@@ -27,16 +27,7 @@ Properties = typing_extensions.TypedDict(
 
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["mapBean"]) -> parameter_0_schema.SchemaDict:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["mapBean"],
-        ]
-    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
 

@@ -27,16 +27,7 @@ Properties = typing_extensions.TypedDict(
 
 class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["someHeader"]) -> str:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["someHeader"],
-        ]
-    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
 

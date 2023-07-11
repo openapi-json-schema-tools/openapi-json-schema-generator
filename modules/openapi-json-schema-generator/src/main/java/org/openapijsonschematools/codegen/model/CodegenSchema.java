@@ -329,6 +329,7 @@ public class CodegenSchema {
             mapOut.requiredProperties = requiredProperties;
             mapOut.additionalProperties = additionalProperties;
             mapOut.mapOutputJsonPathPiece = mapOutputJsonPathPiece;
+            mapOut.properties = properties;
             // inputs needed for Schema validate invocation in new method
             mapOut.mapInputJsonPathPiece = mapInputJsonPathPiece;
             mapOut.jsonPathPiece = jsonPathPiece;
@@ -358,6 +359,7 @@ public class CodegenSchema {
             mapOut.optionalProperties = optionalProperties;
             mapOut.additionalProperties = additionalProperties;
             mapOut.mapOutputJsonPathPiece = mapOutputJsonPathPiece;
+            mapOut.properties = properties;
             // inputs needed for Schema validate invocation in new method
             mapOut.mapInputJsonPathPiece = mapInputJsonPathPiece;
             mapOut.jsonPathPiece = jsonPathPiece;
@@ -405,6 +407,7 @@ public class CodegenSchema {
             mapOut.instanceType = "propertiesOutputType";
             mapOut.optionalProperties = optionalProperties;
             mapOut.requiredProperties = requiredProperties;
+            mapOut.properties = properties;
             mapOut.additionalProperties = additionalProperties;
             mapOut.mapOutputJsonPathPiece = mapOutputJsonPathPiece;
             // inputs needed for Schema validate invocation in new method

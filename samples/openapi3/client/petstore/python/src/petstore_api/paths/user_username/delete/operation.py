@@ -34,16 +34,7 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def username(self) -> str:
         return self.__getitem__("username")
     
-    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["username"]) -> str:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["username"],
-        ]
-    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
 

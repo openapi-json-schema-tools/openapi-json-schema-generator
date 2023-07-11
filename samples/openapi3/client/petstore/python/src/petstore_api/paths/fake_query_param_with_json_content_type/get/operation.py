@@ -31,16 +31,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     def someParam(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("someParam")
     
-    @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["someParam"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["someParam"],
-        ]
-    ):
         # dict_instance[name] accessor
         return super().__getitem__(name)
 
