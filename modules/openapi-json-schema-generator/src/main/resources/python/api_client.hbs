@@ -221,7 +221,7 @@ class ParameterSerializerBase:
                 var_name_piece,
                 named_parameter_expansion
             )
-        elif isinstance(in_data, schemas.none_type_):
+        elif in_data is None:
             # ignored by the expansion process https://datatracker.ietf.org/doc/html/rfc6570#section-3.2.1
             return ""
         elif isinstance(in_data, list):

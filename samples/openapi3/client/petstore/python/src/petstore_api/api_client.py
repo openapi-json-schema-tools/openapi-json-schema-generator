@@ -106,7 +106,7 @@ class ParameterSerializerBase:
             if percent_encode:
                 return parse.quote(str(in_data))
             return str(in_data)
-        elif isinstance(in_data, schemas.none_type_):
+        elif in_data is None:
             # ignored by the expansion process https://datatracker.ietf.org/doc/html/rfc6570#section-3.2.1
             return None
         elif isinstance(in_data, list) and not in_data:
