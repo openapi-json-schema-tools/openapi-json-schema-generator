@@ -151,7 +151,7 @@ def cast_to_allowed_types(
         io.BufferedReader,
     ],
     from_server: bool,
-    validated_path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Union['Schema', str, int, float, bool, None, validation.immutabledict, tuple]]],
+    validated_path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Union[str, int, float, bool, None, validation.immutabledict, tuple]]],
     path_to_item: typing.Tuple[typing.Union[str, int], ...],
     path_to_type: typing.Dict[typing.Tuple[typing.Union[str, int], ...], type]
 ) -> typing.Union[
@@ -552,7 +552,10 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
                         return arg
 
         from_server = False
-        validated_path_to_schemas = {}
+        validated_path_to_schemas: typing.Dict[
+            typing.Tuple[typing.Union[str, int], ...],
+            typing.Set[typing.Union[str, int, float, bool, None, validation.immutabledict, tuple]]
+        ] = {}
         path_to_type: typing.Dict[typing.Tuple[typing.Union[str, int], ...], type] = {}
         cast_arg = cast_to_allowed_types(
             arg, from_server, validated_path_to_schemas, ('args[0]',), path_to_type)
