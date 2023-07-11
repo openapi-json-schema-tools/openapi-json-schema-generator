@@ -269,22 +269,6 @@ class SingletonMeta(type):
 
 
 class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=SingletonMeta):
-    """
-    the base class of all swagger/openapi schemas/models
-    """
-    @staticmethod
-    def __bases_by_type():
-        return {
-            str: (str, UnsetAnyTypeSchema),
-            int: (int, UnsetAnyTypeSchema),
-            float: (float, UnsetAnyTypeSchema),
-            Bool: (Bool, UnsetAnyTypeSchema),
-            none_type_: (none_type_, UnsetAnyTypeSchema),
-            tuple: (tuple, UnsetAnyTypeSchema),
-            validation.immutabledict: (validation.immutabledict, UnsetAnyTypeSchema),
-            bytes: (bytes, UnsetAnyTypeSchema),
-            FileIO: (FileIO, UnsetAnyTypeSchema),
-        }
 
     @classmethod
     def __get_path_to_schemas(
@@ -292,7 +276,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
         arg,
         validation_metadata: validation.ValidationMetadata,
         path_to_type: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type]
-    ) -> typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Tuple[Schema, ...]]:
+    ) -> typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type[Schema]]:
         """
         Run all validations in the json schema and return a dict of
         json schema to tuple of validated schemas
@@ -305,9 +289,10 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
             validation.update(_path_to_schemas, other_path_to_schemas)
         # loop through it make a new class for each entry
         # do not modify the returned result because it is cached and we would be modifying the cached value
-        path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Tuple[Schema, ...]] = {}
+        path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type[Schema]] = {}
         for path, schema_classes in _path_to_schemas.items():
-            path_to_schemas[path] = tuple(schema_classes)
+            schema = typing.cast(typing.Type[Schema], tuple(schema_classes)[-1])
+            path_to_schemas[path] = schema
         """
         For locations that validation did not check
         the code still needs to store type + schema information for instantiation
@@ -315,9 +300,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
         """
         missing_paths = path_to_type.keys() - path_to_schemas.keys()
         for missing_path in missing_paths:
-            value_type = path_to_type[missing_path]
-            bases = cls.__bases_by_type()[value_type]
-            path_to_schemas[missing_path] = bases
+            path_to_schemas[missing_path] = UnsetAnyTypeSchema
 
         return path_to_schemas
 
@@ -325,7 +308,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
     def __get_items(
         arg: tuple,
         path_to_item: typing.Tuple[typing.Union[str, int], ...],
-        path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Tuple[Schema, ...]]
+        path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type[Schema]]
     ):
         '''
         Schema __get_items
@@ -334,7 +317,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
 
         for i, value in enumerate(arg):
             item_path_to_item = path_to_item + (i,)
-            item_cls = path_to_schemas[item_path_to_item][-1]
+            item_cls = path_to_schemas[item_path_to_item]
             new_value = item_cls._get_new_instance_without_conversion(
                 value,
                 item_path_to_item,
@@ -348,7 +331,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
     def __get_properties(
         arg: validation.immutabledict[str, typing.Any],
         path_to_item: typing.Tuple[typing.Union[str, int], ...],
-        path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Tuple[Schema, ...]]
+        path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type[Schema]]
     ):
         """
         Schema __get_properties, this is how properties are set
@@ -358,7 +341,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
 
         for property_name_js, value in arg.items():
             property_path_to_item = path_to_item + (property_name_js,)
-            property_cls = path_to_schemas[property_path_to_item][-1]
+            property_cls = path_to_schemas[property_path_to_item]
             new_value = property_cls._get_new_instance_without_conversion(
                 value,
                 property_path_to_item,
@@ -373,7 +356,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
         cls,
         arg: typing.Union[int, float, None, Bool, str, validation.immutabledict, tuple, FileIO, bytes],
         path_to_item: typing.Tuple[typing.Union[str, int], ...],
-        path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Tuple[Schema, ...]]
+        path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type[Schema]]
     ):
         # We have a Dynamic class and we are making an instance of it
         if isinstance(arg, validation.immutabledict):
