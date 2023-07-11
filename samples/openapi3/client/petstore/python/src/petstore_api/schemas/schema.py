@@ -323,7 +323,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
 
     @staticmethod
     def __get_items(
-        arg: typing.Tuple[typing.Any],
+        arg: tuple,
         path_to_item: typing.Tuple[typing.Union[str, int], ...],
         path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Tuple[typing.Type]]
     ):
