@@ -21,7 +21,7 @@ class TriangleTypeEnums:
 
 @dataclasses.dataclass(frozen=True)
 class TriangleType(
-    schemas.StrSchema
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,

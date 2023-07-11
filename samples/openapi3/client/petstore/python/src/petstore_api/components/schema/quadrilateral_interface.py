@@ -21,7 +21,7 @@ class ShapeTypeEnums:
 
 @dataclasses.dataclass(frozen=True)
 class ShapeType(
-    schemas.StrSchema
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,

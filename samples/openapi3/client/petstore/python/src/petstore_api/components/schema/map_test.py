@@ -120,7 +120,7 @@ class AdditionalPropertiesEnums:
 
 @dataclasses.dataclass(frozen=True)
 class AdditionalProperties3(
-    schemas.StrSchema
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,

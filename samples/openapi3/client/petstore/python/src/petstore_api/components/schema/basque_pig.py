@@ -21,7 +21,7 @@ class ClassNameEnums:
 
 @dataclasses.dataclass(frozen=True)
 class ClassName(
-    schemas.StrSchema
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,

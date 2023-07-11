@@ -21,7 +21,7 @@ class QuadrilateralTypeEnums:
 
 @dataclasses.dataclass(frozen=True)
 class QuadrilateralType(
-    schemas.StrSchema
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,

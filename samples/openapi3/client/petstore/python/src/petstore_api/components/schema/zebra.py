@@ -30,7 +30,7 @@ class TypeEnums:
 
 @dataclasses.dataclass(frozen=True)
 class Type(
-    schemas.StrSchema
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -104,7 +104,7 @@ class ClassNameEnums:
 
 @dataclasses.dataclass(frozen=True)
 class ClassName(
-    schemas.StrSchema
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,

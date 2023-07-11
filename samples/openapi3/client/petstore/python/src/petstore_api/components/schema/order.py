@@ -33,7 +33,7 @@ class StatusEnums:
 
 @dataclasses.dataclass(frozen=True)
 class Status(
-    schemas.StrSchema
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,

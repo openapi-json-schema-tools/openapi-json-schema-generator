@@ -22,7 +22,7 @@ class VersionEnums:
 
 @dataclasses.dataclass(frozen=True)
 class Version(
-    schemas.StrSchema
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,

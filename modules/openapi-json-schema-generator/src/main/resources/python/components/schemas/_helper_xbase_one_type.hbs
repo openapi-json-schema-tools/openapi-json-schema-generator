@@ -26,7 +26,12 @@ schemas.BinarySchema
         {{#neq ../format "uuid"}}
         {{#neq ../format "number"}}
         {{#neq ../format "binary"}}
+            {{#and ../enumInfo.typeToValues.string}}
+                {{! use Schema so validate is not overwritten }}
+schemas.Schema
+            {{else}}
 schemas.StrSchema
+            {{/and}}
         {{/neq}}
         {{/neq}}
         {{/neq}}
@@ -55,12 +60,22 @@ schemas.Int64Schema
         {{/eq}}
         {{#neq ../format "int32"}}
         {{#neq ../format "int64"}}
+            {{#and ../enumInfo.typeToValues.integer}}
+                {{! use Schema so validate is not overwritten }}
+schemas.Schema
+            {{else}}
 schemas.IntSchema
+            {{/and}}
         {{/neq}}
         {{/neq}}
     {{/eq}}
     {{#eq this "boolean"}}
+        {{#and ../enumInfo.typeToValues.boolean}}
+            {{! use Schema so validate is not overwritten }}
+schemas.Schema
+        {{else}}
 schemas.BoolSchema
+        {{/and}}
     {{/eq}}
     {{#eq this "null"}}
 schemas.NoneSchema

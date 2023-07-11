@@ -23,7 +23,7 @@ class OpEnums:
 
 @dataclasses.dataclass(frozen=True)
 class Op(
-    schemas.StrSchema
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,

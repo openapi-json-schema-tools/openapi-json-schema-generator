@@ -77,7 +77,7 @@ class NumberSchema(schema.Schema):
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[int, float],
+        arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
         return super().validate_base(arg, configuration=configuration)
@@ -87,30 +87,6 @@ class NumberSchema(schema.Schema):
 class IntSchema(NumberSchema):
     types: typing.FrozenSet[typing.Type] = frozenset({int, float})
     format: str = 'int'
-
-    @typing.overload
-    @classmethod
-    def validate(
-        cls,
-        arg: int,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> int: ...
-
-    @typing.overload
-    @classmethod
-    def validate(
-        cls,
-        arg: float,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> float: ...  # when values are equal to int val, 1.0 == 1
-
-    @classmethod
-    def validate(
-        cls,
-        arg,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Union[int, float]:
-        return super().validate_base(arg, configuration)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -130,27 +106,11 @@ class Float32Schema(NumberSchema):
     types: typing.FrozenSet[typing.Type] = frozenset({float})
     format: str = 'float'
 
-    @classmethod
-    def validate(
-        cls,
-        arg: float,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> float:
-        return super().validate_base(arg, configuration=configuration)
-
 
 @dataclasses.dataclass(frozen=True)
 class Float64Schema(NumberSchema):
     types: typing.FrozenSet[typing.Type] = frozenset({float})
     format: str = 'double'
-
-    @classmethod
-    def validate(
-        cls,
-        arg: float,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> float:
-        return super().validate_base(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -166,14 +126,14 @@ class StrSchema(schema.Schema):
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> str:
         return super().validate_base(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
-class UUIDSchema(StrSchema):
+class UUIDSchema(schema.Schema):
     types: typing.FrozenSet[typing.Type] = frozenset({str})
     format: str = 'uuid'
 
@@ -187,7 +147,7 @@ class UUIDSchema(StrSchema):
 
 
 @dataclasses.dataclass(frozen=True)
-class DateSchema(StrSchema):
+class DateSchema(schema.Schema):
     types: typing.FrozenSet[typing.Type] = frozenset({str})
     format: str = 'date'
 
@@ -201,7 +161,7 @@ class DateSchema(StrSchema):
 
 
 @dataclasses.dataclass(frozen=True)
-class DateTimeSchema(StrSchema):
+class DateTimeSchema(schema.Schema):
     types: typing.FrozenSet[typing.Type] = frozenset({str})
     format: str = 'date-time'
 
@@ -215,7 +175,7 @@ class DateTimeSchema(StrSchema):
 
 
 @dataclasses.dataclass(frozen=True)
-class DecimalSchema(StrSchema):
+class DecimalSchema(schema.Schema):
     types: typing.FrozenSet[typing.Type] = frozenset({str})
     format: str = 'number'
 
