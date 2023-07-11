@@ -73,7 +73,7 @@ class Currency(
         "eur",
         "usd",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )

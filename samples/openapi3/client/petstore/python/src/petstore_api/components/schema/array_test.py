@@ -48,7 +48,7 @@ class ArrayOfString(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayOfStringTuple:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -90,7 +90,7 @@ class Items2(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ItemsTuple:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -135,7 +135,7 @@ class ArrayArrayOfInteger(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayArrayOfIntegerTuple:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -182,7 +182,7 @@ class Items4(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ItemsTuple2:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -227,7 +227,7 @@ class ArrayArrayOfModel(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayArrayOfModelTuple:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -304,7 +304,7 @@ class ArrayTest(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayTestDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

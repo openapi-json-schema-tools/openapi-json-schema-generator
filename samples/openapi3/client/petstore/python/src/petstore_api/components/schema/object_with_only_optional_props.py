@@ -87,7 +87,7 @@ class ObjectWithOnlyOptionalProps(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithOnlyOptionalPropsDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

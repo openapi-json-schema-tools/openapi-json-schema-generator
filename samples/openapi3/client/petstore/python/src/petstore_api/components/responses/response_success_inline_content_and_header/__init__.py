@@ -76,7 +76,7 @@ class Headers(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> HeadersDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

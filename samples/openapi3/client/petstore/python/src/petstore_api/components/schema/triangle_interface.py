@@ -55,7 +55,7 @@ class ShapeType(
     ) -> typing_extensions.Literal[
         "Triangle",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )

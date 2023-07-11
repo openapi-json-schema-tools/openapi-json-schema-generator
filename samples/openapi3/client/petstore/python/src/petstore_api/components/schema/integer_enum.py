@@ -87,7 +87,7 @@ class IntegerEnum(
         1,
         2,
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )

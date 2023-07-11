@@ -72,7 +72,7 @@ class ObjectWithOptionalTestProp(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithOptionalTestPropDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

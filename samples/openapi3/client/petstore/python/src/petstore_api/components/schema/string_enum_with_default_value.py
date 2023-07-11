@@ -87,7 +87,7 @@ class StringEnumWithDefaultValue(
         "approved",
         "delivered",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )

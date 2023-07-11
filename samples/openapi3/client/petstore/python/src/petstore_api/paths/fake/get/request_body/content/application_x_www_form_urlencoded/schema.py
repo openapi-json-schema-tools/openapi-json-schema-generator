@@ -69,7 +69,7 @@ class Items(
         ">",
         "$",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -116,7 +116,7 @@ class EnumFormStringArray(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> EnumFormStringArrayTuple:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -192,7 +192,7 @@ class EnumFormString(
         "-efg",
         "(xyz)",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -265,7 +265,7 @@ class Schema(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> SchemaDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

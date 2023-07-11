@@ -80,7 +80,7 @@ class ReqPropsFromTrueAddProps(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ReqPropsFromTrueAddPropsDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

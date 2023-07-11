@@ -81,7 +81,7 @@ class EnumString(
         "lower",
         "",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -163,7 +163,7 @@ class EnumStringRequired(
         "lower",
         "",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -233,7 +233,7 @@ class EnumInteger(
         1,
         -1,
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -279,7 +279,7 @@ class EnumNumber(
         arg: typing.Union[int, float],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> typing.Union[float, int]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -409,7 +409,7 @@ class EnumTest(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> EnumTestDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

@@ -61,7 +61,7 @@ class IntegerEnumOneValue(
     ) -> typing_extensions.Literal[
         0,
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )

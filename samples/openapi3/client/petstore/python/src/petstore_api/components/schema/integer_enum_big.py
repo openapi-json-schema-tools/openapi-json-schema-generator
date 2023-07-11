@@ -87,7 +87,7 @@ class IntegerEnumBig(
         11,
         12,
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )

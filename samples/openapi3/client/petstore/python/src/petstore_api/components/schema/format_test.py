@@ -120,7 +120,7 @@ class ArrayWithUniqueItems(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayWithUniqueItemsTuple:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -384,7 +384,7 @@ class FormatTest(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> FormatTestDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

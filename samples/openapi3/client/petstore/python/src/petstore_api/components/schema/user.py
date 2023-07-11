@@ -50,7 +50,7 @@ class ObjectWithNoDeclaredPropsNullable(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -202,7 +202,7 @@ class User(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> UserDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

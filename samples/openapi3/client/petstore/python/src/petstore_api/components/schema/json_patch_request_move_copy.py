@@ -71,7 +71,7 @@ class Op(
         "move",
         "copy",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -171,7 +171,7 @@ class JSONPatchRequestMoveCopy(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> JSONPatchRequestMoveCopyDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

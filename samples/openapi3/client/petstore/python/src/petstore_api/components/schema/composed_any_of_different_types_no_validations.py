@@ -73,7 +73,7 @@ class _9(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> _9Tuple:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

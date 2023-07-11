@@ -79,7 +79,7 @@ class Tag(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> TagDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

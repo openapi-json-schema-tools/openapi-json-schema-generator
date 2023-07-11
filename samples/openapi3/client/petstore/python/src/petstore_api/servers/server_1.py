@@ -66,7 +66,7 @@ class Version(
         "v1",
         "v2",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -141,7 +141,7 @@ class Variables(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> VariablesDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

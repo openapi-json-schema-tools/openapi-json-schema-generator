@@ -64,7 +64,7 @@ class ArrayWithValidationsInItems(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayWithValidationsInItemsTuple:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

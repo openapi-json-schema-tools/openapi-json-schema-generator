@@ -87,7 +87,7 @@ class ObjectWithDecimalProperties(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectWithDecimalPropertiesDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

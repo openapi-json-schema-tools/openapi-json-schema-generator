@@ -48,7 +48,7 @@ class _0(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> _0Dict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -118,7 +118,7 @@ class _1(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> _1Dict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -188,7 +188,7 @@ class _2(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> _2Dict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -220,7 +220,7 @@ class AdditionalPropertiesValidator(
         arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

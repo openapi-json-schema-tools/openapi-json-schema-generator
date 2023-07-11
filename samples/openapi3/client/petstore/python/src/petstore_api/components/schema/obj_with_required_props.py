@@ -82,7 +82,7 @@ class ObjWithRequiredProps(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjWithRequiredPropsDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

@@ -60,7 +60,7 @@ class BooleanEnum(
     ) -> typing_extensions.Literal[
         True,
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )

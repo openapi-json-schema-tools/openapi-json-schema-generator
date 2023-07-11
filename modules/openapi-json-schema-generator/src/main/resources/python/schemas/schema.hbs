@@ -408,6 +408,181 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
 
     @typing.overload
     @classmethod
+    def validate_base_(
+        cls,
+        arg: None,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> None: ...
+
+    @typing.overload
+    @classmethod
+    def validate_base_(
+        cls,
+        arg: typing_extensions.Literal[True],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal[True]: ...
+
+    @typing.overload
+    @classmethod
+    def validate_base_(
+        cls,
+        arg: typing_extensions.Literal[False],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing_extensions.Literal[False]: ...
+
+    @typing.overload
+    @classmethod
+    def validate_base_(
+        cls,
+        arg: bool,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> bool: ...
+
+    @typing.overload
+    @classmethod
+    def validate_base_(
+        cls,
+        arg: int,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> int: ...
+
+    @typing.overload
+    @classmethod
+    def validate_base_(
+        cls,
+        arg: float,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> float: ...
+
+    @typing.overload
+    @classmethod
+    def validate_base_(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> str: ...
+
+    @typing.overload
+    @classmethod
+    def validate_base_(
+        cls,
+        arg: typing.Union[
+            typing.Sequence[INPUT_TYPES_ALL_INCL_SCHEMA],
+            U
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> U: ...
+
+    @typing.overload
+    @classmethod
+    def validate_base_(
+        cls,
+        arg: typing.Union[
+            typing.Mapping[str, INPUT_TYPES_ALL_INCL_SCHEMA],
+            T
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> T: ...
+
+    @typing.overload
+    @classmethod
+    def validate_base_(
+        cls,
+        arg: bytes,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> bytes: ...
+
+    @typing.overload
+    @classmethod
+    def validate_base_(
+        cls,
+        arg: typing.Union[io.FileIO, FileIO],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> FileIO: ...
+
+    @typing.overload
+    @classmethod
+    def validate_base_(
+        cls,
+        arg: io.BufferedReader,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> FileIO: ...
+
+    @classmethod
+    def validate_base_(
+        cls,
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        """
+        Schema validate_base_
+
+        Args:
+            arg (int/float/str/list/tuple/dict/validation.immutabledict/bool/None): the value
+            configuration: contains the schema_configuration.SchemaConfiguration that enables json schema validation keywords
+                like minItems, minLength etc
+        """
+        if isinstance(arg, (tuple, validation.immutabledict)):
+            type_to_output_cls = cls.__get_type_to_output_cls()
+            if type_to_output_cls is not None:
+                for output_cls in type_to_output_cls.values():
+                    if isinstance(arg, output_cls):
+                        # U + T use case, don't run validations twice
+                        return arg
+
+        from_server = False
+        validated_path_to_schemas = {}
+        path_to_type = {}
+        cast_arg = cast_to_allowed_types(
+            arg, from_server, validated_path_to_schemas, ('args[0]',), path_to_type)
+        validation_metadata = validation.ValidationMetadata(
+            path_to_item=('args[0]',),
+            configuration=configuration or schema_configuration.SchemaConfiguration(),
+            validated_path_to_schemas=validation.immutabledict(validated_path_to_schemas)
+        )
+        path_to_schemas = cls.__get_path_to_schemas(cast_arg, validation_metadata, path_to_type)
+        return cls._get_new_instance_without_conversion(
+            cast_arg,
+            validation_metadata.path_to_item,
+            path_to_schemas,
+        )
+
+    @classmethod
+    def __get_type_to_output_cls(cls) -> typing.Optional[typing.Mapping[type, type]]:
+        type_to_output_cls = getattr(cls(), 'type_to_output_cls', None)
+        type_to_output_cls = typing.cast(typing.Optional[typing.Mapping[type, type]], type_to_output_cls)
+        return type_to_output_cls
+
+
+def get_class(
+    item_cls: typing.Union[types.FunctionType, staticmethod, typing.Type[Schema]],
+    local_namespace: typing.Optional[dict] = None
+) -> typing.Type[Schema]:
+    if isinstance(item_cls, typing._GenericAlias): # type: ignore
+        # petstore_api.schemas.StrSchema[~U] -> petstore_api.schemas.StrSchema
+        origin_cls = typing_extensions.get_origin(item_cls)
+        if origin_cls is None:
+            raise ValueError('origin class must not be None')
+        return origin_cls
+    elif isinstance(item_cls, types.FunctionType):
+        # referenced schema
+        return item_cls()
+    elif isinstance(item_cls, staticmethod):
+        # referenced schema
+        return item_cls.__func__()
+    elif isinstance(item_cls, type):
+        return item_cls
+    elif isinstance(item_cls, typing.ForwardRef):
+        return item_cls._evaluate(None, local_namespace)
+    raise ValueError('invalid class value passed in')
+
+
+@dataclasses.dataclass(frozen=True)
+class AnyTypeSchema(Schema[T, U]):
+    # Python representation of a schema defined as true or {}
+
+    @typing.overload
+    @classmethod
     def validate(
         cls,
         arg: None,
@@ -514,74 +689,10 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
-        """
-        Schema validate
-
-        Args:
-            arg (int/float/str/list/tuple/dict/validation.immutabledict/bool/None): the value
-            configuration: contains the schema_configuration.SchemaConfiguration that enables json schema validation keywords
-                like minItems, minLength etc
-        """
-        if isinstance(arg, (tuple, validation.immutabledict)):
-            type_to_output_cls = cls.__get_type_to_output_cls()
-            if type_to_output_cls is not None:
-                for output_cls in type_to_output_cls.values():
-                    if isinstance(arg, output_cls):
-                        # U + T use case, don't run validations twice
-                        return arg
-
-        from_server = False
-        validated_path_to_schemas = {}
-        path_to_type = {}
-        cast_arg = cast_to_allowed_types(
-            arg, from_server, validated_path_to_schemas, ('args[0]',), path_to_type)
-        validation_metadata = validation.ValidationMetadata(
-            path_to_item=('args[0]',),
-            configuration=configuration or schema_configuration.SchemaConfiguration(),
-            validated_path_to_schemas=validation.immutabledict(validated_path_to_schemas)
+        return cls.validate_base_(
+            arg,
+            configuration=configuration
         )
-        path_to_schemas = cls.__get_path_to_schemas(cast_arg, validation_metadata, path_to_type)
-        return cls._get_new_instance_without_conversion(
-            cast_arg,
-            validation_metadata.path_to_item,
-            path_to_schemas,
-        )
-
-    @classmethod
-    def __get_type_to_output_cls(cls) -> typing.Optional[typing.Mapping[type, type]]:
-        type_to_output_cls = getattr(cls(), 'type_to_output_cls', None)
-        type_to_output_cls = typing.cast(typing.Optional[typing.Mapping[type, type]], type_to_output_cls)
-        return type_to_output_cls
-
-
-def get_class(
-    item_cls: typing.Union[types.FunctionType, staticmethod, typing.Type[Schema]],
-    local_namespace: typing.Optional[dict] = None
-) -> typing.Type[Schema]:
-    if isinstance(item_cls, typing._GenericAlias): # type: ignore
-        # petstore_api.schemas.StrSchema[~U] -> petstore_api.schemas.StrSchema
-        origin_cls = typing_extensions.get_origin(item_cls)
-        if origin_cls is None:
-            raise ValueError('origin class must not be None')
-        return origin_cls
-    elif isinstance(item_cls, types.FunctionType):
-        # referenced schema
-        return item_cls()
-    elif isinstance(item_cls, staticmethod):
-        # referenced schema
-        return item_cls.__func__()
-    elif isinstance(item_cls, type):
-        return item_cls
-    elif isinstance(item_cls, typing.ForwardRef):
-        return item_cls._evaluate(None, local_namespace)
-    raise ValueError('invalid class value passed in')
-
-
-@dataclasses.dataclass(frozen=True)
-class AnyTypeSchema(Schema[T, U]):
-    # Python representation of a schema defined as true or {}
-    pass
-
 
 class UnsetAnyTypeSchema(AnyTypeSchema[T, U]):
     # Used when additionalProperties/items was not explicitly defined and a defining schema is needed

@@ -55,7 +55,7 @@ class QuadrilateralType(
     ) -> typing_extensions.Literal[
         "SimpleQuadrilateral",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -120,7 +120,7 @@ class _1(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> _1Dict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

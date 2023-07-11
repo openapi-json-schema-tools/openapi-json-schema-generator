@@ -74,7 +74,7 @@ class File(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> FileDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

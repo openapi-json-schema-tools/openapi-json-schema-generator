@@ -56,7 +56,7 @@ class Address(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AddressDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

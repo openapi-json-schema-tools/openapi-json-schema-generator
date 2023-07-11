@@ -36,7 +36,7 @@ class ComposedObject(
         arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

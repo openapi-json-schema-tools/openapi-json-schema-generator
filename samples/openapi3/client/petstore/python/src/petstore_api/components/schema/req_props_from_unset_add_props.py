@@ -77,7 +77,7 @@ class ReqPropsFromUnsetAddProps(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ReqPropsFromUnsetAddPropsDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

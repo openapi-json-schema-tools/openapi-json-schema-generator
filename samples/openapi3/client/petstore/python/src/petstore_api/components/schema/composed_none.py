@@ -36,7 +36,7 @@ class ComposedNone(
         arg: None,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> None:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

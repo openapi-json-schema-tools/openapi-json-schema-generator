@@ -51,7 +51,7 @@ class Items(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ItemsTuple:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -96,7 +96,7 @@ class ArrayArrayNumber(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayArrayNumberTuple:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -161,7 +161,7 @@ class ArrayOfArrayOfNumberOnly(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayOfArrayOfNumberOnlyDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

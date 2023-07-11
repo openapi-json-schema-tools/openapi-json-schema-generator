@@ -68,7 +68,7 @@ class JustSymbol(
         ">=",
         "$",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -136,7 +136,7 @@ class Items(
         "fish",
         "crab",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -183,7 +183,7 @@ class ArrayEnum(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayEnumTuple:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -254,7 +254,7 @@ class EnumArrays(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> EnumArraysDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

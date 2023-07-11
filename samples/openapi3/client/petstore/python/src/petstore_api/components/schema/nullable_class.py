@@ -41,7 +41,7 @@ class AdditionalProperties4(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -77,7 +77,7 @@ class IntegerProp(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -113,7 +113,7 @@ class NumberProp(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -148,7 +148,7 @@ class BooleanProp(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -183,7 +183,7 @@ class StringProp(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -219,7 +219,7 @@ class DateProp(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -255,7 +255,7 @@ class DatetimeProp(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -317,7 +317,7 @@ class ArrayNullableProp(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -352,7 +352,7 @@ class Items2(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -417,7 +417,7 @@ class ArrayAndItemsNullableProp(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -452,7 +452,7 @@ class Items3(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -500,7 +500,7 @@ class ArrayItemsNullable(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayItemsNullableTuple:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -565,7 +565,7 @@ class ObjectNullableProp(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -600,7 +600,7 @@ class AdditionalProperties2(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -668,7 +668,7 @@ class ObjectAndItemsNullableProp(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -703,7 +703,7 @@ class AdditionalProperties3(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -754,7 +754,7 @@ class ObjectItemsNullable(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectItemsNullableDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -991,7 +991,7 @@ class NullableClass(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> NullableClassDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

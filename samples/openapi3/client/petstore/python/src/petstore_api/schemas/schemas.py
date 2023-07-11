@@ -34,7 +34,7 @@ class ListSchema(schema.Schema[validation.immutabledict, schema.U]):
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> schema.U:
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base_(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -47,7 +47,7 @@ class NoneSchema(schema.Schema):
         arg: None,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> None:
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base_(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -80,7 +80,7 @@ class NumberSchema(schema.Schema):
         arg: typing.Union[int, float],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base_(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -110,7 +110,7 @@ class IntSchema(NumberSchema):
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> typing.Union[int, float]:
-        return super().validate(arg, configuration)
+        return super().validate_base_(arg, configuration)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -136,7 +136,7 @@ class Float32Schema(NumberSchema):
         arg: float,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> float:
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base_(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -150,7 +150,7 @@ class Float64Schema(NumberSchema):
         arg: float,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> float:
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base_(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -169,7 +169,7 @@ class StrSchema(schema.Schema):
         arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> str:
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base_(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -183,7 +183,7 @@ class UUIDSchema(StrSchema):
         arg: typing.Union[str, uuid.UUID],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> str:
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base_(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -197,7 +197,7 @@ class DateSchema(StrSchema):
         arg: typing.Union[str, datetime.date],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> str:
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base_(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -211,7 +211,7 @@ class DateTimeSchema(StrSchema):
         arg: typing.Union[str, datetime.datetime],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> str:
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base_(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -233,7 +233,7 @@ class DecimalSchema(StrSchema):
         if one was using it for a StrSchema (where it should be cast to str) or one is using it for NumberSchema
         where it should stay as Decimal.
         """
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base_(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -299,7 +299,7 @@ class BinarySchema(schema.Schema):
         arg: typing.Union[io.FileIO, io.BufferedReader, bytes],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> typing.Union[schema.FileIO, bytes]:
-        return super().validate(arg)
+        return super().validate_base_(arg)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -336,7 +336,7 @@ class BoolSchema(schema.Schema):
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base_(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -354,7 +354,7 @@ class NotAnyTypeSchema(schema.AnyTypeSchema):
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base_(arg, configuration=configuration)
 
 OUTPUT_BASE_TYPES = typing.Union[
     validation.immutabledict[str, 'OUTPUT_BASE_TYPES'],
@@ -397,6 +397,6 @@ class DictSchema(schema.Schema[schema.T, typing.Tuple[OUTPUT_BASE_TYPES, ...]]):
     ) -> schema.T:
         if isinstance(arg, validation.immutabledict):
             # T use case
-            return super().validate(arg, configuration=configuration)
+            return super().validate_base_(arg, configuration=configuration)
         arg = typing.cast(typing.Mapping[str, schema.INPUT_TYPES_ALL_INCL_SCHEMA], arg)
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base_(arg, configuration=configuration)

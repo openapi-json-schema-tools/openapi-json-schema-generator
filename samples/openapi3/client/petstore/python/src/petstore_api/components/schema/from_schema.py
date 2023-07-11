@@ -79,7 +79,7 @@ class FromSchema(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> FromSchemaDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

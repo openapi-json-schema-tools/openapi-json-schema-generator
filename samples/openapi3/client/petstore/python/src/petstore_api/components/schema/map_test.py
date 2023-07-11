@@ -51,7 +51,7 @@ class AdditionalProperties(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -100,7 +100,7 @@ class MapMapOfString(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapMapOfStringDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -163,7 +163,7 @@ class AdditionalProperties3(
         "UPPER",
         "lower",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -213,7 +213,7 @@ class MapOfEnumString(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapOfEnumStringDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -259,7 +259,7 @@ class DirectMap(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> DirectMapDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -345,7 +345,7 @@ class MapTest(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapTestDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

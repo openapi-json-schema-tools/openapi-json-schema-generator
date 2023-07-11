@@ -68,7 +68,7 @@ class Schema(
         "true",
         "false",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )

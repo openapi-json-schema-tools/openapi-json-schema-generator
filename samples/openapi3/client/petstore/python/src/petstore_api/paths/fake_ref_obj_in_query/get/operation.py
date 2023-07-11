@@ -80,7 +80,7 @@ class QueryParameters(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> QueryParametersDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

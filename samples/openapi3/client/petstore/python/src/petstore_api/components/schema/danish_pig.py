@@ -55,7 +55,7 @@ class ClassName(
     ) -> typing_extensions.Literal[
         "DanishPig",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -132,7 +132,7 @@ class DanishPig(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> DanishPigDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )

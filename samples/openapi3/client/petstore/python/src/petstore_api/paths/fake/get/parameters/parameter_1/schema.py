@@ -82,7 +82,7 @@ class Schema(
         "-efg",
         "(xyz)",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )

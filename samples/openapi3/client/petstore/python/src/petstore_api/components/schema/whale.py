@@ -57,7 +57,7 @@ class ClassName(
     ) -> typing_extensions.Literal[
         "whale",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base_(
             arg,
             configuration=configuration,
         )
@@ -146,7 +146,7 @@ class Whale(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> WhaleDict:
-        return super().validate(
+        return super().validate_base_(
             arg,
             configuration=configuration,
         )
