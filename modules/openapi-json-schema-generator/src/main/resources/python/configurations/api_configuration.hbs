@@ -407,7 +407,21 @@ class ApiConfiguration(object):
 
     def get_server_url(
         self,
-        key_prefix: str,
+        key_prefix: typing_extensions.Literal[
+            "servers",
+{{#each paths}}
+    {{#if servers}}
+            "paths/{{@key.original}}/servers",
+    {{/if}}
+    {{#if operations}}
+        {{#each operations}}
+            {{#if servers}}
+            "paths/{{../@key.original}}/{{@key.original}}/servers",
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/each}}
+        ],
         index: typing.Optional[int],
     ) -> str:
         """Gets host URL based on the index
@@ -422,9 +436,35 @@ class ApiConfiguration(object):
             except KeyError:
                 # fallback and use the default index
                 used_index = self.server_index_info.get("servers", 0)
-        server = self.server_info[f"{key_prefix}/{used_index}"]
+        server_info_key = typing.cast(
+            typing_extensions.Literal[
+{{#each servers}}
+                "servers/{{@key}}",
+{{/each}}
+{{#each paths}}
+    {{#if servers}}
+        {{#each servers}}
+                "paths/{{../@key.original}}/servers/{{@key}}",
+        {{/each}}
+    {{/if}}
+    {{#if operations}}
+        {{#each operations}}
+            {{#if servers}}
+                {{#each servers}}
+                "paths/{{../../@key.original}}/{{../@key.original}}/servers/{{@key}}",
+                {{/each}}
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/each}}
+            ],
+            f"{key_prefix}/{used_index}"
+        )
+        try:
+            server = self.server_info[server_info_key]
+        except KeyError as ex:
+            raise ex{{#if securitySchemes}}
         return server.url
-{{#if securitySchemes}}
 
     def get_security_requirement_object(
         self,

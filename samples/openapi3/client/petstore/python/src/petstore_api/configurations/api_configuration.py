@@ -333,7 +333,11 @@ class ApiConfiguration(object):
 
     def get_server_url(
         self,
-        key_prefix: str,
+        key_prefix: typing_extensions.Literal[
+            "servers",
+            "paths//foo/get/servers",
+            "paths//pet/findByStatus/servers",
+        ],
         index: typing.Optional[int],
     ) -> str:
         """Gets host URL based on the index
@@ -348,7 +352,22 @@ class ApiConfiguration(object):
             except KeyError:
                 # fallback and use the default index
                 used_index = self.server_index_info.get("servers", 0)
-        server = self.server_info[f"{key_prefix}/{used_index}"]
+        server_info_key = typing.cast(
+            typing_extensions.Literal[
+                "servers/0",
+                "servers/1",
+                "servers/2",
+                "paths//foo/get/servers/0",
+                "paths//foo/get/servers/1",
+                "paths//pet/findByStatus/servers/0",
+                "paths//pet/findByStatus/servers/1",
+            ],
+            f"{key_prefix}/{used_index}"
+        )
+        try:
+            server = self.server_info[server_info_key]
+        except KeyError as ex:
+            raise ex
         return server.url
 
     def get_security_requirement_object(
