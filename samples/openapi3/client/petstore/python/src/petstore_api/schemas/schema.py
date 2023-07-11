@@ -292,7 +292,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
         arg,
         validation_metadata: validation.ValidationMetadata,
         path_to_type: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type]
-    ) -> typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Tuple[typing.Type]]:
+    ) -> typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Tuple[type]]:
         """
         Run all validations in the json schema and return a dict of
         json schema to tuple of validated schemas
@@ -373,7 +373,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
         cls,
         arg: typing.Union[int, float, None, Bool, str, validation.immutabledict, tuple, FileIO, bytes],
         path_to_item: typing.Tuple[typing.Union[str, int], ...],
-        path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Tuple[typing.Type]]
+        path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Tuple[type]]
     ):
         # We have a Dynamic class and we are making an instance of it
         if isinstance(arg, validation.immutabledict):
