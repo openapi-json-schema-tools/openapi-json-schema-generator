@@ -47,7 +47,6 @@ class ListSchema(schema.Schema[validation.immutabledict, schema.U]):
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> schema.U: ...
 
-    @typing.overload
     @classmethod
     def validate(
         cls,
