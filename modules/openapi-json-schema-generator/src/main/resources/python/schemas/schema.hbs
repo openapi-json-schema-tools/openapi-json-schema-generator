@@ -477,6 +477,14 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
     @classmethod
     def validate_base(
         cls,
+        arg: typing.Mapping[str, object],  # object needed as value type for typeddict inputs
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> T: ...
+
+    @typing.overload
+    @classmethod
+    def validate_base(
+        cls,
         arg: typing.Union[
             typing.Mapping[str, INPUT_TYPES_ALL_INCL_SCHEMA],
             T
