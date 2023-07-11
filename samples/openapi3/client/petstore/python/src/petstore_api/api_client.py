@@ -1152,12 +1152,12 @@ class Api:
     ) -> typing.Tuple[str, str]:
         used_path_params = {}
         if path_params is not None:
-            for parameter in path_parameters:
-                parameter_data = path_params.get(parameter.name, schemas.unset)
+            for path_parameter in path_parameters:
+                parameter_data = path_params.get(path_parameter.name, schemas.unset)
                 if isinstance(parameter_data, schemas.Unset):
                     continue
                 assert not isinstance(parameter_data, (bytes, schemas.FileIO))
-                serialized_data = parameter.serialize(parameter_data, skip_validation=skip_validation)
+                serialized_data = path_parameter.serialize(parameter_data, skip_validation=skip_validation)
                 used_path_params.update(serialized_data)
 
         for k, v in used_path_params.items():
@@ -1166,15 +1166,18 @@ class Api:
         query_params_suffix = ""
         if query_params is not None:
             prefix_separator_iterator = None
-            for parameter in query_parameters:
-                parameter_data = query_params.get(parameter.name, schemas.unset)
+            for query_parameter in query_parameters:
+                parameter_data = query_params.get(query_parameter.name, schemas.unset)
                 if isinstance(parameter_data, schemas.Unset):
                     continue
                 if prefix_separator_iterator is None:
-                    prefix_separator_iterator = parameter.get_prefix_separator_iterator()
+                    prefix_separator_iterator = query_parameter.get_prefix_separator_iterator()
                 assert not isinstance(parameter_data, (bytes, schemas.FileIO))
-                serialized_data = parameter.serialize(
-                    parameter_data, prefix_separator_iterator, skip_validation=skip_validation)
+                serialized_data = query_parameter.serialize(
+                    parameter_data,
+                    prefix_separator_iterator=prefix_separator_iterator,
+                    skip_validation=skip_validation
+                )
                 for serialized_value in serialized_data.values():
                     query_params_suffix += serialized_value
         return used_path, query_params_suffix
@@ -1259,12 +1262,12 @@ class RequestBody(StyleFormSerializer, JSONDetector):
 
     @staticmethod
     def __serialize_text_plain(in_data: typing.Any) -> SerializedRequestBody:
-        if isinstance(in_data, schemas.immutabledict):
+        if in_data is None:
+            raise ValueError('Unable to serialize type None to text/plain')
+        elif isinstance(in_data, schemas.immutabledict):
             raise ValueError('Unable to serialize type schemas.immutabledict to text/plain')
         elif isinstance(in_data, tuple):
             raise ValueError('Unable to serialize type tuple to text/plain')
-        elif isinstance(in_data, schemas.none_type_):
-            raise ValueError('Unable to serialize type None to text/plain')
         elif isinstance(in_data, bool):
             raise ValueError('Unable to serialize type bool to text/plain')
         return {'body': str(in_data)}
