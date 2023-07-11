@@ -112,7 +112,7 @@ class HeadersDictInput(HeadersRequiredDictInput, HeadersOptionalDictInput):
 
 @dataclasses.dataclass(frozen=True)
 class Headers(
-    schemas.DictSchema[HeadersDict]
+    schemas.Schema[HeadersDict, typing.Tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({

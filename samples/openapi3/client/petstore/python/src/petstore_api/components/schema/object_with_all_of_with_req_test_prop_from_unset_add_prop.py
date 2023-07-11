@@ -54,7 +54,7 @@ _1DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 @dataclasses.dataclass(frozen=True)
 class _1(
-    schemas.DictSchema[_1Dict]
+    schemas.Schema[_1Dict, typing.Tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({

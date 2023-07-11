@@ -53,7 +53,7 @@ HeadersDictInput = typing_extensions.TypedDict(
 
 @dataclasses.dataclass(frozen=True)
 class Headers(
-    schemas.DictSchema[HeadersDict]
+    schemas.Schema[HeadersDict, typing.Tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore

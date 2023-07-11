@@ -16,7 +16,7 @@ class ServerWithoutVariables(abc.ABC):
 class ServerWithVariables(abc.ABC):
     _url: str
     variables: schemas.immutabledict[str, str]
-    variables_schema: typing.Type[schemas.DictSchema]
+    variables_schema: typing.Type[schemas.Schema]
     url: str = dataclasses.field(init=False)
 
     def __post_init__(self):

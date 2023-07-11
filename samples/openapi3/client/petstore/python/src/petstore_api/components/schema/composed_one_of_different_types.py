@@ -16,7 +16,7 @@ _3: typing_extensions.TypeAlias = schemas.DateSchema
 
 @dataclasses.dataclass(frozen=True)
 class _4(
-    schemas.DictSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]]
+    schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     max_properties: int = 4

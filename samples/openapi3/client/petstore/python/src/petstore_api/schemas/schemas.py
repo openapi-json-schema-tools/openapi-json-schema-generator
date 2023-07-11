@@ -328,33 +328,29 @@ OUTPUT_BASE_TYPES = typing.Union[
 
 
 @dataclasses.dataclass(frozen=True)
-class DictSchema(schema.Schema[schema.T, typing.Tuple[OUTPUT_BASE_TYPES, ...]]):
+class DictSchema(schema.Schema[schema.validation.immutabledict[str, OUTPUT_BASE_TYPES], typing.Tuple[OUTPUT_BASE_TYPES, ...]]):
     types: typing.FrozenSet[typing.Type] = frozenset({validation.immutabledict})
 
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: schema.T,
+        arg: schema.validation.immutabledict[str, OUTPUT_BASE_TYPES],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> schema.T: ...
+    ) -> schema.validation.immutabledict[str, OUTPUT_BASE_TYPES]: ...
 
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Mapping[str, object],  # object needed as value type for typeddict inputs
+        arg: typing.Mapping[str, schema.INPUT_TYPES_ALL_INCL_SCHEMA],  # object needed as value type for typeddict inputs
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> schema.T: ...
+    ) -> schema.validation.immutabledict[str, OUTPUT_BASE_TYPES]: ...
 
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-    ) -> schema.T:
-        if isinstance(arg, validation.immutabledict):
-            # T use case
-            return super().validate_base(arg, configuration=configuration)
-        arg = typing.cast(typing.Mapping[str, schema.INPUT_TYPES_ALL_INCL_SCHEMA], arg)
+    ) -> schema.validation.immutabledict[str, OUTPUT_BASE_TYPES]:
         return super().validate_base(arg, configuration=configuration)

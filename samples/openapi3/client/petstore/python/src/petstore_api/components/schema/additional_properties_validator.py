@@ -26,7 +26,7 @@ _0DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
 
 @dataclasses.dataclass(frozen=True)
 class _0(
-    schemas.DictSchema[_0Dict]
+    schemas.Schema[_0Dict, typing.Tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
@@ -96,7 +96,7 @@ _1DictInput = typing.Mapping[
 
 @dataclasses.dataclass(frozen=True)
 class _1(
-    schemas.DictSchema[_1Dict]
+    schemas.Schema[_1Dict, typing.Tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
@@ -166,7 +166,7 @@ _2DictInput = typing.Mapping[
 
 @dataclasses.dataclass(frozen=True)
 class _2(
-    schemas.DictSchema[_2Dict]
+    schemas.Schema[_2Dict, typing.Tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     additional_properties: typing.Type[AdditionalProperties3] = dataclasses.field(default_factory=lambda: AdditionalProperties3) # type: ignore

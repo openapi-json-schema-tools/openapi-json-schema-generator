@@ -60,7 +60,7 @@ HeaderParametersDictInput = typing_extensions.TypedDict(
 
 @dataclasses.dataclass(frozen=True)
 class HeaderParameters(
-    schemas.DictSchema[HeaderParametersDict]
+    schemas.Schema[HeaderParametersDict, typing.Tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties2 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties2)) # type: ignore
@@ -131,7 +131,7 @@ PathParametersDictInput = typing_extensions.TypedDict(
 
 @dataclasses.dataclass(frozen=True)
 class PathParameters(
-    schemas.DictSchema[PathParametersDict]
+    schemas.Schema[PathParametersDict, typing.Tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({

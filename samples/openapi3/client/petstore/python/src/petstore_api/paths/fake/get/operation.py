@@ -96,7 +96,7 @@ QueryParametersDictInput = typing_extensions.TypedDict(
 
 @dataclasses.dataclass(frozen=True)
 class QueryParameters(
-    schemas.DictSchema[QueryParametersDict]
+    schemas.Schema[QueryParametersDict, typing.Tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
@@ -176,7 +176,7 @@ HeaderParametersDictInput = typing_extensions.TypedDict(
 
 @dataclasses.dataclass(frozen=True)
 class HeaderParameters(
-    schemas.DictSchema[HeaderParametersDict]
+    schemas.Schema[HeaderParametersDict, typing.Tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties2 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties2)) # type: ignore
