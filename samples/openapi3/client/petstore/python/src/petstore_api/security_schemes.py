@@ -245,13 +245,13 @@ Value is the list of scopes
 SecurityRequirementObject = typing_extensions.TypedDict(
     'SecurityRequirementObject',
     {
-        'api_key': typing.List[str],
-        'api_key_query': typing.List[str],
-        'bearer_test': typing.List[str],
-        'http_basic_test': typing.List[str],
-        'http_signature_test': typing.List[str],
-        'openIdConnect_test': typing.List[str],
-        'petstore_auth': typing.List[str],
+        'api_key': typing.Tuple[str, ...],
+        'api_key_query': typing.Tuple[str, ...],
+        'bearer_test': typing.Tuple[str, ...],
+        'http_basic_test': typing.Tuple[str, ...],
+        'http_signature_test': typing.Tuple[str, ...],
+        'openIdConnect_test': typing.Tuple[str, ...],
+        'petstore_auth': typing.Tuple[str, ...],
     },
     total=False
 )

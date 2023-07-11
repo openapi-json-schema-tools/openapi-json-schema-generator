@@ -1122,15 +1122,31 @@ class ApiClient:
             # optional auth cause, use no auth
             return
         for security_scheme_component_name, scope_names in security_requirement_object.items():
-            security_scheme_instance = self.configuration.security_scheme_info[security_scheme_component_name]
-            security_scheme_instance.apply_auth(
-                headers,
-                resource_path,
-                method,
-                body,
-                query_params_suffix,
-                scope_names
+            scope_names = typing.cast(typing.Tuple[str, ...], scope_names)
+            security_scheme_component_name = typing.cast(typing_extensions.Literal[
+                    'api_key',
+                    'api_key_query',
+                    'bearer_test',
+                    'http_basic_test',
+                    'http_signature_test',
+                    'openIdConnect_test',
+                    'petstore_auth',
+                ],
+                security_scheme_component_name
             )
+            try:
+                security_scheme_instance = self.configuration.security_scheme_info[security_scheme_component_name]
+                security_scheme_instance.apply_auth(
+                    headers,
+                    resource_path,
+                    method,
+                    body,
+                    query_params_suffix,
+                    scope_names
+                )
+            except KeyError as ex:
+                raise ex
+
 
 @dataclasses.dataclass
 class Api:
