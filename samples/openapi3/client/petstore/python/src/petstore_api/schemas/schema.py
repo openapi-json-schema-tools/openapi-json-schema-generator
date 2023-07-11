@@ -260,9 +260,10 @@ class SingletonMeta(type):
     Schemas are frozen classes that are never instantiated with init args
     All args come from defaults
     """
-    _instances = {}
+    _instances: typing.Dict[typing.Type[SingletonMeta], SingletonMeta] = {}
 
     def __call__(cls, *args, **kwargs):
+        assert issubclass(cls, SingletonMeta)
         if cls not in cls._instances:
             cls._instances[cls] = super().__call__(*args, **kwargs)
         return cls._instances[cls]
