@@ -118,11 +118,11 @@ class Bool:
 
     @classproperty
     def TRUE(cls):
-        return cls(True)
+        return cls(True) # type: ignore
 
     @classproperty
     def FALSE(cls):
-        return cls(False)
+        return cls(False) # type: ignore
 
     @functools.lru_cache()
     def __bool__(self) -> bool:
@@ -371,7 +371,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
     @classmethod
     def _get_new_instance_without_conversion(
         cls,
-        arg: typing.Any,
+        arg: typing.Union[int, float, None, Bool, str, validation.immutabledict, tuple, FileIO, bytes],
         path_to_item: typing.Tuple[typing.Union[str, int], ...],
         path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Tuple[typing.Type]]
     ):
@@ -397,10 +397,13 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
             return used_arg
         output_cls = type_to_output_cls[arg_type]
         if arg_type is tuple and issubclass(output_cls, typing.Tuple):
-            return super(output_cls, output_cls).__new__(output_cls, used_arg)
+            inst = super(output_cls, output_cls).__new__(output_cls, used_arg) # type: ignore
+            inst = typing.cast(U, inst)
+            return inst
         assert issubclass(output_cls, validation.immutabledict)
-        inst = super(output_cls, output_cls).__new__(output_cls, used_arg)
+        inst = super(output_cls, output_cls).__new__(output_cls, used_arg) # type: ignore
         inst.__init__(used_arg)
+        inst = typing.cast(T, inst)
         return inst
 
     @typing.overload
