@@ -396,7 +396,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
         if arg_type not in type_to_output_cls:
             return used_arg
         output_cls = type_to_output_cls[arg_type]
-        if arg_type is tuple and issubclass(output_cls, typing.Tuple):
+        if arg_type is tuple:
             inst = super(output_cls, output_cls).__new__(output_cls, used_arg) # type: ignore
             inst = typing.cast(U, inst)
             return inst
