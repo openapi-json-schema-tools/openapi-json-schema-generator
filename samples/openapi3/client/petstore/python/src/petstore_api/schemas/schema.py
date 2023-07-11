@@ -85,7 +85,7 @@ class classproperty(typing.Generic[W]):
 
 
 class Bool:
-    _instances = {}
+    _instances: typing.Dict[typing.Tuple[type, bool], Bool] = {}
     """
     This class is needed to replace bool during validation processing
     json schema requires that 0 != False and 1 != True
