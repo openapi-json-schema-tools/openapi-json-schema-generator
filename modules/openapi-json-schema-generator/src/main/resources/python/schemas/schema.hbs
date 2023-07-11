@@ -232,8 +232,8 @@ def cast_to_allowed_types(
                 for i, item in enumerate(arg)
             ]
         )
-    elif isinstance(arg, none_type_):
-        path_to_type[path_to_item] = none_type_
+    elif arg is None:
+        path_to_type[path_to_item] = type(None)
         return None
     elif isinstance(arg, (datetime.date, datetime.datetime)):
         path_to_type[path_to_item] = str
