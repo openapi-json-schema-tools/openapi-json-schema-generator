@@ -22,12 +22,6 @@ class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):
 
     class ApplicationOctetStreamMediaType(api_client.MediaType):
         schema: typing_extensions.TypeAlias = application_octet_stream_schema.Schema
-    Content = typing_extensions.TypedDict(
-        'Content',
-        {
-            'application/octet-stream': typing.Type[ApplicationOctetStreamMediaType],
-        }
-    )
-    content: Content = {
+    content = {
         'application/octet-stream': ApplicationOctetStreamMediaType,
     }

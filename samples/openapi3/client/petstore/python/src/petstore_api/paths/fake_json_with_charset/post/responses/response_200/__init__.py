@@ -22,12 +22,6 @@ class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):
 
     class ApplicationJsonCharsetutf8MediaType(api_client.MediaType):
         schema: typing_extensions.TypeAlias = application_json_charsetutf8_schema.Schema
-    Content = typing_extensions.TypedDict(
-        'Content',
-        {
-            'application/json; charset=utf-8': typing.Type[ApplicationJsonCharsetutf8MediaType],
-        }
-    )
-    content: Content = {
+    content = {
         'application/json; charset=utf-8': ApplicationJsonCharsetutf8MediaType,
     }

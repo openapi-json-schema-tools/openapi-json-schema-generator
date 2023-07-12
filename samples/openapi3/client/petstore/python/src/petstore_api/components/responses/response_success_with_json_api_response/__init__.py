@@ -160,13 +160,7 @@ class SuccessWithJsonApiResponse(api_client.OpenApiResponse[ApiResponse]):
 
     class ApplicationJsonMediaType(api_client.MediaType):
         schema: typing_extensions.TypeAlias = application_json_schema.Schema
-    Content = typing_extensions.TypedDict(
-        'Content',
-        {
-            'application/json': typing.Type[ApplicationJsonMediaType],
-        }
-    )
-    content: Content = {
+    content = {
         'application/json': ApplicationJsonMediaType,
     }
     headers=parameters

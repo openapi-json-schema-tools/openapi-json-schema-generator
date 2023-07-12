@@ -25,14 +25,7 @@ class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):
 
     class ApplicationXmlMediaType(api_client.MediaType):
         pass
-    Content = typing_extensions.TypedDict(
-        'Content',
-        {
-            'application/json': typing.Type[ApplicationJsonMediaType],
-            'application/xml': typing.Type[ApplicationXmlMediaType],
-        }
-    )
-    content: Content = {
+    content = {
         'application/json': ApplicationJsonMediaType,
         'application/xml': ApplicationXmlMediaType,
     }
