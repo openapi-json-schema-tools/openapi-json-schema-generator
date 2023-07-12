@@ -340,7 +340,7 @@ OUTPUT_BASE_TYPES = typing.Union[
     float,
     bool,
     schema.none_type_,
-    typing.Tuple['OUTPUT_BASE_TYPES'],
+    typing.Tuple['OUTPUT_BASE_TYPES', ...],
     bytes,
     schema.FileIO
 ]
