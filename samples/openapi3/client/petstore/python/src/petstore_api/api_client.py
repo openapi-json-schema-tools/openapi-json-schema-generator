@@ -779,9 +779,9 @@ T = typing.TypeVar("T", bound=api_response.ApiResponse)
 class OpenApiResponse(JSONDetector, typing.Generic[T]):
     __filename_content_disposition_pattern = re.compile('filename="(.+?)"')
     response_cls: typing.Type[T]
-    content: typing.Optional[typing.Dict[str, MediaType]] = None
+    content: typing.Optional[typing.Mapping[str, MediaType]] = None
     headers: typing.Optional[typing.Dict[str, typing.Type[HeaderParameterWithoutName]]] = None
-    headers_schema: typing.Optional[typing.Type[schemas.DictSchema]] = None
+    headers_schema: typing.Optional[typing.Type[schemas.Schema]] = None
 
     @staticmethod
     def __deserialize_json(response: urllib3.HTTPResponse) -> typing.Any:
