@@ -103,7 +103,7 @@ class BaseApi(api_client.Api):
             content_type=content_type
         )
         host = self.api_client.configuration.get_server_url(
-            'servers', server_index
+            "servers", server_index
         )
         security_requirement_object = self.api_client.configuration.get_security_requirement_object(
             "paths//fake_classname_test/patch/security",

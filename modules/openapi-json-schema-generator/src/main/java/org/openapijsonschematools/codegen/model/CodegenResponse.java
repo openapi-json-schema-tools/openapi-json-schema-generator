@@ -31,6 +31,17 @@ public class CodegenResponse {
     public final TreeSet<String> imports;
     public final boolean componentModule;
 
+    public CodegenResponse getSelfOrDeepestRef() {
+        if (refInfo == null) {
+            return this;
+        }
+        CodegenResponse refObject = refInfo.ref;
+        while (refObject.refInfo != null) {
+            refObject = refObject.refInfo.ref;
+        }
+        return refObject;
+    }
+
     public CodegenResponse(CodegenKey jsonPathPiece, Map<String, CodegenHeader> headers, CodegenSchema headersObjectSchema, String description, Map<String, Object> vendorExtensions, LinkedHashMap<CodegenKey, CodegenMediaType> content, CodegenRefInfo<CodegenResponse> refInfo, TreeSet<String> imports, boolean componentModule) {
         this.jsonPathPiece = jsonPathPiece;
         this.headers = headers;

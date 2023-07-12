@@ -15,8 +15,4 @@ class ApiSuccessDescriptionOnly(api_response.ApiResponse):
 
 
 class SuccessDescriptionOnly(api_client.OpenApiResponse[ApiSuccessDescriptionOnly]):
-    @dataclasses.dataclass
-    class response_cls(api_response.ApiResponse):
-        response: urllib3.HTTPResponse
-        body: schemas.Unset = schemas.unset
-        headers: schemas.Unset = schemas.unset
+    response_cls = ApiSuccessDescriptionOnly
