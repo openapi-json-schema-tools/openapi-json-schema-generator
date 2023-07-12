@@ -15,7 +15,12 @@ Name: typing_extensions.TypeAlias = schemas.StrSchema
 Items: typing_extensions.TypeAlias = schemas.StrSchema
 
 
-class PhotoUrlsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class PhotoUrlsTuple(
+    typing.Tuple[
+        str,
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> str:
         return super().__getitem__(name)
 
@@ -147,7 +152,12 @@ from petstore_api.components.schema import category
 from petstore_api.components.schema import tag
 
 
-class TagsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class TagsTuple(
+    typing.Tuple[
+        tag.TagDict,
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> tag.TagDict:
         return super().__getitem__(name)
 

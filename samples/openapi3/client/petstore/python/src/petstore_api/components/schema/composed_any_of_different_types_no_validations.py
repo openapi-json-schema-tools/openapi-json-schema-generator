@@ -22,7 +22,12 @@ _8: typing_extensions.TypeAlias = schemas.NoneSchema
 Items: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 
 
-class _9Tuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class _9Tuple(
+    typing.Tuple[
+        schemas.OUTPUT_BASE_TYPES,
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> schemas.OUTPUT_BASE_TYPES:
         return super().__getitem__(name)
 

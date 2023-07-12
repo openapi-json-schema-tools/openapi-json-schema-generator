@@ -262,7 +262,12 @@ class DatetimeProp(
 Items: typing_extensions.TypeAlias = schemas.DictSchema
 
 
-class ArrayNullablePropTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class ArrayNullablePropTuple(
+    typing.Tuple[
+        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
         return super().__getitem__(name)
 
@@ -367,7 +372,15 @@ class Items2(
         )
 
 
-class ArrayAndItemsNullablePropTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class ArrayAndItemsNullablePropTuple(
+    typing.Tuple[
+        typing.Union[
+            None,
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        ],
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> typing.Union[
         None,
         schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
@@ -477,7 +490,15 @@ class Items3(
         )
 
 
-class ArrayItemsNullableTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class ArrayItemsNullableTuple(
+    typing.Tuple[
+        typing.Union[
+            None,
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        ],
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> typing.Union[
         None,
         schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],

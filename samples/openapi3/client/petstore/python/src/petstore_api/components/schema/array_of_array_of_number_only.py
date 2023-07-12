@@ -13,7 +13,12 @@ from petstore_api.shared_imports.schema_imports import *
 Items2: typing_extensions.TypeAlias = schemas.NumberSchema
 
 
-class ItemsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class ItemsTuple(
+    typing.Tuple[
+        typing.Union[float, int],
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> typing.Union[float, int]:
         return super().__getitem__(name)
 
@@ -66,7 +71,12 @@ class Items(
         )
 
 
-class ArrayArrayNumberTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class ArrayArrayNumberTuple(
+    typing.Tuple[
+        ItemsTuple,
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> ItemsTuple:
         return super().__getitem__(name)
 

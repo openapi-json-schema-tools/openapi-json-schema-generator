@@ -14,7 +14,12 @@ from petstore_api.shared_imports.schema_imports import *
 from petstore_api.components.schema import enum_class
 
 
-class AdditionalPropertiesTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class AdditionalPropertiesTuple(
+    typing.Tuple[
+        typing_extensions.Literal["_abc", "-efg", "(xyz)", "COUNT_1M", "COUNT_50M"],
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> typing_extensions.Literal["_abc", "-efg", "(xyz)", "COUNT_1M", "COUNT_50M"]:
         return super().__getitem__(name)
 

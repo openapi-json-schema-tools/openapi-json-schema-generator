@@ -148,7 +148,12 @@ class Items(
         )
 
 
-class ArrayEnumTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class ArrayEnumTuple(
+    typing.Tuple[
+        typing_extensions.Literal["fish", "crab"],
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> typing_extensions.Literal["fish", "crab"]:
         return super().__getitem__(name)
 

@@ -13,7 +13,12 @@ from petstore_api.shared_imports.schema_imports import *
 Items2: typing_extensions.TypeAlias = schemas.DictSchema
 
 
-class ItemsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class ItemsTuple(
+    typing.Tuple[
+        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
         return super().__getitem__(name)
 

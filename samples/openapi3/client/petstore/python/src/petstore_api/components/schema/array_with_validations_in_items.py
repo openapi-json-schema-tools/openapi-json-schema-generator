@@ -23,7 +23,12 @@ class Items(
     inclusive_maximum: typing.Union[int, float] = 7
 
 
-class ArrayWithValidationsInItemsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class ArrayWithValidationsInItemsTuple(
+    typing.Tuple[
+        int,
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> int:
         return super().__getitem__(name)
 

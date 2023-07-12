@@ -17,7 +17,12 @@ from petstore_api.components.schema import shape
 from petstore_api.components.schema import shape_or_null
 
 
-class ShapesTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class ShapesTuple(
+    typing.Tuple[
+        schemas.OUTPUT_BASE_TYPES,
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> schemas.OUTPUT_BASE_TYPES:
         return super().__getitem__(name)
 

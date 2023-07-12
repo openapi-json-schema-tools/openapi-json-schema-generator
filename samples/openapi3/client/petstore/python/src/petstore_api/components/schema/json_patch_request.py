@@ -30,7 +30,12 @@ OneOf = typing.Tuple[
 ]
 
 
-class JSONPatchRequestTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class JSONPatchRequestTuple(
+    typing.Tuple[
+        schemas.OUTPUT_BASE_TYPES,
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> schemas.OUTPUT_BASE_TYPES:
         return super().__getitem__(name)
 

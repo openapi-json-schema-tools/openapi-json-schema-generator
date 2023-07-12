@@ -12,7 +12,12 @@ from petstore_api.shared_imports.schema_imports import *
 
 
 
-class SelfReferencingArrayModelTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class SelfReferencingArrayModelTuple(
+    typing.Tuple[
+        SelfReferencingArrayModelTuple,
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> SelfReferencingArrayModelTuple:
         return super().__getitem__(name)
 

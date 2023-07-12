@@ -81,7 +81,12 @@ class Items(
         )
 
 
-class EnumFormStringArrayTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class EnumFormStringArrayTuple(
+    typing.Tuple[
+        typing_extensions.Literal[">", "$"],
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> typing_extensions.Literal[">", "$"]:
         return super().__getitem__(name)
 

@@ -14,7 +14,12 @@ from petstore_api.shared_imports.schema_imports import *
 from petstore_api.components.schema import file
 
 
-class FilesTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class FilesTuple(
+    typing.Tuple[
+        file.FileDict,
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> file.FileDict:
         return super().__getitem__(name)
 

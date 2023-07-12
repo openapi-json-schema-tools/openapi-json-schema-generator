@@ -13,7 +13,12 @@ from petstore_api.shared_imports.schema_imports import *
 Items: typing_extensions.TypeAlias = schemas.StrSchema
 
 
-class ArrayOfStringTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class ArrayOfStringTuple(
+    typing.Tuple[
+        str,
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> str:
         return super().__getitem__(name)
 
@@ -61,7 +66,12 @@ class ArrayOfString(
 Items3: typing_extensions.TypeAlias = schemas.Int64Schema
 
 
-class ItemsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class ItemsTuple(
+    typing.Tuple[
+        int,
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> int:
         return super().__getitem__(name)
 
@@ -108,7 +118,12 @@ class Items2(
         )
 
 
-class ArrayArrayOfIntegerTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class ArrayArrayOfIntegerTuple(
+    typing.Tuple[
+        ItemsTuple,
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> ItemsTuple:
         return super().__getitem__(name)
 
@@ -165,7 +180,12 @@ class ArrayArrayOfInteger(
 from petstore_api.components.schema import read_only_first
 
 
-class ItemsTuple2(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class ItemsTuple2(
+    typing.Tuple[
+        read_only_first.ReadOnlyFirstDict,
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> read_only_first.ReadOnlyFirstDict:
         return super().__getitem__(name)
 
@@ -220,7 +240,12 @@ class Items4(
         )
 
 
-class ArrayArrayOfModelTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class ArrayArrayOfModelTuple(
+    typing.Tuple[
+        ItemsTuple2,
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> ItemsTuple2:
         return super().__getitem__(name)
 

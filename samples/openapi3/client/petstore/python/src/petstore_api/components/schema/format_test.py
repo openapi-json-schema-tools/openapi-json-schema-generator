@@ -81,7 +81,12 @@ Float64: typing_extensions.TypeAlias = schemas.Float64Schema
 Items: typing_extensions.TypeAlias = schemas.NumberSchema
 
 
-class ArrayWithUniqueItemsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class ArrayWithUniqueItemsTuple(
+    typing.Tuple[
+        typing.Union[float, int],
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> typing.Union[float, int]:
         return super().__getitem__(name)
 

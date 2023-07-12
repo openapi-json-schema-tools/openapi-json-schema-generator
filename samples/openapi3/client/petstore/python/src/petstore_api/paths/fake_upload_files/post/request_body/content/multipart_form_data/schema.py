@@ -13,7 +13,12 @@ from petstore_api.shared_imports.schema_imports import *
 Items: typing_extensions.TypeAlias = schemas.BinarySchema
 
 
-class FilesTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class FilesTuple(
+    typing.Tuple[
+        typing.Union[bytes, schemas.FileIO],
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> typing.Union[bytes, schemas.FileIO]:
         return super().__getitem__(name)
 

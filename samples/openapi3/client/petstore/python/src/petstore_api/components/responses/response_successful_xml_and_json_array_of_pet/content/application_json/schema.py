@@ -14,7 +14,12 @@ from petstore_api.shared_imports.schema_imports import *
 from petstore_api.components.schema import ref_pet
 
 
-class SchemaTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class SchemaTuple(
+    typing.Tuple[
+        ref_pet.pet.PetDict,
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> ref_pet.pet.PetDict:
         return super().__getitem__(name)
 

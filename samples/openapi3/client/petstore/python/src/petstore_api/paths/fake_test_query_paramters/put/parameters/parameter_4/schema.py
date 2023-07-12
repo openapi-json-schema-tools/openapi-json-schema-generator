@@ -13,7 +13,12 @@ from petstore_api.shared_imports.schema_imports import *
 Items: typing_extensions.TypeAlias = schemas.StrSchema
 
 
-class SchemaTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class SchemaTuple(
+    typing.Tuple[
+        str,
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> str:
         return super().__getitem__(name)
 

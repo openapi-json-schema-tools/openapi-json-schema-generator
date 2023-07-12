@@ -81,7 +81,12 @@ class Items(
         )
 
 
-class SchemaTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
+class SchemaTuple(
+    typing.Tuple[
+        typing_extensions.Literal[">", "$"],
+        ...
+    ]
+):
     def __getitem__(self, name: int) -> typing_extensions.Literal[">", "$"]:
         return super().__getitem__(name)
 
