@@ -113,10 +113,11 @@ class BaseApi(api_client.Api):
             PathParametersDictInput,
             PathParametersDict
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> response_200.ApiResponse: ...
 
     @typing.overload
@@ -126,10 +127,11 @@ class BaseApi(api_client.Api):
             PathParametersDictInput,
             PathParametersDict
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     def _delete_user(
@@ -138,10 +140,11 @@ class BaseApi(api_client.Api):
             PathParametersDictInput,
             PathParametersDict
         ],
+        *,
+        skip_deserialization: bool = False,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False
     ):
         """
         Delete user

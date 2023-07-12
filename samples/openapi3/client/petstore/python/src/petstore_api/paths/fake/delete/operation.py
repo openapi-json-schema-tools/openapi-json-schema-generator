@@ -268,11 +268,12 @@ class BaseApi(api_client.Api):
             HeaderParametersDictInput,
             HeaderParametersDict
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> response_200.ApiResponse: ...
 
     @typing.overload
@@ -286,11 +287,12 @@ class BaseApi(api_client.Api):
             HeaderParametersDictInput,
             HeaderParametersDict
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     def _group_parameters(
@@ -303,11 +305,12 @@ class BaseApi(api_client.Api):
             HeaderParametersDictInput,
             HeaderParametersDict
         ],
+        *,
+        skip_deserialization: bool = False,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False
     ):
         """
         Fake endpoint to test group parameters (optional)

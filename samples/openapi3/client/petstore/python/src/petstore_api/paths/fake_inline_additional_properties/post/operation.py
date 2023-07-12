@@ -38,11 +38,12 @@ class BaseApi(api_client.Api):
             request_body_application_json_schema.SchemaDictInput,
             request_body_application_json_schema.SchemaDict,
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> response_200.ApiResponse: ...
 
     @typing.overload
@@ -52,11 +53,12 @@ class BaseApi(api_client.Api):
             request_body_application_json_schema.SchemaDictInput,
             request_body_application_json_schema.SchemaDict,
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     def _inline_additional_properties(
@@ -65,11 +67,12 @@ class BaseApi(api_client.Api):
             request_body_application_json_schema.SchemaDictInput,
             request_body_application_json_schema.SchemaDict,
         ],
+        *,
+        skip_deserialization: bool = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False
     ):
         """
         test inline additionalProperties

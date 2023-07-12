@@ -27,11 +27,12 @@ class BaseApi(api_client.Api):
             request_body_application_json_schema.SchemaTupleInput,
             request_body_application_json_schema.SchemaTuple,
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> response_default.ApiResponse: ...
 
     @typing.overload
@@ -41,11 +42,12 @@ class BaseApi(api_client.Api):
             request_body_application_json_schema.SchemaTupleInput,
             request_body_application_json_schema.SchemaTuple,
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     def _create_users_with_list_input(
@@ -54,11 +56,12 @@ class BaseApi(api_client.Api):
             request_body_application_json_schema.SchemaTupleInput,
             request_body_application_json_schema.SchemaTuple,
         ],
+        *,
+        skip_deserialization: bool = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False
     ):
         """
         Creates list of users with given input array

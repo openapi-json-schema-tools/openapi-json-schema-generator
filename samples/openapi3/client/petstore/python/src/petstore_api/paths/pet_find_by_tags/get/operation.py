@@ -126,11 +126,12 @@ class BaseApi(api_client.Api):
             QueryParametersDictInput,
             QueryParametersDict
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> response_200.ApiResponse: ...
 
     @typing.overload
@@ -140,11 +141,12 @@ class BaseApi(api_client.Api):
             QueryParametersDictInput,
             QueryParametersDict
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     def _find_pets_by_tags(
@@ -153,11 +155,12 @@ class BaseApi(api_client.Api):
             QueryParametersDictInput,
             QueryParametersDict
         ],
+        *,
+        skip_deserialization: bool = False,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False
     ):
         """
         Finds Pets by tags

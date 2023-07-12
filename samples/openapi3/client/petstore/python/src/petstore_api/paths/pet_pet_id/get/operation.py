@@ -127,12 +127,13 @@ class BaseApi(api_client.Api):
             PathParametersDictInput,
             PathParametersDict
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> response_200.ApiResponse: ...
 
     @typing.overload
@@ -142,12 +143,13 @@ class BaseApi(api_client.Api):
             PathParametersDictInput,
             PathParametersDict
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     def _get_pet_by_id(
@@ -156,12 +158,13 @@ class BaseApi(api_client.Api):
             PathParametersDictInput,
             PathParametersDict
         ],
+        *,
+        skip_deserialization: bool = False,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False
     ):
         """
         Find pet by ID

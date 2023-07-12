@@ -146,10 +146,11 @@ class BaseApi(api_client.Api):
             QueryParametersDictInput,
             QueryParametersDict
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> response_200.ApiResponse: ...
 
     @typing.overload
@@ -159,10 +160,11 @@ class BaseApi(api_client.Api):
             QueryParametersDictInput,
             QueryParametersDict
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     def _case_sensitive_params(
@@ -171,10 +173,11 @@ class BaseApi(api_client.Api):
             QueryParametersDictInput,
             QueryParametersDict
         ],
+        *,
+        skip_deserialization: bool = False,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False
     ):
         """
         :param skip_deserialization: If true then api_response.response will be set but

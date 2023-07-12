@@ -51,12 +51,13 @@ class BaseApi(api_client.Api):
             request_body_application_json_schema.OrderDictInput,
             request_body_application_json_schema.OrderDict,
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> response_200.ApiResponse: ...
 
     @typing.overload
@@ -66,12 +67,13 @@ class BaseApi(api_client.Api):
             request_body_application_json_schema.OrderDictInput,
             request_body_application_json_schema.OrderDict,
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     def _place_order(
@@ -80,12 +82,13 @@ class BaseApi(api_client.Api):
             request_body_application_json_schema.OrderDictInput,
             request_body_application_json_schema.OrderDict,
         ],
+        *,
+        skip_deserialization: bool = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False
     ):
         """
         Place an order for a pet

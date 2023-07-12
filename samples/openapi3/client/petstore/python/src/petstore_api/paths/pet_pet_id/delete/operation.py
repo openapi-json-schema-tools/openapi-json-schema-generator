@@ -184,11 +184,12 @@ class BaseApi(api_client.Api):
             HeaderParametersDict,
             None
         ] = None,
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> api_response.ApiResponseWithoutDeserialization: ...
     @typing.overload
     def _delete_pet(
@@ -202,11 +203,12 @@ class BaseApi(api_client.Api):
             HeaderParametersDict,
             None
         ] = None,
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     def _delete_pet(
@@ -220,11 +222,12 @@ class BaseApi(api_client.Api):
             HeaderParametersDict,
             None
         ] = None,
+        *,
+        skip_deserialization: bool = False,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False
     ):
         """
         Deletes a pet

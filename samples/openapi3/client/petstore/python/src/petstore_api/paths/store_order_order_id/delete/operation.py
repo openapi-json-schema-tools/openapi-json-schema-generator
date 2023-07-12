@@ -111,10 +111,11 @@ class BaseApi(api_client.Api):
             PathParametersDictInput,
             PathParametersDict
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> api_response.ApiResponseWithoutDeserialization: ...
     @typing.overload
     def _delete_order(
@@ -123,10 +124,11 @@ class BaseApi(api_client.Api):
             PathParametersDictInput,
             PathParametersDict
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     def _delete_order(
@@ -135,10 +137,11 @@ class BaseApi(api_client.Api):
             PathParametersDictInput,
             PathParametersDict
         ],
+        *,
+        skip_deserialization: bool = False,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False
     ):
         """
         Delete purchase order by ID

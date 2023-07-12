@@ -67,11 +67,12 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _wild_card_responses(
         self,
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> typing.Union[
         response_200.ApiResponse,
         response_2xx.ApiResponse,
@@ -81,20 +82,22 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _wild_card_responses(
         self,
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     def _wild_card_responses(
         self,
+        *,
+        skip_deserialization: bool = False,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False
     ):
         """
         operation with wildcard responses

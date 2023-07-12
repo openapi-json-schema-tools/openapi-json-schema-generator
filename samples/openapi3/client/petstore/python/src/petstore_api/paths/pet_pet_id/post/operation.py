@@ -121,12 +121,13 @@ class BaseApi(api_client.Api):
             request_body_application_x_www_form_urlencoded_schema.SchemaDict,
             schemas.Unset
         ] = schemas.unset,
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = "application/x-www-form-urlencoded",
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> api_response.ApiResponseWithoutDeserialization: ...
     @typing.overload
     def _update_pet_with_form(
@@ -140,12 +141,13 @@ class BaseApi(api_client.Api):
             request_body_application_x_www_form_urlencoded_schema.SchemaDict,
             schemas.Unset
         ] = schemas.unset,
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = "application/x-www-form-urlencoded",
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     def _update_pet_with_form(
@@ -159,12 +161,13 @@ class BaseApi(api_client.Api):
             request_body_application_x_www_form_urlencoded_schema.SchemaDict,
             schemas.Unset
         ] = schemas.unset,
+        *,
+        skip_deserialization: bool = False,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = "application/x-www-form-urlencoded",
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False
     ):
         """
         Updates a pet in the store with form data
