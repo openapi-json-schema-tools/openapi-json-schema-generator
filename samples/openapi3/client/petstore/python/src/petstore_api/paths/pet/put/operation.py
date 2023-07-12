@@ -43,6 +43,11 @@ _status_code_to_response: __StatusCodeToResponse = {
     '404': response_404.ResponseFor404,
     '405': response_405.ResponseFor405,
 }
+_error_status_codes = frozenset({
+    '400',
+    '404',
+    '405',
+})
 
 
 class BaseApi(api_client.Api):

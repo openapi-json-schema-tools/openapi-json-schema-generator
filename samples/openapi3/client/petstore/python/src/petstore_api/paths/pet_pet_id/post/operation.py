@@ -103,6 +103,9 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
 _status_code_to_response: __StatusCodeToResponse = {
     '405': response_405.ResponseFor405,
 }
+_error_status_codes = frozenset({
+    '405',
+})
 
 
 class BaseApi(api_client.Api):

@@ -35,6 +35,9 @@ _status_code_to_response: __StatusCodeToResponse = {
     '200': response_200.ResponseFor200,
     '404': response_404.ResponseFor404,
 }
+_error_status_codes = frozenset({
+    '404',
+})
 
 
 class BaseApi(api_client.Api):

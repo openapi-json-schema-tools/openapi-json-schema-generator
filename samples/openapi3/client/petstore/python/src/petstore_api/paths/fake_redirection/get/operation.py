@@ -33,6 +33,9 @@ __RangedStatusCodeToResponse = typing_extensions.TypedDict(
 _ranged_status_code_to_response: __RangedStatusCodeToResponse = {
     '3': response_3xx.ResponseFor3XX,
 }
+_error_status_codes = frozenset({
+    '303',
+})
 
 
 class BaseApi(api_client.Api):

@@ -2547,15 +2547,11 @@ public class DefaultCodegen implements CodegenConfig {
                     int firstNumber = Integer.parseInt(key.substring(0, 1));
                     wildcardCodeResponses.put(firstNumber, r);
                     if (firstNumber > 3 && r.content != null) {
-                        for (CodegenMediaType cm: r.content.values()) {
-                            if (cm.schema != null) {
-                                if (errorWildcardStatusCodes == null) {
-                                    errorWildcardStatusCodes = new LinkedHashSet<>();
-                                }
-                                errorWildcardStatusCodes.add(firstNumber);
-                                break;
-                            }
+                        // store error response code whether on not it has a body
+                        if (errorWildcardStatusCodes == null) {
+                            errorWildcardStatusCodes = new LinkedHashSet<>();
                         }
+                        errorWildcardStatusCodes.add(firstNumber);
                     }
                     continue;
                 }
@@ -2564,16 +2560,12 @@ public class DefaultCodegen implements CodegenConfig {
                 }
                 int statusCode = Integer.parseInt(key);
                 statusCodeResponses.put(statusCode, r);
-                if (statusCode > 299 && r.content != null) {
-                    for (CodegenMediaType cm: r.content.values()) {
-                        if (cm.schema != null) {
-                            if (errorStatusCodes == null) {
-                                errorStatusCodes = new LinkedHashSet<>();
-                            }
-                            errorStatusCodes.add(key);
-                            break;
-                        }
+                if (statusCode > 299) {
+                    // store error response code whether on not it has a body
+                    if (errorStatusCodes == null) {
+                        errorStatusCodes = new LinkedHashSet<>();
                     }
+                    errorStatusCodes.add(key);
                 }
             }
 

@@ -186,20 +186,20 @@ _ranged_status_code_to_response: __RangedStatusCodeToResponse = {
         {{/each}}
 }
     {{/if}}
-{{#if errorStatusCodes}}
+    {{#if errorStatusCodes}}
 _error_status_codes = frozenset({
-    {{#each errorStatusCodes}}
+        {{#each errorStatusCodes}}
     '{{this}}',
-    {{/each}}
+        {{/each}}
 })
-{{/if}}
-{{#if errorWildcardStatusCodes}}
+    {{/if}}
+    {{#if errorWildcardStatusCodes}}
 _error_ranged_status_codes = frozenset({
-    {{#each errorWildcardStatusCodes}}
+        {{#each errorWildcardStatusCodes}}
     '{{this}}',
-    {{/each}}
+        {{/each}}
 })
-{{/if}}
+    {{/if}}
 {{#each produces}}
     {{#if @first}}
 

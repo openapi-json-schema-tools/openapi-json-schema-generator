@@ -123,6 +123,9 @@ _status_code_to_response: __StatusCodeToResponse = {
     '200': response_200.ResponseFor200,
     '400': response_400.ResponseFor400,
 }
+_error_status_codes = frozenset({
+    '400',
+})
 
 _all_accept_content_types = (
     "application/xml",

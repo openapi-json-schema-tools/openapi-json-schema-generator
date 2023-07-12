@@ -166,6 +166,9 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
 _status_code_to_response: __StatusCodeToResponse = {
     '400': response_400.ResponseFor400,
 }
+_error_status_codes = frozenset({
+    '400',
+})
 
 
 class BaseApi(api_client.Api):
