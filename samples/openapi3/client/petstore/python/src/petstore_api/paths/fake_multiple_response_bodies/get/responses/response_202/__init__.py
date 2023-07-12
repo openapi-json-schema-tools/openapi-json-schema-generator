@@ -10,14 +10,14 @@ from .content.application_json import schema as application_json_schema
 
 
 @dataclasses.dataclass
-class ApiResponseFor202(api_response.ApiResponse):
+class ApiResponse(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     body: schemas.OUTPUT_BASE_TYPES
     headers: schemas.Unset = schemas.unset
 
 
-class ResponseFor202(api_client.OpenApiResponse[ApiResponseFor202]):
-    response_cls = ApiResponseFor202
+class ResponseFor202(api_client.OpenApiResponse[ApiResponse]):
+    response_cls = ApiResponse
 
 
     class ApplicationJsonMediaType(api_client.MediaType):

@@ -10,14 +10,14 @@ from .content.application_json_charsetutf8 import schema as application_json_cha
 
 
 @dataclasses.dataclass
-class ApiResponseFor200(api_response.ApiResponse):
+class ApiResponse(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     body: schemas.OUTPUT_BASE_TYPES
     headers: schemas.Unset = schemas.unset
 
 
-class ResponseFor200(api_client.OpenApiResponse[ApiResponseFor200]):
-    response_cls = ApiResponseFor200
+class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):
+    response_cls = ApiResponse
 
 
     class ApplicationJsonCharsetutf8MediaType(api_client.MediaType):

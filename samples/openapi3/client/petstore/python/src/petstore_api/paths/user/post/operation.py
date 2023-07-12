@@ -32,7 +32,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False
-    ) -> response_default.Default.response_cls: ...
+    ) -> response_default.ApiResponse: ...
 
     @typing.overload
     def _create_user(

@@ -39,7 +39,7 @@ class BaseApi(api_client.Api):
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> response_200.ApiResponse: ...
 
     @typing.overload
     def _fake_health_get(

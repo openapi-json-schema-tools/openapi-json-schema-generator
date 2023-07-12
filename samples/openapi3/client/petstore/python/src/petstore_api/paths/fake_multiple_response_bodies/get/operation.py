@@ -46,8 +46,8 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
         skip_deserialization: typing_extensions.Literal[False] = False
     ) -> typing.Union[
-        response_200.ResponseFor200.response_cls,
-        response_202.ResponseFor202.response_cls,
+        response_200.ApiResponse,
+        response_202.ApiResponse,
     ]: ...
 
     @typing.overload

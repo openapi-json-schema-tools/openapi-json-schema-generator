@@ -7,3 +7,4 @@
 
 from petstore_api.components.responses import response_success_inline_content_and_header
 ResponseFor200 = response_success_inline_content_and_header.SuccessInlineContentAndHeader
+ApiResponse = response_success_inline_content_and_header.ApiResponse

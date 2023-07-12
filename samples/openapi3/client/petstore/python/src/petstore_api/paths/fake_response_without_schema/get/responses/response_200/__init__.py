@@ -9,14 +9,14 @@ from petstore_api.shared_imports.response_imports import *
 
 
 @dataclasses.dataclass
-class ApiResponseFor200(api_response.ApiResponse):
+class ApiResponse(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     body: schemas.Unset = schemas.unset
     headers: schemas.Unset = schemas.unset
 
 
-class ResponseFor200(api_client.OpenApiResponse[ApiResponseFor200]):
-    response_cls = ApiResponseFor200
+class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):
+    response_cls = ApiResponse
 
 
     class ApplicationJsonMediaType(api_client.MediaType):
