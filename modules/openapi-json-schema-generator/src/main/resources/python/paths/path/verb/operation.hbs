@@ -8,7 +8,7 @@ from __future__ import annotations
 from {{packageName}}.shared_imports.schema_imports import *
     {{/or}}
 {{/with}}
-from {{packageName}} import api_client{{#neq operation.security null}}{{#gt operation.security.size 0}}, security_schemes{{/gt}}{{else}}{{#neq security null}}{{#gt security.size 0}}, security_schemes{{/gt}}{{/neq}}{{/neq}}
+from {{packageName}} import api_client{{#or operation.errorStatusCodes operation.errorWildcardStatusCodes}}, exceptions{{/or}}{{#neq operation.security null}}{{#gt operation.security.size 0}}, security_schemes{{/gt}}{{else}}{{#neq security null}}{{#gt security.size 0}}, security_schemes{{/gt}}{{/neq}}{{/neq}}
 {{#eq operation.security null}}
     {{#neq security null}}
         {{#gt security.size 0}}
@@ -186,9 +186,23 @@ _ranged_status_code_to_response: __RangedStatusCodeToResponse = {
         {{/each}}
 }
     {{/if}}
+    {{#if nonErrorStatusCodes}}
+_non_error_status_codes = frozenset({
+        {{#each nonErrorStatusCodes}}
+    '{{this}}',
+        {{/each}}
+})
+    {{/if}}
     {{#if errorStatusCodes}}
 _error_status_codes = frozenset({
         {{#each errorStatusCodes}}
+    '{{this}}',
+        {{/each}}
+})
+    {{/if}}
+    {{#if nonErrorWildcardStatusCodes}}
+_non_error_ranged_status_codes = frozenset({
+        {{#each nonErrorWildcardStatusCodes}}
     '{{this}}',
         {{/each}}
 })
@@ -370,61 +384,168 @@ class BaseApi(api_client.Api):
 
         if skip_deserialization:
             response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
-        else:
+            self._verify_response_status(response)
+            return response
+
+        status = str(raw_response.status)
 {{#if nonDefaultResponses}}
-            status = str(raw_response.status)
-    {{#if wildcardCodeResponses}}
-            ranged_response_status_code = status[0]
-    {{/if}}
     {{#if statusCodeResponses}}
-            if status in _status_code_to_response:
-                status = typing.cast(
-                    typing_extensions.Literal[
-        {{#each statusCodeResponses}}
-                    '{{@key}}',
-        {{/each}}
-                    ],
-                    status
-                )
-                response = _status_code_to_response[status].deserialize(
-                    raw_response, self.api_client.schema_configuration)
-        {{#if wildcardCodeResponses}}
-            elif ranged_response_status_code in _ranged_status_code_to_response:
-                ranged_response_status_code: typing_extensions.Literal[
-        {{#each wildcardCodeResponses}}
-                    '{{@key}}',
-        {{/each}}
-                ]
-                response = _ranged_status_code_to_response[ranged_response_status_code].deserialize(
-                    raw_response, self.api_client.schema_configuration)
-        {{/if}}
-    {{else}}
-            if ranged_response_status_code in _ranged_status_code_to_response:
-                ranged_response_status_code: typing_extensions.Literal[
-        {{#each wildcardCodeResponses}}
-                    '{{@key}}',
-        {{/each}}
-                ]
-                response = _ranged_status_code_to_response[ranged_response_status_code].deserialize(
-                    raw_response, self.api_client.schema_configuration)
+        {{! use cases }}
+        {{! 1 nonError + error }}
+        {{! 2 nonError }}
+        {{! 3 error }}
+            {{#and nonErrorStatusCodes errorStatusCodes}}
+        if status in _non_error_status_codes:
+            status_code = typing.cast(
+                typing_extensions.Literal[
+                    {{#each nonErrorStatusCodes}}
+                    '{{this}}',
+                    {{/each}}
+                ],
+                status
+            )
+            return _status_code_to_response[status_code].deserialize(
+                raw_response, self.api_client.schema_configuration)
+        elif status in _error_status_codes:
+            error_status_code = typing.cast(
+                typing_extensions.Literal[
+                    {{#each errorStatusCodes}}
+                    '{{this}}',
+                    {{/each}}
+                ],
+                status
+            )
+            error_response = _status_code_to_response[error_status_code].deserialize(
+                raw_response, self.api_client.schema_configuration)
+            raise exceptions.ApiException(
+                status=error_response.response.status,
+                reason=error_response.response.reason,
+                api_response=error_response
+            )
+            {{else}}
+                {{#or nonErrorStatusCodes errorStatusCodes}}
+                    {{#if nonErrorStatusCodes}}
+        if status in _non_error_status_codes:
+            status_code = typing.cast(
+                typing_extensions.Literal[
+                    {{#each nonErrorStatusCodes}}
+                    '{{this}}',
+                    {{/each}}
+                ],
+                status
+            )
+            return _status_code_to_response[status_code].deserialize(
+                raw_response, self.api_client.schema_configuration)
+                    {{/if}}
+                    {{#if errorStatusCodes}}
+        if status in _error_status_codes:
+            error_status_code = typing.cast(
+                typing_extensions.Literal[
+                    {{#each errorStatusCodes}}
+                    '{{this}}',
+                    {{/each}}
+                ],
+                status
+            )
+            error_response = _status_code_to_response[error_status_code].deserialize(
+                raw_response, self.api_client.schema_configuration)
+            raise exceptions.ApiException(
+                status=error_response.response.status,
+                reason=error_response.response.reason,
+                api_response=error_response
+            )
+                    {{/if}}
+                {{/or}}
+            {{/and}}
     {{/if}}
-            else:
+    {{#if wildcardCodeResponses}}
+
+        ranged_response_status_code = status[0]
+        {{! use cases }}
+        {{! 1 nonError + error }}
+        {{! 2 nonError }}
+        {{! 3 error }}
+        {{#and nonErrorWildcardStatusCodes errorWildcardStatusCodes}}
+        if ranged_response_status_code in _non_error_ranged_status_codes:
+            ranged_status_code = typing.cast(
+                typing_extensions.Literal[
+                {{#each nonErrorWildcardStatusCodes}}
+                    '{{this}}',
+                {{/each}}
+                ],
+                ranged_response_status_code
+            )
+            return _ranged_status_code_to_response[ranged_status_code].deserialize(
+                raw_response, self.api_client.schema_configuration)
+        elif ranged_response_status_code in _error_ranged_status_codes:
+            error_ranged_status_code = typing.cast(
+                typing_extensions.Literal[
+                {{#each errorWildcardStatusCodes}}
+                    '{{this}}',
+                {{/each}}
+                ],
+                ranged_response_status_code
+            )
+            error_response = _ranged_status_code_to_response[error_ranged_status_code].deserialize(
+                raw_response, self.api_client.schema_configuration)
+            raise exceptions.ApiException(
+                status=error_response.response.status,
+                reason=error_response.response.reason,
+                api_response=error_response
+            )
+        {{else}}
+            {{#or nonErrorWildcardStatusCodes errorWildcardStatusCodes}}
+                {{#if nonErrorWildcardStatusCodes}}
+        if ranged_response_status_code in _non_error_ranged_status_codes:
+            ranged_status_code = typing.cast(
+                typing_extensions.Literal[
+                        {{#each nonErrorWildcardStatusCodes}}
+                    '{{this}}',
+                        {{/each}}
+                ],
+                ranged_response_status_code
+            )
+            return _ranged_status_code_to_response[ranged_status_code].deserialize(
+                raw_response, self.api_client.schema_configuration)
+                {{/if}}
+                {{#if errorWildcardStatusCodes}}
+        if ranged_response_status_code in _error_ranged_status_codes:
+            error_ranged_status_code = typing.cast(
+                typing_extensions.Literal[
+                        {{#each errorWildcardStatusCodes}}
+                    '{{this}}',
+                        {{/each}}
+                ],
+                ranged_response_status_code
+            )
+            error_response = _ranged_status_code_to_response[error_ranged_status_code].deserialize(
+                raw_response, self.api_client.schema_configuration)
+            raise exceptions.ApiException(
+                status=error_response.response.status,
+                reason=error_response.response.reason,
+                api_response=error_response
+            )
+                {{/if}}
+            {{/or}}
+        {{/and}}
+    {{/if}}
+
     {{#if defaultResponse}}
-                response = default_response.deserialize(raw_response, self.api_client.schema_configuration)
+        response = default_response.deserialize(raw_response, self.api_client.schema_configuration)
     {{else}}
-                response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
+        response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
     {{/if}}
+        self._verify_response_status(response)
+        return response
 {{else}}
     {{#if defaultResponse}}
-            response = default_response.deserialize(raw_response, self.api_client.schema_configuration)
+        response = default_response.deserialize(raw_response, self.api_client.schema_configuration)
     {{else}}
-            response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
+        response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
     {{/if}}
-{{/if}}
-
         self._verify_response_status(response)
-
         return response
+{{/if}}
 
 
 class {{operationId.camelCase}}(BaseApi):

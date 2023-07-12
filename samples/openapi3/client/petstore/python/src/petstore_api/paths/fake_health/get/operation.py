@@ -21,6 +21,9 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
 _status_code_to_response: __StatusCodeToResponse = {
     '200': response_200.ResponseFor200,
 }
+_non_error_status_codes = frozenset({
+    '200',
+})
 
 _all_accept_content_types = (
     "application/json",
@@ -80,22 +83,22 @@ class BaseApi(api_client.Api):
 
         if skip_deserialization:
             response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
-        else:
-            status = str(raw_response.status)
-            if status in _status_code_to_response:
-                status = typing.cast(
-                    typing_extensions.Literal[
+            self._verify_response_status(response)
+            return response
+
+        status = str(raw_response.status)
+        if status in _non_error_status_codes:
+            status_code = typing.cast(
+                typing_extensions.Literal[
                     '200',
-                    ],
-                    status
-                )
-                response = _status_code_to_response[status].deserialize(
-                    raw_response, self.api_client.schema_configuration)
-            else:
-                response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
+                ],
+                status
+            )
+            return _status_code_to_response[status_code].deserialize(
+                raw_response, self.api_client.schema_configuration)
 
+        response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
         self._verify_response_status(response)
-
         return response
 
 

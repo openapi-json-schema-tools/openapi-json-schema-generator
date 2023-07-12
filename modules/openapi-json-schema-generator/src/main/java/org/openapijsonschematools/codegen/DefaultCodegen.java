@@ -2516,6 +2516,8 @@ public class DefaultCodegen implements CodegenConfig {
         TreeMap<Integer, CodegenResponse> statusCodeResponses = null;
         LinkedHashSet<String> errorStatusCodes = null;
         LinkedHashSet<Integer> errorWildcardStatusCodes = null;
+        LinkedHashSet<String> nonErrorStatusCodes = null;
+        LinkedHashSet<Integer> nonErrorWildcardStatusCodes = null;
         if (operation.getResponses() != null && !operation.getResponses().isEmpty()) {
             responses = new TreeMap<>();
             for (Map.Entry<String, ApiResponse> operationGetResponsesEntry : operation.getResponses().entrySet()) {
@@ -2546,12 +2548,17 @@ public class DefaultCodegen implements CodegenConfig {
                     }
                     int firstNumber = Integer.parseInt(key.substring(0, 1));
                     wildcardCodeResponses.put(firstNumber, r);
-                    if (firstNumber > 3 && r.content != null) {
+                    if (firstNumber > 3) {
                         // store error response code whether on not it has a body
                         if (errorWildcardStatusCodes == null) {
                             errorWildcardStatusCodes = new LinkedHashSet<>();
                         }
                         errorWildcardStatusCodes.add(firstNumber);
+                    } else {
+                        if (nonErrorWildcardStatusCodes == null) {
+                            nonErrorWildcardStatusCodes = new LinkedHashSet<>();
+                        }
+                        nonErrorWildcardStatusCodes.add(firstNumber);
                     }
                     continue;
                 }
@@ -2560,12 +2567,17 @@ public class DefaultCodegen implements CodegenConfig {
                 }
                 int statusCode = Integer.parseInt(key);
                 statusCodeResponses.put(statusCode, r);
-                if (statusCode > 299) {
+                if (statusCode > 399) {
                     // store error response code whether on not it has a body
                     if (errorStatusCodes == null) {
                         errorStatusCodes = new LinkedHashSet<>();
                     }
                     errorStatusCodes.add(key);
+                } else {
+                    if (nonErrorStatusCodes == null) {
+                        nonErrorStatusCodes = new LinkedHashSet<>();
+                    }
+                    nonErrorStatusCodes.add(key);
                 }
             }
 
@@ -2728,6 +2740,8 @@ public class DefaultCodegen implements CodegenConfig {
 
         return new CodegenOperation(
                 deprecated,
+                nonErrorStatusCodes,
+                nonErrorWildcardStatusCodes,
                 errorStatusCodes,
                 errorWildcardStatusCodes,
                 summary,

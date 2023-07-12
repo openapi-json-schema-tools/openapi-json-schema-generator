@@ -63,11 +63,12 @@ class BaseApi(api_client.Api):
 
         if skip_deserialization:
             response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
-        else:
-            response = default_response.deserialize(raw_response, self.api_client.schema_configuration)
+            self._verify_response_status(response)
+            return response
 
+        status = str(raw_response.status)
+        response = default_response.deserialize(raw_response, self.api_client.schema_configuration)
         self._verify_response_status(response)
-
         return response
 
 
