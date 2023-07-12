@@ -13,12 +13,6 @@ class RequestBody(api_client.RequestBody):
 
     class ApplicationJsonPatchjsonMediaType(api_client.MediaType):
         schema: typing_extensions.TypeAlias = application_json_patchjson_schema.Schema
-    Content = typing_extensions.TypedDict(
-        'Content',
-        {
-            'application/json-patch+json': typing.Type[ApplicationJsonPatchjsonMediaType],
-        }
-    )
-    content: Content = {
+    content = {
         'application/json-patch+json': ApplicationJsonPatchjsonMediaType,
     }

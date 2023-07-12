@@ -1266,7 +1266,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
     content: content_type to MediaType schemas.Schema info
     """
     __json_encoder = JSONEncoder()
-    content: typing.Dict[str, MediaType]
+    content: typing.Dict[str, typing.Type[MediaType]]
     required: bool = False
 
     @classmethod

@@ -29,15 +29,7 @@ class {{jsonPathPiece.camelCase}}(api_client.RequestBody):
             {{/with}}
         {{/with}}
     {{/each}}
-    Content = typing_extensions.TypedDict(
-        'Content',
-        {
-    {{#each content}}
-            '{{{@key.original}}}': typing.Type[{{@key.camelCase}}MediaType],
-    {{/each}}
-        }
-    )
-    content: Content = {
+    content = {
     {{#each content}}
         '{{{@key.original}}}': {{@key.camelCase}}MediaType,
     {{/each}}

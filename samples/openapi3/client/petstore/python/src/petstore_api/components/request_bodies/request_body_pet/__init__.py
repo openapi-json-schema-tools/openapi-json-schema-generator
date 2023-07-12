@@ -18,14 +18,7 @@ class Pet(api_client.RequestBody):
 
     class ApplicationXmlMediaType(api_client.MediaType):
         schema: typing_extensions.TypeAlias = application_xml_schema.Schema
-    Content = typing_extensions.TypedDict(
-        'Content',
-        {
-            'application/json': typing.Type[ApplicationJsonMediaType],
-            'application/xml': typing.Type[ApplicationXmlMediaType],
-        }
-    )
-    content: Content = {
+    content = {
         'application/json': ApplicationJsonMediaType,
         'application/xml': ApplicationXmlMediaType,
     }
