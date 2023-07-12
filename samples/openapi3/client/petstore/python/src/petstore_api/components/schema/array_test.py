@@ -19,8 +19,14 @@ class ArrayOfStringTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayOfStringTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayOfString.validate(arg, configuration=configuration)
-ArrayOfStringTupleInput = typing.Sequence[
-    str,
+ArrayOfStringTupleInput = typing.Union[
+    typing.List[
+        str,
+    ],
+    typing.Tuple[
+        str,
+        ...
+    ]
 ]
 
 
@@ -61,8 +67,14 @@ class ItemsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Items2.validate(arg, configuration=configuration)
-ItemsTupleInput = typing.Sequence[
-    int,
+ItemsTupleInput = typing.Union[
+    typing.List[
+        int,
+    ],
+    typing.Tuple[
+        int,
+        ...
+    ]
 ]
 
 
@@ -102,12 +114,22 @@ class ArrayArrayOfIntegerTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayArrayOfIntegerTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayArrayOfInteger.validate(arg, configuration=configuration)
-ArrayArrayOfIntegerTupleInput = typing.Sequence[
-    typing.Union[
-        ItemsTuple,
-        list,
-        tuple
+ArrayArrayOfIntegerTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            ItemsTuple,
+            list,
+            tuple
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            ItemsTuple,
+            list,
+            tuple
+        ],
+        ...
+    ]
 ]
 
 
@@ -149,12 +171,22 @@ class ItemsTuple2(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ItemsTupleInput2, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Items4.validate(arg, configuration=configuration)
-ItemsTupleInput2 = typing.Sequence[
-    typing.Union[
-        read_only_first.ReadOnlyFirstDict,
-        dict,
-        schemas.immutabledict
+ItemsTupleInput2 = typing.Union[
+    typing.List[
+        typing.Union[
+            read_only_first.ReadOnlyFirstDict,
+            dict,
+            schemas.immutabledict
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            read_only_first.ReadOnlyFirstDict,
+            dict,
+            schemas.immutabledict
+        ],
+        ...
+    ]
 ]
 
 
@@ -194,12 +226,22 @@ class ArrayArrayOfModelTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayArrayOfModelTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayArrayOfModel.validate(arg, configuration=configuration)
-ArrayArrayOfModelTupleInput = typing.Sequence[
-    typing.Union[
-        ItemsTuple2,
-        list,
-        tuple
+ArrayArrayOfModelTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            ItemsTuple2,
+            list,
+            tuple
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            ItemsTuple2,
+            list,
+            tuple
+        ],
+        ...
+    ]
 ]
 
 

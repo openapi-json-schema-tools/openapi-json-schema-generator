@@ -20,8 +20,14 @@ class AdditionalPropertiesTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: AdditionalPropertiesTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AdditionalProperties.validate(arg, configuration=configuration)
-AdditionalPropertiesTupleInput = typing.Sequence[
-    str,
+AdditionalPropertiesTupleInput = typing.Union[
+    typing.List[
+        str,
+    ],
+    typing.Tuple[
+        str,
+        ...
+    ]
 ]
 
 

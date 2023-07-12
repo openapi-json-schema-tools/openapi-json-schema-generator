@@ -19,11 +19,20 @@ class ArrayNumberTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayNumberTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayNumber.validate(arg, configuration=configuration)
-ArrayNumberTupleInput = typing.Sequence[
-    typing.Union[
-        float,
-        int
+ArrayNumberTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            float,
+            int
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            float,
+            int
+        ],
+        ...
+    ]
 ]
 
 

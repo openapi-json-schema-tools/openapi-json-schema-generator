@@ -20,12 +20,22 @@ class FilesTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: FilesTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Files.validate(arg, configuration=configuration)
-FilesTupleInput = typing.Sequence[
-    typing.Union[
-        file.FileDict,
-        dict,
-        schemas.immutabledict
+FilesTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            file.FileDict,
+            dict,
+            schemas.immutabledict
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            file.FileDict,
+            dict,
+            schemas.immutabledict
+        ],
+        ...
+    ]
 ]
 
 

@@ -154,8 +154,14 @@ class ArrayEnumTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayEnumTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayEnum.validate(arg, configuration=configuration)
-ArrayEnumTupleInput = typing.Sequence[
-    str,
+ArrayEnumTupleInput = typing.Union[
+    typing.List[
+        str,
+    ],
+    typing.Tuple[
+        str,
+        ...
+    ]
 ]
 
 

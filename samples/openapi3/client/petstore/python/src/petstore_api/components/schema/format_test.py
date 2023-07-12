@@ -87,11 +87,20 @@ class ArrayWithUniqueItemsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayWithUniqueItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayWithUniqueItems.validate(arg, configuration=configuration)
-ArrayWithUniqueItemsTupleInput = typing.Sequence[
-    typing.Union[
-        float,
-        int
+ArrayWithUniqueItemsTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            float,
+            int
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            float,
+            int
+        ],
+        ...
+    ]
 ]
 
 

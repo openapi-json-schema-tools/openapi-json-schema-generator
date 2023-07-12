@@ -268,11 +268,20 @@ class ArrayNullablePropTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayNullablePropTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayNullableProp.validate(arg, configuration=configuration)
-ArrayNullablePropTupleInput = typing.Sequence[
-    typing.Union[
-        dict,
-        schemas.immutabledict
+ArrayNullablePropTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            dict,
+            schemas.immutabledict
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            dict,
+            schemas.immutabledict
+        ],
+        ...
+    ]
 ]
 
 
@@ -367,12 +376,22 @@ class ArrayAndItemsNullablePropTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayAndItemsNullablePropTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayAndItemsNullableProp.validate(arg, configuration=configuration)
-ArrayAndItemsNullablePropTupleInput = typing.Sequence[
-    typing.Union[
-        None,
-        dict,
-        schemas.immutabledict
+ArrayAndItemsNullablePropTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            None,
+            dict,
+            schemas.immutabledict
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            None,
+            dict,
+            schemas.immutabledict
+        ],
+        ...
+    ]
 ]
 
 
@@ -467,12 +486,22 @@ class ArrayItemsNullableTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayItemsNullableTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayItemsNullable.validate(arg, configuration=configuration)
-ArrayItemsNullableTupleInput = typing.Sequence[
-    typing.Union[
-        None,
-        dict,
-        schemas.immutabledict
+ArrayItemsNullableTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            None,
+            dict,
+            schemas.immutabledict
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            None,
+            dict,
+            schemas.immutabledict
+        ],
+        ...
+    ]
 ]
 
 

@@ -19,24 +19,46 @@ class ComposedArrayTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ComposedArrayTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ComposedArray.validate(arg, configuration=configuration)
-ComposedArrayTupleInput = typing.Sequence[
-    typing.Union[
-        dict,
-        schemas.immutabledict,
-        str,
-        datetime.date,
-        datetime.datetime,
-        uuid.UUID,
-        int,
-        float,
-        bool,
-        None,
-        list,
-        tuple,
-        bytes,
-        io.FileIO,
-        io.BufferedReader
+ComposedArrayTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            dict,
+            schemas.immutabledict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            dict,
+            schemas.immutabledict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        ...
+    ]
 ]
 
 

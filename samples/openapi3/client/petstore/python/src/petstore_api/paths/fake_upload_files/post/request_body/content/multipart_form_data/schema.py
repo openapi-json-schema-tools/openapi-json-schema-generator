@@ -19,12 +19,22 @@ class FilesTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: FilesTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Files.validate(arg, configuration=configuration)
-FilesTupleInput = typing.Sequence[
-    typing.Union[
-        bytes,
-        io.FileIO,
-        io.BufferedReader
+FilesTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        ...
+    ]
 ]
 
 

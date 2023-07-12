@@ -20,12 +20,22 @@ class SchemaTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: SchemaTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Schema.validate(arg, configuration=configuration)
-SchemaTupleInput = typing.Sequence[
-    typing.Union[
-        ref_pet.pet.PetDict,
-        dict,
-        schemas.immutabledict
+SchemaTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            ref_pet.pet.PetDict,
+            dict,
+            schemas.immutabledict
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            ref_pet.pet.PetDict,
+            dict,
+            schemas.immutabledict
+        ],
+        ...
+    ]
 ]
 
 

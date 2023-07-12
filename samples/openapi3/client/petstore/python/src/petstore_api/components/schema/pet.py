@@ -21,8 +21,14 @@ class PhotoUrlsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: PhotoUrlsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return PhotoUrls.validate(arg, configuration=configuration)
-PhotoUrlsTupleInput = typing.Sequence[
-    str,
+PhotoUrlsTupleInput = typing.Union[
+    typing.List[
+        str,
+    ],
+    typing.Tuple[
+        str,
+        ...
+    ]
 ]
 
 
@@ -147,12 +153,22 @@ class TagsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: TagsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Tags.validate(arg, configuration=configuration)
-TagsTupleInput = typing.Sequence[
-    typing.Union[
-        tag.TagDict,
-        dict,
-        schemas.immutabledict
+TagsTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            tag.TagDict,
+            dict,
+            schemas.immutabledict
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            tag.TagDict,
+            dict,
+            schemas.immutabledict
+        ],
+        ...
+    ]
 ]
 
 

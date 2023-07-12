@@ -19,11 +19,20 @@ class ItemsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Items.validate(arg, configuration=configuration)
-ItemsTupleInput = typing.Sequence[
-    typing.Union[
-        float,
-        int
+ItemsTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            float,
+            int
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            float,
+            int
+        ],
+        ...
+    ]
 ]
 
 
@@ -63,12 +72,22 @@ class ArrayArrayNumberTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayArrayNumberTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayArrayNumber.validate(arg, configuration=configuration)
-ArrayArrayNumberTupleInput = typing.Sequence[
-    typing.Union[
-        ItemsTuple,
-        list,
-        tuple
+ArrayArrayNumberTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            ItemsTuple,
+            list,
+            tuple
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            ItemsTuple,
+            list,
+            tuple
+        ],
+        ...
+    ]
 ]
 
 

@@ -23,11 +23,20 @@ class ArrayOfEnumsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ArrayOfEnumsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayOfEnums.validate(arg, configuration=configuration)
-ArrayOfEnumsTupleInput = typing.Sequence[
-    typing.Union[
-        None,
-        str
+ArrayOfEnumsTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            None,
+            str
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            None,
+            str
+        ],
+        ...
+    ]
 ]
 
 

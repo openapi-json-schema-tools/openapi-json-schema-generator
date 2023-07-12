@@ -42,24 +42,46 @@ class _5Tuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: _5TupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _5.validate(arg, configuration=configuration)
-_5TupleInput = typing.Sequence[
-    typing.Union[
-        dict,
-        schemas.immutabledict,
-        str,
-        datetime.date,
-        datetime.datetime,
-        uuid.UUID,
-        int,
-        float,
-        bool,
-        None,
-        list,
-        tuple,
-        bytes,
-        io.FileIO,
-        io.BufferedReader
+_5TupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            dict,
+            schemas.immutabledict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            dict,
+            schemas.immutabledict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        ...
+    ]
 ]
 
 
