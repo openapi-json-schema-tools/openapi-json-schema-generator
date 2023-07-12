@@ -2514,7 +2514,8 @@ public class DefaultCodegen implements CodegenConfig {
         TreeMap<String, CodegenResponse> nonDefaultResponses = null;
         TreeMap<Integer, CodegenResponse> wildcardCodeResponses = null;
         TreeMap<Integer, CodegenResponse> statusCodeResponses = null;
-        boolean hasErrorResponseObject = false;
+        LinkedHashSet<String> errorStatusCodes = null;
+        LinkedHashSet<Integer> errorWildcardStatusCodes = null;
         if (operation.getResponses() != null && !operation.getResponses().isEmpty()) {
             responses = new TreeMap<>();
             for (Map.Entry<String, ApiResponse> operationGetResponsesEntry : operation.getResponses().entrySet()) {
@@ -2548,7 +2549,10 @@ public class DefaultCodegen implements CodegenConfig {
                     if (firstNumber > 3 && r.content != null) {
                         for (CodegenMediaType cm: r.content.values()) {
                             if (cm.schema != null) {
-                                hasErrorResponseObject = true;
+                                if (errorWildcardStatusCodes == null) {
+                                    errorWildcardStatusCodes = new LinkedHashSet<>();
+                                }
+                                errorWildcardStatusCodes.add(firstNumber);
                                 break;
                             }
                         }
@@ -2563,7 +2567,10 @@ public class DefaultCodegen implements CodegenConfig {
                 if (statusCode > 299 && r.content != null) {
                     for (CodegenMediaType cm: r.content.values()) {
                         if (cm.schema != null) {
-                            hasErrorResponseObject = true;
+                            if (errorStatusCodes == null) {
+                                errorStatusCodes = new LinkedHashSet<>();
+                            }
+                            errorStatusCodes.add(key);
                             break;
                         }
                     }
@@ -2729,7 +2736,8 @@ public class DefaultCodegen implements CodegenConfig {
 
         return new CodegenOperation(
                 deprecated,
-                hasErrorResponseObject,
+                errorStatusCodes,
+                errorWildcardStatusCodes,
                 summary,
                 unescapedDescription,
                 description,

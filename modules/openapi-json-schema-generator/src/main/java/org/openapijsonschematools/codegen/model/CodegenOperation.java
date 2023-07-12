@@ -25,7 +25,8 @@ import java.util.*;
 
 public class CodegenOperation {
     public final Boolean deprecated;
-    public final boolean hasErrorResponseObject; // if 4xx, 5xx responses have at least one error object defined
+    public final LinkedHashSet<String> errorStatusCodes; // values like 401
+    public final LinkedHashSet<Integer> errorWildcardStatusCodes; // values like 4 for 4XX
     public final String summary, unescapedDescription, description;
     public final LinkedHashSet<String> produces;
     public final List<CodegenServer> servers;
@@ -55,9 +56,10 @@ public class CodegenOperation {
     public final CodegenKey operationId;
     public final CodegenKey jsonPathPiece;
 
-    public CodegenOperation(Boolean deprecated, boolean hasErrorResponseObject, String summary, String unescapedDescription, String description, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenSchema> requestBodySchemas, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, CodegenSchema pathParameters, List<CodegenParameter> queryParams, CodegenSchema queryParameters, List<CodegenParameter> headerParams, CodegenSchema headerParameters, List<CodegenParameter> cookieParams, CodegenSchema cookieParameters, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<HashMap<String, CodegenSecurityRequirementValue>> security, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId, CodegenKey jsonPathPiece) {
+    public CodegenOperation(Boolean deprecated, LinkedHashSet<String> errorStatusCodes, LinkedHashSet<Integer> errorWildcardStatusCodes, String summary, String unescapedDescription, String description, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenSchema> requestBodySchemas, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, CodegenSchema pathParameters, List<CodegenParameter> queryParams, CodegenSchema queryParameters, List<CodegenParameter> headerParams, CodegenSchema headerParameters, List<CodegenParameter> cookieParams, CodegenSchema cookieParameters, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<HashMap<String, CodegenSecurityRequirementValue>> security, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId, CodegenKey jsonPathPiece) {
         this.deprecated = deprecated;
-        this.hasErrorResponseObject = hasErrorResponseObject;
+        this.errorStatusCodes = errorStatusCodes;
+        this.errorWildcardStatusCodes = errorWildcardStatusCodes;
         this.summary = summary;
         this.unescapedDescription = unescapedDescription;
         this.description = description;

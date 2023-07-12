@@ -1254,6 +1254,15 @@ class Api:
                 _body = serialized_data['body']
         return _fields, _body
 
+    @staticmethod
+    def _verify_response_status(response: api_response.ApiResponse):
+        if not 200 <= response.response.status <= 399:
+            raise exceptions.ApiException(
+                status=response.response.status,
+                reason=response.response.reason,
+                api_response=response
+            )
+
 
 class SerializedRequestBody(typing_extensions.TypedDict, total=False):
     body: typing.Union[str, bytes]

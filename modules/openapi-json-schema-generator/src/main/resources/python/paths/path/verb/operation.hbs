@@ -8,7 +8,7 @@ from __future__ import annotations
 from {{packageName}}.shared_imports.schema_imports import *
     {{/or}}
 {{/with}}
-from {{packageName}} import api_client, exceptions{{#neq operation.security null}}{{#gt operation.security.size 0}}, security_schemes{{/gt}}{{else}}{{#neq security null}}{{#gt security.size 0}}, security_schemes{{/gt}}{{/neq}}{{/neq}}
+from {{packageName}} import api_client{{#neq operation.security null}}{{#gt operation.security.size 0}}, security_schemes{{/gt}}{{else}}{{#neq security null}}{{#gt security.size 0}}, security_schemes{{/gt}}{{/neq}}{{/neq}}
 {{#eq operation.security null}}
     {{#neq security null}}
         {{#gt security.size 0}}
@@ -186,6 +186,20 @@ _ranged_status_code_to_response: __RangedStatusCodeToResponse = {
         {{/each}}
 }
     {{/if}}
+{{#if errorStatusCodes}}
+_error_status_codes = frozenset({
+    {{#each errorStatusCodes}}
+    '{{this}}',
+    {{/each}}
+})
+{{/if}}
+{{#if errorWildcardStatusCodes}}
+_error_ranged_status_codes = frozenset({
+    {{#each errorWildcardStatusCodes}}
+    '{{this}}',
+    {{/each}}
+})
+{{/if}}
 {{#each produces}}
     {{#if @first}}
 
@@ -408,12 +422,7 @@ class BaseApi(api_client.Api):
     {{/if}}
 {{/if}}
 
-        if not 200 <= response.response.status <= 399:
-            raise exceptions.ApiException(
-                status=response.response.status,
-                reason=response.response.reason,
-                api_response=response
-            )
+        self._verify_response_status(response)
 
         return response
 
