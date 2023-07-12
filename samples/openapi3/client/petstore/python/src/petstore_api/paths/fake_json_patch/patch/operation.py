@@ -6,7 +6,7 @@
 
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *
-from petstore_api import api_client
+from petstore_api import api_client, exceptions
 from petstore_api.shared_imports.operation_imports import *
 
 from .. import path
@@ -118,7 +118,12 @@ class BaseApi(api_client.Api):
             else:
                 response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
 
-        self._verify_response_status(response)
+        if not 200 <= response.response.status <= 399:
+            raise exceptions.ApiException(
+                status=response.response.status,
+                reason=response.response.reason,
+                api_response=response
+            )
 
         return response
 
