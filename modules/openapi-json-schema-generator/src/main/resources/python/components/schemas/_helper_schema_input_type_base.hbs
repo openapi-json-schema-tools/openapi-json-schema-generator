@@ -10,7 +10,7 @@ typing.Union[io.FileIO, io.BufferedReader]{{endChar}}
                 {{#if arrayInputJsonPathPiece}}
 {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{arrayInputJsonPathPiece.camelCase}}{{endChar}}
                 {{else}}
-typing.Sequence[schemas.INPUT_TYPES_ALL_INCL_SCHEMA]{{endChar}}
+typing.Union[typing.List[schemas.INPUT_TYPES_ALL_INCL_SCHEMA], typing.Tuple[schemas.INPUT_TYPES_ALL_INCL_SCHEMA, ...]]{{endChar}}
                 {{/if}}
             {{else}}
                 {{#eq this "object"}}
