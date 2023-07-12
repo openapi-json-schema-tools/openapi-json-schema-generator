@@ -167,9 +167,9 @@ class BaseApi(api_client.Api):
         )
 
         if skip_deserialization:
-            response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
-            self._verify_response_status(response)
-            return response
+            skip_deser_response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
+            self._verify_response_status(skip_deser_response)
+            return skip_deser_response
 
         status = str(raw_response.status)
         if status in _non_error_status_codes:

@@ -320,7 +320,7 @@ class BaseApi(api_client.Api):
     {{/with}}
     {{#if servers}}
         host = self.api_client.configuration.get_server_url(
-            'paths/' + path + '/{{httpMethod.original}}/servers', server_index
+            "paths/{{{path.original}}}/{{httpMethod.original}}/servers", server_index
         )
     {{else}}
         {{#if pathItem.servers}}
@@ -383,17 +383,17 @@ class BaseApi(api_client.Api):
         )
 
         if skip_deserialization:
-            response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
-            self._verify_response_status(response)
-            return response
+            skip_deser_response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
+            self._verify_response_status(skip_deser_response)
+            return skip_deser_response
 
-        status = str(raw_response.status)
 {{#if nonDefaultResponses}}
     {{#if statusCodeResponses}}
         {{! use cases }}
         {{! 1 nonError + error }}
         {{! 2 nonError }}
         {{! 3 error }}
+        status = str(raw_response.status)
             {{#and nonErrorStatusCodes errorStatusCodes}}
         if status in _non_error_status_codes:
             status_code = typing.cast(
@@ -460,7 +460,7 @@ class BaseApi(api_client.Api):
     {{/if}}
     {{#if wildcardCodeResponses}}
 
-        ranged_response_status_code = status[0]
+        ranged_response_status_code = str(raw_response.status)[0]
         {{! use cases }}
         {{! 1 nonError + error }}
         {{! 2 nonError }}

@@ -60,7 +60,7 @@ class BaseApi(api_client.Api):
         _headers = self._get_headers(accept_content_types=accept_content_types)
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
-            'paths/' + path + '/get/servers', server_index
+            "paths//foo/get/servers", server_index
         )
 
         raw_response = self.api_client.call_api(
@@ -73,11 +73,10 @@ class BaseApi(api_client.Api):
         )
 
         if skip_deserialization:
-            response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
-            self._verify_response_status(response)
-            return response
+            skip_deser_response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
+            self._verify_response_status(skip_deser_response)
+            return skip_deser_response
 
-        status = str(raw_response.status)
         response = default_response.deserialize(raw_response, self.api_client.schema_configuration)
         self._verify_response_status(response)
         return response

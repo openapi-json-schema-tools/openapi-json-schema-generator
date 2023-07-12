@@ -94,9 +94,9 @@ class BaseApi(api_client.Api):
         )
 
         if skip_deserialization:
-            response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
-            self._verify_response_status(response)
-            return response
+            skip_deser_response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
+            self._verify_response_status(skip_deser_response)
+            return skip_deser_response
 
         status = str(raw_response.status)
         if status in _non_error_status_codes:
@@ -109,7 +109,7 @@ class BaseApi(api_client.Api):
             return _status_code_to_response[status_code].deserialize(
                 raw_response, self.api_client.schema_configuration)
 
-        ranged_response_status_code = status[0]
+        ranged_response_status_code = str(raw_response.status)[0]
         if ranged_response_status_code in _non_error_ranged_status_codes:
             ranged_status_code = typing.cast(
                 typing_extensions.Literal[
