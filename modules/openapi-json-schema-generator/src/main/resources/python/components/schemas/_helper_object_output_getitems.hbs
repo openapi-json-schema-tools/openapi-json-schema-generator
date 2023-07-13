@@ -6,7 +6,7 @@
             {{#if refInfo.refClass}}
 {{> components/schemas/_helper_schema_output_ref_type literal=true key=@key.original fullRefModule="" mode="getitem" endChar=":" }}
             {{else}}
-{{> components/schemas/_helper_schema_output_type literal=true key=@key.original mode="getitem" fullRefModule=null endChar=":" }}
+{{> components/schemas/_helper_schema_output_type literal=true key="str" mode="getitem" fullRefModule=null endChar=":" }}
             {{/if}}
     # dict_instance[name] accessor
     return super().__getitem__(name)

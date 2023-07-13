@@ -55,8 +55,13 @@ def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
 {{else}}
     {{#with additionalProperties}}
         {{#unless isBooleanSchemaFalse}}
+            {{#if refInfo.refClass}}
 
-{{> components/schemas/_helper_schema_output_type mode="def_property" fullRefModule=null endChar=":" @key=jsonPathPiece }}
+{{> components/schemas/_helper_schema_output_ref_type mode="get_additional_property" fullRefModule=null endChar=":" key="str" }}
+            {{else}}
+
+{{> components/schemas/_helper_schema_output_type mode="get_additional_property" fullRefModule=null endChar=":" key="str" }}
+            {{/if}}
     return self.__getitem__(name)
         {{/unless}}
     {{/with}}

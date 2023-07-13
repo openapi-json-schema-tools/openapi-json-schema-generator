@@ -558,7 +558,7 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.DictSchema
 
 class ObjectNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    def additional_properties(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+    def get_additional_property(self, name: str) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
         return self.__getitem__(name)
 
     def __new__(cls, arg: ObjectNullablePropDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -658,7 +658,7 @@ class AdditionalProperties2(
 
 class ObjectAndItemsNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    def additional_properties(self) -> typing.Union[
+    def get_additional_property(self, name: str) -> typing.Union[
         None,
         schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
@@ -762,7 +762,7 @@ class AdditionalProperties3(
 
 class ObjectItemsNullableDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    def additional_properties(self) -> typing.Union[
+    def get_additional_property(self, name: str) -> typing.Union[
         None,
         schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
@@ -908,7 +908,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def object_items_nullable(self) -> ObjectItemsNullableDict:
         return self.__getitem__("object_items_nullable")
     
-    def additional_properties(self) -> typing.Union[
+    def get_additional_property(self, name: str) -> typing.Union[
         None,
         schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:

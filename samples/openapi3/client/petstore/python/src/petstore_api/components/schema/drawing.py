@@ -126,7 +126,7 @@ class DrawingDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def shapes(self) -> ShapesTuple:
         return self.__getitem__("shapes")
     
-    def additional_properties(self) -> schemas.OUTPUT_BASE_TYPES:
+    def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__(name)
 
     def __new__(cls, arg: DrawingDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

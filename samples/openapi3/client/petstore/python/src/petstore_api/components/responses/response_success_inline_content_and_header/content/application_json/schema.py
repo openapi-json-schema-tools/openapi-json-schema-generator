@@ -15,7 +15,7 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.Int32Schema
 
 class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    def additional_properties(self) -> int:
+    def get_additional_property(self, name: str) -> int:
         return self.__getitem__(name)
 
     def __new__(cls, arg: SchemaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

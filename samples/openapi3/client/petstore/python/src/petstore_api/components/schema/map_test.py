@@ -15,7 +15,7 @@ AdditionalProperties2: typing_extensions.TypeAlias = schemas.StrSchema
 
 class AdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    def additional_properties(self) -> str:
+    def get_additional_property(self, name: str) -> str:
         return self.__getitem__(name)
 
     def __new__(cls, arg: AdditionalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -59,7 +59,7 @@ class AdditionalProperties(
 
 class MapMapOfStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    def additional_properties(self) -> AdditionalPropertiesDict:
+    def get_additional_property(self, name: str) -> AdditionalPropertiesDict:
         return self.__getitem__(name)
 
     def __new__(cls, arg: MapMapOfStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -175,7 +175,7 @@ class AdditionalProperties3(
 
 class MapOfEnumStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    def additional_properties(self) -> typing_extensions.Literal["UPPER", "lower"]:
+    def get_additional_property(self, name: str) -> typing_extensions.Literal["UPPER", "lower"]:
         return self.__getitem__(name)
 
     def __new__(cls, arg: MapOfEnumStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -220,7 +220,7 @@ AdditionalProperties4: typing_extensions.TypeAlias = schemas.BoolSchema
 
 class DirectMapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    def additional_properties(self) -> bool:
+    def get_additional_property(self, name: str) -> bool:
         return self.__getitem__(name)
 
     def __new__(cls, arg: DirectMapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
