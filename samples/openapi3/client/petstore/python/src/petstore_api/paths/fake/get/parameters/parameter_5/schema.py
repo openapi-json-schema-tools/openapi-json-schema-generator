@@ -25,7 +25,7 @@ class SchemaEnums:
 
 @dataclasses.dataclass(frozen=True)
 class Schema(
-    schemas.Float64Schema
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         float,

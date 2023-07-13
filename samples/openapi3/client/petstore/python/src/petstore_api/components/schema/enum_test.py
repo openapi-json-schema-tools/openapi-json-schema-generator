@@ -189,7 +189,7 @@ class EnumIntegerEnums:
 
 @dataclasses.dataclass(frozen=True)
 class EnumInteger(
-    schemas.Int32Schema
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         int,
@@ -258,7 +258,7 @@ class EnumNumberEnums:
 
 @dataclasses.dataclass(frozen=True)
 class EnumNumber(
-    schemas.Float64Schema
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         float,
