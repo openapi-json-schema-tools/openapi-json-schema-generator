@@ -25,32 +25,17 @@ Properties = typing_extensions.TypedDict(
 
 class ApiResponseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["code"]) -> int:
-        ...
+    @property
+    def code(self) -> int:
+        return self.__getitem__("code")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["type"]) -> str:
-        ...
+    @property
+    def type(self) -> str:
+        return self.__getitem__("type")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["message"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["code"],
-            typing_extensions.Literal["type"],
-            typing_extensions.Literal["message"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def message(self) -> str:
+        return self.__getitem__("message")
 
     def __new__(cls, arg: ApiResponseDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ApiResponse.validate(arg, configuration=configuration)

@@ -121,47 +121,29 @@ Properties = typing_extensions.TypedDict(
 
 class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["id"]) -> int:
-        ...
+    @property
+    def id(self) -> int:
+        return self.__getitem__("id")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["petId"]) -> int:
-        ...
+    @property
+    def petId(self) -> int:
+        return self.__getitem__("petId")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["quantity"]) -> int:
-        ...
+    @property
+    def quantity(self) -> int:
+        return self.__getitem__("quantity")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shipDate"]) -> str:
-        ...
+    @property
+    def shipDate(self) -> str:
+        return self.__getitem__("shipDate")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["status"]) -> typing_extensions.Literal["placed", "approved", "delivered"]:
-        ...
+    @property
+    def status(self) -> typing_extensions.Literal["placed", "approved", "delivered"]:
+        return self.__getitem__("status")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["complete"]) -> bool:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["id"],
-            typing_extensions.Literal["petId"],
-            typing_extensions.Literal["quantity"],
-            typing_extensions.Literal["shipDate"],
-            typing_extensions.Literal["status"],
-            typing_extensions.Literal["complete"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def complete(self) -> bool:
+        return self.__getitem__("complete")
 
     def __new__(cls, arg: OrderDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Order.validate(arg, configuration=configuration)

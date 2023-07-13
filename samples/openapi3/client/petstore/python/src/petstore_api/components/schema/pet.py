@@ -229,47 +229,21 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def photoUrls(self) -> PhotoUrlsTuple:
         return self.__getitem__("photoUrls")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> str:
-        ...
+    @property
+    def id(self) -> int:
+        return self.__getitem__("id")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["photoUrls"]) -> PhotoUrlsTuple:
-        ...
+    @property
+    def category(self) -> category.CategoryDict:
+        return self.__getitem__("category")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["id"]) -> int:
-        ...
+    @property
+    def tags(self) -> TagsTuple:
+        return self.__getitem__("tags")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["category"]) -> category.CategoryDict:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["tags"]) -> TagsTuple:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["status"]) -> typing_extensions.Literal["available", "pending", "sold"]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["name"],
-            typing_extensions.Literal["photoUrls"],
-            typing_extensions.Literal["id"],
-            typing_extensions.Literal["category"],
-            typing_extensions.Literal["tags"],
-            typing_extensions.Literal["status"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def status(self) -> typing_extensions.Literal["available", "pending", "sold"]:
+        return self.__getitem__("status")
 
     def __new__(cls, arg: PetDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Pet.validate(arg, configuration=configuration)

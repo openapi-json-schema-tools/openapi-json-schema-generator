@@ -31,47 +31,29 @@ Properties = typing_extensions.TypedDict(
 
 class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["smallCamel"]) -> str:
-        ...
+    @property
+    def smallCamel(self) -> str:
+        return self.__getitem__("smallCamel")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["CapitalCamel"]) -> str:
-        ...
+    @property
+    def CapitalCamel(self) -> str:
+        return self.__getitem__("CapitalCamel")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["small_Snake"]) -> str:
-        ...
+    @property
+    def small_Snake(self) -> str:
+        return self.__getitem__("small_Snake")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["Capital_Snake"]) -> str:
-        ...
+    @property
+    def Capital_Snake(self) -> str:
+        return self.__getitem__("Capital_Snake")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["SCA_ETH_Flow_Points"]) -> str:
-        ...
+    @property
+    def SCA_ETH_Flow_Points(self) -> str:
+        return self.__getitem__("SCA_ETH_Flow_Points")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["ATT_NAME"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["smallCamel"],
-            typing_extensions.Literal["CapitalCamel"],
-            typing_extensions.Literal["small_Snake"],
-            typing_extensions.Literal["Capital_Snake"],
-            typing_extensions.Literal["SCA_ETH_Flow_Points"],
-            typing_extensions.Literal["ATT_NAME"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def ATT_NAME(self) -> str:
+        return self.__getitem__("ATT_NAME")
 
     def __new__(cls, arg: CapitalizationDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Capitalization.validate(arg, configuration=configuration)

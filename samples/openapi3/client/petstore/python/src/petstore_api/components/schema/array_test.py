@@ -300,32 +300,17 @@ Properties = typing_extensions.TypedDict(
 
 class ArrayTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_of_string"]) -> ArrayOfStringTuple:
-        ...
+    @property
+    def array_of_string(self) -> ArrayOfStringTuple:
+        return self.__getitem__("array_of_string")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_array_of_integer"]) -> ArrayArrayOfIntegerTuple:
-        ...
+    @property
+    def array_array_of_integer(self) -> ArrayArrayOfIntegerTuple:
+        return self.__getitem__("array_array_of_integer")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_array_of_model"]) -> ArrayArrayOfModelTuple:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["array_of_string"],
-            typing_extensions.Literal["array_array_of_integer"],
-            typing_extensions.Literal["array_array_of_model"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def array_array_of_model(self) -> ArrayArrayOfModelTuple:
+        return self.__getitem__("array_array_of_model")
 
     def __new__(cls, arg: ArrayTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayTest.validate(arg, configuration=configuration)

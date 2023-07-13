@@ -77,23 +77,6 @@ class BasquePigDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def className(self) -> typing_extensions.Literal["BasquePig"]:
         return self.__getitem__("className")
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> typing_extensions.Literal["BasquePig"]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["className"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: BasquePigDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return BasquePig.validate(arg, configuration=configuration)

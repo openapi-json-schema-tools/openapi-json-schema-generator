@@ -64,33 +64,13 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     def required_string_group(self) -> str:
         return self.__getitem__("required_string_group")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["required_int64_group"]) -> int:
-        ...
+    @property
+    def int64_group(self) -> int:
+        return self.__getitem__("int64_group")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["required_string_group"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int64_group"]) -> int:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["string_group"]) -> str:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["required_int64_group"],
-            typing_extensions.Literal["required_string_group"],
-            typing_extensions.Literal["int64_group"],
-            typing_extensions.Literal["string_group"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def string_group(self) -> str:
+        return self.__getitem__("string_group")
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)
@@ -167,23 +147,9 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     def required_boolean_group(self) -> typing_extensions.Literal["true", "false"]:
         return self.__getitem__("required_boolean_group")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["required_boolean_group"]) -> typing_extensions.Literal["true", "false"]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["boolean_group"]) -> typing_extensions.Literal["true", "false"]:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["required_boolean_group"],
-            typing_extensions.Literal["boolean_group"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def boolean_group(self) -> typing_extensions.Literal["true", "false"]:
+        return self.__getitem__("boolean_group")
 
     def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return HeaderParameters.validate(arg, configuration=configuration)

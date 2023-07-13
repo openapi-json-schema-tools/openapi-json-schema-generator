@@ -118,29 +118,6 @@ class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, schemas.OUTP
     @property
     def value(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("value")
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["op"]) -> typing_extensions.Literal["add", "replace", "test"]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["path"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["value"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["op"],
-            typing_extensions.Literal["path"],
-            typing_extensions.Literal["value"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: JSONPatchRequestAddReplaceTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return JSONPatchRequestAddReplaceTest.validate(arg, configuration=configuration)

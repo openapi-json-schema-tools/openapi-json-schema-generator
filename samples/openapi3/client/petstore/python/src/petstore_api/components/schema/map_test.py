@@ -14,10 +14,6 @@ AdditionalProperties2: typing_extensions.TypeAlias = schemas.StrSchema
 
 
 class AdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    
-    def __getitem__(self, name: str) -> str:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: AdditionalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AdditionalProperties.validate(arg, configuration=configuration)
@@ -59,10 +55,6 @@ class AdditionalProperties(
 
 
 class MapMapOfStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    
-    def __getitem__(self, name: str) -> AdditionalPropertiesDict:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: MapMapOfStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapMapOfString.validate(arg, configuration=configuration)
@@ -176,10 +168,6 @@ class AdditionalProperties3(
 
 
 class MapOfEnumStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    
-    def __getitem__(self, name: str) -> typing_extensions.Literal["UPPER", "lower"]:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: MapOfEnumStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapOfEnumString.validate(arg, configuration=configuration)
@@ -222,10 +210,6 @@ AdditionalProperties4: typing_extensions.TypeAlias = schemas.BoolSchema
 
 
 class DirectMapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    
-    def __getitem__(self, name: str) -> bool:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: DirectMapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return DirectMap.validate(arg, configuration=configuration)
@@ -279,37 +263,21 @@ Properties = typing_extensions.TypedDict(
 
 class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["map_map_of_string"]) -> MapMapOfStringDict:
-        ...
+    @property
+    def map_map_of_string(self) -> MapMapOfStringDict:
+        return self.__getitem__("map_map_of_string")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["map_of_enum_string"]) -> MapOfEnumStringDict:
-        ...
+    @property
+    def map_of_enum_string(self) -> MapOfEnumStringDict:
+        return self.__getitem__("map_of_enum_string")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["direct_map"]) -> DirectMapDict:
-        ...
+    @property
+    def direct_map(self) -> DirectMapDict:
+        return self.__getitem__("direct_map")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["indirect_map"]) -> string_boolean_map.StringBooleanMapDict:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["map_map_of_string"],
-            typing_extensions.Literal["map_of_enum_string"],
-            typing_extensions.Literal["direct_map"],
-            typing_extensions.Literal["indirect_map"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def indirect_map(self) -> string_boolean_map.StringBooleanMapDict:
+        return self.__getitem__("indirect_map")
 
     def __new__(cls, arg: MapTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapTest.validate(arg, configuration=configuration)

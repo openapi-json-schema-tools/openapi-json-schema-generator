@@ -21,22 +21,9 @@ Properties = typing_extensions.TypedDict(
 
 class ClientDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["client"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["client"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def client(self) -> str:
+        return self.__getitem__("client")
 
     def __new__(cls, arg: ClientDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Client.validate(arg, configuration=configuration)

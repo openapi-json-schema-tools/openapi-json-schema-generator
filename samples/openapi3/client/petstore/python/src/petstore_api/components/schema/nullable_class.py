@@ -557,10 +557,6 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.DictSchema
 
 
 class ObjectNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    
-    def __getitem__(self, name: str) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: ObjectNullablePropDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectNullableProp.validate(arg, configuration=configuration)
@@ -658,13 +654,6 @@ class AdditionalProperties2(
 
 
 class ObjectAndItemsNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    
-    def __getitem__(self, name: str) -> typing.Union[
-        None,
-        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-    ]:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: ObjectAndItemsNullablePropDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectAndItemsNullableProp.validate(arg, configuration=configuration)
@@ -763,13 +752,6 @@ class AdditionalProperties3(
 
 
 class ObjectItemsNullableDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    
-    def __getitem__(self, name: str) -> typing.Union[
-        None,
-        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-    ]:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: ObjectItemsNullableDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectItemsNullable.validate(arg, configuration=configuration)
@@ -833,111 +815,83 @@ Properties = typing_extensions.TypedDict(
 
 class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["integer_prop"]) -> typing.Union[
+    @property
+    def integer_prop(self) -> typing.Union[
         None,
         int,
     ]:
-        ...
+        return self.__getitem__("integer_prop")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number_prop"]) -> typing.Union[
+    @property
+    def number_prop(self) -> typing.Union[
         None,
         typing.Union[int, float],
     ]:
-        ...
+        return self.__getitem__("number_prop")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["boolean_prop"]) -> typing.Union[
+    @property
+    def boolean_prop(self) -> typing.Union[
         None,
         bool,
     ]:
-        ...
+        return self.__getitem__("boolean_prop")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["string_prop"]) -> typing.Union[
+    @property
+    def string_prop(self) -> typing.Union[
         None,
         str,
     ]:
-        ...
+        return self.__getitem__("string_prop")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["date_prop"]) -> typing.Union[
+    @property
+    def date_prop(self) -> typing.Union[
         None,
         str,
     ]:
-        ...
+        return self.__getitem__("date_prop")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["datetime_prop"]) -> typing.Union[
+    @property
+    def datetime_prop(self) -> typing.Union[
         None,
         str,
     ]:
-        ...
+        return self.__getitem__("datetime_prop")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_nullable_prop"]) -> typing.Union[
+    @property
+    def array_nullable_prop(self) -> typing.Union[
         None,
         ArrayNullablePropTuple,
     ]:
-        ...
+        return self.__getitem__("array_nullable_prop")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_and_items_nullable_prop"]) -> typing.Union[
+    @property
+    def array_and_items_nullable_prop(self) -> typing.Union[
         None,
         ArrayAndItemsNullablePropTuple,
     ]:
-        ...
+        return self.__getitem__("array_and_items_nullable_prop")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_items_nullable"]) -> ArrayItemsNullableTuple:
-        ...
+    @property
+    def array_items_nullable(self) -> ArrayItemsNullableTuple:
+        return self.__getitem__("array_items_nullable")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["object_nullable_prop"]) -> typing.Union[
+    @property
+    def object_nullable_prop(self) -> typing.Union[
         None,
         ObjectNullablePropDict,
     ]:
-        ...
+        return self.__getitem__("object_nullable_prop")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["object_and_items_nullable_prop"]) -> typing.Union[
+    @property
+    def object_and_items_nullable_prop(self) -> typing.Union[
         None,
         ObjectAndItemsNullablePropDict,
     ]:
-        ...
+        return self.__getitem__("object_and_items_nullable_prop")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["object_items_nullable"]) -> ObjectItemsNullableDict:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> typing.Union[
-        None,
-        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-    ]:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["integer_prop"],
-            typing_extensions.Literal["number_prop"],
-            typing_extensions.Literal["boolean_prop"],
-            typing_extensions.Literal["string_prop"],
-            typing_extensions.Literal["date_prop"],
-            typing_extensions.Literal["datetime_prop"],
-            typing_extensions.Literal["array_nullable_prop"],
-            typing_extensions.Literal["array_and_items_nullable_prop"],
-            typing_extensions.Literal["array_items_nullable"],
-            typing_extensions.Literal["object_nullable_prop"],
-            typing_extensions.Literal["object_and_items_nullable_prop"],
-            typing_extensions.Literal["object_items_nullable"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def object_items_nullable(self) -> ObjectItemsNullableDict:
+        return self.__getitem__("object_items_nullable")
 
     def __new__(cls, arg: NullableClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return NullableClass.validate(arg, configuration=configuration)

@@ -21,22 +21,9 @@ Properties = typing_extensions.TypedDict(
 
 class ReturnDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["return"]) -> int:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["return"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def return(self) -> int:
+        return self.__getitem__("return")
 
     def __new__(cls, arg: ReturnDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _Return.validate(arg, configuration=configuration)

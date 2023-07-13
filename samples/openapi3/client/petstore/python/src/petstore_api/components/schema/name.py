@@ -29,32 +29,13 @@ class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def name(self) -> int:
         return self.__getitem__("name")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> int:
-        ...
+    @property
+    def snake_case(self) -> int:
+        return self.__getitem__("snake_case")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["snake_case"]) -> int:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["property"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["name"],
-            typing_extensions.Literal["snake_case"],
-            typing_extensions.Literal["property"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def property(self) -> str:
+        return self.__getitem__("property")
 
     def __new__(cls, arg: NameDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Name.validate(arg, configuration=configuration)

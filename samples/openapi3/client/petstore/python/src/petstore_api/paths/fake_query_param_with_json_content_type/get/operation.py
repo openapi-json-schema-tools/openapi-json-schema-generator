@@ -30,10 +30,6 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     @property
     def someParam(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("someParam")
-    
-    def __getitem__(self, name: typing_extensions.Literal["someParam"]) -> schemas.OUTPUT_BASE_TYPES:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)

@@ -16,31 +16,12 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema
 class ReqPropsFromExplicitAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
+    def invalid-name(self) -> str:
+        return self.__getitem__("invalid-name")
+    
+    @property
     def validName(self) -> str:
         return self.__getitem__("validName")
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["invalid-name"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["validName"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> str:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["invalid-name"],
-            typing_extensions.Literal["validName"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: ReqPropsFromExplicitAddPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ReqPropsFromExplicitAddProps.validate(arg, configuration=configuration)

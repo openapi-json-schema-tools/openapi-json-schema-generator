@@ -57,38 +57,25 @@ Properties2 = typing_extensions.TypedDict(
 
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["1"]) -> str:
-        ...
+    @property
+    def 1(self) -> str:
+        return self.__getitem__("1")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["aB"]) -> str:
-        ...
+    @property
+    def aB(self) -> str:
+        return self.__getitem__("aB")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["Ab"]) -> str:
-        ...
+    @property
+    def Ab(self) -> str:
+        return self.__getitem__("Ab")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["A-B"]) -> str:
-        ...
+    @property
+    def A-B(self) -> str:
+        return self.__getitem__("A-B")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["self"]) -> str:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["1"],
-            typing_extensions.Literal["aB"],
-            typing_extensions.Literal["Ab"],
-            typing_extensions.Literal["A-B"],
-            typing_extensions.Literal["self"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def self(self) -> str:
+        return self.__getitem__("self")
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)
@@ -155,33 +142,21 @@ Properties3 = typing_extensions.TypedDict(
 
 class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["1"]) -> str:
-        ...
+    @property
+    def 1(self) -> str:
+        return self.__getitem__("1")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["aB"]) -> str:
-        ...
+    @property
+    def aB(self) -> str:
+        return self.__getitem__("aB")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["A-B"]) -> str:
-        ...
+    @property
+    def A-B(self) -> str:
+        return self.__getitem__("A-B")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["self"]) -> str:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["1"],
-            typing_extensions.Literal["aB"],
-            typing_extensions.Literal["A-B"],
-            typing_extensions.Literal["self"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def self(self) -> str:
+        return self.__getitem__("self")
 
     def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return HeaderParameters.validate(arg, configuration=configuration)
@@ -250,6 +225,14 @@ Properties = typing_extensions.TypedDict(
 class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
+    def 1(self) -> str:
+        return self.__getitem__("1")
+    
+    @property
+    def A-B(self) -> str:
+        return self.__getitem__("A-B")
+    
+    @property
     def Ab(self) -> str:
         return self.__getitem__("Ab")
     
@@ -257,38 +240,9 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def aB(self) -> str:
         return self.__getitem__("aB")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["1"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["A-B"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["Ab"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["aB"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["self"]) -> str:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["1"],
-            typing_extensions.Literal["A-B"],
-            typing_extensions.Literal["Ab"],
-            typing_extensions.Literal["aB"],
-            typing_extensions.Literal["self"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def self(self) -> str:
+        return self.__getitem__("self")
 
     def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return PathParameters.validate(arg, configuration=configuration)
@@ -363,38 +317,25 @@ Properties4 = typing_extensions.TypedDict(
 
 class CookieParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["1"]) -> str:
-        ...
+    @property
+    def 1(self) -> str:
+        return self.__getitem__("1")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["aB"]) -> str:
-        ...
+    @property
+    def aB(self) -> str:
+        return self.__getitem__("aB")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["Ab"]) -> str:
-        ...
+    @property
+    def Ab(self) -> str:
+        return self.__getitem__("Ab")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["A-B"]) -> str:
-        ...
+    @property
+    def A-B(self) -> str:
+        return self.__getitem__("A-B")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["self"]) -> str:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["1"],
-            typing_extensions.Literal["aB"],
-            typing_extensions.Literal["Ab"],
-            typing_extensions.Literal["A-B"],
-            typing_extensions.Literal["self"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def self(self) -> str:
+        return self.__getitem__("self")
 
     def __new__(cls, arg: CookieParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return CookieParameters.validate(arg, configuration=configuration)

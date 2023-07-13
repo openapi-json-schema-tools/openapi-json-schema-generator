@@ -24,23 +24,13 @@ Properties = typing_extensions.TypedDict(
 
 class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["a"]) -> str:
-        ...
+    @property
+    def a(self) -> str:
+        return self.__getitem__("a")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["b"]) -> typing.Union[int, float]:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["a"],
-            typing_extensions.Literal["b"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def b(self) -> typing.Union[int, float]:
+        return self.__getitem__("b")
 
     def __new__(cls, arg: ObjectWithOnlyOptionalPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithOnlyOptionalProps.validate(arg, configuration=configuration)

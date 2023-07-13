@@ -14,10 +14,6 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema
 
 
 class MapPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    
-    def __getitem__(self, name: str) -> str:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: MapPropertyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapProperty.validate(arg, configuration=configuration)
@@ -60,10 +56,6 @@ AdditionalProperties3: typing_extensions.TypeAlias = schemas.StrSchema
 
 
 class AdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    
-    def __getitem__(self, name: str) -> str:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: AdditionalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AdditionalProperties2.validate(arg, configuration=configuration)
@@ -105,10 +97,6 @@ class AdditionalProperties2(
 
 
 class MapOfMapPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    
-    def __getitem__(self, name: str) -> AdditionalPropertiesDict:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: MapOfMapPropertyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapOfMapProperty.validate(arg, configuration=configuration)
@@ -158,10 +146,6 @@ AdditionalProperties4: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 
 
 class MapWithUndeclaredPropertiesAnytype3Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: MapWithUndeclaredPropertiesAnytype3DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapWithUndeclaredPropertiesAnytype3.validate(arg, configuration=configuration)
@@ -242,10 +226,6 @@ AdditionalProperties6: typing_extensions.TypeAlias = schemas.StrSchema
 
 
 class MapWithUndeclaredPropertiesStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    
-    def __getitem__(self, name: str) -> str:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: MapWithUndeclaredPropertiesStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapWithUndeclaredPropertiesString.validate(arg, configuration=configuration)
@@ -301,57 +281,37 @@ Properties = typing_extensions.TypedDict(
 
 class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["map_property"]) -> MapPropertyDict:
-        ...
+    @property
+    def map_property(self) -> MapPropertyDict:
+        return self.__getitem__("map_property")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["map_of_map_property"]) -> MapOfMapPropertyDict:
-        ...
+    @property
+    def map_of_map_property(self) -> MapOfMapPropertyDict:
+        return self.__getitem__("map_of_map_property")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["anytype_1"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def anytype_1(self) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__("anytype_1")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["map_with_undeclared_properties_anytype_1"]) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
-        ...
+    @property
+    def map_with_undeclared_properties_anytype_1(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+        return self.__getitem__("map_with_undeclared_properties_anytype_1")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["map_with_undeclared_properties_anytype_2"]) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
-        ...
+    @property
+    def map_with_undeclared_properties_anytype_2(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+        return self.__getitem__("map_with_undeclared_properties_anytype_2")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["map_with_undeclared_properties_anytype_3"]) -> MapWithUndeclaredPropertiesAnytype3Dict:
-        ...
+    @property
+    def map_with_undeclared_properties_anytype_3(self) -> MapWithUndeclaredPropertiesAnytype3Dict:
+        return self.__getitem__("map_with_undeclared_properties_anytype_3")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["empty_map"]) -> EmptyMapDict:
-        ...
+    @property
+    def empty_map(self) -> EmptyMapDict:
+        return self.__getitem__("empty_map")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["map_with_undeclared_properties_string"]) -> MapWithUndeclaredPropertiesStringDict:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["map_property"],
-            typing_extensions.Literal["map_of_map_property"],
-            typing_extensions.Literal["anytype_1"],
-            typing_extensions.Literal["map_with_undeclared_properties_anytype_1"],
-            typing_extensions.Literal["map_with_undeclared_properties_anytype_2"],
-            typing_extensions.Literal["map_with_undeclared_properties_anytype_3"],
-            typing_extensions.Literal["empty_map"],
-            typing_extensions.Literal["map_with_undeclared_properties_string"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def map_with_undeclared_properties_string(self) -> MapWithUndeclaredPropertiesStringDict:
+        return self.__getitem__("map_with_undeclared_properties_string")
 
     def __new__(cls, arg: AdditionalPropertiesClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AdditionalPropertiesClass.validate(arg, configuration=configuration)

@@ -20,23 +20,9 @@ Properties = typing_extensions.TypedDict(
 
 class SelfReferencingObjectModelDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["selfRef"]) -> SelfReferencingObjectModelDict:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> SelfReferencingObjectModelDict:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["selfRef"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def selfRef(self) -> SelfReferencingObjectModelDict:
+        return self.__getitem__("selfRef")
 
     def __new__(cls, arg: SelfReferencingObjectModelDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return SelfReferencingObjectModel.validate(arg, configuration=configuration)

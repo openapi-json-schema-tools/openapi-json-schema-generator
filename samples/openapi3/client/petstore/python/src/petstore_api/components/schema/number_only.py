@@ -21,22 +21,9 @@ Properties = typing_extensions.TypedDict(
 
 class NumberOnlyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["JustNumber"]) -> typing.Union[int, float]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["JustNumber"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def JustNumber(self) -> typing.Union[int, float]:
+        return self.__getitem__("JustNumber")
 
     def __new__(cls, arg: NumberOnlyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return NumberOnly.validate(arg, configuration=configuration)

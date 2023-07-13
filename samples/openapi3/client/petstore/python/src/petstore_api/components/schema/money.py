@@ -32,24 +32,6 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def currency(self) -> typing_extensions.Literal["eur", "usd"]:
         return self.__getitem__("currency")
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["amount"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["currency"]) -> typing_extensions.Literal["eur", "usd"]:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["amount"],
-            typing_extensions.Literal["currency"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: MoneyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Money.validate(arg, configuration=configuration)

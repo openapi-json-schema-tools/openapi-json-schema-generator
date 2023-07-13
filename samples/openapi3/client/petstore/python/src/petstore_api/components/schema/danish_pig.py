@@ -77,23 +77,6 @@ class DanishPigDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def className(self) -> typing_extensions.Literal["DanishPig"]:
         return self.__getitem__("className")
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> typing_extensions.Literal["DanishPig"]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["className"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: DanishPigDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return DanishPig.validate(arg, configuration=configuration)

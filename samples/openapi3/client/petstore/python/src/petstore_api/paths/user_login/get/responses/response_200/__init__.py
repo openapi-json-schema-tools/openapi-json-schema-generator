@@ -66,41 +66,24 @@ HeadersOptionalDictInput = typing_extensions.TypedDict(
 class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
+    def X-Rate-Limit(self) -> int:
+        return self.__getitem__("X-Rate-Limit")
+    
+    @property
     def int32(self) -> int:
         return self.__getitem__("int32")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["X-Rate-Limit"]) -> int:
-        ...
+    @property
+    def ref-content-schema-header(self) -> str:
+        return self.__getitem__("ref-content-schema-header")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> int:
-        ...
+    @property
+    def X-Expires-After(self) -> str:
+        return self.__getitem__("X-Expires-After")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["ref-content-schema-header"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["X-Expires-After"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["numberHeader"]) -> str:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["X-Rate-Limit"],
-            typing_extensions.Literal["int32"],
-            typing_extensions.Literal["ref-content-schema-header"],
-            typing_extensions.Literal["X-Expires-After"],
-            typing_extensions.Literal["numberHeader"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def numberHeader(self) -> str:
+        return self.__getitem__("numberHeader")
 
     def __new__(cls, arg: HeadersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Headers.validate(arg, configuration=configuration)

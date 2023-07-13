@@ -26,32 +26,17 @@ Properties = typing_extensions.TypedDict(
 
 class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["myNumber"]) -> typing.Union[int, float]:
-        ...
+    @property
+    def myNumber(self) -> typing.Union[int, float]:
+        return self.__getitem__("myNumber")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["myString"]) -> str:
-        ...
+    @property
+    def myString(self) -> str:
+        return self.__getitem__("myString")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["myBoolean"]) -> bool:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["myNumber"],
-            typing_extensions.Literal["myString"],
-            typing_extensions.Literal["myBoolean"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def myBoolean(self) -> bool:
+        return self.__getitem__("myBoolean")
 
     def __new__(cls, arg: ObjectModelWithRefPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectModelWithRefProps.validate(arg, configuration=configuration)

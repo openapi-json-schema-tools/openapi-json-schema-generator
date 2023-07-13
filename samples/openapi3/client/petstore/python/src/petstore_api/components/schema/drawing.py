@@ -110,38 +110,21 @@ Properties = typing_extensions.TypedDict(
 
 class DrawingDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["mainShape"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def mainShape(self) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__("mainShape")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shapeOrNull"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def shapeOrNull(self) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__("shapeOrNull")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["nullableShape"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def nullableShape(self) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__("nullableShape")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shapes"]) -> ShapesTuple:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["mainShape"],
-            typing_extensions.Literal["shapeOrNull"],
-            typing_extensions.Literal["nullableShape"],
-            typing_extensions.Literal["shapes"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def shapes(self) -> ShapesTuple:
+        return self.__getitem__("shapes")
 
     def __new__(cls, arg: DrawingDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Drawing.validate(arg, configuration=configuration)

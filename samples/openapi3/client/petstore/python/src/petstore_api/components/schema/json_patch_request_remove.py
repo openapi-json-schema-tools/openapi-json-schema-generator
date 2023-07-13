@@ -84,24 +84,6 @@ class JSONPatchRequestRemoveDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
     @property
     def path(self) -> str:
         return self.__getitem__("path")
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["op"]) -> typing_extensions.Literal["remove"]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["path"]) -> str:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["op"],
-            typing_extensions.Literal["path"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: JSONPatchRequestRemoveDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return JSONPatchRequestRemove.validate(arg, configuration=configuration)

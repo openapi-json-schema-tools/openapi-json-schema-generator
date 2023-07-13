@@ -162,28 +162,9 @@ class ZebraDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def className(self) -> typing_extensions.Literal["zebra"]:
         return self.__getitem__("className")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> typing_extensions.Literal["zebra"]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["type"]) -> typing_extensions.Literal["plains", "mountain", "grevys"]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["className"],
-            typing_extensions.Literal["type"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def type(self) -> typing_extensions.Literal["plains", "mountain", "grevys"]:
+        return self.__getitem__("type")
 
     def __new__(cls, arg: ZebraDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Zebra.validate(arg, configuration=configuration)

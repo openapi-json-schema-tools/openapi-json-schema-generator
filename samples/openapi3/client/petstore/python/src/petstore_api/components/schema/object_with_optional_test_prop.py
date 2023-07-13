@@ -21,22 +21,9 @@ Properties = typing_extensions.TypedDict(
 
 class ObjectWithOptionalTestPropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["test"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["test"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def test(self) -> str:
+        return self.__getitem__("test")
 
     def __new__(cls, arg: ObjectWithOptionalTestPropDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithOptionalTestProp.validate(arg, configuration=configuration)

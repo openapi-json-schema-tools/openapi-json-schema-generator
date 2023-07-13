@@ -23,27 +23,13 @@ Properties = typing_extensions.TypedDict(
 
 class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["additionalMetadata"]) -> str:
-        ...
+    @property
+    def additionalMetadata(self) -> str:
+        return self.__getitem__("additionalMetadata")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["file"]) -> typing.Union[bytes, schemas.FileIO]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["additionalMetadata"],
-            typing_extensions.Literal["file"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def file(self) -> typing.Union[bytes, schemas.FileIO]:
+        return self.__getitem__("file")
 
     def __new__(cls, arg: SchemaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Schema.validate(arg, configuration=configuration)

@@ -35,6 +35,7 @@ def __getitem__(self, name: typing_extensions.Literal["{{{@key.original}}}"]) ->
 {{#or optionalProperties requiredProperties}}
     {{#with additionalProperties}}
         {{#unless isBooleanSchemaFalse}}
+            {{! opt or required props exist and additionalProperties defined }}
 
 @typing.overload
             {{#if refInfo.refClass}}

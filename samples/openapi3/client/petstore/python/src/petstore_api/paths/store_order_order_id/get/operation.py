@@ -34,10 +34,6 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def order_id(self) -> int:
         return self.__getitem__("order_id")
-    
-    def __getitem__(self, name: typing_extensions.Literal["order_id"]) -> int:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return PathParameters.validate(arg, configuration=configuration)

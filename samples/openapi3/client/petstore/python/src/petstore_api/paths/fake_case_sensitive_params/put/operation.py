@@ -46,29 +46,6 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     @property
     def some_var(self) -> str:
         return self.__getitem__("some_var")
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["SomeVar"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["someVar"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["some_var"]) -> str:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["SomeVar"],
-            typing_extensions.Literal["someVar"],
-            typing_extensions.Literal["some_var"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)

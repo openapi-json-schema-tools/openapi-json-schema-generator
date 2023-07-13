@@ -41,23 +41,9 @@ class AppleReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def cultivar(self) -> str:
         return self.__getitem__("cultivar")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["cultivar"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["mealy"]) -> bool:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["cultivar"],
-            typing_extensions.Literal["mealy"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def mealy(self) -> bool:
+        return self.__getitem__("mealy")
 
     def __new__(cls, arg: AppleReqDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AppleReq.validate(arg, configuration=configuration)

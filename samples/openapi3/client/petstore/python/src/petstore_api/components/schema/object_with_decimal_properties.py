@@ -26,32 +26,17 @@ Properties = typing_extensions.TypedDict(
 
 class ObjectWithDecimalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["length"]) -> str:
-        ...
+    @property
+    def length(self) -> str:
+        return self.__getitem__("length")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["width"]) -> str:
-        ...
+    @property
+    def width(self) -> str:
+        return self.__getitem__("width")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["cost"]) -> money.MoneyDict:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["length"],
-            typing_extensions.Literal["width"],
-            typing_extensions.Literal["cost"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def cost(self) -> money.MoneyDict:
+        return self.__getitem__("cost")
 
     def __new__(cls, arg: ObjectWithDecimalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithDecimalProperties.validate(arg, configuration=configuration)

@@ -3294,3 +3294,9 @@ components:
         b:
           type: number
       additionalProperties: false
+    ObjectWithNonIntersectingValues:
+      properties:
+        a:
+          type: number
+      additionalProperties:
+        type: string

@@ -239,122 +239,73 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def password(self) -> str:
         return self.__getitem__("password")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["byte"]) -> str:
-        ...
+    @property
+    def integer(self) -> int:
+        return self.__getitem__("integer")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["date"]) -> str:
-        ...
+    @property
+    def int32(self) -> int:
+        return self.__getitem__("int32")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number"]) -> typing.Union[int, float]:
-        ...
+    @property
+    def int32withValidations(self) -> int:
+        return self.__getitem__("int32withValidations")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["password"]) -> str:
-        ...
+    @property
+    def int64(self) -> int:
+        return self.__getitem__("int64")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["integer"]) -> int:
-        ...
+    @property
+    def float(self) -> typing.Union[int, float]:
+        return self.__getitem__("float")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> int:
-        ...
+    @property
+    def float32(self) -> typing.Union[int, float]:
+        return self.__getitem__("float32")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int32withValidations"]) -> int:
-        ...
+    @property
+    def double(self) -> typing.Union[int, float]:
+        return self.__getitem__("double")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int64"]) -> int:
-        ...
+    @property
+    def float64(self) -> typing.Union[int, float]:
+        return self.__getitem__("float64")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float"]) -> typing.Union[int, float]:
-        ...
+    @property
+    def arrayWithUniqueItems(self) -> ArrayWithUniqueItemsTuple:
+        return self.__getitem__("arrayWithUniqueItems")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float32"]) -> typing.Union[int, float]:
-        ...
+    @property
+    def string(self) -> str:
+        return self.__getitem__("string")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["double"]) -> typing.Union[int, float]:
-        ...
+    @property
+    def binary(self) -> typing.Union[bytes, schemas.FileIO]:
+        return self.__getitem__("binary")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float64"]) -> typing.Union[int, float]:
-        ...
+    @property
+    def dateTime(self) -> str:
+        return self.__getitem__("dateTime")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["arrayWithUniqueItems"]) -> ArrayWithUniqueItemsTuple:
-        ...
+    @property
+    def uuid(self) -> str:
+        return self.__getitem__("uuid")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["string"]) -> str:
-        ...
+    @property
+    def uuidNoExample(self) -> str:
+        return self.__getitem__("uuidNoExample")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["binary"]) -> typing.Union[bytes, schemas.FileIO]:
-        ...
+    @property
+    def pattern_with_digits(self) -> str:
+        return self.__getitem__("pattern_with_digits")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["dateTime"]) -> str:
-        ...
+    @property
+    def pattern_with_digits_and_delimiter(self) -> str:
+        return self.__getitem__("pattern_with_digits_and_delimiter")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["uuid"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["uuidNoExample"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["pattern_with_digits"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["pattern_with_digits_and_delimiter"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["noneProp"]) -> None:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["byte"],
-            typing_extensions.Literal["date"],
-            typing_extensions.Literal["number"],
-            typing_extensions.Literal["password"],
-            typing_extensions.Literal["integer"],
-            typing_extensions.Literal["int32"],
-            typing_extensions.Literal["int32withValidations"],
-            typing_extensions.Literal["int64"],
-            typing_extensions.Literal["float"],
-            typing_extensions.Literal["float32"],
-            typing_extensions.Literal["double"],
-            typing_extensions.Literal["float64"],
-            typing_extensions.Literal["arrayWithUniqueItems"],
-            typing_extensions.Literal["string"],
-            typing_extensions.Literal["binary"],
-            typing_extensions.Literal["dateTime"],
-            typing_extensions.Literal["uuid"],
-            typing_extensions.Literal["uuidNoExample"],
-            typing_extensions.Literal["pattern_with_digits"],
-            typing_extensions.Literal["pattern_with_digits_and_delimiter"],
-            typing_extensions.Literal["noneProp"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def noneProp(self) -> None:
+        return self.__getitem__("noneProp")
 
     def __new__(cls, arg: FormatTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return FormatTest.validate(arg, configuration=configuration)

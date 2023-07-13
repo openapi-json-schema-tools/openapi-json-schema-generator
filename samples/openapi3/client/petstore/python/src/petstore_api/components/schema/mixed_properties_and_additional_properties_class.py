@@ -17,10 +17,6 @@ from petstore_api.components.schema import animal
 
 
 class MapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    
-    def __getitem__(self, name: str) -> animal.AnimalDict:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: MapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Map.validate(arg, configuration=configuration)
@@ -75,32 +71,17 @@ Properties = typing_extensions.TypedDict(
 
 class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["uuid"]) -> str:
-        ...
+    @property
+    def uuid(self) -> str:
+        return self.__getitem__("uuid")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["dateTime"]) -> str:
-        ...
+    @property
+    def dateTime(self) -> str:
+        return self.__getitem__("dateTime")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["map"]) -> MapDict:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["uuid"],
-            typing_extensions.Literal["dateTime"],
-            typing_extensions.Literal["map"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def map(self) -> MapDict:
+        return self.__getitem__("map")
 
     def __new__(cls, arg: MixedPropertiesAndAdditionalPropertiesClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MixedPropertiesAndAdditionalPropertiesClass.validate(arg, configuration=configuration)

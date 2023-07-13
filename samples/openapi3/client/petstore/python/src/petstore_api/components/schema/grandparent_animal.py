@@ -24,23 +24,6 @@ class GrandparentAnimalDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES
     @property
     def pet_type(self) -> str:
         return self.__getitem__("pet_type")
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["pet_type"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["pet_type"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: GrandparentAnimalDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return GrandparentAnimal.validate(arg, configuration=configuration)

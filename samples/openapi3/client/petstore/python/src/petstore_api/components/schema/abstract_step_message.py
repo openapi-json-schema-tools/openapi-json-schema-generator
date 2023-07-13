@@ -32,33 +32,6 @@ class AbstractStepMessageDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
     @property
     def sequenceNumber(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("sequenceNumber")
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["description"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["discriminator"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["sequenceNumber"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["description"],
-            typing_extensions.Literal["discriminator"],
-            typing_extensions.Literal["sequenceNumber"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: AbstractStepMessageDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AbstractStepMessage.validate(arg, configuration=configuration)

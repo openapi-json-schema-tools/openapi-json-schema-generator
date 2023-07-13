@@ -82,32 +82,13 @@ class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def className(self) -> typing_extensions.Literal["whale"]:
         return self.__getitem__("className")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["className"]) -> typing_extensions.Literal["whale"]:
-        ...
+    @property
+    def hasBaleen(self) -> bool:
+        return self.__getitem__("hasBaleen")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["hasBaleen"]) -> bool:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["hasTeeth"]) -> bool:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["className"],
-            typing_extensions.Literal["hasBaleen"],
-            typing_extensions.Literal["hasTeeth"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def hasTeeth(self) -> bool:
+        return self.__getitem__("hasTeeth")
 
     def __new__(cls, arg: WhaleDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Whale.validate(arg, configuration=configuration)

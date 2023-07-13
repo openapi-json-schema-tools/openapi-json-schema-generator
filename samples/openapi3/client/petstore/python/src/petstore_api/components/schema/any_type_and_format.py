@@ -109,62 +109,41 @@ Properties = typing_extensions.TypedDict(
 
 class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["uuid"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def uuid(self) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__("uuid")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["date"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def date(self) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__("date")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["date-time"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def date-time(self) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__("date-time")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def number(self) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__("number")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["binary"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def binary(self) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__("binary")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def int32(self) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__("int32")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int64"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def int64(self) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__("int64")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["double"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def double(self) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__("double")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["uuid"],
-            typing_extensions.Literal["date"],
-            typing_extensions.Literal["date-time"],
-            typing_extensions.Literal["number"],
-            typing_extensions.Literal["binary"],
-            typing_extensions.Literal["int32"],
-            typing_extensions.Literal["int64"],
-            typing_extensions.Literal["double"],
-            typing_extensions.Literal["float"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def float(self) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__("float")
 
     def __new__(cls, arg: AnyTypeAndFormatDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AnyTypeAndFormat.validate(arg, configuration=configuration)

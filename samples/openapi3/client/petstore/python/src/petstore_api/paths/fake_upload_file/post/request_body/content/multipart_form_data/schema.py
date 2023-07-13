@@ -27,27 +27,9 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def file(self) -> typing.Union[bytes, schemas.FileIO]:
         return self.__getitem__("file")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["file"]) -> typing.Union[bytes, schemas.FileIO]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["additionalMetadata"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["file"],
-            typing_extensions.Literal["additionalMetadata"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def additionalMetadata(self) -> str:
+        return self.__getitem__("additionalMetadata")
 
     def __new__(cls, arg: SchemaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Schema.validate(arg, configuration=configuration)

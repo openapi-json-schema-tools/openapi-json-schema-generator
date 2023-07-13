@@ -207,27 +207,13 @@ Properties = typing_extensions.TypedDict(
 
 class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["just_symbol"]) -> typing_extensions.Literal[">=", "$"]:
-        ...
+    @property
+    def just_symbol(self) -> typing_extensions.Literal[">=", "$"]:
+        return self.__getitem__("just_symbol")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_enum"]) -> ArrayEnumTuple:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["just_symbol"],
-            typing_extensions.Literal["array_enum"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def array_enum(self) -> ArrayEnumTuple:
+        return self.__getitem__("array_enum")
 
     def __new__(cls, arg: EnumArraysDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return EnumArrays.validate(arg, configuration=configuration)

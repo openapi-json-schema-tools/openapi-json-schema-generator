@@ -24,23 +24,6 @@ class BananaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def lengthCm(self) -> typing.Union[int, float]:
         return self.__getitem__("lengthCm")
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["lengthCm"]) -> typing.Union[int, float]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["lengthCm"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
 
     def __new__(cls, arg: BananaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Banana.validate(arg, configuration=configuration)

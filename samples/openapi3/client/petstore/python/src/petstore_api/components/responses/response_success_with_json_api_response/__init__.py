@@ -65,41 +65,20 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("int32")
     
     @property
+    def ref-content-schema-header(self) -> str:
+        return self.__getitem__("ref-content-schema-header")
+    
+    @property
+    def ref-schema-header(self) -> str:
+        return self.__getitem__("ref-schema-header")
+    
+    @property
     def stringHeader(self) -> str:
         return self.__getitem__("stringHeader")
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> int:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["ref-content-schema-header"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["ref-schema-header"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["stringHeader"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["numberHeader"]) -> str:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["int32"],
-            typing_extensions.Literal["ref-content-schema-header"],
-            typing_extensions.Literal["ref-schema-header"],
-            typing_extensions.Literal["stringHeader"],
-            typing_extensions.Literal["numberHeader"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def numberHeader(self) -> str:
+        return self.__getitem__("numberHeader")
 
     def __new__(cls, arg: HeadersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Headers.validate(arg, configuration=configuration)
