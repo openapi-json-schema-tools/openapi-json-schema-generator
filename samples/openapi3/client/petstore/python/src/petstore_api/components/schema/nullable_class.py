@@ -106,7 +106,7 @@ class NumberProp(
         cls,
         arg: typing.Union[int, float],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Union[float, int]: ...
+    ) -> typing.Union[int, float]: ...
     @classmethod
     def validate(
         cls,
@@ -828,7 +828,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["number_prop"]) -> typing.Union[
         None,
-        typing.Union[float, int],
+        typing.Union[int, float],
     ]:
         ...
     

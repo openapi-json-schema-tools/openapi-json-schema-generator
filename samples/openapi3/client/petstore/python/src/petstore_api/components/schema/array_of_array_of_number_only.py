@@ -15,7 +15,7 @@ Items2: typing_extensions.TypeAlias = schemas.NumberSchema
 
 class ItemsTuple(
     typing.Tuple[
-        typing.Union[float, int],
+        typing.Union[int, float],
         ...
     ]
 ):

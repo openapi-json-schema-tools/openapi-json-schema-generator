@@ -30,7 +30,7 @@ def validate(
 @classmethod
 def validate(
     {{> components/schemas/_helper_validate_args }}
-) -> typing.Union[float, int]: ...
+) -> typing.Union[int, float]: ...
                             {{else}}
                                 {{#eq this "integer"}}
 {{> components/schemas/_helper_validate_int_overload includeNonEnum=true enumInfo=../enumInfo }}
@@ -126,7 +126,7 @@ def validate(
 ]{{else}}str{{/if}}:
                         {{else}}
                             {{#eq this "number"}}
-) -> typing.Union[float, int]:
+) -> typing.Union[int, float]:
                             {{else}}
                                 {{#eq this "integer"}}
 ) -> {{#if ../enumInfo}}typing_extensions.Literal[

@@ -10,7 +10,7 @@ class {{enumInfo.valueToName.jsonPathPiece.camelCase}}:
         return {{jsonPathPiece.camelCase}}.validate("{{{@key.value}}}")
         {{/eq}}
         {{#eq @key.type "number"}}
-    def {{this}}(cls) -> typing.Union[float, int]:
+    def {{this}}(cls) -> typing.Union[int, float]:
         return {{jsonPathPiece.camelCase}}.validate({{{@key.value}}})
         {{/eq}}
         {{#eq @key.type "integer"}}

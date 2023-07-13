@@ -36,7 +36,7 @@ class ComposedNumber(
         cls,
         arg: typing.Union[int, float],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Union[float, int]:
+    ) -> typing.Union[int, float]:
         return super().validate_base(
             arg,
             configuration=configuration,

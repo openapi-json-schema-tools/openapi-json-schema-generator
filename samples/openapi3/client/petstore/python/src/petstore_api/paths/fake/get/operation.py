@@ -46,7 +46,7 @@ Properties = typing_extensions.TypedDict(
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_query_double"]) -> typing.Union[float, int]:
+    def __getitem__(self, name: typing_extensions.Literal["enum_query_double"]) -> typing.Union[int, float]:
         ...
     
     @typing.overload

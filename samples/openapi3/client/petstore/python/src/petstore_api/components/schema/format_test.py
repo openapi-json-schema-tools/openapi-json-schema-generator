@@ -83,7 +83,7 @@ Items: typing_extensions.TypeAlias = schemas.NumberSchema
 
 class ArrayWithUniqueItemsTuple(
     typing.Tuple[
-        typing.Union[float, int],
+        typing.Union[int, float],
         ...
     ]
 ):
@@ -232,7 +232,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("date")
     
     @property
-    def number(self) -> typing.Union[float, int]:
+    def number(self) -> typing.Union[int, float]:
         return self.__getitem__("number")
     
     @property
@@ -248,7 +248,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number"]) -> typing.Union[float, int]:
+    def __getitem__(self, name: typing_extensions.Literal["number"]) -> typing.Union[int, float]:
         ...
     
     @typing.overload
@@ -272,19 +272,19 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float"]) -> typing.Union[float, int]:
+    def __getitem__(self, name: typing_extensions.Literal["float"]) -> typing.Union[int, float]:
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float32"]) -> typing.Union[float, int]:
+    def __getitem__(self, name: typing_extensions.Literal["float32"]) -> typing.Union[int, float]:
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["double"]) -> typing.Union[float, int]:
+    def __getitem__(self, name: typing_extensions.Literal["double"]) -> typing.Union[int, float]:
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float64"]) -> typing.Union[float, int]:
+    def __getitem__(self, name: typing_extensions.Literal["float64"]) -> typing.Union[int, float]:
         ...
     
     @typing.overload

@@ -151,11 +151,11 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("byte")
     
     @property
-    def double(self) -> typing.Union[float, int]:
+    def double(self) -> typing.Union[int, float]:
         return self.__getitem__("double")
     
     @property
-    def number(self) -> typing.Union[float, int]:
+    def number(self) -> typing.Union[int, float]:
         return self.__getitem__("number")
     
     @property
@@ -167,11 +167,11 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["double"]) -> typing.Union[float, int]:
+    def __getitem__(self, name: typing_extensions.Literal["double"]) -> typing.Union[int, float]:
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number"]) -> typing.Union[float, int]:
+    def __getitem__(self, name: typing_extensions.Literal["number"]) -> typing.Union[int, float]:
         ...
     
     @typing.overload
@@ -191,7 +191,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float"]) -> typing.Union[float, int]:
+    def __getitem__(self, name: typing_extensions.Literal["float"]) -> typing.Union[int, float]:
         ...
     
     @typing.overload

@@ -22,7 +22,7 @@ Properties = typing_extensions.TypedDict(
 class NumberOnlyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["JustNumber"]) -> typing.Union[float, int]:
+    def __getitem__(self, name: typing_extensions.Literal["JustNumber"]) -> typing.Union[int, float]:
         ...
     
     @typing.overload

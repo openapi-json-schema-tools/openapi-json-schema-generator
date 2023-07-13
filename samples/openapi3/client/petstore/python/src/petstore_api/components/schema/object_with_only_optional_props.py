@@ -29,7 +29,7 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["b"]) -> typing.Union[float, int]:
+    def __getitem__(self, name: typing_extensions.Literal["b"]) -> typing.Union[int, float]:
         ...
     
     def __getitem__(

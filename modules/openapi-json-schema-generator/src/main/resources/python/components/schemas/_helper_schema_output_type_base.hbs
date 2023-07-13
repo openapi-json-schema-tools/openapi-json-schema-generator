@@ -22,7 +22,7 @@ str{{endChar}}
                     {{/eq}}
                 {{else}}
                     {{#eq this "number"}}
-typing.Union[float, int]{{endChar}}
+typing.Union[int, float]{{endChar}}
                     {{else}}
                         {{#eq this "integer"}}
                             {{#and ../enumInfo ../enumInfo.typeToValues.integer}}

@@ -39,7 +39,7 @@ class BaseApi(api_client.Api):
     def _number_with_validations(
         self,
         body: typing.Union[
-            typing.Union[float, int],
+            typing.Union[int, float],
             schemas.Unset
         ] = schemas.unset,
         *,
@@ -55,7 +55,7 @@ class BaseApi(api_client.Api):
     def _number_with_validations(
         self,
         body: typing.Union[
-            typing.Union[float, int],
+            typing.Union[int, float],
             schemas.Unset
         ] = schemas.unset,
         *,
@@ -70,7 +70,7 @@ class BaseApi(api_client.Api):
     def _number_with_validations(
         self,
         body: typing.Union[
-            typing.Union[float, int],
+            typing.Union[int, float],
             schemas.Unset
         ] = schemas.unset,
         *,

@@ -27,7 +27,7 @@ Properties = typing_extensions.TypedDict(
 class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["myNumber"]) -> typing.Union[float, int]:
+    def __getitem__(self, name: typing_extensions.Literal["myNumber"]) -> typing.Union[int, float]:
         ...
     
     @typing.overload

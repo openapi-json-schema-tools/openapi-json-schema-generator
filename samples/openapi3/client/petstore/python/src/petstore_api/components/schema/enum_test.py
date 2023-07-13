@@ -248,11 +248,11 @@ class EnumInteger(
 class EnumNumberEnums:
 
     @schemas.classproperty
-    def POSITIVE_1_PT_1(cls) -> typing.Union[float, int]:
+    def POSITIVE_1_PT_1(cls) -> typing.Union[int, float]:
         return EnumNumber.validate(1.1)
 
     @schemas.classproperty
-    def NEGATIVE_1_PT_2(cls) -> typing.Union[float, int]:
+    def NEGATIVE_1_PT_2(cls) -> typing.Union[int, float]:
         return EnumNumber.validate(-1.2)
 
 
@@ -278,7 +278,7 @@ class EnumNumber(
         cls,
         arg: typing.Union[int, float],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Union[float, int]:
+    ) -> typing.Union[int, float]:
         validated_arg = super().validate_base(
             arg,
             configuration=configuration,
@@ -325,7 +325,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_number"]) -> typing.Union[float, int]:
+    def __getitem__(self, name: typing_extensions.Literal["enum_number"]) -> typing.Union[int, float]:
         ...
     
     @typing.overload
