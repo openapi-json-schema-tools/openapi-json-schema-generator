@@ -723,7 +723,6 @@ class __HeaderParameterBase(ParameterBase, StyleSimpleSerializer):
         raise ValueError('Invalid value for content, it was empty and must have 1 key value pair')
 
 
-@dataclasses.dataclass
 class HeaderParameterWithoutName(__HeaderParameterBase):
     required: bool = False
     style: ParameterStyle = ParameterStyle.SIMPLE
@@ -747,7 +746,6 @@ class HeaderParameterWithoutName(__HeaderParameterBase):
         )
 
 
-@dataclasses.dataclass
 class HeaderParameter(__HeaderParameterBase):
     name: str
     required: bool = False
