@@ -224,3 +224,4 @@ class AdditionalPropertiesValidator(
             arg,
             configuration=configuration,
         )
+

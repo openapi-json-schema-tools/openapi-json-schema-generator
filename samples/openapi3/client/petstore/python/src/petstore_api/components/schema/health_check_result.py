@@ -45,6 +45,7 @@ class NullableMessage(
             arg,
             configuration=configuration,
         )
+
 Properties = typing_extensions.TypedDict(
     'Properties',
     {

@@ -50,3 +50,4 @@ class NullableString(
             arg,
             configuration=configuration,
         )
+

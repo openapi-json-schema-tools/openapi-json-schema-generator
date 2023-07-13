@@ -87,6 +87,7 @@ class ObjWithRequiredProps(
             configuration=configuration,
         )
 
+
 from petstore_api.components.schema import obj_with_required_props_base
 AllOf = typing.Tuple[
     typing.Type[obj_with_required_props_base.ObjWithRequiredPropsBase],

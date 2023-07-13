@@ -115,6 +115,7 @@ class AbstractStepMessage(
             arg,
             configuration=configuration,
         )
+
 AnyOf = typing.Tuple[
     typing.Type[AbstractStepMessage],
 ]

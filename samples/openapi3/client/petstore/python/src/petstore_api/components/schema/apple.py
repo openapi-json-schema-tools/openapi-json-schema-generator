@@ -130,3 +130,4 @@ class Apple(
             arg,
             configuration=configuration,
         )
+

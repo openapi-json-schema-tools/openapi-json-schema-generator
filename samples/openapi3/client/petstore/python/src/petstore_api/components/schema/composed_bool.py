@@ -30,13 +30,3 @@ class ComposedBool(
     })
     all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
-    @classmethod
-    def validate(
-        cls,
-        arg: bool,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> bool:
-        return super().validate_base(
-            arg,
-            configuration=configuration,
-        )

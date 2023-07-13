@@ -31,13 +31,3 @@ class ComposedNumber(
     })
     all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
-    @classmethod
-    def validate(
-        cls,
-        arg: typing.Union[int, float],
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Union[int, float]:
-        return super().validate_base(
-            arg,
-            configuration=configuration,
-        )

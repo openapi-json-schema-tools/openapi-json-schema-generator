@@ -47,6 +47,7 @@ class AdditionalProperties4(
         )
 
 
+
 @dataclasses.dataclass(frozen=True)
 class IntegerProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
@@ -81,6 +82,7 @@ class IntegerProp(
             arg,
             configuration=configuration,
         )
+
 
 
 @dataclasses.dataclass(frozen=True)
@@ -119,6 +121,7 @@ class NumberProp(
         )
 
 
+
 @dataclasses.dataclass(frozen=True)
 class BooleanProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
@@ -154,6 +157,7 @@ class BooleanProp(
         )
 
 
+
 @dataclasses.dataclass(frozen=True)
 class StringProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
@@ -187,6 +191,7 @@ class StringProp(
             arg,
             configuration=configuration,
         )
+
 
 
 @dataclasses.dataclass(frozen=True)
@@ -225,6 +230,7 @@ class DateProp(
         )
 
 
+
 @dataclasses.dataclass(frozen=True)
 class DatetimeProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
@@ -259,6 +265,7 @@ class DatetimeProp(
             arg,
             configuration=configuration,
         )
+
 Items: typing_extensions.TypeAlias = schemas.DictSchema
 
 
@@ -335,6 +342,7 @@ class ArrayNullableProp(
         )
 
 
+
 @dataclasses.dataclass(frozen=True)
 class Items2(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
@@ -368,6 +376,7 @@ class Items2(
             arg,
             configuration=configuration,
         )
+
 
 
 class ArrayAndItemsNullablePropTuple(
@@ -448,6 +457,7 @@ class ArrayAndItemsNullableProp(
         )
 
 
+
 @dataclasses.dataclass(frozen=True)
 class Items3(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
@@ -481,6 +491,7 @@ class Items3(
             arg,
             configuration=configuration,
         )
+
 
 
 class ArrayItemsNullableTuple(
@@ -609,6 +620,7 @@ class ObjectNullableProp(
         )
 
 
+
 @dataclasses.dataclass(frozen=True)
 class AdditionalProperties2(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
@@ -642,6 +654,7 @@ class AdditionalProperties2(
             arg,
             configuration=configuration,
         )
+
 
 
 class ObjectAndItemsNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
@@ -712,6 +725,7 @@ class ObjectAndItemsNullableProp(
         )
 
 
+
 @dataclasses.dataclass(frozen=True)
 class AdditionalProperties3(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
@@ -745,6 +759,7 @@ class AdditionalProperties3(
             arg,
             configuration=configuration,
         )
+
 
 
 class ObjectItemsNullableDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):

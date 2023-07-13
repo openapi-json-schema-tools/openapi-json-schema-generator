@@ -54,6 +54,7 @@ class ObjectWithNoDeclaredPropsNullable(
             arg,
             configuration=configuration,
         )
+
 AnyTypeProp: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 _Not: typing_extensions.TypeAlias = schemas.NoneSchema
 

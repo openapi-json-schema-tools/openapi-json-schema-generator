@@ -40,3 +40,4 @@ class ComposedObject(
             arg,
             configuration=configuration,
         )
+

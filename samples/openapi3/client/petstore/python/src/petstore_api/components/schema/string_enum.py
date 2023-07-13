@@ -136,3 +136,4 @@ class StringEnum(
             configuration=configuration,
         )
         return validated_arg
+
