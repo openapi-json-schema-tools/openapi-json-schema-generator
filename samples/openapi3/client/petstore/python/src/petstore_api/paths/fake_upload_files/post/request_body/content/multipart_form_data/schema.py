@@ -19,8 +19,6 @@ class FilesTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> typing.Union[bytes, schemas.FileIO]:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: FilesTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Files.validate(arg, configuration=configuration)

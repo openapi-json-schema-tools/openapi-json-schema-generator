@@ -21,8 +21,6 @@ class PhotoUrlsTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> str:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: PhotoUrlsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return PhotoUrls.validate(arg, configuration=configuration)
@@ -158,8 +156,6 @@ class TagsTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> tag.TagDict:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: TagsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Tags.validate(arg, configuration=configuration)

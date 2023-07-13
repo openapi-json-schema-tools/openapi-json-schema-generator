@@ -19,8 +19,6 @@ class ArrayOfStringTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> str:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: ArrayOfStringTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayOfString.validate(arg, configuration=configuration)
@@ -72,8 +70,6 @@ class ItemsTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> int:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: ItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Items2.validate(arg, configuration=configuration)
@@ -124,8 +120,6 @@ class ArrayArrayOfIntegerTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> ItemsTuple:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: ArrayArrayOfIntegerTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayArrayOfInteger.validate(arg, configuration=configuration)
@@ -186,8 +180,6 @@ class ItemsTuple2(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> read_only_first.ReadOnlyFirstDict:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: ItemsTupleInput2, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Items4.validate(arg, configuration=configuration)
@@ -246,8 +238,6 @@ class ArrayArrayOfModelTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> ItemsTuple2:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: ArrayArrayOfModelTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayArrayOfModel.validate(arg, configuration=configuration)

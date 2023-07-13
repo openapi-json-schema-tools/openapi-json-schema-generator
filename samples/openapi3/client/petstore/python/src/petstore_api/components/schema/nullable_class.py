@@ -268,8 +268,6 @@ class ArrayNullablePropTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: ArrayNullablePropTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayNullableProp.validate(arg, configuration=configuration)
@@ -381,11 +379,6 @@ class ArrayAndItemsNullablePropTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> typing.Union[
-        None,
-        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-    ]:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: ArrayAndItemsNullablePropTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayAndItemsNullableProp.validate(arg, configuration=configuration)
@@ -499,11 +492,6 @@ class ArrayItemsNullableTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> typing.Union[
-        None,
-        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-    ]:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: ArrayItemsNullableTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayItemsNullable.validate(arg, configuration=configuration)

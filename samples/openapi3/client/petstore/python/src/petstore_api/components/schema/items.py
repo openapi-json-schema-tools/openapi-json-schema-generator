@@ -19,8 +19,6 @@ class ItemsTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: ItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Items.validate(arg, configuration=configuration)

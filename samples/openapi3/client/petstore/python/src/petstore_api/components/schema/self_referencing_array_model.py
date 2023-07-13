@@ -18,8 +18,6 @@ class SelfReferencingArrayModelTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> SelfReferencingArrayModelTuple:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: SelfReferencingArrayModelTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return SelfReferencingArrayModel.validate(arg, configuration=configuration)

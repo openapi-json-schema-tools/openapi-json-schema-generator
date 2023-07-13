@@ -23,11 +23,6 @@ class ArrayOfEnumsTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> typing.Union[
-        None,
-        typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
-    ]:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: ArrayOfEnumsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayOfEnums.validate(arg, configuration=configuration)

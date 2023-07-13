@@ -29,8 +29,6 @@ class ArrayWithValidationsInItemsTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> int:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: ArrayWithValidationsInItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayWithValidationsInItems.validate(arg, configuration=configuration)

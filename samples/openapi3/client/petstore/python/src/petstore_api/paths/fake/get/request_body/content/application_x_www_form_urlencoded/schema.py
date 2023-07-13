@@ -87,8 +87,6 @@ class EnumFormStringArrayTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> typing_extensions.Literal[">", "$"]:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: EnumFormStringArrayTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return EnumFormStringArray.validate(arg, configuration=configuration)

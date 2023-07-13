@@ -19,8 +19,6 @@ class ItemsTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> typing.Union[float, int]:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: ItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Items.validate(arg, configuration=configuration)
@@ -77,8 +75,6 @@ class ArrayArrayNumberTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> ItemsTuple:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: ArrayArrayNumberTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayArrayNumber.validate(arg, configuration=configuration)

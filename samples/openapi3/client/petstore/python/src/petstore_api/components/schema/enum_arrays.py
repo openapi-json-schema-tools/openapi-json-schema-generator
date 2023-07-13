@@ -154,8 +154,6 @@ class ArrayEnumTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> typing_extensions.Literal["fish", "crab"]:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: ArrayEnumTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayEnum.validate(arg, configuration=configuration)

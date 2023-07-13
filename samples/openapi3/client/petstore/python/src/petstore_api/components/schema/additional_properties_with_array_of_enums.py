@@ -20,8 +20,6 @@ class AdditionalPropertiesTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> typing_extensions.Literal["_abc", "-efg", "(xyz)", "COUNT_1M", "COUNT_50M"]:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: AdditionalPropertiesTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AdditionalProperties.validate(arg, configuration=configuration)

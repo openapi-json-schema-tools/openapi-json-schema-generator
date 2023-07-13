@@ -19,8 +19,6 @@ class SchemaTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> str:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: SchemaTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Schema.validate(arg, configuration=configuration)

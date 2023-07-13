@@ -20,8 +20,6 @@ class AnimalFarmTuple(
         ...
     ]
 ):
-    def __getitem__(self, name: int) -> animal.AnimalDict:
-        return super().__getitem__(name)
 
     def __new__(cls, arg: AnimalFarmTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AnimalFarm.validate(arg, configuration=configuration)
