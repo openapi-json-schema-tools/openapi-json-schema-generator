@@ -87,7 +87,7 @@ class Apple(
     Do not edit the class manually.
     """
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         schemas.immutabledict,
     })
     required: typing.FrozenSet[str] = frozenset({

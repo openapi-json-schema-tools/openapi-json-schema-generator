@@ -17,7 +17,7 @@ class NullableMessage(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         str,
     })
 

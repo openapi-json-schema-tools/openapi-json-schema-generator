@@ -17,7 +17,7 @@ class AdditionalProperties4(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         schemas.immutabledict,
     })
 
@@ -53,7 +53,7 @@ class IntegerProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         int,
     })
     format: str = 'int'
@@ -90,7 +90,7 @@ class NumberProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         float,
         int,
     })
@@ -127,7 +127,7 @@ class BooleanProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         schemas.Bool,
     })
 
@@ -163,7 +163,7 @@ class StringProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         str,
     })
 
@@ -199,7 +199,7 @@ class DateProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         str,
     })
     format: str = 'date'
@@ -236,7 +236,7 @@ class DatetimeProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         str,
     })
     format: str = 'date-time'
@@ -300,7 +300,7 @@ class ArrayNullableProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], ArrayNullablePropTuple],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         tuple,
     })
     items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
@@ -348,7 +348,7 @@ class Items2(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         schemas.immutabledict,
     })
 
@@ -415,7 +415,7 @@ class ArrayAndItemsNullableProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], ArrayAndItemsNullablePropTuple],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         tuple,
     })
     items: typing.Type[Items2] = dataclasses.field(default_factory=lambda: Items2) # type: ignore
@@ -463,7 +463,7 @@ class Items3(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         schemas.immutabledict,
     })
 
@@ -578,7 +578,7 @@ class ObjectNullableProp(
     schemas.Schema[ObjectNullablePropDict, typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         schemas.immutabledict,
     })
     additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
@@ -626,7 +626,7 @@ class AdditionalProperties2(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         schemas.immutabledict,
     })
 
@@ -683,7 +683,7 @@ class ObjectAndItemsNullableProp(
     schemas.Schema[ObjectAndItemsNullablePropDict, typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         schemas.immutabledict,
     })
     additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
@@ -731,7 +731,7 @@ class AdditionalProperties3(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         schemas.immutabledict,
     })
 
