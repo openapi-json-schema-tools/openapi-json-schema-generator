@@ -46,7 +46,7 @@ FilesTupleInput = typing.Union[
 
 @dataclasses.dataclass(frozen=True)
 class Files(
-    schemas.ListSchema[FilesTuple]
+    schemas.Schema[schemas.immutabledict, FilesTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[file.File] = dataclasses.field(default_factory=lambda: file.File) # type: ignore

@@ -73,7 +73,7 @@ ShapesTupleInput = typing.Union[
 
 @dataclasses.dataclass(frozen=True)
 class Shapes(
-    schemas.ListSchema[ShapesTuple]
+    schemas.Schema[schemas.immutabledict, ShapesTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[shape.Shape] = dataclasses.field(default_factory=lambda: shape.Shape) # type: ignore

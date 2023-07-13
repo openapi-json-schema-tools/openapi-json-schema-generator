@@ -39,7 +39,7 @@ PhotoUrlsTupleInput = typing.Union[
 
 @dataclasses.dataclass(frozen=True)
 class PhotoUrls(
-    schemas.ListSchema[PhotoUrlsTuple]
+    schemas.Schema[schemas.immutabledict, PhotoUrlsTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
@@ -184,7 +184,7 @@ TagsTupleInput = typing.Union[
 
 @dataclasses.dataclass(frozen=True)
 class Tags(
-    schemas.ListSchema[TagsTuple]
+    schemas.Schema[schemas.immutabledict, TagsTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[tag.Tag] = dataclasses.field(default_factory=lambda: tag.Tag) # type: ignore

@@ -17,7 +17,7 @@ from . import schema, validation
 
 
 @dataclasses.dataclass(frozen=True)
-class ListSchema(schema.Schema[validation.immutabledict, schema.U]):
+class ListSchema(schema.Schema[validation.immutabledict, tuple]):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
 
     @typing.overload

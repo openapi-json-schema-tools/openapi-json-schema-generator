@@ -38,7 +38,7 @@ AdditionalPropertiesTupleInput = typing.Union[
 
 @dataclasses.dataclass(frozen=True)
 class AdditionalProperties(
-    schemas.ListSchema[AdditionalPropertiesTuple]
+    schemas.Schema[schemas.immutabledict, AdditionalPropertiesTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[enum_class.EnumClass] = dataclasses.field(default_factory=lambda: enum_class.EnumClass) # type: ignore

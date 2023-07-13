@@ -78,7 +78,7 @@ _9TupleInput = typing.Union[
 
 @dataclasses.dataclass(frozen=True)
 class _9(
-    schemas.ListSchema[_9Tuple]
+    schemas.Schema[schemas.immutabledict, _9Tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore

@@ -37,7 +37,7 @@ ArrayOfStringTupleInput = typing.Union[
 
 @dataclasses.dataclass(frozen=True)
 class ArrayOfString(
-    schemas.ListSchema[ArrayOfStringTuple]
+    schemas.Schema[schemas.immutabledict, ArrayOfStringTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
@@ -90,7 +90,7 @@ ItemsTupleInput = typing.Union[
 
 @dataclasses.dataclass(frozen=True)
 class Items2(
-    schemas.ListSchema[ItemsTuple]
+    schemas.Schema[schemas.immutabledict, ItemsTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items3] = dataclasses.field(default_factory=lambda: Items3) # type: ignore
@@ -150,7 +150,7 @@ ArrayArrayOfIntegerTupleInput = typing.Union[
 
 @dataclasses.dataclass(frozen=True)
 class ArrayArrayOfInteger(
-    schemas.ListSchema[ArrayArrayOfIntegerTuple]
+    schemas.Schema[schemas.immutabledict, ArrayArrayOfIntegerTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items2] = dataclasses.field(default_factory=lambda: Items2) # type: ignore
@@ -212,7 +212,7 @@ ItemsTupleInput2 = typing.Union[
 
 @dataclasses.dataclass(frozen=True)
 class Items4(
-    schemas.ListSchema[ItemsTuple2]
+    schemas.Schema[schemas.immutabledict, ItemsTuple2]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[read_only_first.ReadOnlyFirst] = dataclasses.field(default_factory=lambda: read_only_first.ReadOnlyFirst) # type: ignore
@@ -272,7 +272,7 @@ ArrayArrayOfModelTupleInput = typing.Union[
 
 @dataclasses.dataclass(frozen=True)
 class ArrayArrayOfModel(
-    schemas.ListSchema[ArrayArrayOfModelTuple]
+    schemas.Schema[schemas.immutabledict, ArrayArrayOfModelTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items4] = dataclasses.field(default_factory=lambda: Items4) # type: ignore

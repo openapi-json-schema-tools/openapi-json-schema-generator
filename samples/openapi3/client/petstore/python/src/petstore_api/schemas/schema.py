@@ -456,6 +456,14 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
     @classmethod
     def validate_base(
         cls,
+        arg: typing.Sequence[INPUT_TYPES_ALL_INCL_SCHEMA],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> U: ...
+
+    @typing.overload
+    @classmethod
+    def validate_base(
+        cls,
         arg: typing.Tuple[INPUT_TYPES_ALL_INCL_SCHEMA, ...],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> U: ...

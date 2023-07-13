@@ -105,7 +105,7 @@ EnumFormStringArrayTupleInput = typing.Union[
 
 @dataclasses.dataclass(frozen=True)
 class EnumFormStringArray(
-    schemas.ListSchema[EnumFormStringArrayTuple]
+    schemas.Schema[schemas.immutabledict, EnumFormStringArrayTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore

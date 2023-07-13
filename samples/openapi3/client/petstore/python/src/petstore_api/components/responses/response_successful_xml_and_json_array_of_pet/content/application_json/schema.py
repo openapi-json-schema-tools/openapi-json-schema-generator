@@ -46,7 +46,7 @@ SchemaTupleInput = typing.Union[
 
 @dataclasses.dataclass(frozen=True)
 class Schema(
-    schemas.ListSchema[SchemaTuple]
+    schemas.Schema[schemas.immutabledict, SchemaTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[ref_pet.RefPet] = dataclasses.field(default_factory=lambda: ref_pet.RefPet) # type: ignore

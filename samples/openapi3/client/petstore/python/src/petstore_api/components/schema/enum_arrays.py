@@ -172,7 +172,7 @@ ArrayEnumTupleInput = typing.Union[
 
 @dataclasses.dataclass(frozen=True)
 class ArrayEnum(
-    schemas.ListSchema[ArrayEnumTuple]
+    schemas.Schema[schemas.immutabledict, ArrayEnumTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore

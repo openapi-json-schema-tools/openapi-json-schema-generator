@@ -92,7 +92,7 @@ _5TupleInput = typing.Union[
 
 @dataclasses.dataclass(frozen=True)
 class _5(
-    schemas.ListSchema[_5Tuple]
+    schemas.Schema[schemas.immutabledict, _5Tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     max_items: int = 4

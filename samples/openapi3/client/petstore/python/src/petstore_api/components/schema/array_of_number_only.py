@@ -43,7 +43,7 @@ ArrayNumberTupleInput = typing.Union[
 
 @dataclasses.dataclass(frozen=True)
 class ArrayNumber(
-    schemas.ListSchema[ArrayNumberTuple]
+    schemas.Schema[schemas.immutabledict, ArrayNumberTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore

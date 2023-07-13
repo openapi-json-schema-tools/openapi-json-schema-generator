@@ -111,7 +111,7 @@ ArrayWithUniqueItemsTupleInput = typing.Union[
 
 @dataclasses.dataclass(frozen=True)
 class ArrayWithUniqueItems(
-    schemas.ListSchema[ArrayWithUniqueItemsTuple]
+    schemas.Schema[schemas.immutabledict, ArrayWithUniqueItemsTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     unique_items: bool = True

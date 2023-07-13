@@ -528,7 +528,7 @@ ArrayItemsNullableTupleInput = typing.Union[
 
 @dataclasses.dataclass(frozen=True)
 class ArrayItemsNullable(
-    schemas.ListSchema[ArrayItemsNullableTuple]
+    schemas.Schema[schemas.immutabledict, ArrayItemsNullableTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items3] = dataclasses.field(default_factory=lambda: Items3) # type: ignore
