@@ -24,6 +24,9 @@ class ObjWithRequiredPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TY
     @property
     def a(self) -> str:
         return self.__getitem__("a")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: ObjWithRequiredPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjWithRequiredProps.validate(arg, configuration=configuration)

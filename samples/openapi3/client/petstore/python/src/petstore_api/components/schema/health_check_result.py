@@ -57,11 +57,14 @@ Properties = typing_extensions.TypedDict(
 class HealthCheckResultDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def NullableMessage(self) -> typing.Union[
+    def nullable_message(self) -> typing.Union[
         None,
         str,
     ]:
         return self.__getitem__("NullableMessage")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: HealthCheckResultDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return HealthCheckResult.validate(arg, configuration=configuration)

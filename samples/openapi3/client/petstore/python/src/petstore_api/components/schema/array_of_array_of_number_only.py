@@ -136,8 +136,11 @@ Properties = typing_extensions.TypedDict(
 class ArrayOfArrayOfNumberOnlyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def ArrayArrayNumber(self) -> ArrayArrayNumberTuple:
+    def array_array_number(self) -> ArrayArrayNumberTuple:
         return self.__getitem__("ArrayArrayNumber")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: ArrayOfArrayOfNumberOnlyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayOfArrayOfNumberOnly.validate(arg, configuration=configuration)

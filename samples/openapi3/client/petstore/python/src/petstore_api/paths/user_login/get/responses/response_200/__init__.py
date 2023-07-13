@@ -66,7 +66,7 @@ HeadersOptionalDictInput = typing_extensions.TypedDict(
 class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def X-Rate-Limit(self) -> int:
+    def x_rate_limit(self) -> int:
         return self.__getitem__("X-Rate-Limit")
     
     @property
@@ -74,15 +74,15 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("int32")
     
     @property
-    def ref-content-schema-header(self) -> str:
+    def ref_content_schema_header(self) -> str:
         return self.__getitem__("ref-content-schema-header")
     
     @property
-    def X-Expires-After(self) -> str:
+    def x_expires_after(self) -> str:
         return self.__getitem__("X-Expires-After")
     
     @property
-    def numberHeader(self) -> str:
+    def number_header(self) -> str:
         return self.__getitem__("numberHeader")
 
     def __new__(cls, arg: HeadersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

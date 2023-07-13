@@ -79,16 +79,19 @@ Properties = typing_extensions.TypedDict(
 class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def className(self) -> typing_extensions.Literal["whale"]:
+    def class_name(self) -> typing_extensions.Literal["whale"]:
         return self.__getitem__("className")
     
     @property
-    def hasBaleen(self) -> bool:
+    def has_baleen(self) -> bool:
         return self.__getitem__("hasBaleen")
     
     @property
-    def hasTeeth(self) -> bool:
+    def has_teeth(self) -> bool:
         return self.__getitem__("hasTeeth")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: WhaleDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Whale.validate(arg, configuration=configuration)

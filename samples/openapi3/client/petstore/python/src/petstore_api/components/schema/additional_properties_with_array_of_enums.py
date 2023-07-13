@@ -65,6 +65,9 @@ class AdditionalProperties(
 
 
 class AdditionalPropertiesWithArrayOfEnumsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    
+    def additional_properties(self) -> AdditionalPropertiesTuple:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: AdditionalPropertiesWithArrayOfEnumsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AdditionalPropertiesWithArrayOfEnums.validate(arg, configuration=configuration)

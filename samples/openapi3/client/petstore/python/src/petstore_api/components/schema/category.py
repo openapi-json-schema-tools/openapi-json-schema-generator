@@ -39,6 +39,9 @@ class CategoryDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def id(self) -> int:
         return self.__getitem__("id")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: CategoryDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Category.validate(arg, configuration=configuration)

@@ -37,6 +37,9 @@ class ObjectWithDecimalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_
     @property
     def cost(self) -> money.MoneyDict:
         return self.__getitem__("cost")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: ObjectWithDecimalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithDecimalProperties.validate(arg, configuration=configuration)

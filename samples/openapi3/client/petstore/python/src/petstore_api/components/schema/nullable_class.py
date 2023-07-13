@@ -557,6 +557,9 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.DictSchema
 
 
 class ObjectNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    
+    def additional_properties(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: ObjectNullablePropDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectNullableProp.validate(arg, configuration=configuration)
@@ -654,6 +657,12 @@ class AdditionalProperties2(
 
 
 class ObjectAndItemsNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    
+    def additional_properties(self) -> typing.Union[
+        None,
+        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    ]:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: ObjectAndItemsNullablePropDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectAndItemsNullableProp.validate(arg, configuration=configuration)
@@ -752,6 +761,12 @@ class AdditionalProperties3(
 
 
 class ObjectItemsNullableDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    
+    def additional_properties(self) -> typing.Union[
+        None,
+        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    ]:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: ObjectItemsNullableDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectItemsNullable.validate(arg, configuration=configuration)
@@ -892,6 +907,12 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def object_items_nullable(self) -> ObjectItemsNullableDict:
         return self.__getitem__("object_items_nullable")
+    
+    def additional_properties(self) -> typing.Union[
+        None,
+        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    ]:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: NullableClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return NullableClass.validate(arg, configuration=configuration)

@@ -16,7 +16,7 @@
                     {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
 
 @property
-def {{@key.original}}(self) -> schemas.OUTPUT_BASE_TYPES:
+def {{@key.snakeCase}}(self) -> schemas.OUTPUT_BASE_TYPES:
     return self.__getitem__("{{{@key.original}}}")
                 {{/if}}
             {{/if}}
@@ -50,15 +50,14 @@ def {{@key.snakeCase}}(self) -> schemas.OUTPUT_BASE_TYPES:
 {{/if}}
 {{#eq additionalProperties null }}
 
-@property
-def additional_properties_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
     return self.__getitem__(name)
 {{else}}
     {{#with additionalProperties}}
         {{#unless isBooleanSchemaFalse}}
 
-@property
-{{> components/schemas/_helper_schema_output_type mode="def_property" fullRefModule=null endChar=":" }}
+{{> components/schemas/_helper_schema_output_type mode="def_property" fullRefModule=null endChar=":" @key=jsonPathPiece }}
+    return self.__getitem__(name)
         {{/unless}}
     {{/with}}
 {{/eq}}

@@ -24,6 +24,9 @@ class ObjectWithOptionalTestPropDict(schemas.immutabledict[str, schemas.OUTPUT_B
     @property
     def test(self) -> str:
         return self.__getitem__("test")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: ObjectWithOptionalTestPropDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithOptionalTestProp.validate(arg, configuration=configuration)

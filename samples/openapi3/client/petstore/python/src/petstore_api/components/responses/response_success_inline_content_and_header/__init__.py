@@ -28,7 +28,7 @@ Properties = typing_extensions.TypedDict(
 class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def someHeader(self) -> str:
+    def some_header(self) -> str:
         return self.__getitem__("someHeader")
 
     def __new__(cls, arg: HeadersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

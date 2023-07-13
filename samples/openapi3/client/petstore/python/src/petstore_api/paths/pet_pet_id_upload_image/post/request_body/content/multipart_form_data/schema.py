@@ -24,12 +24,15 @@ Properties = typing_extensions.TypedDict(
 class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def additionalMetadata(self) -> str:
+    def additional_metadata(self) -> str:
         return self.__getitem__("additionalMetadata")
     
     @property
     def file(self) -> typing.Union[bytes, schemas.FileIO]:
         return self.__getitem__("file")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: SchemaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Schema.validate(arg, configuration=configuration)

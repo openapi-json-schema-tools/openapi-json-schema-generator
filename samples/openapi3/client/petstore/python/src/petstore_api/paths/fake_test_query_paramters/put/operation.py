@@ -61,7 +61,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         return self.__getitem__("pipe")
     
     @property
-    def refParam(self) -> str:
+    def ref_param(self) -> str:
         return self.__getitem__("refParam")
     
     @property

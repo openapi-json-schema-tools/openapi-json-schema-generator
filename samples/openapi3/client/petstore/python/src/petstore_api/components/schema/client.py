@@ -24,6 +24,9 @@ class ClientDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def client(self) -> str:
         return self.__getitem__("client")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: ClientDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Client.validate(arg, configuration=configuration)

@@ -94,7 +94,7 @@ Properties = typing_extensions.TypedDict(
 class JSONPatchRequestMoveCopyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def from(self) -> str:
+    def _from(self) -> str:
         return self.__getitem__("from")
     
     @property

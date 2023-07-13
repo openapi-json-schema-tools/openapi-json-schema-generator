@@ -58,23 +58,23 @@ Properties2 = typing_extensions.TypedDict(
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def 1(self) -> str:
+    def _1(self) -> str:
         return self.__getitem__("1")
     
     @property
-    def aB(self) -> str:
+    def ab(self) -> str:
         return self.__getitem__("aB")
     
     @property
-    def Ab(self) -> str:
+    def ab(self) -> str:
         return self.__getitem__("Ab")
     
     @property
-    def A-B(self) -> str:
+    def ab(self) -> str:
         return self.__getitem__("A-B")
     
     @property
-    def self(self) -> str:
+    def _self(self) -> str:
         return self.__getitem__("self")
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -143,19 +143,19 @@ Properties3 = typing_extensions.TypedDict(
 class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def 1(self) -> str:
+    def _1(self) -> str:
         return self.__getitem__("1")
     
     @property
-    def aB(self) -> str:
+    def ab(self) -> str:
         return self.__getitem__("aB")
     
     @property
-    def A-B(self) -> str:
+    def ab(self) -> str:
         return self.__getitem__("A-B")
     
     @property
-    def self(self) -> str:
+    def _self(self) -> str:
         return self.__getitem__("self")
 
     def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -225,23 +225,23 @@ Properties = typing_extensions.TypedDict(
 class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def 1(self) -> str:
+    def _1(self) -> str:
         return self.__getitem__("1")
     
     @property
-    def A-B(self) -> str:
+    def ab(self) -> str:
         return self.__getitem__("A-B")
     
     @property
-    def Ab(self) -> str:
+    def ab(self) -> str:
         return self.__getitem__("Ab")
     
     @property
-    def aB(self) -> str:
+    def ab(self) -> str:
         return self.__getitem__("aB")
     
     @property
-    def self(self) -> str:
+    def _self(self) -> str:
         return self.__getitem__("self")
 
     def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -318,23 +318,23 @@ Properties4 = typing_extensions.TypedDict(
 class CookieParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def 1(self) -> str:
+    def _1(self) -> str:
         return self.__getitem__("1")
     
     @property
-    def aB(self) -> str:
+    def ab(self) -> str:
         return self.__getitem__("aB")
     
     @property
-    def Ab(self) -> str:
+    def ab(self) -> str:
         return self.__getitem__("Ab")
     
     @property
-    def A-B(self) -> str:
+    def ab(self) -> str:
         return self.__getitem__("A-B")
     
     @property
-    def self(self) -> str:
+    def _self(self) -> str:
         return self.__getitem__("self")
 
     def __new__(cls, arg: CookieParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

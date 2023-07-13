@@ -15,12 +15,15 @@ from petstore_api.shared_imports.schema_imports import *
 class ReqPropsFromUnsetAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def invalid-name(self) -> schemas.OUTPUT_BASE_TYPES:
+    def invalid_name(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("invalid-name")
     
     @property
-    def validName(self) -> schemas.OUTPUT_BASE_TYPES:
+    def valid_name(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("validName")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: ReqPropsFromUnsetAddPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ReqPropsFromUnsetAddProps.validate(arg, configuration=configuration)

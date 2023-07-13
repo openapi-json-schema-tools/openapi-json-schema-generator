@@ -118,7 +118,7 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         return self.__getitem__("date")
     
     @property
-    def date-time(self) -> schemas.OUTPUT_BASE_TYPES:
+    def date_time(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("date-time")
     
     @property
@@ -142,8 +142,11 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         return self.__getitem__("double")
     
     @property
-    def float(self) -> schemas.OUTPUT_BASE_TYPES:
+    def _float(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("float")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: AnyTypeAndFormatDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AnyTypeAndFormat.validate(arg, configuration=configuration)

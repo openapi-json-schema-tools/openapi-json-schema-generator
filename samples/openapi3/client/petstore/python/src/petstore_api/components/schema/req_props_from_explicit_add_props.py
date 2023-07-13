@@ -16,12 +16,15 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema
 class ReqPropsFromExplicitAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def invalid-name(self) -> str:
+    def invalid_name(self) -> str:
         return self.__getitem__("invalid-name")
     
     @property
-    def validName(self) -> str:
+    def valid_name(self) -> str:
         return self.__getitem__("validName")
+    
+    def additional_properties(self) -> str:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: ReqPropsFromExplicitAddPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ReqPropsFromExplicitAddProps.validate(arg, configuration=configuration)

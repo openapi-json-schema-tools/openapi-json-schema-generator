@@ -126,7 +126,7 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("id")
     
     @property
-    def petId(self) -> int:
+    def pet_id(self) -> int:
         return self.__getitem__("petId")
     
     @property
@@ -134,7 +134,7 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("quantity")
     
     @property
-    def shipDate(self) -> str:
+    def ship_date(self) -> str:
         return self.__getitem__("shipDate")
     
     @property
@@ -144,6 +144,9 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def complete(self) -> bool:
         return self.__getitem__("complete")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: OrderDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Order.validate(arg, configuration=configuration)

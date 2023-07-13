@@ -214,6 +214,9 @@ class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def array_enum(self) -> ArrayEnumTuple:
         return self.__getitem__("array_enum")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: EnumArraysDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return EnumArrays.validate(arg, configuration=configuration)

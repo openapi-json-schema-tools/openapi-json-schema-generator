@@ -53,6 +53,9 @@ class AppleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def origin(self) -> str:
         return self.__getitem__("origin")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: AppleDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Apple.validate(arg, configuration=configuration)

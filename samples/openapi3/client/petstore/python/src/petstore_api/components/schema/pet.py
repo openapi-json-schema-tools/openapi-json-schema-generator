@@ -226,7 +226,7 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("name")
     
     @property
-    def photoUrls(self) -> PhotoUrlsTuple:
+    def photo_urls(self) -> PhotoUrlsTuple:
         return self.__getitem__("photoUrls")
     
     @property
@@ -244,6 +244,9 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def status(self) -> typing_extensions.Literal["available", "pending", "sold"]:
         return self.__getitem__("status")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: PetDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Pet.validate(arg, configuration=configuration)

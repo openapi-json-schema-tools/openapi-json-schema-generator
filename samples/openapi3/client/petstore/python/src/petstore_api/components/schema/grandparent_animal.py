@@ -24,6 +24,9 @@ class GrandparentAnimalDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES
     @property
     def pet_type(self) -> str:
         return self.__getitem__("pet_type")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: GrandparentAnimalDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return GrandparentAnimal.validate(arg, configuration=configuration)

@@ -98,11 +98,11 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("username")
     
     @property
-    def firstName(self) -> str:
+    def first_name(self) -> str:
         return self.__getitem__("firstName")
     
     @property
-    def lastName(self) -> str:
+    def last_name(self) -> str:
         return self.__getitem__("lastName")
     
     @property
@@ -118,31 +118,34 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("phone")
     
     @property
-    def userStatus(self) -> int:
+    def user_status(self) -> int:
         return self.__getitem__("userStatus")
     
     @property
-    def objectWithNoDeclaredProps(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+    def object_with_no_declared_props(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
         return self.__getitem__("objectWithNoDeclaredProps")
     
     @property
-    def objectWithNoDeclaredPropsNullable(self) -> typing.Union[
+    def object_with_no_declared_props_nullable(self) -> typing.Union[
         None,
         schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
         return self.__getitem__("objectWithNoDeclaredPropsNullable")
     
     @property
-    def anyTypeProp(self) -> schemas.OUTPUT_BASE_TYPES:
+    def any_type_prop(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("anyTypeProp")
     
     @property
-    def anyTypeExceptNullProp(self) -> schemas.OUTPUT_BASE_TYPES:
+    def any_type_except_null_prop(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("anyTypeExceptNullProp")
     
     @property
-    def anyTypePropNullable(self) -> schemas.OUTPUT_BASE_TYPES:
+    def any_type_prop_nullable(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("anyTypePropNullable")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: UserDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return User.validate(arg, configuration=configuration)

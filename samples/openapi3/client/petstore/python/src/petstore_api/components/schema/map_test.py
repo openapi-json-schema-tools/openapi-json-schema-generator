@@ -14,6 +14,9 @@ AdditionalProperties2: typing_extensions.TypeAlias = schemas.StrSchema
 
 
 class AdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    
+    def additional_properties(self) -> str:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: AdditionalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AdditionalProperties.validate(arg, configuration=configuration)
@@ -55,6 +58,9 @@ class AdditionalProperties(
 
 
 class MapMapOfStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    
+    def additional_properties(self) -> AdditionalPropertiesDict:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: MapMapOfStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapMapOfString.validate(arg, configuration=configuration)
@@ -168,6 +174,9 @@ class AdditionalProperties3(
 
 
 class MapOfEnumStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    
+    def additional_properties(self) -> typing_extensions.Literal["UPPER", "lower"]:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: MapOfEnumStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapOfEnumString.validate(arg, configuration=configuration)
@@ -210,6 +219,9 @@ AdditionalProperties4: typing_extensions.TypeAlias = schemas.BoolSchema
 
 
 class DirectMapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    
+    def additional_properties(self) -> bool:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: DirectMapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return DirectMap.validate(arg, configuration=configuration)
@@ -278,6 +290,9 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def indirect_map(self) -> string_boolean_map.StringBooleanMapDict:
         return self.__getitem__("indirect_map")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: MapTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapTest.validate(arg, configuration=configuration)

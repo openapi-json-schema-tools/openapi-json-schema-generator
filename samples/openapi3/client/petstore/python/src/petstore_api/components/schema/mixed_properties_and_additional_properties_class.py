@@ -17,6 +17,9 @@ from petstore_api.components.schema import animal
 
 
 class MapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    
+    def additional_properties(self) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: MapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Map.validate(arg, configuration=configuration)
@@ -76,12 +79,15 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
         return self.__getitem__("uuid")
     
     @property
-    def dateTime(self) -> str:
+    def date_time(self) -> str:
         return self.__getitem__("dateTime")
     
     @property
     def map(self) -> MapDict:
         return self.__getitem__("map")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: MixedPropertiesAndAdditionalPropertiesClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MixedPropertiesAndAdditionalPropertiesClass.validate(arg, configuration=configuration)

@@ -77,12 +77,15 @@ Properties = typing_extensions.TypedDict(
 class TriangleInterfaceDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def shapeType(self) -> typing_extensions.Literal["Triangle"]:
+    def shape_type(self) -> typing_extensions.Literal["Triangle"]:
         return self.__getitem__("shapeType")
     
     @property
-    def triangleType(self) -> str:
+    def triangle_type(self) -> str:
         return self.__getitem__("triangleType")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: TriangleInterfaceDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return TriangleInterface.validate(arg, configuration=configuration)

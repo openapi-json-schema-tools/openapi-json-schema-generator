@@ -14,6 +14,9 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.BoolSchema
 
 
 class StringBooleanMapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    
+    def additional_properties(self) -> bool:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: StringBooleanMapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return StringBooleanMap.validate(arg, configuration=configuration)

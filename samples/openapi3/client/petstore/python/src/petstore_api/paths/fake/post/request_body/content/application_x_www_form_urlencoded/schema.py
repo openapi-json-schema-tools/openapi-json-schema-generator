@@ -175,7 +175,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("int64")
     
     @property
-    def float(self) -> typing.Union[int, float]:
+    def _float(self) -> typing.Union[int, float]:
         return self.__getitem__("float")
     
     @property
@@ -191,7 +191,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("date")
     
     @property
-    def dateTime(self) -> str:
+    def date_time(self) -> str:
         return self.__getitem__("dateTime")
     
     @property
@@ -201,6 +201,9 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def callback(self) -> str:
         return self.__getitem__("callback")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: SchemaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Schema.validate(arg, configuration=configuration)

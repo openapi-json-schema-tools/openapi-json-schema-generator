@@ -26,16 +26,19 @@ Properties = typing_extensions.TypedDict(
 class ObjectWithDifficultlyNamedPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def 123-list(self) -> str:
+    def _123_list(self) -> str:
         return self.__getitem__("123-list")
     
     @property
-    def $special[property.name](self) -> int:
+    def special_property_name(self) -> int:
         return self.__getitem__("$special[property.name]")
     
     @property
-    def 123Number(self) -> int:
+    def _123_number(self) -> int:
         return self.__getitem__("123Number")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: ObjectWithDifficultlyNamedPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithDifficultlyNamedProps.validate(arg, configuration=configuration)

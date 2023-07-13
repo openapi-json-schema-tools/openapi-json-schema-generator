@@ -41,7 +41,7 @@ BananaReqOptionalDictInput = typing_extensions.TypedDict(
 class BananaReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def lengthCm(self) -> typing.Union[int, float]:
+    def length_cm(self) -> typing.Union[int, float]:
         return self.__getitem__("lengthCm")
     
     @property

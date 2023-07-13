@@ -33,12 +33,15 @@ Properties = typing_extensions.TypedDict(
 class AnimalDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def className(self) -> str:
+    def class_name(self) -> str:
         return self.__getitem__("className")
     
     @property
     def color(self) -> str:
         return self.__getitem__("color")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: AnimalDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Animal.validate(arg, configuration=configuration)

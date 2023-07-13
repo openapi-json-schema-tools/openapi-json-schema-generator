@@ -28,7 +28,7 @@ Properties = typing_extensions.TypedDict(
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def someParam(self) -> schemas.OUTPUT_BASE_TYPES:
+    def some_param(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("someParam")
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

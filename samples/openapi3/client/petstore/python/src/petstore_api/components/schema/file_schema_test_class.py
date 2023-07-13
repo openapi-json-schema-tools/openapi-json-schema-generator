@@ -88,6 +88,9 @@ class FileSchemaTestClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
     @property
     def files(self) -> FilesTuple:
         return self.__getitem__("files")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: FileSchemaTestClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return FileSchemaTestClass.validate(arg, configuration=configuration)

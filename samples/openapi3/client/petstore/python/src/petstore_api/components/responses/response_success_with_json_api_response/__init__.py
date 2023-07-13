@@ -65,19 +65,19 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("int32")
     
     @property
-    def ref-content-schema-header(self) -> str:
+    def ref_content_schema_header(self) -> str:
         return self.__getitem__("ref-content-schema-header")
     
     @property
-    def ref-schema-header(self) -> str:
+    def ref_schema_header(self) -> str:
         return self.__getitem__("ref-schema-header")
     
     @property
-    def stringHeader(self) -> str:
+    def string_header(self) -> str:
         return self.__getitem__("stringHeader")
     
     @property
-    def numberHeader(self) -> str:
+    def number_header(self) -> str:
         return self.__getitem__("numberHeader")
 
     def __new__(cls, arg: HeadersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

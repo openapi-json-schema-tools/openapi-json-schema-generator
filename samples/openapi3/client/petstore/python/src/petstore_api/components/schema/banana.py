@@ -22,8 +22,11 @@ Properties = typing_extensions.TypedDict(
 class BananaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def lengthCm(self) -> typing.Union[int, float]:
+    def length_cm(self) -> typing.Union[int, float]:
         return self.__getitem__("lengthCm")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: BananaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Banana.validate(arg, configuration=configuration)

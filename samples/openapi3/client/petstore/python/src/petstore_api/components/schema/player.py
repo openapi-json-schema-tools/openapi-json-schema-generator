@@ -27,8 +27,11 @@ class PlayerDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("name")
     
     @property
-    def enemyPlayer(self) -> PlayerDict:
+    def enemy_player(self) -> PlayerDict:
         return self.__getitem__("enemyPlayer")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: PlayerDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Player.validate(arg, configuration=configuration)

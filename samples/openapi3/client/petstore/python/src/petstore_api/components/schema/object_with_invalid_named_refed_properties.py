@@ -25,12 +25,15 @@ Properties = typing_extensions.TypedDict(
 class ObjectWithInvalidNamedRefedPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def !reference(self) -> array_with_validations_in_items.ArrayWithValidationsInItemsTuple:
+    def reference(self) -> array_with_validations_in_items.ArrayWithValidationsInItemsTuple:
         return self.__getitem__("!reference")
     
     @property
-    def from(self) -> from_schema.FromSchemaDict:
+    def _from(self) -> from_schema.FromSchemaDict:
         return self.__getitem__("from")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: ObjectWithInvalidNamedRefedPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithInvalidNamedRefedProperties.validate(arg, configuration=configuration)

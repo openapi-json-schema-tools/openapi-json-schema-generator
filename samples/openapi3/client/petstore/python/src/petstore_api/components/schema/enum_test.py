@@ -325,27 +325,30 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("enum_number")
     
     @property
-    def stringEnum(self) -> typing.Union[
+    def string_enum(self) -> typing.Union[
         None,
         typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
     ]:
         return self.__getitem__("stringEnum")
     
     @property
-    def IntegerEnum(self) -> typing_extensions.Literal[0, 1, 2]:
+    def integer_enum(self) -> typing_extensions.Literal[0, 1, 2]:
         return self.__getitem__("IntegerEnum")
     
     @property
-    def StringEnumWithDefaultValue(self) -> typing_extensions.Literal["placed", "approved", "delivered"]:
+    def string_enum_with_default_value(self) -> typing_extensions.Literal["placed", "approved", "delivered"]:
         return self.__getitem__("StringEnumWithDefaultValue")
     
     @property
-    def IntegerEnumWithDefaultValue(self) -> typing_extensions.Literal[0, 1, 2]:
+    def integer_enum_with_default_value(self) -> typing_extensions.Literal[0, 1, 2]:
         return self.__getitem__("IntegerEnumWithDefaultValue")
     
     @property
-    def IntegerEnumOneValue(self) -> typing_extensions.Literal[0]:
+    def integer_enum_one_value(self) -> typing_extensions.Literal[0]:
         return self.__getitem__("IntegerEnumOneValue")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: EnumTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return EnumTest.validate(arg, configuration=configuration)

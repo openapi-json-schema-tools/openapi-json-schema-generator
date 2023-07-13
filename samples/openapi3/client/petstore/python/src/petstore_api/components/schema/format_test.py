@@ -248,7 +248,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("int32")
     
     @property
-    def int32withValidations(self) -> int:
+    def int32with_validations(self) -> int:
         return self.__getitem__("int32withValidations")
     
     @property
@@ -256,7 +256,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("int64")
     
     @property
-    def float(self) -> typing.Union[int, float]:
+    def _float(self) -> typing.Union[int, float]:
         return self.__getitem__("float")
     
     @property
@@ -272,7 +272,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("float64")
     
     @property
-    def arrayWithUniqueItems(self) -> ArrayWithUniqueItemsTuple:
+    def array_with_unique_items(self) -> ArrayWithUniqueItemsTuple:
         return self.__getitem__("arrayWithUniqueItems")
     
     @property
@@ -284,7 +284,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("binary")
     
     @property
-    def dateTime(self) -> str:
+    def date_time(self) -> str:
         return self.__getitem__("dateTime")
     
     @property
@@ -292,7 +292,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("uuid")
     
     @property
-    def uuidNoExample(self) -> str:
+    def uuid_no_example(self) -> str:
         return self.__getitem__("uuidNoExample")
     
     @property
@@ -304,8 +304,11 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.__getitem__("pattern_with_digits_and_delimiter")
     
     @property
-    def noneProp(self) -> None:
+    def none_prop(self) -> None:
         return self.__getitem__("noneProp")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: FormatTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return FormatTest.validate(arg, configuration=configuration)

@@ -43,8 +43,11 @@ Properties = typing_extensions.TypedDict(
 class ObjectWithInlineCompositionPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def someProp(self) -> schemas.OUTPUT_BASE_TYPES:
+    def some_prop(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("someProp")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: ObjectWithInlineCompositionPropertyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithInlineCompositionProperty.validate(arg, configuration=configuration)

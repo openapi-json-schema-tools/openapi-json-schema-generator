@@ -22,8 +22,11 @@ Properties = typing_extensions.TypedDict(
 class FileDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
-    def sourceURI(self) -> str:
+    def source_uri(self) -> str:
         return self.__getitem__("sourceURI")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: FileDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return File.validate(arg, configuration=configuration)

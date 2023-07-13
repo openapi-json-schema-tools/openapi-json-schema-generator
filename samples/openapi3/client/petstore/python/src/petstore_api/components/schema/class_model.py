@@ -24,6 +24,9 @@ class ClassModelDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def _class(self) -> str:
         return self.__getitem__("_class")
+    
+    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        return self.__getitem__(name)
 
     def __new__(cls, arg: ClassModelDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ClassModel.validate(arg, configuration=configuration)
