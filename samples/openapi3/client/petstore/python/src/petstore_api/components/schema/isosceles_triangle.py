@@ -73,6 +73,11 @@ Properties = typing_extensions.TypedDict(
 
 
 class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "triangleType",
+    })
     
     def get_property(self, name: typing_extensions.Literal["triangleType"]) -> typing_extensions.Literal["IsoscelesTriangle"]:
         return typing.cast(

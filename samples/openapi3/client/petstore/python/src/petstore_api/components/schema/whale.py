@@ -77,6 +77,13 @@ Properties = typing_extensions.TypedDict(
 
 
 class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "className",
+    })
+    __optional_keys__ = frozenset({
+        "hasBaleen",
+        "hasTeeth",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["className"]) -> typing_extensions.Literal["whale"]:

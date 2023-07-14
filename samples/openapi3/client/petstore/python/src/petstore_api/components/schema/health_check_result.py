@@ -55,6 +55,11 @@ Properties = typing_extensions.TypedDict(
 
 
 class HealthCheckResultDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "NullableMessage",
+    })
     
     def get_property(self, name: typing_extensions.Literal["NullableMessage"]) -> typing.Union[
         None,

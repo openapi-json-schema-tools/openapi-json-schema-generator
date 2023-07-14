@@ -20,6 +20,11 @@ Properties = typing_extensions.TypedDict(
 
 
 class SpecialModelNameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "a",
+    })
     
     def get_property(self, name: typing_extensions.Literal["a"]) -> str:
         return typing.cast(

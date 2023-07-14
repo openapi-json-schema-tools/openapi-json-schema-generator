@@ -59,6 +59,15 @@ HeadersOptionalDictInput = typing_extensions.TypedDict(
 
 
 class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "int32",
+        "ref-content-schema-header",
+        "ref-schema-header",
+        "stringHeader",
+    })
+    __optional_keys__ = frozenset({
+        "numberHeader",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["int32"]) -> int:

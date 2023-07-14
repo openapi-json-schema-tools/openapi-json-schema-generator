@@ -22,6 +22,12 @@ Properties = typing_extensions.TypedDict(
 
 
 class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "file",
+    })
+    __optional_keys__ = frozenset({
+        "additionalMetadata",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["file"]) -> typing.Union[bytes, schemas.FileIO]:

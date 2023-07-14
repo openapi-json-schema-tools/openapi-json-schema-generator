@@ -557,6 +557,10 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.DictSchema
 
 
 class ObjectNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_additional_property(self, name: str) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
         return typing.cast(
@@ -660,6 +664,10 @@ class AdditionalProperties2(
 
 
 class ObjectAndItemsNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_additional_property(self, name: str) -> typing.Union[
         None,
@@ -770,6 +778,10 @@ class AdditionalProperties3(
 
 
 class ObjectItemsNullableDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_additional_property(self, name: str) -> typing.Union[
         None,
@@ -844,6 +856,22 @@ Properties = typing_extensions.TypedDict(
 
 
 class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "integer_prop",
+        "number_prop",
+        "boolean_prop",
+        "string_prop",
+        "date_prop",
+        "datetime_prop",
+        "array_nullable_prop",
+        "array_and_items_nullable_prop",
+        "array_items_nullable",
+        "object_nullable_prop",
+        "object_and_items_nullable_prop",
+        "object_items_nullable",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["integer_prop"]) -> typing.Union[

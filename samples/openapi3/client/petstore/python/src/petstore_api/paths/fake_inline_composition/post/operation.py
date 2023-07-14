@@ -34,6 +34,12 @@ Properties = typing_extensions.TypedDict(
 
 
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "compositionAtRoot",
+        "compositionInProperty",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["compositionAtRoot"]) -> schemas.OUTPUT_BASE_TYPES:

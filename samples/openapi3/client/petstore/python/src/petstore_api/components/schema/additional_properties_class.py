@@ -14,6 +14,10 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema
 
 
 class MapPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_additional_property(self, name: str) -> str:
         return typing.cast(
@@ -62,6 +66,10 @@ AdditionalProperties3: typing_extensions.TypeAlias = schemas.StrSchema
 
 
 class AdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_additional_property(self, name: str) -> str:
         return typing.cast(
@@ -109,6 +117,10 @@ class AdditionalProperties2(
 
 
 class MapOfMapPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_additional_property(self, name: str) -> AdditionalPropertiesDict:
         return typing.cast(
@@ -164,6 +176,10 @@ AdditionalProperties4: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 
 
 class MapWithUndeclaredPropertiesAnytype3Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         return typing.cast(
@@ -209,6 +225,10 @@ AdditionalProperties5: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
 
 class EmptyMapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+    })
     # empty mapping
     pass
 
@@ -250,6 +270,10 @@ AdditionalProperties6: typing_extensions.TypeAlias = schemas.StrSchema
 
 
 class MapWithUndeclaredPropertiesStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_additional_property(self, name: str) -> str:
         return typing.cast(
@@ -310,6 +334,18 @@ Properties = typing_extensions.TypedDict(
 
 
 class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "map_property",
+        "map_of_map_property",
+        "anytype_1",
+        "map_with_undeclared_properties_anytype_1",
+        "map_with_undeclared_properties_anytype_2",
+        "map_with_undeclared_properties_anytype_3",
+        "empty_map",
+        "map_with_undeclared_properties_string",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["map_property"]) -> MapPropertyDict:

@@ -206,6 +206,12 @@ Properties = typing_extensions.TypedDict(
 
 
 class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "just_symbol",
+        "array_enum",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["just_symbol"]) -> typing_extensions.Literal[">=", "$"]:

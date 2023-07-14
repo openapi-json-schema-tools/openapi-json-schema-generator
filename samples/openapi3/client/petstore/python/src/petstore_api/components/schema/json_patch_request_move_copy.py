@@ -92,6 +92,13 @@ Properties = typing_extensions.TypedDict(
 
 
 class JSONPatchRequestMoveCopyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "from",
+        "op",
+        "path",
+    })
+    __optional_keys__ = frozenset({
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["from"]) -> str:

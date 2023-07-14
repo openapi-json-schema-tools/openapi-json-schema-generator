@@ -64,6 +64,15 @@ HeadersOptionalDictInput = typing_extensions.TypedDict(
 
 
 class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "X-Rate-Limit",
+        "int32",
+        "ref-content-schema-header",
+    })
+    __optional_keys__ = frozenset({
+        "X-Expires-After",
+        "numberHeader",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["X-Rate-Limit"]) -> int:

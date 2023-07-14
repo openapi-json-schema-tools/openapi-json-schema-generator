@@ -14,6 +14,10 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 
 
 class _0Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         return typing.cast(
@@ -67,6 +71,10 @@ class AdditionalProperties2(
 
 
 class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         return typing.cast(
@@ -139,6 +147,10 @@ class AdditionalProperties3(
 
 
 class _2Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         return typing.cast(

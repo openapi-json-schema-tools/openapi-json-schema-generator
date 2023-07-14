@@ -24,6 +24,13 @@ Properties = typing_extensions.TypedDict(
 
 
 class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "name",
+    })
+    __optional_keys__ = frozenset({
+        "snake_case",
+        "property",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["name"]) -> int:

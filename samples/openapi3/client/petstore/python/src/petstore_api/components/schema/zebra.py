@@ -157,6 +157,12 @@ Properties = typing_extensions.TypedDict(
 
 
 class ZebraDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "className",
+    })
+    __optional_keys__ = frozenset({
+        "type",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["className"]) -> typing_extensions.Literal["zebra"]:

@@ -20,6 +20,12 @@ Properties = typing_extensions.TypedDict(
 
 
 class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "test",
+    })
+    __optional_keys__ = frozenset({
+        "name",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["test"]) -> schemas.OUTPUT_BASE_TYPES:

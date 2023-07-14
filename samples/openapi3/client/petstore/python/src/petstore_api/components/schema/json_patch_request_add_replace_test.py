@@ -106,6 +106,13 @@ Properties = typing_extensions.TypedDict(
 
 
 class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "op",
+        "path",
+        "value",
+    })
+    __optional_keys__ = frozenset({
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["op"]) -> typing_extensions.Literal["add", "replace", "test"]:

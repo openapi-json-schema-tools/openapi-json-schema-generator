@@ -307,6 +307,19 @@ Properties = typing_extensions.TypedDict(
 
 
 class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "enum_string_required",
+    })
+    __optional_keys__ = frozenset({
+        "enum_string",
+        "enum_integer",
+        "enum_number",
+        "stringEnum",
+        "IntegerEnum",
+        "StringEnumWithDefaultValue",
+        "IntegerEnumWithDefaultValue",
+        "IntegerEnumOneValue",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["enum_string_required"]) -> typing_extensions.Literal["UPPER", "lower", ""]:

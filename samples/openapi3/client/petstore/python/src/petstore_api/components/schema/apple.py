@@ -45,6 +45,12 @@ Properties = typing_extensions.TypedDict(
 
 
 class AppleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "cultivar",
+    })
+    __optional_keys__ = frozenset({
+        "origin",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["cultivar"]) -> str:

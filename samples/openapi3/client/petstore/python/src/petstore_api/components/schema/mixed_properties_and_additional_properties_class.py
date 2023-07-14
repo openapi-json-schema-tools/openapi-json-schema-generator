@@ -17,6 +17,10 @@ from petstore_api.components.schema import animal
 
 
 class MapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_additional_property(self, name: str) -> animal.AnimalDict:
         return typing.cast(
@@ -76,6 +80,13 @@ Properties = typing_extensions.TypedDict(
 
 
 class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "uuid",
+        "dateTime",
+        "map",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["uuid"]) -> str:

@@ -14,6 +14,10 @@ AdditionalProperties2: typing_extensions.TypeAlias = schemas.StrSchema
 
 
 class AdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_additional_property(self, name: str) -> str:
         return typing.cast(
@@ -61,6 +65,10 @@ class AdditionalProperties(
 
 
 class MapMapOfStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_additional_property(self, name: str) -> AdditionalPropertiesDict:
         return typing.cast(
@@ -180,6 +188,10 @@ class AdditionalProperties3(
 
 
 class MapOfEnumStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_additional_property(self, name: str) -> typing_extensions.Literal["UPPER", "lower"]:
         return typing.cast(
@@ -228,6 +240,10 @@ AdditionalProperties4: typing_extensions.TypeAlias = schemas.BoolSchema
 
 
 class DirectMapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_additional_property(self, name: str) -> bool:
         return typing.cast(
@@ -286,6 +302,14 @@ Properties = typing_extensions.TypedDict(
 
 
 class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "map_map_of_string",
+        "map_of_enum_string",
+        "direct_map",
+        "indirect_map",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["map_map_of_string"]) -> MapMapOfStringDict:

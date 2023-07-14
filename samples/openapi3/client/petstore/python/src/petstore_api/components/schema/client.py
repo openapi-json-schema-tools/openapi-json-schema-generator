@@ -20,6 +20,11 @@ Properties = typing_extensions.TypedDict(
 
 
 class ClientDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "client",
+    })
     
     def get_property(self, name: typing_extensions.Literal["client"]) -> str:
         return typing.cast(

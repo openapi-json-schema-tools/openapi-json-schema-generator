@@ -21,6 +21,11 @@ Properties = typing_extensions.TypedDict(
 
 
 class ObjectWithNonIntersectingValuesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "a",
+    })
     
     def get_property(self, name: typing_extensions.Literal["a"]) -> typing.Union[int, float]:
         return typing.cast(

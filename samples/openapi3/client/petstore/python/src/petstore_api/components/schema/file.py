@@ -20,6 +20,11 @@ Properties = typing_extensions.TypedDict(
 
 
 class FileDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "sourceURI",
+    })
     
     def get_property(self, name: typing_extensions.Literal["sourceURI"]) -> str:
         return typing.cast(

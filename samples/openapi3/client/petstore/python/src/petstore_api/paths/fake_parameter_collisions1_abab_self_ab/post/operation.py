@@ -56,6 +56,15 @@ Properties2 = typing_extensions.TypedDict(
 
 
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "1",
+        "aB",
+        "Ab",
+        "A-B",
+        "self",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["1"]) -> str:
@@ -144,6 +153,14 @@ Properties3 = typing_extensions.TypedDict(
 
 
 class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "1",
+        "aB",
+        "A-B",
+        "self",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["1"]) -> str:
@@ -229,6 +246,15 @@ Properties = typing_extensions.TypedDict(
 
 
 class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "1",
+        "A-B",
+        "Ab",
+        "aB",
+        "self",
+    })
+    __optional_keys__ = frozenset({
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["1"]) -> str:
@@ -325,6 +351,15 @@ Properties4 = typing_extensions.TypedDict(
 
 
 class CookieParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "1",
+        "aB",
+        "Ab",
+        "A-B",
+        "self",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["1"]) -> str:

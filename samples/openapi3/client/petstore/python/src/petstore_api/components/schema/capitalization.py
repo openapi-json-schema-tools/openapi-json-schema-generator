@@ -30,6 +30,16 @@ Properties = typing_extensions.TypedDict(
 
 
 class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "smallCamel",
+        "CapitalCamel",
+        "small_Snake",
+        "Capital_Snake",
+        "SCA_ETH_Flow_Points",
+        "ATT_NAME",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["smallCamel"]) -> str:

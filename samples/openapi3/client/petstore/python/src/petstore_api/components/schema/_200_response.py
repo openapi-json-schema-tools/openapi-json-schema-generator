@@ -22,6 +22,12 @@ Properties = typing_extensions.TypedDict(
 
 
 class _200ResponseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "name",
+        "class",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["name"]) -> int:

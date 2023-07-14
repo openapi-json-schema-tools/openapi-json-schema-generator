@@ -24,6 +24,13 @@ Properties = typing_extensions.TypedDict(
 
 
 class ObjectWithDifficultlyNamedPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "123-list",
+    })
+    __optional_keys__ = frozenset({
+        "$special[property.name]",
+        "123Number",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["123-list"]) -> str:

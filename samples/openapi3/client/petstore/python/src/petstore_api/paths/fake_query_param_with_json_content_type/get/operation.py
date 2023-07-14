@@ -26,6 +26,11 @@ Properties = typing_extensions.TypedDict(
 
 
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "someParam",
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_property(self, name: typing_extensions.Literal["someParam"]) -> schemas.OUTPUT_BASE_TYPES:
         return typing.cast(

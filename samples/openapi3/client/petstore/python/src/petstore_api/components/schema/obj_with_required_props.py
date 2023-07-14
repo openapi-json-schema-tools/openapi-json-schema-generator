@@ -20,6 +20,11 @@ Properties = typing_extensions.TypedDict(
 
 
 class ObjWithRequiredPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "a",
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_property(self, name: typing_extensions.Literal["a"]) -> str:
         return typing.cast(

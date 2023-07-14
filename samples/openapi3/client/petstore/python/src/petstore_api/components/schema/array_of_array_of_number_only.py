@@ -134,6 +134,11 @@ Properties = typing_extensions.TypedDict(
 
 
 class ArrayOfArrayOfNumberOnlyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "ArrayArrayNumber",
+    })
     
     def get_property(self, name: typing_extensions.Literal["ArrayArrayNumber"]) -> ArrayArrayNumberTuple:
         return typing.cast(

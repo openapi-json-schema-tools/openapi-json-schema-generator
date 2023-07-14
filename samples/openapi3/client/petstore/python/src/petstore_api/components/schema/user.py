@@ -88,6 +88,23 @@ Properties = typing_extensions.TypedDict(
 
 
 class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "id",
+        "username",
+        "firstName",
+        "lastName",
+        "email",
+        "password",
+        "phone",
+        "userStatus",
+        "objectWithNoDeclaredProps",
+        "objectWithNoDeclaredPropsNullable",
+        "anyTypeProp",
+        "anyTypeExceptNullProp",
+        "anyTypePropNullable",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["id"]) -> int:

@@ -108,6 +108,19 @@ Properties = typing_extensions.TypedDict(
 
 
 class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "uuid",
+        "date",
+        "date-time",
+        "number",
+        "binary",
+        "int32",
+        "int64",
+        "double",
+        "float",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["uuid"]) -> schemas.OUTPUT_BASE_TYPES:

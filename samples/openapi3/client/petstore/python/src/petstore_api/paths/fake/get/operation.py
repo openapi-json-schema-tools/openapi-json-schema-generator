@@ -44,6 +44,14 @@ Properties = typing_extensions.TypedDict(
 
 
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "enum_query_double",
+        "enum_query_string",
+        "enum_query_integer",
+        "enum_query_string_array",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["enum_query_double"]) -> typing.Union[int, float]:
@@ -130,6 +138,12 @@ Properties2 = typing_extensions.TypedDict(
 
 
 class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "enum_header_string",
+        "enum_header_string_array",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["enum_header_string"]) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:

@@ -26,6 +26,11 @@ Properties = typing_extensions.TypedDict(
 
 
 class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "someHeader",
+    })
     
     def get_property(self, name: typing_extensions.Literal["someHeader"]) -> str:
         return typing.cast(

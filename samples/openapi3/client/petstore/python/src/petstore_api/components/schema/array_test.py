@@ -299,6 +299,13 @@ Properties = typing_extensions.TypedDict(
 
 
 class ArrayTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "array_of_string",
+        "array_array_of_integer",
+        "array_array_of_model",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["array_of_string"]) -> ArrayOfStringTuple:

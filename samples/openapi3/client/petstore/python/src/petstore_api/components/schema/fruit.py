@@ -20,6 +20,11 @@ Properties = typing_extensions.TypedDict(
 
 
 class FruitDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "color",
+    })
     
     def get_property(self, name: typing_extensions.Literal["color"]) -> str:
         return typing.cast(

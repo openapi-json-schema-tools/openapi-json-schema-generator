@@ -145,6 +145,24 @@ Properties = typing_extensions.TypedDict(
 
 
 class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "byte",
+        "double",
+        "number",
+        "pattern_without_delimiter",
+    })
+    __optional_keys__ = frozenset({
+        "integer",
+        "int32",
+        "int64",
+        "float",
+        "string",
+        "binary",
+        "date",
+        "dateTime",
+        "password",
+        "callback",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["byte"]) -> str:

@@ -13,6 +13,12 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 
 class ReqPropsFromUnsetAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "invalid-name",
+        "validName",
+    })
+    __optional_keys__ = frozenset({
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["invalid-name"]) -> schemas.OUTPUT_BASE_TYPES:

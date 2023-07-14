@@ -36,6 +36,12 @@ NoAdditionalPropertiesOptionalDictInput = typing_extensions.TypedDict(
 
 
 class NoAdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "id",
+    })
+    __optional_keys__ = frozenset({
+        "petId",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["id"]) -> int:

@@ -120,6 +120,16 @@ Properties = typing_extensions.TypedDict(
 
 
 class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+    })
+    __optional_keys__ = frozenset({
+        "id",
+        "petId",
+        "quantity",
+        "shipDate",
+        "status",
+        "complete",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["id"]) -> int:

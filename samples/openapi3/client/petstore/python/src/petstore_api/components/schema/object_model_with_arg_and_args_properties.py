@@ -22,6 +22,12 @@ Properties = typing_extensions.TypedDict(
 
 
 class ObjectModelWithArgAndArgsPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "arg",
+        "args",
+    })
+    __optional_keys__ = frozenset({
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["arg"]) -> str:

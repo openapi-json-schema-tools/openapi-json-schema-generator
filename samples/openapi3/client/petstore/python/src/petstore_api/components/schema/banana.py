@@ -20,6 +20,11 @@ Properties = typing_extensions.TypedDict(
 
 
 class BananaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "lengthCm",
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_property(self, name: typing_extensions.Literal["lengthCm"]) -> typing.Union[int, float]:
         return typing.cast(

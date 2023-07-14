@@ -29,6 +29,11 @@ Properties = typing_extensions.TypedDict(
 
 
 class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "order_id",
+    })
+    __optional_keys__ = frozenset({
+    })
     
     def get_property(self, name: typing_extensions.Literal["order_id"]) -> str:
         return typing.cast(

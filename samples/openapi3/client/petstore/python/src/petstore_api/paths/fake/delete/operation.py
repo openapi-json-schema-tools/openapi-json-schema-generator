@@ -55,6 +55,14 @@ QueryParametersOptionalDictInput = typing_extensions.TypedDict(
 
 
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "required_int64_group",
+        "required_string_group",
+    })
+    __optional_keys__ = frozenset({
+        "int64_group",
+        "string_group",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["required_int64_group"]) -> int:
@@ -145,6 +153,12 @@ HeaderParametersOptionalDictInput = typing_extensions.TypedDict(
 
 
 class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "required_boolean_group",
+    })
+    __optional_keys__ = frozenset({
+        "boolean_group",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["required_boolean_group"]) -> typing_extensions.Literal["true", "false"]:

@@ -222,6 +222,31 @@ Properties = typing_extensions.TypedDict(
 
 
 class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__ = frozenset({
+        "byte",
+        "date",
+        "number",
+        "password",
+    })
+    __optional_keys__ = frozenset({
+        "integer",
+        "int32",
+        "int32withValidations",
+        "int64",
+        "float",
+        "float32",
+        "double",
+        "float64",
+        "arrayWithUniqueItems",
+        "string",
+        "binary",
+        "dateTime",
+        "uuid",
+        "uuidNoExample",
+        "pattern_with_digits",
+        "pattern_with_digits_and_delimiter",
+        "noneProp",
+    })
     
     @typing.overload
     def get_property(self, name: typing_extensions.Literal["byte"]) -> str:
