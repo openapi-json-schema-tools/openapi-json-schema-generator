@@ -124,7 +124,7 @@ class AdditionalPropertiesEnums:
 
 @dataclasses.dataclass(frozen=True)
 class AdditionalProperties3(
-    schemas.Schema
+    schemas.Schema[schemas.immutabledict, str]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -311,7 +311,7 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: MapTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapTest.validate(arg, configuration=configuration)
-MapTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+MapTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

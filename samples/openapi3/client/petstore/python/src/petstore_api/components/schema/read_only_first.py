@@ -39,7 +39,7 @@ class ReadOnlyFirstDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ReadOnlyFirstDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ReadOnlyFirst.validate(arg, configuration=configuration)
-ReadOnlyFirstDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+ReadOnlyFirstDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

@@ -25,7 +25,7 @@ class ItemsEnums:
 
 @dataclasses.dataclass(frozen=True)
 class Items(
-    schemas.Schema
+    schemas.Schema[schemas.immutabledict, str]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -148,7 +148,7 @@ class EnumFormStringEnums:
 
 @dataclasses.dataclass(frozen=True)
 class EnumFormString(
-    schemas.Schema
+    schemas.Schema[schemas.immutabledict, str]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -239,7 +239,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: SchemaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Schema.validate(arg, configuration=configuration)
-SchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+SchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

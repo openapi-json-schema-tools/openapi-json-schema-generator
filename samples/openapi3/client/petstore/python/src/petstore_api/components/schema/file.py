@@ -32,7 +32,7 @@ class FileDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: FileDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return File.validate(arg, configuration=configuration)
-FileDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+FileDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

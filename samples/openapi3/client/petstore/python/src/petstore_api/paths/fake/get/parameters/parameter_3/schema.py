@@ -29,7 +29,7 @@ class SchemaEnums:
 
 @dataclasses.dataclass(frozen=True)
 class Schema(
-    schemas.Schema
+    schemas.Schema[schemas.immutabledict, str]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,

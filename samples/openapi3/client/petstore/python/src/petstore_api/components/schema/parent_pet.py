@@ -36,9 +36,9 @@ class ParentPet(
     @classmethod
     def validate(
         cls,
-        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]:
+    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL]:
         return super().validate_base(
             arg,
             configuration=configuration,

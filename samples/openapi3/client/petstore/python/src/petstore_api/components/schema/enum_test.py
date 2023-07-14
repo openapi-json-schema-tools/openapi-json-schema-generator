@@ -29,7 +29,7 @@ class EnumStringEnums:
 
 @dataclasses.dataclass(frozen=True)
 class EnumString(
-    schemas.Schema
+    schemas.Schema[schemas.immutabledict, str]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -111,7 +111,7 @@ class EnumStringRequiredEnums:
 
 @dataclasses.dataclass(frozen=True)
 class EnumStringRequired(
-    schemas.Schema
+    schemas.Schema[schemas.immutabledict, str]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -355,7 +355,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: EnumTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return EnumTest.validate(arg, configuration=configuration)
-EnumTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+EnumTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

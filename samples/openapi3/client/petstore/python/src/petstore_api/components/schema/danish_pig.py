@@ -21,7 +21,7 @@ class ClassNameEnums:
 
 @dataclasses.dataclass(frozen=True)
 class ClassName(
-    schemas.Schema
+    schemas.Schema[schemas.immutabledict, str]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -85,7 +85,7 @@ class DanishPigDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: DanishPigDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return DanishPig.validate(arg, configuration=configuration)
-DanishPigDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+DanishPigDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

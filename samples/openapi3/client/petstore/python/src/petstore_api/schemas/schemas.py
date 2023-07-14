@@ -30,7 +30,7 @@ class ListSchema(schema.Schema[validation.immutabledict, tuple]):
     def validate(
         cls,
         arg: typing.Union[
-            typing.List[schema.INPUT_TYPES_ALL_INCL_SCHEMA],
+            typing.List[schema.INPUT_TYPES_ALL],
             schema.U
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
@@ -41,7 +41,7 @@ class ListSchema(schema.Schema[validation.immutabledict, tuple]):
     def validate(
         cls,
         arg: typing.Union[
-            typing.Tuple[schema.INPUT_TYPES_ALL_INCL_SCHEMA, ...],
+            typing.Tuple[schema.INPUT_TYPES_ALL, ...],
             schema.U
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
@@ -133,7 +133,7 @@ class Float64Schema(NumberSchema):
 
 
 @dataclasses.dataclass(frozen=True)
-class StrSchema(schema.Schema):
+class StrSchema(schema.Schema[validation.immutabledict, str]):
     """
     date + datetime string types must inherit from this class
     That is because one can validate a str payload as both:
@@ -216,7 +216,7 @@ class DecimalSchema(schema.Schema):
 
 
 @dataclasses.dataclass(frozen=True)
-class BytesSchema(schema.Schema):
+class BytesSchema(schema.Schema[validation.immutabledict, bytes]):
     """
     this class will subclass bytes and is immutable
     """
@@ -261,7 +261,7 @@ class FileSchema(schema.Schema):
 
 
 @dataclasses.dataclass(frozen=True)
-class BinarySchema(schema.Schema):
+class BinarySchema(schema.Schema[validation.immutabledict, bytes]):
     types: typing.FrozenSet[typing.Type] = frozenset({schema.FileIO, bytes})
     format: str = 'binary'
 
@@ -362,7 +362,7 @@ class DictSchema(schema.Schema[schema.validation.immutabledict[str, OUTPUT_BASE_
     @classmethod
     def validate(
         cls,
-        arg: typing.Mapping[str, schema.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schema.INPUT_TYPES_ALL],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> schema.validation.immutabledict[str, OUTPUT_BASE_TYPES]: ...
 

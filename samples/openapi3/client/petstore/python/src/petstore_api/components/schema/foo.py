@@ -33,7 +33,7 @@ class FooDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: FooDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Foo.validate(arg, configuration=configuration)
-FooDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+FooDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

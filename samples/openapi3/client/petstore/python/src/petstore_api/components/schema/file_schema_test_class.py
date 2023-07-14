@@ -97,7 +97,7 @@ class FileSchemaTestClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
 
     def __new__(cls, arg: FileSchemaTestClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return FileSchemaTestClass.validate(arg, configuration=configuration)
-FileSchemaTestClassDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+FileSchemaTestClassDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

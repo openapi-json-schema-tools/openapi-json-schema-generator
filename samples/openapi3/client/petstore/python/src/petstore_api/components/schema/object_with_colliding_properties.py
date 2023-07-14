@@ -39,7 +39,7 @@ class ObjectWithCollidingPropertiesDict(schemas.immutabledict[str, schemas.OUTPU
 
     def __new__(cls, arg: ObjectWithCollidingPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithCollidingProperties.validate(arg, configuration=configuration)
-ObjectWithCollidingPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+ObjectWithCollidingPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

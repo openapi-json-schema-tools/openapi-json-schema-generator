@@ -39,7 +39,7 @@ class ObjectModelWithArgAndArgsPropertiesDict(schemas.immutabledict[str, schemas
 
     def __new__(cls, arg: ObjectModelWithArgAndArgsPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectModelWithArgAndArgsProperties.validate(arg, configuration=configuration)
-ObjectModelWithArgAndArgsPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+ObjectModelWithArgAndArgsPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

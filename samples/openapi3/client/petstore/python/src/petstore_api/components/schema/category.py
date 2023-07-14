@@ -48,7 +48,7 @@ class CategoryDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: CategoryDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Category.validate(arg, configuration=configuration)
-CategoryDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+CategoryDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

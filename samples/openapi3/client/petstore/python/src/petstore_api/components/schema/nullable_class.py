@@ -32,9 +32,9 @@ class AdditionalProperties4(
     @classmethod
     def validate(
         cls,
-        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL]: ...
     @classmethod
     def validate(
         cls,
@@ -363,9 +363,9 @@ class Items2(
     @classmethod
     def validate(
         cls,
-        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL]: ...
     @classmethod
     def validate(
         cls,
@@ -478,9 +478,9 @@ class Items3(
     @classmethod
     def validate(
         cls,
-        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL]: ...
     @classmethod
     def validate(
         cls,
@@ -643,9 +643,9 @@ class AdditionalProperties2(
     @classmethod
     def validate(
         cls,
-        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL]: ...
     @classmethod
     def validate(
         cls,
@@ -753,9 +753,9 @@ class AdditionalProperties3(
     @classmethod
     def validate(
         cls,
-        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL]: ...
     @classmethod
     def validate(
         cls,

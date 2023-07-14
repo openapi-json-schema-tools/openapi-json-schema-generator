@@ -63,7 +63,7 @@ class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: CapitalizationDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Capitalization.validate(arg, configuration=configuration)
-CapitalizationDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+CapitalizationDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

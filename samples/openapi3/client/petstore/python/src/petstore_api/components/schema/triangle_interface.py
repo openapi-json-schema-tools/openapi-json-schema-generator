@@ -21,7 +21,7 @@ class ShapeTypeEnums:
 
 @dataclasses.dataclass(frozen=True)
 class ShapeType(
-    schemas.Schema
+    schemas.Schema[schemas.immutabledict, str]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -92,7 +92,7 @@ class TriangleInterfaceDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES
 
     def __new__(cls, arg: TriangleInterfaceDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return TriangleInterface.validate(arg, configuration=configuration)
-TriangleInterfaceDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+TriangleInterfaceDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

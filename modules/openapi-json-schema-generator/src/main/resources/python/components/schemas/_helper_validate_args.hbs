@@ -7,8 +7,8 @@ arg: typing.Union[
 ],
     {{else}}
 arg: typing.Union[
-    typing.List[schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
-    typing.Tuple[schemas.INPUT_TYPES_ALL_INCL_SCHEMA, ...],
+    typing.List[schemas.INPUT_TYPES_ALL],
+    typing.Tuple[schemas.INPUT_TYPES_ALL, ...],
 ],
     {{/if}}
 {{else}}
@@ -19,7 +19,7 @@ arg: typing.Union[
     {{mapOutputJsonPathPiece.camelCase}},
 ],
         {{else}}
-arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL],
         {{/if}}
     {{else}}
         {{#eq this "string"}}

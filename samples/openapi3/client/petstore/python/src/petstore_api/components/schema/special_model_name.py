@@ -32,7 +32,7 @@ class SpecialModelNameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
     def __new__(cls, arg: SpecialModelNameDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return SpecialModelName.validate(arg, configuration=configuration)
-SpecialModelNameDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+SpecialModelNameDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

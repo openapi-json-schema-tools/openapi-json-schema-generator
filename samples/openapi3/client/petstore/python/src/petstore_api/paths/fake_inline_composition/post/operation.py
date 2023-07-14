@@ -138,7 +138,7 @@ class BaseApi(api_client.Api):
     def _inline_composition(
         self,
         body: typing.Union[
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+            schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES,
             request_body_multipart_form_data_schema.SchemaDictInput,
             request_body_multipart_form_data_schema.SchemaDict,
@@ -165,7 +165,7 @@ class BaseApi(api_client.Api):
     def _inline_composition(
         self,
         body: typing.Union[
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+            schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES,
             request_body_multipart_form_data_schema.SchemaDictInput,
             request_body_multipart_form_data_schema.SchemaDict,
@@ -191,7 +191,7 @@ class BaseApi(api_client.Api):
     def _inline_composition(
         self,
         body: typing.Union[
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+            schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES,
             request_body_multipart_form_data_schema.SchemaDictInput,
             request_body_multipart_form_data_schema.SchemaDict,

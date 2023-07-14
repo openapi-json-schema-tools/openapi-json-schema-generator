@@ -32,7 +32,7 @@ class GmFruitDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: GmFruitDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return GmFruit.validate(arg, configuration=configuration)
-GmFruitDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+GmFruitDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

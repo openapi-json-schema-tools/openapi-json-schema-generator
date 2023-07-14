@@ -39,7 +39,7 @@ class TagDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: TagDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Tag.validate(arg, configuration=configuration)
-TagDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+TagDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

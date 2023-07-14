@@ -32,7 +32,7 @@ class ObjWithRequiredPropsBaseDict(schemas.immutabledict[str, schemas.OUTPUT_BAS
 
     def __new__(cls, arg: ObjWithRequiredPropsBaseDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjWithRequiredPropsBase.validate(arg, configuration=configuration)
-ObjWithRequiredPropsBaseDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+ObjWithRequiredPropsBaseDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

@@ -39,7 +39,7 @@ class _200ResponseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: _200ResponseDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _200Response.validate(arg, configuration=configuration)
-_200ResponseDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+_200ResponseDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

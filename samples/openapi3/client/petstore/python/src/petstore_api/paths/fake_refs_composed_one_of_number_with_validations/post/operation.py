@@ -39,7 +39,7 @@ class BaseApi(api_client.Api):
     def _composed_one_of_different_types(
         self,
         body: typing.Union[
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+            schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES,
             schemas.Unset
         ] = schemas.unset,
@@ -56,7 +56,7 @@ class BaseApi(api_client.Api):
     def _composed_one_of_different_types(
         self,
         body: typing.Union[
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+            schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES,
             schemas.Unset
         ] = schemas.unset,
@@ -72,7 +72,7 @@ class BaseApi(api_client.Api):
     def _composed_one_of_different_types(
         self,
         body: typing.Union[
-            schemas.INPUT_TYPES_ALL_INCL_SCHEMA,
+            schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES,
             schemas.Unset
         ] = schemas.unset,

@@ -28,7 +28,7 @@ schemas.BinarySchema
         {{#neq ../format "binary"}}
             {{#and ../enumInfo.typeToValues.string}}
                 {{! use Schema so validate is not overwritten }}
-schemas.Schema
+schemas.Schema[schemas.immutabledict, str]
             {{else}}
 schemas.StrSchema
             {{/and}}

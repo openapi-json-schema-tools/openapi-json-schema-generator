@@ -73,7 +73,7 @@ class HealthCheckResultDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES
 
     def __new__(cls, arg: HealthCheckResultDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return HealthCheckResult.validate(arg, configuration=configuration)
-HealthCheckResultDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+HealthCheckResultDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

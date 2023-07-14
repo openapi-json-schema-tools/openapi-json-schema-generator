@@ -39,7 +39,7 @@ class HasOnlyReadOnlyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
 
     def __new__(cls, arg: HasOnlyReadOnlyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return HasOnlyReadOnly.validate(arg, configuration=configuration)
-HasOnlyReadOnlyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+HasOnlyReadOnlyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

@@ -32,7 +32,7 @@ class ClientDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     def __new__(cls, arg: ClientDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Client.validate(arg, configuration=configuration)
-ClientDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+ClientDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

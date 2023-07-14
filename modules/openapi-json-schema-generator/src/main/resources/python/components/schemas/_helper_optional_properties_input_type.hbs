@@ -20,7 +20,7 @@
         {{! additionalProperties True/schema }}
         {{#if additionalProperties.isBooleanSchemaTrue }}
             {{! addProps True, does not matter what properties are because they are always covered by base types }}
-{{optionalProperties.jsonPathPiece.camelCase}} = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+{{optionalProperties.jsonPathPiece.camelCase}} = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
         {{else}}
             {{! addProps schema }}
 {{optionalProperties.jsonPathPiece.camelCase}} = typing.Mapping[
@@ -40,5 +40,5 @@
     {{/if}}
 {{else}}
     {{! addProps unset, does not matter what required props are }}
-{{optionalProperties.jsonPathPiece.camelCase}} = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+{{optionalProperties.jsonPathPiece.camelCase}} = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 {{/if}}
