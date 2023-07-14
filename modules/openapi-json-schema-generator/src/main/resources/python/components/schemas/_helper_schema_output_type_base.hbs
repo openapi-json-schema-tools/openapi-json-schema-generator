@@ -33,7 +33,15 @@ int{{endChar}}
                         {{else}}
                             {{#eq this "array"}}
                                 {{#if arrayOutputJsonPathPiece}}
-{{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{arrayOutputJsonPathPiece.camelCase}}{{endChar}}
+                                    {{#if fullRefModule}}
+{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}{{endChar}}
+                                    {{else}}
+                                        {{#if selfReference}}
+'{{arrayOutputJsonPathPiece.camelCase}}'{{endChar}}
+                                        {{else}}
+{{arrayOutputJsonPathPiece.camelCase}}{{endChar}}
+                                        {{/if}}
+                                    {{/if}}
                                 {{else}}
 typing.Tuple[schemas.OUTPUT_BASE_TYPES]{{endChar}}
                                 {{/if}}

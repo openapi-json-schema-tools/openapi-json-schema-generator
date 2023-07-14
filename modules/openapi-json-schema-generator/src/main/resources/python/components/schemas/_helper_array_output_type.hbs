@@ -4,7 +4,12 @@ class {{arrayOutputJsonPathPiece.camelCase}}(
     typing.Tuple[
         {{#with items}}
             {{#if refInfo.refClass}}
+                {{#eq refModule null}}
+                    {{! self reference }}
+        {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," selfReference=true }}
+                {{else}}
         {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," }}
+                {{/eq}}
             {{else}}
         {{> components/schemas/_helper_schema_output_type mode="unprefixed" fullRefModule="" endChar="," }}
             {{/if}}
