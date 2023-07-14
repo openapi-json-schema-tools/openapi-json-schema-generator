@@ -75,7 +75,10 @@ Properties = typing_extensions.TypedDict(
 class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def get_property(self, name: typing_extensions.Literal["triangleType"]) -> typing_extensions.Literal["EquilateralTriangle"]:
-        return self.__getitem__(name)
+        return typing.cast(
+            typing_extensions.Literal["EquilateralTriangle"],
+            self.__getitem__(name)
+        )
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__(name)

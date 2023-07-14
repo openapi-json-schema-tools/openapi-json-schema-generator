@@ -43,7 +43,10 @@ Properties = typing_extensions.TypedDict(
 class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def get_property(self, name: typing_extensions.Literal["someProp"]) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__(name)
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            self.__getitem__(name)
+        )
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__(name)

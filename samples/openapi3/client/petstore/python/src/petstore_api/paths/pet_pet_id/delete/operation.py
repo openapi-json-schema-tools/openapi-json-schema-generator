@@ -35,7 +35,10 @@ Properties2 = typing_extensions.TypedDict(
 class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def get_property(self, name: typing_extensions.Literal["api_key"]) -> str:
-        return self.__getitem__(name)
+        return typing.cast(
+            str,
+            self.__getitem__(name)
+        )
 
     def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return HeaderParameters.validate(arg, configuration=configuration)
@@ -93,7 +96,10 @@ Properties = typing_extensions.TypedDict(
 class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def get_property(self, name: typing_extensions.Literal["petId"]) -> int:
-        return self.__getitem__(name)
+        return typing.cast(
+            int,
+            self.__getitem__(name)
+        )
 
     def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return PathParameters.validate(arg, configuration=configuration)

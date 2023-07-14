@@ -60,7 +60,13 @@ class HealthCheckResultDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES
         None,
         str,
     ]:
-        return self.__getitem__(name)
+        return typing.cast(
+            typing.Union[
+                None,
+                str,
+            ],
+            self.__getitem__(name)
+        )
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__(name)

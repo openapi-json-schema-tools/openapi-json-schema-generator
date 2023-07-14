@@ -21,7 +21,10 @@ Properties = typing_extensions.TypedDict(
 class SelfReferencingObjectModelDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def get_property(self, name: typing_extensions.Literal["selfRef"]) -> SelfReferencingObjectModelDict:
-        return self.__getitem__(name)
+        return typing.cast(
+            SelfReferencingObjectModelDict,
+            self.__getitem__(name)
+        )
     
     def get_additional_property(self, name: str) -> SelfReferencingObjectModelDict:
         return typing.cast(
