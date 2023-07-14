@@ -14,9 +14,9 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema
 
 
 class MapPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__ = frozenset({
+    __required_keys__: typing.FrozenSet[str] = frozenset({
     })
-    __optional_keys__ = frozenset({
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
     def get_additional_property(self, name: str) -> str:
@@ -67,9 +67,9 @@ AdditionalProperties3: typing_extensions.TypeAlias = schemas.StrSchema
 
 
 class AdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__ = frozenset({
+    __required_keys__: typing.FrozenSet[str] = frozenset({
     })
-    __optional_keys__ = frozenset({
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
     def get_additional_property(self, name: str) -> str:
@@ -119,9 +119,9 @@ class AdditionalProperties2(
 
 
 class MapOfMapPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__ = frozenset({
+    __required_keys__: typing.FrozenSet[str] = frozenset({
     })
-    __optional_keys__ = frozenset({
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
     def get_additional_property(self, name: str) -> AdditionalPropertiesDict:
@@ -179,9 +179,9 @@ AdditionalProperties4: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 
 
 class MapWithUndeclaredPropertiesAnytype3Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__ = frozenset({
+    __required_keys__: typing.FrozenSet[str] = frozenset({
     })
-    __optional_keys__ = frozenset({
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
@@ -229,9 +229,9 @@ AdditionalProperties5: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
 
 class EmptyMapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__ = frozenset({
+    __required_keys__: typing.FrozenSet[str] = frozenset({
     })
-    __optional_keys__ = frozenset({
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     # empty mapping
     pass
@@ -274,9 +274,9 @@ AdditionalProperties6: typing_extensions.TypeAlias = schemas.StrSchema
 
 
 class MapWithUndeclaredPropertiesStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__ = frozenset({
+    __required_keys__: typing.FrozenSet[str] = frozenset({
     })
-    __optional_keys__ = frozenset({
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
     def get_additional_property(self, name: str) -> str:
@@ -339,9 +339,9 @@ Properties = typing_extensions.TypedDict(
 
 
 class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__ = frozenset({
+    __required_keys__: typing.FrozenSet[str] = frozenset({
     })
-    __optional_keys__ = frozenset({
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
         "map_property",
         "map_of_map_property",
         "anytype_1",

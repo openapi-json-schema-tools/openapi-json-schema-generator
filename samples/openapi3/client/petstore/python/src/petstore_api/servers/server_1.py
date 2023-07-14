@@ -85,10 +85,10 @@ Properties = typing_extensions.TypedDict(
 
 
 class VariablesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__ = frozenset({
+    __required_keys__: typing.FrozenSet[str] = frozenset({
         "version",
     })
-    __optional_keys__ = frozenset({
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
     def get_property(self, name: typing_extensions.Literal["version"]) -> typing_extensions.Literal["v1", "v2"]:

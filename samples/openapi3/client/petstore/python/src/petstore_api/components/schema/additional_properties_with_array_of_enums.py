@@ -65,9 +65,9 @@ class AdditionalProperties(
 
 
 class AdditionalPropertiesWithArrayOfEnumsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__ = frozenset({
+    __required_keys__: typing.FrozenSet[str] = frozenset({
     })
-    __optional_keys__ = frozenset({
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
     def get_additional_property(self, name: str) -> AdditionalPropertiesTuple:

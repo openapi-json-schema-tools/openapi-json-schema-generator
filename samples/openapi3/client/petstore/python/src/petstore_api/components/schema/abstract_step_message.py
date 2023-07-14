@@ -20,12 +20,12 @@ Properties = typing_extensions.TypedDict(
 
 
 class AbstractStepMessageDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__ = frozenset({
+    __required_keys__: typing.FrozenSet[str] = frozenset({
         "description",
         "discriminator",
         "sequenceNumber",
     })
-    __optional_keys__ = frozenset({
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
     @typing.overload

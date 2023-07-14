@@ -307,10 +307,10 @@ Properties = typing_extensions.TypedDict(
 
 
 class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__ = frozenset({
+    __required_keys__: typing.FrozenSet[str] = frozenset({
         "enum_string_required",
     })
-    __optional_keys__ = frozenset({
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
         "enum_string",
         "enum_integer",
         "enum_number",

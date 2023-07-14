@@ -1,12 +1,12 @@
 
 
 class {{mapOutputJsonPathPiece.camelCase}}(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__ = frozenset({
+    __required_keys__: typing.FrozenSet[str] = frozenset({
         {{#each requiredProperties}}
         "{{{@key.original}}}",
         {{/each}}
     })
-    __optional_keys__ = frozenset({
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
         {{#each optionalProperties}}
         "{{{@key.original}}}",
         {{/each}}

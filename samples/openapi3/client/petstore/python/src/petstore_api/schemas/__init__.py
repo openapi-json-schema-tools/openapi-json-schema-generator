@@ -93,9 +93,9 @@ def raise_if_key_unknown(
     required_keys: typing.FrozenSet[str],
     optional_keys: typing.FrozenSet[str]
 ):
-    if name not in required_keys and name not in optional_keys:
+    if key not in required_keys and key not in optional_keys:
         raise ValueError(
-            f"Invalid key. The key {name} is not a known key in this payload. "
+            f"Invalid key. The key {key} is not a known key in this payload. "
             "If this key is an additional property, use get_additional_property"
         )
 
@@ -104,5 +104,5 @@ def raise_if_key_known(
     required_keys: typing.FrozenSet[str],
     optional_keys: typing.FrozenSet[str]
 ):
-    if name in required_keys or name in optional_keys:
-        raise ValueError(f"The key {name} is a known property, use get_property to access its value")
+    if key in required_keys or key in optional_keys:
+        raise ValueError(f"The key {key} is a known property, use get_property to access its value")

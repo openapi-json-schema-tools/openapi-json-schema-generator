@@ -31,10 +31,10 @@ Properties = typing_extensions.TypedDict(
 
 
 class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__ = frozenset({
+    __required_keys__: typing.FrozenSet[str] = frozenset({
         "username",
     })
-    __optional_keys__ = frozenset({
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
     def get_property(self, name: typing_extensions.Literal["username"]) -> str:

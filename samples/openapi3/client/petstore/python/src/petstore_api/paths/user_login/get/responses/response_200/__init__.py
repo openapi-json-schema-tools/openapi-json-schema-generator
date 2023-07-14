@@ -64,12 +64,12 @@ HeadersOptionalDictInput = typing_extensions.TypedDict(
 
 
 class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__ = frozenset({
+    __required_keys__: typing.FrozenSet[str] = frozenset({
         "X-Rate-Limit",
         "int32",
         "ref-content-schema-header",
     })
-    __optional_keys__ = frozenset({
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
         "X-Expires-After",
         "numberHeader",
     })

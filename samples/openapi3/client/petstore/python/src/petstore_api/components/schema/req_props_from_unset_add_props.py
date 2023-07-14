@@ -13,11 +13,11 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 
 class ReqPropsFromUnsetAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__ = frozenset({
+    __required_keys__: typing.FrozenSet[str] = frozenset({
         "invalid-name",
         "validName",
     })
-    __optional_keys__ = frozenset({
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
     @typing.overload

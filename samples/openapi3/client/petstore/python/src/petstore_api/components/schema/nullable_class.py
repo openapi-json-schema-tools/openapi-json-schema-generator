@@ -557,9 +557,9 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.DictSchema
 
 
 class ObjectNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__ = frozenset({
+    __required_keys__: typing.FrozenSet[str] = frozenset({
     })
-    __optional_keys__ = frozenset({
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
     def get_additional_property(self, name: str) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
@@ -665,9 +665,9 @@ class AdditionalProperties2(
 
 
 class ObjectAndItemsNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__ = frozenset({
+    __required_keys__: typing.FrozenSet[str] = frozenset({
     })
-    __optional_keys__ = frozenset({
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
     def get_additional_property(self, name: str) -> typing.Union[
@@ -780,9 +780,9 @@ class AdditionalProperties3(
 
 
 class ObjectItemsNullableDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__ = frozenset({
+    __required_keys__: typing.FrozenSet[str] = frozenset({
     })
-    __optional_keys__ = frozenset({
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
     def get_additional_property(self, name: str) -> typing.Union[
@@ -859,9 +859,9 @@ Properties = typing_extensions.TypedDict(
 
 
 class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__ = frozenset({
+    __required_keys__: typing.FrozenSet[str] = frozenset({
     })
-    __optional_keys__ = frozenset({
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
         "integer_prop",
         "number_prop",
         "boolean_prop",
