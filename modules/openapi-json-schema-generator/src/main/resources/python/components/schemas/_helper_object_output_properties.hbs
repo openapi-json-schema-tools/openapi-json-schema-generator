@@ -3,21 +3,39 @@
         {{#with this}}
             {{#if refInfo.refClass}}
 
+{{#neq ../qtyKnownProperties 1}}
 @typing.overload
+{{/neq}}
 {{> components/schemas/_helper_schema_output_ref_type key=@key.original fullRefModule="" mode="get_property" endChar=":" }}
+    {{#neq ../qtyKnownProperties 1}}
     ...
+    {{else}}
+    {{> components/schemas/_helper_object_get_property }}
+    {{/neq}}
             {{else}}
                 {{#if jsonPathPiece}}
 
+{{#neq ../qtyKnownProperties 1}}
 @typing.overload
+{{/neq}}
 {{> components/schemas/_helper_schema_output_type key=@key.original mode="get_property" fullRefModule=null endChar=":" }}
+    {{#neq ../qtyKnownProperties 1}}
     ...
+    {{else}}
+    {{> components/schemas/_helper_object_get_property }}
+    {{/neq}}
                 {{else}}
                     {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
 
+{{#neq ../qtyKnownProperties 1}}
 @typing.overload
+{{/neq}}
 def get_property(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> schemas.OUTPUT_BASE_TYPES:
+    {{#neq ../qtyKnownProperties 1}}
     ...
+    {{else}}
+    {{> components/schemas/_helper_object_get_property }}
+    {{/neq}}
                 {{/if}}
             {{/if}}
         {{/with}}
@@ -28,22 +46,36 @@ def get_property(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -
         {{#with this}}
             {{#if refInfo.refClass}}
 
+{{#neq ../qtyKnownProperties 1}}
 @typing.overload
+{{/neq}}
 {{> components/schemas/_helper_schema_output_ref_type key=@key.original fullRefModule="" mode="get_property" endChar=":" }}
+    {{#neq ../qtyKnownProperties 1}}
     ...
+    {{else}}
+    {{> components/schemas/_helper_object_get_property }}
+    {{/neq}}
             {{else}}
 
+{{#neq ../qtyKnownProperties 1}}
 @typing.overload
+{{/neq}}
 {{> components/schemas/_helper_schema_output_type key=@key.original mode="get_property" fullRefModule=null endChar=":" }}
+    {{#neq ../qtyKnownProperties 1}}
     ...
+    {{else}}
+    {{> components/schemas/_helper_object_get_property }}
+    {{/neq}}
             {{/if}}
         {{/with}}
     {{/each}}
 {{/if}}
 {{#or optionalProperties requiredProperties}}
+    {{#neq qtyKnownProperties 1}}
 
 def get_property(self, name):
-    return self.__getitem__(name)
+    {{> components/schemas/_helper_object_get_property }}
+    {{/neq}}
 {{/or}}
 {{#eq additionalProperties null }}
 

@@ -30,11 +30,7 @@ Properties = typing_extensions.TypedDict(
 
 class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @typing.overload
     def get_property(self, name: typing_extensions.Literal["order_id"]) -> str:
-        ...
-    
-    def get_property(self, name):
         return self.__getitem__(name)
 
     def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

@@ -81,6 +81,7 @@ public class CodegenSchema {
     public boolean isBooleanSchemaFalse;  // supports boolean schemas
 
     // Extra needed fields
+    public int qtyKnownProperties;
     public boolean componentModule;
     public TreeSet<String> imports;
     public CodegenKey jsonPathPiece;
@@ -97,6 +98,7 @@ public class CodegenSchema {
      * used in getAllSchemas to write type definitions for allOfType/anyOfType/oneOfType/propertiesType
      */
     public String instanceType;
+    // used to store the expanded schemas that define a codegenschema in code file
     private ArrayList<CodegenSchema> allSchemas = null;
 
     public boolean hasValidation() {
@@ -330,6 +332,7 @@ public class CodegenSchema {
             mapOut.additionalProperties = additionalProperties;
             mapOut.mapOutputJsonPathPiece = mapOutputJsonPathPiece;
             mapOut.properties = properties;
+            mapOut.qtyKnownProperties = qtyKnownProperties;
             // inputs needed for Schema validate invocation in new method
             mapOut.mapInputJsonPathPiece = mapInputJsonPathPiece;
             mapOut.jsonPathPiece = jsonPathPiece;
@@ -360,6 +363,7 @@ public class CodegenSchema {
             mapOut.additionalProperties = additionalProperties;
             mapOut.mapOutputJsonPathPiece = mapOutputJsonPathPiece;
             mapOut.properties = properties;
+            mapOut.qtyKnownProperties = qtyKnownProperties;
             // inputs needed for Schema validate invocation in new method
             mapOut.mapInputJsonPathPiece = mapInputJsonPathPiece;
             mapOut.jsonPathPiece = jsonPathPiece;
@@ -410,6 +414,7 @@ public class CodegenSchema {
             mapOut.properties = properties;
             mapOut.additionalProperties = additionalProperties;
             mapOut.mapOutputJsonPathPiece = mapOutputJsonPathPiece;
+            mapOut.qtyKnownProperties = qtyKnownProperties;
             // inputs needed for Schema validate invocation in new method
             mapOut.mapInputJsonPathPiece = mapInputJsonPathPiece;
             mapOut.jsonPathPiece = jsonPathPiece;

@@ -2370,6 +2370,7 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
         }
+        property.qtyKnownProperties = requiredAndOptionalProperties.size();
         property.description = escapeText(p.getDescription());
         property.unescapedDescription = p.getDescription();
         property.title = p.getTitle();
