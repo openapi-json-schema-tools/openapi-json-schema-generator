@@ -5,7 +5,7 @@
 {{#with operation}}
     {{#or queryParameters headerParameters pathParameters cookieParameters requestBodySchemas}}
 from __future__ import annotations
-from {{packageName}}.shared_imports.schema_imports import *
+from {{packageName}}.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
     {{/or}}
 {{/with}}
 from {{packageName}} import api_client{{#or operation.errorStatusCodes operation.errorWildcardStatusCodes}}, exceptions{{/or}}{{#neq operation.security null}}{{#gt operation.security.size 0}}, security_schemes{{/gt}}{{else}}{{#neq security null}}{{#gt security.size 0}}, security_schemes{{/gt}}{{/neq}}{{/neq}}
@@ -26,7 +26,7 @@ from {{packageName}}.security import (
         {{/gt}}
     {{/neq}}
 {{/eq}}
-from {{packageName}}.shared_imports.operation_imports import *
+from {{packageName}}.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 {{#if imports}}
 
 {{/if}}

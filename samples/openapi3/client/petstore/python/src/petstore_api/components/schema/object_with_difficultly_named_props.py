@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 SpecialPropertyName: typing_extensions.TypeAlias = schemas.Int64Schema
 _123List: typing_extensions.TypeAlias = schemas.StrSchema

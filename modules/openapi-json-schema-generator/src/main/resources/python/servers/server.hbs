@@ -4,9 +4,9 @@
 {{#with server}}
     {{#if variables}}
 from __future__ import annotations
-from {{packageName}}.shared_imports.schema_imports import *
+from {{packageName}}.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
     {{/if}}
-from {{packageName}}.shared_imports.server_imports import *
+from {{packageName}}.shared_imports.server_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
     {{#if variables}}
         {{#with variables}}
 {{> components/schemas/_helper_getschemas identifierPieces=(append identifierPieces jsonPathPiece.camelCase) }}

@@ -5,7 +5,7 @@
 """
 
 from petstore_api import api_client, exceptions
-from petstore_api.shared_imports.operation_imports import *
+from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 from .. import path
 from .responses import (

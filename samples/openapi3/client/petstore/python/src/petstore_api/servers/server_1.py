@@ -4,8 +4,8 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
-from petstore_api.shared_imports.server_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
+from petstore_api.shared_imports.server_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
 

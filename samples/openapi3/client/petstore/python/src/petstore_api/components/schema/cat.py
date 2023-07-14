@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 Declawed: typing_extensions.TypeAlias = schemas.BoolSchema
 Properties = typing_extensions.TypedDict(

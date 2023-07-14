@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
 
@@ -108,7 +108,7 @@ class StringEnum(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["multiple\nlines"],
+        arg: typing_extensions.Literal["""multiple\nlines"""],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> typing_extensions.Literal["multiple\nlines"]: ...
     @typing.overload

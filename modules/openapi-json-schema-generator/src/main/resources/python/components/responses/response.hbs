@@ -13,9 +13,9 @@ ApiResponse = {{refInfo.refModule}}.ApiResponse
 {{else}}
     {{#if headersObjectSchema}}
 from __future__ import annotations
-from {{packageName}}.shared_imports.schema_imports import *
+from {{packageName}}.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
     {{/if}}
-from {{packageName}}.shared_imports.response_imports import *
+from {{packageName}}.shared_imports.response_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
     {{#if content}}
 
         {{#each content}}

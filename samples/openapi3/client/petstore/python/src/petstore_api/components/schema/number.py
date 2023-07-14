@@ -8,6 +8,6 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 Number: typing_extensions.TypeAlias = schemas.NumberSchema

@@ -29,7 +29,7 @@ _K = typing.TypeVar('_K')
 _V = typing.TypeVar('_V')
 
 
-class immutabledict(original_immutabledict.immutabledict[_K, _V]):
+class immutabledict(typing.Generic[_K, _V], original_immutabledict.immutabledict[_K, _V]):
     def __init__(self, arg: typing.Any, **kwargs: typing.Any):
         super().__init__(arg)  # needed to omit passing on kwargs
 
