@@ -31,6 +31,9 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
     @property
     def b(self) -> typing.Union[int, float]:
         return self.__getitem__("b")
+    
+    def get_property(self, name):
+        return self.__getitem__(name)
 
     def __new__(cls, arg: ObjectWithOnlyOptionalPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithOnlyOptionalProps.validate(arg, configuration=configuration)

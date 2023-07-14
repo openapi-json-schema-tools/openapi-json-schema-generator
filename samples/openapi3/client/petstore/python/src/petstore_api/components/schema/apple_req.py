@@ -44,6 +44,9 @@ class AppleReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def mealy(self) -> bool:
         return self.__getitem__("mealy")
+    
+    def get_property(self, name):
+        return self.__getitem__(name)
 
     def __new__(cls, arg: AppleReqDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AppleReq.validate(arg, configuration=configuration)

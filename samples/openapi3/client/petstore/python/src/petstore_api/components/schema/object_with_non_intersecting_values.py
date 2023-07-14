@@ -26,6 +26,9 @@ class ObjectWithNonIntersectingValuesDict(schemas.immutabledict[str, schemas.OUT
     def a(self) -> typing.Union[int, float]:
         return self.__getitem__("a")
     
+    def get_property(self, name):
+        return self.__getitem__(name)
+    
     def get_additional_property(self, name: str) -> str:
         return self.__getitem__(name)
 

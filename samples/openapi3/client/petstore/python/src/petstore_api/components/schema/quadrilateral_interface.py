@@ -84,7 +84,10 @@ class QuadrilateralInterfaceDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
     def shape_type(self) -> typing_extensions.Literal["Quadrilateral"]:
         return self.__getitem__("shapeType")
     
-    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+    def get_property(self, name):
+        return self.__getitem__(name)
+    
+    def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__(name)
 
     def __new__(cls, arg: QuadrilateralInterfaceDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

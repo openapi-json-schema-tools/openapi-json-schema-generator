@@ -37,6 +37,9 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     @property
     def tags(self) -> parameter_0_schema.SchemaTuple:
         return self.__getitem__("tags")
+    
+    def get_property(self, name):
+        return self.__getitem__(name)
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)

@@ -118,6 +118,9 @@ class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, schemas.OUTP
     @property
     def value(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("value")
+    
+    def get_property(self, name):
+        return self.__getitem__(name)
 
     def __new__(cls, arg: JSONPatchRequestAddReplaceTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return JSONPatchRequestAddReplaceTest.validate(arg, configuration=configuration)

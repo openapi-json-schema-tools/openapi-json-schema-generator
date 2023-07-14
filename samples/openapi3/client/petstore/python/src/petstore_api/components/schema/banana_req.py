@@ -47,6 +47,9 @@ class BananaReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def sweet(self) -> bool:
         return self.__getitem__("sweet")
+    
+    def get_property(self, name):
+        return self.__getitem__(name)
 
     def __new__(cls, arg: BananaReqDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return BananaReq.validate(arg, configuration=configuration)

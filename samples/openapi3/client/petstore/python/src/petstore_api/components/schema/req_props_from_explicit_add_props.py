@@ -23,6 +23,9 @@ class ReqPropsFromExplicitAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT
     def valid_name(self) -> str:
         return self.__getitem__("validName")
     
+    def get_property(self, name):
+        return self.__getitem__(name)
+    
     def get_additional_property(self, name: str) -> str:
         return self.__getitem__(name)
 

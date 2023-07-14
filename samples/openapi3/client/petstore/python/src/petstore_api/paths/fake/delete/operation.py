@@ -71,6 +71,9 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     @property
     def string_group(self) -> str:
         return self.__getitem__("string_group")
+    
+    def get_property(self, name):
+        return self.__getitem__(name)
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)
@@ -150,6 +153,9 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     @property
     def boolean_group(self) -> typing_extensions.Literal["true", "false"]:
         return self.__getitem__("boolean_group")
+    
+    def get_property(self, name):
+        return self.__getitem__(name)
 
     def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return HeaderParameters.validate(arg, configuration=configuration)

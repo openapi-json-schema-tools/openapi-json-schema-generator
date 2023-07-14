@@ -60,6 +60,9 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     @property
     def enum_query_string_array(self) -> parameter_2_schema.SchemaTuple:
         return self.__getitem__("enum_query_string_array")
+    
+    def get_property(self, name):
+        return self.__getitem__(name)
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)
@@ -135,6 +138,9 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     @property
     def enum_header_string_array(self) -> parameter_0_schema.SchemaTuple:
         return self.__getitem__("enum_header_string_array")
+    
+    def get_property(self, name):
+        return self.__getitem__(name)
 
     def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return HeaderParameters.validate(arg, configuration=configuration)

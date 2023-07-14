@@ -312,7 +312,10 @@ class ArrayTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def array_array_of_model(self) -> ArrayArrayOfModelTuple:
         return self.__getitem__("array_array_of_model")
     
-    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+    def get_property(self, name):
+        return self.__getitem__(name)
+    
+    def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__(name)
 
     def __new__(cls, arg: ArrayTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

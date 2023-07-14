@@ -104,6 +104,9 @@ class JSONPatchRequestMoveCopyDict(schemas.immutabledict[str, schemas.OUTPUT_BAS
     @property
     def path(self) -> str:
         return self.__getitem__("path")
+    
+    def get_property(self, name):
+        return self.__getitem__(name)
 
     def __new__(cls, arg: JSONPatchRequestMoveCopyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return JSONPatchRequestMoveCopy.validate(arg, configuration=configuration)

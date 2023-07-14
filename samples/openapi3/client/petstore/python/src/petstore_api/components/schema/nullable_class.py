@@ -908,6 +908,9 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def object_items_nullable(self) -> ObjectItemsNullableDict:
         return self.__getitem__("object_items_nullable")
     
+    def get_property(self, name):
+        return self.__getitem__(name)
+    
     def get_additional_property(self, name: str) -> typing.Union[
         None,
         schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],

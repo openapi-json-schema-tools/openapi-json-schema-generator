@@ -291,7 +291,10 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def indirect_map(self) -> string_boolean_map.StringBooleanMapDict:
         return self.__getitem__("indirect_map")
     
-    def additional_properties(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+    def get_property(self, name):
+        return self.__getitem__(name)
+    
+    def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__(name)
 
     def __new__(cls, arg: MapTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

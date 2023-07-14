@@ -76,6 +76,9 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     @property
     def _self(self) -> str:
         return self.__getitem__("self")
+    
+    def get_property(self, name):
+        return self.__getitem__(name)
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)
@@ -157,6 +160,9 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     @property
     def _self(self) -> str:
         return self.__getitem__("self")
+    
+    def get_property(self, name):
+        return self.__getitem__(name)
 
     def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return HeaderParameters.validate(arg, configuration=configuration)
@@ -243,6 +249,9 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def _self(self) -> str:
         return self.__getitem__("self")
+    
+    def get_property(self, name):
+        return self.__getitem__(name)
 
     def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return PathParameters.validate(arg, configuration=configuration)
@@ -336,6 +345,9 @@ class CookieParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     @property
     def _self(self) -> str:
         return self.__getitem__("self")
+    
+    def get_property(self, name):
+        return self.__getitem__(name)
 
     def __new__(cls, arg: CookieParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return CookieParameters.validate(arg, configuration=configuration)

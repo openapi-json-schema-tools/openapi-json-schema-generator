@@ -23,6 +23,9 @@ class ReqPropsFromTrueAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BAS
     def valid_name(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("validName")
     
+    def get_property(self, name):
+        return self.__getitem__(name)
+    
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__(name)
 

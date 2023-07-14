@@ -89,6 +89,9 @@ class VariablesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def version(self) -> typing_extensions.Literal["v1", "v2"]:
         return self.__getitem__("version")
+    
+    def get_property(self, name):
+        return self.__getitem__(name)
 
     def __new__(cls, arg: VariablesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Variables.validate(arg, configuration=configuration)

@@ -37,6 +37,9 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     @property
     def api_key(self) -> str:
         return self.__getitem__("api_key")
+    
+    def get_property(self, name):
+        return self.__getitem__(name)
 
     def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return HeaderParameters.validate(arg, configuration=configuration)
@@ -96,6 +99,9 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def pet_id(self) -> int:
         return self.__getitem__("petId")
+    
+    def get_property(self, name):
+        return self.__getitem__(name)
 
     def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return PathParameters.validate(arg, configuration=configuration)
