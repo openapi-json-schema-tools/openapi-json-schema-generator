@@ -4,13 +4,13 @@
             {{#if refInfo.refClass}}
 
 @property
-{{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="def_property" endChar=":" }}
+{{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="get_property" endChar=":" }}
     return self.__getitem__("{{{@key.original}}}")
             {{else}}
                 {{#if jsonPathPiece}}
 
 @property
-{{> components/schemas/_helper_schema_output_type mode="def_property" fullRefModule=null endChar=":" }}
+{{> components/schemas/_helper_schema_output_type mode="get_property" fullRefModule=null endChar=":" }}
     return self.__getitem__("{{{@key.original}}}")
                 {{else}}
                     {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
@@ -29,13 +29,13 @@ def {{@key.snakeCase}}(self) -> schemas.OUTPUT_BASE_TYPES:
             {{#if refInfo.refClass}}
 
 @property
-{{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="def_property" endChar=":" }}
+{{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="get_property" endChar=":" }}
     return self.__getitem__("{{{@key.original}}}")
             {{else}}
                 {{#if jsonPathPiece}}
 
 @property
-{{> components/schemas/_helper_schema_output_type mode="def_property" fullRefModule=null endChar=":" }}
+{{> components/schemas/_helper_schema_output_type mode="get_property" fullRefModule=null endChar=":" }}
     return self.__getitem__("{{{@key.original}}}")
                 {{else}}
                     {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
