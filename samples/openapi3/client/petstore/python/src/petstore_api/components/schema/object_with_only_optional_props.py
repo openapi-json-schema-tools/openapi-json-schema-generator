@@ -24,11 +24,11 @@ Properties = typing_extensions.TypedDict(
 
 class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def a(self) -> str:
         return self.__getitem__("a")
     
-    @property
+    @typing.overload
     def b(self) -> typing.Union[int, float]:
         return self.__getitem__("b")
     

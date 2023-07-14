@@ -81,11 +81,11 @@ Properties = typing_extensions.TypedDict(
 
 class FileSchemaTestClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def file(self) -> file.FileDict:
         return self.__getitem__("file")
     
-    @property
+    @typing.overload
     def files(self) -> FilesTuple:
         return self.__getitem__("files")
     

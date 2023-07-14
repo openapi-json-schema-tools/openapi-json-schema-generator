@@ -26,15 +26,15 @@ Properties = typing_extensions.TypedDict(
 
 class ObjectWithDecimalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def length(self) -> str:
         return self.__getitem__("length")
     
-    @property
+    @typing.overload
     def width(self) -> str:
         return self.__getitem__("width")
     
-    @property
+    @typing.overload
     def cost(self) -> money.MoneyDict:
         return self.__getitem__("cost")
     

@@ -23,11 +23,11 @@ Properties = typing_extensions.TypedDict(
 
 class TagDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def id(self) -> int:
         return self.__getitem__("id")
     
-    @property
+    @typing.overload
     def name(self) -> str:
         return self.__getitem__("name")
     

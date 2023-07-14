@@ -146,59 +146,59 @@ Properties = typing_extensions.TypedDict(
 
 class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def byte(self) -> str:
         return self.__getitem__("byte")
     
-    @property
+    @typing.overload
     def double(self) -> typing.Union[int, float]:
         return self.__getitem__("double")
     
-    @property
+    @typing.overload
     def number(self) -> typing.Union[int, float]:
         return self.__getitem__("number")
     
-    @property
+    @typing.overload
     def pattern_without_delimiter(self) -> str:
         return self.__getitem__("pattern_without_delimiter")
     
-    @property
+    @typing.overload
     def integer(self) -> int:
         return self.__getitem__("integer")
     
-    @property
+    @typing.overload
     def int32(self) -> int:
         return self.__getitem__("int32")
     
-    @property
+    @typing.overload
     def int64(self) -> int:
         return self.__getitem__("int64")
     
-    @property
+    @typing.overload
     def _float(self) -> typing.Union[int, float]:
         return self.__getitem__("float")
     
-    @property
+    @typing.overload
     def string(self) -> str:
         return self.__getitem__("string")
     
-    @property
+    @typing.overload
     def binary(self) -> typing.Union[bytes, schemas.FileIO]:
         return self.__getitem__("binary")
     
-    @property
+    @typing.overload
     def date(self) -> str:
         return self.__getitem__("date")
     
-    @property
+    @typing.overload
     def date_time(self) -> str:
         return self.__getitem__("dateTime")
     
-    @property
+    @typing.overload
     def password(self) -> str:
         return self.__getitem__("password")
     
-    @property
+    @typing.overload
     def callback(self) -> str:
         return self.__getitem__("callback")
     

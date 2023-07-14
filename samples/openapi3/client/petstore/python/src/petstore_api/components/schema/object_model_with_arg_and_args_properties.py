@@ -23,11 +23,11 @@ Properties = typing_extensions.TypedDict(
 
 class ObjectModelWithArgAndArgsPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def arg(self) -> str:
         return self.__getitem__("arg")
     
-    @property
+    @typing.overload
     def args(self) -> str:
         return self.__getitem__("args")
     

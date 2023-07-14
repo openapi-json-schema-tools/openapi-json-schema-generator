@@ -44,27 +44,27 @@ Properties = typing_extensions.TypedDict(
 
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def context(self) -> parameter_4_schema.SchemaTuple:
         return self.__getitem__("context")
     
-    @property
+    @typing.overload
     def http(self) -> parameter_2_schema.SchemaTuple:
         return self.__getitem__("http")
     
-    @property
+    @typing.overload
     def ioutil(self) -> parameter_1_schema.SchemaTuple:
         return self.__getitem__("ioutil")
     
-    @property
+    @typing.overload
     def pipe(self) -> parameter_0_schema.SchemaTuple:
         return self.__getitem__("pipe")
     
-    @property
+    @typing.overload
     def ref_param(self) -> str:
         return self.__getitem__("refParam")
     
-    @property
+    @typing.overload
     def url(self) -> parameter_3_schema.SchemaTuple:
         return self.__getitem__("url")
     

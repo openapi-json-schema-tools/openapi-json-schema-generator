@@ -121,27 +121,27 @@ Properties = typing_extensions.TypedDict(
 
 class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def id(self) -> int:
         return self.__getitem__("id")
     
-    @property
+    @typing.overload
     def pet_id(self) -> int:
         return self.__getitem__("petId")
     
-    @property
+    @typing.overload
     def quantity(self) -> int:
         return self.__getitem__("quantity")
     
-    @property
+    @typing.overload
     def ship_date(self) -> str:
         return self.__getitem__("shipDate")
     
-    @property
+    @typing.overload
     def status(self) -> typing_extensions.Literal["placed", "approved", "delivered"]:
         return self.__getitem__("status")
     
-    @property
+    @typing.overload
     def complete(self) -> bool:
         return self.__getitem__("complete")
     

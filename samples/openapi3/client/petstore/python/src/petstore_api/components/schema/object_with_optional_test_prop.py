@@ -21,7 +21,7 @@ Properties = typing_extensions.TypedDict(
 
 class ObjectWithOptionalTestPropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def test(self) -> str:
         return self.__getitem__("test")
     

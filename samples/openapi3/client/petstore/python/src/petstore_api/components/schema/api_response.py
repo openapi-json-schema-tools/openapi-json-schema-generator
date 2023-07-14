@@ -25,15 +25,15 @@ Properties = typing_extensions.TypedDict(
 
 class ApiResponseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def code(self) -> int:
         return self.__getitem__("code")
     
-    @property
+    @typing.overload
     def type(self) -> str:
         return self.__getitem__("type")
     
-    @property
+    @typing.overload
     def message(self) -> str:
         return self.__getitem__("message")
     

@@ -31,27 +31,27 @@ Properties = typing_extensions.TypedDict(
 
 class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def small_camel(self) -> str:
         return self.__getitem__("smallCamel")
     
-    @property
+    @typing.overload
     def capital_camel(self) -> str:
         return self.__getitem__("CapitalCamel")
     
-    @property
+    @typing.overload
     def small_snake(self) -> str:
         return self.__getitem__("small_Snake")
     
-    @property
+    @typing.overload
     def capital_snake(self) -> str:
         return self.__getitem__("Capital_Snake")
     
-    @property
+    @typing.overload
     def scaeth_flow_points(self) -> str:
         return self.__getitem__("SCA_ETH_Flow_Points")
     
-    @property
+    @typing.overload
     def attname(self) -> str:
         return self.__getitem__("ATT_NAME")
     

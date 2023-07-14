@@ -25,15 +25,15 @@ Properties = typing_extensions.TypedDict(
 
 class ObjectWithDifficultlyNamedPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def _123_list(self) -> str:
         return self.__getitem__("123-list")
     
-    @property
+    @typing.overload
     def special_property_name(self) -> int:
         return self.__getitem__("$special[property.name]")
     
-    @property
+    @typing.overload
     def _123_number(self) -> int:
         return self.__getitem__("123Number")
     

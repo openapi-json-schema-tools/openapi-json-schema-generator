@@ -170,11 +170,11 @@ Properties = typing_extensions.TypedDict(
 
 class VariablesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def port(self) -> typing_extensions.Literal["80", "8080"]:
         return self.__getitem__("port")
     
-    @property
+    @typing.overload
     def server(self) -> typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"]:
         return self.__getitem__("server")
     

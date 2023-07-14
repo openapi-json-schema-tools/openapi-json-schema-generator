@@ -26,15 +26,15 @@ Properties = typing_extensions.TypedDict(
 
 class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def my_number(self) -> typing.Union[int, float]:
         return self.__getitem__("myNumber")
     
-    @property
+    @typing.overload
     def my_string(self) -> str:
         return self.__getitem__("myString")
     
-    @property
+    @typing.overload
     def my_boolean(self) -> bool:
         return self.__getitem__("myBoolean")
     

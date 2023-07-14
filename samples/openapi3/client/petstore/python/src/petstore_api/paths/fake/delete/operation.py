@@ -56,19 +56,19 @@ QueryParametersOptionalDictInput = typing_extensions.TypedDict(
 
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def required_int64_group(self) -> int:
         return self.__getitem__("required_int64_group")
     
-    @property
+    @typing.overload
     def required_string_group(self) -> str:
         return self.__getitem__("required_string_group")
     
-    @property
+    @typing.overload
     def int64_group(self) -> int:
         return self.__getitem__("int64_group")
     
-    @property
+    @typing.overload
     def string_group(self) -> str:
         return self.__getitem__("string_group")
     
@@ -146,11 +146,11 @@ HeaderParametersOptionalDictInput = typing_extensions.TypedDict(
 
 class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def required_boolean_group(self) -> typing_extensions.Literal["true", "false"]:
         return self.__getitem__("required_boolean_group")
     
-    @property
+    @typing.overload
     def boolean_group(self) -> typing_extensions.Literal["true", "false"]:
         return self.__getitem__("boolean_group")
     

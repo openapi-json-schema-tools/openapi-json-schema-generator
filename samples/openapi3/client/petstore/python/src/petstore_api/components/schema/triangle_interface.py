@@ -76,11 +76,11 @@ Properties = typing_extensions.TypedDict(
 
 class TriangleInterfaceDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def shape_type(self) -> typing_extensions.Literal["Triangle"]:
         return self.__getitem__("shapeType")
     
-    @property
+    @typing.overload
     def triangle_type(self) -> str:
         return self.__getitem__("triangleType")
     

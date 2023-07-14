@@ -24,11 +24,11 @@ Properties = typing_extensions.TypedDict(
 
 class ObjectWithInvalidNamedRefedPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def reference(self) -> array_with_validations_in_items.ArrayWithValidationsInItemsTuple:
         return self.__getitem__("!reference")
     
-    @property
+    @typing.overload
     def _from(self) -> from_schema.FromSchemaDict:
         return self.__getitem__("from")
     

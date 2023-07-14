@@ -89,58 +89,58 @@ Properties = typing_extensions.TypedDict(
 
 class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def id(self) -> int:
         return self.__getitem__("id")
     
-    @property
+    @typing.overload
     def username(self) -> str:
         return self.__getitem__("username")
     
-    @property
+    @typing.overload
     def first_name(self) -> str:
         return self.__getitem__("firstName")
     
-    @property
+    @typing.overload
     def last_name(self) -> str:
         return self.__getitem__("lastName")
     
-    @property
+    @typing.overload
     def email(self) -> str:
         return self.__getitem__("email")
     
-    @property
+    @typing.overload
     def password(self) -> str:
         return self.__getitem__("password")
     
-    @property
+    @typing.overload
     def phone(self) -> str:
         return self.__getitem__("phone")
     
-    @property
+    @typing.overload
     def user_status(self) -> int:
         return self.__getitem__("userStatus")
     
-    @property
+    @typing.overload
     def object_with_no_declared_props(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
         return self.__getitem__("objectWithNoDeclaredProps")
     
-    @property
+    @typing.overload
     def object_with_no_declared_props_nullable(self) -> typing.Union[
         None,
         schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
         return self.__getitem__("objectWithNoDeclaredPropsNullable")
     
-    @property
+    @typing.overload
     def any_type_prop(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("anyTypeProp")
     
-    @property
+    @typing.overload
     def any_type_except_null_prop(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("anyTypeExceptNullProp")
     
-    @property
+    @typing.overload
     def any_type_prop_nullable(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("anyTypePropNullable")
     

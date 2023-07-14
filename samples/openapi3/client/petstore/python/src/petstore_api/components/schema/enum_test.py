@@ -308,42 +308,42 @@ Properties = typing_extensions.TypedDict(
 
 class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def enum_string_required(self) -> typing_extensions.Literal["UPPER", "lower", ""]:
         return self.__getitem__("enum_string_required")
     
-    @property
+    @typing.overload
     def enum_string(self) -> typing_extensions.Literal["UPPER", "lower", ""]:
         return self.__getitem__("enum_string")
     
-    @property
+    @typing.overload
     def enum_integer(self) -> typing_extensions.Literal[1, -1]:
         return self.__getitem__("enum_integer")
     
-    @property
+    @typing.overload
     def enum_number(self) -> typing.Union[int, float]:
         return self.__getitem__("enum_number")
     
-    @property
+    @typing.overload
     def string_enum(self) -> typing.Union[
         None,
         typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
     ]:
         return self.__getitem__("stringEnum")
     
-    @property
+    @typing.overload
     def integer_enum(self) -> typing_extensions.Literal[0, 1, 2]:
         return self.__getitem__("IntegerEnum")
     
-    @property
+    @typing.overload
     def string_enum_with_default_value(self) -> typing_extensions.Literal["placed", "approved", "delivered"]:
         return self.__getitem__("StringEnumWithDefaultValue")
     
-    @property
+    @typing.overload
     def integer_enum_with_default_value(self) -> typing_extensions.Literal[0, 1, 2]:
         return self.__getitem__("IntegerEnumWithDefaultValue")
     
-    @property
+    @typing.overload
     def integer_enum_one_value(self) -> typing_extensions.Literal[0]:
         return self.__getitem__("IntegerEnumOneValue")
     

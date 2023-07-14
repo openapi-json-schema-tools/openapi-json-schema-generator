@@ -76,11 +76,11 @@ Properties = typing_extensions.TypedDict(
 
 class QuadrilateralInterfaceDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def quadrilateral_type(self) -> str:
         return self.__getitem__("quadrilateralType")
     
-    @property
+    @typing.overload
     def shape_type(self) -> typing_extensions.Literal["Quadrilateral"]:
         return self.__getitem__("shapeType")
     

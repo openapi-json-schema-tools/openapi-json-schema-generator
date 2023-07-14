@@ -223,87 +223,87 @@ Properties = typing_extensions.TypedDict(
 
 class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def byte(self) -> str:
         return self.__getitem__("byte")
     
-    @property
+    @typing.overload
     def date(self) -> str:
         return self.__getitem__("date")
     
-    @property
+    @typing.overload
     def number(self) -> typing.Union[int, float]:
         return self.__getitem__("number")
     
-    @property
+    @typing.overload
     def password(self) -> str:
         return self.__getitem__("password")
     
-    @property
+    @typing.overload
     def integer(self) -> int:
         return self.__getitem__("integer")
     
-    @property
+    @typing.overload
     def int32(self) -> int:
         return self.__getitem__("int32")
     
-    @property
+    @typing.overload
     def int32with_validations(self) -> int:
         return self.__getitem__("int32withValidations")
     
-    @property
+    @typing.overload
     def int64(self) -> int:
         return self.__getitem__("int64")
     
-    @property
+    @typing.overload
     def _float(self) -> typing.Union[int, float]:
         return self.__getitem__("float")
     
-    @property
+    @typing.overload
     def float32(self) -> typing.Union[int, float]:
         return self.__getitem__("float32")
     
-    @property
+    @typing.overload
     def double(self) -> typing.Union[int, float]:
         return self.__getitem__("double")
     
-    @property
+    @typing.overload
     def float64(self) -> typing.Union[int, float]:
         return self.__getitem__("float64")
     
-    @property
+    @typing.overload
     def array_with_unique_items(self) -> ArrayWithUniqueItemsTuple:
         return self.__getitem__("arrayWithUniqueItems")
     
-    @property
+    @typing.overload
     def string(self) -> str:
         return self.__getitem__("string")
     
-    @property
+    @typing.overload
     def binary(self) -> typing.Union[bytes, schemas.FileIO]:
         return self.__getitem__("binary")
     
-    @property
+    @typing.overload
     def date_time(self) -> str:
         return self.__getitem__("dateTime")
     
-    @property
+    @typing.overload
     def uuid(self) -> str:
         return self.__getitem__("uuid")
     
-    @property
+    @typing.overload
     def uuid_no_example(self) -> str:
         return self.__getitem__("uuidNoExample")
     
-    @property
+    @typing.overload
     def pattern_with_digits(self) -> str:
         return self.__getitem__("pattern_with_digits")
     
-    @property
+    @typing.overload
     def pattern_with_digits_and_delimiter(self) -> str:
         return self.__getitem__("pattern_with_digits_and_delimiter")
     
-    @property
+    @typing.overload
     def none_prop(self) -> None:
         return self.__getitem__("noneProp")
     

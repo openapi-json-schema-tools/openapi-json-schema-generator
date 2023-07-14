@@ -93,15 +93,15 @@ Properties = typing_extensions.TypedDict(
 
 class JSONPatchRequestMoveCopyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def _from(self) -> str:
         return self.__getitem__("from")
     
-    @property
+    @typing.overload
     def op(self) -> typing_extensions.Literal["move", "copy"]:
         return self.__getitem__("op")
     
-    @property
+    @typing.overload
     def path(self) -> str:
         return self.__getitem__("path")
     

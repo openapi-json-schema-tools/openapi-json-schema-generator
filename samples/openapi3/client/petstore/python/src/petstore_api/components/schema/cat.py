@@ -21,7 +21,7 @@ Properties = typing_extensions.TypedDict(
 
 class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def declawed(self) -> bool:
         return self.__getitem__("declawed")
     

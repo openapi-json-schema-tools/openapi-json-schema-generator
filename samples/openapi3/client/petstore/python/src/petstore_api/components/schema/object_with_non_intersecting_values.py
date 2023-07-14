@@ -22,7 +22,7 @@ Properties = typing_extensions.TypedDict(
 
 class ObjectWithNonIntersectingValuesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def a(self) -> typing.Union[int, float]:
         return self.__getitem__("a")
     

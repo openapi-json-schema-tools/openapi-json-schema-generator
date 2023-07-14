@@ -35,11 +35,11 @@ Properties = typing_extensions.TypedDict(
 
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def password(self) -> str:
         return self.__getitem__("password")
     
-    @property
+    @typing.overload
     def username(self) -> str:
         return self.__getitem__("username")
     

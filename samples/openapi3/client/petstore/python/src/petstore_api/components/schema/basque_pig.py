@@ -74,7 +74,7 @@ Properties = typing_extensions.TypedDict(
 
 class BasquePigDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def class_name(self) -> typing_extensions.Literal["BasquePig"]:
         return self.__getitem__("className")
     

@@ -23,11 +23,11 @@ Properties = typing_extensions.TypedDict(
 
 class ObjectWithCollidingPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def some_prop(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
         return self.__getitem__("someProp")
     
-    @property
+    @typing.overload
     def someprop(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
         return self.__getitem__("someprop")
     

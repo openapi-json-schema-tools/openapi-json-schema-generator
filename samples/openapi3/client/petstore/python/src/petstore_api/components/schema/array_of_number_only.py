@@ -77,7 +77,7 @@ Properties = typing_extensions.TypedDict(
 
 class ArrayOfNumberOnlyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def array_number(self) -> ArrayNumberTuple:
         return self.__getitem__("ArrayNumber")
     

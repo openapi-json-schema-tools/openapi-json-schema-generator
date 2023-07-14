@@ -57,23 +57,23 @@ Properties2 = typing_extensions.TypedDict(
 
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def _1(self) -> str:
         return self.__getitem__("1")
     
-    @property
+    @typing.overload
     def ab(self) -> str:
         return self.__getitem__("aB")
     
-    @property
+    @typing.overload
     def ab(self) -> str:
         return self.__getitem__("Ab")
     
-    @property
+    @typing.overload
     def ab(self) -> str:
         return self.__getitem__("A-B")
     
-    @property
+    @typing.overload
     def _self(self) -> str:
         return self.__getitem__("self")
     
@@ -145,19 +145,19 @@ Properties3 = typing_extensions.TypedDict(
 
 class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def _1(self) -> str:
         return self.__getitem__("1")
     
-    @property
+    @typing.overload
     def ab(self) -> str:
         return self.__getitem__("aB")
     
-    @property
+    @typing.overload
     def ab(self) -> str:
         return self.__getitem__("A-B")
     
-    @property
+    @typing.overload
     def _self(self) -> str:
         return self.__getitem__("self")
     
@@ -230,23 +230,23 @@ Properties = typing_extensions.TypedDict(
 
 class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def _1(self) -> str:
         return self.__getitem__("1")
     
-    @property
+    @typing.overload
     def ab(self) -> str:
         return self.__getitem__("A-B")
     
-    @property
+    @typing.overload
     def ab(self) -> str:
         return self.__getitem__("Ab")
     
-    @property
+    @typing.overload
     def ab(self) -> str:
         return self.__getitem__("aB")
     
-    @property
+    @typing.overload
     def _self(self) -> str:
         return self.__getitem__("self")
     
@@ -326,23 +326,23 @@ Properties4 = typing_extensions.TypedDict(
 
 class CookieParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def _1(self) -> str:
         return self.__getitem__("1")
     
-    @property
+    @typing.overload
     def ab(self) -> str:
         return self.__getitem__("aB")
     
-    @property
+    @typing.overload
     def ab(self) -> str:
         return self.__getitem__("Ab")
     
-    @property
+    @typing.overload
     def ab(self) -> str:
         return self.__getitem__("A-B")
     
-    @property
+    @typing.overload
     def _self(self) -> str:
         return self.__getitem__("self")
     

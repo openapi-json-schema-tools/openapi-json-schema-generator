@@ -25,11 +25,11 @@ Properties = typing_extensions.TypedDict(
 
 class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def amount(self) -> str:
         return self.__getitem__("amount")
     
-    @property
+    @typing.overload
     def currency(self) -> typing_extensions.Literal["eur", "usd"]:
         return self.__getitem__("currency")
     

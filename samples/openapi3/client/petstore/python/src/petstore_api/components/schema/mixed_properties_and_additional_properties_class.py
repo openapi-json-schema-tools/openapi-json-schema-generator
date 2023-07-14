@@ -74,15 +74,15 @@ Properties = typing_extensions.TypedDict(
 
 class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def uuid(self) -> str:
         return self.__getitem__("uuid")
     
-    @property
+    @typing.overload
     def date_time(self) -> str:
         return self.__getitem__("dateTime")
     
-    @property
+    @typing.overload
     def map(self) -> MapDict:
         return self.__getitem__("map")
     

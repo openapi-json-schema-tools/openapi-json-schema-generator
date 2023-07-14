@@ -109,39 +109,39 @@ Properties = typing_extensions.TypedDict(
 
 class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def uuid(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("uuid")
     
-    @property
+    @typing.overload
     def date(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("date")
     
-    @property
+    @typing.overload
     def date_time(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("date-time")
     
-    @property
+    @typing.overload
     def number(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("number")
     
-    @property
+    @typing.overload
     def binary(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("binary")
     
-    @property
+    @typing.overload
     def int32(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("int32")
     
-    @property
+    @typing.overload
     def int64(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("int64")
     
-    @property
+    @typing.overload
     def double(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("double")
     
-    @property
+    @typing.overload
     def _float(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("float")
     

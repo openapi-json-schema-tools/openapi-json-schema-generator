@@ -22,7 +22,7 @@ Properties = typing_extensions.TypedDict(
 
 class FooDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def bar(self) -> str:
         return self.__getitem__("bar")
     

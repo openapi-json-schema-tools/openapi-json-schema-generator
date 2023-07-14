@@ -34,7 +34,7 @@ Properties = typing_extensions.TypedDict(
 
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def tags(self) -> parameter_0_schema.SchemaTuple:
         return self.__getitem__("tags")
     

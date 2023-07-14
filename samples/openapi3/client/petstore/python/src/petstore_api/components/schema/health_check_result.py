@@ -56,7 +56,7 @@ Properties = typing_extensions.TypedDict(
 
 class HealthCheckResultDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def nullable_message(self) -> typing.Union[
         None,
         str,

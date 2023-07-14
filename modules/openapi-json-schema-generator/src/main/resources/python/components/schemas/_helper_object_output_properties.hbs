@@ -3,19 +3,19 @@
         {{#with this}}
             {{#if refInfo.refClass}}
 
-@property
+@typing.overload
 {{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="get_property" endChar=":" }}
     return self.__getitem__("{{{@key.original}}}")
             {{else}}
                 {{#if jsonPathPiece}}
 
-@property
+@typing.overload
 {{> components/schemas/_helper_schema_output_type mode="get_property" fullRefModule=null endChar=":" }}
     return self.__getitem__("{{{@key.original}}}")
                 {{else}}
                     {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
 
-@property
+@typing.overload
 def {{@key.snakeCase}}(self) -> schemas.OUTPUT_BASE_TYPES:
     return self.__getitem__("{{{@key.original}}}")
                 {{/if}}
@@ -28,19 +28,19 @@ def {{@key.snakeCase}}(self) -> schemas.OUTPUT_BASE_TYPES:
         {{#with this}}
             {{#if refInfo.refClass}}
 
-@property
+@typing.overload
 {{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="get_property" endChar=":" }}
     return self.__getitem__("{{{@key.original}}}")
             {{else}}
                 {{#if jsonPathPiece}}
 
-@property
+@typing.overload
 {{> components/schemas/_helper_schema_output_type mode="get_property" fullRefModule=null endChar=":" }}
     return self.__getitem__("{{{@key.original}}}")
                 {{else}}
                     {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
 
-@property
+@typing.overload
 def {{@key.snakeCase}}(self) -> schemas.OUTPUT_BASE_TYPES:
     return self.__getitem__("{{{@key.original}}}")
                 {{/if}}

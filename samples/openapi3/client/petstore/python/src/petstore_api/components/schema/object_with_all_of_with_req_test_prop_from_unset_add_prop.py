@@ -21,11 +21,11 @@ Properties = typing_extensions.TypedDict(
 
 class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def test(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("test")
     
-    @property
+    @typing.overload
     def name(self) -> str:
         return self.__getitem__("name")
     

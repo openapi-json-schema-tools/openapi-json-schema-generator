@@ -14,11 +14,11 @@ from petstore_api.shared_imports.schema_imports import *
 
 class ReqPropsFromUnsetAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def invalid_name(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("invalid-name")
     
-    @property
+    @typing.overload
     def valid_name(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("validName")
     

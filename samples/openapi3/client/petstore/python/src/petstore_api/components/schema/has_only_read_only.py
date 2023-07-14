@@ -23,11 +23,11 @@ Properties = typing_extensions.TypedDict(
 
 class HasOnlyReadOnlyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def bar(self) -> str:
         return self.__getitem__("bar")
     
-    @property
+    @typing.overload
     def foo(self) -> str:
         return self.__getitem__("foo")
     

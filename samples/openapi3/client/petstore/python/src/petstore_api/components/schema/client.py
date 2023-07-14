@@ -21,7 +21,7 @@ Properties = typing_extensions.TypedDict(
 
 class ClientDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def client(self) -> str:
         return self.__getitem__("client")
     

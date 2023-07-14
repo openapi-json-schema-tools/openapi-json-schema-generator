@@ -30,7 +30,7 @@ Properties = typing_extensions.TypedDict(
 
 class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def id(self) -> str:
         return self.__getitem__("id")
     

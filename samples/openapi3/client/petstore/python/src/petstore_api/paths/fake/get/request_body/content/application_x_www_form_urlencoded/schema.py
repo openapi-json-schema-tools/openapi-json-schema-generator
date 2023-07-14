@@ -223,11 +223,11 @@ Properties = typing_extensions.TypedDict(
 
 class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def enum_form_string_array(self) -> EnumFormStringArrayTuple:
         return self.__getitem__("enum_form_string_array")
     
-    @property
+    @typing.overload
     def enum_form_string(self) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
         return self.__getitem__("enum_form_string")
     

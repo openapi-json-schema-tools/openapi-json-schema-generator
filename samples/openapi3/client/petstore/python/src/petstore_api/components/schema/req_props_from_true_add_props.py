@@ -15,11 +15,11 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 
 class ReqPropsFromTrueAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def invalid_name(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("invalid-name")
     
-    @property
+    @typing.overload
     def valid_name(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("validName")
     

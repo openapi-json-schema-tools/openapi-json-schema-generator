@@ -25,15 +25,15 @@ Properties = typing_extensions.TypedDict(
 
 class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def name(self) -> int:
         return self.__getitem__("name")
     
-    @property
+    @typing.overload
     def snake_case(self) -> int:
         return self.__getitem__("snake_case")
     
-    @property
+    @typing.overload
     def _property(self) -> str:
         return self.__getitem__("property")
     

@@ -21,7 +21,7 @@ Properties = typing_extensions.TypedDict(
 
 class ClassModelDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def _class(self) -> str:
         return self.__getitem__("_class")
     

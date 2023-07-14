@@ -27,7 +27,7 @@ Properties = typing_extensions.TypedDict(
 
 class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def some_header(self) -> str:
         return self.__getitem__("someHeader")
     

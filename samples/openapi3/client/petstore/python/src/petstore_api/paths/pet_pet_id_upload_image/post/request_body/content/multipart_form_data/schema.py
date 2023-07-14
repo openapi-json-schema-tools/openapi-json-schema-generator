@@ -23,11 +23,11 @@ Properties = typing_extensions.TypedDict(
 
 class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def additional_metadata(self) -> str:
         return self.__getitem__("additionalMetadata")
     
-    @property
+    @typing.overload
     def file(self) -> typing.Union[bytes, schemas.FileIO]:
         return self.__getitem__("file")
     

@@ -74,7 +74,7 @@ Properties = typing_extensions.TypedDict(
 
 class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def triangle_type(self) -> typing_extensions.Literal["ScaleneTriangle"]:
         return self.__getitem__("triangleType")
     

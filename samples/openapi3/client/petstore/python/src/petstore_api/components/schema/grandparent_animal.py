@@ -21,7 +21,7 @@ Properties = typing_extensions.TypedDict(
 
 class GrandparentAnimalDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def pet_type(self) -> str:
         return self.__getitem__("pet_type")
     

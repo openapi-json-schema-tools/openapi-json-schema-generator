@@ -21,15 +21,15 @@ Properties = typing_extensions.TypedDict(
 
 class AbstractStepMessageDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def description(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("description")
     
-    @property
+    @typing.overload
     def discriminator(self) -> str:
         return self.__getitem__("discriminator")
     
-    @property
+    @typing.overload
     def sequence_number(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("sequenceNumber")
     

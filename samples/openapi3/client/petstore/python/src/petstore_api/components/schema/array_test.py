@@ -300,15 +300,15 @@ Properties = typing_extensions.TypedDict(
 
 class ArrayTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def array_of_string(self) -> ArrayOfStringTuple:
         return self.__getitem__("array_of_string")
     
-    @property
+    @typing.overload
     def array_array_of_integer(self) -> ArrayArrayOfIntegerTuple:
         return self.__getitem__("array_array_of_integer")
     
-    @property
+    @typing.overload
     def array_array_of_model(self) -> ArrayArrayOfModelTuple:
         return self.__getitem__("array_array_of_model")
     

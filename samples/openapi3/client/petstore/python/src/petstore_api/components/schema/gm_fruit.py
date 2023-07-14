@@ -21,7 +21,7 @@ Properties = typing_extensions.TypedDict(
 
 class GmFruitDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def color(self) -> str:
         return self.__getitem__("color")
     

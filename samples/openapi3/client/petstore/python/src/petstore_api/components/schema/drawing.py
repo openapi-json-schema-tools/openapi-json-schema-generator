@@ -110,19 +110,19 @@ Properties = typing_extensions.TypedDict(
 
 class DrawingDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def main_shape(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("mainShape")
     
-    @property
+    @typing.overload
     def shape_or_null(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("shapeOrNull")
     
-    @property
+    @typing.overload
     def nullable_shape(self) -> schemas.OUTPUT_BASE_TYPES:
         return self.__getitem__("nullableShape")
     
-    @property
+    @typing.overload
     def shapes(self) -> ShapesTuple:
         return self.__getitem__("shapes")
     

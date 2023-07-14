@@ -20,7 +20,7 @@ Properties = typing_extensions.TypedDict(
 
 class SelfReferencingObjectModelDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def self_ref(self) -> SelfReferencingObjectModelDict:
         return self.__getitem__("selfRef")
     

@@ -45,19 +45,19 @@ Properties = typing_extensions.TypedDict(
 
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def enum_query_double(self) -> typing.Union[int, float]:
         return self.__getitem__("enum_query_double")
     
-    @property
+    @typing.overload
     def enum_query_string(self) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
         return self.__getitem__("enum_query_string")
     
-    @property
+    @typing.overload
     def enum_query_integer(self) -> typing_extensions.Literal[1, -2]:
         return self.__getitem__("enum_query_integer")
     
-    @property
+    @typing.overload
     def enum_query_string_array(self) -> parameter_2_schema.SchemaTuple:
         return self.__getitem__("enum_query_string_array")
     
@@ -131,11 +131,11 @@ Properties2 = typing_extensions.TypedDict(
 
 class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def enum_header_string(self) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
         return self.__getitem__("enum_header_string")
     
-    @property
+    @typing.overload
     def enum_header_string_array(self) -> parameter_0_schema.SchemaTuple:
         return self.__getitem__("enum_header_string_array")
     

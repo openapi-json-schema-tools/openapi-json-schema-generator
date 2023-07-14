@@ -46,11 +46,11 @@ Properties = typing_extensions.TypedDict(
 
 class AppleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    @property
+    @typing.overload
     def cultivar(self) -> str:
         return self.__getitem__("cultivar")
     
-    @property
+    @typing.overload
     def origin(self) -> str:
         return self.__getitem__("origin")
     
