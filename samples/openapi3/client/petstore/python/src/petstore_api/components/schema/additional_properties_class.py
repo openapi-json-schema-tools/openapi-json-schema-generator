@@ -20,6 +20,7 @@ class MapPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     def get_additional_property(self, name: str) -> str:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             str,
             self.__getitem__(name)
@@ -72,6 +73,7 @@ class AdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TY
     })
     
     def get_additional_property(self, name: str) -> str:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             str,
             self.__getitem__(name)
@@ -123,6 +125,7 @@ class MapOfMapPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     })
     
     def get_additional_property(self, name: str) -> AdditionalPropertiesDict:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             AdditionalPropertiesDict,
             self.__getitem__(name)
@@ -182,6 +185,7 @@ class MapWithUndeclaredPropertiesAnytype3Dict(schemas.immutabledict[str, schemas
     })
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             schemas.OUTPUT_BASE_TYPES,
             self.__getitem__(name)
@@ -276,6 +280,7 @@ class MapWithUndeclaredPropertiesStringDict(schemas.immutabledict[str, schemas.O
     })
     
     def get_additional_property(self, name: str) -> str:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             str,
             self.__getitem__(name)
@@ -380,9 +385,11 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BA
         ...
     
     def get_property(self, name):
+        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
         return self.__getitem__(name)
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.__getitem__(name)
 
     def __new__(cls, arg: AdditionalPropertiesClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

@@ -20,6 +20,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     def get_additional_property(self, name: str) -> str:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             str,
             self.__getitem__(name)

@@ -41,9 +41,11 @@ class AbstractStepMessageDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
         ...
     
     def get_property(self, name):
+        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
         return self.__getitem__(name)
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.__getitem__(name)
 
     def __new__(cls, arg: AbstractStepMessageDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

@@ -80,12 +80,17 @@ class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     def get_property(self, name: typing_extensions.Literal["quadrilateralType"]) -> typing_extensions.Literal["SimpleQuadrilateral"]:
+        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if val is schemas.unset:
+            return val
         return typing.cast(
             typing_extensions.Literal["SimpleQuadrilateral"],
-            self.__getitem__(name)
+            val
         )
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.__getitem__(name)
 
     def __new__(cls, arg: _1DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

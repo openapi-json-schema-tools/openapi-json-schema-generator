@@ -20,6 +20,7 @@ class AdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TY
     })
     
     def get_additional_property(self, name: str) -> str:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             str,
             self.__getitem__(name)
@@ -71,6 +72,7 @@ class MapMapOfStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     def get_additional_property(self, name: str) -> AdditionalPropertiesDict:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             AdditionalPropertiesDict,
             self.__getitem__(name)
@@ -194,6 +196,7 @@ class MapOfEnumStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     
     def get_additional_property(self, name: str) -> typing_extensions.Literal["UPPER", "lower"]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             typing_extensions.Literal["UPPER", "lower"],
             self.__getitem__(name)
@@ -246,6 +249,7 @@ class DirectMapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     def get_additional_property(self, name: str) -> bool:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             bool,
             self.__getitem__(name)
@@ -328,9 +332,11 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     def get_property(self, name):
+        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
         return self.__getitem__(name)
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.__getitem__(name)
 
     def __new__(cls, arg: MapTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

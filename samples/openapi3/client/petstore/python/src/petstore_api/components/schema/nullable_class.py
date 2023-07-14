@@ -563,6 +563,7 @@ class ObjectNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPE
     })
     
     def get_additional_property(self, name: str) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
             self.__getitem__(name)
@@ -673,6 +674,7 @@ class ObjectAndItemsNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_B
         None,
         schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             typing.Union[
                 None,
@@ -787,6 +789,7 @@ class ObjectItemsNullableDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
         None,
         schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             typing.Union[
                 None,
@@ -952,12 +955,14 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     def get_property(self, name):
+        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
         return self.__getitem__(name)
     
     def get_additional_property(self, name: str) -> typing.Union[
         None,
         schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             typing.Union[
                 None,

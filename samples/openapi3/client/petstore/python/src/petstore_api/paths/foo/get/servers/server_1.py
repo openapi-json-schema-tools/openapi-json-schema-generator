@@ -92,6 +92,7 @@ class VariablesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     def get_property(self, name: typing_extensions.Literal["version"]) -> typing_extensions.Literal["v1", "v2"]:
+        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             typing_extensions.Literal["v1", "v2"],
             self.__getitem__(name)

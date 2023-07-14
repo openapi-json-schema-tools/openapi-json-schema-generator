@@ -33,9 +33,13 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     def get_property(self, name: typing_extensions.Literal["someHeader"]) -> str:
+        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if val is schemas.unset:
+            return val
         return typing.cast(
             str,
-            self.__getitem__(name)
+            val
         )
 
     def __new__(cls, arg: HeadersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

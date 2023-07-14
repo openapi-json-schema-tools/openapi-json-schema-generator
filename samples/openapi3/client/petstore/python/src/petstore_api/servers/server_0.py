@@ -185,6 +185,7 @@ class VariablesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     def get_property(self, name):
+        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
         return self.__getitem__(name)
 
     def __new__(cls, arg: VariablesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

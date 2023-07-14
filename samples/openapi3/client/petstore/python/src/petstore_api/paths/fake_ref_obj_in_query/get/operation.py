@@ -33,9 +33,13 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     
     def get_property(self, name: typing_extensions.Literal["mapBean"]) -> foo.FooDict:
+        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if val is schemas.unset:
+            return val
         return typing.cast(
             foo.FooDict,
-            self.__getitem__(name)
+            val
         )
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

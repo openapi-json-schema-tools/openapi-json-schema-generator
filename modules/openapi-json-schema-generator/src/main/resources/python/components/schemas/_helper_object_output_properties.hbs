@@ -10,7 +10,7 @@
     {{#neq ../qtyKnownProperties 1}}
     ...
     {{else}}
-    {{> components/schemas/_helper_object_get_property singleProp=true }}
+    {{> components/schemas/_helper_object_get_property singleProp=true required=true }}
     {{/neq}}
             {{else}}
                 {{#if jsonPathPiece}}
@@ -22,7 +22,7 @@
     {{#neq ../qtyKnownProperties 1}}
     ...
     {{else}}
-    {{> components/schemas/_helper_object_get_property singleProp=true }}
+    {{> components/schemas/_helper_object_get_property singleProp=true required=true }}
     {{/neq}}
                 {{else}}
                     {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
@@ -34,7 +34,7 @@ def get_property(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -
     {{#neq ../qtyKnownProperties 1}}
     ...
     {{else}}
-    {{> components/schemas/_helper_object_get_property singleProp=true }}
+    {{> components/schemas/_helper_object_get_property singleProp=true required=true }}
     {{/neq}}
                 {{/if}}
             {{/if}}
@@ -53,7 +53,7 @@ def get_property(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -
     {{#neq ../qtyKnownProperties 1}}
     ...
     {{else}}
-    {{> components/schemas/_helper_object_get_property singleProp=true }}
+    {{> components/schemas/_helper_object_get_property singleProp=true required=false }}
     {{/neq}}
             {{else}}
 
@@ -64,7 +64,7 @@ def get_property(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -
     {{#neq ../qtyKnownProperties 1}}
     ...
     {{else}}
-    {{> components/schemas/_helper_object_get_property singleProp=true }}
+    {{> components/schemas/_helper_object_get_property singleProp=true required=false }}
     {{/neq}}
             {{/if}}
         {{/with}}
@@ -80,6 +80,7 @@ def get_property(self, name):
 {{#eq additionalProperties null }}
 
 def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+    schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
     return self.__getitem__(name)
 {{else}}
     {{#with additionalProperties}}
@@ -91,6 +92,7 @@ def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
 
 {{> components/schemas/_helper_schema_output_type mode="get_additional_property" fullRefModule=null endChar=":" key="str" }}
             {{/if}}
+    schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
     return typing.cast(
             {{#if refInfo.refClass}}
         {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," }}
