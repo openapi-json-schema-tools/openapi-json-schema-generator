@@ -86,12 +86,19 @@ def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         {{#unless isBooleanSchemaFalse}}
             {{#if refInfo.refClass}}
 
-{{> components/schemas/_helper_schema_output_ref_type mode="get_additional_property" fullRefModule=null endChar=":" key="str" }}
+{{> components/schemas/_helper_schema_output_ref_type mode="get_additional_property" fullRefModule="" endChar=":" key="str" }}
             {{else}}
 
 {{> components/schemas/_helper_schema_output_type mode="get_additional_property" fullRefModule=null endChar=":" key="str" }}
             {{/if}}
-    return self.__getitem__(name)
+    return typing.cast(
+            {{#if refInfo.refClass}}
+        {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," }}
+            {{else}}
+        {{> components/schemas/_helper_schema_output_type mode="unprefixed" fullRefModule=null endChar="," }}
+            {{/if}}
+        self.__getitem__(name)
+    )
         {{/unless}}
     {{/with}}
 {{/eq}}

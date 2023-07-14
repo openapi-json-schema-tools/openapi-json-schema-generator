@@ -27,7 +27,10 @@ class ReqPropsFromTrueAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BAS
         return self.__getitem__(name)
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__(name)
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            self.__getitem__(name)
+        )
 
     def __new__(cls, arg: ReqPropsFromTrueAddPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ReqPropsFromTrueAddProps.validate(arg, configuration=configuration)

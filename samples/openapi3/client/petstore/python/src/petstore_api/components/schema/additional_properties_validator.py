@@ -16,7 +16,10 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 class _0Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__(name)
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            self.__getitem__(name)
+        )
 
     def __new__(cls, arg: _0DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _0.validate(arg, configuration=configuration)
@@ -66,7 +69,10 @@ class AdditionalProperties2(
 class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__(name)
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            self.__getitem__(name)
+        )
 
     def __new__(cls, arg: _1DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _1.validate(arg, configuration=configuration)
@@ -135,7 +141,10 @@ class AdditionalProperties3(
 class _2Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__(name)
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            self.__getitem__(name)
+        )
 
     def __new__(cls, arg: _2DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _2.validate(arg, configuration=configuration)

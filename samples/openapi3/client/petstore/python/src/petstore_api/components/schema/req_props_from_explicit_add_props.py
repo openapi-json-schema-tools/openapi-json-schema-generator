@@ -27,7 +27,10 @@ class ReqPropsFromExplicitAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT
         return self.__getitem__(name)
     
     def get_additional_property(self, name: str) -> str:
-        return self.__getitem__(name)
+        return typing.cast(
+            str,
+            self.__getitem__(name)
+        )
 
     def __new__(cls, arg: ReqPropsFromExplicitAddPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ReqPropsFromExplicitAddProps.validate(arg, configuration=configuration)

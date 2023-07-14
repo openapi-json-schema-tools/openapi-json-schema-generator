@@ -16,7 +16,10 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.IntSchema
 class AddressDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def get_additional_property(self, name: str) -> int:
-        return self.__getitem__(name)
+        return typing.cast(
+            int,
+            self.__getitem__(name)
+        )
 
     def __new__(cls, arg: AddressDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Address.validate(arg, configuration=configuration)

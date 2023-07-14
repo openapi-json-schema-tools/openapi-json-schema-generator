@@ -16,7 +16,10 @@ AdditionalProperties2: typing_extensions.TypeAlias = schemas.StrSchema
 class AdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def get_additional_property(self, name: str) -> str:
-        return self.__getitem__(name)
+        return typing.cast(
+            str,
+            self.__getitem__(name)
+        )
 
     def __new__(cls, arg: AdditionalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AdditionalProperties.validate(arg, configuration=configuration)
@@ -60,7 +63,10 @@ class AdditionalProperties(
 class MapMapOfStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def get_additional_property(self, name: str) -> AdditionalPropertiesDict:
-        return self.__getitem__(name)
+        return typing.cast(
+            AdditionalPropertiesDict,
+            self.__getitem__(name)
+        )
 
     def __new__(cls, arg: MapMapOfStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapMapOfString.validate(arg, configuration=configuration)
@@ -176,7 +182,10 @@ class AdditionalProperties3(
 class MapOfEnumStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def get_additional_property(self, name: str) -> typing_extensions.Literal["UPPER", "lower"]:
-        return self.__getitem__(name)
+        return typing.cast(
+            typing_extensions.Literal["UPPER", "lower"],
+            self.__getitem__(name)
+        )
 
     def __new__(cls, arg: MapOfEnumStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapOfEnumString.validate(arg, configuration=configuration)
@@ -221,7 +230,10 @@ AdditionalProperties4: typing_extensions.TypeAlias = schemas.BoolSchema
 class DirectMapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def get_additional_property(self, name: str) -> bool:
-        return self.__getitem__(name)
+        return typing.cast(
+            bool,
+            self.__getitem__(name)
+        )
 
     def __new__(cls, arg: DirectMapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return DirectMap.validate(arg, configuration=configuration)

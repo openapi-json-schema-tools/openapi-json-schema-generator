@@ -18,8 +18,11 @@ from petstore_api.components.schema import animal
 
 class MapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
-    def get_additional_property(self, name: str) -> AnimalDict:
-        return self.__getitem__(name)
+    def get_additional_property(self, name: str) -> animal.AnimalDict:
+        return typing.cast(
+            animal.AnimalDict,
+            self.__getitem__(name)
+        )
 
     def __new__(cls, arg: MapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Map.validate(arg, configuration=configuration)

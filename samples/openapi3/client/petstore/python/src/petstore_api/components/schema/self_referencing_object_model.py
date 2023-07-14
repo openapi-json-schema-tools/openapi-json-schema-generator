@@ -24,7 +24,10 @@ class SelfReferencingObjectModelDict(schemas.immutabledict[str, schemas.OUTPUT_B
         return self.__getitem__(name)
     
     def get_additional_property(self, name: str) -> SelfReferencingObjectModelDict:
-        return self.__getitem__(name)
+        return typing.cast(
+            SelfReferencingObjectModelDict,
+            self.__getitem__(name)
+        )
 
     def __new__(cls, arg: SelfReferencingObjectModelDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return SelfReferencingObjectModel.validate(arg, configuration=configuration)
