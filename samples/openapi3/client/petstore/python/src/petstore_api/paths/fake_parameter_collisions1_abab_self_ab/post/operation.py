@@ -58,24 +58,24 @@ Properties2 = typing_extensions.TypedDict(
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def _1(self) -> str:
-        return self.__getitem__("1")
+    def get_property(self, name: typing_extensions.Literal["1"]) -> str:
+        ...
     
     @typing.overload
-    def ab(self) -> str:
-        return self.__getitem__("aB")
+    def get_property(self, name: typing_extensions.Literal["aB"]) -> str:
+        ...
     
     @typing.overload
-    def ab(self) -> str:
-        return self.__getitem__("Ab")
+    def get_property(self, name: typing_extensions.Literal["Ab"]) -> str:
+        ...
     
     @typing.overload
-    def ab(self) -> str:
-        return self.__getitem__("A-B")
+    def get_property(self, name: typing_extensions.Literal["A-B"]) -> str:
+        ...
     
     @typing.overload
-    def _self(self) -> str:
-        return self.__getitem__("self")
+    def get_property(self, name: typing_extensions.Literal["self"]) -> str:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)
@@ -146,20 +146,20 @@ Properties3 = typing_extensions.TypedDict(
 class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def _1(self) -> str:
-        return self.__getitem__("1")
+    def get_property(self, name: typing_extensions.Literal["1"]) -> str:
+        ...
     
     @typing.overload
-    def ab(self) -> str:
-        return self.__getitem__("aB")
+    def get_property(self, name: typing_extensions.Literal["aB"]) -> str:
+        ...
     
     @typing.overload
-    def ab(self) -> str:
-        return self.__getitem__("A-B")
+    def get_property(self, name: typing_extensions.Literal["A-B"]) -> str:
+        ...
     
     @typing.overload
-    def _self(self) -> str:
-        return self.__getitem__("self")
+    def get_property(self, name: typing_extensions.Literal["self"]) -> str:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)
@@ -231,24 +231,24 @@ Properties = typing_extensions.TypedDict(
 class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def _1(self) -> str:
-        return self.__getitem__("1")
+    def get_property(self, name: typing_extensions.Literal["1"]) -> str:
+        ...
     
     @typing.overload
-    def ab(self) -> str:
-        return self.__getitem__("A-B")
+    def get_property(self, name: typing_extensions.Literal["A-B"]) -> str:
+        ...
     
     @typing.overload
-    def ab(self) -> str:
-        return self.__getitem__("Ab")
+    def get_property(self, name: typing_extensions.Literal["Ab"]) -> str:
+        ...
     
     @typing.overload
-    def ab(self) -> str:
-        return self.__getitem__("aB")
+    def get_property(self, name: typing_extensions.Literal["aB"]) -> str:
+        ...
     
     @typing.overload
-    def _self(self) -> str:
-        return self.__getitem__("self")
+    def get_property(self, name: typing_extensions.Literal["self"]) -> str:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)
@@ -327,24 +327,24 @@ Properties4 = typing_extensions.TypedDict(
 class CookieParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def _1(self) -> str:
-        return self.__getitem__("1")
+    def get_property(self, name: typing_extensions.Literal["1"]) -> str:
+        ...
     
     @typing.overload
-    def ab(self) -> str:
-        return self.__getitem__("aB")
+    def get_property(self, name: typing_extensions.Literal["aB"]) -> str:
+        ...
     
     @typing.overload
-    def ab(self) -> str:
-        return self.__getitem__("Ab")
+    def get_property(self, name: typing_extensions.Literal["Ab"]) -> str:
+        ...
     
     @typing.overload
-    def ab(self) -> str:
-        return self.__getitem__("A-B")
+    def get_property(self, name: typing_extensions.Literal["A-B"]) -> str:
+        ...
     
     @typing.overload
-    def _self(self) -> str:
-        return self.__getitem__("self")
+    def get_property(self, name: typing_extensions.Literal["self"]) -> str:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

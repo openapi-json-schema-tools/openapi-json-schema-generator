@@ -61,24 +61,24 @@ HeadersOptionalDictInput = typing_extensions.TypedDict(
 class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def int32(self) -> int:
-        return self.__getitem__("int32")
+    def get_property(self, name: typing_extensions.Literal["int32"]) -> int:
+        ...
     
     @typing.overload
-    def ref_content_schema_header(self) -> str:
-        return self.__getitem__("ref-content-schema-header")
+    def get_property(self, name: typing_extensions.Literal["ref-content-schema-header"]) -> str:
+        ...
     
     @typing.overload
-    def ref_schema_header(self) -> str:
-        return self.__getitem__("ref-schema-header")
+    def get_property(self, name: typing_extensions.Literal["ref-schema-header"]) -> str:
+        ...
     
     @typing.overload
-    def string_header(self) -> str:
-        return self.__getitem__("stringHeader")
+    def get_property(self, name: typing_extensions.Literal["stringHeader"]) -> str:
+        ...
     
     @typing.overload
-    def number_header(self) -> str:
-        return self.__getitem__("numberHeader")
+    def get_property(self, name: typing_extensions.Literal["numberHeader"]) -> str:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

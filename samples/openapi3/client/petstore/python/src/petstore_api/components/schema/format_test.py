@@ -224,88 +224,88 @@ Properties = typing_extensions.TypedDict(
 class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def byte(self) -> str:
-        return self.__getitem__("byte")
+    def get_property(self, name: typing_extensions.Literal["byte"]) -> str:
+        ...
     
     @typing.overload
-    def date(self) -> str:
-        return self.__getitem__("date")
+    def get_property(self, name: typing_extensions.Literal["date"]) -> str:
+        ...
     
     @typing.overload
-    def number(self) -> typing.Union[int, float]:
-        return self.__getitem__("number")
+    def get_property(self, name: typing_extensions.Literal["number"]) -> typing.Union[int, float]:
+        ...
     
     @typing.overload
-    def password(self) -> str:
-        return self.__getitem__("password")
+    def get_property(self, name: typing_extensions.Literal["password"]) -> str:
+        ...
     
     @typing.overload
-    def integer(self) -> int:
-        return self.__getitem__("integer")
+    def get_property(self, name: typing_extensions.Literal["integer"]) -> int:
+        ...
     
     @typing.overload
-    def int32(self) -> int:
-        return self.__getitem__("int32")
+    def get_property(self, name: typing_extensions.Literal["int32"]) -> int:
+        ...
     
     @typing.overload
-    def int32with_validations(self) -> int:
-        return self.__getitem__("int32withValidations")
+    def get_property(self, name: typing_extensions.Literal["int32withValidations"]) -> int:
+        ...
     
     @typing.overload
-    def int64(self) -> int:
-        return self.__getitem__("int64")
+    def get_property(self, name: typing_extensions.Literal["int64"]) -> int:
+        ...
     
     @typing.overload
-    def _float(self) -> typing.Union[int, float]:
-        return self.__getitem__("float")
+    def get_property(self, name: typing_extensions.Literal["float"]) -> typing.Union[int, float]:
+        ...
     
     @typing.overload
-    def float32(self) -> typing.Union[int, float]:
-        return self.__getitem__("float32")
+    def get_property(self, name: typing_extensions.Literal["float32"]) -> typing.Union[int, float]:
+        ...
     
     @typing.overload
-    def double(self) -> typing.Union[int, float]:
-        return self.__getitem__("double")
+    def get_property(self, name: typing_extensions.Literal["double"]) -> typing.Union[int, float]:
+        ...
     
     @typing.overload
-    def float64(self) -> typing.Union[int, float]:
-        return self.__getitem__("float64")
+    def get_property(self, name: typing_extensions.Literal["float64"]) -> typing.Union[int, float]:
+        ...
     
     @typing.overload
-    def array_with_unique_items(self) -> ArrayWithUniqueItemsTuple:
-        return self.__getitem__("arrayWithUniqueItems")
+    def get_property(self, name: typing_extensions.Literal["arrayWithUniqueItems"]) -> ArrayWithUniqueItemsTuple:
+        ...
     
     @typing.overload
-    def string(self) -> str:
-        return self.__getitem__("string")
+    def get_property(self, name: typing_extensions.Literal["string"]) -> str:
+        ...
     
     @typing.overload
-    def binary(self) -> typing.Union[bytes, schemas.FileIO]:
-        return self.__getitem__("binary")
+    def get_property(self, name: typing_extensions.Literal["binary"]) -> typing.Union[bytes, schemas.FileIO]:
+        ...
     
     @typing.overload
-    def date_time(self) -> str:
-        return self.__getitem__("dateTime")
+    def get_property(self, name: typing_extensions.Literal["dateTime"]) -> str:
+        ...
     
     @typing.overload
-    def uuid(self) -> str:
-        return self.__getitem__("uuid")
+    def get_property(self, name: typing_extensions.Literal["uuid"]) -> str:
+        ...
     
     @typing.overload
-    def uuid_no_example(self) -> str:
-        return self.__getitem__("uuidNoExample")
+    def get_property(self, name: typing_extensions.Literal["uuidNoExample"]) -> str:
+        ...
     
     @typing.overload
-    def pattern_with_digits(self) -> str:
-        return self.__getitem__("pattern_with_digits")
+    def get_property(self, name: typing_extensions.Literal["pattern_with_digits"]) -> str:
+        ...
     
     @typing.overload
-    def pattern_with_digits_and_delimiter(self) -> str:
-        return self.__getitem__("pattern_with_digits_and_delimiter")
+    def get_property(self, name: typing_extensions.Literal["pattern_with_digits_and_delimiter"]) -> str:
+        ...
     
     @typing.overload
-    def none_prop(self) -> None:
-        return self.__getitem__("noneProp")
+    def get_property(self, name: typing_extensions.Literal["noneProp"]) -> None:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

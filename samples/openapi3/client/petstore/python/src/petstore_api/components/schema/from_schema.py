@@ -24,12 +24,12 @@ Properties = typing_extensions.TypedDict(
 class FromSchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def data(self) -> str:
-        return self.__getitem__("data")
+    def get_property(self, name: typing_extensions.Literal["data"]) -> str:
+        ...
     
     @typing.overload
-    def id(self) -> int:
-        return self.__getitem__("id")
+    def get_property(self, name: typing_extensions.Literal["id"]) -> int:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

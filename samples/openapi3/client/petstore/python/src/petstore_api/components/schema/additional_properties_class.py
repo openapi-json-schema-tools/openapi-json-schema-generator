@@ -297,36 +297,36 @@ Properties = typing_extensions.TypedDict(
 class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def map_property(self) -> MapPropertyDict:
-        return self.__getitem__("map_property")
+    def get_property(self, name: typing_extensions.Literal["map_property"]) -> MapPropertyDict:
+        ...
     
     @typing.overload
-    def map_of_map_property(self) -> MapOfMapPropertyDict:
-        return self.__getitem__("map_of_map_property")
+    def get_property(self, name: typing_extensions.Literal["map_of_map_property"]) -> MapOfMapPropertyDict:
+        ...
     
     @typing.overload
-    def anytype1(self) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__("anytype_1")
+    def get_property(self, name: typing_extensions.Literal["anytype_1"]) -> schemas.OUTPUT_BASE_TYPES:
+        ...
     
     @typing.overload
-    def map_with_undeclared_properties_anytype1(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
-        return self.__getitem__("map_with_undeclared_properties_anytype_1")
+    def get_property(self, name: typing_extensions.Literal["map_with_undeclared_properties_anytype_1"]) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+        ...
     
     @typing.overload
-    def map_with_undeclared_properties_anytype2(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
-        return self.__getitem__("map_with_undeclared_properties_anytype_2")
+    def get_property(self, name: typing_extensions.Literal["map_with_undeclared_properties_anytype_2"]) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+        ...
     
     @typing.overload
-    def map_with_undeclared_properties_anytype3(self) -> MapWithUndeclaredPropertiesAnytype3Dict:
-        return self.__getitem__("map_with_undeclared_properties_anytype_3")
+    def get_property(self, name: typing_extensions.Literal["map_with_undeclared_properties_anytype_3"]) -> MapWithUndeclaredPropertiesAnytype3Dict:
+        ...
     
     @typing.overload
-    def empty_map(self) -> EmptyMapDict:
-        return self.__getitem__("empty_map")
+    def get_property(self, name: typing_extensions.Literal["empty_map"]) -> EmptyMapDict:
+        ...
     
     @typing.overload
-    def map_with_undeclared_properties_string(self) -> MapWithUndeclaredPropertiesStringDict:
-        return self.__getitem__("map_with_undeclared_properties_string")
+    def get_property(self, name: typing_extensions.Literal["map_with_undeclared_properties_string"]) -> MapWithUndeclaredPropertiesStringDict:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

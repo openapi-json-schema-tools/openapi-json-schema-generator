@@ -82,12 +82,12 @@ Properties = typing_extensions.TypedDict(
 class FileSchemaTestClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def file(self) -> file.FileDict:
-        return self.__getitem__("file")
+    def get_property(self, name: typing_extensions.Literal["file"]) -> file.FileDict:
+        ...
     
     @typing.overload
-    def files(self) -> FilesTuple:
-        return self.__getitem__("files")
+    def get_property(self, name: typing_extensions.Literal["files"]) -> FilesTuple:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

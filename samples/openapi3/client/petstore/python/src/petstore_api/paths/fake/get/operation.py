@@ -46,20 +46,20 @@ Properties = typing_extensions.TypedDict(
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def enum_query_double(self) -> typing.Union[int, float]:
-        return self.__getitem__("enum_query_double")
+    def get_property(self, name: typing_extensions.Literal["enum_query_double"]) -> typing.Union[int, float]:
+        ...
     
     @typing.overload
-    def enum_query_string(self) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
-        return self.__getitem__("enum_query_string")
+    def get_property(self, name: typing_extensions.Literal["enum_query_string"]) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
+        ...
     
     @typing.overload
-    def enum_query_integer(self) -> typing_extensions.Literal[1, -2]:
-        return self.__getitem__("enum_query_integer")
+    def get_property(self, name: typing_extensions.Literal["enum_query_integer"]) -> typing_extensions.Literal[1, -2]:
+        ...
     
     @typing.overload
-    def enum_query_string_array(self) -> parameter_2_schema.SchemaTuple:
-        return self.__getitem__("enum_query_string_array")
+    def get_property(self, name: typing_extensions.Literal["enum_query_string_array"]) -> parameter_2_schema.SchemaTuple:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)
@@ -132,12 +132,12 @@ Properties2 = typing_extensions.TypedDict(
 class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def enum_header_string(self) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
-        return self.__getitem__("enum_header_string")
+    def get_property(self, name: typing_extensions.Literal["enum_header_string"]) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
+        ...
     
     @typing.overload
-    def enum_header_string_array(self) -> parameter_0_schema.SchemaTuple:
-        return self.__getitem__("enum_header_string_array")
+    def get_property(self, name: typing_extensions.Literal["enum_header_string_array"]) -> parameter_0_schema.SchemaTuple:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

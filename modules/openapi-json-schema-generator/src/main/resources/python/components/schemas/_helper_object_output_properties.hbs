@@ -4,20 +4,20 @@
             {{#if refInfo.refClass}}
 
 @typing.overload
-{{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="get_property" endChar=":" }}
-    return self.__getitem__("{{{@key.original}}}")
+{{> components/schemas/_helper_schema_output_ref_type key=@key.original fullRefModule="" mode="get_property" endChar=":" }}
+    ...
             {{else}}
                 {{#if jsonPathPiece}}
 
 @typing.overload
-{{> components/schemas/_helper_schema_output_type mode="get_property" fullRefModule=null endChar=":" }}
-    return self.__getitem__("{{{@key.original}}}")
+{{> components/schemas/_helper_schema_output_type key=@key.original mode="get_property" fullRefModule=null endChar=":" }}
+    ...
                 {{else}}
                     {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
 
 @typing.overload
-def {{@key.snakeCase}}(self) -> schemas.OUTPUT_BASE_TYPES:
-    return self.__getitem__("{{{@key.original}}}")
+def get_property(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> schemas.OUTPUT_BASE_TYPES:
+    ...
                 {{/if}}
             {{/if}}
         {{/with}}
@@ -29,21 +29,13 @@ def {{@key.snakeCase}}(self) -> schemas.OUTPUT_BASE_TYPES:
             {{#if refInfo.refClass}}
 
 @typing.overload
-{{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="get_property" endChar=":" }}
-    return self.__getitem__("{{{@key.original}}}")
+{{> components/schemas/_helper_schema_output_ref_type key=@key.original fullRefModule="" mode="get_property" endChar=":" }}
+    ...
             {{else}}
-                {{#if jsonPathPiece}}
 
 @typing.overload
-{{> components/schemas/_helper_schema_output_type mode="get_property" fullRefModule=null endChar=":" }}
-    return self.__getitem__("{{{@key.original}}}")
-                {{else}}
-                    {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
-
-@typing.overload
-def {{@key.snakeCase}}(self) -> schemas.OUTPUT_BASE_TYPES:
-    return self.__getitem__("{{{@key.original}}}")
-                {{/if}}
+{{> components/schemas/_helper_schema_output_type key=@key.original mode="get_property" fullRefModule=null endChar=":" }}
+    ...
             {{/if}}
         {{/with}}
     {{/each}}

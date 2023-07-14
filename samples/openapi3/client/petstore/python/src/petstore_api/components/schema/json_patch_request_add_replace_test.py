@@ -108,16 +108,16 @@ Properties = typing_extensions.TypedDict(
 class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def op(self) -> typing_extensions.Literal["add", "replace", "test"]:
-        return self.__getitem__("op")
+    def get_property(self, name: typing_extensions.Literal["op"]) -> typing_extensions.Literal["add", "replace", "test"]:
+        ...
     
     @typing.overload
-    def path(self) -> str:
-        return self.__getitem__("path")
+    def get_property(self, name: typing_extensions.Literal["path"]) -> str:
+        ...
     
     @typing.overload
-    def value(self) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__("value")
+    def get_property(self, name: typing_extensions.Literal["value"]) -> schemas.OUTPUT_BASE_TYPES:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

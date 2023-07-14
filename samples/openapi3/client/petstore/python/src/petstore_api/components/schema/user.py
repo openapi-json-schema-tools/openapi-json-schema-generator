@@ -90,59 +90,59 @@ Properties = typing_extensions.TypedDict(
 class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def id(self) -> int:
-        return self.__getitem__("id")
+    def get_property(self, name: typing_extensions.Literal["id"]) -> int:
+        ...
     
     @typing.overload
-    def username(self) -> str:
-        return self.__getitem__("username")
+    def get_property(self, name: typing_extensions.Literal["username"]) -> str:
+        ...
     
     @typing.overload
-    def first_name(self) -> str:
-        return self.__getitem__("firstName")
+    def get_property(self, name: typing_extensions.Literal["firstName"]) -> str:
+        ...
     
     @typing.overload
-    def last_name(self) -> str:
-        return self.__getitem__("lastName")
+    def get_property(self, name: typing_extensions.Literal["lastName"]) -> str:
+        ...
     
     @typing.overload
-    def email(self) -> str:
-        return self.__getitem__("email")
+    def get_property(self, name: typing_extensions.Literal["email"]) -> str:
+        ...
     
     @typing.overload
-    def password(self) -> str:
-        return self.__getitem__("password")
+    def get_property(self, name: typing_extensions.Literal["password"]) -> str:
+        ...
     
     @typing.overload
-    def phone(self) -> str:
-        return self.__getitem__("phone")
+    def get_property(self, name: typing_extensions.Literal["phone"]) -> str:
+        ...
     
     @typing.overload
-    def user_status(self) -> int:
-        return self.__getitem__("userStatus")
+    def get_property(self, name: typing_extensions.Literal["userStatus"]) -> int:
+        ...
     
     @typing.overload
-    def object_with_no_declared_props(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
-        return self.__getitem__("objectWithNoDeclaredProps")
+    def get_property(self, name: typing_extensions.Literal["objectWithNoDeclaredProps"]) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+        ...
     
     @typing.overload
-    def object_with_no_declared_props_nullable(self) -> typing.Union[
+    def get_property(self, name: typing_extensions.Literal["objectWithNoDeclaredPropsNullable"]) -> typing.Union[
         None,
         schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
-        return self.__getitem__("objectWithNoDeclaredPropsNullable")
+        ...
     
     @typing.overload
-    def any_type_prop(self) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__("anyTypeProp")
+    def get_property(self, name: typing_extensions.Literal["anyTypeProp"]) -> schemas.OUTPUT_BASE_TYPES:
+        ...
     
     @typing.overload
-    def any_type_except_null_prop(self) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__("anyTypeExceptNullProp")
+    def get_property(self, name: typing_extensions.Literal["anyTypeExceptNullProp"]) -> schemas.OUTPUT_BASE_TYPES:
+        ...
     
     @typing.overload
-    def any_type_prop_nullable(self) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__("anyTypePropNullable")
+    def get_property(self, name: typing_extensions.Literal["anyTypePropNullable"]) -> schemas.OUTPUT_BASE_TYPES:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

@@ -36,12 +36,12 @@ Properties = typing_extensions.TypedDict(
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def composition_at_root(self) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__("compositionAtRoot")
+    def get_property(self, name: typing_extensions.Literal["compositionAtRoot"]) -> schemas.OUTPUT_BASE_TYPES:
+        ...
     
     @typing.overload
-    def composition_in_property(self) -> parameter_1_schema.SchemaDict:
-        return self.__getitem__("compositionInProperty")
+    def get_property(self, name: typing_extensions.Literal["compositionInProperty"]) -> parameter_1_schema.SchemaDict:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

@@ -35,8 +35,8 @@ Properties2 = typing_extensions.TypedDict(
 class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def api_key(self) -> str:
-        return self.__getitem__("api_key")
+    def get_property(self, name: typing_extensions.Literal["api_key"]) -> str:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)
@@ -97,8 +97,8 @@ Properties = typing_extensions.TypedDict(
 class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def pet_id(self) -> int:
-        return self.__getitem__("petId")
+    def get_property(self, name: typing_extensions.Literal["petId"]) -> int:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

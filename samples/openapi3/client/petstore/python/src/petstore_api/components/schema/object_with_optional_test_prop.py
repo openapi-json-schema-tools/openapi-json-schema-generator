@@ -22,8 +22,8 @@ Properties = typing_extensions.TypedDict(
 class ObjectWithOptionalTestPropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def test(self) -> str:
-        return self.__getitem__("test")
+    def get_property(self, name: typing_extensions.Literal["test"]) -> str:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

@@ -24,12 +24,12 @@ Properties = typing_extensions.TypedDict(
 class ObjectWithCollidingPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def some_prop(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
-        return self.__getitem__("someProp")
+    def get_property(self, name: typing_extensions.Literal["someProp"]) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+        ...
     
     @typing.overload
-    def someprop(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
-        return self.__getitem__("someprop")
+    def get_property(self, name: typing_extensions.Literal["someprop"]) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

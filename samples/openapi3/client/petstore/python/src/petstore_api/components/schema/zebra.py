@@ -159,12 +159,12 @@ Properties = typing_extensions.TypedDict(
 class ZebraDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def class_name(self) -> typing_extensions.Literal["zebra"]:
-        return self.__getitem__("className")
+    def get_property(self, name: typing_extensions.Literal["className"]) -> typing_extensions.Literal["zebra"]:
+        ...
     
     @typing.overload
-    def type(self) -> typing_extensions.Literal["plains", "mountain", "grevys"]:
-        return self.__getitem__("type")
+    def get_property(self, name: typing_extensions.Literal["type"]) -> typing_extensions.Literal["plains", "mountain", "grevys"]:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

@@ -222,28 +222,28 @@ Properties = typing_extensions.TypedDict(
 class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def name(self) -> str:
-        return self.__getitem__("name")
+    def get_property(self, name: typing_extensions.Literal["name"]) -> str:
+        ...
     
     @typing.overload
-    def photo_urls(self) -> PhotoUrlsTuple:
-        return self.__getitem__("photoUrls")
+    def get_property(self, name: typing_extensions.Literal["photoUrls"]) -> PhotoUrlsTuple:
+        ...
     
     @typing.overload
-    def id(self) -> int:
-        return self.__getitem__("id")
+    def get_property(self, name: typing_extensions.Literal["id"]) -> int:
+        ...
     
     @typing.overload
-    def category(self) -> category.CategoryDict:
-        return self.__getitem__("category")
+    def get_property(self, name: typing_extensions.Literal["category"]) -> category.CategoryDict:
+        ...
     
     @typing.overload
-    def tags(self) -> TagsTuple:
-        return self.__getitem__("tags")
+    def get_property(self, name: typing_extensions.Literal["tags"]) -> TagsTuple:
+        ...
     
     @typing.overload
-    def status(self) -> typing_extensions.Literal["available", "pending", "sold"]:
-        return self.__getitem__("status")
+    def get_property(self, name: typing_extensions.Literal["status"]) -> typing_extensions.Literal["available", "pending", "sold"]:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

@@ -36,16 +36,16 @@ Properties = typing_extensions.TypedDict(
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def some_var(self) -> str:
-        return self.__getitem__("SomeVar")
+    def get_property(self, name: typing_extensions.Literal["SomeVar"]) -> str:
+        ...
     
     @typing.overload
-    def some_var(self) -> str:
-        return self.__getitem__("someVar")
+    def get_property(self, name: typing_extensions.Literal["someVar"]) -> str:
+        ...
     
     @typing.overload
-    def some_var(self) -> str:
-        return self.__getitem__("some_var")
+    def get_property(self, name: typing_extensions.Literal["some_var"]) -> str:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

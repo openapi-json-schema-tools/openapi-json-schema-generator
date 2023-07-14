@@ -309,43 +309,43 @@ Properties = typing_extensions.TypedDict(
 class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def enum_string_required(self) -> typing_extensions.Literal["UPPER", "lower", ""]:
-        return self.__getitem__("enum_string_required")
+    def get_property(self, name: typing_extensions.Literal["enum_string_required"]) -> typing_extensions.Literal["UPPER", "lower", ""]:
+        ...
     
     @typing.overload
-    def enum_string(self) -> typing_extensions.Literal["UPPER", "lower", ""]:
-        return self.__getitem__("enum_string")
+    def get_property(self, name: typing_extensions.Literal["enum_string"]) -> typing_extensions.Literal["UPPER", "lower", ""]:
+        ...
     
     @typing.overload
-    def enum_integer(self) -> typing_extensions.Literal[1, -1]:
-        return self.__getitem__("enum_integer")
+    def get_property(self, name: typing_extensions.Literal["enum_integer"]) -> typing_extensions.Literal[1, -1]:
+        ...
     
     @typing.overload
-    def enum_number(self) -> typing.Union[int, float]:
-        return self.__getitem__("enum_number")
+    def get_property(self, name: typing_extensions.Literal["enum_number"]) -> typing.Union[int, float]:
+        ...
     
     @typing.overload
-    def string_enum(self) -> typing.Union[
+    def get_property(self, name: typing_extensions.Literal["stringEnum"]) -> typing.Union[
         None,
         typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
     ]:
-        return self.__getitem__("stringEnum")
+        ...
     
     @typing.overload
-    def integer_enum(self) -> typing_extensions.Literal[0, 1, 2]:
-        return self.__getitem__("IntegerEnum")
+    def get_property(self, name: typing_extensions.Literal["IntegerEnum"]) -> typing_extensions.Literal[0, 1, 2]:
+        ...
     
     @typing.overload
-    def string_enum_with_default_value(self) -> typing_extensions.Literal["placed", "approved", "delivered"]:
-        return self.__getitem__("StringEnumWithDefaultValue")
+    def get_property(self, name: typing_extensions.Literal["StringEnumWithDefaultValue"]) -> typing_extensions.Literal["placed", "approved", "delivered"]:
+        ...
     
     @typing.overload
-    def integer_enum_with_default_value(self) -> typing_extensions.Literal[0, 1, 2]:
-        return self.__getitem__("IntegerEnumWithDefaultValue")
+    def get_property(self, name: typing_extensions.Literal["IntegerEnumWithDefaultValue"]) -> typing_extensions.Literal[0, 1, 2]:
+        ...
     
     @typing.overload
-    def integer_enum_one_value(self) -> typing_extensions.Literal[0]:
-        return self.__getitem__("IntegerEnumOneValue")
+    def get_property(self, name: typing_extensions.Literal["IntegerEnumOneValue"]) -> typing_extensions.Literal[0]:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

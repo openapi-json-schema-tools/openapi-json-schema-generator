@@ -23,12 +23,12 @@ Properties = typing_extensions.TypedDict(
 class PlayerDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def name(self) -> str:
-        return self.__getitem__("name")
+    def get_property(self, name: typing_extensions.Literal["name"]) -> str:
+        ...
     
     @typing.overload
-    def enemy_player(self) -> PlayerDict:
-        return self.__getitem__("enemyPlayer")
+    def get_property(self, name: typing_extensions.Literal["enemyPlayer"]) -> PlayerDict:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

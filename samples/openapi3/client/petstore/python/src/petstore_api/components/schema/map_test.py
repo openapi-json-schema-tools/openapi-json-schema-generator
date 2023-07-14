@@ -276,20 +276,20 @@ Properties = typing_extensions.TypedDict(
 class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def map_map_of_string(self) -> MapMapOfStringDict:
-        return self.__getitem__("map_map_of_string")
+    def get_property(self, name: typing_extensions.Literal["map_map_of_string"]) -> MapMapOfStringDict:
+        ...
     
     @typing.overload
-    def map_of_enum_string(self) -> MapOfEnumStringDict:
-        return self.__getitem__("map_of_enum_string")
+    def get_property(self, name: typing_extensions.Literal["map_of_enum_string"]) -> MapOfEnumStringDict:
+        ...
     
     @typing.overload
-    def direct_map(self) -> DirectMapDict:
-        return self.__getitem__("direct_map")
+    def get_property(self, name: typing_extensions.Literal["direct_map"]) -> DirectMapDict:
+        ...
     
     @typing.overload
-    def indirect_map(self) -> string_boolean_map.StringBooleanMapDict:
-        return self.__getitem__("indirect_map")
+    def get_property(self, name: typing_extensions.Literal["indirect_map"]) -> string_boolean_map.StringBooleanMapDict:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

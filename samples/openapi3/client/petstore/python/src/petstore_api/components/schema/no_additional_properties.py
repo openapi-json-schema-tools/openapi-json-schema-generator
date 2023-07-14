@@ -38,12 +38,12 @@ NoAdditionalPropertiesOptionalDictInput = typing_extensions.TypedDict(
 class NoAdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def id(self) -> int:
-        return self.__getitem__("id")
+    def get_property(self, name: typing_extensions.Literal["id"]) -> int:
+        ...
     
     @typing.overload
-    def pet_id(self) -> int:
-        return self.__getitem__("petId")
+    def get_property(self, name: typing_extensions.Literal["petId"]) -> int:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

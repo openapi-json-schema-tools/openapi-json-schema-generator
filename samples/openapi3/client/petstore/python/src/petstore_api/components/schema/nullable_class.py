@@ -831,82 +831,82 @@ Properties = typing_extensions.TypedDict(
 class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def integer_prop(self) -> typing.Union[
+    def get_property(self, name: typing_extensions.Literal["integer_prop"]) -> typing.Union[
         None,
         int,
     ]:
-        return self.__getitem__("integer_prop")
+        ...
     
     @typing.overload
-    def number_prop(self) -> typing.Union[
+    def get_property(self, name: typing_extensions.Literal["number_prop"]) -> typing.Union[
         None,
         typing.Union[int, float],
     ]:
-        return self.__getitem__("number_prop")
+        ...
     
     @typing.overload
-    def boolean_prop(self) -> typing.Union[
+    def get_property(self, name: typing_extensions.Literal["boolean_prop"]) -> typing.Union[
         None,
         bool,
     ]:
-        return self.__getitem__("boolean_prop")
+        ...
     
     @typing.overload
-    def string_prop(self) -> typing.Union[
+    def get_property(self, name: typing_extensions.Literal["string_prop"]) -> typing.Union[
         None,
         str,
     ]:
-        return self.__getitem__("string_prop")
+        ...
     
     @typing.overload
-    def date_prop(self) -> typing.Union[
+    def get_property(self, name: typing_extensions.Literal["date_prop"]) -> typing.Union[
         None,
         str,
     ]:
-        return self.__getitem__("date_prop")
+        ...
     
     @typing.overload
-    def datetime_prop(self) -> typing.Union[
+    def get_property(self, name: typing_extensions.Literal["datetime_prop"]) -> typing.Union[
         None,
         str,
     ]:
-        return self.__getitem__("datetime_prop")
+        ...
     
     @typing.overload
-    def array_nullable_prop(self) -> typing.Union[
+    def get_property(self, name: typing_extensions.Literal["array_nullable_prop"]) -> typing.Union[
         None,
         ArrayNullablePropTuple,
     ]:
-        return self.__getitem__("array_nullable_prop")
+        ...
     
     @typing.overload
-    def array_and_items_nullable_prop(self) -> typing.Union[
+    def get_property(self, name: typing_extensions.Literal["array_and_items_nullable_prop"]) -> typing.Union[
         None,
         ArrayAndItemsNullablePropTuple,
     ]:
-        return self.__getitem__("array_and_items_nullable_prop")
+        ...
     
     @typing.overload
-    def array_items_nullable(self) -> ArrayItemsNullableTuple:
-        return self.__getitem__("array_items_nullable")
+    def get_property(self, name: typing_extensions.Literal["array_items_nullable"]) -> ArrayItemsNullableTuple:
+        ...
     
     @typing.overload
-    def object_nullable_prop(self) -> typing.Union[
+    def get_property(self, name: typing_extensions.Literal["object_nullable_prop"]) -> typing.Union[
         None,
         ObjectNullablePropDict,
     ]:
-        return self.__getitem__("object_nullable_prop")
+        ...
     
     @typing.overload
-    def object_and_items_nullable_prop(self) -> typing.Union[
+    def get_property(self, name: typing_extensions.Literal["object_and_items_nullable_prop"]) -> typing.Union[
         None,
         ObjectAndItemsNullablePropDict,
     ]:
-        return self.__getitem__("object_and_items_nullable_prop")
+        ...
     
     @typing.overload
-    def object_items_nullable(self) -> ObjectItemsNullableDict:
-        return self.__getitem__("object_items_nullable")
+    def get_property(self, name: typing_extensions.Literal["object_items_nullable"]) -> ObjectItemsNullableDict:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

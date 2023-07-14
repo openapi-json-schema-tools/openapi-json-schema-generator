@@ -32,28 +32,28 @@ Properties = typing_extensions.TypedDict(
 class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def small_camel(self) -> str:
-        return self.__getitem__("smallCamel")
+    def get_property(self, name: typing_extensions.Literal["smallCamel"]) -> str:
+        ...
     
     @typing.overload
-    def capital_camel(self) -> str:
-        return self.__getitem__("CapitalCamel")
+    def get_property(self, name: typing_extensions.Literal["CapitalCamel"]) -> str:
+        ...
     
     @typing.overload
-    def small_snake(self) -> str:
-        return self.__getitem__("small_Snake")
+    def get_property(self, name: typing_extensions.Literal["small_Snake"]) -> str:
+        ...
     
     @typing.overload
-    def capital_snake(self) -> str:
-        return self.__getitem__("Capital_Snake")
+    def get_property(self, name: typing_extensions.Literal["Capital_Snake"]) -> str:
+        ...
     
     @typing.overload
-    def scaeth_flow_points(self) -> str:
-        return self.__getitem__("SCA_ETH_Flow_Points")
+    def get_property(self, name: typing_extensions.Literal["SCA_ETH_Flow_Points"]) -> str:
+        ...
     
     @typing.overload
-    def attname(self) -> str:
-        return self.__getitem__("ATT_NAME")
+    def get_property(self, name: typing_extensions.Literal["ATT_NAME"]) -> str:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

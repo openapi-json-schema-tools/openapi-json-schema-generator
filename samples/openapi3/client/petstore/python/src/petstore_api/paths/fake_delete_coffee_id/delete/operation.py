@@ -31,8 +31,8 @@ Properties = typing_extensions.TypedDict(
 class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def id(self) -> str:
-        return self.__getitem__("id")
+    def get_property(self, name: typing_extensions.Literal["id"]) -> str:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

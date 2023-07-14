@@ -122,28 +122,28 @@ Properties = typing_extensions.TypedDict(
 class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def id(self) -> int:
-        return self.__getitem__("id")
+    def get_property(self, name: typing_extensions.Literal["id"]) -> int:
+        ...
     
     @typing.overload
-    def pet_id(self) -> int:
-        return self.__getitem__("petId")
+    def get_property(self, name: typing_extensions.Literal["petId"]) -> int:
+        ...
     
     @typing.overload
-    def quantity(self) -> int:
-        return self.__getitem__("quantity")
+    def get_property(self, name: typing_extensions.Literal["quantity"]) -> int:
+        ...
     
     @typing.overload
-    def ship_date(self) -> str:
-        return self.__getitem__("shipDate")
+    def get_property(self, name: typing_extensions.Literal["shipDate"]) -> str:
+        ...
     
     @typing.overload
-    def status(self) -> typing_extensions.Literal["placed", "approved", "delivered"]:
-        return self.__getitem__("status")
+    def get_property(self, name: typing_extensions.Literal["status"]) -> typing_extensions.Literal["placed", "approved", "delivered"]:
+        ...
     
     @typing.overload
-    def complete(self) -> bool:
-        return self.__getitem__("complete")
+    def get_property(self, name: typing_extensions.Literal["complete"]) -> bool:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

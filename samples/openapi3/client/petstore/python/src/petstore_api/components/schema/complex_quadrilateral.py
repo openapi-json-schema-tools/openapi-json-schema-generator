@@ -75,8 +75,8 @@ Properties = typing_extensions.TypedDict(
 class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def quadrilateral_type(self) -> typing_extensions.Literal["ComplexQuadrilateral"]:
-        return self.__getitem__("quadrilateralType")
+    def get_property(self, name: typing_extensions.Literal["quadrilateralType"]) -> typing_extensions.Literal["ComplexQuadrilateral"]:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

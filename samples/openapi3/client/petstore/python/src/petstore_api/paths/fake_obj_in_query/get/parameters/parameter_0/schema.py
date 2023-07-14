@@ -22,8 +22,8 @@ Properties = typing_extensions.TypedDict(
 class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def keyword(self) -> str:
-        return self.__getitem__("keyword")
+    def get_property(self, name: typing_extensions.Literal["keyword"]) -> str:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

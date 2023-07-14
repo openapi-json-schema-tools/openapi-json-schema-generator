@@ -33,12 +33,12 @@ Properties = typing_extensions.TypedDict(
 class AnimalDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def class_name(self) -> str:
-        return self.__getitem__("className")
+    def get_property(self, name: typing_extensions.Literal["className"]) -> str:
+        ...
     
     @typing.overload
-    def color(self) -> str:
-        return self.__getitem__("color")
+    def get_property(self, name: typing_extensions.Literal["color"]) -> str:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

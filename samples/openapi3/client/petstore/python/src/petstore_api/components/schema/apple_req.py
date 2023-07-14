@@ -38,12 +38,12 @@ AppleReqOptionalDictInput = typing_extensions.TypedDict(
 class AppleReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def cultivar(self) -> str:
-        return self.__getitem__("cultivar")
+    def get_property(self, name: typing_extensions.Literal["cultivar"]) -> str:
+        ...
     
     @typing.overload
-    def mealy(self) -> bool:
-        return self.__getitem__("mealy")
+    def get_property(self, name: typing_extensions.Literal["mealy"]) -> bool:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

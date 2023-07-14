@@ -110,40 +110,40 @@ Properties = typing_extensions.TypedDict(
 class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def uuid(self) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__("uuid")
+    def get_property(self, name: typing_extensions.Literal["uuid"]) -> schemas.OUTPUT_BASE_TYPES:
+        ...
     
     @typing.overload
-    def date(self) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__("date")
+    def get_property(self, name: typing_extensions.Literal["date"]) -> schemas.OUTPUT_BASE_TYPES:
+        ...
     
     @typing.overload
-    def date_time(self) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__("date-time")
+    def get_property(self, name: typing_extensions.Literal["date-time"]) -> schemas.OUTPUT_BASE_TYPES:
+        ...
     
     @typing.overload
-    def number(self) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__("number")
+    def get_property(self, name: typing_extensions.Literal["number"]) -> schemas.OUTPUT_BASE_TYPES:
+        ...
     
     @typing.overload
-    def binary(self) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__("binary")
+    def get_property(self, name: typing_extensions.Literal["binary"]) -> schemas.OUTPUT_BASE_TYPES:
+        ...
     
     @typing.overload
-    def int32(self) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__("int32")
+    def get_property(self, name: typing_extensions.Literal["int32"]) -> schemas.OUTPUT_BASE_TYPES:
+        ...
     
     @typing.overload
-    def int64(self) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__("int64")
+    def get_property(self, name: typing_extensions.Literal["int64"]) -> schemas.OUTPUT_BASE_TYPES:
+        ...
     
     @typing.overload
-    def double(self) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__("double")
+    def get_property(self, name: typing_extensions.Literal["double"]) -> schemas.OUTPUT_BASE_TYPES:
+        ...
     
     @typing.overload
-    def _float(self) -> schemas.OUTPUT_BASE_TYPES:
-        return self.__getitem__("float")
+    def get_property(self, name: typing_extensions.Literal["float"]) -> schemas.OUTPUT_BASE_TYPES:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

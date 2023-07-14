@@ -24,12 +24,12 @@ Properties = typing_extensions.TypedDict(
 class ObjectModelWithArgAndArgsPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def arg(self) -> str:
-        return self.__getitem__("arg")
+    def get_property(self, name: typing_extensions.Literal["arg"]) -> str:
+        ...
     
     @typing.overload
-    def args(self) -> str:
-        return self.__getitem__("args")
+    def get_property(self, name: typing_extensions.Literal["args"]) -> str:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

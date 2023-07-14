@@ -22,8 +22,8 @@ Properties = typing_extensions.TypedDict(
 class FileDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def source_uri(self) -> str:
-        return self.__getitem__("sourceURI")
+    def get_property(self, name: typing_extensions.Literal["sourceURI"]) -> str:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

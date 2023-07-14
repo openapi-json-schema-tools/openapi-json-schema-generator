@@ -45,28 +45,28 @@ Properties = typing_extensions.TypedDict(
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def context(self) -> parameter_4_schema.SchemaTuple:
-        return self.__getitem__("context")
+    def get_property(self, name: typing_extensions.Literal["context"]) -> parameter_4_schema.SchemaTuple:
+        ...
     
     @typing.overload
-    def http(self) -> parameter_2_schema.SchemaTuple:
-        return self.__getitem__("http")
+    def get_property(self, name: typing_extensions.Literal["http"]) -> parameter_2_schema.SchemaTuple:
+        ...
     
     @typing.overload
-    def ioutil(self) -> parameter_1_schema.SchemaTuple:
-        return self.__getitem__("ioutil")
+    def get_property(self, name: typing_extensions.Literal["ioutil"]) -> parameter_1_schema.SchemaTuple:
+        ...
     
     @typing.overload
-    def pipe(self) -> parameter_0_schema.SchemaTuple:
-        return self.__getitem__("pipe")
+    def get_property(self, name: typing_extensions.Literal["pipe"]) -> parameter_0_schema.SchemaTuple:
+        ...
     
     @typing.overload
-    def ref_param(self) -> str:
-        return self.__getitem__("refParam")
+    def get_property(self, name: typing_extensions.Literal["refParam"]) -> str:
+        ...
     
     @typing.overload
-    def url(self) -> parameter_3_schema.SchemaTuple:
-        return self.__getitem__("url")
+    def get_property(self, name: typing_extensions.Literal["url"]) -> parameter_3_schema.SchemaTuple:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

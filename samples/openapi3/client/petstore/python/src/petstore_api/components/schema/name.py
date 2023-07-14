@@ -26,16 +26,16 @@ Properties = typing_extensions.TypedDict(
 class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def name(self) -> int:
-        return self.__getitem__("name")
+    def get_property(self, name: typing_extensions.Literal["name"]) -> int:
+        ...
     
     @typing.overload
-    def snake_case(self) -> int:
-        return self.__getitem__("snake_case")
+    def get_property(self, name: typing_extensions.Literal["snake_case"]) -> int:
+        ...
     
     @typing.overload
-    def _property(self) -> str:
-        return self.__getitem__("property")
+    def get_property(self, name: typing_extensions.Literal["property"]) -> str:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

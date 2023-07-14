@@ -41,12 +41,12 @@ BananaReqOptionalDictInput = typing_extensions.TypedDict(
 class BananaReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def length_cm(self) -> typing.Union[int, float]:
-        return self.__getitem__("lengthCm")
+    def get_property(self, name: typing_extensions.Literal["lengthCm"]) -> typing.Union[int, float]:
+        ...
     
     @typing.overload
-    def sweet(self) -> bool:
-        return self.__getitem__("sweet")
+    def get_property(self, name: typing_extensions.Literal["sweet"]) -> bool:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

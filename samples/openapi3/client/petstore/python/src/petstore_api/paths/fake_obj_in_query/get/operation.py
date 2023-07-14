@@ -28,8 +28,8 @@ Properties = typing_extensions.TypedDict(
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def map_bean(self) -> parameter_0_schema.SchemaDict:
-        return self.__getitem__("mapBean")
+    def get_property(self, name: typing_extensions.Literal["mapBean"]) -> parameter_0_schema.SchemaDict:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

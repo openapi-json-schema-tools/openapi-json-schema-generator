@@ -57,20 +57,20 @@ QueryParametersOptionalDictInput = typing_extensions.TypedDict(
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def required_int64_group(self) -> int:
-        return self.__getitem__("required_int64_group")
+    def get_property(self, name: typing_extensions.Literal["required_int64_group"]) -> int:
+        ...
     
     @typing.overload
-    def required_string_group(self) -> str:
-        return self.__getitem__("required_string_group")
+    def get_property(self, name: typing_extensions.Literal["required_string_group"]) -> str:
+        ...
     
     @typing.overload
-    def int64_group(self) -> int:
-        return self.__getitem__("int64_group")
+    def get_property(self, name: typing_extensions.Literal["int64_group"]) -> int:
+        ...
     
     @typing.overload
-    def string_group(self) -> str:
-        return self.__getitem__("string_group")
+    def get_property(self, name: typing_extensions.Literal["string_group"]) -> str:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)
@@ -147,12 +147,12 @@ HeaderParametersOptionalDictInput = typing_extensions.TypedDict(
 class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def required_boolean_group(self) -> typing_extensions.Literal["true", "false"]:
-        return self.__getitem__("required_boolean_group")
+    def get_property(self, name: typing_extensions.Literal["required_boolean_group"]) -> typing_extensions.Literal["true", "false"]:
+        ...
     
     @typing.overload
-    def boolean_group(self) -> typing_extensions.Literal["true", "false"]:
-        return self.__getitem__("boolean_group")
+    def get_property(self, name: typing_extensions.Literal["boolean_group"]) -> typing_extensions.Literal["true", "false"]:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)

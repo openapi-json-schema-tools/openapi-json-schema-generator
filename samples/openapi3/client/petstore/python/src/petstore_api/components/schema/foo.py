@@ -23,8 +23,8 @@ Properties = typing_extensions.TypedDict(
 class FooDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @typing.overload
-    def bar(self) -> str:
-        return self.__getitem__("bar")
+    def get_property(self, name: typing_extensions.Literal["bar"]) -> str:
+        ...
     
     def get_property(self, name):
         return self.__getitem__(name)
