@@ -332,8 +332,28 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     def get_property(self, name):
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
-        return self.__getitem__(name)
+        val = self.get(name, schemas.unset)
+        if name == "map_map_of_string":
+            return val if val is schemas.unset else typing.cast(
+                MapMapOfStringDict,
+                val
+            )
+        elif name == "map_of_enum_string":
+            return val if val is schemas.unset else typing.cast(
+                MapOfEnumStringDict,
+                val
+            )
+        elif name == "direct_map":
+            return val if val is schemas.unset else typing.cast(
+                DirectMapDict,
+                val
+            )
+        elif name == "indirect_map":
+            return val if val is schemas.unset else typing.cast(
+                string_boolean_map.StringBooleanMapDict,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(key=key))
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

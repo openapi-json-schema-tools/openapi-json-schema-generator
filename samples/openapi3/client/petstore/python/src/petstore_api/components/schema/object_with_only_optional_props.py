@@ -39,8 +39,18 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
         ...
     
     def get_property(self, name):
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
-        return self.__getitem__(name)
+        val = self.get(name, schemas.unset)
+        if name == "a":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        elif name == "b":
+            return val if val is schemas.unset else typing.cast(
+                typing.Union[int, float],
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(key=key))
 
     def __new__(cls, arg: ObjectWithOnlyOptionalPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithOnlyOptionalProps.validate(arg, configuration=configuration)

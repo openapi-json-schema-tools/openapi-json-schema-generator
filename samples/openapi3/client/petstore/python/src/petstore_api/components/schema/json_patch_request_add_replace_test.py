@@ -127,23 +127,23 @@ class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, schemas.OUTP
         ...
     
     def get_property(self, name):
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
         if name == "op":
             return typing.cast(
                 typing_extensions.Literal["add", "replace", "test"],
-                self.__getitem__(name)
+                val
             )
         elif name == "path":
             return typing.cast(
                 str,
-                self.__getitem__(name)
+                val
             )
         elif name == "value":
             return typing.cast(
                 schemas.OUTPUT_BASE_TYPES,
-                self.__getitem__(name)
+                val
             )
-        return self.__getitem__(name)
+        raise ValueError(schemas.key_unknown_error_msg(key=key))
 
     def __new__(cls, arg: JSONPatchRequestAddReplaceTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return JSONPatchRequestAddReplaceTest.validate(arg, configuration=configuration)

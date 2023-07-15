@@ -385,8 +385,48 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BA
         ...
     
     def get_property(self, name):
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
-        return self.__getitem__(name)
+        val = self.get(name, schemas.unset)
+        if name == "map_property":
+            return val if val is schemas.unset else typing.cast(
+                MapPropertyDict,
+                val
+            )
+        elif name == "map_of_map_property":
+            return val if val is schemas.unset else typing.cast(
+                MapOfMapPropertyDict,
+                val
+            )
+        elif name == "anytype_1":
+            return val if val is schemas.unset else typing.cast(
+                schemas.OUTPUT_BASE_TYPES,
+                val
+            )
+        elif name == "map_with_undeclared_properties_anytype_1":
+            return val if val is schemas.unset else typing.cast(
+                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+                val
+            )
+        elif name == "map_with_undeclared_properties_anytype_2":
+            return val if val is schemas.unset else typing.cast(
+                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+                val
+            )
+        elif name == "map_with_undeclared_properties_anytype_3":
+            return val if val is schemas.unset else typing.cast(
+                MapWithUndeclaredPropertiesAnytype3Dict,
+                val
+            )
+        elif name == "empty_map":
+            return val if val is schemas.unset else typing.cast(
+                EmptyMapDict,
+                val
+            )
+        elif name == "map_with_undeclared_properties_string":
+            return val if val is schemas.unset else typing.cast(
+                MapWithUndeclaredPropertiesStringDict,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(key=key))
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

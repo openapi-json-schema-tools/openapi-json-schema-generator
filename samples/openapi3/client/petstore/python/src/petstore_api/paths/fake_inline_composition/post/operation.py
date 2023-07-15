@@ -50,8 +50,18 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         ...
     
     def get_property(self, name):
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
-        return self.__getitem__(name)
+        val = self.get(name, schemas.unset)
+        if name == "compositionAtRoot":
+            return val if val is schemas.unset else typing.cast(
+                schemas.OUTPUT_BASE_TYPES,
+                val
+            )
+        elif name == "compositionInProperty":
+            return val if val is schemas.unset else typing.cast(
+                parameter_1_schema.SchemaDict,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(key=key))
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)

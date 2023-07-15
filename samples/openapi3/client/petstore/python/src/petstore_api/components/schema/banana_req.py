@@ -55,14 +55,18 @@ class BananaReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     def get_property(self, name):
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
-        if name in self.__required_keys__:
-            if name == "lengthCm":
-                return typing.cast(
-                    typing.Union[int, float],
-                    self.__getitem__(name)
-                )
-        return self.__getitem__(name)
+        val = self.get(name, schemas.unset)
+        if name == "lengthCm":
+            return typing.cast(
+                typing.Union[int, float],
+                val
+            )
+        elif name == "sweet":
+            return val if val is schemas.unset else typing.cast(
+                bool,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(key=key))
 
     def __new__(cls, arg: BananaReqDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return BananaReq.validate(arg, configuration=configuration)

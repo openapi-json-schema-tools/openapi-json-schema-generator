@@ -90,29 +90,33 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     def get_property(self, name):
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
-        if name in self.__required_keys__:
-            if name == "int32":
-                return typing.cast(
-                    int,
-                    self.__getitem__(name)
-                )
-            elif name == "ref-content-schema-header":
-                return typing.cast(
-                    str,
-                    self.__getitem__(name)
-                )
-            elif name == "ref-schema-header":
-                return typing.cast(
-                    str,
-                    self.__getitem__(name)
-                )
-            elif name == "stringHeader":
-                return typing.cast(
-                    str,
-                    self.__getitem__(name)
-                )
-        return self.__getitem__(name)
+        val = self.get(name, schemas.unset)
+        if name == "int32":
+            return typing.cast(
+                int,
+                val
+            )
+        elif name == "ref-content-schema-header":
+            return typing.cast(
+                str,
+                val
+            )
+        elif name == "ref-schema-header":
+            return typing.cast(
+                str,
+                val
+            )
+        elif name == "stringHeader":
+            return typing.cast(
+                str,
+                val
+            )
+        elif name == "numberHeader":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(key=key))
 
     def __new__(cls, arg: HeadersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Headers.validate(arg, configuration=configuration)

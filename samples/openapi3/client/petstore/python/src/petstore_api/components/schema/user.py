@@ -162,8 +162,76 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     def get_property(self, name):
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
-        return self.__getitem__(name)
+        val = self.get(name, schemas.unset)
+        if name == "id":
+            return val if val is schemas.unset else typing.cast(
+                int,
+                val
+            )
+        elif name == "username":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        elif name == "firstName":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        elif name == "lastName":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        elif name == "email":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        elif name == "password":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        elif name == "phone":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        elif name == "userStatus":
+            return val if val is schemas.unset else typing.cast(
+                int,
+                val
+            )
+        elif name == "objectWithNoDeclaredProps":
+            return val if val is schemas.unset else typing.cast(
+                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+                val
+            )
+        elif name == "objectWithNoDeclaredPropsNullable":
+            return val if val is schemas.unset else typing.cast(
+                typing.Union[
+                    None,
+                    schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+                ],
+                val
+            )
+        elif name == "anyTypeProp":
+            return val if val is schemas.unset else typing.cast(
+                schemas.OUTPUT_BASE_TYPES,
+                val
+            )
+        elif name == "anyTypeExceptNullProp":
+            return val if val is schemas.unset else typing.cast(
+                schemas.OUTPUT_BASE_TYPES,
+                val
+            )
+        elif name == "anyTypePropNullable":
+            return val if val is schemas.unset else typing.cast(
+                schemas.OUTPUT_BASE_TYPES,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(key=key))
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

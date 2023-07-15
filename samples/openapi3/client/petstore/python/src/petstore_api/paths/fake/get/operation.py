@@ -70,8 +70,28 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         ...
     
     def get_property(self, name):
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
-        return self.__getitem__(name)
+        val = self.get(name, schemas.unset)
+        if name == "enum_query_double":
+            return val if val is schemas.unset else typing.cast(
+                typing.Union[int, float],
+                val
+            )
+        elif name == "enum_query_string":
+            return val if val is schemas.unset else typing.cast(
+                typing_extensions.Literal["_abc", "-efg", "(xyz)"],
+                val
+            )
+        elif name == "enum_query_integer":
+            return val if val is schemas.unset else typing.cast(
+                typing_extensions.Literal[1, -2],
+                val
+            )
+        elif name == "enum_query_string_array":
+            return val if val is schemas.unset else typing.cast(
+                parameter_2_schema.SchemaTuple,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(key=key))
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)
@@ -155,8 +175,18 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         ...
     
     def get_property(self, name):
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
-        return self.__getitem__(name)
+        val = self.get(name, schemas.unset)
+        if name == "enum_header_string":
+            return val if val is schemas.unset else typing.cast(
+                typing_extensions.Literal["_abc", "-efg", "(xyz)"],
+                val
+            )
+        elif name == "enum_header_string_array":
+            return val if val is schemas.unset else typing.cast(
+                parameter_0_schema.SchemaTuple,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(key=key))
 
     def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return HeaderParameters.validate(arg, configuration=configuration)

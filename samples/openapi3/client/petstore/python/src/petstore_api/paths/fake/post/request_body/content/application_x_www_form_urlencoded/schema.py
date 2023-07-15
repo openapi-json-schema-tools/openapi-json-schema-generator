@@ -221,29 +221,78 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     def get_property(self, name):
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
-        if name in self.__required_keys__:
-            if name == "byte":
-                return typing.cast(
-                    str,
-                    self.__getitem__(name)
-                )
-            elif name == "double":
-                return typing.cast(
-                    typing.Union[int, float],
-                    self.__getitem__(name)
-                )
-            elif name == "number":
-                return typing.cast(
-                    typing.Union[int, float],
-                    self.__getitem__(name)
-                )
-            elif name == "pattern_without_delimiter":
-                return typing.cast(
-                    str,
-                    self.__getitem__(name)
-                )
-        return self.__getitem__(name)
+        val = self.get(name, schemas.unset)
+        if name == "byte":
+            return typing.cast(
+                str,
+                val
+            )
+        elif name == "double":
+            return typing.cast(
+                typing.Union[int, float],
+                val
+            )
+        elif name == "number":
+            return typing.cast(
+                typing.Union[int, float],
+                val
+            )
+        elif name == "pattern_without_delimiter":
+            return typing.cast(
+                str,
+                val
+            )
+        elif name == "integer":
+            return val if val is schemas.unset else typing.cast(
+                int,
+                val
+            )
+        elif name == "int32":
+            return val if val is schemas.unset else typing.cast(
+                int,
+                val
+            )
+        elif name == "int64":
+            return val if val is schemas.unset else typing.cast(
+                int,
+                val
+            )
+        elif name == "float":
+            return val if val is schemas.unset else typing.cast(
+                typing.Union[int, float],
+                val
+            )
+        elif name == "string":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        elif name == "binary":
+            return val if val is schemas.unset else typing.cast(
+                typing.Union[bytes, schemas.FileIO],
+                val
+            )
+        elif name == "date":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        elif name == "dateTime":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        elif name == "password":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        elif name == "callback":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(key=key))
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

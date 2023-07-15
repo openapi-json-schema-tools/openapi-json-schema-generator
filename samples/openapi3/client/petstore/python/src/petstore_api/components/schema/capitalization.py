@@ -66,8 +66,38 @@ class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     def get_property(self, name):
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
-        return self.__getitem__(name)
+        val = self.get(name, schemas.unset)
+        if name == "smallCamel":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        elif name == "CapitalCamel":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        elif name == "small_Snake":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        elif name == "Capital_Snake":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        elif name == "SCA_ETH_Flow_Points":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        elif name == "ATT_NAME":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(key=key))
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

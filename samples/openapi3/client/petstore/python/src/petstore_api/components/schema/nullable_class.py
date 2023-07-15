@@ -955,8 +955,98 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     def get_property(self, name):
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
-        return self.__getitem__(name)
+        val = self.get(name, schemas.unset)
+        if name == "integer_prop":
+            return val if val is schemas.unset else typing.cast(
+                typing.Union[
+                    None,
+                    int,
+                ],
+                val
+            )
+        elif name == "number_prop":
+            return val if val is schemas.unset else typing.cast(
+                typing.Union[
+                    None,
+                    typing.Union[int, float],
+                ],
+                val
+            )
+        elif name == "boolean_prop":
+            return val if val is schemas.unset else typing.cast(
+                typing.Union[
+                    None,
+                    bool,
+                ],
+                val
+            )
+        elif name == "string_prop":
+            return val if val is schemas.unset else typing.cast(
+                typing.Union[
+                    None,
+                    str,
+                ],
+                val
+            )
+        elif name == "date_prop":
+            return val if val is schemas.unset else typing.cast(
+                typing.Union[
+                    None,
+                    str,
+                ],
+                val
+            )
+        elif name == "datetime_prop":
+            return val if val is schemas.unset else typing.cast(
+                typing.Union[
+                    None,
+                    str,
+                ],
+                val
+            )
+        elif name == "array_nullable_prop":
+            return val if val is schemas.unset else typing.cast(
+                typing.Union[
+                    None,
+                    ArrayNullablePropTuple,
+                ],
+                val
+            )
+        elif name == "array_and_items_nullable_prop":
+            return val if val is schemas.unset else typing.cast(
+                typing.Union[
+                    None,
+                    ArrayAndItemsNullablePropTuple,
+                ],
+                val
+            )
+        elif name == "array_items_nullable":
+            return val if val is schemas.unset else typing.cast(
+                ArrayItemsNullableTuple,
+                val
+            )
+        elif name == "object_nullable_prop":
+            return val if val is schemas.unset else typing.cast(
+                typing.Union[
+                    None,
+                    ObjectNullablePropDict,
+                ],
+                val
+            )
+        elif name == "object_and_items_nullable_prop":
+            return val if val is schemas.unset else typing.cast(
+                typing.Union[
+                    None,
+                    ObjectAndItemsNullablePropDict,
+                ],
+                val
+            )
+        elif name == "object_items_nullable":
+            return val if val is schemas.unset else typing.cast(
+                ObjectItemsNullableDict,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(key=key))
     
     def get_additional_property(self, name: str) -> typing.Union[
         None,

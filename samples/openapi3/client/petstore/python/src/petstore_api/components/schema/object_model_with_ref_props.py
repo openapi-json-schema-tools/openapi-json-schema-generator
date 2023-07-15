@@ -46,8 +46,23 @@ class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE
         ...
     
     def get_property(self, name):
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
-        return self.__getitem__(name)
+        val = self.get(name, schemas.unset)
+        if name == "myNumber":
+            return val if val is schemas.unset else typing.cast(
+                typing.Union[int, float],
+                val
+            )
+        elif name == "myString":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        elif name == "myBoolean":
+            return val if val is schemas.unset else typing.cast(
+                bool,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(key=key))
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

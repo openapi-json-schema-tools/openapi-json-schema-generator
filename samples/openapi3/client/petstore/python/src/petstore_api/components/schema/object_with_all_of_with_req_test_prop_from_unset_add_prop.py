@@ -36,14 +36,18 @@ class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ...
     
     def get_property(self, name):
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
-        if name in self.__required_keys__:
-            if name == "test":
-                return typing.cast(
-                    schemas.OUTPUT_BASE_TYPES,
-                    self.__getitem__(name)
-                )
-        return self.__getitem__(name)
+        val = self.get(name, schemas.unset)
+        if name == "test":
+            return typing.cast(
+                schemas.OUTPUT_BASE_TYPES,
+                val
+            )
+        elif name == "name":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(key=key))
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

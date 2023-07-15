@@ -88,16 +88,10 @@ class Unset:
 
 unset: Unset = Unset()
 
-def raise_if_key_unknown(
-    key: str,
-    required_keys: typing.FrozenSet[str],
-    optional_keys: typing.FrozenSet[str]
-):
-    if key not in required_keys and key not in optional_keys:
-        raise ValueError(
-            f"Invalid key. The key {key} is not a known key in this payload. "
-            "If this key is an additional property, use get_additional_property"
-        )
+def key_unknown_error_msg(key: str) -> str:
+    return (f"Invalid key. The key {key} is not a known key in this payload. "
+        "If this key is an additional property, use get_additional_property"
+    )
 
 def raise_if_key_known(
     key: str,

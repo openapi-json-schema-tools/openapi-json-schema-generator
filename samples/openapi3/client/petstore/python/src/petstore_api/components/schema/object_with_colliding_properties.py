@@ -38,8 +38,18 @@ class ObjectWithCollidingPropertiesDict(schemas.immutabledict[str, schemas.OUTPU
         ...
     
     def get_property(self, name):
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
-        return self.__getitem__(name)
+        val = self.get(name, schemas.unset)
+        if name == "someProp":
+            return val if val is schemas.unset else typing.cast(
+                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+                val
+            )
+        elif name == "someprop":
+            return val if val is schemas.unset else typing.cast(
+                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(key=key))
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

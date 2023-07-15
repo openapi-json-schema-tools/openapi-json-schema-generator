@@ -81,19 +81,28 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         ...
     
     def get_property(self, name):
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
-        if name in self.__required_keys__:
-            if name == "required_int64_group":
-                return typing.cast(
-                    int,
-                    self.__getitem__(name)
-                )
-            elif name == "required_string_group":
-                return typing.cast(
-                    str,
-                    self.__getitem__(name)
-                )
-        return self.__getitem__(name)
+        val = self.get(name, schemas.unset)
+        if name == "required_int64_group":
+            return typing.cast(
+                int,
+                val
+            )
+        elif name == "required_string_group":
+            return typing.cast(
+                str,
+                val
+            )
+        elif name == "int64_group":
+            return val if val is schemas.unset else typing.cast(
+                int,
+                val
+            )
+        elif name == "string_group":
+            return val if val is schemas.unset else typing.cast(
+                str,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(key=key))
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)
@@ -181,14 +190,18 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         ...
     
     def get_property(self, name):
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
-        if name in self.__required_keys__:
-            if name == "required_boolean_group":
-                return typing.cast(
-                    typing_extensions.Literal["true", "false"],
-                    self.__getitem__(name)
-                )
-        return self.__getitem__(name)
+        val = self.get(name, schemas.unset)
+        if name == "required_boolean_group":
+            return typing.cast(
+                typing_extensions.Literal["true", "false"],
+                val
+            )
+        elif name == "boolean_group":
+            return val if val is schemas.unset else typing.cast(
+                typing_extensions.Literal["true", "false"],
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(key=key))
 
     def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return HeaderParameters.validate(arg, configuration=configuration)
