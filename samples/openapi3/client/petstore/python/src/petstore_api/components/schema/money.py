@@ -41,6 +41,16 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def get_property(self, name):
         schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
+        if name == "amount":
+            return typing.cast(
+                str,
+                self.__getitem__(name)
+            )
+        elif name == "currency":
+            return typing.cast(
+                typing_extensions.Literal["eur", "usd"],
+                self.__getitem__(name)
+            )
         return self.__getitem__(name)
 
     def __new__(cls, arg: MoneyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

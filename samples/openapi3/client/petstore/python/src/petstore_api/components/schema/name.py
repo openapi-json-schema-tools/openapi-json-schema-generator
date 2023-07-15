@@ -46,6 +46,12 @@ class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def get_property(self, name):
         schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
+        if name in self.__required_keys__:
+            if name == "name":
+                return typing.cast(
+                    int,
+                    self.__getitem__(name)
+                )
         return self.__getitem__(name)
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:

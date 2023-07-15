@@ -114,6 +114,21 @@ class JSONPatchRequestMoveCopyDict(schemas.immutabledict[str, schemas.OUTPUT_BAS
     
     def get_property(self, name):
         schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
+        if name == "from":
+            return typing.cast(
+                str,
+                self.__getitem__(name)
+            )
+        elif name == "op":
+            return typing.cast(
+                typing_extensions.Literal["move", "copy"],
+                self.__getitem__(name)
+            )
+        elif name == "path":
+            return typing.cast(
+                str,
+                self.__getitem__(name)
+            )
         return self.__getitem__(name)
 
     def __new__(cls, arg: JSONPatchRequestMoveCopyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

@@ -80,6 +80,36 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     
     def get_property(self, name):
         schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
+        if name == "context":
+            return typing.cast(
+                parameter_4_schema.SchemaTuple,
+                self.__getitem__(name)
+            )
+        elif name == "http":
+            return typing.cast(
+                parameter_2_schema.SchemaTuple,
+                self.__getitem__(name)
+            )
+        elif name == "ioutil":
+            return typing.cast(
+                parameter_1_schema.SchemaTuple,
+                self.__getitem__(name)
+            )
+        elif name == "pipe":
+            return typing.cast(
+                parameter_0_schema.SchemaTuple,
+                self.__getitem__(name)
+            )
+        elif name == "refParam":
+            return typing.cast(
+                str,
+                self.__getitem__(name)
+            )
+        elif name == "url":
+            return typing.cast(
+                parameter_3_schema.SchemaTuple,
+                self.__getitem__(name)
+            )
         return self.__getitem__(name)
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

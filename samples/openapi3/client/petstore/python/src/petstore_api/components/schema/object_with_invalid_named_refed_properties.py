@@ -40,6 +40,16 @@ class ObjectWithInvalidNamedRefedPropertiesDict(schemas.immutabledict[str, schem
     
     def get_property(self, name):
         schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
+        if name == "!reference":
+            return typing.cast(
+                array_with_validations_in_items.ArrayWithValidationsInItemsTuple,
+                self.__getitem__(name)
+            )
+        elif name == "from":
+            return typing.cast(
+                from_schema.FromSchemaDict,
+                self.__getitem__(name)
+            )
         return self.__getitem__(name)
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:

@@ -93,6 +93,16 @@ class JSONPatchRequestRemoveDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
     
     def get_property(self, name):
         schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
+        if name == "op":
+            return typing.cast(
+                typing_extensions.Literal["remove"],
+                self.__getitem__(name)
+            )
+        elif name == "path":
+            return typing.cast(
+                str,
+                self.__getitem__(name)
+            )
         return self.__getitem__(name)
 
     def __new__(cls, arg: JSONPatchRequestRemoveDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

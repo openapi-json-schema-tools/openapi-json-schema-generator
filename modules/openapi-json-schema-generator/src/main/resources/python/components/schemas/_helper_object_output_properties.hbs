@@ -10,7 +10,7 @@
     {{#neq ../qtyKnownProperties 1}}
     ...
     {{else}}
-    {{> components/schemas/_helper_object_get_property singleProp=true required=true }}
+    {{> components/schemas/_helper_object_get_property required=true }}
     {{/neq}}
             {{else}}
                 {{#if jsonPathPiece}}
@@ -22,7 +22,7 @@
     {{#neq ../qtyKnownProperties 1}}
     ...
     {{else}}
-    {{> components/schemas/_helper_object_get_property singleProp=true required=true }}
+    {{> components/schemas/_helper_object_get_property required=true }}
     {{/neq}}
                 {{else}}
                     {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
@@ -34,7 +34,7 @@ def get_property(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -
     {{#neq ../qtyKnownProperties 1}}
     ...
     {{else}}
-    {{> components/schemas/_helper_object_get_property singleProp=true required=true }}
+    {{> components/schemas/_helper_object_get_property required=true }}
     {{/neq}}
                 {{/if}}
             {{/if}}
@@ -53,7 +53,7 @@ def get_property(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -
     {{#neq ../qtyKnownProperties 1}}
     ...
     {{else}}
-    {{> components/schemas/_helper_object_get_property singleProp=true required=false }}
+    {{> components/schemas/_helper_object_get_property required=false }}
     {{/neq}}
             {{else}}
 
@@ -64,7 +64,7 @@ def get_property(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -
     {{#neq ../qtyKnownProperties 1}}
     ...
     {{else}}
-    {{> components/schemas/_helper_object_get_property singleProp=true required=false }}
+    {{> components/schemas/_helper_object_get_property required=false }}
     {{/neq}}
             {{/if}}
         {{/with}}
@@ -74,7 +74,16 @@ def get_property(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -
     {{#neq qtyKnownProperties 1}}
 
 def get_property(self, name):
-    {{> components/schemas/_helper_object_get_property singleProp=false }}
+    schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
+    {{#if requiredProperties}}
+        {{#if optionalProperties}}
+    if name in self.__required_keys__:
+        {{> components/schemas/_helper_object_get_property_req_ifs }}
+        {{else}}
+    {{> components/schemas/_helper_object_get_property_req_ifs }}
+        {{/if}}
+    {{/if}}
+    return self.__getitem__(name)
     {{/neq}}
 {{/or}}
 {{#eq additionalProperties null }}

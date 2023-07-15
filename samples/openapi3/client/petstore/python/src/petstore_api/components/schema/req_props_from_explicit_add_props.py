@@ -31,6 +31,16 @@ class ReqPropsFromExplicitAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT
     
     def get_property(self, name):
         schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
+        if name == "invalid-name":
+            return typing.cast(
+                str,
+                self.__getitem__(name)
+            )
+        elif name == "validName":
+            return typing.cast(
+                str,
+                self.__getitem__(name)
+            )
         return self.__getitem__(name)
     
     def get_additional_property(self, name: str) -> str:

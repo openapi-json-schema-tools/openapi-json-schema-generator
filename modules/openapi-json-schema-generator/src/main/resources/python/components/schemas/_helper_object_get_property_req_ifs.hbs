@@ -1,0 +1,11 @@
+{{#each requiredProperties}}
+{{#if @first}}if{{else}}elif{{/if}} name == "{{{@key.original}}}":
+    return typing.cast(
+    {{#if refInfo.refClass}}
+        {{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="unprefixed" endChar="," }}
+    {{else}}
+        {{> components/schemas/_helper_schema_output_type fullRefModule="" mode="unprefixed" endChar="," }}
+    {{/if}}
+        self.__getitem__(name)
+    )
+{{/each}}

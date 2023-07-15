@@ -92,6 +92,16 @@ class QuadrilateralInterfaceDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
     
     def get_property(self, name):
         schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
+        if name == "quadrilateralType":
+            return typing.cast(
+                str,
+                self.__getitem__(name)
+            )
+        elif name == "shapeType":
+            return typing.cast(
+                typing_extensions.Literal["Quadrilateral"],
+                self.__getitem__(name)
+            )
         return self.__getitem__(name)
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
