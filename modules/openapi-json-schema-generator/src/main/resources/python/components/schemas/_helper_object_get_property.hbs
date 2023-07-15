@@ -1,23 +1,24 @@
-schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
+if name == "{{{@key.original}}}":
 {{#if required}}
-return typing.cast(
+    return typing.cast(
     {{#if refInfo.refClass}}
-    {{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="unprefixed" endChar="," }}
+        {{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="unprefixed" endChar="," }}
     {{else}}
-    {{> components/schemas/_helper_schema_output_type fullRefModule="" mode="unprefixed" endChar="," }}
+        {{> components/schemas/_helper_schema_output_type fullRefModule="" mode="unprefixed" endChar="," }}
     {{/if}}
-    self.__getitem__(name)
-)
+        self.__getitem__(name)
+    )
 {{else}}
-val = self.get(name, schemas.unset)
-if val is schemas.unset:
-    return val
-return typing.cast(
+    val = self.get(name, schemas.unset)
+    if val is schemas.unset:
+        return val
+    return typing.cast(
     {{#if refInfo.refClass}}
-    {{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="unprefixed" endChar="," }}
+        {{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="unprefixed" endChar="," }}
     {{else}}
-    {{> components/schemas/_helper_schema_output_type fullRefModule="" mode="unprefixed" endChar="," }}
+        {{> components/schemas/_helper_schema_output_type fullRefModule="" mode="unprefixed" endChar="," }}
     {{/if}}
-    val
-)
+        val
+    )
 {{/if}}
+raise ValueError(schemas.key_unknown_error_msg(name))

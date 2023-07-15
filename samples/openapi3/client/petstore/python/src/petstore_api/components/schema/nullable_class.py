@@ -1046,7 +1046,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
                 ObjectItemsNullableDict,
                 val
             )
-        raise ValueError(schemas.key_unknown_error_msg(key=key))
+        raise ValueError(schemas.key_unknown_error_msg(name))
     
     def get_additional_property(self, name: str) -> typing.Union[
         None,

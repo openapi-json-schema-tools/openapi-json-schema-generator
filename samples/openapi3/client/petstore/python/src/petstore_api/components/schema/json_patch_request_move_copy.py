@@ -129,7 +129,7 @@ class JSONPatchRequestMoveCopyDict(schemas.immutabledict[str, schemas.OUTPUT_BAS
                 str,
                 val
             )
-        raise ValueError(schemas.key_unknown_error_msg(key=key))
+        raise ValueError(schemas.key_unknown_error_msg(name))
 
     def __new__(cls, arg: JSONPatchRequestMoveCopyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return JSONPatchRequestMoveCopy.validate(arg, configuration=configuration)

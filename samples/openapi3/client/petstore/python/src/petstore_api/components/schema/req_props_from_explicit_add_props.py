@@ -41,7 +41,7 @@ class ReqPropsFromExplicitAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT
                 str,
                 val
             )
-        raise ValueError(schemas.key_unknown_error_msg(key=key))
+        raise ValueError(schemas.key_unknown_error_msg(name))
     
     def get_additional_property(self, name: str) -> str:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

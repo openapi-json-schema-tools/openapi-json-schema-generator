@@ -27,11 +27,12 @@ class BananaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     def get_property(self, name: typing_extensions.Literal["lengthCm"]) -> typing.Union[int, float]:
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
-        return typing.cast(
-            typing.Union[int, float],
-            self.__getitem__(name)
-        )
+        if name == "lengthCm":
+            return typing.cast(
+                typing.Union[int, float],
+                self.__getitem__(name)
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

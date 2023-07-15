@@ -121,7 +121,7 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
                 str,
                 val
             )
-        raise ValueError(schemas.key_unknown_error_msg(key=key))
+        raise ValueError(schemas.key_unknown_error_msg(name))
 
     def __new__(cls, arg: HeadersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Headers.validate(arg, configuration=configuration)

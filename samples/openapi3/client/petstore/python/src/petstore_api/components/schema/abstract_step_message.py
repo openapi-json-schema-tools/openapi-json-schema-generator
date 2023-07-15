@@ -57,7 +57,7 @@ class AbstractStepMessageDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
                 schemas.OUTPUT_BASE_TYPES,
                 val
             )
-        raise ValueError(schemas.key_unknown_error_msg(key=key))
+        raise ValueError(schemas.key_unknown_error_msg(name))
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

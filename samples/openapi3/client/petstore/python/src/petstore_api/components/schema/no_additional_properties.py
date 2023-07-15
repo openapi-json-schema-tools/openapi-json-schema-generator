@@ -63,7 +63,7 @@ class NoAdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
                 int,
                 val
             )
-        raise ValueError(schemas.key_unknown_error_msg(key=key))
+        raise ValueError(schemas.key_unknown_error_msg(name))
 
     def __new__(cls, arg: NoAdditionalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return NoAdditionalProperties.validate(arg, configuration=configuration)

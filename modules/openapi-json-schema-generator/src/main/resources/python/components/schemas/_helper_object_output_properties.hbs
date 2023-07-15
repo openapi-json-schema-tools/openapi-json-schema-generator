@@ -97,7 +97,7 @@ def get_property(self, name):
             val
         )
         {{/each}}
-    raise ValueError(schemas.key_unknown_error_msg(key=key))
+    raise ValueError(schemas.key_unknown_error_msg(name))
     {{/neq}}
 {{/or}}
 {{#eq additionalProperties null }}

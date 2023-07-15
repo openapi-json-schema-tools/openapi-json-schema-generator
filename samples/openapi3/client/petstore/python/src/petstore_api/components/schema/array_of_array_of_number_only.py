@@ -141,14 +141,15 @@ class ArrayOfArrayOfNumberOnlyDict(schemas.immutabledict[str, schemas.OUTPUT_BAS
     })
     
     def get_property(self, name: typing_extensions.Literal["ArrayArrayNumber"]) -> ArrayArrayNumberTuple:
-        schemas.raise_if_key_unknown(name, self.__required_keys__, self.__optional_keys__)
-        val = self.get(name, schemas.unset)
-        if val is schemas.unset:
-            return val
-        return typing.cast(
-            ArrayArrayNumberTuple,
-            val
-        )
+        if name == "ArrayArrayNumber":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
+                ArrayArrayNumberTuple,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
     
     def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

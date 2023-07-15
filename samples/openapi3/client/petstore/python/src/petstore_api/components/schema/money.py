@@ -51,7 +51,7 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
                 typing_extensions.Literal["eur", "usd"],
                 val
             )
-        raise ValueError(schemas.key_unknown_error_msg(key=key))
+        raise ValueError(schemas.key_unknown_error_msg(name))
 
     def __new__(cls, arg: MoneyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Money.validate(arg, configuration=configuration)

@@ -50,7 +50,7 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
                 typing.Union[int, float],
                 val
             )
-        raise ValueError(schemas.key_unknown_error_msg(key=key))
+        raise ValueError(schemas.key_unknown_error_msg(name))
 
     def __new__(cls, arg: ObjectWithOnlyOptionalPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithOnlyOptionalProps.validate(arg, configuration=configuration)
