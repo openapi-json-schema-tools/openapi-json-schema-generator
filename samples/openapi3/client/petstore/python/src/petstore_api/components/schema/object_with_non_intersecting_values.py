@@ -27,6 +27,7 @@ class ObjectWithNonIntersectingValuesDict(schemas.immutabledict[str, schemas.OUT
         "a",
     })
     
+    @property
     def get_property(self, name: typing_extensions.Literal["a"]) -> typing.Union[int, float]:
         if name == "a":
             val = self.get(name, schemas.unset)

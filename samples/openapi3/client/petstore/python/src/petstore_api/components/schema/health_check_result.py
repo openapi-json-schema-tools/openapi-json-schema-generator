@@ -61,6 +61,7 @@ class HealthCheckResultDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES
         "NullableMessage",
     })
     
+    @property
     def get_property(self, name: typing_extensions.Literal["NullableMessage"]) -> typing.Union[
         None,
         str,

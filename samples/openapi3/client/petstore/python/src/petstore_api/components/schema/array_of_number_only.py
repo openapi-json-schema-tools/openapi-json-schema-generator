@@ -82,6 +82,7 @@ class ArrayOfNumberOnlyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES
         "ArrayNumber",
     })
     
+    @property
     def get_property(self, name: typing_extensions.Literal["ArrayNumber"]) -> ArrayNumberTuple:
         if name == "ArrayNumber":
             val = self.get(name, schemas.unset)

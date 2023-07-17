@@ -26,6 +26,7 @@ class ObjectWithOptionalTestPropDict(schemas.immutabledict[str, schemas.OUTPUT_B
         "test",
     })
     
+    @property
     def get_property(self, name: typing_extensions.Literal["test"]) -> str:
         if name == "test":
             val = self.get(name, schemas.unset)

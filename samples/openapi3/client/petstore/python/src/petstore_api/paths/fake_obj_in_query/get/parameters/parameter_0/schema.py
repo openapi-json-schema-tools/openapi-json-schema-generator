@@ -26,6 +26,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "keyword",
     })
     
+    @property
     def get_property(self, name: typing_extensions.Literal["keyword"]) -> str:
         if name == "keyword":
             val = self.get(name, schemas.unset)

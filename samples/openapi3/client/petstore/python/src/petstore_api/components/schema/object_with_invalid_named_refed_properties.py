@@ -30,25 +30,21 @@ class ObjectWithInvalidNamedRefedPropertiesDict(schemas.immutabledict[str, schem
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["!reference"]) -> array_with_validations_in_items.ArrayWithValidationsInItemsTuple:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["from"]) -> from_schema.FromSchemaDict:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "!reference":
             return typing.cast(
                 array_with_validations_in_items.ArrayWithValidationsInItemsTuple,
-                val
+                self.__getitem__(name)
             )
-        elif name == "from":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["from"]) -> from_schema.FromSchemaDict:
+        if name == "from":
             return typing.cast(
                 from_schema.FromSchemaDict,
-                val
+                self.__getitem__(name)
             )
         raise ValueError(schemas.key_unknown_error_msg(name))
     

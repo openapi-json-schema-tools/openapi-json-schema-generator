@@ -79,6 +79,7 @@ class DanishPigDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
+    @property
     def get_property(self, name: typing_extensions.Literal["className"]) -> typing_extensions.Literal["DanishPig"]:
         if name == "className":
             return typing.cast(

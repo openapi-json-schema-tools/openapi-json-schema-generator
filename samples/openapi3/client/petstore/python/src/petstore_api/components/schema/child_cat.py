@@ -26,6 +26,7 @@ class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "name",
     })
     
+    @property
     def get_property(self, name: typing_extensions.Literal["name"]) -> str:
         if name == "name":
             val = self.get(name, schemas.unset)

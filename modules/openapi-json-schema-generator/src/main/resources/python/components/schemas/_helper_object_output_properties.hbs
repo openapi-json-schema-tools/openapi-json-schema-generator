@@ -3,39 +3,21 @@
         {{#with this}}
             {{#if refInfo.refClass}}
 
-{{#neq ../qtyKnownProperties 1}}
-@typing.overload
-{{/neq}}
+@property
 {{> components/schemas/_helper_schema_output_ref_type key=@key.original fullRefModule="" mode="get_property" endChar=":" }}
-    {{#neq ../qtyKnownProperties 1}}
-    ...
-    {{else}}
     {{> components/schemas/_helper_object_get_property required=true }}
-    {{/neq}}
             {{else}}
                 {{#if jsonPathPiece}}
 
-{{#neq ../qtyKnownProperties 1}}
-@typing.overload
-{{/neq}}
+@property
 {{> components/schemas/_helper_schema_output_type key=@key.original mode="get_property" fullRefModule=null endChar=":" }}
-    {{#neq ../qtyKnownProperties 1}}
-    ...
-    {{else}}
     {{> components/schemas/_helper_object_get_property required=true }}
-    {{/neq}}
                 {{else}}
                     {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
 
-{{#neq ../qtyKnownProperties 1}}
-@typing.overload
-{{/neq}}
+@property
 def get_property(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> schemas.OUTPUT_BASE_TYPES:
-    {{#neq ../qtyKnownProperties 1}}
-    ...
-    {{else}}
     {{> components/schemas/_helper_object_get_property required=true }}
-    {{/neq}}
                 {{/if}}
             {{/if}}
         {{/with}}
@@ -46,60 +28,18 @@ def get_property(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -
         {{#with this}}
             {{#if refInfo.refClass}}
 
-{{#neq ../qtyKnownProperties 1}}
-@typing.overload
-{{/neq}}
+@property
 {{> components/schemas/_helper_schema_output_ref_type key=@key.original fullRefModule="" mode="get_property" endChar=":" }}
-    {{#neq ../qtyKnownProperties 1}}
-    ...
-    {{else}}
     {{> components/schemas/_helper_object_get_property required=false }}
-    {{/neq}}
             {{else}}
 
-{{#neq ../qtyKnownProperties 1}}
-@typing.overload
-{{/neq}}
+@property
 {{> components/schemas/_helper_schema_output_type key=@key.original mode="get_property" fullRefModule=null endChar=":" }}
-    {{#neq ../qtyKnownProperties 1}}
-    ...
-    {{else}}
     {{> components/schemas/_helper_object_get_property required=false }}
-    {{/neq}}
             {{/if}}
         {{/with}}
     {{/each}}
 {{/if}}
-{{#or optionalProperties requiredProperties}}
-    {{#neq qtyKnownProperties 1}}
-
-def get_property(self, name):
-    val = self.get(name, schemas.unset)
-        {{#each requiredProperties}}
-    {{#if @first}}if{{else}}elif{{/if}} name == "{{{@key.original}}}":
-        return typing.cast(
-            {{#if refInfo.refClass}}
-            {{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="unprefixed" endChar="," }}
-            {{else}}
-            {{> components/schemas/_helper_schema_output_type fullRefModule="" mode="unprefixed" endChar="," }}
-            {{/if}}
-            val
-        )
-        {{/each}}
-        {{#each optionalProperties}}
-    {{#if ../requiredProperties}}elif{{else}}{{#if @first}}if{{else}}elif{{/if}}{{/if}} name == "{{{@key.original}}}":
-        return val if val is schemas.unset else typing.cast(
-            {{#if refInfo.refClass}}
-            {{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="unprefixed" endChar="," }}
-            {{else}}
-            {{> components/schemas/_helper_schema_output_type fullRefModule="" mode="unprefixed" endChar="," }}
-            {{/if}}
-            val
-        )
-        {{/each}}
-    raise ValueError(schemas.key_unknown_error_msg(name))
-    {{/neq}}
-{{/or}}
 {{#eq additionalProperties null }}
 
 def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:

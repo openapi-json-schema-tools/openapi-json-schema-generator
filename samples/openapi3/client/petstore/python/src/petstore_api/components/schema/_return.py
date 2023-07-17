@@ -26,6 +26,7 @@ class ReturnDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "return",
     })
     
+    @property
     def get_property(self, name: typing_extensions.Literal["return"]) -> int:
         if name == "return":
             val = self.get(name, schemas.unset)

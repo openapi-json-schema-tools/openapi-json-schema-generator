@@ -84,6 +84,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "files",
     })
     
+    @property
     def get_property(self, name: typing_extensions.Literal["files"]) -> FilesTuple:
         if name == "files":
             val = self.get(name, schemas.unset)

@@ -54,61 +54,57 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["context"]) -> parameter_4_schema.SchemaTuple:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["http"]) -> parameter_2_schema.SchemaTuple:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["ioutil"]) -> parameter_1_schema.SchemaTuple:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["pipe"]) -> parameter_0_schema.SchemaTuple:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["refParam"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["url"]) -> parameter_3_schema.SchemaTuple:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "context":
             return typing.cast(
                 parameter_4_schema.SchemaTuple,
-                val
+                self.__getitem__(name)
             )
-        elif name == "http":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["http"]) -> parameter_2_schema.SchemaTuple:
+        if name == "http":
             return typing.cast(
                 parameter_2_schema.SchemaTuple,
-                val
+                self.__getitem__(name)
             )
-        elif name == "ioutil":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["ioutil"]) -> parameter_1_schema.SchemaTuple:
+        if name == "ioutil":
             return typing.cast(
                 parameter_1_schema.SchemaTuple,
-                val
+                self.__getitem__(name)
             )
-        elif name == "pipe":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["pipe"]) -> parameter_0_schema.SchemaTuple:
+        if name == "pipe":
             return typing.cast(
                 parameter_0_schema.SchemaTuple,
-                val
+                self.__getitem__(name)
             )
-        elif name == "refParam":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["refParam"]) -> str:
+        if name == "refParam":
             return typing.cast(
                 str,
-                val
+                self.__getitem__(name)
             )
-        elif name == "url":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["url"]) -> parameter_3_schema.SchemaTuple:
+        if name == "url":
             return typing.cast(
                 parameter_3_schema.SchemaTuple,
-                val
+                self.__getitem__(name)
             )
         raise ValueError(schemas.key_unknown_error_msg(name))
 

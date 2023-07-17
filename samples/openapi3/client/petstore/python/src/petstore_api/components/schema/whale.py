@@ -85,32 +85,34 @@ class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "hasTeeth",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["className"]) -> typing_extensions.Literal["whale"]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["hasBaleen"]) -> bool:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["hasTeeth"]) -> bool:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "className":
             return typing.cast(
                 typing_extensions.Literal["whale"],
-                val
+                self.__getitem__(name)
             )
-        elif name == "hasBaleen":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["hasBaleen"]) -> bool:
+        if name == "hasBaleen":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 bool,
                 val
             )
-        elif name == "hasTeeth":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["hasTeeth"]) -> bool:
+        if name == "hasTeeth":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 bool,
                 val
             )

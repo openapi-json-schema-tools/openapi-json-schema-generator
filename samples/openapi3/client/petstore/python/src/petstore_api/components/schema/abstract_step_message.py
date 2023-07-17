@@ -28,34 +28,30 @@ class AbstractStepMessageDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["description"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["discriminator"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["sequenceNumber"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "description":
             return typing.cast(
                 schemas.OUTPUT_BASE_TYPES,
-                val
+                self.__getitem__(name)
             )
-        elif name == "discriminator":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["discriminator"]) -> str:
+        if name == "discriminator":
             return typing.cast(
                 str,
-                val
+                self.__getitem__(name)
             )
-        elif name == "sequenceNumber":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["sequenceNumber"]) -> schemas.OUTPUT_BASE_TYPES:
+        if name == "sequenceNumber":
             return typing.cast(
                 schemas.OUTPUT_BASE_TYPES,
-                val
+                self.__getitem__(name)
             )
         raise ValueError(schemas.key_unknown_error_msg(name))
     

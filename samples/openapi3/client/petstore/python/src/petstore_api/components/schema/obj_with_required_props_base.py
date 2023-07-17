@@ -26,6 +26,7 @@ class ObjWithRequiredPropsBaseDict(schemas.immutabledict[str, schemas.OUTPUT_BAS
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
+    @property
     def get_property(self, name: typing_extensions.Literal["b"]) -> str:
         if name == "b":
             return typing.cast(

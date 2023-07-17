@@ -29,25 +29,21 @@ class ObjectModelWithArgAndArgsPropertiesDict(schemas.immutabledict[str, schemas
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["arg"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["args"]) -> str:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "arg":
             return typing.cast(
                 str,
-                val
+                self.__getitem__(name)
             )
-        elif name == "args":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["args"]) -> str:
+        if name == "args":
             return typing.cast(
                 str,
-                val
+                self.__getitem__(name)
             )
         raise ValueError(schemas.key_unknown_error_msg(name))
     

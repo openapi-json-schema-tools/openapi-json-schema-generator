@@ -31,25 +31,21 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["amount"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["currency"]) -> typing_extensions.Literal["eur", "usd"]:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "amount":
             return typing.cast(
                 str,
-                val
+                self.__getitem__(name)
             )
-        elif name == "currency":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["currency"]) -> typing_extensions.Literal["eur", "usd"]:
+        if name == "currency":
             return typing.cast(
                 typing_extensions.Literal["eur", "usd"],
-                val
+                self.__getitem__(name)
             )
         raise ValueError(schemas.key_unknown_error_msg(name))
 

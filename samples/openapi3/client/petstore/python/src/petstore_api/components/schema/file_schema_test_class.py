@@ -87,23 +87,25 @@ class FileSchemaTestClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
         "files",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["file"]) -> file.FileDict:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["files"]) -> FilesTuple:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "file":
-            return val if val is schemas.unset else typing.cast(
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 file.FileDict,
                 val
             )
-        elif name == "files":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["files"]) -> FilesTuple:
+        if name == "files":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 FilesTuple,
                 val
             )

@@ -106,128 +106,163 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "anyTypePropNullable",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["id"]) -> int:
-        ...
+        if name == "id":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
+                int,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["username"]) -> str:
-        ...
+        if name == "username":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
+                str,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["firstName"]) -> str:
-        ...
+        if name == "firstName":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
+                str,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["lastName"]) -> str:
-        ...
+        if name == "lastName":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
+                str,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["email"]) -> str:
-        ...
+        if name == "email":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
+                str,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["password"]) -> str:
-        ...
+        if name == "password":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
+                str,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["phone"]) -> str:
-        ...
+        if name == "phone":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
+                str,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["userStatus"]) -> int:
-        ...
+        if name == "userStatus":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
+                int,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["objectWithNoDeclaredProps"]) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
-        ...
+        if name == "objectWithNoDeclaredProps":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
+                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["objectWithNoDeclaredPropsNullable"]) -> typing.Union[
         None,
         schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["anyTypeProp"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["anyTypeExceptNullProp"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["anyTypePropNullable"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
-        if name == "id":
-            return val if val is schemas.unset else typing.cast(
-                int,
-                val
-            )
-        elif name == "username":
-            return val if val is schemas.unset else typing.cast(
-                str,
-                val
-            )
-        elif name == "firstName":
-            return val if val is schemas.unset else typing.cast(
-                str,
-                val
-            )
-        elif name == "lastName":
-            return val if val is schemas.unset else typing.cast(
-                str,
-                val
-            )
-        elif name == "email":
-            return val if val is schemas.unset else typing.cast(
-                str,
-                val
-            )
-        elif name == "password":
-            return val if val is schemas.unset else typing.cast(
-                str,
-                val
-            )
-        elif name == "phone":
-            return val if val is schemas.unset else typing.cast(
-                str,
-                val
-            )
-        elif name == "userStatus":
-            return val if val is schemas.unset else typing.cast(
-                int,
-                val
-            )
-        elif name == "objectWithNoDeclaredProps":
-            return val if val is schemas.unset else typing.cast(
-                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-                val
-            )
-        elif name == "objectWithNoDeclaredPropsNullable":
-            return val if val is schemas.unset else typing.cast(
+        if name == "objectWithNoDeclaredPropsNullable":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing.Union[
                     None,
                     schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
                 ],
                 val
             )
-        elif name == "anyTypeProp":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["anyTypeProp"]) -> schemas.OUTPUT_BASE_TYPES:
+        if name == "anyTypeProp":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 schemas.OUTPUT_BASE_TYPES,
                 val
             )
-        elif name == "anyTypeExceptNullProp":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["anyTypeExceptNullProp"]) -> schemas.OUTPUT_BASE_TYPES:
+        if name == "anyTypeExceptNullProp":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 schemas.OUTPUT_BASE_TYPES,
                 val
             )
-        elif name == "anyTypePropNullable":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["anyTypePropNullable"]) -> schemas.OUTPUT_BASE_TYPES:
+        if name == "anyTypePropNullable":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 schemas.OUTPUT_BASE_TYPES,
                 val
             )

@@ -114,34 +114,30 @@ class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, schemas.OUTP
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["op"]) -> typing_extensions.Literal["add", "replace", "test"]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["path"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["value"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "op":
             return typing.cast(
                 typing_extensions.Literal["add", "replace", "test"],
-                val
+                self.__getitem__(name)
             )
-        elif name == "path":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["path"]) -> str:
+        if name == "path":
             return typing.cast(
                 str,
-                val
+                self.__getitem__(name)
             )
-        elif name == "value":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["value"]) -> schemas.OUTPUT_BASE_TYPES:
+        if name == "value":
             return typing.cast(
                 schemas.OUTPUT_BASE_TYPES,
-                val
+                self.__getitem__(name)
             )
         raise ValueError(schemas.key_unknown_error_msg(name))
 

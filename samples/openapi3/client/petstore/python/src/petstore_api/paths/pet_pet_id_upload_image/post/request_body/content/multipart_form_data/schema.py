@@ -29,23 +29,25 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "file",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["additionalMetadata"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["file"]) -> typing.Union[bytes, schemas.FileIO]:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "additionalMetadata":
-            return val if val is schemas.unset else typing.cast(
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 str,
                 val
             )
-        elif name == "file":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["file"]) -> typing.Union[bytes, schemas.FileIO]:
+        if name == "file":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing.Union[bytes, schemas.FileIO],
                 val
             )

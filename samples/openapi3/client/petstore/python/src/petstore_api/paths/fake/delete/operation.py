@@ -64,41 +64,43 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         "string_group",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["required_int64_group"]) -> int:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["required_string_group"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["int64_group"]) -> int:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["string_group"]) -> str:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "required_int64_group":
             return typing.cast(
                 int,
-                val
+                self.__getitem__(name)
             )
-        elif name == "required_string_group":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["required_string_group"]) -> str:
+        if name == "required_string_group":
             return typing.cast(
                 str,
-                val
+                self.__getitem__(name)
             )
-        elif name == "int64_group":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["int64_group"]) -> int:
+        if name == "int64_group":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 int,
                 val
             )
-        elif name == "string_group":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["string_group"]) -> str:
+        if name == "string_group":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 str,
                 val
             )
@@ -181,23 +183,22 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         "boolean_group",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["required_boolean_group"]) -> typing_extensions.Literal["true", "false"]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["boolean_group"]) -> typing_extensions.Literal["true", "false"]:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "required_boolean_group":
             return typing.cast(
                 typing_extensions.Literal["true", "false"],
-                val
+                self.__getitem__(name)
             )
-        elif name == "boolean_group":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["boolean_group"]) -> typing_extensions.Literal["true", "false"]:
+        if name == "boolean_group":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing_extensions.Literal["true", "false"],
                 val
             )

@@ -229,23 +229,25 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "enum_form_string",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["enum_form_string_array"]) -> EnumFormStringArrayTuple:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["enum_form_string"]) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "enum_form_string_array":
-            return val if val is schemas.unset else typing.cast(
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 EnumFormStringArrayTuple,
                 val
             )
-        elif name == "enum_form_string":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["enum_form_string"]) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
+        if name == "enum_form_string":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing_extensions.Literal["_abc", "-efg", "(xyz)"],
                 val
             )

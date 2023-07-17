@@ -79,6 +79,7 @@ class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "quadrilateralType",
     })
     
+    @property
     def get_property(self, name: typing_extensions.Literal["quadrilateralType"]) -> typing_extensions.Literal["SimpleQuadrilateral"]:
         if name == "quadrilateralType":
             val = self.get(name, schemas.unset)

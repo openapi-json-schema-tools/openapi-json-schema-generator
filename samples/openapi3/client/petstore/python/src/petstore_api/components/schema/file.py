@@ -26,6 +26,7 @@ class FileDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "sourceURI",
     })
     
+    @property
     def get_property(self, name: typing_extensions.Literal["sourceURI"]) -> str:
         if name == "sourceURI":
             val = self.get(name, schemas.unset)

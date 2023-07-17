@@ -41,23 +41,25 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         "compositionInProperty",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["compositionAtRoot"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["compositionInProperty"]) -> parameter_1_schema.SchemaDict:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "compositionAtRoot":
-            return val if val is schemas.unset else typing.cast(
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 schemas.OUTPUT_BASE_TYPES,
                 val
             )
-        elif name == "compositionInProperty":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["compositionInProperty"]) -> parameter_1_schema.SchemaDict:
+        if name == "compositionInProperty":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 parameter_1_schema.SchemaDict,
                 val
             )

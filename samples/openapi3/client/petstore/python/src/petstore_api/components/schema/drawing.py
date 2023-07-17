@@ -118,41 +118,49 @@ class DrawingDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "shapes",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["mainShape"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["shapeOrNull"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["nullableShape"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["shapes"]) -> ShapesTuple:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "mainShape":
-            return val if val is schemas.unset else typing.cast(
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 schemas.OUTPUT_BASE_TYPES,
                 val
             )
-        elif name == "shapeOrNull":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["shapeOrNull"]) -> schemas.OUTPUT_BASE_TYPES:
+        if name == "shapeOrNull":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 schemas.OUTPUT_BASE_TYPES,
                 val
             )
-        elif name == "nullableShape":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["nullableShape"]) -> schemas.OUTPUT_BASE_TYPES:
+        if name == "nullableShape":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 schemas.OUTPUT_BASE_TYPES,
                 val
             )
-        elif name == "shapes":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["shapes"]) -> ShapesTuple:
+        if name == "shapes":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 ShapesTuple,
                 val
             )

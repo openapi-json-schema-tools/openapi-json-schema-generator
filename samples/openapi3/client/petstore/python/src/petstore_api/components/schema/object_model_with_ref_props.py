@@ -33,32 +33,37 @@ class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE
         "myBoolean",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["myNumber"]) -> typing.Union[int, float]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["myString"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["myBoolean"]) -> bool:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "myNumber":
-            return val if val is schemas.unset else typing.cast(
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing.Union[int, float],
                 val
             )
-        elif name == "myString":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["myString"]) -> str:
+        if name == "myString":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 str,
                 val
             )
-        elif name == "myBoolean":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["myBoolean"]) -> bool:
+        if name == "myBoolean":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 bool,
                 val
             )

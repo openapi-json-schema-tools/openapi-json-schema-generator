@@ -52,23 +52,22 @@ class AppleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "origin",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["cultivar"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["origin"]) -> str:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "cultivar":
             return typing.cast(
                 str,
-                val
+                self.__getitem__(name)
             )
-        elif name == "origin":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["origin"]) -> str:
+        if name == "origin":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 str,
                 val
             )

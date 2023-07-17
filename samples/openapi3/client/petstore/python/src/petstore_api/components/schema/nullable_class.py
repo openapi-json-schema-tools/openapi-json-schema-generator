@@ -876,173 +876,205 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "object_items_nullable",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["integer_prop"]) -> typing.Union[
         None,
         int,
     ]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["number_prop"]) -> typing.Union[
-        None,
-        typing.Union[int, float],
-    ]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["boolean_prop"]) -> typing.Union[
-        None,
-        bool,
-    ]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["string_prop"]) -> typing.Union[
-        None,
-        str,
-    ]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["date_prop"]) -> typing.Union[
-        None,
-        str,
-    ]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["datetime_prop"]) -> typing.Union[
-        None,
-        str,
-    ]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["array_nullable_prop"]) -> typing.Union[
-        None,
-        ArrayNullablePropTuple,
-    ]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["array_and_items_nullable_prop"]) -> typing.Union[
-        None,
-        ArrayAndItemsNullablePropTuple,
-    ]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["array_items_nullable"]) -> ArrayItemsNullableTuple:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["object_nullable_prop"]) -> typing.Union[
-        None,
-        ObjectNullablePropDict,
-    ]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["object_and_items_nullable_prop"]) -> typing.Union[
-        None,
-        ObjectAndItemsNullablePropDict,
-    ]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["object_items_nullable"]) -> ObjectItemsNullableDict:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "integer_prop":
-            return val if val is schemas.unset else typing.cast(
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing.Union[
                     None,
                     int,
                 ],
                 val
             )
-        elif name == "number_prop":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["number_prop"]) -> typing.Union[
+        None,
+        typing.Union[int, float],
+    ]:
+        if name == "number_prop":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing.Union[
                     None,
                     typing.Union[int, float],
                 ],
                 val
             )
-        elif name == "boolean_prop":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["boolean_prop"]) -> typing.Union[
+        None,
+        bool,
+    ]:
+        if name == "boolean_prop":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing.Union[
                     None,
                     bool,
                 ],
                 val
             )
-        elif name == "string_prop":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["string_prop"]) -> typing.Union[
+        None,
+        str,
+    ]:
+        if name == "string_prop":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing.Union[
                     None,
                     str,
                 ],
                 val
             )
-        elif name == "date_prop":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["date_prop"]) -> typing.Union[
+        None,
+        str,
+    ]:
+        if name == "date_prop":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing.Union[
                     None,
                     str,
                 ],
                 val
             )
-        elif name == "datetime_prop":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["datetime_prop"]) -> typing.Union[
+        None,
+        str,
+    ]:
+        if name == "datetime_prop":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing.Union[
                     None,
                     str,
                 ],
                 val
             )
-        elif name == "array_nullable_prop":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["array_nullable_prop"]) -> typing.Union[
+        None,
+        ArrayNullablePropTuple,
+    ]:
+        if name == "array_nullable_prop":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing.Union[
                     None,
                     ArrayNullablePropTuple,
                 ],
                 val
             )
-        elif name == "array_and_items_nullable_prop":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["array_and_items_nullable_prop"]) -> typing.Union[
+        None,
+        ArrayAndItemsNullablePropTuple,
+    ]:
+        if name == "array_and_items_nullable_prop":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing.Union[
                     None,
                     ArrayAndItemsNullablePropTuple,
                 ],
                 val
             )
-        elif name == "array_items_nullable":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["array_items_nullable"]) -> ArrayItemsNullableTuple:
+        if name == "array_items_nullable":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 ArrayItemsNullableTuple,
                 val
             )
-        elif name == "object_nullable_prop":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["object_nullable_prop"]) -> typing.Union[
+        None,
+        ObjectNullablePropDict,
+    ]:
+        if name == "object_nullable_prop":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing.Union[
                     None,
                     ObjectNullablePropDict,
                 ],
                 val
             )
-        elif name == "object_and_items_nullable_prop":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["object_and_items_nullable_prop"]) -> typing.Union[
+        None,
+        ObjectAndItemsNullablePropDict,
+    ]:
+        if name == "object_and_items_nullable_prop":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing.Union[
                     None,
                     ObjectAndItemsNullablePropDict,
                 ],
                 val
             )
-        elif name == "object_items_nullable":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["object_items_nullable"]) -> ObjectItemsNullableDict:
+        if name == "object_items_nullable":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 ObjectItemsNullableDict,
                 val
             )

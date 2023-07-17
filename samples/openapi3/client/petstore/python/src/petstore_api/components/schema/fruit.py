@@ -26,6 +26,7 @@ class FruitDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "color",
     })
     
+    @property
     def get_property(self, name: typing_extensions.Literal["color"]) -> str:
         if name == "color":
             val = self.get(name, schemas.unset)

@@ -26,6 +26,7 @@ class NumberOnlyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "JustNumber",
     })
     
+    @property
     def get_property(self, name: typing_extensions.Literal["JustNumber"]) -> typing.Union[int, float]:
         if name == "JustNumber":
             val = self.get(name, schemas.unset)

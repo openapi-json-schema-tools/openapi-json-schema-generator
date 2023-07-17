@@ -27,6 +27,7 @@ class FooDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "bar",
     })
     
+    @property
     def get_property(self, name: typing_extensions.Literal["bar"]) -> str:
         if name == "bar":
             val = self.get(name, schemas.unset)

@@ -46,23 +46,22 @@ class BananaReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "sweet",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["lengthCm"]) -> typing.Union[int, float]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["sweet"]) -> bool:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "lengthCm":
             return typing.cast(
                 typing.Union[int, float],
-                val
+                self.__getitem__(name)
             )
-        elif name == "sweet":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["sweet"]) -> bool:
+        if name == "sweet":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 bool,
                 val
             )

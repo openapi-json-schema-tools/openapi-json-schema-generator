@@ -42,34 +42,30 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["SomeVar"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["someVar"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["some_var"]) -> str:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "SomeVar":
             return typing.cast(
                 str,
-                val
+                self.__getitem__(name)
             )
-        elif name == "someVar":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["someVar"]) -> str:
+        if name == "someVar":
             return typing.cast(
                 str,
-                val
+                self.__getitem__(name)
             )
-        elif name == "some_var":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["some_var"]) -> str:
+        if name == "some_var":
             return typing.cast(
                 str,
-                val
+                self.__getitem__(name)
             )
         raise ValueError(schemas.key_unknown_error_msg(name))
 

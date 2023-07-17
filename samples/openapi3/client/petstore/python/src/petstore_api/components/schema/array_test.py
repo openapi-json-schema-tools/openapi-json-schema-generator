@@ -307,32 +307,37 @@ class ArrayTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "array_array_of_model",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["array_of_string"]) -> ArrayOfStringTuple:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["array_array_of_integer"]) -> ArrayArrayOfIntegerTuple:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["array_array_of_model"]) -> ArrayArrayOfModelTuple:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "array_of_string":
-            return val if val is schemas.unset else typing.cast(
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 ArrayOfStringTuple,
                 val
             )
-        elif name == "array_array_of_integer":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["array_array_of_integer"]) -> ArrayArrayOfIntegerTuple:
+        if name == "array_array_of_integer":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 ArrayArrayOfIntegerTuple,
                 val
             )
-        elif name == "array_array_of_model":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["array_array_of_model"]) -> ArrayArrayOfModelTuple:
+        if name == "array_array_of_model":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 ArrayArrayOfModelTuple,
                 val
             )

@@ -164,131 +164,157 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "callback",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["byte"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["double"]) -> typing.Union[int, float]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["number"]) -> typing.Union[int, float]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["integer"]) -> int:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["int32"]) -> int:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["int64"]) -> int:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["float"]) -> typing.Union[int, float]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["string"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["binary"]) -> typing.Union[bytes, schemas.FileIO]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["date"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["dateTime"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["password"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["callback"]) -> str:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "byte":
             return typing.cast(
                 str,
+                self.__getitem__(name)
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["double"]) -> typing.Union[int, float]:
+        if name == "double":
+            return typing.cast(
+                typing.Union[int, float],
+                self.__getitem__(name)
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["number"]) -> typing.Union[int, float]:
+        if name == "number":
+            return typing.cast(
+                typing.Union[int, float],
+                self.__getitem__(name)
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> str:
+        if name == "pattern_without_delimiter":
+            return typing.cast(
+                str,
+                self.__getitem__(name)
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["integer"]) -> int:
+        if name == "integer":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
+                int,
                 val
             )
-        elif name == "double":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["int32"]) -> int:
+        if name == "int32":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
+                int,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["int64"]) -> int:
+        if name == "int64":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
+                int,
+                val
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["float"]) -> typing.Union[int, float]:
+        if name == "float":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
             return typing.cast(
                 typing.Union[int, float],
                 val
             )
-        elif name == "number":
-            return typing.cast(
-                typing.Union[int, float],
-                val
-            )
-        elif name == "pattern_without_delimiter":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["string"]) -> str:
+        if name == "string":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
             return typing.cast(
                 str,
                 val
             )
-        elif name == "integer":
-            return val if val is schemas.unset else typing.cast(
-                int,
-                val
-            )
-        elif name == "int32":
-            return val if val is schemas.unset else typing.cast(
-                int,
-                val
-            )
-        elif name == "int64":
-            return val if val is schemas.unset else typing.cast(
-                int,
-                val
-            )
-        elif name == "float":
-            return val if val is schemas.unset else typing.cast(
-                typing.Union[int, float],
-                val
-            )
-        elif name == "string":
-            return val if val is schemas.unset else typing.cast(
-                str,
-                val
-            )
-        elif name == "binary":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["binary"]) -> typing.Union[bytes, schemas.FileIO]:
+        if name == "binary":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing.Union[bytes, schemas.FileIO],
                 val
             )
-        elif name == "date":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["date"]) -> str:
+        if name == "date":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 str,
                 val
             )
-        elif name == "dateTime":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["dateTime"]) -> str:
+        if name == "dateTime":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 str,
                 val
             )
-        elif name == "password":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["password"]) -> str:
+        if name == "password":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 str,
                 val
             )
-        elif name == "callback":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["callback"]) -> str:
+        if name == "callback":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 str,
                 val
             )

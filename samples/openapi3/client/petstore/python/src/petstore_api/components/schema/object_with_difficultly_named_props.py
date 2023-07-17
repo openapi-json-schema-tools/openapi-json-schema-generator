@@ -32,32 +32,34 @@ class ObjectWithDifficultlyNamedPropsDict(schemas.immutabledict[str, schemas.OUT
         "123Number",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["123-list"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["$special[property.name]"]) -> int:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["123Number"]) -> int:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "123-list":
             return typing.cast(
                 str,
-                val
+                self.__getitem__(name)
             )
-        elif name == "$special[property.name]":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["$special[property.name]"]) -> int:
+        if name == "$special[property.name]":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 int,
                 val
             )
-        elif name == "123Number":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["123Number"]) -> int:
+        if name == "123Number":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 int,
                 val
             )

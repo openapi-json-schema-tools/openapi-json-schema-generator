@@ -321,92 +321,112 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "IntegerEnumOneValue",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["enum_string_required"]) -> typing_extensions.Literal["UPPER", "lower", ""]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["enum_string"]) -> typing_extensions.Literal["UPPER", "lower", ""]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["enum_integer"]) -> typing_extensions.Literal[1, -1]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["enum_number"]) -> typing.Union[int, float]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["stringEnum"]) -> typing.Union[
-        None,
-        typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
-    ]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["IntegerEnum"]) -> typing_extensions.Literal[0, 1, 2]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["StringEnumWithDefaultValue"]) -> typing_extensions.Literal["placed", "approved", "delivered"]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["IntegerEnumWithDefaultValue"]) -> typing_extensions.Literal[0, 1, 2]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["IntegerEnumOneValue"]) -> typing_extensions.Literal[0]:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "enum_string_required":
+            return typing.cast(
+                typing_extensions.Literal["UPPER", "lower", ""],
+                self.__getitem__(name)
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["enum_string"]) -> typing_extensions.Literal["UPPER", "lower", ""]:
+        if name == "enum_string":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
             return typing.cast(
                 typing_extensions.Literal["UPPER", "lower", ""],
                 val
             )
-        elif name == "enum_string":
-            return val if val is schemas.unset else typing.cast(
-                typing_extensions.Literal["UPPER", "lower", ""],
-                val
-            )
-        elif name == "enum_integer":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["enum_integer"]) -> typing_extensions.Literal[1, -1]:
+        if name == "enum_integer":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing_extensions.Literal[1, -1],
                 val
             )
-        elif name == "enum_number":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["enum_number"]) -> typing.Union[int, float]:
+        if name == "enum_number":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing.Union[int, float],
                 val
             )
-        elif name == "stringEnum":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["stringEnum"]) -> typing.Union[
+        None,
+        typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
+    ]:
+        if name == "stringEnum":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing.Union[
                     None,
                     typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
                 ],
                 val
             )
-        elif name == "IntegerEnum":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["IntegerEnum"]) -> typing_extensions.Literal[0, 1, 2]:
+        if name == "IntegerEnum":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing_extensions.Literal[0, 1, 2],
                 val
             )
-        elif name == "StringEnumWithDefaultValue":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["StringEnumWithDefaultValue"]) -> typing_extensions.Literal["placed", "approved", "delivered"]:
+        if name == "StringEnumWithDefaultValue":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing_extensions.Literal["placed", "approved", "delivered"],
                 val
             )
-        elif name == "IntegerEnumWithDefaultValue":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["IntegerEnumWithDefaultValue"]) -> typing_extensions.Literal[0, 1, 2]:
+        if name == "IntegerEnumWithDefaultValue":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing_extensions.Literal[0, 1, 2],
                 val
             )
-        elif name == "IntegerEnumOneValue":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["IntegerEnumOneValue"]) -> typing_extensions.Literal[0]:
+        if name == "IntegerEnumOneValue":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing_extensions.Literal[0],
                 val
             )

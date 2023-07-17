@@ -164,23 +164,22 @@ class ZebraDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "type",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["className"]) -> typing_extensions.Literal["zebra"]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["type"]) -> typing_extensions.Literal["plains", "mountain", "grevys"]:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "className":
             return typing.cast(
                 typing_extensions.Literal["zebra"],
-                val
+                self.__getitem__(name)
             )
-        elif name == "type":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["type"]) -> typing_extensions.Literal["plains", "mountain", "grevys"]:
+        if name == "type":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing_extensions.Literal["plains", "mountain", "grevys"],
                 val
             )

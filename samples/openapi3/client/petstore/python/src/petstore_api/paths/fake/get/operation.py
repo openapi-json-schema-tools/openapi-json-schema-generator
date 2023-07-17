@@ -53,41 +53,49 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         "enum_query_string_array",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["enum_query_double"]) -> typing.Union[int, float]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["enum_query_string"]) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["enum_query_integer"]) -> typing_extensions.Literal[1, -2]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["enum_query_string_array"]) -> parameter_2_schema.SchemaTuple:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "enum_query_double":
-            return val if val is schemas.unset else typing.cast(
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing.Union[int, float],
                 val
             )
-        elif name == "enum_query_string":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["enum_query_string"]) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
+        if name == "enum_query_string":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing_extensions.Literal["_abc", "-efg", "(xyz)"],
                 val
             )
-        elif name == "enum_query_integer":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["enum_query_integer"]) -> typing_extensions.Literal[1, -2]:
+        if name == "enum_query_integer":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing_extensions.Literal[1, -2],
                 val
             )
-        elif name == "enum_query_string_array":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["enum_query_string_array"]) -> parameter_2_schema.SchemaTuple:
+        if name == "enum_query_string_array":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 parameter_2_schema.SchemaTuple,
                 val
             )
@@ -166,23 +174,25 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         "enum_header_string_array",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["enum_header_string"]) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["enum_header_string_array"]) -> parameter_0_schema.SchemaTuple:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "enum_header_string":
-            return val if val is schemas.unset else typing.cast(
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing_extensions.Literal["_abc", "-efg", "(xyz)"],
                 val
             )
-        elif name == "enum_header_string_array":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["enum_header_string_array"]) -> parameter_0_schema.SchemaTuple:
+        if name == "enum_header_string_array":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 parameter_0_schema.SchemaTuple,
                 val
             )

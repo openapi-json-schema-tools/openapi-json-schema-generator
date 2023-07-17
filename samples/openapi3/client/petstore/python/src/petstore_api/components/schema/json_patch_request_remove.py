@@ -83,25 +83,21 @@ class JSONPatchRequestRemoveDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["op"]) -> typing_extensions.Literal["remove"]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["path"]) -> str:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "op":
             return typing.cast(
                 typing_extensions.Literal["remove"],
-                val
+                self.__getitem__(name)
             )
-        elif name == "path":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["path"]) -> str:
+        if name == "path":
             return typing.cast(
                 str,
-                val
+                self.__getitem__(name)
             )
         raise ValueError(schemas.key_unknown_error_msg(name))
 

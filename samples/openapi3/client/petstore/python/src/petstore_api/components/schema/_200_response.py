@@ -29,23 +29,25 @@ class _200ResponseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "class",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["name"]) -> int:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["class"]) -> str:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "name":
-            return val if val is schemas.unset else typing.cast(
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 int,
                 val
             )
-        elif name == "class":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["class"]) -> str:
+        if name == "class":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 str,
                 val
             )

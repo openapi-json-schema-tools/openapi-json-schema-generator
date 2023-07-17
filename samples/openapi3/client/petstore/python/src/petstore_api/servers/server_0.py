@@ -176,25 +176,21 @@ class VariablesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["port"]) -> typing_extensions.Literal["80", "8080"]:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["server"]) -> typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"]:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "port":
             return typing.cast(
                 typing_extensions.Literal["80", "8080"],
-                val
+                self.__getitem__(name)
             )
-        elif name == "server":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["server"]) -> typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"]:
+        if name == "server":
             return typing.cast(
                 typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"],
-                val
+                self.__getitem__(name)
             )
         raise ValueError(schemas.key_unknown_error_msg(name))
 

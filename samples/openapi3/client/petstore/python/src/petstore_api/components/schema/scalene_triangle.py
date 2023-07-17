@@ -79,6 +79,7 @@ class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "triangleType",
     })
     
+    @property
     def get_property(self, name: typing_extensions.Literal["triangleType"]) -> typing_extensions.Literal["ScaleneTriangle"]:
         if name == "triangleType":
             val = self.get(name, schemas.unset)

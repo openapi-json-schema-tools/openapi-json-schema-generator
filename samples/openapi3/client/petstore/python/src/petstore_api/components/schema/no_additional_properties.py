@@ -43,23 +43,22 @@ class NoAdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
         "petId",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["id"]) -> int:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["petId"]) -> int:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "id":
             return typing.cast(
                 int,
-                val
+                self.__getitem__(name)
             )
-        elif name == "petId":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["petId"]) -> int:
+        if name == "petId":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 int,
                 val
             )

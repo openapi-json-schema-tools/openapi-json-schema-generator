@@ -26,6 +26,7 @@ class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "declawed",
     })
     
+    @property
     def get_property(self, name: typing_extensions.Literal["declawed"]) -> bool:
         if name == "declawed":
             val = self.get(name, schemas.unset)

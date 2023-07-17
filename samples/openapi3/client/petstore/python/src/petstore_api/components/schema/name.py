@@ -32,32 +32,34 @@ class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "property",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["name"]) -> int:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["snake_case"]) -> int:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["property"]) -> str:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "name":
+            return typing.cast(
+                int,
+                self.__getitem__(name)
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["snake_case"]) -> int:
+        if name == "snake_case":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
             return typing.cast(
                 int,
                 val
             )
-        elif name == "snake_case":
-            return val if val is schemas.unset else typing.cast(
-                int,
-                val
-            )
-        elif name == "property":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["property"]) -> str:
+        if name == "property":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 str,
                 val
             )

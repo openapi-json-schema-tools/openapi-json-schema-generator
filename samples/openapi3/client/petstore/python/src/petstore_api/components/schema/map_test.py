@@ -315,41 +315,49 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "indirect_map",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["map_map_of_string"]) -> MapMapOfStringDict:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["map_of_enum_string"]) -> MapOfEnumStringDict:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["direct_map"]) -> DirectMapDict:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["indirect_map"]) -> string_boolean_map.StringBooleanMapDict:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "map_map_of_string":
-            return val if val is schemas.unset else typing.cast(
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 MapMapOfStringDict,
                 val
             )
-        elif name == "map_of_enum_string":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["map_of_enum_string"]) -> MapOfEnumStringDict:
+        if name == "map_of_enum_string":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 MapOfEnumStringDict,
                 val
             )
-        elif name == "direct_map":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["direct_map"]) -> DirectMapDict:
+        if name == "direct_map":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 DirectMapDict,
                 val
             )
-        elif name == "indirect_map":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["indirect_map"]) -> string_boolean_map.StringBooleanMapDict:
+        if name == "indirect_map":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 string_boolean_map.StringBooleanMapDict,
                 val
             )

@@ -231,59 +231,67 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "status",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["name"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["photoUrls"]) -> PhotoUrlsTuple:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["id"]) -> int:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["category"]) -> category.CategoryDict:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["tags"]) -> TagsTuple:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["status"]) -> typing_extensions.Literal["available", "pending", "sold"]:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "name":
             return typing.cast(
                 str,
-                val
+                self.__getitem__(name)
             )
-        elif name == "photoUrls":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["photoUrls"]) -> PhotoUrlsTuple:
+        if name == "photoUrls":
             return typing.cast(
                 PhotoUrlsTuple,
-                val
+                self.__getitem__(name)
             )
-        elif name == "id":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["id"]) -> int:
+        if name == "id":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 int,
                 val
             )
-        elif name == "category":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["category"]) -> category.CategoryDict:
+        if name == "category":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 category.CategoryDict,
                 val
             )
-        elif name == "tags":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["tags"]) -> TagsTuple:
+        if name == "tags":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 TagsTuple,
                 val
             )
-        elif name == "status":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["status"]) -> typing_extensions.Literal["available", "pending", "sold"]:
+        if name == "status":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 typing_extensions.Literal["available", "pending", "sold"],
                 val
             )

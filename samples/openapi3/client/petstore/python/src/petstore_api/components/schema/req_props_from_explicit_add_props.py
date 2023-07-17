@@ -21,25 +21,21 @@ class ReqPropsFromExplicitAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["invalid-name"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["validName"]) -> str:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "invalid-name":
             return typing.cast(
                 str,
-                val
+                self.__getitem__(name)
             )
-        elif name == "validName":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["validName"]) -> str:
+        if name == "validName":
             return typing.cast(
                 str,
-                val
+                self.__getitem__(name)
             )
         raise ValueError(schemas.key_unknown_error_msg(name))
     

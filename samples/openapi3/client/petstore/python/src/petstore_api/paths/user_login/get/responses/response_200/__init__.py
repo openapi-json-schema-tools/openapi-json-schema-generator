@@ -74,50 +74,52 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "numberHeader",
     })
     
-    @typing.overload
+    @property
     def get_property(self, name: typing_extensions.Literal["X-Rate-Limit"]) -> int:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["int32"]) -> int:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["ref-content-schema-header"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["X-Expires-After"]) -> str:
-        ...
-    
-    @typing.overload
-    def get_property(self, name: typing_extensions.Literal["numberHeader"]) -> str:
-        ...
-    
-    def get_property(self, name):
-        val = self.get(name, schemas.unset)
         if name == "X-Rate-Limit":
             return typing.cast(
                 int,
-                val
+                self.__getitem__(name)
             )
-        elif name == "int32":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["int32"]) -> int:
+        if name == "int32":
             return typing.cast(
                 int,
-                val
+                self.__getitem__(name)
             )
-        elif name == "ref-content-schema-header":
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["ref-content-schema-header"]) -> str:
+        if name == "ref-content-schema-header":
+            return typing.cast(
+                str,
+                self.__getitem__(name)
+            )
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["X-Expires-After"]) -> str:
+        if name == "X-Expires-After":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
             return typing.cast(
                 str,
                 val
             )
-        elif name == "X-Expires-After":
-            return val if val is schemas.unset else typing.cast(
-                str,
-                val
-            )
-        elif name == "numberHeader":
-            return val if val is schemas.unset else typing.cast(
+        raise ValueError(schemas.key_unknown_error_msg(name))
+    
+    @property
+    def get_property(self, name: typing_extensions.Literal["numberHeader"]) -> str:
+        if name == "numberHeader":
+            val = self.get(name, schemas.unset)
+            if val is schemas.unset:
+                return val
+            return typing.cast(
                 str,
                 val
             )
