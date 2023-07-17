@@ -36,7 +36,7 @@ class SelfReferencingObjectModelDict(schemas.immutabledict[str, schemas.OUTPUT_B
             )
         raise ValueError(schemas.key_unknown_error_msg(name))
     
-    def get_additional_property(self, name: str) -> SelfReferencingObjectModelDict:
+    def get_additional_property_(self, name: str) -> SelfReferencingObjectModelDict:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             SelfReferencingObjectModelDict,

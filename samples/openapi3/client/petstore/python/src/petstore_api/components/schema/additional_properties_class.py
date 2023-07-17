@@ -19,7 +19,7 @@ class MapPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    def get_additional_property(self, name: str) -> str:
+    def get_additional_property_(self, name: str) -> str:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             str,
@@ -72,7 +72,7 @@ class AdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TY
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    def get_additional_property(self, name: str) -> str:
+    def get_additional_property_(self, name: str) -> str:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             str,
@@ -124,7 +124,7 @@ class MapOfMapPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    def get_additional_property(self, name: str) -> AdditionalPropertiesDict:
+    def get_additional_property_(self, name: str) -> AdditionalPropertiesDict:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             AdditionalPropertiesDict,
@@ -184,7 +184,7 @@ class MapWithUndeclaredPropertiesAnytype3Dict(schemas.immutabledict[str, schemas
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+    def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             schemas.OUTPUT_BASE_TYPES,
@@ -279,7 +279,7 @@ class MapWithUndeclaredPropertiesStringDict(schemas.immutabledict[str, schemas.O
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    def get_additional_property(self, name: str) -> str:
+    def get_additional_property_(self, name: str) -> str:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             str,
@@ -428,7 +428,7 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BA
             )
         raise ValueError(schemas.key_unknown_error_msg(name))
     
-    def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+    def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.__getitem__(name)
 

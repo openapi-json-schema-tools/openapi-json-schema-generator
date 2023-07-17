@@ -22,7 +22,7 @@ class MapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    def get_additional_property(self, name: str) -> animal.AnimalDict:
+    def get_additional_property_(self, name: str) -> animal.AnimalDict:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             animal.AnimalDict,
@@ -120,7 +120,7 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
             )
         raise ValueError(schemas.key_unknown_error_msg(name))
     
-    def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+    def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.__getitem__(name)
 

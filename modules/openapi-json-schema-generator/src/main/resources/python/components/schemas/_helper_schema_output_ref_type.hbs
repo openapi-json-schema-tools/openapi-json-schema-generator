@@ -27,7 +27,7 @@
         {{#eq types.size 1}}
 {{> components/schemas/_helper_schema_output_ref_single }}
         {{else}}
-{{#eq mode "get_additional_property"}}def get_additional_property(self, name: str) -> {{else}}{{#eq mode "get_property"}}def get_property(self, name: typing_extensions.Literal["{{{key}}}"]) -> {{else}}{{#eq mode "typehint"}}{{key}}: {{#eq key "schema"}}typing_extensions.TypeAlias = {{/eq}}{{/eq}}{{/eq}}{{/eq}}typing.Union[
+{{#eq mode "get_additional_property_"}}def get_additional_property_(self, name: str) -> {{else}}{{#eq mode "get_property"}}def get_property(self, name: typing_extensions.Literal["{{{key}}}"]) -> {{else}}{{#eq mode "typehint"}}{{key}}: {{#eq key "schema"}}typing_extensions.TypeAlias = {{/eq}}{{/eq}}{{/eq}}{{/eq}}typing.Union[
     {{> components/schemas/_helper_schema_output_type_base endChar="," }}
 ]{{endChar}}
         {{/eq}}

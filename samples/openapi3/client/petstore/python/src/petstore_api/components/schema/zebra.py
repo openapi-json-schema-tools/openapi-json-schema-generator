@@ -186,7 +186,7 @@ class ZebraDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             )
         raise ValueError(schemas.key_unknown_error_msg(name))
     
-    def get_additional_property(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+    def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return typing.cast(
             schemas.OUTPUT_BASE_TYPES,
