@@ -183,7 +183,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         )
     
     @property
-    def get_boolean_group(self) -> typing_extensions.Literal["true", "false"]:
+    def get_boolean_group(self) -> typing.Union[typing_extensions.Literal["true", "false"], schemas.Unset]:
         val = self.get("boolean_group", schemas.unset)
         if val is schemas.unset:
             return val

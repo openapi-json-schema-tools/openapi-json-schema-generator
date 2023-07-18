@@ -28,7 +28,7 @@ class ObjectWithNonIntersectingValuesDict(schemas.immutabledict[str, schemas.OUT
     })
     
     @property
-    def get_a(self) -> typing.Union[int, float]:
+    def get_a(self) -> typing.Union[int, float, schemas.Unset]:
         val = self.get("a", schemas.unset)
         if val is schemas.unset:
             return val

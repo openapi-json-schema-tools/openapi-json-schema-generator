@@ -34,7 +34,7 @@ class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE
     })
     
     @property
-    def get_my_number(self) -> typing.Union[int, float]:
+    def get_my_number(self) -> typing.Union[int, float, schemas.Unset]:
         val = self.get("myNumber", schemas.unset)
         if val is schemas.unset:
             return val

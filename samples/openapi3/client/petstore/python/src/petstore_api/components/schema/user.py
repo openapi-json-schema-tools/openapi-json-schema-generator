@@ -213,7 +213,7 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_any_type_prop(self) -> schemas.OUTPUT_BASE_TYPES:
+    def get_any_type_prop(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("anyTypeProp", schemas.unset)
         if val is schemas.unset:
             return val
@@ -223,7 +223,7 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_any_type_except_null_prop(self) -> schemas.OUTPUT_BASE_TYPES:
+    def get_any_type_except_null_prop(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("anyTypeExceptNullProp", schemas.unset)
         if val is schemas.unset:
             return val
@@ -233,7 +233,7 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_any_type_prop_nullable(self) -> schemas.OUTPUT_BASE_TYPES:
+    def get_any_type_prop_nullable(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("anyTypePropNullable", schemas.unset)
         if val is schemas.unset:
             return val

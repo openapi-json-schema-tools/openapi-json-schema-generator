@@ -172,7 +172,7 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_status(self) -> typing_extensions.Literal["placed", "approved", "delivered"]:
+    def get_status(self) -> typing.Union[typing_extensions.Literal["placed", "approved", "delivered"], schemas.Unset]:
         val = self.get("status", schemas.unset)
         if val is schemas.unset:
             return val

@@ -904,7 +904,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def get_number_propy(self) -> typing.Union[
         typing.Union[None, schemas.Unset],
-        typing.Union[int, float],
+        typing.Union[int, float, schemas.Unset],
     ]:
         val = self.get("number_prop", schemas.unset)
         if val is schemas.unset:

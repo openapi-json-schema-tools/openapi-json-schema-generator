@@ -276,7 +276,7 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_status(self) -> typing_extensions.Literal["available", "pending", "sold"]:
+    def get_status(self) -> typing.Union[typing_extensions.Literal["available", "pending", "sold"], schemas.Unset]:
         val = self.get("status", schemas.unset)
         if val is schemas.unset:
             return val

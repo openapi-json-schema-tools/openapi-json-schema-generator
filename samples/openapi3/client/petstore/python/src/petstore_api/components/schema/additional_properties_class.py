@@ -388,7 +388,7 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BA
         )
     
     @property
-    def get_anytype1(self) -> schemas.OUTPUT_BASE_TYPES:
+    def get_anytype1(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("anytype_1", schemas.unset)
         if val is schemas.unset:
             return val

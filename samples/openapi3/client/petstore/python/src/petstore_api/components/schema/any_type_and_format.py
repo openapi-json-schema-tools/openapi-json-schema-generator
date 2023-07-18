@@ -123,7 +123,7 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     })
     
     @property
-    def get_uuid(self) -> schemas.OUTPUT_BASE_TYPES:
+    def get_uuid(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("uuid", schemas.unset)
         if val is schemas.unset:
             return val
@@ -133,7 +133,7 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         )
     
     @property
-    def get_date(self) -> schemas.OUTPUT_BASE_TYPES:
+    def get_date(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("date", schemas.unset)
         if val is schemas.unset:
             return val
@@ -143,7 +143,7 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         )
     
     @property
-    def get_date_time(self) -> schemas.OUTPUT_BASE_TYPES:
+    def get_date_time(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("date-time", schemas.unset)
         if val is schemas.unset:
             return val
@@ -153,7 +153,7 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         )
     
     @property
-    def get_number(self) -> schemas.OUTPUT_BASE_TYPES:
+    def get_number(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("number", schemas.unset)
         if val is schemas.unset:
             return val
@@ -163,7 +163,7 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         )
     
     @property
-    def get_binary(self) -> schemas.OUTPUT_BASE_TYPES:
+    def get_binary(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("binary", schemas.unset)
         if val is schemas.unset:
             return val
@@ -173,7 +173,7 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         )
     
     @property
-    def get_int32(self) -> schemas.OUTPUT_BASE_TYPES:
+    def get_int32(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("int32", schemas.unset)
         if val is schemas.unset:
             return val
@@ -183,7 +183,7 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         )
     
     @property
-    def get_int64(self) -> schemas.OUTPUT_BASE_TYPES:
+    def get_int64(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("int64", schemas.unset)
         if val is schemas.unset:
             return val
@@ -193,7 +193,7 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         )
     
     @property
-    def get_double(self) -> schemas.OUTPUT_BASE_TYPES:
+    def get_double(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("double", schemas.unset)
         if val is schemas.unset:
             return val
@@ -203,7 +203,7 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         )
     
     @property
-    def get__float(self) -> schemas.OUTPUT_BASE_TYPES:
+    def get__float(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("float", schemas.unset)
         if val is schemas.unset:
             return val

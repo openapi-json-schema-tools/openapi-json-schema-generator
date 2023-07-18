@@ -214,7 +214,7 @@ class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_just_symbol(self) -> typing_extensions.Literal[">=", "$"]:
+    def get_just_symbol(self) -> typing.Union[typing_extensions.Literal[">=", "$"], schemas.Unset]:
         val = self.get("just_symbol", schemas.unset)
         if val is schemas.unset:
             return val

@@ -317,7 +317,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get__float(self) -> typing.Union[int, float]:
+    def get__float(self) -> typing.Union[int, float, schemas.Unset]:
         val = self.get("float", schemas.unset)
         if val is schemas.unset:
             return val
@@ -327,7 +327,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_float32(self) -> typing.Union[int, float]:
+    def get_float32(self) -> typing.Union[int, float, schemas.Unset]:
         val = self.get("float32", schemas.unset)
         if val is schemas.unset:
             return val
@@ -337,7 +337,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_double(self) -> typing.Union[int, float]:
+    def get_double(self) -> typing.Union[int, float, schemas.Unset]:
         val = self.get("double", schemas.unset)
         if val is schemas.unset:
             return val
@@ -347,7 +347,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_float64(self) -> typing.Union[int, float]:
+    def get_float64(self) -> typing.Union[int, float, schemas.Unset]:
         val = self.get("float64", schemas.unset)
         if val is schemas.unset:
             return val
