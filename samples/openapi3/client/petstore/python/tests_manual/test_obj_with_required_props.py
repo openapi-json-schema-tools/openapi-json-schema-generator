@@ -23,8 +23,9 @@ class TestObjWithRequiredProps(unittest.TestCase):
     configuration_ = schema_configuration.SchemaConfiguration()
     obj = obj_with_required_props.ObjWithRequiredProps.validate({'a': 'a', 'b': 'b'})
     assert isinstance(obj, obj_with_required_props.ObjWithRequiredPropsDict)
-    assert isinstance(obj.get_a, str)
+    assert isinstance(obj.a, str)
     assert isinstance(obj['b'], str)
+    assert isinstance(obj.get_additional_property_('b'), str)
 
 
 if __name__ == '__main__':

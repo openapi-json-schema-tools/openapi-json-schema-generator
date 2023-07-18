@@ -241,8 +241,8 @@ class DeserializationTests(unittest.TestCase):
         deserialized = ResponseFor200.deserialize(response, self.configuration)
         body = deserialized.body
         assert isinstance(body, banana.BananaDict)
-        assert isinstance(body.get_length_cm, float)
-        self.assertEqual(body.get_length_cm, 3.1415)
+        assert isinstance(body.lengthCm, float)
+        self.assertEqual(body.lengthCm, 3.1415)
 
         """
         Float value is serialized without decimal point
@@ -256,8 +256,8 @@ class DeserializationTests(unittest.TestCase):
         deserialized = ResponseFor200.deserialize(response, self.configuration)
         body = deserialized.body
         assert isinstance(body, banana.BananaDict)
-        self.assertTrue(isinstance(body.get_length_cm, int))
-        self.assertEqual(body.get_length_cm, 3)
+        self.assertTrue(isinstance(body.lengthCm, int))
+        self.assertEqual(body.lengthCm, 3)
 
     def test_deserialize_fruit_null_value(self):
         """

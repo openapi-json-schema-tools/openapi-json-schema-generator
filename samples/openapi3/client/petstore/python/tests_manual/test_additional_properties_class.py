@@ -23,8 +23,7 @@ class TestAdditionalPropertiesClass(unittest.TestCase):
         with self.assertRaises(KeyError):
             inst["map_property"]
         assert inst.get("map_property", schemas.unset) is schemas.unset
-        with self.assertRaises(AttributeError):
-            inst.map_property
+        assert inst.map_property is schemas.unset
 
         inst = AdditionalPropertiesClass.validate({'map_property': {}})
         map_property = inst["map_property"]

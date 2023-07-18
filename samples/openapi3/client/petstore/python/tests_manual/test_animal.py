@@ -38,39 +38,40 @@ class TestAnimal(unittest.TestCase):
         inst = animal.Animal.validate({'className': 'Cat', 'color': 'black'})
         assert isinstance(inst, animal.AnimalDict)
         assert set(inst.keys()) == {'className', 'color'}
-        assert inst.get_class_name == 'Cat'
+        assert inst.className == 'Cat'
         assert inst["color"] == 'black'
         assert isinstance(inst["color"], str)
-        assert isinstance(inst.get_class_name, str)
+        assert isinstance(inst.className, str)
 
         # pass in optional param
         inst = animal.Animal.validate({'className': 'Cat', 'color': 'black', 'declawed': True})
         assert isinstance(inst, animal.AnimalDict)
         assert set(inst.keys()) == {'className', 'color', 'declawed'}
-        assert inst.get_class_name == 'Cat'
+        assert inst.className == 'Cat'
         assert inst["color"] == 'black'
         assert inst["declawed"] is True
         assert isinstance(inst["color"], str)
-        assert isinstance(inst.get_class_name, str)
+        assert isinstance(inst.className, str)
         assert isinstance(inst["declawed"], bool)
 
         # make a Dog
         inst = animal.Animal.validate({'className': 'Dog', 'color': 'black'})
         assert isinstance(inst, animal.AnimalDict)
         assert set(inst.keys()) == {'className', 'color'}
-        assert inst.get_class_name == 'Dog'
+        assert inst.className == 'Dog'
         assert inst["color"] == 'black'
         assert isinstance(inst["color"], str)
-        assert isinstance(inst.get_class_name, str)
+        assert isinstance(inst.className, str)
 
         # pass in optional param
         inst = animal.Animal.validate({'className': 'Dog', 'color': 'black', 'breed':'Labrador'})
         assert isinstance(inst, animal.AnimalDict)
         assert set(inst.keys()) == {'className', 'color', 'breed'}
-        assert inst.get_class_name == 'Dog'
+        assert inst.className == 'Dog'
+        assert inst.color == 'black'
         assert inst["color"] == 'black'
         assert inst["breed"] == 'Labrador'
-        assert isinstance(inst.get_class_name, str)
+        assert isinstance(inst.className, str)
         assert isinstance(inst["color"], str)
         assert isinstance(inst["breed"], str)
 

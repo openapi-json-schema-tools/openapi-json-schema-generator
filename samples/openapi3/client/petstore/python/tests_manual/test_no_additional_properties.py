@@ -35,13 +35,13 @@ class TestNoAdditionalProperties(unittest.TestCase):
         id_by_items = inst["id"]
         assert id_by_items == 1
         assert isinstance(id_by_items, int)
-        id_by_property = inst.get_id
+        id_by_property = inst.id
         assert id_by_property == 1
         assert isinstance(id_by_property, int)
         with self.assertRaises(KeyError):
             inst["petId"]
         assert inst.get("petId", schemas.unset) is schemas.unset
-        assert inst.get_pet_id is schemas.unset
+        assert inst.petId is schemas.unset
 
         # works with required + optional
         arg: no_additional_properties.NoAdditionalPropertiesDictInput = {
