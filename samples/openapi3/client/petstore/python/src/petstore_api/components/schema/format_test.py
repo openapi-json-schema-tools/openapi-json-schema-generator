@@ -279,7 +279,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def integer(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("integer", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             int,
@@ -289,7 +289,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def int32(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("int32", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             int,
@@ -299,7 +299,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def int32withValidations(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("int32withValidations", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             int,
@@ -309,7 +309,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def int64(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("int64", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             int,
@@ -319,7 +319,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def float32(self) -> typing.Union[int, float, schemas.Unset]:
         val = self.get("float32", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[int, float],
@@ -329,7 +329,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def double(self) -> typing.Union[int, float, schemas.Unset]:
         val = self.get("double", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[int, float],
@@ -339,7 +339,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def float64(self) -> typing.Union[int, float, schemas.Unset]:
         val = self.get("float64", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[int, float],
@@ -349,7 +349,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def arrayWithUniqueItems(self) -> typing.Union[ArrayWithUniqueItemsTuple, schemas.Unset]:
         val = self.get("arrayWithUniqueItems", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             ArrayWithUniqueItemsTuple,
@@ -359,7 +359,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def string(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("string", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,
@@ -369,7 +369,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def binary(self) -> typing.Union[bytes, schemas.FileIO]:
         val = self.get("binary", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[bytes, schemas.FileIO],
@@ -379,7 +379,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def dateTime(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("dateTime", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,
@@ -389,7 +389,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def uuid(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("uuid", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,
@@ -399,7 +399,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def uuidNoExample(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("uuidNoExample", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,
@@ -409,7 +409,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def pattern_with_digits(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("pattern_with_digits", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,
@@ -419,7 +419,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def pattern_with_digits_and_delimiter(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("pattern_with_digits_and_delimiter", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,
@@ -429,7 +429,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def noneProp(self) -> typing.Union[None, schemas.Unset]:
         val = self.get("noneProp", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             None,

@@ -42,7 +42,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     @property
     def api_key(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("api_key", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,

@@ -33,7 +33,7 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
     @property
     def a(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("a", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,
@@ -43,7 +43,7 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
     @property
     def b(self) -> typing.Union[int, float, schemas.Unset]:
         val = self.get("b", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[int, float],

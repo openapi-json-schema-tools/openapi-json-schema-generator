@@ -32,7 +32,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def name(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("name", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,
@@ -42,7 +42,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def status(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("status", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,

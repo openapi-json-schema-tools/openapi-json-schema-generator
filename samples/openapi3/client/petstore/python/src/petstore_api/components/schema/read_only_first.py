@@ -32,7 +32,7 @@ class ReadOnlyFirstDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def bar(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("bar", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,
@@ -42,7 +42,7 @@ class ReadOnlyFirstDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def baz(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("baz", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,

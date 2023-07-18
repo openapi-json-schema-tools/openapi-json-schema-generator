@@ -44,7 +44,7 @@ class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def smallCamel(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("smallCamel", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,
@@ -54,7 +54,7 @@ class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def CapitalCamel(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("CapitalCamel", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,
@@ -64,7 +64,7 @@ class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def small_Snake(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("small_Snake", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,
@@ -74,7 +74,7 @@ class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def Capital_Snake(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("Capital_Snake", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,
@@ -84,7 +84,7 @@ class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def SCA_ETH_Flow_Points(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("SCA_ETH_Flow_Points", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,
@@ -94,7 +94,7 @@ class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def ATT_NAME(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("ATT_NAME", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,

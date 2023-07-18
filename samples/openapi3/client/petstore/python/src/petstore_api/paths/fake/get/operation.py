@@ -56,7 +56,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     @property
     def enum_query_double(self) -> typing.Union[int, float, schemas.Unset]:
         val = self.get("enum_query_double", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[int, float],
@@ -66,7 +66,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     @property
     def enum_query_string(self) -> typing.Union[typing_extensions.Literal["_abc", "-efg", "(xyz)"], schemas.Unset]:
         val = self.get("enum_query_string", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing_extensions.Literal["_abc", "-efg", "(xyz)"],
@@ -76,7 +76,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     @property
     def enum_query_integer(self) -> typing.Union[typing_extensions.Literal[1, -2], schemas.Unset]:
         val = self.get("enum_query_integer", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing_extensions.Literal[1, -2],
@@ -86,7 +86,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     @property
     def enum_query_string_array(self) -> typing.Union[parameter_2_schema.SchemaTuple, schemas.Unset]:
         val = self.get("enum_query_string_array", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             parameter_2_schema.SchemaTuple,
@@ -169,7 +169,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     @property
     def enum_header_string(self) -> typing.Union[typing_extensions.Literal["_abc", "-efg", "(xyz)"], schemas.Unset]:
         val = self.get("enum_header_string", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing_extensions.Literal["_abc", "-efg", "(xyz)"],
@@ -179,7 +179,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     @property
     def enum_header_string_array(self) -> typing.Union[parameter_0_schema.SchemaTuple, schemas.Unset]:
         val = self.get("enum_header_string_array", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             parameter_0_schema.SchemaTuple,

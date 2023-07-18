@@ -81,7 +81,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     @property
     def int64_group(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("int64_group", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             int,
@@ -91,7 +91,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     @property
     def string_group(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("string_group", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,
@@ -185,7 +185,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     @property
     def boolean_group(self) -> typing.Union[typing_extensions.Literal["true", "false"], schemas.Unset]:
         val = self.get("boolean_group", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing_extensions.Literal["true", "false"],

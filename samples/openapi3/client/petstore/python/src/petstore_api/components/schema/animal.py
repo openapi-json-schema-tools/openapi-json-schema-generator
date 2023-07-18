@@ -48,7 +48,7 @@ class AnimalDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def color(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("color", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,

@@ -29,7 +29,7 @@ class ClassModelDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def _class(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("_class", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,

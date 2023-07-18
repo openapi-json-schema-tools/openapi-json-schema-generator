@@ -310,7 +310,7 @@ class ArrayTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def array_of_string(self) -> typing.Union[ArrayOfStringTuple, schemas.Unset]:
         val = self.get("array_of_string", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             ArrayOfStringTuple,
@@ -320,7 +320,7 @@ class ArrayTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def array_array_of_integer(self) -> typing.Union[ArrayArrayOfIntegerTuple, schemas.Unset]:
         val = self.get("array_array_of_integer", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             ArrayArrayOfIntegerTuple,
@@ -330,7 +330,7 @@ class ArrayTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def array_array_of_model(self) -> typing.Union[ArrayArrayOfModelTuple, schemas.Unset]:
         val = self.get("array_array_of_model", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             ArrayArrayOfModelTuple,

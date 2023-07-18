@@ -22,7 +22,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def get_additional_property_(self, name: str) -> int:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         val = self.get(name, schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             int,

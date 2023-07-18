@@ -29,7 +29,7 @@ class NumberOnlyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def JustNumber(self) -> typing.Union[int, float, schemas.Unset]:
         val = self.get("JustNumber", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[int, float],

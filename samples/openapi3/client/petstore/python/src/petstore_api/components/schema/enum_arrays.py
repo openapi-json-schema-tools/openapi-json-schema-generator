@@ -216,7 +216,7 @@ class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def just_symbol(self) -> typing.Union[typing_extensions.Literal[">=", "$"], schemas.Unset]:
         val = self.get("just_symbol", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing_extensions.Literal[">=", "$"],
@@ -226,7 +226,7 @@ class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def array_enum(self) -> typing.Union[ArrayEnumTuple, schemas.Unset]:
         val = self.get("array_enum", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             ArrayEnumTuple,

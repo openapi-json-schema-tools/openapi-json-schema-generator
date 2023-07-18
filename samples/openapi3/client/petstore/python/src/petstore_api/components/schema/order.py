@@ -134,7 +134,7 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def id(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("id", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             int,
@@ -144,7 +144,7 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def petId(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("petId", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             int,
@@ -154,7 +154,7 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def quantity(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("quantity", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             int,
@@ -164,7 +164,7 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def shipDate(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("shipDate", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,
@@ -174,7 +174,7 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def status(self) -> typing.Union[typing_extensions.Literal["placed", "approved", "delivered"], schemas.Unset]:
         val = self.get("status", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing_extensions.Literal["placed", "approved", "delivered"],
@@ -184,7 +184,7 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def complete(self) -> typing.Union[bool, schemas.Unset]:
         val = self.get("complete", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             bool,

@@ -85,7 +85,7 @@ class ArrayOfNumberOnlyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES
     @property
     def ArrayNumber(self) -> typing.Union[ArrayNumberTuple, schemas.Unset]:
         val = self.get("ArrayNumber", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             ArrayNumberTuple,

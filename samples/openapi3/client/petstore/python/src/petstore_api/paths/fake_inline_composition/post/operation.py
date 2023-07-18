@@ -44,7 +44,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     @property
     def compositionAtRoot(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("compositionAtRoot", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             schemas.OUTPUT_BASE_TYPES,
@@ -54,7 +54,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     @property
     def compositionInProperty(self) -> typing.Union[parameter_1_schema.SchemaDict, schemas.Unset]:
         val = self.get("compositionInProperty", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             parameter_1_schema.SchemaDict,

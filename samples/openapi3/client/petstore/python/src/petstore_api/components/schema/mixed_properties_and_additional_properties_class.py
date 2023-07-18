@@ -25,7 +25,7 @@ class MapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def get_additional_property_(self, name: str) -> animal.AnimalDict:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         val = self.get(name, schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             animal.AnimalDict,
@@ -95,7 +95,7 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
     @property
     def uuid(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("uuid", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,
@@ -105,7 +105,7 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
     @property
     def dateTime(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("dateTime", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,
@@ -115,7 +115,7 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
     @property
     def map(self) -> typing.Union[MapDict, schemas.Unset]:
         val = self.get("map", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             MapDict,

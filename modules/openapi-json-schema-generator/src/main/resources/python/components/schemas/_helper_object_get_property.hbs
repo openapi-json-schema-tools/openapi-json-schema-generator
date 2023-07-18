@@ -9,7 +9,7 @@ return typing.cast(
 )
 {{else}}
 val = self.get("{{{@key.original}}}", schemas.unset)
-if val is schemas.unset:
+if isinstance(val, schemas.Unset):
     return val
 return typing.cast(
 {{#if refInfo.refClass}}

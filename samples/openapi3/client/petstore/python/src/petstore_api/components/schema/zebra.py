@@ -174,7 +174,7 @@ class ZebraDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def type(self) -> typing.Union[typing_extensions.Literal["plains", "mountain", "grevys"], schemas.Unset]:
         val = self.get("type", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing_extensions.Literal["plains", "mountain", "grevys"],
@@ -184,7 +184,7 @@ class ZebraDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         val = self.get(name, schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             schemas.OUTPUT_BASE_TYPES,

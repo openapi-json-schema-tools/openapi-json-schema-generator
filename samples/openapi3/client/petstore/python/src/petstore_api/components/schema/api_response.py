@@ -35,7 +35,7 @@ class ApiResponseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def code(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("code", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             int,
@@ -45,7 +45,7 @@ class ApiResponseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def type(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("type", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,
@@ -55,7 +55,7 @@ class ApiResponseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def message(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("message", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             str,

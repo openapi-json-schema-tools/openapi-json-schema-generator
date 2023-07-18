@@ -565,7 +565,7 @@ class ObjectNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPE
     def get_additional_property_(self, name: str) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         val = self.get(name, schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
@@ -679,7 +679,7 @@ class ObjectAndItemsNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_B
     ]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         val = self.get(name, schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[
@@ -797,7 +797,7 @@ class ObjectItemsNullableDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
     ]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         val = self.get(name, schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[
@@ -891,7 +891,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         typing.Union[int, schemas.Unset],
     ]:
         val = self.get("integer_prop", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[
@@ -907,7 +907,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         typing.Union[int, float, schemas.Unset],
     ]:
         val = self.get("number_prop", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[
@@ -923,7 +923,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         typing.Union[bool, schemas.Unset],
     ]:
         val = self.get("boolean_prop", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[
@@ -939,7 +939,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         typing.Union[str, schemas.Unset],
     ]:
         val = self.get("string_prop", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[
@@ -955,7 +955,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         typing.Union[str, schemas.Unset],
     ]:
         val = self.get("date_prop", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[
@@ -971,7 +971,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         typing.Union[str, schemas.Unset],
     ]:
         val = self.get("datetime_prop", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[
@@ -987,7 +987,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         typing.Union[ArrayNullablePropTuple, schemas.Unset],
     ]:
         val = self.get("array_nullable_prop", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[
@@ -1003,7 +1003,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         typing.Union[ArrayAndItemsNullablePropTuple, schemas.Unset],
     ]:
         val = self.get("array_and_items_nullable_prop", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[
@@ -1016,7 +1016,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def array_items_nullable(self) -> typing.Union[ArrayItemsNullableTuple, schemas.Unset]:
         val = self.get("array_items_nullable", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             ArrayItemsNullableTuple,
@@ -1029,7 +1029,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         typing.Union[ObjectNullablePropDict, schemas.Unset],
     ]:
         val = self.get("object_nullable_prop", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[
@@ -1045,7 +1045,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         typing.Union[ObjectAndItemsNullablePropDict, schemas.Unset],
     ]:
         val = self.get("object_and_items_nullable_prop", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[
@@ -1058,7 +1058,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def object_items_nullable(self) -> typing.Union[ObjectItemsNullableDict, schemas.Unset]:
         val = self.get("object_items_nullable", schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             ObjectItemsNullableDict,
@@ -1071,7 +1071,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     ]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         val = self.get(name, schemas.unset)
-        if val is schemas.unset:
+        if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
             typing.Union[
