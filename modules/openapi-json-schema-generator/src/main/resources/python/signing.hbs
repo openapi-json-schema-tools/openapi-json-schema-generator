@@ -2,10 +2,10 @@
 {{> _helper_header }}
 
 from base64 import b64encode
-from Crypto.IO import PEM, PKCS8
-from Crypto.Hash import SHA256, SHA512
-from Crypto.PublicKey import RSA, ECC
-from Crypto.Signature import PKCS1_v1_5, pss, DSS
+from Crypto.IO import PEM, PKCS8  # type: ignore[import]
+from Crypto.Hash import SHA256, SHA512  # type: ignore[import]
+from Crypto.PublicKey import RSA, ECC  # type: ignore[import]
+from Crypto.Signature import PKCS1_v1_5, pss, DSS  # type: ignore[import]
 from email.utils import formatdate
 import json
 import os

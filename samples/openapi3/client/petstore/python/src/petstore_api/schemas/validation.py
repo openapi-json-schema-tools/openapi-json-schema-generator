@@ -17,7 +17,7 @@ import types
 import typing
 import uuid
 
-import immutabledict as original_immutabledict
+import immutabledict as original_immutabledict  # type: ignore[import]
 import typing_extensions
 
 from petstore_api import exceptions
