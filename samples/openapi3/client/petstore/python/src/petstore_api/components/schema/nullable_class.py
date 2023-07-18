@@ -556,7 +556,8 @@ class ArrayItemsNullable(
 AdditionalProperties: typing_extensions.TypeAlias = schemas.DictSchema
 
 
-class ObjectNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ObjectNullablePropDict(schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
@@ -667,7 +668,11 @@ class AdditionalProperties2(
 
 
 
-class ObjectAndItemsNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ObjectAndItemsNullablePropDict(schemas.immutabledict[str, typing.Union[
+    None,
+    schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+]]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
@@ -785,7 +790,11 @@ class AdditionalProperties3(
 
 
 
-class ObjectItemsNullableDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ObjectItemsNullableDict(schemas.immutabledict[str, typing.Union[
+    None,
+    schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+]]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
@@ -868,6 +877,7 @@ Properties = typing_extensions.TypedDict(
 
 
 class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({

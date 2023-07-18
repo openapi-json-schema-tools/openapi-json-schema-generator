@@ -19,7 +19,8 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class FileDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class FileDict(schemas.immutabledict[str, str]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({

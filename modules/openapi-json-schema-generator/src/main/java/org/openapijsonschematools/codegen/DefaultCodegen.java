@@ -2345,8 +2345,10 @@ public class DefaultCodegen implements CodegenConfig {
             if (additionalProperties != null) {
                 mapValueSchema = mapValueSchema.add(additionalProperties);
             }
-            for (CodegenSchema prop: properties.values()) {
-                mapValueSchema = mapValueSchema.add(prop);
+            if (properties != null) {
+                for (CodegenSchema prop: properties.values()) {
+                    mapValueSchema = prop.add(mapValueSchema);
+                }
             }
             property.mapValueSchema = mapValueSchema;
         }

@@ -14,6 +14,7 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 
 
 class ReqPropsFromTrueAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "invalid-name",
         "validName",

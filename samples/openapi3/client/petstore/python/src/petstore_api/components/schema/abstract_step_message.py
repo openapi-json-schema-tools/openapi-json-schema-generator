@@ -19,7 +19,8 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class AbstractStepMessageDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class AbstractStepMessageDict(schemas.immutabledict[str, str]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "description",
         "discriminator",

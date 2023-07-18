@@ -44,7 +44,8 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class AppleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class AppleDict(schemas.immutabledict[str, str]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "cultivar",
     })

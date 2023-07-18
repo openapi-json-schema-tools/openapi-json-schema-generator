@@ -64,7 +64,7 @@ class ApiResponse(api_response.ApiResponse):
                 {{#each content}}
                     {{#if this.schema}}
                         {{#with this.schema}}
-    {{> components/_helper_content_schema_output_type paramName="body" modulePrefix=../@key.snakeCase }}
+    {{> components/_helper_content_schema_output_type paramName="body" modulePrefix=../@key.snakeCase endChar="  # type: ignore[assignment]" }}
                         {{/with}}
                     {{else}}
     body: schemas.Unset
@@ -98,7 +98,7 @@ class ApiResponse(api_response.ApiResponse):
                         {{#each content}}
                             {{#if this.schema}}
                                 {{#with this.schema}}
-    {{> components/_helper_content_schema_output_type paramName="body" modulePrefix=../@key.snakeCase }}
+    {{> components/_helper_content_schema_output_type paramName="body" modulePrefix=../@key.snakeCase endChar="  # type: ignore[assignment]" }}
                                 {{/with}}
                             {{else}}
     body: schemas.Unset

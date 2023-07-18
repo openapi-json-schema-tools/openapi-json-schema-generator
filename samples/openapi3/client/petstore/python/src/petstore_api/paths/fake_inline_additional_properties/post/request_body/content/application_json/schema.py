@@ -13,7 +13,8 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema
 
 
-class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class SchemaDict(schemas.immutabledict[str, str]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({

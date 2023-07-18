@@ -19,7 +19,8 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class GrandparentAnimalDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class GrandparentAnimalDict(schemas.immutabledict[str, str]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "pet_type",
     })

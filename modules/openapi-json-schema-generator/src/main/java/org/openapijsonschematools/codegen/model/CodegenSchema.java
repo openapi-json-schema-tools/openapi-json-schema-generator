@@ -137,8 +137,10 @@ public class CodegenSchema {
     }
 
     public CodegenSchema add(CodegenSchema other) {
+        CodegenSchema newSchema = new CodegenSchema();
         if (other == null) {
-            return this;
+            newSchema.types = types;
+            return newSchema;
         }
         if (refInfo != null || oneOf != null || anyOf != null || allOf != null || not != null) {
             return null;
@@ -146,7 +148,6 @@ public class CodegenSchema {
         if (other.refInfo != null || other.oneOf != null || other.anyOf != null || other.allOf != null || other.not != null) {
             return null;
         }
-        CodegenSchema newSchema = new CodegenSchema();
         if (types == null) {
             newSchema.types = other.types;
             return newSchema;

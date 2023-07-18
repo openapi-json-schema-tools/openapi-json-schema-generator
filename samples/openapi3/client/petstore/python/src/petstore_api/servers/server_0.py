@@ -168,7 +168,8 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class VariablesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class VariablesDict(schemas.immutabledict[str, str]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "port",
         "server",

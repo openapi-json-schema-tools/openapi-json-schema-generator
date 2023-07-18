@@ -26,6 +26,7 @@ Properties = typing_extensions.TypedDict(
 
 
 class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
@@ -88,7 +89,7 @@ class Headers(
 @dataclasses.dataclass
 class ApiResponse(api_response.ApiResponse):
     response: urllib3.HTTPResponse
-    body: application_json_schema.SchemaDict
+    body: application_json_schema.SchemaDict  # type: ignore[assignment]
     headers: HeadersDict
 
 

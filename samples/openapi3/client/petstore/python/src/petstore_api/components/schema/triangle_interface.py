@@ -74,7 +74,8 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class TriangleInterfaceDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class TriangleInterfaceDict(schemas.immutabledict[str, str]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "shapeType",
         "triangleType",

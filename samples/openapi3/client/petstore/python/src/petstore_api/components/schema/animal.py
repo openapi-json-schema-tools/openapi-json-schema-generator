@@ -30,7 +30,8 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class AnimalDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class AnimalDict(schemas.immutabledict[str, str]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "className",
     })

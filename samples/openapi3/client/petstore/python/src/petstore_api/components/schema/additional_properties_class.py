@@ -13,7 +13,8 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 AdditionalProperties: typing_extensions.TypeAlias = schemas.StrSchema
 
 
-class MapPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class MapPropertyDict(schemas.immutabledict[str, str]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
@@ -69,7 +70,8 @@ class MapProperty(
 AdditionalProperties3: typing_extensions.TypeAlias = schemas.StrSchema
 
 
-class AdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class AdditionalPropertiesDict(schemas.immutabledict[str, str]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
@@ -124,7 +126,8 @@ class AdditionalProperties2(
 
 
 
-class MapOfMapPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class MapOfMapPropertyDict(schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
@@ -188,6 +191,7 @@ AdditionalProperties4: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 
 
 class MapWithUndeclaredPropertiesAnytype3Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
@@ -285,7 +289,8 @@ class EmptyMap(
 AdditionalProperties6: typing_extensions.TypeAlias = schemas.StrSchema
 
 
-class MapWithUndeclaredPropertiesStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class MapWithUndeclaredPropertiesStringDict(schemas.immutabledict[str, str]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
@@ -353,7 +358,8 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({

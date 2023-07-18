@@ -23,6 +23,7 @@ Properties = typing_extensions.TypedDict(
 
 
 class ObjectWithInvalidNamedRefedPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "!reference",
         "from",

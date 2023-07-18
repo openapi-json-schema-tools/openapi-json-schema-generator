@@ -21,7 +21,8 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class ObjectModelWithArgAndArgsPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ObjectModelWithArgAndArgsPropertiesDict(schemas.immutabledict[str, str]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "arg",
         "args",

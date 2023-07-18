@@ -13,7 +13,8 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 AdditionalProperties2: typing_extensions.TypeAlias = schemas.StrSchema
 
 
-class AdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class AdditionalPropertiesDict(schemas.immutabledict[str, str]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
@@ -68,7 +69,8 @@ class AdditionalProperties(
 
 
 
-class MapMapOfStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class MapMapOfStringDict(schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
@@ -195,7 +197,8 @@ class AdditionalProperties3(
         )
 
 
-class MapOfEnumStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class MapOfEnumStringDict(schemas.immutabledict[str, str]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
@@ -251,7 +254,8 @@ class MapOfEnumString(
 AdditionalProperties4: typing_extensions.TypeAlias = schemas.BoolSchema
 
 
-class DirectMapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class DirectMapDict(schemas.immutabledict[str, bool]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({

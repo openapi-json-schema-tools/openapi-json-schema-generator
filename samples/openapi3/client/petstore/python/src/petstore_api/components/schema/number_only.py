@@ -19,7 +19,8 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class NumberOnlyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class NumberOnlyDict(schemas.immutabledict[str, typing.Union[int, float]]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({

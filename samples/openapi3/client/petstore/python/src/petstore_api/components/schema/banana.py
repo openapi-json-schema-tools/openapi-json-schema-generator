@@ -19,7 +19,8 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class BananaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class BananaDict(schemas.immutabledict[str, typing.Union[int, float]]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "lengthCm",
     })

@@ -29,7 +29,8 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class CapitalizationDict(schemas.immutabledict[str, str]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({

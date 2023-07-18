@@ -74,7 +74,8 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class QuadrilateralInterfaceDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class QuadrilateralInterfaceDict(schemas.immutabledict[str, str]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "quadrilateralType",
         "shapeType",

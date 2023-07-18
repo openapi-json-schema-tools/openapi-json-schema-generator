@@ -105,7 +105,8 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, str]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "op",
         "path",

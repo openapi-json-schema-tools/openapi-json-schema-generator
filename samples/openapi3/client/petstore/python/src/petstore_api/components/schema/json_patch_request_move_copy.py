@@ -91,7 +91,8 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class JSONPatchRequestMoveCopyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class JSONPatchRequestMoveCopyDict(schemas.immutabledict[str, str]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "from",
         "op",

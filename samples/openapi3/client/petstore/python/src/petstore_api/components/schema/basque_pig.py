@@ -72,7 +72,8 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class BasquePigDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class BasquePigDict(schemas.immutabledict[str, str]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "className",
     })

@@ -35,7 +35,8 @@ NoAdditionalPropertiesOptionalDictInput = typing_extensions.TypedDict(
 )
 
 
-class NoAdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class NoAdditionalPropertiesDict(schemas.immutabledict[str, int]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "id",
     })
