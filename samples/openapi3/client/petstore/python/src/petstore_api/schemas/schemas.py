@@ -52,7 +52,7 @@ class ListSchema(schema.Schema[validation.immutabledict, tuple]):
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> schema.U:
+    ):
         return super().validate_base(arg, configuration=configuration)
 
 
