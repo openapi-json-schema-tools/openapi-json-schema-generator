@@ -76,9 +76,17 @@ typing.Tuple[schemas.OUTPUT_BASE_TYPES]{{endChar}}
                             {{else}}
                                 {{#eq this "object"}}
                                     {{#if mapOutputJsonPathPiece}}
+                                        {{#if optional}}
+typing.Union[{{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}}, schemas.Unset]{{endChar}}
+                                        {{else}}
 {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}}{{endChar}}
+                                        {{/if}}
                                     {{else}}
+                                        {{#if optional}}
+typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset]{{endChar}}
+                                        {{else}}
 schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{endChar}}
+                                        {{/if}}
                                     {{/if}}
                                 {{/eq}}
                             {{/eq}}

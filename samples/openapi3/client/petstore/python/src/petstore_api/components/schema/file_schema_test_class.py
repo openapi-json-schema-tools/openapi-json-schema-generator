@@ -88,7 +88,7 @@ class FileSchemaTestClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
     })
     
     @property
-    def get_file(self) -> file.FileDict:
+    def get_file(self) -> typing.Union[file.FileDict, schemas.Unset]:
         val = self.get("file", schemas.unset)
         if val is schemas.unset:
             return val

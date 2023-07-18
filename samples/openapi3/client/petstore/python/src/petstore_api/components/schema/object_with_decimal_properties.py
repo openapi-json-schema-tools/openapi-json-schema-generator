@@ -54,7 +54,7 @@ class ObjectWithDecimalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_
         )
     
     @property
-    def get_cost(self) -> money.MoneyDict:
+    def get_cost(self) -> typing.Union[money.MoneyDict, schemas.Unset]:
         val = self.get("cost", schemas.unset)
         if val is schemas.unset:
             return val

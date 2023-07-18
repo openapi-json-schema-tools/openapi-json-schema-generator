@@ -52,7 +52,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         )
     
     @property
-    def get_composition_in_property(self) -> parameter_1_schema.SchemaDict:
+    def get_composition_in_property(self) -> typing.Union[parameter_1_schema.SchemaDict, schemas.Unset]:
         val = self.get("compositionInProperty", schemas.unset)
         if val is schemas.unset:
             return val

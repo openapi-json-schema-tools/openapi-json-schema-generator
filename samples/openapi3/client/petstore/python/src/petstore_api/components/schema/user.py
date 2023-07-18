@@ -187,7 +187,7 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_object_with_no_declared_props(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+    def get_object_with_no_declared_props(self) -> typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset]:
         val = self.get("objectWithNoDeclaredProps", schemas.unset)
         if val is schemas.unset:
             return val
@@ -199,7 +199,7 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def get_object_with_no_declared_props_nullabley(self) -> typing.Union[
         typing.Union[None, schemas.Unset],
-        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset],
     ]:
         val = self.get("objectWithNoDeclaredPropsNullable", schemas.unset)
         if val is schemas.unset:

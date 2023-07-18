@@ -1026,7 +1026,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def get_object_nullable_propy(self) -> typing.Union[
         typing.Union[None, schemas.Unset],
-        ObjectNullablePropDict,
+        typing.Union[ObjectNullablePropDict, schemas.Unset],
     ]:
         val = self.get("object_nullable_prop", schemas.unset)
         if val is schemas.unset:
@@ -1042,7 +1042,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def get_object_and_items_nullable_propy(self) -> typing.Union[
         typing.Union[None, schemas.Unset],
-        ObjectAndItemsNullablePropDict,
+        typing.Union[ObjectAndItemsNullablePropDict, schemas.Unset],
     ]:
         val = self.get("object_and_items_nullable_prop", schemas.unset)
         if val is schemas.unset:
@@ -1056,7 +1056,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_object_items_nullable(self) -> ObjectItemsNullableDict:
+    def get_object_items_nullable(self) -> typing.Union[ObjectItemsNullableDict, schemas.Unset]:
         val = self.get("object_items_nullable", schemas.unset)
         if val is schemas.unset:
             return val

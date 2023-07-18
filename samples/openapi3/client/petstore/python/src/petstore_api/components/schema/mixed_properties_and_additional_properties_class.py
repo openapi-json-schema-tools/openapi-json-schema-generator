@@ -113,7 +113,7 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
         )
     
     @property
-    def get_map(self) -> MapDict:
+    def get_map(self) -> typing.Union[MapDict, schemas.Unset]:
         val = self.get("map", schemas.unset)
         if val is schemas.unset:
             return val

@@ -368,7 +368,7 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BA
     })
     
     @property
-    def get_map_property(self) -> MapPropertyDict:
+    def get_map_property(self) -> typing.Union[MapPropertyDict, schemas.Unset]:
         val = self.get("map_property", schemas.unset)
         if val is schemas.unset:
             return val
@@ -378,7 +378,7 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BA
         )
     
     @property
-    def get_map_of_map_property(self) -> MapOfMapPropertyDict:
+    def get_map_of_map_property(self) -> typing.Union[MapOfMapPropertyDict, schemas.Unset]:
         val = self.get("map_of_map_property", schemas.unset)
         if val is schemas.unset:
             return val
@@ -398,7 +398,7 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BA
         )
     
     @property
-    def get_map_with_undeclared_properties_anytype1(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+    def get_map_with_undeclared_properties_anytype1(self) -> typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset]:
         val = self.get("map_with_undeclared_properties_anytype_1", schemas.unset)
         if val is schemas.unset:
             return val
@@ -408,7 +408,7 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BA
         )
     
     @property
-    def get_map_with_undeclared_properties_anytype2(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+    def get_map_with_undeclared_properties_anytype2(self) -> typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset]:
         val = self.get("map_with_undeclared_properties_anytype_2", schemas.unset)
         if val is schemas.unset:
             return val
@@ -418,7 +418,7 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BA
         )
     
     @property
-    def get_map_with_undeclared_properties_anytype3(self) -> MapWithUndeclaredPropertiesAnytype3Dict:
+    def get_map_with_undeclared_properties_anytype3(self) -> typing.Union[MapWithUndeclaredPropertiesAnytype3Dict, schemas.Unset]:
         val = self.get("map_with_undeclared_properties_anytype_3", schemas.unset)
         if val is schemas.unset:
             return val
@@ -428,7 +428,7 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BA
         )
     
     @property
-    def get_empty_map(self) -> EmptyMapDict:
+    def get_empty_map(self) -> typing.Union[EmptyMapDict, schemas.Unset]:
         val = self.get("empty_map", schemas.unset)
         if val is schemas.unset:
             return val
@@ -438,7 +438,7 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BA
         )
     
     @property
-    def get_map_with_undeclared_properties_string(self) -> MapWithUndeclaredPropertiesStringDict:
+    def get_map_with_undeclared_properties_string(self) -> typing.Union[MapWithUndeclaredPropertiesStringDict, schemas.Unset]:
         val = self.get("map_with_undeclared_properties_string", schemas.unset)
         if val is schemas.unset:
             return val

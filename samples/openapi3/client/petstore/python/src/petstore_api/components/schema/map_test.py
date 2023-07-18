@@ -328,7 +328,7 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_map_map_of_string(self) -> MapMapOfStringDict:
+    def get_map_map_of_string(self) -> typing.Union[MapMapOfStringDict, schemas.Unset]:
         val = self.get("map_map_of_string", schemas.unset)
         if val is schemas.unset:
             return val
@@ -338,7 +338,7 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_map_of_enum_string(self) -> MapOfEnumStringDict:
+    def get_map_of_enum_string(self) -> typing.Union[MapOfEnumStringDict, schemas.Unset]:
         val = self.get("map_of_enum_string", schemas.unset)
         if val is schemas.unset:
             return val
@@ -348,7 +348,7 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_direct_map(self) -> DirectMapDict:
+    def get_direct_map(self) -> typing.Union[DirectMapDict, schemas.Unset]:
         val = self.get("direct_map", schemas.unset)
         if val is schemas.unset:
             return val
@@ -358,7 +358,7 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_indirect_map(self) -> string_boolean_map.StringBooleanMapDict:
+    def get_indirect_map(self) -> typing.Union[string_boolean_map.StringBooleanMapDict, schemas.Unset]:
         val = self.get("indirect_map", schemas.unset)
         if val is schemas.unset:
             return val
