@@ -2338,6 +2338,18 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
         // end of properties that need to be ordered to set correct camelCase jsonPathPieces
+        CodegenSchema additionalProperties = property.additionalProperties;
+        LinkedHashMapWithContext<CodegenKey, CodegenSchema> properties = property.properties;
+        if (additionalProperties != null || properties != null) {
+            CodegenSchema mapValueSchema = new CodegenSchema();
+            if (additionalProperties != null) {
+                mapValueSchema = mapValueSchema.add(additionalProperties);
+            }
+            for (CodegenSchema prop: properties.values()) {
+                mapValueSchema = mapValueSchema.add(prop);
+            }
+            property.mapValueSchema = mapValueSchema;
+        }
 
         if (currentJsonPath != null) {
             String[] pathPieces = currentJsonPath.split("/");
@@ -2370,7 +2382,6 @@ public class DefaultCodegen implements CodegenConfig {
                 }
             }
         }
-        property.qtyKnownProperties = requiredAndOptionalProperties.size();
         property.description = escapeText(p.getDescription());
         property.unescapedDescription = p.getDescription();
         property.title = p.getTitle();

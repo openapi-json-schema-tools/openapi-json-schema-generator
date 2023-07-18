@@ -81,7 +81,7 @@ public class CodegenSchema {
     public boolean isBooleanSchemaFalse;  // supports boolean schemas
 
     // Extra needed fields
-    public int qtyKnownProperties;
+    public CodegenSchema mapValueSchema;
     public boolean componentModule;
     public TreeSet<String> imports;
     public CodegenKey jsonPathPiece;
@@ -134,6 +134,31 @@ public class CodegenSchema {
             refObject = refObject.refInfo.ref;
         }
         return refObject;
+    }
+
+    public CodegenSchema add(CodegenSchema other) {
+        if (other == null) {
+            return this;
+        }
+        if (refInfo != null || oneOf != null || anyOf != null || allOf != null || not != null) {
+            return null;
+        }
+        if (other.refInfo != null || other.oneOf != null || other.anyOf != null || other.allOf != null || other.not != null) {
+            return null;
+        }
+        CodegenSchema newSchema = new CodegenSchema();
+        if (types == null) {
+            newSchema.types = other.types;
+            return newSchema;
+        }
+        if (other.types == null) {
+            newSchema.types = types;
+            return newSchema;
+        }
+        LinkedHashSet<String> interSectionTypes = new LinkedHashSet<>(types);
+        interSectionTypes.retainAll(other.types);
+        newSchema.types = interSectionTypes;
+        return newSchema;
     }
 
     public boolean hasAnyRefs() {
@@ -332,7 +357,7 @@ public class CodegenSchema {
             mapOut.additionalProperties = additionalProperties;
             mapOut.mapOutputJsonPathPiece = mapOutputJsonPathPiece;
             mapOut.properties = properties;
-            mapOut.qtyKnownProperties = qtyKnownProperties;
+            mapOut.mapValueSchema = mapValueSchema;
             // inputs needed for Schema validate invocation in new method
             mapOut.mapInputJsonPathPiece = mapInputJsonPathPiece;
             mapOut.jsonPathPiece = jsonPathPiece;
@@ -363,7 +388,7 @@ public class CodegenSchema {
             mapOut.additionalProperties = additionalProperties;
             mapOut.mapOutputJsonPathPiece = mapOutputJsonPathPiece;
             mapOut.properties = properties;
-            mapOut.qtyKnownProperties = qtyKnownProperties;
+            mapOut.mapValueSchema = mapValueSchema;
             // inputs needed for Schema validate invocation in new method
             mapOut.mapInputJsonPathPiece = mapInputJsonPathPiece;
             mapOut.jsonPathPiece = jsonPathPiece;
@@ -414,7 +439,7 @@ public class CodegenSchema {
             mapOut.properties = properties;
             mapOut.additionalProperties = additionalProperties;
             mapOut.mapOutputJsonPathPiece = mapOutputJsonPathPiece;
-            mapOut.qtyKnownProperties = qtyKnownProperties;
+            mapOut.mapValueSchema = mapValueSchema;
             // inputs needed for Schema validate invocation in new method
             mapOut.mapInputJsonPathPiece = mapInputJsonPathPiece;
             mapOut.jsonPathPiece = jsonPathPiece;
