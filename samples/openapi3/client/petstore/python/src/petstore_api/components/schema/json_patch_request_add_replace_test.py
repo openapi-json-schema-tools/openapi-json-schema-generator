@@ -115,21 +115,21 @@ class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, schemas.OUTP
     })
     
     @property
-    def get_op(self) -> typing_extensions.Literal["add", "replace", "test"]:
+    def op(self) -> typing_extensions.Literal["add", "replace", "test"]:
         return typing.cast(
             typing_extensions.Literal["add", "replace", "test"],
             self.__getitem__("op")
         )
     
     @property
-    def get_path(self) -> str:
+    def path(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("path")
         )
     
     @property
-    def get_value(self) -> schemas.OUTPUT_BASE_TYPES:
+    def value(self) -> schemas.OUTPUT_BASE_TYPES:
         return typing.cast(
             schemas.OUTPUT_BASE_TYPES,
             self.__getitem__("value")

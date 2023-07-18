@@ -47,14 +47,14 @@ class BananaReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_length_cm(self) -> typing.Union[int, float]:
+    def lengthCm(self) -> typing.Union[int, float]:
         return typing.cast(
             typing.Union[int, float],
             self.__getitem__("lengthCm")
         )
     
     @property
-    def get_sweet(self) -> typing.Union[bool, schemas.Unset]:
+    def sweet(self) -> typing.Union[bool, schemas.Unset]:
         val = self.get("sweet", schemas.unset)
         if val is schemas.unset:
             return val

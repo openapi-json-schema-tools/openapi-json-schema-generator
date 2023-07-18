@@ -26,7 +26,7 @@ class SelfReferencingObjectModelDict(schemas.immutabledict[str, schemas.OUTPUT_B
     })
     
     @property
-    def get_self_ref(self) -> typing.Union[SelfReferencingObjectModelDict, schemas.Unset]:
+    def selfRef(self) -> typing.Union[SelfReferencingObjectModelDict, schemas.Unset]:
         val = self.get("selfRef", schemas.unset)
         if val is schemas.unset:
             return val

@@ -232,21 +232,21 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_name(self) -> str:
+    def name(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("name")
         )
     
     @property
-    def get_photo_urls(self) -> PhotoUrlsTuple:
+    def photoUrls(self) -> PhotoUrlsTuple:
         return typing.cast(
             PhotoUrlsTuple,
             self.__getitem__("photoUrls")
         )
     
     @property
-    def get_id(self) -> typing.Union[int, schemas.Unset]:
+    def id(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("id", schemas.unset)
         if val is schemas.unset:
             return val
@@ -256,7 +256,7 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_category(self) -> typing.Union[category.CategoryDict, schemas.Unset]:
+    def category(self) -> typing.Union[category.CategoryDict, schemas.Unset]:
         val = self.get("category", schemas.unset)
         if val is schemas.unset:
             return val
@@ -266,7 +266,7 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_tags(self) -> typing.Union[TagsTuple, schemas.Unset]:
+    def tags(self) -> typing.Union[TagsTuple, schemas.Unset]:
         val = self.get("tags", schemas.unset)
         if val is schemas.unset:
             return val
@@ -276,7 +276,7 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_status(self) -> typing.Union[typing_extensions.Literal["available", "pending", "sold"], schemas.Unset]:
+    def status(self) -> typing.Union[typing_extensions.Literal["available", "pending", "sold"], schemas.Unset]:
         val = self.get("status", schemas.unset)
         if val is schemas.unset:
             return val

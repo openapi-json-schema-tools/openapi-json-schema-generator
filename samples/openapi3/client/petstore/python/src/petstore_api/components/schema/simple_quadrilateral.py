@@ -80,7 +80,7 @@ class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_quadrilateral_type(self) -> typing.Union[typing_extensions.Literal["SimpleQuadrilateral"], schemas.Unset]:
+    def quadrilateralType(self) -> typing.Union[typing_extensions.Literal["SimpleQuadrilateral"], schemas.Unset]:
         val = self.get("quadrilateralType", schemas.unset)
         if val is schemas.unset:
             return val

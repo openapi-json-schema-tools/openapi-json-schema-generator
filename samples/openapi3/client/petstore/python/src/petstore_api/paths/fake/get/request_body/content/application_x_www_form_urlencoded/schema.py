@@ -230,7 +230,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_enum_form_string_array(self) -> typing.Union[EnumFormStringArrayTuple, schemas.Unset]:
+    def enum_form_string_array(self) -> typing.Union[EnumFormStringArrayTuple, schemas.Unset]:
         val = self.get("enum_form_string_array", schemas.unset)
         if val is schemas.unset:
             return val
@@ -240,7 +240,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_enum_form_string(self) -> typing.Union[typing_extensions.Literal["_abc", "-efg", "(xyz)"], schemas.Unset]:
+    def enum_form_string(self) -> typing.Union[typing_extensions.Literal["_abc", "-efg", "(xyz)"], schemas.Unset]:
         val = self.get("enum_form_string", schemas.unset)
         if val is schemas.unset:
             return val

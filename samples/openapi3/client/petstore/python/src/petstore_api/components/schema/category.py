@@ -39,14 +39,14 @@ class CategoryDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_name(self) -> str:
+    def name(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("name")
         )
     
     @property
-    def get_id(self) -> typing.Union[int, schemas.Unset]:
+    def id(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("id", schemas.unset)
         if val is schemas.unset:
             return val

@@ -65,21 +65,21 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     
     @property
-    def get_required_int64_group(self) -> int:
+    def required_int64_group(self) -> int:
         return typing.cast(
             int,
             self.__getitem__("required_int64_group")
         )
     
     @property
-    def get_required_string_group(self) -> str:
+    def required_string_group(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("required_string_group")
         )
     
     @property
-    def get_int64_group(self) -> typing.Union[int, schemas.Unset]:
+    def int64_group(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("int64_group", schemas.unset)
         if val is schemas.unset:
             return val
@@ -89,7 +89,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         )
     
     @property
-    def get_string_group(self) -> typing.Union[str, schemas.Unset]:
+    def string_group(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("string_group", schemas.unset)
         if val is schemas.unset:
             return val
@@ -176,14 +176,14 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     })
     
     @property
-    def get_required_boolean_group(self) -> typing_extensions.Literal["true", "false"]:
+    def required_boolean_group(self) -> typing_extensions.Literal["true", "false"]:
         return typing.cast(
             typing_extensions.Literal["true", "false"],
             self.__getitem__("required_boolean_group")
         )
     
     @property
-    def get_boolean_group(self) -> typing.Union[typing_extensions.Literal["true", "false"], schemas.Unset]:
+    def boolean_group(self) -> typing.Union[typing_extensions.Literal["true", "false"], schemas.Unset]:
         val = self.get("boolean_group", schemas.unset)
         if val is schemas.unset:
             return val

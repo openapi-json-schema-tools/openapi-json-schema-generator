@@ -80,7 +80,7 @@ class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_triangle_type(self) -> typing.Union[typing_extensions.Literal["EquilateralTriangle"], schemas.Unset]:
+    def triangleType(self) -> typing.Union[typing_extensions.Literal["EquilateralTriangle"], schemas.Unset]:
         val = self.get("triangleType", schemas.unset)
         if val is schemas.unset:
             return val

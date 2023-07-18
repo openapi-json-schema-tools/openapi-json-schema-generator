@@ -30,7 +30,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_additional_metadata(self) -> typing.Union[str, schemas.Unset]:
+    def additionalMetadata(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("additionalMetadata", schemas.unset)
         if val is schemas.unset:
             return val
@@ -40,7 +40,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_file(self) -> typing.Union[bytes, schemas.FileIO]:
+    def file(self) -> typing.Union[bytes, schemas.FileIO]:
         val = self.get("file", schemas.unset)
         if val is schemas.unset:
             return val

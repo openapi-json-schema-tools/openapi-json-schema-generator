@@ -80,7 +80,7 @@ class DanishPigDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_class_name(self) -> typing_extensions.Literal["DanishPig"]:
+    def className(self) -> typing_extensions.Literal["DanishPig"]:
         return typing.cast(
             typing_extensions.Literal["DanishPig"],
             self.__getitem__("className")

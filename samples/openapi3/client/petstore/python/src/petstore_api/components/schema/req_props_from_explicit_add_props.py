@@ -22,14 +22,7 @@ class ReqPropsFromExplicitAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT
     })
     
     @property
-    def get_invalid_name(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("invalid-name")
-        )
-    
-    @property
-    def get_valid_name(self) -> str:
+    def validName(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("validName")

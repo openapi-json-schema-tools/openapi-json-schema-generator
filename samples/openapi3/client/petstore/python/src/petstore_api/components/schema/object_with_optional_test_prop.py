@@ -27,7 +27,7 @@ class ObjectWithOptionalTestPropDict(schemas.immutabledict[str, schemas.OUTPUT_B
     })
     
     @property
-    def get_test(self) -> typing.Union[str, schemas.Unset]:
+    def test(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("test", schemas.unset)
         if val is schemas.unset:
             return val

@@ -92,7 +92,7 @@ class VariablesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_version(self) -> typing_extensions.Literal["v1", "v2"]:
+    def version(self) -> typing_extensions.Literal["v1", "v2"]:
         return typing.cast(
             typing_extensions.Literal["v1", "v2"],
             self.__getitem__("version")

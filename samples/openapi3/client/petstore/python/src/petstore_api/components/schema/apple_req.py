@@ -44,14 +44,14 @@ class AppleReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_cultivar(self) -> str:
+    def cultivar(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("cultivar")
         )
     
     @property
-    def get_mealy(self) -> typing.Union[bool, schemas.Unset]:
+    def mealy(self) -> typing.Union[bool, schemas.Unset]:
         val = self.get("mealy", schemas.unset)
         if val is schemas.unset:
             return val

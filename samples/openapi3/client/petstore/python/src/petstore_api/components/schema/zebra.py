@@ -165,14 +165,14 @@ class ZebraDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_class_name(self) -> typing_extensions.Literal["zebra"]:
+    def className(self) -> typing_extensions.Literal["zebra"]:
         return typing.cast(
             typing_extensions.Literal["zebra"],
             self.__getitem__("className")
         )
     
     @property
-    def get_type(self) -> typing.Union[typing_extensions.Literal["plains", "mountain", "grevys"], schemas.Unset]:
+    def type(self) -> typing.Union[typing_extensions.Literal["plains", "mountain", "grevys"], schemas.Unset]:
         val = self.get("type", schemas.unset)
         if val is schemas.unset:
             return val

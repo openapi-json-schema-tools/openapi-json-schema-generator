@@ -29,21 +29,21 @@ class AbstractStepMessageDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
     })
     
     @property
-    def get_description(self) -> schemas.OUTPUT_BASE_TYPES:
+    def description(self) -> schemas.OUTPUT_BASE_TYPES:
         return typing.cast(
             schemas.OUTPUT_BASE_TYPES,
             self.__getitem__("description")
         )
     
     @property
-    def get_discriminator(self) -> str:
+    def discriminator(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("discriminator")
         )
     
     @property
-    def get_sequence_number(self) -> schemas.OUTPUT_BASE_TYPES:
+    def sequenceNumber(self) -> schemas.OUTPUT_BASE_TYPES:
         return typing.cast(
             schemas.OUTPUT_BASE_TYPES,
             self.__getitem__("sequenceNumber")

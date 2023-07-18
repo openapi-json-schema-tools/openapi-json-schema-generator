@@ -27,7 +27,7 @@ class BananaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_length_cm(self) -> typing.Union[int, float]:
+    def lengthCm(self) -> typing.Union[int, float]:
         return typing.cast(
             typing.Union[int, float],
             self.__getitem__("lengthCm")

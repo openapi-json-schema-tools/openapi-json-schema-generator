@@ -28,14 +28,14 @@ class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_test(self) -> schemas.OUTPUT_BASE_TYPES:
+    def test(self) -> schemas.OUTPUT_BASE_TYPES:
         return typing.cast(
             schemas.OUTPUT_BASE_TYPES,
             self.__getitem__("test")
         )
     
     @property
-    def get_name(self) -> typing.Union[str, schemas.Unset]:
+    def name(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("name", schemas.unset)
         if val is schemas.unset:
             return val

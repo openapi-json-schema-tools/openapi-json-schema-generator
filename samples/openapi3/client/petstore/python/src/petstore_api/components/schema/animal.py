@@ -39,14 +39,14 @@ class AnimalDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_class_name(self) -> str:
+    def className(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("className")
         )
     
     @property
-    def get_color(self) -> typing.Union[str, schemas.Unset]:
+    def color(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("color", schemas.unset)
         if val is schemas.unset:
             return val

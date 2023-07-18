@@ -107,7 +107,7 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_id(self) -> typing.Union[int, schemas.Unset]:
+    def id(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("id", schemas.unset)
         if val is schemas.unset:
             return val
@@ -117,7 +117,7 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_username(self) -> typing.Union[str, schemas.Unset]:
+    def username(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("username", schemas.unset)
         if val is schemas.unset:
             return val
@@ -127,7 +127,7 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_first_name(self) -> typing.Union[str, schemas.Unset]:
+    def firstName(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("firstName", schemas.unset)
         if val is schemas.unset:
             return val
@@ -137,7 +137,7 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_last_name(self) -> typing.Union[str, schemas.Unset]:
+    def lastName(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("lastName", schemas.unset)
         if val is schemas.unset:
             return val
@@ -147,7 +147,7 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_email(self) -> typing.Union[str, schemas.Unset]:
+    def email(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("email", schemas.unset)
         if val is schemas.unset:
             return val
@@ -157,7 +157,7 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_password(self) -> typing.Union[str, schemas.Unset]:
+    def password(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("password", schemas.unset)
         if val is schemas.unset:
             return val
@@ -167,7 +167,7 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_phone(self) -> typing.Union[str, schemas.Unset]:
+    def phone(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("phone", schemas.unset)
         if val is schemas.unset:
             return val
@@ -177,7 +177,7 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_user_status(self) -> typing.Union[int, schemas.Unset]:
+    def userStatus(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("userStatus", schemas.unset)
         if val is schemas.unset:
             return val
@@ -187,7 +187,7 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_object_with_no_declared_props(self) -> typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset]:
+    def objectWithNoDeclaredProps(self) -> typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset]:
         val = self.get("objectWithNoDeclaredProps", schemas.unset)
         if val is schemas.unset:
             return val
@@ -197,7 +197,7 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_object_with_no_declared_props_nullabley(self) -> typing.Union[
+    def objectWithNoDeclaredPropsNullable(self) -> typing.Union[
         typing.Union[None, schemas.Unset],
         typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset],
     ]:
@@ -213,7 +213,7 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_any_type_prop(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+    def anyTypeProp(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("anyTypeProp", schemas.unset)
         if val is schemas.unset:
             return val
@@ -223,7 +223,7 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_any_type_except_null_prop(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+    def anyTypeExceptNullProp(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("anyTypeExceptNullProp", schemas.unset)
         if val is schemas.unset:
             return val
@@ -233,7 +233,7 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_any_type_prop_nullable(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+    def anyTypePropNullable(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("anyTypePropNullable", schemas.unset)
         if val is schemas.unset:
             return val

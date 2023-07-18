@@ -32,14 +32,14 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_amount(self) -> str:
+    def amount(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("amount")
         )
     
     @property
-    def get_currency(self) -> typing_extensions.Literal["eur", "usd"]:
+    def currency(self) -> typing_extensions.Literal["eur", "usd"]:
         return typing.cast(
             typing_extensions.Literal["eur", "usd"],
             self.__getitem__("currency")

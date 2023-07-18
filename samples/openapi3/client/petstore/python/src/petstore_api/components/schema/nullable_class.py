@@ -886,7 +886,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_integer_propy(self) -> typing.Union[
+    def integer_prop(self) -> typing.Union[
         typing.Union[None, schemas.Unset],
         typing.Union[int, schemas.Unset],
     ]:
@@ -902,7 +902,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_number_propy(self) -> typing.Union[
+    def number_prop(self) -> typing.Union[
         typing.Union[None, schemas.Unset],
         typing.Union[int, float, schemas.Unset],
     ]:
@@ -918,7 +918,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_boolean_propy(self) -> typing.Union[
+    def boolean_prop(self) -> typing.Union[
         typing.Union[None, schemas.Unset],
         typing.Union[bool, schemas.Unset],
     ]:
@@ -934,7 +934,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_string_propy(self) -> typing.Union[
+    def string_prop(self) -> typing.Union[
         typing.Union[None, schemas.Unset],
         typing.Union[str, schemas.Unset],
     ]:
@@ -950,7 +950,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_date_propy(self) -> typing.Union[
+    def date_prop(self) -> typing.Union[
         typing.Union[None, schemas.Unset],
         typing.Union[str, schemas.Unset],
     ]:
@@ -966,7 +966,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_datetime_propy(self) -> typing.Union[
+    def datetime_prop(self) -> typing.Union[
         typing.Union[None, schemas.Unset],
         typing.Union[str, schemas.Unset],
     ]:
@@ -982,7 +982,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_array_nullable_propy(self) -> typing.Union[
+    def array_nullable_prop(self) -> typing.Union[
         typing.Union[None, schemas.Unset],
         typing.Union[ArrayNullablePropTuple, schemas.Unset],
     ]:
@@ -998,7 +998,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_array_and_items_nullable_propy(self) -> typing.Union[
+    def array_and_items_nullable_prop(self) -> typing.Union[
         typing.Union[None, schemas.Unset],
         typing.Union[ArrayAndItemsNullablePropTuple, schemas.Unset],
     ]:
@@ -1014,7 +1014,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_array_items_nullable(self) -> typing.Union[ArrayItemsNullableTuple, schemas.Unset]:
+    def array_items_nullable(self) -> typing.Union[ArrayItemsNullableTuple, schemas.Unset]:
         val = self.get("array_items_nullable", schemas.unset)
         if val is schemas.unset:
             return val
@@ -1024,7 +1024,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_object_nullable_propy(self) -> typing.Union[
+    def object_nullable_prop(self) -> typing.Union[
         typing.Union[None, schemas.Unset],
         typing.Union[ObjectNullablePropDict, schemas.Unset],
     ]:
@@ -1040,7 +1040,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_object_and_items_nullable_propy(self) -> typing.Union[
+    def object_and_items_nullable_prop(self) -> typing.Union[
         typing.Union[None, schemas.Unset],
         typing.Union[ObjectAndItemsNullablePropDict, schemas.Unset],
     ]:
@@ -1056,7 +1056,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_object_items_nullable(self) -> typing.Union[ObjectItemsNullableDict, schemas.Unset]:
+    def object_items_nullable(self) -> typing.Union[ObjectItemsNullableDict, schemas.Unset]:
         val = self.get("object_items_nullable", schemas.unset)
         if val is schemas.unset:
             return val

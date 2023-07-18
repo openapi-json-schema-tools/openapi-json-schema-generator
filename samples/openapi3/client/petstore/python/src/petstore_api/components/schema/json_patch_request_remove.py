@@ -84,14 +84,14 @@ class JSONPatchRequestRemoveDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
     })
     
     @property
-    def get_op(self) -> typing_extensions.Literal["remove"]:
+    def op(self) -> typing_extensions.Literal["remove"]:
         return typing.cast(
             typing_extensions.Literal["remove"],
             self.__getitem__("op")
         )
     
     @property
-    def get_path(self) -> str:
+    def path(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("path")

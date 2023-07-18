@@ -27,7 +27,7 @@ class GmFruitDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_color(self) -> typing.Union[str, schemas.Unset]:
+    def color(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("color", schemas.unset)
         if val is schemas.unset:
             return val

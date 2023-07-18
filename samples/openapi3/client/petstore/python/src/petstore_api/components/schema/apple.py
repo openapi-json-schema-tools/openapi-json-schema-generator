@@ -53,14 +53,14 @@ class AppleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_cultivar(self) -> str:
+    def cultivar(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("cultivar")
         )
     
     @property
-    def get_origin(self) -> typing.Union[str, schemas.Unset]:
+    def origin(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("origin", schemas.unset)
         if val is schemas.unset:
             return val

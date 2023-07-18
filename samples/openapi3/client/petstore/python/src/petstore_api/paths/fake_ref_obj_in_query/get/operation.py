@@ -33,7 +33,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     
     @property
-    def get_map_bean(self) -> typing.Union[foo.FooDict, schemas.Unset]:
+    def mapBean(self) -> typing.Union[foo.FooDict, schemas.Unset]:
         val = self.get("mapBean", schemas.unset)
         if val is schemas.unset:
             return val

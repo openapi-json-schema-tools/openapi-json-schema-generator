@@ -83,14 +83,14 @@ class TriangleInterfaceDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES
     })
     
     @property
-    def get_shape_type(self) -> typing_extensions.Literal["Triangle"]:
+    def shapeType(self) -> typing_extensions.Literal["Triangle"]:
         return typing.cast(
             typing_extensions.Literal["Triangle"],
             self.__getitem__("shapeType")
         )
     
     @property
-    def get_triangle_type(self) -> str:
+    def triangleType(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("triangleType")

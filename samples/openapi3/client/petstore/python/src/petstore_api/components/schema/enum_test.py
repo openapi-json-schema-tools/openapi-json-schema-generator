@@ -322,14 +322,14 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_enum_string_required(self) -> typing_extensions.Literal["UPPER", "lower", ""]:
+    def enum_string_required(self) -> typing_extensions.Literal["UPPER", "lower", ""]:
         return typing.cast(
             typing_extensions.Literal["UPPER", "lower", ""],
             self.__getitem__("enum_string_required")
         )
     
     @property
-    def get_enum_string(self) -> typing.Union[typing_extensions.Literal["UPPER", "lower", ""], schemas.Unset]:
+    def enum_string(self) -> typing.Union[typing_extensions.Literal["UPPER", "lower", ""], schemas.Unset]:
         val = self.get("enum_string", schemas.unset)
         if val is schemas.unset:
             return val
@@ -339,7 +339,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_enum_integer(self) -> typing.Union[typing_extensions.Literal[1, -1], schemas.Unset]:
+    def enum_integer(self) -> typing.Union[typing_extensions.Literal[1, -1], schemas.Unset]:
         val = self.get("enum_integer", schemas.unset)
         if val is schemas.unset:
             return val
@@ -349,7 +349,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_enum_number(self) -> typing.Union[int, float, schemas.Unset]:
+    def enum_number(self) -> typing.Union[int, float, schemas.Unset]:
         val = self.get("enum_number", schemas.unset)
         if val is schemas.unset:
             return val
@@ -359,7 +359,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_string_enum(self) -> typing.Union[
+    def stringEnum(self) -> typing.Union[
         typing.Union[None, schemas.Unset],
         typing.Union[typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"], schemas.Unset],
     ]:
@@ -375,7 +375,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_integer_enum(self) -> typing.Union[typing_extensions.Literal[0, 1, 2], schemas.Unset]:
+    def IntegerEnum(self) -> typing.Union[typing_extensions.Literal[0, 1, 2], schemas.Unset]:
         val = self.get("IntegerEnum", schemas.unset)
         if val is schemas.unset:
             return val
@@ -385,7 +385,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_string_enum_with_default_value(self) -> typing.Union[typing_extensions.Literal["placed", "approved", "delivered"], schemas.Unset]:
+    def StringEnumWithDefaultValue(self) -> typing.Union[typing_extensions.Literal["placed", "approved", "delivered"], schemas.Unset]:
         val = self.get("StringEnumWithDefaultValue", schemas.unset)
         if val is schemas.unset:
             return val
@@ -395,7 +395,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_integer_enum_with_default_value(self) -> typing.Union[typing_extensions.Literal[0, 1, 2], schemas.Unset]:
+    def IntegerEnumWithDefaultValue(self) -> typing.Union[typing_extensions.Literal[0, 1, 2], schemas.Unset]:
         val = self.get("IntegerEnumWithDefaultValue", schemas.unset)
         if val is schemas.unset:
             return val
@@ -405,7 +405,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_integer_enum_one_value(self) -> typing.Union[typing_extensions.Literal[0], schemas.Unset]:
+    def IntegerEnumOneValue(self) -> typing.Union[typing_extensions.Literal[0], schemas.Unset]:
         val = self.get("IntegerEnumOneValue", schemas.unset)
         if val is schemas.unset:
             return val

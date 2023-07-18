@@ -32,33 +32,6 @@ class ObjectWithDifficultlyNamedPropsDict(schemas.immutabledict[str, schemas.OUT
         "123Number",
     })
     
-    @property
-    def get__123_list(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("123-list")
-        )
-    
-    @property
-    def get_special_property_name(self) -> typing.Union[int, schemas.Unset]:
-        val = self.get("$special[property.name]", schemas.unset)
-        if val is schemas.unset:
-            return val
-        return typing.cast(
-            int,
-            val
-        )
-    
-    @property
-    def get__123_number(self) -> typing.Union[int, schemas.Unset]:
-        val = self.get("123Number", schemas.unset)
-        if val is schemas.unset:
-            return val
-        return typing.cast(
-            int,
-            val
-        )
-    
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)

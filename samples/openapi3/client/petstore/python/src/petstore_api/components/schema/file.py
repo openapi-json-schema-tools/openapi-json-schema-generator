@@ -27,7 +27,7 @@ class FileDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_source_uri(self) -> typing.Union[str, schemas.Unset]:
+    def sourceURI(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("sourceURI", schemas.unset)
         if val is schemas.unset:
             return val

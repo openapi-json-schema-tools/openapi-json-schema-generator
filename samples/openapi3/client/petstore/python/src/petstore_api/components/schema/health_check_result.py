@@ -62,7 +62,7 @@ class HealthCheckResultDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES
     })
     
     @property
-    def get_nullable_messagey(self) -> typing.Union[
+    def NullableMessage(self) -> typing.Union[
         typing.Union[None, schemas.Unset],
         typing.Union[str, schemas.Unset],
     ]:

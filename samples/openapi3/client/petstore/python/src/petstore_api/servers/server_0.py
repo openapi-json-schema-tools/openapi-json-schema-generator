@@ -177,14 +177,14 @@ class VariablesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_port(self) -> typing_extensions.Literal["80", "8080"]:
+    def port(self) -> typing_extensions.Literal["80", "8080"]:
         return typing.cast(
             typing_extensions.Literal["80", "8080"],
             self.__getitem__("port")
         )
     
     @property
-    def get_server(self) -> typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"]:
+    def server(self) -> typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"]:
         return typing.cast(
             typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"],
             self.__getitem__("server")

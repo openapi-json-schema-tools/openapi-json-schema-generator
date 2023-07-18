@@ -119,7 +119,7 @@ class DrawingDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_main_shape(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+    def mainShape(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("mainShape", schemas.unset)
         if val is schemas.unset:
             return val
@@ -129,7 +129,7 @@ class DrawingDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_shape_or_null(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+    def shapeOrNull(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("shapeOrNull", schemas.unset)
         if val is schemas.unset:
             return val
@@ -139,7 +139,7 @@ class DrawingDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_nullable_shape(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+    def nullableShape(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("nullableShape", schemas.unset)
         if val is schemas.unset:
             return val
@@ -149,7 +149,7 @@ class DrawingDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_shapes(self) -> typing.Union[ShapesTuple, schemas.Unset]:
+    def shapes(self) -> typing.Union[ShapesTuple, schemas.Unset]:
         val = self.get("shapes", schemas.unset)
         if val is schemas.unset:
             return val

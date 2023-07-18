@@ -165,35 +165,35 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_byte(self) -> str:
+    def byte(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("byte")
         )
     
     @property
-    def get_double(self) -> typing.Union[int, float]:
+    def double(self) -> typing.Union[int, float]:
         return typing.cast(
             typing.Union[int, float],
             self.__getitem__("double")
         )
     
     @property
-    def get_number(self) -> typing.Union[int, float]:
+    def number(self) -> typing.Union[int, float]:
         return typing.cast(
             typing.Union[int, float],
             self.__getitem__("number")
         )
     
     @property
-    def get_pattern_without_delimiter(self) -> str:
+    def pattern_without_delimiter(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("pattern_without_delimiter")
         )
     
     @property
-    def get_integer(self) -> typing.Union[int, schemas.Unset]:
+    def integer(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("integer", schemas.unset)
         if val is schemas.unset:
             return val
@@ -203,7 +203,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_int32(self) -> typing.Union[int, schemas.Unset]:
+    def int32(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("int32", schemas.unset)
         if val is schemas.unset:
             return val
@@ -213,7 +213,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_int64(self) -> typing.Union[int, schemas.Unset]:
+    def int64(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("int64", schemas.unset)
         if val is schemas.unset:
             return val
@@ -223,17 +223,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get__float(self) -> typing.Union[int, float, schemas.Unset]:
-        val = self.get("float", schemas.unset)
-        if val is schemas.unset:
-            return val
-        return typing.cast(
-            typing.Union[int, float],
-            val
-        )
-    
-    @property
-    def get_string(self) -> typing.Union[str, schemas.Unset]:
+    def string(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("string", schemas.unset)
         if val is schemas.unset:
             return val
@@ -243,7 +233,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_binary(self) -> typing.Union[bytes, schemas.FileIO]:
+    def binary(self) -> typing.Union[bytes, schemas.FileIO]:
         val = self.get("binary", schemas.unset)
         if val is schemas.unset:
             return val
@@ -253,7 +243,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_date(self) -> typing.Union[str, schemas.Unset]:
+    def date(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("date", schemas.unset)
         if val is schemas.unset:
             return val
@@ -263,7 +253,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_date_time(self) -> typing.Union[str, schemas.Unset]:
+    def dateTime(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("dateTime", schemas.unset)
         if val is schemas.unset:
             return val
@@ -273,7 +263,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_password(self) -> typing.Union[str, schemas.Unset]:
+    def password(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("password", schemas.unset)
         if val is schemas.unset:
             return val
@@ -283,7 +273,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_callback(self) -> typing.Union[str, schemas.Unset]:
+    def callback(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("callback", schemas.unset)
         if val is schemas.unset:
             return val

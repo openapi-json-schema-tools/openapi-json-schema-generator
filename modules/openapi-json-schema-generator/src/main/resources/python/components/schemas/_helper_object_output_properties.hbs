@@ -1,5 +1,6 @@
 {{#if requiredProperties}}
     {{#each requiredProperties}}
+        {{#if @key.isValid}}
         {{#with this}}
             {{#if refInfo.refClass}}
 
@@ -16,15 +17,17 @@
                     {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
 
 @property
-def get_{{@key.snakeCase}}(self) -> schemas.OUTPUT_BASE_TYPES:
+def {{@key.original}}(self) -> schemas.OUTPUT_BASE_TYPES:
     {{> components/schemas/_helper_object_get_property required=true }}
                 {{/if}}
             {{/if}}
         {{/with}}
+        {{/if}}
     {{/each}}
 {{/if}}
 {{#if optionalProperties}}
     {{#each optionalProperties}}
+        {{#if @key.isValid}}
         {{#with this}}
             {{#if refInfo.refClass}}
 
@@ -38,6 +41,7 @@ def get_{{@key.snakeCase}}(self) -> schemas.OUTPUT_BASE_TYPES:
     {{> components/schemas/_helper_object_get_property required=false }}
             {{/if}}
         {{/with}}
+        {{/if}}
     {{/each}}
 {{/if}}
 {{#eq additionalProperties null }}

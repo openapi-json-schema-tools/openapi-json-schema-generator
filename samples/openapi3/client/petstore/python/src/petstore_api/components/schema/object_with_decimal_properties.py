@@ -34,7 +34,7 @@ class ObjectWithDecimalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_
     })
     
     @property
-    def get_length(self) -> typing.Union[str, schemas.Unset]:
+    def length(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("length", schemas.unset)
         if val is schemas.unset:
             return val
@@ -44,7 +44,7 @@ class ObjectWithDecimalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_
         )
     
     @property
-    def get_width(self) -> typing.Union[str, schemas.Unset]:
+    def width(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("width", schemas.unset)
         if val is schemas.unset:
             return val
@@ -54,7 +54,7 @@ class ObjectWithDecimalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_
         )
     
     @property
-    def get_cost(self) -> typing.Union[money.MoneyDict, schemas.Unset]:
+    def cost(self) -> typing.Union[money.MoneyDict, schemas.Unset]:
         val = self.get("cost", schemas.unset)
         if val is schemas.unset:
             return val

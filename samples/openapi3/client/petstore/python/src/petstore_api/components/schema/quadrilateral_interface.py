@@ -83,14 +83,14 @@ class QuadrilateralInterfaceDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
     })
     
     @property
-    def get_quadrilateral_type(self) -> str:
+    def quadrilateralType(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("quadrilateralType")
         )
     
     @property
-    def get_shape_type(self) -> typing_extensions.Literal["Quadrilateral"]:
+    def shapeType(self) -> typing_extensions.Literal["Quadrilateral"]:
         return typing.cast(
             typing_extensions.Literal["Quadrilateral"],
             self.__getitem__("shapeType")

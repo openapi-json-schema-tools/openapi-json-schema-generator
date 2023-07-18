@@ -40,7 +40,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     })
     
     @property
-    def get_api_key(self) -> typing.Union[str, schemas.Unset]:
+    def api_key(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("api_key", schemas.unset)
         if val is schemas.unset:
             return val
@@ -110,7 +110,7 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_pet_id(self) -> int:
+    def petId(self) -> int:
         return typing.cast(
             int,
             self.__getitem__("petId")

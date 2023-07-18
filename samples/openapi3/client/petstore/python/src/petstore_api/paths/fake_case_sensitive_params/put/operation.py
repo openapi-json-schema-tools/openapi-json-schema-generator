@@ -43,21 +43,21 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     
     @property
-    def get_some_var(self) -> str:
+    def SomeVar(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("SomeVar")
         )
     
     @property
-    def get_some_var(self) -> str:
+    def someVar(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("someVar")
         )
     
     @property
-    def get_some_var(self) -> str:
+    def some_var(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("some_var")

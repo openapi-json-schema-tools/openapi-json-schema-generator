@@ -30,14 +30,14 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_param(self) -> str:
+    def param(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("param")
         )
     
     @property
-    def get_param2(self) -> str:
+    def param2(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("param2")

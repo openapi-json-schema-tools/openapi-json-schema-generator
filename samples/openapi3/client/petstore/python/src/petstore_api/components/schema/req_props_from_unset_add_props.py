@@ -21,14 +21,7 @@ class ReqPropsFromUnsetAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BA
     })
     
     @property
-    def get_invalid_name(self) -> schemas.OUTPUT_BASE_TYPES:
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            self.__getitem__("invalid-name")
-        )
-    
-    @property
-    def get_valid_name(self) -> schemas.OUTPUT_BASE_TYPES:
+    def validName(self) -> schemas.OUTPUT_BASE_TYPES:
         return typing.cast(
             schemas.OUTPUT_BASE_TYPES,
             self.__getitem__("validName")

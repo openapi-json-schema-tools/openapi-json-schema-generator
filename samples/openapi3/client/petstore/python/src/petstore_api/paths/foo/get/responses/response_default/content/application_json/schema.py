@@ -28,7 +28,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_string(self) -> typing.Union[foo.FooDict, schemas.Unset]:
+    def string(self) -> typing.Union[foo.FooDict, schemas.Unset]:
         val = self.get("string", schemas.unset)
         if val is schemas.unset:
             return val

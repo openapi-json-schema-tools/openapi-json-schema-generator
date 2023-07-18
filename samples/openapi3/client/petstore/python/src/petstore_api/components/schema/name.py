@@ -33,29 +33,19 @@ class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_name(self) -> int:
+    def name(self) -> int:
         return typing.cast(
             int,
             self.__getitem__("name")
         )
     
     @property
-    def get_snake_case(self) -> typing.Union[int, schemas.Unset]:
+    def snake_case(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("snake_case", schemas.unset)
         if val is schemas.unset:
             return val
         return typing.cast(
             int,
-            val
-        )
-    
-    @property
-    def get__property(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("property", schemas.unset)
-        if val is schemas.unset:
-            return val
-        return typing.cast(
-            str,
             val
         )
     

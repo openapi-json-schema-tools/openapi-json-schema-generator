@@ -55,42 +55,42 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     
     @property
-    def get_context(self) -> parameter_4_schema.SchemaTuple:
+    def context(self) -> parameter_4_schema.SchemaTuple:
         return typing.cast(
             parameter_4_schema.SchemaTuple,
             self.__getitem__("context")
         )
     
     @property
-    def get_http(self) -> parameter_2_schema.SchemaTuple:
+    def http(self) -> parameter_2_schema.SchemaTuple:
         return typing.cast(
             parameter_2_schema.SchemaTuple,
             self.__getitem__("http")
         )
     
     @property
-    def get_ioutil(self) -> parameter_1_schema.SchemaTuple:
+    def ioutil(self) -> parameter_1_schema.SchemaTuple:
         return typing.cast(
             parameter_1_schema.SchemaTuple,
             self.__getitem__("ioutil")
         )
     
     @property
-    def get_pipe(self) -> parameter_0_schema.SchemaTuple:
+    def pipe(self) -> parameter_0_schema.SchemaTuple:
         return typing.cast(
             parameter_0_schema.SchemaTuple,
             self.__getitem__("pipe")
         )
     
     @property
-    def get_ref_param(self) -> str:
+    def refParam(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("refParam")
         )
     
     @property
-    def get_url(self) -> parameter_3_schema.SchemaTuple:
+    def url(self) -> parameter_3_schema.SchemaTuple:
         return typing.cast(
             parameter_3_schema.SchemaTuple,
             self.__getitem__("url")

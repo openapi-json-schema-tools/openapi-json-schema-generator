@@ -38,7 +38,7 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_pet_id(self) -> int:
+    def petId(self) -> int:
         return typing.cast(
             int,
             self.__getitem__("petId")

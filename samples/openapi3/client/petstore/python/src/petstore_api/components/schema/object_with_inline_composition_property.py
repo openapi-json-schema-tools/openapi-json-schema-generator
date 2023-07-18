@@ -48,7 +48,7 @@ class ObjectWithInlineCompositionPropertyDict(schemas.immutabledict[str, schemas
     })
     
     @property
-    def get_some_prop(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+    def someProp(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("someProp", schemas.unset)
         if val is schemas.unset:
             return val

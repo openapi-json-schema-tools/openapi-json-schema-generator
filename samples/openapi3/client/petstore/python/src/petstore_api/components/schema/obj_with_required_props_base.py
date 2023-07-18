@@ -27,7 +27,7 @@ class ObjWithRequiredPropsBaseDict(schemas.immutabledict[str, schemas.OUTPUT_BAS
     })
     
     @property
-    def get_b(self) -> str:
+    def b(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("b")

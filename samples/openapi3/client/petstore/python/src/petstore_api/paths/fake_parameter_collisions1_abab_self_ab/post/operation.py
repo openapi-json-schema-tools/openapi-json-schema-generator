@@ -67,17 +67,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     
     @property
-    def get__1(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("1", schemas.unset)
-        if val is schemas.unset:
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def get_ab(self) -> typing.Union[str, schemas.Unset]:
+    def aB(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("aB", schemas.unset)
         if val is schemas.unset:
             return val
@@ -87,28 +77,8 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         )
     
     @property
-    def get_ab(self) -> typing.Union[str, schemas.Unset]:
+    def Ab(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("Ab", schemas.unset)
-        if val is schemas.unset:
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def get_ab(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("A-B", schemas.unset)
-        if val is schemas.unset:
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def get__self(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("self", schemas.unset)
         if val is schemas.unset:
             return val
         return typing.cast(
@@ -190,38 +160,8 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     })
     
     @property
-    def get__1(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("1", schemas.unset)
-        if val is schemas.unset:
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def get_ab(self) -> typing.Union[str, schemas.Unset]:
+    def aB(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("aB", schemas.unset)
-        if val is schemas.unset:
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def get_ab(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("A-B", schemas.unset)
-        if val is schemas.unset:
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def get__self(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("self", schemas.unset)
         if val is schemas.unset:
             return val
         return typing.cast(
@@ -305,38 +245,17 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get__1(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("1")
-        )
-    
-    @property
-    def get_ab(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("A-B")
-        )
-    
-    @property
-    def get_ab(self) -> str:
+    def Ab(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("Ab")
         )
     
     @property
-    def get_ab(self) -> str:
+    def aB(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("aB")
-        )
-    
-    @property
-    def get__self(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("self")
         )
 
     def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -422,17 +341,7 @@ class CookieParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     })
     
     @property
-    def get__1(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("1", schemas.unset)
-        if val is schemas.unset:
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def get_ab(self) -> typing.Union[str, schemas.Unset]:
+    def aB(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("aB", schemas.unset)
         if val is schemas.unset:
             return val
@@ -442,28 +351,8 @@ class CookieParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         )
     
     @property
-    def get_ab(self) -> typing.Union[str, schemas.Unset]:
+    def Ab(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("Ab", schemas.unset)
-        if val is schemas.unset:
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def get_ab(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("A-B", schemas.unset)
-        if val is schemas.unset:
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def get__self(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("self", schemas.unset)
         if val is schemas.unset:
             return val
         return typing.cast(

@@ -29,7 +29,7 @@ class PlayerDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_name(self) -> typing.Union[str, schemas.Unset]:
+    def name(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("name", schemas.unset)
         if val is schemas.unset:
             return val
@@ -39,7 +39,7 @@ class PlayerDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_enemy_player(self) -> typing.Union[PlayerDict, schemas.Unset]:
+    def enemyPlayer(self) -> typing.Union[PlayerDict, schemas.Unset]:
         val = self.get("enemyPlayer", schemas.unset)
         if val is schemas.unset:
             return val

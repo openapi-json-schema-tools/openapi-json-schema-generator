@@ -93,7 +93,7 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
     })
     
     @property
-    def get_uuid(self) -> typing.Union[str, schemas.Unset]:
+    def uuid(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("uuid", schemas.unset)
         if val is schemas.unset:
             return val
@@ -103,7 +103,7 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
         )
     
     @property
-    def get_date_time(self) -> typing.Union[str, schemas.Unset]:
+    def dateTime(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("dateTime", schemas.unset)
         if val is schemas.unset:
             return val
@@ -113,7 +113,7 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
         )
     
     @property
-    def get_map(self) -> typing.Union[MapDict, schemas.Unset]:
+    def map(self) -> typing.Union[MapDict, schemas.Unset]:
         val = self.get("map", schemas.unset)
         if val is schemas.unset:
             return val

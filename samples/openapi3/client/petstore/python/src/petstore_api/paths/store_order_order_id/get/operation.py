@@ -37,7 +37,7 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_order_id(self) -> int:
+    def order_id(self) -> int:
         return typing.cast(
             int,
             self.__getitem__("order_id")

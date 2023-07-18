@@ -30,14 +30,14 @@ class ObjectModelWithArgAndArgsPropertiesDict(schemas.immutabledict[str, schemas
     })
     
     @property
-    def get_arg(self) -> str:
+    def arg(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("arg")
         )
     
     @property
-    def get_args(self) -> str:
+    def args(self) -> str:
         return typing.cast(
             str,
             self.__getitem__("args")
