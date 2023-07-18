@@ -24,7 +24,7 @@ class TestMoney(unittest.TestCase):
             'currency': 'usd',
             'amount': '10.99'
         })
-        self.assertEqual(schemas.as_decimal_(price.amount), decimal.Decimal('10.99'))
+        self.assertEqual(schemas.as_decimal_(price.get_amount), decimal.Decimal('10.99'))
         self.assertEqual(
             price,
             dict(currency='usd', amount='10.99')

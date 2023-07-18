@@ -25,8 +25,8 @@ class TestObjectModelWithArgAndArgsProperties(unittest.TestCase):
         model = object_model_with_arg_and_args_properties.ObjectModelWithArgAndArgsProperties.validate({
             'arg': 'a', 'args': 'as'
         })
-        assert model.arg == 'a'
-        assert model.args == 'as'
+        assert model.get_arg == 'a'
+        assert model.get_args == 'as'
         assert model['arg'] == 'a'
         assert model['args'] == 'as'
         self.assertTrue(isinstance(model["arg"], str))

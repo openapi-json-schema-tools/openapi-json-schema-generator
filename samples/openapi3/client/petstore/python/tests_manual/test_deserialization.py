@@ -56,10 +56,13 @@ class DeserializationTests(unittest.TestCase):
             body: shape.Shape
             headers: schemas.Unset
 
+        class MediaType(api_client.MediaType):
+            schema = shape.Shape
+
         class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):
             response_cls=ApiResponse
             content={
-                self.json_content_type: api_client.MediaType(schema=shape.Shape),
+                self.json_content_type: MediaType,
             }
 
         data = {
@@ -100,10 +103,13 @@ class DeserializationTests(unittest.TestCase):
             body: animal.Animal
             headers: schemas.Unset
 
+        class MediaType(api_client.MediaType):
+            schema=animal.Animal
+
         class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):
             response_cls=ApiResponse
             content={
-                self.json_content_type: api_client.MediaType(schema=animal.Animal),
+                self.json_content_type: MediaType,
             }
 
         data = {
@@ -170,10 +176,13 @@ class DeserializationTests(unittest.TestCase):
             body: mammal.Mammal
             headers: schemas.Unset
 
+        class MediaType(api_client.MediaType):
+            schema=mammal.Mammal
+
         class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):
             response_cls=ApiResponse
             content={
-                self.json_content_type: api_client.MediaType(schema=mammal.Mammal),
+                self.json_content_type: MediaType,
             }
 
         has_baleen = True
@@ -216,10 +225,13 @@ class DeserializationTests(unittest.TestCase):
             body: banana.Banana
             headers: schemas.Unset
 
+        class MediaType(api_client.MediaType):
+            schema=banana.Banana
+
         class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):
             response_cls=ApiResponse
             content={
-                self.json_content_type: api_client.MediaType(schema=banana.Banana),
+                self.json_content_type: MediaType,
             }
 
         data = {
@@ -229,8 +241,8 @@ class DeserializationTests(unittest.TestCase):
         deserialized = ResponseFor200.deserialize(response, self.configuration)
         body = deserialized.body
         assert isinstance(body, banana.BananaDict)
-        assert isinstance(body.lengthCm, float)
-        self.assertEqual(body.lengthCm, 3.1415)
+        assert isinstance(body.get_length_cm, float)
+        self.assertEqual(body.get_length_cm, 3.1415)
 
         """
         Float value is serialized without decimal point
@@ -244,8 +256,8 @@ class DeserializationTests(unittest.TestCase):
         deserialized = ResponseFor200.deserialize(response, self.configuration)
         body = deserialized.body
         assert isinstance(body, banana.BananaDict)
-        self.assertTrue(isinstance(body.lengthCm, int))
-        self.assertEqual(body.lengthCm, 3)
+        self.assertTrue(isinstance(body.get_length_cm, int))
+        self.assertEqual(body.get_length_cm, 3)
 
     def test_deserialize_fruit_null_value(self):
         """
@@ -258,10 +270,13 @@ class DeserializationTests(unittest.TestCase):
             body: fruit_req.FruitReq
             headers: schemas.Unset
 
+        class MediaType(api_client.MediaType):
+            schema=fruit_req.FruitReq
+
         class ResponseFor200(api_client.OpenApiResponse):
             response_cls=ApiResponse
             content={
-                self.json_content_type: api_client.MediaType(schema=fruit_req.FruitReq),
+                self.json_content_type: MediaType,
             }
 
         data = None
@@ -297,10 +312,13 @@ class DeserializationTests(unittest.TestCase):
             body: dog.Dog
             headers: schemas.Unset
 
+        class ThirdMediaType(api_client.MediaType):
+            schema=dog.Dog
+
         class ResponseFor200A(api_client.OpenApiResponse[ApiResponseA]):
             response_cls=ApiResponseA
             content={
-                self.json_content_type: api_client.MediaType(schema=dog.Dog),
+                self.json_content_type: ThirdMediaType,
             }
 
         deserialized = ResponseFor200A.deserialize(response, self.configuration)
@@ -330,10 +348,13 @@ class DeserializationTests(unittest.TestCase):
             body: mammal.Mammal
             headers: schemas.Unset
 
+        class SecondMediaType(api_client.MediaType):
+            schema=mammal.Mammal
+
         class ResponseFor200B(api_client.OpenApiResponse[ApiResponseB]):
             response_cls=ApiResponseB
             content={
-                self.json_content_type: api_client.MediaType(schema=mammal.Mammal),
+                self.json_content_type: SecondMediaType,
             }
 
         deserialized = ResponseFor200B.deserialize(response, self.configuration)
@@ -350,10 +371,13 @@ class DeserializationTests(unittest.TestCase):
             body: banana_req.BananaReq
             headers: schemas.Unset
 
+        class MediaType(api_client.MediaType):
+            schema=banana_req.BananaReq
+
         class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):
             response_cls=ApiResponse
             content={
-                self.json_content_type: api_client.MediaType(schema=banana_req.BananaReq),
+                self.json_content_type: MediaType,
             }
 
         with self.assertRaises(
@@ -380,10 +404,13 @@ class DeserializationTests(unittest.TestCase):
             body: drawing.Drawing
             headers: schemas.Unset
 
+        class MediaType(api_client.MediaType):
+            schema=drawing.Drawing
+
         class ResponseFor200(api_client.OpenApiResponse):
             response_cls=ApiResponse
             content={
-                self.json_content_type: api_client.MediaType(schema=drawing.Drawing),
+                self.json_content_type: MediaType,
             }
 
         data = {
@@ -456,10 +483,13 @@ class DeserializationTests(unittest.TestCase):
             body: format_test.FormatTest
             headers: schemas.Unset
 
+        class MediaType(api_client.MediaType):
+            schema=format_test.FormatTest
+
         class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):
             response_cls=ApiResponse
             content={
-                self.json_content_type: api_client.MediaType(schema=format_test.FormatTest),
+                self.json_content_type: MediaType,
             }
 
         response = self.__response(data)
