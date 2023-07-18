@@ -49,9 +49,9 @@ class AbstractStepMessageDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
             self.__getitem__("sequenceNumber")
         )
     
-    def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.__getitem__(name)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: AbstractStepMessageDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AbstractStepMessage.validate(arg, configuration=configuration)

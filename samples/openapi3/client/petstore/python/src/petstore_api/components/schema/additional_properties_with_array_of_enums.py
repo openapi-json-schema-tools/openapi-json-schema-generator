@@ -72,9 +72,12 @@ class AdditionalPropertiesWithArrayOfEnumsDict(schemas.immutabledict[str, schema
     
     def get_additional_property_(self, name: str) -> AdditionalPropertiesTuple:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if val is schemas.unset:
+            return val
         return typing.cast(
             AdditionalPropertiesTuple,
-            self.__getitem__(name)
+            val
         )
 
     def __new__(cls, arg: AdditionalPropertiesWithArrayOfEnumsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):

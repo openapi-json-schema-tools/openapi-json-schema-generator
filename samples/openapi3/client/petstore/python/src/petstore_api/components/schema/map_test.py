@@ -21,9 +21,12 @@ class AdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TY
     
     def get_additional_property_(self, name: str) -> str:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if val is schemas.unset:
+            return val
         return typing.cast(
             str,
-            self.__getitem__(name)
+            val
         )
 
     def __new__(cls, arg: AdditionalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -73,9 +76,12 @@ class MapMapOfStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def get_additional_property_(self, name: str) -> AdditionalPropertiesDict:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if val is schemas.unset:
+            return val
         return typing.cast(
             AdditionalPropertiesDict,
-            self.__getitem__(name)
+            val
         )
 
     def __new__(cls, arg: MapMapOfStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -197,9 +203,12 @@ class MapOfEnumStringDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     
     def get_additional_property_(self, name: str) -> typing_extensions.Literal["UPPER", "lower"]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if val is schemas.unset:
+            return val
         return typing.cast(
             typing_extensions.Literal["UPPER", "lower"],
-            self.__getitem__(name)
+            val
         )
 
     def __new__(cls, arg: MapOfEnumStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -250,9 +259,12 @@ class DirectMapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def get_additional_property_(self, name: str) -> bool:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if val is schemas.unset:
+            return val
         return typing.cast(
             bool,
-            self.__getitem__(name)
+            val
         )
 
     def __new__(cls, arg: DirectMapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -355,9 +367,9 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             val
         )
     
-    def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.__getitem__(name)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: MapTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return MapTest.validate(arg, configuration=configuration)

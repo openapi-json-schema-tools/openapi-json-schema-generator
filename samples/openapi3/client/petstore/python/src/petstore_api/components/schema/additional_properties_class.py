@@ -21,9 +21,12 @@ class MapPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def get_additional_property_(self, name: str) -> str:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if val is schemas.unset:
+            return val
         return typing.cast(
             str,
-            self.__getitem__(name)
+            val
         )
 
     def __new__(cls, arg: MapPropertyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -74,9 +77,12 @@ class AdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TY
     
     def get_additional_property_(self, name: str) -> str:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if val is schemas.unset:
+            return val
         return typing.cast(
             str,
-            self.__getitem__(name)
+            val
         )
 
     def __new__(cls, arg: AdditionalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -126,9 +132,12 @@ class MapOfMapPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     
     def get_additional_property_(self, name: str) -> AdditionalPropertiesDict:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if val is schemas.unset:
+            return val
         return typing.cast(
             AdditionalPropertiesDict,
-            self.__getitem__(name)
+            val
         )
 
     def __new__(cls, arg: MapOfMapPropertyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -186,9 +195,12 @@ class MapWithUndeclaredPropertiesAnytype3Dict(schemas.immutabledict[str, schemas
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if val is schemas.unset:
+            return val
         return typing.cast(
             schemas.OUTPUT_BASE_TYPES,
-            self.__getitem__(name)
+            val
         )
 
     def __new__(cls, arg: MapWithUndeclaredPropertiesAnytype3DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -281,9 +293,12 @@ class MapWithUndeclaredPropertiesStringDict(schemas.immutabledict[str, schemas.O
     
     def get_additional_property_(self, name: str) -> str:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if val is schemas.unset:
+            return val
         return typing.cast(
             str,
-            self.__getitem__(name)
+            val
         )
 
     def __new__(cls, arg: MapWithUndeclaredPropertiesStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
@@ -432,9 +447,9 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BA
             val
         )
     
-    def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.__getitem__(name)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: AdditionalPropertiesClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AdditionalPropertiesClass.validate(arg, configuration=configuration)
