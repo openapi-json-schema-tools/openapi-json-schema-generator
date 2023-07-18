@@ -17,7 +17,9 @@ class ApiResponse(api_response.ApiResponse):
 
 
 class ResponseFor2XX(api_client.OpenApiResponse[ApiResponse]):
-    response_cls = ApiResponse
+    @classmethod
+    def get_response(cls, response, headers, body) -> ApiResponse:
+        return ApiResponse(response=response, body=body, headers=headers)
 
 
     class ApplicationJsonMediaType(api_client.MediaType):

@@ -2,6 +2,7 @@
 {{> _helper_header }}
 
 from __future__ import annotations
+import abc
 import datetime
 import dataclasses
 import decimal
@@ -769,12 +770,15 @@ class HeaderParameter(__HeaderParameterBase):
 T = typing.TypeVar("T", bound=api_response.ApiResponse)
 
 
-class OpenApiResponse(JSONDetector, typing.Generic[T]):
+class OpenApiResponse(typing.Generic[T], JSONDetector, abc.ABC):
     __filename_content_disposition_pattern = re.compile('filename="(.+?)"')
-    response_cls: typing.Type[T]
     content: typing.Optional[typing.Dict[str, typing.Type[MediaType]]] = None
     headers: typing.Optional[typing.Dict[str, typing.Type[HeaderParameterWithoutName]]] = None
     headers_schema: typing.Optional[typing.Type[schemas.Schema]] = None
+
+    @classmethod
+    @abc.abstractmethod
+    def get_response(cls, response, headers, body) -> T: ...
 
     @staticmethod
     def __deserialize_json(response: urllib3.HTTPResponse) -> typing.Any:
@@ -878,7 +882,7 @@ class OpenApiResponse(JSONDetector, typing.Generic[T]):
             body_schema = cls.content[content_type].schema
             if body_schema is None:
                 # some specs do not define response content media type schemas
-                return cls.response_cls(
+                return cls.get_response(
                     response=response,
                     headers=deserialized_headers,
                     body=schemas.unset
@@ -902,7 +906,7 @@ class OpenApiResponse(JSONDetector, typing.Generic[T]):
         elif streamed:
             response.release_conn()
 
-        return cls.response_cls(
+        return cls.get_response(
             response=response,
             headers=deserialized_headers,
             body=deserialized_body

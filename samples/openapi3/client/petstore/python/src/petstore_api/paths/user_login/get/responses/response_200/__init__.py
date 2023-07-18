@@ -148,7 +148,9 @@ class ApiResponse(api_response.ApiResponse):
 
 
 class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):
-    response_cls = ApiResponse
+    @classmethod
+    def get_response(cls, response, headers, body) -> ApiResponse:
+        return ApiResponse(response=response, body=body, headers=headers)
 
 
     class ApplicationXmlMediaType(api_client.MediaType):
