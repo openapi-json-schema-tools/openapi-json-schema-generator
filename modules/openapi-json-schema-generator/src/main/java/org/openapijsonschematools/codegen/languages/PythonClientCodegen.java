@@ -675,6 +675,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         supportingFiles.add(new SupportingFile("migration_2_0_0.hbs", "", "migration_2_0_0.md"));
         supportingFiles.add(new SupportingFile("migration_other_python_generators.hbs", "", "migration_other_python_generators.md"));
         supportingFiles.add(new SupportingFile("__init__package.hbs", packagePath(), "__init__.py"));
+        supportingFiles.add(new SupportingFile("__init__.hbs", packagePath(), "py.typed"));
 
         if (!generateSourceCodeOnly) {
             supportingFiles.add(new SupportingFile("tox.hbs", "", "tox.ini"));

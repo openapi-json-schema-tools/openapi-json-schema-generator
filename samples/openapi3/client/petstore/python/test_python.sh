@@ -21,6 +21,7 @@ python -m pip install .
 
 ### run tests
 tox || exit 1
+pip install mypy
 mypy src/petstore_api
 
 ### static analysis of code

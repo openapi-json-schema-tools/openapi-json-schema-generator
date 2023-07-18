@@ -1307,6 +1307,7 @@ src/petstore_api/paths/user_username/put/request_body/content/application_json/s
 src/petstore_api/paths/user_username/put/responses/__init__.py
 src/petstore_api/paths/user_username/put/responses/response_400/__init__.py
 src/petstore_api/paths/user_username/put/responses/response_404/__init__.py
+src/petstore_api/py.typed
 src/petstore_api/rest.py
 src/petstore_api/schemas/__init__.py
 src/petstore_api/schemas/format.py
