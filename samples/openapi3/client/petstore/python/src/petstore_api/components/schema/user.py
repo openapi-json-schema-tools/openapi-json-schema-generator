@@ -43,7 +43,7 @@ class ObjectWithNoDeclaredPropsNullable(
         cls,
         arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL]: ...
+    ) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]: ...
     @classmethod
     def validate(
         cls,

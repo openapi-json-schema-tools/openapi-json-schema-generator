@@ -9,7 +9,7 @@ def validate(
                 {{#if ../mapOutputJsonPathPiece}}
 ) -> {{../mapOutputJsonPathPiece.camelCase}}: ...
                 {{else}}
-) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL]: ...
+) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]: ...
                 {{/if}}
             {{else}}
                 {{#eq this "boolean"}}
@@ -105,7 +105,7 @@ def validate(
                 {{#if mapOutputJsonPathPiece}}
 ) -> {{mapOutputJsonPathPiece.camelCase}}:
                 {{else}}
-) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL]:
+) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
                 {{/if}}
             {{else}}
                 {{#eq this "boolean"}}
@@ -139,7 +139,7 @@ def validate(
                                         {{#if arrayOutputJsonPathPiece}}
 ) -> {{arrayOutputJsonPathPiece.camelCase}}:
                                         {{else}}
-) -> typing.Tuple[schemas.INPUT_TYPES_ALL]:
+) -> typing.Tuple[schemas.OUTPUT_BASE_TYPES]:
                                         {{/if}}
                                     {{/eq}}
                                 {{/eq}}
