@@ -22,21 +22,17 @@ class ReqPropsFromUnsetAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BA
     
     @property
     def get_invalid_name(self) -> schemas.OUTPUT_BASE_TYPES:
-        if name == "invalid-name":
-            return typing.cast(
-                schemas.OUTPUT_BASE_TYPES,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            self.__getitem__("invalid-name")
+        )
     
     @property
     def get_valid_name(self) -> schemas.OUTPUT_BASE_TYPES:
-        if name == "validName":
-            return typing.cast(
-                schemas.OUTPUT_BASE_TYPES,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            self.__getitem__("validName")
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

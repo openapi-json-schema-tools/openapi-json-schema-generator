@@ -37,12 +37,10 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def get_pet_id(self) -> int:
-        if name == "petId":
-            return typing.cast(
-                int,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            int,
+            self.__getitem__("petId")
+        )
 
     def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return PathParameters.validate(arg, configuration=configuration)

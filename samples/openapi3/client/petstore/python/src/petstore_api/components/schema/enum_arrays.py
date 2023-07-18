@@ -214,28 +214,24 @@ class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["just_symbol"]) -> typing_extensions.Literal[">=", "$"]:
-        if name == "just_symbol":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                typing_extensions.Literal[">=", "$"],
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_just_symbol(self) -> typing_extensions.Literal[">=", "$"]:
+        val = self.get("just_symbol", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            typing_extensions.Literal[">=", "$"],
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["array_enum"]) -> ArrayEnumTuple:
-        if name == "array_enum":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                ArrayEnumTuple,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_array_enum(self) -> ArrayEnumTuple:
+        val = self.get("array_enum", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            ArrayEnumTuple,
+            val
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

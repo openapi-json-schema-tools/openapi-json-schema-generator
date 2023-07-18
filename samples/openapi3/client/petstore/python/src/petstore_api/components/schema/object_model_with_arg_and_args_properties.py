@@ -30,22 +30,18 @@ class ObjectModelWithArgAndArgsPropertiesDict(schemas.immutabledict[str, schemas
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["arg"]) -> str:
-        if name == "arg":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_arg(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("arg")
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["args"]) -> str:
-        if name == "args":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_args(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("args")
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

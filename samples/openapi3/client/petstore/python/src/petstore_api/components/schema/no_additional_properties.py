@@ -44,25 +44,21 @@ class NoAdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["id"]) -> int:
-        if name == "id":
-            return typing.cast(
-                int,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_id(self) -> int:
+        return typing.cast(
+            int,
+            self.__getitem__("id")
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["petId"]) -> int:
-        if name == "petId":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                int,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_pet_id(self) -> int:
+        val = self.get("petId", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            int,
+            val
+        )
 
     def __new__(cls, arg: NoAdditionalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return NoAdditionalProperties.validate(arg, configuration=configuration)

@@ -68,63 +68,53 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     
     @property
     def get__1(self) -> str:
-        if name == "1":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("1", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def get_ab(self) -> str:
-        if name == "aB":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("aB", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def get_ab(self) -> str:
-        if name == "Ab":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("Ab", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def get_ab(self) -> str:
-        if name == "A-B":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("A-B", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def get__self(self) -> str:
-        if name == "self":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("self", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)
@@ -201,51 +191,43 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     
     @property
     def get__1(self) -> str:
-        if name == "1":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("1", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def get_ab(self) -> str:
-        if name == "aB":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("aB", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def get_ab(self) -> str:
-        if name == "A-B":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("A-B", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def get__self(self) -> str:
-        if name == "self":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("self", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
 
     def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return HeaderParameters.validate(arg, configuration=configuration)
@@ -324,48 +306,38 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def get__1(self) -> str:
-        if name == "1":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            str,
+            self.__getitem__("1")
+        )
     
     @property
     def get_ab(self) -> str:
-        if name == "A-B":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            str,
+            self.__getitem__("A-B")
+        )
     
     @property
     def get_ab(self) -> str:
-        if name == "Ab":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            str,
+            self.__getitem__("Ab")
+        )
     
     @property
     def get_ab(self) -> str:
-        if name == "aB":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            str,
+            self.__getitem__("aB")
+        )
     
     @property
     def get__self(self) -> str:
-        if name == "self":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            str,
+            self.__getitem__("self")
+        )
 
     def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return PathParameters.validate(arg, configuration=configuration)
@@ -451,63 +423,53 @@ class CookieParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     
     @property
     def get__1(self) -> str:
-        if name == "1":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("1", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def get_ab(self) -> str:
-        if name == "aB":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("aB", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def get_ab(self) -> str:
-        if name == "Ab":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("Ab", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def get_ab(self) -> str:
-        if name == "A-B":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("A-B", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def get__self(self) -> str:
-        if name == "self":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("self", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
 
     def __new__(cls, arg: CookieParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return CookieParameters.validate(arg, configuration=configuration)

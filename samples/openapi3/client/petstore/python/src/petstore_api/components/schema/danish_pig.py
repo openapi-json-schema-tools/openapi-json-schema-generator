@@ -80,13 +80,11 @@ class DanishPigDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["className"]) -> typing_extensions.Literal["DanishPig"]:
-        if name == "className":
-            return typing.cast(
-                typing_extensions.Literal["DanishPig"],
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_class_name(self) -> typing_extensions.Literal["DanishPig"]:
+        return typing.cast(
+            typing_extensions.Literal["DanishPig"],
+            self.__getitem__("className")
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

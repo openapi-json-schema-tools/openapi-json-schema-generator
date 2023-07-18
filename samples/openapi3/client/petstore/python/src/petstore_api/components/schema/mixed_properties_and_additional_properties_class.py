@@ -90,40 +90,34 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["uuid"]) -> str:
-        if name == "uuid":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_uuid(self) -> str:
+        val = self.get("uuid", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["dateTime"]) -> str:
-        if name == "dateTime":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_date_time(self) -> str:
+        val = self.get("dateTime", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["map"]) -> MapDict:
-        if name == "map":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                MapDict,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_map(self) -> MapDict:
+        val = self.get("map", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            MapDict,
+            val
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

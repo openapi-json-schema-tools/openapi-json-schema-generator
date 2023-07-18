@@ -35,39 +35,33 @@ class ObjectWithDecimalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_
     
     @property
     def get_length(self) -> str:
-        if name == "length":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("length", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["width"]) -> str:
-        if name == "width":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_width(self) -> str:
+        val = self.get("width", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def get_cost(self) -> money.MoneyDict:
-        if name == "cost":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                money.MoneyDict,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("cost", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            money.MoneyDict,
+            val
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

@@ -34,15 +34,13 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def get_some_header(self) -> str:
-        if name == "someHeader":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("someHeader", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
 
     def __new__(cls, arg: HeadersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Headers.validate(arg, configuration=configuration)

@@ -35,39 +35,33 @@ class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE
     
     @property
     def get_my_number(self) -> typing.Union[int, float]:
-        if name == "myNumber":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                typing.Union[int, float],
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("myNumber", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            typing.Union[int, float],
+            val
+        )
     
     @property
     def get_my_string(self) -> str:
-        if name == "myString":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("myString", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def get_my_boolean(self) -> bool:
-        if name == "myBoolean":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                bool,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("myBoolean", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            bool,
+            val
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

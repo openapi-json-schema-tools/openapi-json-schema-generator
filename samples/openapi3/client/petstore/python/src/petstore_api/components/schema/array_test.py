@@ -308,40 +308,34 @@ class ArrayTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["array_of_string"]) -> ArrayOfStringTuple:
-        if name == "array_of_string":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                ArrayOfStringTuple,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_array_of_string(self) -> ArrayOfStringTuple:
+        val = self.get("array_of_string", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            ArrayOfStringTuple,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["array_array_of_integer"]) -> ArrayArrayOfIntegerTuple:
-        if name == "array_array_of_integer":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                ArrayArrayOfIntegerTuple,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_array_array_of_integer(self) -> ArrayArrayOfIntegerTuple:
+        val = self.get("array_array_of_integer", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            ArrayArrayOfIntegerTuple,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["array_array_of_model"]) -> ArrayArrayOfModelTuple:
-        if name == "array_array_of_model":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                ArrayArrayOfModelTuple,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_array_array_of_model(self) -> ArrayArrayOfModelTuple:
+        val = self.get("array_array_of_model", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            ArrayArrayOfModelTuple,
+            val
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

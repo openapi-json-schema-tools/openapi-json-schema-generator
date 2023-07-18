@@ -30,28 +30,24 @@ class ObjectWithCollidingPropertiesDict(schemas.immutabledict[str, schemas.OUTPU
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["someProp"]) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
-        if name == "someProp":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_some_prop(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+        val = self.get("someProp", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["someprop"]) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
-        if name == "someprop":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_someprop(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+        val = self.get("someprop", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            val
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

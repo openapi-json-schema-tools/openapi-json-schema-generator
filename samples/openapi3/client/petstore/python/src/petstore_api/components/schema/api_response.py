@@ -33,40 +33,34 @@ class ApiResponseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["code"]) -> int:
-        if name == "code":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                int,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_code(self) -> int:
+        val = self.get("code", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["type"]) -> str:
-        if name == "type":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_type(self) -> str:
+        val = self.get("type", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["message"]) -> str:
-        if name == "message":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_message(self) -> str:
+        val = self.get("message", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

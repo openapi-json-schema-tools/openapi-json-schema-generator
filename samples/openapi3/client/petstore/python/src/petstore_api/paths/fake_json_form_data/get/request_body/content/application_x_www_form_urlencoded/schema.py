@@ -30,22 +30,18 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["param"]) -> str:
-        if name == "param":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_param(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("param")
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["param2"]) -> str:
-        if name == "param2":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_param2(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("param2")
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

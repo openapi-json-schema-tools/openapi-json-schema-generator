@@ -44,25 +44,21 @@ class AppleReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["cultivar"]) -> str:
-        if name == "cultivar":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_cultivar(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("cultivar")
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["mealy"]) -> bool:
-        if name == "mealy":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                bool,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_mealy(self) -> bool:
+        val = self.get("mealy", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            bool,
+            val
+        )
 
     def __new__(cls, arg: AppleReqDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AppleReq.validate(arg, configuration=configuration)

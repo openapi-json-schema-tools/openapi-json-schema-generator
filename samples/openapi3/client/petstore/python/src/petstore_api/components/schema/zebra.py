@@ -165,25 +165,21 @@ class ZebraDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["className"]) -> typing_extensions.Literal["zebra"]:
-        if name == "className":
-            return typing.cast(
-                typing_extensions.Literal["zebra"],
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_class_name(self) -> typing_extensions.Literal["zebra"]:
+        return typing.cast(
+            typing_extensions.Literal["zebra"],
+            self.__getitem__("className")
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["type"]) -> typing_extensions.Literal["plains", "mountain", "grevys"]:
-        if name == "type":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                typing_extensions.Literal["plains", "mountain", "grevys"],
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_type(self) -> typing_extensions.Literal["plains", "mountain", "grevys"]:
+        val = self.get("type", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            typing_extensions.Literal["plains", "mountain", "grevys"],
+            val
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

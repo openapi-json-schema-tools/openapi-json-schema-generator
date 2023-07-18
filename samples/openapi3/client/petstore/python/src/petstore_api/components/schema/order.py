@@ -132,76 +132,64 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["id"]) -> int:
-        if name == "id":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                int,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_id(self) -> int:
+        val = self.get("id", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["petId"]) -> int:
-        if name == "petId":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                int,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_pet_id(self) -> int:
+        val = self.get("petId", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["quantity"]) -> int:
-        if name == "quantity":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                int,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_quantity(self) -> int:
+        val = self.get("quantity", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["shipDate"]) -> str:
-        if name == "shipDate":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_ship_date(self) -> str:
+        val = self.get("shipDate", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["status"]) -> typing_extensions.Literal["placed", "approved", "delivered"]:
-        if name == "status":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                typing_extensions.Literal["placed", "approved", "delivered"],
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_status(self) -> typing_extensions.Literal["placed", "approved", "delivered"]:
+        val = self.get("status", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            typing_extensions.Literal["placed", "approved", "delivered"],
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["complete"]) -> bool:
-        if name == "complete":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                bool,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_complete(self) -> bool:
+        val = self.get("complete", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            bool,
+            val
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

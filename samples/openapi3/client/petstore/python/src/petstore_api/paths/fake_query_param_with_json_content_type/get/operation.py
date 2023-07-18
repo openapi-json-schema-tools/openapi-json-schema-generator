@@ -34,12 +34,10 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     
     @property
     def get_some_param(self) -> schemas.OUTPUT_BASE_TYPES:
-        if name == "someParam":
-            return typing.cast(
-                schemas.OUTPUT_BASE_TYPES,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            self.__getitem__("someParam")
+        )
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)

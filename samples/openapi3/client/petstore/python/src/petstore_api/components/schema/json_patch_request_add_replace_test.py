@@ -115,31 +115,25 @@ class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, schemas.OUTP
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["op"]) -> typing_extensions.Literal["add", "replace", "test"]:
-        if name == "op":
-            return typing.cast(
-                typing_extensions.Literal["add", "replace", "test"],
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_op(self) -> typing_extensions.Literal["add", "replace", "test"]:
+        return typing.cast(
+            typing_extensions.Literal["add", "replace", "test"],
+            self.__getitem__("op")
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["path"]) -> str:
-        if name == "path":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_path(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("path")
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["value"]) -> schemas.OUTPUT_BASE_TYPES:
-        if name == "value":
-            return typing.cast(
-                schemas.OUTPUT_BASE_TYPES,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_value(self) -> schemas.OUTPUT_BASE_TYPES:
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            self.__getitem__("value")
+        )
 
     def __new__(cls, arg: JSONPatchRequestAddReplaceTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return JSONPatchRequestAddReplaceTest.validate(arg, configuration=configuration)

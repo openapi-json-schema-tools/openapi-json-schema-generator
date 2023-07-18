@@ -22,22 +22,18 @@ class ReqPropsFromExplicitAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["invalid-name"]) -> str:
-        if name == "invalid-name":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_invalid_name(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("invalid-name")
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["validName"]) -> str:
-        if name == "validName":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_valid_name(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("validName")
+        )
     
     def get_additional_property_(self, name: str) -> str:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

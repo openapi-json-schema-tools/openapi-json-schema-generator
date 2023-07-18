@@ -123,112 +123,94 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["uuid"]) -> schemas.OUTPUT_BASE_TYPES:
-        if name == "uuid":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                schemas.OUTPUT_BASE_TYPES,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_uuid(self) -> schemas.OUTPUT_BASE_TYPES:
+        val = self.get("uuid", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["date"]) -> schemas.OUTPUT_BASE_TYPES:
-        if name == "date":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                schemas.OUTPUT_BASE_TYPES,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_date(self) -> schemas.OUTPUT_BASE_TYPES:
+        val = self.get("date", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["date-time"]) -> schemas.OUTPUT_BASE_TYPES:
-        if name == "date-time":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                schemas.OUTPUT_BASE_TYPES,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_date_time(self) -> schemas.OUTPUT_BASE_TYPES:
+        val = self.get("date-time", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["number"]) -> schemas.OUTPUT_BASE_TYPES:
-        if name == "number":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                schemas.OUTPUT_BASE_TYPES,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_number(self) -> schemas.OUTPUT_BASE_TYPES:
+        val = self.get("number", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["binary"]) -> schemas.OUTPUT_BASE_TYPES:
-        if name == "binary":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                schemas.OUTPUT_BASE_TYPES,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_binary(self) -> schemas.OUTPUT_BASE_TYPES:
+        val = self.get("binary", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["int32"]) -> schemas.OUTPUT_BASE_TYPES:
-        if name == "int32":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                schemas.OUTPUT_BASE_TYPES,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_int32(self) -> schemas.OUTPUT_BASE_TYPES:
+        val = self.get("int32", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["int64"]) -> schemas.OUTPUT_BASE_TYPES:
-        if name == "int64":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                schemas.OUTPUT_BASE_TYPES,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_int64(self) -> schemas.OUTPUT_BASE_TYPES:
+        val = self.get("int64", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["double"]) -> schemas.OUTPUT_BASE_TYPES:
-        if name == "double":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                schemas.OUTPUT_BASE_TYPES,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_double(self) -> schemas.OUTPUT_BASE_TYPES:
+        val = self.get("double", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["float"]) -> schemas.OUTPUT_BASE_TYPES:
-        if name == "float":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                schemas.OUTPUT_BASE_TYPES,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get__float(self) -> schemas.OUTPUT_BASE_TYPES:
+        val = self.get("float", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

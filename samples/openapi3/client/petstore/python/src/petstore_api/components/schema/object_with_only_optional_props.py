@@ -31,28 +31,24 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["a"]) -> str:
-        if name == "a":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_a(self) -> str:
+        val = self.get("a", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["b"]) -> typing.Union[int, float]:
-        if name == "b":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                typing.Union[int, float],
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_b(self) -> typing.Union[int, float]:
+        val = self.get("b", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            typing.Union[int, float],
+            val
+        )
 
     def __new__(cls, arg: ObjectWithOnlyOptionalPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectWithOnlyOptionalProps.validate(arg, configuration=configuration)

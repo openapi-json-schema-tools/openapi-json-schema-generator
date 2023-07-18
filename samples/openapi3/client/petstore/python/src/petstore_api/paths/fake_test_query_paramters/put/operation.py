@@ -56,57 +56,45 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     
     @property
     def get_context(self) -> parameter_4_schema.SchemaTuple:
-        if name == "context":
-            return typing.cast(
-                parameter_4_schema.SchemaTuple,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            parameter_4_schema.SchemaTuple,
+            self.__getitem__("context")
+        )
     
     @property
     def get_http(self) -> parameter_2_schema.SchemaTuple:
-        if name == "http":
-            return typing.cast(
-                parameter_2_schema.SchemaTuple,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            parameter_2_schema.SchemaTuple,
+            self.__getitem__("http")
+        )
     
     @property
     def get_ioutil(self) -> parameter_1_schema.SchemaTuple:
-        if name == "ioutil":
-            return typing.cast(
-                parameter_1_schema.SchemaTuple,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            parameter_1_schema.SchemaTuple,
+            self.__getitem__("ioutil")
+        )
     
     @property
     def get_pipe(self) -> parameter_0_schema.SchemaTuple:
-        if name == "pipe":
-            return typing.cast(
-                parameter_0_schema.SchemaTuple,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            parameter_0_schema.SchemaTuple,
+            self.__getitem__("pipe")
+        )
     
     @property
     def get_ref_param(self) -> str:
-        if name == "refParam":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            str,
+            self.__getitem__("refParam")
+        )
     
     @property
     def get_url(self) -> parameter_3_schema.SchemaTuple:
-        if name == "url":
-            return typing.cast(
-                parameter_3_schema.SchemaTuple,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            parameter_3_schema.SchemaTuple,
+            self.__getitem__("url")
+        )
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)

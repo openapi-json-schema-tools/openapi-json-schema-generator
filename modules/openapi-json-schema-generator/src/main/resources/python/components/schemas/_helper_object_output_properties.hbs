@@ -10,7 +10,7 @@
                 {{#if jsonPathPiece}}
 
 @property
-{{> components/schemas/_helper_schema_output_type key=@key.original mode="get_property" fullRefModule=null endChar=":" }}
+{{> components/schemas/_helper_schema_output_type  mode="get_property" fullRefModule=null endChar=":" }}
     {{> components/schemas/_helper_object_get_property required=true }}
                 {{else}}
                     {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
@@ -34,7 +34,7 @@ def get_{{@key.snakeCase}}(self) -> schemas.OUTPUT_BASE_TYPES:
             {{else}}
 
 @property
-{{> components/schemas/_helper_schema_output_type key=@key.original mode="get_property" fullRefModule=null endChar=":" }}
+{{> components/schemas/_helper_schema_output_type mode="get_property" fullRefModule=null endChar=":" }}
     {{> components/schemas/_helper_object_get_property required=false }}
             {{/if}}
         {{/with}}

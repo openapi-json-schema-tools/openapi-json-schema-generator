@@ -230,28 +230,24 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["enum_form_string_array"]) -> EnumFormStringArrayTuple:
-        if name == "enum_form_string_array":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                EnumFormStringArrayTuple,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_enum_form_string_array(self) -> EnumFormStringArrayTuple:
+        val = self.get("enum_form_string_array", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            EnumFormStringArrayTuple,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["enum_form_string"]) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
-        if name == "enum_form_string":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                typing_extensions.Literal["_abc", "-efg", "(xyz)"],
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_enum_form_string(self) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
+        val = self.get("enum_form_string", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            typing_extensions.Literal["_abc", "-efg", "(xyz)"],
+            val
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

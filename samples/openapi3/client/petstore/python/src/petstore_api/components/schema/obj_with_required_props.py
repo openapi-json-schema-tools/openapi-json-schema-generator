@@ -27,13 +27,11 @@ class ObjWithRequiredPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TY
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["a"]) -> str:
-        if name == "a":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_a(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("a")
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

@@ -27,15 +27,13 @@ class SelfReferencingObjectModelDict(schemas.immutabledict[str, schemas.OUTPUT_B
     
     @property
     def get_self_ref(self) -> SelfReferencingObjectModelDict:
-        if name == "selfRef":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                SelfReferencingObjectModelDict,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("selfRef", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            SelfReferencingObjectModelDict,
+            val
+        )
     
     def get_additional_property_(self, name: str) -> SelfReferencingObjectModelDict:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

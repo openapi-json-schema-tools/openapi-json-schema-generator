@@ -353,100 +353,84 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BA
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["map_property"]) -> MapPropertyDict:
-        if name == "map_property":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                MapPropertyDict,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_map_property(self) -> MapPropertyDict:
+        val = self.get("map_property", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            MapPropertyDict,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["map_of_map_property"]) -> MapOfMapPropertyDict:
-        if name == "map_of_map_property":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                MapOfMapPropertyDict,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_map_of_map_property(self) -> MapOfMapPropertyDict:
+        val = self.get("map_of_map_property", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            MapOfMapPropertyDict,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["anytype_1"]) -> schemas.OUTPUT_BASE_TYPES:
-        if name == "anytype_1":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                schemas.OUTPUT_BASE_TYPES,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_anytype1(self) -> schemas.OUTPUT_BASE_TYPES:
+        val = self.get("anytype_1", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["map_with_undeclared_properties_anytype_1"]) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
-        if name == "map_with_undeclared_properties_anytype_1":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_map_with_undeclared_properties_anytype1(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+        val = self.get("map_with_undeclared_properties_anytype_1", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["map_with_undeclared_properties_anytype_2"]) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
-        if name == "map_with_undeclared_properties_anytype_2":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_map_with_undeclared_properties_anytype2(self) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+        val = self.get("map_with_undeclared_properties_anytype_2", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["map_with_undeclared_properties_anytype_3"]) -> MapWithUndeclaredPropertiesAnytype3Dict:
-        if name == "map_with_undeclared_properties_anytype_3":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                MapWithUndeclaredPropertiesAnytype3Dict,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_map_with_undeclared_properties_anytype3(self) -> MapWithUndeclaredPropertiesAnytype3Dict:
+        val = self.get("map_with_undeclared_properties_anytype_3", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            MapWithUndeclaredPropertiesAnytype3Dict,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["empty_map"]) -> EmptyMapDict:
-        if name == "empty_map":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                EmptyMapDict,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_empty_map(self) -> EmptyMapDict:
+        val = self.get("empty_map", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            EmptyMapDict,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["map_with_undeclared_properties_string"]) -> MapWithUndeclaredPropertiesStringDict:
-        if name == "map_with_undeclared_properties_string":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                MapWithUndeclaredPropertiesStringDict,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_map_with_undeclared_properties_string(self) -> MapWithUndeclaredPropertiesStringDict:
+        val = self.get("map_with_undeclared_properties_string", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            MapWithUndeclaredPropertiesStringDict,
+            val
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

@@ -83,22 +83,18 @@ class TriangleInterfaceDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["shapeType"]) -> typing_extensions.Literal["Triangle"]:
-        if name == "shapeType":
-            return typing.cast(
-                typing_extensions.Literal["Triangle"],
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_shape_type(self) -> typing_extensions.Literal["Triangle"]:
+        return typing.cast(
+            typing_extensions.Literal["Triangle"],
+            self.__getitem__("shapeType")
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["triangleType"]) -> str:
-        if name == "triangleType":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_triangle_type(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("triangleType")
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

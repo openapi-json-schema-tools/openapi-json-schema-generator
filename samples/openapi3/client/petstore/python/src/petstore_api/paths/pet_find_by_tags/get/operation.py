@@ -41,12 +41,10 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     
     @property
     def get_tags(self) -> parameter_0_schema.SchemaTuple:
-        if name == "tags":
-            return typing.cast(
-                parameter_0_schema.SchemaTuple,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            parameter_0_schema.SchemaTuple,
+            self.__getitem__("tags")
+        )
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)

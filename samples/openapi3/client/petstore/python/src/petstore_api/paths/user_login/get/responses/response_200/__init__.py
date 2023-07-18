@@ -76,54 +76,44 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def get_x_rate_limit(self) -> int:
-        if name == "X-Rate-Limit":
-            return typing.cast(
-                int,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            int,
+            self.__getitem__("X-Rate-Limit")
+        )
     
     @property
     def get_int32(self) -> int:
-        if name == "int32":
-            return typing.cast(
-                int,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            int,
+            self.__getitem__("int32")
+        )
     
     @property
     def get_ref_content_schema_header(self) -> str:
-        if name == "ref-content-schema-header":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            str,
+            self.__getitem__("ref-content-schema-header")
+        )
     
     @property
     def get_x_expires_after(self) -> str:
-        if name == "X-Expires-After":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("X-Expires-After", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def get_number_header(self) -> str:
-        if name == "numberHeader":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("numberHeader", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
 
     def __new__(cls, arg: HeadersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Headers.validate(arg, configuration=configuration)

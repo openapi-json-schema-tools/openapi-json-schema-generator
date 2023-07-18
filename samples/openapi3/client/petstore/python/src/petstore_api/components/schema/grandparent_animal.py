@@ -27,13 +27,11 @@ class GrandparentAnimalDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["pet_type"]) -> str:
-        if name == "pet_type":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_pet_type(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("pet_type")
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

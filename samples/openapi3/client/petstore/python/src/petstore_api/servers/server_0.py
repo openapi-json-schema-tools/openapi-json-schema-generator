@@ -177,22 +177,18 @@ class VariablesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["port"]) -> typing_extensions.Literal["80", "8080"]:
-        if name == "port":
-            return typing.cast(
-                typing_extensions.Literal["80", "8080"],
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_port(self) -> typing_extensions.Literal["80", "8080"]:
+        return typing.cast(
+            typing_extensions.Literal["80", "8080"],
+            self.__getitem__("port")
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["server"]) -> typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"]:
-        if name == "server":
-            return typing.cast(
-                typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"],
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_server(self) -> typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"]:
+        return typing.cast(
+            typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"],
+            self.__getitem__("server")
+        )
 
     def __new__(cls, arg: VariablesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Variables.validate(arg, configuration=configuration)

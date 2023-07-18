@@ -120,51 +120,43 @@ class DrawingDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def get_main_shape(self) -> schemas.OUTPUT_BASE_TYPES:
-        if name == "mainShape":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                schemas.OUTPUT_BASE_TYPES,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("mainShape", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
     @property
     def get_shape_or_null(self) -> schemas.OUTPUT_BASE_TYPES:
-        if name == "shapeOrNull":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                schemas.OUTPUT_BASE_TYPES,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("shapeOrNull", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
     @property
     def get_nullable_shape(self) -> schemas.OUTPUT_BASE_TYPES:
-        if name == "nullableShape":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                schemas.OUTPUT_BASE_TYPES,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        val = self.get("nullableShape", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["shapes"]) -> ShapesTuple:
-        if name == "shapes":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                ShapesTuple,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_shapes(self) -> ShapesTuple:
+        val = self.get("shapes", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            ShapesTuple,
+            val
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

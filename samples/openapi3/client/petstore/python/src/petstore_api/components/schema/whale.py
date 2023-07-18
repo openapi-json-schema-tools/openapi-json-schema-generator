@@ -86,37 +86,31 @@ class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["className"]) -> typing_extensions.Literal["whale"]:
-        if name == "className":
-            return typing.cast(
-                typing_extensions.Literal["whale"],
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_class_name(self) -> typing_extensions.Literal["whale"]:
+        return typing.cast(
+            typing_extensions.Literal["whale"],
+            self.__getitem__("className")
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["hasBaleen"]) -> bool:
-        if name == "hasBaleen":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                bool,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_has_baleen(self) -> bool:
+        val = self.get("hasBaleen", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            bool,
+            val
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["hasTeeth"]) -> bool:
-        if name == "hasTeeth":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                bool,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_has_teeth(self) -> bool:
+        val = self.get("hasTeeth", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            bool,
+            val
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

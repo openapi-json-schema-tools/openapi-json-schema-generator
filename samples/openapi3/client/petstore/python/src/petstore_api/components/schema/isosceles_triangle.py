@@ -80,16 +80,14 @@ class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["triangleType"]) -> typing_extensions.Literal["IsoscelesTriangle"]:
-        if name == "triangleType":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                typing_extensions.Literal["IsoscelesTriangle"],
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_triangle_type(self) -> typing_extensions.Literal["IsoscelesTriangle"]:
+        val = self.get("triangleType", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            typing_extensions.Literal["IsoscelesTriangle"],
+            val
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

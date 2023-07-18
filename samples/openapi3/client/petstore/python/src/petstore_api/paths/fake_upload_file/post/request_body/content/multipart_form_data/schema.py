@@ -30,25 +30,21 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["file"]) -> typing.Union[bytes, schemas.FileIO]:
-        if name == "file":
-            return typing.cast(
-                typing.Union[bytes, schemas.FileIO],
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_file(self) -> typing.Union[bytes, schemas.FileIO]:
+        return typing.cast(
+            typing.Union[bytes, schemas.FileIO],
+            self.__getitem__("file")
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["additionalMetadata"]) -> str:
-        if name == "additionalMetadata":
-            val = self.get(name, schemas.unset)
-            if val is schemas.unset:
-                return val
-            return typing.cast(
-                str,
-                val
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_additional_metadata(self) -> str:
+        val = self.get("additionalMetadata", schemas.unset)
+        if val is schemas.unset:
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

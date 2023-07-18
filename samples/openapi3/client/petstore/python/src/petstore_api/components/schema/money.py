@@ -32,22 +32,18 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["amount"]) -> str:
-        if name == "amount":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_amount(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("amount")
+        )
     
     @property
     def get_currency(self) -> typing_extensions.Literal["eur", "usd"]:
-        if name == "currency":
-            return typing.cast(
-                typing_extensions.Literal["eur", "usd"],
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+        return typing.cast(
+            typing_extensions.Literal["eur", "usd"],
+            self.__getitem__("currency")
+        )
 
     def __new__(cls, arg: MoneyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Money.validate(arg, configuration=configuration)

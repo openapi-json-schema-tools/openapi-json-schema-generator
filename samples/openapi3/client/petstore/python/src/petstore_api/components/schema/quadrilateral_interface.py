@@ -83,22 +83,18 @@ class QuadrilateralInterfaceDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["quadrilateralType"]) -> str:
-        if name == "quadrilateralType":
-            return typing.cast(
-                str,
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_quadrilateral_type(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("quadrilateralType")
+        )
     
     @property
-    def get_property(self, name: typing_extensions.Literal["shapeType"]) -> typing_extensions.Literal["Quadrilateral"]:
-        if name == "shapeType":
-            return typing.cast(
-                typing_extensions.Literal["Quadrilateral"],
-                self.__getitem__(name)
-            )
-        raise ValueError(schemas.key_unknown_error_msg(name))
+    def get_shape_type(self) -> typing_extensions.Literal["Quadrilateral"]:
+        return typing.cast(
+            typing_extensions.Literal["Quadrilateral"],
+            self.__getitem__("shapeType")
+        )
     
     def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
