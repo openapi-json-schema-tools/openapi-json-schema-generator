@@ -79,7 +79,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         )
     
     @property
-    def get_int64_group(self) -> int:
+    def get_int64_group(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("int64_group", schemas.unset)
         if val is schemas.unset:
             return val
@@ -89,7 +89,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         )
     
     @property
-    def get_string_group(self) -> str:
+    def get_string_group(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("string_group", schemas.unset)
         if val is schemas.unset:
             return val

@@ -40,7 +40,7 @@ class ObjectWithDifficultlyNamedPropsDict(schemas.immutabledict[str, schemas.OUT
         )
     
     @property
-    def get_special_property_name(self) -> int:
+    def get_special_property_name(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("$special[property.name]", schemas.unset)
         if val is schemas.unset:
             return val
@@ -50,7 +50,7 @@ class ObjectWithDifficultlyNamedPropsDict(schemas.immutabledict[str, schemas.OUT
         )
     
     @property
-    def get__123_number(self) -> int:
+    def get__123_number(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("123Number", schemas.unset)
         if val is schemas.unset:
             return val

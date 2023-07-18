@@ -40,7 +40,7 @@ class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_snake_case(self) -> int:
+    def get_snake_case(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("snake_case", schemas.unset)
         if val is schemas.unset:
             return val
@@ -50,7 +50,7 @@ class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get__property(self) -> str:
+    def get__property(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("property", schemas.unset)
         if val is schemas.unset:
             return val

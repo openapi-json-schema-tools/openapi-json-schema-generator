@@ -42,7 +42,7 @@ class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_small_camel(self) -> str:
+    def get_small_camel(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("smallCamel", schemas.unset)
         if val is schemas.unset:
             return val
@@ -52,7 +52,7 @@ class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_capital_camel(self) -> str:
+    def get_capital_camel(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("CapitalCamel", schemas.unset)
         if val is schemas.unset:
             return val
@@ -62,7 +62,7 @@ class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_small_snake(self) -> str:
+    def get_small_snake(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("small_Snake", schemas.unset)
         if val is schemas.unset:
             return val
@@ -72,7 +72,7 @@ class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_capital_snake(self) -> str:
+    def get_capital_snake(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("Capital_Snake", schemas.unset)
         if val is schemas.unset:
             return val
@@ -82,7 +82,7 @@ class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_scaeth_flow_points(self) -> str:
+    def get_scaeth_flow_points(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("SCA_ETH_Flow_Points", schemas.unset)
         if val is schemas.unset:
             return val
@@ -92,7 +92,7 @@ class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_attname(self) -> str:
+    def get_attname(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("ATT_NAME", schemas.unset)
         if val is schemas.unset:
             return val

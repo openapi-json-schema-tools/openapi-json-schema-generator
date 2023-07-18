@@ -93,7 +93,7 @@ class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_has_baleen(self) -> bool:
+    def get_has_baleen(self) -> typing.Union[bool, schemas.Unset]:
         val = self.get("hasBaleen", schemas.unset)
         if val is schemas.unset:
             return val
@@ -103,7 +103,7 @@ class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_has_teeth(self) -> bool:
+    def get_has_teeth(self) -> typing.Union[bool, schemas.Unset]:
         val = self.get("hasTeeth", schemas.unset)
         if val is schemas.unset:
             return val

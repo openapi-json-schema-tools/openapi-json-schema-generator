@@ -98,7 +98,7 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_number_header(self) -> str:
+    def get_number_header(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("numberHeader", schemas.unset)
         if val is schemas.unset:
             return val

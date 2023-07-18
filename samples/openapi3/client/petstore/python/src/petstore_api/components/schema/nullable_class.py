@@ -887,8 +887,8 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def get_integer_propy(self) -> typing.Union[
-        None,
-        int,
+        typing.Union[None, schemas.Unset],
+        typing.Union[int, schemas.Unset],
     ]:
         val = self.get("integer_prop", schemas.unset)
         if val is schemas.unset:
@@ -903,7 +903,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def get_number_propy(self) -> typing.Union[
-        None,
+        typing.Union[None, schemas.Unset],
         typing.Union[int, float],
     ]:
         val = self.get("number_prop", schemas.unset)
@@ -919,8 +919,8 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def get_boolean_propy(self) -> typing.Union[
-        None,
-        bool,
+        typing.Union[None, schemas.Unset],
+        typing.Union[bool, schemas.Unset],
     ]:
         val = self.get("boolean_prop", schemas.unset)
         if val is schemas.unset:
@@ -935,8 +935,8 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def get_string_propy(self) -> typing.Union[
-        None,
-        str,
+        typing.Union[None, schemas.Unset],
+        typing.Union[str, schemas.Unset],
     ]:
         val = self.get("string_prop", schemas.unset)
         if val is schemas.unset:
@@ -951,8 +951,8 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def get_date_propy(self) -> typing.Union[
-        None,
-        str,
+        typing.Union[None, schemas.Unset],
+        typing.Union[str, schemas.Unset],
     ]:
         val = self.get("date_prop", schemas.unset)
         if val is schemas.unset:
@@ -967,8 +967,8 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def get_datetime_propy(self) -> typing.Union[
-        None,
-        str,
+        typing.Union[None, schemas.Unset],
+        typing.Union[str, schemas.Unset],
     ]:
         val = self.get("datetime_prop", schemas.unset)
         if val is schemas.unset:
@@ -983,7 +983,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def get_array_nullable_propy(self) -> typing.Union[
-        None,
+        typing.Union[None, schemas.Unset],
         ArrayNullablePropTuple,
     ]:
         val = self.get("array_nullable_prop", schemas.unset)
@@ -999,7 +999,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def get_array_and_items_nullable_propy(self) -> typing.Union[
-        None,
+        typing.Union[None, schemas.Unset],
         ArrayAndItemsNullablePropTuple,
     ]:
         val = self.get("array_and_items_nullable_prop", schemas.unset)
@@ -1025,7 +1025,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def get_object_nullable_propy(self) -> typing.Union[
-        None,
+        typing.Union[None, schemas.Unset],
         ObjectNullablePropDict,
     ]:
         val = self.get("object_nullable_prop", schemas.unset)
@@ -1041,7 +1041,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def get_object_and_items_nullable_propy(self) -> typing.Union[
-        None,
+        typing.Union[None, schemas.Unset],
         ObjectAndItemsNullablePropDict,
     ]:
         val = self.get("object_and_items_nullable_prop", schemas.unset)

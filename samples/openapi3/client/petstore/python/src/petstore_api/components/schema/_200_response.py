@@ -30,7 +30,7 @@ class _200ResponseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_name(self) -> int:
+    def get_name(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("name", schemas.unset)
         if val is schemas.unset:
             return val
@@ -40,7 +40,7 @@ class _200ResponseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get__class(self) -> str:
+    def get__class(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("class", schemas.unset)
         if val is schemas.unset:
             return val

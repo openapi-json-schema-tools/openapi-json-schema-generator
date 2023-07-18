@@ -30,7 +30,7 @@ class TagDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_id(self) -> int:
+    def get_id(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("id", schemas.unset)
         if val is schemas.unset:
             return val
@@ -40,7 +40,7 @@ class TagDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_name(self) -> str:
+    def get_name(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("name", schemas.unset)
         if val is schemas.unset:
             return val

@@ -44,7 +44,7 @@ class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE
         )
     
     @property
-    def get_my_string(self) -> str:
+    def get_my_string(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("myString", schemas.unset)
         if val is schemas.unset:
             return val
@@ -54,7 +54,7 @@ class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE
         )
     
     @property
-    def get_my_boolean(self) -> bool:
+    def get_my_boolean(self) -> typing.Union[bool, schemas.Unset]:
         val = self.get("myBoolean", schemas.unset)
         if val is schemas.unset:
             return val

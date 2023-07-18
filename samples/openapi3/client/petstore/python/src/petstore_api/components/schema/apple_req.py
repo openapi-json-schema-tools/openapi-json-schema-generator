@@ -51,7 +51,7 @@ class AppleReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_mealy(self) -> bool:
+    def get_mealy(self) -> typing.Union[bool, schemas.Unset]:
         val = self.get("mealy", schemas.unset)
         if val is schemas.unset:
             return val

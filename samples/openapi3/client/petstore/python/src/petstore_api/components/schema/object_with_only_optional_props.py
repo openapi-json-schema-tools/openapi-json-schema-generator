@@ -31,7 +31,7 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
     })
     
     @property
-    def get_a(self) -> str:
+    def get_a(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("a", schemas.unset)
         if val is schemas.unset:
             return val

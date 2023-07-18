@@ -27,7 +27,7 @@ class ClientDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_client(self) -> str:
+    def get_client(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("client", schemas.unset)
         if val is schemas.unset:
             return val

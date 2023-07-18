@@ -360,7 +360,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def get_string_enum(self) -> typing.Union[
-        None,
+        typing.Union[None, schemas.Unset],
         typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
     ]:
         val = self.get("stringEnum", schemas.unset)

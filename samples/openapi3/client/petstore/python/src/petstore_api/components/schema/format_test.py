@@ -277,7 +277,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_integer(self) -> int:
+    def get_integer(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("integer", schemas.unset)
         if val is schemas.unset:
             return val
@@ -287,7 +287,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_int32(self) -> int:
+    def get_int32(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("int32", schemas.unset)
         if val is schemas.unset:
             return val
@@ -297,7 +297,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_int32with_validations(self) -> int:
+    def get_int32with_validations(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("int32withValidations", schemas.unset)
         if val is schemas.unset:
             return val
@@ -307,7 +307,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_int64(self) -> int:
+    def get_int64(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("int64", schemas.unset)
         if val is schemas.unset:
             return val
@@ -367,7 +367,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_string(self) -> str:
+    def get_string(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("string", schemas.unset)
         if val is schemas.unset:
             return val
@@ -387,7 +387,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_date_time(self) -> str:
+    def get_date_time(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("dateTime", schemas.unset)
         if val is schemas.unset:
             return val
@@ -397,7 +397,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_uuid(self) -> str:
+    def get_uuid(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("uuid", schemas.unset)
         if val is schemas.unset:
             return val
@@ -407,7 +407,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_uuid_no_example(self) -> str:
+    def get_uuid_no_example(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("uuidNoExample", schemas.unset)
         if val is schemas.unset:
             return val
@@ -417,7 +417,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_pattern_with_digits(self) -> str:
+    def get_pattern_with_digits(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("pattern_with_digits", schemas.unset)
         if val is schemas.unset:
             return val
@@ -427,7 +427,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_pattern_with_digits_and_delimiter(self) -> str:
+    def get_pattern_with_digits_and_delimiter(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("pattern_with_digits_and_delimiter", schemas.unset)
         if val is schemas.unset:
             return val
@@ -437,7 +437,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_none_prop(self) -> None:
+    def get_none_prop(self) -> typing.Union[None, schemas.Unset]:
         val = self.get("noneProp", schemas.unset)
         if val is schemas.unset:
             return val

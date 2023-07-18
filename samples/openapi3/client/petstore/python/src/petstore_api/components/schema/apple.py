@@ -60,7 +60,7 @@ class AppleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_origin(self) -> str:
+    def get_origin(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("origin", schemas.unset)
         if val is schemas.unset:
             return val

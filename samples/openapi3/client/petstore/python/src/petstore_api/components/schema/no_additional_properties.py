@@ -51,7 +51,7 @@ class NoAdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
         )
     
     @property
-    def get_pet_id(self) -> int:
+    def get_pet_id(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("petId", schemas.unset)
         if val is schemas.unset:
             return val

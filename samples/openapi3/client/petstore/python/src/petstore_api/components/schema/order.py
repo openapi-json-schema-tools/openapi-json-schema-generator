@@ -132,7 +132,7 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_id(self) -> int:
+    def get_id(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("id", schemas.unset)
         if val is schemas.unset:
             return val
@@ -142,7 +142,7 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_pet_id(self) -> int:
+    def get_pet_id(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("petId", schemas.unset)
         if val is schemas.unset:
             return val
@@ -152,7 +152,7 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_quantity(self) -> int:
+    def get_quantity(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("quantity", schemas.unset)
         if val is schemas.unset:
             return val
@@ -162,7 +162,7 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_ship_date(self) -> str:
+    def get_ship_date(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("shipDate", schemas.unset)
         if val is schemas.unset:
             return val
@@ -182,7 +182,7 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_complete(self) -> bool:
+    def get_complete(self) -> typing.Union[bool, schemas.Unset]:
         val = self.get("complete", schemas.unset)
         if val is schemas.unset:
             return val

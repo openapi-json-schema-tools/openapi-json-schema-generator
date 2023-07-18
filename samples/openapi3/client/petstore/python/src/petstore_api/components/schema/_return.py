@@ -27,7 +27,7 @@ class ReturnDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get__return(self) -> int:
+    def get__return(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("return", schemas.unset)
         if val is schemas.unset:
             return val

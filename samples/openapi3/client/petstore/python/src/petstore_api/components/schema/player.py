@@ -29,7 +29,7 @@ class PlayerDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_name(self) -> str:
+    def get_name(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("name", schemas.unset)
         if val is schemas.unset:
             return val

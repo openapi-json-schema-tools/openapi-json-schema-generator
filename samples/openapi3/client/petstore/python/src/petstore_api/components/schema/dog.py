@@ -27,7 +27,7 @@ class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_breed(self) -> str:
+    def get_breed(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("breed", schemas.unset)
         if val is schemas.unset:
             return val

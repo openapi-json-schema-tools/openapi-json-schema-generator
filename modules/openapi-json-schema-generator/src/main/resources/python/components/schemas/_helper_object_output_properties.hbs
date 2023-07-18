@@ -29,12 +29,12 @@ def get_{{@key.snakeCase}}(self) -> schemas.OUTPUT_BASE_TYPES:
             {{#if refInfo.refClass}}
 
 @property
-{{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="get_property" endChar=":" }}
+{{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="get_property" endChar=":" optional=true }}
     {{> components/schemas/_helper_object_get_property required=false }}
             {{else}}
 
 @property
-{{> components/schemas/_helper_schema_output_type mode="get_property" fullRefModule=null endChar=":" }}
+{{> components/schemas/_helper_schema_output_type mode="get_property" fullRefModule=null endChar=":" optional=true }}
     {{> components/schemas/_helper_object_get_property required=false }}
             {{/if}}
         {{/with}}

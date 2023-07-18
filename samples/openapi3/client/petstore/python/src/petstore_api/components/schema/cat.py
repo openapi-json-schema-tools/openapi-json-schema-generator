@@ -27,7 +27,7 @@ class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_declawed(self) -> bool:
+    def get_declawed(self) -> typing.Union[bool, schemas.Unset]:
         val = self.get("declawed", schemas.unset)
         if val is schemas.unset:
             return val

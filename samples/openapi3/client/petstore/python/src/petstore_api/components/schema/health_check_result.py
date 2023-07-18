@@ -63,8 +63,8 @@ class HealthCheckResultDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES
     
     @property
     def get_nullable_messagey(self) -> typing.Union[
-        None,
-        str,
+        typing.Union[None, schemas.Unset],
+        typing.Union[str, schemas.Unset],
     ]:
         val = self.get("NullableMessage", schemas.unset)
         if val is schemas.unset:

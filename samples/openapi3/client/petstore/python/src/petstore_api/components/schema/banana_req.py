@@ -54,7 +54,7 @@ class BananaReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_sweet(self) -> bool:
+    def get_sweet(self) -> typing.Union[bool, schemas.Unset]:
         val = self.get("sweet", schemas.unset)
         if val is schemas.unset:
             return val
