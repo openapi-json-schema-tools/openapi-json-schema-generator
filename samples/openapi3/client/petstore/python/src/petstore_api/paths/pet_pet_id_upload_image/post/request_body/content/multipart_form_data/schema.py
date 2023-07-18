@@ -40,7 +40,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def file(self) -> typing.Union[bytes, schemas.FileIO]:
+    def file(self) -> typing.Union[bytes, schemas.FileIO, schemas.Unset]:
         val = self.get("file", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val

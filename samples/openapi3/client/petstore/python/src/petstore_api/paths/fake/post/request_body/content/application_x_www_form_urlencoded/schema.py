@@ -233,7 +233,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def binary(self) -> typing.Union[bytes, schemas.FileIO]:
+    def binary(self) -> typing.Union[bytes, schemas.FileIO, schemas.Unset]:
         val = self.get("binary", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val

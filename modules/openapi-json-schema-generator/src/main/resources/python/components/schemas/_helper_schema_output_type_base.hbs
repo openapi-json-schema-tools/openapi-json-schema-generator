@@ -16,7 +16,7 @@ typing_extensions.Literal[{{#each ../enumInfo.typeToValues.boolean}}{{#if value}
             {{else}}
                 {{#eq this "string"}}
                     {{#eq format "binary"}}
-typing.Union[bytes, schemas.FileIO]{{endChar}}
+typing.Union[bytes, schemas.FileIO{{#if optional}}, schemas.Unset{{/if}}]{{endChar}}
                     {{else}}
                         {{#and ../enumInfo ../enumInfo.typeToValues.string}}
                             {{#if optional}}
