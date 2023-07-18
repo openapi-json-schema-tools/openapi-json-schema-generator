@@ -84,7 +84,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         )
     
     @property
-    def get_enum_query_string_array(self) -> parameter_2_schema.SchemaTuple:
+    def get_enum_query_string_array(self) -> typing.Union[parameter_2_schema.SchemaTuple, schemas.Unset]:
         val = self.get("enum_query_string_array", schemas.unset)
         if val is schemas.unset:
             return val
@@ -177,7 +177,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         )
     
     @property
-    def get_enum_header_string_array(self) -> parameter_0_schema.SchemaTuple:
+    def get_enum_header_string_array(self) -> typing.Union[parameter_0_schema.SchemaTuple, schemas.Unset]:
         val = self.get("enum_header_string_array", schemas.unset)
         if val is schemas.unset:
             return val

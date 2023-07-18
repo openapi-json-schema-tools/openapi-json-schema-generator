@@ -149,7 +149,7 @@ class DrawingDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_shapes(self) -> ShapesTuple:
+    def get_shapes(self) -> typing.Union[ShapesTuple, schemas.Unset]:
         val = self.get("shapes", schemas.unset)
         if val is schemas.unset:
             return val

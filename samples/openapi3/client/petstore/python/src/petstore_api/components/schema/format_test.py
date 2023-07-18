@@ -357,7 +357,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_array_with_unique_items(self) -> ArrayWithUniqueItemsTuple:
+    def get_array_with_unique_items(self) -> typing.Union[ArrayWithUniqueItemsTuple, schemas.Unset]:
         val = self.get("arrayWithUniqueItems", schemas.unset)
         if val is schemas.unset:
             return val

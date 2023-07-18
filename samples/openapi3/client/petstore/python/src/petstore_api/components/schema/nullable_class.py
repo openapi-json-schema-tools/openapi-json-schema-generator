@@ -984,7 +984,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def get_array_nullable_propy(self) -> typing.Union[
         typing.Union[None, schemas.Unset],
-        ArrayNullablePropTuple,
+        typing.Union[ArrayNullablePropTuple, schemas.Unset],
     ]:
         val = self.get("array_nullable_prop", schemas.unset)
         if val is schemas.unset:
@@ -1000,7 +1000,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def get_array_and_items_nullable_propy(self) -> typing.Union[
         typing.Union[None, schemas.Unset],
-        ArrayAndItemsNullablePropTuple,
+        typing.Union[ArrayAndItemsNullablePropTuple, schemas.Unset],
     ]:
         val = self.get("array_and_items_nullable_prop", schemas.unset)
         if val is schemas.unset:
@@ -1014,7 +1014,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_array_items_nullable(self) -> ArrayItemsNullableTuple:
+    def get_array_items_nullable(self) -> typing.Union[ArrayItemsNullableTuple, schemas.Unset]:
         val = self.get("array_items_nullable", schemas.unset)
         if val is schemas.unset:
             return val

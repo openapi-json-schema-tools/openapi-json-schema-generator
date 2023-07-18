@@ -85,7 +85,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_files(self) -> FilesTuple:
+    def get_files(self) -> typing.Union[FilesTuple, schemas.Unset]:
         val = self.get("files", schemas.unset)
         if val is schemas.unset:
             return val

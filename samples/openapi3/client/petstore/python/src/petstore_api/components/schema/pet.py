@@ -266,7 +266,7 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def get_tags(self) -> TagsTuple:
+    def get_tags(self) -> typing.Union[TagsTuple, schemas.Unset]:
         val = self.get("tags", schemas.unset)
         if val is schemas.unset:
             return val
