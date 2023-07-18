@@ -29,7 +29,7 @@ class AbstractStepMessageDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["description"]) -> schemas.OUTPUT_BASE_TYPES:
+    def get_description(self) -> schemas.OUTPUT_BASE_TYPES:
         if name == "description":
             return typing.cast(
                 schemas.OUTPUT_BASE_TYPES,
@@ -47,7 +47,7 @@ class AbstractStepMessageDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["sequenceNumber"]) -> schemas.OUTPUT_BASE_TYPES:
+    def get_sequence_number(self) -> schemas.OUTPUT_BASE_TYPES:
         if name == "sequenceNumber":
             return typing.cast(
                 schemas.OUTPUT_BASE_TYPES,

@@ -34,7 +34,7 @@ class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["myNumber"]) -> typing.Union[int, float]:
+    def get_my_number(self) -> typing.Union[int, float]:
         if name == "myNumber":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -46,7 +46,7 @@ class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["myString"]) -> str:
+    def get_my_string(self) -> str:
         if name == "myString":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -58,7 +58,7 @@ class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["myBoolean"]) -> bool:
+    def get_my_boolean(self) -> bool:
         if name == "myBoolean":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:

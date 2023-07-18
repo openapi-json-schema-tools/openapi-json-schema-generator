@@ -88,7 +88,7 @@ class FileSchemaTestClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["file"]) -> file.FileDict:
+    def get_file(self) -> file.FileDict:
         if name == "file":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:

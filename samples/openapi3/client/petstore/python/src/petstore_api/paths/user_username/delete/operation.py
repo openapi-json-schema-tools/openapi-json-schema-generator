@@ -36,7 +36,7 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["username"]) -> str:
+    def get_username(self) -> str:
         if name == "username":
             return typing.cast(
                 str,

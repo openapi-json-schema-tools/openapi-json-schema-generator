@@ -42,7 +42,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["password"]) -> str:
+    def get_password(self) -> str:
         if name == "password":
             return typing.cast(
                 str,
@@ -51,7 +51,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["username"]) -> str:
+    def get_username(self) -> str:
         if name == "username":
             return typing.cast(
                 str,

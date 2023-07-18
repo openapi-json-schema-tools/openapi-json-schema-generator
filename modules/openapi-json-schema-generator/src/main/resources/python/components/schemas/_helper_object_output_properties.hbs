@@ -4,7 +4,7 @@
             {{#if refInfo.refClass}}
 
 @property
-{{> components/schemas/_helper_schema_output_ref_type key=@key.original fullRefModule="" mode="get_property" endChar=":" }}
+{{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="get_property" endChar=":" }}
     {{> components/schemas/_helper_object_get_property required=true }}
             {{else}}
                 {{#if jsonPathPiece}}
@@ -16,7 +16,7 @@
                     {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
 
 @property
-def get_property(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -> schemas.OUTPUT_BASE_TYPES:
+def get_{{@key.snakeCase}}(self) -> schemas.OUTPUT_BASE_TYPES:
     {{> components/schemas/_helper_object_get_property required=true }}
                 {{/if}}
             {{/if}}
@@ -29,7 +29,7 @@ def get_property(self, name: typing_extensions.Literal["{{{@key.original}}}"]) -
             {{#if refInfo.refClass}}
 
 @property
-{{> components/schemas/_helper_schema_output_ref_type key=@key.original fullRefModule="" mode="get_property" endChar=":" }}
+{{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="get_property" endChar=":" }}
     {{> components/schemas/_helper_object_get_property required=false }}
             {{else}}
 

@@ -67,7 +67,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["1"]) -> str:
+    def get__1(self) -> str:
         if name == "1":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -79,7 +79,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["aB"]) -> str:
+    def get_ab(self) -> str:
         if name == "aB":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -91,7 +91,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["Ab"]) -> str:
+    def get_ab(self) -> str:
         if name == "Ab":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -103,7 +103,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["A-B"]) -> str:
+    def get_ab(self) -> str:
         if name == "A-B":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -115,7 +115,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["self"]) -> str:
+    def get__self(self) -> str:
         if name == "self":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -200,7 +200,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["1"]) -> str:
+    def get__1(self) -> str:
         if name == "1":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -212,7 +212,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["aB"]) -> str:
+    def get_ab(self) -> str:
         if name == "aB":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -224,7 +224,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["A-B"]) -> str:
+    def get_ab(self) -> str:
         if name == "A-B":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -236,7 +236,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["self"]) -> str:
+    def get__self(self) -> str:
         if name == "self":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -323,7 +323,7 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["1"]) -> str:
+    def get__1(self) -> str:
         if name == "1":
             return typing.cast(
                 str,
@@ -332,7 +332,7 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["A-B"]) -> str:
+    def get_ab(self) -> str:
         if name == "A-B":
             return typing.cast(
                 str,
@@ -341,7 +341,7 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["Ab"]) -> str:
+    def get_ab(self) -> str:
         if name == "Ab":
             return typing.cast(
                 str,
@@ -350,7 +350,7 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["aB"]) -> str:
+    def get_ab(self) -> str:
         if name == "aB":
             return typing.cast(
                 str,
@@ -359,7 +359,7 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["self"]) -> str:
+    def get__self(self) -> str:
         if name == "self":
             return typing.cast(
                 str,
@@ -450,7 +450,7 @@ class CookieParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["1"]) -> str:
+    def get__1(self) -> str:
         if name == "1":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -462,7 +462,7 @@ class CookieParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["aB"]) -> str:
+    def get_ab(self) -> str:
         if name == "aB":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -474,7 +474,7 @@ class CookieParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["Ab"]) -> str:
+    def get_ab(self) -> str:
         if name == "Ab":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -486,7 +486,7 @@ class CookieParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["A-B"]) -> str:
+    def get_ab(self) -> str:
         if name == "A-B":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -498,7 +498,7 @@ class CookieParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["self"]) -> str:
+    def get__self(self) -> str:
         if name == "self":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:

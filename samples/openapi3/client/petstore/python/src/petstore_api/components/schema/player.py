@@ -41,7 +41,7 @@ class PlayerDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["enemyPlayer"]) -> PlayerDict:
+    def get_enemy_player(self) -> PlayerDict:
         if name == "enemyPlayer":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:

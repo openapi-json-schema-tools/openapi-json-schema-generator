@@ -367,7 +367,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["stringEnum"]) -> typing.Union[
+    def get_string_enum(self) -> typing.Union[
         None,
         typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
     ]:
@@ -385,7 +385,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["IntegerEnum"]) -> typing_extensions.Literal[0, 1, 2]:
+    def get_integer_enum(self) -> typing_extensions.Literal[0, 1, 2]:
         if name == "IntegerEnum":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -397,7 +397,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["StringEnumWithDefaultValue"]) -> typing_extensions.Literal["placed", "approved", "delivered"]:
+    def get_string_enum_with_default_value(self) -> typing_extensions.Literal["placed", "approved", "delivered"]:
         if name == "StringEnumWithDefaultValue":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -409,7 +409,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["IntegerEnumWithDefaultValue"]) -> typing_extensions.Literal[0, 1, 2]:
+    def get_integer_enum_with_default_value(self) -> typing_extensions.Literal[0, 1, 2]:
         if name == "IntegerEnumWithDefaultValue":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -421,7 +421,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["IntegerEnumOneValue"]) -> typing_extensions.Literal[0]:
+    def get_integer_enum_one_value(self) -> typing_extensions.Literal[0]:
         if name == "IntegerEnumOneValue":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:

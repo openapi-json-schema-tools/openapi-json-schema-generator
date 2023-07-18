@@ -55,7 +55,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["context"]) -> parameter_4_schema.SchemaTuple:
+    def get_context(self) -> parameter_4_schema.SchemaTuple:
         if name == "context":
             return typing.cast(
                 parameter_4_schema.SchemaTuple,
@@ -64,7 +64,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["http"]) -> parameter_2_schema.SchemaTuple:
+    def get_http(self) -> parameter_2_schema.SchemaTuple:
         if name == "http":
             return typing.cast(
                 parameter_2_schema.SchemaTuple,
@@ -73,7 +73,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["ioutil"]) -> parameter_1_schema.SchemaTuple:
+    def get_ioutil(self) -> parameter_1_schema.SchemaTuple:
         if name == "ioutil":
             return typing.cast(
                 parameter_1_schema.SchemaTuple,
@@ -82,7 +82,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["pipe"]) -> parameter_0_schema.SchemaTuple:
+    def get_pipe(self) -> parameter_0_schema.SchemaTuple:
         if name == "pipe":
             return typing.cast(
                 parameter_0_schema.SchemaTuple,
@@ -91,7 +91,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["refParam"]) -> str:
+    def get_ref_param(self) -> str:
         if name == "refParam":
             return typing.cast(
                 str,
@@ -100,7 +100,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["url"]) -> parameter_3_schema.SchemaTuple:
+    def get_url(self) -> parameter_3_schema.SchemaTuple:
         if name == "url":
             return typing.cast(
                 parameter_3_schema.SchemaTuple,

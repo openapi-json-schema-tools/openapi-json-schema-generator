@@ -33,7 +33,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["mapBean"]) -> parameter_0_schema.SchemaDict:
+    def get_map_bean(self) -> parameter_0_schema.SchemaDict:
         if name == "mapBean":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:

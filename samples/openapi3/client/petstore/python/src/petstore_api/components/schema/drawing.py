@@ -119,7 +119,7 @@ class DrawingDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["mainShape"]) -> schemas.OUTPUT_BASE_TYPES:
+    def get_main_shape(self) -> schemas.OUTPUT_BASE_TYPES:
         if name == "mainShape":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -131,7 +131,7 @@ class DrawingDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["shapeOrNull"]) -> schemas.OUTPUT_BASE_TYPES:
+    def get_shape_or_null(self) -> schemas.OUTPUT_BASE_TYPES:
         if name == "shapeOrNull":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -143,7 +143,7 @@ class DrawingDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["nullableShape"]) -> schemas.OUTPUT_BASE_TYPES:
+    def get_nullable_shape(self) -> schemas.OUTPUT_BASE_TYPES:
         if name == "nullableShape":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:

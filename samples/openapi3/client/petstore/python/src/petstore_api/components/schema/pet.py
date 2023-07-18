@@ -262,7 +262,7 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["category"]) -> category.CategoryDict:
+    def get_category(self) -> category.CategoryDict:
         if name == "category":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:

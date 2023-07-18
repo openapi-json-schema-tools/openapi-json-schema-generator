@@ -33,7 +33,7 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["someHeader"]) -> str:
+    def get_some_header(self) -> str:
         if name == "someHeader":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:

@@ -31,7 +31,7 @@ class ObjectWithInvalidNamedRefedPropertiesDict(schemas.immutabledict[str, schem
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["!reference"]) -> array_with_validations_in_items.ArrayWithValidationsInItemsTuple:
+    def get_reference(self) -> array_with_validations_in_items.ArrayWithValidationsInItemsTuple:
         if name == "!reference":
             return typing.cast(
                 array_with_validations_in_items.ArrayWithValidationsInItemsTuple,
@@ -40,7 +40,7 @@ class ObjectWithInvalidNamedRefedPropertiesDict(schemas.immutabledict[str, schem
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["from"]) -> from_schema.FromSchemaDict:
+    def get__from(self) -> from_schema.FromSchemaDict:
         if name == "from":
             return typing.cast(
                 from_schema.FromSchemaDict,

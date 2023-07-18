@@ -54,7 +54,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["enum_query_double"]) -> typing.Union[int, float]:
+    def get_enum_query_double(self) -> typing.Union[int, float]:
         if name == "enum_query_double":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -66,7 +66,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["enum_query_string"]) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
+    def get_enum_query_string(self) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
         if name == "enum_query_string":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -78,7 +78,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["enum_query_integer"]) -> typing_extensions.Literal[1, -2]:
+    def get_enum_query_integer(self) -> typing_extensions.Literal[1, -2]:
         if name == "enum_query_integer":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -90,7 +90,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["enum_query_string_array"]) -> parameter_2_schema.SchemaTuple:
+    def get_enum_query_string_array(self) -> parameter_2_schema.SchemaTuple:
         if name == "enum_query_string_array":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -175,7 +175,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["enum_header_string"]) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
+    def get_enum_header_string(self) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
         if name == "enum_header_string":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -187,7 +187,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["enum_header_string_array"]) -> parameter_0_schema.SchemaTuple:
+    def get_enum_header_string_array(self) -> parameter_0_schema.SchemaTuple:
         if name == "enum_header_string_array":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:

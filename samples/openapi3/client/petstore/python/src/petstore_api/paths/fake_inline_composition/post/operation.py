@@ -42,7 +42,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["compositionAtRoot"]) -> schemas.OUTPUT_BASE_TYPES:
+    def get_composition_at_root(self) -> schemas.OUTPUT_BASE_TYPES:
         if name == "compositionAtRoot":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -54,7 +54,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["compositionInProperty"]) -> parameter_1_schema.SchemaDict:
+    def get_composition_in_property(self) -> parameter_1_schema.SchemaDict:
         if name == "compositionInProperty":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:

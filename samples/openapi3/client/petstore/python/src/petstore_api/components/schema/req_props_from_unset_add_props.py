@@ -21,7 +21,7 @@ class ReqPropsFromUnsetAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BA
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["invalid-name"]) -> schemas.OUTPUT_BASE_TYPES:
+    def get_invalid_name(self) -> schemas.OUTPUT_BASE_TYPES:
         if name == "invalid-name":
             return typing.cast(
                 schemas.OUTPUT_BASE_TYPES,
@@ -30,7 +30,7 @@ class ReqPropsFromUnsetAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BA
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["validName"]) -> schemas.OUTPUT_BASE_TYPES:
+    def get_valid_name(self) -> schemas.OUTPUT_BASE_TYPES:
         if name == "validName":
             return typing.cast(
                 schemas.OUTPUT_BASE_TYPES,

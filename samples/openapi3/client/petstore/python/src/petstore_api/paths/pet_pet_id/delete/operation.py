@@ -40,7 +40,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["api_key"]) -> str:
+    def get_api_key(self) -> str:
         if name == "api_key":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -112,7 +112,7 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["petId"]) -> int:
+    def get_pet_id(self) -> int:
         if name == "petId":
             return typing.cast(
                 int,

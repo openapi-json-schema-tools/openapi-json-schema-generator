@@ -40,7 +40,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["tags"]) -> parameter_0_schema.SchemaTuple:
+    def get_tags(self) -> parameter_0_schema.SchemaTuple:
         if name == "tags":
             return typing.cast(
                 parameter_0_schema.SchemaTuple,

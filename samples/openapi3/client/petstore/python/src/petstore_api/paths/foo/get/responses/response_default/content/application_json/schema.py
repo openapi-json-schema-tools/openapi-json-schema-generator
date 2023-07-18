@@ -28,7 +28,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["string"]) -> foo.FooDict:
+    def get_string(self) -> foo.FooDict:
         if name == "string":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:

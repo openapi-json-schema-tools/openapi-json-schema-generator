@@ -352,7 +352,7 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["indirect_map"]) -> string_boolean_map.StringBooleanMapDict:
+    def get_indirect_map(self) -> string_boolean_map.StringBooleanMapDict:
         if name == "indirect_map":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:

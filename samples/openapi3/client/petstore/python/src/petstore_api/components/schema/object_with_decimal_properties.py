@@ -34,7 +34,7 @@ class ObjectWithDecimalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["length"]) -> str:
+    def get_length(self) -> str:
         if name == "length":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -58,7 +58,7 @@ class ObjectWithDecimalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["cost"]) -> money.MoneyDict:
+    def get_cost(self) -> money.MoneyDict:
         if name == "cost":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:

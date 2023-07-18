@@ -70,7 +70,7 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["int32"]) -> int:
+    def get_int32(self) -> int:
         if name == "int32":
             return typing.cast(
                 int,
@@ -79,7 +79,7 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["ref-content-schema-header"]) -> str:
+    def get_ref_content_schema_header(self) -> str:
         if name == "ref-content-schema-header":
             return typing.cast(
                 str,
@@ -88,7 +88,7 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["ref-schema-header"]) -> str:
+    def get_ref_schema_header(self) -> str:
         if name == "ref-schema-header":
             return typing.cast(
                 str,
@@ -97,7 +97,7 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["stringHeader"]) -> str:
+    def get_string_header(self) -> str:
         if name == "stringHeader":
             return typing.cast(
                 str,
@@ -106,7 +106,7 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["numberHeader"]) -> str:
+    def get_number_header(self) -> str:
         if name == "numberHeader":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:

@@ -43,7 +43,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["SomeVar"]) -> str:
+    def get_some_var(self) -> str:
         if name == "SomeVar":
             return typing.cast(
                 str,
@@ -52,7 +52,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["someVar"]) -> str:
+    def get_some_var(self) -> str:
         if name == "someVar":
             return typing.cast(
                 str,
@@ -61,7 +61,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["some_var"]) -> str:
+    def get_some_var(self) -> str:
         if name == "some_var":
             return typing.cast(
                 str,

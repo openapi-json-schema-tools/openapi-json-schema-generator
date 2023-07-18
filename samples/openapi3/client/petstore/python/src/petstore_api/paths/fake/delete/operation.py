@@ -65,7 +65,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["required_int64_group"]) -> int:
+    def get_required_int64_group(self) -> int:
         if name == "required_int64_group":
             return typing.cast(
                 int,
@@ -74,7 +74,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["required_string_group"]) -> str:
+    def get_required_string_group(self) -> str:
         if name == "required_string_group":
             return typing.cast(
                 str,
@@ -83,7 +83,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["int64_group"]) -> int:
+    def get_int64_group(self) -> int:
         if name == "int64_group":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -95,7 +95,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["string_group"]) -> str:
+    def get_string_group(self) -> str:
         if name == "string_group":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
@@ -184,7 +184,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     })
     
     @property
-    def get_property(self, name: typing_extensions.Literal["required_boolean_group"]) -> typing_extensions.Literal["true", "false"]:
+    def get_required_boolean_group(self) -> typing_extensions.Literal["true", "false"]:
         if name == "required_boolean_group":
             return typing.cast(
                 typing_extensions.Literal["true", "false"],
@@ -193,7 +193,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         raise ValueError(schemas.key_unknown_error_msg(name))
     
     @property
-    def get_property(self, name: typing_extensions.Literal["boolean_group"]) -> typing_extensions.Literal["true", "false"]:
+    def get_boolean_group(self) -> typing_extensions.Literal["true", "false"]:
         if name == "boolean_group":
             val = self.get(name, schemas.unset)
             if val is schemas.unset:
