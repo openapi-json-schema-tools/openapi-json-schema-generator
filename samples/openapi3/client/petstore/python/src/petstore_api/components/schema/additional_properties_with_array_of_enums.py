@@ -70,7 +70,7 @@ class AdditionalPropertiesWithArrayOfEnumsDict(schemas.immutabledict[str, schema
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    def get_additional_property_(self, name: str) -> AdditionalPropertiesTuple:
+    def get_additional_property_(self, name: str) -> typing.Union[AdditionalPropertiesTuple, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         val = self.get(name, schemas.unset)
         if isinstance(val, schemas.Unset):

@@ -19,7 +19,7 @@ class MapPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    def get_additional_property_(self, name: str) -> str:
+    def get_additional_property_(self, name: str) -> typing.Union[str, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         val = self.get(name, schemas.unset)
         if isinstance(val, schemas.Unset):
@@ -75,7 +75,7 @@ class AdditionalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TY
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    def get_additional_property_(self, name: str) -> str:
+    def get_additional_property_(self, name: str) -> typing.Union[str, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         val = self.get(name, schemas.unset)
         if isinstance(val, schemas.Unset):
@@ -130,7 +130,7 @@ class MapOfMapPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    def get_additional_property_(self, name: str) -> AdditionalPropertiesDict:
+    def get_additional_property_(self, name: str) -> typing.Union[AdditionalPropertiesDict, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         val = self.get(name, schemas.unset)
         if isinstance(val, schemas.Unset):
@@ -193,7 +193,7 @@ class MapWithUndeclaredPropertiesAnytype3Dict(schemas.immutabledict[str, schemas
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         val = self.get(name, schemas.unset)
         if isinstance(val, schemas.Unset):
@@ -291,7 +291,7 @@ class MapWithUndeclaredPropertiesStringDict(schemas.immutabledict[str, schemas.O
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
     
-    def get_additional_property_(self, name: str) -> str:
+    def get_additional_property_(self, name: str) -> typing.Union[str, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         val = self.get(name, schemas.unset)
         if isinstance(val, schemas.Unset):

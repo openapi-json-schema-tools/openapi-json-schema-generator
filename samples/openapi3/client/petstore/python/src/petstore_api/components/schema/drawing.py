@@ -158,7 +158,7 @@ class DrawingDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             val
         )
     
-    def get_additional_property_(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         val = self.get(name, schemas.unset)
         if isinstance(val, schemas.Unset):

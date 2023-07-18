@@ -54,10 +54,10 @@ def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BAS
         {{#unless isBooleanSchemaFalse}}
             {{#if refInfo.refClass}}
 
-{{> components/schemas/_helper_schema_output_ref_type mode="get_additional_property_" fullRefModule="" endChar=":" key="str" }}
+{{> components/schemas/_helper_schema_output_ref_type mode="get_additional_property_" fullRefModule="" endChar=":" key="str" optional=true }}
             {{else}}
 
-{{> components/schemas/_helper_schema_output_type mode="get_additional_property_" fullRefModule=null endChar=":" key="str" }}
+{{> components/schemas/_helper_schema_output_type mode="get_additional_property_" fullRefModule=null endChar=":" key="str" optional=true }}
             {{/if}}
     schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
     val = self.get(name, schemas.unset)
