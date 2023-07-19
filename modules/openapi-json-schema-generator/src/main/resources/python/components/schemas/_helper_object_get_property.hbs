@@ -1,0 +1,22 @@
+{{#if required}}
+return typing.cast(
+{{#if refInfo.refClass}}
+    {{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="unprefixed" endChar="," }}
+{{else}}
+    {{> components/schemas/_helper_schema_output_type fullRefModule="" mode="unprefixed" endChar="," }}
+{{/if}}
+    self.__getitem__("{{{@key.original}}}")
+)
+{{else}}
+val = self.get("{{{@key.original}}}", schemas.unset)
+if isinstance(val, schemas.Unset):
+    return val
+return typing.cast(
+{{#if refInfo.refClass}}
+    {{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="unprefixed" endChar="," }}
+{{else}}
+    {{> components/schemas/_helper_schema_output_type fullRefModule="" mode="unprefixed" endChar="," }}
+{{/if}}
+    val
+)
+{{/if}}

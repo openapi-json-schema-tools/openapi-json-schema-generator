@@ -5,9 +5,9 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 from petstore_api import api_client, security_schemes
-from petstore_api.shared_imports.operation_imports import *
+from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 from .. import path
 from .responses import response_200
@@ -55,42 +55,48 @@ QueryParametersOptionalDictInput = typing_extensions.TypedDict(
 
 
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+        "required_int64_group",
+        "required_string_group",
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "int64_group",
+        "string_group",
+    })
     
     @property
     def required_int64_group(self) -> int:
-        return self.__getitem__("required_int64_group")
+        return typing.cast(
+            int,
+            self.__getitem__("required_int64_group")
+        )
     
     @property
     def required_string_group(self) -> str:
-        return self.__getitem__("required_string_group")
+        return typing.cast(
+            str,
+            self.__getitem__("required_string_group")
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["required_int64_group"]) -> int:
-        ...
+    @property
+    def int64_group(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("int64_group", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["required_string_group"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int64_group"]) -> int:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["string_group"]) -> str:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["required_int64_group"],
-            typing_extensions.Literal["required_string_group"],
-            typing_extensions.Literal["int64_group"],
-            typing_extensions.Literal["string_group"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def string_group(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("string_group", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)
@@ -102,7 +108,7 @@ class QueryParametersDictInput(QueryParametersRequiredDictInput, QueryParameters
 
 @dataclasses.dataclass(frozen=True)
 class QueryParameters(
-    schemas.DictSchema[QueryParametersDict]
+    schemas.Schema[QueryParametersDict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
@@ -129,7 +135,7 @@ class QueryParameters(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> QueryParametersDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -162,28 +168,29 @@ HeaderParametersOptionalDictInput = typing_extensions.TypedDict(
 
 
 class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+        "required_boolean_group",
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "boolean_group",
+    })
     
     @property
     def required_boolean_group(self) -> typing_extensions.Literal["true", "false"]:
-        return self.__getitem__("required_boolean_group")
+        return typing.cast(
+            typing_extensions.Literal["true", "false"],
+            self.__getitem__("required_boolean_group")
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["required_boolean_group"]) -> typing_extensions.Literal["true", "false"]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["boolean_group"]) -> typing_extensions.Literal["true", "false"]:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["required_boolean_group"],
-            typing_extensions.Literal["boolean_group"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def boolean_group(self) -> typing.Union[typing_extensions.Literal["true", "false"], schemas.Unset]:
+        val = self.get("boolean_group", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal["true", "false"],
+            val
+        )
 
     def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return HeaderParameters.validate(arg, configuration=configuration)
@@ -195,7 +202,7 @@ class HeaderParametersDictInput(HeaderParametersRequiredDictInput, HeaderParamet
 
 @dataclasses.dataclass(frozen=True)
 class HeaderParameters(
-    schemas.DictSchema[HeaderParametersDict]
+    schemas.Schema[HeaderParametersDict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
@@ -221,7 +228,7 @@ class HeaderParameters(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> HeaderParametersDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -251,6 +258,9 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
 _status_code_to_response: __StatusCodeToResponse = {
     '200': response_200.ResponseFor200,
 }
+_non_error_status_codes = frozenset({
+    '200',
+})
 
 
 class BaseApi(api_client.Api):
@@ -265,12 +275,13 @@ class BaseApi(api_client.Api):
             HeaderParametersDictInput,
             HeaderParametersDict
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> response_200.ApiResponse: ...
 
     @typing.overload
     def _group_parameters(
@@ -283,11 +294,12 @@ class BaseApi(api_client.Api):
             HeaderParametersDictInput,
             HeaderParametersDict
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     def _group_parameters(
@@ -300,11 +312,12 @@ class BaseApi(api_client.Api):
             HeaderParametersDictInput,
             HeaderParametersDict
         ],
+        *,
+        skip_deserialization: bool = False,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False
     ):
         """
         Fake endpoint to test group parameters (optional)
@@ -314,7 +327,7 @@ class BaseApi(api_client.Api):
         """
         query_params = QueryParameters.validate(query_params)
         header_params = HeaderParameters.validate(header_params)
-        used_path = self._get_used_path(
+        used_path, query_params_suffix = self._get_used_path(
             path,
             query_parameters=query_parameter_classes,
             query_params=query_params
@@ -326,16 +339,17 @@ class BaseApi(api_client.Api):
         )
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
-            'servers', server_index
+            "servers", server_index
         )
         security_requirement_object = self.api_client.configuration.get_security_requirement_object(
-            'paths/' + path + '/delete/security',
+            "paths//fake/delete/security",
             _security,
             security_index
         )
 
         raw_response = self.api_client.call_api(
             resource_path=used_path,
+            query_params_suffix=query_params_suffix,
             method='delete',
             host=host,
             headers=_headers,
@@ -345,23 +359,23 @@ class BaseApi(api_client.Api):
         )
 
         if skip_deserialization:
-            response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
-        else:
-            status = str(raw_response.status)
-            if status in _status_code_to_response:
-                status = typing.cast(
-                    typing_extensions.Literal[
+            skip_deser_response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
+            self._verify_response_status(skip_deser_response)
+            return skip_deser_response
+
+        status = str(raw_response.status)
+        if status in _non_error_status_codes:
+            status_code = typing.cast(
+                typing_extensions.Literal[
                     '200',
-                    ],
-                    status
-                )
-                response = _status_code_to_response[status].deserialize(
-                    raw_response, self.api_client.schema_configuration)
-            else:
-                response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
+                ],
+                status
+            )
+            return _status_code_to_response[status_code].deserialize(
+                raw_response, self.api_client.schema_configuration)
 
+        response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
         self._verify_response_status(response)
-
         return response
 
 

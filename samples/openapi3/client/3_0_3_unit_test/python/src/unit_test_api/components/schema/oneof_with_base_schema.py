@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from unit_test_api.shared_imports.schema_imports import *
+from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
 
@@ -48,13 +48,3 @@ class OneofWithBaseSchema(
     })
     one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
-    @classmethod
-    def validate(
-        cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> str:
-        return super().validate(
-            arg,
-            configuration=configuration,
-        )

@@ -4,6 +4,12 @@
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"{{packageName}}" = ["py.typed"]
+
 [project]
 name = "{{{projectName}}}"
 version = "{{packageVersion}}"
@@ -28,3 +34,6 @@ classifiers = [
 {{#if packageUrl}}"Homepage" = "{{{packageUrl}}}"{{/if}}
 {{#if infoUrl}}"Bug Tracker" = "{{{infoUrl}}}"{{/if}}
 {{/or}}
+
+[[tool.mypy.overrides]]
+module = '{{packageName}}'

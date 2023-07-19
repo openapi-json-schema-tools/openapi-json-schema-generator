@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 Id: typing_extensions.TypeAlias = schemas.Int64Schema
 Username: typing_extensions.TypeAlias = schemas.StrSchema
@@ -26,7 +26,7 @@ class ObjectWithNoDeclaredPropsNullable(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         schemas.immutabledict,
     })
 
@@ -41,19 +41,20 @@ class ObjectWithNoDeclaredPropsNullable(
     @classmethod
     def validate(
         cls,
-        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    ) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
+
 AnyTypeProp: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 _Not: typing_extensions.TypeAlias = schemas.NoneSchema
 
@@ -87,95 +88,173 @@ Properties = typing_extensions.TypedDict(
 
 
 class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "id",
+        "username",
+        "firstName",
+        "lastName",
+        "email",
+        "password",
+        "phone",
+        "userStatus",
+        "objectWithNoDeclaredProps",
+        "objectWithNoDeclaredPropsNullable",
+        "anyTypeProp",
+        "anyTypeExceptNullProp",
+        "anyTypePropNullable",
+    })
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["id"]) -> int:
-        ...
+    @property
+    def id(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("id", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["username"]) -> str:
-        ...
+    @property
+    def username(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("username", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["firstName"]) -> str:
-        ...
+    @property
+    def firstName(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("firstName", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["lastName"]) -> str:
-        ...
+    @property
+    def lastName(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("lastName", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["email"]) -> str:
-        ...
+    @property
+    def email(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("email", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["password"]) -> str:
-        ...
+    @property
+    def password(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("password", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["phone"]) -> str:
-        ...
+    @property
+    def phone(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("phone", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["userStatus"]) -> int:
-        ...
+    @property
+    def userStatus(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("userStatus", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["objectWithNoDeclaredProps"]) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
-        ...
+    @property
+    def objectWithNoDeclaredProps(self) -> typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset]:
+        val = self.get("objectWithNoDeclaredProps", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["objectWithNoDeclaredPropsNullable"]) -> typing.Union[
-        None,
-        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    @property
+    def objectWithNoDeclaredPropsNullable(self) -> typing.Union[
+        typing.Union[None, schemas.Unset],
+        typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset],
     ]:
-        ...
+        val = self.get("objectWithNoDeclaredPropsNullable", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[
+                None,
+                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            ],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["anyTypeProp"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def anyTypeProp(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        val = self.get("anyTypeProp", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["anyTypeExceptNullProp"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def anyTypeExceptNullProp(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        val = self.get("anyTypeExceptNullProp", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["anyTypePropNullable"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def anyTypePropNullable(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        val = self.get("anyTypePropNullable", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["id"],
-            typing_extensions.Literal["username"],
-            typing_extensions.Literal["firstName"],
-            typing_extensions.Literal["lastName"],
-            typing_extensions.Literal["email"],
-            typing_extensions.Literal["password"],
-            typing_extensions.Literal["phone"],
-            typing_extensions.Literal["userStatus"],
-            typing_extensions.Literal["objectWithNoDeclaredProps"],
-            typing_extensions.Literal["objectWithNoDeclaredPropsNullable"],
-            typing_extensions.Literal["anyTypeProp"],
-            typing_extensions.Literal["anyTypeExceptNullProp"],
-            typing_extensions.Literal["anyTypePropNullable"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: UserDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return User.validate(arg, configuration=configuration)
-UserDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+UserDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)
 class User(
-    schemas.DictSchema[UserDict]
+    schemas.Schema[UserDict, tuple]
 ):
     """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -202,7 +281,7 @@ class User(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> UserDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

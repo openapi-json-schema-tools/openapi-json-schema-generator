@@ -2,7 +2,7 @@
 types: typing.FrozenSet[typing.Type] = frozenset({
 {{#each types}}
 {{#eq this "null"}}
-    schemas.none_type_,
+    type(None),
 {{/eq}}
 {{#eq this "object"}}
     schemas.immutabledict,

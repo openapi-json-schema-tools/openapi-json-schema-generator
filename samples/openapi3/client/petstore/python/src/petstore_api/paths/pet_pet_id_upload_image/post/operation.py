@@ -5,9 +5,9 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 from petstore_api import api_client, security_schemes
-from petstore_api.shared_imports.operation_imports import *
+from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 from .. import path
 from .responses import response_200
@@ -29,23 +29,19 @@ Properties = typing_extensions.TypedDict(
 
 
 class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+        "petId",
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+    })
     
     @property
     def petId(self) -> int:
-        return self.__getitem__("petId")
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["petId"]) -> int:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["petId"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+        return typing.cast(
+            int,
+            self.__getitem__("petId")
+        )
 
     def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return PathParameters.validate(arg, configuration=configuration)
@@ -59,7 +55,7 @@ PathParametersDictInput = typing_extensions.TypedDict(
 
 @dataclasses.dataclass(frozen=True)
 class PathParameters(
-    schemas.DictSchema[PathParametersDict]
+    schemas.Schema[PathParametersDict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
@@ -85,7 +81,7 @@ class PathParameters(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> PathParametersDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -108,6 +104,9 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
 _status_code_to_response: __StatusCodeToResponse = {
     '200': response_200.ResponseFor200,
 }
+_non_error_status_codes = frozenset({
+    '200',
+})
 
 _all_accept_content_types = (
     "application/json",
@@ -127,14 +126,15 @@ class BaseApi(api_client.Api):
             request_body_multipart_form_data_schema.SchemaDict,
             schemas.Unset
         ] = schemas.unset,
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["multipart/form-data"] = "multipart/form-data",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> response_200.ApiResponse: ...
 
     @typing.overload
     def _upload_image(
@@ -148,13 +148,14 @@ class BaseApi(api_client.Api):
             request_body_multipart_form_data_schema.SchemaDict,
             schemas.Unset
         ] = schemas.unset,
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["multipart/form-data"] = "multipart/form-data",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     def _upload_image(
@@ -168,13 +169,14 @@ class BaseApi(api_client.Api):
             request_body_multipart_form_data_schema.SchemaDict,
             schemas.Unset
         ] = schemas.unset,
+        *,
+        skip_deserialization: bool = False,
         content_type: typing_extensions.Literal["multipart/form-data"] = "multipart/form-data",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False
     ):
         """
         uploads an image
@@ -183,7 +185,7 @@ class BaseApi(api_client.Api):
             class instances
         """
         path_params = PathParameters.validate(path_params)
-        used_path = self._get_used_path(
+        used_path, query_params_suffix = self._get_used_path(
             path,
             path_parameters=path_parameter_classes,
             path_params=path_params
@@ -198,10 +200,10 @@ class BaseApi(api_client.Api):
             content_type=content_type
         )
         host = self.api_client.configuration.get_server_url(
-            'servers', server_index
+            "servers", server_index
         )
         security_requirement_object = self.api_client.configuration.get_security_requirement_object(
-            'paths/' + path + '/post/security',
+            "paths//pet/{petId}/uploadImage/post/security",
             _security,
             security_index
         )
@@ -219,23 +221,23 @@ class BaseApi(api_client.Api):
         )
 
         if skip_deserialization:
-            response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
-        else:
-            status = str(raw_response.status)
-            if status in _status_code_to_response:
-                status = typing.cast(
-                    typing_extensions.Literal[
+            skip_deser_response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
+            self._verify_response_status(skip_deser_response)
+            return skip_deser_response
+
+        status = str(raw_response.status)
+        if status in _non_error_status_codes:
+            status_code = typing.cast(
+                typing_extensions.Literal[
                     '200',
-                    ],
-                    status
-                )
-                response = _status_code_to_response[status].deserialize(
-                    raw_response, self.api_client.schema_configuration)
-            else:
-                response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
+                ],
+                status
+            )
+            return _status_code_to_response[status_code].deserialize(
+                raw_response, self.api_client.schema_configuration)
 
+        response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
         self._verify_response_status(response)
-
         return response
 
 

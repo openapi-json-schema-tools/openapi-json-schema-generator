@@ -331,6 +331,7 @@ Class | Description
 [ObjectWithDifficultlyNamedProps](docs/components/schema/object_with_difficultly_named_props.md) | model with properties that have invalid names for python
 [ObjectWithInlineCompositionProperty](docs/components/schema/object_with_inline_composition_property.md) |
 [ObjectWithInvalidNamedRefedProperties](docs/components/schema/object_with_invalid_named_refed_properties.md) |
+[ObjectWithNonIntersectingValues](docs/components/schema/object_with_non_intersecting_values.md) |
 [ObjectWithOnlyOptionalProps](docs/components/schema/object_with_only_optional_props.md) |
 [ObjectWithOptionalTestProp](docs/components/schema/object_with_optional_test_prop.md) |
 [ObjectWithValidations](docs/components/schema/object_with_validations.md) |

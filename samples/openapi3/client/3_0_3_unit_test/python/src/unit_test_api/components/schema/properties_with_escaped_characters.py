@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from unit_test_api.shared_imports.schema_imports import *
+from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 FooNbar: typing_extensions.TypeAlias = schemas.NumberSchema
 FooBar: typing_extensions.TypeAlias = schemas.NumberSchema
@@ -29,53 +29,26 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class PropertiesWithEscapedCharactersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class PropertiesWithEscapedCharactersDict(schemas.immutabledict[str, typing.Union[int, float]]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "foo\nbar",
+        "foo\"bar",
+        "foo\\bar",
+        "foo\rbar",
+        "foo\tbar",
+        "foo\fbar",
+    })
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\nbar"]) -> typing.Union[float, int]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\"bar"]) -> typing.Union[float, int]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\\bar"]) -> typing.Union[float, int]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\rbar"]) -> typing.Union[float, int]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\tbar"]) -> typing.Union[float, int]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\fbar"]) -> typing.Union[float, int]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["foo\nbar"],
-            typing_extensions.Literal["foo\"bar"],
-            typing_extensions.Literal["foo\\bar"],
-            typing_extensions.Literal["foo\rbar"],
-            typing_extensions.Literal["foo\tbar"],
-            typing_extensions.Literal["foo\fbar"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: PropertiesWithEscapedCharactersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return PropertiesWithEscapedCharacters.validate(arg, configuration=configuration)
-PropertiesWithEscapedCharactersDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+PropertiesWithEscapedCharactersDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

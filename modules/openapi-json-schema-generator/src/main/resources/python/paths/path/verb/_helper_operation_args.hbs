@@ -1,6 +1,17 @@
     self,
     {{> paths/path/verb/_helper_operation_args_required }}
     {{> paths/path/verb/_helper_operation_args_optional }}
+    *,
+{{#if isOverload}}
+    {{#eq skipDeserialization true}}
+    skip_deserialization: typing_extensions.Literal[True],
+    {{/eq}}
+    {{#eq skipDeserialization false}}
+    skip_deserialization: typing_extensions.Literal[False] = False,
+    {{/eq}}
+{{else}}
+    skip_deserialization: bool = False,
+{{/if}}
 {{#if requestBody}}
     {{#with requestBody}}
         {{#if refInfo}}
@@ -45,16 +56,6 @@
     server_index: typing.Optional[int] = None,
     stream: bool = False,
     timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-{{#if isOverload}}
-    {{#eq skipDeserialization true}}
-    skip_deserialization: typing_extensions.Literal[True] = ...
-    {{/eq}}
-    {{#eq skipDeserialization false}}
-    skip_deserialization: typing_extensions.Literal[False] = False
-    {{/eq}}
-{{else}}
-    skip_deserialization: bool = False
-{{/if}}
 {{#eq skipDeserialization true}}
 ) -> api_response.ApiResponseWithoutDeserialization: ...
 {{/eq}}

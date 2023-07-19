@@ -8,6 +8,6 @@
 """
 
 
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 from petstore_api.components.schema import json_patch_request
 Schema: typing_extensions.TypeAlias = json_patch_request.JSONPatchRequest

@@ -12,8 +12,7 @@
 
 import unittest
 
-import immutabledict
-
+from petstore_api import schemas
 from petstore_api.components.schema.equilateral_triangle import EquilateralTriangle
 from petstore_api.components.schema.isosceles_triangle import IsoscelesTriangle
 from petstore_api.components.schema.scalene_triangle import ScaleneTriangle
@@ -28,7 +27,7 @@ class TestTriangle(unittest.TestCase):
         tri_classes = [EquilateralTriangle, IsoscelesTriangle, ScaleneTriangle]
         for tri_class in tri_classes:
             tri = Triangle.validate({'shapeType': "Triangle", 'triangleType': tri_class.__name__})
-            assert isinstance(tri, immutabledict.immutabledict)
+            assert isinstance(tri, schemas.immutabledict)
 
 
 if __name__ == '__main__':

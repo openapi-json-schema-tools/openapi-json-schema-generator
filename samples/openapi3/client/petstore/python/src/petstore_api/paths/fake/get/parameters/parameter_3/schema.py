@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
 
@@ -29,7 +29,7 @@ class SchemaEnums:
 
 @dataclasses.dataclass(frozen=True)
 class Schema(
-    schemas.StrSchema
+    schemas.Schema[schemas.immutabledict, str]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -82,7 +82,7 @@ class Schema(
         "-efg",
         "(xyz)",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )

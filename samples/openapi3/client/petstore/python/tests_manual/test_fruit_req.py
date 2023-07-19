@@ -13,12 +13,8 @@
 import unittest
 
 import petstore_api
-from petstore_api.components.schema import apple_req
-from petstore_api.components.schema import banana_req
 from petstore_api.components.schema import fruit_req
 from petstore_api import schemas
-
-import immutabledict
 
 
 class TestFruitReq(unittest.TestCase):
@@ -38,7 +34,7 @@ class TestFruitReq(unittest.TestCase):
         length_cm = 20.3
         fruit = fruit_req.FruitReq.validate({'lengthCm': length_cm})
         # check its properties
-        assert isinstance(fruit, immutabledict.immutabledict)
+        assert isinstance(fruit, schemas.immutabledict)
         self.assertEqual(fruit['lengthCm'], length_cm)
         # check the dict representation
         self.assertEqual(
@@ -84,7 +80,7 @@ class TestFruitReq(unittest.TestCase):
         cultivar = 'golden delicious'
         fruit = fruit_req.FruitReq.validate({'cultivar': cultivar})
         # check its properties
-        assert isinstance(fruit, immutabledict.immutabledict)
+        assert isinstance(fruit, schemas.immutabledict)
         self.assertEqual(fruit['cultivar'], cultivar)
         # check the dict representation
         self.assertEqual(

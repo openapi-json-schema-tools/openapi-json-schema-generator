@@ -8,6 +8,6 @@
 """
 
 
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 from petstore_api.components.schema import object_model_with_ref_props
 Schema: typing_extensions.TypeAlias = object_model_with_ref_props.ObjectModelWithRefProps

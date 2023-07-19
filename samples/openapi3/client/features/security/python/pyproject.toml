@@ -4,6 +4,12 @@
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"this_package" = ["py.typed"]
+
 [project]
 name = "this-package"
 version = "1.0.0"
@@ -18,6 +24,8 @@ dependencies = [
     "immutabledict ~= 2.2.4",
     "python-dateutil ~= 2.7.0",
     "setuptools >= 61.0",
+    "types-python-dateutil",
+    "types-urllib3",
     "typing_extensions ~= 4.5.0",
     "urllib3 ~= 2.0.a3",
 ]
@@ -28,3 +36,6 @@ classifiers = [
     "Topic :: Software Development :: Code Generators"
 ]
 
+
+[[tool.mypy.overrides]]
+module = 'this_package'

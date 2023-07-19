@@ -8,24 +8,24 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
 
 class SchemaEnums:
 
     @schemas.classproperty
-    def POSITIVE_1_PT_1(cls) -> typing.Union[float, int]:
+    def POSITIVE_1_PT_1(cls) -> typing.Union[int, float]:
         return Schema.validate(1.1)
 
     @schemas.classproperty
-    def NEGATIVE_1_PT_2(cls) -> typing.Union[float, int]:
+    def NEGATIVE_1_PT_2(cls) -> typing.Union[int, float]:
         return Schema.validate(-1.2)
 
 
 @dataclasses.dataclass(frozen=True)
 class Schema(
-    schemas.Float64Schema
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         float,
@@ -45,8 +45,8 @@ class Schema(
         cls,
         arg: typing.Union[int, float],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Union[float, int]:
-        validated_arg = super().validate(
+    ) -> typing.Union[int, float]:
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )

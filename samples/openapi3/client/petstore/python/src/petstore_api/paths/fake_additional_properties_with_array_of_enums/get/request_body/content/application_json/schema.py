@@ -8,6 +8,6 @@
 """
 
 
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 from petstore_api.components.schema import additional_properties_with_array_of_enums
 Schema: typing_extensions.TypeAlias = additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums

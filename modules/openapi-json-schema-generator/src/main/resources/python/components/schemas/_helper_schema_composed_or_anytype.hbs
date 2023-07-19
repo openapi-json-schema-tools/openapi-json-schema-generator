@@ -62,4 +62,24 @@ class {{jsonPathPiece.camelCase}}(
     )
 {{/or}}
 
+{{#neq types null}}
+    {{#eq types.size 1}}
+        {{#contains types "array"}}
     {{> components/schemas/_helper_validate }}
+
+        {{else}}
+            {{#contains types "object" }}
+    {{> components/schemas/_helper_validate }}
+
+            {{else}}
+                {{#if enumInfo}}
+    {{> components/schemas/_helper_validate }}
+
+                {{/if}}
+            {{/contains}}
+        {{/contains}}
+    {{else}}
+    {{> components/schemas/_helper_validate }}
+
+    {{/eq}}
+{{/neq}}

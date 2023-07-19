@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
 
@@ -22,7 +22,7 @@ class NullableString(
     Do not edit the class manually.
     """
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         str,
     })
 
@@ -46,7 +46,8 @@ class NullableString(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
+

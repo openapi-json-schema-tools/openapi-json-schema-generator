@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 _0: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 AllOf = typing.Tuple[
@@ -31,13 +31,3 @@ class ComposedNumber(
     })
     all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
-    @classmethod
-    def validate(
-        cls,
-        arg: typing.Union[int, float],
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Union[float, int]:
-        return super().validate(
-            arg,
-            configuration=configuration,
-        )

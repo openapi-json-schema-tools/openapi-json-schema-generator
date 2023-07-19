@@ -5,7 +5,7 @@
 """
 
 from petstore_api import api_client
-from petstore_api.shared_imports.operation_imports import *
+from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 from .. import path
 from .responses import (
@@ -33,36 +33,45 @@ __RangedStatusCodeToResponse = typing_extensions.TypedDict(
 _ranged_status_code_to_response: __RangedStatusCodeToResponse = {
     '3': response_3xx.ResponseFor3XX,
 }
+_non_error_status_codes = frozenset({
+    '303',
+})
+_non_error_ranged_status_codes = frozenset({
+    '3',
+})
 
 
 class BaseApi(api_client.Api):
     @typing.overload
     def _redirection(
         self,
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False
     ) -> typing.Union[
-        response_3xx.ResponseFor3XX.response_cls,
-        response_303.ResponseFor303.response_cls,
+        response_3xx.ApiResponse,
+        response_303.ApiResponse,
     ]: ...
 
     @typing.overload
     def _redirection(
         self,
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     def _redirection(
         self,
+        *,
+        skip_deserialization: bool = False,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False
     ):
         """
         operation with redirection responses
@@ -73,7 +82,7 @@ class BaseApi(api_client.Api):
         used_path = path
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
-            'servers', server_index
+            "servers", server_index
         )
 
         raw_response = self.api_client.call_api(
@@ -85,30 +94,34 @@ class BaseApi(api_client.Api):
         )
 
         if skip_deserialization:
-            response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
-        else:
-            status = str(raw_response.status)
-            ranged_response_status_code = status[0]
-            if status in _status_code_to_response:
-                status = typing.cast(
-                    typing_extensions.Literal[
+            skip_deser_response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
+            self._verify_response_status(skip_deser_response)
+            return skip_deser_response
+
+        status = str(raw_response.status)
+        if status in _non_error_status_codes:
+            status_code = typing.cast(
+                typing_extensions.Literal[
                     '303',
-                    ],
-                    status
-                )
-                response = _status_code_to_response[status].deserialize(
-                    raw_response, self.api_client.schema_configuration)
-            elif ranged_response_status_code in _ranged_status_code_to_response:
-                ranged_response_status_code: typing_extensions.Literal[
+                ],
+                status
+            )
+            return _status_code_to_response[status_code].deserialize(
+                raw_response, self.api_client.schema_configuration)
+
+        ranged_response_status_code = str(raw_response.status)[0]
+        if ranged_response_status_code in _non_error_ranged_status_codes:
+            ranged_status_code = typing.cast(
+                typing_extensions.Literal[
                     '3',
-                ]
-                response = _ranged_status_code_to_response[ranged_response_status_code].deserialize(
-                    raw_response, self.api_client.schema_configuration)
-            else:
-                response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
+                ],
+                ranged_response_status_code
+            )
+            return _ranged_status_code_to_response[ranged_status_code].deserialize(
+                raw_response, self.api_client.schema_configuration)
 
+        response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
         self._verify_response_status(response)
-
         return response
 
 

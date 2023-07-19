@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from unit_test_api.shared_imports.schema_imports import *
+from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
 from unit_test_api.components.schema import property_named_ref_that_is_not_a_reference
@@ -21,27 +21,29 @@ Properties = typing_extensions.TypedDict(
 
 
 class RefInPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "a",
+    })
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["a"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def a(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        val = self.get("a", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["a"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: RefInPropertyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return RefInProperty.validate(arg, configuration=configuration)
-RefInPropertyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+RefInPropertyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

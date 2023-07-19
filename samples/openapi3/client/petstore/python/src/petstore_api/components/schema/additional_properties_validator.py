@@ -8,25 +8,36 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 
 
 class _0Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+    })
     
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
 
     def __new__(cls, arg: _0DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _0.validate(arg, configuration=configuration)
-_0DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+_0DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)
 class _0(
-    schemas.DictSchema[_0Dict]
+    schemas.Schema[_0Dict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
@@ -48,7 +59,7 @@ class _0(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> _0Dict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -65,10 +76,21 @@ class AdditionalProperties2(
 
 
 class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+    })
     
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
 
     def __new__(cls, arg: _1DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _1.validate(arg, configuration=configuration)
@@ -96,7 +118,7 @@ _1DictInput = typing.Mapping[
 
 @dataclasses.dataclass(frozen=True)
 class _1(
-    schemas.DictSchema[_1Dict]
+    schemas.Schema[_1Dict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
@@ -118,7 +140,7 @@ class _1(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> _1Dict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -135,10 +157,21 @@ class AdditionalProperties3(
 
 
 class _2Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+    })
     
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
 
     def __new__(cls, arg: _2DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _2.validate(arg, configuration=configuration)
@@ -166,7 +199,7 @@ _2DictInput = typing.Mapping[
 
 @dataclasses.dataclass(frozen=True)
 class _2(
-    schemas.DictSchema[_2Dict]
+    schemas.Schema[_2Dict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     additional_properties: typing.Type[AdditionalProperties3] = dataclasses.field(default_factory=lambda: AdditionalProperties3) # type: ignore
@@ -188,7 +221,7 @@ class _2(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> _2Dict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -202,7 +235,7 @@ AllOf = typing.Tuple[
 
 @dataclasses.dataclass(frozen=True)
 class AdditionalPropertiesValidator(
-    schemas.DictSchema[schemas.immutabledict]
+    schemas.Schema[schemas.immutabledict, tuple]
 ):
     """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -217,10 +250,11 @@ class AdditionalPropertiesValidator(
     @classmethod
     def validate(
         cls,
-        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]:
-        return super().validate(
+    ) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
+

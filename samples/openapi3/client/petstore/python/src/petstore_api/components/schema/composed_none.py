@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 _0: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 AllOf = typing.Tuple[
@@ -26,17 +26,7 @@ class ComposedNone(
     Do not edit the class manually.
     """
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
     })
     all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
-    @classmethod
-    def validate(
-        cls,
-        arg: None,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> None:
-        return super().validate(
-            arg,
-            configuration=configuration,
-        )

@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from unit_test_api.shared_imports.schema_imports import *
+from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 _0: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 _1: typing_extensions.TypeAlias = schemas.NumberSchema

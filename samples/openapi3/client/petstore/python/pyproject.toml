@@ -4,6 +4,12 @@
 requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"petstore_api" = ["py.typed"]
+
 [project]
 name = "petstore-api"
 version = "1.0.0"
@@ -20,6 +26,8 @@ dependencies = [
     "pycryptodome >= 3.9.0",
     "python-dateutil ~= 2.7.0",
     "setuptools >= 61.0",
+    "types-python-dateutil",
+    "types-urllib3",
     "typing_extensions ~= 4.5.0",
     "urllib3 ~= 2.0.a3",
 ]
@@ -30,3 +38,6 @@ classifiers = [
     "Topic :: Software Development :: Code Generators"
 ]
 
+
+[[tool.mypy.overrides]]
+module = 'petstore_api'

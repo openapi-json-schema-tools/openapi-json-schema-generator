@@ -10,7 +10,7 @@
 {{> _helper_imports }}
 {{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 {{else}}
-from {{packageName}}.shared_imports.header_imports import *
+from {{packageName}}.shared_imports.header_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
     {{#each content}}
         {{#with schema}}
@@ -29,15 +29,7 @@ class {{jsonPathPiece.camelCase}}(api_client.RequestBody):
             {{/with}}
         {{/with}}
     {{/each}}
-    Content = typing_extensions.TypedDict(
-        'Content',
-        {
-    {{#each content}}
-            '{{{@key.original}}}': typing.Type[{{@key.camelCase}}MediaType],
-    {{/each}}
-        }
-    )
-    content: Content = {
+    content = {
     {{#each content}}
         '{{{@key.original}}}': {{@key.camelCase}}MediaType,
     {{/each}}

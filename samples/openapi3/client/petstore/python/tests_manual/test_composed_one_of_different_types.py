@@ -14,8 +14,6 @@ import unittest
 from datetime import date, datetime, timezone
 from dateutil.tz import tzutc
 
-import immutabledict
-
 from petstore_api import schemas
 from petstore_api.components.schema.animal import Animal
 from petstore_api.components.schema.cat import Cat
@@ -39,11 +37,11 @@ class TestComposedOneOfDifferentTypes(unittest.TestCase):
 
         # we can make an instance that stores object (dict) data
         inst = composed_one_of_different_types.ComposedOneOfDifferentTypes.validate({'className': "Cat", 'color': "black"})
-        assert isinstance(inst, immutabledict.immutabledict)
+        assert isinstance(inst, schemas.immutabledict)
 
         # object that holds 4 properties and is not an Animal
         inst = composed_one_of_different_types.ComposedOneOfDifferentTypes.validate({'a': "a", 'b': "b", 'c': "c", 'd': "d"})
-        assert isinstance(inst, immutabledict.immutabledict)
+        assert isinstance(inst, schemas.immutabledict)
 
         # None
         inst = composed_one_of_different_types.ComposedOneOfDifferentTypes.validate(None)

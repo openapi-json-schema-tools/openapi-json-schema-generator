@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
 
@@ -25,7 +25,7 @@ class JustSymbolEnums:
 
 @dataclasses.dataclass(frozen=True)
 class JustSymbol(
-    schemas.StrSchema
+    schemas.Schema[schemas.immutabledict, str]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -68,7 +68,7 @@ class JustSymbol(
         ">=",
         "$",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -93,7 +93,7 @@ class ItemsEnums:
 
 @dataclasses.dataclass(frozen=True)
 class Items(
-    schemas.StrSchema
+    schemas.Schema[schemas.immutabledict, str]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -136,7 +136,7 @@ class Items(
         "fish",
         "crab",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -148,20 +148,29 @@ class Items(
         )
 
 
-class ArrayEnumTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> typing_extensions.Literal["fish", "crab"]:
-        return super().__getitem__(name)
+class ArrayEnumTuple(
+    typing.Tuple[
+        typing_extensions.Literal["fish", "crab"],
+        ...
+    ]
+):
 
     def __new__(cls, arg: ArrayEnumTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayEnum.validate(arg, configuration=configuration)
-ArrayEnumTupleInput = typing.Sequence[
-    str,
+ArrayEnumTupleInput = typing.Union[
+    typing.List[
+        str,
+    ],
+    typing.Tuple[
+        str,
+        ...
+    ]
 ]
 
 
 @dataclasses.dataclass(frozen=True)
 class ArrayEnum(
-    schemas.ListSchema[ArrayEnumTuple]
+    schemas.Schema[schemas.immutabledict, ArrayEnumTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
@@ -183,7 +192,7 @@ class ArrayEnum(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayEnumTuple:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -197,37 +206,46 @@ Properties = typing_extensions.TypedDict(
 
 
 class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "just_symbol",
+        "array_enum",
+    })
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["just_symbol"]) -> typing_extensions.Literal[">=", "$"]:
-        ...
+    @property
+    def just_symbol(self) -> typing.Union[typing_extensions.Literal[">=", "$"], schemas.Unset]:
+        val = self.get("just_symbol", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal[">=", "$"],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_enum"]) -> ArrayEnumTuple:
-        ...
+    @property
+    def array_enum(self) -> typing.Union[ArrayEnumTuple, schemas.Unset]:
+        val = self.get("array_enum", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            ArrayEnumTuple,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["just_symbol"],
-            typing_extensions.Literal["array_enum"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: EnumArraysDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return EnumArrays.validate(arg, configuration=configuration)
-EnumArraysDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+EnumArraysDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)
 class EnumArrays(
-    schemas.DictSchema[EnumArraysDict]
+    schemas.Schema[EnumArraysDict, tuple]
 ):
     """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -254,7 +272,7 @@ class EnumArrays(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> EnumArraysDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

@@ -190,7 +190,7 @@ class ApiConfiguration(object):
         self.security_scheme_info: SecuritySchemeInfo = security_scheme_info or SecuritySchemeInfo()
         self.security_index_info: SecurityIndexInfo = security_index_info or {'security': 0}
 {{else}}
-        self.security_scheme_info: {}
+        self.security_scheme_info = {}
         self.security_index_info = {'security': 0}
 {{/if}}
         # Server Info
@@ -407,7 +407,21 @@ class ApiConfiguration(object):
 
     def get_server_url(
         self,
-        key_prefix: str,
+        key_prefix: typing_extensions.Literal[
+            "servers",
+{{#each paths}}
+    {{#if servers}}
+            "paths/{{@key.original}}/servers",
+    {{/if}}
+    {{#if operations}}
+        {{#each operations}}
+            {{#if servers}}
+            "paths/{{../@key.original}}/{{@key.original}}/servers",
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/each}}
+        ],
         index: typing.Optional[int],
     ) -> str:
         """Gets host URL based on the index
@@ -422,13 +436,51 @@ class ApiConfiguration(object):
             except KeyError:
                 # fallback and use the default index
                 used_index = self.server_index_info.get("servers", 0)
-        server = self.server_info[f"{key_prefix}/{used_index}"]
+        server_info_key = typing.cast(
+            typing_extensions.Literal[
+{{#each servers}}
+                "servers/{{@key}}",
+{{/each}}
+{{#each paths}}
+    {{#if servers}}
+        {{#each servers}}
+                "paths/{{../@key.original}}/servers/{{@key}}",
+        {{/each}}
+    {{/if}}
+    {{#if operations}}
+        {{#each operations}}
+            {{#if servers}}
+                {{#each servers}}
+                "paths/{{../../@key.original}}/{{../@key.original}}/servers/{{@key}}",
+                {{/each}}
+            {{/if}}
+        {{/each}}
+    {{/if}}
+{{/each}}
+            ],
+            f"{key_prefix}/{used_index}"
+        )
+        try:
+            server = self.server_info[server_info_key]
+        except KeyError as ex:
+            raise ex
         return server.url
 {{#if securitySchemes}}
 
     def get_security_requirement_object(
         self,
-        key_prefix: str,
+        key_prefix: typing_extensions.Literal[
+            "security",
+    {{#each paths}}
+        {{#if operations}}
+            {{#each operations}}
+                {{#if security}}
+            "paths/{{../@key.original}}/{{@key.original}}/security",
+                {{/if}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+        ],
         security_requirement_objects: typing.List[security_schemes.SecurityRequirementObject],
         index: typing.Optional[int],
     ) -> security_schemes.SecurityRequirementObject:

@@ -10,9 +10,9 @@
 """
 import unittest
 
+from petstore_api import schemas
 from petstore_api.components.schema import quadrilateral
 
-import immutabledict
 
 class TestQuadrilateral(unittest.TestCase):
     """Quadrilateral unit test stubs"""
@@ -26,7 +26,7 @@ class TestQuadrilateral(unittest.TestCase):
     def testQuadrilateral(self):
         """Test Quadrilateral"""
         instance = quadrilateral.Quadrilateral.validate({'shapeType': "Quadrilateral", 'quadrilateralType': "ComplexQuadrilateral"})
-        assert isinstance(instance, immutabledict.immutabledict)
+        assert isinstance(instance, schemas.immutabledict)
 
 
 if __name__ == '__main__':

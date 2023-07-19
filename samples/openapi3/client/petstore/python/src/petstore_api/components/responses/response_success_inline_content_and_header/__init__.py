@@ -5,8 +5,8 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
-from petstore_api.shared_imports.response_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
+from petstore_api.shared_imports.response_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 from .content.application_json import schema as application_json_schema
 from .headers import header_some_header
@@ -26,19 +26,22 @@ Properties = typing_extensions.TypedDict(
 
 
 class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "someHeader",
+    })
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["someHeader"]) -> str:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["someHeader"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def someHeader(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("someHeader", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
 
     def __new__(cls, arg: HeadersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Headers.validate(arg, configuration=configuration)
@@ -53,7 +56,7 @@ HeadersDictInput = typing_extensions.TypedDict(
 
 @dataclasses.dataclass(frozen=True)
 class Headers(
-    schemas.DictSchema[HeadersDict]
+    schemas.Schema[HeadersDict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
@@ -76,7 +79,7 @@ class Headers(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> HeadersDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -84,25 +87,21 @@ class Headers(
 
 
 @dataclasses.dataclass
-class ApiSuccessInlineContentAndHeader(api_response.ApiResponse):
+class ApiResponse(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     body: application_json_schema.SchemaDict
     headers: HeadersDict
 
 
-class SuccessInlineContentAndHeader(api_client.OpenApiResponse[ApiSuccessInlineContentAndHeader]):
-    response_cls = ApiSuccessInlineContentAndHeader
+class SuccessInlineContentAndHeader(api_client.OpenApiResponse[ApiResponse]):
+    @classmethod
+    def get_response(cls, response, headers, body) -> ApiResponse:
+        return ApiResponse(response=response, body=body, headers=headers)
 
 
     class ApplicationJsonMediaType(api_client.MediaType):
         schema: typing_extensions.TypeAlias = application_json_schema.Schema
-    Content = typing_extensions.TypedDict(
-        'Content',
-        {
-            'application/json': typing.Type[ApplicationJsonMediaType],
-        }
-    )
-    content: Content = {
+    content = {
         'application/json': ApplicationJsonMediaType,
     }
     headers=parameters

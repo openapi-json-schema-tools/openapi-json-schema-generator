@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
 from petstore_api.components.schema import fruit
@@ -17,36 +17,61 @@ from petstore_api.components.schema import shape
 from petstore_api.components.schema import shape_or_null
 
 
-class ShapesTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> schemas.OUTPUT_BASE_TYPES:
-        return super().__getitem__(name)
+class ShapesTuple(
+    typing.Tuple[
+        schemas.OUTPUT_BASE_TYPES,
+        ...
+    ]
+):
 
     def __new__(cls, arg: ShapesTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Shapes.validate(arg, configuration=configuration)
-ShapesTupleInput = typing.Sequence[
-    typing.Union[
-        dict,
-        schemas.immutabledict,
-        str,
-        datetime.date,
-        datetime.datetime,
-        uuid.UUID,
-        int,
-        float,
-        bool,
-        None,
-        list,
-        tuple,
-        bytes,
-        io.FileIO,
-        io.BufferedReader
+ShapesTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            dict,
+            schemas.immutabledict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            dict,
+            schemas.immutabledict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        ...
+    ]
 ]
 
 
 @dataclasses.dataclass(frozen=True)
 class Shapes(
-    schemas.ListSchema[ShapesTuple]
+    schemas.Schema[schemas.immutabledict, ShapesTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[shape.Shape] = dataclasses.field(default_factory=lambda: shape.Shape) # type: ignore
@@ -68,7 +93,7 @@ class Shapes(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ShapesTuple:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -83,40 +108,66 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class DrawingDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class DrawingDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TYPES]]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "mainShape",
+        "shapeOrNull",
+        "nullableShape",
+        "shapes",
+    })
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["mainShape"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def mainShape(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        val = self.get("mainShape", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shapeOrNull"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def shapeOrNull(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        val = self.get("shapeOrNull", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["nullableShape"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def nullableShape(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        val = self.get("nullableShape", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shapes"]) -> ShapesTuple:
-        ...
+    @property
+    def shapes(self) -> typing.Union[ShapesTuple, schemas.Unset]:
+        val = self.get("shapes", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            ShapesTuple,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["mainShape"],
-            typing_extensions.Literal["shapeOrNull"],
-            typing_extensions.Literal["nullableShape"],
-            typing_extensions.Literal["shapes"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
 
     def __new__(cls, arg: DrawingDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Drawing.validate(arg, configuration=configuration)
@@ -202,7 +253,7 @@ DrawingDictInput = typing.Mapping[
 
 @dataclasses.dataclass(frozen=True)
 class Drawing(
-    schemas.DictSchema[DrawingDict]
+    schemas.Schema[DrawingDict, tuple]
 ):
     """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -230,7 +281,7 @@ class Drawing(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> DrawingDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

@@ -35,11 +35,11 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 | Type/Alias | Instantiated By |
 | ---------- | --------------- |
 |array|tuple|
-|boolean|schemas.BoolClass|
-|integer|decimal.Decimal|
-|null|schemas.NoneClass|
-|number|decimal.Decimal|
-|object|frozendict.frozendict|
+|boolean|bool|
+|integer|int|
+|null|None|
+|number|typing.Union[float, int]|
+|object|immutabledict.immutabledict|
 |string|str|
 
 
@@ -85,9 +85,9 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 <li>float</li>
 <li>for</li>
 <li>from</li>
-<li>frozendict</li>
 <li>global</li>
 <li>if</li>
+<li>immutabledict</li>
 <li>import</li>
 <li>in</li>
 <li>int</li>

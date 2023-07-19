@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 _Class: typing_extensions.TypeAlias = schemas.StrSchema
 Properties = typing_extensions.TypedDict(
@@ -19,28 +19,31 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class ClassModelDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ClassModelDict(schemas.immutabledict[str, str]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "_class",
+    })
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["_class"]) -> str:
-        ...
+    @property
+    def _class(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("_class", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["_class"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: ClassModelDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ClassModel.validate(arg, configuration=configuration)
-ClassModelDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+ClassModelDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

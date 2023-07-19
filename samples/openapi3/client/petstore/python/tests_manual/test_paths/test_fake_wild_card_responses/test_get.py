@@ -10,8 +10,6 @@ import unittest
 from unittest.mock import patch
 
 import urllib3
-import typing_extensions
-import immutabledict
 
 from petstore_api.paths.fake_wild_card_responses.get import operation as get  # noqa: E501
 from petstore_api import schemas, api_client
@@ -49,9 +47,9 @@ class TestGet(ApiTestMixin, unittest.TestCase):
             accept_content_type='application/json',
         )
 
-        assert isinstance(api_response, get.response_200.ResponseFor200.response_cls)
+        assert isinstance(api_response, get.response_200.ApiResponse)
         assert isinstance(api_response.response, urllib3.HTTPResponse)
-        assert isinstance(api_response.body, immutabledict.immutabledict)
+        assert isinstance(api_response.body, schemas.immutabledict)
         assert isinstance(api_response.headers, schemas.Unset)
         assert api_response.response.status == 200
 
@@ -71,9 +69,9 @@ class TestGet(ApiTestMixin, unittest.TestCase):
             accept_content_type='application/json',
         )
 
-        assert isinstance(api_response, get.response_2xx.ResponseFor2XX.response_cls)
+        assert isinstance(api_response, get.response_2xx.ApiResponse)
         assert isinstance(api_response.response, urllib3.HTTPResponse)
-        assert isinstance(api_response.body, immutabledict.immutabledict)
+        assert isinstance(api_response.body, schemas.immutabledict)
         assert isinstance(api_response.headers, schemas.Unset)
         assert api_response.response.status == 202
 

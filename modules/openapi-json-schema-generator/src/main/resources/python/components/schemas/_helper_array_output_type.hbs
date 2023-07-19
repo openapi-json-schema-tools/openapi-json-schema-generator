@@ -1,13 +1,21 @@
 
 
-class {{arrayOutputJsonPathPiece.camelCase}}(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-{{#with items}}
-    {{#if refInfo.refClass}}
-    {{> components/schemas/_helper_schema_output_ref_type literal=false key="int" fullRefModule="" mode="getitem" endChar=":" }}
-    {{else}}
-    {{> components/schemas/_helper_schema_output_type literal=false key="int" mode="getitem" fullRefModule=null endChar=":" }}
-    {{/if}}
-        return super().__getitem__(name)
-{{/with}}
+class {{arrayOutputJsonPathPiece.camelCase}}(
+    typing.Tuple[
+        {{#with items}}
+            {{#if refInfo.refClass}}
+                {{#eq refModule null}}
+                    {{! self reference }}
+        {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," selfReference=true }}
+                {{else}}
+        {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," }}
+                {{/eq}}
+            {{else}}
+        {{> components/schemas/_helper_schema_output_type mode="unprefixed" fullRefModule="" endChar="," }}
+            {{/if}}
+        {{/with}}
+        ...
+    ]
+):
 
     {{> components/schemas/_helper_new }}

@@ -42,7 +42,7 @@ class TestGet(ApiTestMixin, unittest.TestCase):
             accept_content_type=None,
         )
 
-        assert isinstance(api_response, get.response_303.ResponseFor303.response_cls)
+        assert isinstance(api_response, get.response_303.ApiResponse)
         assert isinstance(api_response.response, urllib3.HTTPResponse)
         assert isinstance(api_response.body, schemas.Unset)
         assert isinstance(api_response.headers, schemas.Unset)
@@ -62,7 +62,7 @@ class TestGet(ApiTestMixin, unittest.TestCase):
             accept_content_type=None,
         )
 
-        assert isinstance(api_response, get.response_3xx.ResponseFor3XX.response_cls)
+        assert isinstance(api_response, get.response_3xx.ApiResponse)
         assert isinstance(api_response.response, urllib3.HTTPResponse)
         assert isinstance(api_response.body, schemas.Unset)
         assert isinstance(api_response.headers, schemas.Unset)

@@ -8,30 +8,43 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
 from petstore_api.components.schema import pet
 
 
-class SchemaTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> pet.PetDict:
-        return super().__getitem__(name)
+class SchemaTuple(
+    typing.Tuple[
+        pet.PetDict,
+        ...
+    ]
+):
 
     def __new__(cls, arg: SchemaTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Schema.validate(arg, configuration=configuration)
-SchemaTupleInput = typing.Sequence[
-    typing.Union[
-        pet.PetDict,
-        dict,
-        schemas.immutabledict
+SchemaTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            pet.PetDict,
+            dict,
+            schemas.immutabledict
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            pet.PetDict,
+            dict,
+            schemas.immutabledict
+        ],
+        ...
+    ]
 ]
 
 
 @dataclasses.dataclass(frozen=True)
 class Schema(
-    schemas.ListSchema[SchemaTuple]
+    schemas.Schema[schemas.immutabledict, SchemaTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[pet.Pet] = dataclasses.field(default_factory=lambda: pet.Pet) # type: ignore
@@ -53,7 +66,7 @@ class Schema(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> SchemaTuple:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

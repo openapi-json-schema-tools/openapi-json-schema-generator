@@ -8,6 +8,6 @@
 """
 
 
-from unit_test_api.shared_imports.schema_imports import *
+from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 from unit_test_api.components.schema import integer_type_matches_integers
 Schema: typing_extensions.TypeAlias = integer_type_matches_integers.IntegerTypeMatchesIntegers

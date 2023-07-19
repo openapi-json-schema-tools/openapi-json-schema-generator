@@ -5,9 +5,9 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
-from petstore_api import api_client
-from petstore_api.shared_imports.operation_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
+from petstore_api import api_client, exceptions
+from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 from .. import path
 from .responses import (
@@ -44,34 +44,54 @@ Properties = typing_extensions.TypedDict(
 
 
 class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "enum_query_double",
+        "enum_query_string",
+        "enum_query_integer",
+        "enum_query_string_array",
+    })
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_query_double"]) -> typing.Union[float, int]:
-        ...
+    @property
+    def enum_query_double(self) -> typing.Union[int, float, schemas.Unset]:
+        val = self.get("enum_query_double", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[int, float],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_query_string"]) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
-        ...
+    @property
+    def enum_query_string(self) -> typing.Union[typing_extensions.Literal["_abc", "-efg", "(xyz)"], schemas.Unset]:
+        val = self.get("enum_query_string", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal["_abc", "-efg", "(xyz)"],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_query_integer"]) -> typing_extensions.Literal[1, -2]:
-        ...
+    @property
+    def enum_query_integer(self) -> typing.Union[typing_extensions.Literal[1, -2], schemas.Unset]:
+        val = self.get("enum_query_integer", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal[1, -2],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_query_string_array"]) -> parameter_2_schema.SchemaTuple:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["enum_query_double"],
-            typing_extensions.Literal["enum_query_string"],
-            typing_extensions.Literal["enum_query_integer"],
-            typing_extensions.Literal["enum_query_string_array"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def enum_query_string_array(self) -> typing.Union[parameter_2_schema.SchemaTuple, schemas.Unset]:
+        val = self.get("enum_query_string_array", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            parameter_2_schema.SchemaTuple,
+            val
+        )
 
     def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return QueryParameters.validate(arg, configuration=configuration)
@@ -96,7 +116,7 @@ QueryParametersDictInput = typing_extensions.TypedDict(
 
 @dataclasses.dataclass(frozen=True)
 class QueryParameters(
-    schemas.DictSchema[QueryParametersDict]
+    schemas.Schema[QueryParametersDict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
@@ -119,7 +139,7 @@ class QueryParameters(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> QueryParametersDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -139,24 +159,32 @@ Properties2 = typing_extensions.TypedDict(
 
 
 class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "enum_header_string",
+        "enum_header_string_array",
+    })
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_header_string"]) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
-        ...
+    @property
+    def enum_header_string(self) -> typing.Union[typing_extensions.Literal["_abc", "-efg", "(xyz)"], schemas.Unset]:
+        val = self.get("enum_header_string", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal["_abc", "-efg", "(xyz)"],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_header_string_array"]) -> parameter_0_schema.SchemaTuple:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["enum_header_string"],
-            typing_extensions.Literal["enum_header_string_array"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def enum_header_string_array(self) -> typing.Union[parameter_0_schema.SchemaTuple, schemas.Unset]:
+        val = self.get("enum_header_string_array", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            parameter_0_schema.SchemaTuple,
+            val
+        )
 
     def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return HeaderParameters.validate(arg, configuration=configuration)
@@ -176,7 +204,7 @@ HeaderParametersDictInput = typing_extensions.TypedDict(
 
 @dataclasses.dataclass(frozen=True)
 class HeaderParameters(
-    schemas.DictSchema[HeaderParametersDict]
+    schemas.Schema[HeaderParametersDict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties2 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties2)) # type: ignore
@@ -199,7 +227,7 @@ class HeaderParameters(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> HeaderParametersDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -227,6 +255,12 @@ _status_code_to_response: __StatusCodeToResponse = {
     '200': response_200.ResponseFor200,
     '404': response_404.ResponseFor404,
 }
+_non_error_status_codes = frozenset({
+    '200',
+})
+_error_status_codes = frozenset({
+    '404',
+})
 
 _all_accept_content_types = (
     "application/json",
@@ -252,13 +286,14 @@ class BaseApi(api_client.Api):
             HeaderParametersDict,
             None
         ] = None,
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = "application/x-www-form-urlencoded",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> response_200.ApiResponse: ...
 
     @typing.overload
     def _enum_parameters(
@@ -278,12 +313,13 @@ class BaseApi(api_client.Api):
             HeaderParametersDict,
             None
         ] = None,
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = "application/x-www-form-urlencoded",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     def _enum_parameters(
@@ -303,12 +339,13 @@ class BaseApi(api_client.Api):
             HeaderParametersDict,
             None
         ] = None,
+        *,
+        skip_deserialization: bool = False,
         content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = "application/x-www-form-urlencoded",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False
     ):
         """
         To test enum parameters
@@ -320,7 +357,7 @@ class BaseApi(api_client.Api):
             query_params = QueryParameters.validate(query_params)
         if header_params is not None:
             header_params = HeaderParameters.validate(header_params)
-        used_path = self._get_used_path(
+        used_path, query_params_suffix = self._get_used_path(
             path,
             query_parameters=query_parameter_classes,
             query_params=query_params
@@ -340,11 +377,12 @@ class BaseApi(api_client.Api):
             content_type=content_type
         )
         host = self.api_client.configuration.get_server_url(
-            'servers', server_index
+            "servers", server_index
         )
 
         raw_response = self.api_client.call_api(
             resource_path=used_path,
+            query_params_suffix=query_params_suffix,
             method='get',
             host=host,
             headers=_headers,
@@ -355,24 +393,37 @@ class BaseApi(api_client.Api):
         )
 
         if skip_deserialization:
-            response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
-        else:
-            status = str(raw_response.status)
-            if status in _status_code_to_response:
-                status = typing.cast(
-                    typing_extensions.Literal[
+            skip_deser_response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
+            self._verify_response_status(skip_deser_response)
+            return skip_deser_response
+
+        status = str(raw_response.status)
+        if status in _non_error_status_codes:
+            status_code = typing.cast(
+                typing_extensions.Literal[
                     '200',
+                ],
+                status
+            )
+            return _status_code_to_response[status_code].deserialize(
+                raw_response, self.api_client.schema_configuration)
+        elif status in _error_status_codes:
+            error_status_code = typing.cast(
+                typing_extensions.Literal[
                     '404',
-                    ],
-                    status
-                )
-                response = _status_code_to_response[status].deserialize(
-                    raw_response, self.api_client.schema_configuration)
-            else:
-                response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
+                ],
+                status
+            )
+            error_response = _status_code_to_response[error_status_code].deserialize(
+                raw_response, self.api_client.schema_configuration)
+            raise exceptions.ApiException(
+                status=error_response.response.status,
+                reason=error_response.response.reason,
+                api_response=error_response
+            )
 
+        response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
         self._verify_response_status(response)
-
         return response
 
 
