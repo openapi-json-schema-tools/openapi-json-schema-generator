@@ -29,7 +29,6 @@ import org.openapijsonschematools.codegen.languages.features.GzipFeatures;
 import org.openapijsonschematools.codegen.languages.features.PerformBeanValidationFeatures;
 import org.openapijsonschematools.codegen.templating.mustache.CaseFormatLambda;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
-import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
 import org.openapijsonschematools.codegen.utils.ProcessUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

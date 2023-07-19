@@ -24,7 +24,6 @@ import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.SupportingFile;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 

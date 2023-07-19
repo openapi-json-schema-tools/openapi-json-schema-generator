@@ -16,34 +16,58 @@
 
 package org.openapijsonschematools.codegen.meta.features;
 
-import org.openapijsonschematools.codegen.meta.features.annotations.OAS2;
 import org.openapijsonschematools.codegen.meta.features.annotations.OAS3;
+import org.openapijsonschematools.codegen.meta.features.annotations.OAS2;
 
 /**
- * Defines a set of globally available features. That is, support of these are defined at the top-level of the spec
+ * Defines parameters supported by endpoints in the generated code.
  */
-public enum GlobalFeature {
+public enum ParameterFeature {
     @OAS2 @OAS3
-    Info,
+    Name,
+
+    @OAS2 @OAS3
+    Required,
+
+    @OAS2 @OAS3
+    In_Path,
+
+    @OAS2 @OAS3
+    In_Query,
+
+    @OAS2 @OAS3
+    In_Header,
 
     @OAS3
-    Servers,
-
-    @OAS2 @OAS3
-    Paths,
+    In_Cookie,
 
     @OAS3
-    Webhooks,
+    Style_Matrix,
 
     @OAS3
-    Components,
+    Style_Label,
 
-    @OAS2 @OAS3
-    Security,
+    @OAS3
+    Style_Form,
 
-    @OAS2 @OAS3
-    Tags,
+    @OAS3
+    Style_Simple,
 
-    @OAS2 @OAS3
-    ExternalDocs,
+    @OAS3
+    Style_SpaceDelimited,
+
+    @OAS3
+    Style_PipeDelimited,
+
+    @OAS3
+    Style_DeepObject,
+
+    @OAS3
+    Explode,
+
+    @OAS3
+    Schema,
+
+    @OAS3
+    Content,
 }

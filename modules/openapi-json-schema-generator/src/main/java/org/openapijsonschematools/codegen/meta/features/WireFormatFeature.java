@@ -16,56 +16,35 @@
 
 package org.openapijsonschematools.codegen.meta.features;
 
-import org.openapijsonschematools.codegen.meta.features.annotations.OAS2;
 import org.openapijsonschematools.codegen.meta.features.annotations.OAS3;
+import org.openapijsonschematools.codegen.meta.features.annotations.OAS2;
 import org.openapijsonschematools.codegen.meta.features.annotations.ToolingExtension;
 
 /**
- * Defines the documentation type available in generated output.
+ * Defines wire formats explicitly defined in spec or supported by the tool.
  */
-public enum DocumentationFeature {
+public enum WireFormatFeature {
     /**
-     * Generated output includes a README.
+     * Supports JSON transfer
      */
-    @ToolingExtension
-    Readme,
-
-    @OAS3
-    Servers,
-
     @OAS2 @OAS3
-    Security,
-
-    @OAS3
-    ComponentSchemas,
-
-    @OAS3
-    ComponentResponses,
-
-    @OAS3
-    ComponentParameters,
-
-    @OAS3
-    ComponentRequestBodies,
-
-    @OAS3
-    ComponentHeaders,
-
-    @OAS3
-    ComponentSecuritySchemes,
-
-    @OAS3
-    ComponentLinks,
-
-    @OAS3
-    ComponentCallbacks,
-
-    @OAS3
-    ComponentPathItems,
+    JSON,
 
     /**
-     * Generated output includes documentation for all generated APIs.
+     * Supports XML transfer
+     */
+    @OAS2 @OAS3
+    XML,
+
+    /**
+     * Supports protocol buffer transfer
      */
     @ToolingExtension
-    Api
+    PROTOBUF,
+
+    /**
+     * Supports other mime types or wire formats for transfer, to be documented by generators.
+     */
+    @OAS2 @OAS3
+    Custom
 }

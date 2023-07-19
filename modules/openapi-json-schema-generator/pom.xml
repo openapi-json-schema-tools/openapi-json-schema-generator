@@ -388,11 +388,6 @@
             <version>${jackson-threetenbp.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.openapijsonschematools</groupId>
-            <artifactId>openapi-json-schema-generator-core</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
             <artifactId>kotlin-stdlib-jdk8</artifactId>
             <version>${kotlin.version}</version>

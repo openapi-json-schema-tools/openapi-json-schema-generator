@@ -16,9 +16,8 @@
 
 package org.openapijsonschematools.codegen.meta.features;
 
-import org.openapijsonschematools.codegen.meta.features.annotations.OAS2;
 import org.openapijsonschematools.codegen.meta.features.annotations.OAS3;
-import org.openapijsonschematools.codegen.meta.features.annotations.ToolingExtension;
+import org.openapijsonschematools.codegen.meta.features.annotations.OAS2;
 
 /**
  * Defines common data types supported by a generator.
