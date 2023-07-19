@@ -32,7 +32,7 @@ import org.openapijsonschematools.codegen.model.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.codegenerator.CodegenType;
-import org.openapijsonschematools.codegen.SupportingFile;
+import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.templating.TemplateManager;
 import org.openapijsonschematools.codegen.meta.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;

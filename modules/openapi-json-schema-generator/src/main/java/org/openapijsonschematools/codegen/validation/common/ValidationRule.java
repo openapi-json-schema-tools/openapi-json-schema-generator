@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.validation;
+package org.openapijsonschematools.codegen.validation.common;
 
 import java.util.function.Function;
 

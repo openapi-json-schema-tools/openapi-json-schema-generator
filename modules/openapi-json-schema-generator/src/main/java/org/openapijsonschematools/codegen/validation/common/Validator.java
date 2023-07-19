@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.validation;
+package org.openapijsonschematools.codegen.validation.common;
+
+import org.openapijsonschematools.codegen.validation.ValidationResult;
 
 /**
  * Defines a contract allowing some input to be validated.

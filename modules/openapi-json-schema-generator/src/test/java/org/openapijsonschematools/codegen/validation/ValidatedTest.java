@@ -16,6 +16,7 @@
 
 package org.openapijsonschematools.codegen.validation;
 
+import org.openapijsonschematools.codegen.validation.common.ValidationRule;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;

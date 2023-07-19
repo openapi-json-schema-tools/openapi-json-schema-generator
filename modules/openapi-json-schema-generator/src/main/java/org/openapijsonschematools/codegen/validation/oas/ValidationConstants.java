@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen.validations.oas;
+package org.openapijsonschematools.codegen.validation.oas;
 
 final class ValidationConstants {
     static String ApacheNginxUnderscoreDescription = "Apache and Nginx may fail on headers keys with underscore!";

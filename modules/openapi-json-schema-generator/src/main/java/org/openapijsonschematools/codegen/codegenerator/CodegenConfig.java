@@ -31,7 +31,7 @@ import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.servers.ServerVariable;
-import org.openapijsonschematools.codegen.SupportingFile;
+import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.cli.CliOption;
 import org.openapijsonschematools.codegen.model.CodegenHeader;
 import org.openapijsonschematools.codegen.model.CodegenKey;

@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen.serializer;
+package org.openapijsonschematools.codegen.utils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.MapperFeature;

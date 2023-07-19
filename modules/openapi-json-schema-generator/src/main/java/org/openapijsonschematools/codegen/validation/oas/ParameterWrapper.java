@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen.validations.oas;
+package org.openapijsonschematools.codegen.validation.oas;
 
 import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.OpenAPI;

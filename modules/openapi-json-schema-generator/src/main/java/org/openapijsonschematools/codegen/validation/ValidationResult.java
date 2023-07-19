@@ -16,6 +16,11 @@
 
 package org.openapijsonschematools.codegen.validation;
 
+import org.openapijsonschematools.codegen.validation.common.Invalid;
+import org.openapijsonschematools.codegen.validation.common.Severity;
+import org.openapijsonschematools.codegen.validation.common.Valid;
+import org.openapijsonschematools.codegen.validation.common.ValidationRule;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

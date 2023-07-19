@@ -2,8 +2,10 @@ package org.openapijsonschematools.codegen.validations.oas;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import org.openapijsonschematools.codegen.TestUtils;
-import org.openapijsonschematools.codegen.validation.Invalid;
+import org.openapijsonschematools.codegen.validation.common.Invalid;
 import org.openapijsonschematools.codegen.validation.ValidationResult;
+import org.openapijsonschematools.codegen.validation.oas.OpenApiEvaluator;
+import org.openapijsonschematools.codegen.validation.oas.RuleConfiguration;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

@@ -22,7 +22,7 @@ import org.openapijsonschematools.codegen.cli.CliOption;
 import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.codegenerator.CodegenType;
-import org.openapijsonschematools.codegen.SupportingFile;
+import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.codegenerator.VendorExtension;
 import org.openapijsonschematools.codegen.languages.features.BeanValidationFeatures;
 import org.openapijsonschematools.codegen.languages.features.GzipFeatures;

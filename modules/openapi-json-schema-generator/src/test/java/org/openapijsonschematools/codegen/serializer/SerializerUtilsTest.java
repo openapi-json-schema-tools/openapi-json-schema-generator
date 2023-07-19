@@ -9,6 +9,7 @@ import io.swagger.v3.oas.models.responses.ApiResponses;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.tags.Tag;
+import org.openapijsonschematools.codegen.utils.SerializerUtils;
 import org.testng.annotations.Test;
 
 import java.util.Arrays;
