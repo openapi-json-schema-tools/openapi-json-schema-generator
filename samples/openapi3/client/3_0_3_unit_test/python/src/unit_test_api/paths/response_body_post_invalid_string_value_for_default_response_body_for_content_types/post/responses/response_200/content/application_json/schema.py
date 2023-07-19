@@ -8,6 +8,6 @@
 """
 
 
-from unit_test_api.shared_imports.schema_imports import *
+from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 from unit_test_api.components.schema import invalid_string_value_for_default
 Schema: typing_extensions.TypeAlias = invalid_string_value_for_default.InvalidStringValueForDefault

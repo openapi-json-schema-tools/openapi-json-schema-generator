@@ -10,7 +10,6 @@ import unittest
 from unittest.mock import patch
 
 import urllib3
-import immutabledict
 
 from petstore_api.paths.fake.get import operation as get  # noqa: E501
 from petstore_api import schemas, api_client, exceptions
@@ -35,7 +34,7 @@ class TestFake(ApiTestMixin, unittest.TestCase):
         mock_request.return_value = self.response(b'')
 
         api = get.ApiForGet(api_client=self.used_api_client)
-        header_params: get.RequestHeaderParameters.Params = {'enum_header_string': '-efg'}
+        header_params: get.HeaderParametersDictInput = {'enum_header_string': '-efg'}
         api_response = api.get(header_params=header_params)
         self.assert_pool_manager_request_called_with(
             mock_request,
@@ -85,7 +84,7 @@ class TestFake(ApiTestMixin, unittest.TestCase):
         with self.assertRaises(exceptions.ApiException) as cm:
             _response = api.get()
 
-        exc: exceptions.ApiException[get.response_404.ApiResponseFor404] = cm.exception
+        exc: exceptions.ApiException[get.response_404.ApiResponse] = cm.exception
         expected_status = 404
         expected_reason = '404'
         self.assertEqual(exc.status, expected_status)
@@ -96,7 +95,7 @@ class TestFake(ApiTestMixin, unittest.TestCase):
         self.assertEqual(exc.api_response.response.reason, expected_reason)
         self.assertEqual(exc.api_response.response.data, response_body_bytes)
         self.assertEqual(exc.api_response.response.headers, expected_headers)
-        assert isinstance(exc.api_response.body, immutabledict.immutabledict)
+        assert isinstance(exc.api_response.body, schemas.immutabledict)
         self.assertEqual(exc.api_response.body, error_dict)
 
         self.assert_pool_manager_request_called_with(

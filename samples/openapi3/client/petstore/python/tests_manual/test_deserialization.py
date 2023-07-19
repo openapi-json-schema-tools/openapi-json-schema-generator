@@ -15,7 +15,6 @@ import typing
 import unittest
 
 import urllib3
-import immutabledict
 
 import petstore_api
 from petstore_api import exceptions
@@ -74,7 +73,7 @@ class DeserializationTests(unittest.TestCase):
         response = self.__response(data)
         deserialized = ResponseFor200.deserialize(response, self.configuration)
         body = deserialized.body
-        assert isinstance(body, immutabledict.immutabledict)
+        assert isinstance(body, schemas.immutabledict)
         self.assertEqual(body['shapeType'], 'Triangle')
         self.assertEqual(body['triangleType'], 'EquilateralTriangle')
 
@@ -202,7 +201,7 @@ class DeserializationTests(unittest.TestCase):
         response = self.__response(data)
         deserialized = ResponseFor200.deserialize(response, self.configuration)
         body = deserialized.body
-        assert isinstance(body, immutabledict.immutabledict)
+        assert isinstance(body, schemas.immutabledict)
         self.assertEqual(body['hasBaleen'], has_baleen)
         self.assertEqual(body['hasTeeth'], has_teeth)
         self.assertEqual(body['className'], class_name)
@@ -217,7 +216,7 @@ class DeserializationTests(unittest.TestCase):
         response = self.__response(data)
         deserialized = ResponseFor200.deserialize(response, self.configuration)
         body = deserialized.body
-        assert isinstance(body, immutabledict.immutabledict)
+        assert isinstance(body, schemas.immutabledict)
         self.assertEqual(body['type'], zebra_type)
         self.assertEqual(body['className'], class_name)
 
@@ -335,7 +334,7 @@ class DeserializationTests(unittest.TestCase):
 
         deserialized = ResponseFor200A.deserialize(response, self.configuration)
         body = deserialized.body
-        assert isinstance(body, immutabledict.immutabledict)
+        assert isinstance(body, schemas.immutabledict)
         self.assertEqual(body['className'], 'Dog')
         self.assertEqual(body['color'], 'brown')
         self.assertEqual(body['breed'], 'golden retriever')
@@ -374,7 +373,7 @@ class DeserializationTests(unittest.TestCase):
 
         deserialized = ResponseFor200B.deserialize(response, self.configuration)
         body = deserialized.body
-        assert isinstance(body, immutabledict.immutabledict)
+        assert isinstance(body, schemas.immutabledict)
         self.assertEqual(body['className'], 'zebra')
         self.assertEqual(body['type'], 'plains')
         self.assertEqual(body['p1'], True)

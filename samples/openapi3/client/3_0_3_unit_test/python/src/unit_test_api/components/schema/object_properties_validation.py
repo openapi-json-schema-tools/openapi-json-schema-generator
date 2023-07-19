@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from unit_test_api.shared_imports.schema_imports import *
+from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 Foo: typing_extensions.TypeAlias = schemas.IntSchema
 Bar: typing_extensions.TypeAlias = schemas.StrSchema
@@ -22,32 +22,41 @@ Properties = typing_extensions.TypedDict(
 
 
 class ObjectPropertiesValidationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "foo",
+        "bar",
+    })
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> int:
-        ...
+    @property
+    def foo(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("foo", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["bar"]) -> str:
-        ...
+    @property
+    def bar(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("bar", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["foo"],
-            typing_extensions.Literal["bar"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: ObjectPropertiesValidationDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectPropertiesValidation.validate(arg, configuration=configuration)
-ObjectPropertiesValidationDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+ObjectPropertiesValidationDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

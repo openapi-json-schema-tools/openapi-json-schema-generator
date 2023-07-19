@@ -1311,6 +1311,7 @@ src/petstore_api/py.typed
 src/petstore_api/rest.py
 src/petstore_api/schemas/__init__.py
 src/petstore_api/schemas/format.py
+src/petstore_api/schemas/original_immutabledict.py
 src/petstore_api/schemas/schema.py
 src/petstore_api/schemas/schemas.py
 src/petstore_api/schemas/validation.py

@@ -7,6 +7,7 @@
 """
 
 from __future__ import annotations
+import abc
 import datetime
 import dataclasses
 import decimal
@@ -106,7 +107,7 @@ class ParameterSerializerBase:
             if percent_encode:
                 return parse.quote(str(in_data))
             return str(in_data)
-        elif isinstance(in_data, schemas.none_type_):
+        elif in_data is None:
             # ignored by the expansion process https://datatracker.ietf.org/doc/html/rfc6570#section-3.2.1
             return None
         elif isinstance(in_data, list) and not in_data:
@@ -223,7 +224,7 @@ class ParameterSerializerBase:
                 var_name_piece,
                 named_parameter_expansion
             )
-        elif isinstance(in_data, schemas.none_type_):
+        elif in_data is None:
             # ignored by the expansion process https://datatracker.ietf.org/doc/html/rfc6570#section-3.2.1
             return ""
         elif isinstance(in_data, list):
@@ -321,7 +322,6 @@ class JSONDetector:
         return False
 
 
-@dataclasses.dataclass
 class Encoding:
     content_type: str
     headers: typing.Optional[typing.Dict[str, 'HeaderParameter']] = None
@@ -330,7 +330,6 @@ class Encoding:
     allow_reserved: bool = False
 
 
-@dataclasses.dataclass
 class MediaType:
     """
     Used to store request and response body schema information
@@ -447,7 +446,7 @@ class PathParameter(ParameterBase, StyleSimpleSerializer):
         skip_validation: bool = False
     ) -> typing.Dict[str, str]:
         if cls.schema:
-            cast_in_data = in_data if skip_validation else cls.schema.validate(in_data)
+            cast_in_data = in_data if skip_validation else cls.schema.validate_base(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             """
             simple -> path
@@ -468,7 +467,7 @@ class PathParameter(ParameterBase, StyleSimpleSerializer):
         assert cls.content is not None
         for content_type, media_type in cls.content.items():
             assert media_type.schema is not None
-            cast_in_data = in_data if skip_validation else media_type.schema.validate(in_data)
+            cast_in_data = in_data if skip_validation else media_type.schema.validate_base(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             if cls._content_type_is_json(content_type):
                 value = cls._serialize_json(cast_in_data)
@@ -561,7 +560,7 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
         skip_validation: bool = False
     ) -> typing.Dict[str, str]:
         if cls.schema:
-            cast_in_data = in_data if skip_validation else cls.schema.validate(in_data)
+            cast_in_data = in_data if skip_validation else cls.schema.validate_base(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             """
             form -> query
@@ -590,7 +589,7 @@ class QueryParameter(ParameterBase, StyleFormSerializer):
         assert cls.content is not None
         for content_type, media_type in cls.content.items():
             assert media_type.schema is not None
-            cast_in_data = in_data if skip_validation else media_type.schema.validate(in_data)
+            cast_in_data = in_data if skip_validation else media_type.schema.validate_base(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             if cls._content_type_is_json(content_type):
                 value = cls._serialize_json(cast_in_data, eliminate_whitespace=True)
@@ -621,7 +620,7 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
         skip_validation: bool = False
     ) -> typing.Dict[str, str]:
         if cls.schema:
-            cast_in_data = in_data if skip_validation else cls.schema.validate(in_data)
+            cast_in_data = in_data if skip_validation else cls.schema.validate_base(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             """
             form -> cookie
@@ -644,7 +643,7 @@ class CookieParameter(ParameterBase, StyleFormSerializer):
         assert cls.content is not None
         for content_type, media_type in cls.content.items():
             assert media_type.schema is not None
-            cast_in_data = in_data if skip_validation else media_type.schema.validate(in_data)
+            cast_in_data = in_data if skip_validation else media_type.schema.validate_base(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             if cls._content_type_is_json(content_type):
                 value = cls._serialize_json(cast_in_data)
@@ -670,14 +669,14 @@ class __HeaderParameterBase(ParameterBase, StyleSimpleSerializer):
         return headers
 
     @classmethod
-    def serialize(
+    def serialize_with_name(
         cls,
         in_data: _SERIALIZE_TYPES,
         name: str,
         skip_validation: bool = False
     ) -> _collections.HTTPHeaderDict:
         if cls.schema:
-            cast_in_data = in_data if skip_validation else cls.schema.validate(in_data)
+            cast_in_data = in_data if skip_validation else cls.schema.validate_base(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             """
             simple -> header
@@ -690,7 +689,7 @@ class __HeaderParameterBase(ParameterBase, StyleSimpleSerializer):
         assert cls.content is not None
         for content_type, media_type in cls.content.items():
             assert media_type.schema is not None
-            cast_in_data = in_data if skip_validation else media_type.schema.validate(in_data)
+            cast_in_data = in_data if skip_validation else media_type.schema.validate_base(in_data)
             cast_in_data = cls._json_encoder.default(cast_in_data)
             if cls._content_type_is_json(content_type):
                 value = cls._serialize_json(cast_in_data)
@@ -713,19 +712,18 @@ class __HeaderParameterBase(ParameterBase, StyleSimpleSerializer):
             """
             if cls.style:
                 extracted_data = cls._deserialize_simple(in_data, name, cls.explode, False)
-                return cls.schema.validate(extracted_data)
+                return cls.schema.validate_base(extracted_data)
         assert cls.content is not None
         for content_type, media_type in cls.content.items():
             if cls._content_type_is_json(content_type):
                 cast_in_data: typing.Union[dict, list, None, int, float, str] = json.loads(in_data)
                 assert media_type.schema is not None
-                return media_type.schema.validate(cast_in_data)
+                return media_type.schema.validate_base(cast_in_data)
             else:
                 raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
         raise ValueError('Invalid value for content, it was empty and must have 1 key value pair')
 
 
-@dataclasses.dataclass
 class HeaderParameterWithoutName(__HeaderParameterBase):
     required: bool = False
     style: ParameterStyle = ParameterStyle.SIMPLE
@@ -735,8 +733,20 @@ class HeaderParameterWithoutName(__HeaderParameterBase):
     schema: typing.Optional[typing.Type[schemas.Schema]] = None
     content: typing.Optional[typing.Dict[str, typing.Type[MediaType]]] = None
 
+    @classmethod
+    def serialize(
+        cls,
+        in_data: _SERIALIZE_TYPES,
+        name: str,
+        skip_validation: bool = False
+    ) -> _collections.HTTPHeaderDict:
+        return cls.serialize_with_name(
+            in_data,
+            name,
+            skip_validation=skip_validation
+        )
 
-@dataclasses.dataclass
+
 class HeaderParameter(__HeaderParameterBase):
     name: str
     required: bool = False
@@ -753,7 +763,7 @@ class HeaderParameter(__HeaderParameterBase):
         in_data: _SERIALIZE_TYPES,
         skip_validation: bool = False
     ) -> _collections.HTTPHeaderDict:
-        return super().serialize(
+        return cls.serialize_with_name(
             in_data,
             cls.name,
             skip_validation=skip_validation
@@ -762,13 +772,15 @@ class HeaderParameter(__HeaderParameterBase):
 T = typing.TypeVar("T", bound=api_response.ApiResponse)
 
 
-@dataclasses.dataclass
-class OpenApiResponse(JSONDetector, typing.Generic[T]):
+class OpenApiResponse(typing.Generic[T], JSONDetector, abc.ABC):
     __filename_content_disposition_pattern = re.compile('filename="(.+?)"')
-    response_cls: typing.Type[T]
-    content: typing.Optional[typing.Dict[str, MediaType]] = None
+    content: typing.Optional[typing.Dict[str, typing.Type[MediaType]]] = None
     headers: typing.Optional[typing.Dict[str, typing.Type[HeaderParameterWithoutName]]] = None
-    headers_schema: typing.Optional[typing.Type[schemas.DictSchema]] = None
+    headers_schema: typing.Optional[typing.Type[schemas.Schema]] = None
+
+    @classmethod
+    @abc.abstractmethod
+    def get_response(cls, response, headers, body) -> T: ...
 
     @staticmethod
     def __deserialize_json(response: urllib3.HTTPResponse) -> typing.Any:
@@ -818,13 +830,13 @@ class OpenApiResponse(JSONDetector, typing.Generic[T]):
             else:
                 path = os.path.join(tempfile.gettempdir(), file_name)
 
-            with open(path, 'wb') as new_file:
+            with open(path, 'wb') as write_file:
                 chunk_size = 1024
                 while True:
                     data = response.read(chunk_size)
                     if not data:
                         break
-                    new_file.write(data)
+                    write_file.write(data)
             # release_conn is needed for streaming connections only
             response.release_conn()
             new_file = open(path, 'rb')
@@ -852,7 +864,7 @@ class OpenApiResponse(JSONDetector, typing.Generic[T]):
         deserialized_body = schemas.unset
         streamed = response.supports_chunked_reads()
 
-        deserialized_headers = schemas.unset
+        deserialized_headers: typing.Union[schemas.Unset, typing.Dict[str, typing.Any]] = schemas.unset
         if cls.headers is not None and cls.headers_schema is not None:
             deserialized_headers = {}
             for header_name, header_param in cls.headers.items():
@@ -861,7 +873,7 @@ class OpenApiResponse(JSONDetector, typing.Generic[T]):
                     continue
                 header_value = header_param.deserialize(header_value, header_name)
                 deserialized_headers[header_name] = header_value
-            deserialized_headers = cls.headers_schema.validate(deserialized_headers, configuration=configuration)
+            deserialized_headers = cls.headers_schema.validate_base(deserialized_headers, configuration=configuration)
 
         if cls.content is not None:
             if content_type not in cls.content:
@@ -872,7 +884,7 @@ class OpenApiResponse(JSONDetector, typing.Generic[T]):
             body_schema = cls.content[content_type].schema
             if body_schema is None:
                 # some specs do not define response content media type schemas
-                return cls.response_cls(
+                return cls.get_response(
                     response=response,
                     headers=deserialized_headers,
                     body=schemas.unset
@@ -889,14 +901,14 @@ class OpenApiResponse(JSONDetector, typing.Generic[T]):
                 raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
             body_schema = schemas.get_class(body_schema)
             if body_schema is schemas.BinarySchema:
-                deserialized_body = body_schema.validate(body_data)
+                deserialized_body = body_schema.validate_base(body_data)
             else:
-                deserialized_body = body_schema.validate(
+                deserialized_body = body_schema.validate_base(
                     body_data, configuration=configuration)
         elif streamed:
             response.release_conn()
 
-        return cls.response_cls(
+        return cls.get_response(
             response=response,
             headers=deserialized_headers,
             body=deserialized_body
@@ -960,7 +972,7 @@ class ApiClient:
             self._pool = pool.ThreadPool(self.pool_threads)
         return self._pool
 
-    def set_default_header(self, header_name, header_value):
+    def set_default_header(self, header_name: str, header_value: str):
         self.default_headers[header_name] = header_value
 
     def call_api(
@@ -968,6 +980,7 @@ class ApiClient:
         resource_path: str,
         method: str,
         host: str,
+        query_params_suffix: typing.Optional[str] = None,
         headers: typing.Optional[_collections.HTTPHeaderDict] = None,
         body: typing.Union[str, bytes, None] = None,
         fields: typing.Optional[typing.Tuple[rest.RequestField, ...]] = None,
@@ -1013,7 +1026,8 @@ class ApiClient:
             security_requirement_object,
             resource_path,
             method,
-            body
+            body,
+            query_params_suffix
         )
 
         # must happen after auth setting in case user is overriding those
@@ -1022,6 +1036,8 @@ class ApiClient:
 
         # request url
         url = host + resource_path
+        if query_params_suffix:
+            url += query_params_suffix
 
         # perform request and return response
         response = self.request(
@@ -1102,7 +1118,8 @@ class ApiClient:
         security_requirement_object: typing.Optional[security_schemes.SecurityRequirementObject],
         resource_path: str,
         method: str,
-        body: typing.Union[str, bytes, None] = None
+        body: typing.Union[str, bytes, None] = None,
+        query_params_suffix: typing.Optional[str] = None
     ):
         """Updates header and query params based on authentication setting.
 
@@ -1117,14 +1134,27 @@ class ApiClient:
             # optional auth cause, use no auth
             return
         for security_scheme_component_name, scope_names in security_requirement_object.items():
-            security_scheme_instance = self.configuration.security_scheme_info[security_scheme_component_name]
-            security_scheme_instance.apply_auth(
-                headers,
-                resource_path,
-                method,
-                body,
-                scope_names
+            scope_names = typing.cast(typing.Tuple[str, ...], scope_names)
+            security_scheme_component_name = typing.cast(typing_extensions.Literal[
+                    'api_key',
+                    'bearer_test',
+                    'http_basic_test',
+                ],
+                security_scheme_component_name
             )
+            try:
+                security_scheme_instance = self.configuration.security_scheme_info[security_scheme_component_name]
+                security_scheme_instance.apply_auth(
+                    headers,
+                    resource_path,
+                    method,
+                    body,
+                    query_params_suffix,
+                    scope_names
+                )
+            except KeyError as ex:
+                raise ex
+
 
 @dataclasses.dataclass
 class Api:
@@ -1143,34 +1173,38 @@ class Api:
         query_parameters: typing.Tuple[typing.Type[QueryParameter], ...] = (),
         query_params: typing.Optional[typing.Mapping[str, schemas.OUTPUT_BASE_TYPES]] = None,
         skip_validation: bool = False
-    ) -> str:
+    ) -> typing.Tuple[str, str]:
         used_path_params = {}
         if path_params is not None:
-            for parameter in path_parameters:
-                parameter_data = path_params.get(parameter.name, schemas.unset)
+            for path_parameter in path_parameters:
+                parameter_data = path_params.get(path_parameter.name, schemas.unset)
                 if isinstance(parameter_data, schemas.Unset):
                     continue
                 assert not isinstance(parameter_data, (bytes, schemas.FileIO))
-                serialized_data = parameter.serialize(parameter_data, skip_validation=skip_validation)
+                serialized_data = path_parameter.serialize(parameter_data, skip_validation=skip_validation)
                 used_path_params.update(serialized_data)
 
         for k, v in used_path_params.items():
             used_path = used_path.replace('{%s}' % k, v)
 
+        query_params_suffix = ""
         if query_params is not None:
             prefix_separator_iterator = None
-            for parameter in query_parameters:
-                parameter_data = query_params.get(parameter.name, schemas.unset)
+            for query_parameter in query_parameters:
+                parameter_data = query_params.get(query_parameter.name, schemas.unset)
                 if isinstance(parameter_data, schemas.Unset):
                     continue
                 if prefix_separator_iterator is None:
-                    prefix_separator_iterator = parameter.get_prefix_separator_iterator()
+                    prefix_separator_iterator = query_parameter.get_prefix_separator_iterator()
                 assert not isinstance(parameter_data, (bytes, schemas.FileIO))
-                serialized_data = parameter.serialize(
-                    parameter_data, prefix_separator_iterator, skip_validation=skip_validation)
+                serialized_data = query_parameter.serialize(
+                    parameter_data,
+                    prefix_separator_iterator=prefix_separator_iterator,
+                    skip_validation=skip_validation
+                )
                 for serialized_value in serialized_data.values():
-                    used_path += serialized_value
-        return used_path
+                    query_params_suffix += serialized_value
+        return used_path, query_params_suffix
 
     @staticmethod
     def _get_headers(
@@ -1236,7 +1270,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
     content: content_type to MediaType schemas.Schema info
     """
     __json_encoder = JSONEncoder()
-    content: typing.Dict[str, MediaType]
+    content: typing.Dict[str, typing.Type[MediaType]]
     required: bool = False
 
     @classmethod
@@ -1252,12 +1286,12 @@ class RequestBody(StyleFormSerializer, JSONDetector):
 
     @staticmethod
     def __serialize_text_plain(in_data: typing.Any) -> SerializedRequestBody:
-        if isinstance(in_data, schemas.immutabledict):
+        if in_data is None:
+            raise ValueError('Unable to serialize type None to text/plain')
+        elif isinstance(in_data, schemas.immutabledict):
             raise ValueError('Unable to serialize type schemas.immutabledict to text/plain')
         elif isinstance(in_data, tuple):
             raise ValueError('Unable to serialize type tuple to text/plain')
-        elif isinstance(in_data, schemas.none_type_):
-            raise ValueError('Unable to serialize type None to text/plain')
         elif isinstance(in_data, bool):
             raise ValueError('Unable to serialize type bool to text/plain')
         return {'body': str(in_data)}
@@ -1362,7 +1396,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         media_type = cls.content[content_type]
         assert media_type.schema is not None
         schema = schemas.get_class(media_type.schema)
-        cast_in_data = schema.validate(in_data)
+        cast_in_data = schema.validate_base(in_data)
         # TODO check for and use encoding if it exists
         # and content_type is multipart or application/x-www-form-urlencoded
         if cls._content_type_is_json(content_type):

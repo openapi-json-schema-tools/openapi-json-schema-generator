@@ -13,8 +13,7 @@
 import unittest
 
 from petstore_api.components.schema import parent_pet
-
-import immutabledict
+from petstore_api import schemas
 
 
 class TestParentPet(unittest.TestCase):
@@ -33,7 +32,7 @@ class TestParentPet(unittest.TestCase):
         # which requires that we travel back through ParentPet's allOf descendant
         # GrandparentAnimal, and we use the descendant's discriminator to make ParentPet
         model = parent_pet.ParentPet.validate({'pet_type': "ParentPet"})
-        assert isinstance(model, immutabledict.immutabledict)
+        assert isinstance(model, schemas.immutabledict)
 
 
 if __name__ == '__main__':

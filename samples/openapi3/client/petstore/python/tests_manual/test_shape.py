@@ -13,17 +13,9 @@
 import sys
 import unittest
 
-import immutabledict
-
 import petstore_api
+from petstore_api import schemas
 from petstore_api.components.schema import shape
-from petstore_api.components.schema import complex_quadrilateral
-from petstore_api.components.schema import simple_quadrilateral
-from petstore_api.components.schema import triangle
-from petstore_api.components.schema import triangle_interface
-from petstore_api.components.schema import equilateral_triangle
-from petstore_api.components.schema import isosceles_triangle
-from petstore_api.components.schema import scalene_triangle
 
 
 class TestShape(unittest.TestCase):
@@ -48,32 +40,32 @@ class TestShape(unittest.TestCase):
             'shapeType': "Triangle",
             'triangleType': "EquilateralTriangle"
         })
-        assert isinstance(tri, immutabledict.immutabledict)
+        assert isinstance(tri, schemas.immutabledict)
         assert isinstance(tri['shapeType'], str)
 
         tri = shape.Shape.validate({
             'shapeType': "Triangle",
             'triangleType': "IsoscelesTriangle"
         })
-        assert isinstance(tri, immutabledict.immutabledict)
+        assert isinstance(tri, schemas.immutabledict)
 
         tri = shape.Shape.validate({
             'shapeType': "Triangle",
             'triangleType': "ScaleneTriangle"
         })
-        assert isinstance(tri, immutabledict.immutabledict)
+        assert isinstance(tri, schemas.immutabledict)
 
         quad = shape.Shape.validate({
             'shapeType': "Quadrilateral",
             'quadrilateralType': "ComplexQuadrilateral"
         })
-        assert isinstance(quad, immutabledict.immutabledict)
+        assert isinstance(quad, schemas.immutabledict)
 
         quad = shape.Shape.validate({
             'shapeType': "Quadrilateral",
             'quadrilateralType': "SimpleQuadrilateral"
         })
-        assert isinstance(quad, immutabledict.immutabledict)
+        assert isinstance(quad, schemas.immutabledict)
 
         # data missing
         with self.assertRaisesRegex(

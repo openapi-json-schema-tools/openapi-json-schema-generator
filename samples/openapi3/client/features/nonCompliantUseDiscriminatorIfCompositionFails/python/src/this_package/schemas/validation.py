@@ -17,19 +17,18 @@ import types
 import typing
 import uuid
 
-import immutabledict as original_immutabledict
 import typing_extensions
 
 from this_package import exceptions
 from this_package.configurations import schema_configuration
 
-from . import format
+from . import format, original_immutabledict
 
 _K = typing.TypeVar('_K')
-_V = typing.TypeVar('_V')
+_V = typing.TypeVar('_V', covariant=True)
 
 
-class immutabledict(original_immutabledict.immutabledict[_K, _V]):
+class immutabledict(typing.Generic[_K, _V], original_immutabledict.immutabledict[_K, _V]):
     def __init__(self, arg: typing.Any, **kwargs: typing.Any):
         super().__init__(arg)  # needed to omit passing on kwargs
 
@@ -43,14 +42,13 @@ class ValidationMetadata:
     configuration: schema_configuration.SchemaConfiguration
     validated_path_to_schemas: typing.Mapping[
         typing.Tuple[typing.Union[str, int], ...],
-        typing.Mapping[typing.Type, None]
+        typing.Mapping[type, None]
     ] = dataclasses.field(default_factory=dict)
-    seen_classes: typing.FrozenSet[typing.Type] = frozenset()
+    seen_classes: typing.FrozenSet[type] = frozenset()
 
     def validation_ran_earlier(self, cls: type) -> bool:
-        validated_schemas = self.validated_path_to_schemas.get(self.path_to_item, set())
-        validation_ran_earlier = validated_schemas and cls in validated_schemas
-        if validation_ran_earlier:
+        validated_schemas: typing.Union[typing.Mapping[type, None], None] = self.validated_path_to_schemas.get(self.path_to_item)
+        if validated_schemas and cls in validated_schemas:
             return True
         if cls in self.seen_classes:
             return True
@@ -109,9 +107,9 @@ class SchemaValidator:
                 'discriminated_cls': discriminated_cls,
                 'ensure_discriminator_value_present_exc': ensure_discriminator_value_present_exc
             }
-        path_to_schemas = {}
+        path_to_schemas: PathToSchemasType = {}
         for keyword, val in json_schema_data.items():
-            validator =  json_schema_keyword_to_validator[keyword]
+            validator = json_schema_keyword_to_validator[keyword]
 
             other_path_to_schemas = validator(
                 arg,
@@ -224,8 +222,7 @@ def __type_error_message(
     if key_type:
         key_or_value = "key"
     valid_classes_phrase = __get_valid_classes_phrase(valid_classes)
-    msg = "Invalid type. Required {1} type {2} and " "passed type was {3}".format(
-        var_name,
+    msg = "Invalid type. Required {0} type {1} and " "passed type was {2}".format(
         key_or_value,
         valid_classes_phrase,
         type(var_value).__name__,
@@ -615,7 +612,7 @@ def __validate_string_format(
             )
     elif format_value == 'date':
         try:
-            format.DEFAULT_ISOPARSER.parse_isodate(arg)
+            format.DEFAULT_ISOPARSER.parse_isodate_str(arg)
             return None
         except ValueError:
             raise exceptions.ApiValueError(
@@ -666,9 +663,9 @@ def validate_required(
 ) -> None:
     if not isinstance(arg, immutabledict):
         return None
-    missing_required_arguments = required - arg.keys()
-    if missing_required_arguments:
-        missing_required_arguments = list(missing_required_arguments)
+    missing_req_args = required - arg.keys()
+    if missing_req_args:
+        missing_required_arguments = list(missing_req_args)
         missing_required_arguments.sort()
         raise exceptions.ApiTypeError(
             "{} is missing {} required argument{}: {}".format(
@@ -691,7 +688,7 @@ def validate_items(
     if not isinstance(arg, tuple):
         return None
     item_cls = _get_class(item_cls)
-    path_to_schemas = {}
+    path_to_schemas: PathToSchemasType = {}
     for i, value in enumerate(arg):
         item_validation_metadata = ValidationMetadata(
             path_to_item=validation_metadata.path_to_item+(i,),
@@ -716,7 +713,7 @@ def validate_properties(
 ) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, immutabledict):
         return None
-    path_to_schemas = {}
+    path_to_schemas: PathToSchemasType = {}
     present_properties = {k: v for k, v, in arg.items() if k in properties}
     module_namespace = vars(sys.modules[cls.__module__])
     for property_name, value in present_properties.items():
@@ -746,7 +743,7 @@ def validate_additional_properties(
     if not isinstance(arg, immutabledict):
         return None
     schema = _get_class(additional_properties_cls)
-    path_to_schemas = {}
+    path_to_schemas: PathToSchemasType = {}
     cls_schema = cls()
     properties = cls_schema.properties if hasattr(cls_schema, 'properties') else {}
     present_additional_properties = {k: v for k, v, in arg.items() if k not in properties}
@@ -774,7 +771,7 @@ def validate_one_of(
     **kwargs
 ) -> PathToSchemasType:
     oneof_classes = []
-    path_to_schemas = collections.defaultdict(dict)
+    path_to_schemas: PathToSchemasType = collections.defaultdict(dict)
     for schema in classes:
         schema = _get_class(schema)
         if schema in path_to_schemas[validation_metadata.path_to_item]:
@@ -832,7 +829,7 @@ def validate_any_of(
     **kwargs
 ) -> PathToSchemasType:
     anyof_classes = []
-    path_to_schemas = collections.defaultdict(dict)
+    path_to_schemas: PathToSchemasType = collections.defaultdict(dict)
     for schema in classes:
         schema = _get_class(schema)
         if schema is cls:
@@ -875,7 +872,7 @@ def validate_all_of(
     validation_metadata: ValidationMetadata,
     **kwargs
 ) -> PathToSchemasType:
-    path_to_schemas = collections.defaultdict(dict)
+    path_to_schemas: PathToSchemasType = collections.defaultdict(dict)
     for schema in classes:
         schema = _get_class(schema)
         if schema is cls:
@@ -1024,7 +1021,7 @@ def validate_discriminator(
         """
         return None
     if validation_metadata.validation_ran_earlier(discriminated_cls):
-        path_to_schemas = {}
+        path_to_schemas: PathToSchemasType = {}
         add_deeper_validated_schemas(validation_metadata, path_to_schemas)
         return path_to_schemas
     updated_vm = ValidationMetadata(
@@ -1036,7 +1033,8 @@ def validate_discriminator(
     return discriminated_cls._validate(arg, validation_metadata=updated_vm)
 
 
-json_schema_keyword_to_validator = {
+validator_type = typing.Callable[[typing.Any, typing.Any, type, ValidationMetadata], typing.Optional[PathToSchemasType]]
+json_schema_keyword_to_validator: typing.Mapping[str, validator_type] = {
     'types': validate_types,
     'enum_value_to_name': validate_enum,
     'unique_items': validate_unique_items,

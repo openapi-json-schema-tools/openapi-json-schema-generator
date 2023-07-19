@@ -13,22 +13,11 @@ import urllib3
 
 from petstore_api import schemas
 
-T = typing.TypeVar(
-    'T',
-    schemas.immutabledict,
-    str,
-    int,
-    float,
-    bool,
-    None,
-    typing.Tuple,
-)
-
 
 @dataclasses.dataclass
-class ApiResponse(typing.Generic[T]):
+class ApiResponse:
     response: urllib3.HTTPResponse
-    body: typing.Union[schemas.Unset, T] = schemas.unset
+    body: typing.Union[schemas.Unset, schemas.OUTPUT_BASE_TYPES] = schemas.unset
     headers: typing.Union[schemas.Unset, typing.Mapping[str, schemas.OUTPUT_BASE_TYPES]] = schemas.unset
 
 

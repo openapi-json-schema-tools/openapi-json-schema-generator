@@ -39,9 +39,10 @@ class CustomIsoparser(parser.isoparser):
     def __parse_isodate(self, dt_str: str) -> typing.Tuple[typing.Tuple[int, int, int], int]:
         dt_str_ascii = self.__get_ascii_bytes(dt_str)
         values = self._parse_isodate(dt_str_ascii) # type: ignore
-        components: typing.List[int] = values[0]
-        pos: int = values[1]
-        return tuple(components), pos
+        values = typing.cast(typing.Tuple[typing.List[int], int], values)
+        components = typing.cast( typing.Tuple[int, int, int], tuple(values[0]))
+        pos = values[1]
+        return components, pos
 
     def __parse_isotime(self, dt_str: str) -> typing.Tuple[int, int, int, int, typing.Optional[typing.Union[tz.tzutc, tz.tzoffset]]]:
         dt_str_ascii = self.__get_ascii_bytes(dt_str)
@@ -50,7 +51,7 @@ class CustomIsoparser(parser.isoparser):
         return components
 
     def parse_isodatetime(self, dt_str: str) -> datetime.datetime:
-        components, pos = self.__parse_isodate(dt_str)
+        date_components, pos = self.__parse_isodate(dt_str)
         if len(dt_str) <= pos:
             # len(components) <= 3
             raise ValueError('Value is not a datetime')
@@ -58,16 +59,16 @@ class CustomIsoparser(parser.isoparser):
             hour, minute, second, microsecond, tzinfo = self.__parse_isotime(dt_str[pos + 1:])
             if hour == 24:
                 hour = 0
-                components += (hour, minute, second, microsecond, tzinfo)
+                components = (*date_components, hour, minute, second, microsecond, tzinfo)
                 return datetime.datetime(*components) + datetime.timedelta(days=1)
             else:
-                components += (hour, minute, second, microsecond, tzinfo)
+                components = (*date_components, hour, minute, second, microsecond, tzinfo)
         else:
             raise ValueError('String contains unknown ISO components')
 
         return datetime.datetime(*components)
 
-    def parse_isodate(self, datestr: str) -> datetime.date:
+    def parse_isodate_str(self, datestr: str) -> datetime.date:
         components, pos = self.__parse_isodate(datestr)
 
         if len(datestr) > pos:
@@ -86,7 +87,7 @@ def as_date_(arg: str) -> datetime.date:
     type = "string"
     format = "date"
     """
-    return DEFAULT_ISOPARSER.parse_isodate(arg)
+    return DEFAULT_ISOPARSER.parse_isodate_str(arg)
 
 @functools.lru_cache()
 def as_datetime_(arg: str) -> datetime.datetime:

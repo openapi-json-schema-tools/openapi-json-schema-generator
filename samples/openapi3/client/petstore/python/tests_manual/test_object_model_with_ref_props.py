@@ -11,11 +11,8 @@
 
 import unittest
 
-import immutabledict
-import typing_extensions
-
+from petstore_api import schemas
 from petstore_api.components.schema import object_model_with_ref_props
-from petstore_api.components.schema.number_with_validations import NumberWithValidations
 
 
 class TestObjectModelWithRefProps(unittest.TestCase):
@@ -31,7 +28,7 @@ class TestObjectModelWithRefProps(unittest.TestCase):
         """Test ObjectModelWithRefProps"""
         inst = object_model_with_ref_props.ObjectModelWithRefProps.validate({'myNumber': 15.0, 'myString': "a", 'myBoolean': True})
         assert isinstance(inst, object_model_with_ref_props.ObjectModelWithRefPropsDict)
-        assert isinstance(inst, immutabledict.immutabledict)
+        assert isinstance(inst, schemas.immutabledict)
         assert set(inst.keys()) == {"myNumber", "myString", "myBoolean"}
         assert inst["myNumber"] == 15.0
         assert isinstance(inst["myNumber"], float)
