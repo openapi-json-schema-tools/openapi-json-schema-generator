@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
 
@@ -25,7 +25,7 @@ class ItemsEnums:
 
 @dataclasses.dataclass(frozen=True)
 class Items(
-    schemas.StrSchema
+    schemas.Schema[schemas.immutabledict, str]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -69,7 +69,7 @@ class Items(
         ">",
         "$",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -81,20 +81,29 @@ class Items(
         )
 
 
-class EnumFormStringArrayTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> typing_extensions.Literal[">", "$"]:
-        return super().__getitem__(name)
+class EnumFormStringArrayTuple(
+    typing.Tuple[
+        typing_extensions.Literal[">", "$"],
+        ...
+    ]
+):
 
     def __new__(cls, arg: EnumFormStringArrayTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return EnumFormStringArray.validate(arg, configuration=configuration)
-EnumFormStringArrayTupleInput = typing.Sequence[
-    str,
+EnumFormStringArrayTupleInput = typing.Union[
+    typing.List[
+        str,
+    ],
+    typing.Tuple[
+        str,
+        ...
+    ]
 ]
 
 
 @dataclasses.dataclass(frozen=True)
 class EnumFormStringArray(
-    schemas.ListSchema[EnumFormStringArrayTuple]
+    schemas.Schema[schemas.immutabledict, EnumFormStringArrayTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
@@ -116,7 +125,7 @@ class EnumFormStringArray(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> EnumFormStringArrayTuple:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -139,7 +148,7 @@ class EnumFormStringEnums:
 
 @dataclasses.dataclass(frozen=True)
 class EnumFormString(
-    schemas.StrSchema
+    schemas.Schema[schemas.immutabledict, str]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -192,7 +201,7 @@ class EnumFormString(
         "-efg",
         "(xyz)",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -213,37 +222,46 @@ Properties = typing_extensions.TypedDict(
 
 
 class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "enum_form_string_array",
+        "enum_form_string",
+    })
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_form_string_array"]) -> EnumFormStringArrayTuple:
-        ...
+    @property
+    def enum_form_string_array(self) -> typing.Union[EnumFormStringArrayTuple, schemas.Unset]:
+        val = self.get("enum_form_string_array", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            EnumFormStringArrayTuple,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["enum_form_string"]) -> typing_extensions.Literal["_abc", "-efg", "(xyz)"]:
-        ...
+    @property
+    def enum_form_string(self) -> typing.Union[typing_extensions.Literal["_abc", "-efg", "(xyz)"], schemas.Unset]:
+        val = self.get("enum_form_string", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal["_abc", "-efg", "(xyz)"],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["enum_form_string_array"],
-            typing_extensions.Literal["enum_form_string"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: SchemaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Schema.validate(arg, configuration=configuration)
-SchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+SchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)
 class Schema(
-    schemas.DictSchema[SchemaDict]
+    schemas.Schema[SchemaDict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
@@ -265,7 +283,7 @@ class Schema(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> SchemaDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

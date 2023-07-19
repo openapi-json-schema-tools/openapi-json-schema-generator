@@ -2338,6 +2338,20 @@ public class DefaultCodegen implements CodegenConfig {
             }
         }
         // end of properties that need to be ordered to set correct camelCase jsonPathPieces
+        CodegenSchema additionalProperties = property.additionalProperties;
+        LinkedHashMapWithContext<CodegenKey, CodegenSchema> properties = property.properties;
+        if (additionalProperties != null || properties != null) {
+            CodegenSchema mapValueSchema = new CodegenSchema();
+            if (additionalProperties != null) {
+                mapValueSchema = mapValueSchema.add(additionalProperties);
+            }
+            if (properties != null) {
+                for (CodegenSchema prop: properties.values()) {
+                    mapValueSchema = prop.add(mapValueSchema);
+                }
+            }
+            property.mapValueSchema = mapValueSchema;
+        }
 
         if (currentJsonPath != null) {
             String[] pathPieces = currentJsonPath.split("/");
@@ -2514,7 +2528,10 @@ public class DefaultCodegen implements CodegenConfig {
         TreeMap<String, CodegenResponse> nonDefaultResponses = null;
         TreeMap<Integer, CodegenResponse> wildcardCodeResponses = null;
         TreeMap<Integer, CodegenResponse> statusCodeResponses = null;
-        boolean hasErrorResponseObject = false;
+        LinkedHashSet<String> errorStatusCodes = null;
+        LinkedHashSet<Integer> errorWildcardStatusCodes = null;
+        LinkedHashSet<String> nonErrorStatusCodes = null;
+        LinkedHashSet<Integer> nonErrorWildcardStatusCodes = null;
         if (operation.getResponses() != null && !operation.getResponses().isEmpty()) {
             responses = new TreeMap<>();
             for (Map.Entry<String, ApiResponse> operationGetResponsesEntry : operation.getResponses().entrySet()) {
@@ -2545,13 +2562,17 @@ public class DefaultCodegen implements CodegenConfig {
                     }
                     int firstNumber = Integer.parseInt(key.substring(0, 1));
                     wildcardCodeResponses.put(firstNumber, r);
-                    if (firstNumber > 3 && r.content != null) {
-                        for (CodegenMediaType cm: r.content.values()) {
-                            if (cm.schema != null) {
-                                hasErrorResponseObject = true;
-                                break;
-                            }
+                    if (firstNumber > 3) {
+                        // store error response code whether on not it has a body
+                        if (errorWildcardStatusCodes == null) {
+                            errorWildcardStatusCodes = new LinkedHashSet<>();
                         }
+                        errorWildcardStatusCodes.add(firstNumber);
+                    } else {
+                        if (nonErrorWildcardStatusCodes == null) {
+                            nonErrorWildcardStatusCodes = new LinkedHashSet<>();
+                        }
+                        nonErrorWildcardStatusCodes.add(firstNumber);
                     }
                     continue;
                 }
@@ -2560,13 +2581,17 @@ public class DefaultCodegen implements CodegenConfig {
                 }
                 int statusCode = Integer.parseInt(key);
                 statusCodeResponses.put(statusCode, r);
-                if (statusCode > 299 && r.content != null) {
-                    for (CodegenMediaType cm: r.content.values()) {
-                        if (cm.schema != null) {
-                            hasErrorResponseObject = true;
-                            break;
-                        }
+                if (statusCode > 399) {
+                    // store error response code whether on not it has a body
+                    if (errorStatusCodes == null) {
+                        errorStatusCodes = new LinkedHashSet<>();
                     }
+                    errorStatusCodes.add(key);
+                } else {
+                    if (nonErrorStatusCodes == null) {
+                        nonErrorStatusCodes = new LinkedHashSet<>();
+                    }
+                    nonErrorStatusCodes.add(key);
                 }
             }
 
@@ -2729,7 +2754,10 @@ public class DefaultCodegen implements CodegenConfig {
 
         return new CodegenOperation(
                 deprecated,
-                hasErrorResponseObject,
+                nonErrorStatusCodes,
+                nonErrorWildcardStatusCodes,
+                errorStatusCodes,
+                errorWildcardStatusCodes,
                 summary,
                 unescapedDescription,
                 description,

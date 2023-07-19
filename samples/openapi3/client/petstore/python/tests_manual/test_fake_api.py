@@ -18,7 +18,6 @@ import typing
 from unittest.mock import patch
 
 import urllib3
-import immutabledict
 
 import petstore_api
 from petstore_api import api_client, schemas, exceptions, rest
@@ -74,7 +73,7 @@ class TestFakeApi(ApiTestMixin):
 
         # serialization + deserialization works
         with patch.object(RESTClientObject, 'request') as mock_request:
-            value = [string_enum.StringEnum.validate("placed")]
+            value = (string_enum.StringEnum.validate("placed"),)
             body = array_of_enums.ArrayOfEnums.validate(value)
             value_simple = ["placed"]
             mock_request.return_value = self.response(
@@ -143,7 +142,7 @@ class TestFakeApi(ApiTestMixin):
 
                 assert api_response.body == body
                 if isinstance(value_simple, dict):
-                    assert isinstance(api_response.body, immutabledict.immutabledict)
+                    assert isinstance(api_response.body, schemas.immutabledict)
 
         # inputting the uncast values into the endpoint also works
         for (body, value_simple) in cast_to_simple_value:
@@ -161,7 +160,7 @@ class TestFakeApi(ApiTestMixin):
 
                 assert api_response.body == body
                 if isinstance(value_simple, dict):
-                    assert isinstance(api_response.body, immutabledict.immutabledict)
+                    assert isinstance(api_response.body, schemas.immutabledict)
 
     def test_string(self):
         # serialization + deserialization works
@@ -219,7 +218,7 @@ class TestFakeApi(ApiTestMixin):
                 body=self.json_bytes(value_simple)
             )
 
-            assert isinstance(api_response.body, immutabledict.immutabledict)
+            assert isinstance(api_response.body, schemas.immutabledict)
             assert api_response.body == value_simple
 
     def test_missing_or_unset_required_body(self):

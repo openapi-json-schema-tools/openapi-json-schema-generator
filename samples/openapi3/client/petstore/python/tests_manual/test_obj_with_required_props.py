@@ -25,6 +25,7 @@ class TestObjWithRequiredProps(unittest.TestCase):
     assert isinstance(obj, obj_with_required_props.ObjWithRequiredPropsDict)
     assert isinstance(obj.a, str)
     assert isinstance(obj['b'], str)
+    assert isinstance(obj.get_additional_property_('b'), str)
 
 
 if __name__ == '__main__':

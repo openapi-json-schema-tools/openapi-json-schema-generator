@@ -66,7 +66,7 @@ class ApiConfiguration(object):
         """Constructor
         """
         # Authentication Settings
-        self.security_scheme_info: {}
+        self.security_scheme_info = {}
         self.security_index_info = {'security': 0}
         # Server Info
         self.server_info: ServerInfo = server_info or {
@@ -251,7 +251,9 @@ class ApiConfiguration(object):
 
     def get_server_url(
         self,
-        key_prefix: str,
+        key_prefix: typing_extensions.Literal[
+            "servers",
+        ],
         index: typing.Optional[int],
     ) -> str:
         """Gets host URL based on the index
@@ -266,5 +268,14 @@ class ApiConfiguration(object):
             except KeyError:
                 # fallback and use the default index
                 used_index = self.server_index_info.get("servers", 0)
-        server = self.server_info[f"{key_prefix}/{used_index}"]
+        server_info_key = typing.cast(
+            typing_extensions.Literal[
+                "servers/0",
+            ],
+            f"{key_prefix}/{used_index}"
+        )
+        try:
+            server = self.server_info[server_info_key]
+        except KeyError as ex:
+            raise ex
         return server.url

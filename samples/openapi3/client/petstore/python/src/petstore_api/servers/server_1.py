@@ -4,8 +4,8 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
-from petstore_api.shared_imports.server_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
+from petstore_api.shared_imports.server_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
 
@@ -22,7 +22,7 @@ class VersionEnums:
 
 @dataclasses.dataclass(frozen=True)
 class Version(
-    schemas.StrSchema
+    schemas.Schema[schemas.immutabledict, str]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -66,7 +66,7 @@ class Version(
         "v1",
         "v2",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -84,24 +84,20 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class VariablesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class VariablesDict(schemas.immutabledict[str, str]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+        "version",
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+    })
     
     @property
     def version(self) -> typing_extensions.Literal["v1", "v2"]:
-        return self.__getitem__("version")
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["version"]) -> typing_extensions.Literal["v1", "v2"]:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["version"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+        return typing.cast(
+            typing_extensions.Literal["v1", "v2"],
+            self.__getitem__("version")
+        )
 
     def __new__(cls, arg: VariablesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Variables.validate(arg, configuration=configuration)
@@ -115,7 +111,7 @@ VariablesDictInput = typing_extensions.TypedDict(
 
 @dataclasses.dataclass(frozen=True)
 class Variables(
-    schemas.DictSchema[VariablesDict]
+    schemas.Schema[VariablesDict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
@@ -141,7 +137,7 @@ class Variables(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> VariablesDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

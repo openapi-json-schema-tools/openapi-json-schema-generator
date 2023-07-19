@@ -3,7 +3,7 @@
 schemas.ListSchema[{{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.camelCase}}{{else}}tuple{{/if}}]
     {{/eq}}
     {{#eq this "object"}}
-schemas.DictSchema[{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}}schemas.immutabledict{{/if}}]
+schemas.Schema[{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}}schemas.immutabledict{{/if}}, tuple]
     {{/eq}}
     {{#eq this "string"}}
         {{#eq ../format "date"}}
@@ -26,7 +26,12 @@ schemas.BinarySchema
         {{#neq ../format "uuid"}}
         {{#neq ../format "number"}}
         {{#neq ../format "binary"}}
+            {{#and ../enumInfo.typeToValues.string}}
+                {{! use Schema so validate is not overwritten }}
+schemas.Schema[schemas.immutabledict, str]
+            {{else}}
 schemas.StrSchema
+            {{/and}}
         {{/neq}}
         {{/neq}}
         {{/neq}}
@@ -34,33 +39,48 @@ schemas.StrSchema
         {{/neq}}
     {{/eq}}
     {{#eq this "number"}}
-        {{#eq ../format "float"}}
+        {{#and ../enumInfo.typeToValues.number}}
+            {{! use Schema so validate is not overwritten }}
+schemas.Schema
+        {{else}}
+            {{#eq ../format "float"}}
 schemas.Float32Schema
-        {{/eq}}
-        {{#eq ../format "double"}}
+            {{/eq}}
+            {{#eq ../format "double"}}
 schemas.Float64Schema
-        {{/eq}}
-        {{#neq ../format "float"}}
-        {{#neq ../format "double"}}
+            {{/eq}}
+            {{#neq ../format "float"}}
+                {{#neq ../format "double"}}
 schemas.NumberSchema
-        {{/neq}}
-        {{/neq}}
+                {{/neq}}
+            {{/neq}}
+        {{/and}}
     {{/eq}}
     {{#eq this "integer"}}
-        {{#eq ../format "int32"}}
+        {{#and ../enumInfo.typeToValues.integer}}
+            {{! use Schema so validate is not overwritten }}
+schemas.Schema
+        {{else}}
+            {{#eq ../format "int32"}}
 schemas.Int32Schema
-        {{/eq}}
-        {{#eq ../format "int64"}}
+            {{/eq}}
+            {{#eq ../format "int64"}}
 schemas.Int64Schema
-        {{/eq}}
-        {{#neq ../format "int32"}}
-        {{#neq ../format "int64"}}
+            {{/eq}}
+            {{#neq ../format "int32"}}
+                {{#neq ../format "int64"}}
 schemas.IntSchema
-        {{/neq}}
-        {{/neq}}
+                {{/neq}}
+            {{/neq}}
+        {{/and}}
     {{/eq}}
     {{#eq this "boolean"}}
+        {{#and ../enumInfo.typeToValues.boolean}}
+            {{! use Schema so validate is not overwritten }}
+schemas.Schema
+        {{else}}
 schemas.BoolSchema
+        {{/and}}
     {{/eq}}
     {{#eq this "null"}}
 schemas.NoneSchema

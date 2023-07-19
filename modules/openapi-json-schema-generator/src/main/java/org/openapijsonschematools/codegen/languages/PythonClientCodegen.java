@@ -675,6 +675,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         supportingFiles.add(new SupportingFile("migration_2_0_0.hbs", "", "migration_2_0_0.md"));
         supportingFiles.add(new SupportingFile("migration_other_python_generators.hbs", "", "migration_other_python_generators.md"));
         supportingFiles.add(new SupportingFile("__init__package.hbs", packagePath(), "__init__.py"));
+        supportingFiles.add(new SupportingFile("__init__.hbs", packagePath(), "py.typed"));
 
         if (!generateSourceCodeOnly) {
             supportingFiles.add(new SupportingFile("tox.hbs", "", "tox.ini"));
@@ -727,6 +728,7 @@ public class PythonClientCodegen extends AbstractPythonCodegen {
         supportingFiles.add(new SupportingFile("schemas/schema.hbs", packagePath() + File.separator + "schemas", "schema.py"));
         supportingFiles.add(new SupportingFile("schemas/schemas.hbs", packagePath() + File.separator + "schemas", "schemas.py"));
         supportingFiles.add(new SupportingFile("schemas/format.hbs", packagePath() + File.separator + "schemas", "format.py"));
+        supportingFiles.add(new SupportingFile("schemas/original_immutabledict.hbs", packagePath() + File.separator + "schemas", "original_immutabledict.py"));
         supportingFiles.add(new SupportingFile("security_schemes.hbs", packagePath(), "security_schemes.py"));
         supportingFiles.add(new SupportingFile("server.hbs", packagePath(), "server.py"));
 

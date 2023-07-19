@@ -12,9 +12,9 @@
 
 import unittest
 
+from petstore_api import schemas
 from petstore_api.components.schema import mammal
 
-import immutabledict
 
 class TestMammal(unittest.TestCase):
     """Mammal unit test stubs"""
@@ -30,20 +30,20 @@ class TestMammal(unittest.TestCase):
 
         # tests that we can make a BasquePig by traveling through discriminator in Pig
         m = mammal.Mammal.validate({'className': "BasquePig"})
-        assert isinstance(m, immutabledict.immutabledict)
+        assert isinstance(m, schemas.immutabledict)
 
         # can make a Whale
         m = mammal.Mammal.validate({'className': "whale"})
-        assert isinstance(m, immutabledict.immutabledict)
+        assert isinstance(m, schemas.immutabledict)
 
         # can use the enum value
         from petstore_api.components.schema import whale
         m = mammal.Mammal.validate({'className': whale.ClassName.enums.WHALE})
-        assert isinstance(m, immutabledict.immutabledict)
+        assert isinstance(m, schemas.immutabledict)
         assert m['className'] == whale.ClassName.enums.WHALE
 
         m = mammal.Mammal.validate({'className': 'zebra'})
-        assert isinstance(m, immutabledict.immutabledict)
+        assert isinstance(m, schemas.immutabledict)
 
 
 if __name__ == '__main__':

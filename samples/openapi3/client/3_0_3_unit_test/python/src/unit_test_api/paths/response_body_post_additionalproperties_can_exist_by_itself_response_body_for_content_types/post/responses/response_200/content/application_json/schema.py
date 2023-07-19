@@ -8,6 +8,6 @@
 """
 
 
-from unit_test_api.shared_imports.schema_imports import *
+from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 from unit_test_api.components.schema import additionalproperties_can_exist_by_itself
 Schema: typing_extensions.TypeAlias = additionalproperties_can_exist_by_itself.AdditionalpropertiesCanExistByItself

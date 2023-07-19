@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from unit_test_api.shared_imports.schema_imports import *
+from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.BoolSchema
 Foo: typing_extensions.TypeAlias = schemas.AnyTypeSchema
@@ -21,27 +21,30 @@ Properties = typing_extensions.TypedDict(
 
 
 class _0Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "foo",
+    })
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
+    @property
+    def foo(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        val = self.get("foo", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["foo"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: _0DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _0.validate(arg, configuration=configuration)
-_0DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+_0DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)
@@ -64,11 +67,22 @@ AllOf = typing.Tuple[
 ]
 
 
-class AdditionalpropertiesShouldNotLookInApplicatorsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class AdditionalpropertiesShouldNotLookInApplicatorsDict(schemas.immutabledict[str, bool]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+    })
     
-    def __getitem__(self, name: str) -> bool:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[bool, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            bool,
+            val
+        )
 
     def __new__(cls, arg: AdditionalpropertiesShouldNotLookInApplicatorsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AdditionalpropertiesShouldNotLookInApplicators.validate(arg, configuration=configuration)

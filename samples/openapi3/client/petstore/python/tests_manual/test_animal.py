@@ -68,6 +68,7 @@ class TestAnimal(unittest.TestCase):
         assert isinstance(inst, animal.AnimalDict)
         assert set(inst.keys()) == {'className', 'color', 'breed'}
         assert inst.className == 'Dog'
+        assert inst.color == 'black'
         assert inst["color"] == 'black'
         assert inst["breed"] == 'Labrador'
         assert isinstance(inst.className, str)

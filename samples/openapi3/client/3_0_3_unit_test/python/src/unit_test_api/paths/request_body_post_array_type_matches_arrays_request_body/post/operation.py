@@ -5,9 +5,9 @@
 """
 
 from __future__ import annotations
-from unit_test_api.shared_imports.schema_imports import *
+from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 from unit_test_api import api_client
-from unit_test_api.shared_imports.operation_imports import *
+from unit_test_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 from .. import path
 from .responses import response_200
@@ -25,6 +25,9 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
 _status_code_to_response: __StatusCodeToResponse = {
     '200': response_200.ResponseFor200,
 }
+_non_error_status_codes = frozenset({
+    '200',
+})
 
 
 class BaseApi(api_client.Api):
@@ -35,12 +38,13 @@ class BaseApi(api_client.Api):
             request_body_application_json_schema.ArrayTypeMatchesArraysTupleInput,
             request_body_application_json_schema.ArrayTypeMatchesArraysTuple,
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False
-    ) -> response_200.ResponseFor200.response_cls: ...
+    ) -> response_200.ApiResponse: ...
 
     @typing.overload
     def _post_array_type_matches_arrays_request_body(
@@ -49,11 +53,12 @@ class BaseApi(api_client.Api):
             request_body_application_json_schema.ArrayTypeMatchesArraysTupleInput,
             request_body_application_json_schema.ArrayTypeMatchesArraysTuple,
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     def _post_array_type_matches_arrays_request_body(
@@ -62,11 +67,12 @@ class BaseApi(api_client.Api):
             request_body_application_json_schema.ArrayTypeMatchesArraysTupleInput,
             request_body_application_json_schema.ArrayTypeMatchesArraysTuple,
         ],
+        *,
+        skip_deserialization: bool = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False
     ):
         """
         :param skip_deserialization: If true then api_response.response will be set but
@@ -84,7 +90,7 @@ class BaseApi(api_client.Api):
             content_type=content_type
         )
         host = self.api_client.configuration.get_server_url(
-            'servers', server_index
+            "servers", server_index
         )
 
         raw_response = self.api_client.call_api(
@@ -99,23 +105,23 @@ class BaseApi(api_client.Api):
         )
 
         if skip_deserialization:
-            response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
-        else:
-            status = str(raw_response.status)
-            if status in _status_code_to_response:
-                status = typing.cast(
-                    typing_extensions.Literal[
+            skip_deser_response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
+            self._verify_response_status(skip_deser_response)
+            return skip_deser_response
+
+        status = str(raw_response.status)
+        if status in _non_error_status_codes:
+            status_code = typing.cast(
+                typing_extensions.Literal[
                     '200',
-                    ],
-                    status
-                )
-                response = _status_code_to_response[status].deserialize(
-                    raw_response, self.api_client.schema_configuration)
-            else:
-                response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
+                ],
+                status
+            )
+            return _status_code_to_response[status_code].deserialize(
+                raw_response, self.api_client.schema_configuration)
 
+        response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
         self._verify_response_status(response)
-
         return response
 
 

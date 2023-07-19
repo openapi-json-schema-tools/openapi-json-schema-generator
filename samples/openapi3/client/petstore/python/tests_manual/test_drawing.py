@@ -13,11 +13,10 @@
 import unittest
 
 import petstore_api
+from petstore_api import schemas
 from petstore_api.schemas import none_type_
 from petstore_api.components.schema import shape
 from petstore_api.components.schema import drawing
-
-import immutabledict
 
 
 class TestDrawing(unittest.TestCase):
@@ -38,7 +37,7 @@ class TestDrawing(unittest.TestCase):
             'shapeType': "Triangle",
             'triangleType': "IsoscelesTriangle"
         })
-        assert isinstance(inst, immutabledict.immutabledict)
+        assert isinstance(inst, schemas.immutabledict)
 
     def test_deserialize_oneof_reference(self):
         """
@@ -49,7 +48,7 @@ class TestDrawing(unittest.TestCase):
             'shapeType': "Triangle",
             'triangleType': "IsoscelesTriangle"
         })
-        assert isinstance(isosceles_triangle, immutabledict.immutabledict)
+        assert isinstance(isosceles_triangle, schemas.immutabledict)
 
         inst = drawing.Drawing.validate({
             'mainShape': isosceles_triangle,
@@ -73,12 +72,12 @@ class TestDrawing(unittest.TestCase):
             ],
         })
         assert isinstance(inst, drawing.DrawingDict)
-        assert isinstance(inst["mainShape"], immutabledict.immutabledict)
+        assert isinstance(inst["mainShape"], schemas.immutabledict)
         self.assertEqual(len(inst["shapes"]), 4)
-        assert isinstance(inst["shapes"][0], immutabledict.immutabledict)
-        assert isinstance(inst["shapes"][1], immutabledict.immutabledict)
-        assert isinstance(inst["shapes"][2], immutabledict.immutabledict)
-        assert isinstance(inst["shapes"][3], immutabledict.immutabledict)
+        assert isinstance(inst["shapes"][0], schemas.immutabledict)
+        assert isinstance(inst["shapes"][1], schemas.immutabledict)
+        assert isinstance(inst["shapes"][2], schemas.immutabledict)
+        assert isinstance(inst["shapes"][3], schemas.immutabledict)
 
         # Validate we cannot assign the None value to mainShape because the 'null' type
         # is not one of the allowed types in the 'Shape' schema.
@@ -111,7 +110,7 @@ class TestDrawing(unittest.TestCase):
         })
         self.assertEqual(len(inst["shapes"]), 1)
         shapes = inst["shapes"]
-        assert isinstance(shapes[0], immutabledict.immutabledict)
+        assert isinstance(shapes[0], schemas.immutabledict)
 
     def test_deserialize_oneof_reference_with_null_type(self):
         """

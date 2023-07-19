@@ -3581,7 +3581,7 @@ public class DefaultCodegenTest {
         path = "/pet";
         operation = openAPI.getPaths().get(path).getPut();
         co = codegen.fromOperation(operation, getOperationPath(path, "put"));
-        assertTrue(co.hasErrorResponseObject);
+        assertTrue(co.errorStatusCodes != null || co.errorWildcardStatusCodes != null);
 
         cr = co.responses.get("200");
         assertTrue(cr.content.get(applicationJson).schema.refInfo.refClass != null);
@@ -3592,7 +3592,7 @@ public class DefaultCodegenTest {
         path = "/pet/findByTags";
         operation = openAPI.getPaths().get(path).getGet();
         co = codegen.fromOperation(operation, getOperationPath(path, "get"));
-        assertFalse(co.hasErrorResponseObject);
+        assertTrue(co.errorStatusCodes != null);
         cr = co.responses.get("200");
         assertNotNull(cr.content.get(applicationJson).schema.items.refInfo.refClass);
     }

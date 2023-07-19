@@ -455,6 +455,7 @@ public class DefaultGenerator implements Generator {
                 endpointMap.put("pathItem", pathItem);
                 endpointMap.put("httpMethod", httpMethod);
                 endpointMap.put("security", security);
+                endpointMap.put("path", pathKey);
                 generateXs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointMap, true);
 
                 // operation docs

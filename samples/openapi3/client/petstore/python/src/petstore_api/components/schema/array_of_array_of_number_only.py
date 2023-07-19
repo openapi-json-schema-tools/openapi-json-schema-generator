@@ -8,28 +8,40 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 Items2: typing_extensions.TypeAlias = schemas.NumberSchema
 
 
-class ItemsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> typing.Union[float, int]:
-        return super().__getitem__(name)
+class ItemsTuple(
+    typing.Tuple[
+        typing.Union[int, float],
+        ...
+    ]
+):
 
     def __new__(cls, arg: ItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Items.validate(arg, configuration=configuration)
-ItemsTupleInput = typing.Sequence[
-    typing.Union[
-        float,
-        int
+ItemsTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            float,
+            int
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            float,
+            int
+        ],
+        ...
+    ]
 ]
 
 
 @dataclasses.dataclass(frozen=True)
 class Items(
-    schemas.ListSchema[ItemsTuple]
+    schemas.Schema[schemas.immutabledict, ItemsTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items2] = dataclasses.field(default_factory=lambda: Items2) # type: ignore
@@ -51,30 +63,43 @@ class Items(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ItemsTuple:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
 
 
-class ArrayArrayNumberTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> ItemsTuple:
-        return super().__getitem__(name)
+class ArrayArrayNumberTuple(
+    typing.Tuple[
+        ItemsTuple,
+        ...
+    ]
+):
 
     def __new__(cls, arg: ArrayArrayNumberTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayArrayNumber.validate(arg, configuration=configuration)
-ArrayArrayNumberTupleInput = typing.Sequence[
-    typing.Union[
-        ItemsTuple,
-        list,
-        tuple
+ArrayArrayNumberTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            ItemsTuple,
+            list,
+            tuple
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            ItemsTuple,
+            list,
+            tuple
+        ],
+        ...
+    ]
 ]
 
 
 @dataclasses.dataclass(frozen=True)
 class ArrayArrayNumber(
-    schemas.ListSchema[ArrayArrayNumberTuple]
+    schemas.Schema[schemas.immutabledict, ArrayArrayNumberTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
@@ -96,7 +121,7 @@ class ArrayArrayNumber(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayArrayNumberTuple:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -108,33 +133,36 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class ArrayOfArrayOfNumberOnlyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ArrayOfArrayOfNumberOnlyDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TYPES]]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "ArrayArrayNumber",
+    })
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["ArrayArrayNumber"]) -> ArrayArrayNumberTuple:
-        ...
+    @property
+    def ArrayArrayNumber(self) -> typing.Union[ArrayArrayNumberTuple, schemas.Unset]:
+        val = self.get("ArrayArrayNumber", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            ArrayArrayNumberTuple,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["ArrayArrayNumber"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: ArrayOfArrayOfNumberOnlyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayOfArrayOfNumberOnly.validate(arg, configuration=configuration)
-ArrayOfArrayOfNumberOnlyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+ArrayOfArrayOfNumberOnlyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)
 class ArrayOfArrayOfNumberOnly(
-    schemas.DictSchema[ArrayOfArrayOfNumberOnlyDict]
+    schemas.Schema[ArrayOfArrayOfNumberOnlyDict, tuple]
 ):
     """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -161,7 +189,7 @@ class ArrayOfArrayOfNumberOnly(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayOfArrayOfNumberOnlyDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
 
@@ -17,7 +17,7 @@ class AdditionalProperties4(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         schemas.immutabledict,
     })
 
@@ -32,19 +32,20 @@ class AdditionalProperties4(
     @classmethod
     def validate(
         cls,
-        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    ) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
+
 
 
 @dataclasses.dataclass(frozen=True)
@@ -52,7 +53,7 @@ class IntegerProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         int,
     })
     format: str = 'int'
@@ -77,10 +78,11 @@ class IntegerProp(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
+
 
 
 @dataclasses.dataclass(frozen=True)
@@ -88,7 +90,7 @@ class NumberProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         float,
         int,
     })
@@ -106,17 +108,18 @@ class NumberProp(
         cls,
         arg: typing.Union[int, float],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Union[float, int]: ...
+    ) -> typing.Union[int, float]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
+
 
 
 @dataclasses.dataclass(frozen=True)
@@ -124,7 +127,7 @@ class BooleanProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         schemas.Bool,
     })
 
@@ -148,10 +151,11 @@ class BooleanProp(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
+
 
 
 @dataclasses.dataclass(frozen=True)
@@ -159,7 +163,7 @@ class StringProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         str,
     })
 
@@ -183,10 +187,11 @@ class StringProp(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
+
 
 
 @dataclasses.dataclass(frozen=True)
@@ -194,7 +199,7 @@ class DateProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         str,
     })
     format: str = 'date'
@@ -219,10 +224,11 @@ class DateProp(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
+
 
 
 @dataclasses.dataclass(frozen=True)
@@ -230,7 +236,7 @@ class DatetimeProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         str,
     })
     format: str = 'date-time'
@@ -255,24 +261,37 @@ class DatetimeProp(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
+
 Items: typing_extensions.TypeAlias = schemas.DictSchema
 
 
-class ArrayNullablePropTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
-        return super().__getitem__(name)
+class ArrayNullablePropTuple(
+    typing.Tuple[
+        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        ...
+    ]
+):
 
     def __new__(cls, arg: ArrayNullablePropTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayNullableProp.validate(arg, configuration=configuration)
-ArrayNullablePropTupleInput = typing.Sequence[
-    typing.Union[
-        dict,
-        schemas.immutabledict
+ArrayNullablePropTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            dict,
+            schemas.immutabledict
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            dict,
+            schemas.immutabledict
+        ],
+        ...
+    ]
 ]
 
 
@@ -281,7 +300,7 @@ class ArrayNullableProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], ArrayNullablePropTuple],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         tuple,
     })
     items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
@@ -317,10 +336,11 @@ class ArrayNullableProp(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
+
 
 
 @dataclasses.dataclass(frozen=True)
@@ -328,7 +348,7 @@ class Items2(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         schemas.immutabledict,
     })
 
@@ -343,36 +363,50 @@ class Items2(
     @classmethod
     def validate(
         cls,
-        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    ) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
 
 
-class ArrayAndItemsNullablePropTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> typing.Union[
-        None,
-        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-    ]:
-        return super().__getitem__(name)
+
+class ArrayAndItemsNullablePropTuple(
+    typing.Tuple[
+        typing.Union[
+            None,
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        ],
+        ...
+    ]
+):
 
     def __new__(cls, arg: ArrayAndItemsNullablePropTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayAndItemsNullableProp.validate(arg, configuration=configuration)
-ArrayAndItemsNullablePropTupleInput = typing.Sequence[
-    typing.Union[
-        None,
-        dict,
-        schemas.immutabledict
+ArrayAndItemsNullablePropTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            None,
+            dict,
+            schemas.immutabledict
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            None,
+            dict,
+            schemas.immutabledict
+        ],
+        ...
+    ]
 ]
 
 
@@ -381,7 +415,7 @@ class ArrayAndItemsNullableProp(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], ArrayAndItemsNullablePropTuple],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         tuple,
     })
     items: typing.Type[Items2] = dataclasses.field(default_factory=lambda: Items2) # type: ignore
@@ -417,10 +451,11 @@ class ArrayAndItemsNullableProp(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
+
 
 
 @dataclasses.dataclass(frozen=True)
@@ -428,7 +463,7 @@ class Items3(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         schemas.immutabledict,
     })
 
@@ -443,42 +478,56 @@ class Items3(
     @classmethod
     def validate(
         cls,
-        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    ) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
 
 
-class ArrayItemsNullableTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> typing.Union[
-        None,
-        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-    ]:
-        return super().__getitem__(name)
+
+class ArrayItemsNullableTuple(
+    typing.Tuple[
+        typing.Union[
+            None,
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        ],
+        ...
+    ]
+):
 
     def __new__(cls, arg: ArrayItemsNullableTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayItemsNullable.validate(arg, configuration=configuration)
-ArrayItemsNullableTupleInput = typing.Sequence[
-    typing.Union[
-        None,
-        dict,
-        schemas.immutabledict
+ArrayItemsNullableTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            None,
+            dict,
+            schemas.immutabledict
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            None,
+            dict,
+            schemas.immutabledict
+        ],
+        ...
+    ]
 ]
 
 
 @dataclasses.dataclass(frozen=True)
 class ArrayItemsNullable(
-    schemas.ListSchema[ArrayItemsNullableTuple]
+    schemas.Schema[schemas.immutabledict, ArrayItemsNullableTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items3] = dataclasses.field(default_factory=lambda: Items3) # type: ignore
@@ -500,18 +549,29 @@ class ArrayItemsNullable(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayItemsNullableTuple:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
 AdditionalProperties: typing_extensions.TypeAlias = schemas.DictSchema
 
 
-class ObjectNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ObjectNullablePropDict(schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+    })
     
-    def __getitem__(self, name: str) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            val
+        )
 
     def __new__(cls, arg: ObjectNullablePropDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectNullableProp.validate(arg, configuration=configuration)
@@ -529,7 +589,7 @@ class ObjectNullableProp(
     schemas.Schema[ObjectNullablePropDict, typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         schemas.immutabledict,
     })
     additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
@@ -565,10 +625,11 @@ class ObjectNullableProp(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
+
 
 
 @dataclasses.dataclass(frozen=True)
@@ -576,7 +637,7 @@ class AdditionalProperties2(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         schemas.immutabledict,
     })
 
@@ -591,29 +652,47 @@ class AdditionalProperties2(
     @classmethod
     def validate(
         cls,
-        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    ) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
 
 
-class ObjectAndItemsNullablePropDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+class ObjectAndItemsNullablePropDict(schemas.immutabledict[str, typing.Union[
+    None,
+    schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+]]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+    })
     
-    def __getitem__(self, name: str) -> typing.Union[
-        None,
-        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    def get_additional_property_(self, name: str) -> typing.Union[
+        typing.Union[None, schemas.Unset],
+        typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset],
     ]:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[
+                None,
+                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            ],
+            val
+        )
 
     def __new__(cls, arg: ObjectAndItemsNullablePropDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectAndItemsNullableProp.validate(arg, configuration=configuration)
@@ -632,7 +711,7 @@ class ObjectAndItemsNullableProp(
     schemas.Schema[ObjectAndItemsNullablePropDict, typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         schemas.immutabledict,
     })
     additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
@@ -668,10 +747,11 @@ class ObjectAndItemsNullableProp(
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
+
 
 
 @dataclasses.dataclass(frozen=True)
@@ -679,7 +759,7 @@ class AdditionalProperties3(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.none_type_,
+        type(None),
         schemas.immutabledict,
     })
 
@@ -694,29 +774,47 @@ class AdditionalProperties3(
     @classmethod
     def validate(
         cls,
-        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA],
+        arg: typing.Mapping[str, schemas.INPUT_TYPES_ALL],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> schemas.immutabledict[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]: ...
+    ) -> schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
 
 
-class ObjectItemsNullableDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+class ObjectItemsNullableDict(schemas.immutabledict[str, typing.Union[
+    None,
+    schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+]]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+    })
     
-    def __getitem__(self, name: str) -> typing.Union[
-        None,
-        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    def get_additional_property_(self, name: str) -> typing.Union[
+        typing.Union[None, schemas.Unset],
+        typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset],
     ]:
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[
+                None,
+                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            ],
+            val
+        )
 
     def __new__(cls, arg: ObjectItemsNullableDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ObjectItemsNullable.validate(arg, configuration=configuration)
@@ -732,7 +830,7 @@ ObjectItemsNullableDictInput = typing.Mapping[
 
 @dataclasses.dataclass(frozen=True)
 class ObjectItemsNullable(
-    schemas.DictSchema[ObjectItemsNullableDict]
+    schemas.Schema[ObjectItemsNullableDict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     additional_properties: typing.Type[AdditionalProperties3] = dataclasses.field(default_factory=lambda: AdditionalProperties3) # type: ignore
@@ -754,7 +852,7 @@ class ObjectItemsNullable(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectItemsNullableDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -779,112 +877,219 @@ Properties = typing_extensions.TypedDict(
 
 
 class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "integer_prop",
+        "number_prop",
+        "boolean_prop",
+        "string_prop",
+        "date_prop",
+        "datetime_prop",
+        "array_nullable_prop",
+        "array_and_items_nullable_prop",
+        "array_items_nullable",
+        "object_nullable_prop",
+        "object_and_items_nullable_prop",
+        "object_items_nullable",
+    })
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["integer_prop"]) -> typing.Union[
-        None,
-        int,
+    @property
+    def integer_prop(self) -> typing.Union[
+        typing.Union[None, schemas.Unset],
+        typing.Union[int, schemas.Unset],
     ]:
-        ...
+        val = self.get("integer_prop", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[
+                None,
+                int,
+            ],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number_prop"]) -> typing.Union[
-        None,
-        typing.Union[float, int],
+    @property
+    def number_prop(self) -> typing.Union[
+        typing.Union[None, schemas.Unset],
+        typing.Union[int, float, schemas.Unset],
     ]:
-        ...
+        val = self.get("number_prop", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[
+                None,
+                typing.Union[int, float],
+            ],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["boolean_prop"]) -> typing.Union[
-        None,
-        bool,
+    @property
+    def boolean_prop(self) -> typing.Union[
+        typing.Union[None, schemas.Unset],
+        typing.Union[bool, schemas.Unset],
     ]:
-        ...
+        val = self.get("boolean_prop", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[
+                None,
+                bool,
+            ],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["string_prop"]) -> typing.Union[
-        None,
-        str,
+    @property
+    def string_prop(self) -> typing.Union[
+        typing.Union[None, schemas.Unset],
+        typing.Union[str, schemas.Unset],
     ]:
-        ...
+        val = self.get("string_prop", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[
+                None,
+                str,
+            ],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["date_prop"]) -> typing.Union[
-        None,
-        str,
+    @property
+    def date_prop(self) -> typing.Union[
+        typing.Union[None, schemas.Unset],
+        typing.Union[str, schemas.Unset],
     ]:
-        ...
+        val = self.get("date_prop", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[
+                None,
+                str,
+            ],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["datetime_prop"]) -> typing.Union[
-        None,
-        str,
+    @property
+    def datetime_prop(self) -> typing.Union[
+        typing.Union[None, schemas.Unset],
+        typing.Union[str, schemas.Unset],
     ]:
-        ...
+        val = self.get("datetime_prop", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[
+                None,
+                str,
+            ],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_nullable_prop"]) -> typing.Union[
-        None,
-        ArrayNullablePropTuple,
+    @property
+    def array_nullable_prop(self) -> typing.Union[
+        typing.Union[None, schemas.Unset],
+        typing.Union[ArrayNullablePropTuple, schemas.Unset],
     ]:
-        ...
+        val = self.get("array_nullable_prop", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[
+                None,
+                ArrayNullablePropTuple,
+            ],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_and_items_nullable_prop"]) -> typing.Union[
-        None,
-        ArrayAndItemsNullablePropTuple,
+    @property
+    def array_and_items_nullable_prop(self) -> typing.Union[
+        typing.Union[None, schemas.Unset],
+        typing.Union[ArrayAndItemsNullablePropTuple, schemas.Unset],
     ]:
-        ...
+        val = self.get("array_and_items_nullable_prop", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[
+                None,
+                ArrayAndItemsNullablePropTuple,
+            ],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["array_items_nullable"]) -> ArrayItemsNullableTuple:
-        ...
+    @property
+    def array_items_nullable(self) -> typing.Union[ArrayItemsNullableTuple, schemas.Unset]:
+        val = self.get("array_items_nullable", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            ArrayItemsNullableTuple,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["object_nullable_prop"]) -> typing.Union[
-        None,
-        ObjectNullablePropDict,
+    @property
+    def object_nullable_prop(self) -> typing.Union[
+        typing.Union[None, schemas.Unset],
+        typing.Union[ObjectNullablePropDict, schemas.Unset],
     ]:
-        ...
+        val = self.get("object_nullable_prop", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[
+                None,
+                ObjectNullablePropDict,
+            ],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["object_and_items_nullable_prop"]) -> typing.Union[
-        None,
-        ObjectAndItemsNullablePropDict,
+    @property
+    def object_and_items_nullable_prop(self) -> typing.Union[
+        typing.Union[None, schemas.Unset],
+        typing.Union[ObjectAndItemsNullablePropDict, schemas.Unset],
     ]:
-        ...
+        val = self.get("object_and_items_nullable_prop", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[
+                None,
+                ObjectAndItemsNullablePropDict,
+            ],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["object_items_nullable"]) -> ObjectItemsNullableDict:
-        ...
+    @property
+    def object_items_nullable(self) -> typing.Union[ObjectItemsNullableDict, schemas.Unset]:
+        val = self.get("object_items_nullable", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            ObjectItemsNullableDict,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: str) -> typing.Union[
-        None,
-        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    def get_additional_property_(self, name: str) -> typing.Union[
+        typing.Union[None, schemas.Unset],
+        typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset],
     ]:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["integer_prop"],
-            typing_extensions.Literal["number_prop"],
-            typing_extensions.Literal["boolean_prop"],
-            typing_extensions.Literal["string_prop"],
-            typing_extensions.Literal["date_prop"],
-            typing_extensions.Literal["datetime_prop"],
-            typing_extensions.Literal["array_nullable_prop"],
-            typing_extensions.Literal["array_and_items_nullable_prop"],
-            typing_extensions.Literal["array_items_nullable"],
-            typing_extensions.Literal["object_nullable_prop"],
-            typing_extensions.Literal["object_and_items_nullable_prop"],
-            typing_extensions.Literal["object_items_nullable"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[
+                None,
+                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            ],
+            val
+        )
 
     def __new__(cls, arg: NullableClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return NullableClass.validate(arg, configuration=configuration)
@@ -963,7 +1168,7 @@ NullableClassDictInput = typing.Mapping[
 
 @dataclasses.dataclass(frozen=True)
 class NullableClass(
-    schemas.DictSchema[NullableClassDict]
+    schemas.Schema[NullableClassDict, tuple]
 ):
     """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -991,7 +1196,7 @@ class NullableClass(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> NullableClassDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

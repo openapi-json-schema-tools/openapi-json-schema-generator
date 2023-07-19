@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 Name2: typing_extensions.TypeAlias = schemas.Int32Schema
 SnakeCase: typing_extensions.TypeAlias = schemas.Int32Schema
@@ -24,41 +24,39 @@ Properties = typing_extensions.TypedDict(
 
 
 class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+        "name",
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "snake_case",
+        "property",
+    })
     
     @property
     def name(self) -> int:
-        return self.__getitem__("name")
+        return typing.cast(
+            int,
+            self.__getitem__("name")
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> int:
-        ...
+    @property
+    def snake_case(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("snake_case", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["snake_case"]) -> int:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["property"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["name"],
-            typing_extensions.Literal["snake_case"],
-            typing_extensions.Literal["property"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: NameDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Name.validate(arg, configuration=configuration)
-NameDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+NameDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

@@ -6,13 +6,13 @@
     {{#if refInfo}}
         {{#if imports}}
 
-from {{packageName}}.shared_imports.schema_imports import *
+from {{packageName}}.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
         {{/if}}
 {{> _helper_imports }}
 {{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces jsonPathPiece) }}
     {{else}}
 from __future__ import annotations
-from {{packageName}}.shared_imports.schema_imports import *
+from {{packageName}}.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 {{> components/schemas/_helper_getschemas }}
     {{/if}}

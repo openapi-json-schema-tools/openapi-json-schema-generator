@@ -8,6 +8,6 @@
 """
 
 
-from unit_test_api.shared_imports.schema_imports import *
+from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 from unit_test_api.components.schema import maxproperties0_means_the_object_is_empty
 Schema: typing_extensions.TypeAlias = maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty

@@ -8,6 +8,6 @@
 """
 
 from __future__ import annotations
-from unit_test_api.shared_imports.schema_imports import *
+from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 ObjectTypeMatchesObjects: typing_extensions.TypeAlias = schemas.DictSchema

@@ -21,29 +21,44 @@ from unit_test_api.configurations import schema_configuration
 from . import schema, validation
 
 
-T = typing.TypeVar('T')
-U = typing.TypeVar('U')
-
-
 @dataclasses.dataclass(frozen=True)
-class ListSchema(schema.Schema[validation.immutabledict, U]):
+class ListSchema(schema.Schema[validation.immutabledict, tuple]):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
 
+    @typing.overload
     @classmethod
     def validate(
         cls,
         arg: typing.Union[
-            typing.Sequence[schema.INPUT_TYPES_ALL_INCL_SCHEMA],
-            U
+            typing.List[schema.INPUT_TYPES_ALL],
+            schema.U
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> U:
-        return super().validate(arg, configuration=configuration)
+    ) -> schema.U: ...
+
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[
+            typing.Tuple[schema.INPUT_TYPES_ALL, ...],
+            schema.U
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> schema.U: ...
+
+    @classmethod
+    def validate(
+        cls,
+        arg,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ):
+        return super().validate_base(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
 class NoneSchema(schema.Schema):
-    types: typing.FrozenSet[typing.Type] = frozenset({schema.none_type_})
+    types: typing.FrozenSet[typing.Type] = frozenset({type(None)})
 
     @classmethod
     def validate(
@@ -51,7 +66,7 @@ class NoneSchema(schema.Schema):
         arg: None,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> None:
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -81,40 +96,16 @@ class NumberSchema(schema.Schema):
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[int, float],
+        arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
 class IntSchema(NumberSchema):
     types: typing.FrozenSet[typing.Type] = frozenset({int, float})
     format: str = 'int'
-
-    @typing.overload
-    @classmethod
-    def validate(
-        cls,
-        arg: int,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> int: ...
-
-    @typing.overload
-    @classmethod
-    def validate(
-        cls,
-        arg: float,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> float: ...  # when values are equal to int val, 1.0 == 1
-
-    @classmethod
-    def validate(
-        cls,
-        arg,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Union[int, float]:
-        return super().validate(arg, configuration)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -134,31 +125,15 @@ class Float32Schema(NumberSchema):
     types: typing.FrozenSet[typing.Type] = frozenset({float})
     format: str = 'float'
 
-    @classmethod
-    def validate(
-        cls,
-        arg: float,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> float:
-        return super().validate(arg, configuration=configuration)
-
 
 @dataclasses.dataclass(frozen=True)
 class Float64Schema(NumberSchema):
     types: typing.FrozenSet[typing.Type] = frozenset({float})
     format: str = 'double'
 
-    @classmethod
-    def validate(
-        cls,
-        arg: float,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> float:
-        return super().validate(arg, configuration=configuration)
-
 
 @dataclasses.dataclass(frozen=True)
-class StrSchema(schema.Schema):
+class StrSchema(schema.Schema[validation.immutabledict, str]):
     """
     date + datetime string types must inherit from this class
     That is because one can validate a str payload as both:
@@ -170,14 +145,14 @@ class StrSchema(schema.Schema):
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> str:
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
-class UUIDSchema(StrSchema):
+class UUIDSchema(schema.Schema):
     types: typing.FrozenSet[typing.Type] = frozenset({str})
     format: str = 'uuid'
 
@@ -187,11 +162,11 @@ class UUIDSchema(StrSchema):
         arg: typing.Union[str, uuid.UUID],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> str:
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
-class DateSchema(StrSchema):
+class DateSchema(schema.Schema):
     types: typing.FrozenSet[typing.Type] = frozenset({str})
     format: str = 'date'
 
@@ -201,11 +176,11 @@ class DateSchema(StrSchema):
         arg: typing.Union[str, datetime.date],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> str:
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
-class DateTimeSchema(StrSchema):
+class DateTimeSchema(schema.Schema):
     types: typing.FrozenSet[typing.Type] = frozenset({str})
     format: str = 'date-time'
 
@@ -215,11 +190,11 @@ class DateTimeSchema(StrSchema):
         arg: typing.Union[str, datetime.datetime],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> str:
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
-class DecimalSchema(StrSchema):
+class DecimalSchema(schema.Schema):
     types: typing.FrozenSet[typing.Type] = frozenset({str})
     format: str = 'number'
 
@@ -237,11 +212,11 @@ class DecimalSchema(StrSchema):
         if one was using it for a StrSchema (where it should be cast to str) or one is using it for NumberSchema
         where it should stay as Decimal.
         """
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
-class BytesSchema(schema.Schema):
+class BytesSchema(schema.Schema[validation.immutabledict, bytes]):
     """
     this class will subclass bytes and is immutable
     """
@@ -253,8 +228,7 @@ class BytesSchema(schema.Schema):
         arg: bytes,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> bytes:
-        super_cls: typing.Type = super(schema.Schema, cls)
-        return super_cls.validate(arg)
+        return cls.validate_base(arg)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -283,12 +257,11 @@ class FileSchema(schema.Schema):
         arg: typing.Union[io.FileIO, io.BufferedReader],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> schema.FileIO:
-        super_cls: typing.Type = super(schema.Schema, cls)
-        return super_cls.validate(arg)
+        return cls.validate_base(arg)
 
 
 @dataclasses.dataclass(frozen=True)
-class BinarySchema(schema.Schema):
+class BinarySchema(schema.Schema[validation.immutabledict, bytes]):
     types: typing.FrozenSet[typing.Type] = frozenset({schema.FileIO, bytes})
     format: str = 'binary'
 
@@ -303,7 +276,7 @@ class BinarySchema(schema.Schema):
         arg: typing.Union[io.FileIO, io.BufferedReader, bytes],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> typing.Union[schema.FileIO, bytes]:
-        return super().validate(arg)
+        return cls.validate_base(arg)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -340,7 +313,7 @@ class BoolSchema(schema.Schema):
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ):
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base(arg, configuration=configuration)
 
 
 @dataclasses.dataclass(frozen=True)
@@ -358,7 +331,7 @@ class NotAnyTypeSchema(schema.AnyTypeSchema):
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
-        return super().validate(arg, configuration=configuration)
+        return super().validate_base(arg, configuration=configuration)
 
 OUTPUT_BASE_TYPES = typing.Union[
     validation.immutabledict[str, 'OUTPUT_BASE_TYPES'],
@@ -367,40 +340,36 @@ OUTPUT_BASE_TYPES = typing.Union[
     float,
     bool,
     schema.none_type_,
-    typing.Tuple['OUTPUT_BASE_TYPES'],
+    typing.Tuple['OUTPUT_BASE_TYPES', ...],
     bytes,
     schema.FileIO
 ]
 
 
 @dataclasses.dataclass(frozen=True)
-class DictSchema(schema.Schema[T, typing.Tuple[OUTPUT_BASE_TYPES, ...]]):
+class DictSchema(schema.Schema[schema.validation.immutabledict[str, OUTPUT_BASE_TYPES], tuple]):
     types: typing.FrozenSet[typing.Type] = frozenset({validation.immutabledict})
 
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: T,
+        arg: schema.validation.immutabledict[str, OUTPUT_BASE_TYPES],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> T: ...
+    ) -> schema.validation.immutabledict[str, OUTPUT_BASE_TYPES]: ...
 
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing.Mapping[str, object],  # object needed as value type for typeddict inputs
+        arg: typing.Mapping[str, schema.INPUT_TYPES_ALL],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> T: ...
+    ) -> schema.validation.immutabledict[str, OUTPUT_BASE_TYPES]: ...
 
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-    ) -> T:
-        if isinstance(arg, validation.immutabledict):
-            # T use case
-            return super().validate(arg, configuration=configuration)
-        arg = typing.cast(typing.Mapping[str, schema.INPUT_TYPES_ALL_INCL_SCHEMA], arg)
-        return super().validate(arg, configuration=configuration)
+    ) -> schema.validation.immutabledict[str, OUTPUT_BASE_TYPES]:
+        return super().validate_base(arg, configuration=configuration)

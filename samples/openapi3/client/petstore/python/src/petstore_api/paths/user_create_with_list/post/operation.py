@@ -5,9 +5,9 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 from petstore_api import api_client
-from petstore_api.shared_imports.operation_imports import *
+from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 from .. import path
 from .responses import response_default
@@ -27,12 +27,13 @@ class BaseApi(api_client.Api):
             request_body_application_json_schema.SchemaTupleInput,
             request_body_application_json_schema.SchemaTuple,
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[False] = False
-    ) -> response_default.Default.response_cls: ...
+    ) -> response_default.ApiResponse: ...
 
     @typing.overload
     def _create_users_with_list_input(
@@ -41,11 +42,12 @@ class BaseApi(api_client.Api):
             request_body_application_json_schema.SchemaTupleInput,
             request_body_application_json_schema.SchemaTuple,
         ],
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: typing_extensions.Literal[True] = ...
     ) -> api_response.ApiResponseWithoutDeserialization: ...
 
     def _create_users_with_list_input(
@@ -54,11 +56,12 @@ class BaseApi(api_client.Api):
             request_body_application_json_schema.SchemaTupleInput,
             request_body_application_json_schema.SchemaTuple,
         ],
+        *,
+        skip_deserialization: bool = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
-        skip_deserialization: bool = False
     ):
         """
         Creates list of users with given input array
@@ -77,7 +80,7 @@ class BaseApi(api_client.Api):
             content_type=content_type
         )
         host = self.api_client.configuration.get_server_url(
-            'servers', server_index
+            "servers", server_index
         )
 
         raw_response = self.api_client.call_api(
@@ -92,12 +95,12 @@ class BaseApi(api_client.Api):
         )
 
         if skip_deserialization:
-            response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
-        else:
-            response = default_response.deserialize(raw_response, self.api_client.schema_configuration)
+            skip_deser_response = api_response.ApiResponseWithoutDeserialization(response=raw_response)
+            self._verify_response_status(skip_deser_response)
+            return skip_deser_response
 
+        response = default_response.deserialize(raw_response, self.api_client.schema_configuration)
         self._verify_response_status(response)
-
         return response
 
 

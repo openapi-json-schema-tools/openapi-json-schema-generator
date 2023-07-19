@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 Id: typing_extensions.TypeAlias = schemas.Int64Schema
 PetId: typing_extensions.TypeAlias = schemas.Int64Schema
@@ -33,7 +33,7 @@ class StatusEnums:
 
 @dataclasses.dataclass(frozen=True)
 class Status(
-    schemas.StrSchema
+    schemas.Schema[schemas.immutabledict, str]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -85,7 +85,7 @@ class Status(
         "approved",
         "delivered",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -120,57 +120,90 @@ Properties = typing_extensions.TypedDict(
 
 
 class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "id",
+        "petId",
+        "quantity",
+        "shipDate",
+        "status",
+        "complete",
+    })
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["id"]) -> int:
-        ...
+    @property
+    def id(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("id", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["petId"]) -> int:
-        ...
+    @property
+    def petId(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("petId", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["quantity"]) -> int:
-        ...
+    @property
+    def quantity(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("quantity", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["shipDate"]) -> str:
-        ...
+    @property
+    def shipDate(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("shipDate", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["status"]) -> typing_extensions.Literal["placed", "approved", "delivered"]:
-        ...
+    @property
+    def status(self) -> typing.Union[typing_extensions.Literal["placed", "approved", "delivered"], schemas.Unset]:
+        val = self.get("status", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal["placed", "approved", "delivered"],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["complete"]) -> bool:
-        ...
+    @property
+    def complete(self) -> typing.Union[bool, schemas.Unset]:
+        val = self.get("complete", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            bool,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["id"],
-            typing_extensions.Literal["petId"],
-            typing_extensions.Literal["quantity"],
-            typing_extensions.Literal["shipDate"],
-            typing_extensions.Literal["status"],
-            typing_extensions.Literal["complete"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: OrderDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Order.validate(arg, configuration=configuration)
-OrderDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+OrderDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)
 class Order(
-    schemas.DictSchema[OrderDict]
+    schemas.Schema[OrderDict, tuple]
 ):
     """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -197,7 +230,7 @@ class Order(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> OrderDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

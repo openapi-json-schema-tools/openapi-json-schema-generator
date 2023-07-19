@@ -8,6 +8,6 @@
 """
 
 
-from unit_test_api.shared_imports.schema_imports import *
+from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 from unit_test_api.components.schema import enum_with_true_does_not_match1
 Schema: typing_extensions.TypeAlias = enum_with_true_does_not_match1.EnumWithTrueDoesNotMatch1

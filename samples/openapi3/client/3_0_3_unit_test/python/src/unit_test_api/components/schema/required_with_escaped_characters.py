@@ -8,57 +8,29 @@
 """
 
 from __future__ import annotations
-from unit_test_api.shared_imports.schema_imports import *
+from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
 
 class RequiredWithEscapedCharactersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+        "foo\tbar",
+        "foo\nbar",
+        "foo\fbar",
+        "foo\rbar",
+        "foo\"bar",
+        "foo\\bar",
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+    })
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\tbar"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\nbar"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\fbar"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\rbar"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\"bar"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["foo\\bar"]) -> schemas.OUTPUT_BASE_TYPES:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["foo\tbar"],
-            typing_extensions.Literal["foo\nbar"],
-            typing_extensions.Literal["foo\fbar"],
-            typing_extensions.Literal["foo\rbar"],
-            typing_extensions.Literal["foo\"bar"],
-            typing_extensions.Literal["foo\\bar"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: RequiredWithEscapedCharactersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return RequiredWithEscapedCharacters.validate(arg, configuration=configuration)
-RequiredWithEscapedCharactersDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+RequiredWithEscapedCharactersDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)

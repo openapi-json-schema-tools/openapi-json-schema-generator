@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
 
@@ -145,113 +145,156 @@ Properties = typing_extensions.TypedDict(
 
 
 class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+        "byte",
+        "double",
+        "number",
+        "pattern_without_delimiter",
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "integer",
+        "int32",
+        "int64",
+        "float",
+        "string",
+        "binary",
+        "date",
+        "dateTime",
+        "password",
+        "callback",
+    })
     
     @property
     def byte(self) -> str:
-        return self.__getitem__("byte")
+        return typing.cast(
+            str,
+            self.__getitem__("byte")
+        )
     
     @property
-    def double(self) -> typing.Union[float, int]:
-        return self.__getitem__("double")
+    def double(self) -> typing.Union[int, float]:
+        return typing.cast(
+            typing.Union[int, float],
+            self.__getitem__("double")
+        )
     
     @property
-    def number(self) -> typing.Union[float, int]:
-        return self.__getitem__("number")
+    def number(self) -> typing.Union[int, float]:
+        return typing.cast(
+            typing.Union[int, float],
+            self.__getitem__("number")
+        )
     
     @property
     def pattern_without_delimiter(self) -> str:
-        return self.__getitem__("pattern_without_delimiter")
+        return typing.cast(
+            str,
+            self.__getitem__("pattern_without_delimiter")
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["byte"]) -> str:
-        ...
+    @property
+    def integer(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("integer", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["double"]) -> typing.Union[float, int]:
-        ...
+    @property
+    def int32(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("int32", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number"]) -> typing.Union[float, int]:
-        ...
+    @property
+    def int64(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("int64", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["pattern_without_delimiter"]) -> str:
-        ...
+    @property
+    def string(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("string", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["integer"]) -> int:
-        ...
+    @property
+    def binary(self) -> typing.Union[bytes, schemas.FileIO, schemas.Unset]:
+        val = self.get("binary", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[bytes, schemas.FileIO],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> int:
-        ...
+    @property
+    def date(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("date", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int64"]) -> int:
-        ...
+    @property
+    def dateTime(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("dateTime", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float"]) -> typing.Union[float, int]:
-        ...
+    @property
+    def password(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("password", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["string"]) -> str:
-        ...
+    @property
+    def callback(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("callback", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["binary"]) -> typing.Union[bytes, schemas.FileIO]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["date"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["dateTime"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["password"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["callback"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["byte"],
-            typing_extensions.Literal["double"],
-            typing_extensions.Literal["number"],
-            typing_extensions.Literal["pattern_without_delimiter"],
-            typing_extensions.Literal["integer"],
-            typing_extensions.Literal["int32"],
-            typing_extensions.Literal["int64"],
-            typing_extensions.Literal["float"],
-            typing_extensions.Literal["string"],
-            typing_extensions.Literal["binary"],
-            typing_extensions.Literal["date"],
-            typing_extensions.Literal["dateTime"],
-            typing_extensions.Literal["password"],
-            typing_extensions.Literal["callback"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: SchemaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Schema.validate(arg, configuration=configuration)
-SchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+SchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)
 class Schema(
-    schemas.DictSchema[SchemaDict]
+    schemas.Schema[SchemaDict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
@@ -279,7 +322,7 @@ class Schema(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> SchemaDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

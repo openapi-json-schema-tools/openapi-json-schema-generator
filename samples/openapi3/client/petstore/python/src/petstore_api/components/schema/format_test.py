@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
 
@@ -81,23 +81,35 @@ Float64: typing_extensions.TypeAlias = schemas.Float64Schema
 Items: typing_extensions.TypeAlias = schemas.NumberSchema
 
 
-class ArrayWithUniqueItemsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> typing.Union[float, int]:
-        return super().__getitem__(name)
+class ArrayWithUniqueItemsTuple(
+    typing.Tuple[
+        typing.Union[int, float],
+        ...
+    ]
+):
 
     def __new__(cls, arg: ArrayWithUniqueItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayWithUniqueItems.validate(arg, configuration=configuration)
-ArrayWithUniqueItemsTupleInput = typing.Sequence[
-    typing.Union[
-        float,
-        int
+ArrayWithUniqueItemsTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            float,
+            int
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            float,
+            int
+        ],
+        ...
+    ]
 ]
 
 
 @dataclasses.dataclass(frozen=True)
 class ArrayWithUniqueItems(
-    schemas.ListSchema[ArrayWithUniqueItemsTuple]
+    schemas.Schema[schemas.immutabledict, ArrayWithUniqueItemsTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     unique_items: bool = True
@@ -120,7 +132,7 @@ class ArrayWithUniqueItems(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ArrayWithUniqueItemsTuple:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -210,148 +222,233 @@ Properties = typing_extensions.TypedDict(
 
 
 class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+        "byte",
+        "date",
+        "number",
+        "password",
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "integer",
+        "int32",
+        "int32withValidations",
+        "int64",
+        "float",
+        "float32",
+        "double",
+        "float64",
+        "arrayWithUniqueItems",
+        "string",
+        "binary",
+        "dateTime",
+        "uuid",
+        "uuidNoExample",
+        "pattern_with_digits",
+        "pattern_with_digits_and_delimiter",
+        "noneProp",
+    })
     
     @property
     def byte(self) -> str:
-        return self.__getitem__("byte")
+        return typing.cast(
+            str,
+            self.__getitem__("byte")
+        )
     
     @property
     def date(self) -> str:
-        return self.__getitem__("date")
+        return typing.cast(
+            str,
+            self.__getitem__("date")
+        )
     
     @property
-    def number(self) -> typing.Union[float, int]:
-        return self.__getitem__("number")
+    def number(self) -> typing.Union[int, float]:
+        return typing.cast(
+            typing.Union[int, float],
+            self.__getitem__("number")
+        )
     
     @property
     def password(self) -> str:
-        return self.__getitem__("password")
+        return typing.cast(
+            str,
+            self.__getitem__("password")
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["byte"]) -> str:
-        ...
+    @property
+    def integer(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("integer", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["date"]) -> str:
-        ...
+    @property
+    def int32(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("int32", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["number"]) -> typing.Union[float, int]:
-        ...
+    @property
+    def int32withValidations(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("int32withValidations", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["password"]) -> str:
-        ...
+    @property
+    def int64(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("int64", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["integer"]) -> int:
-        ...
+    @property
+    def float32(self) -> typing.Union[int, float, schemas.Unset]:
+        val = self.get("float32", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[int, float],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> int:
-        ...
+    @property
+    def double(self) -> typing.Union[int, float, schemas.Unset]:
+        val = self.get("double", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[int, float],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int32withValidations"]) -> int:
-        ...
+    @property
+    def float64(self) -> typing.Union[int, float, schemas.Unset]:
+        val = self.get("float64", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[int, float],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int64"]) -> int:
-        ...
+    @property
+    def arrayWithUniqueItems(self) -> typing.Union[ArrayWithUniqueItemsTuple, schemas.Unset]:
+        val = self.get("arrayWithUniqueItems", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            ArrayWithUniqueItemsTuple,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float"]) -> typing.Union[float, int]:
-        ...
+    @property
+    def string(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("string", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float32"]) -> typing.Union[float, int]:
-        ...
+    @property
+    def binary(self) -> typing.Union[bytes, schemas.FileIO, schemas.Unset]:
+        val = self.get("binary", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[bytes, schemas.FileIO],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["double"]) -> typing.Union[float, int]:
-        ...
+    @property
+    def dateTime(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("dateTime", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["float64"]) -> typing.Union[float, int]:
-        ...
+    @property
+    def uuid(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("uuid", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["arrayWithUniqueItems"]) -> ArrayWithUniqueItemsTuple:
-        ...
+    @property
+    def uuidNoExample(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("uuidNoExample", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["string"]) -> str:
-        ...
+    @property
+    def pattern_with_digits(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("pattern_with_digits", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["binary"]) -> typing.Union[bytes, schemas.FileIO]:
-        ...
+    @property
+    def pattern_with_digits_and_delimiter(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("pattern_with_digits_and_delimiter", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["dateTime"]) -> str:
-        ...
+    @property
+    def noneProp(self) -> typing.Union[None, schemas.Unset]:
+        val = self.get("noneProp", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            None,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["uuid"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["uuidNoExample"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["pattern_with_digits"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["pattern_with_digits_and_delimiter"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["noneProp"]) -> None:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["byte"],
-            typing_extensions.Literal["date"],
-            typing_extensions.Literal["number"],
-            typing_extensions.Literal["password"],
-            typing_extensions.Literal["integer"],
-            typing_extensions.Literal["int32"],
-            typing_extensions.Literal["int32withValidations"],
-            typing_extensions.Literal["int64"],
-            typing_extensions.Literal["float"],
-            typing_extensions.Literal["float32"],
-            typing_extensions.Literal["double"],
-            typing_extensions.Literal["float64"],
-            typing_extensions.Literal["arrayWithUniqueItems"],
-            typing_extensions.Literal["string"],
-            typing_extensions.Literal["binary"],
-            typing_extensions.Literal["dateTime"],
-            typing_extensions.Literal["uuid"],
-            typing_extensions.Literal["uuidNoExample"],
-            typing_extensions.Literal["pattern_with_digits"],
-            typing_extensions.Literal["pattern_with_digits_and_delimiter"],
-            typing_extensions.Literal["noneProp"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: FormatTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return FormatTest.validate(arg, configuration=configuration)
-FormatTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+FormatTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)
 class FormatTest(
-    schemas.DictSchema[FormatTestDict]
+    schemas.Schema[FormatTestDict, tuple]
 ):
     """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -384,7 +481,7 @@ class FormatTest(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> FormatTestDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

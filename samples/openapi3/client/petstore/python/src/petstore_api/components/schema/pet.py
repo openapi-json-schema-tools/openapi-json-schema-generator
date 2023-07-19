@@ -8,27 +8,36 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 Id: typing_extensions.TypeAlias = schemas.Int64Schema
 Name: typing_extensions.TypeAlias = schemas.StrSchema
 Items: typing_extensions.TypeAlias = schemas.StrSchema
 
 
-class PhotoUrlsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> str:
-        return super().__getitem__(name)
+class PhotoUrlsTuple(
+    typing.Tuple[
+        str,
+        ...
+    ]
+):
 
     def __new__(cls, arg: PhotoUrlsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return PhotoUrls.validate(arg, configuration=configuration)
-PhotoUrlsTupleInput = typing.Sequence[
-    str,
+PhotoUrlsTupleInput = typing.Union[
+    typing.List[
+        str,
+    ],
+    typing.Tuple[
+        str,
+        ...
+    ]
 ]
 
 
 @dataclasses.dataclass(frozen=True)
 class PhotoUrls(
-    schemas.ListSchema[PhotoUrlsTuple]
+    schemas.Schema[schemas.immutabledict, PhotoUrlsTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
@@ -50,7 +59,7 @@ class PhotoUrls(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> PhotoUrlsTuple:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -73,7 +82,7 @@ class StatusEnums:
 
 @dataclasses.dataclass(frozen=True)
 class Status(
-    schemas.StrSchema
+    schemas.Schema[schemas.immutabledict, str]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -125,7 +134,7 @@ class Status(
         "pending",
         "sold",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -141,24 +150,37 @@ from petstore_api.components.schema import category
 from petstore_api.components.schema import tag
 
 
-class TagsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> tag.TagDict:
-        return super().__getitem__(name)
+class TagsTuple(
+    typing.Tuple[
+        tag.TagDict,
+        ...
+    ]
+):
 
     def __new__(cls, arg: TagsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Tags.validate(arg, configuration=configuration)
-TagsTupleInput = typing.Sequence[
-    typing.Union[
-        tag.TagDict,
-        dict,
-        schemas.immutabledict
+TagsTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            tag.TagDict,
+            dict,
+            schemas.immutabledict
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            tag.TagDict,
+            dict,
+            schemas.immutabledict
+        ],
+        ...
+    ]
 ]
 
 
 @dataclasses.dataclass(frozen=True)
 class Tags(
-    schemas.ListSchema[TagsTuple]
+    schemas.Schema[schemas.immutabledict, TagsTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[tag.Tag] = dataclasses.field(default_factory=lambda: tag.Tag) # type: ignore
@@ -180,7 +202,7 @@ class Tags(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> TagsTuple:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -198,65 +220,84 @@ Properties = typing_extensions.TypedDict(
 
 
 class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+        "name",
+        "photoUrls",
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "id",
+        "category",
+        "tags",
+        "status",
+    })
     
     @property
     def name(self) -> str:
-        return self.__getitem__("name")
+        return typing.cast(
+            str,
+            self.__getitem__("name")
+        )
     
     @property
     def photoUrls(self) -> PhotoUrlsTuple:
-        return self.__getitem__("photoUrls")
+        return typing.cast(
+            PhotoUrlsTuple,
+            self.__getitem__("photoUrls")
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["name"]) -> str:
-        ...
+    @property
+    def id(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("id", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["photoUrls"]) -> PhotoUrlsTuple:
-        ...
+    @property
+    def category(self) -> typing.Union[category.CategoryDict, schemas.Unset]:
+        val = self.get("category", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            category.CategoryDict,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["id"]) -> int:
-        ...
+    @property
+    def tags(self) -> typing.Union[TagsTuple, schemas.Unset]:
+        val = self.get("tags", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            TagsTuple,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["category"]) -> category.CategoryDict:
-        ...
+    @property
+    def status(self) -> typing.Union[typing_extensions.Literal["available", "pending", "sold"], schemas.Unset]:
+        val = self.get("status", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal["available", "pending", "sold"],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["tags"]) -> TagsTuple:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["status"]) -> typing_extensions.Literal["available", "pending", "sold"]:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["name"],
-            typing_extensions.Literal["photoUrls"],
-            typing_extensions.Literal["id"],
-            typing_extensions.Literal["category"],
-            typing_extensions.Literal["tags"],
-            typing_extensions.Literal["status"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: PetDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Pet.validate(arg, configuration=configuration)
-PetDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+PetDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)
 class Pet(
-    schemas.DictSchema[PetDict]
+    schemas.Schema[PetDict, tuple]
 ):
     """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -289,7 +330,7 @@ class Pet(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> PetDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

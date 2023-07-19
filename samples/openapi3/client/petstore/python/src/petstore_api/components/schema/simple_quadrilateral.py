@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
 
@@ -21,7 +21,7 @@ class QuadrilateralTypeEnums:
 
 @dataclasses.dataclass(frozen=True)
 class QuadrilateralType(
-    schemas.StrSchema
+    schemas.Schema[schemas.immutabledict, str]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -55,7 +55,7 @@ class QuadrilateralType(
     ) -> typing_extensions.Literal[
         "SimpleQuadrilateral",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -72,33 +72,36 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class _1Dict(schemas.immutabledict[str, str]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "quadrilateralType",
+    })
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["quadrilateralType"]) -> typing_extensions.Literal["SimpleQuadrilateral"]:
-        ...
+    @property
+    def quadrilateralType(self) -> typing.Union[typing_extensions.Literal["SimpleQuadrilateral"], schemas.Unset]:
+        val = self.get("quadrilateralType", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal["SimpleQuadrilateral"],
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["quadrilateralType"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: _1DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _1.validate(arg, configuration=configuration)
-_1DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+_1DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)
 class _1(
-    schemas.DictSchema[_1Dict]
+    schemas.Schema[_1Dict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
@@ -120,7 +123,7 @@ class _1(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> _1Dict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

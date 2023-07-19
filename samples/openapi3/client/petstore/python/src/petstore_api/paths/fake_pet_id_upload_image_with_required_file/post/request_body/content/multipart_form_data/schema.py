@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 AdditionalMetadata: typing_extensions.TypeAlias = schemas.StrSchema
 RequiredFile: typing_extensions.TypeAlias = schemas.BinarySchema
@@ -21,42 +21,44 @@ Properties = typing_extensions.TypedDict(
 )
 
 
-class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class SchemaDict(schemas.immutabledict[str, str]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+        "requiredFile",
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "additionalMetadata",
+    })
     
     @property
     def requiredFile(self) -> typing.Union[bytes, schemas.FileIO]:
-        return self.__getitem__("requiredFile")
+        return typing.cast(
+            typing.Union[bytes, schemas.FileIO],
+            self.__getitem__("requiredFile")
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["requiredFile"]) -> typing.Union[bytes, schemas.FileIO]:
-        ...
+    @property
+    def additionalMetadata(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("additionalMetadata", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["additionalMetadata"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: str) -> schemas.OUTPUT_BASE_TYPES: ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["requiredFile"],
-            typing_extensions.Literal["additionalMetadata"],
-            str
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 
     def __new__(cls, arg: SchemaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Schema.validate(arg, configuration=configuration)
-SchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL_INCL_SCHEMA]
+SchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)
 class Schema(
-    schemas.DictSchema[SchemaDict]
+    schemas.Schema[SchemaDict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
@@ -81,7 +83,7 @@ class Schema(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> SchemaDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

@@ -9,12 +9,13 @@
     {{/if}}
 {{> _helper_imports }}
 {{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
+ApiResponse = {{refInfo.refModule}}.ApiResponse
 {{else}}
     {{#if headersObjectSchema}}
 from __future__ import annotations
-from {{packageName}}.shared_imports.schema_imports import *
+from {{packageName}}.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
     {{/if}}
-from {{packageName}}.shared_imports.response_imports import *
+from {{packageName}}.shared_imports.response_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
     {{#if content}}
 
         {{#each content}}
@@ -43,7 +44,7 @@ parameters: typing.Dict[str, typing.Type[api_client.HeaderParameterWithoutName]]
 
 
 @dataclasses.dataclass
-class Api{{jsonPathPiece.camelCase}}(api_response.ApiResponse):
+class ApiResponse(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     {{#and headers content}}
         {{#if hasContentSchema}}
@@ -63,7 +64,7 @@ class Api{{jsonPathPiece.camelCase}}(api_response.ApiResponse):
                 {{#each content}}
                     {{#if this.schema}}
                         {{#with this.schema}}
-    {{> components/_helper_content_schema_output_type paramName="body" modulePrefix=../@key.snakeCase }}
+    {{> components/_helper_content_schema_output_type paramName="body" modulePrefix=../@key.snakeCase endChar="" }}
                         {{/with}}
                     {{else}}
     body: schemas.Unset
@@ -97,7 +98,7 @@ class Api{{jsonPathPiece.camelCase}}(api_response.ApiResponse):
                         {{#each content}}
                             {{#if this.schema}}
                                 {{#with this.schema}}
-    {{> components/_helper_content_schema_output_type paramName="body" modulePrefix=../@key.snakeCase }}
+    {{> components/_helper_content_schema_output_type paramName="body" modulePrefix=../@key.snakeCase endChar="" }}
                                 {{/with}}
                             {{else}}
     body: schemas.Unset
@@ -119,8 +120,10 @@ class Api{{jsonPathPiece.camelCase}}(api_response.ApiResponse):
     {{/unless}}
 
 
-class {{jsonPathPiece.camelCase}}(api_client.OpenApiResponse[Api{{jsonPathPiece.camelCase}}]):
-    response_cls = Api{{jsonPathPiece.camelCase}}
+class {{jsonPathPiece.camelCase}}(api_client.OpenApiResponse[ApiResponse]):
+    @classmethod
+    def get_response(cls, response, headers, body) -> ApiResponse:
+        return ApiResponse(response=response, body=body, headers=headers)
     {{#each content}}
 
 
@@ -134,15 +137,7 @@ class {{jsonPathPiece.camelCase}}(api_client.OpenApiResponse[Api{{jsonPathPiece.
         {{/with}}
     {{/each}}
     {{#if content}}
-    Content = typing_extensions.TypedDict(
-        'Content',
-        {
-        {{#each content}}
-            '{{{@key.original}}}': typing.Type[{{@key.camelCase}}MediaType],
-        {{/each}}
-        }
-    )
-    content: Content = {
+    content = {
         {{#each content}}
         '{{{@key.original}}}': {{@key.camelCase}}MediaType,
         {{/each}}

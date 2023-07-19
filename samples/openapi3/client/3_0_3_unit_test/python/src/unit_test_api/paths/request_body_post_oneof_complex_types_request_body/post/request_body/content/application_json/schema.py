@@ -8,6 +8,6 @@
 """
 
 
-from unit_test_api.shared_imports.schema_imports import *
+from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 from unit_test_api.components.schema import oneof_complex_types
 Schema: typing_extensions.TypeAlias = oneof_complex_types.OneofComplexTypes

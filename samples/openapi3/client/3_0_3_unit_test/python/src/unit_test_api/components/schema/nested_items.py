@@ -8,28 +8,40 @@
 """
 
 from __future__ import annotations
-from unit_test_api.shared_imports.schema_imports import *
+from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 Items4: typing_extensions.TypeAlias = schemas.NumberSchema
 
 
-class ItemsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> typing.Union[float, int]:
-        return super().__getitem__(name)
+class ItemsTuple(
+    typing.Tuple[
+        typing.Union[int, float],
+        ...
+    ]
+):
 
     def __new__(cls, arg: ItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Items3.validate(arg, configuration=configuration)
-ItemsTupleInput = typing.Sequence[
-    typing.Union[
-        float,
-        int
+ItemsTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            float,
+            int
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            float,
+            int
+        ],
+        ...
+    ]
 ]
 
 
 @dataclasses.dataclass(frozen=True)
 class Items3(
-    schemas.ListSchema[ItemsTuple]
+    schemas.Schema[schemas.immutabledict, ItemsTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items4] = dataclasses.field(default_factory=lambda: Items4) # type: ignore
@@ -51,30 +63,43 @@ class Items3(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ItemsTuple:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
 
 
-class ItemsTuple2(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> ItemsTuple:
-        return super().__getitem__(name)
+class ItemsTuple2(
+    typing.Tuple[
+        ItemsTuple,
+        ...
+    ]
+):
 
     def __new__(cls, arg: ItemsTupleInput2, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Items2.validate(arg, configuration=configuration)
-ItemsTupleInput2 = typing.Sequence[
-    typing.Union[
-        ItemsTuple,
-        list,
-        tuple
+ItemsTupleInput2 = typing.Union[
+    typing.List[
+        typing.Union[
+            ItemsTuple,
+            list,
+            tuple
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            ItemsTuple,
+            list,
+            tuple
+        ],
+        ...
+    ]
 ]
 
 
 @dataclasses.dataclass(frozen=True)
 class Items2(
-    schemas.ListSchema[ItemsTuple2]
+    schemas.Schema[schemas.immutabledict, ItemsTuple2]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items3] = dataclasses.field(default_factory=lambda: Items3) # type: ignore
@@ -96,30 +121,43 @@ class Items2(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ItemsTuple2:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
 
 
-class ItemsTuple3(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> ItemsTuple2:
-        return super().__getitem__(name)
+class ItemsTuple3(
+    typing.Tuple[
+        ItemsTuple2,
+        ...
+    ]
+):
 
     def __new__(cls, arg: ItemsTupleInput3, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Items.validate(arg, configuration=configuration)
-ItemsTupleInput3 = typing.Sequence[
-    typing.Union[
-        ItemsTuple2,
-        list,
-        tuple
+ItemsTupleInput3 = typing.Union[
+    typing.List[
+        typing.Union[
+            ItemsTuple2,
+            list,
+            tuple
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            ItemsTuple2,
+            list,
+            tuple
+        ],
+        ...
+    ]
 ]
 
 
 @dataclasses.dataclass(frozen=True)
 class Items(
-    schemas.ListSchema[ItemsTuple3]
+    schemas.Schema[schemas.immutabledict, ItemsTuple3]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items2] = dataclasses.field(default_factory=lambda: Items2) # type: ignore
@@ -141,30 +179,43 @@ class Items(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ItemsTuple3:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
 
 
-class NestedItemsTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> ItemsTuple3:
-        return super().__getitem__(name)
+class NestedItemsTuple(
+    typing.Tuple[
+        ItemsTuple3,
+        ...
+    ]
+):
 
     def __new__(cls, arg: NestedItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return NestedItems.validate(arg, configuration=configuration)
-NestedItemsTupleInput = typing.Sequence[
-    typing.Union[
-        ItemsTuple3,
-        list,
-        tuple
+NestedItemsTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            ItemsTuple3,
+            list,
+            tuple
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            ItemsTuple3,
+            list,
+            tuple
+        ],
+        ...
+    ]
 ]
 
 
 @dataclasses.dataclass(frozen=True)
 class NestedItems(
-    schemas.ListSchema[NestedItemsTuple]
+    schemas.Schema[schemas.immutabledict, NestedItemsTuple]
 ):
     """NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -191,7 +242,7 @@ class NestedItems(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> NestedItemsTuple:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

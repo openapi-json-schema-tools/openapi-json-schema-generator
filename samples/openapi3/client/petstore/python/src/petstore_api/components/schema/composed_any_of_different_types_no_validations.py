@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 _0: typing_extensions.TypeAlias = schemas.DictSchema
 _1: typing_extensions.TypeAlias = schemas.DateSchema
@@ -22,36 +22,61 @@ _8: typing_extensions.TypeAlias = schemas.NoneSchema
 Items: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 
 
-class _9Tuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> schemas.OUTPUT_BASE_TYPES:
-        return super().__getitem__(name)
+class _9Tuple(
+    typing.Tuple[
+        schemas.OUTPUT_BASE_TYPES,
+        ...
+    ]
+):
 
     def __new__(cls, arg: _9TupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _9.validate(arg, configuration=configuration)
-_9TupleInput = typing.Sequence[
-    typing.Union[
-        dict,
-        schemas.immutabledict,
-        str,
-        datetime.date,
-        datetime.datetime,
-        uuid.UUID,
-        int,
-        float,
-        bool,
-        None,
-        list,
-        tuple,
-        bytes,
-        io.FileIO,
-        io.BufferedReader
+_9TupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            dict,
+            schemas.immutabledict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
     ],
+    typing.Tuple[
+        typing.Union[
+            dict,
+            schemas.immutabledict,
+            str,
+            datetime.date,
+            datetime.datetime,
+            uuid.UUID,
+            int,
+            float,
+            bool,
+            None,
+            list,
+            tuple,
+            bytes,
+            io.FileIO,
+            io.BufferedReader
+        ],
+        ...
+    ]
 ]
 
 
 @dataclasses.dataclass(frozen=True)
 class _9(
-    schemas.ListSchema[_9Tuple]
+    schemas.Schema[schemas.immutabledict, _9Tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
@@ -73,7 +98,7 @@ class _9(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> _9Tuple:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

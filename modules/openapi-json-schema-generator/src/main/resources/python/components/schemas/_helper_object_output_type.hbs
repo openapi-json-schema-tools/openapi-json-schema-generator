@@ -1,6 +1,20 @@
 
 
+{{#if mapValueSchema}}
+class {{mapOutputJsonPathPiece.camelCase}}(schemas.immutabledict[str, {{#with mapValueSchema}}{{> components/schemas/_helper_schema_output_type mode="unprefixed" fullRefModule=null endChar="]):" }}{{/with}}
+{{else}}
 class {{mapOutputJsonPathPiece.camelCase}}(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+{{/if}}
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+        {{#each requiredProperties}}
+        "{{{@key.original}}}",
+        {{/each}}
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        {{#each optionalProperties}}
+        "{{{@key.original}}}",
+        {{/each}}
+    })
     {{#eq optionalProperties null}}
         {{#eq requiredProperties null}}
             {{#if additionalProperties}}
@@ -12,6 +26,5 @@ class {{mapOutputJsonPathPiece.camelCase}}(schemas.immutabledict[str, schemas.OU
         {{/eq}}
     {{/eq}}
     {{> components/schemas/_helper_object_output_properties }}
-    {{> components/schemas/_helper_object_output_getitems }}
 
     {{> components/schemas/_helper_new }}

@@ -14,8 +14,6 @@ from decimal import Decimal
 import typing
 import unittest
 
-import immutabledict
-
 import petstore_api
 from petstore_api import schemas
 from petstore_api.schemas import (
@@ -44,8 +42,8 @@ class TestAnyTypeSchema(unittest.TestCase):
             )
 
         m = Model.validate({'a': 1, 'b': 'hi'})
-        assert isinstance(m, immutabledict.immutabledict)
-        assert m == immutabledict.immutabledict(a=1, b='hi')
+        assert isinstance(m, schemas.immutabledict)
+        assert m == schemas.immutabledict({'a': 1, 'b': 'hi'})
 
     def testListSchema(self):
         @dataclasses.dataclass(frozen=True)

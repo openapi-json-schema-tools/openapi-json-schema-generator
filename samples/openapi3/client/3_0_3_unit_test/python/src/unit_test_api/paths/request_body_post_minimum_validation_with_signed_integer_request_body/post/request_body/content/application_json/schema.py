@@ -8,6 +8,6 @@
 """
 
 
-from unit_test_api.shared_imports.schema_imports import *
+from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 from unit_test_api.components.schema import minimum_validation_with_signed_integer
 Schema: typing_extensions.TypeAlias = minimum_validation_with_signed_integer.MinimumValidationWithSignedInteger

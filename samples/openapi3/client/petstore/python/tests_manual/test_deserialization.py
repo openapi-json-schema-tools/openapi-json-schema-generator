@@ -15,7 +15,6 @@ import typing
 import unittest
 
 import urllib3
-import immutabledict
 
 import petstore_api
 from petstore_api import exceptions
@@ -56,11 +55,16 @@ class DeserializationTests(unittest.TestCase):
             body: shape.Shape
             headers: schemas.Unset
 
+        class MediaType(api_client.MediaType):
+            schema = shape.Shape
+
         class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):
-            response_cls=ApiResponse
             content={
-                self.json_content_type: api_client.MediaType(schema=shape.Shape),
+                self.json_content_type: MediaType,
             }
+            @classmethod
+            def get_response(cls, response, headers, body):
+                return ApiResponse(response=response, headers=headers, body=body)
 
         data = {
             'shapeType': 'Triangle',
@@ -69,7 +73,7 @@ class DeserializationTests(unittest.TestCase):
         response = self.__response(data)
         deserialized = ResponseFor200.deserialize(response, self.configuration)
         body = deserialized.body
-        assert isinstance(body, immutabledict.immutabledict)
+        assert isinstance(body, schemas.immutabledict)
         self.assertEqual(body['shapeType'], 'Triangle')
         self.assertEqual(body['triangleType'], 'EquilateralTriangle')
 
@@ -100,11 +104,16 @@ class DeserializationTests(unittest.TestCase):
             body: animal.Animal
             headers: schemas.Unset
 
+        class MediaType(api_client.MediaType):
+            schema=animal.Animal
+
         class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):
-            response_cls=ApiResponse
             content={
-                self.json_content_type: api_client.MediaType(schema=animal.Animal),
+                self.json_content_type: MediaType,
             }
+            @classmethod
+            def get_response(cls, response, headers, body):
+                return ApiResponse(response=response, headers=headers, body=body)
 
         data = {
             'className': 'Dog',
@@ -170,11 +179,16 @@ class DeserializationTests(unittest.TestCase):
             body: mammal.Mammal
             headers: schemas.Unset
 
+        class MediaType(api_client.MediaType):
+            schema=mammal.Mammal
+
         class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):
-            response_cls=ApiResponse
             content={
-                self.json_content_type: api_client.MediaType(schema=mammal.Mammal),
+                self.json_content_type: MediaType,
             }
+            @classmethod
+            def get_response(cls, response, headers, body):
+                return ApiResponse(response=response, headers=headers, body=body)
 
         has_baleen = True
         has_teeth = False
@@ -187,7 +201,7 @@ class DeserializationTests(unittest.TestCase):
         response = self.__response(data)
         deserialized = ResponseFor200.deserialize(response, self.configuration)
         body = deserialized.body
-        assert isinstance(body, immutabledict.immutabledict)
+        assert isinstance(body, schemas.immutabledict)
         self.assertEqual(body['hasBaleen'], has_baleen)
         self.assertEqual(body['hasTeeth'], has_teeth)
         self.assertEqual(body['className'], class_name)
@@ -202,7 +216,7 @@ class DeserializationTests(unittest.TestCase):
         response = self.__response(data)
         deserialized = ResponseFor200.deserialize(response, self.configuration)
         body = deserialized.body
-        assert isinstance(body, immutabledict.immutabledict)
+        assert isinstance(body, schemas.immutabledict)
         self.assertEqual(body['type'], zebra_type)
         self.assertEqual(body['className'], class_name)
 
@@ -216,11 +230,16 @@ class DeserializationTests(unittest.TestCase):
             body: banana.Banana
             headers: schemas.Unset
 
+        class MediaType(api_client.MediaType):
+            schema=banana.Banana
+
         class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):
-            response_cls=ApiResponse
             content={
-                self.json_content_type: api_client.MediaType(schema=banana.Banana),
+                self.json_content_type: MediaType,
             }
+            @classmethod
+            def get_response(cls, response, headers, body):
+                return ApiResponse(response=response, headers=headers, body=body)
 
         data = {
           'lengthCm': 3.1415
@@ -258,11 +277,16 @@ class DeserializationTests(unittest.TestCase):
             body: fruit_req.FruitReq
             headers: schemas.Unset
 
+        class MediaType(api_client.MediaType):
+            schema=fruit_req.FruitReq
+
         class ResponseFor200(api_client.OpenApiResponse):
-            response_cls=ApiResponse
             content={
-                self.json_content_type: api_client.MediaType(schema=fruit_req.FruitReq),
+                self.json_content_type: MediaType,
             }
+            @classmethod
+            def get_response(cls, response, headers, body):
+                return ApiResponse(response=response, headers=headers, body=body)
 
         data = None
         response = self.__response(data)
@@ -297,15 +321,20 @@ class DeserializationTests(unittest.TestCase):
             body: dog.Dog
             headers: schemas.Unset
 
+        class ThirdMediaType(api_client.MediaType):
+            schema=dog.Dog
+
         class ResponseFor200A(api_client.OpenApiResponse[ApiResponseA]):
-            response_cls=ApiResponseA
             content={
-                self.json_content_type: api_client.MediaType(schema=dog.Dog),
+                self.json_content_type: ThirdMediaType,
             }
+            @classmethod
+            def get_response(cls, response, headers, body):
+                return ApiResponseA(response=response, headers=headers, body=body)
 
         deserialized = ResponseFor200A.deserialize(response, self.configuration)
         body = deserialized.body
-        assert isinstance(body, immutabledict.immutabledict)
+        assert isinstance(body, schemas.immutabledict)
         self.assertEqual(body['className'], 'Dog')
         self.assertEqual(body['color'], 'brown')
         self.assertEqual(body['breed'], 'golden retriever')
@@ -330,15 +359,21 @@ class DeserializationTests(unittest.TestCase):
             body: mammal.Mammal
             headers: schemas.Unset
 
+        class SecondMediaType(api_client.MediaType):
+            schema=mammal.Mammal
+
         class ResponseFor200B(api_client.OpenApiResponse[ApiResponseB]):
-            response_cls=ApiResponseB
             content={
-                self.json_content_type: api_client.MediaType(schema=mammal.Mammal),
+                self.json_content_type: SecondMediaType,
             }
+            @classmethod
+            def get_response(cls, response, headers, body):
+                return ApiResponseB(response=response, headers=headers, body=body)
+
 
         deserialized = ResponseFor200B.deserialize(response, self.configuration)
         body = deserialized.body
-        assert isinstance(body, immutabledict.immutabledict)
+        assert isinstance(body, schemas.immutabledict)
         self.assertEqual(body['className'], 'zebra')
         self.assertEqual(body['type'], 'plains')
         self.assertEqual(body['p1'], True)
@@ -350,11 +385,16 @@ class DeserializationTests(unittest.TestCase):
             body: banana_req.BananaReq
             headers: schemas.Unset
 
+        class MediaType(api_client.MediaType):
+            schema=banana_req.BananaReq
+
         class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):
-            response_cls=ApiResponse
             content={
-                self.json_content_type: api_client.MediaType(schema=banana_req.BananaReq),
+                self.json_content_type: MediaType,
             }
+            @classmethod
+            def get_response(cls, response, headers, body):
+                return ApiResponse(response=response, headers=headers, body=body)
 
         with self.assertRaises(
             exceptions.ApiValueError
@@ -380,11 +420,16 @@ class DeserializationTests(unittest.TestCase):
             body: drawing.Drawing
             headers: schemas.Unset
 
+        class MediaType(api_client.MediaType):
+            schema=drawing.Drawing
+
         class ResponseFor200(api_client.OpenApiResponse):
-            response_cls=ApiResponse
             content={
-                self.json_content_type: api_client.MediaType(schema=drawing.Drawing),
+                self.json_content_type: MediaType,
             }
+            @classmethod
+            def get_response(cls, response, headers, body):
+                return ApiResponse(response=response, headers=headers, body=body)
 
         data = {
             'mainShape': {
@@ -456,11 +501,16 @@ class DeserializationTests(unittest.TestCase):
             body: format_test.FormatTest
             headers: schemas.Unset
 
+        class MediaType(api_client.MediaType):
+            schema=format_test.FormatTest
+
         class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):
-            response_cls=ApiResponse
             content={
-                self.json_content_type: api_client.MediaType(schema=format_test.FormatTest),
+                self.json_content_type: MediaType,
             }
+            @classmethod
+            def get_response(cls, response, headers, body):
+                return ApiResponse(response=response, headers=headers, body=body)
 
         response = self.__response(data)
         deserialized = ResponseFor200.deserialize(response, self.configuration)

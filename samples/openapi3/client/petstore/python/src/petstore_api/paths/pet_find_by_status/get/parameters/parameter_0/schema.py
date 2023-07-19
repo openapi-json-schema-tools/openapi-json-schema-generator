@@ -8,7 +8,7 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
 
@@ -29,7 +29,7 @@ class ItemsEnums:
 
 @dataclasses.dataclass(frozen=True)
 class Items(
-    schemas.StrSchema
+    schemas.Schema[schemas.immutabledict, str]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -82,7 +82,7 @@ class Items(
         "pending",
         "sold",
     ]:
-        validated_arg = super().validate(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -95,20 +95,29 @@ class Items(
         )
 
 
-class SchemaTuple(typing.Tuple[schemas.OUTPUT_BASE_TYPES]):
-    def __getitem__(self, name: int) -> typing_extensions.Literal["available", "pending", "sold"]:
-        return super().__getitem__(name)
+class SchemaTuple(
+    typing.Tuple[
+        typing_extensions.Literal["available", "pending", "sold"],
+        ...
+    ]
+):
 
     def __new__(cls, arg: SchemaTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Schema.validate(arg, configuration=configuration)
-SchemaTupleInput = typing.Sequence[
-    str,
+SchemaTupleInput = typing.Union[
+    typing.List[
+        str,
+    ],
+    typing.Tuple[
+        str,
+        ...
+    ]
 ]
 
 
 @dataclasses.dataclass(frozen=True)
 class Schema(
-    schemas.ListSchema[SchemaTuple]
+    schemas.Schema[schemas.immutabledict, SchemaTuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     items: typing.Type[Items] = dataclasses.field(default_factory=lambda: Items) # type: ignore
@@ -130,7 +139,7 @@ class Schema(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> SchemaTuple:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )

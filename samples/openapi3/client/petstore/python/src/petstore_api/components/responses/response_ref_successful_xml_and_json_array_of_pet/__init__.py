@@ -7,3 +7,4 @@
 
 from petstore_api.components.responses import response_successful_xml_and_json_array_of_pet
 RefSuccessfulXmlAndJsonArrayOfPet = response_successful_xml_and_json_array_of_pet.SuccessfulXmlAndJsonArrayOfPet
+ApiResponse = response_successful_xml_and_json_array_of_pet.ApiResponse

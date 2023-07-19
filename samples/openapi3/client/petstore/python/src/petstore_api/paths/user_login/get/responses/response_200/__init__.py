@@ -5,8 +5,8 @@
 """
 
 from __future__ import annotations
-from petstore_api.shared_imports.schema_imports import *
-from petstore_api.shared_imports.response_imports import *
+from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
+from petstore_api.shared_imports.response_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 from .content.application_xml import schema as application_xml_schema
 from .content.application_json import schema as application_json_schema
@@ -64,43 +64,33 @@ HeadersOptionalDictInput = typing_extensions.TypedDict(
 
 
 class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+        "X-Rate-Limit",
+        "int32",
+        "ref-content-schema-header",
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "X-Expires-After",
+        "numberHeader",
+    })
     
     @property
     def int32(self) -> int:
-        return self.__getitem__("int32")
+        return typing.cast(
+            int,
+            self.__getitem__("int32")
+        )
     
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["X-Rate-Limit"]) -> int:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["int32"]) -> int:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["ref-content-schema-header"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["X-Expires-After"]) -> str:
-        ...
-    
-    @typing.overload
-    def __getitem__(self, name: typing_extensions.Literal["numberHeader"]) -> str:
-        ...
-    
-    def __getitem__(
-        self,
-        name: typing.Union[
-            typing_extensions.Literal["X-Rate-Limit"],
-            typing_extensions.Literal["int32"],
-            typing_extensions.Literal["ref-content-schema-header"],
-            typing_extensions.Literal["X-Expires-After"],
-            typing_extensions.Literal["numberHeader"],
-        ]
-    ):
-        # dict_instance[name] accessor
-        return super().__getitem__(name)
+    @property
+    def numberHeader(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("numberHeader", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
 
     def __new__(cls, arg: HeadersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Headers.validate(arg, configuration=configuration)
@@ -112,7 +102,7 @@ class HeadersDictInput(HeadersRequiredDictInput, HeadersOptionalDictInput):
 
 @dataclasses.dataclass(frozen=True)
 class Headers(
-    schemas.DictSchema[HeadersDict]
+    schemas.Schema[HeadersDict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
@@ -140,7 +130,7 @@ class Headers(
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> HeadersDict:
-        return super().validate(
+        return super().validate_base(
             arg,
             configuration=configuration,
         )
@@ -148,7 +138,7 @@ class Headers(
 
 
 @dataclasses.dataclass
-class ApiResponseFor200(api_response.ApiResponse):
+class ApiResponse(api_response.ApiResponse):
     response: urllib3.HTTPResponse
     body: typing.Union[
         str,
@@ -157,8 +147,10 @@ class ApiResponseFor200(api_response.ApiResponse):
     headers: HeadersDict
 
 
-class ResponseFor200(api_client.OpenApiResponse[ApiResponseFor200]):
-    response_cls = ApiResponseFor200
+class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):
+    @classmethod
+    def get_response(cls, response, headers, body) -> ApiResponse:
+        return ApiResponse(response=response, body=body, headers=headers)
 
 
     class ApplicationXmlMediaType(api_client.MediaType):
@@ -167,14 +159,7 @@ class ResponseFor200(api_client.OpenApiResponse[ApiResponseFor200]):
 
     class ApplicationJsonMediaType(api_client.MediaType):
         schema: typing_extensions.TypeAlias = application_json_schema.Schema
-    Content = typing_extensions.TypedDict(
-        'Content',
-        {
-            'application/xml': typing.Type[ApplicationXmlMediaType],
-            'application/json': typing.Type[ApplicationJsonMediaType],
-        }
-    )
-    content: Content = {
+    content = {
         'application/xml': ApplicationXmlMediaType,
         'application/json': ApplicationJsonMediaType,
     }

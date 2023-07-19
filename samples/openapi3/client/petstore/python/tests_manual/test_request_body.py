@@ -17,6 +17,8 @@ from petstore_api import api_client, exceptions, schemas, rest
 
 ParamTestCase = collections.namedtuple('ParamTestCase', 'payload expected_serialization')
 
+class MediaType(api_client.MediaType):
+    schema=schemas.AnyTypeSchema
 
 class TestParameter(unittest.TestCase):
     def test_content_json_serialization(self):
@@ -37,7 +39,7 @@ class TestParameter(unittest.TestCase):
         for payload in payloads:
             class RequestBody(api_client.RequestBody):
                 content = {
-                    'application/json': api_client.MediaType(schema=schemas.AnyTypeSchema)
+                    'application/json': MediaType
                 }
 
             serialization = RequestBody.serialize(payload, 'application/json')
@@ -58,7 +60,7 @@ class TestParameter(unittest.TestCase):
             some_bytes=b'abc'
         )
         class RequestBody(api_client.RequestBody):
-            content={'multipart/form-data': api_client.MediaType(schema=schemas.AnyTypeSchema)}
+            content={'multipart/form-data': MediaType}
 
         serialization = RequestBody.serialize(payload, 'multipart/form-data')
         self.assertEqual(
@@ -119,7 +121,7 @@ class TestParameter(unittest.TestCase):
 
     def test_throws_error_for_nonexistant_content_type(self):
         class RequestBody(api_client.RequestBody):
-            content={'application/json': api_client.MediaType(schema=schemas.AnyTypeSchema)}
+            content={'application/json': MediaType}
 
         with self.assertRaises(KeyError):
             RequestBody.serialize(None, 'abc/def')
@@ -127,8 +129,8 @@ class TestParameter(unittest.TestCase):
     def test_throws_error_for_not_implemented_content_type(self):
         class RequestBody(api_client.RequestBody):
             content={
-                'application/json': api_client.MediaType(schema=schemas.AnyTypeSchema),
-                'text/css': api_client.MediaType(schema=schemas.AnyTypeSchema)
+                'application/json': MediaType,
+                'text/css': MediaType
             }
 
         with self.assertRaises(NotImplementedError):
@@ -145,7 +147,7 @@ class TestParameter(unittest.TestCase):
         )
         content_type = 'application/x-www-form-urlencoded'
         class RequestBody(api_client.RequestBody):
-            content={content_type: api_client.MediaType(schema=schemas.AnyTypeSchema)}
+            content={content_type: MediaType}
 
         serialization = RequestBody.serialize(payload, content_type)
         self.assertEqual(
