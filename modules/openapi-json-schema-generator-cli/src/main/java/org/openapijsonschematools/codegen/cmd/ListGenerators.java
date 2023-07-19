@@ -6,9 +6,9 @@ import io.airlift.airline.Command;
 import io.airlift.airline.Option;
 
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.CodegenConfig;
-import org.openapijsonschematools.codegen.CodegenConfigLoader;
-import org.openapijsonschematools.codegen.CodegenType;
+import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
+import org.openapijsonschematools.codegen.codegenerator.CodegenConfigLoader;
+import org.openapijsonschematools.codegen.codegenerator.CodegenType;
 import org.openapijsonschematools.codegen.meta.GeneratorMetadata;
 import org.openapijsonschematools.codegen.meta.Stability;
 

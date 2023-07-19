@@ -30,8 +30,6 @@ import com.github.jknack.handlebars.io.AbstractTemplateLoader;
 import com.github.jknack.handlebars.io.StringTemplateSource;
 import com.github.jknack.handlebars.io.TemplateLoader;
 import com.github.jknack.handlebars.io.TemplateSource;
-import org.openapijsonschematools.codegen.api.AbstractTemplatingEngineAdapter;
-import org.openapijsonschematools.codegen.api.TemplatingExecutor;
 import org.openapijsonschematools.codegen.templating.handlebars.CustomHelpers;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

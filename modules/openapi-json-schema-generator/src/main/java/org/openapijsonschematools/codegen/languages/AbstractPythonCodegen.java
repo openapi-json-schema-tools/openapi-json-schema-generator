@@ -17,17 +17,14 @@
 package org.openapijsonschematools.codegen.languages;
 
 import com.github.curiousoddman.rgxgen.RgxGen;
-import io.swagger.v3.oas.models.examples.Example;
 import io.swagger.v3.oas.models.media.ArraySchema;
 import io.swagger.v3.oas.models.media.Schema;
-import io.swagger.v3.oas.models.parameters.Parameter;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.CodegenConfig;
-import org.openapijsonschematools.codegen.CodegenConstants;
-import org.openapijsonschematools.codegen.model.CodegenParameter;
+import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
+import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
 import org.openapijsonschematools.codegen.DefaultCodegen;
-import org.openapijsonschematools.codegen.GeneratorLanguage;
+import org.openapijsonschematools.codegen.codegenerator.GeneratorLanguage;
 import org.openapijsonschematools.codegen.utils.ModelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

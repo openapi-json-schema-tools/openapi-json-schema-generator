@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen;
+package org.openapijsonschematools.codegen.codegenerator;
 
 /**
  * A class for storing constants that are used throughout the project.

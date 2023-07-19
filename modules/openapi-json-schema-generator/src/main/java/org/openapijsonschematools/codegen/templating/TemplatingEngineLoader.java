@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen;
-
-import org.openapijsonschematools.codegen.api.TemplatingEngineAdapter;
+package org.openapijsonschematools.codegen.templating;
 
 import java.util.Locale;
 import java.util.ServiceLoader;

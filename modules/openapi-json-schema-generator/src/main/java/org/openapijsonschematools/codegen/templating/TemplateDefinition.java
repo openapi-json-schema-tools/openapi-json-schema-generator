@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen.api;
+package org.openapijsonschematools.codegen.templating;
 
 import java.util.Objects;
 import java.util.StringJoiner;

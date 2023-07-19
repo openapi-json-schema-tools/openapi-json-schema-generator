@@ -20,7 +20,7 @@ import com.google.common.io.Resources;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.media.*;
-import org.openapijsonschematools.codegen.ClientOptInput;
+import org.openapijsonschematools.codegen.cli.ClientOptInput;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.DefaultGenerator;
 import org.openapijsonschematools.codegen.TestUtils;

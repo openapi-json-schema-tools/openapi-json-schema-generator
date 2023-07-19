@@ -6,8 +6,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.api.TemplateDefinition;
-import org.openapijsonschematools.codegen.api.TemplateFileType;
+import org.openapijsonschematools.codegen.templating.TemplateDefinition;
+import org.openapijsonschematools.codegen.templating.TemplateFileType;
 
 import java.lang.reflect.Field;
 import java.util.*;

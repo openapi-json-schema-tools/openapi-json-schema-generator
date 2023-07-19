@@ -15,9 +15,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen;
-
-import org.openapijsonschematools.codegen.model.CodegenOperation;
+package org.openapijsonschematools.codegen.model;
 
 import java.util.*;
 

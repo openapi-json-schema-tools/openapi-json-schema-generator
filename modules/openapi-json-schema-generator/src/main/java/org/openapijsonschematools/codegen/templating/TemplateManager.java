@@ -1,13 +1,7 @@
-package org.openapijsonschematools.codegen;
+package org.openapijsonschematools.codegen.templating;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.templating.TemplateManagerOptions;
-import org.openapijsonschematools.codegen.templating.TemplateNotFoundException;
-import org.openapijsonschematools.codegen.api.TemplatePathLocator;
-import org.openapijsonschematools.codegen.api.TemplateProcessor;
-import org.openapijsonschematools.codegen.api.TemplatingEngineAdapter;
-import org.openapijsonschematools.codegen.api.TemplatingExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

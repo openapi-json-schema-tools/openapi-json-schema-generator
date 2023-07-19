@@ -21,7 +21,7 @@ import io.swagger.v3.oas.models.media.ArraySchema;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.Parameter;
 import org.openapijsonschematools.codegen.model.CodegenParameter;
-import org.openapijsonschematools.codegen.CodegenType;
+import org.openapijsonschematools.codegen.codegenerator.CodegenType;
 import org.openapijsonschematools.codegen.languages.AbstractJavaCodegen;
 import org.testng.Assert;
 import org.testng.annotations.Test;

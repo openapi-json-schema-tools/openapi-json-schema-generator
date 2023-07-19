@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen.api;
+package org.openapijsonschematools.codegen.templating;
 
 import java.io.File;
 import java.io.IOException;

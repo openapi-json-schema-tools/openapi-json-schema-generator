@@ -10,7 +10,7 @@ import java.util.Map;
 
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.openapijsonschematools.codegen.CodegenConfig;
+import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 

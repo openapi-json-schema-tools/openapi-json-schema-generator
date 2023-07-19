@@ -1,8 +1,6 @@
 package org.openapijsonschematools.codegen.templating;
 
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.TemplateManager;
-import org.openapijsonschematools.codegen.api.TemplatePathLocator;
 
 import java.io.File;
 import java.net.URL;

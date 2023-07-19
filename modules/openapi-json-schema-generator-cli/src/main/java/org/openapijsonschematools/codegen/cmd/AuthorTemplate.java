@@ -3,9 +3,9 @@ package org.openapijsonschematools.codegen.cmd;
 import io.airlift.airline.Command;
 import io.airlift.airline.Option;
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.CodegenConfig;
-import org.openapijsonschematools.codegen.CodegenConfigLoader;
-import org.openapijsonschematools.codegen.CodegenConstants;
+import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
+import org.openapijsonschematools.codegen.codegenerator.CodegenConfigLoader;
+import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

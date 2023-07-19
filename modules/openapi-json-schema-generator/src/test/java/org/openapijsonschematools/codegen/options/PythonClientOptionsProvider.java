@@ -18,7 +18,7 @@
 package org.openapijsonschematools.codegen.options;
 
 import com.google.common.collect.ImmutableMap;
-import org.openapijsonschematools.codegen.CodegenConstants;
+import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
 import org.openapijsonschematools.codegen.languages.PythonClientCodegen;
 
 import java.util.Map;

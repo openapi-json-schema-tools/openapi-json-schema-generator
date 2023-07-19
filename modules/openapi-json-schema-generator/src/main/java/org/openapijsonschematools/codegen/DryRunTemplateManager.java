@@ -1,7 +1,7 @@
 package org.openapijsonschematools.codegen;
 
 import org.openapijsonschematools.codegen.templating.TemplateManagerOptions;
-import org.openapijsonschematools.codegen.api.TemplateProcessor;
+import org.openapijsonschematools.codegen.templating.TemplateProcessor;
 
 import java.io.File;
 import java.io.IOException;

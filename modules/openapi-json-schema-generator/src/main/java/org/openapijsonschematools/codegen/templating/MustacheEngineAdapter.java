@@ -18,8 +18,6 @@ package org.openapijsonschematools.codegen.templating;
 
 import com.samskivert.mustache.Mustache;
 import com.samskivert.mustache.Template;
-import org.openapijsonschematools.codegen.api.TemplatingEngineAdapter;
-import org.openapijsonschematools.codegen.api.TemplatingExecutor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

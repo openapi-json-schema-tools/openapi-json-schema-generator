@@ -21,7 +21,7 @@ import io.airlift.airline.Cli;
 import org.apache.commons.lang3.ArrayUtils;
 import org.mockito.MockSettings;
 import org.openapijsonschematools.codegen.DefaultGenerator;
-import org.openapijsonschematools.codegen.Generator;
+import org.openapijsonschematools.codegen.codegenerator.Generator;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;

@@ -19,7 +19,6 @@ package org.openapijsonschematools.codegen.model;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapijsonschematools.codegen.CodegenCallback;
 
 import java.util.*;
 

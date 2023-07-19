@@ -29,11 +29,11 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.ClientOptInput;
-import org.openapijsonschematools.codegen.CodegenConstants;
+import org.openapijsonschematools.codegen.cli.ClientOptInput;
+import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
 import org.openapijsonschematools.codegen.DefaultGenerator;
-import org.openapijsonschematools.codegen.Generator;
-import org.openapijsonschematools.codegen.GeneratorNotFoundException;
+import org.openapijsonschematools.codegen.codegenerator.Generator;
+import org.openapijsonschematools.codegen.codegenerator.GeneratorNotFoundException;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 import org.openapijsonschematools.codegen.config.CodegenConfiguratorUtils;
 import org.slf4j.Logger;

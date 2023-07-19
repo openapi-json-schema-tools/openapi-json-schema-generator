@@ -17,8 +17,8 @@
 
 package org.openapijsonschematools.codegen;
 
-import org.openapijsonschematools.codegen.api.TemplateDefinition;
-import org.openapijsonschematools.codegen.api.TemplateFileType;
+import org.openapijsonschematools.codegen.templating.TemplateDefinition;
+import org.openapijsonschematools.codegen.templating.TemplateFileType;
 
 import java.util.Objects;
 import java.util.StringJoiner;

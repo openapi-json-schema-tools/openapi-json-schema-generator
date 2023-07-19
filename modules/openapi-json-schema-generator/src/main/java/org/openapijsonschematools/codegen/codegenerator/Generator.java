@@ -1,5 +1,6 @@
 /*
- * Copyright 2019 OpenAPI-Generator Contributors (https://openapi-generator.tech)
+ * Copyright 2018 OpenAPI-Generator Contributors (https://openapi-generator.tech)
+ * Copyright 2018 SmartBear Software
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,17 +15,17 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.api;
+package org.openapijsonschematools.codegen.codegenerator;
 
-// TODO: 6.0 Remove
-/**
- * interface to the full template content
- * implementers might take into account the -t cli option,
- * look in the resources for a language specific template, etc
- *
- * @deprecated as of 5.0, replaced by {@link TemplatingExecutor}.
- */
-@Deprecated
-public interface TemplatingGenerator extends TemplatingExecutor {
+import org.openapijsonschematools.codegen.cli.ClientOptInput;
 
+import java.io.File;
+import java.util.List;
+
+public interface Generator {
+    Generator opts(ClientOptInput opts);
+
+    String requestBodyFileFolder();
+
+    List<File> generate();
 }

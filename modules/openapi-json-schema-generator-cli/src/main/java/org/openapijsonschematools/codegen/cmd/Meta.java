@@ -27,13 +27,13 @@ import com.samskivert.mustache.Mustache;
 import io.airlift.airline.Command;
 import io.airlift.airline.Option;
 import org.apache.commons.io.FileUtils;
-import org.openapijsonschematools.codegen.CodegenConfig;
+import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
 import org.openapijsonschematools.codegen.SupportingFile;
-import org.openapijsonschematools.codegen.TemplateManager;
+import org.openapijsonschematools.codegen.templating.TemplateManager;
 import org.openapijsonschematools.codegen.templating.CommonTemplateContentLocator;
 import org.openapijsonschematools.codegen.templating.MustacheEngineAdapter;
 import org.openapijsonschematools.codegen.templating.TemplateManagerOptions;
-import org.openapijsonschematools.codegen.api.TemplatePathLocator;
+import org.openapijsonschematools.codegen.templating.TemplatePathLocator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.api;
+package org.openapijsonschematools.codegen.templating;
 
 import java.util.Locale;
 

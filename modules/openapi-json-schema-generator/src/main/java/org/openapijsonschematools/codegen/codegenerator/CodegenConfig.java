@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen;
+package org.openapijsonschematools.codegen.codegenerator;
 
 import com.samskivert.mustache.Mustache.Compiler;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -31,6 +31,8 @@ import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.servers.ServerVariable;
+import org.openapijsonschematools.codegen.SupportingFile;
+import org.openapijsonschematools.codegen.cli.CliOption;
 import org.openapijsonschematools.codegen.model.CodegenHeader;
 import org.openapijsonschematools.codegen.model.CodegenKey;
 import org.openapijsonschematools.codegen.model.CodegenOperation;
@@ -43,7 +45,7 @@ import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.model.CodegenSecurityRequirementValue;
 import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenServer;
-import org.openapijsonschematools.codegen.api.TemplatingEngineAdapter;
+import org.openapijsonschematools.codegen.templating.TemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.meta.FeatureSet;
 import org.openapijsonschematools.codegen.meta.GeneratorMetadata;
 import org.openapijsonschematools.codegen.model.CodegenTag;

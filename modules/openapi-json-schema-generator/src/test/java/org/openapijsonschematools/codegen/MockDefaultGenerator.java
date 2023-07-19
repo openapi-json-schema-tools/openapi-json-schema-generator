@@ -15,6 +15,8 @@
  */
 
 package org.openapijsonschematools.codegen;
+import org.openapijsonschematools.codegen.cli.ClientOptInput;
+import org.openapijsonschematools.codegen.codegenerator.Generator;
 import org.openapijsonschematools.codegen.templating.TemplateManagerOptions;
 
 import java.io.File;

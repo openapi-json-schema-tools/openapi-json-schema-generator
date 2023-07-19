@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen;
+package org.openapijsonschematools.codegen.codegenerator;
 
 public enum GeneratorLanguage {
     /*

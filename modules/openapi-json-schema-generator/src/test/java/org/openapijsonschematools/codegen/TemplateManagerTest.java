@@ -2,8 +2,9 @@ package org.openapijsonschematools.codegen;
 
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
 import org.openapijsonschematools.codegen.templating.MustacheEngineAdapter;
+import org.openapijsonschematools.codegen.templating.TemplateManager;
 import org.openapijsonschematools.codegen.templating.TemplateManagerOptions;
-import org.openapijsonschematools.codegen.api.TemplatePathLocator;
+import org.openapijsonschematools.codegen.templating.TemplatePathLocator;
 import org.testng.annotations.Test;
 
 import java.io.File;

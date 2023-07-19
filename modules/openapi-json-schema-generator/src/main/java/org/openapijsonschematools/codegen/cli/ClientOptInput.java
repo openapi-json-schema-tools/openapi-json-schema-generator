@@ -15,13 +15,13 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen;
+package org.openapijsonschematools.codegen.cli;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.parser.core.models.AuthorizationValue;
 
-import org.openapijsonschematools.codegen.auth.AuthParser;
-import org.openapijsonschematools.codegen.api.TemplateDefinition;
+import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
+import org.openapijsonschematools.codegen.templating.TemplateDefinition;
 
 import java.util.List;
 

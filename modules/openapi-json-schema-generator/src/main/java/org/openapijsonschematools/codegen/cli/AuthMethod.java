@@ -15,15 +15,10 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen;
+package org.openapijsonschematools.codegen.cli;
 
-import java.io.File;
-import java.util.List;
+public interface AuthMethod {
+    String getType();
 
-public interface Generator {
-    Generator opts(ClientOptInput opts);
-
-    String requestBodyFileFolder();
-
-    List<File> generate();
+    void setType(String type);
 }

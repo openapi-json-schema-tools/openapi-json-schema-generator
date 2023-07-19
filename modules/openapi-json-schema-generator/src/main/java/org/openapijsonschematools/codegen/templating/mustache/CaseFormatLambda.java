@@ -3,7 +3,7 @@ package org.openapijsonschematools.codegen.templating.mustache;
 import com.google.common.base.CaseFormat;
 import com.samskivert.mustache.Mustache;
 import com.samskivert.mustache.Template;
-import org.openapijsonschematools.codegen.CodegenConfig;
+import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
 
 import java.io.IOException;
 import java.io.Writer;

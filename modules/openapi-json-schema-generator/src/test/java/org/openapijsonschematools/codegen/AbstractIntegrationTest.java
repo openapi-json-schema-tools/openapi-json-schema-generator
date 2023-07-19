@@ -18,6 +18,8 @@
 package org.openapijsonschematools.codegen;
 
 import io.swagger.v3.oas.models.OpenAPI;
+import org.openapijsonschematools.codegen.cli.ClientOptInput;
+import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
 import org.openapijsonschematools.codegen.testutils.AssertFile;
 import org.openapijsonschematools.codegen.testutils.IntegrationTestPathsConfig;
 import org.testng.annotations.Test;
