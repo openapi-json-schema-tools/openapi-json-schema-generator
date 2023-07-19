@@ -66,7 +66,7 @@ class ApiConfiguration(object):
         """Constructor
         """
         # Authentication Settings
-        self.security_scheme_info: {}
+        self.security_scheme_info = {}
         self.security_index_info = {'security': 0}
         # Server Info
         self.server_info: ServerInfo = server_info or {
@@ -278,3 +278,4 @@ class ApiConfiguration(object):
             server = self.server_info[server_info_key]
         except KeyError as ex:
             raise ex
+        return server.url

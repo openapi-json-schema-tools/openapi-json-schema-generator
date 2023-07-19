@@ -190,7 +190,7 @@ class ApiConfiguration(object):
         self.security_scheme_info: SecuritySchemeInfo = security_scheme_info or SecuritySchemeInfo()
         self.security_index_info: SecurityIndexInfo = security_index_info or {'security': 0}
 {{else}}
-        self.security_scheme_info: {}
+        self.security_scheme_info = {}
         self.security_index_info = {'security': 0}
 {{/if}}
         # Server Info
@@ -463,8 +463,9 @@ class ApiConfiguration(object):
         try:
             server = self.server_info[server_info_key]
         except KeyError as ex:
-            raise ex{{#if securitySchemes}}
+            raise ex
         return server.url
+{{#if securitySchemes}}
 
     def get_security_requirement_object(
         self,

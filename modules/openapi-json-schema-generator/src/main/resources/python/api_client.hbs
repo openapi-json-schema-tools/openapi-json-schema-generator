@@ -1128,15 +1128,16 @@ class ApiClient:
         :param body: A object representing the body of the HTTP request.
             The object type is the return value of _encoder.default().
         """
+{{#if securitySchemes}}
         if not security_requirement_object:
             # optional auth cause, use no auth
             return
         for security_scheme_component_name, scope_names in security_requirement_object.items():
             scope_names = typing.cast(typing.Tuple[str, ...], scope_names)
             security_scheme_component_name = typing.cast(typing_extensions.Literal[
-{{#each securitySchemes}}
+    {{#each securitySchemes}}
                     '{{@key}}',
-{{/each}}
+    {{/each}}
                 ],
                 security_scheme_component_name
             )
@@ -1152,7 +1153,9 @@ class ApiClient:
                 )
             except KeyError as ex:
                 raise ex
-
+{{else}}
+        return
+{{/if}}
 
 @dataclasses.dataclass
 class Api:

@@ -1130,28 +1130,7 @@ class ApiClient:
         :param body: A object representing the body of the HTTP request.
             The object type is the return value of _encoder.default().
         """
-        if not security_requirement_object:
-            # optional auth cause, use no auth
-            return
-        for security_scheme_component_name, scope_names in security_requirement_object.items():
-            scope_names = typing.cast(typing.Tuple[str, ...], scope_names)
-            security_scheme_component_name = typing.cast(typing_extensions.Literal[
-                ],
-                security_scheme_component_name
-            )
-            try:
-                security_scheme_instance = self.configuration.security_scheme_info[security_scheme_component_name]
-                security_scheme_instance.apply_auth(
-                    headers,
-                    resource_path,
-                    method,
-                    body,
-                    query_params_suffix,
-                    scope_names
-                )
-            except KeyError as ex:
-                raise ex
-
+        return
 
 @dataclasses.dataclass
 class Api:
