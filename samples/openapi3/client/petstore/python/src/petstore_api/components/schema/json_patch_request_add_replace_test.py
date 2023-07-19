@@ -18,15 +18,15 @@ Value: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 class OpEnums:
 
     @schemas.classproperty
-    def ADD(cls) -> str:
+    def ADD(cls) -> typing_extensions.Literal["add"]:
         return Op.validate("add")
 
     @schemas.classproperty
-    def REPLACE(cls) -> str:
+    def REPLACE(cls) -> typing_extensions.Literal["replace"]:
         return Op.validate("replace")
 
     @schemas.classproperty
-    def TEST(cls) -> str:
+    def TEST(cls) -> typing_extensions.Literal["test"]:
         return Op.validate("test")
 
 

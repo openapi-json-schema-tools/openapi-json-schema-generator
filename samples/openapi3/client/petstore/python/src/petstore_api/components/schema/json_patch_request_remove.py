@@ -17,7 +17,7 @@ Path: typing_extensions.TypeAlias = schemas.StrSchema
 class OpEnums:
 
     @schemas.classproperty
-    def REMOVE(cls) -> str:
+    def REMOVE(cls) -> typing_extensions.Literal["remove"]:
         return Op.validate("remove")
 
 

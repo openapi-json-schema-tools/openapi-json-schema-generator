@@ -15,15 +15,15 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class IntegerEnumBigEnums:
 
     @schemas.classproperty
-    def POSITIVE_10(cls) -> int:
+    def POSITIVE_10(cls) -> typing_extensions.Literal[10]:
         return IntegerEnumBig.validate(10)
 
     @schemas.classproperty
-    def POSITIVE_11(cls) -> int:
+    def POSITIVE_11(cls) -> typing_extensions.Literal[11]:
         return IntegerEnumBig.validate(11)
 
     @schemas.classproperty
-    def POSITIVE_12(cls) -> int:
+    def POSITIVE_12(cls) -> typing_extensions.Literal[12]:
         return IntegerEnumBig.validate(12)
 
 

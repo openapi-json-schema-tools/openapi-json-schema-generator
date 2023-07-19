@@ -18,11 +18,11 @@ Path: typing_extensions.TypeAlias = schemas.StrSchema
 class OpEnums:
 
     @schemas.classproperty
-    def MOVE(cls) -> str:
+    def MOVE(cls) -> typing_extensions.Literal["move"]:
         return Op.validate("move")
 
     @schemas.classproperty
-    def COPY(cls) -> str:
+    def COPY(cls) -> typing_extensions.Literal["copy"]:
         return Op.validate("copy")
 
 

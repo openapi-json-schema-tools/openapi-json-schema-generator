@@ -68,15 +68,15 @@ class PhotoUrls(
 class StatusEnums:
 
     @schemas.classproperty
-    def AVAILABLE(cls) -> str:
+    def AVAILABLE(cls) -> typing_extensions.Literal["available"]:
         return Status.validate("available")
 
     @schemas.classproperty
-    def PENDING(cls) -> str:
+    def PENDING(cls) -> typing_extensions.Literal["pending"]:
         return Status.validate("pending")
 
     @schemas.classproperty
-    def SOLD(cls) -> str:
+    def SOLD(cls) -> typing_extensions.Literal["sold"]:
         return Status.validate("sold")
 
 

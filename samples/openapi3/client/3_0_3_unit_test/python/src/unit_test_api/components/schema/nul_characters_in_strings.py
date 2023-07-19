@@ -15,7 +15,7 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 class NulCharactersInStringsEnums:
 
     @schemas.classproperty
-    def HELLO_NULL_THERE(cls) -> str:
+    def HELLO_NULL_THERE(cls) -> typing_extensions.Literal["hello\x00there"]:
         return NulCharactersInStrings.validate("hello\x00there")
 
 

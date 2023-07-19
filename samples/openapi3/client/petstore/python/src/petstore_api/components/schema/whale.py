@@ -17,7 +17,7 @@ HasTeeth: typing_extensions.TypeAlias = schemas.BoolSchema
 class ClassNameEnums:
 
     @schemas.classproperty
-    def WHALE(cls) -> str:
+    def WHALE(cls) -> typing_extensions.Literal["whale"]:
         return ClassName.validate("whale")
 
 

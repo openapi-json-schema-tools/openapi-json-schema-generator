@@ -12,15 +12,15 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 class ServerEnums:
 
     @schemas.classproperty
-    def PETSTORE(cls) -> str:
+    def PETSTORE(cls) -> typing_extensions.Literal["petstore"]:
         return Server.validate("petstore")
 
     @schemas.classproperty
-    def QA_HYPHEN_MINUS_PETSTORE(cls) -> str:
+    def QA_HYPHEN_MINUS_PETSTORE(cls) -> typing_extensions.Literal["qa-petstore"]:
         return Server.validate("qa-petstore")
 
     @schemas.classproperty
-    def DEV_HYPHEN_MINUS_PETSTORE(cls) -> str:
+    def DEV_HYPHEN_MINUS_PETSTORE(cls) -> typing_extensions.Literal["dev-petstore"]:
         return Server.validate("dev-petstore")
 
 
@@ -95,11 +95,11 @@ class Server(
 class PortEnums:
 
     @schemas.classproperty
-    def POSITIVE_80(cls) -> str:
+    def POSITIVE_80(cls) -> typing_extensions.Literal["80"]:
         return Port.validate("80")
 
     @schemas.classproperty
-    def POSITIVE_8080(cls) -> str:
+    def POSITIVE_8080(cls) -> typing_extensions.Literal["8080"]:
         return Port.validate("8080")
 
 

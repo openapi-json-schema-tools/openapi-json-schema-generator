@@ -15,7 +15,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class IntegerEnumOneValueEnums:
 
     @schemas.classproperty
-    def POSITIVE_0(cls) -> int:
+    def POSITIVE_0(cls) -> typing_extensions.Literal[0]:
         return IntegerEnumOneValue.validate(0)
 
 

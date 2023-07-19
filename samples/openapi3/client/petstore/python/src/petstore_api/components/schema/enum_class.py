@@ -15,23 +15,23 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class EnumClassEnums:
 
     @schemas.classproperty
-    def _ABC(cls) -> str:
+    def _ABC(cls) -> typing_extensions.Literal["_abc"]:
         return EnumClass.validate("_abc")
 
     @schemas.classproperty
-    def HYPHEN_MINUS_EFG(cls) -> str:
+    def HYPHEN_MINUS_EFG(cls) -> typing_extensions.Literal["-efg"]:
         return EnumClass.validate("-efg")
 
     @schemas.classproperty
-    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls) -> str:
+    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls) -> typing_extensions.Literal["(xyz)"]:
         return EnumClass.validate("(xyz)")
 
     @schemas.classproperty
-    def COUNT_1M(cls) -> str:
+    def COUNT_1M(cls) -> typing_extensions.Literal["COUNT_1M"]:
         return EnumClass.validate("COUNT_1M")
 
     @schemas.classproperty
-    def COUNT_50M(cls) -> str:
+    def COUNT_50M(cls) -> typing_extensions.Literal["COUNT_50M"]:
         return EnumClass.validate("COUNT_50M")
 
 

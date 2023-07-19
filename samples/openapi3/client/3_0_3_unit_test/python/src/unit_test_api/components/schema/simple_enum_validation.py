@@ -15,15 +15,15 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 class SimpleEnumValidationEnums:
 
     @schemas.classproperty
-    def POSITIVE_1(cls) -> int:
+    def POSITIVE_1(cls) -> typing_extensions.Literal[1]:
         return SimpleEnumValidation.validate(1)
 
     @schemas.classproperty
-    def POSITIVE_2(cls) -> int:
+    def POSITIVE_2(cls) -> typing_extensions.Literal[2]:
         return SimpleEnumValidation.validate(2)
 
     @schemas.classproperty
-    def POSITIVE_3(cls) -> int:
+    def POSITIVE_3(cls) -> typing_extensions.Literal[3]:
         return SimpleEnumValidation.validate(3)
 
 

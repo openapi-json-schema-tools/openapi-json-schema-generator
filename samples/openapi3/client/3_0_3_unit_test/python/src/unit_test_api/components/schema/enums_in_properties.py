@@ -15,7 +15,7 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 class FooEnums:
 
     @schemas.classproperty
-    def FOO(cls) -> str:
+    def FOO(cls) -> typing_extensions.Literal["foo"]:
         return Foo.validate("foo")
 
 
@@ -69,7 +69,7 @@ class Foo(
 class BarEnums:
 
     @schemas.classproperty
-    def BAR(cls) -> str:
+    def BAR(cls) -> typing_extensions.Literal["bar"]:
         return Bar.validate("bar")
 
 

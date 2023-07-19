@@ -16,15 +16,15 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 class TypeEnums:
 
     @schemas.classproperty
-    def PLAINS(cls) -> str:
+    def PLAINS(cls) -> typing_extensions.Literal["plains"]:
         return Type.validate("plains")
 
     @schemas.classproperty
-    def MOUNTAIN(cls) -> str:
+    def MOUNTAIN(cls) -> typing_extensions.Literal["mountain"]:
         return Type.validate("mountain")
 
     @schemas.classproperty
-    def GREVYS(cls) -> str:
+    def GREVYS(cls) -> typing_extensions.Literal["grevys"]:
         return Type.validate("grevys")
 
 
@@ -98,7 +98,7 @@ class Type(
 class ClassNameEnums:
 
     @schemas.classproperty
-    def ZEBRA(cls) -> str:
+    def ZEBRA(cls) -> typing_extensions.Literal["zebra"]:
         return ClassName.validate("zebra")
 
 

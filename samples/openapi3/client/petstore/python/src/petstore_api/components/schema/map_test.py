@@ -132,11 +132,11 @@ class MapMapOfString(
 class AdditionalPropertiesEnums:
 
     @schemas.classproperty
-    def UPPER(cls) -> str:
+    def UPPER(cls) -> typing_extensions.Literal["UPPER"]:
         return AdditionalProperties3.validate("UPPER")
 
     @schemas.classproperty
-    def LOWER(cls) -> str:
+    def LOWER(cls) -> typing_extensions.Literal["lower"]:
         return AdditionalProperties3.validate("lower")
 
 

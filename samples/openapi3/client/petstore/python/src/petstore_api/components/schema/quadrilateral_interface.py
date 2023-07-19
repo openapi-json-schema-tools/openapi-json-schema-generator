@@ -15,7 +15,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class ShapeTypeEnums:
 
     @schemas.classproperty
-    def QUADRILATERAL(cls) -> str:
+    def QUADRILATERAL(cls) -> typing_extensions.Literal["Quadrilateral"]:
         return ShapeType.validate("Quadrilateral")
 
 

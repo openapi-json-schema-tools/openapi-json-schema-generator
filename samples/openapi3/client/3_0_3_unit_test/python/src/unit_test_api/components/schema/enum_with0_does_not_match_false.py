@@ -15,7 +15,7 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 class EnumWith0DoesNotMatchFalseEnums:
 
     @schemas.classproperty
-    def POSITIVE_0(cls) -> int:
+    def POSITIVE_0(cls) -> typing_extensions.Literal[0]:
         return EnumWith0DoesNotMatchFalse.validate(0)
 
 
