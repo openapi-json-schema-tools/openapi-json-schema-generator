@@ -15,11 +15,11 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 class EnumWithEscapedCharactersEnums:
 
     @schemas.classproperty
-    def FOO_LINE_FEED_LF_BAR(cls) -> str:
+    def FOO_LINE_FEED_LF_BAR(cls) -> typing_extensions.Literal["foo\nbar"]:
         return EnumWithEscapedCharacters.validate("foo\nbar")
 
     @schemas.classproperty
-    def FOO_CARRIAGE_RETURN_CR_BAR(cls) -> str:
+    def FOO_CARRIAGE_RETURN_CR_BAR(cls) -> typing_extensions.Literal["foo\rbar"]:
         return EnumWithEscapedCharacters.validate("foo\rbar")
 
 

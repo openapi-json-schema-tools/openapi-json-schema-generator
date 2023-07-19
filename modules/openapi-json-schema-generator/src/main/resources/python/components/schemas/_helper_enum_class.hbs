@@ -6,7 +6,7 @@ class {{enumInfo.valueToName.jsonPathPiece.camelCase}}:
 
     @schemas.classproperty
         {{#eq @key.type "string"}}
-    def {{this}}(cls) -> str:
+    def {{this}}(cls) -> typing_extensions.Literal["{{{@key.value}}}"]:
         return {{jsonPathPiece.camelCase}}.validate("{{{@key.value}}}")
         {{/eq}}
         {{#eq @key.type "number"}}
@@ -14,7 +14,7 @@ class {{enumInfo.valueToName.jsonPathPiece.camelCase}}:
         return {{jsonPathPiece.camelCase}}.validate({{{@key.value}}})
         {{/eq}}
         {{#eq @key.type "integer"}}
-    def {{this}}(cls) -> int:
+    def {{this}}(cls) -> typing_extensions.Literal[{{{@key.value}}}]:
         return {{jsonPathPiece.camelCase}}.validate({{{@key.value}}})
         {{/eq}}
         {{#eq @key.type "boolean"}}

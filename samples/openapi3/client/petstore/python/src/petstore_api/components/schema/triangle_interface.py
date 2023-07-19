@@ -15,7 +15,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class ShapeTypeEnums:
 
     @schemas.classproperty
-    def TRIANGLE(cls) -> str:
+    def TRIANGLE(cls) -> typing_extensions.Literal["Triangle"]:
         return ShapeType.validate("Triangle")
 
 

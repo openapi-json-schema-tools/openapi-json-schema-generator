@@ -15,11 +15,11 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class CurrencyEnums:
 
     @schemas.classproperty
-    def EUR(cls) -> str:
+    def EUR(cls) -> typing_extensions.Literal["eur"]:
         return Currency.validate("eur")
 
     @schemas.classproperty
-    def USD(cls) -> str:
+    def USD(cls) -> typing_extensions.Literal["usd"]:
         return Currency.validate("usd")
 
 

@@ -19,15 +19,15 @@ ShipDate: typing_extensions.TypeAlias = schemas.DateTimeSchema
 class StatusEnums:
 
     @schemas.classproperty
-    def PLACED(cls) -> str:
+    def PLACED(cls) -> typing_extensions.Literal["placed"]:
         return Status.validate("placed")
 
     @schemas.classproperty
-    def APPROVED(cls) -> str:
+    def APPROVED(cls) -> typing_extensions.Literal["approved"]:
         return Status.validate("approved")
 
     @schemas.classproperty
-    def DELIVERED(cls) -> str:
+    def DELIVERED(cls) -> typing_extensions.Literal["delivered"]:
         return Status.validate("delivered")
 
 

@@ -15,7 +15,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class ClassNameEnums:
 
     @schemas.classproperty
-    def BASQUE_PIG(cls) -> str:
+    def BASQUE_PIG(cls) -> typing_extensions.Literal["BasquePig"]:
         return ClassName.validate("BasquePig")
 
 
