@@ -15,11 +15,11 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class SchemaEnums:
 
     @schemas.classproperty
-    def POSITIVE_1(cls) -> int:
+    def POSITIVE_1(cls) -> typing_extensions.Literal[1]:
         return Schema.validate(1)
 
     @schemas.classproperty
-    def NEGATIVE_2(cls) -> int:
+    def NEGATIVE_2(cls) -> typing_extensions.Literal[-2]:
         return Schema.validate(-2)
 
 

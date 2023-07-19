@@ -15,27 +15,27 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class StringEnumEnums:
 
     @schemas.classproperty
-    def PLACED(cls) -> str:
+    def PLACED(cls) -> typing_extensions.Literal["placed"]:
         return StringEnum.validate("placed")
 
     @schemas.classproperty
-    def APPROVED(cls) -> str:
+    def APPROVED(cls) -> typing_extensions.Literal["approved"]:
         return StringEnum.validate("approved")
 
     @schemas.classproperty
-    def DELIVERED(cls) -> str:
+    def DELIVERED(cls) -> typing_extensions.Literal["delivered"]:
         return StringEnum.validate("delivered")
 
     @schemas.classproperty
-    def SINGLE_QUOTED(cls) -> str:
+    def SINGLE_QUOTED(cls) -> typing_extensions.Literal["single quoted"]:
         return StringEnum.validate("single quoted")
 
     @schemas.classproperty
-    def MULTIPLE_LINE_FEED_LF_LINES(cls) -> str:
+    def MULTIPLE_LINE_FEED_LF_LINES(cls) -> typing_extensions.Literal["multiple\nlines"]:
         return StringEnum.validate("multiple\nlines")
 
     @schemas.classproperty
-    def DOUBLE_QUOTE_LINE_FEED_LF_WITH_NEWLINE(cls) -> str:
+    def DOUBLE_QUOTE_LINE_FEED_LF_WITH_NEWLINE(cls) -> typing_extensions.Literal["double quote \n with newline"]:
         return StringEnum.validate("double quote \n with newline")
 
     @schemas.classproperty

@@ -15,15 +15,15 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class EnumStringEnums:
 
     @schemas.classproperty
-    def UPPER(cls) -> str:
+    def UPPER(cls) -> typing_extensions.Literal["UPPER"]:
         return EnumString.validate("UPPER")
 
     @schemas.classproperty
-    def LOWER(cls) -> str:
+    def LOWER(cls) -> typing_extensions.Literal["lower"]:
         return EnumString.validate("lower")
 
     @schemas.classproperty
-    def EMPTY(cls) -> str:
+    def EMPTY(cls) -> typing_extensions.Literal[""]:
         return EnumString.validate("")
 
 
@@ -97,15 +97,15 @@ class EnumString(
 class EnumStringRequiredEnums:
 
     @schemas.classproperty
-    def UPPER(cls) -> str:
+    def UPPER(cls) -> typing_extensions.Literal["UPPER"]:
         return EnumStringRequired.validate("UPPER")
 
     @schemas.classproperty
-    def LOWER(cls) -> str:
+    def LOWER(cls) -> typing_extensions.Literal["lower"]:
         return EnumStringRequired.validate("lower")
 
     @schemas.classproperty
-    def EMPTY(cls) -> str:
+    def EMPTY(cls) -> typing_extensions.Literal[""]:
         return EnumStringRequired.validate("")
 
 
@@ -179,11 +179,11 @@ class EnumStringRequired(
 class EnumIntegerEnums:
 
     @schemas.classproperty
-    def POSITIVE_1(cls) -> int:
+    def POSITIVE_1(cls) -> typing_extensions.Literal[1]:
         return EnumInteger.validate(1)
 
     @schemas.classproperty
-    def NEGATIVE_1(cls) -> int:
+    def NEGATIVE_1(cls) -> typing_extensions.Literal[-1]:
         return EnumInteger.validate(-1)
 
 

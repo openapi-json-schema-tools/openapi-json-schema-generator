@@ -15,15 +15,15 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class ItemsEnums:
 
     @schemas.classproperty
-    def AVAILABLE(cls) -> str:
+    def AVAILABLE(cls) -> typing_extensions.Literal["available"]:
         return Items.validate("available")
 
     @schemas.classproperty
-    def PENDING(cls) -> str:
+    def PENDING(cls) -> typing_extensions.Literal["pending"]:
         return Items.validate("pending")
 
     @schemas.classproperty
-    def SOLD(cls) -> str:
+    def SOLD(cls) -> typing_extensions.Literal["sold"]:
         return Items.validate("sold")
 
 

@@ -12,11 +12,11 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 class VersionEnums:
 
     @schemas.classproperty
-    def V1(cls) -> str:
+    def V1(cls) -> typing_extensions.Literal["v1"]:
         return Version.validate("v1")
 
     @schemas.classproperty
-    def V2(cls) -> str:
+    def V2(cls) -> typing_extensions.Literal["v2"]:
         return Version.validate("v2")
 
 

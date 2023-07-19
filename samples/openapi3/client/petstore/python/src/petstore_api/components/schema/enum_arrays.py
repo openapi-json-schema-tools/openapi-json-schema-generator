@@ -15,11 +15,11 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class JustSymbolEnums:
 
     @schemas.classproperty
-    def GREATER_THAN_SIGN_EQUALS_SIGN(cls) -> str:
+    def GREATER_THAN_SIGN_EQUALS_SIGN(cls) -> typing_extensions.Literal[">="]:
         return JustSymbol.validate(">=")
 
     @schemas.classproperty
-    def DOLLAR_SIGN(cls) -> str:
+    def DOLLAR_SIGN(cls) -> typing_extensions.Literal["$"]:
         return JustSymbol.validate("$")
 
 
@@ -83,11 +83,11 @@ class JustSymbol(
 class ItemsEnums:
 
     @schemas.classproperty
-    def FISH(cls) -> str:
+    def FISH(cls) -> typing_extensions.Literal["fish"]:
         return Items.validate("fish")
 
     @schemas.classproperty
-    def CRAB(cls) -> str:
+    def CRAB(cls) -> typing_extensions.Literal["crab"]:
         return Items.validate("crab")
 
 
