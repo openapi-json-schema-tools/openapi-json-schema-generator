@@ -143,7 +143,7 @@ class Headers(
 @dataclasses.dataclass
 class ApiResponse(api_response.ApiResponse):
     response: urllib3.HTTPResponse
-    body: application_json_schema.api_response.ApiResponseDict  # type: ignore[assignment]
+    body: application_json_schema.api_response.ApiResponseDict
     headers: HeadersDict
 
 

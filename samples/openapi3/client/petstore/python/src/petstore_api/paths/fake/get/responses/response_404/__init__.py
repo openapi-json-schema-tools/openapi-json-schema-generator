@@ -12,7 +12,7 @@ from .content.application_json import schema as application_json_schema
 @dataclasses.dataclass
 class ApiResponse(api_response.ApiResponse):
     response: urllib3.HTTPResponse
-    body: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]  # type: ignore[assignment]
+    body: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     headers: schemas.Unset = schemas.unset
 
 

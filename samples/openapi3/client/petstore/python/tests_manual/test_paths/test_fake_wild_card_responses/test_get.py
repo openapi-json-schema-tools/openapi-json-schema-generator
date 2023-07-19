@@ -49,7 +49,7 @@ class TestGet(ApiTestMixin, unittest.TestCase):
             accept_content_type='application/json',
         )
 
-        assert isinstance(api_response, get.response_200.ResponseFor200.response_cls)
+        assert isinstance(api_response, get.response_200.ApiResponse)
         assert isinstance(api_response.response, urllib3.HTTPResponse)
         assert isinstance(api_response.body, immutabledict.immutabledict)
         assert isinstance(api_response.headers, schemas.Unset)
@@ -71,7 +71,7 @@ class TestGet(ApiTestMixin, unittest.TestCase):
             accept_content_type='application/json',
         )
 
-        assert isinstance(api_response, get.response_2xx.ResponseFor2XX.response_cls)
+        assert isinstance(api_response, get.response_2xx.ApiResponse)
         assert isinstance(api_response.response, urllib3.HTTPResponse)
         assert isinstance(api_response.body, immutabledict.immutabledict)
         assert isinstance(api_response.headers, schemas.Unset)

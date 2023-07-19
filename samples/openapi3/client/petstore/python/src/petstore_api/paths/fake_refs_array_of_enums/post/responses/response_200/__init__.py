@@ -12,7 +12,7 @@ from .content.application_json import schema as application_json_schema
 @dataclasses.dataclass
 class ApiResponse(api_response.ApiResponse):
     response: urllib3.HTTPResponse
-    body: application_json_schema.array_of_enums.ArrayOfEnumsTuple  # type: ignore[assignment]
+    body: application_json_schema.array_of_enums.ArrayOfEnumsTuple
     headers: schemas.Unset = schemas.unset
 
 

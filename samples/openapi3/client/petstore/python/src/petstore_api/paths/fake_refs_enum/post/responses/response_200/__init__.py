@@ -15,7 +15,7 @@ class ApiResponse(api_response.ApiResponse):
     body: typing.Union[
         None,
         typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
-    ]  # type: ignore[assignment]
+    ]
     headers: schemas.Unset = schemas.unset
 
 

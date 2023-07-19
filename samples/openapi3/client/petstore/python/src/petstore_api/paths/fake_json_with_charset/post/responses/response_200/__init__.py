@@ -12,7 +12,7 @@ from .content.application_json_charsetutf8 import schema as application_json_cha
 @dataclasses.dataclass
 class ApiResponse(api_response.ApiResponse):
     response: urllib3.HTTPResponse
-    body: schemas.OUTPUT_BASE_TYPES  # type: ignore[assignment]
+    body: schemas.OUTPUT_BASE_TYPES
     headers: schemas.Unset = schemas.unset
 
 
