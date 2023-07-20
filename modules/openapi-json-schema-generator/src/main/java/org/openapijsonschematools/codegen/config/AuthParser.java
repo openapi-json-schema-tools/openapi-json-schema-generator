@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.cli;
+package org.openapijsonschematools.codegen.config;
 
 import io.swagger.v3.parser.core.models.AuthorizationValue;
 import org.slf4j.Logger;

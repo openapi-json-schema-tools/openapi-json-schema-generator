@@ -32,7 +32,7 @@ import io.swagger.v3.oas.models.tags.Tag;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.comparator.PathFileComparator;
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.cli.ClientOptInput;
+import org.openapijsonschematools.codegen.config.ClientOptInput;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.common.DryRunStatus;
 import org.openapijsonschematools.codegen.generatorrunner.ignore.CodegenIgnoreProcessor;

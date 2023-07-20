@@ -33,7 +33,7 @@ import io.swagger.v3.oas.models.security.SecurityRequirement;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
-import org.openapijsonschematools.codegen.cli.CliOption;
+import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.config.GlobalSettings;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorLanguage;
@@ -47,6 +47,7 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.features.
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SecurityFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.WireFormatFeature;
+import org.openapijsonschematools.codegen.generators.models.VendorExtension;
 import org.openapijsonschematools.codegen.generators.openapimodels.ArrayListWithContext;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenCallback;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscriminator;

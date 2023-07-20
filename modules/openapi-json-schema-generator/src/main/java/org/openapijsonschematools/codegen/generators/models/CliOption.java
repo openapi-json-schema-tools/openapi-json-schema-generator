@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.cli;
+package org.openapijsonschematools.codegen.generators.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.parser.util.SchemaTypeUtil;

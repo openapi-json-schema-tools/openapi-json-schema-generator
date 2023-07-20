@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen.generators;
+package org.openapijsonschematools.codegen.generators.models;
 
 import java.util.Collections;
 import java.util.List;

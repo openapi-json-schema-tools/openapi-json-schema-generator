@@ -12,7 +12,7 @@ import io.swagger.v3.oas.models.parameters.RequestBody;
 import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
 import org.openapijsonschematools.codegen.TestUtils;
-import org.openapijsonschematools.codegen.cli.ClientOptInput;
+import org.openapijsonschematools.codegen.config.ClientOptInput;
 import org.openapijsonschematools.codegen.generators.DefaultGenerator;
 import org.openapijsonschematools.codegen.generators.Generator;
 import org.openapijsonschematools.codegen.common.CodegenConstants;

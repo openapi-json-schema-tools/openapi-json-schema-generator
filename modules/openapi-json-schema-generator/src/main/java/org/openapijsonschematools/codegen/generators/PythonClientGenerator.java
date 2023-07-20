@@ -23,7 +23,7 @@ import com.google.common.base.CaseFormat;
 import io.swagger.v3.oas.models.OpenAPI;
 
 import org.apache.commons.io.FileUtils;
-import org.openapijsonschematools.codegen.cli.CliOption;
+import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ComponentsFeature;

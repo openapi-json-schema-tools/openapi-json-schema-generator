@@ -18,7 +18,7 @@
 package org.openapijsonschematools.codegen;
 
 import io.swagger.v3.oas.models.OpenAPI;
-import org.openapijsonschematools.codegen.cli.ClientOptInput;
+import org.openapijsonschematools.codegen.config.ClientOptInput;
 import org.openapijsonschematools.codegen.generatorrunner.DefaultGeneratorRunner;
 import org.openapijsonschematools.codegen.generators.Generator;
 import org.openapijsonschematools.codegen.testutils.AssertFile;

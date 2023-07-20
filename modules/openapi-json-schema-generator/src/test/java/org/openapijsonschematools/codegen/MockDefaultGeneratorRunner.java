@@ -15,7 +15,7 @@
  */
 
 package org.openapijsonschematools.codegen;
-import org.openapijsonschematools.codegen.cli.ClientOptInput;
+import org.openapijsonschematools.codegen.config.ClientOptInput;
 import org.openapijsonschematools.codegen.generatorrunner.DefaultGeneratorRunner;
 import org.openapijsonschematools.codegen.generatorrunner.GeneratorRunner;
 import org.openapijsonschematools.codegen.generators.DefaultGenerator;

@@ -17,7 +17,7 @@
 
 package org.openapijsonschematools.codegen.generatorrunner;
 
-import org.openapijsonschematools.codegen.cli.ClientOptInput;
+import org.openapijsonschematools.codegen.config.ClientOptInput;
 
 import java.io.File;
 import java.util.List;
