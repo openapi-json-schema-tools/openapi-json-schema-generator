@@ -19,14 +19,11 @@ package org.openapijsonschematools.codegen.clicommands;
 
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 
-import ch.qos.logback.classic.LoggerContext;
-import ch.qos.logback.core.spi.FilterAttachable;
 import io.airlift.airline.Command;
 import io.airlift.airline.Option;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.config.ClientOptInput;
@@ -36,6 +33,7 @@ import org.openapijsonschematools.codegen.generatorrunner.GeneratorRunner;
 import org.openapijsonschematools.codegen.generators.generatorloader.GeneratorNotFoundException;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 import org.openapijsonschematools.codegen.config.CodegenConfiguratorUtils;
+import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -258,12 +256,6 @@ public class Generate extends AbstractCommand {
             arity = 1)
     private Boolean strictSpecBehavior;
 
-    @Option(name = {"--log-to-stderr"},
-            title = "Log to STDERR",
-            description = "write all log messages (not just errors) to STDOUT."
-                    + " Useful for piping the JSON output of debug options (e.g. `--global-property debugOperations`) to an external parser directly while testing a generatorRunner.")
-    private Boolean logToStderr;
-
     @Option(name = {"--enable-post-process-file"}, title = "enable post-processing of files (in generators supporting it)", description = CodegenConstants.ENABLE_POST_PROCESS_FILE_DESC)
     private Boolean enablePostProcessFile;
 
@@ -277,16 +269,6 @@ public class Generate extends AbstractCommand {
 
     @Override
     public void execute() {
-        if (logToStderr != null) {
-            LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
-            Stream.of(Logger.ROOT_LOGGER_NAME, "io.swagger", "org.openapijsonschematools")
-                    .map(lc::getLogger)
-                    .peek(logger -> logger.detachAppender("STDOUT"))
-                    .reduce((logger, next) -> logger.getName().equals(Logger.ROOT_LOGGER_NAME) ? logger : next)
-                    .map(root -> root.getAppender("STDERR"))
-                    .ifPresent(FilterAttachable::clearAllFilters);
-        }
-
         // this initial check allows for field-level package private injection (for unit testing)
         if (configurator == null) {
             if (configFile != null && configFile.length() > 0) {
