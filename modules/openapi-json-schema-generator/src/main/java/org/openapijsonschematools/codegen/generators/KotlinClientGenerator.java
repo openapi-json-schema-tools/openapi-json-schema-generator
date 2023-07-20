@@ -26,10 +26,10 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.openapijsonschematools.codegen.cli.CliOption;
-import org.openapijsonschematools.codegen.generatorrunner.CodegenConstants;
+import org.openapijsonschematools.codegen.common.CodegenConstants;
+import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
-import org.openapijsonschematools.codegen.model.CodegenSchema;
-import org.openapijsonschematools.codegen.generatorrunner.GeneratorType;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ClientModificationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DocumentationFeature;

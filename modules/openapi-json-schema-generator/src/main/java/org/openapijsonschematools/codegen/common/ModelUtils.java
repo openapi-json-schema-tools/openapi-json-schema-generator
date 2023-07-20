@@ -35,7 +35,7 @@ import io.swagger.v3.parser.ObjectMapperFactory;
 import io.swagger.v3.parser.util.RemoteUrl;
 import io.swagger.v3.parser.util.SchemaTypeUtil;
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.model.CodegenSchema;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.config.GlobalSettings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

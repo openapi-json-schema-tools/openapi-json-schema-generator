@@ -2,7 +2,7 @@ package org.openapijsonschematools.codegen.common;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.security.SecurityScheme;
-import org.openapijsonschematools.codegen.model.CodegenSchema;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 
 import java.util.Map;
 import java.util.TreeMap;

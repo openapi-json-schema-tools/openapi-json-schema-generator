@@ -3,13 +3,11 @@ package org.openapijsonschematools.codegen.templating.handlebars;
 import com.github.jknack.handlebars.Helper;
 import com.github.jknack.handlebars.Options;
 import com.github.jknack.handlebars.TagType;
-import org.openapijsonschematools.codegen.model.CodegenKey;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
