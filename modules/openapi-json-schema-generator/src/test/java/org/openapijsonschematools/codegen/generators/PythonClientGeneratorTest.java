@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.python;
+package org.openapijsonschematools.codegen.generators;
 
 import com.google.common.io.Resources;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -44,7 +44,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 @SuppressWarnings("static-method")
-public class PythonClientTest {
+public class PythonClientGeneratorTest {
 
     @Test(description = "tests RecursiveExampleValueWithCycle")
     public void testRecursiveExampleValueWithCycle() throws Exception {
