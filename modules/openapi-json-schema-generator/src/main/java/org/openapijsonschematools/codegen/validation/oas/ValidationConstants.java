@@ -1,6 +1,6 @@
 package org.openapijsonschematools.codegen.validation.oas;
 
-public final class ValidationConstants {
+final class ValidationConstants {
     static String ApacheNginxUnderscoreDescription = "Apache and Nginx may fail on headers keys with underscore!";
-    public static String ApacheNginxUnderscoreFailureMessage = "Apache and Nginx webservers may fail due to legacy CGI constraints enabled by default in which header keys with underscore are disallowed. See https://stackoverflow.com/a/22856867/151445.";
+    static String ApacheNginxUnderscoreFailureMessage = "Apache and Nginx webservers may fail due to legacy CGI constraints enabled by default in which header keys with underscore are disallowed. See https://stackoverflow.com/a/22856867/151445.";
 }

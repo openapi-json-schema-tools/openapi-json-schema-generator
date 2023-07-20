@@ -31,7 +31,7 @@ public final class Invalid extends Validated {
      * @param rule The rule which was evaluated and resulted in this state.
      * @param message The message to be displayed for this invalid state.
      */
-    public Invalid(ValidationRule rule, String message) {
+    Invalid(ValidationRule rule, String message) {
         this.rule = rule;
         this.message = message;
     }

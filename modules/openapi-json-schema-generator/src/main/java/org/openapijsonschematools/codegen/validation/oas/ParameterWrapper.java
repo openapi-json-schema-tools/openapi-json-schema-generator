@@ -16,7 +16,7 @@ public class ParameterWrapper {
      * @param specification The OAS specification
      * @param parameter The OAS parameter
      */
-    public ParameterWrapper(OpenAPI specification, Parameter parameter) {
+    ParameterWrapper(OpenAPI specification, Parameter parameter) {
         this.specification = specification;
         this.parameter = parameter;
     }

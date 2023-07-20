@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen.validations.oas;
+package org.openapijsonschematools.codegen.validation.oas;
 
 import io.swagger.v3.oas.models.media.*;
 import org.openapijsonschematools.codegen.validation.Invalid;

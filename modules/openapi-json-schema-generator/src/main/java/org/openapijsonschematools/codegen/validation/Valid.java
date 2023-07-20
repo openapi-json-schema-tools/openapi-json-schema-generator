@@ -36,7 +36,7 @@ public final class Valid extends Validated {
      *
      * @param rule The rule which was evaluated and resulted in this state.
      */
-    public Valid(ValidationRule rule) {
+    Valid(ValidationRule rule) {
         this.rule = rule;
     }
 

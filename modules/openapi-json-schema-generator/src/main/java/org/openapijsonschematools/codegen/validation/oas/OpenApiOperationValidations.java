@@ -12,8 +12,8 @@ import java.util.Locale;
 /**
  * A standalone instance for evaluating rule and recommendations related to OAS {@link io.swagger.v3.oas.models.Operation}
  */
-public class OpenApiOperationValidations extends GenericValidator<OperationWrapper> {
-    public OpenApiOperationValidations(RuleConfiguration ruleConfiguration) {
+class OpenApiOperationValidations extends GenericValidator<OperationWrapper> {
+    OpenApiOperationValidations(RuleConfiguration ruleConfiguration) {
         super(new ArrayList<>());
         if (ruleConfiguration.isEnableRecommendations()) {
             if (ruleConfiguration.isEnableApiRequestUriWithBodyRecommendation()) {
