@@ -1,6 +1,5 @@
-package org.openapijsonschematools.codegen;
+package org.openapijsonschematools.codegen.config;
 
-import org.openapijsonschematools.codegen.config.SpecValidationException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
