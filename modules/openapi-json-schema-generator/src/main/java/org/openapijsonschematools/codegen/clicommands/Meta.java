@@ -17,7 +17,7 @@
 
 package org.openapijsonschematools.codegen.clicommands;
 
-import static ch.lambdaj.collection.LambdaCollections.with;
+import ch.lambdaj.collection.LambdaCollections;
 import static com.google.common.base.Joiner.on;
 
 import com.google.common.base.CaseFormat;
@@ -126,7 +126,7 @@ public class Meta extends AbstractCommand {
                         .put("openapiGeneratorVersion", currentVersion).build();
 
 
-        with(supportingFiles).convert(processFiles(targetDir, data));
+        LambdaCollections.with(supportingFiles).convert(processFiles(targetDir, data));
     }
 
     /**

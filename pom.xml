@@ -1198,7 +1198,6 @@
             </activation>
             <modules>
                 <module>modules/openapi-json-schema-generator</module>
-                <module>modules/openapi-json-schema-generator-cli</module>
             </modules>
         </profile>
     </profiles>

@@ -79,7 +79,7 @@ public class Completion extends AbstractCommand
                     bindings.put(CommandMetadata.class, state.getCommand());
                 }
 
-                Suggester suggester = createInstance(suggesterMetadata.getSuggesterClass(),
+                Suggester suggester = ParserUtil.createInstance(suggesterMetadata.getSuggesterClass(),
                         ImmutableList.<OptionMetadata>of(),
                         null,
                         null,

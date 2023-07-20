@@ -1,6 +1,7 @@
 package org.openapijsonschematools.codegen.clicommands;
 
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import org.openapijsonschematools.codegen.clicommands.GenerateBatch;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 import org.openapijsonschematools.codegen.config.Context;
 import org.openapijsonschematools.codegen.config.GeneratorSettings;
