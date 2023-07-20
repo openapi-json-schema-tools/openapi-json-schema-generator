@@ -11,12 +11,11 @@ COPY ./LICENSE ${GEN_DIR}
 COPY ./google_checkstyle.xml ${GEN_DIR}
 
 # Modules are copied individually here to allow for caching of docker layers between major.minor versions
-COPY ./modules/openapi-json-schema-generator-cli ${GEN_DIR}/modules/openapi-json-schema-generator-cli
-COPY ./modules/openapi-json-schema-generator ${GEN_DIR}/modules/openapi-json-schema-generator
+COPY ./src ${GEN_DIR}/src
 COPY ./pom.xml ${GEN_DIR}
 
 # Pre-compile openapi-generator-cli
-RUN mvn -am -pl "modules/openapi-json-schema-generator-cli" package
+RUN mvn -am -pl . package
 
 # This exists at the end of the file to benefit from cached layers when modifying docker-entrypoint.sh.
 COPY docker-entrypoint.sh /usr/local/bin/
