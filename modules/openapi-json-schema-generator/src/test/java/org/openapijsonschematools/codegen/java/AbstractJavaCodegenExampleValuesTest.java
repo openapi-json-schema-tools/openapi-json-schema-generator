@@ -22,7 +22,7 @@ import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.Parameter;
 import org.openapijsonschematools.codegen.generators.AbstractJavaGenerator;
 import org.openapijsonschematools.codegen.model.CodegenParameter;
-import org.openapijsonschematools.codegen.codegenerator.GeneratorType;
+import org.openapijsonschematools.codegen.generatorrunner.GeneratorType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

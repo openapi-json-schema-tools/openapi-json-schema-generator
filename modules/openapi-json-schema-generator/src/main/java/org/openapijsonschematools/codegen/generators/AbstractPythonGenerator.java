@@ -21,9 +21,9 @@ import io.swagger.v3.oas.models.media.ArraySchema;
 import io.swagger.v3.oas.models.media.Schema;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
-import org.openapijsonschematools.codegen.codegenerator.GeneratorLanguage;
-import org.openapijsonschematools.codegen.utils.ModelUtils;
+import org.openapijsonschematools.codegen.generatorrunner.CodegenConstants;
+import org.openapijsonschematools.codegen.generatorrunner.GeneratorLanguage;
+import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,8 +34,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import static org.openapijsonschematools.codegen.utils.StringUtils.camelize;
-import static org.openapijsonschematools.codegen.utils.StringUtils.underscore;
+import static org.openapijsonschematools.codegen.common.StringUtils.camelize;
+import static org.openapijsonschematools.codegen.common.StringUtils.underscore;
 
 public abstract class AbstractPythonGenerator extends DefaultGenerator implements Generator {
     private final Logger LOGGER = LoggerFactory.getLogger(AbstractPythonGenerator.class);

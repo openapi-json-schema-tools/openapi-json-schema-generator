@@ -7,7 +7,7 @@ import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.tags.Tag;
-import org.openapijsonschematools.codegen.utils.ModelUtils;
+import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openapijsonschematools.codegen.validation.Severity;
 import org.openapijsonschematools.codegen.validation.Validated;
 import org.openapijsonschematools.codegen.validation.ValidationResult;

@@ -24,8 +24,8 @@ import io.swagger.v3.oas.models.OpenAPI;
 
 import org.apache.commons.io.FileUtils;
 import org.openapijsonschematools.codegen.cli.CliOption;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
-import org.openapijsonschematools.codegen.codegenerator.GeneratorType;
+import org.openapijsonschematools.codegen.generatorrunner.CodegenConstants;
+import org.openapijsonschematools.codegen.generatorrunner.GeneratorType;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ComponentsFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.OperationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
@@ -56,7 +56,7 @@ import org.openapijsonschematools.codegen.model.CodegenDiscriminator.MappedModel
 import org.openapijsonschematools.codegen.templating.TemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorMetadata;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
-import org.openapijsonschematools.codegen.utils.ModelUtils;
+import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.openapijsonschematools.codegen.templating.TemplateProcessor;
@@ -70,8 +70,8 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static org.openapijsonschematools.codegen.utils.StringUtils.camelize;
-import static org.openapijsonschematools.codegen.utils.StringUtils.underscore;
+import static org.openapijsonschematools.codegen.common.StringUtils.camelize;
+import static org.openapijsonschematools.codegen.common.StringUtils.underscore;
 
 @SuppressWarnings("rawtypes")
 public class PythonClientGenerator extends AbstractPythonGenerator {

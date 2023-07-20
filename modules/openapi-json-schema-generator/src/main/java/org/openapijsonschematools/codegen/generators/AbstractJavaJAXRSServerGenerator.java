@@ -23,11 +23,11 @@ import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.cli.CliOption;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
-import org.openapijsonschematools.codegen.codegenerator.GeneratorType;
+import org.openapijsonschematools.codegen.generatorrunner.CodegenConstants;
+import org.openapijsonschematools.codegen.generatorrunner.GeneratorType;
 import org.openapijsonschematools.codegen.model.CodegenOperation;
 import org.openapijsonschematools.codegen.generators.features.BeanValidationFeatures;
-import org.openapijsonschematools.codegen.utils.URLPathUtils;
+import org.openapijsonschematools.codegen.common.URLPathUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -17,7 +17,7 @@
 
 package org.openapijsonschematools.codegen.cmd.utils;
 
-import org.openapijsonschematools.codegen.utils.OptionUtils;
+import org.openapijsonschematools.codegen.common.OptionUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.testng.annotations.Test;
 

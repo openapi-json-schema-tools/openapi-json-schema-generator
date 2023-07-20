@@ -4,8 +4,8 @@ import io.airlift.airline.Command;
 import io.airlift.airline.Option;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.generators.Generator;
-import org.openapijsonschematools.codegen.codegenerator.GeneratorLoader;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
+import org.openapijsonschematools.codegen.generatorrunner.GeneratorLoader;
+import org.openapijsonschematools.codegen.generatorrunner.CodegenConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

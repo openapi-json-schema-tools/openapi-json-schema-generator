@@ -21,11 +21,11 @@ import io.swagger.v3.oas.models.media.Schema;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.cli.CliOption;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
+import org.openapijsonschematools.codegen.generatorrunner.CodegenConstants;
 import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
-import org.openapijsonschematools.codegen.codegenerator.GeneratorLanguage;
-import org.openapijsonschematools.codegen.utils.ModelUtils;
+import org.openapijsonschematools.codegen.generatorrunner.GeneratorLanguage;
+import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +34,7 @@ import java.io.IOException;
 import java.util.*;
 import java.util.regex.Pattern;
 
-import static org.openapijsonschematools.codegen.utils.StringUtils.*;
+import static org.openapijsonschematools.codegen.common.StringUtils.*;
 
 public abstract class AbstractKotlinGenerator extends DefaultGenerator implements Generator {
 

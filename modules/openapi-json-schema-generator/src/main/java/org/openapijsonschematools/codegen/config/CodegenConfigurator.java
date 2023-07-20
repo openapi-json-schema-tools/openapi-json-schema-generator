@@ -32,13 +32,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.openapijsonschematools.codegen.cli.ClientOptInput;
 import org.openapijsonschematools.codegen.generators.Generator;
-import org.openapijsonschematools.codegen.codegenerator.GeneratorLoader;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
+import org.openapijsonschematools.codegen.generatorrunner.GeneratorLoader;
+import org.openapijsonschematools.codegen.generatorrunner.CodegenConstants;
 import org.openapijsonschematools.codegen.templating.TemplatingEngineLoader;
 import org.openapijsonschematools.codegen.templating.TemplateDefinition;
 import org.openapijsonschematools.codegen.templating.TemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.cli.AuthParser;
-import org.openapijsonschematools.codegen.utils.ModelUtils;
+import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

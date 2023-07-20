@@ -22,7 +22,7 @@ import com.samskivert.mustache.Template;
 import java.io.IOException;
 import java.io.Writer;
 
-import static org.openapijsonschematools.codegen.utils.StringUtils.underscore;
+import static org.openapijsonschematools.codegen.common.StringUtils.underscore;
 
 /**
  * Converts text in a fragment to snake case.

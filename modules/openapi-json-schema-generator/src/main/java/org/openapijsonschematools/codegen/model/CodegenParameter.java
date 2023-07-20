@@ -17,7 +17,7 @@
 
 package org.openapijsonschematools.codegen.model;
 
-import org.openapijsonschematools.codegen.utils.ModelUtils;
+import org.openapijsonschematools.codegen.common.ModelUtils;
 
 import java.util.*;
 

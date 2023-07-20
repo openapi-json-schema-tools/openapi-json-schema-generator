@@ -7,8 +7,8 @@ import io.airlift.airline.Option;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.generators.Generator;
-import org.openapijsonschematools.codegen.codegenerator.GeneratorLoader;
-import org.openapijsonschematools.codegen.codegenerator.GeneratorType;
+import org.openapijsonschematools.codegen.generatorrunner.GeneratorLoader;
+import org.openapijsonschematools.codegen.generatorrunner.GeneratorType;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorMetadata;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
 

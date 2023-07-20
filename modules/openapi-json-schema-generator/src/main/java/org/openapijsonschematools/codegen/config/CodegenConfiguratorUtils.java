@@ -18,7 +18,7 @@
 package org.openapijsonschematools.codegen.config;
 
 import org.apache.commons.lang3.tuple.Pair;
-import org.openapijsonschematools.codegen.utils.OptionUtils;
+import org.openapijsonschematools.codegen.common.OptionUtils;
 
 import java.util.*;
 

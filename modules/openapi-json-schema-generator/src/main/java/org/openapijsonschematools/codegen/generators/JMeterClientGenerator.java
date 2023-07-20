@@ -20,7 +20,7 @@ package org.openapijsonschematools.codegen.generators;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
-import org.openapijsonschematools.codegen.codegenerator.GeneratorType;
+import org.openapijsonschematools.codegen.generatorrunner.GeneratorType;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ClientModificationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ParameterFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;

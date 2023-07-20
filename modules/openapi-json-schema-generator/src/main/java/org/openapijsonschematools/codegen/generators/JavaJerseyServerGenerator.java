@@ -19,7 +19,7 @@ package org.openapijsonschematools.codegen.generators;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.cli.CliOption;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
+import org.openapijsonschematools.codegen.generatorrunner.CodegenConstants;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DocumentationFeature;

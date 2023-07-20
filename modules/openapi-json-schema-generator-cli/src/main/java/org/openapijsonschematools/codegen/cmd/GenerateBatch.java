@@ -34,7 +34,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.cli.ClientOptInput;
 import org.openapijsonschematools.codegen.generators.Generator;
-import org.openapijsonschematools.codegen.DefaultGeneratorRunner;
+import org.openapijsonschematools.codegen.generatorrunner.DefaultGeneratorRunner;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 import org.openapijsonschematools.codegen.config.DynamicSettings;
 import org.openapijsonschematools.codegen.config.GlobalSettings;

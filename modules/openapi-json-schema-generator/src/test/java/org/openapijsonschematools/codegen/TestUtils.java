@@ -19,8 +19,9 @@ import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.parser.core.models.ParseOptions;
 
 import org.apache.commons.io.IOUtils;
+import org.openapijsonschematools.codegen.generatorrunner.DefaultGeneratorRunner;
 import org.openapijsonschematools.codegen.java.assertions.JavaFileAssert;
-import org.openapijsonschematools.codegen.utils.ModelUtils;
+import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openrewrite.maven.internal.RawPom;
 import org.testng.Assert;
 

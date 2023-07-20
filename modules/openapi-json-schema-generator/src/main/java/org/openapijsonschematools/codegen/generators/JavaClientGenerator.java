@@ -19,17 +19,17 @@ package org.openapijsonschematools.codegen.generators;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.cli.CliOption;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
-import org.openapijsonschematools.codegen.codegenerator.GeneratorType;
+import org.openapijsonschematools.codegen.generatorrunner.CodegenConstants;
+import org.openapijsonschematools.codegen.generatorrunner.GeneratorType;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
-import org.openapijsonschematools.codegen.codegenerator.VendorExtension;
+import org.openapijsonschematools.codegen.generatorrunner.VendorExtension;
 import org.openapijsonschematools.codegen.generators.features.BeanValidationFeatures;
 import org.openapijsonschematools.codegen.generators.features.GzipFeatures;
 import org.openapijsonschematools.codegen.generators.features.PerformBeanValidationFeatures;
 import org.openapijsonschematools.codegen.templating.mustache.CaseFormatLambda;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DocumentationFeature;
-import org.openapijsonschematools.codegen.utils.ProcessUtils;
+import org.openapijsonschematools.codegen.common.ProcessUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,7 +39,7 @@ import java.util.*;
 import static com.google.common.base.CaseFormat.LOWER_CAMEL;
 import static com.google.common.base.CaseFormat.UPPER_UNDERSCORE;
 import static java.util.Collections.sort;
-import static org.openapijsonschematools.codegen.utils.StringUtils.camelize;
+import static org.openapijsonschematools.codegen.common.StringUtils.camelize;
 
 public class JavaClientGenerator extends AbstractJavaGenerator
         implements BeanValidationFeatures, PerformBeanValidationFeatures, GzipFeatures {

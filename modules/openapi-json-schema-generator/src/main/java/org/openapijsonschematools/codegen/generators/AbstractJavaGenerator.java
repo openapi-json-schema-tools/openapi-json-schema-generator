@@ -28,11 +28,11 @@ import io.swagger.v3.oas.models.parameters.Parameter;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.cli.CliOption;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
+import org.openapijsonschematools.codegen.generatorrunner.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.model.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
-import org.openapijsonschematools.codegen.codegenerator.VendorExtension;
+import org.openapijsonschematools.codegen.generatorrunner.VendorExtension;
 import org.openapijsonschematools.codegen.generators.features.DocumentationProviderFeatures;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ClientModificationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DocumentationFeature;
@@ -47,7 +47,7 @@ import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
-import static org.openapijsonschematools.codegen.utils.StringUtils.*;
+import static org.openapijsonschematools.codegen.common.StringUtils.*;
 
 public abstract class AbstractJavaGenerator extends DefaultGenerator implements Generator,
         DocumentationProviderFeatures {

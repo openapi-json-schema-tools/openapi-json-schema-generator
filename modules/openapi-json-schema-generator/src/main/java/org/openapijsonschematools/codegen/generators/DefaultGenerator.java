@@ -34,10 +34,10 @@ import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.openapijsonschematools.codegen.cli.CliOption;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
-import org.openapijsonschematools.codegen.codegenerator.GeneratorType;
-import org.openapijsonschematools.codegen.codegenerator.GeneratorLanguage;
-import org.openapijsonschematools.codegen.codegenerator.VendorExtension;
+import org.openapijsonschematools.codegen.generatorrunner.CodegenConstants;
+import org.openapijsonschematools.codegen.generatorrunner.GeneratorType;
+import org.openapijsonschematools.codegen.generatorrunner.GeneratorLanguage;
+import org.openapijsonschematools.codegen.generatorrunner.VendorExtension;
 import org.openapijsonschematools.codegen.config.GlobalSettings;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ComponentsFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DataTypeFeature;
@@ -76,7 +76,7 @@ import org.openapijsonschematools.codegen.model.LinkedHashMapWithContext;
 import org.openapijsonschematools.codegen.model.PairCacheKey;
 import org.openapijsonschematools.codegen.model.SchemaTestCase;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
-import org.openapijsonschematools.codegen.utils.SerializerUtils;
+import org.openapijsonschematools.codegen.common.SerializerUtils;
 import org.openapijsonschematools.codegen.templating.MustacheEngineAdapter;
 import org.openapijsonschematools.codegen.templating.mustache.CamelCaseLambda;
 import org.openapijsonschematools.codegen.templating.mustache.IndentedLambda;
@@ -84,7 +84,7 @@ import org.openapijsonschematools.codegen.templating.mustache.LowercaseLambda;
 import org.openapijsonschematools.codegen.templating.mustache.SnakecaseLambda;
 import org.openapijsonschematools.codegen.templating.mustache.TitlecaseLambda;
 import org.openapijsonschematools.codegen.templating.mustache.UppercaseLambda;
-import org.openapijsonschematools.codegen.utils.ModelUtils;
+import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openapijsonschematools.codegen.model.CodegenDiscriminator.MappedModel;
 import org.openapijsonschematools.codegen.templating.TemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
@@ -186,8 +186,8 @@ public class DefaultGenerator implements Generator {
                 )
                 .build();
 
-        int cacheSize = Integer.parseInt(GlobalSettings.getProperty(org.openapijsonschematools.codegen.utils.StringUtils.NAME_CACHE_SIZE_PROPERTY, "500"));
-        int cacheExpiry = Integer.parseInt(GlobalSettings.getProperty(org.openapijsonschematools.codegen.utils.StringUtils.NAME_CACHE_EXPIRY_PROPERTY, "10"));
+        int cacheSize = Integer.parseInt(GlobalSettings.getProperty(org.openapijsonschematools.codegen.common.StringUtils.NAME_CACHE_SIZE_PROPERTY, "500"));
+        int cacheExpiry = Integer.parseInt(GlobalSettings.getProperty(org.openapijsonschematools.codegen.common.StringUtils.NAME_CACHE_EXPIRY_PROPERTY, "10"));
         sanitizedNameCache = Caffeine.newBuilder()
                 .maximumSize(cacheSize)
                 .expireAfterAccess(cacheExpiry, TimeUnit.SECONDS)
@@ -1075,7 +1075,7 @@ public class DefaultGenerator implements Generator {
 
     @Override
     public String toModuleFilename(String name, String jsonPath) {
-        return org.openapijsonschematools.codegen.utils.StringUtils.camelize(name);
+        return org.openapijsonschematools.codegen.common.StringUtils.camelize(name);
     }
 
     public String toPathFilename(String name, String jsonPath) {
@@ -1119,7 +1119,7 @@ public class DefaultGenerator implements Generator {
      */
     @Override
     public String toModelTestFilename(String name) {
-        return org.openapijsonschematools.codegen.utils.StringUtils.camelize(name) + "Test";
+        return org.openapijsonschematools.codegen.common.StringUtils.camelize(name) + "Test";
     }
 
     /**
@@ -1143,7 +1143,7 @@ public class DefaultGenerator implements Generator {
         if (reservedWords.contains(name)) {
             return escapeReservedWord(name);
         } else if (name.chars().anyMatch(character -> specialCharReplacements.containsKey(String.valueOf((char) character)))) {
-            return org.openapijsonschematools.codegen.utils.StringUtils.escape(name, specialCharReplacements, null, null);
+            return org.openapijsonschematools.codegen.common.StringUtils.escape(name, specialCharReplacements, null, null);
         }
         return name;
     }
@@ -1161,7 +1161,7 @@ public class DefaultGenerator implements Generator {
         if (reservedWords.contains(name)) {
             return escapeReservedWord(name);
         } else if (name.chars().anyMatch(character -> specialCharReplacements.containsKey(String.valueOf((char) character)))) {
-            return org.openapijsonschematools.codegen.utils.StringUtils.escape(name, specialCharReplacements, null, null);
+            return org.openapijsonschematools.codegen.common.StringUtils.escape(name, specialCharReplacements, null, null);
         }
         return name;
 
@@ -1537,7 +1537,7 @@ public class DefaultGenerator implements Generator {
         if (name.length() == 0) {
             return "DefaultApi";
         }
-        return org.openapijsonschematools.codegen.utils.StringUtils.camelize(apiNamePrefix + "_" + name + "_" + apiNameSuffix);
+        return org.openapijsonschematools.codegen.common.StringUtils.camelize(apiNamePrefix + "_" + name + "_" + apiNameSuffix);
     }
 
     /**
@@ -1554,7 +1554,7 @@ public class DefaultGenerator implements Generator {
             return schemaKeyToModelNameCache.get(name);
         }
 
-        String camelCaseName = org.openapijsonschematools.codegen.utils.StringUtils.camelize(modelNamePrefix + "_" + name + "_" + modelNameSuffix);
+        String camelCaseName = org.openapijsonschematools.codegen.common.StringUtils.camelize(modelNamePrefix + "_" + name + "_" + modelNameSuffix);
         schemaKeyToModelNameCache.put(name, camelCaseName);
         return camelCaseName;
     }
@@ -2450,7 +2450,7 @@ public class DefaultGenerator implements Generator {
         if (StringUtils.isEmpty(operationId)) {
             throw new RuntimeException("Empty method name (operationId) not allowed");
         }
-        return org.openapijsonschematools.codegen.utils.StringUtils.underscore(operationId);
+        return org.openapijsonschematools.codegen.common.StringUtils.underscore(operationId);
     }
 
     protected CodegenKey getOperationId(Operation operation, String path, String httpMethod) {
@@ -3338,7 +3338,7 @@ public class DefaultGenerator implements Generator {
                 if (builder.toString().length() == 0) {
                     part = Character.toLowerCase(part.charAt(0)) + part.substring(1);
                 } else {
-                    part = org.openapijsonschematools.codegen.utils.StringUtils.camelize(part);
+                    part = org.openapijsonschematools.codegen.common.StringUtils.camelize(part);
                 }
                 builder.append(part);
             }
@@ -3987,7 +3987,7 @@ public class DefaultGenerator implements Generator {
      */
     @Override
     public String sanitizeTag(String tag) {
-        tag = org.openapijsonschematools.codegen.utils.StringUtils.camelize(sanitizeName(tag));
+        tag = org.openapijsonschematools.codegen.common.StringUtils.camelize(sanitizeName(tag));
 
         // tag starts with numbers
         if (tag.matches("^\\d.*")) {

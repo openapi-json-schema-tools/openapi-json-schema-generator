@@ -30,10 +30,10 @@ import java.util.stream.Stream;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.cli.ClientOptInput;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
-import org.openapijsonschematools.codegen.DefaultGeneratorRunner;
-import org.openapijsonschematools.codegen.codegenerator.GeneratorRunner;
-import org.openapijsonschematools.codegen.codegenerator.GeneratorNotFoundException;
+import org.openapijsonschematools.codegen.generatorrunner.CodegenConstants;
+import org.openapijsonschematools.codegen.generatorrunner.DefaultGeneratorRunner;
+import org.openapijsonschematools.codegen.generatorrunner.GeneratorRunner;
+import org.openapijsonschematools.codegen.generatorrunner.GeneratorNotFoundException;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 import org.openapijsonschematools.codegen.config.CodegenConfiguratorUtils;
 import org.slf4j.Logger;

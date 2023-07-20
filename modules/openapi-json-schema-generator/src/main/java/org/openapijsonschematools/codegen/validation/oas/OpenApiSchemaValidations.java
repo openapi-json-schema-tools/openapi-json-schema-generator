@@ -3,8 +3,8 @@ package org.openapijsonschematools.codegen.validation.oas;
 import io.swagger.v3.oas.models.media.ComposedSchema;
 import io.swagger.v3.oas.models.media.Schema;
 
-import org.openapijsonschematools.codegen.utils.ModelUtils;
-import org.openapijsonschematools.codegen.utils.SemVer;
+import org.openapijsonschematools.codegen.common.ModelUtils;
+import org.openapijsonschematools.codegen.common.SemVer;
 import org.openapijsonschematools.codegen.validation.GenericValidator;
 import org.openapijsonschematools.codegen.validation.ValidationRule;
 

@@ -20,14 +20,13 @@ import com.google.common.io.Resources;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.media.*;
-import org.openapijsonschematools.codegen.DefaultGeneratorRunner;
+import org.openapijsonschematools.codegen.generatorrunner.DefaultGeneratorRunner;
 import org.openapijsonschematools.codegen.cli.ClientOptInput;
-import org.openapijsonschematools.codegen.generators.PythonClientGenerator;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.TestUtils;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 import org.openapijsonschematools.codegen.model.EnumValue;
-import org.openapijsonschematools.codegen.utils.ModelUtils;
+import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

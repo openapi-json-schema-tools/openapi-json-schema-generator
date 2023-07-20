@@ -26,17 +26,17 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.openapijsonschematools.codegen.cli.CliOption;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
+import org.openapijsonschematools.codegen.generatorrunner.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
-import org.openapijsonschematools.codegen.codegenerator.GeneratorType;
+import org.openapijsonschematools.codegen.generatorrunner.GeneratorType;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ClientModificationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DocumentationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ParameterFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SecurityFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.WireFormatFeature;
-import org.openapijsonschematools.codegen.utils.ProcessUtils;
+import org.openapijsonschematools.codegen.common.ProcessUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -24,7 +24,7 @@ import org.openapijsonschematools.codegen.generators.Generator;
 import java.io.IOException;
 import java.io.Writer;
 
-import static org.openapijsonschematools.codegen.utils.StringUtils.camelize;
+import static org.openapijsonschematools.codegen.common.StringUtils.camelize;
 
 /**
  * Converts text in a fragment to camelCase.

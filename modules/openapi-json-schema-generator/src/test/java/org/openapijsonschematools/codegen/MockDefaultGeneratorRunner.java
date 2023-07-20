@@ -16,8 +16,10 @@
 
 package org.openapijsonschematools.codegen;
 import org.openapijsonschematools.codegen.cli.ClientOptInput;
-import org.openapijsonschematools.codegen.codegenerator.GeneratorRunner;
+import org.openapijsonschematools.codegen.generatorrunner.DefaultGeneratorRunner;
+import org.openapijsonschematools.codegen.generatorrunner.GeneratorRunner;
 import org.openapijsonschematools.codegen.generators.DefaultGenerator;
+import org.openapijsonschematools.codegen.templating.DryRunTemplateManager;
 import org.openapijsonschematools.codegen.templating.TemplateManagerOptions;
 
 import java.io.File;
