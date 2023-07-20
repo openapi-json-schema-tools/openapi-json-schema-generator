@@ -16,7 +16,7 @@ public class SecuritySchemeWrapper {
      * @param specification The OAS specification
      * @param securityScheme The OAS securityScheme
      */
-    SecuritySchemeWrapper(OpenAPI specification, SecurityScheme securityScheme) {
+    public SecuritySchemeWrapper(OpenAPI specification, SecurityScheme securityScheme) {
         this.specification = specification;
         this.securityScheme = securityScheme;
     }

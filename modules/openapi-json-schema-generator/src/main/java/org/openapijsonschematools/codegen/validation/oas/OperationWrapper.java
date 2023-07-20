@@ -19,7 +19,7 @@ public class OperationWrapper {
      * @param operation The operation instances to wrap
      * @param httpMethod The http method to wrap
      */
-    OperationWrapper(OpenAPI specification, Operation operation, PathItem.HttpMethod httpMethod) {
+    public OperationWrapper(OpenAPI specification, Operation operation, PathItem.HttpMethod httpMethod) {
         this.specification = specification;
         this.operation = operation;
         this.httpMethod = httpMethod;

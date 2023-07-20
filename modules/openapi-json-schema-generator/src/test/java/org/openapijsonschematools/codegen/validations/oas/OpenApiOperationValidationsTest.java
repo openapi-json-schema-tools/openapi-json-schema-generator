@@ -8,7 +8,7 @@ import io.swagger.v3.oas.models.parameters.RequestBody;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.validation.common.Invalid;
 import org.openapijsonschematools.codegen.validation.ValidationResult;
-import org.openapijsonschematools.codegen.validation.oas.oas.OpenApiOperationValidations;
+import org.openapijsonschematools.codegen.validation.oas.OpenApiOperationValidations;
 import org.openapijsonschematools.codegen.validation.oas.OperationWrapper;
 import org.openapijsonschematools.codegen.validation.oas.RuleConfiguration;
 import org.testng.Assert;

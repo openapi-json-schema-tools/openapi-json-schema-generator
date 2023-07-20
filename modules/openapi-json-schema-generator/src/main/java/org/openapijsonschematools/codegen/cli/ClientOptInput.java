@@ -20,13 +20,13 @@ package org.openapijsonschematools.codegen.cli;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.parser.core.models.AuthorizationValue;
 
-import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
+import org.openapijsonschematools.codegen.generators.Generator;
 import org.openapijsonschematools.codegen.templating.TemplateDefinition;
 
 import java.util.List;
 
 public class ClientOptInput {
-    private CodegenConfig config;
+    private Generator config;
     private OpenAPI openAPI;
     private List<AuthorizationValue> auths;
     private List<TemplateDefinition> userDefinedTemplates;
@@ -36,8 +36,8 @@ public class ClientOptInput {
         return this;
     }
 
-    public ClientOptInput config(CodegenConfig codegenConfig) {
-        this.setConfig(codegenConfig);
+    public ClientOptInput config(Generator generator) {
+        this.setConfig(generator);
         return this;
     }
 
@@ -68,7 +68,7 @@ public class ClientOptInput {
     }
 
     @Deprecated
-    public CodegenConfig getConfig() {
+    public Generator getConfig() {
         return config;
     }
 
@@ -80,11 +80,11 @@ public class ClientOptInput {
     /**
      * Sets the generator/config instance
      *
-     * @deprecated use {@link #config(CodegenConfig)} instead
+     * @deprecated use {@link #config(Generator)} instead
      * @param config codegen config
      */
     @Deprecated
-    public void setConfig(CodegenConfig config) {
+    public void setConfig(Generator config) {
         this.config = config;
         // TODO: ClientOptInputs needs to be retired
         if (this.openAPI != null) {

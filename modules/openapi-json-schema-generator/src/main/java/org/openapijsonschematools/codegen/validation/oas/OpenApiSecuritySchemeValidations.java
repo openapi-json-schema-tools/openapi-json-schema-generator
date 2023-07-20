@@ -11,8 +11,8 @@ import java.util.Locale;
 /**
  * A standalone instance for evaluating rules and recommendations related to OAS {@link SecurityScheme}
  */
-class OpenApiSecuritySchemeValidations extends GenericValidator<SecuritySchemeWrapper> {
-    OpenApiSecuritySchemeValidations(RuleConfiguration ruleConfiguration) {
+public class OpenApiSecuritySchemeValidations extends GenericValidator<SecuritySchemeWrapper> {
+    public OpenApiSecuritySchemeValidations(RuleConfiguration ruleConfiguration) {
         super(new ArrayList<>());
         if (ruleConfiguration.isEnableRecommendations()) {
             if (ruleConfiguration.isEnableApacheNginxUnderscoreRecommendation()) {

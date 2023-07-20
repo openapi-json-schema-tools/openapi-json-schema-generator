@@ -31,8 +31,8 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 import org.openapijsonschematools.codegen.cli.ClientOptInput;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConfigLoader;
+import org.openapijsonschematools.codegen.generators.Generator;
+import org.openapijsonschematools.codegen.codegenerator.GeneratorLoader;
 import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
 import org.openapijsonschematools.codegen.templating.TemplatingEngineLoader;
 import org.openapijsonschematools.codegen.templating.TemplateDefinition;
@@ -529,7 +529,7 @@ public class CodegenConfigurator {
         Validate.notEmpty(inputSpec, "input spec must be specified");
 
         GeneratorSettings generatorSettings = generatorSettingsBuilder.build();
-        CodegenConfig config = CodegenConfigLoader.forName(generatorSettings.getGeneratorName());
+        Generator config = GeneratorLoader.forName(generatorSettings.getGeneratorName());
         if (isEmpty(templatingEngineName)) {
             // if templatingEngineName is empty check the config for a default
             String defaultTemplatingEngine = config.defaultTemplatingEngine();
@@ -632,13 +632,13 @@ public class CodegenConfigurator {
 
         // We load the config via generatorSettings.getGeneratorName() because this is guaranteed to be set
         // regardless of entrypoint (CLI sets properties on this type, config deserialization sets on generatorSettings).
-        CodegenConfig config = CodegenConfigLoader.forName(generatorSettings.getGeneratorName());
+        Generator config = GeneratorLoader.forName(generatorSettings.getGeneratorName());
 
         if (isNotEmpty(generatorSettings.getLibrary())) {
             config.setLibrary(generatorSettings.getLibrary());
         }
 
-        // TODO: Work toward CodegenConfig having a "WorkflowSettings" property, or better a "Workflow" object which itself has a "WorkflowSettings" property.
+        // TODO: Work toward Generator having a "WorkflowSettings" property, or better a "Workflow" object which itself has a "WorkflowSettings" property.
         config.setInputSpec(workflowSettings.getInputSpec());
         config.setOutputDir(workflowSettings.getOutputDir());
         config.setSkipOverwrite(workflowSettings.isSkipOverwrite());
@@ -652,7 +652,7 @@ public class CodegenConfigurator {
         TemplatingEngineAdapter templatingEngine = TemplatingEngineLoader.byIdentifier(workflowSettings.getTemplatingEngineName());
         config.setTemplatingEngine(templatingEngine);
 
-        // TODO: Work toward CodegenConfig having a "GeneratorSettings" property.
+        // TODO: Work toward Generator having a "GeneratorSettings" property.
         config.instantiationTypes().putAll(generatorSettings.getInstantiationTypes());
         config.typeMapping().putAll(generatorSettings.getTypeMappings());
         config.schemaMapping().putAll(generatorSettings.getSchemaMappings());

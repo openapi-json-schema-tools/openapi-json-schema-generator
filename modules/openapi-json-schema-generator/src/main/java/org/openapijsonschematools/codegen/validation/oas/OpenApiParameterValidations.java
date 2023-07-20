@@ -12,8 +12,8 @@ import java.util.Locale;
 /**
  * A standalone instance for evaluating rules and recommendations related to OAS {@link Parameter}
  */
-class OpenApiParameterValidations extends GenericValidator<ParameterWrapper> {
-    OpenApiParameterValidations(RuleConfiguration ruleConfiguration) {
+public class OpenApiParameterValidations extends GenericValidator<ParameterWrapper> {
+    public OpenApiParameterValidations(RuleConfiguration ruleConfiguration) {
         super(new ArrayList<>());
         if (ruleConfiguration.isEnableRecommendations()) {
             if (ruleConfiguration.isEnableApacheNginxUnderscoreRecommendation()) {

@@ -17,8 +17,8 @@ import java.util.Arrays;
 /**
  * A standalone instance for evaluating rules and recommendations related to OAS {@link Schema}
  */
-class OpenApiSchemaValidations extends GenericValidator<SchemaWrapper> {
-    OpenApiSchemaValidations(RuleConfiguration ruleConfiguration) {
+public class OpenApiSchemaValidations extends GenericValidator<SchemaWrapper> {
+    public OpenApiSchemaValidations(RuleConfiguration ruleConfiguration) {
         super(new ArrayList<>());
         if (ruleConfiguration.isEnableRecommendations()) {
             if (ruleConfiguration.isEnableOneOfWithPropertiesRecommendation()) {

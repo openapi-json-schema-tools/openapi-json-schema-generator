@@ -16,7 +16,7 @@ public class SchemaWrapper {
      * @param specification The OAS specification
      * @param schema The OAS schema
      */
-    SchemaWrapper(OpenAPI specification, Schema schema) {
+    public SchemaWrapper(OpenAPI specification, Schema schema) {
         this.specification = specification;
         this.schema = schema;
     }

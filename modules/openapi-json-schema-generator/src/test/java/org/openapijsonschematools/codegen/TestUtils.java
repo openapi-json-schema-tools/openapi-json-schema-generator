@@ -102,19 +102,19 @@ public class TestUtils {
     }
 
     /**
-     * Extract file from {@link MockDefaultGenerator}
+     * Extract file from {@link MockDefaultGeneratorRunner}
      *
-     * @param generator Generator
+     * @param generator GeneratorRunner
      * @param root root path
      * @param filename filename under root
      *
-     * @return a {@link MockDefaultGenerator.WrittenTemplateBasedFile}
-     * @deprecated Since 5.0. Please avoid this method and usage of {@link MockDefaultGenerator}, prefer {@link DefaultGenerator#DefaultGenerator(Boolean)} with dryRun=true.
+     * @return a {@link MockDefaultGeneratorRunner.WrittenTemplateBasedFile}
+     * @deprecated Since 5.0. Please avoid this method and usage of {@link MockDefaultGeneratorRunner}, prefer {@link DefaultGeneratorRunner#DefaultGeneratorRunner(Boolean)} with dryRun=true.
      */
     @Deprecated
-    public static MockDefaultGenerator.WrittenTemplateBasedFile getTemplateBasedFile(MockDefaultGenerator generator, File root, String filename) {
+    public static MockDefaultGeneratorRunner.WrittenTemplateBasedFile getTemplateBasedFile(MockDefaultGeneratorRunner generator, File root, String filename) {
         String defaultApiFilename = new File(root, filename).getAbsolutePath().replace("\\", "/");
-        Optional<MockDefaultGenerator.WrittenTemplateBasedFile> optional = generator.getTemplateBasedFiles().stream().filter(f -> defaultApiFilename.equals(f.getOutputFilename())).findFirst();
+        Optional<MockDefaultGeneratorRunner.WrittenTemplateBasedFile> optional = generator.getTemplateBasedFiles().stream().filter(f -> defaultApiFilename.equals(f.getOutputFilename())).findFirst();
         Assert.assertTrue(optional.isPresent());
         return optional.get();
     }

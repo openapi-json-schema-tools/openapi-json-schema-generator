@@ -20,12 +20,12 @@ import com.google.common.io.Resources;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.media.*;
+import org.openapijsonschematools.codegen.DefaultGeneratorRunner;
 import org.openapijsonschematools.codegen.cli.ClientOptInput;
+import org.openapijsonschematools.codegen.generators.PythonClientGenerator;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
-import org.openapijsonschematools.codegen.DefaultGenerator;
 import org.openapijsonschematools.codegen.TestUtils;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
-import org.openapijsonschematools.codegen.languages.PythonClientCodegen;
 import org.openapijsonschematools.codegen.model.EnumValue;
 import org.openapijsonschematools.codegen.utils.ModelUtils;
 import org.testng.Assert;
@@ -50,7 +50,7 @@ public class PythonClientTest {
     public void testRecursiveExampleValueWithCycle() throws Exception {
 
         final OpenAPI openAPI = TestUtils.parseSpec("src/test/resources/3_0/issue_7532.yaml");
-        final PythonClientCodegen codegen = new PythonClientCodegen();
+        final PythonClientGenerator codegen = new PythonClientGenerator();
         codegen.setOpenAPI(openAPI);
         Schema schemaWithCycleInTreesProperty = openAPI.getComponents().getSchemas().get("Forest");
         String exampleValue = codegen.toExampleValue(schemaWithCycleInTreesProperty, null);
@@ -65,14 +65,14 @@ public class PythonClientTest {
     @Test(expectedExceptions = RuntimeException.class)
     public void testSpecWithTooLowVersionThrowsException() {
         final OpenAPI openAPI = TestUtils.parseSpec("src/test/resources/2_0/petstore.yaml");
-        final PythonClientCodegen codegen = new PythonClientCodegen();
+        final PythonClientGenerator codegen = new PythonClientGenerator();
         codegen.preprocessOpenAPI(openAPI);
     }
 
     @Test
     public void testSpecWithAcceptableVersion() {
         final OpenAPI openAPI = TestUtils.parseSpec("src/test/resources/3_0/petstore.yaml");
-        final PythonClientCodegen codegen = new PythonClientCodegen();
+        final PythonClientGenerator codegen = new PythonClientGenerator();
         codegen.preprocessOpenAPI(openAPI);
         Assert.assertEquals(openAPI.getOpenapi() , "3.0.0");
         Assert.assertTrue(openAPI.getExtensions() == null);
@@ -81,7 +81,7 @@ public class PythonClientTest {
     @Test
     public void testSpecWithAcceptableVersionAndExtension() {
         final OpenAPI openAPI = TestUtils.parseSpec("src/test/resources/3_0/issue_12196.yaml");
-        final PythonClientCodegen codegen = new PythonClientCodegen();
+        final PythonClientGenerator codegen = new PythonClientGenerator();
         codegen.preprocessOpenAPI(openAPI);
         Assert.assertEquals(openAPI.getOpenapi() , "3.0.0");
         Assert.assertFalse(openAPI.getExtensions().isEmpty());
@@ -109,7 +109,7 @@ public class PythonClientTest {
 
     private void testEndpointExampleValue(String endpoint, String specFilePath, String expectedAnswerPath) throws IOException {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec(specFilePath);
-        final PythonClientCodegen codegen = new PythonClientCodegen();
+        final PythonClientGenerator codegen = new PythonClientGenerator();
         codegen.setOpenAPI(openAPI);
 
         final Operation operation = openAPI.getPaths().get(endpoint).getPost();
@@ -142,7 +142,7 @@ public class PythonClientTest {
                 .setOutputDir(output.getAbsolutePath().replace("\\", "/"));
 
         final ClientOptInput clientOptInput = configurator.toClientOptInput();
-        DefaultGenerator generator = new DefaultGenerator();
+        DefaultGeneratorRunner generator = new DefaultGeneratorRunner();
         List<File> files = generator.opts(clientOptInput).generate();
         Assert.assertTrue(files.size() > 0);
 
@@ -163,7 +163,7 @@ public class PythonClientTest {
                 .setOutputDir(output.getAbsolutePath().replace("\\", "/"));
 
         final ClientOptInput clientOptInput = configurator.toClientOptInput();
-        DefaultGenerator generator = new DefaultGenerator();
+        DefaultGeneratorRunner generator = new DefaultGeneratorRunner();
         List<File> files = generator.opts(clientOptInput).generate();
         Assert.assertTrue(files.size() > 0);
 
@@ -175,7 +175,7 @@ public class PythonClientTest {
     @Test
     public void testRegexWithoutTrailingSlashWorks() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/11_regex.yaml");
-        PythonClientCodegen codegen = new PythonClientCodegen();
+        PythonClientGenerator codegen = new PythonClientGenerator();
         codegen.setOpenAPI(openAPI);
 
         String modelName = "UUID";
@@ -194,7 +194,7 @@ public class PythonClientTest {
     @Test
     public void testRegexWithMultipleFlagsWorks() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/11_regex.yaml");
-        PythonClientCodegen codegen = new PythonClientCodegen();
+        PythonClientGenerator codegen = new PythonClientGenerator();
         codegen.setOpenAPI(openAPI);
 
         String modelName = "StringWithRegexWithThreeFlags";
@@ -213,7 +213,7 @@ public class PythonClientTest {
     @Test
     public void testEnumNames() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/70_schema_enum_names.yaml");
-        PythonClientCodegen codegen = new PythonClientCodegen();
+        PythonClientGenerator codegen = new PythonClientGenerator();
         codegen.setOpenAPI(openAPI);
 
         String modelName = "StringEnum";
@@ -238,7 +238,7 @@ public class PythonClientTest {
 
     @Test(description = "format imports of models using a package containing dots")
     public void testImportWithQualifiedPackageName() throws Exception {
-        final PythonClientCodegen codegen = new PythonClientCodegen();
+        final PythonClientGenerator codegen = new PythonClientGenerator();
         codegen.setPackageName("openapi.client");
 
         String importValue = codegen.toModelImport("model_name.ModelName");

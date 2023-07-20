@@ -20,9 +20,9 @@ package org.openapijsonschematools.codegen.java;
 import io.swagger.v3.oas.models.media.ArraySchema;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.Parameter;
+import org.openapijsonschematools.codegen.generators.AbstractJavaGenerator;
 import org.openapijsonschematools.codegen.model.CodegenParameter;
-import org.openapijsonschematools.codegen.codegenerator.CodegenType;
-import org.openapijsonschematools.codegen.languages.AbstractJavaCodegen;
+import org.openapijsonschematools.codegen.codegenerator.GeneratorType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -30,7 +30,7 @@ import java.util.Arrays;
 
 public class AbstractJavaCodegenExampleValuesTest {
 
-    private final AbstractJavaCodegen fakeJavaCodegen = new P_AbstractJavaCodegen();
+    private final AbstractJavaGenerator fakeJavaCodegen = new P_AbstractJavaGenerator();
 
     @Test
     void inlineEnum() {
@@ -129,9 +129,9 @@ public class AbstractJavaCodegenExampleValuesTest {
         Assert.assertEquals(p.example, "UUID.fromString(\"13b48713-b931-45ea-bd60-b07491245960\")");
     }
 
-    private static class P_AbstractJavaCodegen extends AbstractJavaCodegen {
+    private static class P_AbstractJavaGenerator extends AbstractJavaGenerator {
         @Override
-        public CodegenType getTag() {
+        public GeneratorType getTag() {
             return null;
         }
 

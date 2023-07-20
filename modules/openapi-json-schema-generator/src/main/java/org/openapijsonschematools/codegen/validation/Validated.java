@@ -38,14 +38,14 @@ public abstract class Validated {
      *
      * @return The instance of {@link ValidationRule} which was evaluated.
      */
-    abstract ValidationRule getRule();
+    protected abstract ValidationRule getRule();
 
     /**
      * Gets the message with details about this validated state.
      *
      * @return A string intended to be displayed to a user.
      */
-    abstract String getMessage();
+    protected abstract String getMessage();
 
     /**
      * Creates an instance of an {@link Invalid} validation state.

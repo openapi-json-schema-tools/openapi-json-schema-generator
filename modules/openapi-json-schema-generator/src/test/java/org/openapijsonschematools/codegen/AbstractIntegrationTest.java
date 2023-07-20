@@ -19,7 +19,7 @@ package org.openapijsonschematools.codegen;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import org.openapijsonschematools.codegen.cli.ClientOptInput;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
+import org.openapijsonschematools.codegen.generators.Generator;
 import org.openapijsonschematools.codegen.testutils.AssertFile;
 import org.openapijsonschematools.codegen.testutils.IntegrationTestPathsConfig;
 import org.testng.annotations.Test;
@@ -33,7 +33,7 @@ public abstract class AbstractIntegrationTest {
 
     protected abstract IntegrationTestPathsConfig getIntegrationTestPathsConfig();
 
-    protected abstract CodegenConfig getCodegenConfig();
+    protected abstract Generator getCodegenConfig();
 
     protected abstract Map<String, String> configProperties();
 
@@ -44,7 +44,7 @@ public abstract class AbstractIntegrationTest {
     // @wing328: ignore for the time being until we fix the error with the integration test
     @Test(enabled = false)
     public void generatesCorrectDirectoryStructure() throws IOException {
-        DefaultGenerator codeGen = new DefaultGenerator();
+        DefaultGeneratorRunner codeGen = new DefaultGeneratorRunner();
         codeGen.setGenerateMetadata(generateMetadata);
         for (Map.Entry<String, String> propertyOverride : globalPropertyOverrides.entrySet()) {
             codeGen.setGeneratorPropertyDefault(propertyOverride.getKey(), propertyOverride.getValue());
@@ -56,14 +56,14 @@ public abstract class AbstractIntegrationTest {
         OpenAPI openAPI = TestUtils.parseContent(specContent);
 
 
-        CodegenConfig codegenConfig = getCodegenConfig();
-        codegenConfig.setOutputDir(integrationTestPathsConfig.getOutputPath().toString());
-        codegenConfig.setIgnoreFilePathOverride(integrationTestPathsConfig.getIgnoreFilePath().toFile().toString());
+        Generator generator = getCodegenConfig();
+        generator.setOutputDir(integrationTestPathsConfig.getOutputPath().toString());
+        generator.setIgnoreFilePathOverride(integrationTestPathsConfig.getIgnoreFilePath().toFile().toString());
         ClientOptInput opts = new ClientOptInput()
-                .config(codegenConfig)
+                .config(generator)
                 .openAPI(openAPI);
 
-        codegenConfig.additionalProperties().putAll(configProperties());
+        generator.additionalProperties().putAll(configProperties());
 
         codeGen.opts(opts).generate();
 

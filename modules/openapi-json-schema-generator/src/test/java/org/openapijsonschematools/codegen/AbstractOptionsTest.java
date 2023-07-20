@@ -21,7 +21,7 @@ import com.google.common.base.Function;
 import org.apache.commons.lang3.StringUtils;
 import org.mockito.MockSettings;
 import org.openapijsonschematools.codegen.cli.CliOption;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
+import org.openapijsonschematools.codegen.generators.Generator;
 import org.openapijsonschematools.codegen.options.OptionsProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -79,7 +79,7 @@ public abstract class AbstractOptionsTest {
         };
     }
 
-    protected abstract CodegenConfig getCodegenConfig();
+    protected abstract Generator getCodegenConfig();
 
     protected abstract void verifyOptions();
 }

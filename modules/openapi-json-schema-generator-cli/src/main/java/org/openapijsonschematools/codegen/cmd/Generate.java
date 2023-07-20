@@ -31,8 +31,8 @@ import java.util.stream.Stream;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.cli.ClientOptInput;
 import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
-import org.openapijsonschematools.codegen.DefaultGenerator;
-import org.openapijsonschematools.codegen.codegenerator.Generator;
+import org.openapijsonschematools.codegen.DefaultGeneratorRunner;
+import org.openapijsonschematools.codegen.codegenerator.GeneratorRunner;
 import org.openapijsonschematools.codegen.codegenerator.GeneratorNotFoundException;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 import org.openapijsonschematools.codegen.config.CodegenConfiguratorUtils;
@@ -40,17 +40,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @SuppressWarnings({"java:S106"})
-@Command(name = "generate", description = "Generate code with the specified generator.")
+@Command(name = "generate", description = "Generate code with the specified generatorRunner.")
 public class Generate extends OpenApiGeneratorCommand {
 
     CodegenConfigurator configurator;
-    Generator generator;
+    GeneratorRunner generatorRunner;
 
     @Option(name = {"-v", "--verbose"}, description = "verbose mode")
     private Boolean verbose;
 
-    @Option(name = {"-g", "--generator-name"}, title = "generator name",
-            description = "generator to use (see list command for list)")
+    @Option(name = {"-g", "--generatorRunner-name"}, title = "generatorRunner name",
+            description = "generatorRunner to use (see list command for list)")
     private String generatorName;
 
     @Option(name = {"-o", "--output"}, title = "output directory",
@@ -89,7 +89,7 @@ public class Generate extends OpenApiGeneratorCommand {
             description = "Path to configuration file. It can be JSON or YAML. "
                     + "If file is JSON, the content should have the format {\"optionKey\":\"optionValue\", \"optionKey1\":\"optionValue1\"...}. "
                     + "If file is YAML, the content should have the format optionKey: optionValue. "
-                    + "Supported options can be different for each language. Run config-help -g {generator name} command for language-specific config options.")
+                    + "Supported options can be different for each language. Run config-help -g {generatorRunner name} command for language-specific config options.")
     private String configFile;
 
     @Option(name = {"-s", "--skip-overwrite"}, title = "skip overwrite",
@@ -261,7 +261,7 @@ public class Generate extends OpenApiGeneratorCommand {
     @Option(name = {"--log-to-stderr"},
             title = "Log to STDERR",
             description = "write all log messages (not just errors) to STDOUT."
-                    + " Useful for piping the JSON output of debug options (e.g. `--global-property debugOperations`) to an external parser directly while testing a generator.")
+                    + " Useful for piping the JSON output of debug options (e.g. `--global-property debugOperations`) to an external parser directly while testing a generatorRunner.")
     private Boolean logToStderr;
 
     @Option(name = {"--enable-post-process-file"}, title = "enable post-processing of files (in generators supporting it)", description = CodegenConstants.ENABLE_POST_PROCESS_FILE_DESC)
@@ -327,7 +327,7 @@ public class Generate extends OpenApiGeneratorCommand {
             configurator.setInputSpec(spec);
         }
 
-        // Generator name should not be validated here, as it's validated in toClientOptInput
+        // GeneratorRunner name should not be validated here, as it's validated in toClientOptInput
         if (isNotEmpty(generatorName)) {
             configurator.setGeneratorName(generatorName);
         }
@@ -454,15 +454,15 @@ public class Generate extends OpenApiGeneratorCommand {
             final ClientOptInput clientOptInput = configurator.toClientOptInput();
 
             // this null check allows us to inject for unit testing.
-            if (generator == null) {
-                generator = new DefaultGenerator(isDryRun);
+            if (generatorRunner == null) {
+                generatorRunner = new DefaultGeneratorRunner(isDryRun);
             }
 
-            generator.opts(clientOptInput);
-            generator.generate();
+            generatorRunner.opts(clientOptInput);
+            generatorRunner.generate();
         } catch (GeneratorNotFoundException e) {
             System.err.println(e.getMessage());
-            System.err.println("[error] Check the spelling of the generator's name and try again.");
+            System.err.println("[error] Check the spelling of the generatorRunner's name and try again.");
             System.exit(1);
         }
     }

@@ -6,9 +6,9 @@ import io.airlift.airline.Command;
 import io.airlift.airline.Option;
 
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConfigLoader;
-import org.openapijsonschematools.codegen.codegenerator.CodegenType;
+import org.openapijsonschematools.codegen.generators.Generator;
+import org.openapijsonschematools.codegen.codegenerator.GeneratorLoader;
+import org.openapijsonschematools.codegen.codegenerator.GeneratorType;
 import org.openapijsonschematools.codegen.meta.GeneratorMetadata;
 import org.openapijsonschematools.codegen.meta.Stability;
 
@@ -36,7 +36,7 @@ public class ListGenerators extends OpenApiGeneratorCommand {
 
     @Override
     public void execute() {
-        List<CodegenConfig> generators = new ArrayList<>();
+        List<Generator> generators = new ArrayList<>();
         List<Stability> stabilities = Arrays.asList(Stability.values());
 
         if (!StringUtils.isEmpty(include)) {
@@ -48,10 +48,10 @@ public class ListGenerators extends OpenApiGeneratorCommand {
             }
         }
 
-        for (CodegenConfig codegenConfig : CodegenConfigLoader.getAll()) {
-            GeneratorMetadata meta = codegenConfig.getGeneratorMetadata();
+        for (Generator generator : GeneratorLoader.getAll()) {
+            GeneratorMetadata meta = generator.getGeneratorMetadata();
             if (meta != null && stabilities.contains(meta.getStability())) {
-                generators.add(codegenConfig);
+                generators.add(generator);
             }
         }
 
@@ -59,21 +59,21 @@ public class ListGenerators extends OpenApiGeneratorCommand {
 
         if (shortened) {
             for (int i = 0; i < generators.size(); i++) {
-                CodegenConfig generator = generators.get(i);
+                Generator generator = generators.get(i);
                 if (i != 0) {
                     sb.append(",");
                 }
                 sb.append(generator.getName());
             }
         } else {
-            CodegenType[] types = CodegenType.values();
+            GeneratorType[] types = GeneratorType.values();
 
             sb.append("The following generators are available:");
 
             sb.append(System.lineSeparator());
             sb.append(System.lineSeparator());
 
-            for (CodegenType type : types) {
+            for (GeneratorType type : types) {
                 appendForType(sb, type, type.name(), generators);
             }
             appendForType(sb, null, "UNSPECIFIED", generators);
@@ -82,10 +82,10 @@ public class ListGenerators extends OpenApiGeneratorCommand {
         System.out.printf(Locale.ROOT, "%s%n", sb.toString());
     }
 
-    private void appendForType(StringBuilder sb, CodegenType type, String typeName, List<CodegenConfig> generators) {
-        List<CodegenConfig> list = generators.stream()
+    private void appendForType(StringBuilder sb, GeneratorType type, String typeName, List<Generator> generators) {
+        List<Generator> list = generators.stream()
                 .filter(g -> Objects.equal(type, g.getTag()))
-                .sorted(Comparator.comparing(CodegenConfig::getName))
+                .sorted(Comparator.comparing(Generator::getName))
                 .collect(Collectors.toList());
 
         if(!list.isEmpty()) {

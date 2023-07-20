@@ -29,7 +29,6 @@ public final class Valid extends Validated {
      *
      * @return <code>true</code> if the instance passed validation of the rule returned by {@link Validated#getRule()}.
      */
-    @Override
     boolean isValid() {
         return true;
     }
@@ -39,7 +38,7 @@ public final class Valid extends Validated {
      *
      * @param rule The rule which was evaluated and resulted in this state.
      */
-    Valid(ValidationRule rule) {
+    public Valid(ValidationRule rule) {
         this.rule = rule;
     }
 

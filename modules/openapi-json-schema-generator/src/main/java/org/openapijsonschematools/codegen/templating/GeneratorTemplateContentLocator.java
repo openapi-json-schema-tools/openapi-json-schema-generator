@@ -1,24 +1,24 @@
 package org.openapijsonschematools.codegen.templating;
 
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
+import org.openapijsonschematools.codegen.generators.Generator;
 
 import java.io.File;
 import java.nio.file.Paths;
 
 /**
- * Locates templates according to {@link CodegenConfig} settings.
+ * Locates templates according to {@link Generator} settings.
  */
 public class GeneratorTemplateContentLocator implements TemplatePathLocator {
-    private final CodegenConfig codegenConfig;
+    private final Generator generator;
 
     /**
-     * Constructs a new instance of {@link GeneratorTemplateContentLocator} for the provided {@link CodegenConfig}
+     * Constructs a new instance of {@link GeneratorTemplateContentLocator} for the provided {@link Generator}
      *
-     * @param codegenConfig A generator's configuration used for determining template file location.
+     * @param generator A generator's configuration used for determining template file location.
      */
-    public GeneratorTemplateContentLocator(CodegenConfig codegenConfig) {
-        this.codegenConfig = codegenConfig;
+    public GeneratorTemplateContentLocator(Generator generator) {
+        this.generator = generator;
     }
 
     private String buildLibraryFilePath(String dir, String library, String file) {
@@ -56,7 +56,7 @@ public class GeneratorTemplateContentLocator implements TemplatePathLocator {
      */
     @Override
     public String getFullTemplatePath(String relativeTemplateFile) {
-        CodegenConfig config = this.codegenConfig;
+        Generator config = this.generator;
 
         //check the supplied template library folder for the file
         final String library = config.getLibrary();

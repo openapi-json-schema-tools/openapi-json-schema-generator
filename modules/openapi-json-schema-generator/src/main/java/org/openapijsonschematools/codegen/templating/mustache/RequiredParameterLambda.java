@@ -19,7 +19,7 @@ package org.openapijsonschematools.codegen.templating.mustache;
 
 import com.samskivert.mustache.Mustache;
 import com.samskivert.mustache.Template;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
+import org.openapijsonschematools.codegen.generators.Generator;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -40,12 +40,12 @@ import static org.openapijsonschematools.codegen.utils.StringUtils.camelize;
  * </pre>
  */
 public class RequiredParameterLambda implements Mustache.Lambda {
-    private CodegenConfig generator = null;
+    private Generator generator = null;
     private Boolean escapeParam = false;
 
     public RequiredParameterLambda() {}
 
-    public RequiredParameterLambda generator(final CodegenConfig generator) {
+    public RequiredParameterLambda generator(final Generator generator) {
         this.generator = generator;
         return this;
     }

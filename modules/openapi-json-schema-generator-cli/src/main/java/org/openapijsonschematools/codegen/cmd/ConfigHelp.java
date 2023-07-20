@@ -21,8 +21,8 @@ import io.airlift.airline.Command;
 import io.airlift.airline.Option;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.cli.CliOption;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConfigLoader;
+import org.openapijsonschematools.codegen.generators.Generator;
+import org.openapijsonschematools.codegen.codegenerator.GeneratorLoader;
 import org.openapijsonschematools.codegen.codegenerator.GeneratorNotFoundException;
 import org.openapijsonschematools.codegen.codegenerator.VendorExtension;
 import org.openapijsonschematools.codegen.meta.FeatureSet;
@@ -123,7 +123,7 @@ public class ConfigHelp extends OpenApiGeneratorCommand {
 
         try {
             StringBuilder sb = new StringBuilder();
-            CodegenConfig config = CodegenConfigLoader.forName(generatorName);
+            Generator config = GeneratorLoader.forName(generatorName);
 
             String desiredFormat = StringUtils.defaultIfBlank(format, FORMAT_TEXT);
 
@@ -168,7 +168,7 @@ public class ConfigHelp extends OpenApiGeneratorCommand {
         }
     }
 
-    private void generateMdConfigOptions(StringBuilder sb, CodegenConfig config) {
+    private void generateMdConfigOptions(StringBuilder sb, Generator config) {
         sb.append(newline);
         sb.append("| Option | Description | Values | Default |").append(newline);
         sb.append("| ------ | ----------- | ------ | ------- |").append(newline);
@@ -209,7 +209,7 @@ public class ConfigHelp extends OpenApiGeneratorCommand {
         });
     }
 
-    private void generateMdSupportedVendorExtensions(StringBuilder sb, CodegenConfig config) {
+    private void generateMdSupportedVendorExtensions(StringBuilder sb, Generator config) {
         List<VendorExtension> supportedVendorExtensions = config.getSupportedVendorExtensions();
         if (supportedVendorExtensions.isEmpty()) {
             return;
@@ -230,7 +230,7 @@ public class ConfigHelp extends OpenApiGeneratorCommand {
         sb.append(newline);
     }
 
-    private void generateMdInstantiationTypes(StringBuilder sb, CodegenConfig config) {
+    private void generateMdInstantiationTypes(StringBuilder sb, Generator config) {
         sb.append(newline).append("## INSTANTIATION TYPES").append(newline).append(newline);
 
         sb.append("| Type/Alias | Instantiated By |").append(newline);
@@ -248,7 +248,7 @@ public class ConfigHelp extends OpenApiGeneratorCommand {
         sb.append(newline);
     }
 
-    private void generateMdLanguageSpecificPrimitives(StringBuilder sb, CodegenConfig config) {
+    private void generateMdLanguageSpecificPrimitives(StringBuilder sb, Generator config) {
         sb.append(newline).append("## LANGUAGE PRIMITIVES").append(newline).append(newline);
 
         sb.append("<ul class=\"column-ul\">").append(newline);
@@ -259,7 +259,7 @@ public class ConfigHelp extends OpenApiGeneratorCommand {
         sb.append("</ul>").append(newline);
     }
 
-    private void generateMdReservedWords(StringBuilder sb, CodegenConfig config) {
+    private void generateMdReservedWords(StringBuilder sb, Generator config) {
         sb.append(newline).append("## RESERVED WORDS").append(newline).append(newline);
 
         sb.append("<ul class=\"column-ul\">").append(newline);
@@ -270,7 +270,7 @@ public class ConfigHelp extends OpenApiGeneratorCommand {
         sb.append("</ul>").append(newline);
     }
 
-    private void generateMdFeatureSets(StringBuilder sb, CodegenConfig config) {
+    private void generateMdFeatureSets(StringBuilder sb, Generator config) {
         sb.append(newline).append("## FEATURE SET").append(newline).append(newline);
 
         List<FeatureSet.FeatureSetFlattened> flattened = config.getGeneratorMetadata().getFeatureSet().flatten();
@@ -296,7 +296,7 @@ public class ConfigHelp extends OpenApiGeneratorCommand {
         });
     }
 
-    private void generateMdConfigOptionsHeader(StringBuilder sb, CodegenConfig config) {
+    private void generateMdConfigOptionsHeader(StringBuilder sb, Generator config) {
         if (Boolean.TRUE.equals(markdownHeader)) {
             sb.append("## CONFIG OPTIONS").append(newline);
             sb.append("These options may be applied as additional-properties (cli) or configOptions (plugins). Refer to [configuration docs](https://openapi-generator.tech/docs/configuration) for more details.");
@@ -311,7 +311,7 @@ public class ConfigHelp extends OpenApiGeneratorCommand {
         }
     }
 
-    private void generateMdMetadata(StringBuilder sb, CodegenConfig config) {
+    private void generateMdMetadata(StringBuilder sb, Generator config) {
         sb.append("## METADATA").append(newline).append(newline);
 
         sb.append("| Property | Value | Notes |").append(newline);
@@ -331,10 +331,10 @@ public class ConfigHelp extends OpenApiGeneratorCommand {
         sb.append(newline);
     }
 
-    private void generateMarkdownHelp(StringBuilder sb, CodegenConfig config) {
+    private void generateMarkdownHelp(StringBuilder sb, Generator config) {
         if (Boolean.TRUE.equals(markdownHeader)) {
             sb.append("---").append(newline);
-            sb.append("title: Documentation for the " + generatorName + " Generator").append(newline);
+            sb.append("title: Documentation for the " + generatorName + " generator").append(newline);
             sb.append("---").append(newline);
             sb.append(newline);
         }
@@ -367,7 +367,7 @@ public class ConfigHelp extends OpenApiGeneratorCommand {
         }
     }
 
-    private void generateYamlSample(StringBuilder sb, CodegenConfig config) {
+    private void generateYamlSample(StringBuilder sb, Generator config) {
 
         for (CliOption langCliOption : config.cliOptions()) {
 
@@ -396,7 +396,7 @@ public class ConfigHelp extends OpenApiGeneratorCommand {
     }
 
     @SuppressWarnings({"java:S1117"})
-    private void generatePlainTextHelp(StringBuilder sb, CodegenConfig config) {
+    private void generatePlainTextHelp(StringBuilder sb, Generator config) {
         sb.append(newline).append("CONFIG OPTIONS");
         if (Boolean.TRUE.equals(namedHeader)) {
             sb.append(" for ").append(generatorName).append(newline);

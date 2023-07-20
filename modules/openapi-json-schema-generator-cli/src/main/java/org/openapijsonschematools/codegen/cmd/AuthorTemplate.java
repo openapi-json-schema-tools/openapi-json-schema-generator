@@ -3,8 +3,8 @@ package org.openapijsonschematools.codegen.cmd;
 import io.airlift.airline.Command;
 import io.airlift.airline.Option;
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConfigLoader;
+import org.openapijsonschematools.codegen.generators.Generator;
+import org.openapijsonschematools.codegen.codegenerator.GeneratorLoader;
 import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,8 +25,8 @@ public class AuthorTemplate extends OpenApiGeneratorCommand {
 
     private final Logger LOGGER = LoggerFactory.getLogger(AuthorTemplate.class);
 
-    @Option(name = {"-g", "--generator-name"}, title = "generator name",
-            description = "generator to use (see list command for list)",
+    @Option(name = {"-g", "--generatorRunner-name"}, title = "generatorRunner name",
+            description = "generatorRunner to use (see list command for list)",
             required = true)
     private String generatorName;
 
@@ -44,7 +44,7 @@ public class AuthorTemplate extends OpenApiGeneratorCommand {
 
     @Override
     void execute() {
-        CodegenConfig config = CodegenConfigLoader.forName(generatorName);
+        Generator config = GeneratorLoader.forName(generatorName);
         String templateDirectory = config.templateDir();
 
         log("Requesting '{}' from embedded resource directory '{}'", generatorName, templateDirectory);

@@ -33,7 +33,7 @@ public class CodegenDiscriminator {
     // - descendant schemas that allOf inherit self schema AND
     // - child oneOf + anyOf schemas
     //
-    // see the method createDiscriminator in DefaultCodegen.java
+    // see the method createDiscriminator in DefaultGenerator.java
 
     public final TreeSet<MappedModel> mappedModels;
 

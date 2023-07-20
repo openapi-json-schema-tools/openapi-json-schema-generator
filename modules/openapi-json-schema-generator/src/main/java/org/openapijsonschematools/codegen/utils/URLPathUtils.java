@@ -22,7 +22,7 @@ import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.servers.ServerVariable;
 import io.swagger.v3.oas.models.servers.ServerVariables;
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
+import org.openapijsonschematools.codegen.generators.Generator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -112,12 +112,12 @@ public class URLPathUtils {
         return url;
     }
 
-    public static String getScheme(OpenAPI openAPI, CodegenConfig config) {
+    public static String getScheme(OpenAPI openAPI, Generator config) {
         URL url = getServerURL(openAPI, config.serverVariableOverrides());
         return getScheme(url, config);
     }
 
-    public static String getScheme(URL url, CodegenConfig config) {
+    public static String getScheme(URL url, Generator config) {
         String scheme;
         if (url != null) {
             scheme = url.getProtocol();

@@ -20,8 +20,8 @@ package org.openapijsonschematools.codegen.cmd;
 import io.airlift.airline.Cli;
 import org.apache.commons.lang3.ArrayUtils;
 import org.mockito.MockSettings;
-import org.openapijsonschematools.codegen.DefaultGenerator;
-import org.openapijsonschematools.codegen.codegenerator.Generator;
+import org.openapijsonschematools.codegen.DefaultGeneratorRunner;
+import org.openapijsonschematools.codegen.codegenerator.GeneratorRunner;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -41,7 +41,7 @@ import static org.testng.Assert.fail;
 public class GenerateTest {
 
     protected MockSettings mockSettings = withSettings().useConstructor().defaultAnswer(CALLS_REAL_METHODS);
-    private Generator generator;
+    private GeneratorRunner generatorRunner;
     private CodegenConfigurator configurator;
     private Path outputDirectory;
 
@@ -53,8 +53,8 @@ public class GenerateTest {
     @BeforeMethod
     public void beforeEachTest() throws IOException {
         outputDirectory = Files.createTempDirectory("GenerateTest");
-        generator = mock(DefaultGenerator.class);
-        when(generator.generate()).thenReturn(new ArrayList<>());
+        generatorRunner = mock(DefaultGeneratorRunner.class);
+        when(generatorRunner.generate()).thenReturn(new ArrayList<>());
 
         configurator = mock(CodegenConfigurator.class, mockSettings);
     }
@@ -108,13 +108,13 @@ public class GenerateTest {
         String[] argsToUse = ArrayUtils.addAll(commonArgs, additionalParameters);
 
         Cli.CliBuilder<Runnable> builder =
-                Cli.<Runnable>builder("openapi-generator-cli")
+                Cli.<Runnable>builder("openapi-generatorRunner-cli")
                         .withCommands(Generate.class);
 
         Generate generate = (Generate) builder.build().parse(argsToUse);
 
         generate.configurator = configurator;
-        generate.generator = generator;
+        generate.generatorRunner = generatorRunner;
 
         try {
             generate.run();
@@ -298,7 +298,7 @@ public class GenerateTest {
 
     @Test
     public void testRequiredArgs_LongArgs() {
-        setupAndRunTest("--input-spec", "src/test/resources/swagger.yaml", "--generator-name", "java", "--output",
+        setupAndRunTest("--input-spec", "src/test/resources/swagger.yaml", "--generatorRunner-name", "java", "--output",
                 "src/main/java", false, null);
 
         // on top of those in setupAndRunTest:

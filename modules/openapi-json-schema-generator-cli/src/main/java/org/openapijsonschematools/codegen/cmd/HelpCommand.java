@@ -5,7 +5,7 @@ import io.airlift.airline.Help;
 
 import javax.inject.Inject;
 
-@Command(name = "help", description = "Display help information about openapi-generator")
+@Command(name = "help", description = "Display help information about openapi-generatorRunner")
 public class HelpCommand extends OpenApiGeneratorCommand {
 
     @Inject

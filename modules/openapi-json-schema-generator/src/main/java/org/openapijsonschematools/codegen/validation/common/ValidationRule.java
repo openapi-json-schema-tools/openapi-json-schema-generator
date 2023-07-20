@@ -89,7 +89,7 @@ public class ValidationRule {
      *
      * @return An "empty" rule.
      */
-    static ValidationRule empty() {
+    public static ValidationRule empty() {
         return new ValidationRule(Severity.ERROR, "empty", "failure message", (i) -> Fail.empty() );
     }
 

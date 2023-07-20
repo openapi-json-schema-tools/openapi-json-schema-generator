@@ -10,14 +10,14 @@ import java.util.Map;
 
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
+import org.openapijsonschematools.codegen.generators.Generator;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class LowercaseLambdaTest extends LambdaTest {
 
     @Mock
-    CodegenConfig generator;
+    Generator generator;
 
     @BeforeMethod
     public void setup() {

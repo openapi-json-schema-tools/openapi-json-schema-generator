@@ -58,7 +58,7 @@ public class AuthorTemplateTest {
     }
 
     private Cli.CliBuilder<Runnable> createBuilder(){
-        Cli.CliBuilder<Runnable> builder = new Cli.CliBuilder<>("openapi-generator-cli");
+        Cli.CliBuilder<Runnable> builder = new Cli.CliBuilder<>("openapi-generatorRunner-cli");
 
         builder.withGroup("author")
                 .withDescription("Utilities for authoring generators or customizing templates.")

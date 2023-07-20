@@ -27,7 +27,7 @@ import com.samskivert.mustache.Mustache;
 import io.airlift.airline.Command;
 import io.airlift.airline.Option;
 import org.apache.commons.io.FileUtils;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
+import org.openapijsonschematools.codegen.generators.Generator;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.templating.TemplateManager;
 import org.openapijsonschematools.codegen.templating.CommonTemplateContentLocator;
@@ -49,7 +49,7 @@ import ch.lambdaj.function.convert.Converter;
  * User: lanwen Date: 24.03.15 Time: 20:22
  */
 
-@Command(name = "meta", description = "MetaGenerator. Generator for creating a new template set "
+@Command(name = "meta", description = "MetaGenerator. GeneratorRunner for creating a new template set "
         + "and configuration for Codegen.  The output will be based on the language you "
         + "specify, and includes default templates to include.")
 public class Meta extends OpenApiGeneratorCommand {
@@ -64,7 +64,7 @@ public class Meta extends OpenApiGeneratorCommand {
     private String outputFolder = "";
 
     @Option(name = {"-n", "--name"}, title = "name",
-            description = "the human-readable name of the generator")
+            description = "the human-readable name of the generatorRunner")
     private String name = "default";
 
     @Option(name = {"-p", "--package"}, title = "package",
@@ -72,12 +72,12 @@ public class Meta extends OpenApiGeneratorCommand {
     private String targetPackage = "org.openapijsonschematools.codegen";
 
     @Option(name = {"-t", "--type"}, title = "type",
-            description = "the type of generator that is created",
+            description = "the type of generatorRunner that is created",
             allowedValues = {"CLIENT", "SERVER", "DOCUMENTATION", "CONFIG", "OTHER"})
     private String type = "OTHER";
 
     @Option(name = {"-l", "--language"}, title = "language",
-            description = "the implementation language for the generator class",
+            description = "the implementation language for the generatorRunner class",
             allowedValues = {"java", "kotlin"}
     )
     private String language = "java";
@@ -87,7 +87,7 @@ public class Meta extends OpenApiGeneratorCommand {
         final File targetDir = new File(outputFolder);
         LOGGER.info("writing to folder [{}]", targetDir.getAbsolutePath());
 
-        String mainClass = CaseFormat.LOWER_HYPHEN.to(CaseFormat.UPPER_CAMEL, name) + "Generator";
+        String mainClass = CaseFormat.LOWER_HYPHEN.to(CaseFormat.UPPER_CAMEL, name) + "GeneratorRunner";
         String kebabName = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_HYPHEN, name);
 
         List<SupportingFile> supportingFiles = "kotlin".equals(language) ?
@@ -102,7 +102,7 @@ public class Meta extends OpenApiGeneratorCommand {
                         new SupportingFile("api.template", "src/main/resources" + File.separator + name,"api.mustache"),
                         new SupportingFile("model.template", "src/main/resources" + File.separator + name,"model.mustache"),
                         new SupportingFile("myFile.template", String.join(File.separator, "src", "main", "resources", name), "myFile.mustache"),
-                        new SupportingFile("services.mustache", "src/main/resources/META-INF/services", CodegenConfig.class.getCanonicalName()))
+                        new SupportingFile("services.mustache", "src/main/resources/META-INF/services", Generator.class.getCanonicalName()))
                 : ImmutableList.of(
                         new SupportingFile("pom.mustache", "", "pom.xml"),
                         new SupportingFile("generatorClass.mustache", on(File.separator).join("src/main/java", asPath(targetPackage)), mainClass.concat(".java")),
@@ -111,7 +111,7 @@ public class Meta extends OpenApiGeneratorCommand {
                         new SupportingFile("api.template", "src/main/resources" + File.separator + name,"api.mustache"),
                         new SupportingFile("model.template", "src/main/resources" + File.separator + name,"model.mustache"),
                         new SupportingFile("myFile.template", String.join(File.separator, "src", "main", "resources", name), "myFile.mustache"),
-                        new SupportingFile("services.mustache", "src/main/resources/META-INF/services", CodegenConfig.class.getCanonicalName()));
+                        new SupportingFile("services.mustache", "src/main/resources/META-INF/services", Generator.class.getCanonicalName()));
 
         String currentVersion = buildInfo.getVersion();
 

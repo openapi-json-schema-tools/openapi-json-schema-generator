@@ -19,7 +19,7 @@ package org.openapijsonschematools.codegen.templating.mustache;
 
 import com.samskivert.mustache.Mustache;
 import com.samskivert.mustache.Template;
-import org.openapijsonschematools.codegen.codegenerator.CodegenConfig;
+import org.openapijsonschematools.codegen.generators.Generator;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -39,13 +39,13 @@ import java.util.Locale;
  * </pre>
  */
 public class LowercaseLambda implements Mustache.Lambda {
-    private CodegenConfig generator = null;
+    private Generator generator = null;
 
     public LowercaseLambda() {
 
     }
 
-    public LowercaseLambda generator(final CodegenConfig generator) {
+    public LowercaseLambda generator(final Generator generator) {
         this.generator = generator;
         return this;
     }
