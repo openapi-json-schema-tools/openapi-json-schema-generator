@@ -33,9 +33,6 @@ import org.openapijsonschematools.codegen.generatorrunner.GeneratorRunner;
 import org.openapijsonschematools.codegen.generators.generatorloader.GeneratorNotFoundException;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 import org.openapijsonschematools.codegen.config.CodegenConfiguratorUtils;
-import org.slf4j.ILoggerFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @SuppressWarnings({"java:S106"})
 @Command(name = "generate", description = "Generate code with the specified generatorRunner.")
