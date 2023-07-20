@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.meta;
+package org.openapijsonschematools.codegen.generators.generatormetadata;
 
-import org.openapijsonschematools.codegen.meta.features.ClientModificationFeature;
-import org.openapijsonschematools.codegen.meta.features.ComponentsFeature;
-import org.openapijsonschematools.codegen.meta.features.DataTypeFeature;
-import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
-import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
-import org.openapijsonschematools.codegen.meta.features.OperationFeature;
-import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
-import org.openapijsonschematools.codegen.meta.features.SchemaFeature;
-import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
-import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
-import org.openapijsonschematools.codegen.meta.features.annotations.AnnotationType;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.ClientModificationFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.ComponentsFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.DataTypeFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.DocumentationFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.GlobalFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.OperationFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.ParameterFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.SecurityFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.WireFormatFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations.AnnotationType;
 
 import java.lang.annotation.Annotation;
 import java.util.*;

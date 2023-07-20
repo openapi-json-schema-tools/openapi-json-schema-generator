@@ -1,13 +1,14 @@
-package org.openapijsonschematools.codegen.meta;
+package org.openapijsonschematools.codegen.generators.generatormetadata;
 
-import org.openapijsonschematools.codegen.meta.features.ClientModificationFeature;
-import org.openapijsonschematools.codegen.meta.features.DataTypeFeature;
-import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
-import org.openapijsonschematools.codegen.meta.features.GlobalFeature;
-import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
-import org.openapijsonschematools.codegen.meta.features.SchemaFeature;
-import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
-import org.openapijsonschematools.codegen.meta.features.annotations.AnnotationType;
+import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.ClientModificationFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.DataTypeFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.DocumentationFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.GlobalFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.ParameterFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.SecurityFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations.AnnotationType;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;

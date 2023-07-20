@@ -21,11 +21,11 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
 import org.openapijsonschematools.codegen.codegenerator.GeneratorType;
-import org.openapijsonschematools.codegen.meta.features.ClientModificationFeature;
-import org.openapijsonschematools.codegen.meta.features.ParameterFeature;
-import org.openapijsonschematools.codegen.meta.features.SchemaFeature;
-import org.openapijsonschematools.codegen.meta.features.SecurityFeature;
-import org.openapijsonschematools.codegen.meta.features.WireFormatFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.ClientModificationFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.ParameterFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.SecurityFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.WireFormatFeature;
 
 import java.io.File;
 import java.util.Arrays;

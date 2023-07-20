@@ -22,7 +22,7 @@ import org.openapijsonschematools.codegen.cli.CliOption;
 import org.openapijsonschematools.codegen.codegenerator.CodegenConstants;
 import org.openapijsonschematools.codegen.model.CodegenSchema;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
-import org.openapijsonschematools.codegen.meta.features.DocumentationFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.DocumentationFeature;
 
 import java.util.HashMap;
 import java.util.Map;

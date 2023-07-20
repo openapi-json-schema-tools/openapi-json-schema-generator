@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.meta.features.annotations;
+package org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

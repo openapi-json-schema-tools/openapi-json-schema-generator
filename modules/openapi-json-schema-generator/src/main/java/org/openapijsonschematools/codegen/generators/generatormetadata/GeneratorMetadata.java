@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.meta;
+package org.openapijsonschematools.codegen.generators.generatormetadata;
 
 import java.util.HashMap;
 import java.util.Map;

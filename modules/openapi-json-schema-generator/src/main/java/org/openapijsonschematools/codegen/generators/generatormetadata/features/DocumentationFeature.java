@@ -14,11 +14,11 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.meta.features;
+package org.openapijsonschematools.codegen.generators.generatormetadata.features;
 
-import org.openapijsonschematools.codegen.meta.features.annotations.OAS3;
-import org.openapijsonschematools.codegen.meta.features.annotations.OAS2;
-import org.openapijsonschematools.codegen.meta.features.annotations.ToolingExtension;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations.OAS3;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations.OAS2;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations.ToolingExtension;
 
 /**
  * Defines the documentation type available in generated output.

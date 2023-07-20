@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 OpenAPI-Generator Contributors (https://openapi-generator.tech)
+ * Copyright 2023 OpenAPI-Json-Schema-Generator Contributors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,23 +14,38 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.meta.features;
+package org.openapijsonschematools.codegen.generators.generatormetadata.features;
 
-import org.openapijsonschematools.codegen.meta.features.annotations.OAS3;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations.OAS3;
 
-/**
- * Defines Operation features supported in the generated code.
- */
-public enum OperationFeature {
+public enum ComponentsFeature {
     @OAS3
-    Responses_HttpStatusCode,
+    schemas,
 
     @OAS3
-    Responses_RangedResponseCodes,
+    responses,
 
     @OAS3
-    Responses_Default,
+    parameters,
 
     @OAS3
-    Responses_RedirectionResponse,
+    examples,
+
+    @OAS3
+    requestBodies,
+
+    @OAS3
+    headers,
+
+    @OAS3
+    securitySchemes,
+
+    @OAS3
+    links,
+
+    @OAS3
+    callbacks,
+
+    @OAS3
+    pathItems
 }

@@ -67,8 +67,8 @@ import org.openapijsonschematools.codegen.templating.TemplatePathLocator;
 import org.openapijsonschematools.codegen.templating.TemplateProcessor;
 import org.openapijsonschematools.codegen.templating.TemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.templating.TemplateFileType;
-import org.openapijsonschematools.codegen.meta.GeneratorMetadata;
-import org.openapijsonschematools.codegen.meta.Stability;
+import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorMetadata;
+import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

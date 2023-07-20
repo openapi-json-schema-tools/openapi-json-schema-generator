@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.meta;
+package org.openapijsonschematools.codegen.generators.generatormetadata;
 
 /**
  * Represents the "stability index" of a generator or feature, based on the stability indexes defined in the node.js ecosystem.

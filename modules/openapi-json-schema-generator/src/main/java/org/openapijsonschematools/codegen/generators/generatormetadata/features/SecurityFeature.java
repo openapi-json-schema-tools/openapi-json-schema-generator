@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.meta.features;
+package org.openapijsonschematools.codegen.generators.generatormetadata.features;
 
-import org.openapijsonschematools.codegen.meta.features.annotations.OAS3;
-import org.openapijsonschematools.codegen.meta.features.annotations.OAS2;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations.OAS3;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations.OAS2;
 
 /**
  * Defines security features supported in the generated code.

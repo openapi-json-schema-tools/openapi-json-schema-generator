@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen.meta.features.annotations;
+package org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations;
 
 public enum AnnotationType {
     OAS2, OAS3, ToolingExtension;

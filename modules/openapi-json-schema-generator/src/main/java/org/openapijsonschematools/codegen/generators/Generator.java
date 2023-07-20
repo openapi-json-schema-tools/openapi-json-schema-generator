@@ -50,8 +50,8 @@ import org.openapijsonschematools.codegen.model.CodegenSecurityRequirementValue;
 import org.openapijsonschematools.codegen.model.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.model.CodegenServer;
 import org.openapijsonschematools.codegen.templating.TemplatingEngineAdapter;
-import org.openapijsonschematools.codegen.meta.FeatureSet;
-import org.openapijsonschematools.codegen.meta.GeneratorMetadata;
+import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
+import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorMetadata;
 import org.openapijsonschematools.codegen.model.CodegenTag;
 
 import java.io.File;

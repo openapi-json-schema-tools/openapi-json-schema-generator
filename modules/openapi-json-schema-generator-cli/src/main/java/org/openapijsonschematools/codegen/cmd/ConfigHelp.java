@@ -25,7 +25,7 @@ import org.openapijsonschematools.codegen.generators.Generator;
 import org.openapijsonschematools.codegen.codegenerator.GeneratorLoader;
 import org.openapijsonschematools.codegen.codegenerator.GeneratorNotFoundException;
 import org.openapijsonschematools.codegen.codegenerator.VendorExtension;
-import org.openapijsonschematools.codegen.meta.FeatureSet;
+import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

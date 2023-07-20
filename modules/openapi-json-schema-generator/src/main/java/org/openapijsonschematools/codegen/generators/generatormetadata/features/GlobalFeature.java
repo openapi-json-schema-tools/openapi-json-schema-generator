@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.meta.features;
+package org.openapijsonschematools.codegen.generators.generatormetadata.features;
 
-import org.openapijsonschematools.codegen.meta.features.annotations.OAS3;
-import org.openapijsonschematools.codegen.meta.features.annotations.OAS2;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations.OAS3;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations.OAS2;
 
 /**
  * Defines a set of globally available features. That is, support of these are defined at the top-level of the spec

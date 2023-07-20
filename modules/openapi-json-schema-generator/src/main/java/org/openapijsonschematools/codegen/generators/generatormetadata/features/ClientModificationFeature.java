@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.meta.features;
+package org.openapijsonschematools.codegen.generators.generatormetadata.features;
 
-import org.openapijsonschematools.codegen.meta.features.annotations.ToolingExtension;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations.ToolingExtension;
 
 /**
  * Defines a general set of modifications supported by a generated client.
