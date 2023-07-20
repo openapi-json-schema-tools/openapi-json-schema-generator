@@ -21,18 +21,19 @@ import io.airlift.airline.Cli;
 import io.airlift.airline.ParseArgumentsUnexpectedException;
 import io.airlift.airline.ParseOptionMissingException;
 import io.airlift.airline.ParseOptionMissingValueException;
-import org.openapijsonschematools.codegen.cmd.AuthorTemplate;
-import org.openapijsonschematools.codegen.cmd.BuildInfo;
-import org.openapijsonschematools.codegen.cmd.CompletionCommand;
-import org.openapijsonschematools.codegen.cmd.ConfigHelp;
-import org.openapijsonschematools.codegen.cmd.Generate;
-import org.openapijsonschematools.codegen.cmd.GenerateBatch;
-import org.openapijsonschematools.codegen.cmd.HelpCommand;
-import org.openapijsonschematools.codegen.cmd.ListGenerators;
-import org.openapijsonschematools.codegen.cmd.Meta;
-import org.openapijsonschematools.codegen.cmd.OpenApiGeneratorCommand;
-import org.openapijsonschematools.codegen.cmd.Validate;
-import org.openapijsonschematools.codegen.cmd.Version;
+import org.openapijsonschematools.codegen.clicommands.AuthorTemplate;
+import org.openapijsonschematools.codegen.clicommands.common.BuildInfo;
+import org.openapijsonschematools.codegen.clicommands.Completion;
+import org.openapijsonschematools.codegen.clicommands.ConfigHelp;
+import org.openapijsonschematools.codegen.clicommands.Generate;
+import org.openapijsonschematools.codegen.clicommands.GenerateBatch;
+import org.openapijsonschematools.codegen.clicommands.Help;
+import org.openapijsonschematools.codegen.clicommands.ListGenerators;
+import org.openapijsonschematools.codegen.clicommands.Meta;
+import org.openapijsonschematools.codegen.clicommands.AbstractCommand;
+import org.openapijsonschematools.codegen.clicommands.Validate;
+import org.openapijsonschematools.codegen.clicommands.Version;
+import org.openapijsonschematools.codegen.clicommands.common.Constants;
 
 import java.util.Locale;
 
@@ -45,30 +46,30 @@ public class OpenAPIGenerator {
 
     public static void main(String[] args) {
         BuildInfo buildInfo = new BuildInfo();
-        Cli.CliBuilder<OpenApiGeneratorCommand> builder =
-                Cli.<OpenApiGeneratorCommand>builder(Constants.CLI_NAME)
+        Cli.CliBuilder<AbstractCommand> builder =
+                Cli.<AbstractCommand>builder(Constants.CLI_NAME)
                         .withDescription(
                                 String.format(
                                         Locale.ROOT,
                                         "OpenAPI JSON Schema GeneratorRunner CLI %s (%s).",
                                         buildInfo.getVersion(),
                                         buildInfo.getSha()))
-                        .withDefaultCommand(HelpCommand.class)
+                        .withDefaultCommand(Help.class)
                         .withCommands(
                                 ListGenerators.class,
                                 Generate.class,
                                 Meta.class,
-                                HelpCommand.class,
+                                Help.class,
                                 ConfigHelp.class,
                                 Validate.class,
                                 Version.class,
-                                CompletionCommand.class,
+                                Completion.class,
                                 GenerateBatch.class
                         );
 
         builder.withGroup("author")
                 .withDescription("Utilities for authoring generators or customizing templates.")
-                .withDefaultCommand(HelpCommand.class)
+                .withDefaultCommand(Help.class)
                 .withCommands(AuthorTemplate.class);
 
         try {

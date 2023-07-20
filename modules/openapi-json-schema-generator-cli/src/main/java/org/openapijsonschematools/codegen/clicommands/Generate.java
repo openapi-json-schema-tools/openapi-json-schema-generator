@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.cmd;
+package org.openapijsonschematools.codegen.clicommands;
 
 import static org.apache.commons.lang3.StringUtils.isNotEmpty;
 
@@ -41,7 +41,7 @@ import org.slf4j.LoggerFactory;
 
 @SuppressWarnings({"java:S106"})
 @Command(name = "generate", description = "Generate code with the specified generatorRunner.")
-public class Generate extends OpenApiGeneratorCommand {
+public class Generate extends AbstractCommand {
 
     CodegenConfigurator configurator;
     GeneratorRunner generatorRunner;

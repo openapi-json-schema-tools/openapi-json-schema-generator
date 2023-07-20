@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen.cmd;
+package org.openapijsonschematools.codegen.clicommands;
 
 import com.google.common.base.Objects;
 
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 // NOTE: List can later have subcommands such as list languages, list types, list frameworks, etc.
 @SuppressWarnings({"java:S106"})
 @Command(name = "list", description = "Lists the available generators")
-public class ListGenerators extends OpenApiGeneratorCommand {
+public class ListGenerators extends AbstractCommand {
 
     @Option(name = {"-s", "--short" }, description = "shortened output (suitable for scripting)")
     private Boolean shortened = false;

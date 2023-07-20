@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.cmd;
+package org.openapijsonschematools.codegen.clicommands;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.LoggerContext;
@@ -58,7 +58,7 @@ import java.util.stream.Stream;
 
 @SuppressWarnings({"unused", "MismatchedQueryAndUpdateOfCollection", "java:S106"})
 @Command(name = "batch", description = "Generate code in batch via external configs.")
-public class GenerateBatch extends OpenApiGeneratorCommand {
+public class GenerateBatch extends AbstractCommand {
     private static AtomicInteger failures = new AtomicInteger(0);
     private static AtomicInteger successes = new AtomicInteger(0);
     private final Logger LOGGER = LoggerFactory.getLogger(GenerateBatch.class);

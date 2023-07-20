@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.cmd;
+package org.openapijsonschematools.codegen.clicommands;
 
 import io.airlift.airline.Cli;
 import org.apache.commons.lang3.ArrayUtils;

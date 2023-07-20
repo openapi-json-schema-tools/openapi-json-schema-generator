@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen.cmd;
+package org.openapijsonschematools.codegen.clicommands;
 
 import io.airlift.airline.Command;
 import io.airlift.airline.Option;
@@ -21,7 +21,7 @@ import java.util.stream.Stream;
 
 @SuppressWarnings({"FieldMayBeFinal", "FieldCanBeLocal", "unused"})
 @Command(name = "template", description = "Retrieve templates for local modification")
-public class AuthorTemplate extends OpenApiGeneratorCommand {
+public class AuthorTemplate extends AbstractCommand {
 
     private final Logger LOGGER = LoggerFactory.getLogger(AuthorTemplate.class);
 

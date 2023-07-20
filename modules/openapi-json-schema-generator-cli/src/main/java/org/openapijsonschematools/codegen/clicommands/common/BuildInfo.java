@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen.cmd;
+package org.openapijsonschematools.codegen.clicommands.common;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,7 +9,7 @@ import java.time.format.DateTimeParseException;
 import java.util.Locale;
 import java.util.Properties;
 
-import static org.openapijsonschematools.codegen.Constants.*;
+import static org.openapijsonschematools.codegen.clicommands.common.Constants.*;
 
 /**
  * Presents build-time information

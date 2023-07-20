@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen.cmd;
+package org.openapijsonschematools.codegen.clicommands;
 
 import io.airlift.airline.Cli;
 import org.testng.Assert;
@@ -62,7 +62,7 @@ public class AuthorTemplateTest {
 
         builder.withGroup("author")
                 .withDescription("Utilities for authoring generators or customizing templates.")
-                .withDefaultCommand(HelpCommand.class)
+                .withDefaultCommand(Help.class)
                 .withCommands(AuthorTemplate.class);
 
         return builder;

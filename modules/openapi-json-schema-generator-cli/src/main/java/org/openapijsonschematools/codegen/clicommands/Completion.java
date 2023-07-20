@@ -19,7 +19,7 @@
  * https://github.com/airlift/airline/blob/fc7a55e34b6361cb97235de5a1b21cba9b508f4b/src/main/java/io/airlift/airline/SuggestCommand.java#L1
  * Modifications have been made to fit the needs of OpenAPI Tools CLI.
  */
-package org.openapijsonschematools.codegen.cmd;
+package org.openapijsonschematools.codegen.clicommands;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Joiner;
@@ -38,7 +38,7 @@ import static io.airlift.airline.ParserUtil.createInstance;
 
 @SuppressWarnings({"java:S106"})
 @Command(name = "completion", description = "Complete commands (for using in tooling such as Bash Completions).", hidden = true)
-public class CompletionCommand extends OpenApiGeneratorCommand
+public class Completion extends AbstractCommand
         implements Runnable, Callable<Void> {
     private static final Map<Context, Class<? extends Suggester>> BUILTIN_SUGGESTERS = ImmutableMap.<Context, Class<? extends Suggester>>builder()
             .put(Context.GLOBAL, GlobalSuggester.class)

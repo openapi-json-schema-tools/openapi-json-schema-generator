@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen.cmd;
+package org.openapijsonschematools.codegen.clicommands.common;
 
 import io.airlift.airline.Option;
 

@@ -1,12 +1,14 @@
-package org.openapijsonschematools.codegen.cmd;
+package org.openapijsonschematools.codegen.clicommands;
 
 import io.airlift.airline.Help;
 import io.airlift.airline.model.GlobalMetadata;
+import org.openapijsonschematools.codegen.clicommands.common.BuildInfo;
+import org.openapijsonschematools.codegen.clicommands.common.GlobalOptions;
 
 import javax.inject.Inject;
 
 @SuppressWarnings({"java:S106"})
-public abstract class OpenApiGeneratorCommand implements Runnable {
+public abstract class AbstractCommand implements Runnable {
     @Inject
     public GlobalOptions globalOptions = new GlobalOptions();
 

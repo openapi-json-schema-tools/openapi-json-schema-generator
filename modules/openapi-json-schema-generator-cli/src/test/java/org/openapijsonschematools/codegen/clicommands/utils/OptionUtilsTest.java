@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.cmd.utils;
+package org.openapijsonschematools.codegen.clicommands.utils;
 
 import org.openapijsonschematools.codegen.common.OptionUtils;
 import org.apache.commons.lang3.tuple.Pair;

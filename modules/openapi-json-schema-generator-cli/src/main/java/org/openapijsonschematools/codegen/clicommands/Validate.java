@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.cmd;
+package org.openapijsonschematools.codegen.clicommands;
 
 import io.airlift.airline.Command;
 import io.airlift.airline.Option;
@@ -35,7 +35,7 @@ import java.util.Set;
 
 @SuppressWarnings({"unused","java:S106"})
 @Command(name = "validate", description = "Validate specification")
-public class Validate extends OpenApiGeneratorCommand {
+public class Validate extends AbstractCommand {
 
     @Option(name = {"-i", "--input-spec"}, title = "spec file", required = true,
             description = "location of the OpenAPI spec, as URL or file (required)")

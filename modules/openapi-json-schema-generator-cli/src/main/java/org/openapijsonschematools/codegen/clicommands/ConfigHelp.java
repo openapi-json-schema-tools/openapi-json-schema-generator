@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.cmd;
+package org.openapijsonschematools.codegen.clicommands;
 
 import io.airlift.airline.Command;
 import io.airlift.airline.Option;
@@ -42,7 +42,7 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
 
 @SuppressWarnings({"unused","java:S106", "java:S1192"})
 @Command(name = "config-help", description = "Config help for chosen lang")
-public class ConfigHelp extends OpenApiGeneratorCommand {
+public class ConfigHelp extends AbstractCommand {
 
     private final Logger LOGGER = LoggerFactory.getLogger(ConfigHelp.class);
 

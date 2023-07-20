@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.cmd;
+package org.openapijsonschematools.codegen.clicommands;
 
 import static ch.lambdaj.collection.LambdaCollections.with;
 import static com.google.common.base.Joiner.on;
@@ -52,7 +52,7 @@ import ch.lambdaj.function.convert.Converter;
 @Command(name = "meta", description = "MetaGenerator. GeneratorRunner for creating a new template set "
         + "and configuration for Codegen.  The output will be based on the language you "
         + "specify, and includes default templates to include.")
-public class Meta extends OpenApiGeneratorCommand {
+public class Meta extends AbstractCommand {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Meta.class);
 

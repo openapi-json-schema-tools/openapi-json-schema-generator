@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen;
+package org.openapijsonschematools.codegen.clicommands.common;
 
 public class Constants {
     private Constants(){ }

@@ -15,14 +15,14 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.cmd;
+package org.openapijsonschematools.codegen.clicommands;
 
 import io.airlift.airline.Command;
 import io.airlift.airline.Option;
 
 @SuppressWarnings({"unused", "java:S106"})
 @Command(name = "version", description = "Show version information used in tooling")
-public class Version extends OpenApiGeneratorCommand {
+public class Version extends AbstractCommand {
 
     @Option(name = {"--sha"}, description = "Git commit SHA version")
     private Boolean sha;

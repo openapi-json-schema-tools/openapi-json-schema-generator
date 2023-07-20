@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen.cmd;
+package org.openapijsonschematools.codegen.clicommands;
 
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
