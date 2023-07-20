@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.options;
+package org.openapijsonschematools.codegen.generators.options;
 
 import com.google.common.collect.ImmutableMap;
 import org.openapijsonschematools.codegen.common.CodegenConstants;

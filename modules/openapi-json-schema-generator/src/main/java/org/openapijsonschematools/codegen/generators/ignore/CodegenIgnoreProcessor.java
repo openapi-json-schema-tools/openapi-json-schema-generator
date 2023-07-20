@@ -15,10 +15,10 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.ignore;
+package org.openapijsonschematools.codegen.generators.ignore;
 
-import org.openapijsonschematools.codegen.ignore.rules.DirectoryRule;
-import org.openapijsonschematools.codegen.ignore.rules.Rule;
+import org.openapijsonschematools.codegen.generators.ignore.rules.DirectoryRule;
+import org.openapijsonschematools.codegen.generators.ignore.rules.Rule;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

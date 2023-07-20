@@ -15,23 +15,29 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.ignore.rules;
+package org.openapijsonschematools.codegen.generators.ignore.rules;
 
-import java.nio.file.FileSystems;
-import java.nio.file.PathMatcher;
 import java.util.List;
 
-public class FileRule extends Rule {
+public class InvalidRule extends Rule {
+    private final String reason;
 
-    private PathMatcher matcher = null;
-
-    FileRule(List<Part> syntax, String definition) {
+    InvalidRule(List<Part> syntax, String definition, String reason) {
         super(syntax, definition);
-        matcher = FileSystems.getDefault().getPathMatcher("glob:"+this.getPattern());
+        this.reason = reason;
     }
 
     @Override
     public Boolean matches(String relativePath) {
-        return matcher.matches(FileSystems.getDefault().getPath(relativePath));
+        return null;
+    }
+
+    @Override
+    public Operation evaluate(String relativePath) {
+        return Operation.NOOP;
+    }
+
+    public String getReason() {
+        return reason;
     }
 }

@@ -15,18 +15,12 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.ignore.rules;
+package org.openapijsonschematools.codegen.generators.options;
 
-public class ParserException extends Exception {
-    /**
-     * Constructs a new exception with the specified detail message.  The
-     * cause is not initialized, and may subsequently be initialized by
-     * a call to {@link #initCause}.
-     *
-     * @param message the detail message. The detail message is saved for
-     *                later retrieval by the {@link #getMessage()} method.
-     */
-    public ParserException(String message) {
-        super(message);
-    }
+import java.util.Map;
+
+public interface OptionsProvider {
+    String getLanguage();
+    Map<String, String> createOptions();
+    boolean isServer();
 }

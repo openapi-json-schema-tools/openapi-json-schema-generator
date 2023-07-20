@@ -33,7 +33,6 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscri
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
-import org.openapijsonschematools.codegen.templating.TemplateManager;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DocumentationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.GlobalFeature;
@@ -41,13 +40,8 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.features.
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SecurityFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.WireFormatFeature;
 import org.openapijsonschematools.codegen.generators.openapimodels.PairCacheKey;
-import org.openapijsonschematools.codegen.templating.CommonTemplateContentLocator;
-import org.openapijsonschematools.codegen.templating.GeneratorTemplateContentLocator;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
-import org.openapijsonschematools.codegen.templating.TemplateManagerOptions;
-import org.openapijsonschematools.codegen.templating.TemplatePathLocator;
 import org.openapijsonschematools.codegen.config.GlobalSettings;
-import org.openapijsonschematools.codegen.ignore.CodegenIgnoreProcessor;
 import io.swagger.v3.oas.models.media.*;
 import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.security.SecurityScheme;
@@ -59,7 +53,6 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.Stability
 import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.openapijsonschematools.codegen.templating.TemplateProcessor;
 
 import java.io.File;
 import java.io.IOException;
@@ -99,9 +92,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
     private Map<String, Schema> modelNameToSchemaCache;
     private final DateTimeFormatter iso8601Date = DateTimeFormatter.ISO_DATE;
     private final DateTimeFormatter iso8601DateTime = DateTimeFormatter.ISO_DATE_TIME;
-
-    protected CodegenIgnoreProcessor ignoreProcessor;
-    protected TemplateProcessor templateProcessor = null;
     private boolean nonCompliantUseDiscrIfCompositionFails = false;
     private final HashMap<PairCacheKey, String> modelNameCache = new HashMap<>();
 
@@ -339,29 +329,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
             hea.setPrettyPrint(true);
         } else {
             throw new RuntimeException("Only the HandlebarsEngineAdapter is supported for this generator");
-        }
-
-        TemplatePathLocator commonTemplateLocator = new CommonTemplateContentLocator();
-        TemplatePathLocator generatorTemplateLocator = new GeneratorTemplateContentLocator(this);
-        TemplateManagerOptions templateManagerOptions = new TemplateManagerOptions(this.isEnableMinimalUpdate(),this.isSkipOverwrite());
-        templateProcessor = new TemplateManager(
-                templateManagerOptions,
-                te,
-                new TemplatePathLocator[]{generatorTemplateLocator, commonTemplateLocator}
-        );
-
-        String ignoreFileLocation = this.getIgnoreFilePathOverride();
-        if (ignoreFileLocation != null) {
-            final File ignoreFile = new File(ignoreFileLocation);
-            if (ignoreFile.exists() && ignoreFile.canRead()) {
-                this.ignoreProcessor = new CodegenIgnoreProcessor(ignoreFile);
-            } else {
-                LOGGER.warn("Ignore file specified at {} is not valid. This will fall back to an existing ignore file if present in the output directory.", ignoreFileLocation);
-            }
-        }
-
-        if (this.ignoreProcessor == null) {
-            this.ignoreProcessor = new CodegenIgnoreProcessor(this.getOutputDir());
         }
 
         /*

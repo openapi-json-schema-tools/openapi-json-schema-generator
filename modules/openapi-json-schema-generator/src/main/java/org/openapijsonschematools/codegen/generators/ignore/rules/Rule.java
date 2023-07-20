@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.ignore.rules;
+package org.openapijsonschematools.codegen.generators.ignore.rules;
 
 import java.util.List;
 

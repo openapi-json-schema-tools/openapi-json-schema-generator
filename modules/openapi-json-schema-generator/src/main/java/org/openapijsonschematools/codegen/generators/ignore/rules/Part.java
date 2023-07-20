@@ -15,12 +15,27 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.options;
+package org.openapijsonschematools.codegen.generators.ignore.rules;
 
-import java.util.Map;
+class Part {
+    private final IgnoreLineParser.Token token;
+    private final String value;
 
-public interface OptionsProvider {
-    String getLanguage();
-    Map<String, String> createOptions();
-    boolean isServer();
+    public Part(IgnoreLineParser.Token token, String value) {
+        this.token = token;
+        this.value = value;
+    }
+
+    public Part(IgnoreLineParser.Token token) {
+        this.token = token;
+        this.value = token.getPattern();
+    }
+
+    public IgnoreLineParser.Token getToken() {
+        return token;
+    }
+
+    public String getValue() {
+        return value;
+    }
 }

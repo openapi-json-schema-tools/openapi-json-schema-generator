@@ -74,6 +74,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
 import org.openapijsonschematools.codegen.generators.openapimodels.LinkedHashMapWithContext;
 import org.openapijsonschematools.codegen.generators.openapimodels.PairCacheKey;
 import org.openapijsonschematools.codegen.generators.openapimodels.SchemaTestCase;
+import org.openapijsonschematools.codegen.generators.ignore.CodegenIgnoreProcessor;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.common.SerializerUtils;
 import org.openapijsonschematools.codegen.templating.MustacheEngineAdapter;
@@ -131,6 +132,8 @@ public class DefaultGenerator implements Generator {
     private static final String xSchemaTestExamplesRefPrefix = "#/components/x-schema-test-examples/";
     protected static Schema falseSchema;
     protected static Schema trueSchema = new Schema();
+
+    protected CodegenIgnoreProcessor ignoreProcessor;
 
     static {
         DefaultFeatureSet = FeatureSet.newBuilder()
@@ -334,7 +337,25 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
+    public CodegenIgnoreProcessor getIgnoreProcessor() {
+        return ignoreProcessor;
+    }
+
+    @Override
     public void processOpts() {
+        String ignoreFileLocation = this.getIgnoreFilePathOverride();
+        if (ignoreFileLocation != null) {
+            final File ignoreFile = new File(ignoreFileLocation);
+            if (ignoreFile.exists() && ignoreFile.canRead()) {
+                this.ignoreProcessor = new CodegenIgnoreProcessor(ignoreFile);
+            } else {
+                LOGGER.warn("Ignore file specified at {} is not valid. This will fall back to an existing ignore file if present in the output directory.", ignoreFileLocation);
+            }
+        }
+
+        if (this.ignoreProcessor == null) {
+            this.ignoreProcessor = new CodegenIgnoreProcessor(this.getOutputDir());
+        }
 
         if (additionalProperties.containsKey(CodegenConstants.TEMPLATE_DIR)) {
             this.setTemplateDir((String) additionalProperties.get(CodegenConstants.TEMPLATE_DIR));

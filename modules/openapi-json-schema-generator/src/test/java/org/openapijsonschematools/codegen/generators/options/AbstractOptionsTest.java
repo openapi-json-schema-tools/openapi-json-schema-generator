@@ -15,14 +15,13 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen;
+package org.openapijsonschematools.codegen.generators.options;
 
 import com.google.common.base.Function;
 import org.apache.commons.lang3.StringUtils;
 import org.mockito.MockSettings;
 import org.openapijsonschematools.codegen.cli.CliOption;
 import org.openapijsonschematools.codegen.generators.Generator;
-import org.openapijsonschematools.codegen.options.OptionsProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

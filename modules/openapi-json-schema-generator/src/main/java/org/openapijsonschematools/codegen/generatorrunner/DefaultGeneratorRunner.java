@@ -37,7 +37,6 @@ import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.common.DryRunStatus;
 import org.openapijsonschematools.codegen.generators.Generator;
 import org.openapijsonschematools.codegen.config.GlobalSettings;
-import org.openapijsonschematools.codegen.ignore.CodegenIgnoreProcessor;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenMediaType;
@@ -92,7 +91,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
     public Generator generator;
     protected ClientOptInput opts;
     public OpenAPI openAPI;
-    protected CodegenIgnoreProcessor ignoreProcessor;
     private Boolean generateApis = null;
     private Boolean generateModels = null;
     private Boolean generateSupportingFiles = null;
@@ -148,21 +146,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     new TemplatePathLocator[]{generatorTemplateLocator, commonTemplateLocator}
             );
         }
-
-        String ignoreFileLocation = this.generator.getIgnoreFilePathOverride();
-        if (ignoreFileLocation != null) {
-            final File ignoreFile = new File(ignoreFileLocation);
-            if (ignoreFile.exists() && ignoreFile.canRead()) {
-                this.ignoreProcessor = new CodegenIgnoreProcessor(ignoreFile);
-            } else {
-                LOGGER.warn("Ignore file specified at {} is not valid. This will fall back to an existing ignore file if present in the output directory.", ignoreFileLocation);
-            }
-        }
-
-        if (this.ignoreProcessor == null) {
-            this.ignoreProcessor = new CodegenIgnoreProcessor(this.generator.getOutputDir());
-        }
-
         return this;
     }
 
@@ -1587,7 +1570,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
     private File processTemplateToFile(Map<String, Object> templateData, String templateName, String outputFilename, boolean shouldGenerate, String skippedByOption, String intendedOutputDir) throws IOException {
         String adjustedOutputFilename = outputFilename.replaceAll("//", "/").replace('/', File.separatorChar);
         File target = new File(adjustedOutputFilename);
-        if (ignoreProcessor.allowsFile(target)) {
+        if (generator.getIgnoreProcessor().allowsFile(target)) {
             if (shouldGenerate) {
                 Path outDir = java.nio.file.Paths.get(intendedOutputDir).toAbsolutePath();
                 Path absoluteTarget = target.toPath().toAbsolutePath();

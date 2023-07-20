@@ -15,29 +15,23 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.ignore.rules;
+package org.openapijsonschematools.codegen.generators.ignore.rules;
 
 import java.util.List;
 
-public class InvalidRule extends Rule {
-    private final String reason;
-
-    InvalidRule(List<Part> syntax, String definition, String reason) {
+/**
+ * An ignore rule which matches everything.
+ */
+public class EverythingRule extends Rule {
+    EverythingRule(List<Part> syntax, String definition) {
         super(syntax, definition);
-        this.reason = reason;
     }
 
     @Override
     public Boolean matches(String relativePath) {
-        return null;
+        return true;
     }
 
     @Override
-    public Operation evaluate(String relativePath) {
-        return Operation.NOOP;
-    }
-
-    public String getReason() {
-        return reason;
-    }
+    protected Operation getExcludeOperation(){ return Operation.EXCLUDE_AND_TERMINATE; }
 }
