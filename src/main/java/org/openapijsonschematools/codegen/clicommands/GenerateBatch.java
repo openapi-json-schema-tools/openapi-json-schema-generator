@@ -16,8 +16,7 @@
 
 package org.openapijsonschematools.codegen.clicommands;
 
-import ch.qos.logback.classic.Level;
-import ch.qos.logback.classic.LoggerContext;
+import org.slf4j.ILoggerFactory;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
@@ -142,10 +141,10 @@ public class GenerateBatch extends AbstractCommand {
         List<CodegenConfigurator> configurators = configs.stream().map(config -> CodegenConfigurator.fromFile(config, module)).collect(Collectors.toList());
 
         // it doesn't make sense to interleave INFO level logs, so limit these to only ERROR.
-        LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
+        ILoggerFactory lc = LoggerFactory.getILoggerFactory();
         Stream.of(Logger.ROOT_LOGGER_NAME, "io.swagger", "org.openapijsonschematools")
                 .map(lc::getLogger)
-                .forEach(logger -> logger.setLevel(Level.ERROR));
+                .forEach(logger -> logger.atError());
 
         ExecutorService executor = Executors.newFixedThreadPool(numThreads);
 
