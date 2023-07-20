@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.generators.ignore.rules;
+package org.openapijsonschematools.codegen.generatorrunner.ignore.rules;
 
 import java.util.List;
 import java.util.regex.Pattern;

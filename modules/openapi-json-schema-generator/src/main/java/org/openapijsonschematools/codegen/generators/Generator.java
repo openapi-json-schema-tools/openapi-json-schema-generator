@@ -34,7 +34,6 @@ import io.swagger.v3.oas.models.servers.ServerVariable;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorLanguage;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
-import org.openapijsonschematools.codegen.generators.ignore.CodegenIgnoreProcessor;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.cli.CliOption;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
@@ -63,8 +62,6 @@ import java.util.TreeMap;
 
 public interface Generator {
     String getFilesMetadataFilename();
-
-    CodegenIgnoreProcessor getIgnoreProcessor();
 
     String getVersionMetadataFilename();
 

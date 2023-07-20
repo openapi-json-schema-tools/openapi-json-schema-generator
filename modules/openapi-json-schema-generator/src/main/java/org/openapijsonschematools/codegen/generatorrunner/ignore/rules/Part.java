@@ -15,23 +15,27 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.generators.ignore.rules;
+package org.openapijsonschematools.codegen.generatorrunner.ignore.rules;
 
-import java.util.List;
+class Part {
+    private final IgnoreLineParser.Token token;
+    private final String value;
 
-/**
- * An ignore rule which matches everything.
- */
-public class EverythingRule extends Rule {
-    EverythingRule(List<Part> syntax, String definition) {
-        super(syntax, definition);
+    public Part(IgnoreLineParser.Token token, String value) {
+        this.token = token;
+        this.value = value;
     }
 
-    @Override
-    public Boolean matches(String relativePath) {
-        return true;
+    public Part(IgnoreLineParser.Token token) {
+        this.token = token;
+        this.value = token.getPattern();
     }
 
-    @Override
-    protected Operation getExcludeOperation(){ return Operation.EXCLUDE_AND_TERMINATE; }
+    public IgnoreLineParser.Token getToken() {
+        return token;
+    }
+
+    public String getValue() {
+        return value;
+    }
 }

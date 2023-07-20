@@ -15,31 +15,23 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.generators.ignore.rules;
+package org.openapijsonschematools.codegen.generatorrunner.ignore.rules;
 
 import java.nio.file.FileSystems;
 import java.nio.file.PathMatcher;
 import java.util.List;
 
-public class DirectoryRule extends FileRule {
+public class FileRule extends Rule {
 
-    private PathMatcher directoryMatcher = null;
-    private PathMatcher contentsMatcher = null;
+    private PathMatcher matcher = null;
 
-    DirectoryRule(List<Part> syntax, String definition) {
+    FileRule(List<Part> syntax, String definition) {
         super(syntax, definition);
-        String pattern = this.getPattern();
-        StringBuilder sb = new StringBuilder();
-        sb.append("glob:");
-        sb.append(pattern);
-        if(!pattern.endsWith("/")) sb.append("/");
-        directoryMatcher = FileSystems.getDefault().getPathMatcher(sb.toString());
-        sb.append("**");
-        contentsMatcher = FileSystems.getDefault().getPathMatcher(sb.toString());
+        matcher = FileSystems.getDefault().getPathMatcher("glob:"+this.getPattern());
     }
 
     @Override
     public Boolean matches(String relativePath) {
-        return contentsMatcher.matches(FileSystems.getDefault().getPath(relativePath)) || directoryMatcher.matches(FileSystems.getDefault().getPath(relativePath));
+        return matcher.matches(FileSystems.getDefault().getPath(relativePath));
     }
 }
