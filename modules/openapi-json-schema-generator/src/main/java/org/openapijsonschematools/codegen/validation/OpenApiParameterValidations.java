@@ -1,10 +1,10 @@
-package org.openapijsonschematools.codegen.validation.oas;
+package org.openapijsonschematools.codegen.validation;
 
 import io.swagger.v3.oas.models.parameters.HeaderParameter;
 import io.swagger.v3.oas.models.parameters.Parameter;
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.validation.GenericValidator;
-import org.openapijsonschematools.codegen.validation.ValidationRule;
+import org.openapijsonschematools.codegen.validation.validators.GenericValidator;
+import org.openapijsonschematools.codegen.validation.validators.ValidationRule;
 
 import java.util.ArrayList;
 import java.util.Locale;

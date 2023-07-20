@@ -25,9 +25,9 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.parser.core.models.ParseOptions;
 import io.swagger.v3.parser.core.models.SwaggerParseResult;
 import org.apache.commons.text.WordUtils;
-import org.openapijsonschematools.codegen.validation.oas.OpenApiEvaluator;
-import org.openapijsonschematools.codegen.validation.oas.RuleConfiguration;
-import org.openapijsonschematools.codegen.validation.ValidationResult;
+import org.openapijsonschematools.codegen.validation.OpenApiEvaluator;
+import org.openapijsonschematools.codegen.validation.RuleConfiguration;
+import org.openapijsonschematools.codegen.validation.validators.ValidationResult;
 
 import java.util.HashSet;
 import java.util.List;

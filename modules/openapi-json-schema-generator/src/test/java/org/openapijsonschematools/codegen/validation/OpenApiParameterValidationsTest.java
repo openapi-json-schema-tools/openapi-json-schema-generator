@@ -1,12 +1,12 @@
-package org.openapijsonschematools.codegen.validation.oas;
+package org.openapijsonschematools.codegen.validation;
 
 import io.swagger.v3.oas.models.parameters.Parameter;
-import org.openapijsonschematools.codegen.validation.Invalid;
-import org.openapijsonschematools.codegen.validation.ValidationResult;
-import org.openapijsonschematools.codegen.validation.oas.OpenApiParameterValidations;
-import org.openapijsonschematools.codegen.validation.oas.ParameterWrapper;
-import org.openapijsonschematools.codegen.validation.oas.RuleConfiguration;
-import org.openapijsonschematools.codegen.validation.oas.ValidationConstants;
+import org.openapijsonschematools.codegen.validation.OpenApiParameterValidations;
+import org.openapijsonschematools.codegen.validation.ParameterWrapper;
+import org.openapijsonschematools.codegen.validation.RuleConfiguration;
+import org.openapijsonschematools.codegen.validation.ValidationConstants;
+import org.openapijsonschematools.codegen.validation.validators.Invalid;
+import org.openapijsonschematools.codegen.validation.validators.ValidationResult;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

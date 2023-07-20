@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.validation;
+package org.openapijsonschematools.codegen.validation.validators;
 
 import org.testng.annotations.Test;
 

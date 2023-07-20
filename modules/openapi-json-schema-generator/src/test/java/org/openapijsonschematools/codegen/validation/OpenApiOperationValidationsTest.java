@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen.validation.oas;
+package org.openapijsonschematools.codegen.validation;
 
 import io.swagger.v3.oas.models.Operation;
 import io.swagger.v3.oas.models.PathItem;
@@ -6,11 +6,11 @@ import io.swagger.v3.oas.models.media.Content;
 import io.swagger.v3.oas.models.media.MediaType;
 import io.swagger.v3.oas.models.parameters.RequestBody;
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.validation.Invalid;
-import org.openapijsonschematools.codegen.validation.ValidationResult;
-import org.openapijsonschematools.codegen.validation.oas.OpenApiOperationValidations;
-import org.openapijsonschematools.codegen.validation.oas.OperationWrapper;
-import org.openapijsonschematools.codegen.validation.oas.RuleConfiguration;
+import org.openapijsonschematools.codegen.validation.OpenApiOperationValidations;
+import org.openapijsonschematools.codegen.validation.OperationWrapper;
+import org.openapijsonschematools.codegen.validation.RuleConfiguration;
+import org.openapijsonschematools.codegen.validation.validators.Invalid;
+import org.openapijsonschematools.codegen.validation.validators.ValidationResult;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

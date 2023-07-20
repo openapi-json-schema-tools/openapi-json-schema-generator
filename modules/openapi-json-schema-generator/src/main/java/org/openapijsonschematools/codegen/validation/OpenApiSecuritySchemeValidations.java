@@ -1,9 +1,9 @@
-package org.openapijsonschematools.codegen.validation.oas;
+package org.openapijsonschematools.codegen.validation;
 
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.validation.GenericValidator;
-import org.openapijsonschematools.codegen.validation.ValidationRule;
+import org.openapijsonschematools.codegen.validation.validators.GenericValidator;
+import org.openapijsonschematools.codegen.validation.validators.ValidationRule;
 
 import java.util.ArrayList;
 import java.util.Locale;

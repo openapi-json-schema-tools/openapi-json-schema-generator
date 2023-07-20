@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen.validation.oas;
+package org.openapijsonschematools.codegen.validation;
 
 /**
  * Allows for configuration of validation rules which will be applied to a specification.

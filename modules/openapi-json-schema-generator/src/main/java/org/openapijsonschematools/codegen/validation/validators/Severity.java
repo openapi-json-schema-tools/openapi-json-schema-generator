@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.validation;
+package org.openapijsonschematools.codegen.validation.validators;
 
 /**
  * Defines different levels of severity to be used during validation.

@@ -1,4 +1,4 @@
-package org.openapijsonschematools.codegen.validation.oas;
+package org.openapijsonschematools.codegen.validation;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -8,11 +8,11 @@ import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.tags.Tag;
 import org.openapijsonschematools.codegen.common.ModelUtils;
-import org.openapijsonschematools.codegen.validation.Severity;
-import org.openapijsonschematools.codegen.validation.Validated;
-import org.openapijsonschematools.codegen.validation.ValidationResult;
-import org.openapijsonschematools.codegen.validation.ValidationRule;
-import org.openapijsonschematools.codegen.validation.Validator;
+import org.openapijsonschematools.codegen.validation.validators.Severity;
+import org.openapijsonschematools.codegen.validation.validators.Validated;
+import org.openapijsonschematools.codegen.validation.validators.ValidationResult;
+import org.openapijsonschematools.codegen.validation.validators.ValidationRule;
+import org.openapijsonschematools.codegen.validation.validators.Validator;
 
 import java.util.*;
 
