@@ -3,8 +3,8 @@ package org.openapijsonschematools.codegen.validation.oas;
 import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.parameters.RequestBody;
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.validation.common.GenericValidator;
-import org.openapijsonschematools.codegen.validation.common.ValidationRule;
+import org.openapijsonschematools.codegen.validation.GenericValidator;
+import org.openapijsonschematools.codegen.validation.ValidationRule;
 
 import java.util.ArrayList;
 import java.util.Locale;

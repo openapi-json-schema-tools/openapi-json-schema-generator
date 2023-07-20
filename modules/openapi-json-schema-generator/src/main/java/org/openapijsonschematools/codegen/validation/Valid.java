@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.validation.common;
-
-import org.openapijsonschematools.codegen.validation.Validated;
+package org.openapijsonschematools.codegen.validation;
 
 /**
  * Represents a {@link Validated} state which is "valid" according to the defined rule.

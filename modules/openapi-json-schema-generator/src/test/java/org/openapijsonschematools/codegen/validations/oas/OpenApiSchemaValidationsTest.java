@@ -1,7 +1,7 @@
 package org.openapijsonschematools.codegen.validations.oas;
 
 import io.swagger.v3.oas.models.media.*;
-import org.openapijsonschematools.codegen.validation.common.Invalid;
+import org.openapijsonschematools.codegen.validation.Invalid;
 import org.openapijsonschematools.codegen.validation.ValidationResult;
 import org.openapijsonschematools.codegen.validation.oas.OpenApiSchemaValidations;
 import org.openapijsonschematools.codegen.validation.oas.RuleConfiguration;

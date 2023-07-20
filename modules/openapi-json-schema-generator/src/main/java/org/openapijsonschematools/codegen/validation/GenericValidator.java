@@ -14,10 +14,7 @@
  * limitations under the License.
  */
 
-package org.openapijsonschematools.codegen.validation.common;
-
-import org.openapijsonschematools.codegen.validation.Validated;
-import org.openapijsonschematools.codegen.validation.ValidationResult;
+package org.openapijsonschematools.codegen.validation;
 
 import java.util.List;
 

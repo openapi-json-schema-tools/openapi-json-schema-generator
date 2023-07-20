@@ -5,8 +5,8 @@ import io.swagger.v3.oas.models.media.Schema;
 
 import org.openapijsonschematools.codegen.utils.ModelUtils;
 import org.openapijsonschematools.codegen.utils.SemVer;
-import org.openapijsonschematools.codegen.validation.common.GenericValidator;
-import org.openapijsonschematools.codegen.validation.common.ValidationRule;
+import org.openapijsonschematools.codegen.validation.GenericValidator;
+import org.openapijsonschematools.codegen.validation.ValidationRule;
 
 import java.util.ArrayList;
 import java.util.Locale;

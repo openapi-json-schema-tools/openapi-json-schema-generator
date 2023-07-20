@@ -6,7 +6,7 @@ import io.swagger.v3.oas.models.media.Content;
 import io.swagger.v3.oas.models.media.MediaType;
 import io.swagger.v3.oas.models.parameters.RequestBody;
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.validation.common.Invalid;
+import org.openapijsonschematools.codegen.validation.Invalid;
 import org.openapijsonschematools.codegen.validation.ValidationResult;
 import org.openapijsonschematools.codegen.validation.oas.OpenApiOperationValidations;
 import org.openapijsonschematools.codegen.validation.oas.OperationWrapper;
