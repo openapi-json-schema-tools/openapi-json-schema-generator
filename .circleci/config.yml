@@ -51,7 +51,7 @@ commands: # a reusable command with parameters
       - run:
           name: "Setup custom environment variables"
           command: echo 'export CIRCLE_NODE_INDEX="<<parameters.nodeNo>>"' >> $BASH_ENV
-      - run: ./CI/circle_parallel.sh
+      - run: ./.circleci/parallel.sh
       # Save dependency cache
       - save_cache:
           key: source-v2-{{ .Branch }}-{{ .Revision }}
@@ -126,7 +126,7 @@ commands: # a reusable command with parameters
       - run:
           name: "Setup custom environment variables"
           command: echo 'export CIRCLE_NODE_INDEX="<<parameters.nodeNo>>"' >> $BASH_ENV
-      - run: ./CI/circle_parallel.sh
+      - run: ./.circleci/parallel.sh
       # Teardown
       #   If you break your build into multiple jobs with workflows, you will probably want to do the parts of this that are relevant in each
       # Save test results
