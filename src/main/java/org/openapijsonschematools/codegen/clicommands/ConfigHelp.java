@@ -273,7 +273,7 @@ public class ConfigHelp extends AbstractCommand {
     private void generateMdFeatureSets(StringBuilder sb, Generator config) {
         sb.append(newline).append("## FEATURE SET").append(newline).append(newline);
 
-        List<FeatureSet.FeatureSetFlattened> flattened = config.getGeneratorMetadata().getFeatureSet().flatten();
+        List<FeatureSet.FeatureSetFlattened> flattened = config.getGeneratorMetadata().getFeatureSet().flatten(LOGGER);
         flattened.sort(Comparator.comparing(FeatureSet.FeatureSetFlattened::getFeatureCategory));
 
         AtomicReference<String> lastCategory = new AtomicReference<>();
@@ -485,7 +485,7 @@ public class ConfigHelp extends AbstractCommand {
         if (Boolean.TRUE.equals(featureSets)) {
             sb.append(newline).append("FEATURE SET").append(newline);
 
-            List<FeatureSet.FeatureSetFlattened> flattened = config.getGeneratorMetadata().getFeatureSet().flatten();
+            List<FeatureSet.FeatureSetFlattened> flattened = config.getGeneratorMetadata().getFeatureSet().flatten(LOGGER);
             flattened.sort(Comparator.comparing(FeatureSet.FeatureSetFlattened::getFeatureCategory));
 
             AtomicReference<String> lastCategory = new AtomicReference<>();

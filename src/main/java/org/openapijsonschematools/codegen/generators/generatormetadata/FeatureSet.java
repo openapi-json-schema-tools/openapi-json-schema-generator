@@ -27,6 +27,7 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.features.
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SecurityFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.WireFormatFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations.AnnotationType;
+import org.slf4j.Logger;
 
 import java.lang.annotation.Annotation;
 import java.util.*;
@@ -236,7 +237,7 @@ public class FeatureSet {
         }
     }
 
-    public List<FeatureSetFlattened> flatten() {
+    public List<FeatureSetFlattened> flatten(Logger logger) {
         // TODO: Look at making this method function more generically.
         List<FeatureSetFlattened> states = new ArrayList<>();
         EnumSet.allOf(ClientModificationFeature.class).forEach(feat -> {
@@ -250,7 +251,7 @@ public class FeatureSet {
                     state.source.add(AnnotationType.fromAnnotation(an.annotationType()));
                 }
             } catch (NoSuchFieldException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
             states.add(state);
         });
@@ -265,7 +266,7 @@ public class FeatureSet {
                     state.source.add(AnnotationType.fromAnnotation(an.annotationType()));
                 }
             } catch (NoSuchFieldException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
 
             states.add(state);
@@ -281,7 +282,7 @@ public class FeatureSet {
                     state.source.add(AnnotationType.fromAnnotation(an.annotationType()));
                 }
             } catch (NoSuchFieldException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
 
             states.add(state);
@@ -297,7 +298,7 @@ public class FeatureSet {
                     state.source.add(AnnotationType.fromAnnotation(an.annotationType()));
                 }
             } catch (NoSuchFieldException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
 
             states.add(state);
@@ -313,7 +314,7 @@ public class FeatureSet {
                     state.source.add(AnnotationType.fromAnnotation(an.annotationType()));
                 }
             } catch (NoSuchFieldException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
 
             states.add(state);
@@ -329,7 +330,7 @@ public class FeatureSet {
                     state.source.add(AnnotationType.fromAnnotation(an.annotationType()));
                 }
             } catch (NoSuchFieldException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
 
             states.add(state);
@@ -345,7 +346,7 @@ public class FeatureSet {
                     state.source.add(AnnotationType.fromAnnotation(an.annotationType()));
                 }
             } catch (NoSuchFieldException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
 
             states.add(state);
@@ -361,7 +362,7 @@ public class FeatureSet {
                     state.source.add(AnnotationType.fromAnnotation(an.annotationType()));
                 }
             } catch (NoSuchFieldException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
 
             states.add(state);
@@ -377,7 +378,7 @@ public class FeatureSet {
                     state.source.add(AnnotationType.fromAnnotation(an.annotationType()));
                 }
             } catch (NoSuchFieldException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
 
             states.add(state);
@@ -393,7 +394,7 @@ public class FeatureSet {
                     state.source.add(AnnotationType.fromAnnotation(an.annotationType()));
                 }
             } catch (NoSuchFieldException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage());
             }
 
             states.add(state);

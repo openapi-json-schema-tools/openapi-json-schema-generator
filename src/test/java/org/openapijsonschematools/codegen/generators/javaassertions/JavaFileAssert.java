@@ -88,11 +88,6 @@ public class JavaFileAssert extends AbstractAssert<JavaFileAssert, CompilationUn
         return this;
     }
 
-    public JavaFileAssert printFileContent() {
-        System.out.println(actual);
-        return this;
-    }
-
     public JavaFileAssert fileContains(final String... lines) {
         final String actualBody = actual.getTokenRange()
             .orElseThrow(() -> new IllegalStateException("Empty file"))

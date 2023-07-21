@@ -1,5 +1,6 @@
 package org.openapijsonschematools.codegen.generators.generatormetadata;
 
+import org.openapijsonschematools.codegen.clicommands.ConfigHelp;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ClientModificationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DataTypeFeature;
@@ -9,6 +10,8 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.features.
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SecurityFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations.AnnotationType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -22,7 +25,8 @@ public class FeatureSetTest {
 
     @Test
     public void flattOnUnspecified() {
-        List<FeatureSet.FeatureSetFlattened> flattened = FeatureSet.UNSPECIFIED.flatten();
+        final Logger logger = LoggerFactory.getLogger(FeatureSetTest.class);
+        List<FeatureSet.FeatureSetFlattened> flattened = FeatureSet.UNSPECIFIED.flatten(logger);
         // There are 73 features at the time of writing this test. This makes sure we get a "Full" flat representation.
         int knownFeatureCount = 73;
         int checkedCount = 0;
@@ -38,6 +42,7 @@ public class FeatureSetTest {
 
     @Test
     public void flattenOnMultipleFeatures() {
+        final Logger logger = LoggerFactory.getLogger(FeatureSetTest.class);
         FeatureSet featureSet = FeatureSet.newBuilder()
                 .includeClientModificationFeatures(ClientModificationFeature.BasePath)
                 .includeDataTypeFeatures(DataTypeFeature.Int32, DataTypeFeature.Array)
@@ -48,7 +53,7 @@ public class FeatureSetTest {
                 .includeSchemaFeatures(SchemaFeature.OneOf)
                 .build();
 
-        List<FeatureSet.FeatureSetFlattened> flattened = featureSet.flatten();
+        List<FeatureSet.FeatureSetFlattened> flattened = featureSet.flatten(logger);
         List<FeatureSet.FeatureSetFlattened> supported = new ArrayList<>();
         flattened.forEach(f -> {
             if (f.isSupported) {
@@ -124,8 +129,9 @@ public class FeatureSetTest {
 
     @Test
     public void flattenOnSingleFeatures() {
+        final Logger logger = LoggerFactory.getLogger(FeatureSetTest.class);
         FeatureSet featureSet = FeatureSet.newBuilder().includeClientModificationFeatures(ClientModificationFeature.BasePath).build();
-        List<FeatureSet.FeatureSetFlattened> flattened = featureSet.flatten();
+        List<FeatureSet.FeatureSetFlattened> flattened = featureSet.flatten(logger);
         List<FeatureSet.FeatureSetFlattened> supported = new ArrayList<>();
         flattened.forEach(f -> {
             if (f.isSupported) {

@@ -6,8 +6,8 @@ set -euo pipefail
 GEN_DIR=${GEN_DIR:-/opt/openapi-json-schema-generator}
 JAVA_OPTS=${JAVA_OPTS:-"-Xmx1024M -DloggerPath=conf/log4j.properties"}
 
-cli="${GEN_DIR}/modules/openapi-json-schema-generator-cli"
-codegen="${cli}/target/openapi-json-schema-generator-cli.jar"
+cli="${GEN_DIR}"
+codegen="${cli}/target/openapi-json-schema-generator-project.jar"
 
 # We code in a list of commands here as source processing is potentially buggy (requires undocumented conventional use of annotations).
 # A list of known commands helps us determine if we should compile CLI. There's an edge-case where a new command not added to this
@@ -31,7 +31,7 @@ if [[ -f "${codegen}" && -n "$(java ${JAVA_OPTS} -jar "${codegen}" completion | 
 elif [[ -n "$(echo $commands | tr ',' '\n' | grep "^$1\$" )" ]]; then
     # If CLI jar does not exist, and $1 is a known CLI command, build the CLI jar and run that command.
     if [[ ! -f "${codegen}" ]]; then
-        (cd "${GEN_DIR}" && exec mvn -am -pl "modules/openapi-json-schema-generator-cli" -Duser.home=$(dirname $MAVEN_CONFIG) package)
+        (cd "${GEN_DIR}" && exec mvn -am -pl . -Duser.home=$(dirname $MAVEN_CONFIG) package)
     fi
     command=$1
     shift
