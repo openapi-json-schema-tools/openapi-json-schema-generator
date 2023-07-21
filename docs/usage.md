@@ -256,26 +256,6 @@ Errors:
 [error] Spec has 1 errors.
 ```
 
-## completion
-
-Although not documented in the `help` output, the CLI offers a `completion` command, which can be used for auto-completion.
-
-This command takes one or more parameters representing the args list you would otherwise pass to `openapi-generator`. For example:
-
-```bash
-openapi-generator-cli completion config-help
--o
---output
---named-header
--g
---generator-name
--f
---format
---markdown-header
-```
-
-An example bash completion script can be found in the repo at [scripts/openapi-generator-cli-completion.bash](https://github.com/OpenAPITools/openapi-generator/blob/master/scripts/openapi-generator-cli-completion.bash).
-
 ## generate
 
 The `generate` command is the workhorse of the generator toolset. As such, it has _many_ more options available than the previous commands. The abbreviated options are below, but you may expand the full descriptions.
