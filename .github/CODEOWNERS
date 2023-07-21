@@ -14,8 +14,6 @@ docs/ @OpenAPITools/generator-core-team
 
 ## Individual interests
 .github/**/* @jimschubert
-scripts/**/* @jimschubert
-website/**/* @jimschubert
 bin/ci/**/* @jimschubert
 
 ## Build related

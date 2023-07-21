@@ -48,10 +48,6 @@ test-output/
 nbactions.xml
 test-output/
 
-# website
-website/build/
-website/package-lock.json
-
 # scalatra
 samples/server-generator/scalatra/output
 samples/server-generator/scalatra/target

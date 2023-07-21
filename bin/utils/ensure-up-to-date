@@ -32,7 +32,6 @@ declare -a always_iterate=(
 # meta codegen needs to be fixed
 #"${root}/bin/meta-codegen.sh"
 "${root}/bin/utils/export_docs_generators.sh"
-"${root}/bin/utils/copy-to-website.sh"
 "${root}/bin/utils/export_generators_readme.sh"
 )
 
