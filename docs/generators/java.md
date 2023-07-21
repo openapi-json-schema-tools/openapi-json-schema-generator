@@ -1,5 +1,5 @@
 ---
-title: Documentation for the java Generator
+title: Documentation for the java generator
 ---
 
 ## METADATA

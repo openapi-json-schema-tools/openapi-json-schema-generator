@@ -1,5 +1,5 @@
 ---
-title: Documentation for the jmeter Generator
+title: Documentation for the jmeter generator
 ---
 
 ## METADATA
