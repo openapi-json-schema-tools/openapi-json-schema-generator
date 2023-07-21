@@ -2,7 +2,6 @@ FROM maven:3.6.3-jdk-11-openj9
 
 ENV GEN_DIR /opt/openapi-json-schema-generator
 WORKDIR ${GEN_DIR}
-VOLUME  ${MAVEN_HOME}/.m2/repository
 
 # Required from a licensing standpoint
 COPY ./LICENSE ${GEN_DIR}
