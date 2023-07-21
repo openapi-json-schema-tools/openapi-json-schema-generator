@@ -1,8 +1,8 @@
 generatorName: java
 outputDir: samples/client/petstore/java/webclient
 library: webclient
-inputSpec: modules/openapi-json-schema-generator/src/test/resources/3_0/petstore-with-fake-endpoints-models-for-testing.yaml
-templateDir: modules/openapi-json-schema-generator/src/main/resources/Java
+inputSpec: src/test/resources/3_0/petstore-with-fake-endpoints-models-for-testing.yaml
+templateDir: src/main/resources/Java
 additionalProperties:
   artifactId: petstore-webclient
   hideGenerationTimestamp: "true"

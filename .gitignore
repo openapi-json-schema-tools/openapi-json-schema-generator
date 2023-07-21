@@ -8,8 +8,7 @@ out/
 *.gpg
 classpath.txt
 version.properties
-modules/openapi-generator-gradle-plugin/bin/
-!modules/openapi-generator-cli/src/main/resources/version.properties
+!src/main/resources/version.properties
 .project
 .classpath
 lib/*

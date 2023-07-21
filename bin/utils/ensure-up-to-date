@@ -5,7 +5,7 @@
 # shellcheck disable=SC2155
 declare cwd="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 declare root="$(cd "$cwd" && cd ../../ && pwd)"
-declare executable="${root}/modules/openapi-generator-cli/target/openapi-generator-cli.jar"
+declare executable="${root}/target/openapi-generator-cli.jar"
 
 echo "# START SCRIPT: $0"
 echo "IMPORTANT: this script should be run by the CI (e.g. Shippable) to ensure that the 'samples/' folder is up to date."

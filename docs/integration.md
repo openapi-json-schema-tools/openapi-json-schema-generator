@@ -4,21 +4,6 @@ title: Workflow Integrations
 ---
 ## Workflow Integration (Gradle, Maven, GitHub, CI/CD)
 
-### Gradle Integration
-
-See the [openapi-generator-gradle-plugin README](https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator-gradle-plugin/README.adoc) for details related to configuring and using the Gradle Plugin.
-
-Supported tasks include:
-
-* Listing generators
-* Validation of Open API 2.0 and 3.0 Specs
-* Generating "Meta" generators
-* Generating all generators supported by OpenAPI Generator
-
-### Maven Integration
-
-See the [openapi-generator-maven-plugin README](https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator-maven-plugin/README.md) for details related to configuring and using the Maven Plugin.
-
 ### sbt Integration
 
 Please refer to https://github.com/OpenAPITools/sbt-openapi-generator

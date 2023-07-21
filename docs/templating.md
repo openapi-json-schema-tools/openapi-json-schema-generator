@@ -7,11 +7,11 @@ It's easy to work with templates for codegen!
 
 For maybe 90% of use cases, you will only need to modify the mustache template files to create your own custom generated code. If you need to include additional files in your generated output, manipulate the OpenAPI document inputs, or implement your own vendor extensions or other logic, you'll want to read [customization](./customization.md) after you read this document. Be sure to start here first, because templating is the easier concept and you'll need it for more advanced use cases.
 
-The generator workflow has [transforming logic](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages) as well as templates for each generation of code.
+The generator workflow has [transforming logic](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/src/main/java/org/openapijsonschematools/codegen/generators) as well as templates for each generation of code.
 
-Each generator will create a data structure from the OpenAPI document; OpenAPI 2.0 and OpenAPI 3.x documents are normalized into the same API model within the generator. This model is then applied to the templates.  While generators do not need to perform transformations, it's often necessary in order to add more advanced support for your language or framework. You may need to refer to the generator implementation to understand some of the logic while creating or customizing templates (see [ScalaFinchServerCodegen.java](https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages/ScalaFinchServerCodegen.java) for an advanced example).
+Each generator will create a data structure from the OpenAPI document; OpenAPI 2.0 and OpenAPI 3.x documents are normalized into the same API model within the generator. This model is then applied to the templates.  While generators do not need to perform transformations, it's often necessary in order to add more advanced support for your language or framework. You may need to refer to the generator implementation to understand some of the logic while creating or customizing templates (see [ScalaFinchServerCodegen.java](https://github.com/OpenAPITools/openapi-generator/blob/master/src/main/java/org/openapijsonschematools/codegen/generators/ScalaFinchServerCodegen.java) for an advanced example).
 
-The transform logic needs to implement [CodegenConfig.java](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/CodegenConfig.java) and is most easily done by extending [DefaultCodegen.java](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/DefaultCodegen.java).  Take a look at the various implementations as a guideline while the instructions get more complete.
+The transform logic needs to implement [CodegenConfig.java](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/src/main/java/org/openapijsonschematools/codegen/CodegenConfig.java) and is most easily done by extending [DefaultCodegen.java](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/src/main/java/org/openapijsonschematools/codegen/DefaultCodegen.java).  Take a look at the various implementations as a guideline while the instructions get more complete.
 
 ## Modifying Templates
 
@@ -62,13 +62,13 @@ In OpenAPI Generator 5.0 and later, you can use the CLI command `author template
 openapi-generator author template -g java --library webclient
 ```
 
-For OpenAPI Generator versions prior to 5.0, you will want to find the [resources directory](https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator/src/main/resources) for the generator you want to extend. This is generally easy to find as directories commonly follow the convention of `resources/<generator name>`. In cases where you're unsure, you will need to find the `embeddedTemplateDir` assignment in your desired generator. This is almost always assigned in the constructor of the generator class. The C# .Net Core generator assigns this as:
+For OpenAPI Generator versions prior to 5.0, you will want to find the [resources directory](https://github.com/OpenAPITools/openapi-generator/tree/master/src/main/resources) for the generator you want to extend. This is generally easy to find as directories commonly follow the convention of `resources/<generator name>`. In cases where you're unsure, you will need to find the `embeddedTemplateDir` assignment in your desired generator. This is almost always assigned in the constructor of the generator class. The C# .Net Core generator assigns this as:
 
 ```
 embeddedTemplateDir = templateDir = "csharp-netcore";
 ```
 
-These templates are in our source repository at [modules/openapi-generator/src/main/resources/csharp-netcore](https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator/src/main/resources/csharp-netcore). Be sure to select the tag or branch for the version of OpenAPI Generator you're using before grabbing the templates.
+These templates are in our source repository at [src/main/resources/csharp-netcore](https://github.com/OpenAPITools/openapi-generator/tree/master/src/main/resources/csharp-netcore). Be sure to select the tag or branch for the version of OpenAPI Generator you're using before grabbing the templates.
 
 **NOTE** If you have specific logic you'd like to modify such as modifying the generated README, you _only_ need to pull and modify this individual template. OpenAPI Generator will lookup templates in this order:
 
@@ -86,14 +86,14 @@ The Java generator supports a `library` option. This option works by defining ba
 
 To get started, we will need to copy our target generator's directory in full.
 
-The directory will be located under `modules/openapi-generator/src/main/resources/{generator}`. In general, the generator directory matches the generator name (what you would pass to the `generator` option), but this is not a requirement-- if you are having a hard time finding the template directory, look at the `embeddedTemplateDir` option in your target generator's implementation.
+The directory will be located under `src/main/resources/{generator}`. In general, the generator directory matches the generator name (what you would pass to the `generator` option), but this is not a requirement-- if you are having a hard time finding the template directory, look at the `embeddedTemplateDir` option in your target generator's implementation.
 
-If you've already cloned openapi-generator, find and copy the `modules/openapi-generator/src/main/resources/Java` directory. If you have the [Refined GitHub](https://github.com/sindresorhus/refined-github) Chrome or Firefox Extension, you can navigate to this directory on GitHub and click the "Download" button. Or, to pull the directory from latest master:
+If you've already cloned openapi-generator, find and copy the `src/main/resources/Java` directory. If you have the [Refined GitHub](https://github.com/sindresorhus/refined-github) Chrome or Firefox Extension, you can navigate to this directory on GitHub and click the "Download" button. Or, to pull the directory from latest master:
 
 ```bash
 mkdir -p ~/.openapi-generator/templates/ && cd $_
 curl -L https://api.github.com/repos/OpenAPITools/openapi-generator/tarball | tar xz
-mv `ls`/modules/openapi-generator/src/main/resources/Java ./Java
+mv `ls`/src/main/resources/Java ./Java
 \rm -rf OpenAPITools-openapi-generator-*
 cd Java
 ```
@@ -247,7 +247,7 @@ Now we're ready to generate the client with our simple changes. When we pass the
 openapi-generator generate -g java --library resteasy \
     -t ~/.openapi-generator/templates/Java \
     -o ~/.openapi-generator/example \
-    -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml
+    -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/src/test/resources/3_0/petstore.yaml
 ```
 
 Make sure your custom template compiles:

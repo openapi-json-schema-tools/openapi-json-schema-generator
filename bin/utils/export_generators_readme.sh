@@ -3,7 +3,7 @@
 SCRIPT="$0"
 echo "# START SCRIPT: $SCRIPT"
 
-executable="./modules/openapi-generator-cli/target/openapi-generator-cli.jar"
+executable="./target/openapi-generator-cli.jar"
 
 \rm -rf docs/generators.md
 

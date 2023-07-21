@@ -10,13 +10,13 @@ Creating a new generator which will become a part of the officially supported ge
 The minimum set of files required to create a new generator are:
 
 * A "Codegen" file
-  - exists under `modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages/`
+  - exists under `modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/generators/`
   - defines language options
   - defines framework options
   - determines OpenAPI feature set
   - extends the generation workflow
 * SPI registration
-  - Above class must be referenced in `modules/openapi-generator/src/main/resources/META-INF/services/CodegenConfig`
+  - Above class must be referenced in `modules/openapi-generator/src/main/resources/META-INF/services/Generator`
   - Tells the generator that this class exists
   - Allows for classpath extension (addition) of generators
 * A minimal template
@@ -53,7 +53,7 @@ Examples:
   ./new.sh -n kotlin -s
 
     Creates:
-    modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages/KotlinServerCodegen.java
+    modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/generators/KotlinServerCodegen.java
     modules/openapi-generator/src/main/resources/kotlin-server/README.mustache
     modules/openapi-generator/src/main/resources/kotlin-server/model.mustache
     modules/openapi-generator/src/main/resources/kotlin-server/api.mustache
@@ -62,7 +62,7 @@ Examples:
   Create a generic C# server generator:
   ./new.sh -n csharp -s -t
     Creates:
-    modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages/CsharpServerCodegen.java
+    modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/generators/CsharpServerCodegen.java
     modules/openapi-generator/src/main/resources/csharp-server/README.mustache
     modules/openapi-generator/src/main/resources/csharp-server/model.mustache
     modules/openapi-generator/src/main/resources/csharp-server/api.mustache
@@ -84,7 +84,7 @@ Create a new Markdown generator, specifying CommonMark as the name to avoid conf
 You should see output similar to the following:
 
 ```bash
-Creating modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages/CommonMarkDocumentationCodegen.java
+Creating modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/generators/CommonMarkDocumentationCodegen.java
 Creating modules/openapi-generator/src/main/resources/common-mark-documentation/README.mustache
 Creating modules/openapi-generator/src/main/resources/common-mark-documentation/model.mustache
 Creating modules/openapi-generator/src/main/resources/common-mark-documentation/api.mustache
