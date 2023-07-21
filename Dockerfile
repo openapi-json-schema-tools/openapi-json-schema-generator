@@ -18,7 +18,7 @@ RUN rm -rf src
 # multi stage build, jar in smaller image
 FROM openjdk:11.0-jre-buster
 ENV GEN_DIR /opt/openapi-json-schema-generator
-COPY --from=builder ${GEN_DIR}/target/openapi-json-schema-generator-project.jar ${GEN_DIR}/target/openapi-json-schema-generator-project.jar
+COPY --from=builder ${GEN_DIR}/target/openapi-json-schema-generator-cli.jar ${GEN_DIR}/target/openapi-json-schema-generator-cli.jar
 COPY docker-entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["help"]

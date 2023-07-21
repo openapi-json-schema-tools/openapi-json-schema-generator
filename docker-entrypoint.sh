@@ -7,7 +7,7 @@ GEN_DIR=${GEN_DIR:-/opt/openapi-json-schema-generator}
 JAVA_OPTS=${JAVA_OPTS:-"-Xmx1024M -DloggerPath=conf/log4j.properties"}
 
 cli="${GEN_DIR}"
-codegen="${cli}/target/openapi-json-schema-generator-project.jar"
+codegen="${cli}/target/openapi-json-schema-generator-cli.jar"
 
 # We code in a list of commands here as source processing is potentially buggy (requires undocumented conventional use of annotations).
 # A list of known commands helps us determine if we should compile CLI. There's an edge-case where a new command not added to this
