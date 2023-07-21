@@ -19,11 +19,9 @@ import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.parser.core.models.ParseOptions;
 
 import org.apache.commons.io.IOUtils;
-import org.openapijsonschematools.codegen.generatorrunner.DefaultGeneratorRunner;
 import org.openapijsonschematools.codegen.generators.javaassertions.JavaFileAssert;
 import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openrewrite.maven.internal.RawPom;
-import org.testng.Assert;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -35,7 +33,6 @@ import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 import com.google.common.collect.ImmutableMap;
 
@@ -100,24 +97,6 @@ public class TestUtils {
         openAPI.setComponents(new Components());
         openAPI.getComponents().addSchemas(name, schema);
         return openAPI;
-    }
-
-    /**
-     * Extract file from {@link MockDefaultGeneratorRunner}
-     *
-     * @param generator GeneratorRunner
-     * @param root root path
-     * @param filename filename under root
-     *
-     * @return a {@link MockDefaultGeneratorRunner.WrittenTemplateBasedFile}
-     * @deprecated Since 5.0. Please avoid this method and usage of {@link MockDefaultGeneratorRunner}, prefer {@link DefaultGeneratorRunner#DefaultGeneratorRunner(Boolean)} with dryRun=true.
-     */
-    @Deprecated
-    public static MockDefaultGeneratorRunner.WrittenTemplateBasedFile getTemplateBasedFile(MockDefaultGeneratorRunner generator, File root, String filename) {
-        String defaultApiFilename = new File(root, filename).getAbsolutePath().replace("\\", "/");
-        Optional<MockDefaultGeneratorRunner.WrittenTemplateBasedFile> optional = generator.getTemplateBasedFiles().stream().filter(f -> defaultApiFilename.equals(f.getOutputFilename())).findFirst();
-        Assert.assertTrue(optional.isPresent());
-        return optional.get();
     }
 
     public static void ensureContainsFile(List<File> generatedFiles, File root, String filename) {
