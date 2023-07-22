@@ -29,13 +29,13 @@ Please file the pull request against the correct branch, e.g. `master` for non-b
 
 ### Code generators
 
-All the code generators can be found in [modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages)
+All the code generators can be found in [src/main/java/org/openapijsonschematools/codegen/generators](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/src/main/java/org/openapijsonschematools/codegen/generators)
 
 If you want to add a new generator, follow the [new-generator](https://openapi-generator.tech/docs/new-generator) guide. 
 
 ### Templates
 
-All the templates ([mustache](https://mustache.github.io/)) can be found in [modules/openapi-generator/src/main/resources](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/modules/openapi-generator/src/main/resources).
+All the templates ([mustache](https://mustache.github.io/)) can be found in [src/main/resources](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/src/main/resources).
 
 For a list of variables available in the template, please refer to this [page](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/wiki/Mustache-Template-Variables)
 
@@ -84,15 +84,15 @@ For [Vendor Extensions](https://github.com/OAI/OpenAPI-Specification/blob/master
 
 ### Testing
 
-To add test cases (optional) covering the change in the code generator, please refer to [modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/modules/openapi-generator/src/test/java/org/openapijsonschematools/codegen)
+To add test cases (optional) covering the change in the code generator, please refer to [src/test/java/org/openapijsonschematools/codegen](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/src/test/java/org/openapijsonschematools/codegen)
 
 To test the templates, please perform the following:
 
 - Update the Petstore sample by running the shell scripts under the `bin` folder. For example, run `./bin/generate-samples.sh ./bin/configs/python*` to update the Python-related samples under [`samples`](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/samples). For Windows, please install [GIT bash](https://gitforwindows.org/). (If you find that there are new files generated or unexpected changes as a result of the update, that's not unusual as the test cases are added to the OpenAPI spec from time to time. If you've questions or concerns, please open a ticket to start a discussion)
-- During development, it can be helpful to quickly regenerate the samples without recompiling all of openapi-generator, e.g. when you have only updated the mustache templates. This can be done by passing the `-t` parameter: `-t modules/openapi-generator/src/main/resources/python`.
+- During development, it can be helpful to quickly regenerate the samples without recompiling all of openapi-generator, e.g. when you have only updated the mustache templates. This can be done by passing the `-t` parameter: `-t src/main/resources/python`.
 - Run the tests in the sample folder using maven `mvn integration-test -f /path/to/pom.xml`, e.g. `mvn integration-test -f samples/client/petstore/python/pom.xml`. (some languages may not contain unit testing for Petstore and we're looking for contribution from the community to implement those tests). __Please notice:__ you must run a local instance of the Petstore server in order to perform the tests, as running them against petstore.swagger.io is not supported anymore. Please refer to item 3 of [Integration Tests - How to add integration tests for new Petstore samples](https://github.com/OpenAPITools/openapi-generator/wiki/Integration-Tests#how-to-add-integration-tests-for-new-petstore-samples) to learn how to quickly configure and run it.
 - Finally, git commit the updated samples files: `git commit -a` (`git add -A` if added files with new test cases)
-- For new test cases, please add to the [Fake Petstore spec](https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator/src/test/resources/3_0/petstore-with-fake-endpoints-models-for-testing.yaml)
+- For new test cases, please add to the [Fake Petstore spec](https://github.com/OpenAPITools/openapi-generator/blob/master/src/test/resources/3_0/petstore-with-fake-endpoints-models-for-testing.yaml)
 
 To start the CI tests, you can:
 - Run `mvn verify -Psamples`, assuming you have all the required tools installed to run tests for different languages.

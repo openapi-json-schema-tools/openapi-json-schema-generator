@@ -52,9 +52,9 @@ You can join us here: https://discord.gg/mHB8WEQuYQ
 
 And many more!
 - [Docs for the python generator](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/docs/generators/python.md)
-- [Openapi json schema v3.0.3 unit test spec](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/modules/openapi-json-schema-generator/src/test/resources/3_0/unit_test_spec/3_0_3_unit_test_spec.yaml)
+- [Openapi json schema v3.0.3 unit test spec](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/src/test/resources/3_0/unit_test_spec/3_0_3_unit_test_spec.yaml)
   - [generated client sample code](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/samples/openapi3/client/3_0_3_unit_test/python)
-- [Openapi v3.0.3 general petstore spec, general features](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/modules/openapi-json-schema-generator/src/test/resources/3_0/python/petstore_customized.yaml)
+- [Openapi v3.0.3 general petstore spec, general features](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/src/test/resources/3_0/python/petstore_customized.yaml)
   - [generated client sample code](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/samples/openapi3/client/petstore/python)
 
 ### Can I build here?
@@ -140,7 +140,7 @@ Example:
 
 ```sh
 docker run --rm -v "${PWD}:/local" openapijsonschematools/openapi-json-schema-generator-cli generate \
-    -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml \
+    -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/src/test/resources/3_0/petstore.yaml \
     -g python \
     -o /local/out/python
 ```
@@ -168,7 +168,7 @@ Once built, `run-in-docker.sh` will act as an executable for openapi-json-schema
 ./run-in-docker.sh help # Executes 'help' command for openapi-json-schema-generator-cli
 ./run-in-docker.sh list # Executes 'list' command for openapi-json-schema-generator-cli
 ./run-in-docker.sh /gen/bin/python-petstore.sh  # Builds the Go client
-./run-in-docker.sh generate -i modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml \
+./run-in-docker.sh generate -i src/test/resources/3_0/petstore.yaml \
     -g go -o /gen/out/python-petstore -p packageName=petstore_api # generates python client, outputs locally to ./out/python-petstore
 ```
 
@@ -200,30 +200,30 @@ cd /vagrant
 <!-- /RELEASE_VERSION -->
 ## [2 - Getting Started](#table-of-contents)
 
-To generate a python client for [petstore.yaml](https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml), please run the following
+To generate a python client for [petstore.yaml](https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/src/test/resources/3_0/petstore.yaml), please run the following
 ```sh
 git clone https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
 cd openapi-json-schema-generator
 mvn clean package
-java -jar modules/openapi-json-schema-generator-cli/target/openapi-json-schema-generator-cli.jar generate \
-   -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml \
+java -jar target/openapi-json-schema-generator-cli.jar generate \
+   -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/src/test/resources/3_0/petstore.yaml \
    -g python \
    -o /var/tmp/python_api_client
 ```
-(if you're on Windows, replace the last command with `java -jar modules\openapi-json-schema-generator-cli\target\openapi-json-schema-generator-cli.jar generate -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml -g python -o c:\temp\python_api_client`)
+(if you're on Windows, replace the last command with `java -jar target\openapi-json-schema-generator-cli.jar generate -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/src/test/resources/3_0/petstore.yaml -g python -o c:\temp\python_api_client`)
 
 <!-- RELEASE_VERSION -->
 You can also download the JAR (latest release) directly from [maven.org](https://repo1.maven.org/maven2/org/openapijsonschematools/openapi-json-schema-generator-cli/6.1.0/openapi-json-schema-generator-cli-6.1.0.jar)
 <!-- /RELEASE_VERSION -->
 
-To get a list of **general** options available, please run `java -jar modules/openapi-json-schema-generator-cli/target/openapi-json-schema-generator-cli.jar help generate`
+To get a list of **general** options available, please run `java -jar target/openapi-json-schema-generator-cli.jar help generate`
 
-To get a list of PHP specified options (which can be passed to the generator with a config file via the `-c` option), please run `java -jar modules/openapi-json-schema-generator-cli/target/openapi-json-schema-generator-cli.jar config-help -g php`
+To get a list of PHP specified options (which can be passed to the generator with a config file via the `-c` option), please run `java -jar target/openapi-json-schema-generator-cli.jar config-help -g php`
 
 ## [3 - Usage](#table-of-contents)
 
 ### To generate a sample client library
-You can build a client against the [Petstore API](https://raw.githubusercontent.com/openapijsonschematools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml) as follows:
+You can build a client against the [Petstore API](https://raw.githubusercontent.com/openapijsonschematools/openapi-json-schema-generator/master/src/test/resources/3_0/petstore.yaml) as follows:
 
 ```sh
 ./bin/generate-samples.sh ./bin/configs/python.yaml
@@ -234,10 +234,10 @@ You can build a client against the [Petstore API](https://raw.githubusercontent.
 This script will run the generator with this command:
 
 ```sh
-java -jar modules/openapi-json-schema-generator-cli/target/openapi-json-schema-generator-cli.jar generate \
-  -i https://raw.githubusercontent.com/openapijsonschematools/openapi-json-schema-generator/master/modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.yaml \
+java -jar target/openapi-json-schema-generator-cli.jar generate \
+  -i https://raw.githubusercontent.com/openapijsonschematools/openapi-json-schema-generator/master/src/test/resources/3_0/petstore.yaml \
   -g python \
-  -t modules/openapi-json-schema-generator/src/main/resources/python \
+  -t src/main/resources/python \
   --additional-properties packageName=petstore_api \
   -o samples/openapi3/client/petstore/python
 ```

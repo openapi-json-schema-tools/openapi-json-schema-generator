@@ -101,7 +101,6 @@ jobs:
         run: |
           bash bin/meta-codegen.sh
           bash bin/utils/export_docs_generators.sh
-          bash bin/utils/copy-to-website.sh
           bash bin/utils/export_generators_readme.sh
       - name: Verify git status
         run: |

@@ -79,7 +79,7 @@ Note that user-defined templates will merge with built-in template definitions. 
 <a id="creating-a-new-template"></a> If none of the built-in generators suit your needs and you need to do more than just modify the mustache templates to tweak generated code, you can create a brand new generator and its associated templates. OpenAPI Generator can help with this, using the `meta` command:
 
 ```sh
-java -jar modules/openapi-generator-cli/target/openapi-generator-cli.jar meta \
+java -jar target/openapi-generator-cli.jar meta \
   -o out/generators/my-codegen -n my-codegen -p com.my.company.codegen
 ```
 
@@ -99,28 +99,28 @@ If you are running a Windows Subsystem for Linux or a shell such as gitbash, and
 Now, execute the generator:
 
 ```sh
-java -cp out/generators/my-codegen/target/my-codegen-openapi-generator-1.0.0.jar:modules/openapi-generator-cli/target/openapi-generator-cli.jar OpenAPIGenerator
+java -cp out/generators/my-codegen/target/my-codegen-openapi-generator-1.0.0.jar:target/openapi-generator-cli.jar OpenAPIGenerator
 ```
 
 For Windows users, you will need to use `;` instead of `:` in the classpath, e.g.
 ```
-java -cp "out/generators/my-codegen/target/my-codegen-openapi-generator-1.0.0.jar;modules/openapi-generator-cli/target/openapi-generator-cli.jar" OpenAPIGenerator
+java -cp "out/generators/my-codegen/target/my-codegen-openapi-generator-1.0.0.jar;target/openapi-generator-cli.jar" OpenAPIGenerator
 ```
 
 Note the `my-codegen` is an option for `-g` now, and you can use the usual arguments for generating your code:
 
 ```sh
-java -cp out/generators/my-codegen/target/my-codegen-openapi-generator-1.0.0.jar:modules/openapi-generator-cli/target/openapi-generator-cli.jar \
+java -cp out/generators/my-codegen/target/my-codegen-openapi-generator-1.0.0.jar:target/openapi-generator-cli.jar \
   OpenAPIGenerator generate -g my-codegen \
-  -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml \
+  -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/src/test/resources/3_0/petstore.yaml \
   -o ./out/myClient
 ```
 
 For Windows users:
 ```
-java -cp "out/codegens/customCodegen/target/my-codegen-openapi-generator-1.0.0.jar;modules/openapi-generator-cli/target/openapi-generator-cli.jar" \
+java -cp "out/codegens/customCodegen/target/my-codegen-openapi-generator-1.0.0.jar;target/openapi-generator-cli.jar" \
   OpenAPIGenerator generate -g my-codegen \
-  -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml \
+  -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/src/test/resources/3_0/petstore.yaml \
   -o ./out/myClient
 ```
 
@@ -271,7 +271,7 @@ Editor support for `.openapi-generator-ignore` files is available in IntelliJ vi
 There are different aspects of customizing the code generator beyond just creating or modifying templates.  Each language has a supporting configuration file to handle different type mappings, etc:
 
 ```sh
-$ ls -1 modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/languages/
+$ ls -1 src/main/java/org/openapijsonschematools/codegen/generators/
 AbstractJavaJAXRSServerCodegen.java
 AbstractTypeScriptClientCodegen.java
 ... (results omitted)
@@ -282,8 +282,8 @@ TypeScriptNodeClientCodegen.java
 Each of these files creates reasonable defaults so you can get running quickly.  But if you want to configure package names, prefixes, model folders, etc. you can use a json config file to pass the values.
 
 ```sh
-java -jar modules/openapi-generator-cli/target/openapi-generator-cli.jar generate \
-  -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml \
+java -jar target/openapi-generator-cli.jar generate \
+  -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/src/test/resources/3_0/petstore.yaml \
   -g java \
   -o samples/client/petstore/java \
   -c path/to/config.json
@@ -303,7 +303,7 @@ Supported config options can be different per language. Running `config-help -g 
 **These options are applied via configuration file (e.g. config.json or config.yml) or by passing them with `-p {optionName}={optionValue}`**. (If `-p {optionName}` does not work, please open a [ticket](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/issues/new) and we'll look into it)
 
 ```sh
-java -jar modules/openapi-generator-cli/target/openapi-generator-cli.jar config-help -g java
+java -jar target/openapi-generator-cli.jar config-help -g java
 ```
 
 Output
@@ -397,11 +397,11 @@ or
 
 One can map the schema to someting else (e.g. external objects/models outside of the package) using the `schemaMappings` option, e.g. in CLI
 ```sh
-java -jar modules/openapi-generator-cli/target/openapi-generator-cli.jar generate -g java -i modules/openapi-generator/src/test/resources/3_0/type-alias.yaml -o /tmp/java2/ --schema-mapping TypeAlias=foo.bar.TypeAlias
+java -jar target/openapi-generator-cli.jar generate -g java -i src/test/resources/3_0/type-alias.yaml -o /tmp/java2/ --schema-mapping TypeAlias=foo.bar.TypeAlias
 ```
 Another example (in conjunction with --type-mappings):
 ```sh
-java -jar modules/openapi-generator-cli/target/openapi-generator-cli.jar generate -g java -i /tmp/alias.yaml -o /tmp/alias/ --schema-mappings stream=org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody --type-mappings string+binary=stream
+java -jar target/openapi-generator-cli.jar generate -g java -i /tmp/alias.yaml -o /tmp/alias/ --schema-mappings stream=org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody --type-mappings string+binary=stream
 ```
 while /tmp/alias.yaml is as follows:
 ```yaml
@@ -431,7 +431,7 @@ paths:
 Inline schemas are created as separate schemas automatically and the auto-generated schema name may not look good to everyone. One can customize the name using the `title` field or the `inlineSchemaNameMapping` option, e.g. in CLI
 
 ```
-java -jar modules/openapi-generator-cli/target/openapi-generator-cli.jar generate -g java -i  modules/openapi-generator/src/test/resources/3_0/inline_model_resolver.yaml -o /tmp/java3/ --skip-validate-spec --inline-schema-name-mappings inline_object_2=SomethingMapped,inline_object_4=nothing_new
+java -jar target/openapi-generator-cli.jar generate -g java -i  src/test/resources/3_0/inline_model_resolver.yaml -o /tmp/java3/ --skip-validate-spec --inline-schema-name-mappings inline_object_2=SomethingMapped,inline_object_4=nothing_new
 ```
 
 Another useful option is `inlineSchemaNameDefaults`, which allows you to customize the suffix of the auto-generated inline schema name, e.g. in CLI
