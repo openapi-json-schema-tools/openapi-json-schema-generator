@@ -188,7 +188,7 @@ public class ${lang_classname} extends DefaultCodegen implements CodegenConfig {
 EOF
 
 # Step 2: Register the new class with service loader
-echo -e "\norg.openapijsonschematools.codegen.generators.${lang_classname}" >> "${root}/src/main/resources/META-INF/services/org.openapijsonschematools.codegen.CodegenConfig"
+echo -e "\norg.openapijsonschematools.codegen.generators.${lang_classname}" >> "${root}/src/main/resources/META-INF/services/org.openapijsonschematools.codegen.generators.Generator"
 
 # Step 3: Create resource files
 mkdir -p "${root}/src/main/resources/${gen_name_camel}"
@@ -214,8 +214,8 @@ EOF
 if [ "1" -eq "${tests}" ]; then
     mkdir -p "${root}/src/test/java/org/openapijsonschematools/codegen/${gen_name_camel_path}"
     # Codegen
-    echo "Creating src/test/java/org/openapijsonschematools/codegen/${gen_name_camel_path}/${lang_classname}Test.java"
-    cat > "${root}/src/test/java/org/openapijsonschematools/codegen/${gen_name_camel_path}/${lang_classname}Test.java"<<EOF
+    echo "Creating src/test/java/org/openapijsonschematools/codegen/generators/${lang_classname}Test.java"
+    cat > "${root}/src/test/java/org/openapijsonschematools/codegen/generators/${lang_classname}Test.java"<<EOF
 package org.openapijsonschematools.codegen.${gen_name_camel_pkg};
 
 import org.openapijsonschematools.codegen.*;
@@ -237,43 +237,9 @@ public class ${lang_classname}Test {
 }
 EOF
 
-    # Model
-    echo "Creating src/test/java/org/openapijsonschematools/codegen/${gen_name_camel_path}/${lang_classname}ModelTest.java"
-    cat > "${root}/src/test/java/org/openapijsonschematools/codegen/${gen_name_camel_path}/${lang_classname}ModelTest.java"<<EOF
-package org.openapijsonschematools.codegen.${gen_name_camel_pkg};
-
-import org.openapijsonschematools.codegen.*;
-import org.openapijsonschematools.codegen.generators.${lang_classname};
-import io.swagger.models.*;
-import io.swagger.models.properties.*;
-
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
-@SuppressWarnings("static-method")
-public class ${lang_classname}ModelTest {
-
-    @Test(description = "convert a simple java model")
-    public void simpleModelTest() {
-        final Model model = new ModelImpl()
-                .description("a sample model")
-                .property("id", new LongProperty())
-                .property("name", new StringProperty())
-                .required("id")
-                .required("name");
-        final DefaultCodegen codegen = new ${lang_classname}();
-
-        // TODO: Complete this test.
-        Assert.fail("Not implemented.");
-    }
-
-}
-
-EOF
-
     # Options
-    echo "Creating src/test/java/org/openapijsonschematools/codegen/${gen_name_camel_path}/${lang_classname}OptionsTest.java"
-    cat > "${root}/src/test/java/org/openapijsonschematools/codegen/${gen_name_camel_path}/${lang_classname}OptionsTest.java"<<EOF
+    echo "Creating src/test/java/org/openapijsonschematools/codegen/generators/options/${lang_classname}OptionsTest.java"
+    cat > "${root}/src/test/java/org/openapijsonschematools/codegen/generators/options/${lang_classname}OptionsTest.java"<<EOF
 package org.openapijsonschematools.codegen.${gen_name_camel_pkg};
 
 import org.openapijsonschematools.codegen.AbstractOptionsTest;
