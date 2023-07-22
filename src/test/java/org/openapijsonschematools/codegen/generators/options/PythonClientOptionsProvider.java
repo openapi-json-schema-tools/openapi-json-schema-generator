@@ -30,9 +30,6 @@ public class PythonClientOptionsProvider implements OptionsProvider {
     public static final String PACKAGE_URL_VALUE = "";
     public static final String USE_NOSE_VALUE = "false";
     public static final String RECURSION_LIMIT = "1200";
-    public static final String DISALLOW_ADDITIONAL_PROPERTIES_IF_NOT_PRESENT = "false";
-    public static final String PYTHON_ATTR_NONE_IF_UNSET = "false";
-    public static final String INIT_REQUIRED_VARS = "false";
 
     @Override
     public String getLanguage() {
@@ -49,11 +46,9 @@ public class PythonClientOptionsProvider implements OptionsProvider {
                 .put(CodegenConstants.HIDE_GENERATION_TIMESTAMP, "true")
                 .put(CodegenConstants.SOURCECODEONLY_GENERATION, "false")
                 .put(CodegenConstants.LIBRARY, "urllib3")
-                .put(CodegenConstants.DISALLOW_ADDITIONAL_PROPERTIES_IF_NOT_PRESENT, DISALLOW_ADDITIONAL_PROPERTIES_IF_NOT_PRESENT)
                 .put(PythonClientGenerator.USE_NOSE, USE_NOSE_VALUE)
                 .put(PythonClientGenerator.RECURSION_LIMIT, RECURSION_LIMIT)
-                //.put(PythonClientGenerator.PYTHON_ATTR_NONE_IF_UNSET, PYTHON_ATTR_NONE_IF_UNSET)
-                .put(CodegenConstants.INIT_REQUIRED_VARS, INIT_REQUIRED_VARS)
+                .put(CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS, "false")
                 .build();
     }
 
