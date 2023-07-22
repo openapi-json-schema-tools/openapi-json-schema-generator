@@ -307,8 +307,8 @@ public class ${lang_classname}OptionsTest extends AbstractOptionsTest {
 EOF
 
     # Options Provider
-    echo "Creating src/test/java/org/openapijsonschematools/codegen/options/${lang_classname}OptionsProvider.java"
-    cat > "${root}/src/test/java/org/openapijsonschematools/codegen/options/${lang_classname}OptionsProvider.java"<<EOF
+    echo "Creating src/test/java/org/openapijsonschematools/codegen/generators/options/${lang_classname}OptionsProvider.java"
+    cat > "${root}/src/test/java/org/openapijsonschematools/codegen/generators/options/${lang_classname}OptionsProvider.java"<<EOF
 package org.openapijsonschematools.codegen.options;
 
 import org.openapijsonschematools.codegen.CodegenConstants;
