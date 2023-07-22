@@ -20,5 +20,5 @@ docker run --rm -it \
         -v "${PWD}:/gen" \
         -v "${PWD}/bin/run-in-docker-settings.xml:/var/maven/.m2/settings.xml" \
         -v "${maven_cache_repo}:/var/maven/.m2/repository" \
-        --entrypoint /gen/docker-entrypoint.sh \
+        --entrypoint /gen/docker/docker-entrypoint.sh \
         maven:3-jdk-8 "$@"
