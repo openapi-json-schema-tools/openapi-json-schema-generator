@@ -186,17 +186,6 @@ If an error like this occurs, just execute the **mvn clean install -U** command:
 
 Right now: no solution for this one :|
 
-#### Run Docker in Vagrant
-Prerequisite: install [Vagrant](https://www.vagrantup.com/downloads.html) and [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
- ```sh
-git clone https://github.com/openapi-json-schema-tools/openapi-json-schema-generator.git
-cd openapi-json-schema-generator
-vagrant up
-vagrant ssh
-cd /vagrant
-./run-in-docker.sh mvn package
-```
-
 <!-- /RELEASE_VERSION -->
 ## [2 - Getting Started](#table-of-contents)
 

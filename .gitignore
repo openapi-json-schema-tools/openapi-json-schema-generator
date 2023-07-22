@@ -27,7 +27,6 @@ atlassian-ide-plugin.xml
 packages/
 .pub
 .packages
-.vagrant/
 .vscode/
 **/.vs
 .factorypath

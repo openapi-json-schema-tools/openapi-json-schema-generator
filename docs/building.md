@@ -48,19 +48,6 @@ Once built, `run-in-docker.sh` will act as an executable for openapi-generator-c
     -g go -o /gen/out/go-petstore -p packageName=petstore # generates go client, outputs locally to ./out/go-petstore
 ```
 
-### Docker in Vagrant
-
-Prerequisite: install [Vagrant](https://www.vagrantup.com/downloads.html) and [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
-
-```bash
-git clone https://github.com/openapi-json-schema-tools/openapi-json-schema-generator.git
-cd openapi-generator
-vagrant up
-vagrant ssh
-cd /vagrant
-./run-in-docker.sh mvn package
-```
-
 ### Troubleshooting
 
 If an error like this occurs, just execute the **mvn clean install -U** command:
