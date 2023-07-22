@@ -103,6 +103,7 @@ The OpenAPI Specification has undergone 3 revisions since initial creation in 20
 ### [1.2 - Build Projects](#table-of-contents)
 
 To build from source, you need the following installed and available in your `$PATH:`
+* [Apache Maven](https://maven.apache.org/download.cgi)
 
 * [Java 8](https://www.oracle.com/technetwork/java/index.html)
 
@@ -111,11 +112,6 @@ To build from source, you need the following installed and available in your `$P
 After cloning the project, you can build it from source with this command:
 ```sh
 mvn clean install
-```
-
-If you don't have maven installed, you may directly use the included [maven wrapper](https://github.com/takari/maven-wrapper), and build with the command:
-```sh
-./mvnw clean install
 ```
 
 The default build contains minimal static analysis (via CheckStyle). To run your build with PMD and Spotbugs, use the `static-analysis` profile:

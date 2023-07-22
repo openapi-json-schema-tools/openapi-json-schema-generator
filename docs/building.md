@@ -17,12 +17,6 @@ After cloning the project, you can build it from source with this command:
 mvn clean install
 ```
 
-If you don't have maven installed, you may directly use the included [maven wrapper](https://github.com/takari/maven-wrapper), and build with the command:
-
-```bash
-./mvnw clean install
-```
-
 ## Using Docker
 
 You can use `run-in-docker.sh` to do all development. This script maps your local repository to `/gen`
