@@ -1,5 +1,5 @@
 ---
-title: Documentation for the kotlin Generator
+title: Documentation for the kotlin generator
 ---
 
 ## METADATA

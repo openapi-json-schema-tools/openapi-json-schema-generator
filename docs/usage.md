@@ -233,21 +233,6 @@ OPTIONS
 
         --recommend
 ```
-
-Valid Spec Example (using [petstore-v3.0.yaml](https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/modules/openapi-generator-gradle-plugin/samples/local-spec/petstore-v3.0.yaml))
-```bash
-openapi-generator-cli validate -i petstore-v3.0.yaml
-```
-```text
-Validating spec (petstore-v3.0.yaml)
-No validation issues detected.
-```
-
-Invalid Spec Example (using [petstore-v3.0-invalid.yaml](https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/modules/openapi-generator-gradle-plugin/samples/local-spec/petstore-v3.0-invalid.yaml)):
-
-```bash
-openapi-generator-cli validate -i petstore-v3.0-invalid.yaml
-```
 ```text
 Validating spec (petstore-v3.0-invalid.yaml)
 Errors:
@@ -255,26 +240,6 @@ Errors:
 
 [error] Spec has 1 errors.
 ```
-
-## completion
-
-Although not documented in the `help` output, the CLI offers a `completion` command, which can be used for auto-completion.
-
-This command takes one or more parameters representing the args list you would otherwise pass to `openapi-generator`. For example:
-
-```bash
-openapi-generator-cli completion config-help
--o
---output
---named-header
--g
---generator-name
--f
---format
---markdown-header
-```
-
-An example bash completion script can be found in the repo at [scripts/openapi-generator-cli-completion.bash](https://github.com/OpenAPITools/openapi-generator/blob/master/scripts/openapi-generator-cli-completion.bash).
 
 ## generate
 
@@ -520,7 +485,7 @@ At a minimum, `generate` requires:
 
 ### Examples
 
-The following examples use [petstore.yaml](https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml).
+The following examples use [petstore.yaml](https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/src/test/resources/3_0/petstore.yaml).
 
 #### Additional Properties
 
@@ -560,7 +525,7 @@ openapi-generator-cli generate \
     --type-mappings=DateTime=java.time.LocalDateTime
 ```
 
-> NOTE: mappings are applied to `DateTime`, as this is the representation of the primitive type. See [DefaultCodegen](https://github.com/OpenAPITools/openapi-generator/blob/7cee999543fcc00b7c1eb9f70f0456b707c7f9e2/modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/DefaultCodegen.java#L1431).
+> NOTE: mappings are applied to `DateTime`, as this is the representation of the primitive type. See [DefaultCodegen](https://github.com/OpenAPITools/openapi-generator/blob/7cee999543fcc00b7c1eb9f70f0456b707c7f9e2/src/main/java/org/openapijsonschematools/codegen/DefaultCodegen.java#L1431).
 
 #### File Post-Processing
 
@@ -692,7 +657,7 @@ Example:
 ```bash
 # create "shared" config
 mkdir shared && cat > shared/common.yaml <<EOF
-inputSpec: https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml
+inputSpec: https://raw.githubusercontent.com/OpenAPITools/openapi-generator/master/src/test/resources/3_0/petstore.yaml
 additionalProperties:
     x-ext-name: "Your Name"
 EOF

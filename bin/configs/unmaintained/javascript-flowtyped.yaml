@@ -1,6 +1,6 @@
 generatorName: javascript-flowtyped
 outputDir: samples/client/petstore/javascript-flowtyped
-inputSpec: modules/openapi-json-schema-generator/src/test/resources/2_0/petstore.yaml
-templateDir: modules/openapi-json-schema-generator/src/main/resources/Javascript-Flowtyped
+inputSpec: src/test/resources/2_0/petstore.yaml
+templateDir: src/main/resources/Javascript-Flowtyped
 additionalProperties:
   appName: PetstoreClient

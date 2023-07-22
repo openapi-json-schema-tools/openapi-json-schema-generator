@@ -1,5 +1,5 @@
 ---
-title: Documentation for the jaxrs-jersey Generator
+title: Documentation for the jaxrs-jersey generator
 ---
 
 ## METADATA

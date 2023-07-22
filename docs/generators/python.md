@@ -1,5 +1,5 @@
 ---
-title: Documentation for the python Generator
+title: Documentation for the python generator
 ---
 
 ## METADATA

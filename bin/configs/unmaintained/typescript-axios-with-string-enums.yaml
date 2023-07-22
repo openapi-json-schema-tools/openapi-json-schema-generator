@@ -1,6 +1,6 @@
 generatorName: typescript-axios
 outputDir: samples/client/petstore/typescript-axios/builds/with-string-enums
-inputSpec: modules/openapi-json-schema-generator/src/test/resources/2_0/petstore.yaml
-templateDir: modules/openapi-json-schema-generator/src/main/resources/typescript-axios
+inputSpec: src/test/resources/2_0/petstore.yaml
+templateDir: src/main/resources/typescript-axios
 additionalProperties:
   stringEnums: true

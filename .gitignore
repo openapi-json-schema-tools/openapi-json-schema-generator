@@ -8,8 +8,7 @@ out/
 *.gpg
 classpath.txt
 version.properties
-modules/openapi-generator-gradle-plugin/bin/
-!modules/openapi-generator-cli/src/main/resources/version.properties
+!src/main/resources/version.properties
 .project
 .classpath
 lib/*
@@ -48,9 +47,8 @@ test-output/
 nbactions.xml
 test-output/
 
-# website
-website/build/
-website/package-lock.json
+# jgit is making a local file in ? dir, needs a version upgrade
+?
 
 # scalatra
 samples/server-generator/scalatra/output

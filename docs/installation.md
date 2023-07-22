@@ -30,7 +30,7 @@ To install the tool as a dev dependency in your current project:
 ```bash
 npm install @openapi-json-schema-tools/openapi-json-schema-generator-cli -D
 ```
-Then, **generate** a ruby client from a valid [petstore.yaml](https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml) doc:
+Then, **generate** a ruby client from a valid [petstore.yaml](https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/src/test/resources/3_0/petstore.yaml) doc:
 
 ```bash
 npx @openapi-json-schema-tools/openapi-json-schema-generator-cli generate -i petstore.yaml -g ruby -o /tmp/test/
@@ -48,7 +48,7 @@ npx @openapi-json-schema-tools/openapi-json-schema-generator-cli generate -i pet
 brew install openapi-generator
 ```
 
-Then, **generate** a ruby client from a valid [petstore.yaml](https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml) doc:
+Then, **generate** a ruby client from a valid [petstore.yaml](https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/src/test/resources/3_0/petstore.yaml) doc:
 
 ```bash
 openapi-generator generate -i petstore.yaml -g ruby -o /tmp/test/
@@ -71,7 +71,7 @@ scoop bucket add java
 scoop install openjdk
 ```
 
-Then, **generate** a ruby client from a valid [petstore.yaml](https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml) doc:
+Then, **generate** a ruby client from a valid [petstore.yaml](https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/src/test/resources/3_0/petstore.yaml) doc:
 
 ```
 openapi-generator-cli generate -i petstore.yaml -g ruby
@@ -83,7 +83,7 @@ openapi-generator-cli generate -i petstore.yaml -g ruby
 
 The OpenAPI Generator Docker image acts as a standalone executable. It can be used as an alternative to installing via homebrew, or for developers who are unable to install Java or upgrade the installed version.
 
-To generate code from a valid [petstore.yaml](https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml) doc with this image, you'll need to mount a local location as a volume.
+To generate code from a valid [petstore.yaml](https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/src/test/resources/3_0/petstore.yaml) doc with this image, you'll need to mount a local location as a volume.
 You'll then need to output the generated code to this mapped volume. Everything else works the same as if you ran the command on your host machine.
 
 Here's an example generating a Go client:

@@ -4,13 +4,13 @@
 # as these tabs should be replaced with 4-space instead
 
 ## declare an array of folders
-declare -a samples=("modules/openapi-json-schema-generator/src/main/resources/kotlin-server"
-                    "modules/openapi-json-schema-generator/src/main/resources/kotlin-spring"
-                    "modules/openapi-json-schema-generator/src/main/resources/dart-dio"
-                    "modules/openapi-json-schema-generator/src/main/resources/dart"
-                    "modules/openapi-json-schema-generator/src/main/resources/dart2"
-                    "modules/openapi-json-schema-generator/src/main/resources/aspnetcore"
-                    "modules/openapi-json-schema-generator/src/main/resources/powershell"
+declare -a samples=("src/main/resources/kotlin-server"
+                    "src/main/resources/kotlin-spring"
+                    "src/main/resources/dart-dio"
+                    "src/main/resources/dart"
+                    "src/main/resources/dart2"
+                    "src/main/resources/aspnetcore"
+                    "src/main/resources/powershell"
                     )
 
 ## now loop through the above array

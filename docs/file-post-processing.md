@@ -12,7 +12,7 @@ Note that:
 * file processing occurs one at a time
 * the external tool may be a custom script which invokes multiple tools
 
-Also refer to the relevant documentation for [CLI](./usage.md), [Maven Plugin](https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator-maven-plugin/README.md), [Gradle Plugin](https://github.com/OpenAPITools/openapi-generator/blob/master/modules/openapi-generator-gradle-plugin/README.adoc), or [SBT Plugin](https://github.com/OpenAPITools/sbt-openapi-generator/blob/master/README.md).
+Also refer to the relevant documentation for [CLI](./usage.md)
 
 ## Supported Environment Variables
 
@@ -48,7 +48,7 @@ Let's see how to pass Ruby generated files to Rubocop, a static code analysis/li
 # First, export the required environment variable
 export RUBY_POST_PROCESS_FILE="/usr/local/bin/rubocop -a"
 
-export OPENAPI_DOC="https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/modules/openapi-generator/src/test/resources/3_0/petstore.yaml"
+export OPENAPI_DOC="https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/src/test/resources/3_0/petstore.yaml"
 
 # Invoke the generator with --enable-post-process-file
 openapi-generator generate --enable-post-process-file -i $OPENAPI_DOC -g ruby -o .out-ruby/
