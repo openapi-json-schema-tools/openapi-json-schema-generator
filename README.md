@@ -103,7 +103,6 @@ The OpenAPI Specification has undergone 3 revisions since initial creation in 20
 ### [1.2 - Build Projects](#table-of-contents)
 
 To build from source, you need the following installed and available in your `$PATH:`
-* [Apache Maven](https://maven.apache.org/download.cgi)
 
 * [Java 8](https://www.oracle.com/technetwork/java/index.html)
 
@@ -145,7 +144,7 @@ The generated code will be located under `./out/python` in the current directory
 
 #### Development in docker
 
-You can use `run-in-docker.sh` to do all development. This script maps your local repository to `/gen`
+You can use `bin/run-in-docker.sh` to do all development. This script maps your local repository to `/gen`
 in the docker container. It also maps `~/.m2/repository` to the appropriate container location.
 
 To execute `mvn package`:
@@ -153,7 +152,7 @@ To execute `mvn package`:
 ```sh
 git clone https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
 cd openapi-json-schema-generator
-./run-in-docker.sh mvn package
+./bin/run-in-docker.sh mvn package
 ```
 
 Build artifacts are now accessible in your working directory.
@@ -161,10 +160,10 @@ Build artifacts are now accessible in your working directory.
 Once built, `run-in-docker.sh` will act as an executable for openapi-json-schema-generator-cli. To generate code, you'll need to output to a directory under `/gen` (e.g. `/gen/out`). For example:
 
 ```sh
-./run-in-docker.sh help # Executes 'help' command for openapi-json-schema-generator-cli
-./run-in-docker.sh list # Executes 'list' command for openapi-json-schema-generator-cli
-./run-in-docker.sh /gen/bin/python-petstore.sh  # Builds the Go client
-./run-in-docker.sh generate -i src/test/resources/3_0/petstore.yaml \
+./bin/run-in-docker.sh help # Executes 'help' command for openapi-json-schema-generator-cli
+./bin/run-in-docker.sh list # Executes 'list' command for openapi-json-schema-generator-cli
+./bin/run-in-docker.sh /gen/bin/python-petstore.sh  # Builds the Go client
+./bin/run-in-docker.sh generate -i src/test/resources/3_0/petstore.yaml \
     -g go -o /gen/out/python-petstore -p packageName=petstore_api # generates python client, outputs locally to ./out/python-petstore
 ```
 

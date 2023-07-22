@@ -19,7 +19,7 @@ mvn clean install
 
 ## Using Docker
 
-You can use `run-in-docker.sh` to do all development. This script maps your local repository to `/gen`
+You can use `bin/run-in-docker.sh` to do all development. This script maps your local repository to `/gen`
 in the docker container. It also maps `~/.m2/repository` to the appropriate container location.
 
 To execute `mvn package`:
@@ -27,7 +27,7 @@ To execute `mvn package`:
 ```bash
 git clone https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
 cd openapi-generator
-./run-in-docker.sh mvn package
+./bin/run-in-docker.sh mvn package
 ```
 
 Build artifacts are now accessible in your working directory.
@@ -35,10 +35,10 @@ Build artifacts are now accessible in your working directory.
 Once built, `run-in-docker.sh` will act as an executable for openapi-generator-cli. To generate code, you'll need to output to a directory under `/gen` (e.g. `/gen/out`). For example:
 
 ```bash
-./run-in-docker.sh help # Executes 'help' command for openapi-generator-cli
-./run-in-docker.sh list # Executes 'list' command for openapi-generator-cli
-./run-in-docker.sh /gen/bin/generate-samples.sh /gen/bin/configs/go-petstore.yaml  # Builds the Go client
-./run-in-docker.sh generate -i modules/openapi-generator/src/test/resources/3_0/petstore.yaml \
+./bin/run-in-docker.sh help # Executes 'help' command for openapi-generator-cli
+./bin/run-in-docker.sh list # Executes 'list' command for openapi-generator-cli
+./bin/run-in-docker.sh /gen/bin/generate-samples.sh /gen/bin/configs/go-petstore.yaml  # Builds the Go client
+./bin/run-in-docker.sh generate -i modules/openapi-generator/src/test/resources/3_0/petstore.yaml \
     -g go -o /gen/out/go-petstore -p packageName=petstore # generates go client, outputs locally to ./out/go-petstore
 ```
 

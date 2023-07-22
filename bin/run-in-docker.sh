@@ -1,7 +1,7 @@
 #!/bin/bash
 set -exo pipefail
 
-cd "$(dirname ${BASH_SOURCE})"
+# Note: script must be executed from repo root
 
 maven_cache_repo="${HOME}/.m2/repository"
 
