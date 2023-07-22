@@ -5,9 +5,7 @@ ENV GEN_DIR /opt/openapi-json-schema-generator
 WORKDIR ${GEN_DIR}
 # Required from a licensing standpoint
 COPY ./LICENSE ${GEN_DIR}
-# Required to compile openapi-generator
-COPY ./google_checkstyle.xml ${GEN_DIR}
-# Modules are copied individually here to allow for caching of docker layers between major.minor versions
+# copies source code in for jar packaging
 COPY ./src ${GEN_DIR}/src
 COPY ./pom.xml ${GEN_DIR}
 # Pre-compile openapi-generator-cli
