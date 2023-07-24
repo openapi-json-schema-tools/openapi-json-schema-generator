@@ -621,11 +621,11 @@ public class DefaultGenerator implements Generator {
     @Override
     @SuppressWarnings("static-method")
     public void postProcess() {
-        System.out.println("################################################################################");
-        System.out.println("# Thanks for using OpenAPI JSON Schema Generator.                              #");
-        System.out.println("# Please consider donation to help us maintain this project \uD83D\uDE4F                 #");
-        System.out.println("# https://github.com/sponsors/spacether                                        #");
-        System.out.println("################################################################################");
+        LOGGER.info("################################################################################");
+        LOGGER.info("# Thanks for using OpenAPI JSON Schema Generator.                              #");
+        LOGGER.info("# Please consider donation to help us maintain this project \uD83D\uDE4F                 #");
+        LOGGER.info("# https://github.com/sponsors/spacether                                        #");
+        LOGGER.info("################################################################################");
     }
 
     // override with any special post-processing

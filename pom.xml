@@ -11,6 +11,14 @@
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>
         <defaultGoal>install</defaultGoal>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources/3_0/unit_test_spec</directory>
+                <excludes>
+                    <exclude>venv/**</exclude>
+                </excludes>
+            </testResource>
+        </testResources>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>

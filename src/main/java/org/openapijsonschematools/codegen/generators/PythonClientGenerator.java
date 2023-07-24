@@ -2106,13 +2106,13 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
 
     @Override
     public void postProcess() {
-        System.out.println("################################################################################");
-        System.out.println("# Thanks for using OpenAPI JSON Schema Generator.                              #");
-        System.out.println("# Please consider donation to help us maintain this project \uD83D\uDE4F                 #");
-        System.out.println("# https://github.com/sponsors/spacether                                        #");
-        System.out.println("#                                                                              #");
-        System.out.println("# This generator was written by Justin Black (https://github.com/spacether)    #");
-        System.out.println("# Please support his work directly via https://github.com/sponsors/spacether \uD83D\uDE4F#");
-        System.out.println("################################################################################");
+        LOGGER.info("################################################################################");
+        LOGGER.info("# Thanks for using OpenAPI JSON Schema Generator.                              #");
+        LOGGER.info("# Please consider donation to help us maintain this project \uD83D\uDE4F                 #");
+        LOGGER.info("# https://github.com/sponsors/spacether                                        #");
+        LOGGER.info("#                                                                              #");
+        LOGGER.info("# This generator was written by Justin Black (https://github.com/spacether)    #");
+        LOGGER.info("# Please support his work directly via https://github.com/sponsors/spacether \uD83D\uDE4F#");
+        LOGGER.info("################################################################################");
     }
 }
