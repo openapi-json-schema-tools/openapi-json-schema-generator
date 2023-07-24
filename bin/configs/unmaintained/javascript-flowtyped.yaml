@@ -1,6 +1,0 @@
-generatorName: javascript-flowtyped
-outputDir: samples/client/petstore/javascript-flowtyped
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/Javascript-Flowtyped
-additionalProperties:
-  appName: PetstoreClient

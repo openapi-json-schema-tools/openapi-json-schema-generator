@@ -1,7 +1,0 @@
-generatorName: ktorm-schema
-outputDir: samples/schema/petstore/ktorm
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/ktorm-schema
-additionalProperties:
-  hideGenerationTimestamp: true
-  importModelPackageName: org.openapijsonschematools.client.models

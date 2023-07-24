@@ -1,4 +1,0 @@
-generatorName: ruby-on-rails
-outputDir: samples/server/petstore/ruby-on-rails
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/ruby-on-rails-server

@@ -1,8 +1,0 @@
-generatorName: go-server
-outputDir: samples/server/petstore/go-api-server
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/go-server
-additionalProperties:
-  hideGenerationTimestamp: "true"
-  packageName: petstoreserver
-  addResponseHeaders: true

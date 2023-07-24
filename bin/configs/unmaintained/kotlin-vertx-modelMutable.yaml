@@ -1,6 +1,0 @@
-generatorName: kotlin-vertx
-outputDir: samples/server/petstore/kotlin-vertx-modelMutable
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/kotlin-vertx-server
-additionalProperties:
-  modelMutable: "true"

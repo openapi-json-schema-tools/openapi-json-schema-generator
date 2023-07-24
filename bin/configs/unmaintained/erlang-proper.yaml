@@ -1,6 +1,0 @@
-generatorName: erlang-proper
-outputDir: samples/client/petstore/erlang-proper
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/erlang-proper
-additionalProperties:
-  packageName: petstore

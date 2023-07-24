@@ -1,6 +1,0 @@
-generatorName: python-flask
-outputDir: samples/openapi3/server/petstore/python-flask-python2
-inputSpec: src/test/resources/3_0/petstore-with-object-as-parameter.yaml
-templateDir: src/main/resources/python-flask
-additionalProperties:
-  supportPython2: true

@@ -1,0 +1,6 @@
+generatorName: python
+outputDir: samples/client/openapi_features/nonCompliantUseDiscriminatorIfCompositionFails/python
+inputSpec: src/test/resources/3_0/nonCompliantUseDiscriminatorIfCompositionFails.yaml
+additionalProperties:
+  packageName: this_package
+  nonCompliantUseDiscriminatorIfCompositionFails: true

@@ -1,4 +1,0 @@
-generatorName: typescript-aurelia
-outputDir: samples/client/petstore/typescript-aurelia/default
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/typescript-aurelia

@@ -1,9 +1,0 @@
-generatorName: java
-outputDir: samples/client/others/java/okhttp-gson-streaming
-library: okhttp-gson
-inputSpec: src/test/resources/3_0/streaming.yaml
-templateDir: src/main/resources/Java
-additionalProperties:
-  artifactId: petstore-okhttp-gson
-  hideGenerationTimestamp: "true"
-  supportStreaming: true

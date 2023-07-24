@@ -1,4 +1,0 @@
-generatorName: jmeter
-outputDir: samples/client/petstore/jmeter
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/jmeter-client

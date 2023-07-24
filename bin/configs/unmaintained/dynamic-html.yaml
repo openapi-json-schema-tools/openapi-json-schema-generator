@@ -1,4 +1,0 @@
-generatorName: dynamic-html
-outputDir: samples/documentation/dynamic-html
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/openapi-static

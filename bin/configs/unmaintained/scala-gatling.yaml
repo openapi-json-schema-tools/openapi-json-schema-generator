@@ -1,4 +1,0 @@
-generatorName: scala-gatling
-outputDir: samples/client/petstore/scala-gatling
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/scala-gatling

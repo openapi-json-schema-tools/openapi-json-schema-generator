@@ -1,7 +1,0 @@
-generatorName: cpp-tiny
-outputDir: samples/client/petstore/cpp-tiny
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/cpp-tiny
-additionalProperties:
-  hideGenerationTimestamp: "true"
-  controller: "esp32"

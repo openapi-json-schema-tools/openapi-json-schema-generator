@@ -1,6 +1,0 @@
-generatorName: java-pkmst
-outputDir: samples/server/petstore/java-pkmst
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/java-pkmst
-additionalProperties:
-  hideGenerationTimestamp: "true"

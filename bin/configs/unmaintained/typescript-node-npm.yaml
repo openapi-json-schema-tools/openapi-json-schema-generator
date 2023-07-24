@@ -1,9 +1,0 @@
-generatorName: typescript-node
-outputDir: samples/client/petstore/typescript-node/npm
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/typescript-node
-additionalProperties:
-  npmVersion: 0.0.1
-  npmName: '@openapijsonschematools/node-typescript-petstore'
-  npmRepository: https://skimdb.npmjs.com/registry
-  snapshot: false

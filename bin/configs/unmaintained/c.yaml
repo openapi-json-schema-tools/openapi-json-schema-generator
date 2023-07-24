@@ -1,4 +1,0 @@
-generatorName: c
-outputDir: samples/client/petstore/c
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/C-libcurl

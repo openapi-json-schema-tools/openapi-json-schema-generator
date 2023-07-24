@@ -1,7 +1,0 @@
-generatorName: java-vertx
-outputDir: samples/server/petstore/java-vertx/async
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/JavaVertXServer
-additionalProperties:
-  hideGenerationTimestamp: "true"
-  vertxSwaggerRouterVersion: 1.4.0

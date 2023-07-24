@@ -1,4 +1,0 @@
-generatorName: cpp-qt5-client
-outputDir: samples/client/petstore/cpp-qt5
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/cpp-qt5-client

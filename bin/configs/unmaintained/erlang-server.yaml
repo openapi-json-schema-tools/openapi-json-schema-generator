@@ -1,4 +1,0 @@
-generatorName: erlang-server
-outputDir: samples/server/petstore/erlang-server
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/erlang-server

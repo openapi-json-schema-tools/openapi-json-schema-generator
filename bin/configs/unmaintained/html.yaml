@@ -1,4 +1,0 @@
-generatorName: html
-outputDir: samples/documentation/html
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/htmlDocs

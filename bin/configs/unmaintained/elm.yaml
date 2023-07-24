@@ -1,4 +1,0 @@
-generatorName: elm
-outputDir: samples/openapi3/client/elm
-inputSpec: src/test/resources/3_0/elm.yaml
-templateDir: src/main/resources/elm

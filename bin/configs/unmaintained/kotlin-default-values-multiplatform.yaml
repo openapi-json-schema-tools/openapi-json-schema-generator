@@ -1,8 +1,0 @@
-generatorName: kotlin
-outputDir: samples/client/petstore/kotlin-default-values-multiplatform
-inputSpec: src/test/resources/3_0/issue_10865_default_values.yaml
-templateDir: src/main/resources/kotlin-client
-additionalProperties:
-  artifactId: kotlin-default-values-multiplatform
-  library: multiplatform
-  sortParamsByRequiredFlag: false

@@ -52,10 +52,10 @@ You can join us here: https://discord.gg/mHB8WEQuYQ
 
 And many more!
 - [Docs for the python generator](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/docs/generators/python.md)
-- [Openapi json schema v3.0.3 unit test spec](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/src/test/resources/3_0/unit_test_spec/3_0_3_unit_test_spec.yaml)
-  - [generated client sample code](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/samples/openapi3/client/3_0_3_unit_test/python)
 - [Openapi v3.0.3 general petstore spec, general features](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/src/test/resources/3_0/python/petstore_customized.yaml)
-  - [generated client sample code](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/samples/openapi3/client/petstore/python)
+  - [generated client sample code](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/samples/client/petstore/python)
+- [Openapi json schema v3.0.3 unit test spec](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/src/test/resources/3_0/unit_test_spec/3_0_3_unit_test_spec.yaml)
+  - [generated client sample code](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/samples/client/3_0_3_unit_test/python)
 
 ### Can I build here?
 

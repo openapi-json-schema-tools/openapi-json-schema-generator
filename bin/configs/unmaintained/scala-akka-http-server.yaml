@@ -1,6 +1,0 @@
-generatorName: scala-akka-http-server
-outputDir: samples/server/petstore/scala-akka-http-server
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/scala-akka-http-server
-additionalProperties:
-  artifactId: openapi-scala-akka-http-server
