@@ -117,17 +117,8 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         LOGGER.info("Generating with dryRun={}", this.dryRun);
     }
 
-    @SuppressWarnings("deprecation")
-    @Override
-    public GeneratorRunner opts(ClientOptInput opts) {
-        this.opts = opts;
-        this.openAPI = opts.getOpenAPI();
-        this.generator = opts.getConfig();
-        List<TemplateDefinition> userFiles = opts.getUserDefinedTemplates();
-        if (userFiles != null) {
-            this.userDefinedTemplates = Collections.unmodifiableList(userFiles);
-        }
-
+    private void setTemplateProcessor() {
+        // must be called after processOptions
         TemplateManagerOptions templateManagerOptions = new TemplateManagerOptions(this.generator.isEnableMinimalUpdate(), this.generator.isSkipOverwrite());
 
         if (this.dryRun) {
@@ -147,6 +138,18 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     templatingEngine,
                     new TemplatePathLocator[]{generatorTemplateLocator, commonTemplateLocator}
             );
+        }
+    }
+
+    @SuppressWarnings("deprecation")
+    @Override
+    public GeneratorRunner opts(ClientOptInput opts) {
+        this.opts = opts;
+        this.openAPI = opts.getOpenAPI();
+        this.generator = opts.getConfig();
+        List<TemplateDefinition> userFiles = opts.getUserDefinedTemplates();
+        if (userFiles != null) {
+            this.userDefinedTemplates = Collections.unmodifiableList(userFiles);
         }
 
         String ignoreFileLocation = generator.getIgnoreFilePathOverride();
@@ -261,6 +264,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
 
         generator.processOpts();
+        setTemplateProcessor();
         generator.preprocessOpenAPI(openAPI);
 
         // set OpenAPI to make these available to all methods

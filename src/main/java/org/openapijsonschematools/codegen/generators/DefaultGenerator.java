@@ -79,6 +79,7 @@ import org.openapijsonschematools.codegen.generatorrunner.ignore.CodegenIgnorePr
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.common.SerializerUtils;
 import org.openapijsonschematools.codegen.templating.MustacheEngineAdapter;
+import org.openapijsonschematools.codegen.templating.TemplatingEngineLoader;
 import org.openapijsonschematools.codegen.templating.mustache.CamelCaseLambda;
 import org.openapijsonschematools.codegen.templating.mustache.IndentedLambda;
 import org.openapijsonschematools.codegen.templating.mustache.LowercaseLambda;
@@ -135,6 +136,8 @@ public class DefaultGenerator implements Generator {
     protected static Schema trueSchema = new Schema();
 
     protected CodegenIgnoreProcessor ignoreProcessor;
+
+    protected String templateEngineName;
 
     static {
         DefaultFeatureSet = FeatureSet.newBuilder()
@@ -292,7 +295,6 @@ public class DefaultGenerator implements Generator {
     protected String ignoreFilePathOverride;
     // flag to indicate whether to use environment variable to post process file
     protected boolean enablePostProcessFile = false;
-    private TemplatingEngineAdapter templatingEngine = new MustacheEngineAdapter();
 
     // flag to indicate whether to only update files whose contents have changed
     protected boolean enableMinimalUpdate = false;
@@ -339,6 +341,10 @@ public class DefaultGenerator implements Generator {
 
     @Override
     public void processOpts() {
+        if (this.templateEngineName == null && additionalProperties.containsKey(CodegenConstants.TEMPLATING_ENGINE)) {
+            setTemplateEngineName((String) additionalProperties.get(CodegenConstants.TEMPLATING_ENGINE));
+        }
+
         if (additionalProperties.containsKey(CodegenConstants.TEMPLATE_DIR)) {
             this.setTemplateDir((String) additionalProperties.get(CodegenConstants.TEMPLATE_DIR));
         }
@@ -615,11 +621,11 @@ public class DefaultGenerator implements Generator {
     @Override
     @SuppressWarnings("static-method")
     public void postProcess() {
-        System.out.println("################################################################################");
-        System.out.println("# Thanks for using OpenAPI JSON Schema Generator.                              #");
-        System.out.println("# Please consider donation to help us maintain this project \uD83D\uDE4F                 #");
-        System.out.println("# https://github.com/sponsors/spacether                                        #");
-        System.out.println("################################################################################");
+        LOGGER.info("################################################################################");
+        LOGGER.info("# Thanks for using OpenAPI JSON Schema Generator.                              #");
+        LOGGER.info("# Please consider donation to help us maintain this project \uD83D\uDE4F                 #");
+        LOGGER.info("# https://github.com/sponsors/spacether                                        #");
+        LOGGER.info("################################################################################");
     }
 
     // override with any special post-processing
@@ -3884,13 +3890,17 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public void setTemplatingEngine(TemplatingEngineAdapter templatingEngine) {
-        this.templatingEngine = templatingEngine;
+    public void setTemplateEngineName(String templateEngineName) {
+        this.templateEngineName = templateEngineName;
     }
 
     @Override
     public TemplatingEngineAdapter getTemplatingEngine() {
-        return this.templatingEngine;
+        String loadedTemplateEngineName = templateEngineName;
+        if (loadedTemplateEngineName ==  null) {
+            loadedTemplateEngineName = defaultTemplatingEngine();
+        }
+        return TemplatingEngineLoader.byIdentifier(loadedTemplateEngineName);
     }
 
     /**

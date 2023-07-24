@@ -3,7 +3,7 @@ id: new-generator
 title: Create a New Generator
 ---
 
-Creating a new generator which will become a part of the officially supported generators in OpenAPI Generator is pretty simple. We've created a helper script to bootstrap the operation. Let's look at the files necessary to create a new generator, then an example of bootstrapping a generator using the `new.sh` script in the root of the repository.
+Creating a new generator which will become a part of the officially supported generators in OpenAPI Generator is pretty simple. We've created a helper script to bootstrap the operation. Let's look at the files necessary to create a new generator, then an example of bootstrapping a generator using the `bin/new_generator.sh` script.
 
 ## Required Files
 
@@ -29,15 +29,15 @@ The minimum set of files required to create a new generator are:
   
 Now, let's generate an example generator and then walk through the pieces. At the end, we'll touch on some known sticking points for new generator authors and provide some suggestions.
 
-## new.sh
+## new_generator.sh
 
-The `new.sh` script in the root of the project is meant to simplify this process. Run `./new.sh --help`.
+The `new_generator.sh` script in the bin folder is meant to simplify this process. Run `./bin/new_generator.sh --help`.
 
 ```text
 Stubs out files for new generators
 
 Usage:
-./new.sh [options]
+./new_generator.sh [options]
     Options:
     -n  Required. Specify generator name, should be kebab-cased.
     -c  Create a client generator
@@ -50,7 +50,7 @@ Usage:
 
 Examples:
   Create a server generator for ktor:
-  ./new.sh -n kotlin -s
+  ./new_generator.sh -n kotlin -s
 
     Creates:
     modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/generators/KotlinServerCodegen.java
@@ -60,7 +60,7 @@ Examples:
     bin/configs/kotlin-server-petstore-new.yaml
 
   Create a generic C# server generator:
-  ./new.sh -n csharp -s -t
+  ./new_generator.sh -n csharp -s -t
     Creates:
     modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/generators/CsharpServerCodegen.java
     modules/openapi-generator/src/main/resources/csharp-server/README.mustache
@@ -78,16 +78,16 @@ This script allows us to define a client, server, schema, or documentation gener
 Create a new Markdown generator, specifying CommonMark as the name to avoid conflicting with the built-in Markdown generator.
 
 ```bash
-./new.sh -n common-mark -d
+./bin/new_generator.sh -n common-mark -d
 ```
 
 You should see output similar to the following:
 
 ```bash
-Creating modules/openapi-generator/src/main/java/org/openapijsonschematools/codegen/generators/CommonMarkDocumentationCodegen.java
-Creating modules/openapi-generator/src/main/resources/common-mark-documentation/README.mustache
-Creating modules/openapi-generator/src/main/resources/common-mark-documentation/model.mustache
-Creating modules/openapi-generator/src/main/resources/common-mark-documentation/api.mustache
+Creating src/main/java/org/openapijsonschematools/codegen/generators/CommonMarkDocumentationCodegen.java
+Creating src/main/resources/common-mark-documentation/README.mustache
+Creating src/main/resources/common-mark-documentation/model.mustache
+Creating src/main/resources/common-mark-documentation/api.mustache
 Creating bin/configs/common-mark-documentation-petstore-new.yaml
 Finished.
 ```
@@ -125,7 +125,7 @@ This is the default output location. This will be `generated-code/common-mark` o
  modelTemplateFiles.put("model.mustache", ".zz");
 ```
 
-The `model.mustache` file is registered as the template for model generation. The `new.sh` script doesn't have a way to know your intended file extension, so we default to a `.zz` extension. This _must_ be changed (unless your generator's target extension is `.zz`). For this example, you'd change `.zz` to `.md` or `.markdown`, depending on your preference.
+The `model.mustache` file is registered as the template for model generation. The `new_generator.sh` script doesn't have a way to know your intended file extension, so we default to a `.zz` extension. This _must_ be changed (unless your generator's target extension is `.zz`). For this example, you'd change `.zz` to `.md` or `.markdown`, depending on your preference.
 
 This model template registration will use `model.mustache` to generate a new file for every model defined in your API's specification document.
 
@@ -179,7 +179,7 @@ The path is considered relative to `embeddedTemplateDir`, `templateDir`, or a li
 
 ### Create templates
 
-The `new.sh` created our three required files. Let's start filling out each of these files.
+The `new_generator.sh` created our three required files. Let's start filling out each of these files.
 
 #### README.mustache
 
@@ -329,7 +329,7 @@ To compile quickly to test this out, you can run `mvn clean package -DskipTests`
 
 ### Compile Sample
 
-The `new.sh` script created the generation config file `bin/configs/common-mark-documentation-petstore-new.yaml`:
+The `new_generator.sh` script created the generation config file `bin/configs/common-mark-documentation-petstore-new.yaml`:
 
 ```bash
 generatorName: common-mark

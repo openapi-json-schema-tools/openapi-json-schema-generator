@@ -11,6 +11,14 @@
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>
         <defaultGoal>install</defaultGoal>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <excludes>
+                    <exclude>3_0/unit_test_spec/venv/**</exclude>
+                </excludes>
+            </testResource>
+        </testResources>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -47,6 +55,26 @@
         <directory>target</directory>
         <finalName>${project.artifactId}</finalName>
         <plugins>
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>${spotbugs-plugin.version}</version>
+                <configuration>
+                    <failOnError>false</failOnError>
+                    <!-- https://spotbugs.readthedocs.io/en/stable/effort.html -->
+                    <effort>min</effort>
+                    <excludeFilterFile>src/main/resources/spotbugs-exclude.xml</excludeFilterFile>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>spotbugs-check</id>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <phase>verify</phase>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>

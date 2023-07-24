@@ -24,7 +24,7 @@ Built-in templates are written in Mustache and processed by [jmustache](https://
 
 OpenAPI Generator supports user-defined templates. This approach is often the easiest when creating a custom template. Our generators implement a combination of language and framework features, and it's fully possible to use an existing generator to implement a custom template for a different framework. Suppose you have internal utilities which you'd like to incorporate into generated code (e.g. logging, monitoring, fault-handling)... this is easy to add via custom templates.
 
-> **Note:** You cannot use this approach to create new templates, only override existing ones. If you'd like to create a new generator to contribute back to the project, see `new.sh` in the repository root. If you'd like to create a private generator for more templating control, see the [customization](./customization.md) docs.
+> **Note:** You cannot use this approach to create new templates, only override existing ones. If you'd like to create a new generator to contribute back to the project, see `bin/new_generator.sh`. If you'd like to create a private generator for more templating control, see the [customization](./customization.md) docs.
 
 OpenAPI Generator not only supports local files for templating, but also templates defined on the classpath. This is a great option if you want to reuse templates across multiple projects. To load a template via classpath, you'll need to generate a little differently. For example, if you've created an artifact called `template-classpath-example` which contains extended templates for the `htmlDocs` generator with the following structure:
 

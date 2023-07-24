@@ -299,7 +299,7 @@ public interface Generator {
      */
     void setOpenAPI(OpenAPI openAPI);
 
-    void setTemplatingEngine(TemplatingEngineAdapter s);
+    void setTemplateEngineName(String name);
 
     TemplatingEngineAdapter getTemplatingEngine();
 
