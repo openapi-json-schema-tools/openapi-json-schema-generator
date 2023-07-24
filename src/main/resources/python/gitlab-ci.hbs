@@ -15,15 +15,6 @@ stages:
    - pytest --cov={{{packageName}}}
    {{/unless}}
 
-test-3.5:
-  extends: .tests
-  image: python:3.5-alpine
-test-3.6:
-  extends: .tests
-  image: python:3.6-alpine
-test-3.7:
-  extends: .tests
-  image: python:3.7-alpine
 test-3.8:
   extends: .tests
   image: python:3.8-alpine
