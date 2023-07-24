@@ -13,9 +13,9 @@
         <defaultGoal>install</defaultGoal>
         <testResources>
             <testResource>
-                <directory>src/test/resources/3_0/unit_test_spec</directory>
+                <directory>src/test/resources</directory>
                 <excludes>
-                    <exclude>venv/**</exclude>
+                    <exclude>3_0/unit_test_spec/venv/**</exclude>
                 </excludes>
             </testResource>
         </testResources>
