@@ -3896,7 +3896,11 @@ public class DefaultGenerator implements Generator {
 
     @Override
     public TemplatingEngineAdapter getTemplatingEngine() {
-        return TemplatingEngineLoader.byIdentifier(templateEngineName);
+        String loadedTemplateEngineName = templateEngineName;
+        if (loadedTemplateEngineName ==  null) {
+            loadedTemplateEngineName = defaultTemplatingEngine();
+        }
+        return TemplatingEngineLoader.byIdentifier(loadedTemplateEngineName);
     }
 
     /**
