@@ -12,7 +12,7 @@ executable="${root}/modules/openapi-json-schema-generator-cli/target/openapi-jso
 
 if [ ! -f "$executable" ]; then
   echo "Rebuilding…"
-  (cd "$root" && ./mvnw -B clean package)
+  (cd "$root" && mvn -B clean package)
 fi
 
 export JAVA_OPTS="${JAVA_OPTS} -Xmx1024M -DloggerPath=conf/log4j.properties"
@@ -20,7 +20,7 @@ ags="meta -n myClientCodegen -t DOCUMENTATION -p com.my.company.codegen -o sampl
 
 java $JAVA_OPTS -jar $executable $ags
 
-(./mvnw -B package -Djacoco.skip=true -DskipTests=true -f "$root"/samples/meta-codegen/pom.xml)
+(mvn -B package -Djacoco.skip=true -DskipTests=true -f "$root"/samples/meta-codegen/pom.xml)
 
 ags2="generate -g myClientCodegen -i modules/openapi-json-schema-generator/src/test/resources/3_0/petstore.json -o samples/meta-codegen/usage $@"
 

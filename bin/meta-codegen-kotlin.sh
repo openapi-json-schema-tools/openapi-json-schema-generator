@@ -15,7 +15,7 @@ executable="${root}/modules/openapi-generator-cli/target/openapi-generator-cli.j
 
 if [ ! -f "$executable" ]
 then
-  (cd "$root" && ./mvnw -B clean package)
+  (cd "$root" && mvn -B clean package)
 fi
 
 \rm -rf "${root}/samples/meta-codegen-kotlin/lib"

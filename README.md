@@ -113,11 +113,6 @@ After cloning the project, you can build it from source with this command:
 mvn clean install
 ```
 
-If you don't have maven installed, you may directly use the included [maven wrapper](https://github.com/takari/maven-wrapper), and build with the command:
-```sh
-./mvnw clean install
-```
-
 The default build contains minimal static analysis (via CheckStyle). To run your build with PMD and Spotbugs, use the `static-analysis` profile:
 
 ```sh
@@ -149,7 +144,7 @@ The generated code will be located under `./out/python` in the current directory
 
 #### Development in docker
 
-You can use `run-in-docker.sh` to do all development. This script maps your local repository to `/gen`
+You can use `bin/run-in-docker.sh` to do all development. This script maps your local repository to `/gen`
 in the docker container. It also maps `~/.m2/repository` to the appropriate container location.
 
 To execute `mvn package`:
@@ -157,7 +152,7 @@ To execute `mvn package`:
 ```sh
 git clone https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
 cd openapi-json-schema-generator
-./run-in-docker.sh mvn package
+./bin/run-in-docker.sh mvn package
 ```
 
 Build artifacts are now accessible in your working directory.
@@ -165,10 +160,10 @@ Build artifacts are now accessible in your working directory.
 Once built, `run-in-docker.sh` will act as an executable for openapi-json-schema-generator-cli. To generate code, you'll need to output to a directory under `/gen` (e.g. `/gen/out`). For example:
 
 ```sh
-./run-in-docker.sh help # Executes 'help' command for openapi-json-schema-generator-cli
-./run-in-docker.sh list # Executes 'list' command for openapi-json-schema-generator-cli
-./run-in-docker.sh /gen/bin/python-petstore.sh  # Builds the Go client
-./run-in-docker.sh generate -i src/test/resources/3_0/petstore.yaml \
+./bin/run-in-docker.sh help # Executes 'help' command for openapi-json-schema-generator-cli
+./bin/run-in-docker.sh list # Executes 'list' command for openapi-json-schema-generator-cli
+./bin/run-in-docker.sh /gen/bin/python-petstore.sh  # Builds the Go client
+./bin/run-in-docker.sh generate -i src/test/resources/3_0/petstore.yaml \
     -g go -o /gen/out/python-petstore -p packageName=petstore_api # generates python client, outputs locally to ./out/python-petstore
 ```
 
@@ -185,17 +180,6 @@ If an error like this occurs, just execute the **mvn clean install -U** command:
 > Failed to execute goal org.fortasoft:gradle-maven-plugin:1.0.8:invoke (default) on project openapi-json-schema-generator-gradle-plugin-mvn-wrapper: org.gradle.tooling.BuildException: Could not execute build using Gradle distribution 'https://services.gradle.org/distributions/gradle-4.7-bin.zip'
 
 Right now: no solution for this one :|
-
-#### Run Docker in Vagrant
-Prerequisite: install [Vagrant](https://www.vagrantup.com/downloads.html) and [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
- ```sh
-git clone https://github.com/openapi-json-schema-tools/openapi-json-schema-generator.git
-cd openapi-json-schema-generator
-vagrant up
-vagrant ssh
-cd /vagrant
-./run-in-docker.sh mvn package
-```
 
 <!-- /RELEASE_VERSION -->
 ## [2 - Getting Started](#table-of-contents)
