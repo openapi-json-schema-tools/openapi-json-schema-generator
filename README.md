@@ -106,7 +106,7 @@ To build from source, you need the following installed and available in your `$P
 
 * [Java 11](https://www.oracle.com/technetwork/java/index.html)
 
-* [Apache Maven 3.8.0 or greater](https://maven.apache.org/)
+* [Apache Maven 3.9.3 or greater](https://maven.apache.org/)
 
 After cloning the project, you can build it from source with this command:
 ```sh

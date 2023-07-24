@@ -46,9 +46,6 @@ test-output/
 nbactions.xml
 test-output/
 
-# jgit is making a local file in ? dir, needs a version upgrade
-?
-
 # scalatra
 samples/server-generator/scalatra/output
 samples/server-generator/scalatra/target
