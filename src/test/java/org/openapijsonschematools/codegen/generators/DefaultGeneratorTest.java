@@ -629,7 +629,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testDiscriminator() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/2_0/petstore-with-fake-endpoints-models-for-testing.yaml");
+        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/petstore-with-fake-endpoints-models-for-testing.yaml");
         DefaultGenerator codegen = new DefaultGenerator();
 
         Schema animal = openAPI.getComponents().getSchemas().get("Animal");
@@ -642,7 +642,6 @@ public class DefaultGeneratorTest {
         CodegenDiscriminator discriminator = animalModel.discriminator;
         String propertyName = "className";
         TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
-        mappedModels.add(new CodegenDiscriminator.MappedModel("BigCat", "BigCat"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Cat", "Cat"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Dog", "Dog"));
 
@@ -1334,7 +1333,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testAllOfSingleRefNoOwnProps() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/2_0/composed-allof.yaml");
+        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/composed-allof.yaml");
         final DefaultGenerator codegen = new GeneratorWithMultipleInheritance();
 
         Schema schema = openAPI.getComponents().getSchemas().get("NewMessageEventCoreNoOwnProps");
