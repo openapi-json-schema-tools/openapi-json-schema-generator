@@ -18,7 +18,7 @@ authors = [
 ]
 description = "discriminator-test"
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 dependencies = [
     "certifi >= 14.5.14",
     "immutabledict ~= 2.2.4",
