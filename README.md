@@ -104,9 +104,9 @@ The OpenAPI Specification has undergone 3 revisions since initial creation in 20
 
 To build from source, you need the following installed and available in your `$PATH:`
 
-* [Java 8](https://www.oracle.com/technetwork/java/index.html)
+* [Java 11](https://www.oracle.com/technetwork/java/index.html)
 
-* [Apache Maven 3.3.4 or greater](https://maven.apache.org/)
+* [Apache Maven 3.8.0 or greater](https://maven.apache.org/)
 
 After cloning the project, you can build it from source with this command:
 ```sh
