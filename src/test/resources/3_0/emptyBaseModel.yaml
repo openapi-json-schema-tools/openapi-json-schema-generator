@@ -1,0 +1,77 @@
+openapi: 3.0.1
+info:
+  title: Test Command model generation
+  description: Test Command model generation
+  version: 1.0.0
+servers:
+  - url: https://localhost:8080/
+paths:
+  /execute:
+    post:
+      operationId: executeRealCommand
+      requestBody:
+        description: A payload for executing a real command.
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/RealCommand'
+        required: true
+      responses:
+        204:
+          description: Successful request. No content returned.
+          content: {}
+        400:
+          description: Bad request.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiError'
+        404:
+          description: Not found.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiError'
+        default:
+          description: Unknown error.
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApiError'
+      x-codegen-request-body-name: real_command
+components:
+  schemas:
+    Command:
+      title: Command
+      type: object
+      description: The base object for all command objects.
+      x-is-free-form: false
+    RealCommand:
+      title: RealCommand
+      description: The real command.
+      allOf:
+        - $ref: '#/components/schemas/Command'
+    ApiError:
+      title: ApiError
+      required:
+        - code
+        - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: The error code. Usually, it is the HTTP error code.
+          readOnly: true
+        message:
+          type: string
+          description: The error message.
+          readOnly: true
+      description: The base object for API errors.
+  requestBodies:
+    b_real_command:
+      description: A payload for executing a real command.
+      content:
+        '*/*':
+          schema:
+            $ref: '#/components/schemas/RealCommand'
+      required: true
