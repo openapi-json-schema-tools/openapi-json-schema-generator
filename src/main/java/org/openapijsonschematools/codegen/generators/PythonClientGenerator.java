@@ -1817,7 +1817,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
     }
 
     @Override
-    public String generatorLanguageVersion() { return ">=3.7"; }
+    public String generatorLanguageVersion() { return ">=3.8"; }
 
     @Override
     public void preprocessOpenAPI(OpenAPI openAPI) {
