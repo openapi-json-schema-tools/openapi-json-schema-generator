@@ -646,9 +646,8 @@ public class CodegenConfigurator {
         config.setEnablePostProcessFile(workflowSettings.isEnablePostProcessFile());
         config.setEnableMinimalUpdate(workflowSettings.isEnableMinimalUpdate());
         config.setStrictSpecBehavior(workflowSettings.isStrictSpecBehavior());
-
-        TemplatingEngineAdapter templatingEngine = TemplatingEngineLoader.byIdentifier(workflowSettings.getTemplatingEngineName());
-        config.setTemplatingEngine(templatingEngine);
+        config.setTemplateEngineName(workflowSettings.getTemplatingEngineName());
+        config.additionalProperties().put(CodegenConstants.TEMPLATING_ENGINE, workflowSettings.getTemplatingEngineName());
 
         // TODO: Work toward Generator having a "GeneratorSettings" property.
         config.instantiationTypes().putAll(generatorSettings.getInstantiationTypes());

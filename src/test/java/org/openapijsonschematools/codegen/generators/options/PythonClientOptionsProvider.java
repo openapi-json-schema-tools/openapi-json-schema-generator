@@ -49,6 +49,7 @@ public class PythonClientOptionsProvider implements OptionsProvider {
                 .put(PythonClientGenerator.USE_NOSE, USE_NOSE_VALUE)
                 .put(PythonClientGenerator.RECURSION_LIMIT, RECURSION_LIMIT)
                 .put(CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS, "false")
+                .put(CodegenConstants.TEMPLATING_ENGINE, "handlebars")
                 .build();
     }
 

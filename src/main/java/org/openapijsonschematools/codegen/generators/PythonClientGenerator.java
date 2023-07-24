@@ -32,6 +32,7 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.features.
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
+import org.openapijsonschematools.codegen.templating.MustacheEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DocumentationFeature;
@@ -51,6 +52,7 @@ import org.openapijsonschematools.codegen.templating.TemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorMetadata;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
 import org.openapijsonschematools.codegen.common.ModelUtils;
+import org.openapijsonschematools.codegen.templating.TemplatingEngineLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -94,6 +96,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
     private final DateTimeFormatter iso8601DateTime = DateTimeFormatter.ISO_DATE_TIME;
     private boolean nonCompliantUseDiscrIfCompositionFails = false;
     private final HashMap<PairCacheKey, String> modelNameCache = new HashMap<>();
+    protected TemplatingEngineAdapter templatingEngine = new HandlebarsEngineAdapter();
 
     public PythonClientGenerator() {
         super();
@@ -275,6 +278,12 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         cliOptions.add(CliOption.newBoolean(USE_NOSE, "use the nose test framework").
                 defaultValue(Boolean.FALSE.toString()));
         cliOptions.add(new CliOption(RECURSION_LIMIT, "Set the recursion limit. If not set, use the system default value."));
+        CliOption templateEngineOption = new CliOption(CodegenConstants.TEMPLATING_ENGINE, "template engine");
+        templateEngineOption.setDefault("handlebars");
+        Map<String, String> templateEngineEnumValueToDesc = new HashMap<>();
+        templateEngineEnumValueToDesc.put("handlebars", "handlebars templating engine");
+        templateEngineOption.setEnum(templateEngineEnumValueToDesc);
+        cliOptions.add(templateEngineOption);
         CliOption nonCompliantUseDiscrIfCompositionFails = CliOption.newBoolean(CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS, CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS_DESC);
         Map<String, String> nonCompliantUseDiscrIfCompositionFailsOpts = new HashMap<>();
         nonCompliantUseDiscrIfCompositionFailsOpts.put("true", "If composition fails and a discriminator exists, the composition errors will be ignored and validation will be attempted with the discriminator");
@@ -317,17 +326,21 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
     }
 
     @Override
+    public TemplatingEngineAdapter getTemplatingEngine() {
+        TemplatingEngineAdapter te = super.getTemplatingEngine();
+        HandlebarsEngineAdapter hea = (HandlebarsEngineAdapter) te;
+        hea.infiniteLoops(true);
+        hea.setPrettyPrint(true);
+        return hea;
+    }
+
+    @Override
     public void processOpts() {
         this.setLegacyDiscriminatorBehavior(false);
 
         super.processOpts();
 
-        TemplatingEngineAdapter te = getTemplatingEngine();
-        if (te instanceof HandlebarsEngineAdapter) {
-            HandlebarsEngineAdapter hea = (HandlebarsEngineAdapter) te;
-            hea.infiniteLoops(true);
-            hea.setPrettyPrint(true);
-        } else {
+        if (!"handlebars".equals(this.templateEngineName)) {
             throw new RuntimeException("Only the HandlebarsEngineAdapter is supported for this generator");
         }
 
@@ -496,7 +509,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
                     put("components/responses/response.hbs", File.separatorChar + "__init__.py");
                 }}
         );
-        if (openAPI.getServers() != null) {
+        if (openAPI != null && openAPI.getServers() != null) {
             jsonPathTemplateFiles.put(
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS,
                     new HashMap<String, String>() {{
@@ -701,8 +714,8 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
 
         // add the models and apis folders
         String modelPackages = modelPackage + "s";
-        boolean generateModels = (boolean) additionalProperties().get(CodegenConstants.GENERATE_MODELS);
-        if (generateModels) {
+        Boolean generateModels = (Boolean) additionalProperties().get(CodegenConstants.GENERATE_MODELS);
+        if (Boolean.TRUE.equals(generateModels)) {
             supportingFiles.add(new SupportingFile("components/schemas/__init__schemas.hbs", packagePath() + File.separatorChar + modelPackages.replace('.', File.separatorChar), "__init__.py"));
         }
         // Generate the 'signing.py' module, but only if the 'HTTP signature' security scheme is specified in the OAS.
