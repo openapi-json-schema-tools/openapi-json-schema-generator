@@ -15,8 +15,8 @@ path_params: typing.Union[
 {{#if queryParameters}}
     {{#unless queryParameters.requiredProperties}}
 query_params: typing.Union[
-    {{queryParameters.mapInputJsonPathPiece.camelCase}},
-    {{queryParameters.mapOutputJsonPathPiece.camelCase}},
+    query_parameters.{{queryParameters.mapInputJsonPathPiece.camelCase}},
+    query_parameters.{{queryParameters.mapOutputJsonPathPiece.camelCase}},
     None
 ] = None,
     {{/unless}}
@@ -24,8 +24,8 @@ query_params: typing.Union[
 {{#if headerParameters}}
     {{#unless headerParameters.requiredProperties}}
 header_params: typing.Union[
-    {{headerParameters.mapInputJsonPathPiece.camelCase}},
-    {{headerParameters.mapOutputJsonPathPiece.camelCase}},
+    header_parameters.{{headerParameters.mapInputJsonPathPiece.camelCase}},
+    header_parameters.{{headerParameters.mapOutputJsonPathPiece.camelCase}},
     None
 ] = None,
     {{/unless}}
@@ -33,8 +33,8 @@ header_params: typing.Union[
 {{#if cookieParameters}}
     {{#unless cookieParameters.requiredProperties}}
 cookie_params: typing.Union[
-    {{cookieParameters.mapInputJsonPathPiece.camelCase}},
-    {{cookieParameters.mapOutputJsonPathPiece.camelCase}},
+    cookie_parameters.{{cookieParameters.mapInputJsonPathPiece.camelCase}},
+    cookie_parameters.{{cookieParameters.mapOutputJsonPathPiece.camelCase}},
     None
 ] = None,
     {{/unless}}

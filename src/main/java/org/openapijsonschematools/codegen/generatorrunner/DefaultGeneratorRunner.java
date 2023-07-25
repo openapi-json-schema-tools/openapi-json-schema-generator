@@ -470,6 +470,15 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 if (operation.pathParameters != null) {
                     generateSchema(files, operation.pathParameters, operationJsonPath + "/" + "PathParameters");
                 }
+                if (operation.queryParameters != null) {
+                    generateSchema(files, operation.queryParameters, operationJsonPath + "/" + "QueryParameters");
+                }
+                if (operation.headerParameters != null) {
+                    generateSchema(files, operation.headerParameters, operationJsonPath + "/" + "HeaderParameters");
+                }
+                if (operation.cookieParameters != null) {
+                    generateSchema(files, operation.cookieParameters, operationJsonPath + "/" + "CookieParameters");
+                }
 
                 // operation docs
                 Map<String, Object> endpointInfo = new HashMap<>();

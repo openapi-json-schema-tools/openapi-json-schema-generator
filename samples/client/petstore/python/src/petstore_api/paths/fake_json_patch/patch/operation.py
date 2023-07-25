@@ -15,7 +15,6 @@ from . import request_body
 from petstore_api.components.schema import json_patch_request as request_body_application_json_patchjson_schema
 
 
-
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {

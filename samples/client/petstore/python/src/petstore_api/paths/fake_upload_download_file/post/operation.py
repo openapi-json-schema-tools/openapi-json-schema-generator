@@ -15,7 +15,6 @@ from . import request_body
 from petstore_api.paths.fake_upload_download_file.post.request_body.content.application_octet_stream import schema as request_body_application_octet_stream_schema
 
 
-
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {

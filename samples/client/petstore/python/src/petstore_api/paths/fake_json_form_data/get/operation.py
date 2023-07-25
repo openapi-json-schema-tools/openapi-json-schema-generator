@@ -15,7 +15,6 @@ from . import request_body
 from petstore_api.paths.fake_json_form_data.get.request_body.content.application_x_www_form_urlencoded import schema as request_body_application_x_www_form_urlencoded_schema
 
 
-
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {

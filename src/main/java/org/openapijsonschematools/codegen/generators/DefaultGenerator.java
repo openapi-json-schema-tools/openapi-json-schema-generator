@@ -3616,16 +3616,22 @@ public class DefaultGenerator implements Generator {
         if (pathPieces.length < 5) {
             return;
         }
+        Set<String> xParameters = new HashSet<String>();
+        xParameters.add("PathParameters");
+        xParameters.add("QueryParameters");
+        xParameters.add("HeaderParameters");
+        xParameters.add("CookieParameters");
         if (pathPieces[3].equals("servers")) {
             // #/paths/somePath/servers/0
             pathPieces[4] = toServerFilename(pathPieces[4], null);
         } else if (pathPieces[4].equals("requestBody")) {
             // #/paths/somePath/get/requestBody
             pathPieces[4] = requestBodyIdentifier;
-        } else if (pathPieces[4].equals("PathParameters"))
+        } else if (xParameters.contains(pathPieces[4])) {
             // #/paths/somePath/get/PathParameters
             // synthetic jsonPath
-            pathPieces[4] = toModelFilename("PathParameters", "#/paths/somePath/verb/PathParameters");
+            pathPieces[4] = toModelFilename(pathPieces[4], "#/paths/somePath/verb/" + pathPieces[4]);
+        }
         if (pathPieces.length < 6) {
             return;
         }

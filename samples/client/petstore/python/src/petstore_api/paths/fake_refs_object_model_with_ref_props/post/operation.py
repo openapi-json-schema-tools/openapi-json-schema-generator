@@ -15,7 +15,6 @@ from . import request_body
 from petstore_api.components.schema import object_model_with_ref_props as request_body_application_json_schema
 
 
-
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {

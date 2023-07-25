@@ -15,7 +15,6 @@ from . import request_body
 from petstore_api.components.schema import user as request_body_application_json_schema
 
 
-
 default_response = response_default.Default
 
 

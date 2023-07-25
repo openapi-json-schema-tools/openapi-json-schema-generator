@@ -18,111 +18,7 @@ from .parameters import (
     parameter_0,
     parameter_1,
 )
-
-
-AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
-
-from petstore_api.paths.fake_inline_composition.post.parameters.parameter_0 import schema as parameter_0_schema
-from petstore_api.paths.fake_inline_composition.post.parameters.parameter_1 import schema as parameter_1_schema
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "compositionAtRoot": typing.Type[parameter_0_schema.Schema],
-        "compositionInProperty": typing.Type[parameter_1_schema.Schema],
-    }
-)
-
-
-class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__: typing.FrozenSet[str] = frozenset({
-    })
-    __optional_keys__: typing.FrozenSet[str] = frozenset({
-        "compositionAtRoot",
-        "compositionInProperty",
-    })
-    
-    @property
-    def compositionAtRoot(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        val = self.get("compositionAtRoot", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            val
-        )
-    
-    @property
-    def compositionInProperty(self) -> typing.Union[parameter_1_schema.SchemaDict, schemas.Unset]:
-        val = self.get("compositionInProperty", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            parameter_1_schema.SchemaDict,
-            val
-        )
-
-    def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return QueryParameters.validate(arg, configuration=configuration)
-QueryParametersDictInput = typing_extensions.TypedDict(
-    'QueryParametersDictInput',
-    {
-        "compositionAtRoot": typing.Union[
-            dict,
-            schemas.immutabledict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
-        ],
-        "compositionInProperty": typing.Union[
-            parameter_1_schema.SchemaDict,
-            dict,
-            schemas.immutabledict
-        ],
-    },
-    total=False
-)
-
-
-@dataclasses.dataclass(frozen=True)
-class QueryParameters(
-    schemas.Schema[QueryParametersDict, tuple]
-):
-    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
-    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
-    additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
-    type_to_output_cls: typing.Mapping[
-        typing.Type,
-        typing.Type
-    ] = dataclasses.field(
-        default_factory=lambda: {
-            schemas.immutabledict: QueryParametersDict
-        }
-    )
-
-    @classmethod
-    def validate(
-        cls,
-        arg: typing.Union[
-            QueryParametersDictInput,
-            QueryParametersDict,
-        ],
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> QueryParametersDict:
-        return super().validate_base(
-            arg,
-            configuration=configuration,
-        )
-
+from . import query_parameters
 query_parameter_classes = (
     parameter_0.Parameter0,
     parameter_1.Parameter1,
@@ -160,8 +56,8 @@ class BaseApi(api_client.Api):
             schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
-            QueryParametersDictInput,
-            QueryParametersDict,
+            query_parameters.QueryParametersDictInput,
+            query_parameters.QueryParametersDict,
             None
         ] = None,
         *,
@@ -187,8 +83,8 @@ class BaseApi(api_client.Api):
             schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
-            QueryParametersDictInput,
-            QueryParametersDict,
+            query_parameters.QueryParametersDictInput,
+            query_parameters.QueryParametersDict,
             None
         ] = None,
         *,
@@ -213,8 +109,8 @@ class BaseApi(api_client.Api):
             schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
-            QueryParametersDictInput,
-            QueryParametersDict,
+            query_parameters.QueryParametersDictInput,
+            query_parameters.QueryParametersDict,
             None
         ] = None,
         *,
@@ -235,7 +131,7 @@ class BaseApi(api_client.Api):
             class instances
         """
         if query_params is not None:
-            query_params = QueryParameters.validate(query_params)
+            query_params = query_parameters.QueryParameters.validate(query_params)
         used_path, query_params_suffix = self._get_used_path(
             path,
             query_parameters=query_parameter_classes,

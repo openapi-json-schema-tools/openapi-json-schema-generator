@@ -15,7 +15,6 @@ from . import request_body
 from petstore_api.paths.fake_upload_file.post.request_body.content.multipart_form_data import schema as request_body_multipart_form_data_schema
 
 
-
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {

@@ -18,7 +18,6 @@ from .responses import (
 from .parameters import parameter_0
 from .security import security_requirement_object_0
 from . import path_parameters
-
 path_parameter_classes = (
     parameter_0.Parameter0,
 )

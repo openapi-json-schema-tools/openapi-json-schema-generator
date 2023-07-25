@@ -16,7 +16,6 @@ from petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.request
 from .parameters import parameter_0
 from .security import security_requirement_object_0
 from . import path_parameters
-
 path_parameter_classes = (
     parameter_0.Parameter0,
 )

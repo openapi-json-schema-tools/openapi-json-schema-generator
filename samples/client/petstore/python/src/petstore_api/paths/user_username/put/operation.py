@@ -18,7 +18,6 @@ from . import request_body
 from petstore_api.components.schema import user as request_body_application_json_schema
 from .parameters import parameter_0
 from . import path_parameters
-
 path_parameter_classes = (
     parameter_0.Parameter0,
 )

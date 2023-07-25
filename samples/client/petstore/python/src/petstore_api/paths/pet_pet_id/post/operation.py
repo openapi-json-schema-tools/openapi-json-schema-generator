@@ -19,7 +19,6 @@ from .security import (
     security_requirement_object_1,
 )
 from . import path_parameters
-
 path_parameter_classes = (
     parameter_0.Parameter0,
 )

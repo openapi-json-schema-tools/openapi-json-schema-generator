@@ -18,7 +18,6 @@ from . import request_body
 from petstore_api.components.schema import order as request_body_application_json_schema
 
 
-
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {

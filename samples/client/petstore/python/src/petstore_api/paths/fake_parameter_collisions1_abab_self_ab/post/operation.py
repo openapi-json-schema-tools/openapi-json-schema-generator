@@ -35,283 +35,9 @@ from .parameters import (
     parameter_18,
 )
 from . import path_parameters
-
-
-AdditionalProperties2: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
-
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_0 import schema as parameter_0_schema
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_1 import schema as parameter_1_schema
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_2 import schema as parameter_2_schema
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_3 import schema as parameter_3_schema
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_4 import schema as parameter_4_schema
-Properties2 = typing_extensions.TypedDict(
-    'Properties2',
-    {
-        "1": typing.Type[parameter_0_schema.Schema],
-        "aB": typing.Type[parameter_1_schema.Schema],
-        "Ab": typing.Type[parameter_2_schema.Schema],
-        "A-B": typing.Type[parameter_4_schema.Schema],
-        "self": typing.Type[parameter_3_schema.Schema],
-    }
-)
-
-
-class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-
-    __required_keys__: typing.FrozenSet[str] = frozenset({
-    })
-    __optional_keys__: typing.FrozenSet[str] = frozenset({
-        "1",
-        "aB",
-        "Ab",
-        "A-B",
-        "self",
-    })
-    
-    @property
-    def aB(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("aB", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def Ab(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("Ab", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-
-    def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return QueryParameters.validate(arg, configuration=configuration)
-QueryParametersDictInput = typing_extensions.TypedDict(
-    'QueryParametersDictInput',
-    {
-        "1": str,
-        "aB": str,
-        "Ab": str,
-        "A-B": str,
-        "self": str,
-    },
-    total=False
-)
-
-
-@dataclasses.dataclass(frozen=True)
-class QueryParameters(
-    schemas.Schema[QueryParametersDict, tuple]
-):
-    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
-    properties: Properties2 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties2)) # type: ignore
-    additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
-    type_to_output_cls: typing.Mapping[
-        typing.Type,
-        typing.Type
-    ] = dataclasses.field(
-        default_factory=lambda: {
-            schemas.immutabledict: QueryParametersDict
-        }
-    )
-
-    @classmethod
-    def validate(
-        cls,
-        arg: typing.Union[
-            QueryParametersDictInput,
-            QueryParametersDict,
-        ],
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> QueryParametersDict:
-        return super().validate_base(
-            arg,
-            configuration=configuration,
-        )
-
-
-AdditionalProperties3: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
-
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_5 import schema as parameter_5_schema
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_6 import schema as parameter_6_schema
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_7 import schema as parameter_7_schema
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_8 import schema as parameter_8_schema
-Properties3 = typing_extensions.TypedDict(
-    'Properties3',
-    {
-        "1": typing.Type[parameter_5_schema.Schema],
-        "aB": typing.Type[parameter_6_schema.Schema],
-        "A-B": typing.Type[parameter_8_schema.Schema],
-        "self": typing.Type[parameter_7_schema.Schema],
-    }
-)
-
-
-class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-    __required_keys__: typing.FrozenSet[str] = frozenset({
-    })
-    __optional_keys__: typing.FrozenSet[str] = frozenset({
-        "1",
-        "aB",
-        "A-B",
-        "self",
-    })
-    
-    @property
-    def aB(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("aB", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-
-    def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return HeaderParameters.validate(arg, configuration=configuration)
-HeaderParametersDictInput = typing_extensions.TypedDict(
-    'HeaderParametersDictInput',
-    {
-        "1": str,
-        "aB": str,
-        "A-B": str,
-        "self": str,
-    },
-    total=False
-)
-
-
-@dataclasses.dataclass(frozen=True)
-class HeaderParameters(
-    schemas.Schema[HeaderParametersDict, tuple]
-):
-    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
-    properties: Properties3 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties3)) # type: ignore
-    additional_properties: typing.Type[AdditionalProperties3] = dataclasses.field(default_factory=lambda: AdditionalProperties3) # type: ignore
-    type_to_output_cls: typing.Mapping[
-        typing.Type,
-        typing.Type
-    ] = dataclasses.field(
-        default_factory=lambda: {
-            schemas.immutabledict: HeaderParametersDict
-        }
-    )
-
-    @classmethod
-    def validate(
-        cls,
-        arg: typing.Union[
-            HeaderParametersDictInput,
-            HeaderParametersDict,
-        ],
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> HeaderParametersDict:
-        return super().validate_base(
-            arg,
-            configuration=configuration,
-        )
-
-
-AdditionalProperties4: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
-
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_14 import schema as parameter_14_schema
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_15 import schema as parameter_15_schema
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_16 import schema as parameter_16_schema
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_17 import schema as parameter_17_schema
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_18 import schema as parameter_18_schema
-Properties4 = typing_extensions.TypedDict(
-    'Properties4',
-    {
-        "1": typing.Type[parameter_14_schema.Schema],
-        "aB": typing.Type[parameter_15_schema.Schema],
-        "Ab": typing.Type[parameter_16_schema.Schema],
-        "A-B": typing.Type[parameter_18_schema.Schema],
-        "self": typing.Type[parameter_17_schema.Schema],
-    }
-)
-
-
-class CookieParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-
-    __required_keys__: typing.FrozenSet[str] = frozenset({
-    })
-    __optional_keys__: typing.FrozenSet[str] = frozenset({
-        "1",
-        "aB",
-        "Ab",
-        "A-B",
-        "self",
-    })
-    
-    @property
-    def aB(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("aB", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def Ab(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("Ab", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-
-    def __new__(cls, arg: CookieParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return CookieParameters.validate(arg, configuration=configuration)
-CookieParametersDictInput = typing_extensions.TypedDict(
-    'CookieParametersDictInput',
-    {
-        "1": str,
-        "aB": str,
-        "Ab": str,
-        "A-B": str,
-        "self": str,
-    },
-    total=False
-)
-
-
-@dataclasses.dataclass(frozen=True)
-class CookieParameters(
-    schemas.Schema[CookieParametersDict, tuple]
-):
-    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
-    properties: Properties4 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties4)) # type: ignore
-    additional_properties: typing.Type[AdditionalProperties4] = dataclasses.field(default_factory=lambda: AdditionalProperties4) # type: ignore
-    type_to_output_cls: typing.Mapping[
-        typing.Type,
-        typing.Type
-    ] = dataclasses.field(
-        default_factory=lambda: {
-            schemas.immutabledict: CookieParametersDict
-        }
-    )
-
-    @classmethod
-    def validate(
-        cls,
-        arg: typing.Union[
-            CookieParametersDictInput,
-            CookieParametersDict,
-        ],
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> CookieParametersDict:
-        return super().validate_base(
-            arg,
-            configuration=configuration,
-        )
-
+from . import query_parameters
+from . import header_parameters
+from . import cookie_parameters
 query_parameter_classes = (
     parameter_0.Parameter0,
     parameter_1.Parameter1,
@@ -373,18 +99,18 @@ class BaseApi(api_client.Api):
             schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
-            QueryParametersDictInput,
-            QueryParametersDict,
+            query_parameters.QueryParametersDictInput,
+            query_parameters.QueryParametersDict,
             None
         ] = None,
         header_params: typing.Union[
-            HeaderParametersDictInput,
-            HeaderParametersDict,
+            header_parameters.HeaderParametersDictInput,
+            header_parameters.HeaderParametersDict,
             None
         ] = None,
         cookie_params: typing.Union[
-            CookieParametersDictInput,
-            CookieParametersDict,
+            cookie_parameters.CookieParametersDictInput,
+            cookie_parameters.CookieParametersDict,
             None
         ] = None,
         *,
@@ -409,18 +135,18 @@ class BaseApi(api_client.Api):
             schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
-            QueryParametersDictInput,
-            QueryParametersDict,
+            query_parameters.QueryParametersDictInput,
+            query_parameters.QueryParametersDict,
             None
         ] = None,
         header_params: typing.Union[
-            HeaderParametersDictInput,
-            HeaderParametersDict,
+            header_parameters.HeaderParametersDictInput,
+            header_parameters.HeaderParametersDict,
             None
         ] = None,
         cookie_params: typing.Union[
-            CookieParametersDictInput,
-            CookieParametersDict,
+            cookie_parameters.CookieParametersDictInput,
+            cookie_parameters.CookieParametersDict,
             None
         ] = None,
         *,
@@ -444,18 +170,18 @@ class BaseApi(api_client.Api):
             schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
-            QueryParametersDictInput,
-            QueryParametersDict,
+            query_parameters.QueryParametersDictInput,
+            query_parameters.QueryParametersDict,
             None
         ] = None,
         header_params: typing.Union[
-            HeaderParametersDictInput,
-            HeaderParametersDict,
+            header_parameters.HeaderParametersDictInput,
+            header_parameters.HeaderParametersDict,
             None
         ] = None,
         cookie_params: typing.Union[
-            CookieParametersDictInput,
-            CookieParametersDict,
+            cookie_parameters.CookieParametersDictInput,
+            cookie_parameters.CookieParametersDict,
             None
         ] = None,
         *,
@@ -474,11 +200,11 @@ class BaseApi(api_client.Api):
         """
         path_params = path_parameters.PathParameters.validate(path_params)
         if query_params is not None:
-            query_params = QueryParameters.validate(query_params)
+            query_params = query_parameters.QueryParameters.validate(query_params)
         if header_params is not None:
-            header_params = HeaderParameters.validate(header_params)
+            header_params = header_parameters.HeaderParameters.validate(header_params)
         if cookie_params is not None:
-            cookie_params = CookieParameters.validate(cookie_params)
+            cookie_params = cookie_parameters.CookieParameters.validate(cookie_params)
         used_path, query_params_suffix = self._get_used_path(
             path,
             path_parameters=path_parameter_classes,

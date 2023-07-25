@@ -11,19 +11,19 @@ path_params: typing.Union[
 {{/and}}
 {{#and queryParameters queryParameters.requiredProperties}}
 query_params: typing.Union[
-    {{queryParameters.mapInputJsonPathPiece.camelCase}},
-    {{queryParameters.mapOutputJsonPathPiece.camelCase}}
+    query_parameters.{{queryParameters.mapInputJsonPathPiece.camelCase}},
+    query_parameters.{{queryParameters.mapOutputJsonPathPiece.camelCase}}
 ],
 {{/and}}
 {{#and headerParameters headerParameters.requiredProperties}}
 header_params: typing.Union[
-    {{headerParameters.mapInputJsonPathPiece.camelCase}},
-    {{headerParameters.mapOutputJsonPathPiece.camelCase}}
+    header_parameters{{headerParameters.mapInputJsonPathPiece.camelCase}},
+    header_parameters.{{headerParameters.mapOutputJsonPathPiece.camelCase}}
 ],
 {{/and}}
 {{#and cookieParameters cookieParameters.requiredProperties}}
 cookie_params: typing.Union[
-    {{cookieParameters.mapInputJsonPathPiece.camelCase}},
-    {{cookieParameters.mapOutputJsonPathPiece.camelCase}}
+    cookie_parameters.{{cookieParameters.mapInputJsonPathPiece.camelCase}},
+    cookie_parameters.{{cookieParameters.mapOutputJsonPathPiece.camelCase}}
 ],
 {{/and}}

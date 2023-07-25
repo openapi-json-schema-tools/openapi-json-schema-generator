@@ -20,78 +20,7 @@ from .security import (
     security_requirement_object_1,
 )
 from . import path_parameters
-
-
-AdditionalProperties2: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
-
-from petstore_api.paths.pet_pet_id.delete.parameters.parameter_0 import schema as parameter_0_schema
-Properties2 = typing_extensions.TypedDict(
-    'Properties2',
-    {
-        "api_key": typing.Type[parameter_0_schema.Schema],
-    }
-)
-
-
-class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-
-    __required_keys__: typing.FrozenSet[str] = frozenset({
-    })
-    __optional_keys__: typing.FrozenSet[str] = frozenset({
-        "api_key",
-    })
-    
-    @property
-    def api_key(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("api_key", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-
-    def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return HeaderParameters.validate(arg, configuration=configuration)
-HeaderParametersDictInput = typing_extensions.TypedDict(
-    'HeaderParametersDictInput',
-    {
-        "api_key": str,
-    },
-    total=False
-)
-
-
-@dataclasses.dataclass(frozen=True)
-class HeaderParameters(
-    schemas.Schema[HeaderParametersDict, tuple]
-):
-    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
-    properties: Properties2 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties2)) # type: ignore
-    additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
-    type_to_output_cls: typing.Mapping[
-        typing.Type,
-        typing.Type
-    ] = dataclasses.field(
-        default_factory=lambda: {
-            schemas.immutabledict: HeaderParametersDict
-        }
-    )
-
-    @classmethod
-    def validate(
-        cls,
-        arg: typing.Union[
-            HeaderParametersDictInput,
-            HeaderParametersDict,
-        ],
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> HeaderParametersDict:
-        return super().validate_base(
-            arg,
-            configuration=configuration,
-        )
-
+from . import header_parameters
 header_parameter_classes = (
     parameter_0.Parameter0,
 )
@@ -128,8 +57,8 @@ class BaseApi(api_client.Api):
             path_parameters.PathParametersDict
         ],
         header_params: typing.Union[
-            HeaderParametersDictInput,
-            HeaderParametersDict,
+            header_parameters.HeaderParametersDictInput,
+            header_parameters.HeaderParametersDict,
             None
         ] = None,
         *,
@@ -147,8 +76,8 @@ class BaseApi(api_client.Api):
             path_parameters.PathParametersDict
         ],
         header_params: typing.Union[
-            HeaderParametersDictInput,
-            HeaderParametersDict,
+            header_parameters.HeaderParametersDictInput,
+            header_parameters.HeaderParametersDict,
             None
         ] = None,
         *,
@@ -166,8 +95,8 @@ class BaseApi(api_client.Api):
             path_parameters.PathParametersDict
         ],
         header_params: typing.Union[
-            HeaderParametersDictInput,
-            HeaderParametersDict,
+            header_parameters.HeaderParametersDictInput,
+            header_parameters.HeaderParametersDict,
             None
         ] = None,
         *,
@@ -185,7 +114,7 @@ class BaseApi(api_client.Api):
         """
         path_params = path_parameters.PathParameters.validate(path_params)
         if header_params is not None:
-            header_params = HeaderParameters.validate(header_params)
+            header_params = header_parameters.HeaderParameters.validate(header_params)
         used_path, query_params_suffix = self._get_used_path(
             path,
             path_parameters=path_parameter_classes,
