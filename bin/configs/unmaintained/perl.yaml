@@ -1,6 +1,0 @@
-generatorName: perl
-outputDir: samples/client/petstore/perl
-inputSpec: src/test/resources/3_0/petstore-with-fake-endpoints-models-for-testing.yaml
-templateDir: src/main/resources/perl
-additionalProperties:
-  hideGenerationTimestamp: "true"

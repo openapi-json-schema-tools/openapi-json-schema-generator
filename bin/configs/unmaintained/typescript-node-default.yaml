@@ -1,4 +1,0 @@
-generatorName: typescript-node
-outputDir: samples/client/petstore/typescript-node/default
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/typescript-node

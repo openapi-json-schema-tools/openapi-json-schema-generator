@@ -1,7 +1,0 @@
-generatorName: jaxrs-cxf-cdi
-outputDir: samples/server/petstore/jaxrs-cxf-cdi
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/JavaJaxRS/cxf-cdi
-additionalProperties:
-  hideGenerationTimestamp: "true"
-  implicitHeadersRegex: api_key

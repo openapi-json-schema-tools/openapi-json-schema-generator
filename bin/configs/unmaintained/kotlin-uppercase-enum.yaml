@@ -1,9 +1,0 @@
-generatorName: kotlin
-outputDir: samples/client/petstore/kotlin-uppercase-enum
-inputSpec: src/test/resources/3_0/issue-4062.yaml
-templateDir: src/main/resources/kotlin-client
-additionalProperties:
-  artifactId: kotlin-uppercase-enum
-  enumPropertyNaming: UPPERCASE
-  serializationLibrary: kotlinx_serialization
-  enumUnknownDefaultCase: "true"

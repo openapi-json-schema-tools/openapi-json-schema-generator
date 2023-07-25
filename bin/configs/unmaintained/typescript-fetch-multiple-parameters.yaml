@@ -1,7 +1,0 @@
-generatorName: typescript-fetch
-outputDir: samples/client/petstore/typescript-fetch/builds/multiple-parameters
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/typescript-fetch
-additionalProperties:
-  useSingleRequestParameter: false
-  snapshot: false

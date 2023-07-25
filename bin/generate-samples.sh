@@ -31,17 +31,17 @@ while [[ $# -gt 0 ]]; do
 done
 
 header="# START SCRIPT: $0
-This script generates all configs under bin/configs by default.
+This script generates all configs in bin/generate_samples_configs by default.
 You may generate a targeted script or set of scripts using glob patterns.
 
 For example:
-    $0 bin/configs/java-*
+    $0 bin/generate_samples_configs/java-*
 
 You may generate a single config with additional options if you use -- to
 separate the single config file from the generator arguments.
 
 For example:
-    $0 bin/configs/java-vertx.yaml -- --global-property debugModels=true
+    $0 bin/generate_samples_configs/java-vertx.yaml -- --global-property debugModels=true
 
 "
 
@@ -55,7 +55,7 @@ else
     echo "Please press CTRL+C to stop or the script will continue in 5 seconds."
     sleep 5
     if [ ${#files[@]} -eq 0 ]; then
-      files=("${root}"/bin/configs/*.yaml)
+      files=("${root}"/bin/generate_samples_configs/*.yaml)
     fi
 
     # shellcheck disable=SC2086

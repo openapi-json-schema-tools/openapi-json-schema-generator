@@ -1,4 +1,0 @@
-generatorName: typescript-axios
-outputDir: samples/client/petstore/typescript-axios/builds/with-complex-headers
-inputSpec: src/test/resources/3_0/petstore-with-complex-headers.yaml
-templateDir: src/main/resources/typescript-axios

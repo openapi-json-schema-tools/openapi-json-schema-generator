@@ -1,4 +1,0 @@
-generatorName: php-dt
-outputDir: samples/client/petstore/php-dt
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/php-dt

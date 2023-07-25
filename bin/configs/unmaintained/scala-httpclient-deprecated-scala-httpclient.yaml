@@ -1,4 +1,0 @@
-generatorName: scala-httpclient-deprecated
-outputDir: samples/client/petstore/scala-httpclient
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/scala-httpclient

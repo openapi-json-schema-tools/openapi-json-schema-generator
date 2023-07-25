@@ -1,6 +1,0 @@
-generatorName: nim
-outputDir: samples/client/petstore/nim
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/nim-client
-additionalProperties:
-  packageName: petstore

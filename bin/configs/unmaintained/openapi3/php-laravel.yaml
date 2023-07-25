@@ -1,4 +1,0 @@
-generatorName: php-laravel
-outputDir: samples/server/petstore/php-laravel
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/php-laravel

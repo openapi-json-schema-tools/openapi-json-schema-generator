@@ -1,9 +1,0 @@
-generatorName: dart
-outputDir: samples/openapi3/client/petstore/dart2/petstore_client_lib_fake
-inputSpec: src/test/resources/3_0/petstore-with-fake-endpoints-models-for-testing.yaml
-templateDir: src/main/resources/dart2
-typeMappings:
-  Client: "ModelClient"
-  File: "ModelFile"
-additionalProperties:
-  hideGenerationTimestamp: "true"

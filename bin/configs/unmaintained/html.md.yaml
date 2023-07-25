@@ -1,4 +1,0 @@
-generatorName: html
-outputDir: samples/documentation/html.md
-inputSpec: src/test/resources/2_0/markdown.yaml
-templateDir: src/main/resources/htmlDocs

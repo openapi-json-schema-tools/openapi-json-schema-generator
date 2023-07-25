@@ -1,6 +1,0 @@
-generatorName: graphql-schema
-outputDir: samples/config/petstore/graphql-schema
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/graphql-schema
-additionalProperties:
-  packageName: petstore

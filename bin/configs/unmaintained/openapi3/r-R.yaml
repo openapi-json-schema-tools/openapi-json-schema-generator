@@ -1,6 +1,0 @@
-generatorName: r
-outputDir: samples/client/petstore/R
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/r
-additionalProperties:
-  packageName: petstore

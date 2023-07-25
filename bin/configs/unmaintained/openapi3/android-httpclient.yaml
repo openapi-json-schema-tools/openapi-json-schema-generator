@@ -1,5 +1,0 @@
-generatorName: android
-outputDir: samples/client/petstore/android/httpclient
-library: httpclient
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/android

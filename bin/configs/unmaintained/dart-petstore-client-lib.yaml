@@ -1,6 +1,0 @@
-generatorName: dart
-outputDir: samples/openapi3/client/petstore/dart2/petstore_client_lib
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/dart2
-additionalProperties:
-  hideGenerationTimestamp: "true"

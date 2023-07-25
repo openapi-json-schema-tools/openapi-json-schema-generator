@@ -1,4 +1,0 @@
-generatorName: typescript-jquery
-outputDir: samples/client/petstore/typescript-jquery/default
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/typescript-jquery

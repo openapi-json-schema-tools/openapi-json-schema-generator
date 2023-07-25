@@ -1,4 +1,0 @@
-generatorName: php
-outputDir: samples/client/petstore/php/OpenAPIClient-php
-inputSpec: src/test/resources/3_0/petstore-with-fake-endpoints-models-for-testing.yaml
-templateDir: src/main/resources/php

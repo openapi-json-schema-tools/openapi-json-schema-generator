@@ -1,9 +1,0 @@
-generatorName: typescript-redux-query
-outputDir: samples/client/petstore/typescript-redux-query/builds/with-npm-version
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/typescript-redux-query
-additionalProperties:
-  npmVersion: 1.0.0
-  npmName: '@openapijsonschematools/typescript-redux-query-petstore'
-  npmRepository: https://skimdb.npmjs.com/registry
-  snapshot: false

@@ -49,7 +49,7 @@ import ch.lambdaj.function.convert.Converter;
  * User: lanwen Date: 24.03.15 Time: 20:22
  */
 
-@Command(name = "meta", description = "MetaGenerator. GeneratorRunner for creating a new template set "
+@Command(name = "meta", description = "Command for creating a new template set "
         + "and configuration for Codegen.  The output will be based on the language you "
         + "specify, and includes default templates to include.")
 public class Meta extends AbstractCommand {
@@ -64,7 +64,7 @@ public class Meta extends AbstractCommand {
     private String outputFolder = "";
 
     @Option(name = {"-n", "--name"}, title = "name",
-            description = "the human-readable name of the generatorRunner")
+            description = "the human-readable name of the generator")
     private String name = "default";
 
     @Option(name = {"-p", "--package"}, title = "package",
@@ -72,13 +72,13 @@ public class Meta extends AbstractCommand {
     private String targetPackage = "org.openapijsonschematools.codegen";
 
     @Option(name = {"-t", "--type"}, title = "type",
-            description = "the type of generatorRunner that is created",
+            description = "the type of generator that is created",
             allowedValues = {"CLIENT", "SERVER", "DOCUMENTATION", "CONFIG", "OTHER"})
     private String type = "OTHER";
 
     @Option(name = {"-l", "--language"}, title = "language",
-            description = "the implementation language for the generatorRunner class",
-            allowedValues = {"java", "kotlin"}
+            description = "the implementation language for the generator class",
+            allowedValues = {"java", "kotlin", "python"}
     )
     private String language = "java";
 
@@ -87,7 +87,7 @@ public class Meta extends AbstractCommand {
         final File targetDir = new File(outputFolder);
         LOGGER.info("writing to folder [{}]", targetDir.getAbsolutePath());
 
-        String mainClass = CaseFormat.LOWER_HYPHEN.to(CaseFormat.UPPER_CAMEL, name) + "GeneratorRunner";
+        String mainClass = CaseFormat.LOWER_HYPHEN.to(CaseFormat.UPPER_CAMEL, name) + "Generator";
         String kebabName = CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_HYPHEN, name);
 
         List<SupportingFile> supportingFiles = "kotlin".equals(language) ?

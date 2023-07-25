@@ -1,9 +1,0 @@
-generatorName: kotlin
-outputDir: samples/client/petstore/kotlin-enum-default-value
-inputSpec: src/test/resources/3_0/kotlin/issue10591-enum-defaultValue.yaml
-templateDir: src/main/resources/kotlin-client
-additionalProperties:
-  artifactId: kotlin-enum-default-value
-  serializableModel: "true"
-  dateLibrary: java8
-  enumUnknownDefaultCase: true

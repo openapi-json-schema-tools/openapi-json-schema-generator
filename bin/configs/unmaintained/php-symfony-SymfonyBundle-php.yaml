@@ -1,6 +1,0 @@
-generatorName: php-symfony
-outputDir: samples/server/petstore/php-symfony/SymfonyBundle-php
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/php-symfony
-gitUserId: openapijsonschematools
-gitRepoId: petstore

@@ -1,4 +1,0 @@
-generatorName: cpp-pistache-server
-outputDir: samples/server/petstore/cpp-pistache
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/cpp-pistache-server

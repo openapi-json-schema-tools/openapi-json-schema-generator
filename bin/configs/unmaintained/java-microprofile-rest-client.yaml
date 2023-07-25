@@ -1,8 +1,0 @@
-generatorName: java
-outputDir: samples/client/petstore/java/microprofile-rest-client
-library: microprofile
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/Java
-additionalProperties:
-  artifactId: microprofile-rest-client
-  configKey: petstore

@@ -1,7 +1,0 @@
-generatorName: java-play-framework
-outputDir: samples/server/petstore/java-play-framework-controller-only
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/JavaPlayFramework
-additionalProperties:
-  controllerOnly: "true"
-  hideGenerationTimestamp: "true"
