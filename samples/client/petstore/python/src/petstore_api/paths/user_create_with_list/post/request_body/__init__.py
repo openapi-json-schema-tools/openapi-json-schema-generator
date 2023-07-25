@@ -7,3 +7,4 @@
 
 from petstore_api.components.request_bodies import request_body_ref_user_array
 RequestBody = request_body_ref_user_array.RefUserArray
+RequestBodyInfo = request_body_ref_user_array.RequestBodyInfo
