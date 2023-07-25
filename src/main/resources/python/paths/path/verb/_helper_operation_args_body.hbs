@@ -1,11 +1,8 @@
-body: typing.Union[
-{{#each requestBodySchemas}}
-    {{#with refInfo.ref}}
-    {{> components/schemas/_helper_schema_input_type fullRefModule=../jsonPathPiece.snakeCase endChar="," }}
-    {{> components/schemas/_helper_schema_output_type mode="unprefixed" fullRefModule=../jsonPathPiece.snakeCase endChar="," }}
-    {{/with}}
-{{/each}}
-{{#unless requiredValue}}
+{{#if requiredValue}}
+body_info: request_body.RequestBodyInfo,
+{{else}}
+body_info: typing.Union[
+    request_body.RequestBodyInfo,
     schemas.Unset
-{{/unless}}
-]{{#unless requiredValue}} = schemas.unset{{/unless}},
+] = schemas.unset,
+{{/if}}

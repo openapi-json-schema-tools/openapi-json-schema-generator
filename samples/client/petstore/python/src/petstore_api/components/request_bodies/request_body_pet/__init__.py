@@ -23,3 +23,23 @@ class Pet(api_client.RequestBody):
         'application/xml': ApplicationXmlMediaType,
     }
     required = True
+
+
+class RequestBodyInfoForApplicationJson(collections.NamedTuple):
+    body: typing.Union[
+        schemas.INPUT_TYPES_ALL,
+        schemas.OUTPUT_BASE_TYPES,
+    ]
+    content_type: str = 'application/json'
+
+
+class RequestBodyInfoForApplicationXml(collections.NamedTuple):
+    body: typing.Union[
+        schemas.INPUT_TYPES_ALL,
+        schemas.OUTPUT_BASE_TYPES,
+    ]
+    content_type: str = 'application/xml'
+RequestBodyInfo = typing.Union[
+    RequestBodyInfoForApplicationJson,
+    RequestBodyInfoForApplicationXml,
+]

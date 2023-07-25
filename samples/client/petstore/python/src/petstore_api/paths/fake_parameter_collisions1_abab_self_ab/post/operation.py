@@ -12,7 +12,6 @@ from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [
 from .. import path
 from .responses import response_200
 from . import request_body
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.request_body.content.application_json import schema as request_body_application_json_schema
 from .parameters import (
     parameter_0,
     parameter_1,
@@ -93,9 +92,8 @@ class BaseApi(api_client.Api):
             path_parameters.PathParametersDictInput,
             path_parameters.PathParametersDict
         ],
-        body: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
+        body_info: typing.Union[
+            request_body.RequestBodyInfo,
             schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
@@ -115,7 +113,6 @@ class BaseApi(api_client.Api):
         ] = None,
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
-        content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -129,9 +126,8 @@ class BaseApi(api_client.Api):
             path_parameters.PathParametersDictInput,
             path_parameters.PathParametersDict
         ],
-        body: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
+        body_info: typing.Union[
+            request_body.RequestBodyInfo,
             schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
@@ -151,7 +147,6 @@ class BaseApi(api_client.Api):
         ] = None,
         *,
         skip_deserialization: typing_extensions.Literal[True],
-        content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -164,9 +159,8 @@ class BaseApi(api_client.Api):
             path_parameters.PathParametersDictInput,
             path_parameters.PathParametersDict
         ],
-        body: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
+        body_info: typing.Union[
+            request_body.RequestBodyInfo,
             schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
@@ -186,7 +180,6 @@ class BaseApi(api_client.Api):
         ] = None,
         *,
         skip_deserialization: bool = False,
-        content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -220,11 +213,10 @@ class BaseApi(api_client.Api):
         )
         # TODO add cookie handling
 
-        _fields, _body = self._get_fields_and_body(
+        fields, body = self._get_fields_and_body(
             request_body=request_body.RequestBody,
-            body=body,
-            headers=_headers,
-            content_type=content_type
+            body_info=body_info,
+            headers=_headers
         )
         host = self.api_client.configuration.get_server_url(
             "servers", server_index
@@ -236,8 +228,8 @@ class BaseApi(api_client.Api):
             method='post',
             host=host,
             headers=_headers,
-            fields=_fields,
-            body=_body,
+            fields=fields,
+            body=body,
             stream=stream,
             timeout=timeout,
         )

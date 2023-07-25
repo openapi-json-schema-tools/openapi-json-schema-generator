@@ -16,3 +16,12 @@ class RequestBody(api_client.RequestBody):
     content = {
         'multipart/form-data': MultipartFormDataMediaType,
     }
+
+
+class RequestBodyInfoForMultipartFormData(collections.NamedTuple):
+    body: typing.Union[
+        SchemaDictInput,
+        SchemaDict,
+    ]
+    content_type: str = 'multipart/form-data'
+RequestBodyInfo = RequestBodyInfoForMultipartFormData

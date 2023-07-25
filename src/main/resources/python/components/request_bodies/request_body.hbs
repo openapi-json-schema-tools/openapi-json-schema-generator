@@ -37,19 +37,32 @@ class {{jsonPathPiece.camelCase}}(api_client.RequestBody):
     {{#if required}}
     required = True
     {{/if}}
-{{/if}}
-{{/with}}
 {{#each content}}
 
 
-@dataclasses.dataclass
-class RequestBodyInfoFor{{@key.camelCase}}:
-    content_type: str = '{{{@key.original}}}'
+class RequestBodyInfoFor{{@key.camelCase}}(collections.NamedTuple):
     {{#with this}}
             {{#with schema}}
-    {{> components/_helper_content_schema_type paramName="body" contentTypeModule=../@key.snakeCase }}
+    body: typing.Union[
+        {{> components/schemas/_helper_schema_input_type endChar="," }}
+        {{> components/schemas/_helper_schema_output_type mode="unprefixed" endChar="," }}
+    ]
             {{/with}}
     {{else}}
     body: schemas.Unset = schemas.unset
     {{/with}}
+    content_type: str = '{{{@key.original}}}'
 {{/each}}
+{{#eq content.size 1}}
+    {{#each content}}
+RequestBodyInfo = RequestBodyInfoFor{{@key.camelCase}}
+    {{/each}}
+{{else}}
+RequestBodyInfo = typing.Union[
+    {{#each content}}
+    RequestBodyInfoFor{{@key.camelCase}},
+    {{/each}}
+]
+{{/eq}}
+{{/if}}
+{{/with}}

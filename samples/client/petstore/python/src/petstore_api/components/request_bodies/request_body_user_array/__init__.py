@@ -17,3 +17,12 @@ class UserArray(api_client.RequestBody):
         'application/json': ApplicationJsonMediaType,
     }
     required = True
+
+
+class RequestBodyInfoForApplicationJson(collections.NamedTuple):
+    body: typing.Union[
+        SchemaTupleInput,
+        SchemaTuple,
+    ]
+    content_type: str = 'application/json'
+RequestBodyInfo = RequestBodyInfoForApplicationJson

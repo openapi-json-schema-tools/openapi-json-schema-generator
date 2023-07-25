@@ -49,9 +49,6 @@ from .responses import (
 {{/if}}
 {{#if requestBody}}
 from . import request_body
-{{#each requestBodySchemas}}
-from {{refInfo.refModuleLocation}} import {{refInfo.refModule}} as {{jsonPathPiece.snakeCase}}
-{{/each}}
 {{/if}}
 {{#gt allParams.size 0}}
     {{#eq allParams.size 1}}
@@ -306,11 +303,10 @@ class BaseApi(api_client.Api):
         # TODO add cookie handling
     {{#with requestBody}}
 
-        _fields, _body = self._get_fields_and_body(
+        fields, body = self._get_fields_and_body(
             request_body=request_body.{{jsonPathPiece.camelCase}},
-            body=body,
-            headers=_headers,
-            content_type=content_type
+            body_info=body_info,
+            headers=_headers
         )
     {{/with}}
     {{#if servers}}
@@ -359,8 +355,8 @@ class BaseApi(api_client.Api):
             headers=_headers,
     {{/or}}
     {{#if requestBody}}
-            fields=_fields,
-            body=_body,
+            fields=fields,
+            body=body,
     {{/if}}
     {{#neq security null}}
         {{#gt security.size 0}}

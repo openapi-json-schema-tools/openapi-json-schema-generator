@@ -16,3 +16,12 @@ class RequestBody(api_client.RequestBody):
     content = {
         'application/x-www-form-urlencoded': ApplicationXWwwFormUrlencodedMediaType,
     }
+
+
+class RequestBodyInfoForApplicationXWwwFormUrlencoded(collections.NamedTuple):
+    body: typing.Union[
+        SchemaDictInput,
+        SchemaDict,
+    ]
+    content_type: str = 'application/x-www-form-urlencoded'
+RequestBodyInfo = RequestBodyInfoForApplicationXWwwFormUrlencoded

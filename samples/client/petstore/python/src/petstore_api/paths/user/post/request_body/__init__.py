@@ -17,3 +17,12 @@ class RequestBody(api_client.RequestBody):
         'application/json': ApplicationJsonMediaType,
     }
     required = True
+
+
+class RequestBodyInfoForApplicationJson(collections.NamedTuple):
+    body: typing.Union[
+        schemas.INPUT_TYPES_ALL,
+        schemas.OUTPUT_BASE_TYPES,
+    ]
+    content_type: str = 'application/json'
+RequestBodyInfo = RequestBodyInfoForApplicationJson

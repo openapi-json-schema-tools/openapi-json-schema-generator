@@ -12,7 +12,6 @@ from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [
 from .. import path
 from .responses import response_200
 from . import request_body
-from petstore_api.components.schema import client as request_body_application_json_schema
 from .security import security_requirement_object_0
 
 _security: typing.List[security_schemes.SecurityRequirementObject] = [
@@ -42,13 +41,9 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _classname(
         self,
-        body: typing.Union[
-            request_body_application_json_schema.ClientDictInput,
-            request_body_application_json_schema.ClientDict,
-        ],
+        body_info: request_body.RequestBodyInfo,
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
-        content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -59,13 +54,9 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _classname(
         self,
-        body: typing.Union[
-            request_body_application_json_schema.ClientDictInput,
-            request_body_application_json_schema.ClientDict,
-        ],
+        body_info: request_body.RequestBodyInfo,
         *,
         skip_deserialization: typing_extensions.Literal[True],
-        content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -75,13 +66,9 @@ class BaseApi(api_client.Api):
 
     def _classname(
         self,
-        body: typing.Union[
-            request_body_application_json_schema.ClientDictInput,
-            request_body_application_json_schema.ClientDict,
-        ],
+        body_info: request_body.RequestBodyInfo,
         *,
         skip_deserialization: bool = False,
-        content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -98,11 +85,10 @@ class BaseApi(api_client.Api):
         _headers = self._get_headers(accept_content_types=accept_content_types)
         # TODO add cookie handling
 
-        _fields, _body = self._get_fields_and_body(
+        fields, body = self._get_fields_and_body(
             request_body=request_body.RequestBody,
-            body=body,
-            headers=_headers,
-            content_type=content_type
+            body_info=body_info,
+            headers=_headers
         )
         host = self.api_client.configuration.get_server_url(
             "servers", server_index
@@ -118,8 +104,8 @@ class BaseApi(api_client.Api):
             method='patch',
             host=host,
             headers=_headers,
-            fields=_fields,
-            body=_body,
+            fields=fields,
+            body=body,
             security_requirement_object=security_requirement_object,
             stream=stream,
             timeout=timeout,
