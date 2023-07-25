@@ -263,7 +263,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testDateTimeFormParameterHasDefaultValue() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/spring/date-time-parameter-types-for-testing.yml");
+        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/date-time-parameter-types-for-testing.yml");
         final DefaultGenerator codegen = new DefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
