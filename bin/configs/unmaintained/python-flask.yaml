@@ -1,4 +1,0 @@
-generatorName: python-flask
-outputDir: samples/server/petstore/python-flask
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/python-flask

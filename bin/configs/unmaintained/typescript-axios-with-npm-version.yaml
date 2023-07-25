@@ -1,9 +1,0 @@
-generatorName: typescript-axios
-outputDir: samples/client/petstore/typescript-axios/builds/with-npm-version
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/typescript-axios
-additionalProperties:
-  npmVersion: 1.0.0
-  npmName: '@openapijsonschematools/typescript-axios-petstore'
-  npmRepository: https://skimdb.npmjs.com/registry
-  snapshot: false

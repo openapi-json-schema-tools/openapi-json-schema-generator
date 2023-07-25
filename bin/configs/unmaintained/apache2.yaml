@@ -1,4 +1,0 @@
-generatorName: apache2
-outputDir: samples/config/petstore/apache2
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/apache2

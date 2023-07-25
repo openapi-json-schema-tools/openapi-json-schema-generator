@@ -263,7 +263,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testDateTimeFormParameterHasDefaultValue() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/spring/date-time-parameter-types-for-testing.yml");
+        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/date-time-parameter-types-for-testing.yml");
         final DefaultGenerator codegen = new DefaultGenerator();
         codegen.setOpenAPI(openAPI);
 
@@ -280,7 +280,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testOriginalOpenApiDocumentVersion() {
         // Test with OAS 2.0 document.
-        String location = "src/test/resources/2_0/python-prior/petstore-with-fake-endpoints-models-for-testing.yaml";
+        String location = "src/test/resources/2_0/sample_spec.yml";
         OpenAPI openAPI = TestUtils.parseFlattenSpec(location);
         SemVer version = ModelUtils.getOpenApiVersion(openAPI, location, null);
         Assert.assertEquals(version, new SemVer("2.0.0"));
@@ -629,7 +629,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testDiscriminator() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/2_0/petstore-with-fake-endpoints-models-for-testing.yaml");
+        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/petstore-with-fake-endpoints-models-for-testing.yaml");
         DefaultGenerator codegen = new DefaultGenerator();
 
         Schema animal = openAPI.getComponents().getSchemas().get("Animal");
@@ -642,7 +642,6 @@ public class DefaultGeneratorTest {
         CodegenDiscriminator discriminator = animalModel.discriminator;
         String propertyName = "className";
         TreeSet<CodegenDiscriminator.MappedModel> mappedModels = new TreeSet<>();
-        mappedModels.add(new CodegenDiscriminator.MappedModel("BigCat", "BigCat"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Cat", "Cat"));
         mappedModels.add(new CodegenDiscriminator.MappedModel("Dog", "Dog"));
 
@@ -1296,7 +1295,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void verifyXDiscriminatorValue() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/2_0/x-discriminator-value.yaml");
+        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/x-discriminator-value.yaml");
         final DefaultGenerator config = new DefaultGenerator();
         config.setOpenAPI(openAPI);
 
@@ -1334,7 +1333,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void testAllOfSingleRefNoOwnProps() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/2_0/composed-allof.yaml");
+        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/composed-allof.yaml");
         final DefaultGenerator codegen = new GeneratorWithMultipleInheritance();
 
         Schema schema = openAPI.getComponents().getSchemas().get("NewMessageEventCoreNoOwnProps");

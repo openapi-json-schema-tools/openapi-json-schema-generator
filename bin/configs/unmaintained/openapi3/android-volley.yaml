@@ -1,7 +1,0 @@
-generatorName: android
-outputDir: samples/client/petstore/android/volley
-library: volley
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/android
-additionalProperties:
-  artifactId: petstore-android-volley

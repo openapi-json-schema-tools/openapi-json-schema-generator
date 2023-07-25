@@ -1,8 +1,0 @@
-generatorName: kotlin
-outputDir: samples/client/petstore/kotlin-jackson
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/kotlin-client
-additionalProperties:
-  serializationLibrary: jackson
-  artifactId: kotlin-petstore-jackson
-  enumPropertyNaming: UPPERCASE

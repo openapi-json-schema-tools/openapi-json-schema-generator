@@ -1,8 +1,0 @@
-generatorName: kotlin
-outputDir: samples/client/petstore/kotlin
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/kotlin-client
-additionalProperties:
-  artifactId: kotlin-petstore-client
-  serializableModel: "true"
-  dateLibrary: java8

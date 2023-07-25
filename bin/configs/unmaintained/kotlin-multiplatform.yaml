@@ -1,7 +1,0 @@
-generatorName: kotlin
-outputDir: samples/client/petstore/kotlin-multiplatform
-library: multiplatform
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/kotlin-client
-additionalProperties:
-  artifactId: kotlin-client-petstore-multiplatform

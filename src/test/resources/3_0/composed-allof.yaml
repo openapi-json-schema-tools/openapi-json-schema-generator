@@ -1,0 +1,55 @@
+openapi: 3.0.1
+info:
+  title: Test API
+  version: "2"
+servers:
+  - url: /xx2
+paths:
+  /ping:
+    post:
+      tags:
+        - Messaging
+      summary: Add a message event to the given message calendar
+      operationId: addMessageEventToMessageCalendar
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MessageEventCoreWithTimeListEntries'
+        required: true
+      responses:
+        200:
+          description: OK
+          content: {}
+      x-codegen-request-body-name: new-message-event
+components:
+  schemas:
+    MessageEventCoreWithTimeListEntries:
+      description: Base of a message event with Time List entries
+      allOf:
+        - $ref: '#/components/schemas/MessageEventCore'
+        - required:
+            - timeListEntries
+          type: object
+          properties:
+            timeListEntries:
+              type: array
+              items:
+                $ref: '#/components/schemas/TimeListEntry'
+    MessageEventCore:
+      type: object
+      properties:
+        id:
+          type: integer
+        message:
+          type: string
+    TimeListEntry:
+      type: object
+      properties:
+        p1:
+          type: string
+        p2:
+          type: string
+    NewMessageEventCoreNoOwnProps:
+      allOf:
+        - $ref: '#/components/schemas/MessageEventCore'

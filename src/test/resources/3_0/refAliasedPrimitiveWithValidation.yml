@@ -1,0 +1,94 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI Petstore
+  description: Tests models which trigger aliased primitives but contain JSON Schema
+    Validation Properties
+  license:
+    name: Apache-2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+  - url: http://petstore.swagger.io:80/v2
+tags:
+  - name: fake
+    description: A fake api
+paths:
+  /fake/StringEnum:
+    post:
+      tags:
+        - fake
+      description: Test serialization of StringEnum
+      operationId: StringEnum
+      requestBody:
+        description: Input string as post body
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/StringEnum'
+        required: false
+      responses:
+        200:
+          description: Returned string
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StringEnum'
+      x-codegen-request-body-name: body
+  /fake/StringRegex:
+    post:
+      tags:
+        - fake
+      description: Test serialization of StringRegex
+      operationId: StringRegex
+      requestBody:
+        description: Input string as post body
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/StringRegex'
+        required: false
+      responses:
+        200:
+          description: Returned string
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/StringRegex'
+      x-codegen-request-body-name: body
+  /fake/ObjectModelWithRefs:
+    post:
+      tags:
+        - fake
+      description: Test serialization of ObjectModelWithRefs
+      operationId: ObjectModelWithRefs
+      requestBody:
+        description: Input object as post body
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/ObjectModelWithRefs'
+        required: false
+      responses:
+        200:
+          description: Returned object
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ObjectModelWithRefs'
+      x-codegen-request-body-name: body
+components:
+  schemas:
+    ObjectModelWithRefs:
+      required:
+        - stringRegex
+      type: object
+      properties:
+        stringRegex:
+          $ref: '#/components/schemas/StringRegex'
+    StringEnum:
+      type: string
+      enum:
+        - a
+    StringRegex:
+      pattern: ^\d{3}-\d{2}-\d{4}$
+      type: string

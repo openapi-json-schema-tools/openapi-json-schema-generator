@@ -99,7 +99,7 @@ public class ModelUtilsTest {
 
     @Test
     public void testIsModelAllowsEmptyBaseModel() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/2_0/emptyBaseModel.yaml");
+        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/emptyBaseModel.yaml");
         Schema commandSchema = ModelUtils.getSchema(openAPI, "Command");
 
         Assert.assertTrue(ModelUtils.isModel(commandSchema));

@@ -1,6 +1,0 @@
-generatorName: python
-outputDir: samples/openapi3/client/petstore/python
-inputSpec: src/test/resources/3_0/python/petstore_customized.yaml
-additionalProperties:
-  packageName: petstore_api
-  recursionLimit: "1234"

@@ -350,7 +350,7 @@ public class DefaultGeneratorRunnerTest {
 
     @Test
     public void testRefModelValidationProperties() {
-        OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/2_0/refAliasedPrimitiveWithValidation.yml");
+        OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/refAliasedPrimitiveWithValidation.yml");
         ClientOptInput opts = new ClientOptInput();
         opts.openAPI(openAPI);
         DefaultGenerator config = new DefaultGenerator();

@@ -1,4 +1,0 @@
-generatorName: typescript-fetch
-outputDir: samples/client/petstore/typescript-fetch/builds/allOf-readonly
-inputSpec: src/test/resources/3_0/allOf-readonly.yaml
-templateDir: src/main/resources/typescript-fetch

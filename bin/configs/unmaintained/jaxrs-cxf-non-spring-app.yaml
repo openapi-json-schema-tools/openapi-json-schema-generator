@@ -1,9 +1,0 @@
-generatorName: jaxrs-cxf
-outputDir: samples/server/petstore/jaxrs-cxf-non-spring-app
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/JavaJaxRS/cxf
-additionalProperties:
-  artifactId: cxf-server-non-spring
-  hideGenerationTimestamp: "true"
-  generateNonSpringApplication: "true"
-  serverPort: "8082"

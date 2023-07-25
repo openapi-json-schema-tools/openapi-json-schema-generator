@@ -1,4 +1,0 @@
-generatorName: plantuml
-outputDir: samples/documentation/petstore/plantuml
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/plantuml

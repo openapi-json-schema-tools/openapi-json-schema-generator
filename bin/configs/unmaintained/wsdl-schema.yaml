@@ -1,6 +1,0 @@
-generatorName: wsdl-schema
-outputDir: samples/schema/petstore/wsdl-schema
-inputSpec: src/test/resources/3_0/wsdl/petstore.yaml
-templateDir: src/main/resources/wsdl-schema
-additionalProperties:
-  hideGenerationTimestamp: "true"

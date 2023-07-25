@@ -1,6 +1,0 @@
-generatorName: typescript-axios
-outputDir: samples/client/petstore/typescript-axios/builds/with-single-request-parameters
-inputSpec: src/test/resources/2_0/petstore-with-operations-without-required-params.yaml
-templateDir: src/main/resources/typescript-axios
-additionalProperties:
-  useSingleRequestParameter: "true"

@@ -1,6 +1,0 @@
-generatorName: lua
-outputDir: samples/client/petstore/lua
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/lua
-additionalProperties:
-  packageName: petstore

@@ -1,4 +1,0 @@
-generatorName: markdown
-outputDir: samples/documentation/markdown
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/markdown-documentation

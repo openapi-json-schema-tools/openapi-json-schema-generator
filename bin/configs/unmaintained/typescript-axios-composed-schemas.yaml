@@ -1,4 +1,0 @@
-generatorName: typescript-axios
-outputDir: samples/client/petstore/typescript-axios/builds/composed-schemas
-inputSpec: src/test/resources/3_0/composed-schemas.yaml
-templateDir: src/main/resources/typescript-axios

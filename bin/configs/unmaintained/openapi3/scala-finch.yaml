@@ -1,4 +1,0 @@
-generatorName: scala-finch
-outputDir: samples/server/petstore/scala-finch
-inputSpec: src/test/resources/3_0/petstore.yaml
-templateDir: src/main/resources/scala-finch

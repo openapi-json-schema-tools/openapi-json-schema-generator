@@ -1,4 +1,0 @@
-generatorName: python-blueplanet
-outputDir: samples/server/petstore/python-blueplanet
-inputSpec: src/test/resources/2_0/petstore.yaml
-templateDir: src/main/resources/python-blueplanet

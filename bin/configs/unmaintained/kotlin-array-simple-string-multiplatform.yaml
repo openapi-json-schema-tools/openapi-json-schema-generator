@@ -1,7 +1,0 @@
-generatorName: kotlin
-outputDir: samples/client/petstore/kotlin-array-simple-string-multiplatform
-inputSpec: src/test/resources/3_0/issue_7199_array_simple_string.yaml
-templateDir: src/main/resources/kotlin-client
-additionalProperties:
-  artifactId: kotlin-array-simple-string-multiplatform
-  library: multiplatform
