@@ -17,7 +17,7 @@ query_params: typing.Union[
 {{/and}}
 {{#and headerParameters headerParameters.requiredProperties}}
 header_params: typing.Union[
-    header_parameters{{headerParameters.mapInputJsonPathPiece.camelCase}},
+    header_parameters.{{headerParameters.mapInputJsonPathPiece.camelCase}},
     header_parameters.{{headerParameters.mapOutputJsonPathPiece.camelCase}}
 ],
 {{/and}}

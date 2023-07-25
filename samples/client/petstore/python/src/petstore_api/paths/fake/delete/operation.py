@@ -61,7 +61,7 @@ class BaseApi(api_client.Api):
             query_parameters.QueryParametersDict
         ],
         header_params: typing.Union[
-            header_parametersHeaderParametersDictInput,
+            header_parameters.HeaderParametersDictInput,
             header_parameters.HeaderParametersDict
         ],
         *,
@@ -80,7 +80,7 @@ class BaseApi(api_client.Api):
             query_parameters.QueryParametersDict
         ],
         header_params: typing.Union[
-            header_parametersHeaderParametersDictInput,
+            header_parameters.HeaderParametersDictInput,
             header_parameters.HeaderParametersDict
         ],
         *,
@@ -98,7 +98,7 @@ class BaseApi(api_client.Api):
             query_parameters.QueryParametersDict
         ],
         header_params: typing.Union[
-            header_parametersHeaderParametersDictInput,
+            header_parameters.HeaderParametersDictInput,
             header_parameters.HeaderParametersDict
         ],
         *,

@@ -39,3 +39,17 @@ class {{jsonPathPiece.camelCase}}(api_client.RequestBody):
     {{/if}}
 {{/if}}
 {{/with}}
+{{#each content}}
+
+
+@dataclasses.dataclass
+class RequestBodyInfoFor{{@key.camelCase}}:
+    content_type: str = '{{{@key.original}}}'
+    {{#with this}}
+            {{#with schema}}
+    {{> components/_helper_content_schema_type paramName="body" contentTypeModule=../@key.snakeCase }}
+            {{/with}}
+    {{else}}
+    body: schemas.Unset = schemas.unset
+    {{/with}}
+{{/each}}
