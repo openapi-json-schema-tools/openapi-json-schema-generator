@@ -280,7 +280,7 @@ public class DefaultGeneratorTest {
     @Test
     public void testOriginalOpenApiDocumentVersion() {
         // Test with OAS 2.0 document.
-        String location = "src/test/resources/2_0/python-prior/petstore-with-fake-endpoints-models-for-testing.yaml";
+        String location = "src/test/resources/2_0/sample_spec.yml";
         OpenAPI openAPI = TestUtils.parseFlattenSpec(location);
         SemVer version = ModelUtils.getOpenApiVersion(openAPI, location, null);
         Assert.assertEquals(version, new SemVer("2.0.0"));
@@ -1295,7 +1295,7 @@ public class DefaultGeneratorTest {
 
     @Test
     public void verifyXDiscriminatorValue() {
-        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/2_0/x-discriminator-value.yaml");
+        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/x-discriminator-value.yaml");
         final DefaultGenerator config = new DefaultGenerator();
         config.setOpenAPI(openAPI);
 
