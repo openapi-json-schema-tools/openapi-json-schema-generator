@@ -6,8 +6,8 @@
 {{#if pathParameters}}
     {{#unless pathParameters.requiredProperties}}
 path_params: typing.Union[
-    {{pathParameters.mapInputJsonPathPiece.camelCase}},
-    {{pathParameters.mapOutputJsonPathPiece.camelCase}},
+    path_parameters.{{pathParameters.mapInputJsonPathPiece.camelCase}},
+    path_parameters.{{pathParameters.mapOutputJsonPathPiece.camelCase}},
     None
 ] = None,
     {{/unless}}

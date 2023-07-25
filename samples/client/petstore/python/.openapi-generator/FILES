@@ -663,6 +663,7 @@ src/petstore_api/paths/fake_delete_coffee_id/delete/operation.py
 src/petstore_api/paths/fake_delete_coffee_id/delete/parameters/__init__.py
 src/petstore_api/paths/fake_delete_coffee_id/delete/parameters/parameter_0/__init__.py
 src/petstore_api/paths/fake_delete_coffee_id/delete/parameters/parameter_0/schema.py
+src/petstore_api/paths/fake_delete_coffee_id/delete/path_parameters.py
 src/petstore_api/paths/fake_delete_coffee_id/delete/responses/__init__.py
 src/petstore_api/paths/fake_delete_coffee_id/delete/responses/response_200/__init__.py
 src/petstore_api/paths/fake_delete_coffee_id/delete/responses/response_default/__init__.py
@@ -808,6 +809,7 @@ src/petstore_api/paths/fake_parameter_collisions1_abab_self_ab/post/parameters/p
 src/petstore_api/paths/fake_parameter_collisions1_abab_self_ab/post/parameters/parameter_8/schema.py
 src/petstore_api/paths/fake_parameter_collisions1_abab_self_ab/post/parameters/parameter_9/__init__.py
 src/petstore_api/paths/fake_parameter_collisions1_abab_self_ab/post/parameters/parameter_9/schema.py
+src/petstore_api/paths/fake_parameter_collisions1_abab_self_ab/post/path_parameters.py
 src/petstore_api/paths/fake_parameter_collisions1_abab_self_ab/post/request_body/__init__.py
 src/petstore_api/paths/fake_parameter_collisions1_abab_self_ab/post/request_body/content/__init__.py
 src/petstore_api/paths/fake_parameter_collisions1_abab_self_ab/post/request_body/content/application_json/__init__.py
@@ -823,6 +825,7 @@ src/petstore_api/paths/fake_pet_id_upload_image_with_required_file/post/operatio
 src/petstore_api/paths/fake_pet_id_upload_image_with_required_file/post/parameters/__init__.py
 src/petstore_api/paths/fake_pet_id_upload_image_with_required_file/post/parameters/parameter_0/__init__.py
 src/petstore_api/paths/fake_pet_id_upload_image_with_required_file/post/parameters/parameter_0/schema.py
+src/petstore_api/paths/fake_pet_id_upload_image_with_required_file/post/path_parameters.py
 src/petstore_api/paths/fake_pet_id_upload_image_with_required_file/post/request_body/__init__.py
 src/petstore_api/paths/fake_pet_id_upload_image_with_required_file/post/request_body/content/__init__.py
 src/petstore_api/paths/fake_pet_id_upload_image_with_required_file/post/request_body/content/multipart_form_data/__init__.py
@@ -1124,6 +1127,7 @@ src/petstore_api/paths/pet_pet_id/delete/parameters/parameter_0/__init__.py
 src/petstore_api/paths/pet_pet_id/delete/parameters/parameter_0/schema.py
 src/petstore_api/paths/pet_pet_id/delete/parameters/parameter_1/__init__.py
 src/petstore_api/paths/pet_pet_id/delete/parameters/parameter_1/schema.py
+src/petstore_api/paths/pet_pet_id/delete/path_parameters.py
 src/petstore_api/paths/pet_pet_id/delete/responses/__init__.py
 src/petstore_api/paths/pet_pet_id/delete/responses/response_400/__init__.py
 src/petstore_api/paths/pet_pet_id/delete/security/__init__.py
@@ -1134,6 +1138,7 @@ src/petstore_api/paths/pet_pet_id/get/operation.py
 src/petstore_api/paths/pet_pet_id/get/parameters/__init__.py
 src/petstore_api/paths/pet_pet_id/get/parameters/parameter_0/__init__.py
 src/petstore_api/paths/pet_pet_id/get/parameters/parameter_0/schema.py
+src/petstore_api/paths/pet_pet_id/get/path_parameters.py
 src/petstore_api/paths/pet_pet_id/get/responses/__init__.py
 src/petstore_api/paths/pet_pet_id/get/responses/response_200/__init__.py
 src/petstore_api/paths/pet_pet_id/get/responses/response_200/content/__init__.py
@@ -1150,6 +1155,7 @@ src/petstore_api/paths/pet_pet_id/post/operation.py
 src/petstore_api/paths/pet_pet_id/post/parameters/__init__.py
 src/petstore_api/paths/pet_pet_id/post/parameters/parameter_0/__init__.py
 src/petstore_api/paths/pet_pet_id/post/parameters/parameter_0/schema.py
+src/petstore_api/paths/pet_pet_id/post/path_parameters.py
 src/petstore_api/paths/pet_pet_id/post/request_body/__init__.py
 src/petstore_api/paths/pet_pet_id/post/request_body/content/__init__.py
 src/petstore_api/paths/pet_pet_id/post/request_body/content/application_x_www_form_urlencoded/__init__.py
@@ -1165,6 +1171,7 @@ src/petstore_api/paths/pet_pet_id_upload_image/post/operation.py
 src/petstore_api/paths/pet_pet_id_upload_image/post/parameters/__init__.py
 src/petstore_api/paths/pet_pet_id_upload_image/post/parameters/parameter_0/__init__.py
 src/petstore_api/paths/pet_pet_id_upload_image/post/parameters/parameter_0/schema.py
+src/petstore_api/paths/pet_pet_id_upload_image/post/path_parameters.py
 src/petstore_api/paths/pet_pet_id_upload_image/post/request_body/__init__.py
 src/petstore_api/paths/pet_pet_id_upload_image/post/request_body/content/__init__.py
 src/petstore_api/paths/pet_pet_id_upload_image/post/request_body/content/multipart_form_data/__init__.py
@@ -1206,6 +1213,7 @@ src/petstore_api/paths/store_order_order_id/delete/operation.py
 src/petstore_api/paths/store_order_order_id/delete/parameters/__init__.py
 src/petstore_api/paths/store_order_order_id/delete/parameters/parameter_0/__init__.py
 src/petstore_api/paths/store_order_order_id/delete/parameters/parameter_0/schema.py
+src/petstore_api/paths/store_order_order_id/delete/path_parameters.py
 src/petstore_api/paths/store_order_order_id/delete/responses/__init__.py
 src/petstore_api/paths/store_order_order_id/delete/responses/response_400/__init__.py
 src/petstore_api/paths/store_order_order_id/delete/responses/response_404/__init__.py
@@ -1214,6 +1222,7 @@ src/petstore_api/paths/store_order_order_id/get/operation.py
 src/petstore_api/paths/store_order_order_id/get/parameters/__init__.py
 src/petstore_api/paths/store_order_order_id/get/parameters/parameter_0/__init__.py
 src/petstore_api/paths/store_order_order_id/get/parameters/parameter_0/schema.py
+src/petstore_api/paths/store_order_order_id/get/path_parameters.py
 src/petstore_api/paths/store_order_order_id/get/responses/__init__.py
 src/petstore_api/paths/store_order_order_id/get/responses/response_200/__init__.py
 src/petstore_api/paths/store_order_order_id/get/responses/response_200/content/__init__.py
@@ -1280,6 +1289,7 @@ src/petstore_api/paths/user_username/delete/__init__.py
 src/petstore_api/paths/user_username/delete/operation.py
 src/petstore_api/paths/user_username/delete/parameters/__init__.py
 src/petstore_api/paths/user_username/delete/parameters/parameter_0/__init__.py
+src/petstore_api/paths/user_username/delete/path_parameters.py
 src/petstore_api/paths/user_username/delete/responses/__init__.py
 src/petstore_api/paths/user_username/delete/responses/response_200/__init__.py
 src/petstore_api/paths/user_username/delete/responses/response_404/__init__.py
@@ -1287,6 +1297,7 @@ src/petstore_api/paths/user_username/get/__init__.py
 src/petstore_api/paths/user_username/get/operation.py
 src/petstore_api/paths/user_username/get/parameters/__init__.py
 src/petstore_api/paths/user_username/get/parameters/parameter_0/__init__.py
+src/petstore_api/paths/user_username/get/path_parameters.py
 src/petstore_api/paths/user_username/get/responses/__init__.py
 src/petstore_api/paths/user_username/get/responses/response_200/__init__.py
 src/petstore_api/paths/user_username/get/responses/response_200/content/__init__.py
@@ -1300,6 +1311,7 @@ src/petstore_api/paths/user_username/put/__init__.py
 src/petstore_api/paths/user_username/put/operation.py
 src/petstore_api/paths/user_username/put/parameters/__init__.py
 src/petstore_api/paths/user_username/put/parameters/parameter_0/__init__.py
+src/petstore_api/paths/user_username/put/path_parameters.py
 src/petstore_api/paths/user_username/put/request_body/__init__.py
 src/petstore_api/paths/user_username/put/request_body/content/__init__.py
 src/petstore_api/paths/user_username/put/request_body/content/application_json/__init__.py

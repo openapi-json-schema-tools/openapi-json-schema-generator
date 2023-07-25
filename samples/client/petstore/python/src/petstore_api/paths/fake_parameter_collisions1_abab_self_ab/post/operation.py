@@ -34,6 +34,7 @@ from .parameters import (
     parameter_17,
     parameter_18,
 )
+from . import path_parameters
 
 
 AdditionalProperties2: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
@@ -215,103 +216,6 @@ class HeaderParameters(
         )
 
 
-AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
-
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_10 import schema as parameter_10_schema
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_11 import schema as parameter_11_schema
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_12 import schema as parameter_12_schema
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_13 import schema as parameter_13_schema
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_9 import schema as parameter_9_schema
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "1": typing.Type[parameter_9_schema.Schema],
-        "aB": typing.Type[parameter_10_schema.Schema],
-        "Ab": typing.Type[parameter_11_schema.Schema],
-        "A-B": typing.Type[parameter_13_schema.Schema],
-        "self": typing.Type[parameter_12_schema.Schema],
-    }
-)
-
-
-class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-
-    __required_keys__: typing.FrozenSet[str] = frozenset({
-        "1",
-        "A-B",
-        "Ab",
-        "aB",
-        "self",
-    })
-    __optional_keys__: typing.FrozenSet[str] = frozenset({
-    })
-    
-    @property
-    def Ab(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("Ab")
-        )
-    
-    @property
-    def aB(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("aB")
-        )
-
-    def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return PathParameters.validate(arg, configuration=configuration)
-PathParametersDictInput = typing_extensions.TypedDict(
-    'PathParametersDictInput',
-    {
-        "1": str,
-        "A-B": str,
-        "Ab": str,
-        "aB": str,
-        "self": str,
-    }
-)
-
-
-@dataclasses.dataclass(frozen=True)
-class PathParameters(
-    schemas.Schema[PathParametersDict, tuple]
-):
-    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
-    required: typing.FrozenSet[str] = frozenset({
-        "1",
-        "A-B",
-        "Ab",
-        "aB",
-        "self",
-    })
-    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
-    additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
-    type_to_output_cls: typing.Mapping[
-        typing.Type,
-        typing.Type
-    ] = dataclasses.field(
-        default_factory=lambda: {
-            schemas.immutabledict: PathParametersDict
-        }
-    )
-
-    @classmethod
-    def validate(
-        cls,
-        arg: typing.Union[
-            PathParametersDictInput,
-            PathParametersDict,
-        ],
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> PathParametersDict:
-        return super().validate_base(
-            arg,
-            configuration=configuration,
-        )
-
-
 AdditionalProperties4: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
 from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_14 import schema as parameter_14_schema
@@ -460,8 +364,8 @@ class BaseApi(api_client.Api):
     def _parameter_collisions(
         self,
         path_params: typing.Union[
-            PathParametersDictInput,
-            PathParametersDict
+            path_parameters.PathParametersDictInput,
+            path_parameters.PathParametersDict
         ],
         body: typing.Union[
             schemas.INPUT_TYPES_ALL,
@@ -496,8 +400,8 @@ class BaseApi(api_client.Api):
     def _parameter_collisions(
         self,
         path_params: typing.Union[
-            PathParametersDictInput,
-            PathParametersDict
+            path_parameters.PathParametersDictInput,
+            path_parameters.PathParametersDict
         ],
         body: typing.Union[
             schemas.INPUT_TYPES_ALL,
@@ -531,8 +435,8 @@ class BaseApi(api_client.Api):
     def _parameter_collisions(
         self,
         path_params: typing.Union[
-            PathParametersDictInput,
-            PathParametersDict
+            path_parameters.PathParametersDictInput,
+            path_parameters.PathParametersDict
         ],
         body: typing.Union[
             schemas.INPUT_TYPES_ALL,
@@ -568,7 +472,7 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        path_params = PathParameters.validate(path_params)
+        path_params = path_parameters.PathParameters.validate(path_params)
         if query_params is not None:
             query_params = QueryParameters.validate(query_params)
         if header_params is not None:

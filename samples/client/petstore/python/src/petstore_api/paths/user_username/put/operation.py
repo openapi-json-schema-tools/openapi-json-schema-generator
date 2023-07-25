@@ -17,76 +17,7 @@ from .responses import (
 from . import request_body
 from petstore_api.components.schema import user as request_body_application_json_schema
 from .parameters import parameter_0
-
-
-AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
-
-from petstore_api.components.parameters.parameter_path_user_name import schema as parameter_path_user_name_schema
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "username": typing.Type[parameter_path_user_name_schema.Schema],
-    }
-)
-
-
-class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-
-    __required_keys__: typing.FrozenSet[str] = frozenset({
-        "username",
-    })
-    __optional_keys__: typing.FrozenSet[str] = frozenset({
-    })
-    
-    @property
-    def username(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("username")
-        )
-
-    def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return PathParameters.validate(arg, configuration=configuration)
-PathParametersDictInput = typing_extensions.TypedDict(
-    'PathParametersDictInput',
-    {
-        "username": str,
-    }
-)
-
-
-@dataclasses.dataclass(frozen=True)
-class PathParameters(
-    schemas.Schema[PathParametersDict, tuple]
-):
-    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
-    required: typing.FrozenSet[str] = frozenset({
-        "username",
-    })
-    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
-    additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
-    type_to_output_cls: typing.Mapping[
-        typing.Type,
-        typing.Type
-    ] = dataclasses.field(
-        default_factory=lambda: {
-            schemas.immutabledict: PathParametersDict
-        }
-    )
-
-    @classmethod
-    def validate(
-        cls,
-        arg: typing.Union[
-            PathParametersDictInput,
-            PathParametersDict,
-        ],
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> PathParametersDict:
-        return super().validate_base(
-            arg,
-            configuration=configuration,
-        )
+from . import path_parameters
 
 path_parameter_classes = (
     parameter_0.Parameter0,
@@ -119,8 +50,8 @@ class BaseApi(api_client.Api):
             request_body_application_json_schema.UserDict,
         ],
         path_params: typing.Union[
-            PathParametersDictInput,
-            PathParametersDict
+            path_parameters.PathParametersDictInput,
+            path_parameters.PathParametersDict
         ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
@@ -137,8 +68,8 @@ class BaseApi(api_client.Api):
             request_body_application_json_schema.UserDict,
         ],
         path_params: typing.Union[
-            PathParametersDictInput,
-            PathParametersDict
+            path_parameters.PathParametersDictInput,
+            path_parameters.PathParametersDict
         ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
@@ -155,8 +86,8 @@ class BaseApi(api_client.Api):
             request_body_application_json_schema.UserDict,
         ],
         path_params: typing.Union[
-            PathParametersDictInput,
-            PathParametersDict
+            path_parameters.PathParametersDictInput,
+            path_parameters.PathParametersDict
         ],
         *,
         skip_deserialization: bool = False,
@@ -171,7 +102,7 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        path_params = PathParameters.validate(path_params)
+        path_params = path_parameters.PathParameters.validate(path_params)
         used_path, query_params_suffix = self._get_used_path(
             path,
             path_parameters=path_parameter_classes,

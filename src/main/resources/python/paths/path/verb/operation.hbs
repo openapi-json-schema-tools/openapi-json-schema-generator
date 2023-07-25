@@ -81,16 +81,15 @@ from .security import (
         {{/eq}}
     {{/gt}}
 {{/neq}}
+{{#if pathParameters}}
+from . import path_parameters
+{{/if}}
 
 {{#with queryParameters}}
 
 {{> components/schemas/_helper_getschemas }}
 {{/with}}
 {{#with headerParameters}}
-
-{{> components/schemas/_helper_getschemas }}
-{{/with}}
-{{#with pathParameters}}
 
 {{> components/schemas/_helper_getschemas }}
 {{/with}}
@@ -247,10 +246,10 @@ class BaseApi(api_client.Api):
         """
     {{#if pathParameters}}
         {{#if pathParameters.requiredProperties}}
-        path_params = {{pathParameters.jsonPathPiece.camelCase}}.validate(path_params)
+        path_params = path_parameters.{{pathParameters.jsonPathPiece.camelCase}}.validate(path_params)
         {{else}}
         if path_params is not None:
-            path_params = {{pathParameters.jsonPathPiece.camelCase}}.validate(path_params)
+            path_params = path_parameters.{{pathParameters.jsonPathPiece.camelCase}}.validate(path_params)
         {{/if}}
     {{/if}}
     {{#if queryParameters}}

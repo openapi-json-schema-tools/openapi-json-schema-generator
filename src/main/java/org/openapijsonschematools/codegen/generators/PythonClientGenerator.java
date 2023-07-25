@@ -562,7 +562,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION,
                 operationTemplates
         );
-
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.COMPONENTS,
                 new HashMap<String, String>() {{

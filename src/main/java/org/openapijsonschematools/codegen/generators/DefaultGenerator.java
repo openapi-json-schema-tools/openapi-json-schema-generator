@@ -2813,7 +2813,7 @@ public class DefaultGenerator implements Generator {
         xParametersSchema.setProperties(xParametersProperties);
         xParametersSchema.setRequired(xParametersRequired);
         xParametersSchema.setAdditionalProperties(Boolean.FALSE);
-        CodegenSchema schema = fromSchema(xParametersSchema, jsonPath, jsonPath + "/" + schemaName);
+        CodegenSchema schema = fromSchema(xParametersSchema, jsonPath + "/" + schemaName, jsonPath + "/" + schemaName);
         schema.imports = new TreeSet<>();
         addImports(schema.imports, getImports(schema, generatorMetadata.getFeatureSet()));
         return schema;
@@ -3616,14 +3616,16 @@ public class DefaultGenerator implements Generator {
         if (pathPieces.length < 5) {
             return;
         }
-        if (pathPieces[4].equals("requestBody")) {
-            // #/paths/somePath/get/requestBody
-            pathPieces[4] = requestBodyIdentifier;
-        }
         if (pathPieces[3].equals("servers")) {
             // #/paths/somePath/servers/0
             pathPieces[4] = toServerFilename(pathPieces[4], null);
-        }
+        } else if (pathPieces[4].equals("requestBody")) {
+            // #/paths/somePath/get/requestBody
+            pathPieces[4] = requestBodyIdentifier;
+        } else if (pathPieces[4].equals("PathParameters"))
+            // #/paths/somePath/get/PathParameters
+            // synthetic jsonPath
+            pathPieces[4] = toModelFilename("PathParameters", "#/paths/somePath/verb/PathParameters");
         if (pathPieces.length < 6) {
             return;
         }
@@ -4450,6 +4452,7 @@ public class DefaultGenerator implements Generator {
     }
 
     private String getRefModuleAlias(String refModuleLocation, String refModule) {
+        // TODO add an alias only if the counts of refModule in sourceJsonPath >= 1
         if (refModuleLocation.contains(".components.schema")) {
             return null;
         }
