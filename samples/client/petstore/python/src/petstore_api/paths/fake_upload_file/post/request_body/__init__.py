@@ -19,7 +19,7 @@ class RequestBody(api_client.RequestBody):
     }
 
 
-class RequestBodyInfoForMultipartFormData(collections.NamedTuple):
+class RequestBodyInfoForMultipartFormData(typing.NamedTuple):
     body: typing.Union[
         multipart_form_data_schema.SchemaDictInput,
         multipart_form_data_schema.SchemaDict,

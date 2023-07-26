@@ -42,7 +42,7 @@ class {{jsonPathPiece.camelCase}}(api_client.RequestBody):
 {{#each content}}
 
 
-class RequestBodyInfoFor{{@key.camelCase}}(collections.NamedTuple):
+class RequestBodyInfoFor{{@key.camelCase}}(typing.NamedTuple):
     {{#with this}}
             {{#with schema}}
     body: typing.Union[

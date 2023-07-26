@@ -20,7 +20,7 @@ class RequestBody(api_client.RequestBody):
     required = True
 
 
-class RequestBodyInfoForApplicationOctetStream(collections.NamedTuple):
+class RequestBodyInfoForApplicationOctetStream(typing.NamedTuple):
     body: typing.Union[
         typing.Union[io.FileIO, io.BufferedReader],
         typing.Union[bytes, schemas.FileIO],

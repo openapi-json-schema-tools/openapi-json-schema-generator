@@ -20,7 +20,7 @@ class UserArray(api_client.RequestBody):
     required = True
 
 
-class RequestBodyInfoForApplicationJson(collections.NamedTuple):
+class RequestBodyInfoForApplicationJson(typing.NamedTuple):
     body: typing.Union[
         application_json_schema.SchemaTupleInput,
         application_json_schema.SchemaTuple,

@@ -26,7 +26,7 @@ class Pet(api_client.RequestBody):
     required = True
 
 
-class RequestBodyInfoForApplicationJson(collections.NamedTuple):
+class RequestBodyInfoForApplicationJson(typing.NamedTuple):
     body: typing.Union[
         schemas.INPUT_TYPES_ALL,
         schemas.OUTPUT_BASE_TYPES,
@@ -34,7 +34,7 @@ class RequestBodyInfoForApplicationJson(collections.NamedTuple):
     content_type: str = 'application/json'
 
 
-class RequestBodyInfoForApplicationXml(collections.NamedTuple):
+class RequestBodyInfoForApplicationXml(typing.NamedTuple):
     body: typing.Union[
         schemas.INPUT_TYPES_ALL,
         schemas.OUTPUT_BASE_TYPES,

@@ -19,7 +19,7 @@ class RequestBody(api_client.RequestBody):
     }
 
 
-class RequestBodyInfoForApplicationXWwwFormUrlencoded(collections.NamedTuple):
+class RequestBodyInfoForApplicationXWwwFormUrlencoded(typing.NamedTuple):
     body: typing.Union[
         application_x_www_form_urlencoded_schema.SchemaDictInput,
         application_x_www_form_urlencoded_schema.SchemaDict,

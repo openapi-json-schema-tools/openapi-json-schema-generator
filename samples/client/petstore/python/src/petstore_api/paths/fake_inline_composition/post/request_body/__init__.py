@@ -25,7 +25,7 @@ class RequestBody(api_client.RequestBody):
     }
 
 
-class RequestBodyInfoForApplicationJson(collections.NamedTuple):
+class RequestBodyInfoForApplicationJson(typing.NamedTuple):
     body: typing.Union[
         schemas.INPUT_TYPES_ALL,
         schemas.OUTPUT_BASE_TYPES,
@@ -33,7 +33,7 @@ class RequestBodyInfoForApplicationJson(collections.NamedTuple):
     content_type: str = 'application/json'
 
 
-class RequestBodyInfoForMultipartFormData(collections.NamedTuple):
+class RequestBodyInfoForMultipartFormData(typing.NamedTuple):
     body: typing.Union[
         multipart_form_data_schema.SchemaDictInput,
         multipart_form_data_schema.SchemaDict,

@@ -19,7 +19,7 @@ class RequestBody(api_client.RequestBody):
     }
 
 
-class RequestBodyInfoForApplicationJsonCharsetutf8(collections.NamedTuple):
+class RequestBodyInfoForApplicationJsonCharsetutf8(typing.NamedTuple):
     body: typing.Union[
         schemas.INPUT_TYPES_ALL,
         schemas.OUTPUT_BASE_TYPES,

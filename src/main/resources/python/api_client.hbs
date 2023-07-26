@@ -1234,9 +1234,8 @@ class Api:
         body_info: typing.Union[
             schemas.Unset,
             typing.Tuple[typing.Any, str]
-        ]
-        headers: _collections.HTTPHeaderDict,
-        content_type: typing.Optional[str]
+        ],
+        headers: _collections.HTTPHeaderDict
     ):
         if body_info is schemas.unset:
             return None, None
