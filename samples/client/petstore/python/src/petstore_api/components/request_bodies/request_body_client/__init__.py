@@ -8,6 +8,7 @@ from petstore_api.shared_imports.header_imports import *  # pyright: ignore [rep
 
 from .content.application_json import schema as application_json_schema
 
+
 class Client(api_client.RequestBody):
 
 

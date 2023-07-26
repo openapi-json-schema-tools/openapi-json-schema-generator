@@ -19,6 +19,7 @@ from .content.{{../@key.snakeCase}} import {{jsonPathPiece.snakeCase}} as {{../@
         {{/with}}
     {{/each}}
 
+
 class {{jsonPathPiece.camelCase}}(api_client.RequestBody):
     {{#each content}}
 
@@ -45,8 +46,8 @@ class RequestBodyInfoFor{{@key.camelCase}}(collections.NamedTuple):
     {{#with this}}
             {{#with schema}}
     body: typing.Union[
-        {{> components/schemas/_helper_schema_input_type endChar="," }}
-        {{> components/schemas/_helper_schema_output_type mode="unprefixed" endChar="," }}
+        {{> components/schemas/_helper_schema_input_type fullRefModule=(join ../@key.snakeCase jsonPathPiece.snakeCase "_") endChar="," }}
+        {{> components/schemas/_helper_schema_output_type mode="unprefixed" fullRefModule=(join ../@key.snakeCase jsonPathPiece.snakeCase "_") endChar="," }}
     ]
             {{/with}}
     {{else}}

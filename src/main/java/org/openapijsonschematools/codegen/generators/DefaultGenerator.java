@@ -78,7 +78,6 @@ import org.openapijsonschematools.codegen.generators.openapimodels.SchemaTestCas
 import org.openapijsonschematools.codegen.generatorrunner.ignore.CodegenIgnoreProcessor;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.common.SerializerUtils;
-import org.openapijsonschematools.codegen.templating.MustacheEngineAdapter;
 import org.openapijsonschematools.codegen.templating.TemplatingEngineLoader;
 import org.openapijsonschematools.codegen.templating.mustache.CamelCaseLambda;
 import org.openapijsonschematools.codegen.templating.mustache.IndentedLambda;
@@ -2644,7 +2643,6 @@ public class DefaultGenerator implements Generator {
 
         RequestBody opRequestBody = operation.getRequestBody();
         CodegenRequestBody requestBody = null;
-        List<CodegenSchema> requestBodySchemas = null;
         if (opRequestBody != null) {
             requestBody = fromRequestBody(opRequestBody, jsonPath + "/requestBody");
             CodegenRequestBody derefRequestBody = requestBody.getSelfOrDeepestRef();
@@ -2652,21 +2650,6 @@ public class DefaultGenerator implements Generator {
                 hasRequiredParamOrBody = true;
             } else {
                 hasOptionalParamOrBody = true;
-            }
-            requestBodySchemas = new ArrayList<>();
-            for (Entry<CodegenKey, CodegenMediaType> entry: derefRequestBody.content.entrySet()) {
-                CodegenKey contentType = entry.getKey();
-                CodegenMediaType mediaType = entry.getValue();
-                if (mediaType.schema != null) {
-                    String schemaJsonPath = mediaType.schema.getSelfOrDeepestRef().jsonPath;
-                    Schema contentTypeSchema = new Schema();
-                    contentTypeSchema.set$ref(schemaJsonPath);
-
-                    CodegenSchema schema = fromSchema(contentTypeSchema, jsonPath, jsonPath + "/RequestBody" + contentType.camelCase + "Schema");
-                    schema.imports = new TreeSet<>();
-                    addImports(schema.imports, getImports(schema, generatorMetadata.getFeatureSet()));
-                    requestBodySchemas.add(schema);
-                }
             }
         }
 
@@ -2779,7 +2762,6 @@ public class DefaultGenerator implements Generator {
                 produces,
                 codegenServers,
                 requestBody,
-                requestBodySchemas,
                 allParams,
                 pathParams,
                 pathParameters,
@@ -4516,6 +4498,7 @@ public class DefaultGenerator implements Generator {
         TreeSet<String> finalImports = imports;
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
+
         codegenRequestBody = new CodegenRequestBody(description, unescapedDescription, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, refInfo);
         codegenRequestBodyCache.put(sourceJsonPath, codegenRequestBody);
         return codegenRequestBody;
