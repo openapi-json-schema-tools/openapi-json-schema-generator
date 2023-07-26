@@ -131,13 +131,15 @@ class TestFakeApi(ApiTestMixin):
             (none_instance, None),
             (date_instance, '1970-01-01'),
         )
+        from petstore_api.paths.fake_refs_composed_one_of_number_with_validations.post import request_body
         for (body, value_simple) in cast_to_simple_value:
             with patch.object(RESTClientObject, 'request') as mock_request:
                 mock_request.return_value = self.response(
                     self.json_bytes(value_simple)
                 )
 
-                api_response = self.api.composed_one_of_different_types(body=body)
+                body_info = request_body.RequestBodyInfoForApplicationJson(body)
+                api_response = self.api.composed_one_of_different_types(body_info=body_info)
                 self.assert_request_called_with(
                     mock_request,
                     'http://petstore.swagger.io:80/v2/fake/refs/composed_one_of_number_with_validations',
@@ -154,8 +156,8 @@ class TestFakeApi(ApiTestMixin):
                 mock_request.return_value = self.response(
                     self.json_bytes(value_simple)
                 )
-
-                api_response = self.api.composed_one_of_different_types(body=value_simple)
+                body_info = request_body.RequestBodyInfoForApplicationJson(value_simple)
+                api_response = self.api.composed_one_of_different_types(body_info=body_info)
                 self.assert_request_called_with(
                     mock_request,
                     'http://petstore.swagger.io:80/v2/fake/refs/composed_one_of_number_with_validations',
