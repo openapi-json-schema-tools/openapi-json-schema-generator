@@ -254,12 +254,14 @@ class TestFakeApi(ApiTestMixin):
                 'lastName': 'last'
             }
             body = user.User.validate(value_simple)
+            from petstore_api.paths.fake_body_with_query_params.put import request_body
+            body_info = request_body.RequestBodyInfoForApplicationJson(body)
             mock_request.return_value = self.response(
                 b''
             )
 
             api_response = self.api.body_with_query_params(
-                body=body,
+                body_info=body_info,
                 query_params={'query': 'hi there'}
             )
             self.assert_request_called_with(
