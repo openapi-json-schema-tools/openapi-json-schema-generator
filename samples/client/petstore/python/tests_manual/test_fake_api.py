@@ -77,12 +77,14 @@ class TestFakeApi(ApiTestMixin):
         with patch.object(RESTClientObject, 'request') as mock_request:
             value = (string_enum.StringEnum.validate("placed"),)
             body = array_of_enums.ArrayOfEnums.validate(value)
+            from petstore_api.paths.fake_refs_array_of_enums.post import request_body
+            body_info = request_body.RequestBodyInfoForApplicationJson(body)
             value_simple = ["placed"]
             mock_request.return_value = self.response(
                 self.json_bytes(value_simple)
             )
 
-            api_response = self.api.array_of_enums(body=body)
+            api_response = self.api.array_of_enums(body_info=body_info)
             self.assert_request_called_with(
                 mock_request,
                 'http://petstore.swagger.io:80/v2/fake/refs/array-of-enums',
