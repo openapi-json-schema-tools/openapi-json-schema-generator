@@ -52,7 +52,9 @@ class TestFakeApi(ApiTestMixin):
 
             cat = animal.Animal.validate({'className': "Cat", 'color': "black"})
             body = animal_farm.AnimalFarm.validate([cat])
-            api_response = self.api.array_model(body=body)
+            from petstore_api.paths.fake_refs_arraymodel.post import request_body
+            body_info = request_body.RequestBodyInfoForApplicationJson(body)
+            api_response = self.api.array_model(body_info=body_info)
             self.assert_request_called_with(
                 mock_request,
                 'http://petstore.swagger.io:80/v2/fake/refs/arraymodel',
