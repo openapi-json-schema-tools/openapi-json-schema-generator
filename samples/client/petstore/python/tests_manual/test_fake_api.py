@@ -813,7 +813,9 @@ class TestFakeApi(ApiTestMixin):
                     })
                 ]
             )
-            api_response = self.api.json_patch(body=body)
+            from petstore_api.paths.fake_json_patch.patch import request_body
+            body_info = request_body.RequestBodyInfoForApplicationJsonPatchjson(body)
+            api_response = self.api.json_patch(body_info=body_info)
             json_body = [
                 {
                     'op': 'add',
