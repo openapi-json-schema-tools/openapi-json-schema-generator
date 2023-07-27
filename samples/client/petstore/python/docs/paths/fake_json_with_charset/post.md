@@ -110,10 +110,11 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example passing only optional values
     body = None
+    body_info = request_body.RequestBodyInfoForApplicationJsonCharsetutf8(body)
     try:
         # json with charset tx and rx
         api_response = api_instance.json_with_charset(
-            body=body,
+            body_info=body_info,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

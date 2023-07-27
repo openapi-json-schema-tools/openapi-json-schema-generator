@@ -390,6 +390,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'A-B': "A-B_example",
     }
     body = None
+    body_info = request_body.RequestBodyInfoForApplicationJson(body)
     try:
         # parameter collision case
         api_response = api_instance.parameter_collisions(
@@ -397,7 +398,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
             query_params=query_params,
             header_params=header_params,
             cookie_params=cookie_params,
-            body=body,
+            body_info=body_info,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

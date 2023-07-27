@@ -185,11 +185,12 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "additional_metadata": "additional_metadata_example",
         "required_file": open('/path/to/file', 'rb'),
     }
+    body_info = request_body.RequestBodyInfoForMultipartFormData(body)
     try:
         # uploads an image (required)
         api_response = api_instance.upload_file_with_required_file(
             path_params=path_params,
-            body=body,
+            body_info=body_info,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

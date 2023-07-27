@@ -113,9 +113,10 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example passing only optional values
     body = boolean.Boolean(True)
+    body_info = request_body.RequestBodyInfoForApplicationJson(body)
     try:
         api_response = api_instance.boolean(
-            body=body,
+            body_info=body_info,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

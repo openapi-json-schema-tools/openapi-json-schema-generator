@@ -260,12 +260,13 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         ],
         "enum_form_string": "-efg",
     }
+    body_info = request_body.RequestBodyInfoForApplicationXWwwFormUrlencoded(body)
     try:
         # To test enum parameters
         api_response = api_instance.enum_parameters(
             query_params=query_params,
             header_params=header_params,
-            body=body,
+            body_info=body_info,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:
