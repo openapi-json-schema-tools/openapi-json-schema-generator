@@ -104,8 +104,10 @@ class TestFakeApi(ApiTestMixin):
             mock_request.return_value = self.response(
                 self.json_bytes(value)
             )
-
-            api_response = self.api.number_with_validations(body=body)
+            from petstore_api.paths.fake_refs_composed_one_of_number_with_validations.post import request_body
+            api_response = self.api.number_with_validations(
+                body_info=request_body.RequestBodyInfoForApplicationJson(body)
+            )
             self.assert_request_called_with(
                 mock_request,
                 'http://petstore.swagger.io:80/v2/fake/refs/number',
@@ -241,11 +243,15 @@ class TestFakeApi(ApiTestMixin):
         from petstore_api.components.schema.user import User
         user = User.validate({})
         # missing required query param
+        from petstore_api.paths.fake_body_with_query_params.put import request_body
         with self.assertRaises(TypeError):
-            self.api.body_with_query_params(body=user)
+            self.api.body_with_query_params(body_info=request_body.RequestBodyInfoForApplicationJson(user))
         # required query param may not be unset
         with self.assertRaises(petstore_api.ApiTypeError):
-            self.api.body_with_query_params(body={}, query_params={'query': schemas.unset})
+            self.api.body_with_query_params(
+                body_info=request_body.RequestBodyInfoForApplicationJson({}),
+                query_params={'query': schemas.unset}
+            )
 
     def test_body_with_query_params(self):
         from petstore_api.components.schema import user
