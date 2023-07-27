@@ -142,6 +142,7 @@ Please follow the [installation procedure](#installation) and then run the follo
 import this_package
 from this_package.configurations import api_configuration
 from this_package.apis.tags import default_api
+from this_package.paths..post import request_body
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
@@ -156,9 +157,10 @@ with this_package.ApiClient(used_configuration) as api_client:
         "b": 3.14,
         "operator_id": "ADD",
     )
+    body_info = request_body.RequestBodyInfoForApplicationJson(body)
     try:
         api_response = api_instance.post_operators(
-            body=body,
+            body_info=body_info,
         )
         pprint(api_response)
     except this_package.ApiException as e:

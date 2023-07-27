@@ -132,6 +132,7 @@ import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import pet_api
 from petstore_api.paths.pet_pet_id.post import operation
+from petstore_api.paths.pet_pet_id.post import request_body
 from pprint import pprint
 # security_index 0
 from petstore_api.components.security_schemes import security_scheme_api_key
@@ -187,11 +188,12 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "name": "name_example",
         "status": "status_example",
     }
+    body_info = request_body.RequestBodyInfoForApplicationXWwwFormUrlencoded(body)
     try:
         # Updates a pet in the store with form data
         api_response = api_instance.update_pet_with_form(
             path_params=path_params,
-            body=body,
+            body_info=body_info,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

@@ -8,6 +8,7 @@ from petstore_api.shared_imports.header_imports import *  # pyright: ignore [rep
 
 from .content.application_octet_stream import schema as application_octet_stream_schema
 
+
 class RequestBody(api_client.RequestBody):
 
 
@@ -17,3 +18,12 @@ class RequestBody(api_client.RequestBody):
         'application/octet-stream': ApplicationOctetStreamMediaType,
     }
     required = True
+
+
+class RequestBodyInfoForApplicationOctetStream(typing.NamedTuple):
+    body: typing.Union[
+        typing.Union[io.FileIO, io.BufferedReader],
+        typing.Union[bytes, schemas.FileIO],
+    ]
+    content_type: str = 'application/octet-stream'
+RequestBodyInfo = RequestBodyInfoForApplicationOctetStream

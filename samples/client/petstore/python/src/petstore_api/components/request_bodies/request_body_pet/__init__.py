@@ -9,6 +9,7 @@ from petstore_api.shared_imports.header_imports import *  # pyright: ignore [rep
 from .content.application_json import schema as application_json_schema
 from .content.application_xml import schema as application_xml_schema
 
+
 class Pet(api_client.RequestBody):
 
 
@@ -23,3 +24,23 @@ class Pet(api_client.RequestBody):
         'application/xml': ApplicationXmlMediaType,
     }
     required = True
+
+
+class RequestBodyInfoForApplicationJson(typing.NamedTuple):
+    body: typing.Union[
+        application_json_schema.pet.PetDictInput,
+        application_json_schema.pet.PetDict,
+    ]
+    content_type: str = 'application/json'
+
+
+class RequestBodyInfoForApplicationXml(typing.NamedTuple):
+    body: typing.Union[
+        application_xml_schema.ref_pet.pet.PetDictInput,
+        application_xml_schema.ref_pet.pet.PetDict,
+    ]
+    content_type: str = 'application/xml'
+RequestBodyInfo = typing.Union[
+    RequestBodyInfoForApplicationJson,
+    RequestBodyInfoForApplicationXml,
+]

@@ -1206,23 +1206,29 @@ class Api:
     @staticmethod
     def _get_fields_and_body(
         request_body: typing.Type[RequestBody],
-        body: typing.Any,
-        headers: _collections.HTTPHeaderDict,
-        content_type: str
+        body_info: typing.Optional[typing.Tuple[typing.Any, str]],
+        headers: _collections.HTTPHeaderDict
     ):
+        if body_info is None:
+            return None, None
+        body = body_info[0]
+        content_type = body_info[1]
+
         if request_body.required and body is schemas.unset:
             raise exceptions.ApiValueError(
                 'The required body parameter has an invalid value of: unset. Set a valid value instead')
+
+        if body is schemas.unset:
+            return None, None
+
         _fields = None
         _body = None
-
-        if request_body.required or ((not request_body.required) and body is not schemas.unset):
-            serialized_data = request_body.serialize(body, content_type)
-            headers.add('Content-Type', content_type)
-            if 'fields' in serialized_data:
-                _fields = serialized_data['fields']
-            elif 'body' in serialized_data:
-                _body = serialized_data['body']
+        serialized_data = request_body.serialize(body, content_type)
+        headers.add('Content-Type', content_type)
+        if 'fields' in serialized_data:
+            _fields = serialized_data['fields']
+        elif 'body' in serialized_data:
+            _body = serialized_data['body']
         return _fields, _body
 
     @staticmethod

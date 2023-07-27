@@ -102,6 +102,7 @@ server_index | Class | Description
 import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import fake_classname_tags123_api
+from petstore_api.paths.fake_classname_test.patch import request_body
 from pprint import pprint
 # security_index 0
 from petstore_api.components.security_schemes import security_scheme_api_key_query
@@ -125,10 +126,11 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     body = client.Client({
         "client": "client_example",
     })
+    body_info = request_body.RequestBodyInfoForApplicationJson(body)
     try:
         # To test class name in snake case
         api_response = api_instance.classname(
-            body=body,
+            body_info=body_info,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

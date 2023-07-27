@@ -102,6 +102,7 @@ server_index | Class | Description
 import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import fake_api
+from petstore_api.paths.fake_additional_properties_with_array_of_enums.get import request_body
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
@@ -116,10 +117,11 @@ with petstore_api.ApiClient(used_configuration) as api_client:
             enum_class.EnumClass("-efg")
         ],
     })
+    body_info = request_body.RequestBodyInfoForApplicationJson(body)
     try:
         # Additional Properties with Array of Enums
         api_response = api_instance.additional_properties_with_array_of_enums(
-            body=body,
+            body_info=body_info,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

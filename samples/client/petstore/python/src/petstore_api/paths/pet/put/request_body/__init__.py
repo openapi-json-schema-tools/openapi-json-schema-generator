@@ -7,3 +7,4 @@
 
 from petstore_api.components.request_bodies import request_body_pet
 RequestBody = request_body_pet.Pet
+RequestBodyInfo = request_body_pet.RequestBodyInfo

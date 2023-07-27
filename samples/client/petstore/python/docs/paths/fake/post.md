@@ -122,6 +122,7 @@ server_index | Class | Description
 import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import fake_api
+from petstore_api.paths.fake.post import request_body
 from pprint import pprint
 # security_index 0
 from petstore_api.components.security_schemes import security_scheme_http_basic_test
@@ -159,10 +160,11 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "password": "password_example",
         "callback": "callback_example",
     }
+    body_info = request_body.RequestBodyInfoForApplicationXWwwFormUrlencoded(body)
     try:
         # Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
         api_response = api_instance.endpoint_parameters(
-            body=body,
+            body_info=body_info,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

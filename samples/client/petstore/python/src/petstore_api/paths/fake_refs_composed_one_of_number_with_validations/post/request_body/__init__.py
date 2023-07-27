@@ -8,6 +8,7 @@ from petstore_api.shared_imports.header_imports import *  # pyright: ignore [rep
 
 from .content.application_json import schema as application_json_schema
 
+
 class RequestBody(api_client.RequestBody):
 
 
@@ -16,3 +17,12 @@ class RequestBody(api_client.RequestBody):
     content = {
         'application/json': ApplicationJsonMediaType,
     }
+
+
+class RequestBodyInfoForApplicationJson(typing.NamedTuple):
+    body: typing.Union[
+        schemas.INPUT_TYPES_ALL,
+        schemas.OUTPUT_BASE_TYPES,
+    ]
+    content_type: str = 'application/json'
+RequestBodyInfo = RequestBodyInfoForApplicationJson

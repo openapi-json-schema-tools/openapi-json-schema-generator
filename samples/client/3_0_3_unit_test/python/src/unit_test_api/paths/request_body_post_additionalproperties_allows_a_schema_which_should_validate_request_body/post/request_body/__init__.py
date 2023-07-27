@@ -8,6 +8,7 @@ from unit_test_api.shared_imports.header_imports import *  # pyright: ignore [re
 
 from .content.application_json import schema as application_json_schema
 
+
 class RequestBody(api_client.RequestBody):
 
 
@@ -17,3 +18,12 @@ class RequestBody(api_client.RequestBody):
         'application/json': ApplicationJsonMediaType,
     }
     required = True
+
+
+class RequestBodyInfoForApplicationJson(typing.NamedTuple):
+    body: typing.Union[
+        application_json_schema.additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidateDictInput,
+        application_json_schema.additionalproperties_allows_a_schema_which_should_validate.AdditionalpropertiesAllowsASchemaWhichShouldValidateDict,
+    ]
+    content_type: str = 'application/json'
+RequestBodyInfo = RequestBodyInfoForApplicationJson

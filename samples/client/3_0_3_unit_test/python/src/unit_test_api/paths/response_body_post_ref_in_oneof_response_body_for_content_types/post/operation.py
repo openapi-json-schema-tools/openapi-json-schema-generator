@@ -11,7 +11,6 @@ from .. import path
 from .responses import response_200
 
 
-
 __StatusCodeToResponse = typing_extensions.TypedDict(
     '__StatusCodeToResponse',
     {

@@ -85,6 +85,7 @@ server_index | Class | Description
 import unit_test_api
 from unit_test_api.configurations import api_configuration
 from unit_test_api.apis.tags import operation_request_body_api
+from unit_test_api.paths.request_body_post_enums_in_properties_request_body.post import request_body
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
@@ -98,9 +99,10 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
         "foo": "foo",
         "bar": "bar",
     })
+    body_info = request_body.RequestBodyInfoForApplicationJson(body)
     try:
         api_response = api_instance.post_enums_in_properties_request_body(
-            body=body,
+            body_info=body_info,
         )
         pprint(api_response)
     except unit_test_api.ApiException as e:

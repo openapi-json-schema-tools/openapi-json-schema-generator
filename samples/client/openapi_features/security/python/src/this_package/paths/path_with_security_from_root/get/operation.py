@@ -16,7 +16,6 @@ from this_package.shared_imports.operation_imports import *  # pyright: ignore [
 from .. import path
 from .responses import response_200
 
-
 _security: typing.List[security_schemes.SecurityRequirementObject] = [
     security_requirement_object_0.security_requirement_object,
     security_requirement_object_1.security_requirement_object,
