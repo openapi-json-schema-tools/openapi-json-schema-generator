@@ -567,12 +567,14 @@ class TestFakeApi(ApiTestMixin):
             'type': 'blah',
             'message': 'file upload succeeded'
         }
+        from petstore_api.paths.fake_upload_files.post import request_body
         try:
             with patch.object(RESTClientObject, 'request') as mock_request:
                 mock_request.return_value = self.response(
                     self.json_bytes(response_json)
                 )
-                api_response = self.api.upload_files(body={'files': [file1, file2]})
+                body_info = request_body.RequestBodyInfoForMultipartFormData({'files': [file1, file2]})
+                api_response = self.api.upload_files(body_info)
                 self.assert_request_called_with(
                     mock_request,
                     'http://petstore.swagger.io:80/v2/fake/uploadFiles',
@@ -613,7 +615,8 @@ class TestFakeApi(ApiTestMixin):
             mock_request.return_value = self.response(
                 self.json_bytes(response_json)
             )
-            api_response = self.api.upload_files(body={'files': [file_bytes, file_bytes]})
+            body_info = request_body.RequestBodyInfoForMultipartFormData({'files': [file_bytes, file_bytes]})
+            api_response = self.api.upload_files(body_info=body_info)
             self.assert_request_called_with(
                 mock_request,
                 'http://petstore.swagger.io:80/v2/fake/uploadFiles',
