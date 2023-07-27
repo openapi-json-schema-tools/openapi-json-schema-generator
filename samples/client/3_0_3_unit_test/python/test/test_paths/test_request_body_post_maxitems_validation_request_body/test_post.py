@@ -46,7 +46,8 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     payload,
                     configuration=self.schema_config
                 )
-                self.api.post(body=body)
+                body_info = post.request_body.RequestBodyInfoForApplicationJson(body)
+                self.api.post(body_info=body_info)
 
     def test_ignores_non_arrays_passes(self):
         content_type = 'application/json'
@@ -59,13 +60,13 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 payload,
                 configuration=self.schema_config
             )
+            body_info = post.request_body.RequestBodyInfoForApplicationJson(body)
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
                 status=self.response_status
             )
             api_response = self.api.post(
-                body=body,
-                content_type=content_type
+                body_info=body_info,
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
@@ -91,13 +92,13 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 payload,
                 configuration=self.schema_config
             )
+            body_info = post.request_body.RequestBodyInfoForApplicationJson(body)
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
                 status=self.response_status
             )
             api_response = self.api.post(
-                body=body,
-                content_type=content_type
+                body_info=body_info,
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
@@ -124,13 +125,13 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 payload,
                 configuration=self.schema_config
             )
+            body_info = post.request_body.RequestBodyInfoForApplicationJson(body)
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
                 status=self.response_status
             )
             api_response = self.api.post(
-                body=body,
-                content_type=content_type
+                body_info=body_info,
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,

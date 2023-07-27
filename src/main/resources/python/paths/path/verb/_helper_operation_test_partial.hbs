@@ -1,7 +1,6 @@
 api_response = self.api.{{httpMethod.original}}(
 {{#if requestBody}}
-    body=body,
-    content_type=content_type
+    body_info=body_info,
 {{/if}}
 {{#if produces}}
     accept_content_types=(accept_content_type,)
