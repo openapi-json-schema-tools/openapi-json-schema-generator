@@ -304,11 +304,13 @@ class TestFakeApi(ApiTestMixin):
             file_bytes,
             content_type='application/octet-stream'
         )
+        from petstore_api.paths.fake_upload_download_file.post import request_body
         try:
             # sending file works
             with patch.object(RESTClientObject, 'request') as mock_request:
                 mock_request.return_value = mock_response
-                api_response = self.api.upload_download_file(body=file1)
+                body_info = request_body.RequestBodyInfoForApplicationOctetStream(file1)
+                api_response = self.api.upload_download_file(body_info=body_info)
                 self.assert_request_called_with(
                     mock_request,
                     'http://petstore.swagger.io:80/v2/fake/uploadDownloadFile',
@@ -326,7 +328,8 @@ class TestFakeApi(ApiTestMixin):
         # sending bytes works
         with patch.object(RESTClientObject, 'request') as mock_request:
             mock_request.return_value = mock_response
-            api_response = self.api.upload_download_file(body=file_bytes)
+            body_info = request_body.RequestBodyInfoForApplicationOctetStream(file_bytes)
+            api_response = self.api.upload_download_file(body_info=body_info)
             self.assert_request_called_with(
                 mock_request,
                 'http://petstore.swagger.io:80/v2/fake/uploadDownloadFile',
@@ -474,12 +477,14 @@ class TestFakeApi(ApiTestMixin):
             'type': 'blah',
             'message': 'file upload succeeded'
         }
+        from petstore_api.paths.fake_upload_file.post import request_body
         try:
             with patch.object(RESTClientObject, 'request') as mock_request:
                 mock_request.return_value = self.response(
                     self.json_bytes(response_json)
                 )
-                api_response = self.api.upload_file(body={'file': file1})
+                body_info = request_body.RequestBodyInfoForMultipartFormData({'file': file1})
+                api_response = self.api.upload_file(body_info=body_info)
                 self.assert_request_called_with(
                     mock_request,
                     'http://petstore.swagger.io:80/v2/fake/uploadFile',
@@ -508,7 +513,8 @@ class TestFakeApi(ApiTestMixin):
             mock_request.return_value = self.response(
                 self.json_bytes(response_json)
             )
-            api_response = self.api.upload_file(body={'file': file_bytes})
+            body_info = request_body.RequestBodyInfoForMultipartFormData({'file': file_bytes})
+            api_response = self.api.upload_file(body_info=body_info)
             self.assert_request_called_with(
                 mock_request,
                 'http://petstore.swagger.io:80/v2/fake/uploadFile',
@@ -531,14 +537,16 @@ class TestFakeApi(ApiTestMixin):
         # raises an exceptions
         file = open(file_path1, "rb")
         with self.assertRaises(petstore_api.ApiTypeError):
-            self.api.upload_file(body={'file': [file]})
+            body_info = request_body.RequestBodyInfoForMultipartFormData({'file': [file]})
+            self.api.upload_file(body_info=body_info)
         file.close()
 
         # passing in a closed file raises an exception
         with self.assertRaises(ValueError):
             file = open(file_path1, "rb")
             file.close()
-            self.api.upload_file(body={'file': file})
+            body_info = request_body.RequestBodyInfoForMultipartFormData({'file': file})
+            self.api.upload_file(body_info=body_info)
 
     def test_upload_files(self):
         """Test case for upload_files
