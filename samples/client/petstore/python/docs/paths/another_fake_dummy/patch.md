@@ -86,6 +86,7 @@ server_index | Class | Description
 import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import another_fake_api
+from petstore_api.paths.another_fake_dummy.patch import request_body
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )

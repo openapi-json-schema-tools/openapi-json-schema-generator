@@ -71,6 +71,7 @@ server_index | Class | Description
 import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import user_api
+from petstore_api.paths.user_create_with_array.post import request_body
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
