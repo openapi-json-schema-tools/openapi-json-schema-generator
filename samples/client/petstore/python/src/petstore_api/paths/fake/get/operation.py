@@ -15,6 +15,7 @@ from .responses import (
     response_404,
 )
 from . import request_body
+from petstore_api.paths.fake.get.request_body.content.application_x_www_form_urlencoded import schema as request_body_application_x_www_form_urlencoded_schema
 from .parameters import (
     parameter_0,
     parameter_1,
@@ -23,8 +24,214 @@ from .parameters import (
     parameter_4,
     parameter_5,
 )
-from . import query_parameters
-from . import header_parameters
+
+
+AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
+
+from petstore_api.paths.fake.get.parameters.parameter_2 import schema as parameter_2_schema
+from petstore_api.paths.fake.get.parameters.parameter_3 import schema as parameter_3_schema
+from petstore_api.paths.fake.get.parameters.parameter_4 import schema as parameter_4_schema
+from petstore_api.paths.fake.get.parameters.parameter_5 import schema as parameter_5_schema
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "enum_query_double": typing.Type[parameter_5_schema.Schema],
+        "enum_query_string": typing.Type[parameter_3_schema.Schema],
+        "enum_query_integer": typing.Type[parameter_4_schema.Schema],
+        "enum_query_string_array": typing.Type[parameter_2_schema.Schema],
+    }
+)
+
+
+class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "enum_query_double",
+        "enum_query_string",
+        "enum_query_integer",
+        "enum_query_string_array",
+    })
+    
+    @property
+    def enum_query_double(self) -> typing.Union[int, float, schemas.Unset]:
+        val = self.get("enum_query_double", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[int, float],
+            val
+        )
+    
+    @property
+    def enum_query_string(self) -> typing.Union[typing_extensions.Literal["_abc", "-efg", "(xyz)"], schemas.Unset]:
+        val = self.get("enum_query_string", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal["_abc", "-efg", "(xyz)"],
+            val
+        )
+    
+    @property
+    def enum_query_integer(self) -> typing.Union[typing_extensions.Literal[1, -2], schemas.Unset]:
+        val = self.get("enum_query_integer", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal[1, -2],
+            val
+        )
+    
+    @property
+    def enum_query_string_array(self) -> typing.Union[parameter_2_schema.SchemaTuple, schemas.Unset]:
+        val = self.get("enum_query_string_array", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            parameter_2_schema.SchemaTuple,
+            val
+        )
+
+    def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return QueryParameters.validate(arg, configuration=configuration)
+QueryParametersDictInput = typing_extensions.TypedDict(
+    'QueryParametersDictInput',
+    {
+        "enum_query_double": typing.Union[
+            float,
+            int
+        ],
+        "enum_query_string": str,
+        "enum_query_integer": int,
+        "enum_query_string_array": typing.Union[
+            parameter_2_schema.SchemaTuple,
+            list,
+            tuple
+        ],
+    },
+    total=False
+)
+
+
+@dataclasses.dataclass(frozen=True)
+class QueryParameters(
+    schemas.Schema[QueryParametersDict, tuple]
+):
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
+    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+    additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            schemas.immutabledict: QueryParametersDict
+        }
+    )
+
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[
+            QueryParametersDictInput,
+            QueryParametersDict,
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> QueryParametersDict:
+        return super().validate_base(
+            arg,
+            configuration=configuration,
+        )
+
+
+AdditionalProperties2: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
+
+from petstore_api.paths.fake.get.parameters.parameter_0 import schema as parameter_0_schema
+from petstore_api.paths.fake.get.parameters.parameter_1 import schema as parameter_1_schema
+Properties2 = typing_extensions.TypedDict(
+    'Properties2',
+    {
+        "enum_header_string": typing.Type[parameter_1_schema.Schema],
+        "enum_header_string_array": typing.Type[parameter_0_schema.Schema],
+    }
+)
+
+
+class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "enum_header_string",
+        "enum_header_string_array",
+    })
+    
+    @property
+    def enum_header_string(self) -> typing.Union[typing_extensions.Literal["_abc", "-efg", "(xyz)"], schemas.Unset]:
+        val = self.get("enum_header_string", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal["_abc", "-efg", "(xyz)"],
+            val
+        )
+    
+    @property
+    def enum_header_string_array(self) -> typing.Union[parameter_0_schema.SchemaTuple, schemas.Unset]:
+        val = self.get("enum_header_string_array", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            parameter_0_schema.SchemaTuple,
+            val
+        )
+
+    def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return HeaderParameters.validate(arg, configuration=configuration)
+HeaderParametersDictInput = typing_extensions.TypedDict(
+    'HeaderParametersDictInput',
+    {
+        "enum_header_string": str,
+        "enum_header_string_array": typing.Union[
+            parameter_0_schema.SchemaTuple,
+            list,
+            tuple
+        ],
+    },
+    total=False
+)
+
+
+@dataclasses.dataclass(frozen=True)
+class HeaderParameters(
+    schemas.Schema[HeaderParametersDict, tuple]
+):
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
+    properties: Properties2 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties2)) # type: ignore
+    additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            schemas.immutabledict: HeaderParametersDict
+        }
+    )
+
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[
+            HeaderParametersDictInput,
+            HeaderParametersDict,
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> HeaderParametersDict:
+        return super().validate_base(
+            arg,
+            configuration=configuration,
+        )
+
 query_parameter_classes = (
     parameter_2.Parameter2,
     parameter_3.Parameter3,
@@ -64,19 +271,24 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _enum_parameters(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            request_body_application_x_www_form_urlencoded_schema.SchemaDictInput,
+            request_body_application_x_www_form_urlencoded_schema.SchemaDict,
+            schemas.Unset
+        ] = schemas.unset,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict,
+            QueryParametersDictInput,
+            QueryParametersDict,
             None
         ] = None,
         header_params: typing.Union[
-            header_parameters.HeaderParametersDictInput,
-            header_parameters.HeaderParametersDict,
+            HeaderParametersDictInput,
+            HeaderParametersDict,
             None
         ] = None,
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
+        content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = "application/x-www-form-urlencoded",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -86,19 +298,24 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _enum_parameters(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            request_body_application_x_www_form_urlencoded_schema.SchemaDictInput,
+            request_body_application_x_www_form_urlencoded_schema.SchemaDict,
+            schemas.Unset
+        ] = schemas.unset,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict,
+            QueryParametersDictInput,
+            QueryParametersDict,
             None
         ] = None,
         header_params: typing.Union[
-            header_parameters.HeaderParametersDictInput,
-            header_parameters.HeaderParametersDict,
+            HeaderParametersDictInput,
+            HeaderParametersDict,
             None
         ] = None,
         *,
         skip_deserialization: typing_extensions.Literal[True],
+        content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = "application/x-www-form-urlencoded",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -107,19 +324,24 @@ class BaseApi(api_client.Api):
 
     def _enum_parameters(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            request_body_application_x_www_form_urlencoded_schema.SchemaDictInput,
+            request_body_application_x_www_form_urlencoded_schema.SchemaDict,
+            schemas.Unset
+        ] = schemas.unset,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict,
+            QueryParametersDictInput,
+            QueryParametersDict,
             None
         ] = None,
         header_params: typing.Union[
-            header_parameters.HeaderParametersDictInput,
-            header_parameters.HeaderParametersDict,
+            HeaderParametersDictInput,
+            HeaderParametersDict,
             None
         ] = None,
         *,
         skip_deserialization: bool = False,
+        content_type: typing_extensions.Literal["application/x-www-form-urlencoded"] = "application/x-www-form-urlencoded",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -132,9 +354,9 @@ class BaseApi(api_client.Api):
             class instances
         """
         if query_params is not None:
-            query_params = query_parameters.QueryParameters.validate(query_params)
+            query_params = QueryParameters.validate(query_params)
         if header_params is not None:
-            header_params = header_parameters.HeaderParameters.validate(header_params)
+            header_params = HeaderParameters.validate(header_params)
         used_path, query_params_suffix = self._get_used_path(
             path,
             query_parameters=query_parameter_classes,
@@ -148,10 +370,11 @@ class BaseApi(api_client.Api):
         )
         # TODO add cookie handling
 
-        fields, body = self._get_fields_and_body(
+        _fields, _body = self._get_fields_and_body(
             request_body=request_body.RequestBody,
-            body_info=body_info,
-            headers=_headers
+            body=body,
+            headers=_headers,
+            content_type=content_type
         )
         host = self.api_client.configuration.get_server_url(
             "servers", server_index
@@ -163,8 +386,8 @@ class BaseApi(api_client.Api):
             method='get',
             host=host,
             headers=_headers,
-            fields=fields,
-            body=body,
+            fields=_fields,
+            body=_body,
             stream=stream,
             timeout=timeout,
         )

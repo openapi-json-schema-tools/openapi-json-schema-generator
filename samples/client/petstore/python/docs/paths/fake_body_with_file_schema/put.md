@@ -73,7 +73,6 @@ server_index | Class | Description
 import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import fake_api
-from petstore_api.paths.fake_body_with_file_schema.put import request_body
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
@@ -91,10 +90,9 @@ with petstore_api.ApiClient(used_configuration) as api_client:
             file.File({})
         ],
     })
-    body_info = request_body.RequestBodyInfoForApplicationJson(body)
     try:
         api_response = api_instance.body_with_file_schema(
-            body_info=body_info,
+            body=body,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

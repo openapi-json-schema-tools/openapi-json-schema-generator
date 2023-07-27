@@ -102,7 +102,6 @@ server_index | Class | Description
 import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import fake_api
-from petstore_api.paths.fake_refs_array_of_enums.post import request_body
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
@@ -115,11 +114,10 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     body = array_of_enums.ArrayOfEnums([
         string_enum.StringEnum("string_example")
     ])
-    body_info = request_body.RequestBodyInfoForApplicationJson(body)
     try:
         # Array of Enums
         api_response = api_instance.array_of_enums(
-            body_info=body_info,
+            body=body,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

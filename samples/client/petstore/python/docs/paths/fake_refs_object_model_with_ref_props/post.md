@@ -102,7 +102,6 @@ server_index | Class | Description
 import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import fake_api
-from petstore_api.paths.fake_refs_object_model_with_ref_props.post import request_body
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
@@ -117,10 +116,9 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "my_string": string.String("my_string_example"),
         "my_boolean": boolean.Boolean(True),
     })
-    body_info = request_body.RequestBodyInfoForApplicationJson(body)
     try:
         api_response = api_instance.object_model_with_ref_props(
-            body_info=body_info,
+            body=body,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

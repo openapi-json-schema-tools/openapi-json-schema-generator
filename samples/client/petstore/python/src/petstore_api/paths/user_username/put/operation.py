@@ -15,8 +15,79 @@ from .responses import (
     response_404,
 )
 from . import request_body
+from petstore_api.components.schema import user as request_body_application_json_schema
 from .parameters import parameter_0
-from . import path_parameters
+
+
+AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
+
+from petstore_api.components.parameters.parameter_path_user_name import schema as parameter_path_user_name_schema
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "username": typing.Type[parameter_path_user_name_schema.Schema],
+    }
+)
+
+
+class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+        "username",
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    
+    @property
+    def username(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("username")
+        )
+
+    def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return PathParameters.validate(arg, configuration=configuration)
+PathParametersDictInput = typing_extensions.TypedDict(
+    'PathParametersDictInput',
+    {
+        "username": str,
+    }
+)
+
+
+@dataclasses.dataclass(frozen=True)
+class PathParameters(
+    schemas.Schema[PathParametersDict, tuple]
+):
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
+    required: typing.FrozenSet[str] = frozenset({
+        "username",
+    })
+    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+    additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            schemas.immutabledict: PathParametersDict
+        }
+    )
+
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[
+            PathParametersDictInput,
+            PathParametersDict,
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> PathParametersDict:
+        return super().validate_base(
+            arg,
+            configuration=configuration,
+        )
+
 path_parameter_classes = (
     parameter_0.Parameter0,
 )
@@ -43,13 +114,17 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _update_user(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            request_body_application_json_schema.UserDictInput,
+            request_body_application_json_schema.UserDict,
+        ],
         path_params: typing.Union[
-            path_parameters.PathParametersDictInput,
-            path_parameters.PathParametersDict
+            PathParametersDictInput,
+            PathParametersDict
         ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -57,13 +132,17 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _update_user(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            request_body_application_json_schema.UserDictInput,
+            request_body_application_json_schema.UserDict,
+        ],
         path_params: typing.Union[
-            path_parameters.PathParametersDictInput,
-            path_parameters.PathParametersDict
+            PathParametersDictInput,
+            PathParametersDict
         ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -71,13 +150,17 @@ class BaseApi(api_client.Api):
 
     def _update_user(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            request_body_application_json_schema.UserDictInput,
+            request_body_application_json_schema.UserDict,
+        ],
         path_params: typing.Union[
-            path_parameters.PathParametersDictInput,
-            path_parameters.PathParametersDict
+            PathParametersDictInput,
+            PathParametersDict
         ],
         *,
         skip_deserialization: bool = False,
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -88,7 +171,7 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        path_params = path_parameters.PathParameters.validate(path_params)
+        path_params = PathParameters.validate(path_params)
         used_path, query_params_suffix = self._get_used_path(
             path,
             path_parameters=path_parameter_classes,
@@ -97,10 +180,11 @@ class BaseApi(api_client.Api):
         _headers = self._get_headers()
         # TODO add cookie handling
 
-        fields, body = self._get_fields_and_body(
+        _fields, _body = self._get_fields_and_body(
             request_body=request_body.RequestBody,
-            body_info=body_info,
-            headers=_headers
+            body=body,
+            headers=_headers,
+            content_type=content_type
         )
         host = self.api_client.configuration.get_server_url(
             "servers", server_index
@@ -111,8 +195,8 @@ class BaseApi(api_client.Api):
             method='put',
             host=host,
             headers=_headers,
-            fields=fields,
-            body=body,
+            fields=_fields,
+            body=_body,
             stream=stream,
             timeout=timeout,
         )

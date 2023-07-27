@@ -25,19 +25,19 @@ parameters: typing.Dict[str, typing.Type[api_client.HeaderParameterWithoutName]]
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
-from petstore_api.components.headers.header_int32_json_content_type_header.content.application_json import schema as schema_2
-from petstore_api.components.headers.header_number_header import schema as schema_4
+from petstore_api.components.headers.header_int32_json_content_type_header.content.application_json import schema as header_int32_json_content_type_header_schema
+from petstore_api.components.headers.header_number_header import schema as header_number_header_schema
 from petstore_api.components.schema import string_with_validation
-from petstore_api.paths.user_login.get.responses.response_200.headers.header_x_expires_after import schema as schema_3
-from petstore_api.paths.user_login.get.responses.response_200.headers.header_x_rate_limit.content.application_json import schema
+from petstore_api.paths.user_login.get.responses.response_200.headers.header_x_expires_after import schema as header_x_expires_after_schema
+from petstore_api.paths.user_login.get.responses.response_200.headers.header_x_rate_limit.content.application_json import schema as header_x_rate_limit_schema
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
-        "X-Rate-Limit": typing.Type[schema.Schema],
-        "int32": typing.Type[schema_2.Schema],
-        "X-Expires-After": typing.Type[schema_3.Schema],
+        "X-Rate-Limit": typing.Type[header_x_rate_limit_schema.Schema],
+        "int32": typing.Type[header_int32_json_content_type_header_schema.Schema],
+        "X-Expires-After": typing.Type[header_x_expires_after_schema.Schema],
         "ref-content-schema-header": typing.Type[string_with_validation.StringWithValidation],
-        "numberHeader": typing.Type[schema_4.Schema],
+        "numberHeader": typing.Type[header_number_header_schema.Schema],
     }
 )
 HeadersRequiredDictInput = typing_extensions.TypedDict(

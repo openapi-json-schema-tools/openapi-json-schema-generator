@@ -19,7 +19,156 @@ from .parameters import (
     parameter_4,
     parameter_5,
 )
-from . import query_parameters
+
+
+AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
+
+from petstore_api.components.schema import string_with_validation
+from petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_0 import schema as parameter_0_schema
+from petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_1 import schema as parameter_1_schema
+from petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_2 import schema as parameter_2_schema
+from petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_3 import schema as parameter_3_schema
+from petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_4 import schema as parameter_4_schema
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "refParam": typing.Type[string_with_validation.StringWithValidation],
+        "ioutil": typing.Type[parameter_1_schema.Schema],
+        "context": typing.Type[parameter_4_schema.Schema],
+        "http": typing.Type[parameter_2_schema.Schema],
+        "pipe": typing.Type[parameter_0_schema.Schema],
+        "url": typing.Type[parameter_3_schema.Schema],
+    }
+)
+
+
+class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+        "context",
+        "http",
+        "ioutil",
+        "pipe",
+        "refParam",
+        "url",
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    
+    @property
+    def context(self) -> parameter_4_schema.SchemaTuple:
+        return typing.cast(
+            parameter_4_schema.SchemaTuple,
+            self.__getitem__("context")
+        )
+    
+    @property
+    def http(self) -> parameter_2_schema.SchemaTuple:
+        return typing.cast(
+            parameter_2_schema.SchemaTuple,
+            self.__getitem__("http")
+        )
+    
+    @property
+    def ioutil(self) -> parameter_1_schema.SchemaTuple:
+        return typing.cast(
+            parameter_1_schema.SchemaTuple,
+            self.__getitem__("ioutil")
+        )
+    
+    @property
+    def pipe(self) -> parameter_0_schema.SchemaTuple:
+        return typing.cast(
+            parameter_0_schema.SchemaTuple,
+            self.__getitem__("pipe")
+        )
+    
+    @property
+    def refParam(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("refParam")
+        )
+    
+    @property
+    def url(self) -> parameter_3_schema.SchemaTuple:
+        return typing.cast(
+            parameter_3_schema.SchemaTuple,
+            self.__getitem__("url")
+        )
+
+    def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return QueryParameters.validate(arg, configuration=configuration)
+QueryParametersDictInput = typing_extensions.TypedDict(
+    'QueryParametersDictInput',
+    {
+        "context": typing.Union[
+            parameter_4_schema.SchemaTuple,
+            list,
+            tuple
+        ],
+        "http": typing.Union[
+            parameter_2_schema.SchemaTuple,
+            list,
+            tuple
+        ],
+        "ioutil": typing.Union[
+            parameter_1_schema.SchemaTuple,
+            list,
+            tuple
+        ],
+        "pipe": typing.Union[
+            parameter_0_schema.SchemaTuple,
+            list,
+            tuple
+        ],
+        "refParam": str,
+        "url": typing.Union[
+            parameter_3_schema.SchemaTuple,
+            list,
+            tuple
+        ],
+    }
+)
+
+
+@dataclasses.dataclass(frozen=True)
+class QueryParameters(
+    schemas.Schema[QueryParametersDict, tuple]
+):
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
+    required: typing.FrozenSet[str] = frozenset({
+        "context",
+        "http",
+        "ioutil",
+        "pipe",
+        "refParam",
+        "url",
+    })
+    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+    additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            schemas.immutabledict: QueryParametersDict
+        }
+    )
+
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[
+            QueryParametersDictInput,
+            QueryParametersDict,
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> QueryParametersDict:
+        return super().validate_base(
+            arg,
+            configuration=configuration,
+        )
+
 query_parameter_classes = (
     parameter_0.Parameter0,
     parameter_1.Parameter1,
@@ -49,8 +198,8 @@ class BaseApi(api_client.Api):
     def _query_parameter_collection_format(
         self,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict
+            QueryParametersDictInput,
+            QueryParametersDict
         ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
@@ -63,8 +212,8 @@ class BaseApi(api_client.Api):
     def _query_parameter_collection_format(
         self,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict
+            QueryParametersDictInput,
+            QueryParametersDict
         ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
@@ -76,8 +225,8 @@ class BaseApi(api_client.Api):
     def _query_parameter_collection_format(
         self,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict
+            QueryParametersDictInput,
+            QueryParametersDict
         ],
         *,
         skip_deserialization: bool = False,
@@ -90,7 +239,7 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        query_params = query_parameters.QueryParameters.validate(query_params)
+        query_params = QueryParameters.validate(query_params)
         used_path, query_params_suffix = self._get_used_path(
             path,
             query_parameters=query_parameter_classes,

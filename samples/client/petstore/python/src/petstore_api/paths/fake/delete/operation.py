@@ -20,8 +20,219 @@ from .parameters import (
     parameter_5,
 )
 from .security import security_requirement_object_0
-from . import query_parameters
-from . import header_parameters
+
+
+AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
+
+from petstore_api.paths.fake.delete.parameters.parameter_0 import schema as parameter_0_schema
+from petstore_api.paths.fake.delete.parameters.parameter_2 import schema as parameter_2_schema
+from petstore_api.paths.fake.delete.parameters.parameter_3 import schema as parameter_3_schema
+from petstore_api.paths.fake.delete.parameters.parameter_5 import schema as parameter_5_schema
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "required_string_group": typing.Type[parameter_0_schema.Schema],
+        "int64_group": typing.Type[parameter_5_schema.Schema],
+        "string_group": typing.Type[parameter_3_schema.Schema],
+        "required_int64_group": typing.Type[parameter_2_schema.Schema],
+    }
+)
+QueryParametersRequiredDictInput = typing_extensions.TypedDict(
+    'QueryParametersRequiredDictInput',
+    {
+        "required_int64_group": int,
+        "required_string_group": str,
+    }
+)
+QueryParametersOptionalDictInput = typing_extensions.TypedDict(
+    'QueryParametersOptionalDictInput',
+    {
+        "int64_group": int,
+        "string_group": str,
+    },
+    total=False
+)
+
+
+class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+        "required_int64_group",
+        "required_string_group",
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "int64_group",
+        "string_group",
+    })
+    
+    @property
+    def required_int64_group(self) -> int:
+        return typing.cast(
+            int,
+            self.__getitem__("required_int64_group")
+        )
+    
+    @property
+    def required_string_group(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("required_string_group")
+        )
+    
+    @property
+    def int64_group(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("int64_group", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
+    
+    @property
+    def string_group(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("string_group", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
+
+    def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return QueryParameters.validate(arg, configuration=configuration)
+
+
+class QueryParametersDictInput(QueryParametersRequiredDictInput, QueryParametersOptionalDictInput):
+    pass
+
+
+@dataclasses.dataclass(frozen=True)
+class QueryParameters(
+    schemas.Schema[QueryParametersDict, tuple]
+):
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
+    required: typing.FrozenSet[str] = frozenset({
+        "required_int64_group",
+        "required_string_group",
+    })
+    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+    additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            schemas.immutabledict: QueryParametersDict
+        }
+    )
+
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[
+            QueryParametersDictInput,
+            QueryParametersDict,
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> QueryParametersDict:
+        return super().validate_base(
+            arg,
+            configuration=configuration,
+        )
+
+
+AdditionalProperties2: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
+
+from petstore_api.paths.fake.delete.parameters.parameter_1 import schema as parameter_1_schema
+from petstore_api.paths.fake.delete.parameters.parameter_4 import schema as parameter_4_schema
+Properties2 = typing_extensions.TypedDict(
+    'Properties2',
+    {
+        "required_boolean_group": typing.Type[parameter_1_schema.Schema],
+        "boolean_group": typing.Type[parameter_4_schema.Schema],
+    }
+)
+HeaderParametersRequiredDictInput = typing_extensions.TypedDict(
+    'HeaderParametersRequiredDictInput',
+    {
+        "required_boolean_group": str,
+    }
+)
+HeaderParametersOptionalDictInput = typing_extensions.TypedDict(
+    'HeaderParametersOptionalDictInput',
+    {
+        "boolean_group": str,
+    },
+    total=False
+)
+
+
+class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+        "required_boolean_group",
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "boolean_group",
+    })
+    
+    @property
+    def required_boolean_group(self) -> typing_extensions.Literal["true", "false"]:
+        return typing.cast(
+            typing_extensions.Literal["true", "false"],
+            self.__getitem__("required_boolean_group")
+        )
+    
+    @property
+    def boolean_group(self) -> typing.Union[typing_extensions.Literal["true", "false"], schemas.Unset]:
+        val = self.get("boolean_group", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal["true", "false"],
+            val
+        )
+
+    def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return HeaderParameters.validate(arg, configuration=configuration)
+
+
+class HeaderParametersDictInput(HeaderParametersRequiredDictInput, HeaderParametersOptionalDictInput):
+    pass
+
+
+@dataclasses.dataclass(frozen=True)
+class HeaderParameters(
+    schemas.Schema[HeaderParametersDict, tuple]
+):
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
+    required: typing.FrozenSet[str] = frozenset({
+        "required_boolean_group",
+    })
+    properties: Properties2 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties2)) # type: ignore
+    additional_properties: typing.Type[AdditionalProperties2] = dataclasses.field(default_factory=lambda: AdditionalProperties2) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            schemas.immutabledict: HeaderParametersDict
+        }
+    )
+
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[
+            HeaderParametersDictInput,
+            HeaderParametersDict,
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> HeaderParametersDict:
+        return super().validate_base(
+            arg,
+            configuration=configuration,
+        )
+
 query_parameter_classes = (
     parameter_0.Parameter0,
     parameter_2.Parameter2,
@@ -57,12 +268,12 @@ class BaseApi(api_client.Api):
     def _group_parameters(
         self,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict
+            QueryParametersDictInput,
+            QueryParametersDict
         ],
         header_params: typing.Union[
-            header_parameters.HeaderParametersDictInput,
-            header_parameters.HeaderParametersDict
+            HeaderParametersDictInput,
+            HeaderParametersDict
         ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
@@ -76,12 +287,12 @@ class BaseApi(api_client.Api):
     def _group_parameters(
         self,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict
+            QueryParametersDictInput,
+            QueryParametersDict
         ],
         header_params: typing.Union[
-            header_parameters.HeaderParametersDictInput,
-            header_parameters.HeaderParametersDict
+            HeaderParametersDictInput,
+            HeaderParametersDict
         ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
@@ -94,12 +305,12 @@ class BaseApi(api_client.Api):
     def _group_parameters(
         self,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict
+            QueryParametersDictInput,
+            QueryParametersDict
         ],
         header_params: typing.Union[
-            header_parameters.HeaderParametersDictInput,
-            header_parameters.HeaderParametersDict
+            HeaderParametersDictInput,
+            HeaderParametersDict
         ],
         *,
         skip_deserialization: bool = False,
@@ -114,8 +325,8 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        query_params = query_parameters.QueryParameters.validate(query_params)
-        header_params = header_parameters.HeaderParameters.validate(header_params)
+        query_params = QueryParameters.validate(query_params)
+        header_params = HeaderParameters.validate(header_params)
         used_path, query_params_suffix = self._get_used_path(
             path,
             query_parameters=query_parameter_classes,

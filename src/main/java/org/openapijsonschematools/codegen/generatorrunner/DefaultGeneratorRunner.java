@@ -660,6 +660,8 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 String headerJsonPath = headersJsonPath + "/" + headerName;
                 generateHeader(files, header, headerJsonPath);
             }
+            // synthetic json path
+            generateSchema(files, response.headersObjectSchema, jsonPath + "/" + "HeaderParameters");
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = response.content;
         if (content != null && !content.isEmpty()) {

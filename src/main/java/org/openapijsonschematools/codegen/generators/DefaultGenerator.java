@@ -3569,6 +3569,13 @@ public class DefaultGenerator implements Generator {
             String responseJsonPath = "#/components/responses/" + pathPieces[3];
             pathPieces[3] = toResponseModuleName(pathPieces[3], responseJsonPath);
 
+            if (pathPieces.length == 5 && pathPieces[4].equals("HeaderParameters")) {
+                // synthetic json path
+                // #/components/responses/someResponse/HeaderParameters
+                pathPieces[4] = toModelFilename(pathPieces[4], "#/components/responses/someResponse/" + pathPieces[4]);
+                return;
+            }
+
             if (pathPieces.length < 6) {
                 return;
             }
@@ -3633,6 +3640,13 @@ public class DefaultGenerator implements Generator {
             // #/paths/user_login/get/responses/200 -> 200 -> response_200 -> length 6
             String responseJsonPath = "#/paths/" + path + "/" + pathPieces[3] + "/responses/" +  pathPieces[5];
             pathPieces[5] = toResponseModuleName(pathPieces[5], responseJsonPath);
+            if (pathPieces.length == 7 && pathPieces[6].equals("HeaderParameters")) {
+                // synthetic json path
+                // #/paths/user_login/get/responses/200/HeaderParameters
+                pathPieces[6] = toModelFilename(pathPieces[6], "#/paths/somePath/verb/responses/200/" + pathPieces[6]);
+                return;
+            }
+
             if (pathPieces.length < 8) {
                 return;
             }

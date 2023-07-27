@@ -12,9 +12,80 @@ from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [
 from .. import path
 from .responses import response_200
 from . import request_body
+from petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.request_body.content.multipart_form_data import schema as request_body_multipart_form_data_schema
 from .parameters import parameter_0
 from .security import security_requirement_object_0
-from . import path_parameters
+
+
+AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
+
+from petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.parameters.parameter_0 import schema as parameter_0_schema
+Properties = typing_extensions.TypedDict(
+    'Properties',
+    {
+        "petId": typing.Type[parameter_0_schema.Schema],
+    }
+)
+
+
+class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+        "petId",
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    
+    @property
+    def petId(self) -> int:
+        return typing.cast(
+            int,
+            self.__getitem__("petId")
+        )
+
+    def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return PathParameters.validate(arg, configuration=configuration)
+PathParametersDictInput = typing_extensions.TypedDict(
+    'PathParametersDictInput',
+    {
+        "petId": int,
+    }
+)
+
+
+@dataclasses.dataclass(frozen=True)
+class PathParameters(
+    schemas.Schema[PathParametersDict, tuple]
+):
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
+    required: typing.FrozenSet[str] = frozenset({
+        "petId",
+    })
+    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+    additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            schemas.immutabledict: PathParametersDict
+        }
+    )
+
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[
+            PathParametersDictInput,
+            PathParametersDict,
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> PathParametersDict:
+        return super().validate_base(
+            arg,
+            configuration=configuration,
+        )
+
 path_parameter_classes = (
     parameter_0.Parameter0,
 )
@@ -47,12 +118,17 @@ class BaseApi(api_client.Api):
     def _upload_file_with_required_file(
         self,
         path_params: typing.Union[
-            path_parameters.PathParametersDictInput,
-            path_parameters.PathParametersDict
+            PathParametersDictInput,
+            PathParametersDict
         ],
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            request_body_multipart_form_data_schema.SchemaDictInput,
+            request_body_multipart_form_data_schema.SchemaDict,
+            schemas.Unset
+        ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
+        content_type: typing_extensions.Literal["multipart/form-data"] = "multipart/form-data",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -64,12 +140,17 @@ class BaseApi(api_client.Api):
     def _upload_file_with_required_file(
         self,
         path_params: typing.Union[
-            path_parameters.PathParametersDictInput,
-            path_parameters.PathParametersDict
+            PathParametersDictInput,
+            PathParametersDict
         ],
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            request_body_multipart_form_data_schema.SchemaDictInput,
+            request_body_multipart_form_data_schema.SchemaDict,
+            schemas.Unset
+        ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[True],
+        content_type: typing_extensions.Literal["multipart/form-data"] = "multipart/form-data",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -80,12 +161,17 @@ class BaseApi(api_client.Api):
     def _upload_file_with_required_file(
         self,
         path_params: typing.Union[
-            path_parameters.PathParametersDictInput,
-            path_parameters.PathParametersDict
+            PathParametersDictInput,
+            PathParametersDict
         ],
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            request_body_multipart_form_data_schema.SchemaDictInput,
+            request_body_multipart_form_data_schema.SchemaDict,
+            schemas.Unset
+        ] = schemas.unset,
         *,
         skip_deserialization: bool = False,
+        content_type: typing_extensions.Literal["multipart/form-data"] = "multipart/form-data",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
@@ -98,7 +184,7 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        path_params = path_parameters.PathParameters.validate(path_params)
+        path_params = PathParameters.validate(path_params)
         used_path, query_params_suffix = self._get_used_path(
             path,
             path_parameters=path_parameter_classes,
@@ -107,10 +193,11 @@ class BaseApi(api_client.Api):
         _headers = self._get_headers(accept_content_types=accept_content_types)
         # TODO add cookie handling
 
-        fields, body = self._get_fields_and_body(
+        _fields, _body = self._get_fields_and_body(
             request_body=request_body.RequestBody,
-            body_info=body_info,
-            headers=_headers
+            body=body,
+            headers=_headers,
+            content_type=content_type
         )
         host = self.api_client.configuration.get_server_url(
             "servers", server_index
@@ -126,8 +213,8 @@ class BaseApi(api_client.Api):
             method='post',
             host=host,
             headers=_headers,
-            fields=fields,
-            body=body,
+            fields=_fields,
+            body=_body,
             security_requirement_object=security_requirement_object,
             stream=stream,
             timeout=timeout,

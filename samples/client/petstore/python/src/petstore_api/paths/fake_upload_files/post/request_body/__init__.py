@@ -8,7 +8,6 @@ from petstore_api.shared_imports.header_imports import *  # pyright: ignore [rep
 
 from .content.multipart_form_data import schema as multipart_form_data_schema
 
-
 class RequestBody(api_client.RequestBody):
 
 
@@ -17,12 +16,3 @@ class RequestBody(api_client.RequestBody):
     content = {
         'multipart/form-data': MultipartFormDataMediaType,
     }
-
-
-class RequestBodyInfoForMultipartFormData(typing.NamedTuple):
-    body: typing.Union[
-        multipart_form_data_schema.SchemaDictInput,
-        multipart_form_data_schema.SchemaDict,
-    ]
-    content_type: str = 'multipart/form-data'
-RequestBodyInfo = RequestBodyInfoForMultipartFormData
