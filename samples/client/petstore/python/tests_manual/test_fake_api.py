@@ -645,8 +645,10 @@ class TestFakeApi(ApiTestMixin):
        mock_request.return_value = self.response(
            json_bytes
        )
+       from petstore_api.paths.fake_inline_composition.post import request_body
+       body_info = request_body.RequestBodyInfoForApplicationJson(single_char_str)
        api_response = self.api.inline_composition(
-           body=single_char_str,
+           body_info=body_info,
            query_params={
                'compositionAtRoot': single_char_str,
                'compositionInProperty': {'someProp': single_char_str}
@@ -664,19 +666,19 @@ class TestFakeApi(ApiTestMixin):
        self.assertTrue(isinstance(api_response.body, str))
 
        # tx and rx json with composition at property level of schema for request + response body
-       content_type = 'multipart/form-data'
        multipart_response = self.__encode_multipart_formdata(fields={'someProp': single_char_str})
        mock_request.return_value = self.response(
            bytes(multipart_response),
            content_type=multipart_response.get_content_type()
        )
+       body_info = request_body.RequestBodyInfoForMultipartFormData({'someProp': single_char_str})
+       content_type = 'multipart/form-data'
        api_response = self.api.inline_composition(
-           body={'someProp': single_char_str},
+           body_info=body_info,
            query_params={
                'compositionAtRoot': single_char_str,
                'compositionInProperty': {'someProp': single_char_str}
            },
-           content_type=content_type,
            accept_content_types=(content_type,)
        )
        self.assert_request_called_with(
@@ -713,13 +715,13 @@ class TestFakeApi(ApiTestMixin):
                    bytes(multipart_response),
                    content_type=multipart_response.get_content_type()
                )
+               body_info = request_body.RequestBodyInfoForMultipartFormData({'someProp': values[1]})
                self.api.inline_composition(
-                   body={'someProp': values[1]},
+                   body_info=body_info,
                    query_params={
                        'compositionAtRoot': values[2],
                        'compositionInProperty': {'someProp': values[3]}
                    },
-                   content_type=content_type,
                    accept_content_types=(content_type,)
                )
 
