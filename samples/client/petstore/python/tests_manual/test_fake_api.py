@@ -216,8 +216,9 @@ class TestFakeApi(ApiTestMixin):
             mock_request.return_value = self.response(
                 self.json_bytes(value_simple)
             )
-
-            api_response = self.api.mammal(body=body)
+            from petstore_api.paths.fake_refs_mammal.post import request_body
+            body_info = request_body.RequestBodyInfoForApplicationJson(body)
+            api_response = self.api.mammal(body_info=body_info)
             self.assert_request_called_with(
                 mock_request,
                 'http://petstore.swagger.io:80/v2/fake/refs/mammal',
@@ -232,8 +233,9 @@ class TestFakeApi(ApiTestMixin):
         with self.assertRaises(TypeError):
             self.api.mammal()
         # required body may not be unset
+        from petstore_api.paths.fake_refs_mammal.post import request_body
         with self.assertRaises(petstore_api.ApiValueError):
-            self.api.mammal(body=schemas.unset)
+            self.api.mammal(body_info=request_body.RequestBodyInfoForApplicationJson(schemas.unset))
 
     def test_missing_or_unset_required_query_parameter(self):
         from petstore_api.components.schema.user import User
