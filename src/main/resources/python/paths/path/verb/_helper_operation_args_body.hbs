@@ -1,8 +1,5 @@
 {{#if requiredValue}}
 body_info: request_body.RequestBodyInfo,
 {{else}}
-body_info: typing.Union[
-    request_body.RequestBodyInfo,
-    schemas.Unset
-] = schemas.unset,
+body_info: typing.Optional[request_body.RequestBodyInfo] = None,
 {{/if}}

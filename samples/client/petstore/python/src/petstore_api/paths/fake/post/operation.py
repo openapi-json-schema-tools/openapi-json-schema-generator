@@ -43,10 +43,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _endpoint_parameters(
         self,
-        body_info: typing.Union[
-            request_body.RequestBodyInfo,
-            schemas.Unset
-        ] = schemas.unset,
+        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
         security_index: typing.Optional[int] = None,
@@ -58,10 +55,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _endpoint_parameters(
         self,
-        body_info: typing.Union[
-            request_body.RequestBodyInfo,
-            schemas.Unset
-        ] = schemas.unset,
+        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
         *,
         skip_deserialization: typing_extensions.Literal[True],
         security_index: typing.Optional[int] = None,
@@ -72,10 +66,7 @@ class BaseApi(api_client.Api):
 
     def _endpoint_parameters(
         self,
-        body_info: typing.Union[
-            request_body.RequestBodyInfo,
-            schemas.Unset
-        ] = schemas.unset,
+        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
         *,
         skip_deserialization: bool = False,
         security_index: typing.Optional[int] = None,

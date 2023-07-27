@@ -1233,13 +1233,10 @@ class Api:
     @staticmethod
     def _get_fields_and_body(
         request_body: typing.Type[RequestBody],
-        body_info: typing.Union[
-            schemas.Unset,
-            typing.Tuple[typing.Any, str]
-        ],
+        body_info: typing.Optional[typing.Tuple[typing.Any, str]],
         headers: _collections.HTTPHeaderDict
     ):
-        if body_info is schemas.unset:
+        if body_info is None:
             return None, None
         body = body_info[0]
         content_type = body_info[1]

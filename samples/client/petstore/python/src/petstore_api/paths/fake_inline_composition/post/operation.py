@@ -46,10 +46,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _inline_composition(
         self,
-        body_info: typing.Union[
-            request_body.RequestBodyInfo,
-            schemas.Unset
-        ] = schemas.unset,
+        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict,
@@ -66,10 +63,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _inline_composition(
         self,
-        body_info: typing.Union[
-            request_body.RequestBodyInfo,
-            schemas.Unset
-        ] = schemas.unset,
+        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict,
@@ -85,10 +79,7 @@ class BaseApi(api_client.Api):
 
     def _inline_composition(
         self,
-        body_info: typing.Union[
-            request_body.RequestBodyInfo,
-            schemas.Unset
-        ] = schemas.unset,
+        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict,

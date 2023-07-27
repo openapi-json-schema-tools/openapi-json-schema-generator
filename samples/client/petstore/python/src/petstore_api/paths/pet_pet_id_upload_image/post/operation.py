@@ -50,10 +50,7 @@ class BaseApi(api_client.Api):
             path_parameters.PathParametersDictInput,
             path_parameters.PathParametersDict
         ],
-        body_info: typing.Union[
-            request_body.RequestBodyInfo,
-            schemas.Unset
-        ] = schemas.unset,
+        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
@@ -70,10 +67,7 @@ class BaseApi(api_client.Api):
             path_parameters.PathParametersDictInput,
             path_parameters.PathParametersDict
         ],
-        body_info: typing.Union[
-            request_body.RequestBodyInfo,
-            schemas.Unset
-        ] = schemas.unset,
+        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
         *,
         skip_deserialization: typing_extensions.Literal[True],
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
@@ -89,10 +83,7 @@ class BaseApi(api_client.Api):
             path_parameters.PathParametersDictInput,
             path_parameters.PathParametersDict
         ],
-        body_info: typing.Union[
-            request_body.RequestBodyInfo,
-            schemas.Unset
-        ] = schemas.unset,
+        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
         *,
         skip_deserialization: bool = False,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,

@@ -92,10 +92,7 @@ class BaseApi(api_client.Api):
             path_parameters.PathParametersDictInput,
             path_parameters.PathParametersDict
         ],
-        body_info: typing.Union[
-            request_body.RequestBodyInfo,
-            schemas.Unset
-        ] = schemas.unset,
+        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict,
@@ -126,10 +123,7 @@ class BaseApi(api_client.Api):
             path_parameters.PathParametersDictInput,
             path_parameters.PathParametersDict
         ],
-        body_info: typing.Union[
-            request_body.RequestBodyInfo,
-            schemas.Unset
-        ] = schemas.unset,
+        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict,
@@ -159,10 +153,7 @@ class BaseApi(api_client.Api):
             path_parameters.PathParametersDictInput,
             path_parameters.PathParametersDict
         ],
-        body_info: typing.Union[
-            request_body.RequestBodyInfo,
-            schemas.Unset
-        ] = schemas.unset,
+        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict,
