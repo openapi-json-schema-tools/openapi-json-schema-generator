@@ -734,8 +734,9 @@ class TestFakeApi(ApiTestMixin):
                 self.json_bytes(body),
                 content_type=content_type_with_charset
             )
-
-            api_response = self.api.json_with_charset(body=body)
+            from petstore_api.paths.fake_json_with_charset.post import request_body
+            body_info = request_body.RequestBodyInfoForApplicationJsonCharsetutf8(body)
+            api_response = self.api.json_with_charset(body_info=body_info)
             self.assert_request_called_with(
                 mock_request,
                 'http://petstore.swagger.io:80/v2/fake/jsonWithCharset',
