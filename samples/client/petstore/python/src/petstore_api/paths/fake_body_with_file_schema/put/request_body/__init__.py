@@ -22,7 +22,8 @@ class RequestBody(api_client.RequestBody):
 
 class RequestBodyInfoForApplicationJson(typing.NamedTuple):
     body: typing.Union[
-        None, None  # todo
+        application_json_schema.file_schema_test_class.FileSchemaTestClassDictInput,
+        application_json_schema.file_schema_test_class.FileSchemaTestClassDict,
     ]
     content_type: str = 'application/json'
 RequestBodyInfo = RequestBodyInfoForApplicationJson

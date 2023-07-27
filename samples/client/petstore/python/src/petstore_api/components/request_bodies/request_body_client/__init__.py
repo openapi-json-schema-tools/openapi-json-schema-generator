@@ -22,7 +22,8 @@ class Client(api_client.RequestBody):
 
 class RequestBodyInfoForApplicationJson(typing.NamedTuple):
     body: typing.Union[
-        None, None  # todo
+        application_json_schema.client.ClientDictInput,
+        application_json_schema.client.ClientDict,
     ]
     content_type: str = 'application/json'
 RequestBodyInfo = RequestBodyInfoForApplicationJson

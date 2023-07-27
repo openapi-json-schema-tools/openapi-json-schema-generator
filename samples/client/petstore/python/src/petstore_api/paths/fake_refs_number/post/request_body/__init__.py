@@ -21,7 +21,7 @@ class RequestBody(api_client.RequestBody):
 
 class RequestBodyInfoForApplicationJson(typing.NamedTuple):
     body: typing.Union[
-        None, None  # todo
+        typing.Union[int, float],
     ]
     content_type: str = 'application/json'
 RequestBodyInfo = RequestBodyInfoForApplicationJson
