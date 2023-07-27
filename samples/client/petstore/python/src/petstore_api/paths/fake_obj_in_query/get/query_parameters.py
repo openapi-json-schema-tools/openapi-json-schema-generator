@@ -12,11 +12,11 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
-from petstore_api.paths.fake_obj_in_query.get.parameters.parameter_0 import schema as parameter_0_schema
+from petstore_api.paths.fake_obj_in_query.get.parameters.parameter_0 import schema
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
-        "mapBean": typing.Type[parameter_0_schema.Schema],
+        "mapBean": typing.Type[schema.Schema],
     }
 )
 
@@ -30,12 +30,12 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     
     @property
-    def mapBean(self) -> typing.Union[parameter_0_schema.SchemaDict, schemas.Unset]:
+    def mapBean(self) -> typing.Union[schema.SchemaDict, schemas.Unset]:
         val = self.get("mapBean", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
-            parameter_0_schema.SchemaDict,
+            schema.SchemaDict,
             val
         )
 
@@ -45,7 +45,7 @@ QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {
         "mapBean": typing.Union[
-            parameter_0_schema.SchemaDict,
+            schema.SchemaDict,
             dict,
             schemas.immutabledict
         ],

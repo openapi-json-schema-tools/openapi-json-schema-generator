@@ -16,11 +16,11 @@ parameters: typing.Dict[str, typing.Type[api_client.HeaderParameterWithoutName]]
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
-from petstore_api.components.responses.response_success_inline_content_and_header.headers.header_some_header import schema as header_some_header_schema
+from petstore_api.components.responses.response_success_inline_content_and_header.headers.header_some_header import schema
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
-        "someHeader": typing.Type[header_some_header_schema.Schema],
+        "someHeader": typing.Type[schema.Schema],
     }
 )
 

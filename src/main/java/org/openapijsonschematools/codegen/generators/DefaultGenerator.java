@@ -1575,9 +1575,14 @@ public class DefaultGenerator implements Generator {
     Map<String, CodegenSecurityRequirementValue> codegenSecurityRequirementCache = new HashMap<>();
 
     Map<String, CodegenParameter> codegenParameterCache = new HashMap<>();
+    // for giving schemas unique names in schema modules
     HashMap<String, HashMap<String, Integer>> sourceJsonPathToKeyToQty = new HashMap<>();
     Map<String, CodegenTag> codegenTagCache = new HashMap<>();
     private CodegenSchema requiredAddPropUnsetSchema = null;
+
+    // for preventing schema import module collisions
+    HashMap<String, HashMap<String, Integer>> jsonPathToRefModuleToQty = new HashMap<>();
+    HashMap<String, HashMap<String, HashMap<String, String>>> jsonPathToRefModuleToRefToAlias = new HashMap<>();
 
     protected void updateModelForComposedSchema(CodegenSchema m, Schema schema, String sourceJsonPath) {
         final ComposedSchema composed = (ComposedSchema) schema;
@@ -2080,7 +2085,7 @@ public class DefaultGenerator implements Generator {
         String prefix = "from " + packageName + ".components.";
         if (refInfo.ref instanceof CodegenSchema) {
             if (refInfo.refModuleAlias == null) {
-                return prefix + "schema import " + refInfo.refModule;
+                return "from " + refInfo.refModuleLocation + " import " + refInfo.refModule;
             } else {
                 return "from " + refInfo.refModuleLocation + " import " + refInfo.refModule + " as " + refInfo.refModuleAlias;
             }
@@ -2113,7 +2118,8 @@ public class DefaultGenerator implements Generator {
                     String complexType = mm.modelName;
                     if (shouldAddImport(complexType)) {
                         String refModule = complexType.split("\\.")[0];
-                        CodegenRefInfo<CodegenSchema> refInfo = new CodegenRefInfo<>(new CodegenSchema(), null, refModule, null, null);
+                        String refModuleLocation = packageName() + ".components.schema";
+                        CodegenRefInfo<CodegenSchema> refInfo = new CodegenRefInfo<>(new CodegenSchema(), null, refModule, refModuleLocation, null);
                         imports.add(getImport(refInfo));
                     }
                 }
@@ -4417,7 +4423,7 @@ public class DefaultGenerator implements Generator {
             PairCacheKey ck = new PairCacheKey(ref, ref);
             CodegenSchema cs = codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
             String refModuleLocation = getRefModuleLocation(ref);
-            String refModuleAlias = getRefModuleAlias(refModuleLocation, refModule);
+            String refModuleAlias = getRefModuleAlias(sourceJsonPath, refModule, ref);
             instance.refInfo = new CodegenRefInfo<>(cs, refClass, refModule, refModuleLocation, refModuleAlias);
         }
         if (currentJsonPath == null) {
@@ -4439,18 +4445,59 @@ public class DefaultGenerator implements Generator {
         return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
     }
 
-    private String getRefModuleAlias(String refModuleLocation, String refModule) {
-        // TODO add an alias only if the counts of refModule in sourceJsonPath >= 1
-        if (refModuleLocation.contains(".components.schema")) {
+    private String getRefModuleAlias(String sourceJsonPath, String refModule, String ref) {
+        /*
+        If multiple schemas are imported into the same module but they both have the same
+        source module name, they need to be aliased to different names
+
+        sourceJsonPath is 1:1 on a module file
+        in that module file there can be multiple schemas that collide, but they need different aliases
+        HashMap[String, HashMap[String, Int]] jsonPathToRefModuleToQty
+        HashMap[String, HashMap[String, HashMap[String, String]]] jsonPathToRefModuleToRefToAlias
+        if refModule not in refModuleToQty
+        - put it in with qty 1
+        - store it in refToAlias unmodified
+        - return null
+        if refModule is in refModuleToQty:
+        - if it is in refToAlias return the alias if the alias is different than the ref
+        - if it is not
+            - increment the key qty
+            - generate new alias and store it in refToAlias
+            - return the alias
+         */
+        if (refModule == null) {
+            // self referencing schemas
             return null;
         }
-        String[] locationPieces = refModuleLocation.split("\\.");
-        if (locationPieces[locationPieces.length-2].equals("content")) {
-            // petstore_api.components.headers.header_int32_json_content_type_header.content.application_json
-            return locationPieces[locationPieces.length-3] + "_" + refModule;
+        if (!jsonPathToRefModuleToQty.containsKey(sourceJsonPath)) {
+            jsonPathToRefModuleToQty.put(sourceJsonPath, new HashMap<>());
         }
-        // petstore_api.components.headers.header_string_header
-        return locationPieces[locationPieces.length-1] + "_" + refModule;
+        if (!jsonPathToRefModuleToRefToAlias.containsKey(sourceJsonPath)) {
+            jsonPathToRefModuleToRefToAlias.put(sourceJsonPath, new HashMap<>());
+        }
+        HashMap<String, Integer> refModuleToQty = jsonPathToRefModuleToQty.get(sourceJsonPath);
+        HashMap<String, HashMap<String, String>> refModuleToRefToAlias = jsonPathToRefModuleToRefToAlias.get(sourceJsonPath);
+        if (!refModuleToRefToAlias.containsKey(refModule)) {
+            refModuleToRefToAlias.put(refModule, new HashMap<>());
+        }
+        HashMap<String, String> refToAlias = refModuleToRefToAlias.get(refModule);
+        if (!refModuleToQty.containsKey(refModule)) {
+            refModuleToQty.put(refModule, 1);
+            refToAlias.put(ref, refModule);
+            return null;
+        }
+        if (refToAlias.containsKey(ref)) {
+            String alias = refToAlias.get(ref);
+            if (refModule.equals(alias)) {
+                return null;
+            }
+            return alias;
+        }
+        Integer refQty = refModuleToQty.get(refModule) + 1;
+        refModuleToQty.put(refModule, refQty);
+        String alias = refModule + "_" + refQty;
+        refToAlias.put(ref, alias);
+        return alias;
     }
 
     public CodegenRequestBody fromRequestBody(RequestBody requestBody, String sourceJsonPath) {

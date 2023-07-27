@@ -12,13 +12,13 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
-from petstore_api.paths.user_login.get.parameters.parameter_0 import schema as parameter_0_schema
-from petstore_api.paths.user_login.get.parameters.parameter_1 import schema as parameter_1_schema
+from petstore_api.paths.user_login.get.parameters.parameter_0 import schema as schema_2
+from petstore_api.paths.user_login.get.parameters.parameter_1 import schema
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
-        "password": typing.Type[parameter_1_schema.Schema],
-        "username": typing.Type[parameter_0_schema.Schema],
+        "password": typing.Type[schema.Schema],
+        "username": typing.Type[schema_2.Schema],
     }
 )
 

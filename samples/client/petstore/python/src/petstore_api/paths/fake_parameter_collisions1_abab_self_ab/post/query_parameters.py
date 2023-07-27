@@ -12,19 +12,19 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_0 import schema as parameter_0_schema
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_1 import schema as parameter_1_schema
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_2 import schema as parameter_2_schema
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_3 import schema as parameter_3_schema
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_4 import schema as parameter_4_schema
+from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_0 import schema
+from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_1 import schema as schema_2
+from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_2 import schema as schema_3
+from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_3 import schema as schema_5
+from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_4 import schema as schema_4
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
-        "1": typing.Type[parameter_0_schema.Schema],
-        "aB": typing.Type[parameter_1_schema.Schema],
-        "Ab": typing.Type[parameter_2_schema.Schema],
-        "A-B": typing.Type[parameter_4_schema.Schema],
-        "self": typing.Type[parameter_3_schema.Schema],
+        "1": typing.Type[schema.Schema],
+        "aB": typing.Type[schema_2.Schema],
+        "Ab": typing.Type[schema_3.Schema],
+        "A-B": typing.Type[schema_4.Schema],
+        "self": typing.Type[schema_5.Schema],
     }
 )
 

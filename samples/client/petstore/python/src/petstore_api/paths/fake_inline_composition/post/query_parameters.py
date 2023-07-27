@@ -12,13 +12,13 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
-from petstore_api.paths.fake_inline_composition.post.parameters.parameter_0 import schema as parameter_0_schema
-from petstore_api.paths.fake_inline_composition.post.parameters.parameter_1 import schema as parameter_1_schema
+from petstore_api.paths.fake_inline_composition.post.parameters.parameter_0 import schema
+from petstore_api.paths.fake_inline_composition.post.parameters.parameter_1 import schema as schema_2
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
-        "compositionAtRoot": typing.Type[parameter_0_schema.Schema],
-        "compositionInProperty": typing.Type[parameter_1_schema.Schema],
+        "compositionAtRoot": typing.Type[schema.Schema],
+        "compositionInProperty": typing.Type[schema_2.Schema],
     }
 )
 
@@ -42,12 +42,12 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         )
     
     @property
-    def compositionInProperty(self) -> typing.Union[parameter_1_schema.SchemaDict, schemas.Unset]:
+    def compositionInProperty(self) -> typing.Union[schema_2.SchemaDict, schemas.Unset]:
         val = self.get("compositionInProperty", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
-            parameter_1_schema.SchemaDict,
+            schema_2.SchemaDict,
             val
         )
 
@@ -74,7 +74,7 @@ QueryParametersDictInput = typing_extensions.TypedDict(
             io.BufferedReader
         ],
         "compositionInProperty": typing.Union[
-            parameter_1_schema.SchemaDict,
+            schema_2.SchemaDict,
             dict,
             schemas.immutabledict
         ],

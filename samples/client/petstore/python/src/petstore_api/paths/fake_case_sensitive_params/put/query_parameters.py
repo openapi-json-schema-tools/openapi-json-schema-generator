@@ -12,15 +12,15 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
-from petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_0 import schema as parameter_0_schema
-from petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_1 import schema as parameter_1_schema
-from petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_2 import schema as parameter_2_schema
+from petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_0 import schema
+from petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_1 import schema as schema_3
+from petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_2 import schema as schema_2
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
-        "someVar": typing.Type[parameter_0_schema.Schema],
-        "some_var": typing.Type[parameter_2_schema.Schema],
-        "SomeVar": typing.Type[parameter_1_schema.Schema],
+        "someVar": typing.Type[schema.Schema],
+        "some_var": typing.Type[schema_2.Schema],
+        "SomeVar": typing.Type[schema_3.Schema],
     }
 )
 

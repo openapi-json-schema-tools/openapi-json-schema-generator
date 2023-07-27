@@ -12,17 +12,17 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
-from petstore_api.paths.fake.get.parameters.parameter_2 import schema as parameter_2_schema
-from petstore_api.paths.fake.get.parameters.parameter_3 import schema as parameter_3_schema
-from petstore_api.paths.fake.get.parameters.parameter_4 import schema as parameter_4_schema
-from petstore_api.paths.fake.get.parameters.parameter_5 import schema as parameter_5_schema
+from petstore_api.paths.fake.get.parameters.parameter_2 import schema as schema_4
+from petstore_api.paths.fake.get.parameters.parameter_3 import schema as schema_2
+from petstore_api.paths.fake.get.parameters.parameter_4 import schema as schema_3
+from petstore_api.paths.fake.get.parameters.parameter_5 import schema
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
-        "enum_query_double": typing.Type[parameter_5_schema.Schema],
-        "enum_query_string": typing.Type[parameter_3_schema.Schema],
-        "enum_query_integer": typing.Type[parameter_4_schema.Schema],
-        "enum_query_string_array": typing.Type[parameter_2_schema.Schema],
+        "enum_query_double": typing.Type[schema.Schema],
+        "enum_query_string": typing.Type[schema_2.Schema],
+        "enum_query_integer": typing.Type[schema_3.Schema],
+        "enum_query_string_array": typing.Type[schema_4.Schema],
     }
 )
 
@@ -68,12 +68,12 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         )
     
     @property
-    def enum_query_string_array(self) -> typing.Union[parameter_2_schema.SchemaTuple, schemas.Unset]:
+    def enum_query_string_array(self) -> typing.Union[schema_4.SchemaTuple, schemas.Unset]:
         val = self.get("enum_query_string_array", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
-            parameter_2_schema.SchemaTuple,
+            schema_4.SchemaTuple,
             val
         )
 
@@ -89,7 +89,7 @@ QueryParametersDictInput = typing_extensions.TypedDict(
         "enum_query_string": str,
         "enum_query_integer": int,
         "enum_query_string_array": typing.Union[
-            parameter_2_schema.SchemaTuple,
+            schema_4.SchemaTuple,
             list,
             tuple
         ],

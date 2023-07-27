@@ -12,13 +12,13 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
-from petstore_api.paths.fake.delete.parameters.parameter_1 import schema as parameter_1_schema
-from petstore_api.paths.fake.delete.parameters.parameter_4 import schema as parameter_4_schema
+from petstore_api.paths.fake.delete.parameters.parameter_1 import schema
+from petstore_api.paths.fake.delete.parameters.parameter_4 import schema as schema_2
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
-        "required_boolean_group": typing.Type[parameter_1_schema.Schema],
-        "boolean_group": typing.Type[parameter_4_schema.Schema],
+        "required_boolean_group": typing.Type[schema.Schema],
+        "boolean_group": typing.Type[schema_2.Schema],
     }
 )
 HeaderParametersRequiredDictInput = typing_extensions.TypedDict(

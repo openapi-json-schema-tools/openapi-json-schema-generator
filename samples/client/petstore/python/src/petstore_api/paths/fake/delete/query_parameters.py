@@ -12,17 +12,17 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
-from petstore_api.paths.fake.delete.parameters.parameter_0 import schema as parameter_0_schema
-from petstore_api.paths.fake.delete.parameters.parameter_2 import schema as parameter_2_schema
-from petstore_api.paths.fake.delete.parameters.parameter_3 import schema as parameter_3_schema
-from petstore_api.paths.fake.delete.parameters.parameter_5 import schema as parameter_5_schema
+from petstore_api.paths.fake.delete.parameters.parameter_0 import schema
+from petstore_api.paths.fake.delete.parameters.parameter_2 import schema as schema_4
+from petstore_api.paths.fake.delete.parameters.parameter_3 import schema as schema_3
+from petstore_api.paths.fake.delete.parameters.parameter_5 import schema as schema_2
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
-        "required_string_group": typing.Type[parameter_0_schema.Schema],
-        "int64_group": typing.Type[parameter_5_schema.Schema],
-        "string_group": typing.Type[parameter_3_schema.Schema],
-        "required_int64_group": typing.Type[parameter_2_schema.Schema],
+        "required_string_group": typing.Type[schema.Schema],
+        "int64_group": typing.Type[schema_2.Schema],
+        "string_group": typing.Type[schema_3.Schema],
+        "required_int64_group": typing.Type[schema_4.Schema],
     }
 )
 QueryParametersRequiredDictInput = typing_extensions.TypedDict(

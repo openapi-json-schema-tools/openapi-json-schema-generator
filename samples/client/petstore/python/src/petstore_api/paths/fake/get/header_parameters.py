@@ -12,13 +12,13 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
-from petstore_api.paths.fake.get.parameters.parameter_0 import schema as parameter_0_schema
-from petstore_api.paths.fake.get.parameters.parameter_1 import schema as parameter_1_schema
+from petstore_api.paths.fake.get.parameters.parameter_0 import schema as schema_2
+from petstore_api.paths.fake.get.parameters.parameter_1 import schema
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
-        "enum_header_string": typing.Type[parameter_1_schema.Schema],
-        "enum_header_string_array": typing.Type[parameter_0_schema.Schema],
+        "enum_header_string": typing.Type[schema.Schema],
+        "enum_header_string_array": typing.Type[schema_2.Schema],
     }
 )
 
@@ -42,12 +42,12 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         )
     
     @property
-    def enum_header_string_array(self) -> typing.Union[parameter_0_schema.SchemaTuple, schemas.Unset]:
+    def enum_header_string_array(self) -> typing.Union[schema_2.SchemaTuple, schemas.Unset]:
         val = self.get("enum_header_string_array", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
-            parameter_0_schema.SchemaTuple,
+            schema_2.SchemaTuple,
             val
         )
 
@@ -58,7 +58,7 @@ HeaderParametersDictInput = typing_extensions.TypedDict(
     {
         "enum_header_string": str,
         "enum_header_string_array": typing.Union[
-            parameter_0_schema.SchemaTuple,
+            schema_2.SchemaTuple,
             list,
             tuple
         ],

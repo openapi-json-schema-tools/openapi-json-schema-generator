@@ -13,20 +13,20 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
 from petstore_api.components.schema import string_with_validation
-from petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_0 import schema as parameter_0_schema
-from petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_1 import schema as parameter_1_schema
-from petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_2 import schema as parameter_2_schema
-from petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_3 import schema as parameter_3_schema
-from petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_4 import schema as parameter_4_schema
+from petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_0 import schema as schema_4
+from petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_1 import schema
+from petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_2 import schema as schema_3
+from petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_3 import schema as schema_5
+from petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_4 import schema as schema_2
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
         "refParam": typing.Type[string_with_validation.StringWithValidation],
-        "ioutil": typing.Type[parameter_1_schema.Schema],
-        "context": typing.Type[parameter_4_schema.Schema],
-        "http": typing.Type[parameter_2_schema.Schema],
-        "pipe": typing.Type[parameter_0_schema.Schema],
-        "url": typing.Type[parameter_3_schema.Schema],
+        "ioutil": typing.Type[schema.Schema],
+        "context": typing.Type[schema_2.Schema],
+        "http": typing.Type[schema_3.Schema],
+        "pipe": typing.Type[schema_4.Schema],
+        "url": typing.Type[schema_5.Schema],
     }
 )
 
@@ -44,30 +44,30 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     
     @property
-    def context(self) -> parameter_4_schema.SchemaTuple:
+    def context(self) -> schema_2.SchemaTuple:
         return typing.cast(
-            parameter_4_schema.SchemaTuple,
+            schema_2.SchemaTuple,
             self.__getitem__("context")
         )
     
     @property
-    def http(self) -> parameter_2_schema.SchemaTuple:
+    def http(self) -> schema_3.SchemaTuple:
         return typing.cast(
-            parameter_2_schema.SchemaTuple,
+            schema_3.SchemaTuple,
             self.__getitem__("http")
         )
     
     @property
-    def ioutil(self) -> parameter_1_schema.SchemaTuple:
+    def ioutil(self) -> schema.SchemaTuple:
         return typing.cast(
-            parameter_1_schema.SchemaTuple,
+            schema.SchemaTuple,
             self.__getitem__("ioutil")
         )
     
     @property
-    def pipe(self) -> parameter_0_schema.SchemaTuple:
+    def pipe(self) -> schema_4.SchemaTuple:
         return typing.cast(
-            parameter_0_schema.SchemaTuple,
+            schema_4.SchemaTuple,
             self.__getitem__("pipe")
         )
     
@@ -79,9 +79,9 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         )
     
     @property
-    def url(self) -> parameter_3_schema.SchemaTuple:
+    def url(self) -> schema_5.SchemaTuple:
         return typing.cast(
-            parameter_3_schema.SchemaTuple,
+            schema_5.SchemaTuple,
             self.__getitem__("url")
         )
 
@@ -91,28 +91,28 @@ QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {
         "context": typing.Union[
-            parameter_4_schema.SchemaTuple,
+            schema_2.SchemaTuple,
             list,
             tuple
         ],
         "http": typing.Union[
-            parameter_2_schema.SchemaTuple,
+            schema_3.SchemaTuple,
             list,
             tuple
         ],
         "ioutil": typing.Union[
-            parameter_1_schema.SchemaTuple,
+            schema.SchemaTuple,
             list,
             tuple
         ],
         "pipe": typing.Union[
-            parameter_0_schema.SchemaTuple,
+            schema_4.SchemaTuple,
             list,
             tuple
         ],
         "refParam": str,
         "url": typing.Union[
-            parameter_3_schema.SchemaTuple,
+            schema_5.SchemaTuple,
             list,
             tuple
         ],
