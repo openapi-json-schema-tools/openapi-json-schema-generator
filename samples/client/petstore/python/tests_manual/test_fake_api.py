@@ -178,8 +178,9 @@ class TestFakeApi(ApiTestMixin):
             mock_request.return_value = self.response(
                 self.json_bytes(value_simple)
             )
-
-            api_response = self.api.string(body=body)
+            from petstore_api.paths.fake_refs_string.post import request_body
+            body_info = request_body.RequestBodyInfoForApplicationJson(body)
+            api_response = self.api.string(body_info=body_info)
             self.assert_request_called_with(
                 mock_request,
                 'http://petstore.swagger.io:80/v2/fake/refs/string',
@@ -198,8 +199,9 @@ class TestFakeApi(ApiTestMixin):
             mock_request.return_value = self.response(
                 self.json_bytes(value)
             )
-
-            api_response = self.api.string_enum(body=body)
+            from petstore_api.paths.fake_refs_enum.post import request_body
+            body_info = request_body.RequestBodyInfoForApplicationJson(body)
+            api_response = self.api.string_enum(body_info=body_info)
             self.assert_request_called_with(
                 mock_request,
                 'http://petstore.swagger.io:80/v2/fake/refs/enum',
