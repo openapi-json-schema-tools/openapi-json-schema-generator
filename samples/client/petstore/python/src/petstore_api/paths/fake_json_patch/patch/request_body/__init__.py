@@ -21,8 +21,7 @@ class RequestBody(api_client.RequestBody):
 
 class RequestBodyInfoForApplicationJsonPatchjson(typing.NamedTuple):
     body: typing.Union[
-        schemas.INPUT_TYPES_ALL,
-        schemas.OUTPUT_BASE_TYPES,
+        None, None  # todo
     ]
     content_type: str = 'application/json-patch+json'
 RequestBodyInfo = RequestBodyInfoForApplicationJsonPatchjson

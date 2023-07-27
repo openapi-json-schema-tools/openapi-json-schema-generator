@@ -28,16 +28,14 @@ class Pet(api_client.RequestBody):
 
 class RequestBodyInfoForApplicationJson(typing.NamedTuple):
     body: typing.Union[
-        schemas.INPUT_TYPES_ALL,
-        schemas.OUTPUT_BASE_TYPES,
+        None, None  # todo
     ]
     content_type: str = 'application/json'
 
 
 class RequestBodyInfoForApplicationXml(typing.NamedTuple):
     body: typing.Union[
-        schemas.INPUT_TYPES_ALL,
-        schemas.OUTPUT_BASE_TYPES,
+        None, None  # todo
     ]
     content_type: str = 'application/xml'
 RequestBodyInfo = typing.Union[
