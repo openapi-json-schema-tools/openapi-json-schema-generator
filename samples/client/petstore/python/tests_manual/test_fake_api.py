@@ -369,9 +369,11 @@ class TestFakeApi(ApiTestMixin):
             content_type='application/octet-stream',
             preload_content=False
         )
+        from petstore_api.paths.fake_upload_download_file.post import request_body
         with patch.object(RESTClientObject, 'request') as mock_request:
             mock_request.return_value = mock_response
-            api_response = self.api.upload_download_file(body=file_bytes, stream=True)
+            body_info = request_body.RequestBodyInfoForApplicationOctetStream(file_bytes)
+            api_response = self.api.upload_download_file(body_info=body_info, stream=True)
             self.assert_request_called_with(
                 mock_request,
                 'http://petstore.swagger.io:80/v2/fake/uploadDownloadFile',
@@ -402,7 +404,8 @@ class TestFakeApi(ApiTestMixin):
         )
         with patch.object(RESTClientObject, 'request') as mock_request:
             mock_request.return_value = mock_response
-            api_response = self.api.upload_download_file(body=file_bytes, stream=True)
+            body_info = request_body.RequestBodyInfoForApplicationOctetStream(file_bytes)
+            api_response = self.api.upload_download_file(body_info=body_info, stream=True)
             self.assert_request_called_with(
                 mock_request,
                 'http://petstore.swagger.io:80/v2/fake/uploadDownloadFile',
@@ -436,7 +439,8 @@ class TestFakeApi(ApiTestMixin):
         with patch.object(RESTClientObject, 'request') as mock_request:
             no_filename_mock_response.geturl = lambda: f'http://foo.bar/{expected_filename}'
             mock_request.return_value = no_filename_mock_response
-            api_response = self.api.upload_download_file(body=file_bytes, stream=True)
+            body_info = request_body.RequestBodyInfoForApplicationOctetStream(file_bytes)
+            api_response = self.api.upload_download_file(body_info=body_info, stream=True)
             self.assert_request_called_with(
                 mock_request,
                 'http://petstore.swagger.io:80/v2/fake/uploadDownloadFile',
