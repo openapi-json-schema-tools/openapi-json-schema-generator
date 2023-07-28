@@ -52,10 +52,7 @@ class BaseApi(api_client.Api):
         body_info: request_body.RequestBodyInfo,
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
-        content_type: typing_extensions.Literal[
-            "application/json",
-            "application/xml",
-        ] = "application/json",
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -68,10 +65,33 @@ class BaseApi(api_client.Api):
         body_info: request_body.RequestBodyInfo,
         *,
         skip_deserialization: typing_extensions.Literal[True],
-        content_type: typing_extensions.Literal[
-            "application/json",
-            "application/xml",
-        ] = "application/json",
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
+        security_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
+    ) -> api_response.ApiResponseWithoutDeserialization: ...
+
+    @typing.overload
+    def _add_pet(
+        self,
+        body_info: request_body.RequestBodyInfo,
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
+        content_type: typing_extensions.Literal["application/xml"],
+        security_index: typing.Optional[int] = None,
+        server_index: typing.Optional[int] = None,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
+    ) -> response_200.ApiResponse: ...
+
+    @typing.overload
+    def _add_pet(
+        self,
+        body_info: request_body.RequestBodyInfo,
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
+        content_type: typing_extensions.Literal["application/xml"],
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,

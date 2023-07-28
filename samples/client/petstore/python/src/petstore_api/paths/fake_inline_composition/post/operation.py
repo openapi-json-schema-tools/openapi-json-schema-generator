@@ -54,10 +54,7 @@ class BaseApi(api_client.Api):
         ] = None,
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
-        content_type: typing_extensions.Literal[
-            "application/json",
-            "multipart/form-data",
-        ] = "application/json",
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -75,10 +72,43 @@ class BaseApi(api_client.Api):
         ] = None,
         *,
         skip_deserialization: typing_extensions.Literal[True],
-        content_type: typing_extensions.Literal[
-            "application/json",
-            "multipart/form-data",
-        ] = "application/json",
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
+    ) -> api_response.ApiResponseWithoutDeserialization: ...
+
+    @typing.overload
+    def _inline_composition(
+        self,
+        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        query_params: typing.Union[
+            query_parameters.QueryParametersDictInput,
+            query_parameters.QueryParametersDict,
+            None
+        ] = None,
+        *,
+        skip_deserialization: typing_extensions.Literal[False] = False,
+        content_type: typing_extensions.Literal["multipart/form-data"],
+        accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
+        server_index: typing.Optional[int] = None,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
+    ) -> response_200.ApiResponse: ...
+
+    @typing.overload
+    def _inline_composition(
+        self,
+        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        query_params: typing.Union[
+            query_parameters.QueryParametersDictInput,
+            query_parameters.QueryParametersDict,
+            None
+        ] = None,
+        *,
+        skip_deserialization: typing_extensions.Literal[True],
+        content_type: typing_extensions.Literal["multipart/form-data"],
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,

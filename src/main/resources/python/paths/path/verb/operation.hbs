@@ -219,6 +219,34 @@ _all_accept_content_types = (
 
 
 class BaseApi(api_client.Api):
+    {{#if requestBody}}
+        {{! to handle specific content types}}
+        {{#with requestBody}}
+            {{#with getSelfOrDeepestRef}}
+                {{#each content}}
+                    {{#if @first}}
+    @typing.overload
+    def _{{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args ../../../this contentType=@key.original isDefaultContentType=true rootSecurity=../../../../security isOverload=true skipDeserialization=false}}
+
+    @typing.overload
+    def _{{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args ../../../this contentType=@key.original isDefaultContentType=true rootSecurity=../../../../security isOverload=true skipDeserialization=true}}
+
+                    {{else}}
+    @typing.overload
+    def _{{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args ../../../this contentType=@key.original isDefaultContentType=false rootSecurity=../../../../security isOverload=true skipDeserialization=false}}
+
+    @typing.overload
+    def _{{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args ../../../this contentType=@key.original isDefaultContentType=false rootSecurity=../../../../security isOverload=true skipDeserialization=true}}
+
+                    {{/if}}
+                {{/each}}
+            {{/with}}
+        {{/with}}
+    {{else}}
     @typing.overload
     def _{{operationId.snakeCase}}(
     {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization=false}}
@@ -227,6 +255,7 @@ class BaseApi(api_client.Api):
     def _{{operationId.snakeCase}}(
     {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization=true}}
 
+    {{/if}}
     def _{{operationId.snakeCase}}(
     {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=false skipDeserialization=null}}
         """
