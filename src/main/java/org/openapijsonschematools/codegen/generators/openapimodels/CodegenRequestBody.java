@@ -22,7 +22,6 @@ public class CodegenRequestBody {
     public final boolean componentModule;
     public final CodegenKey jsonPathPiece;
     public final CodegenRefInfo<CodegenRequestBody> refInfo;
-    public final LinkedHashMap<CodegenKey, CodegenSchema> requestBodySchemas;
 
     /*
     A method that returns all content schemas
@@ -67,7 +66,7 @@ public class CodegenRequestBody {
         return schemas;
     }
 
-    public CodegenRequestBody(String description, String unescapedDescription, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo, LinkedHashMap<CodegenKey, CodegenSchema> requestBodySchemas) {
+    public CodegenRequestBody(String description, String unescapedDescription, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo) {
         this.description = description;
         this.unescapedDescription = unescapedDescription;
         this.vendorExtensions = vendorExtensions;
@@ -77,7 +76,6 @@ public class CodegenRequestBody {
         this.componentModule = componentModule;
         this.jsonPathPiece = jsonPathPiece;
         this.refInfo = refInfo;
-        this.requestBodySchemas = requestBodySchemas;
     }
 
     public CodegenRequestBody getSelfOrDeepestRef() {

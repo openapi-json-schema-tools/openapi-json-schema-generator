@@ -2649,6 +2649,7 @@ public class DefaultGenerator implements Generator {
 
         RequestBody opRequestBody = operation.getRequestBody();
         CodegenRequestBody requestBody = null;
+        CodegenSchema requestBodySchema = null;
         if (opRequestBody != null) {
             requestBody = fromRequestBody(opRequestBody, jsonPath + "/requestBody");
             CodegenRequestBody derefRequestBody = requestBody.getSelfOrDeepestRef();
@@ -2657,6 +2658,19 @@ public class DefaultGenerator implements Generator {
             } else {
                 hasOptionalParamOrBody = true;
             }
+            HashMap<String, Schema> requestBodySchemaProperties = new HashMap<>();
+            for (Entry<CodegenKey, CodegenMediaType> entry: derefRequestBody.content.entrySet()) {
+                String contentType = entry.getKey().original;
+                CodegenSchema schema = entry.getValue().schema;
+                if (schema == null) {
+                    continue;
+                }
+                String bodySchemaRef = schema.jsonPath;
+                Schema bodySchema = new Schema();
+                bodySchema.set$ref(bodySchemaRef);
+                requestBodySchemaProperties.put(contentType, bodySchema);
+            }
+            requestBodySchema = getXParametersSchema(requestBodySchemaProperties, new ArrayList<String>(), jsonPath, jsonPath + "/RequestBodySchema");
         }
 
         HashMap<String, Schema> pathParametersProperties = new HashMap<>();
@@ -2751,10 +2765,10 @@ public class DefaultGenerator implements Generator {
         List<HashMap<String, CodegenSecurityRequirementValue>> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
         ExternalDocumentation externalDocs = operation.getExternalDocs();
         CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1], "verb");
-        CodegenSchema pathParameters = getXParametersSchema(pathParametersProperties, pathParametersRequired, jsonPath, "PathParameters");
-        CodegenSchema queryParameters = getXParametersSchema(queryParametersProperties, queryParametersRequired, jsonPath, "QueryParameters");
-        CodegenSchema headerParameters = getXParametersSchema(headerParametersProperties, headerParametersRequired, jsonPath, "HeaderParameters");
-        CodegenSchema cookieParameters = getXParametersSchema(cookieParametersProperties, cookieParametersRequired, jsonPath, "CookieParameters");
+        CodegenSchema pathParameters = getXParametersSchema(pathParametersProperties, pathParametersRequired, jsonPath + "/" + "PathParameters", jsonPath + "/" + "PathParameters");
+        CodegenSchema queryParameters = getXParametersSchema(queryParametersProperties, queryParametersRequired, jsonPath + "/" + "QueryParameters", jsonPath + "/" + "QueryParameters");
+        CodegenSchema headerParameters = getXParametersSchema(headerParametersProperties, headerParametersRequired, jsonPath + "/" + "HeaderParameters", jsonPath + "/" + "HeaderParameters");
+        CodegenSchema cookieParameters = getXParametersSchema(cookieParametersProperties, cookieParametersRequired, jsonPath + "/" + "CookieParameters", jsonPath + "/" + "CookieParameters");
 
         return new CodegenOperation(
                 deprecated,
@@ -2790,10 +2804,11 @@ public class DefaultGenerator implements Generator {
                 externalDocs,
                 vendorExtensions,
                 operationId,
-                jsonPathPiece);
+                jsonPathPiece,
+                requestBodySchema);
     }
 
-    private CodegenSchema getXParametersSchema(HashMap<String, Schema> xParametersProperties, List<String> xParametersRequired, String jsonPath, String schemaName) {
+    private CodegenSchema getXParametersSchema(HashMap<String, Schema> xParametersProperties, List<String> xParametersRequired, String sourceJsonPath, String currentJsonPath) {
         if (xParametersProperties.isEmpty()) {
             return null;
         }
@@ -2801,7 +2816,7 @@ public class DefaultGenerator implements Generator {
         xParametersSchema.setProperties(xParametersProperties);
         xParametersSchema.setRequired(xParametersRequired);
         xParametersSchema.setAdditionalProperties(Boolean.FALSE);
-        CodegenSchema schema = fromSchema(xParametersSchema, jsonPath + "/" + schemaName, jsonPath + "/" + schemaName);
+        CodegenSchema schema = fromSchema(xParametersSchema, sourceJsonPath, currentJsonPath);
         schema.imports = new TreeSet<>();
         addImports(schema.imports, getImports(schema, generatorMetadata.getFeatureSet()));
         return schema;
@@ -2889,7 +2904,7 @@ public class DefaultGenerator implements Generator {
 
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         TreeSet<String> finalImports = imports;
-        CodegenSchema headersObjectSchema = getXParametersSchema(headersProperties, headersRequired, sourceJsonPath, "Headers");
+        CodegenSchema headersObjectSchema = getXParametersSchema(headersProperties, headersRequired, sourceJsonPath + "/" + "Headers", sourceJsonPath + "/" + "Headers");
         r = new CodegenResponse(jsonPathPiece, headers, headersObjectSchema, description, finalVendorExtensions, content, refInfo, finalImports, componentModule);
         codegenResponseCache.put(sourceJsonPath, r);
         return r;
