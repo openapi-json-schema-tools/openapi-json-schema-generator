@@ -32,6 +32,9 @@ from {{packageName}}.shared_imports.operation_imports import *  # pyright: ignor
 {{/if}}
 {{> _helper_imports }}
 {{#with operation}}
+    {{#with requestBodySchema}}
+{{> _helper_imports }}
+    {{/with}}
 
 from .. import path
 {{#if responses}}

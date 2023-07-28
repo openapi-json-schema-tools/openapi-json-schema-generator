@@ -8,6 +8,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 from petstore_api import api_client
 from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
+from petstore_api.paths.fake_body_with_query_params.put.request_body.content.application_json import schema
 
 from .. import path
 from .responses import response_200

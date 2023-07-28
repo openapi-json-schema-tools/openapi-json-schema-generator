@@ -6,6 +6,7 @@
 
 from petstore_api import api_client
 from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
+from petstore_api.paths.fake_additional_properties_with_array_of_enums.get.request_body.content.application_json import schema
 
 from .. import path
 from .responses import response_200

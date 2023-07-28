@@ -6,6 +6,7 @@
 
 from petstore_api import api_client, exceptions
 from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
+from petstore_api.paths.store_order.post.request_body.content.application_json import schema
 
 from .. import path
 from .responses import (
