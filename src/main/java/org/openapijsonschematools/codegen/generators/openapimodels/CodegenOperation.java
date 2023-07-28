@@ -32,6 +32,8 @@ public class CodegenOperation {
     public final LinkedHashSet<String> produces;
     public final List<CodegenServer> servers;
     public final CodegenRequestBody requestBody;
+    // properties where key is contentType, value is a ref schema, encapsulates imports
+    public final CodegenSchema requestBodySchema;
     public final List<CodegenParameter> allParams;
     public final List<CodegenParameter> pathParams;
     public final CodegenSchema pathParameters;
@@ -56,7 +58,7 @@ public class CodegenOperation {
     public final CodegenKey operationId;
     public final CodegenKey jsonPathPiece;
 
-    public CodegenOperation(Boolean deprecated, LinkedHashSet<String> nonErrorStatusCodes, LinkedHashSet<Integer> nonErrorWildcardStatusCodes, LinkedHashSet<String> errorStatusCodes, LinkedHashSet<Integer> errorWildcardStatusCodes, String summary, String unescapedDescription, String description, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, CodegenSchema pathParameters, List<CodegenParameter> queryParams, CodegenSchema queryParameters, List<CodegenParameter> headerParams, CodegenSchema headerParameters, List<CodegenParameter> cookieParams, CodegenSchema cookieParameters, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<HashMap<String, CodegenSecurityRequirementValue>> security, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId, CodegenKey jsonPathPiece) {
+    public CodegenOperation(Boolean deprecated, LinkedHashSet<String> nonErrorStatusCodes, LinkedHashSet<Integer> nonErrorWildcardStatusCodes, LinkedHashSet<String> errorStatusCodes, LinkedHashSet<Integer> errorWildcardStatusCodes, String summary, String unescapedDescription, String description, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, CodegenSchema pathParameters, List<CodegenParameter> queryParams, CodegenSchema queryParameters, List<CodegenParameter> headerParams, CodegenSchema headerParameters, List<CodegenParameter> cookieParams, CodegenSchema cookieParameters, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<HashMap<String, CodegenSecurityRequirementValue>> security, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId, CodegenKey jsonPathPiece, CodegenSchema requestBodySchema) {
         this.deprecated = deprecated;
         this.nonErrorStatusCodes = nonErrorStatusCodes;
         this.nonErrorWildcardStatusCodes = nonErrorWildcardStatusCodes;
@@ -91,6 +93,7 @@ public class CodegenOperation {
         this.vendorExtensions = vendorExtensions;
         this.operationId = operationId;
         this.jsonPathPiece = jsonPathPiece;
+        this.requestBodySchema = requestBodySchema;
     }
 
     // used by operation templates
@@ -145,29 +148,6 @@ public class CodegenOperation {
             return false;
         }
         return true;
-    }
-
-    /**
-     * @return contentTypeToOperation
-     * returns a map where the key is the request body content type and the value is the current CodegenOperation
-     * this is needed by templates when a different signature is needed for each request body content type
-     */
-    @JsonIgnore
-    public Map<String, CodegenOperation> getContentTypeToOperation() {
-        LinkedHashMap<String, CodegenOperation> contentTypeToOperation = new LinkedHashMap<>();
-        if (requestBody == null) {
-            return null;
-        }
-        LinkedHashMap<CodegenKey, CodegenMediaType> content = null;
-        if (requestBody.refInfo != null) {
-            content = requestBody.getDeepestRef().content;
-        } else {
-            content = requestBody.content;
-        }
-        for (CodegenKey contentKey: content.keySet()) {
-            contentTypeToOperation.put(contentKey.original, this);
-        }
-        return contentTypeToOperation;
     }
 
     @Override
