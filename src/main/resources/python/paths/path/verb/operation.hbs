@@ -219,33 +219,29 @@ _all_accept_content_types = (
 
 
 class BaseApi(api_client.Api):
-    {{#if requestBody}}
+    {{#if requestBodySchema}}
         {{! to handle specific content types}}
-        {{#with requestBody}}
-            {{#with getSelfOrDeepestRef}}
-                {{#each content}}
-                    {{#if @first}}
+        {{#each requestBodySchema.properties}}
+            {{#if @first}}
     @typing.overload
     def _{{operationId.snakeCase}}(
-    {{> paths/path/verb/_helper_operation_args ../../../this contentType=@key.original isDefaultContentType=true rootSecurity=../../../../security isOverload=true skipDeserialization=false}}
+    {{> paths/path/verb/_helper_operation_args ../this contentType=@key.original isDefaultContentType=true rootSecurity=../../security isOverload=true skipDeserialization=false}}
 
     @typing.overload
     def _{{operationId.snakeCase}}(
-    {{> paths/path/verb/_helper_operation_args ../../../this contentType=@key.original isDefaultContentType=true rootSecurity=../../../../security isOverload=true skipDeserialization=true}}
+    {{> paths/path/verb/_helper_operation_args ../this contentType=@key.original isDefaultContentType=true rootSecurity=../../security isOverload=true skipDeserialization=true}}
 
-                    {{else}}
+            {{else}}
     @typing.overload
     def _{{operationId.snakeCase}}(
-    {{> paths/path/verb/_helper_operation_args ../../../this contentType=@key.original isDefaultContentType=false rootSecurity=../../../../security isOverload=true skipDeserialization=false}}
+    {{> paths/path/verb/_helper_operation_args ../this contentType=@key.original isDefaultContentType=false rootSecurity=../../security isOverload=true skipDeserialization=false}}
 
     @typing.overload
     def _{{operationId.snakeCase}}(
-    {{> paths/path/verb/_helper_operation_args ../../../this contentType=@key.original isDefaultContentType=false rootSecurity=../../../../security isOverload=true skipDeserialization=true}}
+    {{> paths/path/verb/_helper_operation_args ../this contentType=@key.original isDefaultContentType=false rootSecurity=../../security isOverload=true skipDeserialization=true}}
 
-                    {{/if}}
-                {{/each}}
-            {{/with}}
-        {{/with}}
+            {{/if}}
+        {{/each}}
     {{else}}
     @typing.overload
     def _{{operationId.snakeCase}}(

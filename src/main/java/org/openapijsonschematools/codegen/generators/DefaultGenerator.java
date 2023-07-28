@@ -2658,7 +2658,7 @@ public class DefaultGenerator implements Generator {
             } else {
                 hasOptionalParamOrBody = true;
             }
-            HashMap<String, Schema> requestBodySchemaProperties = new HashMap<>();
+            LinkedHashMap<String, Schema> requestBodySchemaProperties = new LinkedHashMap<>();
             for (Entry<CodegenKey, CodegenMediaType> entry: derefRequestBody.content.entrySet()) {
                 String contentType = entry.getKey().original;
                 CodegenSchema schema = entry.getValue().schema;
@@ -4441,6 +4441,7 @@ public class DefaultGenerator implements Generator {
         // components/securitySchemes/blah -> Blah
         // schema names
         String usedName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
+        usedName = ModelUtils.decodeSlashes(usedName);
         return getKey(usedName, expectedComponentType, sourceJsonPathPiece);
     }
 
