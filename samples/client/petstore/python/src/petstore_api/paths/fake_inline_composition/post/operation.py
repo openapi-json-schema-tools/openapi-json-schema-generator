@@ -54,6 +54,10 @@ class BaseApi(api_client.Api):
         ] = None,
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
+        content_type: typing_extensions.Literal[
+            "application/json",
+            "multipart/form-data",
+        ] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -71,6 +75,10 @@ class BaseApi(api_client.Api):
         ] = None,
         *,
         skip_deserialization: typing_extensions.Literal[True],
+        content_type: typing_extensions.Literal[
+            "application/json",
+            "multipart/form-data",
+        ] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -87,6 +95,10 @@ class BaseApi(api_client.Api):
         ] = None,
         *,
         skip_deserialization: bool = False,
+        content_type: typing_extensions.Literal[
+            "application/json",
+            "multipart/form-data",
+        ] = "application/json",
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
