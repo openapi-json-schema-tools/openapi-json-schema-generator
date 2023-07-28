@@ -13,31 +13,61 @@
     skip_deserialization: bool = False,
 {{/if}}
 {{#if requestBody}}
-    {{#with requestBody}}
-        {{#if refInfo}}
-            {{#with getDeepestRef}}
+    {{#if isOverload}}
+        {{! only one content type at a time }}
+        {{#with requestBody}}
+            {{#if refInfo}}
+                {{#with getDeepestRef}}
+                    {{#eq content.size 1}}
+    content_type: typing_extensions.Literal[{{#each content}}"{{{@key.original}}}"{{/each}}] = {{#each content}}{{#if @first}}"{{{@key.original}}}"{{/if}}{{/each}},
+                    {{else}}
+    content_type: typing_extensions.Literal[
+                        {{#each content}}
+        "{{{@key.original}}}",
+                        {{/each}}
+    ] = {{#each content}}{{#if @first}}"{{{@key.original}}}"{{/if}}{{/each}},
+                    {{/eq}}
+                {{/with}}
+            {{else}}
                 {{#eq content.size 1}}
     content_type: typing_extensions.Literal[{{#each content}}"{{{@key.original}}}"{{/each}}] = {{#each content}}{{#if @first}}"{{{@key.original}}}"{{/if}}{{/each}},
                 {{else}}
     content_type: typing_extensions.Literal[
-                    {{#each content}}
+                {{#each content}}
         "{{{@key.original}}}",
-                    {{/each}}
+                {{/each}}
     ] = {{#each content}}{{#if @first}}"{{{@key.original}}}"{{/if}}{{/each}},
                 {{/eq}}
-            {{/with}}
-        {{else}}
-            {{#eq content.size 1}}
+            {{/if}}
+        {{/with}}
+    {{else}}
+        {{! all content types }}
+        {{#with requestBody}}
+            {{#if refInfo}}
+                {{#with getDeepestRef}}
+                    {{#eq content.size 1}}
     content_type: typing_extensions.Literal[{{#each content}}"{{{@key.original}}}"{{/each}}] = {{#each content}}{{#if @first}}"{{{@key.original}}}"{{/if}}{{/each}},
-            {{else}}
+                    {{else}}
     content_type: typing_extensions.Literal[
-            {{#each content}}
+                        {{#each content}}
         "{{{@key.original}}}",
-            {{/each}}
+                        {{/each}}
     ] = {{#each content}}{{#if @first}}"{{{@key.original}}}"{{/if}}{{/each}},
-            {{/eq}}
-        {{/if}}
-    {{/with}}
+                    {{/eq}}
+                {{/with}}
+            {{else}}
+                {{#eq content.size 1}}
+    content_type: typing_extensions.Literal[{{#each content}}"{{{@key.original}}}"{{/each}}] = {{#each content}}{{#if @first}}"{{{@key.original}}}"{{/if}}{{/each}},
+                {{else}}
+    content_type: typing_extensions.Literal[
+                {{#each content}}
+        "{{{@key.original}}}",
+                {{/each}}
+    ] = {{#each content}}{{#if @first}}"{{{@key.original}}}"{{/if}}{{/each}},
+                {{/eq}}
+            {{/if}}
+        {{/with}}
+    {{/if}}
 {{/if}}
 {{#if produces}}
     accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
