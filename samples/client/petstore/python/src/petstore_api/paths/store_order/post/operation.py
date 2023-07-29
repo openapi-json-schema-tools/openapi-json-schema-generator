@@ -99,7 +99,8 @@ class BaseApi(api_client.Api):
 
         fields, body = self._get_fields_and_body(
             request_body=request_body.RequestBody,
-            body_info=body_info,
+            body=body,
+            content_type=content_type,
             headers=_headers
         )
         host = self.api_client.configuration.get_server_url(

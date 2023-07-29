@@ -329,14 +329,15 @@ class BaseApi(api_client.Api):
         {{/if}}
     {{/or}}
         # TODO add cookie handling
-    {{#with requestBody}}
+    {{#if requestBodySchema}}
 
         fields, body = self._get_fields_and_body(
-            request_body=request_body.{{jsonPathPiece.camelCase}},
-            body_info=body_info,
+            request_body=request_body.{{requestBody.jsonPathPiece.camelCase}},
+            body=body,
+            content_type=content_type,
             headers=_headers
         )
-    {{/with}}
+    {{/if}}
     {{#if servers}}
         host = self.api_client.configuration.get_server_url(
             "paths/{{{path.original}}}/{{httpMethod.original}}/servers", server_index
@@ -379,10 +380,10 @@ class BaseApi(api_client.Api):
     {{/if}}
             method='{{httpMethod.original}}',
             host=host,
-    {{#or headerParams requestBody produces}}
+    {{#or headerParams requestBodySchema produces}}
             headers=_headers,
     {{/or}}
-    {{#if requestBody}}
+    {{#if requestBodySchema}}
             fields=fields,
             body=body,
     {{/if}}
