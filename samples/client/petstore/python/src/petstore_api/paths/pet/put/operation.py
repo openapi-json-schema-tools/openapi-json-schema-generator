@@ -6,8 +6,7 @@
 
 from petstore_api import api_client, exceptions, security_schemes
 from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
-from petstore_api.components.request_bodies.request_body_pet.content.application_json import schema
-from petstore_api.components.request_bodies.request_body_pet.content.application_xml import schema as schema_2
+from petstore_api.components.schema import pet
 
 from .. import path
 from .responses import (
@@ -51,7 +50,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _update_pet(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            pet.PetDictInput,
+            pet.PetDict,
+        ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -63,7 +65,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _update_pet(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            pet.PetDictInput,
+            pet.PetDict,
+        ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -76,7 +81,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _update_pet(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            pet.PetDictInput,
+            pet.PetDict,
+        ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["application/xml"],
@@ -88,7 +96,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _update_pet(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            pet.PetDictInput,
+            pet.PetDict,
+        ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["application/xml"],
@@ -100,7 +111,12 @@ class BaseApi(api_client.Api):
 
     def _update_pet(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            pet.PetDictInput,
+            pet.PetDict,
+            pet.PetDictInput,
+            pet.PetDict,
+        ],
         *,
         skip_deserialization: bool = False,
         content_type: typing_extensions.Literal[

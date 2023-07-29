@@ -228,20 +228,20 @@ class BaseApi(api_client.Api):
             {{#if @first}}
     @typing.overload
     def _{{operationId.snakeCase}}(
-    {{> paths/path/verb/_helper_operation_args ../this contentType=@key.original isDefaultContentType=true rootSecurity=../../security isOverload=true skipDeserialization=false}}
+    {{> paths/path/verb/_helper_operation_args ../this contentType=@key.original bodyRefSchema=this isDefaultContentType=true rootSecurity=../../security isOverload=true skipDeserialization=false}}
 
     @typing.overload
     def _{{operationId.snakeCase}}(
-    {{> paths/path/verb/_helper_operation_args ../this contentType=@key.original isDefaultContentType=true rootSecurity=../../security isOverload=true skipDeserialization=true}}
+    {{> paths/path/verb/_helper_operation_args ../this contentType=@key.original bodyRefSchema=this isDefaultContentType=true rootSecurity=../../security isOverload=true skipDeserialization=true}}
 
             {{else}}
     @typing.overload
     def _{{operationId.snakeCase}}(
-    {{> paths/path/verb/_helper_operation_args ../this contentType=@key.original isDefaultContentType=false rootSecurity=../../security isOverload=true skipDeserialization=false}}
+    {{> paths/path/verb/_helper_operation_args ../this contentType=@key.original bodyRefSchema=this isDefaultContentType=false rootSecurity=../../security isOverload=true skipDeserialization=false}}
 
     @typing.overload
     def _{{operationId.snakeCase}}(
-    {{> paths/path/verb/_helper_operation_args ../this contentType=@key.original isDefaultContentType=false rootSecurity=../../security isOverload=true skipDeserialization=true}}
+    {{> paths/path/verb/_helper_operation_args ../this contentType=@key.original bodyRefSchema=this isDefaultContentType=false rootSecurity=../../security isOverload=true skipDeserialization=true}}
 
             {{/if}}
         {{/each}}

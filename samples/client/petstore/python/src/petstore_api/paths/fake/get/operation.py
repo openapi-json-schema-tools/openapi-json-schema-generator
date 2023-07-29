@@ -65,7 +65,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _enum_parameters(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            schema.SchemaDictInput,
+            schemas.Unset,
+            schema.SchemaDict,
+        ] = schemas.unset,
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict,
@@ -88,7 +92,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _enum_parameters(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            schema.SchemaDictInput,
+            schemas.Unset,
+            schema.SchemaDict,
+        ] = schemas.unset,
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict,
@@ -110,7 +118,11 @@ class BaseApi(api_client.Api):
 
     def _enum_parameters(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            schema.SchemaDictInput,
+            schema.SchemaDict,
+            schemas.Unset,
+        ] = schemas.unset,
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict,

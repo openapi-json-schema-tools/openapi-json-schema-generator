@@ -6,7 +6,7 @@
 
 from petstore_api import api_client
 from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
-from petstore_api.paths.user.post.request_body.content.application_json import schema
+from petstore_api.components.schema import user
 
 from .. import path
 from .responses import response_default
@@ -20,7 +20,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _create_user(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            user.UserDictInput,
+            user.UserDict,
+        ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -32,7 +35,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _create_user(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            user.UserDictInput,
+            user.UserDict,
+        ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -43,7 +49,10 @@ class BaseApi(api_client.Api):
 
     def _create_user(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            user.UserDictInput,
+            user.UserDict,
+        ],
         *,
         skip_deserialization: bool = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",

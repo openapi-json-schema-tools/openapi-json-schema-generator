@@ -1,5 +1,25 @@
-{{#if requiredValue}}
-body_info: request_body.RequestBodyInfo,
+{{#if isOverload}}
+    {{! only one body at a time }}
+    {{#with bodyRefSchema}}
+body: typing.Union[
+    {{> components/schemas/_helper_schema_input_ref_type fullRefModule="" endChar="," }}
+        {{#if bodyOptional}}
+    schemas.Unset,
+        {{/if}}
+    {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," }}
+]{{#if bodyOptional}} = schemas.unset{{/if}},
+    {{/with}}
 {{else}}
-body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+    {{! all request bodies }}
+    {{#if requestBodySchema}}
+body: typing.Union[
+        {{#each requestBodySchema.properties}}
+    {{> components/schemas/_helper_schema_input_ref_type fullRefModule="" endChar="," }}
+    {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," }}
+        {{/each}}
+        {{#if bodyOptional}}
+    schemas.Unset,
+        {{/if}}
+]{{#if bodyOptional}} = schemas.unset{{/if}},
+    {{/if}}
 {{/if}}

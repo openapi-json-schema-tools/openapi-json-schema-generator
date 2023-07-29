@@ -6,7 +6,7 @@
 
 from petstore_api import api_client
 from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
-from petstore_api.paths.fake_json_patch.patch.request_body.content.application_json_patchjson import schema
+from petstore_api.components.schema import json_patch_request
 
 from .. import path
 from .responses import response_200
@@ -31,7 +31,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _json_patch(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            json_patch_request.JSONPatchRequestTupleInput,
+            schemas.Unset,
+            json_patch_request.JSONPatchRequestTuple,
+        ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["application/json-patch+json"] = "application/json-patch+json",
@@ -43,7 +47,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _json_patch(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            json_patch_request.JSONPatchRequestTupleInput,
+            schemas.Unset,
+            json_patch_request.JSONPatchRequestTuple,
+        ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["application/json-patch+json"] = "application/json-patch+json",
@@ -54,7 +62,11 @@ class BaseApi(api_client.Api):
 
     def _json_patch(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            json_patch_request.JSONPatchRequestTupleInput,
+            json_patch_request.JSONPatchRequestTuple,
+            schemas.Unset,
+        ] = schemas.unset,
         *,
         skip_deserialization: bool = False,
         content_type: typing_extensions.Literal["application/json-patch+json"] = "application/json-patch+json",

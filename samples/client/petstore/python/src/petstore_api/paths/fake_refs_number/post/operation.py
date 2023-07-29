@@ -6,7 +6,7 @@
 
 from petstore_api import api_client
 from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
-from petstore_api.paths.fake_refs_number.post.request_body.content.application_json import schema
+from petstore_api.components.schema import number_with_validations
 
 from .. import path
 from .responses import response_200
@@ -35,7 +35,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _number_with_validations(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            schemas.Unset,
+            typing.Union[int, float],
+        ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -48,7 +51,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _number_with_validations(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            schemas.Unset,
+            typing.Union[int, float],
+        ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -60,7 +66,10 @@ class BaseApi(api_client.Api):
 
     def _number_with_validations(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            typing.Union[int, float],
+            schemas.Unset,
+        ] = schemas.unset,
         *,
         skip_deserialization: bool = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",

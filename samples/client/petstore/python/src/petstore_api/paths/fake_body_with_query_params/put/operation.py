@@ -8,7 +8,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 from petstore_api import api_client
 from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
-from petstore_api.paths.fake_body_with_query_params.put.request_body.content.application_json import schema
+from petstore_api.components.schema import user
 
 from .. import path
 from .responses import response_200
@@ -38,7 +38,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _body_with_query_params(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            user.UserDictInput,
+            user.UserDict,
+        ],
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict
@@ -54,7 +57,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _body_with_query_params(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            user.UserDictInput,
+            user.UserDict,
+        ],
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict
@@ -69,7 +75,10 @@ class BaseApi(api_client.Api):
 
     def _body_with_query_params(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            user.UserDictInput,
+            user.UserDict,
+        ],
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict

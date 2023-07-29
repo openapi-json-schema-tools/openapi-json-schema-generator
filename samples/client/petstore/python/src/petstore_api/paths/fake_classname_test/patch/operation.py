@@ -6,7 +6,7 @@
 
 from petstore_api import api_client, security_schemes
 from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
-from petstore_api.components.request_bodies.request_body_client.content.application_json import schema
+from petstore_api.components.schema import client
 
 from .. import path
 from .responses import response_200
@@ -40,7 +40,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _classname(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            client.ClientDictInput,
+            client.ClientDict,
+        ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -54,7 +57,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _classname(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            client.ClientDictInput,
+            client.ClientDict,
+        ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -67,7 +73,10 @@ class BaseApi(api_client.Api):
 
     def _classname(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            client.ClientDictInput,
+            client.ClientDict,
+        ],
         *,
         skip_deserialization: bool = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",

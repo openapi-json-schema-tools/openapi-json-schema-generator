@@ -2665,7 +2665,7 @@ public class DefaultGenerator implements Generator {
                 if (schema == null) {
                     continue;
                 }
-                String bodySchemaRef = schema.jsonPath;
+                String bodySchemaRef = schema.getSelfOrDeepestRef().jsonPath;
                 Schema bodySchema = new Schema();
                 bodySchema.set$ref(bodySchemaRef);
                 requestBodySchemaProperties.put(contentType, bodySchema);

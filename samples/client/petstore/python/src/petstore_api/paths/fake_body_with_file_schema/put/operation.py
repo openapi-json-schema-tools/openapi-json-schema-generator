@@ -6,7 +6,7 @@
 
 from petstore_api import api_client
 from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
-from petstore_api.paths.fake_body_with_file_schema.put.request_body.content.application_json import schema
+from petstore_api.components.schema import file_schema_test_class
 
 from .. import path
 from .responses import response_200
@@ -31,7 +31,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _body_with_file_schema(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            file_schema_test_class.FileSchemaTestClassDictInput,
+            file_schema_test_class.FileSchemaTestClassDict,
+        ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -43,7 +46,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _body_with_file_schema(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            file_schema_test_class.FileSchemaTestClassDictInput,
+            file_schema_test_class.FileSchemaTestClassDict,
+        ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -54,7 +60,10 @@ class BaseApi(api_client.Api):
 
     def _body_with_file_schema(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            file_schema_test_class.FileSchemaTestClassDictInput,
+            file_schema_test_class.FileSchemaTestClassDict,
+        ],
         *,
         skip_deserialization: bool = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",

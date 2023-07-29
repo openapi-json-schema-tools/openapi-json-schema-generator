@@ -35,7 +35,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _json_with_charset(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.Unset,
+            schemas.OUTPUT_BASE_TYPES,
+        ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["application/json; charset=utf-8"] = "application/json; charset=utf-8",
@@ -48,7 +52,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _json_with_charset(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.Unset,
+            schemas.OUTPUT_BASE_TYPES,
+        ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["application/json; charset=utf-8"] = "application/json; charset=utf-8",
@@ -60,7 +68,11 @@ class BaseApi(api_client.Api):
 
     def _json_with_charset(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset,
+        ] = schemas.unset,
         *,
         skip_deserialization: bool = False,
         content_type: typing_extensions.Literal["application/json; charset=utf-8"] = "application/json; charset=utf-8",

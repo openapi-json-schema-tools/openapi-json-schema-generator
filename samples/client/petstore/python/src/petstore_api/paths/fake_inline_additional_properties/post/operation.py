@@ -31,7 +31,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _inline_additional_properties(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            schema.SchemaDictInput,
+            schema.SchemaDict,
+        ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -43,7 +46,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _inline_additional_properties(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            schema.SchemaDictInput,
+            schema.SchemaDict,
+        ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -54,7 +60,10 @@ class BaseApi(api_client.Api):
 
     def _inline_additional_properties(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            schema.SchemaDictInput,
+            schema.SchemaDict,
+        ],
         *,
         skip_deserialization: bool = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",

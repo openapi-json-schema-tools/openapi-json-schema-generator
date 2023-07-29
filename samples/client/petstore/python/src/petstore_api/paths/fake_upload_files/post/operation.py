@@ -35,7 +35,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _upload_files(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            schema.SchemaDictInput,
+            schemas.Unset,
+            schema.SchemaDict,
+        ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["multipart/form-data"] = "multipart/form-data",
@@ -48,7 +52,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _upload_files(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            schema.SchemaDictInput,
+            schemas.Unset,
+            schema.SchemaDict,
+        ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["multipart/form-data"] = "multipart/form-data",
@@ -60,7 +68,11 @@ class BaseApi(api_client.Api):
 
     def _upload_files(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            schema.SchemaDictInput,
+            schema.SchemaDict,
+            schemas.Unset,
+        ] = schemas.unset,
         *,
         skip_deserialization: bool = False,
         content_type: typing_extensions.Literal["multipart/form-data"] = "multipart/form-data",

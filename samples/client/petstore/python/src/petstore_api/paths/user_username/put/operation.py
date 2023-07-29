@@ -8,7 +8,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 from petstore_api import api_client, exceptions
 from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
-from petstore_api.paths.user_username.put.request_body.content.application_json import schema
+from petstore_api.components.schema import user
 
 from .. import path
 from .responses import (
@@ -44,7 +44,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _update_user(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            user.UserDictInput,
+            user.UserDict,
+        ],
         path_params: typing.Union[
             path_parameters.PathParametersDictInput,
             path_parameters.PathParametersDict
@@ -59,7 +62,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _update_user(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            user.UserDictInput,
+            user.UserDict,
+        ],
         path_params: typing.Union[
             path_parameters.PathParametersDictInput,
             path_parameters.PathParametersDict
@@ -74,7 +80,10 @@ class BaseApi(api_client.Api):
 
     def _update_user(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            user.UserDictInput,
+            user.UserDict,
+        ],
         path_params: typing.Union[
             path_parameters.PathParametersDictInput,
             path_parameters.PathParametersDict

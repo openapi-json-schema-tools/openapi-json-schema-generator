@@ -6,7 +6,7 @@
 
 from petstore_api import api_client
 from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
-from petstore_api.paths.fake_refs_object_model_with_ref_props.post.request_body.content.application_json import schema
+from petstore_api.components.schema import object_model_with_ref_props
 
 from .. import path
 from .responses import response_200
@@ -35,7 +35,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _object_model_with_ref_props(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            object_model_with_ref_props.ObjectModelWithRefPropsDictInput,
+            schemas.Unset,
+            object_model_with_ref_props.ObjectModelWithRefPropsDict,
+        ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -48,7 +52,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _object_model_with_ref_props(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            object_model_with_ref_props.ObjectModelWithRefPropsDictInput,
+            schemas.Unset,
+            object_model_with_ref_props.ObjectModelWithRefPropsDict,
+        ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -60,7 +68,11 @@ class BaseApi(api_client.Api):
 
     def _object_model_with_ref_props(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            object_model_with_ref_props.ObjectModelWithRefPropsDictInput,
+            object_model_with_ref_props.ObjectModelWithRefPropsDict,
+            schemas.Unset,
+        ] = schemas.unset,
         *,
         skip_deserialization: bool = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",

@@ -48,7 +48,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _inline_composition(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.Unset,
+            schemas.OUTPUT_BASE_TYPES,
+        ] = schemas.unset,
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict,
@@ -66,7 +70,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _inline_composition(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.Unset,
+            schemas.OUTPUT_BASE_TYPES,
+        ] = schemas.unset,
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict,
@@ -84,7 +92,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _inline_composition(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            schema.SchemaDictInput,
+            schemas.Unset,
+            schema_2.SchemaDict,
+        ] = schemas.unset,
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict,
@@ -102,7 +114,11 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _inline_composition(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            schema.SchemaDictInput,
+            schemas.Unset,
+            schema_2.SchemaDict,
+        ] = schemas.unset,
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict,
@@ -119,7 +135,13 @@ class BaseApi(api_client.Api):
 
     def _inline_composition(
         self,
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+            schema.SchemaDictInput,
+            schema_2.SchemaDict,
+            schemas.Unset,
+        ] = schemas.unset,
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict,

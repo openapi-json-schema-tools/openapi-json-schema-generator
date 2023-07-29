@@ -20,7 +20,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _create_users_with_list_input(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            schema.SchemaTupleInput,
+            schema.SchemaTuple,
+        ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -32,7 +35,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _create_users_with_list_input(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            schema.SchemaTupleInput,
+            schema.SchemaTuple,
+        ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -43,7 +49,10 @@ class BaseApi(api_client.Api):
 
     def _create_users_with_list_input(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            schema.SchemaTupleInput,
+            schema.SchemaTuple,
+        ],
         *,
         skip_deserialization: bool = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",

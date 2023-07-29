@@ -93,7 +93,11 @@ class BaseApi(api_client.Api):
             path_parameters.PathParametersDictInput,
             path_parameters.PathParametersDict
         ],
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.Unset,
+            schemas.OUTPUT_BASE_TYPES,
+        ] = schemas.unset,
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict,
@@ -125,7 +129,11 @@ class BaseApi(api_client.Api):
             path_parameters.PathParametersDictInput,
             path_parameters.PathParametersDict
         ],
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.Unset,
+            schemas.OUTPUT_BASE_TYPES,
+        ] = schemas.unset,
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict,
@@ -156,7 +164,11 @@ class BaseApi(api_client.Api):
             path_parameters.PathParametersDictInput,
             path_parameters.PathParametersDict
         ],
-        body_info: typing.Optional[request_body.RequestBodyInfo] = None,
+        body: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset,
+        ] = schemas.unset,
         query_params: typing.Union[
             query_parameters.QueryParametersDictInput,
             query_parameters.QueryParametersDict,
