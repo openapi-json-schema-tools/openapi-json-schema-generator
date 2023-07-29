@@ -92,12 +92,9 @@ class TestFakeApi(ApiTestMixin):
             value = 10.0
             body = number_with_validations.NumberWithValidations.validate(value)
             mock_request.return_value = self.response(self.json_bytes(value))
-            from petstore_api.paths.fake_refs_composed_one_of_number_with_validations.post import (
-                request_body,
-            )
 
             api_response = self.api.number_with_validations(
-                body_info=request_body.RequestBodyInfoForApplicationJson(body)
+                body=body
             )
             self.assert_request_called_with(
                 mock_request,
@@ -170,10 +167,8 @@ class TestFakeApi(ApiTestMixin):
             body = "blah"
             value_simple = body
             mock_request.return_value = self.response(self.json_bytes(value_simple))
-            from petstore_api.paths.fake_refs_string.post import request_body
 
-            body_info = request_body.RequestBodyInfoForApplicationJson(body)
-            api_response = self.api.string(body_info=body_info)
+            api_response = self.api.string(body=body)
             self.assert_request_called_with(
                 mock_request,
                 "http://petstore.swagger.io:80/v2/fake/refs/string",
@@ -191,10 +186,8 @@ class TestFakeApi(ApiTestMixin):
             value = "placed"
             body = string_enum.StringEnum.validate(value)
             mock_request.return_value = self.response(self.json_bytes(value))
-            from petstore_api.paths.fake_refs_enum.post import request_body
 
-            body_info = request_body.RequestBodyInfoForApplicationJson(body)
-            api_response = self.api.string_enum(body_info=body_info)
+            api_response = self.api.string_enum(body=body)
             self.assert_request_called_with(
                 mock_request,
                 "http://petstore.swagger.io:80/v2/fake/refs/enum",
