@@ -49,8 +49,8 @@ class ConfigurationTests(ApiTestMixin, unittest.TestCase):
 
         with patch.object(ApiClient, 'request') as mock_request:
             mock_request.return_value = urllib3.HTTPResponse(status=200)
-            body_info = request_body_pet.RequestBodyInfoForApplicationJson({'name': 'pet', 'photoUrls': []})
-            api.add_pet(body_info)
+            body = {'name': 'pet', 'photoUrls': []}
+            api.add_pet(body)
             mock_request.assert_called_with(
                 'post',
                 'https://localhost:8080/v2/pet',
