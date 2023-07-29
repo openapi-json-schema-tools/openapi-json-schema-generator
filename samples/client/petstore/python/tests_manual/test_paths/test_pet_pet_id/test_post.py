@@ -40,9 +40,7 @@ class TestPetPetId(ApiTestMixin, unittest.TestCase):
                 'status': 'happy, fuzzy, and bouncy'
             }
             mock_request.return_value = self.response("")
-            from petstore_api.paths.pet_pet_id.post import request_body
-            body_info = request_body.RequestBodyInfoForApplicationXWwwFormUrlencoded(body)
-            api_response = api.post(path_params={'petId': 2345}, body_info=body_info)
+            api_response = api.post(path_params={'petId': 2345}, body=body)
             mock_request.assert_called_with(
                 'POST',
                 'http://petstore.swagger.io:80/v2/pet/2345',

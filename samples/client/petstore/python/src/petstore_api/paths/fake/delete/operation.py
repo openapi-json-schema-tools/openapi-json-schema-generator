@@ -121,7 +121,7 @@ class BaseApi(api_client.Api):
             query_parameters=query_parameter_classes,
             query_params=query_params
         )
-        _headers = self._get_headers(
+        headers = self._get_headers(
             header_parameters=header_parameter_classes,
             header_params=header_params,
             skip_validation=True
@@ -141,7 +141,7 @@ class BaseApi(api_client.Api):
             query_params_suffix=query_params_suffix,
             method='delete',
             host=host,
-            headers=_headers,
+            headers=headers,
             security_requirement_object=security_requirement_object,
             stream=stream,
             timeout=timeout,

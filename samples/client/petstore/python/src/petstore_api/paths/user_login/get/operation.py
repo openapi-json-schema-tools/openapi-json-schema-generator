@@ -105,7 +105,7 @@ class BaseApi(api_client.Api):
             query_parameters=query_parameter_classes,
             query_params=query_params
         )
-        _headers = self._get_headers(accept_content_types=accept_content_types)
+        headers = self._get_headers(accept_content_types=accept_content_types)
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
             "servers", server_index
@@ -116,7 +116,7 @@ class BaseApi(api_client.Api):
             query_params_suffix=query_params_suffix,
             method='get',
             host=host,
-            headers=_headers,
+            headers=headers,
             stream=stream,
             timeout=timeout,
         )

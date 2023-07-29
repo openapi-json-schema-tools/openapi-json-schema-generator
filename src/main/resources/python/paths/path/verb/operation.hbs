@@ -314,7 +314,7 @@ class BaseApi(api_client.Api):
     {{/or}}
     {{#or headerParams requestBody produces}}
         {{#if headerParams}}
-        _headers = self._get_headers(
+        headers = self._get_headers(
             header_parameters=header_parameter_classes,
             header_params=header_params,
             {{#if produces}}
@@ -324,18 +324,18 @@ class BaseApi(api_client.Api):
         )
         {{else}}
             {{#or produces requestBody}}
-        _headers = self._get_headers({{#if produces}}accept_content_types=accept_content_types{{/if}})
+        headers = self._get_headers({{#if produces}}accept_content_types=accept_content_types{{/if}})
             {{/or}}
         {{/if}}
     {{/or}}
         # TODO add cookie handling
     {{#if requestBodySchema}}
 
-        fields, body = self._get_fields_and_body(
+        fields, serialized_body = self._get_fields_and_body(
             request_body=request_body.{{requestBody.jsonPathPiece.camelCase}},
             body=body,
             content_type=content_type,
-            headers=_headers
+            headers=headers
         )
     {{/if}}
     {{#if servers}}
@@ -381,11 +381,11 @@ class BaseApi(api_client.Api):
             method='{{httpMethod.original}}',
             host=host,
     {{#or headerParams requestBodySchema produces}}
-            headers=_headers,
+            headers=headers,
     {{/or}}
     {{#if requestBodySchema}}
             fields=fields,
-            body=body,
+            body=serialized_body,
     {{/if}}
     {{#neq security null}}
         {{#gt security.size 0}}

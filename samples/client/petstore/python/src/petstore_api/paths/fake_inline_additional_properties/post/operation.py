@@ -78,14 +78,14 @@ class BaseApi(api_client.Api):
             class instances
         """
         used_path = path
-        _headers = self._get_headers()
+        headers = self._get_headers()
         # TODO add cookie handling
 
-        fields, body = self._get_fields_and_body(
+        fields, serialized_body = self._get_fields_and_body(
             request_body=request_body.RequestBody,
             body=body,
             content_type=content_type,
-            headers=_headers
+            headers=headers
         )
         host = self.api_client.configuration.get_server_url(
             "servers", server_index
@@ -95,9 +95,9 @@ class BaseApi(api_client.Api):
             resource_path=used_path,
             method='post',
             host=host,
-            headers=_headers,
+            headers=headers,
             fields=fields,
-            body=body,
+            body=serialized_body,
             stream=stream,
             timeout=timeout,
         )
