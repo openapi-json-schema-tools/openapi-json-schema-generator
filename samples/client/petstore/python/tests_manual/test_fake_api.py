@@ -212,10 +212,8 @@ class TestFakeApi(ApiTestMixin):
             body = Mammal.validate({"className": "BasquePig"})
             value_simple = dict(className="BasquePig")
             mock_request.return_value = self.response(self.json_bytes(value_simple))
-            from petstore_api.paths.fake_refs_mammal.post import request_body
 
-            body_info = request_body.RequestBodyInfoForApplicationJson(body)
-            api_response = self.api.mammal(body_info=body_info)
+            api_response = self.api.mammal(body=body)
             self.assert_request_called_with(
                 mock_request,
                 "http://petstore.swagger.io:80/v2/fake/refs/mammal",
@@ -234,7 +232,7 @@ class TestFakeApi(ApiTestMixin):
 
         with self.assertRaises(petstore_api.ApiValueError):
             self.api.mammal(
-                body_info=request_body.RequestBodyInfoForApplicationJson(schemas.unset)
+                body=schemas.unset
             )
 
     def test_missing_or_unset_required_query_parameter(self):
@@ -242,16 +240,15 @@ class TestFakeApi(ApiTestMixin):
 
         user = User.validate({})
         # missing required query param
-        from petstore_api.paths.fake_body_with_query_params.put import request_body
-
         with self.assertRaises(TypeError):
             self.api.body_with_query_params(
-                body_info=request_body.RequestBodyInfoForApplicationJson(user)
+                body=user
             )
+
         # required query param may not be unset
         with self.assertRaises(petstore_api.ApiTypeError):
             self.api.body_with_query_params(
-                body_info=request_body.RequestBodyInfoForApplicationJson({}),
+                body={},
                 query_params={"query": schemas.unset},
             )
 
@@ -794,10 +791,7 @@ class TestFakeApi(ApiTestMixin):
             mock_request.return_value = self.response(
                 self.json_bytes(body), content_type=content_type_with_charset
             )
-            from petstore_api.paths.fake_json_with_charset.post import request_body
-
-            body_info = request_body.RequestBodyInfoForApplicationJsonCharsetutf8(body)
-            api_response = self.api.json_with_charset(body_info=body_info)
+            api_response = self.api.json_with_charset(body=body)
             self.assert_request_called_with(
                 mock_request,
                 "http://petstore.swagger.io:80/v2/fake/jsonWithCharset",
@@ -874,10 +868,7 @@ class TestFakeApi(ApiTestMixin):
                     )
                 ]
             )
-            from petstore_api.paths.fake_json_patch.patch import request_body
-
-            body_info = request_body.RequestBodyInfoForApplicationJsonPatchjson(body)
-            api_response = self.api.json_patch(body_info=body_info)
+            api_response = self.api.json_patch(body=body)
             json_body = [{"op": "add", "path": "/a/b/c", "value": "foo"}]
             self.assert_pool_manager_request_called_with(
                 mock_request,
