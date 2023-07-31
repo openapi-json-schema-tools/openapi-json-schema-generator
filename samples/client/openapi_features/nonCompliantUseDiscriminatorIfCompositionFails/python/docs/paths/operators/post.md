@@ -82,7 +82,6 @@ server_index | Class | Description
 import this_package
 from this_package.configurations import api_configuration
 from this_package.apis.tags import default_api
-from this_package.paths.operators.post import request_body
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )

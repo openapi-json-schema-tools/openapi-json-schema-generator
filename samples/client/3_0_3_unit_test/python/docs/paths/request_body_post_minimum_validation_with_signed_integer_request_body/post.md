@@ -85,7 +85,6 @@ server_index | Class | Description
 import unit_test_api
 from unit_test_api.configurations import api_configuration
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.paths.request_body_post_minimum_validation_with_signed_integer_request_body.post import request_body
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )

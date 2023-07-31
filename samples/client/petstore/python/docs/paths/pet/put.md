@@ -114,7 +114,6 @@ server_index | Class | Description
 import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import pet_api
-from petstore_api.paths.pet.put import request_body
 from pprint import pprint
 # security_index 0
 from petstore_api.components.security_schemes import security_scheme_http_signature_test

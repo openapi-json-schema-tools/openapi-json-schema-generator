@@ -230,7 +230,6 @@ import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import fake_api
 from petstore_api.paths.fake.get import operation
-from petstore_api.paths.fake.get import request_body
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )

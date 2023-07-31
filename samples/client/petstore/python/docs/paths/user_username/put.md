@@ -113,7 +113,6 @@ import petstore_api
 from petstore_api.configurations import api_configuration
 from petstore_api.apis.tags import user_api
 from petstore_api.paths.user_username.put import operation
-from petstore_api.paths.user_username.put import request_body
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )

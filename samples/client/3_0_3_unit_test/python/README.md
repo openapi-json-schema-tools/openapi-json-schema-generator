@@ -142,7 +142,6 @@ Please follow the [installation procedure](#installation) and then run the follo
 import unit_test_api
 from unit_test_api.configurations import api_configuration
 from unit_test_api.apis.tags import operation_request_body_api
-from unit_test_api.paths..post import request_body
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )

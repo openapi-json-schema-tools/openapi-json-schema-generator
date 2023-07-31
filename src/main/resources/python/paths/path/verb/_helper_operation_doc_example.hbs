@@ -13,15 +13,6 @@ from {{packageName}}.{{apiPackage}}.tags import {{moduleName}}
 {{#or pathParams queryParams headerParams cookieParams}}
 from {{packageName}}.paths.{{path.snakeCase}}.{{jsonPathPiece.original}} import operation
 {{/or}}
-{{#if requestBody}}
-    {{#if refInfo}}
-        {{#with getDeepestRef}}
-from {{refModuleLocation}} import {{refModule}} as request_body
-        {{/with}}
-    {{else}}
-from {{packageName}}.paths.{{path.snakeCase}}.{{jsonPathPiece.original}} import request_body
-    {{/if}}
-{{/if}}
 {{#each imports}}
 {{{.}}}
 {{/each}}

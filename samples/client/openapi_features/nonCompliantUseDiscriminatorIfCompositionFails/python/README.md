@@ -142,7 +142,6 @@ Please follow the [installation procedure](#installation) and then run the follo
 import this_package
 from this_package.configurations import api_configuration
 from this_package.apis.tags import default_api
-from this_package.paths..post import request_body
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
