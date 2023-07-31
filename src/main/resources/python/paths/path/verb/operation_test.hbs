@@ -91,7 +91,6 @@ class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
                 payload,
                 configuration=self.schema_config
             )
-            body_info = {{httpMethod.original}}.request_body.RequestBodyInfoFor{{../@key.camelCase}}(body)
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
                 status=self.response_status
@@ -106,8 +105,7 @@ class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
                     payload,
                     configuration=self.schema_config
                 )
-                body_info = {{httpMethod.original}}.request_body.RequestBodyInfoFor{{../@key.camelCase}}(body)
-                self.api.{{httpMethod.original}}(body_info=body_info)
+                self.api.{{httpMethod.original}}(body=body)
 {{/if}}
 {{/with}}
 {{/each}}

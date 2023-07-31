@@ -43,8 +43,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     payload,
                     configuration=self.schema_config
                 )
-                body_info = post.request_body.RequestBodyInfoForApplicationJson(body)
-                self.api.post(body_info=body_info)
+                self.api.post(body=body)
 
     def test_a_string_is_not_an_integer_fails(self):
         content_type = 'application/json'
@@ -58,8 +57,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     payload,
                     configuration=self.schema_config
                 )
-                body_info = post.request_body.RequestBodyInfoForApplicationJson(body)
-                self.api.post(body_info=body_info)
+                self.api.post(body=body)
 
     def test_null_is_not_an_integer_fails(self):
         content_type = 'application/json'
@@ -73,8 +71,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     payload,
                     configuration=self.schema_config
                 )
-                body_info = post.request_body.RequestBodyInfoForApplicationJson(body)
-                self.api.post(body_info=body_info)
+                self.api.post(body=body)
 
     def test_a_float_with_zero_fractional_part_is_an_integer_passes(self):
         content_type = 'application/json'
@@ -87,13 +84,12 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 payload,
                 configuration=self.schema_config
             )
-            body_info = post.request_body.RequestBodyInfoForApplicationJson(body)
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
                 status=self.response_status
             )
             api_response = self.api.post(
-                body_info=body_info,
+                body=body,
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
@@ -118,8 +114,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     payload,
                     configuration=self.schema_config
                 )
-                body_info = post.request_body.RequestBodyInfoForApplicationJson(body)
-                self.api.post(body_info=body_info)
+                self.api.post(body=body)
 
     def test_a_boolean_is_not_an_integer_fails(self):
         content_type = 'application/json'
@@ -133,8 +128,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     payload,
                     configuration=self.schema_config
                 )
-                body_info = post.request_body.RequestBodyInfoForApplicationJson(body)
-                self.api.post(body_info=body_info)
+                self.api.post(body=body)
 
     def test_an_integer_is_an_integer_passes(self):
         content_type = 'application/json'
@@ -147,13 +141,12 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                 payload,
                 configuration=self.schema_config
             )
-            body_info = post.request_body.RequestBodyInfoForApplicationJson(body)
             mock_request.return_value = self.response(
                 self.json_bytes(self.response_body),
                 status=self.response_status
             )
             api_response = self.api.post(
-                body_info=body_info,
+                body=body,
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
@@ -178,8 +171,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     payload,
                     configuration=self.schema_config
                 )
-                body_info = post.request_body.RequestBodyInfoForApplicationJson(body)
-                self.api.post(body_info=body_info)
+                self.api.post(body=body)
 
     def test_an_array_is_not_an_integer_fails(self):
         content_type = 'application/json'
@@ -194,8 +186,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
                     payload,
                     configuration=self.schema_config
                 )
-                body_info = post.request_body.RequestBodyInfoForApplicationJson(body)
-                self.api.post(body_info=body_info)
+                self.api.post(body=body)
 
 if __name__ == '__main__':
     unittest.main()
