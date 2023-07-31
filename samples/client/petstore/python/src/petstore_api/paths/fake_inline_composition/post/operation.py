@@ -18,7 +18,7 @@ from .parameters import (
     parameter_0,
     parameter_1,
 )
-from .query_parameters import QueryParameters
+from .query_parameters import QueryParameters, QueryParametersDictInput, QueryParametersDict
 query_parameter_classes = (
     parameter_0.Parameter0,
     parameter_1.Parameter1,
@@ -54,8 +54,8 @@ class BaseApi(api_client.Api):
             schemas.OUTPUT_BASE_TYPES,
         ] = schemas.unset,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict,
+            QueryParametersDictInput,
+            QueryParametersDict,
             None
         ] = None,
         *,
@@ -76,8 +76,8 @@ class BaseApi(api_client.Api):
             schemas.OUTPUT_BASE_TYPES,
         ] = schemas.unset,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict,
+            QueryParametersDictInput,
+            QueryParametersDict,
             None
         ] = None,
         *,
@@ -98,8 +98,8 @@ class BaseApi(api_client.Api):
             schema_2.SchemaDict,
         ] = schemas.unset,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict,
+            QueryParametersDictInput,
+            QueryParametersDict,
             None
         ] = None,
         *,
@@ -120,8 +120,8 @@ class BaseApi(api_client.Api):
             schema_2.SchemaDict,
         ] = schemas.unset,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict,
+            QueryParametersDictInput,
+            QueryParametersDict,
             None
         ] = None,
         *,
@@ -143,8 +143,8 @@ class BaseApi(api_client.Api):
             schemas.Unset,
         ] = schemas.unset,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict,
+            QueryParametersDictInput,
+            QueryParametersDict,
             None
         ] = None,
         *,

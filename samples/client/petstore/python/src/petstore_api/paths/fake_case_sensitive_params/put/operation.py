@@ -16,7 +16,7 @@ from .parameters import (
     parameter_1,
     parameter_2,
 )
-from .query_parameters import QueryParameters
+from .query_parameters import QueryParameters, QueryParametersDictInput, QueryParametersDict
 query_parameter_classes = (
     parameter_0.Parameter0,
     parameter_1.Parameter1,
@@ -43,8 +43,8 @@ class BaseApi(api_client.Api):
     def _case_sensitive_params(
         self,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict
+            QueryParametersDictInput,
+            QueryParametersDict
         ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
@@ -57,8 +57,8 @@ class BaseApi(api_client.Api):
     def _case_sensitive_params(
         self,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict
+            QueryParametersDictInput,
+            QueryParametersDict
         ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
@@ -70,8 +70,8 @@ class BaseApi(api_client.Api):
     def _case_sensitive_params(
         self,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict
+            QueryParametersDictInput,
+            QueryParametersDict
         ],
         *,
         skip_deserialization: bool = False,

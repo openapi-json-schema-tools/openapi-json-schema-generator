@@ -81,18 +81,18 @@ from .security import (
         {{/eq}}
     {{/gt}}
 {{/neq}}
-{{#if pathParameters}}
-from .path_parameters import {{pathParameters.jsonPathPiece.camelCase}}
-{{/if}}
-{{#if queryParameters}}
-from .query_parameters import {{queryParameters.jsonPathPiece.camelCase}}
-{{/if}}
-{{#if headerParameters}}
-from .header_parameters import {{headerParameters.jsonPathPiece.camelCase}}
-{{/if}}
-{{#if cookieParameters}}
-from .cookie_parameters import {{cookieParameters.jsonPathPiece.camelCase}}
-{{/if}}
+{{#with pathParameters}}
+from .path_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPiece.camelCase}}, {{mapOutputJsonPathPiece.camelCase}}
+{{/with}}
+{{#with queryParameters}}
+from .query_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPiece.camelCase}}, {{mapOutputJsonPathPiece.camelCase}}
+{{/with}}
+{{#with headerParameters}}
+from .header_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPiece.camelCase}}, {{mapOutputJsonPathPiece.camelCase}}
+{{/with}}
+{{#with cookieParameters}}
+from .cookie_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPiece.camelCase}}, {{mapOutputJsonPathPiece.camelCase}}
+{{/with}}
 {{#or queryParams headerParams pathParams cookieParams}}
     {{#if queryParams}}
 query_parameter_classes = (

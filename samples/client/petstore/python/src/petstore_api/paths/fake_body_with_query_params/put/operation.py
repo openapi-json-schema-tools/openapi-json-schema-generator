@@ -14,7 +14,7 @@ from .. import path
 from .responses import response_200
 from . import request_body
 from .parameters import parameter_0
-from .query_parameters import QueryParameters
+from .query_parameters import QueryParameters, QueryParametersDictInput, QueryParametersDict
 query_parameter_classes = (
     parameter_0.Parameter0,
 )
@@ -43,8 +43,8 @@ class BaseApi(api_client.Api):
             user.UserDict,
         ],
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict
+            QueryParametersDictInput,
+            QueryParametersDict
         ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
@@ -62,8 +62,8 @@ class BaseApi(api_client.Api):
             user.UserDict,
         ],
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict
+            QueryParametersDictInput,
+            QueryParametersDict
         ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
@@ -80,8 +80,8 @@ class BaseApi(api_client.Api):
             user.UserDict,
         ],
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict
+            QueryParametersDictInput,
+            QueryParametersDict
         ],
         *,
         skip_deserialization: bool = False,

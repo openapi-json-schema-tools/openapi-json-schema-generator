@@ -24,8 +24,8 @@ from .parameters import (
     parameter_4,
     parameter_5,
 )
-from .query_parameters import QueryParameters
-from .header_parameters import HeaderParameters
+from .query_parameters import QueryParameters, QueryParametersDictInput, QueryParametersDict
+from .header_parameters import HeaderParameters, HeaderParametersDictInput, HeaderParametersDict
 query_parameter_classes = (
     parameter_2.Parameter2,
     parameter_3.Parameter3,
@@ -71,13 +71,13 @@ class BaseApi(api_client.Api):
             schema.SchemaDict,
         ] = schemas.unset,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict,
+            QueryParametersDictInput,
+            QueryParametersDict,
             None
         ] = None,
         header_params: typing.Union[
-            header_parameters.HeaderParametersDictInput,
-            header_parameters.HeaderParametersDict,
+            HeaderParametersDictInput,
+            HeaderParametersDict,
             None
         ] = None,
         *,
@@ -98,13 +98,13 @@ class BaseApi(api_client.Api):
             schema.SchemaDict,
         ] = schemas.unset,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict,
+            QueryParametersDictInput,
+            QueryParametersDict,
             None
         ] = None,
         header_params: typing.Union[
-            header_parameters.HeaderParametersDictInput,
-            header_parameters.HeaderParametersDict,
+            HeaderParametersDictInput,
+            HeaderParametersDict,
             None
         ] = None,
         *,
@@ -124,13 +124,13 @@ class BaseApi(api_client.Api):
             schemas.Unset,
         ] = schemas.unset,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict,
+            QueryParametersDictInput,
+            QueryParametersDict,
             None
         ] = None,
         header_params: typing.Union[
-            header_parameters.HeaderParametersDictInput,
-            header_parameters.HeaderParametersDict,
+            HeaderParametersDictInput,
+            HeaderParametersDict,
             None
         ] = None,
         *,

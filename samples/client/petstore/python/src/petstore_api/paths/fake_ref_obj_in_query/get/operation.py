@@ -12,7 +12,7 @@ from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [
 from .. import path
 from .responses import response_200
 from .parameters import parameter_0
-from .query_parameters import QueryParameters
+from .query_parameters import QueryParameters, QueryParametersDictInput, QueryParametersDict
 query_parameter_classes = (
     parameter_0.Parameter0,
 )
@@ -37,8 +37,8 @@ class BaseApi(api_client.Api):
     def _ref_object_in_query(
         self,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict,
+            QueryParametersDictInput,
+            QueryParametersDict,
             None
         ] = None,
         *,
@@ -52,8 +52,8 @@ class BaseApi(api_client.Api):
     def _ref_object_in_query(
         self,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict,
+            QueryParametersDictInput,
+            QueryParametersDict,
             None
         ] = None,
         *,
@@ -66,8 +66,8 @@ class BaseApi(api_client.Api):
     def _ref_object_in_query(
         self,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict,
+            QueryParametersDictInput,
+            QueryParametersDict,
             None
         ] = None,
         *,

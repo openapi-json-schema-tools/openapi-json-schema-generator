@@ -34,10 +34,10 @@ from .parameters import (
     parameter_17,
     parameter_18,
 )
-from .path_parameters import PathParameters
-from .query_parameters import QueryParameters
-from .header_parameters import HeaderParameters
-from .cookie_parameters import CookieParameters
+from .path_parameters import PathParameters, PathParametersDictInput, PathParametersDict
+from .query_parameters import QueryParameters, QueryParametersDictInput, QueryParametersDict
+from .header_parameters import HeaderParameters, HeaderParametersDictInput, HeaderParametersDict
+from .cookie_parameters import CookieParameters, CookieParametersDictInput, CookieParametersDict
 query_parameter_classes = (
     parameter_0.Parameter0,
     parameter_1.Parameter1,
@@ -90,8 +90,8 @@ class BaseApi(api_client.Api):
     def _parameter_collisions(
         self,
         path_params: typing.Union[
-            path_parameters.PathParametersDictInput,
-            path_parameters.PathParametersDict
+            PathParametersDictInput,
+            PathParametersDict
         ],
         body: typing.Union[
             schemas.INPUT_TYPES_ALL,
@@ -99,18 +99,18 @@ class BaseApi(api_client.Api):
             schemas.OUTPUT_BASE_TYPES,
         ] = schemas.unset,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict,
+            QueryParametersDictInput,
+            QueryParametersDict,
             None
         ] = None,
         header_params: typing.Union[
-            header_parameters.HeaderParametersDictInput,
-            header_parameters.HeaderParametersDict,
+            HeaderParametersDictInput,
+            HeaderParametersDict,
             None
         ] = None,
         cookie_params: typing.Union[
-            cookie_parameters.CookieParametersDictInput,
-            cookie_parameters.CookieParametersDict,
+            CookieParametersDictInput,
+            CookieParametersDict,
             None
         ] = None,
         *,
@@ -126,8 +126,8 @@ class BaseApi(api_client.Api):
     def _parameter_collisions(
         self,
         path_params: typing.Union[
-            path_parameters.PathParametersDictInput,
-            path_parameters.PathParametersDict
+            PathParametersDictInput,
+            PathParametersDict
         ],
         body: typing.Union[
             schemas.INPUT_TYPES_ALL,
@@ -135,18 +135,18 @@ class BaseApi(api_client.Api):
             schemas.OUTPUT_BASE_TYPES,
         ] = schemas.unset,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict,
+            QueryParametersDictInput,
+            QueryParametersDict,
             None
         ] = None,
         header_params: typing.Union[
-            header_parameters.HeaderParametersDictInput,
-            header_parameters.HeaderParametersDict,
+            HeaderParametersDictInput,
+            HeaderParametersDict,
             None
         ] = None,
         cookie_params: typing.Union[
-            cookie_parameters.CookieParametersDictInput,
-            cookie_parameters.CookieParametersDict,
+            CookieParametersDictInput,
+            CookieParametersDict,
             None
         ] = None,
         *,
@@ -161,8 +161,8 @@ class BaseApi(api_client.Api):
     def _parameter_collisions(
         self,
         path_params: typing.Union[
-            path_parameters.PathParametersDictInput,
-            path_parameters.PathParametersDict
+            PathParametersDictInput,
+            PathParametersDict
         ],
         body: typing.Union[
             schemas.INPUT_TYPES_ALL,
@@ -170,18 +170,18 @@ class BaseApi(api_client.Api):
             schemas.Unset,
         ] = schemas.unset,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict,
+            QueryParametersDictInput,
+            QueryParametersDict,
             None
         ] = None,
         header_params: typing.Union[
-            header_parameters.HeaderParametersDictInput,
-            header_parameters.HeaderParametersDict,
+            HeaderParametersDictInput,
+            HeaderParametersDict,
             None
         ] = None,
         cookie_params: typing.Union[
-            cookie_parameters.CookieParametersDictInput,
-            cookie_parameters.CookieParametersDict,
+            CookieParametersDictInput,
+            CookieParametersDict,
             None
         ] = None,
         *,

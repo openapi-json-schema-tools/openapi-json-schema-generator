@@ -19,8 +19,8 @@ from .security import (
     security_requirement_object_0,
     security_requirement_object_1,
 )
-from .path_parameters import PathParameters
-from .header_parameters import HeaderParameters
+from .path_parameters import PathParameters, PathParametersDictInput, PathParametersDict
+from .header_parameters import HeaderParameters, HeaderParametersDictInput, HeaderParametersDict
 header_parameter_classes = (
     parameter_0.Parameter0,
 )
@@ -53,12 +53,12 @@ class BaseApi(api_client.Api):
     def _delete_pet(
         self,
         path_params: typing.Union[
-            path_parameters.PathParametersDictInput,
-            path_parameters.PathParametersDict
+            PathParametersDictInput,
+            PathParametersDict
         ],
         header_params: typing.Union[
-            header_parameters.HeaderParametersDictInput,
-            header_parameters.HeaderParametersDict,
+            HeaderParametersDictInput,
+            HeaderParametersDict,
             None
         ] = None,
         *,
@@ -72,12 +72,12 @@ class BaseApi(api_client.Api):
     def _delete_pet(
         self,
         path_params: typing.Union[
-            path_parameters.PathParametersDictInput,
-            path_parameters.PathParametersDict
+            PathParametersDictInput,
+            PathParametersDict
         ],
         header_params: typing.Union[
-            header_parameters.HeaderParametersDictInput,
-            header_parameters.HeaderParametersDict,
+            HeaderParametersDictInput,
+            HeaderParametersDict,
             None
         ] = None,
         *,
@@ -91,12 +91,12 @@ class BaseApi(api_client.Api):
     def _delete_pet(
         self,
         path_params: typing.Union[
-            path_parameters.PathParametersDictInput,
-            path_parameters.PathParametersDict
+            PathParametersDictInput,
+            PathParametersDict
         ],
         header_params: typing.Union[
-            header_parameters.HeaderParametersDictInput,
-            header_parameters.HeaderParametersDict,
+            HeaderParametersDictInput,
+            HeaderParametersDict,
             None
         ] = None,
         *,

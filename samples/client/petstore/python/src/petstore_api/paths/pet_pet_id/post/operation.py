@@ -18,7 +18,7 @@ from .security import (
     security_requirement_object_0,
     security_requirement_object_1,
 )
-from .path_parameters import PathParameters
+from .path_parameters import PathParameters, PathParametersDictInput, PathParametersDict
 path_parameter_classes = (
     parameter_0.Parameter0,
 )
@@ -48,8 +48,8 @@ class BaseApi(api_client.Api):
     def _update_pet_with_form(
         self,
         path_params: typing.Union[
-            path_parameters.PathParametersDictInput,
-            path_parameters.PathParametersDict
+            PathParametersDictInput,
+            PathParametersDict
         ],
         body: typing.Union[
             schema.SchemaDictInput,
@@ -68,8 +68,8 @@ class BaseApi(api_client.Api):
     def _update_pet_with_form(
         self,
         path_params: typing.Union[
-            path_parameters.PathParametersDictInput,
-            path_parameters.PathParametersDict
+            PathParametersDictInput,
+            PathParametersDict
         ],
         body: typing.Union[
             schema.SchemaDictInput,
@@ -88,8 +88,8 @@ class BaseApi(api_client.Api):
     def _update_pet_with_form(
         self,
         path_params: typing.Union[
-            path_parameters.PathParametersDictInput,
-            path_parameters.PathParametersDict
+            PathParametersDictInput,
+            PathParametersDict
         ],
         body: typing.Union[
             schema.SchemaDictInput,

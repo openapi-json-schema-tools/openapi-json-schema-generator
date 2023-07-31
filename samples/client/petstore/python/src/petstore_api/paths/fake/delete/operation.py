@@ -20,8 +20,8 @@ from .parameters import (
     parameter_5,
 )
 from .security import security_requirement_object_0
-from .query_parameters import QueryParameters
-from .header_parameters import HeaderParameters
+from .query_parameters import QueryParameters, QueryParametersDictInput, QueryParametersDict
+from .header_parameters import HeaderParameters, HeaderParametersDictInput, HeaderParametersDict
 query_parameter_classes = (
     parameter_0.Parameter0,
     parameter_2.Parameter2,
@@ -57,12 +57,12 @@ class BaseApi(api_client.Api):
     def _group_parameters(
         self,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict
+            QueryParametersDictInput,
+            QueryParametersDict
         ],
         header_params: typing.Union[
-            header_parameters.HeaderParametersDictInput,
-            header_parameters.HeaderParametersDict
+            HeaderParametersDictInput,
+            HeaderParametersDict
         ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
@@ -76,12 +76,12 @@ class BaseApi(api_client.Api):
     def _group_parameters(
         self,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict
+            QueryParametersDictInput,
+            QueryParametersDict
         ],
         header_params: typing.Union[
-            header_parameters.HeaderParametersDictInput,
-            header_parameters.HeaderParametersDict
+            HeaderParametersDictInput,
+            HeaderParametersDict
         ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
@@ -94,12 +94,12 @@ class BaseApi(api_client.Api):
     def _group_parameters(
         self,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict
+            QueryParametersDictInput,
+            QueryParametersDict
         ],
         header_params: typing.Union[
-            header_parameters.HeaderParametersDictInput,
-            header_parameters.HeaderParametersDict
+            HeaderParametersDictInput,
+            HeaderParametersDict
         ],
         *,
         skip_deserialization: bool = False,

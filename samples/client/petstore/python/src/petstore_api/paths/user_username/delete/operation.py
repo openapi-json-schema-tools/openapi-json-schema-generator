@@ -15,7 +15,7 @@ from .responses import (
     response_404,
 )
 from .parameters import parameter_0
-from .path_parameters import PathParameters
+from .path_parameters import PathParameters, PathParametersDictInput, PathParametersDict
 path_parameter_classes = (
     parameter_0.Parameter0,
 )
@@ -45,8 +45,8 @@ class BaseApi(api_client.Api):
     def _delete_user(
         self,
         path_params: typing.Union[
-            path_parameters.PathParametersDictInput,
-            path_parameters.PathParametersDict
+            PathParametersDictInput,
+            PathParametersDict
         ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
@@ -59,8 +59,8 @@ class BaseApi(api_client.Api):
     def _delete_user(
         self,
         path_params: typing.Union[
-            path_parameters.PathParametersDictInput,
-            path_parameters.PathParametersDict
+            PathParametersDictInput,
+            PathParametersDict
         ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
@@ -72,8 +72,8 @@ class BaseApi(api_client.Api):
     def _delete_user(
         self,
         path_params: typing.Union[
-            path_parameters.PathParametersDictInput,
-            path_parameters.PathParametersDict
+            PathParametersDictInput,
+            PathParametersDict
         ],
         *,
         skip_deserialization: bool = False,

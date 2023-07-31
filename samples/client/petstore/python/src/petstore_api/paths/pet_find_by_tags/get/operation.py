@@ -19,7 +19,7 @@ from .security import (
     security_requirement_object_0,
     security_requirement_object_1,
 )
-from .query_parameters import QueryParameters
+from .query_parameters import QueryParameters, QueryParametersDictInput, QueryParametersDict
 query_parameter_classes = (
     parameter_0.Parameter0,
 )
@@ -54,8 +54,8 @@ class BaseApi(api_client.Api):
     def _find_pets_by_tags(
         self,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict
+            QueryParametersDictInput,
+            QueryParametersDict
         ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
@@ -69,8 +69,8 @@ class BaseApi(api_client.Api):
     def _find_pets_by_tags(
         self,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict
+            QueryParametersDictInput,
+            QueryParametersDict
         ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
@@ -83,8 +83,8 @@ class BaseApi(api_client.Api):
     def _find_pets_by_tags(
         self,
         query_params: typing.Union[
-            query_parameters.QueryParametersDictInput,
-            query_parameters.QueryParametersDict
+            QueryParametersDictInput,
+            QueryParametersDict
         ],
         *,
         skip_deserialization: bool = False,
