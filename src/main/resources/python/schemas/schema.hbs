@@ -686,6 +686,7 @@ INPUT_TYPES_NOT_STR_BYTES_FILE = typing.Union[
 INPUT_TYPES_ALL = typing.Union[
     dict,
     validation.immutabledict,
+    typing.Mapping[str, object],  # for TypedDict
     list,
     tuple,
     float,
@@ -699,4 +700,5 @@ INPUT_TYPES_ALL = typing.Union[
     bytes,
     io.FileIO,
     io.BufferedReader,
+    FileIO
 ]

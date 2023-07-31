@@ -32,6 +32,9 @@ from {{packageName}}.shared_imports.operation_imports import *  # pyright: ignor
 {{/if}}
 {{> _helper_imports }}
 {{#with operation}}
+    {{#with requestBodySchema}}
+{{> _helper_imports }}
+    {{/with}}
 
 from .. import path
 {{#if responses}}
@@ -49,9 +52,6 @@ from .responses import (
 {{/if}}
 {{#if requestBody}}
 from . import request_body
-{{#each requestBodySchemas}}
-from {{refInfo.refModuleLocation}} import {{refInfo.refModule}} as {{jsonPathPiece.snakeCase}}
-{{/each}}
 {{/if}}
 {{#gt allParams.size 0}}
     {{#eq allParams.size 1}}
@@ -81,22 +81,17 @@ from .security import (
         {{/eq}}
     {{/gt}}
 {{/neq}}
-
+{{#with pathParameters}}
+from .path_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPiece.camelCase}}, {{mapOutputJsonPathPiece.camelCase}}
+{{/with}}
 {{#with queryParameters}}
-
-{{> components/schemas/_helper_getschemas }}
+from .query_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPiece.camelCase}}, {{mapOutputJsonPathPiece.camelCase}}
 {{/with}}
 {{#with headerParameters}}
-
-{{> components/schemas/_helper_getschemas }}
-{{/with}}
-{{#with pathParameters}}
-
-{{> components/schemas/_helper_getschemas }}
+from .header_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPiece.camelCase}}, {{mapOutputJsonPathPiece.camelCase}}
 {{/with}}
 {{#with cookieParameters}}
-
-{{> components/schemas/_helper_getschemas }}
+from .cookie_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPiece.camelCase}}, {{mapOutputJsonPathPiece.camelCase}}
 {{/with}}
 {{#or queryParams headerParams pathParams cookieParams}}
     {{#if queryParams}}
@@ -227,6 +222,30 @@ _all_accept_content_types = (
 
 
 class BaseApi(api_client.Api):
+    {{#if requestBodySchema}}
+        {{! to handle specific content types}}
+        {{#each requestBodySchema.properties}}
+            {{#if @first}}
+    @typing.overload
+    def _{{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args ../this contentType=@key.original bodyRefSchema=this isDefaultContentType=true rootSecurity=../../security isOverload=true skipDeserialization=false}}
+
+    @typing.overload
+    def _{{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args ../this contentType=@key.original bodyRefSchema=this isDefaultContentType=true rootSecurity=../../security isOverload=true skipDeserialization=true}}
+
+            {{else}}
+    @typing.overload
+    def _{{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args ../this contentType=@key.original bodyRefSchema=this isDefaultContentType=false rootSecurity=../../security isOverload=true skipDeserialization=false}}
+
+    @typing.overload
+    def _{{operationId.snakeCase}}(
+    {{> paths/path/verb/_helper_operation_args ../this contentType=@key.original bodyRefSchema=this isDefaultContentType=false rootSecurity=../../security isOverload=true skipDeserialization=true}}
+
+            {{/if}}
+        {{/each}}
+    {{else}}
     @typing.overload
     def _{{operationId.snakeCase}}(
     {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization=false}}
@@ -235,6 +254,7 @@ class BaseApi(api_client.Api):
     def _{{operationId.snakeCase}}(
     {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=true skipDeserialization=true}}
 
+    {{/if}}
     def _{{operationId.snakeCase}}(
     {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=false skipDeserialization=null}}
         """
@@ -282,19 +302,20 @@ class BaseApi(api_client.Api):
             path,
         {{#if pathParams}}
             path_parameters=path_parameter_classes,
-            path_params=path_params{{#if queryParams}},{{/if}}
+            path_params=path_params,
         {{/if}}
         {{#if queryParams}}
             query_parameters=query_parameter_classes,
-            query_params=query_params
+            query_params=query_params,
         {{/if}}
+            skip_validation=True
         )
     {{else}}
         used_path = path
     {{/or}}
     {{#or headerParams requestBody produces}}
         {{#if headerParams}}
-        _headers = self._get_headers(
+        headers = self._get_headers(
             header_parameters=header_parameter_classes,
             header_params=header_params,
             {{#if produces}}
@@ -304,20 +325,20 @@ class BaseApi(api_client.Api):
         )
         {{else}}
             {{#or produces requestBody}}
-        _headers = self._get_headers({{#if produces}}accept_content_types=accept_content_types{{/if}})
+        headers = self._get_headers({{#if produces}}accept_content_types=accept_content_types{{/if}})
             {{/or}}
         {{/if}}
     {{/or}}
         # TODO add cookie handling
-    {{#with requestBody}}
+    {{#if requestBodySchema}}
 
-        _fields, _body = self._get_fields_and_body(
-            request_body=request_body.{{jsonPathPiece.camelCase}},
+        fields, serialized_body = self._get_fields_and_body(
+            request_body=request_body.{{requestBody.jsonPathPiece.camelCase}},
             body=body,
-            headers=_headers,
-            content_type=content_type
+            content_type=content_type,
+            headers=headers
         )
-    {{/with}}
+    {{/if}}
     {{#if servers}}
         host = self.api_client.configuration.get_server_url(
             "paths/{{{path.original}}}/{{httpMethod.original}}/servers", server_index
@@ -360,12 +381,12 @@ class BaseApi(api_client.Api):
     {{/if}}
             method='{{httpMethod.original}}',
             host=host,
-    {{#or headerParams requestBody produces}}
-            headers=_headers,
+    {{#or headerParams requestBodySchema produces}}
+            headers=headers,
     {{/or}}
-    {{#if requestBody}}
-            fields=_fields,
-            body=_body,
+    {{#if requestBodySchema}}
+            fields=fields,
+            body=serialized_body,
     {{/if}}
     {{#neq security null}}
         {{#gt security.size 0}}

@@ -75,7 +75,7 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 89);
+            Assert.assertEquals(files.size(), 103);
 
             // Check expected generated files
             // api sanity check
@@ -160,7 +160,7 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 59);
+            Assert.assertEquals(files.size(), 73);
 
             // Check API is written and Test is not
             TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/tags/PetApi.java");

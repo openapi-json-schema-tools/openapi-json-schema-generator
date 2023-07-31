@@ -8,6 +8,7 @@ from petstore_api.shared_imports.header_imports import *  # pyright: ignore [rep
 
 from .content.multipart_form_data import schema as multipart_form_data_schema
 
+
 class RequestBody(api_client.RequestBody):
 
 

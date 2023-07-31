@@ -8,6 +8,7 @@ from unit_test_api.shared_imports.header_imports import *  # pyright: ignore [re
 
 from .content.application_json import schema as application_json_schema
 
+
 class RequestBody(api_client.RequestBody):
 
 

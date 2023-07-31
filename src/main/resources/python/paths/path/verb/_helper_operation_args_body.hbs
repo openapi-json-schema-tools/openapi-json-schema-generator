@@ -1,11 +1,25 @@
+{{#if isOverload}}
+    {{! only one body at a time }}
+    {{#with bodyRefSchema}}
 body: typing.Union[
-{{#each requestBodySchemas}}
-    {{#with refInfo.ref}}
-    {{> components/schemas/_helper_schema_input_type fullRefModule=../jsonPathPiece.snakeCase endChar="," }}
-    {{> components/schemas/_helper_schema_output_type mode="unprefixed" fullRefModule=../jsonPathPiece.snakeCase endChar="," }}
+    {{> components/schemas/_helper_schema_input_ref_type fullRefModule="" endChar="," }}
+        {{#if bodyOptional}}
+    schemas.Unset,
+        {{/if}}
+    {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," }}
+]{{#if bodyOptional}} = schemas.unset{{/if}},
     {{/with}}
-{{/each}}
-{{#unless requiredValue}}
-    schemas.Unset
-{{/unless}}
-]{{#unless requiredValue}} = schemas.unset{{/unless}},
+{{else}}
+    {{! all request bodies }}
+    {{#if requestBodySchema}}
+body: typing.Union[
+        {{#each requestBodySchema.properties}}
+    {{> components/schemas/_helper_schema_input_ref_type fullRefModule="" endChar="," }}
+    {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," }}
+        {{/each}}
+        {{#if bodyOptional}}
+    schemas.Unset,
+        {{/if}}
+]{{#if bodyOptional}} = schemas.unset{{/if}},
+    {{/if}}
+{{/if}}

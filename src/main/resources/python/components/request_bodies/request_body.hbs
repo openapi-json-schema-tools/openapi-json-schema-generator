@@ -18,6 +18,7 @@ from .content.{{../@key.snakeCase}} import {{jsonPathPiece.snakeCase}} as {{../@
         {{/with}}
     {{/each}}
 
+
 class {{jsonPathPiece.camelCase}}(api_client.RequestBody):
     {{#each content}}
 

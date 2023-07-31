@@ -78,7 +78,6 @@ import org.openapijsonschematools.codegen.generators.openapimodels.SchemaTestCas
 import org.openapijsonschematools.codegen.generatorrunner.ignore.CodegenIgnoreProcessor;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.common.SerializerUtils;
-import org.openapijsonschematools.codegen.templating.MustacheEngineAdapter;
 import org.openapijsonschematools.codegen.templating.TemplatingEngineLoader;
 import org.openapijsonschematools.codegen.templating.mustache.CamelCaseLambda;
 import org.openapijsonschematools.codegen.templating.mustache.IndentedLambda;
@@ -1576,9 +1575,14 @@ public class DefaultGenerator implements Generator {
     Map<String, CodegenSecurityRequirementValue> codegenSecurityRequirementCache = new HashMap<>();
 
     Map<String, CodegenParameter> codegenParameterCache = new HashMap<>();
+    // for giving schemas unique names in schema modules
     HashMap<String, HashMap<String, Integer>> sourceJsonPathToKeyToQty = new HashMap<>();
     Map<String, CodegenTag> codegenTagCache = new HashMap<>();
     private CodegenSchema requiredAddPropUnsetSchema = null;
+
+    // for preventing schema import module collisions
+    HashMap<String, HashMap<String, Integer>> jsonPathToRefModuleToQty = new HashMap<>();
+    HashMap<String, HashMap<String, HashMap<String, String>>> jsonPathToRefModuleToRefToAlias = new HashMap<>();
 
     protected void updateModelForComposedSchema(CodegenSchema m, Schema schema, String sourceJsonPath) {
         final ComposedSchema composed = (ComposedSchema) schema;
@@ -2081,7 +2085,7 @@ public class DefaultGenerator implements Generator {
         String prefix = "from " + packageName + ".components.";
         if (refInfo.ref instanceof CodegenSchema) {
             if (refInfo.refModuleAlias == null) {
-                return prefix + "schema import " + refInfo.refModule;
+                return "from " + refInfo.refModuleLocation + " import " + refInfo.refModule;
             } else {
                 return "from " + refInfo.refModuleLocation + " import " + refInfo.refModule + " as " + refInfo.refModuleAlias;
             }
@@ -2114,7 +2118,8 @@ public class DefaultGenerator implements Generator {
                     String complexType = mm.modelName;
                     if (shouldAddImport(complexType)) {
                         String refModule = complexType.split("\\.")[0];
-                        CodegenRefInfo<CodegenSchema> refInfo = new CodegenRefInfo<>(new CodegenSchema(), null, refModule, null, null);
+                        String refModuleLocation = packageName() + ".components.schema";
+                        CodegenRefInfo<CodegenSchema> refInfo = new CodegenRefInfo<>(new CodegenSchema(), null, refModule, refModuleLocation, null);
                         imports.add(getImport(refInfo));
                     }
                 }
@@ -2644,7 +2649,7 @@ public class DefaultGenerator implements Generator {
 
         RequestBody opRequestBody = operation.getRequestBody();
         CodegenRequestBody requestBody = null;
-        List<CodegenSchema> requestBodySchemas = null;
+        CodegenSchema requestBodySchema = null;
         if (opRequestBody != null) {
             requestBody = fromRequestBody(opRequestBody, jsonPath + "/requestBody");
             CodegenRequestBody derefRequestBody = requestBody.getSelfOrDeepestRef();
@@ -2653,21 +2658,19 @@ public class DefaultGenerator implements Generator {
             } else {
                 hasOptionalParamOrBody = true;
             }
-            requestBodySchemas = new ArrayList<>();
+            LinkedHashMap<String, Schema> requestBodySchemaProperties = new LinkedHashMap<>();
             for (Entry<CodegenKey, CodegenMediaType> entry: derefRequestBody.content.entrySet()) {
-                CodegenKey contentType = entry.getKey();
-                CodegenMediaType mediaType = entry.getValue();
-                if (mediaType.schema != null) {
-                    String schemaJsonPath = mediaType.schema.getSelfOrDeepestRef().jsonPath;
-                    Schema contentTypeSchema = new Schema();
-                    contentTypeSchema.set$ref(schemaJsonPath);
-
-                    CodegenSchema schema = fromSchema(contentTypeSchema, jsonPath, jsonPath + "/RequestBody" + contentType.camelCase + "Schema");
-                    schema.imports = new TreeSet<>();
-                    addImports(schema.imports, getImports(schema, generatorMetadata.getFeatureSet()));
-                    requestBodySchemas.add(schema);
+                String contentType = entry.getKey().original;
+                CodegenSchema schema = entry.getValue().schema;
+                if (schema == null) {
+                    continue;
                 }
+                String bodySchemaRef = schema.getSelfOrDeepestRef().jsonPath;
+                Schema bodySchema = new Schema();
+                bodySchema.set$ref(bodySchemaRef);
+                requestBodySchemaProperties.put(contentType, bodySchema);
             }
+            requestBodySchema = getXParametersSchema(requestBodySchemaProperties, new ArrayList<String>(), jsonPath, jsonPath + "/RequestBodySchema");
         }
 
         HashMap<String, Schema> pathParametersProperties = new HashMap<>();
@@ -2762,10 +2765,10 @@ public class DefaultGenerator implements Generator {
         List<HashMap<String, CodegenSecurityRequirementValue>> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
         ExternalDocumentation externalDocs = operation.getExternalDocs();
         CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1], "verb");
-        CodegenSchema pathParameters = getXParametersSchema(pathParametersProperties, pathParametersRequired, jsonPath, "PathParameters");
-        CodegenSchema queryParameters = getXParametersSchema(queryParametersProperties, queryParametersRequired, jsonPath, "QueryParameters");
-        CodegenSchema headerParameters = getXParametersSchema(headerParametersProperties, headerParametersRequired, jsonPath, "HeaderParameters");
-        CodegenSchema cookieParameters = getXParametersSchema(cookieParametersProperties, cookieParametersRequired, jsonPath, "CookieParameters");
+        CodegenSchema pathParameters = getXParametersSchema(pathParametersProperties, pathParametersRequired, jsonPath + "/" + "PathParameters", jsonPath + "/" + "PathParameters");
+        CodegenSchema queryParameters = getXParametersSchema(queryParametersProperties, queryParametersRequired, jsonPath + "/" + "QueryParameters", jsonPath + "/" + "QueryParameters");
+        CodegenSchema headerParameters = getXParametersSchema(headerParametersProperties, headerParametersRequired, jsonPath + "/" + "HeaderParameters", jsonPath + "/" + "HeaderParameters");
+        CodegenSchema cookieParameters = getXParametersSchema(cookieParametersProperties, cookieParametersRequired, jsonPath + "/" + "CookieParameters", jsonPath + "/" + "CookieParameters");
 
         return new CodegenOperation(
                 deprecated,
@@ -2779,7 +2782,6 @@ public class DefaultGenerator implements Generator {
                 produces,
                 codegenServers,
                 requestBody,
-                requestBodySchemas,
                 allParams,
                 pathParams,
                 pathParameters,
@@ -2802,10 +2804,11 @@ public class DefaultGenerator implements Generator {
                 externalDocs,
                 vendorExtensions,
                 operationId,
-                jsonPathPiece);
+                jsonPathPiece,
+                requestBodySchema);
     }
 
-    private CodegenSchema getXParametersSchema(HashMap<String, Schema> xParametersProperties, List<String> xParametersRequired, String jsonPath, String schemaName) {
+    private CodegenSchema getXParametersSchema(HashMap<String, Schema> xParametersProperties, List<String> xParametersRequired, String sourceJsonPath, String currentJsonPath) {
         if (xParametersProperties.isEmpty()) {
             return null;
         }
@@ -2813,7 +2816,7 @@ public class DefaultGenerator implements Generator {
         xParametersSchema.setProperties(xParametersProperties);
         xParametersSchema.setRequired(xParametersRequired);
         xParametersSchema.setAdditionalProperties(Boolean.FALSE);
-        CodegenSchema schema = fromSchema(xParametersSchema, jsonPath, jsonPath + "/" + schemaName);
+        CodegenSchema schema = fromSchema(xParametersSchema, sourceJsonPath, currentJsonPath);
         schema.imports = new TreeSet<>();
         addImports(schema.imports, getImports(schema, generatorMetadata.getFeatureSet()));
         return schema;
@@ -2901,7 +2904,7 @@ public class DefaultGenerator implements Generator {
 
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         TreeSet<String> finalImports = imports;
-        CodegenSchema headersObjectSchema = getXParametersSchema(headersProperties, headersRequired, sourceJsonPath, "Headers");
+        CodegenSchema headersObjectSchema = getXParametersSchema(headersProperties, headersRequired, sourceJsonPath + "/" + "Headers", sourceJsonPath + "/" + "Headers");
         r = new CodegenResponse(jsonPathPiece, headers, headersObjectSchema, description, finalVendorExtensions, content, refInfo, finalImports, componentModule);
         codegenResponseCache.put(sourceJsonPath, r);
         return r;
@@ -3581,6 +3584,13 @@ public class DefaultGenerator implements Generator {
             String responseJsonPath = "#/components/responses/" + pathPieces[3];
             pathPieces[3] = toResponseModuleName(pathPieces[3], responseJsonPath);
 
+            if (pathPieces.length == 5 && pathPieces[4].equals("HeaderParameters")) {
+                // synthetic json path
+                // #/components/responses/someResponse/HeaderParameters
+                pathPieces[4] = toModelFilename(pathPieces[4], "#/components/responses/someResponse/" + pathPieces[4]);
+                return;
+            }
+
             if (pathPieces.length < 6) {
                 return;
             }
@@ -3616,13 +3626,21 @@ public class DefaultGenerator implements Generator {
         if (pathPieces.length < 5) {
             return;
         }
-        if (pathPieces[4].equals("requestBody")) {
-            // #/paths/somePath/get/requestBody
-            pathPieces[4] = requestBodyIdentifier;
-        }
+        Set<String> xParameters = new HashSet<String>();
+        xParameters.add("PathParameters");
+        xParameters.add("QueryParameters");
+        xParameters.add("HeaderParameters");
+        xParameters.add("CookieParameters");
         if (pathPieces[3].equals("servers")) {
             // #/paths/somePath/servers/0
             pathPieces[4] = toServerFilename(pathPieces[4], null);
+        } else if (pathPieces[4].equals("requestBody")) {
+            // #/paths/somePath/get/requestBody
+            pathPieces[4] = requestBodyIdentifier;
+        } else if (xParameters.contains(pathPieces[4])) {
+            // #/paths/somePath/get/PathParameters
+            // synthetic jsonPath
+            pathPieces[4] = toModelFilename(pathPieces[4], "#/paths/somePath/verb/" + pathPieces[4]);
         }
         if (pathPieces.length < 6) {
             return;
@@ -3637,6 +3655,13 @@ public class DefaultGenerator implements Generator {
             // #/paths/user_login/get/responses/200 -> 200 -> response_200 -> length 6
             String responseJsonPath = "#/paths/" + path + "/" + pathPieces[3] + "/responses/" +  pathPieces[5];
             pathPieces[5] = toResponseModuleName(pathPieces[5], responseJsonPath);
+            if (pathPieces.length == 7 && pathPieces[6].equals("HeaderParameters")) {
+                // synthetic json path
+                // #/paths/user_login/get/responses/200/HeaderParameters
+                pathPieces[6] = toModelFilename(pathPieces[6], "#/paths/somePath/verb/responses/200/" + pathPieces[6]);
+                return;
+            }
+
             if (pathPieces.length < 8) {
                 return;
             }
@@ -4416,6 +4441,7 @@ public class DefaultGenerator implements Generator {
         // components/securitySchemes/blah -> Blah
         // schema names
         String usedName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
+        usedName = ModelUtils.decodeSlashes(usedName);
         return getKey(usedName, expectedComponentType, sourceJsonPathPiece);
     }
 
@@ -4427,7 +4453,7 @@ public class DefaultGenerator implements Generator {
             PairCacheKey ck = new PairCacheKey(ref, ref);
             CodegenSchema cs = codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
             String refModuleLocation = getRefModuleLocation(ref);
-            String refModuleAlias = getRefModuleAlias(refModuleLocation, refModule);
+            String refModuleAlias = getRefModuleAlias(sourceJsonPath, refModule, ref);
             instance.refInfo = new CodegenRefInfo<>(cs, refClass, refModule, refModuleLocation, refModuleAlias);
         }
         if (currentJsonPath == null) {
@@ -4449,17 +4475,59 @@ public class DefaultGenerator implements Generator {
         return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
     }
 
-    private String getRefModuleAlias(String refModuleLocation, String refModule) {
-        if (refModuleLocation.contains(".components.schema")) {
+    private String getRefModuleAlias(String sourceJsonPath, String refModule, String ref) {
+        /*
+        If multiple schemas are imported into the same module but they both have the same
+        source module name, they need to be aliased to different names
+
+        sourceJsonPath is 1:1 on a module file
+        in that module file there can be multiple schemas that collide, but they need different aliases
+        HashMap[String, HashMap[String, Int]] jsonPathToRefModuleToQty
+        HashMap[String, HashMap[String, HashMap[String, String]]] jsonPathToRefModuleToRefToAlias
+        if refModule not in refModuleToQty
+        - put it in with qty 1
+        - store it in refToAlias unmodified
+        - return null
+        if refModule is in refModuleToQty:
+        - if it is in refToAlias return the alias if the alias is different than the ref
+        - if it is not
+            - increment the key qty
+            - generate new alias and store it in refToAlias
+            - return the alias
+         */
+        if (refModule == null) {
+            // self referencing schemas
             return null;
         }
-        String[] locationPieces = refModuleLocation.split("\\.");
-        if (locationPieces[locationPieces.length-2].equals("content")) {
-            // petstore_api.components.headers.header_int32_json_content_type_header.content.application_json
-            return locationPieces[locationPieces.length-3] + "_" + refModule;
+        if (!jsonPathToRefModuleToQty.containsKey(sourceJsonPath)) {
+            jsonPathToRefModuleToQty.put(sourceJsonPath, new HashMap<>());
         }
-        // petstore_api.components.headers.header_string_header
-        return locationPieces[locationPieces.length-1] + "_" + refModule;
+        if (!jsonPathToRefModuleToRefToAlias.containsKey(sourceJsonPath)) {
+            jsonPathToRefModuleToRefToAlias.put(sourceJsonPath, new HashMap<>());
+        }
+        HashMap<String, Integer> refModuleToQty = jsonPathToRefModuleToQty.get(sourceJsonPath);
+        HashMap<String, HashMap<String, String>> refModuleToRefToAlias = jsonPathToRefModuleToRefToAlias.get(sourceJsonPath);
+        if (!refModuleToRefToAlias.containsKey(refModule)) {
+            refModuleToRefToAlias.put(refModule, new HashMap<>());
+        }
+        HashMap<String, String> refToAlias = refModuleToRefToAlias.get(refModule);
+        if (!refModuleToQty.containsKey(refModule)) {
+            refModuleToQty.put(refModule, 1);
+            refToAlias.put(ref, refModule);
+            return null;
+        }
+        if (refToAlias.containsKey(ref)) {
+            String alias = refToAlias.get(ref);
+            if (refModule.equals(alias)) {
+                return null;
+            }
+            return alias;
+        }
+        Integer refQty = refModuleToQty.get(refModule) + 1;
+        refModuleToQty.put(refModule, refQty);
+        String alias = refModule + "_" + refQty;
+        refToAlias.put(ref, alias);
+        return alias;
     }
 
     public CodegenRequestBody fromRequestBody(RequestBody requestBody, String sourceJsonPath) {
@@ -4507,6 +4575,7 @@ public class DefaultGenerator implements Generator {
         TreeSet<String> finalImports = imports;
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
+
         codegenRequestBody = new CodegenRequestBody(description, unescapedDescription, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, refInfo);
         codegenRequestBodyCache.put(sourceJsonPath, codegenRequestBody);
         return codegenRequestBody;

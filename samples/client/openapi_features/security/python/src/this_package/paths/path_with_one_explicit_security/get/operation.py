@@ -11,7 +11,6 @@ from .. import path
 from .responses import response_200
 from .security import security_requirement_object_0
 
-
 _security: typing.List[security_schemes.SecurityRequirementObject] = [
     security_requirement_object_0.security_requirement_object,
 ]
