@@ -109,7 +109,6 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
                     {{#if @first}}
                         {{#with this.schema}}
     body = {{{example}}}
-    body_info = request_body.RequestBodyInfoFor{{../@key.camelCase}}(body)
                         {{/with}}
                     {{/if}}
                 {{/each}}
@@ -120,7 +119,6 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
                     {{#if @first}}
                         {{#with this.schema}}
     body = {{{example}}}
-    body_info = request_body.RequestBodyInfoFor{{../@key.camelCase}}(body)
                         {{/with}}
                     {{/if}}
                 {{/each}}
@@ -147,11 +145,11 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     {{#with requestBody}}
         {{#if refInfo}}
             {{#if getDeepestRef.required}}
-            body_info=body_info,
+            body=body,
             {{/if}}
         {{else}}
             {{#if required}}
-            body_info=body_info,
+            body=body,
             {{/if}}
         {{/if}}
     {{/with}}
@@ -221,7 +219,6 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
                 {{#if @first}}
                     {{#with this.schema}}
     body = {{{example}}}
-    body_info = request_body.RequestBodyInfoFor{{../@key.camelCase}}(body)
                     {{/with}}
                 {{/if}}
             {{/each}}
@@ -230,7 +227,6 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
                 {{#if @first}}
                     {{#with this.schema}}
     body = {{{example}}}
-    body_info = request_body.RequestBodyInfoFor{{../@key.camelCase}}(body)
                     {{/with}}
                 {{/if}}
             {{/each}}
@@ -254,7 +250,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
             cookie_params=cookie_params,
     {{/if}}
     {{#if requestBody}}
-            body_info=body_info,
+            body=body,
     {{/if}}
         )
         pprint(api_response)

@@ -9,7 +9,6 @@
     {{/if}}
 {{> _helper_imports }}
 {{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
-RequestBodyInfo = {{refInfo.refModule}}.RequestBodyInfo
 {{else}}
 from {{packageName}}.shared_imports.header_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
@@ -39,37 +38,4 @@ class {{jsonPathPiece.camelCase}}(api_client.RequestBody):
     {{#if required}}
     required = True
     {{/if}}
-{{#each content}}
-
-
-class RequestBodyInfoFor{{@key.camelCase}}(typing.NamedTuple):
-    {{#with this}}
-            {{#with schema}}
-    body: typing.Union[
-                {{#if refInfo}}
-        {{> components/schemas/_helper_schema_input_ref_type fullRefModule=(join ../@key.snakeCase jsonPathPiece.snakeCase "_") endChar="," }}
-        {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule=(join ../@key.snakeCase jsonPathPiece.snakeCase "_") endChar="," }}
-                {{else}}
-        {{> components/schemas/_helper_schema_input_type fullRefModule=(join ../@key.snakeCase jsonPathPiece.snakeCase "_") endChar="," }}
-        {{> components/schemas/_helper_schema_output_type mode="unprefixed" fullRefModule=(join ../@key.snakeCase jsonPathPiece.snakeCase "_") endChar="," }}
-                {{/if}}
-    ]
-            {{/with}}
-    {{else}}
-    body: schemas.Unset = schemas.unset
-    {{/with}}
-    content_type: str = '{{{@key.original}}}'
-{{/each}}
-{{#eq content.size 1}}
-    {{#each content}}
-RequestBodyInfo = RequestBodyInfoFor{{@key.camelCase}}
-    {{/each}}
-{{else}}
-RequestBodyInfo = typing.Union[
-    {{#each content}}
-    RequestBodyInfoFor{{@key.camelCase}},
-    {{/each}}
-]
-{{/eq}}
-{{/if}}
 {{/with}}
