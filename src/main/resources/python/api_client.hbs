@@ -1401,7 +1401,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         # and content_type is multipart or application/x-www-form-urlencoded
         if cls._content_type_is_json(content_type):
             if isinstance(cast_in_data, (schemas.FileIO, bytes)):
-                raise ValueError(f"Invalid input data type. Data must be int/float/str/bool/None/tuple/immutabledict and it was type {type(cast_in_data)}"")
+                raise ValueError(f"Invalid input data type. Data must be int/float/str/bool/None/tuple/immutabledict and it was type {type(cast_in_data)}")
             return cls.__serialize_json(cast_in_data)
         elif content_type == 'text/plain':
             if not isinstance(cast_in_data, (int, float, str)):
@@ -1409,15 +1409,15 @@ class RequestBody(StyleFormSerializer, JSONDetector):
             return cls.__serialize_text_plain(cast_in_data)
         elif content_type == 'multipart/form-data':
             if not isinstance(cast_in_data, schemas.immutabledict):
-                raise ValueError(f'Unable to serialize {cast_in_data} to multipart/form-data because it is not a dict of data')
+                raise ValueError(f"Unable to serialize {cast_in_data} to multipart/form-data because it is not a dict of data")
             return cls.__serialize_multipart_form_data(cast_in_data)
         elif content_type == 'application/x-www-form-urlencoded':
             if not isinstance(cast_in_data, schemas.immutabledict):
                 raise ValueError(
-                    f'Unable to serialize {cast_in_data} to application/x-www-form-urlencoded because it is not a dict of data')
+                    f"Unable to serialize {cast_in_data} to application/x-www-form-urlencoded because it is not a dict of data")
             return cls.__serialize_application_x_www_form_data(cast_in_data)
         elif content_type == 'application/octet-stream':
             if not isinstance(cast_in_data, (schemas.FileIO, bytes)):
-                raise ValueError(f'Invalid input data type. Data must be bytes or File for content_type={content_type}')
+                raise ValueError(f"Invalid input data type. Data must be bytes or File for content_type={content_type}")
             return cls.__serialize_application_octet_stream(cast_in_data)
         raise NotImplementedError('Serialization has not yet been implemented for {}'.format(content_type))
