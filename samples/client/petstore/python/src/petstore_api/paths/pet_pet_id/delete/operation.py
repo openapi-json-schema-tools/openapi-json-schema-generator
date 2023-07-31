@@ -19,8 +19,8 @@ from .security import (
     security_requirement_object_0,
     security_requirement_object_1,
 )
-from . import path_parameters
-from . import header_parameters
+from .path_parameters import PathParameters
+from .header_parameters import HeaderParameters
 header_parameter_classes = (
     parameter_0.Parameter0,
 )
@@ -112,13 +112,14 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        path_params = path_parameters.PathParameters.validate(path_params)
+        path_params = PathParameters.validate(path_params)
         if header_params is not None:
-            header_params = header_parameters.HeaderParameters.validate(header_params)
+            header_params = HeaderParameters.validate(header_params)
         used_path, query_params_suffix = self._get_used_path(
             path,
             path_parameters=path_parameter_classes,
-            path_params=path_params
+            path_params=path_params,
+            skip_validation=True
         )
         headers = self._get_headers(
             header_parameters=header_parameter_classes,

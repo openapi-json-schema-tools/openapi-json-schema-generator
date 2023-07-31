@@ -34,10 +34,10 @@ from .parameters import (
     parameter_17,
     parameter_18,
 )
-from . import path_parameters
-from . import query_parameters
-from . import header_parameters
-from . import cookie_parameters
+from .path_parameters import PathParameters
+from .query_parameters import QueryParameters
+from .header_parameters import HeaderParameters
+from .cookie_parameters import CookieParameters
 query_parameter_classes = (
     parameter_0.Parameter0,
     parameter_1.Parameter1,
@@ -198,19 +198,20 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        path_params = path_parameters.PathParameters.validate(path_params)
+        path_params = PathParameters.validate(path_params)
         if query_params is not None:
-            query_params = query_parameters.QueryParameters.validate(query_params)
+            query_params = QueryParameters.validate(query_params)
         if header_params is not None:
-            header_params = header_parameters.HeaderParameters.validate(header_params)
+            header_params = HeaderParameters.validate(header_params)
         if cookie_params is not None:
-            cookie_params = cookie_parameters.CookieParameters.validate(cookie_params)
+            cookie_params = CookieParameters.validate(cookie_params)
         used_path, query_params_suffix = self._get_used_path(
             path,
             path_parameters=path_parameter_classes,
             path_params=path_params,
             query_parameters=query_parameter_classes,
-            query_params=query_params
+            query_params=query_params,
+            skip_validation=True
         )
         headers = self._get_headers(
             header_parameters=header_parameter_classes,

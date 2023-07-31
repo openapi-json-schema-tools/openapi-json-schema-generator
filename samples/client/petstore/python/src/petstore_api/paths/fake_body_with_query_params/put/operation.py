@@ -14,7 +14,7 @@ from .. import path
 from .responses import response_200
 from . import request_body
 from .parameters import parameter_0
-from . import query_parameters
+from .query_parameters import QueryParameters
 query_parameter_classes = (
     parameter_0.Parameter0,
 )
@@ -95,11 +95,12 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        query_params = query_parameters.QueryParameters.validate(query_params)
+        query_params = QueryParameters.validate(query_params)
         used_path, query_params_suffix = self._get_used_path(
             path,
             query_parameters=query_parameter_classes,
-            query_params=query_params
+            query_params=query_params,
+            skip_validation=True
         )
         headers = self._get_headers()
         # TODO add cookie handling

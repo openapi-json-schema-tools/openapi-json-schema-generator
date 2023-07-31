@@ -1233,7 +1233,7 @@ class Api:
     @staticmethod
     def _get_fields_and_body(
         request_body: typing.Type[RequestBody],
-        body: typing.Union[typing.Any, schemas.Unset],
+        body: typing.Union[schemas.INPUT_TYPES_ALL, schemas.Unset],
         content_type: str,
         headers: _collections.HTTPHeaderDict
     ):
@@ -1387,7 +1387,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
 
     @classmethod
     def serialize(
-        cls, in_data: typing.Any, content_type: str
+        cls, in_data: schemas.INPUT_TYPES_ALL, content_type: str
     ) -> SerializedRequestBody:
         """
         If a str is returned then the result will be assigned to data when making the request

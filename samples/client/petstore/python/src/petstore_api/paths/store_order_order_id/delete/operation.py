@@ -15,7 +15,7 @@ from .responses import (
     response_404,
 )
 from .parameters import parameter_0
-from . import path_parameters
+from .path_parameters import PathParameters
 path_parameter_classes = (
     parameter_0.Parameter0,
 )
@@ -84,11 +84,12 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        path_params = path_parameters.PathParameters.validate(path_params)
+        path_params = PathParameters.validate(path_params)
         used_path, query_params_suffix = self._get_used_path(
             path,
             path_parameters=path_parameter_classes,
-            path_params=path_params
+            path_params=path_params,
+            skip_validation=True
         )
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(

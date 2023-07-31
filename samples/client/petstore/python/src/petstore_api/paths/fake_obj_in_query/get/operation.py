@@ -12,7 +12,7 @@ from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [
 from .. import path
 from .responses import response_200
 from .parameters import parameter_0
-from . import query_parameters
+from .query_parameters import QueryParameters
 query_parameter_classes = (
     parameter_0.Parameter0,
 )
@@ -83,11 +83,12 @@ class BaseApi(api_client.Api):
             class instances
         """
         if query_params is not None:
-            query_params = query_parameters.QueryParameters.validate(query_params)
+            query_params = QueryParameters.validate(query_params)
         used_path, query_params_suffix = self._get_used_path(
             path,
             query_parameters=query_parameter_classes,
-            query_params=query_params
+            query_params=query_params,
+            skip_validation=True
         )
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(

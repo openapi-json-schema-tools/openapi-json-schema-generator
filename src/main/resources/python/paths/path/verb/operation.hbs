@@ -302,12 +302,13 @@ class BaseApi(api_client.Api):
             path,
         {{#if pathParams}}
             path_parameters=path_parameter_classes,
-            path_params=path_params{{#if queryParams}},{{/if}}
+            path_params=path_params,
         {{/if}}
         {{#if queryParams}}
             query_parameters=query_parameter_classes,
-            query_params=query_params
+            query_params=query_params,
         {{/if}}
+            skip_validation=True
         )
     {{else}}
         used_path = path
