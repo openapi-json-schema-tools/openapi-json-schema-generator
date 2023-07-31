@@ -22,7 +22,8 @@ import typing_extensions
 from unit_test_api import exceptions
 from unit_test_api.configurations import schema_configuration
 
-from . import format, original_immutabledict
+from . import format
+import immutabledict as original_immutabledict
 
 _K = typing.TypeVar('_K')
 _V = typing.TypeVar('_V', covariant=True)
