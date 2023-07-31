@@ -160,11 +160,10 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "password": "password_example",
         "callback": "callback_example",
     }
-    body_info = request_body.RequestBodyInfoForApplicationXWwwFormUrlencoded(body)
     try:
         # Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
         api_response = api_instance.endpoint_parameters(
-            body_info=body_info,
+            body=body,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

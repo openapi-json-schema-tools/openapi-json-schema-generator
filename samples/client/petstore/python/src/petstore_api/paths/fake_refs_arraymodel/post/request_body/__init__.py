@@ -17,12 +17,3 @@ class RequestBody(api_client.RequestBody):
     content = {
         'application/json': ApplicationJsonMediaType,
     }
-
-
-class RequestBodyInfoForApplicationJson(typing.NamedTuple):
-    body: typing.Union[
-        application_json_schema.animal_farm.AnimalFarmTupleInput,
-        application_json_schema.animal_farm.AnimalFarmTuple,
-    ]
-    content_type: str = 'application/json'
-RequestBodyInfo = RequestBodyInfoForApplicationJson

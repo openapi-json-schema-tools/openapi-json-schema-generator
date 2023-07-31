@@ -126,11 +126,10 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     body = client.Client({
         "client": "client_example",
     })
-    body_info = request_body.RequestBodyInfoForApplicationJson(body)
     try:
         # To test class name in snake case
         api_response = api_instance.classname(
-            body_info=body_info,
+            body=body,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

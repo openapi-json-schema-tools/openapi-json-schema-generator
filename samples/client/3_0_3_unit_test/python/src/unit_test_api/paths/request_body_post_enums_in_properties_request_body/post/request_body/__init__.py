@@ -18,12 +18,3 @@ class RequestBody(api_client.RequestBody):
         'application/json': ApplicationJsonMediaType,
     }
     required = True
-
-
-class RequestBodyInfoForApplicationJson(typing.NamedTuple):
-    body: typing.Union[
-        application_json_schema.enums_in_properties.EnumsInPropertiesDictInput,
-        application_json_schema.enums_in_properties.EnumsInPropertiesDict,
-    ]
-    content_type: str = 'application/json'
-RequestBodyInfo = RequestBodyInfoForApplicationJson

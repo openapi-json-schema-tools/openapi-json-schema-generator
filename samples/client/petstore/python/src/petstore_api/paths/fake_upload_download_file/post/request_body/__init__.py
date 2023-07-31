@@ -18,12 +18,3 @@ class RequestBody(api_client.RequestBody):
         'application/octet-stream': ApplicationOctetStreamMediaType,
     }
     required = True
-
-
-class RequestBodyInfoForApplicationOctetStream(typing.NamedTuple):
-    body: typing.Union[
-        typing.Union[io.FileIO, io.BufferedReader],
-        typing.Union[bytes, schemas.FileIO],
-    ]
-    content_type: str = 'application/octet-stream'
-RequestBodyInfo = RequestBodyInfoForApplicationOctetStream

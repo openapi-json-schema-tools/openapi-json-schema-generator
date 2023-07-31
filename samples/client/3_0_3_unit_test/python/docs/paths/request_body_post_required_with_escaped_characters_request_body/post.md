@@ -96,10 +96,9 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     body = required_with_escaped_characters.RequiredWithEscapedCharacters(None)
-    body_info = request_body.RequestBodyInfoForApplicationJson(body)
     try:
         api_response = api_instance.post_required_with_escaped_characters_request_body(
-            body_info=body_info,
+            body=body,
         )
         pprint(api_response)
     except unit_test_api.ApiException as e:

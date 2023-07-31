@@ -173,11 +173,10 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         ],
         "status": "available",
     })
-    body_info = request_body.RequestBodyInfoForApplicationJson(body)
     try:
         # Add a new pet to the store
         api_response = api_instance.add_pet(
-            body_info=body_info,
+            body=body,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

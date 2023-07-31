@@ -17,12 +17,3 @@ class RequestBody(api_client.RequestBody):
     content = {
         'application/json; charset=utf-8': ApplicationJsonCharsetutf8MediaType,
     }
-
-
-class RequestBodyInfoForApplicationJsonCharsetutf8(typing.NamedTuple):
-    body: typing.Union[
-        schemas.INPUT_TYPES_ALL,
-        schemas.OUTPUT_BASE_TYPES,
-    ]
-    content_type: str = 'application/json; charset=utf-8'
-RequestBodyInfo = RequestBodyInfoForApplicationJsonCharsetutf8

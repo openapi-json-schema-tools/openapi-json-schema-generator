@@ -94,11 +94,10 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "param": "param_example",
         "param2": "param2_example",
     }
-    body_info = request_body.RequestBodyInfoForApplicationXWwwFormUrlencoded(body)
     try:
         # test json serialization of form data
         api_response = api_instance.json_form_data(
-            body_info=body_info,
+            body=body,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

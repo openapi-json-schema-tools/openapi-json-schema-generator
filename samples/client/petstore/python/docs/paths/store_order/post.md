@@ -140,11 +140,10 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "status": "placed",
         "complete": False,
     })
-    body_info = request_body.RequestBodyInfoForApplicationJson(body)
     try:
         # Place an order for a pet
         api_response = api_instance.place_order(
-            body_info=body_info,
+            body=body,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

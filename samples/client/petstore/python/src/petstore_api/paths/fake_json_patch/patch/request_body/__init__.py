@@ -17,12 +17,3 @@ class RequestBody(api_client.RequestBody):
     content = {
         'application/json-patch+json': ApplicationJsonPatchjsonMediaType,
     }
-
-
-class RequestBodyInfoForApplicationJsonPatchjson(typing.NamedTuple):
-    body: typing.Union[
-        application_json_patchjson_schema.json_patch_request.JSONPatchRequestTupleInput,
-        application_json_patchjson_schema.json_patch_request.JSONPatchRequestTuple,
-    ]
-    content_type: str = 'application/json-patch+json'
-RequestBodyInfo = RequestBodyInfoForApplicationJsonPatchjson

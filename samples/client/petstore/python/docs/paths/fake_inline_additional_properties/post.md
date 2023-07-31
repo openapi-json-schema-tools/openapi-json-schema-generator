@@ -94,11 +94,10 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     body = {
         "key": "key_example",
     }
-    body_info = request_body.RequestBodyInfoForApplicationJson(body)
     try:
         # test inline additionalProperties
         api_response = api_instance.inline_additional_properties(
-            body_info=body_info,
+            body=body,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

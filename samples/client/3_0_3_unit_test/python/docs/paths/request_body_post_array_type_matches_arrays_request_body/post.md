@@ -98,10 +98,9 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
     body = array_type_matches_arrays.ArrayTypeMatchesArrays([
         None
     ])
-    body_info = request_body.RequestBodyInfoForApplicationJson(body)
     try:
         api_response = api_instance.post_array_type_matches_arrays_request_body(
-            body_info=body_info,
+            body=body,
         )
         pprint(api_response)
     except unit_test_api.ApiException as e:

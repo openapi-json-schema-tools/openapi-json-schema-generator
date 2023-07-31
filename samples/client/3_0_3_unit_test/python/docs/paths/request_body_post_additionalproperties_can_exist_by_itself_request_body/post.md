@@ -98,10 +98,9 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
     body = additionalproperties_can_exist_by_itself.AdditionalpropertiesCanExistByItself({
         "key": True,
     })
-    body_info = request_body.RequestBodyInfoForApplicationJson(body)
     try:
         api_response = api_instance.post_additionalproperties_can_exist_by_itself_request_body(
-            body_info=body_info,
+            body=body,
         )
         pprint(api_response)
     except unit_test_api.ApiException as e:

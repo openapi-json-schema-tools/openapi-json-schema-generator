@@ -157,10 +157,9 @@ with this_package.ApiClient(used_configuration) as api_client:
         "b": 3.14,
         "operator_id": "ADD",
     )
-    body_info = request_body.RequestBodyInfoForApplicationJson(body)
     try:
         api_response = api_instance.post_operators(
-            body_info=body_info,
+            body=body,
         )
         pprint(api_response)
     except this_package.ApiException as e:

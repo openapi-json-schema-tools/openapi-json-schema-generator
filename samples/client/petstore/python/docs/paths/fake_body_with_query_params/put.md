@@ -120,11 +120,10 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "any_type_except_null_prop": None,
         "any_type_prop_nullable": None,
     })
-    body_info = request_body.RequestBodyInfoForApplicationJson(body)
     try:
         api_response = api_instance.body_with_query_params(
             query_params=query_params,
-            body_info=body_info,
+            body=body,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

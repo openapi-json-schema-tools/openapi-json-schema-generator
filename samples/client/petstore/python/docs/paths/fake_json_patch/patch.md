@@ -87,11 +87,10 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     body = json_patch_request.JSONPatchRequest([
         None
     ])
-    body_info = request_body.RequestBodyInfoForApplicationJsonPatchjson(body)
     try:
         # json patch
         api_response = api_instance.json_patch(
-            body_info=body_info,
+            body=body,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:

@@ -113,10 +113,9 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example passing only optional values
     body = string_enum.StringEnum("placed")
-    body_info = request_body.RequestBodyInfoForApplicationJson(body)
     try:
         api_response = api_instance.string_enum(
-            body_info=body_info,
+            body=body,
         )
         pprint(api_response)
     except petstore_api.ApiException as e:
