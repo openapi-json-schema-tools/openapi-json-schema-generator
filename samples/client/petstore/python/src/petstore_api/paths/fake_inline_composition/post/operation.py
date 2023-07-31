@@ -93,7 +93,7 @@ class BaseApi(api_client.Api):
     def _inline_composition(
         self,
         body: typing.Union[
-            schema.SchemaDictInput,
+            schema_2.SchemaDictInput,
             schemas.Unset,
             schema_2.SchemaDict,
         ] = schemas.unset,
@@ -115,7 +115,7 @@ class BaseApi(api_client.Api):
     def _inline_composition(
         self,
         body: typing.Union[
-            schema.SchemaDictInput,
+            schema_2.SchemaDictInput,
             schemas.Unset,
             schema_2.SchemaDict,
         ] = schemas.unset,
@@ -138,7 +138,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[
             schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES,
-            schema.SchemaDictInput,
+            schema_2.SchemaDictInput,
             schema_2.SchemaDict,
             schemas.Unset,
         ] = schemas.unset,

@@ -6,6 +6,7 @@
 
 from unit_test_api import api_client
 from unit_test_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
+from unit_test_api.components.schema import oneof_complex_types
 
 from .. import path
 from .responses import response_200
@@ -30,9 +31,13 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_oneof_complex_types_request_body(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+        ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -41,9 +46,13 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_oneof_complex_types_request_body(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+        ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -51,9 +60,13 @@ class BaseApi(api_client.Api):
 
     def _post_oneof_complex_types_request_body(
         self,
-        body_info: request_body.RequestBodyInfo,
+        body: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+        ],
         *,
         skip_deserialization: bool = False,
+        content_type: typing_extensions.Literal["application/json"] = "application/json",
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -64,13 +77,14 @@ class BaseApi(api_client.Api):
             class instances
         """
         used_path = path
-        _headers = self._get_headers()
+        headers = self._get_headers()
         # TODO add cookie handling
 
-        fields, body = self._get_fields_and_body(
+        fields, serialized_body = self._get_fields_and_body(
             request_body=request_body.RequestBody,
-            body_info=body_info,
-            headers=_headers
+            body=body,
+            content_type=content_type,
+            headers=headers
         )
         host = self.api_client.configuration.get_server_url(
             "servers", server_index
@@ -80,9 +94,9 @@ class BaseApi(api_client.Api):
             resource_path=used_path,
             method='post',
             host=host,
-            headers=_headers,
+            headers=headers,
             fields=fields,
-            body=body,
+            body=serialized_body,
             stream=stream,
             timeout=timeout,
         )
