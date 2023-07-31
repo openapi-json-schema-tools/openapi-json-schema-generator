@@ -50,7 +50,6 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             api_response = self.api.post(
                 body=body,
-                content_type=content_type
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
@@ -89,7 +88,6 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             api_response = self.api.post(
                 body=body,
-                content_type=content_type
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
@@ -140,7 +138,6 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             api_response = self.api.post(
                 body=body,
-                content_type=content_type
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
@@ -179,7 +176,6 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             api_response = self.api.post(
                 body=body,
-                content_type=content_type
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
@@ -212,7 +208,6 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             api_response = self.api.post(
                 body=body,
-                content_type=content_type
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
@@ -245,7 +240,6 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             api_response = self.api.post(
                 body=body,
-                content_type=content_type
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
@@ -282,7 +276,6 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             api_response = self.api.post(
                 body=body,
-                content_type=content_type
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
@@ -316,7 +309,6 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             api_response = self.api.post(
                 body=body,
-                content_type=content_type
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
@@ -349,7 +341,6 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             api_response = self.api.post(
                 body=body,
-                content_type=content_type
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
@@ -400,7 +391,6 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             api_response = self.api.post(
                 body=body,
-                content_type=content_type
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
@@ -433,7 +423,6 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             api_response = self.api.post(
                 body=body,
-                content_type=content_type
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
@@ -470,7 +459,6 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             api_response = self.api.post(
                 body=body,
-                content_type=content_type
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
@@ -503,7 +491,6 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             api_response = self.api.post(
                 body=body,
-                content_type=content_type
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
@@ -544,7 +531,6 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             api_response = self.api.post(
                 body=body,
-                content_type=content_type
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,
@@ -583,7 +569,6 @@ class TestPost(ApiTestMixin, unittest.TestCase):
             )
             api_response = self.api.post(
                 body=body,
-                content_type=content_type
             )
             self.assert_pool_manager_request_called_with(
                 mock_request,

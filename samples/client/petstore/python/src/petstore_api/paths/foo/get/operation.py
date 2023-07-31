@@ -11,7 +11,6 @@ from .. import path
 from .responses import response_default
 
 
-
 default_response = response_default.Default
 
 _all_accept_content_types = (
@@ -57,7 +56,7 @@ class BaseApi(api_client.Api):
             class instances
         """
         used_path = path
-        _headers = self._get_headers(accept_content_types=accept_content_types)
+        headers = self._get_headers(accept_content_types=accept_content_types)
         # TODO add cookie handling
         host = self.api_client.configuration.get_server_url(
             "paths//foo/get/servers", server_index
@@ -67,7 +66,7 @@ class BaseApi(api_client.Api):
             resource_path=used_path,
             method='get',
             host=host,
-            headers=_headers,
+            headers=headers,
             stream=stream,
             timeout=timeout,
         )

@@ -467,6 +467,18 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 endpointMap.put("security", security);
                 endpointMap.put("path", pathKey);
                 generateXs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointMap, true);
+                if (operation.pathParameters != null) {
+                    generateSchema(files, operation.pathParameters, operationJsonPath + "/" + "PathParameters");
+                }
+                if (operation.queryParameters != null) {
+                    generateSchema(files, operation.queryParameters, operationJsonPath + "/" + "QueryParameters");
+                }
+                if (operation.headerParameters != null) {
+                    generateSchema(files, operation.headerParameters, operationJsonPath + "/" + "HeaderParameters");
+                }
+                if (operation.cookieParameters != null) {
+                    generateSchema(files, operation.cookieParameters, operationJsonPath + "/" + "CookieParameters");
+                }
 
                 // operation docs
                 Map<String, Object> endpointInfo = new HashMap<>();
@@ -648,6 +660,8 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 String headerJsonPath = headersJsonPath + "/" + headerName;
                 generateHeader(files, header, headerJsonPath);
             }
+            // synthetic json path
+            generateSchema(files, response.headersObjectSchema, jsonPath + "/" + "HeaderParameters");
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = response.content;
         if (content != null && !content.isEmpty()) {

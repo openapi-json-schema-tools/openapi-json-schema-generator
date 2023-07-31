@@ -35,14 +35,12 @@ class TestPetPetId(ApiTestMixin, unittest.TestCase):
         api = post.ApiForPost(api_client=used_api_client)
 
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
-            path_params = {'petId': 2345}
             body = {
                 'name': 'mister furball award',
                 'status': 'happy, fuzzy, and bouncy'
             }
             mock_request.return_value = self.response("")
-
-            api_response = api.post(path_params=path_params, body=body)
+            api_response = api.post(path_params={'petId': 2345}, body=body)
             mock_request.assert_called_with(
                 'POST',
                 'http://petstore.swagger.io:80/v2/pet/2345',

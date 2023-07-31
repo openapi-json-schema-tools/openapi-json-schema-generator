@@ -11,10 +11,6 @@
 {{jsonPathPiece.camelCase}} = {{refInfo.refModule}}.{{refInfo.refClass}}
 ApiResponse = {{refInfo.refModule}}.ApiResponse
 {{else}}
-    {{#if headersObjectSchema}}
-from __future__ import annotations
-from {{packageName}}.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
-    {{/if}}
 from {{packageName}}.shared_imports.response_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
     {{#if content}}
 
@@ -31,16 +27,13 @@ from .content.{{../@key.snakeCase}} import {{jsonPathPiece.snakeCase}} as {{../@
         {{#each headers}}
 from .headers import {{jsonPathPiece.snakeCase}}
         {{/each}}
+from . import header_parameters
 parameters: typing.Dict[str, typing.Type[api_client.HeaderParameterWithoutName]] = {
 {{#each headers}}
     '{{@key}}': {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
 }
     {{/if}}
-{{#with headersObjectSchema}}
-
-{{> components/schemas/_helper_getschemas }}
-{{/with}}
 
 
 @dataclasses.dataclass
@@ -74,11 +67,11 @@ class ApiResponse(api_response.ApiResponse):
         {{else}}
     body: schemas.Unset = schemas.unset
         {{/if}}
-    headers: {{headersObjectSchema.mapOutputJsonPathPiece.camelCase}}
+    headers: header_parameters.{{headersObjectSchema.mapOutputJsonPathPiece.camelCase}}
     {{else}}
         {{#or headers content}}
             {{#if headers}}
-    headers: {{headersObjectSchema.mapOutputJsonPathPiece.camelCase}}
+    headers: header_parameters.{{headersObjectSchema.mapOutputJsonPathPiece.camelCase}}
     body: schemas.Unset = schemas.unset
             {{else}}
                 {{#if hasContentSchema}}
@@ -145,7 +138,7 @@ class {{jsonPathPiece.camelCase}}(api_client.OpenApiResponse[ApiResponse]):
     {{/if}}
     {{#if headers}}
     headers=parameters
-    headers_schema = {{headersObjectSchema.jsonPathPiece.camelCase}}
+    headers_schema = header_parameters.{{headersObjectSchema.jsonPathPiece.camelCase}}
     {{/if}}
 {{/if}}
 {{/with}}

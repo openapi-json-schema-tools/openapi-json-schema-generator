@@ -8,83 +8,13 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 from petstore_api import api_client
 from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
+from petstore_api.components.schema import user
 
 from .. import path
 from .responses import response_200
 from . import request_body
-from petstore_api.components.schema import user as request_body_application_json_schema
 from .parameters import parameter_0
-
-
-AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
-
-from petstore_api.paths.fake_body_with_query_params.put.parameters.parameter_0 import schema as parameter_0_schema
-Properties = typing_extensions.TypedDict(
-    'Properties',
-    {
-        "query": typing.Type[parameter_0_schema.Schema],
-    }
-)
-
-
-class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
-
-    __required_keys__: typing.FrozenSet[str] = frozenset({
-        "query",
-    })
-    __optional_keys__: typing.FrozenSet[str] = frozenset({
-    })
-    
-    @property
-    def query(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("query")
-        )
-
-    def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return QueryParameters.validate(arg, configuration=configuration)
-QueryParametersDictInput = typing_extensions.TypedDict(
-    'QueryParametersDictInput',
-    {
-        "query": str,
-    }
-)
-
-
-@dataclasses.dataclass(frozen=True)
-class QueryParameters(
-    schemas.Schema[QueryParametersDict, tuple]
-):
-    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
-    required: typing.FrozenSet[str] = frozenset({
-        "query",
-    })
-    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
-    additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
-    type_to_output_cls: typing.Mapping[
-        typing.Type,
-        typing.Type
-    ] = dataclasses.field(
-        default_factory=lambda: {
-            schemas.immutabledict: QueryParametersDict
-        }
-    )
-
-    @classmethod
-    def validate(
-        cls,
-        arg: typing.Union[
-            QueryParametersDictInput,
-            QueryParametersDict,
-        ],
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> QueryParametersDict:
-        return super().validate_base(
-            arg,
-            configuration=configuration,
-        )
-
+from .query_parameters import QueryParameters, QueryParametersDictInput, QueryParametersDict
 query_parameter_classes = (
     parameter_0.Parameter0,
 )
@@ -109,8 +39,8 @@ class BaseApi(api_client.Api):
     def _body_with_query_params(
         self,
         body: typing.Union[
-            request_body_application_json_schema.UserDictInput,
-            request_body_application_json_schema.UserDict,
+            user.UserDictInput,
+            user.UserDict,
         ],
         query_params: typing.Union[
             QueryParametersDictInput,
@@ -128,8 +58,8 @@ class BaseApi(api_client.Api):
     def _body_with_query_params(
         self,
         body: typing.Union[
-            request_body_application_json_schema.UserDictInput,
-            request_body_application_json_schema.UserDict,
+            user.UserDictInput,
+            user.UserDict,
         ],
         query_params: typing.Union[
             QueryParametersDictInput,
@@ -146,8 +76,8 @@ class BaseApi(api_client.Api):
     def _body_with_query_params(
         self,
         body: typing.Union[
-            request_body_application_json_schema.UserDictInput,
-            request_body_application_json_schema.UserDict,
+            user.UserDictInput,
+            user.UserDict,
         ],
         query_params: typing.Union[
             QueryParametersDictInput,
@@ -169,16 +99,17 @@ class BaseApi(api_client.Api):
         used_path, query_params_suffix = self._get_used_path(
             path,
             query_parameters=query_parameter_classes,
-            query_params=query_params
+            query_params=query_params,
+            skip_validation=True
         )
-        _headers = self._get_headers()
+        headers = self._get_headers()
         # TODO add cookie handling
 
-        _fields, _body = self._get_fields_and_body(
+        fields, serialized_body = self._get_fields_and_body(
             request_body=request_body.RequestBody,
             body=body,
-            headers=_headers,
-            content_type=content_type
+            content_type=content_type,
+            headers=headers
         )
         host = self.api_client.configuration.get_server_url(
             "servers", server_index
@@ -189,9 +120,9 @@ class BaseApi(api_client.Api):
             query_params_suffix=query_params_suffix,
             method='put',
             host=host,
-            headers=_headers,
-            fields=_fields,
-            body=_body,
+            headers=headers,
+            fields=fields,
+            body=serialized_body,
             stream=stream,
             timeout=timeout,
         )

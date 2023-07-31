@@ -45,6 +45,7 @@ class ConfigurationTests(ApiTestMixin, unittest.TestCase):
         configuration = api_configuration.ApiConfiguration(security_scheme_info=security_scheme_info, server_info=server_info, server_index_info=server_index_info)
         client = ApiClient(configuration=configuration)
         api = pet_api.PetApi(client)
+        from petstore_api.components.request_bodies import request_body_pet
 
         with patch.object(ApiClient, 'request') as mock_request:
             mock_request.return_value = urllib3.HTTPResponse(status=200)

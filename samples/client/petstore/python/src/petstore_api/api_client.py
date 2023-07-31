@@ -385,6 +385,16 @@ _SERIALIZE_TYPES = typing.Union[
     schemas.immutabledict
 ]
 
+_JSON_TYPES = typing.Union[
+    int,
+    float,
+    str,
+    None,
+    bool,
+    typing.Tuple['_JSON_TYPES'],
+    schemas.immutabledict[str, '_JSON_TYPES'],
+]
+
 @dataclasses.dataclass
 class PathParameter(ParameterBase, StyleSimpleSerializer):
     name: str
@@ -1233,24 +1243,26 @@ class Api:
     @staticmethod
     def _get_fields_and_body(
         request_body: typing.Type[RequestBody],
-        body: typing.Any,
-        headers: _collections.HTTPHeaderDict,
-        content_type: str
+        body: typing.Union[schemas.INPUT_TYPES_ALL, schemas.Unset],
+        content_type: str,
+        headers: _collections.HTTPHeaderDict
     ):
         if request_body.required and body is schemas.unset:
             raise exceptions.ApiValueError(
                 'The required body parameter has an invalid value of: unset. Set a valid value instead')
-        _fields = None
-        _body = None
 
-        if request_body.required or ((not request_body.required) and body is not schemas.unset):
-            serialized_data = request_body.serialize(body, content_type)
-            headers.add('Content-Type', content_type)
-            if 'fields' in serialized_data:
-                _fields = serialized_data['fields']
-            elif 'body' in serialized_data:
-                _body = serialized_data['body']
-        return _fields, _body
+        if isinstance(body, schemas.Unset):
+            return None, None
+
+        serialized_fields = None
+        serialized_body = None
+        serialized_data = request_body.serialize(body, content_type)
+        headers.add('Content-Type', content_type)
+        if 'fields' in serialized_data:
+            serialized_fields = serialized_data['fields']
+        elif 'body' in serialized_data:
+            serialized_body = serialized_data['body']
+        return serialized_fields, serialized_body
 
     @staticmethod
     def _verify_response_status(response: api_response.ApiResponse):
@@ -1279,7 +1291,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
     @classmethod
     def __serialize_json(
         cls,
-        in_data: typing.Any
+        in_data: _JSON_TYPES
     ) -> SerializedRequestBody:
         in_data = cls.__json_encoder.default(in_data)
         json_str = json.dumps(in_data, separators=(",", ":"), ensure_ascii=False).encode(
@@ -1288,26 +1300,18 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         return {'body': json_str}
 
     @staticmethod
-    def __serialize_text_plain(in_data: typing.Any) -> SerializedRequestBody:
-        if in_data is None:
-            raise ValueError('Unable to serialize type None to text/plain')
-        elif isinstance(in_data, schemas.immutabledict):
-            raise ValueError('Unable to serialize type schemas.immutabledict to text/plain')
-        elif isinstance(in_data, tuple):
-            raise ValueError('Unable to serialize type tuple to text/plain')
-        elif isinstance(in_data, bool):
-            raise ValueError('Unable to serialize type bool to text/plain')
+    def __serialize_text_plain(in_data: typing.Union[int, float, str]) -> SerializedRequestBody:
         return {'body': str(in_data)}
 
     @classmethod
-    def __multipart_json_item(cls, key: str, value: schemas.Schema) -> rest.RequestField:
+    def __multipart_json_item(cls, key: str, value: _JSON_TYPES) -> rest.RequestField:
         json_value = cls.__json_encoder.default(value)
         request_field = rest.RequestField(name=key, data=json.dumps(json_value))
         request_field.make_multipart(content_type='application/json')
         return request_field
 
     @classmethod
-    def __multipart_form_item(cls, key: str, value: schemas.Schema) -> rest.RequestField:
+    def __multipart_form_item(cls, key: str, value: typing.Union[_JSON_TYPES, bytes, schemas.FileIO]) -> rest.RequestField:
         if isinstance(value, str):
             request_field = rest.RequestField(name=key, data=str(value))
             request_field.make_multipart(content_type='text/plain')
@@ -1316,8 +1320,8 @@ class RequestBody(StyleFormSerializer, JSONDetector):
             request_field.make_multipart(content_type='application/octet-stream')
         elif isinstance(value, schemas.FileIO):
             # TODO use content.encoding to limit allowed content types if they are present
-            request_field = rest.RequestField.from_tuples(key, (os.path.basename(str(value.name)), value.read()))
-            request_field = typing.cast(rest.RequestField, request_field)
+            urllib3_request_field = rest.RequestField.from_tuples(key, (os.path.basename(str(value.name)), value.read()))
+            request_field = typing.cast(rest.RequestField, urllib3_request_field)
             value.close()
         else:
             request_field = cls.__multipart_json_item(key=key, value=value)
@@ -1325,10 +1329,8 @@ class RequestBody(StyleFormSerializer, JSONDetector):
 
     @classmethod
     def __serialize_multipart_form_data(
-        cls, in_data: schemas.Schema
+        cls, in_data: schemas.immutabledict[str, typing.Union[_JSON_TYPES, bytes, schemas.FileIO]]
     ) -> SerializedRequestBody:
-        if not isinstance(in_data, schemas.immutabledict):
-            raise ValueError(f'Unable to serialize {in_data} to multipart/form-data because it is not a dict of data')
         """
         In a multipart/form-data request body, each schema property, or each element of a schema array property,
         takes a section in the payload with an internal header as defined by RFC7578. The serialization strategy
@@ -1371,21 +1373,18 @@ class RequestBody(StyleFormSerializer, JSONDetector):
 
     @classmethod
     def __serialize_application_x_www_form_data(
-        cls, in_data: typing.Any
+        cls, in_data: schemas.immutabledict[str, _JSON_TYPES]
     ) -> SerializedRequestBody:
         """
         POST submission of form data in body
         """
-        if not isinstance(in_data, schemas.immutabledict):
-            raise ValueError(
-                f'Unable to serialize {in_data} to application/x-www-form-urlencoded because it is not a dict of data')
         cast_in_data = cls.__json_encoder.default(in_data)
         value = cls._serialize_form(cast_in_data, name='', explode=True, percent_encode=True)
         return {'body': value}
 
     @classmethod
     def serialize(
-        cls, in_data: typing.Any, content_type: str
+        cls, in_data: schemas.INPUT_TYPES_ALL, content_type: str
     ) -> SerializedRequestBody:
         """
         If a str is returned then the result will be assigned to data when making the request
@@ -1403,15 +1402,24 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         # TODO check for and use encoding if it exists
         # and content_type is multipart or application/x-www-form-urlencoded
         if cls._content_type_is_json(content_type):
+            if isinstance(cast_in_data, (schemas.FileIO, bytes)):
+                raise ValueError(f"Invalid input data type. Data must be int/float/str/bool/None/tuple/immutabledict and it was type {type(cast_in_data)}")
             return cls.__serialize_json(cast_in_data)
         elif content_type == 'text/plain':
+            if not isinstance(cast_in_data, (int, float, str)):
+                raise ValueError(f"Unable to serialize type {type(cast_in_data)} to text/plain")
             return cls.__serialize_text_plain(cast_in_data)
         elif content_type == 'multipart/form-data':
+            if not isinstance(cast_in_data, schemas.immutabledict):
+                raise ValueError(f"Unable to serialize {cast_in_data} to multipart/form-data because it is not a dict of data")
             return cls.__serialize_multipart_form_data(cast_in_data)
         elif content_type == 'application/x-www-form-urlencoded':
+            if not isinstance(cast_in_data, schemas.immutabledict):
+                raise ValueError(
+                    f"Unable to serialize {cast_in_data} to application/x-www-form-urlencoded because it is not a dict of data")
             return cls.__serialize_application_x_www_form_data(cast_in_data)
         elif content_type == 'application/octet-stream':
             if not isinstance(cast_in_data, (schemas.FileIO, bytes)):
-                raise ValueError(f'Invalid input data type. Data must be bytes or File for content_type={content_type}')
+                raise ValueError(f"Invalid input data type. Data must be bytes or File for content_type={content_type}")
             return cls.__serialize_application_octet_stream(cast_in_data)
         raise NotImplementedError('Serialization has not yet been implemented for {}'.format(content_type))

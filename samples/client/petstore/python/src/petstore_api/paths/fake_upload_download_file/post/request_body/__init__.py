@@ -8,6 +8,7 @@ from petstore_api.shared_imports.header_imports import *  # pyright: ignore [rep
 
 from .content.application_octet_stream import schema as application_octet_stream_schema
 
+
 class RequestBody(api_client.RequestBody):
 
 

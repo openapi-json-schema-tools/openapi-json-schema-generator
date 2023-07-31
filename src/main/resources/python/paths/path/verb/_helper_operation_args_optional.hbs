@@ -1,6 +1,6 @@
 {{#if requestBody}}
     {{#unless requestBody.getSelfOrDeepestRef.required}}
-{{> paths/path/verb/_helper_operation_args_body fullRefModule=null requiredValue=false }}
+{{> paths/path/verb/_helper_operation_args_body fullRefModule=null bodyOptional=true }}
     {{/unless}}
 {{/if}}
 {{#if pathParameters}}

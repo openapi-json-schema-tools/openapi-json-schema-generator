@@ -2,9 +2,17 @@
     {{#if refInfo.refModule}}
         {{#with refInfo.ref}}
             {{#eq fullRefModule "" }}
+                {{#if ../refInfo.refModuleAlias}}
+{{> components/schemas/_helper_schema_input_ref_type fullRefModule=../refInfo.refModuleAlias }}
+                {{else}}
 {{> components/schemas/_helper_schema_input_ref_type fullRefModule=../refInfo.refModule }}
+                {{/if}}
             {{else}}
+                {{#if ../refInfo.refModuleAlias}}
+{{> components/schemas/_helper_schema_input_ref_type fullRefModule=(join fullRefModule ../refInfo.refModuleAlias ".") }}
+                {{else}}
 {{> components/schemas/_helper_schema_input_ref_type fullRefModule=(join fullRefModule ../refInfo.refModule ".") }}
+                {{/if}}
             {{/eq}}
         {{/with}}
     {{else}}
