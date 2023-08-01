@@ -34,7 +34,7 @@ from this_package.configurations import api_configuration, schema_configuration 
 class JSONEncoder(json.JSONEncoder):
     compact_separators = (',', ':')
 
-    def default(self, obj):
+    def default(self, obj: typing.Any):
         if isinstance(obj, str):
             return str(obj)
         elif isinstance(obj, float):
@@ -44,7 +44,7 @@ class JSONEncoder(json.JSONEncoder):
             return obj
         elif isinstance(obj, int):
             return obj
-        elif isinstance(obj, schemas.none_type_):
+        elif obj is None:
             return None
         elif isinstance(obj, (dict, schemas.immutabledict)):
             return {key: self.default(val) for key, val in obj.items()}
@@ -391,7 +391,7 @@ _JSON_TYPES = typing.Union[
     str,
     None,
     bool,
-    typing.Tuple['_JSON_TYPES'],
+    typing.Tuple['_JSON_TYPES', ...],
     schemas.immutabledict[str, '_JSON_TYPES'],
 ]
 

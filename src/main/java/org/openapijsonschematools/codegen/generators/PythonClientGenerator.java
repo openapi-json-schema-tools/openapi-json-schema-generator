@@ -707,7 +707,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         supportingFiles.add(new SupportingFile("schemas/schema.hbs", packagePath() + File.separator + "schemas", "schema.py"));
         supportingFiles.add(new SupportingFile("schemas/schemas.hbs", packagePath() + File.separator + "schemas", "schemas.py"));
         supportingFiles.add(new SupportingFile("schemas/format.hbs", packagePath() + File.separator + "schemas", "format.py"));
-        supportingFiles.add(new SupportingFile("schemas/original_immutabledict.hbs", packagePath() + File.separator + "schemas", "original_immutabledict.py"));
         supportingFiles.add(new SupportingFile("security_schemes.hbs", packagePath(), "security_schemes.py"));
         supportingFiles.add(new SupportingFile("server.hbs", packagePath(), "server.py"));
 
