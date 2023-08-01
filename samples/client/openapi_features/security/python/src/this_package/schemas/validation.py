@@ -17,13 +17,13 @@ import types
 import typing
 import uuid
 
+import immutabledict as original_immutabledict
 import typing_extensions
 
 from this_package import exceptions
 from this_package.configurations import schema_configuration
 
 from . import format
-import immutabledict as original_immutabledict
 
 _K = typing.TypeVar('_K')
 _V = typing.TypeVar('_V', covariant=True)

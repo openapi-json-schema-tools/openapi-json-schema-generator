@@ -17,13 +17,13 @@ import types
 import typing
 import uuid
 
+import immutabledict as original_immutabledict
 import typing_extensions
 
 from petstore_api import exceptions
 from petstore_api.configurations import schema_configuration
 
 from . import format
-import immutabledict as original_immutabledict
 
 _K = typing.TypeVar('_K')
 _V = typing.TypeVar('_V', covariant=True)
