@@ -61,8 +61,31 @@ class ObjectWithInlineCompositionPropertyDict(schemas.immutabledict[str, schemas
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 
-    def __new__(cls, arg: ObjectWithInlineCompositionPropertyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: ObjectWithInlineCompositionPropertyDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectWithInlineCompositionPropertyDict:
         return ObjectWithInlineCompositionProperty.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        someProp: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_ = {}
+        for key, val in (
+            ("someProp", someProp),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        return ObjectWithInlineCompositionProperty.validate(arg_, configuration=configuration_)
 ObjectWithInlineCompositionPropertyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

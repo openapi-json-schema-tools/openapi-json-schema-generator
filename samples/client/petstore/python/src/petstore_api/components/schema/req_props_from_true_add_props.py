@@ -39,8 +39,24 @@ class ReqPropsFromTrueAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BAS
             val
         )
 
-    def __new__(cls, arg: ReqPropsFromTrueAddPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: ReqPropsFromTrueAddPropsDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ReqPropsFromTrueAddPropsDict:
         return ReqPropsFromTrueAddProps.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        validName,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_ = {
+            "validName": validName,
+        }
+        arg_.update(kwargs)
+        return ReqPropsFromTrueAddProps.validate(arg_, configuration=configuration_)
 ReqPropsFromTrueAddPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

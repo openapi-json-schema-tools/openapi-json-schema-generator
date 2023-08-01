@@ -54,8 +54,36 @@ class ReadOnlyFirstDict(schemas.immutabledict[str, str]):
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 
-    def __new__(cls, arg: ReadOnlyFirstDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: ReadOnlyFirstDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ReadOnlyFirstDict:
         return ReadOnlyFirst.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        bar: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        baz: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_ = {}
+        for key, val in (
+            ("bar", bar),
+            ("baz", baz),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        return ReadOnlyFirst.validate(arg_, configuration=configuration_)
 ReadOnlyFirstDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

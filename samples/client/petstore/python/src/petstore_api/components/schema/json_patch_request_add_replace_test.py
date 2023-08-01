@@ -136,8 +136,26 @@ class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, str]):
             self.__getitem__("value")
         )
 
-    def __new__(cls, arg: JSONPatchRequestAddReplaceTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: JSONPatchRequestAddReplaceTestDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> JSONPatchRequestAddReplaceTestDict:
         return JSONPatchRequestAddReplaceTest.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        op,
+        path,
+        value,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_ = {
+            "op": op,
+            "path": path,
+            "value": value,
+        }
+        return JSONPatchRequestAddReplaceTest.validate(arg_, configuration=configuration_)
 JSONPatchRequestAddReplaceTestDictInput = typing_extensions.TypedDict(
     'JSONPatchRequestAddReplaceTestDictInput',
     {

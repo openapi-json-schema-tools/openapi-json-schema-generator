@@ -441,8 +441,115 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 
-    def __new__(cls, arg: FormatTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: FormatTestDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> FormatTestDict:
         return FormatTest.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        byte,
+        date,
+        number,
+        password,
+        integer: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        int32: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        int32withValidations: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        int64: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        float32: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        double: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        float64: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        arrayWithUniqueItems: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        string: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        binary: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        dateTime: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        uuid: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        uuidNoExample: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        pattern_with_digits: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        pattern_with_digits_and_delimiter: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        noneProp: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_ = {
+            "byte": byte,
+            "date": date,
+            "number": number,
+            "password": password,
+        }
+        for key, val in (
+            ("integer", integer),
+            ("int32", int32),
+            ("int32withValidations", int32withValidations),
+            ("int64", int64),
+            ("float32", float32),
+            ("double", double),
+            ("float64", float64),
+            ("arrayWithUniqueItems", arrayWithUniqueItems),
+            ("string", string),
+            ("binary", binary),
+            ("dateTime", dateTime),
+            ("uuid", uuid),
+            ("uuidNoExample", uuidNoExample),
+            ("pattern_with_digits", pattern_with_digits),
+            ("pattern_with_digits_and_delimiter", pattern_with_digits_and_delimiter),
+            ("noneProp", noneProp),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        return FormatTest.validate(arg_, configuration=configuration_)
 FormatTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

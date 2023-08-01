@@ -61,8 +61,32 @@ class NoAdditionalPropertiesDict(schemas.immutabledict[str, int]):
             val
         )
 
-    def __new__(cls, arg: NoAdditionalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: NoAdditionalPropertiesDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> NoAdditionalPropertiesDict:
         return NoAdditionalProperties.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        id,
+        petId: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_ = {
+            "id": id,
+        }
+        for key, val in (
+            ("petId", petId),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        return NoAdditionalProperties.validate(arg_, configuration=configuration_)
 
 
 class NoAdditionalPropertiesDictInput(NoAdditionalPropertiesRequiredDictInput, NoAdditionalPropertiesOptionalDictInput):

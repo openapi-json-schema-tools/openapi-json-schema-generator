@@ -48,8 +48,31 @@ class ObjectWithNonIntersectingValuesDict(schemas.immutabledict[str, schemas.OUT
             val
         )
 
-    def __new__(cls, arg: ObjectWithNonIntersectingValuesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: ObjectWithNonIntersectingValuesDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectWithNonIntersectingValuesDict:
         return ObjectWithNonIntersectingValues.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        a: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Any,
+    ):
+        arg_ = {}
+        for key, val in (
+            ("a", a),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        return ObjectWithNonIntersectingValues.validate(arg_, configuration=configuration_)
 ObjectWithNonIntersectingValuesDictInput = typing.Mapping[
     str,
     typing.Union[

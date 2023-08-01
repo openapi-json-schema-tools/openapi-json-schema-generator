@@ -30,7 +30,18 @@ class StringBooleanMapDict(schemas.immutabledict[str, bool]):
             val
         )
 
-    def __new__(cls, arg: StringBooleanMapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Any,
+    ):
+        return StringBooleanMap.validate(kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: StringBooleanMapDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> StringBooleanMapDict:
         return StringBooleanMap.validate(arg, configuration=configuration)
 StringBooleanMapDictInput = typing.Mapping[
     str,

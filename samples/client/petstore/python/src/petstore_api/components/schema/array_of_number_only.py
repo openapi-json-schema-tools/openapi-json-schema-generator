@@ -97,8 +97,31 @@ class ArrayOfNumberOnlyDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTP
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 
-    def __new__(cls, arg: ArrayOfNumberOnlyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: ArrayOfNumberOnlyDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ArrayOfNumberOnlyDict:
         return ArrayOfNumberOnly.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        ArrayNumber: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_ = {}
+        for key, val in (
+            ("ArrayNumber", ArrayNumber),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        return ArrayOfNumberOnly.validate(arg_, configuration=configuration_)
 ArrayOfNumberOnlyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

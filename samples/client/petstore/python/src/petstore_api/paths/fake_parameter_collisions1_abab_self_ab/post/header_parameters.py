@@ -47,8 +47,29 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             val
         )
 
-    def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: HeaderParametersDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> HeaderParametersDict:
         return HeaderParameters.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        aB: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_ = {}
+        for key, val in (
+            ("aB", aB),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        return HeaderParameters.validate(arg_, configuration=configuration_)
 HeaderParametersDictInput = typing_extensions.TypedDict(
     'HeaderParametersDictInput',
     {

@@ -45,8 +45,24 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             self.__getitem__("username")
         )
 
-    def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: QueryParametersDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> QueryParametersDict:
         return QueryParameters.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        password,
+        username,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_ = {
+            "password": password,
+            "username": username,
+        }
+        return QueryParameters.validate(arg_, configuration=configuration_)
 QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {

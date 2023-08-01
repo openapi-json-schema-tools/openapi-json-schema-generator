@@ -4,7 +4,100 @@ def __new__(cls, arg: {{arrayInputJsonPathPiece.camelCase}}, configuration: typi
     return {{jsonPathPiece.camelCase}}.validate(arg, configuration=configuration)
 {{else}}
     {{#eq instanceType "propertiesOutputType" }}
-def __new__(cls, arg: {{mapInputJsonPathPiece.camelCase}}, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        {{#or requiredProperties optionalProperties}}
+@staticmethod
+def from_dict_(
+    arg: {{mapInputJsonPathPiece.camelCase}},
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+) -> {{mapOutputJsonPathPiece.camelCase}}:
     return {{jsonPathPiece.camelCase}}.validate(arg, configuration=configuration)
+
+def __new__(
+    cls,
+            {{#each requiredProperties}}
+                {{#if @key.isValid}}
+    {{@key.original}},
+                {{/if}}
+            {{/each}}
+            {{#each optionalProperties}}
+                {{#if @key.isValid}}
+    {{@key.original}}: typing.Union[
+        schemas.Unset,
+        typing.Any
+    ] = schemas.unset,
+                {{/if}}
+            {{/each}}
+    configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+            {{#if additionalProperties}}
+                {{#if additionalProperties.isBooleanSchemaFalse}}
+                {{else}}
+                    {{#if additionalProperties.isBooleanSchemaTrue}}
+    **kwargs: schemas.INPUT_TYPES_ALL,
+                    {{else}}
+    **kwargs: typing.Any,
+                    {{/if}}
+                {{/if}}
+            {{else}}
+    **kwargs: schemas.INPUT_TYPES_ALL,
+            {{/if}}
+):
+            {{#if requiredProperties}}
+    arg_ = {
+                {{#each requiredProperties}}
+                    {{#if @key.isValid}}
+        "{{@key.original}}": {{@key.original}},
+                    {{/if}}
+                {{/each}}
+    }
+            {{else}}
+    arg_ = {}
+            {{/if}}
+            {{#and optionalProperties optionalProperties.hasValidKey}}
+    for key, val in (
+                {{#each optionalProperties}}
+                    {{#if @key.isValid}}
+        ("{{@key.original}}", {{@key.original}}),
+                    {{/if}}
+                {{/each}}
+    ):
+        if isinstance(val, schemas.Unset):
+            continue
+        arg_[key] = val
+            {{/and}}
+            {{#if additionalProperties}}
+                {{#unless additionalProperties.isBooleanSchemaFalse}}
+    arg_.update(kwargs)
+                {{/unless}}
+            {{else}}
+    arg_.update(kwargs)
+            {{/if}}
+    return {{jsonPathPiece.camelCase}}.validate(arg_, configuration=configuration_)
+        {{else}}
+            {{! only addProps}}
+def __new__(
+    cls,
+    configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+            {{#if additionalProperties}}
+                {{#if additionalProperties.isBooleanSchemaFalse}}
+                {{else}}
+                    {{#if additionalProperties.isBooleanSchemaTrue}}
+    **kwargs: schemas.INPUT_TYPES_ALL,
+                    {{else}}
+    **kwargs: typing.Any,
+                    {{/if}}
+                {{/if}}
+            {{else}}
+    **kwargs: schemas.INPUT_TYPES_ALL,
+            {{/if}}
+):
+    return {{jsonPathPiece.camelCase}}.validate(kwargs, configuration=configuration_)
+
+@staticmethod
+def from_dict_(
+    arg: {{mapInputJsonPathPiece.camelCase}},
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+) -> {{mapOutputJsonPathPiece.camelCase}}:
+    return {{jsonPathPiece.camelCase}}.validate(arg, configuration=configuration)
+        {{/or}}
     {{/eq}}
 {{/eq}}

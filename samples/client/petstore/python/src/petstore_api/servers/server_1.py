@@ -99,8 +99,22 @@ class VariablesDict(schemas.immutabledict[str, str]):
             self.__getitem__("version")
         )
 
-    def __new__(cls, arg: VariablesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: VariablesDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> VariablesDict:
         return Variables.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        version,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_ = {
+            "version": version,
+        }
+        return Variables.validate(arg_, configuration=configuration_)
 VariablesDictInput = typing_extensions.TypedDict(
     'VariablesDictInput',
     {

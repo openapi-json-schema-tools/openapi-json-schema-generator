@@ -48,8 +48,26 @@ class SchemaDict(schemas.immutabledict[str, str]):
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 
-    def __new__(cls, arg: SchemaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: SchemaDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SchemaDict:
         return Schema.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        param,
+        param2,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_ = {
+            "param": param,
+            "param2": param2,
+        }
+        arg_.update(kwargs)
+        return Schema.validate(arg_, configuration=configuration_)
 SchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

@@ -81,7 +81,18 @@ class AdditionalPropertiesWithArrayOfEnumsDict(schemas.immutabledict[str, typing
             val
         )
 
-    def __new__(cls, arg: AdditionalPropertiesWithArrayOfEnumsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Any,
+    ):
+        return AdditionalPropertiesWithArrayOfEnums.validate(kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: AdditionalPropertiesWithArrayOfEnumsDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AdditionalPropertiesWithArrayOfEnumsDict:
         return AdditionalPropertiesWithArrayOfEnums.validate(arg, configuration=configuration)
 AdditionalPropertiesWithArrayOfEnumsDictInput = typing.Mapping[
     str,

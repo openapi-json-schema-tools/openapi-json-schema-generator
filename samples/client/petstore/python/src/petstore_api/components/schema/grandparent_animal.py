@@ -38,8 +38,24 @@ class GrandparentAnimalDict(schemas.immutabledict[str, str]):
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 
-    def __new__(cls, arg: GrandparentAnimalDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: GrandparentAnimalDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> GrandparentAnimalDict:
         return GrandparentAnimal.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        pet_type,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_ = {
+            "pet_type": pet_type,
+        }
+        arg_.update(kwargs)
+        return GrandparentAnimal.validate(arg_, configuration=configuration_)
 GrandparentAnimalDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

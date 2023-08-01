@@ -30,7 +30,18 @@ class SchemaDict(schemas.immutabledict[str, int]):
             val
         )
 
-    def __new__(cls, arg: SchemaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Any,
+    ):
+        return Schema.validate(kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: SchemaDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SchemaDict:
         return Schema.validate(arg, configuration=configuration)
 SchemaDictInput = typing.Mapping[
     str,

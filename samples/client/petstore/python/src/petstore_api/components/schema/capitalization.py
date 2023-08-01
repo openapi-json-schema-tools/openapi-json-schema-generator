@@ -106,8 +106,56 @@ class CapitalizationDict(schemas.immutabledict[str, str]):
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 
-    def __new__(cls, arg: CapitalizationDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: CapitalizationDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> CapitalizationDict:
         return Capitalization.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        smallCamel: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        CapitalCamel: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        small_Snake: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        Capital_Snake: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        SCA_ETH_Flow_Points: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        ATT_NAME: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_ = {}
+        for key, val in (
+            ("smallCamel", smallCamel),
+            ("CapitalCamel", CapitalCamel),
+            ("small_Snake", small_Snake),
+            ("Capital_Snake", Capital_Snake),
+            ("SCA_ETH_Flow_Points", SCA_ETH_Flow_Points),
+            ("ATT_NAME", ATT_NAME),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        return Capitalization.validate(arg_, configuration=configuration_)
 CapitalizationDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

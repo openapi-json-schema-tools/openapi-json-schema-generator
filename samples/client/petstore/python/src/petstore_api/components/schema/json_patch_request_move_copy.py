@@ -115,8 +115,24 @@ class JSONPatchRequestMoveCopyDict(schemas.immutabledict[str, str]):
             self.__getitem__("path")
         )
 
-    def __new__(cls, arg: JSONPatchRequestMoveCopyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: JSONPatchRequestMoveCopyDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> JSONPatchRequestMoveCopyDict:
         return JSONPatchRequestMoveCopy.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        op,
+        path,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_ = {
+            "op": op,
+            "path": path,
+        }
+        return JSONPatchRequestMoveCopy.validate(arg_, configuration=configuration_)
 JSONPatchRequestMoveCopyDictInput = typing_extensions.TypedDict(
     'JSONPatchRequestMoveCopyDictInput',
     {

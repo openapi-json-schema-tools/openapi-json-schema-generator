@@ -117,8 +117,39 @@ class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 
-    def __new__(cls, arg: WhaleDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: WhaleDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> WhaleDict:
         return Whale.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        className,
+        hasBaleen: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        hasTeeth: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_ = {
+            "className": className,
+        }
+        for key, val in (
+            ("hasBaleen", hasBaleen),
+            ("hasTeeth", hasTeeth),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        return Whale.validate(arg_, configuration=configuration_)
 WhaleDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

@@ -45,8 +45,24 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             self.__getitem__("currency")
         )
 
-    def __new__(cls, arg: MoneyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: MoneyDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> MoneyDict:
         return Money.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        amount,
+        currency,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_ = {
+            "amount": amount,
+            "currency": currency,
+        }
+        return Money.validate(arg_, configuration=configuration_)
 MoneyDictInput = typing_extensions.TypedDict(
     'MoneyDictInput',
     {

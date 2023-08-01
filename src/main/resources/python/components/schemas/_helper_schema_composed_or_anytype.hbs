@@ -32,7 +32,7 @@ class {{jsonPathPiece.camelCase}}(
 {{/if}}
 {{#if enumInfo}}
     {{> components/schemas/_helper_schema_enum }}
-    enums = {{enumInfo.valueToName.jsonPathPiece.camelCase}}
+    enums = {{enumInfo.jsonPathPiece.camelCase}}
 {{/if}}
 {{#if items}}
     {{> components/schemas/_helper_list_partial }}

@@ -48,8 +48,26 @@ class ObjectModelWithArgAndArgsPropertiesDict(schemas.immutabledict[str, str]):
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 
-    def __new__(cls, arg: ObjectModelWithArgAndArgsPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: ObjectModelWithArgAndArgsPropertiesDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectModelWithArgAndArgsPropertiesDict:
         return ObjectModelWithArgAndArgsProperties.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        arg,
+        args,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_ = {
+            "arg": arg,
+            "args": args,
+        }
+        arg_.update(kwargs)
+        return ObjectModelWithArgAndArgsProperties.validate(arg_, configuration=configuration_)
 ObjectModelWithArgAndArgsPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

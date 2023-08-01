@@ -169,8 +169,46 @@ class DrawingDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TY
             val
         )
 
-    def __new__(cls, arg: DrawingDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: DrawingDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> DrawingDict:
         return Drawing.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        mainShape: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        shapeOrNull: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        nullableShape: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        shapes: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Any,
+    ):
+        arg_ = {}
+        for key, val in (
+            ("mainShape", mainShape),
+            ("shapeOrNull", shapeOrNull),
+            ("nullableShape", nullableShape),
+            ("shapes", shapes),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        return Drawing.validate(arg_, configuration=configuration_)
 DrawingDictInput = typing.Mapping[
     str,
     typing.Union[

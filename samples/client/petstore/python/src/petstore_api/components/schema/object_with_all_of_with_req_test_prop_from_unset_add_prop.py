@@ -49,8 +49,34 @@ class _1Dict(schemas.immutabledict[str, str]):
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 
-    def __new__(cls, arg: _1DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: _1DictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> _1Dict:
         return _1.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        test,
+        name: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_ = {
+            "test": test,
+        }
+        for key, val in (
+            ("name", name),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        return _1.validate(arg_, configuration=configuration_)
 _1DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

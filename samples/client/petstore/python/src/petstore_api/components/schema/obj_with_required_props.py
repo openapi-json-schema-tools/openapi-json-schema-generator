@@ -38,8 +38,24 @@ class ObjWithRequiredPropsDict(schemas.immutabledict[str, str]):
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 
-    def __new__(cls, arg: ObjWithRequiredPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: ObjWithRequiredPropsDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjWithRequiredPropsDict:
         return ObjWithRequiredProps.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        a,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_ = {
+            "a": a,
+        }
+        arg_.update(kwargs)
+        return ObjWithRequiredProps.validate(arg_, configuration=configuration_)
 ObjWithRequiredPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

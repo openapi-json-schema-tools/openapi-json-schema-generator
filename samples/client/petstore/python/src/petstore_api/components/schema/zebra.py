@@ -192,8 +192,34 @@ class ZebraDict(schemas.immutabledict[str, str]):
             val
         )
 
-    def __new__(cls, arg: ZebraDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: ZebraDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ZebraDict:
         return Zebra.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        className,
+        type: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_ = {
+            "className": className,
+        }
+        for key, val in (
+            ("type", type),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        return Zebra.validate(arg_, configuration=configuration_)
 ZebraDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

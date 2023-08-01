@@ -30,8 +30,11 @@ _V = typing.TypeVar('_V', covariant=True)
 
 
 class immutabledict(typing.Generic[_K, _V], original_immutabledict.immutabledict[_K, _V]):
+    """
+    comment out so new signature will be correct
     def __init__(self, arg: typing.Any, **kwargs: typing.Any):
         super().__init__(arg)  # needed to omit passing on kwargs
+    """
 
 
 @dataclasses.dataclass

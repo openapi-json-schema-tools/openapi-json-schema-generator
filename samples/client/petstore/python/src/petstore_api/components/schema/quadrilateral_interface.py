@@ -101,8 +101,26 @@ class QuadrilateralInterfaceDict(schemas.immutabledict[str, str]):
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 
-    def __new__(cls, arg: QuadrilateralInterfaceDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: QuadrilateralInterfaceDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> QuadrilateralInterfaceDict:
         return QuadrilateralInterface.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        quadrilateralType,
+        shapeType,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_ = {
+            "quadrilateralType": quadrilateralType,
+            "shapeType": shapeType,
+        }
+        arg_.update(kwargs)
+        return QuadrilateralInterface.validate(arg_, configuration=configuration_)
 QuadrilateralInterfaceDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

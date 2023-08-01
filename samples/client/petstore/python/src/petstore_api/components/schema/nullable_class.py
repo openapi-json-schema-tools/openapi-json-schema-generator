@@ -573,7 +573,18 @@ class ObjectNullablePropDict(schemas.immutabledict[str, schemas.immutabledict[st
             val
         )
 
-    def __new__(cls, arg: ObjectNullablePropDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Any,
+    ):
+        return ObjectNullableProp.validate(kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: ObjectNullablePropDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectNullablePropDict:
         return ObjectNullableProp.validate(arg, configuration=configuration)
 ObjectNullablePropDictInput = typing.Mapping[
     str,
@@ -694,7 +705,18 @@ class ObjectAndItemsNullablePropDict(schemas.immutabledict[str, typing.Union[
             val
         )
 
-    def __new__(cls, arg: ObjectAndItemsNullablePropDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Any,
+    ):
+        return ObjectAndItemsNullableProp.validate(kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: ObjectAndItemsNullablePropDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectAndItemsNullablePropDict:
         return ObjectAndItemsNullableProp.validate(arg, configuration=configuration)
 ObjectAndItemsNullablePropDictInput = typing.Mapping[
     str,
@@ -816,7 +838,18 @@ class ObjectItemsNullableDict(schemas.immutabledict[str, typing.Union[
             val
         )
 
-    def __new__(cls, arg: ObjectItemsNullableDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Any,
+    ):
+        return ObjectItemsNullable.validate(kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: ObjectItemsNullableDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectItemsNullableDict:
         return ObjectItemsNullable.validate(arg, configuration=configuration)
 ObjectItemsNullableDictInput = typing.Mapping[
     str,
@@ -1091,8 +1124,86 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             val
         )
 
-    def __new__(cls, arg: NullableClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: NullableClassDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> NullableClassDict:
         return NullableClass.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        integer_prop: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        number_prop: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        boolean_prop: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        string_prop: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        date_prop: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        datetime_prop: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        array_nullable_prop: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        array_and_items_nullable_prop: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        array_items_nullable: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        object_nullable_prop: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        object_and_items_nullable_prop: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        object_items_nullable: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Any,
+    ):
+        arg_ = {}
+        for key, val in (
+            ("integer_prop", integer_prop),
+            ("number_prop", number_prop),
+            ("boolean_prop", boolean_prop),
+            ("string_prop", string_prop),
+            ("date_prop", date_prop),
+            ("datetime_prop", datetime_prop),
+            ("array_nullable_prop", array_nullable_prop),
+            ("array_and_items_nullable_prop", array_and_items_nullable_prop),
+            ("array_items_nullable", array_items_nullable),
+            ("object_nullable_prop", object_nullable_prop),
+            ("object_and_items_nullable_prop", object_and_items_nullable_prop),
+            ("object_items_nullable", object_items_nullable),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        return NullableClass.validate(arg_, configuration=configuration_)
 NullableClassDictInput = typing.Mapping[
     str,
     typing.Union[

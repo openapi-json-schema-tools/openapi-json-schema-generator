@@ -46,8 +46,31 @@ class SelfReferencingObjectModelDict(schemas.immutabledict[str, schemas.OUTPUT_B
             val
         )
 
-    def __new__(cls, arg: SelfReferencingObjectModelDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: SelfReferencingObjectModelDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SelfReferencingObjectModelDict:
         return SelfReferencingObjectModel.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        selfRef: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Any,
+    ):
+        arg_ = {}
+        for key, val in (
+            ("selfRef", selfRef),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        return SelfReferencingObjectModel.validate(arg_, configuration=configuration_)
 SelfReferencingObjectModelDictInput = typing.Mapping[
     str,
     typing.Union[

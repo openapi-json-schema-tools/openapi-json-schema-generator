@@ -30,7 +30,18 @@ class AddressDict(schemas.immutabledict[str, int]):
             val
         )
 
-    def __new__(cls, arg: AddressDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Any,
+    ):
+        return Address.validate(kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: AddressDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AddressDict:
         return Address.validate(arg, configuration=configuration)
 AddressDictInput = typing.Mapping[
     str,

@@ -30,7 +30,18 @@ class AdditionalPropertiesDict(schemas.immutabledict[str, str]):
             val
         )
 
-    def __new__(cls, arg: AdditionalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Any,
+    ):
+        return AdditionalProperties.validate(kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: AdditionalPropertiesDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AdditionalPropertiesDict:
         return AdditionalProperties.validate(arg, configuration=configuration)
 AdditionalPropertiesDictInput = typing.Mapping[
     str,
@@ -86,7 +97,18 @@ class MapMapOfStringDict(schemas.immutabledict[str, schemas.immutabledict[str, s
             val
         )
 
-    def __new__(cls, arg: MapMapOfStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Any,
+    ):
+        return MapMapOfString.validate(kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: MapMapOfStringDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> MapMapOfStringDict:
         return MapMapOfString.validate(arg, configuration=configuration)
 MapMapOfStringDictInput = typing.Mapping[
     str,
@@ -214,7 +236,18 @@ class MapOfEnumStringDict(schemas.immutabledict[str, str]):
             val
         )
 
-    def __new__(cls, arg: MapOfEnumStringDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Any,
+    ):
+        return MapOfEnumString.validate(kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: MapOfEnumStringDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> MapOfEnumStringDict:
         return MapOfEnumString.validate(arg, configuration=configuration)
 MapOfEnumStringDictInput = typing.Mapping[
     str,
@@ -271,7 +304,18 @@ class DirectMapDict(schemas.immutabledict[str, bool]):
             val
         )
 
-    def __new__(cls, arg: DirectMapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Any,
+    ):
+        return DirectMap.validate(kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: DirectMapDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> DirectMapDict:
         return DirectMap.validate(arg, configuration=configuration)
 DirectMapDictInput = typing.Mapping[
     str,
@@ -375,8 +419,46 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 
-    def __new__(cls, arg: MapTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: MapTestDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> MapTestDict:
         return MapTest.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        map_map_of_string: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        map_of_enum_string: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        direct_map: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        indirect_map: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_ = {}
+        for key, val in (
+            ("map_map_of_string", map_map_of_string),
+            ("map_of_enum_string", map_of_enum_string),
+            ("direct_map", direct_map),
+            ("indirect_map", indirect_map),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        return MapTest.validate(arg_, configuration=configuration_)
 MapTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

@@ -98,8 +98,24 @@ class JSONPatchRequestRemoveDict(schemas.immutabledict[str, str]):
             self.__getitem__("path")
         )
 
-    def __new__(cls, arg: JSONPatchRequestRemoveDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: JSONPatchRequestRemoveDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> JSONPatchRequestRemoveDict:
         return JSONPatchRequestRemove.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        op,
+        path,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_ = {
+            "op": op,
+            "path": path,
+        }
+        return JSONPatchRequestRemove.validate(arg_, configuration=configuration_)
 JSONPatchRequestRemoveDictInput = typing_extensions.TypedDict(
     'JSONPatchRequestRemoveDictInput',
     {

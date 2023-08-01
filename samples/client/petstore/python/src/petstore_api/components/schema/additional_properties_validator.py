@@ -30,7 +30,18 @@ class _0Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             val
         )
 
-    def __new__(cls, arg: _0DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        return _0.validate(kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: _0DictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> _0Dict:
         return _0.validate(arg, configuration=configuration)
 _0DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
@@ -92,7 +103,18 @@ class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             val
         )
 
-    def __new__(cls, arg: _1DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Any,
+    ):
+        return _1.validate(kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: _1DictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> _1Dict:
         return _1.validate(arg, configuration=configuration)
 _1DictInput = typing.Mapping[
     str,
@@ -173,7 +195,18 @@ class _2Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             val
         )
 
-    def __new__(cls, arg: _2DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Any,
+    ):
+        return _2.validate(kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: _2DictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> _2Dict:
         return _2.validate(arg, configuration=configuration)
 _2DictInput = typing.Mapping[
     str,

@@ -36,8 +36,22 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             self.__getitem__("petId")
         )
 
-    def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: PathParametersDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> PathParametersDict:
         return PathParameters.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        petId,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_ = {
+            "petId": petId,
+        }
+        return PathParameters.validate(arg_, configuration=configuration_)
 PathParametersDictInput = typing_extensions.TypedDict(
     'PathParametersDictInput',
     {

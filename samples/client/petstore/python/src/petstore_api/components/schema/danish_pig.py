@@ -91,8 +91,24 @@ class DanishPigDict(schemas.immutabledict[str, str]):
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 
-    def __new__(cls, arg: DanishPigDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: DanishPigDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> DanishPigDict:
         return DanishPig.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        className,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_ = {
+            "className": className,
+        }
+        arg_.update(kwargs)
+        return DanishPig.validate(arg_, configuration=configuration_)
 DanishPigDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

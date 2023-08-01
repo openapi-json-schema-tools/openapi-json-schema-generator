@@ -32,7 +32,18 @@ class MapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             val
         )
 
-    def __new__(cls, arg: MapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Any,
+    ):
+        return Map.validate(kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: MapDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> MapDict:
         return Map.validate(arg, configuration=configuration)
 MapDictInput = typing.Mapping[
     str,
@@ -127,8 +138,41 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 
-    def __new__(cls, arg: MixedPropertiesAndAdditionalPropertiesClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: MixedPropertiesAndAdditionalPropertiesClassDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> MixedPropertiesAndAdditionalPropertiesClassDict:
         return MixedPropertiesAndAdditionalPropertiesClass.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        uuid: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        dateTime: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        map: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_ = {}
+        for key, val in (
+            ("uuid", uuid),
+            ("dateTime", dateTime),
+            ("map", map),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        return MixedPropertiesAndAdditionalPropertiesClass.validate(arg_, configuration=configuration_)
 MixedPropertiesAndAdditionalPropertiesClassDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

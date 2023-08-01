@@ -52,8 +52,36 @@ class PlayerDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 
-    def __new__(cls, arg: PlayerDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: PlayerDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> PlayerDict:
         return Player.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        name: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        enemyPlayer: typing.Union[
+            schemas.Unset,
+            typing.Any
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_ = {}
+        for key, val in (
+            ("name", name),
+            ("enemyPlayer", enemyPlayer),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        return Player.validate(arg_, configuration=configuration_)
 PlayerDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

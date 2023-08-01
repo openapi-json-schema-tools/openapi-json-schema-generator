@@ -31,8 +31,21 @@ class ReturnDict(schemas.immutabledict[str, int]):
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 
-    def __new__(cls, arg: ReturnDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    @staticmethod
+    def from_dict_(
+        arg: ReturnDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ReturnDict:
         return _Return.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_ = {}
+        arg_.update(kwargs)
+        return _Return.validate(arg_, configuration=configuration_)
 ReturnDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
