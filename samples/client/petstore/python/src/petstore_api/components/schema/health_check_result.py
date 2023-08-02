@@ -95,8 +95,11 @@ class HealthCheckResultDict(schemas.immutabledict[str, typing.Union[
     def __new__(
         cls,
         NullableMessage: typing.Union[
+            typing.Union[
+                None,
+                str,
+            ],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,

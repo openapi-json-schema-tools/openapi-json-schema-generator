@@ -51,8 +51,8 @@ class _1Dict(schemas.immutabledict[str, bool]):
     def __new__(
         cls,
         declawed: typing.Union[
+            bool,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,

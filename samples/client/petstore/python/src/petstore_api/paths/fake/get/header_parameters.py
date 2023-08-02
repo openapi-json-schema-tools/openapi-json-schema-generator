@@ -61,12 +61,13 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     def __new__(
         cls,
         enum_header_string: typing.Union[
+            typing_extensions.Literal["_abc", "-efg", "(xyz)"],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         enum_header_string_array: typing.Union[
+            schema_2.SchemaTupleInput,
+            schema_2.SchemaTuple,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):

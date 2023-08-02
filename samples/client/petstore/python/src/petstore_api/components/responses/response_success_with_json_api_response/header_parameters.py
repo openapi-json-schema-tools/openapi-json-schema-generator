@@ -91,11 +91,15 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
-        int32,
-        stringHeader,
+        int32: typing.Union[
+            int,
+        ],
+        stringHeader: typing.Union[
+            str,
+        ],
         numberHeader: typing.Union[
+            str,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):

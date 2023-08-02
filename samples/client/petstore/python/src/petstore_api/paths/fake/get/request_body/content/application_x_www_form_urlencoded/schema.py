@@ -264,12 +264,13 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def __new__(
         cls,
         enum_form_string_array: typing.Union[
+            EnumFormStringArrayTupleInput,
+            EnumFormStringArrayTuple,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         enum_form_string: typing.Union[
+            typing_extensions.Literal["_abc", "-efg", "(xyz)"],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,

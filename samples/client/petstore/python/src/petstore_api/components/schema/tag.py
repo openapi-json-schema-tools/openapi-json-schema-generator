@@ -64,12 +64,12 @@ class TagDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def __new__(
         cls,
         id: typing.Union[
+            int,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         name: typing.Union[
+            str,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,

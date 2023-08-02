@@ -94,12 +94,29 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     
     def __new__(
         cls,
-        context,
-        http,
-        ioutil,
-        pipe,
-        refParam,
-        url,
+        context: typing.Union[
+            schema_2.SchemaTupleInput,
+            schema_2.SchemaTuple,
+        ],
+        http: typing.Union[
+            schema_3.SchemaTupleInput,
+            schema_3.SchemaTuple,
+        ],
+        ioutil: typing.Union[
+            schema.SchemaTupleInput,
+            schema.SchemaTuple,
+        ],
+        pipe: typing.Union[
+            schema_4.SchemaTupleInput,
+            schema_4.SchemaTuple,
+        ],
+        refParam: typing.Union[
+            str,
+        ],
+        url: typing.Union[
+            schema_5.SchemaTupleInput,
+            schema_5.SchemaTuple,
+        ],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         arg_ = {

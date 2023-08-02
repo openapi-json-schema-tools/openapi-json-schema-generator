@@ -16,14 +16,18 @@ def __new__(
     cls,
             {{#each requiredProperties}}
                 {{#if @key.isValid}}
-    {{@key.original}},
+    {{@key.original}}: typing.Union[
+        {{> components/schemas/_helper_schema_input_ref_type fullRefModule="" endChar="," }}
+        {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," }}
+    ],
                 {{/if}}
             {{/each}}
             {{#each optionalProperties}}
                 {{#if @key.isValid}}
     {{@key.original}}: typing.Union[
+        {{> components/schemas/_helper_schema_input_ref_type fullRefModule="" endChar="," }}
+        {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," }}
         schemas.Unset,
-        typing.Any
     ] = schemas.unset,
                 {{/if}}
             {{/each}}

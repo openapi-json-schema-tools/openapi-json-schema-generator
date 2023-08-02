@@ -296,45 +296,54 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
-        byte,
-        double,
-        number,
-        pattern_without_delimiter,
+        byte: typing.Union[
+            str,
+        ],
+        double: typing.Union[
+            typing.Union[int, float],
+        ],
+        number: typing.Union[
+            typing.Union[int, float],
+        ],
+        pattern_without_delimiter: typing.Union[
+            str,
+        ],
         integer: typing.Union[
+            int,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         int32: typing.Union[
+            int,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         int64: typing.Union[
+            int,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         string: typing.Union[
+            str,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         binary: typing.Union[
+            typing.Union[io.FileIO, io.BufferedReader],
+            typing.Union[bytes, schemas.FileIO],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         date: typing.Union[
+            str,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         dateTime: typing.Union[
+            str,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         password: typing.Union[
+            str,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         callback: typing.Union[
+            str,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,

@@ -427,38 +427,43 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
-        enum_string_required,
+        enum_string_required: typing.Union[
+            typing_extensions.Literal["UPPER", "lower", ""],
+        ],
         enum_string: typing.Union[
+            typing_extensions.Literal["UPPER", "lower", ""],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         enum_integer: typing.Union[
+            typing_extensions.Literal[1, -1],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         enum_number: typing.Union[
+            typing.Union[int, float],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         stringEnum: typing.Union[
+            typing.Union[
+                None,
+                typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
+            ],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         IntegerEnum: typing.Union[
+            typing_extensions.Literal[0, 1, 2],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         StringEnumWithDefaultValue: typing.Union[
+            typing_extensions.Literal["placed", "approved", "delivered"],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         IntegerEnumWithDefaultValue: typing.Union[
+            typing_extensions.Literal[0, 1, 2],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         IntegerEnumOneValue: typing.Union[
+            typing_extensions.Literal[0],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,

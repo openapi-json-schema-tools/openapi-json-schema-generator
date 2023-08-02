@@ -299,23 +299,30 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
-        name,
-        photoUrls,
+        name: typing.Union[
+            str,
+        ],
+        photoUrls: typing.Union[
+            PhotoUrlsTupleInput,
+            PhotoUrlsTuple,
+        ],
         id: typing.Union[
+            int,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         category: typing.Union[
+            category.CategoryDictInput,
+            category.CategoryDict,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         tags: typing.Union[
+            TagsTupleInput,
+            TagsTuple,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         status: typing.Union[
+            typing_extensions.Literal["available", "pending", "sold"],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,

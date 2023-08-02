@@ -95,15 +95,19 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     
     def __new__(
         cls,
-        required_int64_group,
-        required_string_group,
+        required_int64_group: typing.Union[
+            int,
+        ],
+        required_string_group: typing.Union[
+            str,
+        ],
         int64_group: typing.Union[
+            int,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         string_group: typing.Union[
+            str,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):

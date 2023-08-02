@@ -65,9 +65,15 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     
     def __new__(
         cls,
-        SomeVar,
-        someVar,
-        some_var,
+        SomeVar: typing.Union[
+            str,
+        ],
+        someVar: typing.Union[
+            str,
+        ],
+        some_var: typing.Union[
+            str,
+        ],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         arg_ = {

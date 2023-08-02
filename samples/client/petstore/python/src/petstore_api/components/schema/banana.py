@@ -47,7 +47,9 @@ class BananaDict(schemas.immutabledict[str, typing.Union[int, float]]):
     
     def __new__(
         cls,
-        lengthCm,
+        lengthCm: typing.Union[
+            typing.Union[int, float],
+        ],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

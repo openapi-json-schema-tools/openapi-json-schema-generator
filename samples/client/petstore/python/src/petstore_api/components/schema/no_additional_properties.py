@@ -70,10 +70,12 @@ class NoAdditionalPropertiesDict(schemas.immutabledict[str, int]):
     
     def __new__(
         cls,
-        id,
+        id: typing.Union[
+            int,
+        ],
         petId: typing.Union[
+            int,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):

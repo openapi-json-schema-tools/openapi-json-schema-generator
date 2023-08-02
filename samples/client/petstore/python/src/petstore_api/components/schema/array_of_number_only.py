@@ -107,8 +107,9 @@ class ArrayOfNumberOnlyDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTP
     def __new__(
         cls,
         ArrayNumber: typing.Union[
+            ArrayNumberTupleInput,
+            ArrayNumberTuple,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,

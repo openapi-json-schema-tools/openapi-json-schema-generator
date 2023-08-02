@@ -122,12 +122,14 @@ class FileSchemaTestClassDict(schemas.immutabledict[str, typing.Tuple[schemas.OU
     def __new__(
         cls,
         file: typing.Union[
+            file.FileDictInput,
+            file.FileDict,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         files: typing.Union[
+            FilesTupleInput,
+            FilesTuple,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,

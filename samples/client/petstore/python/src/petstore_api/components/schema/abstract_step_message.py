@@ -63,9 +63,17 @@ class AbstractStepMessageDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
-        description,
-        discriminator,
-        sequenceNumber,
+        description: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+        ],
+        discriminator: typing.Union[
+            str,
+        ],
+        sequenceNumber: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+        ],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

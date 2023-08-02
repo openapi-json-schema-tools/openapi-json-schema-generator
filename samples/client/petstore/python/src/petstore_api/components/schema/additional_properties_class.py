@@ -532,36 +532,44 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.immutable
     def __new__(
         cls,
         map_property: typing.Union[
+            MapPropertyDictInput,
+            MapPropertyDict,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         map_of_map_property: typing.Union[
+            MapOfMapPropertyDictInput,
+            MapOfMapPropertyDict,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         anytype_1: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         map_with_undeclared_properties_anytype_1: typing.Union[
+            typing.Dict[str, schemas.INPUT_TYPES_ALL],
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         map_with_undeclared_properties_anytype_2: typing.Union[
+            typing.Dict[str, schemas.INPUT_TYPES_ALL],
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         map_with_undeclared_properties_anytype_3: typing.Union[
+            MapWithUndeclaredPropertiesAnytype3DictInput,
+            MapWithUndeclaredPropertiesAnytype3Dict,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         empty_map: typing.Union[
+            EmptyMapDictInput,
+            EmptyMapDict,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         map_with_undeclared_properties_string: typing.Union[
+            MapWithUndeclaredPropertiesStringDictInput,
+            MapWithUndeclaredPropertiesStringDict,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,

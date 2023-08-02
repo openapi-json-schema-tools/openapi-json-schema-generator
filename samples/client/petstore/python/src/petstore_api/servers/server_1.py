@@ -108,7 +108,9 @@ class VariablesDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
-        version,
+        version: typing.Union[
+            typing_extensions.Literal["v1", "v2"],
+        ],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         arg_ = {

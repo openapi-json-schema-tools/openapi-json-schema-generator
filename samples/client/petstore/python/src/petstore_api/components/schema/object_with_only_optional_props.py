@@ -61,12 +61,12 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
     def __new__(
         cls,
         a: typing.Union[
+            str,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         b: typing.Union[
+            typing.Union[int, float],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):

@@ -69,10 +69,12 @@ class AnimalDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
-        className,
+        className: typing.Union[
+            str,
+        ],
         color: typing.Union[
+            str,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,

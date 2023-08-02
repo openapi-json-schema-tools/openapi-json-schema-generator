@@ -148,16 +148,17 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
     def __new__(
         cls,
         uuid: typing.Union[
+            str,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         dateTime: typing.Union[
+            str,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         map: typing.Union[
+            MapDictInput,
+            MapDict,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,

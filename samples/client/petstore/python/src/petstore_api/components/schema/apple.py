@@ -83,10 +83,12 @@ class AppleDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
-        cultivar,
+        cultivar: typing.Union[
+            str,
+        ],
         origin: typing.Union[
+            str,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,

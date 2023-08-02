@@ -450,73 +450,83 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
-        byte,
-        date,
-        number,
-        password,
+        byte: typing.Union[
+            str,
+        ],
+        date: typing.Union[
+            str,
+        ],
+        number: typing.Union[
+            typing.Union[int, float],
+        ],
+        password: typing.Union[
+            str,
+        ],
         integer: typing.Union[
+            int,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         int32: typing.Union[
+            int,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         int32withValidations: typing.Union[
+            int,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         int64: typing.Union[
+            int,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         float32: typing.Union[
+            typing.Union[int, float],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         double: typing.Union[
+            typing.Union[int, float],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         float64: typing.Union[
+            typing.Union[int, float],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         arrayWithUniqueItems: typing.Union[
+            ArrayWithUniqueItemsTupleInput,
+            ArrayWithUniqueItemsTuple,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         string: typing.Union[
+            str,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         binary: typing.Union[
+            typing.Union[io.FileIO, io.BufferedReader],
+            typing.Union[bytes, schemas.FileIO],
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         dateTime: typing.Union[
+            str,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         uuid: typing.Union[
+            str,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         uuidNoExample: typing.Union[
+            str,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         pattern_with_digits: typing.Union[
+            str,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         pattern_with_digits_and_delimiter: typing.Union[
+            str,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         noneProp: typing.Union[
+            None,
             schemas.Unset,
-            typing.Any
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
