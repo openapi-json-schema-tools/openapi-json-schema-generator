@@ -489,6 +489,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             schemas.Unset
         ] = schemas.unset,
         arrayWithUniqueItems: typing.Union[
+            ArrayWithUniqueItemsTupleInput,
             ArrayWithUniqueItemsTuple,
             schemas.Unset
         ] = schemas.unset,

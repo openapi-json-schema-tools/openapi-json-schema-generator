@@ -352,14 +352,17 @@ class ArrayTestDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_
     def __new__(
         cls,
         array_of_string: typing.Union[
+            ArrayOfStringTupleInput,
             ArrayOfStringTuple,
             schemas.Unset
         ] = schemas.unset,
         array_array_of_integer: typing.Union[
+            ArrayArrayOfIntegerTupleInput,
             ArrayArrayOfIntegerTuple,
             schemas.Unset
         ] = schemas.unset,
         array_array_of_model: typing.Union[
+            ArrayArrayOfModelTupleInput,
             ArrayArrayOfModelTuple,
             schemas.Unset
         ] = schemas.unset,

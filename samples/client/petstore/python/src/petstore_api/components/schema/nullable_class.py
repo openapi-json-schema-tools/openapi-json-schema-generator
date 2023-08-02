@@ -1168,15 +1168,22 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ] = schemas.unset,
         array_nullable_prop: typing.Union[
             None,
-            ArrayNullablePropTuple,
+            typing.Union[
+                ArrayNullablePropTupleInput,
+                ArrayNullablePropTuple
+            ],
             schemas.Unset
         ] = schemas.unset,
         array_and_items_nullable_prop: typing.Union[
             None,
-            ArrayAndItemsNullablePropTuple,
+            typing.Union[
+                ArrayAndItemsNullablePropTupleInput,
+                ArrayAndItemsNullablePropTuple
+            ],
             schemas.Unset
         ] = schemas.unset,
         array_items_nullable: typing.Union[
+            ArrayItemsNullableTupleInput,
             ArrayItemsNullableTuple,
             schemas.Unset
         ] = schemas.unset,

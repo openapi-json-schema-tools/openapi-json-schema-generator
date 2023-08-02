@@ -69,6 +69,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             schemas.Unset
         ] = schemas.unset,
         enum_header_string_array: typing.Union[
+            schema_2.SchemaTupleInput,
             schema_2.SchemaTuple,
             schemas.Unset
         ] = schemas.unset,

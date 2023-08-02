@@ -300,7 +300,10 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def __new__(
         cls,
         name: str,
-        photoUrls: PhotoUrlsTuple,
+        photoUrls: typing.Union[
+            PhotoUrlsTupleInput,
+            PhotoUrlsTuple
+        ],
         id: typing.Union[
             int,
             schemas.Unset
@@ -311,6 +314,7 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             schemas.Unset
         ] = schemas.unset,
         tags: typing.Union[
+            TagsTupleInput,
             TagsTuple,
             schemas.Unset
         ] = schemas.unset,

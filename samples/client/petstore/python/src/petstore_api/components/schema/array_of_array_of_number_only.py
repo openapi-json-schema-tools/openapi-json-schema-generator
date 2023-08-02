@@ -165,6 +165,7 @@ class ArrayOfArrayOfNumberOnlyDict(schemas.immutabledict[str, typing.Tuple[schem
     def __new__(
         cls,
         ArrayArrayNumber: typing.Union[
+            ArrayArrayNumberTupleInput,
             ArrayArrayNumberTuple,
             schemas.Unset
         ] = schemas.unset,

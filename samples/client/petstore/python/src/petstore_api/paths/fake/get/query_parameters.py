@@ -107,6 +107,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             schemas.Unset
         ] = schemas.unset,
         enum_query_string_array: typing.Union[
+            schema_4.SchemaTupleInput,
             schema_4.SchemaTuple,
             schemas.Unset
         ] = schemas.unset,

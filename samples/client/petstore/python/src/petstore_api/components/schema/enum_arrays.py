@@ -255,6 +255,7 @@ class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             schemas.Unset
         ] = schemas.unset,
         array_enum: typing.Union[
+            ArrayEnumTupleInput,
             ArrayEnumTuple,
             schemas.Unset
         ] = schemas.unset,

@@ -194,6 +194,7 @@ class DrawingDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TY
             schemas.Unset
         ] = schemas.unset,
         shapes: typing.Union[
+            ShapesTupleInput,
             ShapesTuple,
             schemas.Unset
         ] = schemas.unset,

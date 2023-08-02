@@ -121,30 +121,42 @@
                                     {{#if fullRefModule}}
                                         {{#if optional}}
 {{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    {{fullRefModule}}.{{arrayInputJsonPathPiece.camelCase}},
     {{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}},
     schemas.Unset
 ] = schemas.unset{{endChar}}
                                         {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}{{endChar}}
+{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    {{fullRefModule}}.{{arrayInputJsonPathPiece.camelCase}},
+    {{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}
+]{{endChar}}
                                         {{/if}}
                                     {{else}}
                                         {{#if selfReference}}
                                             {{#if optional}}
 {{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    {{arrayInputJsonPathPiece.camelCase}},
     '{{arrayOutputJsonPathPiece.camelCase}}',
     schemas.Unset
 ] = schemas.unset{{endChar}}
                                             {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}'{{arrayOutputJsonPathPiece.camelCase}}'{{endChar}}
+{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    {{arrayInputJsonPathPiece.camelCase}},
+    '{{arrayOutputJsonPathPiece.camelCase}}'
+]{{endChar}}
                                             {{/if}}
                                         {{else}}
                                             {{#if optional}}
 {{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    {{arrayInputJsonPathPiece.camelCase}},
     {{arrayOutputJsonPathPiece.camelCase}},
     schemas.Unset
 ] = schemas.unset{{endChar}}
                                             {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}{{arrayOutputJsonPathPiece.camelCase}}{{endChar}}
+{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    {{arrayInputJsonPathPiece.camelCase}},
+    {{arrayOutputJsonPathPiece.camelCase}}
+]{{endChar}}
                                             {{/if}}
                                         {{/if}}
                                     {{/if}}

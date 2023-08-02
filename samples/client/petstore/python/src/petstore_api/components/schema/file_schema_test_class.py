@@ -127,6 +127,7 @@ class FileSchemaTestClassDict(schemas.immutabledict[str, typing.Tuple[schemas.OU
             schemas.Unset
         ] = schemas.unset,
         files: typing.Union[
+            FilesTupleInput,
             FilesTuple,
             schemas.Unset
         ] = schemas.unset,
