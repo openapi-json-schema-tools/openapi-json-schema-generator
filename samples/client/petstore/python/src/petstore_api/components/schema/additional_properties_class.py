@@ -532,10 +532,12 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.immutable
     def __new__(
         cls,
         map_property: typing.Union[
+            MapPropertyDictInput,
             MapPropertyDict,
             schemas.Unset
         ] = schemas.unset,
         map_of_map_property: typing.Union[
+            MapOfMapPropertyDictInput,
             MapOfMapPropertyDict,
             schemas.Unset
         ] = schemas.unset,
@@ -555,14 +557,17 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.immutable
             schemas.Unset
         ] = schemas.unset,
         map_with_undeclared_properties_anytype_3: typing.Union[
+            MapWithUndeclaredPropertiesAnytype3DictInput,
             MapWithUndeclaredPropertiesAnytype3Dict,
             schemas.Unset
         ] = schemas.unset,
         empty_map: typing.Union[
+            EmptyMapDictInput,
             EmptyMapDict,
             schemas.Unset
         ] = schemas.unset,
         map_with_undeclared_properties_string: typing.Union[
+            MapWithUndeclaredPropertiesStringDictInput,
             MapWithUndeclaredPropertiesStringDict,
             schemas.Unset
         ] = schemas.unset,

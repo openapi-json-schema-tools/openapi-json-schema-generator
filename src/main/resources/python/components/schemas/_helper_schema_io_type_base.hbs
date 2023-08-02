@@ -163,11 +163,15 @@
                                     {{#if mapOutputJsonPathPiece}}
                                         {{#if optional}}
 {{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapInputJsonPathPiece.camelCase}},
     {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}},
     schemas.Unset
 ] = schemas.unset{{endChar}}
                                         {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}{{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}}{{endChar}}
+{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapInputJsonPathPiece.camelCase}},
+    {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}},
+]{{endChar}}
                                         {{/if}}
                                     {{else}}
                                         {{#if optional}}

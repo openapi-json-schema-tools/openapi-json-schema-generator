@@ -85,6 +85,7 @@ class ObjectWithDecimalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_
             schemas.Unset
         ] = schemas.unset,
         cost: typing.Union[
+            money.MoneyDictInput,
             money.MoneyDict,
             schemas.Unset
         ] = schemas.unset,

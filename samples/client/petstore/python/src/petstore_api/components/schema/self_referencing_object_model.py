@@ -56,6 +56,7 @@ class SelfReferencingObjectModelDict(schemas.immutabledict[str, schemas.OUTPUT_B
     def __new__(
         cls,
         selfRef: typing.Union[
+            SelfReferencingObjectModelDictInput,
             SelfReferencingObjectModelDict,
             schemas.Unset
         ] = schemas.unset,

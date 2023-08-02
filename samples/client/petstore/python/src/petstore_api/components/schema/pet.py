@@ -306,6 +306,7 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             schemas.Unset
         ] = schemas.unset,
         category: typing.Union[
+            category.CategoryDictInput,
             category.CategoryDict,
             schemas.Unset
         ] = schemas.unset,

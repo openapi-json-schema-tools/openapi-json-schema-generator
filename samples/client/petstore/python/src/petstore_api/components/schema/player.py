@@ -66,6 +66,7 @@ class PlayerDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             schemas.Unset
         ] = schemas.unset,
         enemyPlayer: typing.Union[
+            PlayerDictInput,
             PlayerDict,
             schemas.Unset
         ] = schemas.unset,

@@ -66,6 +66,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             schemas.Unset
         ] = schemas.unset,
         compositionInProperty: typing.Union[
+            schema_2.SchemaDictInput,
             schema_2.SchemaDict,
             schemas.Unset
         ] = schemas.unset,

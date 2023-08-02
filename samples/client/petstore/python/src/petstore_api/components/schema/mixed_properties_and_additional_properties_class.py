@@ -156,6 +156,7 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
             schemas.Unset
         ] = schemas.unset,
         map: typing.Union[
+            MapDictInput,
             MapDict,
             schemas.Unset
         ] = schemas.unset,
