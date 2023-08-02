@@ -63,8 +63,14 @@ class ObjectWithCollidingPropertiesDict(schemas.immutabledict[str, schemas.immut
     
     def __new__(
         cls,
-        someProp: typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset] = schemas.unset,
-        someprop: typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset] = schemas.unset,
+        someProp: typing.Union[
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            schemas.Unset
+        ] = schemas.unset,
+        someprop: typing.Union[
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            schemas.Unset
+        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

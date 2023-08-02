@@ -428,10 +428,22 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
-        map_map_of_string: typing.Union[MapMapOfStringDict, schemas.Unset] = schemas.unset,
-        map_of_enum_string: typing.Union[MapOfEnumStringDict, schemas.Unset] = schemas.unset,
-        direct_map: typing.Union[DirectMapDict, schemas.Unset] = schemas.unset,
-        indirect_map: typing.Union[string_boolean_map.StringBooleanMapDict, schemas.Unset] = schemas.unset,
+        map_map_of_string: typing.Union[
+            MapMapOfStringDict,
+            schemas.Unset
+        ] = schemas.unset,
+        map_of_enum_string: typing.Union[
+            MapOfEnumStringDict,
+            schemas.Unset
+        ] = schemas.unset,
+        direct_map: typing.Union[
+            DirectMapDict,
+            schemas.Unset
+        ] = schemas.unset,
+        indirect_map: typing.Union[
+            string_boolean_map.StringBooleanMapDict,
+            schemas.Unset
+        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

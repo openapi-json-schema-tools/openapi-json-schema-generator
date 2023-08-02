@@ -28,8 +28,11 @@
 {{> components/schemas/_helper_schema_io_type_base }}
         {{else}}
 {{paramName}}: typing.Union[
-    {{> components/schemas/_helper_schema_io_type_base endChar="," paramName=null }}
-]{{endChar}}
+    {{> components/schemas/_helper_schema_io_type_base paramName=false optional=false endChar="," }}
+    {{#if optional}}
+    schemas.Unset
+    {{/if}}
+]{{#if optional}} = schemas.unset{{/if}}{{endChar}}
         {{/eq}}
     {{else}}
 {{> components/schemas/_helper_schema_io_type_base }}

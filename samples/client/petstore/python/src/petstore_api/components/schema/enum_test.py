@@ -432,9 +432,10 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         enum_integer: typing.Union[typing_extensions.Literal[1, -1], schemas.Unset] = schemas.unset,
         enum_number: typing.Union[int, float, schemas.Unset] = schemas.unset,
         stringEnum: typing.Union[
-            stringEnum: typing.Union[None, schemas.Unset] = schemas.unset,
-            stringEnum: typing.Union[typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"], schemas.Unset] = schemas.unset,
-        ],
+            None,
+            typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
+            schemas.Unset
+        ] = schemas.unset,
         IntegerEnum: typing.Union[typing_extensions.Literal[0, 1, 2], schemas.Unset] = schemas.unset,
         StringEnumWithDefaultValue: typing.Union[typing_extensions.Literal["placed", "approved", "delivered"], schemas.Unset] = schemas.unset,
         IntegerEnumWithDefaultValue: typing.Union[typing_extensions.Literal[0, 1, 2], schemas.Unset] = schemas.unset,

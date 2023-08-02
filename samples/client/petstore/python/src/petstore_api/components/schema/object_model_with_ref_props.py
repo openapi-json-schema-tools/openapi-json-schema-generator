@@ -78,7 +78,10 @@ class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE
         cls,
         myNumber: typing.Union[int, float, schemas.Unset] = schemas.unset,
         myString: typing.Union[str, schemas.Unset] = schemas.unset,
-        myBoolean: typing.Union[bool, schemas.Unset] = schemas.unset,
+        myBoolean: typing.Union[
+            bool,
+            schemas.Unset
+        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

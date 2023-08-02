@@ -264,14 +264,27 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         password: typing.Union[str, schemas.Unset] = schemas.unset,
         phone: typing.Union[str, schemas.Unset] = schemas.unset,
         userStatus: typing.Union[int, schemas.Unset] = schemas.unset,
-        objectWithNoDeclaredProps: typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset] = schemas.unset,
+        objectWithNoDeclaredProps: typing.Union[
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            schemas.Unset
+        ] = schemas.unset,
         objectWithNoDeclaredPropsNullable: typing.Union[
-            objectWithNoDeclaredPropsNullable: typing.Union[None, schemas.Unset] = schemas.unset,
-            objectWithNoDeclaredPropsNullable: typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset] = schemas.unset,
-        ],
-        anyTypeProp: typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset] = schemas.unset,
-        anyTypeExceptNullProp: typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset] = schemas.unset,
-        anyTypePropNullable: typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset] = schemas.unset,
+            None,
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            schemas.Unset
+        ] = schemas.unset,
+        anyTypeProp: typing.Union[
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
+        ] = schemas.unset,
+        anyTypeExceptNullProp: typing.Union[
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
+        ] = schemas.unset,
+        anyTypePropNullable: typing.Union[
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
+        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
