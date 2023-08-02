@@ -68,9 +68,8 @@ QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {
         "mapBean": typing.Union[
+            schema.SchemaDictInput,
             schema.SchemaDict,
-            dict,
-            schemas.immutabledict
         ],
     },
     total=False

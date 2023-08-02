@@ -88,11 +88,14 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 HeaderParametersDictInput = typing_extensions.TypedDict(
     'HeaderParametersDictInput',
     {
-        "enum_header_string": str,
+        "enum_header_string": typing_extensions.Literal[
+            "_abc",
+            "-efg",
+            "(xyz)"
+        ],
         "enum_header_string_array": typing.Union[
-            schema_2.SchemaTuple,
-            list,
-            tuple
+            schema_2.SchemaTupleInput,
+            schema_2.SchemaTuple
         ],
     },
     total=False

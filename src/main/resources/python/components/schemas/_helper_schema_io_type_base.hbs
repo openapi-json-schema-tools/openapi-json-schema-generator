@@ -3,7 +3,7 @@
         {{#eq this "boolean"}}
             {{#and ../enumInfo ../enumInfo.typeToValues.boolean}}
                 {{#if optional}}
-{{#if paramName}}{../{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     typing_extensions.Literal[
         {{#each ../enumInfo.typeToValues.boolean}}
         {{#if value}}True{{else}}False{{/if}}{{#unless @last}},{{/unless}}
@@ -12,7 +12,7 @@
     schemas.Unset
 ] = schemas.unset{{endChar}}
                 {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}typing_extensions.Literal[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing_extensions.Literal[
     {{#each ../enumInfo.typeToValues.boolean}}
     {{#if value}}True{{else}}False{{/if}}{{#unless @last}},{{/unless}}
     {{/each}}
@@ -20,28 +20,28 @@
                 {{/if}}
             {{else}}
                 {{#if optional}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     bool,
     schemas.Unset
 ] = schemas.unset{{endChar}}
                 {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}bool{{endChar}}
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}bool{{endChar}}
                 {{/if}}
             {{/and}}
         {{else}}
             {{#eq this "null"}}
                 {{#if optional}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     None,
     schemas.Unset
 ] = schemas.unset{{endChar}}
                 {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}None{{endChar}}
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}None{{endChar}}
                 {{/if}}
             {{else}}
                 {{#eq this "string"}}
                     {{#eq format "binary"}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     bytes,
     schemas.FileIO{{#if optional}},{{/if}}
                         {{#if optional}}
@@ -51,7 +51,7 @@
                     {{else}}
                         {{#and ../enumInfo ../enumInfo.typeToValues.string}}
                             {{#if optional}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     typing_extensions.Literal[
         {{#each ../enumInfo.typeToValues.string}}
         "{{{value}}}"{{#unless @last}},{{/unless}}
@@ -60,7 +60,7 @@
     schemas.Unset
 ] = schemas.unset{{endChar}}
                             {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}typing_extensions.Literal[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing_extensions.Literal[
     {{#each ../enumInfo.typeToValues.string}}
     "{{{value}}}"{{#unless @last}},{{/unless}}
     {{/each}}
@@ -68,18 +68,18 @@
                             {{/if}}
                         {{else}}
                             {{#if optional}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     str,
     schemas.Unset
 ] = schemas.unset{{endChar}}
                             {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}str{{endChar}}
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}str{{endChar}}
                             {{/if}}
                         {{/and}}
                     {{/eq}}
                 {{else}}
                     {{#eq this "number"}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     int,
     float{{#if optional}},{{/if}}
                         {{#if optional}}
@@ -90,7 +90,7 @@
                         {{#eq this "integer"}}
                             {{#and ../enumInfo ../enumInfo.typeToValues.integer}}
                                 {{#if optional}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     typing_extensions.Literal[
         {{#each ../enumInfo.typeToValues.integer}}
         {{value}}{{#unless @last}},{{/unless}}
@@ -99,7 +99,7 @@
     schemas.Unset
 ] = schemas.unset{{endChar}}
                                 {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}typing_extensions.Literal[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing_extensions.Literal[
     {{#each ../enumInfo.typeToValues.integer}}
     {{value}}{{#unless @last}},{{/unless}}
     {{/each}}
@@ -107,12 +107,12 @@
                                 {{/if}}
                             {{else}}
                                 {{#if optional}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     int,
     schemas.Unset
 ] = schemas.unset{{endChar}}
                                 {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}int{{endChar}}
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}int{{endChar}}
                                 {{/if}}
                             {{/and}}
                         {{else}}
@@ -120,13 +120,13 @@
                                 {{#if arrayOutputJsonPathPiece}}
                                     {{#if fullRefModule}}
                                         {{#if optional}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     {{fullRefModule}}.{{arrayInputJsonPathPiece.camelCase}},
     {{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}},
     schemas.Unset
 ] = schemas.unset{{endChar}}
                                         {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     {{fullRefModule}}.{{arrayInputJsonPathPiece.camelCase}},
     {{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}
 ]{{endChar}}
@@ -134,26 +134,26 @@
                                     {{else}}
                                         {{#if selfReference}}
                                             {{#if optional}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     {{arrayInputJsonPathPiece.camelCase}},
     '{{arrayOutputJsonPathPiece.camelCase}}',
     schemas.Unset
 ] = schemas.unset{{endChar}}
                                             {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     {{arrayInputJsonPathPiece.camelCase}},
     '{{arrayOutputJsonPathPiece.camelCase}}'
 ]{{endChar}}
                                             {{/if}}
                                         {{else}}
                                             {{#if optional}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     {{arrayInputJsonPathPiece.camelCase}},
     {{arrayOutputJsonPathPiece.camelCase}},
     schemas.Unset
 ] = schemas.unset{{endChar}}
                                             {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     {{arrayInputJsonPathPiece.camelCase}},
     {{arrayOutputJsonPathPiece.camelCase}}
 ]{{endChar}}
@@ -162,13 +162,13 @@
                                     {{/if}}
                                 {{else}}
                                     {{#if optional}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     typing.Tuple[schemas.INPUT_TYPES_ALL, ...],
     typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...],
     schemas.Unset
 ] = schemas.unset{{endChar}}
                                     {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     typing.Tuple[schemas.INPUT_TYPES_ALL, ...],
     typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...],
 ]{{endChar}}
@@ -178,26 +178,52 @@
                                 {{#eq this "object"}}
                                     {{#if mapOutputJsonPathPiece}}
                                         {{#if optional}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
+    {{#if rootClass}}
+        {{#if fullRefModule}}
+    {{fullRefModule}}.{{mapInputJsonPathPiece.camelCase}},
+        {{else}}
+            {{#eq rootClass mapInputJsonPathPiece.camelCase}}
+                {{! self reference }}
+    '{{mapInputJsonPathPiece.camelCase}}',
+            {{else}}
+    {{mapInputJsonPathPiece.camelCase}},
+            {{/eq}}
+        {{/if}}
+    {{else}}
     {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapInputJsonPathPiece.camelCase}},
+    {{/if}}
     {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}},
     schemas.Unset
 ] = schemas.unset{{endChar}}
                                         {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
+    {{#if rootClass}}
+        {{#if fullRefModule}}
+    {{fullRefModule}}.{{mapInputJsonPathPiece.camelCase}},
+        {{else}}
+            {{#eq rootClass mapInputJsonPathPiece.camelCase}}
+                {{! self reference }}
+    '{{mapInputJsonPathPiece.camelCase}}',
+            {{else}}
+    {{mapInputJsonPathPiece.camelCase}},
+            {{/eq}}
+        {{/if}}
+    {{else}}
     {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapInputJsonPathPiece.camelCase}},
+    {{/if}}
     {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}},
 ]{{endChar}}
                                         {{/if}}
                                     {{else}}
                                         {{#if optional}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     typing.Mapping[str, schemas.INPUT_TYPES_ALL],
     schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     schemas.Unset
 ] = schemas.unset{{endChar}}
                                         {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     typing.Mapping[str, schemas.INPUT_TYPES_ALL],
     schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
 ]{{endChar}}
@@ -213,13 +239,13 @@
     {{/each}}
 {{else}}
     {{#if optional}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     schemas.INPUT_TYPES_ALL,
     schemas.OUTPUT_BASE_TYPES,
     schemas.Unset
 ] = schemas.unset{{endChar}}
     {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     schemas.INPUT_TYPES_ALL,
     schemas.OUTPUT_BASE_TYPES
 ]{{endChar}}

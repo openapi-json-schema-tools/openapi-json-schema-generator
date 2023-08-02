@@ -12,6 +12,7 @@
                     {{#if jsonPathPiece}}
         {{> components/schemas/_helper_prefix_property_value_type prefix=@key.original }}
                     {{else}}
+                        {{! from unset addProps}}
         "{{{@key.original}}}": typing.Union[
             schemas.AnyTypeSchema,
             {{> _helper_schema_python_types_newline }}
@@ -33,12 +34,10 @@
     str,
     typing.Union[
         {{#each requiredProperties}}
-            {{#with this}}
-        {{> components/schemas/_helper_property_value_type }}
-            {{/with}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../requiredProperties.jsonPathPiece.camelCase }}
         {{/each}}
         {{#with additionalProperties}}
-        {{> components/schemas/_helper_property_value_type }}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../requiredProperties.jsonPathPiece.camelCase }}
         {{/with}}
     ]
 ]

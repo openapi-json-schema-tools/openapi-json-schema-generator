@@ -30,7 +30,10 @@ HeaderParametersRequiredDictInput = typing_extensions.TypedDict(
 HeaderParametersOptionalDictInput = typing_extensions.TypedDict(
     'HeaderParametersOptionalDictInput',
     {
-        "boolean_group": str,
+        "boolean_group": typing_extensions.Literal[
+            "true",
+            "false"
+        ],
     },
     total=False
 )

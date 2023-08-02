@@ -129,15 +129,21 @@ QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {
         "enum_query_double": typing.Union[
-            float,
-            int
+            int,
+            float
         ],
-        "enum_query_string": str,
-        "enum_query_integer": int,
+        "enum_query_string": typing_extensions.Literal[
+            "_abc",
+            "-efg",
+            "(xyz)"
+        ],
+        "enum_query_integer": typing_extensions.Literal[
+            1,
+            -2
+        ],
         "enum_query_string_array": typing.Union[
-            schema_4.SchemaTuple,
-            list,
-            tuple
+            schema_4.SchemaTupleInput,
+            schema_4.SchemaTuple
         ],
     },
     total=False

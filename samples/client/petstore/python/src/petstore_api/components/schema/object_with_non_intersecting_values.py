@@ -79,8 +79,8 @@ ObjectWithNonIntersectingValuesDictInput = typing.Mapping[
     str,
     typing.Union[
         typing.Union[
-            float,
-            int
+            int,
+            float
         ],
         str,
     ]

@@ -86,8 +86,8 @@ ObjectWithOnlyOptionalPropsDictInput = typing_extensions.TypedDict(
     {
         "a": str,
         "b": typing.Union[
-            float,
-            int
+            int,
+            float
         ],
     },
     total=False

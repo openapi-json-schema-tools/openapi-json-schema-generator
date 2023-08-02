@@ -5,13 +5,7 @@
     '{{optionalProperties.jsonPathPiece.camelCase}}',
     {
         {{#each optionalProperties}}
-            {{#with this}}
-                {{#if refInfo.refClass}}
-        {{> components/schemas/_helper_prefix_ref_property_value_type prefix=@key.original fullRefModule="" }}
-                {{else}}
-        {{> components/schemas/_helper_prefix_property_value_type prefix=@key.original }}
-                {{/if}}
-            {{/with}}
+        {{> components/schemas/_helper_schema_io_type paramName=@key.original quote=true fullRefModule="" endChar="," rootClass=../optionalProperties.jsonPathPiece.camelCase }}
         {{/each}}
     },
     total=False
@@ -27,12 +21,10 @@
     str,
     typing.Union[
         {{#each optionalProperties}}
-            {{#with this}}
-        {{> components/schemas/_helper_property_value_type }}
-            {{/with}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../optionalProperties.jsonPathPiece.camelCase }}
         {{/each}}
         {{#with additionalProperties}}
-        {{> components/schemas/_helper_property_value_type }}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../optionalProperties.jsonPathPiece.camelCase }}
         {{/with}}
     ]
 ]

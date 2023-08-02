@@ -86,26 +86,12 @@ QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {
         "compositionAtRoot": typing.Union[
-            dict,
-            schemas.immutabledict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
         ],
         "compositionInProperty": typing.Union[
+            schema_2.SchemaDictInput,
             schema_2.SchemaDict,
-            dict,
-            schemas.immutabledict
         ],
     },
     total=False

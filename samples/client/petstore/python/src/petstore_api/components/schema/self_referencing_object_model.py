@@ -80,14 +80,12 @@ SelfReferencingObjectModelDictInput = typing.Mapping[
     str,
     typing.Union[
         typing.Union[
+            'SelfReferencingObjectModelDictInput',
             SelfReferencingObjectModelDict,
-            dict,
-            schemas.immutabledict
         ],
         typing.Union[
+            'SelfReferencingObjectModelDictInput',
             SelfReferencingObjectModelDict,
-            dict,
-            schemas.immutabledict
         ],
     ]
 ]

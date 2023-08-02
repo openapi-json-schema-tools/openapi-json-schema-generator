@@ -38,9 +38,7 @@ HeadersRequiredDictInput = typing_extensions.TypedDict(
 HeadersOptionalDictInput = typing_extensions.TypedDict(
     'HeadersOptionalDictInput',
     {
-        "numberHeader": typing.Union[
-            str
-        ],
+        "numberHeader": str,
     },
     total=False
 )
