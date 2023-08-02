@@ -205,9 +205,18 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
-        id: typing.Union[int, schemas.Unset] = schemas.unset,
-        petId: typing.Union[int, schemas.Unset] = schemas.unset,
-        quantity: typing.Union[int, schemas.Unset] = schemas.unset,
+        id: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        petId: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        quantity: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
         shipDate: typing.Union[
             str,
             schemas.Unset

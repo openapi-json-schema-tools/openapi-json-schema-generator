@@ -301,7 +301,10 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         cls,
         name: str,
         photoUrls: PhotoUrlsTuple,
-        id: typing.Union[int, schemas.Unset] = schemas.unset,
+        id: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
         category: typing.Union[
             category.CategoryDict,
             schemas.Unset

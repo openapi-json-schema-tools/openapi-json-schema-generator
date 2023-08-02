@@ -73,7 +73,10 @@ class BananaReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
-        lengthCm: typing.Union[int, float],
+        lengthCm: typing.Union[
+            int,
+            float
+        ],
         sweet: typing.Union[
             bool,
             schemas.Unset

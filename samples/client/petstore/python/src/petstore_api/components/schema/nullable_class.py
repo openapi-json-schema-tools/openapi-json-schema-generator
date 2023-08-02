@@ -1140,7 +1140,10 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ] = schemas.unset,
         number_prop: typing.Union[
             None,
-            typing.Union[int, float],
+            typing.Union[
+                int,
+                float
+            ],
             schemas.Unset
         ] = schemas.unset,
         boolean_prop: typing.Union[

@@ -79,17 +79,41 @@
                     {{/eq}}
                 {{else}}
                     {{#eq this "number"}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[int, float{{#if optional}}, schemas.Unset] = schemas.unset{{else}}]{{/if}}{{endChar}}
+{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    int,
+    float{{#if optional}},{{/if}}
+                        {{#if optional}}
+    schemas.Unset
+                        {{/if}}
+]{{#if optional}} = schemas.unset{{/if}}{{endChar}}
                     {{else}}
                         {{#eq this "integer"}}
                             {{#and ../enumInfo ../enumInfo.typeToValues.integer}}
                                 {{#if optional}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[typing_extensions.Literal[{{#each ../enumInfo.typeToValues.integer}}{{value}}{{#unless @last}}, {{/unless}}{{/each}}], schemas.Unset] = schemas.unset{{endChar}}
+{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    typing_extensions.Literal[
+        {{#each ../enumInfo.typeToValues.integer}}
+        {{value}}{{#unless @last}},{{/unless}}
+        {{/each}}
+    ],
+    schemas.Unset
+] = schemas.unset{{endChar}}
                                 {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}typing_extensions.Literal[{{#each ../enumInfo.typeToValues.integer}}{{value}}{{#unless @last}}, {{/unless}}{{/each}}]{{endChar}}
+{{#if paramName}}{{paramName}}: {{/if}}typing_extensions.Literal[
+    {{#each ../enumInfo.typeToValues.integer}}
+    {{value}}{{#unless @last}},{{/unless}}
+    {{/each}}
+]{{endChar}}
                                 {{/if}}
                             {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}{{#if optional}}typing.Union[int, schemas.Unset] = schemas.unset{{else}}int{{/if}}{{endChar}}
+                                {{#if optional}}
+{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    int,
+    schemas.Unset
+] = schemas.unset{{endChar}}
+                                {{else}}
+{{#if paramName}}{{paramName}}: {{/if}}int{{endChar}}
+                                {{/if}}
                             {{/and}}
                         {{else}}
                             {{#eq this "array"}}

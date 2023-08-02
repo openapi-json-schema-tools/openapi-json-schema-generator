@@ -256,7 +256,10 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
-        id: typing.Union[int, schemas.Unset] = schemas.unset,
+        id: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
         username: typing.Union[
             str,
             schemas.Unset
@@ -281,7 +284,10 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             str,
             schemas.Unset
         ] = schemas.unset,
-        userStatus: typing.Union[int, schemas.Unset] = schemas.unset,
+        userStatus: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
         objectWithNoDeclaredProps: typing.Union[
             schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
             schemas.Unset

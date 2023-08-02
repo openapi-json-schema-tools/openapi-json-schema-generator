@@ -97,7 +97,10 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         cls,
         required_int64_group: int,
         required_string_group: str,
-        int64_group: typing.Union[int, schemas.Unset] = schemas.unset,
+        int64_group: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
         string_group: typing.Union[
             str,
             schemas.Unset

@@ -452,15 +452,42 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         cls,
         byte: str,
         date: str,
-        number: typing.Union[int, float],
+        number: typing.Union[
+            int,
+            float
+        ],
         password: str,
-        integer: typing.Union[int, schemas.Unset] = schemas.unset,
-        int32: typing.Union[int, schemas.Unset] = schemas.unset,
-        int32withValidations: typing.Union[int, schemas.Unset] = schemas.unset,
-        int64: typing.Union[int, schemas.Unset] = schemas.unset,
-        float32: typing.Union[int, float, schemas.Unset] = schemas.unset,
-        double: typing.Union[int, float, schemas.Unset] = schemas.unset,
-        float64: typing.Union[int, float, schemas.Unset] = schemas.unset,
+        integer: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        int32: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        int32withValidations: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        int64: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        float32: typing.Union[
+            int,
+            float,
+            schemas.Unset
+        ] = schemas.unset,
+        double: typing.Union[
+            int,
+            float,
+            schemas.Unset
+        ] = schemas.unset,
+        float64: typing.Union[
+            int,
+            float,
+            schemas.Unset
+        ] = schemas.unset,
         arrayWithUniqueItems: typing.Union[ArrayWithUniqueItemsTuple, schemas.Unset] = schemas.unset,
         string: typing.Union[
             str,

@@ -297,12 +297,27 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def __new__(
         cls,
         byte: str,
-        double: typing.Union[int, float],
-        number: typing.Union[int, float],
+        double: typing.Union[
+            int,
+            float
+        ],
+        number: typing.Union[
+            int,
+            float
+        ],
         pattern_without_delimiter: str,
-        integer: typing.Union[int, schemas.Unset] = schemas.unset,
-        int32: typing.Union[int, schemas.Unset] = schemas.unset,
-        int64: typing.Union[int, schemas.Unset] = schemas.unset,
+        integer: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        int32: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        int64: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
         string: typing.Union[
             str,
             schemas.Unset

@@ -440,8 +440,18 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             ],
             schemas.Unset
         ] = schemas.unset,
-        enum_integer: typing.Union[typing_extensions.Literal[1, -1], schemas.Unset] = schemas.unset,
-        enum_number: typing.Union[int, float, schemas.Unset] = schemas.unset,
+        enum_integer: typing.Union[
+            typing_extensions.Literal[
+                1,
+                -1
+            ],
+            schemas.Unset
+        ] = schemas.unset,
+        enum_number: typing.Union[
+            int,
+            float,
+            schemas.Unset
+        ] = schemas.unset,
         stringEnum: typing.Union[
             None,
             typing_extensions.Literal[
@@ -454,7 +464,14 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             ],
             schemas.Unset
         ] = schemas.unset,
-        IntegerEnum: typing.Union[typing_extensions.Literal[0, 1, 2], schemas.Unset] = schemas.unset,
+        IntegerEnum: typing.Union[
+            typing_extensions.Literal[
+                0,
+                1,
+                2
+            ],
+            schemas.Unset
+        ] = schemas.unset,
         StringEnumWithDefaultValue: typing.Union[
             typing_extensions.Literal[
                 "placed",
@@ -463,8 +480,20 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             ],
             schemas.Unset
         ] = schemas.unset,
-        IntegerEnumWithDefaultValue: typing.Union[typing_extensions.Literal[0, 1, 2], schemas.Unset] = schemas.unset,
-        IntegerEnumOneValue: typing.Union[typing_extensions.Literal[0], schemas.Unset] = schemas.unset,
+        IntegerEnumWithDefaultValue: typing.Union[
+            typing_extensions.Literal[
+                0,
+                1,
+                2
+            ],
+            schemas.Unset
+        ] = schemas.unset,
+        IntegerEnumOneValue: typing.Union[
+            typing_extensions.Literal[
+                0
+            ],
+            schemas.Unset
+        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

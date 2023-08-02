@@ -67,7 +67,10 @@ class FromSchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             str,
             schemas.Unset
         ] = schemas.unset,
-        id: typing.Union[int, schemas.Unset] = schemas.unset,
+        id: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
