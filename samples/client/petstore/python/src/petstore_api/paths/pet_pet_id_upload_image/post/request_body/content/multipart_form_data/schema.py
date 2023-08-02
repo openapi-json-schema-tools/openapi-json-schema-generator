@@ -64,7 +64,11 @@ class SchemaDict(schemas.immutabledict[str, str]):
     def __new__(
         cls,
         additionalMetadata: typing.Union[str, schemas.Unset] = schemas.unset,
-        file: typing.Union[bytes, schemas.FileIO, schemas.Unset],
+        file: typing.Union[
+            bytes,
+            schemas.FileIO,
+            schemas.Unset
+        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

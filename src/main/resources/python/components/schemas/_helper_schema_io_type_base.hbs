@@ -26,11 +26,24 @@
             {{/and}}
         {{else}}
             {{#eq this "null"}}
-{{#if paramName}}{{paramName}}: {{/if}}{{#if optional}}typing.Union[None, schemas.Unset] = schemas.unset{{else}}None{{/if}}{{endChar}}
+                {{#if optional}}
+{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    None,
+    schemas.Unset
+] = schemas.unset{{endChar}}
+                {{else}}
+{{#if paramName}}{{paramName}}: {{/if}}None{{endChar}}
+                {{/if}}
             {{else}}
                 {{#eq this "string"}}
                     {{#eq format "binary"}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[bytes, schemas.FileIO{{#if optional}}, schemas.Unset{{/if}}]{{endChar}}
+{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    bytes,
+    schemas.FileIO{{#if optional}},{{/if}}
+                        {{#if optional}}
+    schemas.Unset
+                        {{/if}}
+]{{#if optional}} = schemas.unset{{/if}}{{endChar}}
                     {{else}}
                         {{#and ../enumInfo ../enumInfo.typeToValues.string}}
                             {{#if optional}}
