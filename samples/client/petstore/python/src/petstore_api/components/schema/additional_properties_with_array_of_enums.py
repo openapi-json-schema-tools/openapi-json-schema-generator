@@ -25,10 +25,22 @@ class AdditionalPropertiesTuple(
         return AdditionalProperties.validate(arg, configuration=configuration)
 AdditionalPropertiesTupleInput = typing.Union[
     typing.List[
-        str,
+        typing_extensions.Literal[
+            "_abc",
+            "-efg",
+            "(xyz)",
+            "COUNT_1M",
+            "COUNT_50M"
+        ],
     ],
     typing.Tuple[
-        str,
+        typing_extensions.Literal[
+            "_abc",
+            "-efg",
+            "(xyz)",
+            "COUNT_1M",
+            "COUNT_50M"
+        ],
         ...
     ]
 ]

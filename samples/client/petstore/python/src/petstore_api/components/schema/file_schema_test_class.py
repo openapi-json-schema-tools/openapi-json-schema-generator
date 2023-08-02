@@ -26,16 +26,14 @@ class FilesTuple(
 FilesTupleInput = typing.Union[
     typing.List[
         typing.Union[
+            file.FileDictInput,
             file.FileDict,
-            dict,
-            schemas.immutabledict
         ],
     ],
     typing.Tuple[
         typing.Union[
+            file.FileDictInput,
             file.FileDict,
-            dict,
-            schemas.immutabledict
         ],
         ...
     ]

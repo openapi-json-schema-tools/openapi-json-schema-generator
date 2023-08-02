@@ -92,10 +92,16 @@ class EnumFormStringArrayTuple(
         return EnumFormStringArray.validate(arg, configuration=configuration)
 EnumFormStringArrayTupleInput = typing.Union[
     typing.List[
-        str,
+        typing_extensions.Literal[
+            ">",
+            "$"
+        ],
     ],
     typing.Tuple[
-        str,
+        typing_extensions.Literal[
+            ">",
+            "$"
+        ],
         ...
     ]
 ]

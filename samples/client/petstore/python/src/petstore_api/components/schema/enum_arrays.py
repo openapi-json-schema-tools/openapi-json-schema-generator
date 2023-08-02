@@ -159,10 +159,16 @@ class ArrayEnumTuple(
         return ArrayEnum.validate(arg, configuration=configuration)
 ArrayEnumTupleInput = typing.Union[
     typing.List[
-        str,
+        typing_extensions.Literal[
+            "fish",
+            "crab"
+        ],
     ],
     typing.Tuple[
-        str,
+        typing_extensions.Literal[
+            "fish",
+            "crab"
+        ],
         ...
     ]
 ]

@@ -126,16 +126,14 @@ class ArrayArrayOfIntegerTuple(
 ArrayArrayOfIntegerTupleInput = typing.Union[
     typing.List[
         typing.Union[
-            ItemsTuple,
-            list,
-            tuple
+            ItemsTupleInput,
+            ItemsTuple
         ],
     ],
     typing.Tuple[
         typing.Union[
-            ItemsTuple,
-            list,
-            tuple
+            ItemsTupleInput,
+            ItemsTuple
         ],
         ...
     ]
@@ -186,16 +184,14 @@ class ItemsTuple2(
 ItemsTupleInput2 = typing.Union[
     typing.List[
         typing.Union[
+            read_only_first.ReadOnlyFirstDictInput,
             read_only_first.ReadOnlyFirstDict,
-            dict,
-            schemas.immutabledict
         ],
     ],
     typing.Tuple[
         typing.Union[
+            read_only_first.ReadOnlyFirstDictInput,
             read_only_first.ReadOnlyFirstDict,
-            dict,
-            schemas.immutabledict
         ],
         ...
     ]
@@ -244,16 +240,14 @@ class ArrayArrayOfModelTuple(
 ArrayArrayOfModelTupleInput = typing.Union[
     typing.List[
         typing.Union[
-            ItemsTuple2,
-            list,
-            tuple
+            ItemsTupleInput2,
+            ItemsTuple2
         ],
     ],
     typing.Tuple[
         typing.Union[
-            ItemsTuple2,
-            list,
-            tuple
+            ItemsTupleInput2,
+            ItemsTuple2
         ],
         ...
     ]

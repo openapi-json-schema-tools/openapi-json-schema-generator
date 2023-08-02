@@ -26,15 +26,13 @@ FilesTupleInput = typing.Union[
     typing.List[
         typing.Union[
             bytes,
-            io.FileIO,
-            io.BufferedReader
+            schemas.FileIO
         ],
     ],
     typing.Tuple[
         typing.Union[
             bytes,
-            io.FileIO,
-            io.BufferedReader
+            schemas.FileIO
         ],
         ...
     ]

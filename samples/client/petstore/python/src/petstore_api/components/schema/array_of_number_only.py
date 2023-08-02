@@ -25,14 +25,14 @@ class ArrayNumberTuple(
 ArrayNumberTupleInput = typing.Union[
     typing.List[
         typing.Union[
-            float,
-            int
+            int,
+            float
         ],
     ],
     typing.Tuple[
         typing.Union[
-            float,
-            int
+            int,
+            float
         ],
         ...
     ]

@@ -162,16 +162,14 @@ class TagsTuple(
 TagsTupleInput = typing.Union[
     typing.List[
         typing.Union[
+            tag.TagDictInput,
             tag.TagDict,
-            dict,
-            schemas.immutabledict
         ],
     ],
     typing.Tuple[
         typing.Union[
+            tag.TagDictInput,
             tag.TagDict,
-            dict,
-            schemas.immutabledict
         ],
         ...
     ]

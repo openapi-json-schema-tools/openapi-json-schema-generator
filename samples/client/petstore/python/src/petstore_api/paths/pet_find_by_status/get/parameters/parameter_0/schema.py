@@ -106,10 +106,18 @@ class SchemaTuple(
         return Schema.validate(arg, configuration=configuration)
 SchemaTupleInput = typing.Union[
     typing.List[
-        str,
+        typing_extensions.Literal[
+            "available",
+            "pending",
+            "sold"
+        ],
     ],
     typing.Tuple[
-        str,
+        typing_extensions.Literal[
+            "available",
+            "pending",
+            "sold"
+        ],
         ...
     ]
 ]
