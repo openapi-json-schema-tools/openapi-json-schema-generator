@@ -545,10 +545,12 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.immutable
             schemas.Unset
         ] = schemas.unset,
         map_with_undeclared_properties_anytype_1: typing.Union[
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
             schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
             schemas.Unset
         ] = schemas.unset,
         map_with_undeclared_properties_anytype_2: typing.Union[
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
             schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
             schemas.Unset
         ] = schemas.unset,
