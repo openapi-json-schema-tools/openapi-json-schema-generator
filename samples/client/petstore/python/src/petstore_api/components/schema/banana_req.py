@@ -92,6 +92,7 @@ class BananaReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             if isinstance(val, schemas.Unset):
                 continue
             arg_[key] = val
+        arg_ = typing.cast(BananaReqDictInput, arg_)
         return BananaReq.validate(arg_, configuration=configuration_)
 
 

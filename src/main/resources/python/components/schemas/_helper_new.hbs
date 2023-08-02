@@ -68,6 +68,11 @@ def __new__(
             {{else}}
     arg_.update(kwargs)
             {{/if}}
+    {{#if additionalProperties}}
+        {{#if additionalProperties.getSelfOrDeepestRef.isBooleanSchemaFalse}}
+    arg_ = typing.cast({{mapInputJsonPathPiece.camelCase}}, arg_)
+        {{/if}}
+    {{/if}}
     return {{jsonPathPiece.camelCase}}.validate(arg_, configuration=configuration_)
         {{else}}
             {{! only addProps}}

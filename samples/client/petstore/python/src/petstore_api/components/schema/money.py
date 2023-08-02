@@ -65,6 +65,7 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             "amount": amount,
             "currency": currency,
         }
+        arg_ = typing.cast(MoneyDictInput, arg_)
         return Money.validate(arg_, configuration=configuration_)
 MoneyDictInput = typing_extensions.TypedDict(
     'MoneyDictInput',

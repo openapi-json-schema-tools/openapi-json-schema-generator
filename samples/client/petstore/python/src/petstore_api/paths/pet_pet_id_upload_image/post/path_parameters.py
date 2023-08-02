@@ -51,6 +51,7 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_ = {
             "petId": petId,
         }
+        arg_ = typing.cast(PathParametersDictInput, arg_)
         return PathParameters.validate(arg_, configuration=configuration_)
 PathParametersDictInput = typing_extensions.TypedDict(
     'PathParametersDictInput',

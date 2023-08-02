@@ -117,6 +117,7 @@ class VariablesDict(schemas.immutabledict[str, str]):
         arg_ = {
             "version": version,
         }
+        arg_ = typing.cast(VariablesDictInput, arg_)
         return Variables.validate(arg_, configuration=configuration_)
 VariablesDictInput = typing_extensions.TypedDict(
     'VariablesDictInput',

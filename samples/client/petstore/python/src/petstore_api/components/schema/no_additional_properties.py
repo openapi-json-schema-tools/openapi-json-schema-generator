@@ -86,6 +86,7 @@ class NoAdditionalPropertiesDict(schemas.immutabledict[str, int]):
             if isinstance(val, schemas.Unset):
                 continue
             arg_[key] = val
+        arg_ = typing.cast(NoAdditionalPropertiesDictInput, arg_)
         return NoAdditionalProperties.validate(arg_, configuration=configuration_)
 
 

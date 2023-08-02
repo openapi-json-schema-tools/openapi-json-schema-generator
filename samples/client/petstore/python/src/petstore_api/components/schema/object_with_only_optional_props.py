@@ -79,6 +79,7 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
             if isinstance(val, schemas.Unset):
                 continue
             arg_[key] = val
+        arg_ = typing.cast(ObjectWithOnlyOptionalPropsDictInput, arg_)
         return ObjectWithOnlyOptionalProps.validate(arg_, configuration=configuration_)
 ObjectWithOnlyOptionalPropsDictInput = typing_extensions.TypedDict(
     'ObjectWithOnlyOptionalPropsDictInput',

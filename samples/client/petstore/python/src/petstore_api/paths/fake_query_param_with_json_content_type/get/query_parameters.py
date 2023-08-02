@@ -54,6 +54,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         arg_ = {
             "someParam": someParam,
         }
+        arg_ = typing.cast(QueryParametersDictInput, arg_)
         return QueryParameters.validate(arg_, configuration=configuration_)
 QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',

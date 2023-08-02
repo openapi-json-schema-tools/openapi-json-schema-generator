@@ -162,6 +162,7 @@ class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, str]):
             "path": path,
             "value": value,
         }
+        arg_ = typing.cast(JSONPatchRequestAddReplaceTestDictInput, arg_)
         return JSONPatchRequestAddReplaceTest.validate(arg_, configuration=configuration_)
 JSONPatchRequestAddReplaceTestDictInput = typing_extensions.TypedDict(
     'JSONPatchRequestAddReplaceTestDictInput',

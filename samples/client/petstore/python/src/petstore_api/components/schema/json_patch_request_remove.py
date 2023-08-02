@@ -117,6 +117,7 @@ class JSONPatchRequestRemoveDict(schemas.immutabledict[str, str]):
             "op": op,
             "path": path,
         }
+        arg_ = typing.cast(JSONPatchRequestRemoveDictInput, arg_)
         return JSONPatchRequestRemove.validate(arg_, configuration=configuration_)
 JSONPatchRequestRemoveDictInput = typing_extensions.TypedDict(
     'JSONPatchRequestRemoveDictInput',

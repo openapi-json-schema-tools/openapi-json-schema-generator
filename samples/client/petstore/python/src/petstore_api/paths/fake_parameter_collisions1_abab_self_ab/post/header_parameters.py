@@ -69,6 +69,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             if isinstance(val, schemas.Unset):
                 continue
             arg_[key] = val
+        arg_ = typing.cast(HeaderParametersDictInput, arg_)
         return HeaderParameters.validate(arg_, configuration=configuration_)
 HeaderParametersDictInput = typing_extensions.TypedDict(
     'HeaderParametersDictInput',

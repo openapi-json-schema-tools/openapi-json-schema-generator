@@ -215,6 +215,7 @@ class VariablesDict(schemas.immutabledict[str, str]):
             "port": port,
             "server": server,
         }
+        arg_ = typing.cast(VariablesDictInput, arg_)
         return Variables.validate(arg_, configuration=configuration_)
 VariablesDictInput = typing_extensions.TypedDict(
     'VariablesDictInput',
