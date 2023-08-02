@@ -24,8 +24,8 @@ BananaReqRequiredDictInput = typing_extensions.TypedDict(
     'BananaReqRequiredDictInput',
     {
         "lengthCm": typing.Union[
-            float,
-            int
+            int,
+            float
         ],
     }
 )

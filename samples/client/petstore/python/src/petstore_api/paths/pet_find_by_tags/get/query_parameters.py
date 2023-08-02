@@ -60,9 +60,8 @@ QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {
         "tags": typing.Union[
-            schema.SchemaTuple,
-            list,
-            tuple
+            schema.SchemaTupleInput,
+            schema.SchemaTuple
         ],
     }
 )

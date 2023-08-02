@@ -70,10 +70,11 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 MoneyDictInput = typing_extensions.TypedDict(
     'MoneyDictInput',
     {
-        "amount": typing.Union[
-            str
+        "amount": str,
+        "currency": typing_extensions.Literal[
+            "eur",
+            "usd"
         ],
-        "currency": str,
     }
 )
 

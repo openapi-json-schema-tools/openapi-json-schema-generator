@@ -220,8 +220,15 @@ class VariablesDict(schemas.immutabledict[str, str]):
 VariablesDictInput = typing_extensions.TypedDict(
     'VariablesDictInput',
     {
-        "port": str,
-        "server": str,
+        "port": typing_extensions.Literal[
+            "80",
+            "8080"
+        ],
+        "server": typing_extensions.Literal[
+            "petstore",
+            "qa-petstore",
+            "dev-petstore"
+        ],
     }
 )
 

@@ -122,7 +122,10 @@ class VariablesDict(schemas.immutabledict[str, str]):
 VariablesDictInput = typing_extensions.TypedDict(
     'VariablesDictInput',
     {
-        "version": str,
+        "version": typing_extensions.Literal[
+            "v1",
+            "v2"
+        ],
     }
 )
 

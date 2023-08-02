@@ -141,7 +141,10 @@ JSONPatchRequestMoveCopyDictInput = typing_extensions.TypedDict(
     'JSONPatchRequestMoveCopyDictInput',
     {
         "from": str,
-        "op": str,
+        "op": typing_extensions.Literal[
+            "move",
+            "copy"
+        ],
         "path": str,
     }
 )

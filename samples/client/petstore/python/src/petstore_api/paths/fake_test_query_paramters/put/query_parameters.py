@@ -131,30 +131,25 @@ QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {
         "context": typing.Union[
-            schema_2.SchemaTuple,
-            list,
-            tuple
+            schema_2.SchemaTupleInput,
+            schema_2.SchemaTuple
         ],
         "http": typing.Union[
-            schema_3.SchemaTuple,
-            list,
-            tuple
+            schema_3.SchemaTupleInput,
+            schema_3.SchemaTuple
         ],
         "ioutil": typing.Union[
-            schema.SchemaTuple,
-            list,
-            tuple
+            schema.SchemaTupleInput,
+            schema.SchemaTuple
         ],
         "pipe": typing.Union[
-            schema_4.SchemaTuple,
-            list,
-            tuple
+            schema_4.SchemaTupleInput,
+            schema_4.SchemaTuple
         ],
         "refParam": str,
         "url": typing.Union[
-            schema_5.SchemaTuple,
-            list,
-            tuple
+            schema_5.SchemaTupleInput,
+            schema_5.SchemaTuple
         ],
     }
 )

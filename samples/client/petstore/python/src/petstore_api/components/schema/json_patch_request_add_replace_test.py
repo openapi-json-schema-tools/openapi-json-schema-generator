@@ -167,24 +167,15 @@ class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, str]):
 JSONPatchRequestAddReplaceTestDictInput = typing_extensions.TypedDict(
     'JSONPatchRequestAddReplaceTestDictInput',
     {
-        "op": str,
+        "op": typing_extensions.Literal[
+            "add",
+            "replace",
+            "test"
+        ],
         "path": str,
         "value": typing.Union[
-            dict,
-            schemas.immutabledict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
         ],
     }
 )

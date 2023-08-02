@@ -24,7 +24,10 @@ Properties = typing_extensions.TypedDict(
 HeaderParametersRequiredDictInput = typing_extensions.TypedDict(
     'HeaderParametersRequiredDictInput',
     {
-        "required_boolean_group": str,
+        "required_boolean_group": typing_extensions.Literal[
+            "true",
+            "false"
+        ],
     }
 )
 HeaderParametersOptionalDictInput = typing_extensions.TypedDict(
