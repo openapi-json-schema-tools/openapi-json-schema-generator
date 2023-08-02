@@ -22,17 +22,13 @@ class {{mapInputJsonPathPiece.camelCase}}({{requiredProperties.jsonPathPiece.cam
     str,
     typing.Union[
                 {{#each requiredProperties}}
-                    {{#with this}}
-        {{> components/schemas/_helper_property_value_type }}
-                    {{/with}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," }}
                 {{/each}}
                 {{#each optionalProperties}}
-                    {{#with this}}
-        {{> components/schemas/_helper_property_value_type }}
-                    {{/with}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," }}
                 {{/each}}
                 {{#with additionalProperties}}
-        {{> components/schemas/_helper_property_value_type }}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," }}
                 {{/with}}
     ]
 ]
@@ -44,12 +40,10 @@ class {{mapInputJsonPathPiece.camelCase}}({{requiredProperties.jsonPathPiece.cam
     str,
     typing.Union[
                     {{#each requiredProperties}}
-                        {{#with this}}
-        {{> components/schemas/_helper_property_value_type }}
-                        {{/with}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," }}
                     {{/each}}
                     {{#with additionalProperties}}
-        {{> components/schemas/_helper_property_value_type }}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," }}
                     {{/with}}
     ]
 ]
@@ -60,17 +54,13 @@ class {{mapInputJsonPathPiece.camelCase}}({{requiredProperties.jsonPathPiece.cam
     str,
     typing.Union[
                         {{#each requiredProperties}}
-                            {{#with this}}
-        {{> components/schemas/_helper_property_value_type }}
-                            {{/with}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," }}
                         {{/each}}
                         {{#each optionalProperties}}
-                            {{#with this}}
-        {{> components/schemas/_helper_property_value_type }}
-                            {{/with}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," }}
                         {{/each}}
                         {{#with additionalProperties}}
-        {{> components/schemas/_helper_property_value_type }}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," }}
                         {{/with}}
     ]
 ]
