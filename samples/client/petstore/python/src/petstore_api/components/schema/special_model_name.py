@@ -50,10 +50,7 @@ class SpecialModelNameDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
-        a: typing.Union[
-            str,
-            schemas.Unset,
-        ] = schemas.unset,
+        a: typing.Union[str, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

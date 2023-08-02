@@ -88,13 +88,8 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
-        int32: typing.Union[
-            int,
-        ],
-        numberHeader: typing.Union[
-            str,
-            schemas.Unset,
-        ] = schemas.unset,
+        int32: int,
+        numberHeader: typing.Union[str, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         arg_ = {

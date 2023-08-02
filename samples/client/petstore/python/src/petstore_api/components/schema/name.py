@@ -63,13 +63,8 @@ class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
-        name: typing.Union[
-            int,
-        ],
-        snake_case: typing.Union[
-            int,
-            schemas.Unset,
-        ] = schemas.unset,
+        name: int,
+        snake_case: typing.Union[int, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

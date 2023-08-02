@@ -1134,85 +1134,47 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def __new__(
         cls,
         integer_prop: typing.Union[
-            typing.Union[
-                None,
-                int,
-            ],
-            schemas.Unset,
-        ] = schemas.unset,
+            integer_prop: typing.Union[None, schemas.Unset] = schemas.unset,
+            integer_prop: typing.Union[int, schemas.Unset] = schemas.unset,
+        ],
         number_prop: typing.Union[
-            typing.Union[
-                None,
-                typing.Union[int, float],
-            ],
-            schemas.Unset,
-        ] = schemas.unset,
+            number_prop: typing.Union[None, schemas.Unset] = schemas.unset,
+            number_prop: typing.Union[int, float, schemas.Unset] = schemas.unset,
+        ],
         boolean_prop: typing.Union[
-            typing.Union[
-                None,
-                bool,
-            ],
-            schemas.Unset,
-        ] = schemas.unset,
+            boolean_prop: typing.Union[None, schemas.Unset] = schemas.unset,
+            boolean_prop: typing.Union[bool, schemas.Unset] = schemas.unset,
+        ],
         string_prop: typing.Union[
-            typing.Union[
-                None,
-                str,
-            ],
-            schemas.Unset,
-        ] = schemas.unset,
+            string_prop: typing.Union[None, schemas.Unset] = schemas.unset,
+            string_prop: typing.Union[str, schemas.Unset] = schemas.unset,
+        ],
         date_prop: typing.Union[
-            typing.Union[
-                None,
-                str,
-            ],
-            schemas.Unset,
-        ] = schemas.unset,
+            date_prop: typing.Union[None, schemas.Unset] = schemas.unset,
+            date_prop: typing.Union[str, schemas.Unset] = schemas.unset,
+        ],
         datetime_prop: typing.Union[
-            typing.Union[
-                None,
-                str,
-            ],
-            schemas.Unset,
-        ] = schemas.unset,
+            datetime_prop: typing.Union[None, schemas.Unset] = schemas.unset,
+            datetime_prop: typing.Union[str, schemas.Unset] = schemas.unset,
+        ],
         array_nullable_prop: typing.Union[
-            typing.Union[
-                None,
-                ArrayNullablePropTuple,
-            ],
-            schemas.Unset,
-        ] = schemas.unset,
+            array_nullable_prop: typing.Union[None, schemas.Unset] = schemas.unset,
+            array_nullable_prop: typing.Union[ArrayNullablePropTuple, schemas.Unset] = schemas.unset,
+        ],
         array_and_items_nullable_prop: typing.Union[
-            typing.Union[
-                None,
-                ArrayAndItemsNullablePropTuple,
-            ],
-            schemas.Unset,
-        ] = schemas.unset,
-        array_items_nullable: typing.Union[
-            ArrayItemsNullableTupleInput,
-            ArrayItemsNullableTuple,
-            schemas.Unset,
-        ] = schemas.unset,
+            array_and_items_nullable_prop: typing.Union[None, schemas.Unset] = schemas.unset,
+            array_and_items_nullable_prop: typing.Union[ArrayAndItemsNullablePropTuple, schemas.Unset] = schemas.unset,
+        ],
+        array_items_nullable: typing.Union[ArrayItemsNullableTuple, schemas.Unset] = schemas.unset,
         object_nullable_prop: typing.Union[
-            typing.Union[
-                None,
-                ObjectNullablePropDict,
-            ],
-            schemas.Unset,
-        ] = schemas.unset,
+            object_nullable_prop: typing.Union[None, schemas.Unset] = schemas.unset,
+            object_nullable_prop: typing.Union[ObjectNullablePropDict, schemas.Unset] = schemas.unset,
+        ],
         object_and_items_nullable_prop: typing.Union[
-            typing.Union[
-                None,
-                ObjectAndItemsNullablePropDict,
-            ],
-            schemas.Unset,
-        ] = schemas.unset,
-        object_items_nullable: typing.Union[
-            ObjectItemsNullableDictInput,
-            ObjectItemsNullableDict,
-            schemas.Unset,
-        ] = schemas.unset,
+            object_and_items_nullable_prop: typing.Union[None, schemas.Unset] = schemas.unset,
+            object_and_items_nullable_prop: typing.Union[ObjectAndItemsNullablePropDict, schemas.Unset] = schemas.unset,
+        ],
+        object_items_nullable: typing.Union[ObjectItemsNullableDict, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Any,
     ):

@@ -200,12 +200,8 @@ class VariablesDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
-        port: typing.Union[
-            typing_extensions.Literal["80", "8080"],
-        ],
-        server: typing.Union[
-            typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"],
-        ],
+        port: typing_extensions.Literal["80", "8080"],
+        server: typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         arg_ = {

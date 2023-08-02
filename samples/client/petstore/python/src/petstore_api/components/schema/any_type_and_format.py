@@ -206,41 +206,13 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     
     def __new__(
         cls,
-        uuid: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
-            schemas.Unset,
-        ] = schemas.unset,
-        date: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
-            schemas.Unset,
-        ] = schemas.unset,
-        number: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
-            schemas.Unset,
-        ] = schemas.unset,
-        binary: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
-            schemas.Unset,
-        ] = schemas.unset,
-        int32: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
-            schemas.Unset,
-        ] = schemas.unset,
-        int64: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
-            schemas.Unset,
-        ] = schemas.unset,
-        double: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
-            schemas.Unset,
-        ] = schemas.unset,
+        uuid: typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset] = schemas.unset,
+        date: typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset] = schemas.unset,
+        number: typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset] = schemas.unset,
+        binary: typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset] = schemas.unset,
+        int32: typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset] = schemas.unset,
+        int64: typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset] = schemas.unset,
+        double: typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

@@ -126,17 +126,9 @@ class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
-        className: typing.Union[
-            typing_extensions.Literal["whale"],
-        ],
-        hasBaleen: typing.Union[
-            bool,
-            schemas.Unset,
-        ] = schemas.unset,
-        hasTeeth: typing.Union[
-            bool,
-            schemas.Unset,
-        ] = schemas.unset,
+        className: typing_extensions.Literal["whale"],
+        hasBaleen: typing.Union[bool, schemas.Unset] = schemas.unset,
+        hasTeeth: typing.Union[bool, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

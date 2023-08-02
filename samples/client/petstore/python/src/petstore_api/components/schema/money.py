@@ -54,12 +54,8 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
-        amount: typing.Union[
-            str,
-        ],
-        currency: typing.Union[
-            typing_extensions.Literal["eur", "usd"],
-        ],
+        amount: str,
+        currency: typing_extensions.Literal["eur", "usd"],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         arg_ = {

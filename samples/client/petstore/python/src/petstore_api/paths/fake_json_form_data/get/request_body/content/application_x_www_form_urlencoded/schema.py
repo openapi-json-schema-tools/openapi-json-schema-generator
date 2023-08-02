@@ -57,12 +57,8 @@ class SchemaDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
-        param: typing.Union[
-            str,
-        ],
-        param2: typing.Union[
-            str,
-        ],
+        param: str,
+        param2: str,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

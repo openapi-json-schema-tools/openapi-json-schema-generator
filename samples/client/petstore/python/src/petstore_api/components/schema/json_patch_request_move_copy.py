@@ -124,12 +124,8 @@ class JSONPatchRequestMoveCopyDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
-        op: typing.Union[
-            typing_extensions.Literal["move", "copy"],
-        ],
-        path: typing.Union[
-            str,
-        ],
+        op: typing_extensions.Literal["move", "copy"],
+        path: str,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         arg_ = {

@@ -48,10 +48,7 @@ class ReqPropsFromTrueAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BAS
     
     def __new__(
         cls,
-        validName: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
-        ],
+        validName: schemas.OUTPUT_BASE_TYPES,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

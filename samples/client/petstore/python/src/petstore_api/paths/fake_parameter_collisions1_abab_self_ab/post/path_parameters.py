@@ -64,12 +64,8 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
-        Ab: typing.Union[
-            str,
-        ],
-        aB: typing.Union[
-            str,
-        ],
+        Ab: str,
+        aB: str,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         arg_ = {

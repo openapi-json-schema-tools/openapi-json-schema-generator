@@ -100,9 +100,7 @@ class DanishPigDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
-        className: typing.Union[
-            typing_extensions.Literal["DanishPig"],
-        ],
+        className: typing_extensions.Literal["DanishPig"],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

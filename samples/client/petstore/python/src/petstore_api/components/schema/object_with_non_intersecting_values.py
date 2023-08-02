@@ -57,10 +57,7 @@ class ObjectWithNonIntersectingValuesDict(schemas.immutabledict[str, schemas.OUT
     
     def __new__(
         cls,
-        a: typing.Union[
-            typing.Union[int, float],
-            schemas.Unset,
-        ] = schemas.unset,
+        a: typing.Union[int, float, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Any,
     ):

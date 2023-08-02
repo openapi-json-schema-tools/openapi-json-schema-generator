@@ -50,10 +50,7 @@ class _1Dict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
-        breed: typing.Union[
-            str,
-            schemas.Unset,
-        ] = schemas.unset,
+        breed: typing.Union[str, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

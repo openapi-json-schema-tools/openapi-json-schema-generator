@@ -86,23 +86,10 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     
     def __new__(
         cls,
-        enum_query_double: typing.Union[
-            typing.Union[int, float],
-            schemas.Unset,
-        ] = schemas.unset,
-        enum_query_string: typing.Union[
-            typing_extensions.Literal["_abc", "-efg", "(xyz)"],
-            schemas.Unset,
-        ] = schemas.unset,
-        enum_query_integer: typing.Union[
-            typing_extensions.Literal[1, -2],
-            schemas.Unset,
-        ] = schemas.unset,
-        enum_query_string_array: typing.Union[
-            schema_4.SchemaTupleInput,
-            schema_4.SchemaTuple,
-            schemas.Unset,
-        ] = schemas.unset,
+        enum_query_double: typing.Union[int, float, schemas.Unset] = schemas.unset,
+        enum_query_string: typing.Union[typing_extensions.Literal["_abc", "-efg", "(xyz)"], schemas.Unset] = schemas.unset,
+        enum_query_integer: typing.Union[typing_extensions.Literal[1, -2], schemas.Unset] = schemas.unset,
+        enum_query_string_array: typing.Union[schema_4.SchemaTuple, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         arg_ = {}

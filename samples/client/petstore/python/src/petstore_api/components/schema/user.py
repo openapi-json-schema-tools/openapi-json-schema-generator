@@ -256,65 +256,22 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
-        id: typing.Union[
-            int,
-            schemas.Unset,
-        ] = schemas.unset,
-        username: typing.Union[
-            str,
-            schemas.Unset,
-        ] = schemas.unset,
-        firstName: typing.Union[
-            str,
-            schemas.Unset,
-        ] = schemas.unset,
-        lastName: typing.Union[
-            str,
-            schemas.Unset,
-        ] = schemas.unset,
-        email: typing.Union[
-            str,
-            schemas.Unset,
-        ] = schemas.unset,
-        password: typing.Union[
-            str,
-            schemas.Unset,
-        ] = schemas.unset,
-        phone: typing.Union[
-            str,
-            schemas.Unset,
-        ] = schemas.unset,
-        userStatus: typing.Union[
-            int,
-            schemas.Unset,
-        ] = schemas.unset,
-        objectWithNoDeclaredProps: typing.Union[
-            typing.Dict[str, schemas.INPUT_TYPES_ALL],
-            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-            schemas.Unset,
-        ] = schemas.unset,
+        id: typing.Union[int, schemas.Unset] = schemas.unset,
+        username: typing.Union[str, schemas.Unset] = schemas.unset,
+        firstName: typing.Union[str, schemas.Unset] = schemas.unset,
+        lastName: typing.Union[str, schemas.Unset] = schemas.unset,
+        email: typing.Union[str, schemas.Unset] = schemas.unset,
+        password: typing.Union[str, schemas.Unset] = schemas.unset,
+        phone: typing.Union[str, schemas.Unset] = schemas.unset,
+        userStatus: typing.Union[int, schemas.Unset] = schemas.unset,
+        objectWithNoDeclaredProps: typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset] = schemas.unset,
         objectWithNoDeclaredPropsNullable: typing.Union[
-            typing.Union[
-                None,
-                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-            ],
-            schemas.Unset,
-        ] = schemas.unset,
-        anyTypeProp: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
-            schemas.Unset,
-        ] = schemas.unset,
-        anyTypeExceptNullProp: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
-            schemas.Unset,
-        ] = schemas.unset,
-        anyTypePropNullable: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
-            schemas.Unset,
-        ] = schemas.unset,
+            objectWithNoDeclaredPropsNullable: typing.Union[None, schemas.Unset] = schemas.unset,
+            objectWithNoDeclaredPropsNullable: typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset] = schemas.unset,
+        ],
+        anyTypeProp: typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset] = schemas.unset,
+        anyTypeExceptNullProp: typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset] = schemas.unset,
+        anyTypePropNullable: typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

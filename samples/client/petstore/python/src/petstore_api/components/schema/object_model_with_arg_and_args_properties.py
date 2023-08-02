@@ -57,12 +57,8 @@ class ObjectModelWithArgAndArgsPropertiesDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
-        arg: typing.Union[
-            str,
-        ],
-        args: typing.Union[
-            str,
-        ],
+        arg: str,
+        args: str,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

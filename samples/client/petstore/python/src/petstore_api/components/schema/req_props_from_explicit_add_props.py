@@ -48,9 +48,7 @@ class ReqPropsFromExplicitAddPropsDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
-        validName: typing.Union[
-            str,
-        ],
+        validName: str,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Any,
     ):

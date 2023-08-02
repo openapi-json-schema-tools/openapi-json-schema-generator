@@ -48,11 +48,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     
     def __new__(
         cls,
-        mapBean: typing.Union[
-            foo.FooDictInput,
-            foo.FooDict,
-            schemas.Unset,
-        ] = schemas.unset,
+        mapBean: typing.Union[foo.FooDict, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         arg_ = {}
