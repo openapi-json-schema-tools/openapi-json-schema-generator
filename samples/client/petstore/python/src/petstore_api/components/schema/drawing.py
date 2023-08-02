@@ -199,7 +199,10 @@ class DrawingDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TY
             schemas.Unset
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
     ):
         arg_ = {}
         for key, val in (

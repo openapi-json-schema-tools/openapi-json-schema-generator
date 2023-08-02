@@ -35,7 +35,10 @@ class MapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: typing.Union[
+            animal.AnimalDictInput,
+            animal.AnimalDict,
+        ],
     ):
         return Map.validate(kwargs, configuration=configuration_)
     

@@ -33,7 +33,7 @@ class StringBooleanMapDict(schemas.immutabledict[str, bool]):
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: bool,
     ):
         return StringBooleanMap.validate(kwargs, configuration=configuration_)
     

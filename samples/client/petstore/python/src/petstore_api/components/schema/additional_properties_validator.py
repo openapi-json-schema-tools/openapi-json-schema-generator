@@ -106,7 +106,10 @@ class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
     ):
         return _1.validate(kwargs, configuration=configuration_)
     
@@ -198,7 +201,10 @@ class _2Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
     ):
         return _2.validate(kwargs, configuration=configuration_)
     

@@ -61,7 +61,10 @@ class SelfReferencingObjectModelDict(schemas.immutabledict[str, schemas.OUTPUT_B
             schemas.Unset
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: typing.Union[
+            SelfReferencingObjectModelDictInput,
+            SelfReferencingObjectModelDict,
+        ],
     ):
         arg_ = {}
         for key, val in (

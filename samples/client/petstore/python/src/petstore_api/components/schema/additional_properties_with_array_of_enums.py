@@ -84,7 +84,10 @@ class AdditionalPropertiesWithArrayOfEnumsDict(schemas.immutabledict[str, typing
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: typing.Union[
+            AdditionalPropertiesTupleInput,
+            AdditionalPropertiesTuple
+        ],
     ):
         return AdditionalPropertiesWithArrayOfEnums.validate(kwargs, configuration=configuration_)
     

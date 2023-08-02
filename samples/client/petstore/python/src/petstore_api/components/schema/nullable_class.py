@@ -576,7 +576,10 @@ class ObjectNullablePropDict(schemas.immutabledict[str, schemas.immutabledict[st
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: typing.Union[
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        ],
     ):
         return ObjectNullableProp.validate(kwargs, configuration=configuration_)
     
@@ -708,7 +711,13 @@ class ObjectAndItemsNullablePropDict(schemas.immutabledict[str, typing.Union[
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: typing.Union[
+            None,
+            typing.Union[
+                typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            ],
+        ],
     ):
         return ObjectAndItemsNullableProp.validate(kwargs, configuration=configuration_)
     
@@ -841,7 +850,13 @@ class ObjectItemsNullableDict(schemas.immutabledict[str, typing.Union[
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: typing.Union[
+            None,
+            typing.Union[
+                typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            ],
+        ],
     ):
         return ObjectItemsNullable.validate(kwargs, configuration=configuration_)
     
@@ -1209,7 +1224,13 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             schemas.Unset
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: typing.Union[
+            None,
+            typing.Union[
+                typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            ],
+        ],
     ):
         arg_ = {}
         for key, val in (

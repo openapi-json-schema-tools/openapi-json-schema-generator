@@ -33,7 +33,7 @@ class MapPropertyDict(schemas.immutabledict[str, str]):
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: str,
     ):
         return MapProperty.validate(kwargs, configuration=configuration_)
     
@@ -101,7 +101,7 @@ class AdditionalPropertiesDict(schemas.immutabledict[str, str]):
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: str,
     ):
         return AdditionalProperties2.validate(kwargs, configuration=configuration_)
     
@@ -168,7 +168,10 @@ class MapOfMapPropertyDict(schemas.immutabledict[str, schemas.immutabledict[str,
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: typing.Union[
+            AdditionalPropertiesDictInput,
+            AdditionalPropertiesDict,
+        ],
     ):
         return MapOfMapProperty.validate(kwargs, configuration=configuration_)
     
@@ -363,7 +366,7 @@ class MapWithUndeclaredPropertiesStringDict(schemas.immutabledict[str, str]):
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: str,
     ):
         return MapWithUndeclaredPropertiesString.validate(kwargs, configuration=configuration_)
     

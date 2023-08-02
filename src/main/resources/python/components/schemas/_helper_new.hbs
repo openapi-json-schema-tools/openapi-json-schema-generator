@@ -31,7 +31,9 @@ def __new__(
                     {{#if additionalProperties.isBooleanSchemaTrue}}
     **kwargs: schemas.INPUT_TYPES_ALL,
                     {{else}}
-    **kwargs: typing.Any,
+                        {{#with additionalProperties}}
+    {{> components/schemas/_helper_schema_io_type paramName="**kwargs" fullRefModule="" endChar="," }}
+                        {{/with}}
                     {{/if}}
                 {{/if}}
             {{else}}
@@ -89,7 +91,9 @@ def __new__(
                     {{#if additionalProperties.isBooleanSchemaTrue}}
     **kwargs: schemas.INPUT_TYPES_ALL,
                     {{else}}
-    **kwargs: typing.Any,
+                        {{#with additionalProperties}}
+    {{> components/schemas/_helper_schema_io_type paramName="**kwargs" fullRefModule="" endChar="," }}
+                        {{/with}}
                     {{/if}}
                 {{/if}}
             {{else}}

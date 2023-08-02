@@ -63,7 +63,7 @@ class ObjectWithNonIntersectingValuesDict(schemas.immutabledict[str, schemas.OUT
             schemas.Unset
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: str,
     ):
         arg_ = {}
         for key, val in (

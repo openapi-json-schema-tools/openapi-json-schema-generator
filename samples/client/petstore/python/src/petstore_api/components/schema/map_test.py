@@ -33,7 +33,7 @@ class AdditionalPropertiesDict(schemas.immutabledict[str, str]):
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: str,
     ):
         return AdditionalProperties.validate(kwargs, configuration=configuration_)
     
@@ -100,7 +100,10 @@ class MapMapOfStringDict(schemas.immutabledict[str, schemas.immutabledict[str, s
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: typing.Union[
+            AdditionalPropertiesDictInput,
+            AdditionalPropertiesDict,
+        ],
     ):
         return MapMapOfString.validate(kwargs, configuration=configuration_)
     
@@ -239,7 +242,10 @@ class MapOfEnumStringDict(schemas.immutabledict[str, str]):
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: typing_extensions.Literal[
+            "UPPER",
+            "lower"
+        ],
     ):
         return MapOfEnumString.validate(kwargs, configuration=configuration_)
     
@@ -307,7 +313,7 @@ class DirectMapDict(schemas.immutabledict[str, bool]):
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: bool,
     ):
         return DirectMap.validate(kwargs, configuration=configuration_)
     

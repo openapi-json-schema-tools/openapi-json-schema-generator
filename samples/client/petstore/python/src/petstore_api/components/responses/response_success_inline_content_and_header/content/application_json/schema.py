@@ -33,7 +33,7 @@ class SchemaDict(schemas.immutabledict[str, int]):
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing.Any,
+        **kwargs: int,
     ):
         return Schema.validate(kwargs, configuration=configuration_)
     
