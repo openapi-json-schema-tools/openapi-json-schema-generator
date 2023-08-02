@@ -135,8 +135,8 @@ class JSONPatchRequestMoveCopyDict(schemas.immutabledict[str, str]):
             "op": op,
             "path": path,
         }
-        arg_ = typing.cast(JSONPatchRequestMoveCopyDictInput, arg_)
-        return JSONPatchRequestMoveCopy.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(JSONPatchRequestMoveCopyDictInput, arg_)
+        return JSONPatchRequestMoveCopy.validate(used_arg_, configuration=configuration_)
 JSONPatchRequestMoveCopyDictInput = typing_extensions.TypedDict(
     'JSONPatchRequestMoveCopyDictInput',
     {

@@ -88,8 +88,8 @@ class CookieParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             if isinstance(val, schemas.Unset):
                 continue
             arg_[key] = val
-        arg_ = typing.cast(CookieParametersDictInput, arg_)
-        return CookieParameters.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(CookieParametersDictInput, arg_)
+        return CookieParameters.validate(used_arg_, configuration=configuration_)
 CookieParametersDictInput = typing_extensions.TypedDict(
     'CookieParametersDictInput',
     {

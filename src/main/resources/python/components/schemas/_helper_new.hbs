@@ -70,10 +70,14 @@ def __new__(
             {{/if}}
     {{#if additionalProperties}}
         {{#if additionalProperties.getSelfOrDeepestRef.isBooleanSchemaFalse}}
-    arg_ = typing.cast({{mapInputJsonPathPiece.camelCase}}, arg_)
-        {{/if}}
-    {{/if}}
+    used_arg_ = typing.cast({{mapInputJsonPathPiece.camelCase}}, arg_)
+    return {{jsonPathPiece.camelCase}}.validate(used_arg_, configuration=configuration_)
+        {{else}}
     return {{jsonPathPiece.camelCase}}.validate(arg_, configuration=configuration_)
+        {{/if}}
+    {{else}}
+    return {{jsonPathPiece.camelCase}}.validate(arg_, configuration=configuration_)
+    {{/if}}
         {{else}}
             {{! only addProps}}
 def __new__(
