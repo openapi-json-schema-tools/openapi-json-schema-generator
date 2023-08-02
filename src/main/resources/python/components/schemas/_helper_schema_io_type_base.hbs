@@ -120,20 +120,29 @@
                                 {{#if arrayOutputJsonPathPiece}}
                                     {{#if fullRefModule}}
                                         {{#if optional}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}, schemas.Unset] = schemas.unset{{endChar}}
+{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    {{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}},
+    schemas.Unset
+] = schemas.unset{{endChar}}
                                         {{else}}
 {{#if paramName}}{{paramName}}: {{/if}}{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}{{endChar}}
                                         {{/if}}
                                     {{else}}
                                         {{#if selfReference}}
                                             {{#if optional}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union['{{arrayOutputJsonPathPiece.camelCase}}', schemas.Unset] = schemas.unset{{endChar}}
+{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    '{{arrayOutputJsonPathPiece.camelCase}}',
+    schemas.Unset
+] = schemas.unset{{endChar}}
                                             {{else}}
 {{#if paramName}}{{paramName}}: {{/if}}'{{arrayOutputJsonPathPiece.camelCase}}'{{endChar}}
                                             {{/if}}
                                         {{else}}
                                             {{#if optional}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[{{arrayOutputJsonPathPiece.camelCase}}, schemas.Unset] = schemas.unset{{endChar}}
+{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    {{arrayOutputJsonPathPiece.camelCase}},
+    schemas.Unset
+] = schemas.unset{{endChar}}
                                             {{else}}
 {{#if paramName}}{{paramName}}: {{/if}}{{arrayOutputJsonPathPiece.camelCase}}{{endChar}}
                                             {{/if}}
@@ -141,7 +150,10 @@
                                     {{/if}}
                                 {{else}}
                                     {{#if optional}}
-{{#if paramName}}{{paramName}}: {{/if}}typing.Union[typing.Tuple[schemas.OUTPUT_BASE_TYPES], schemas.Unset] = schemas.unset{{endChar}}
+{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    typing.Tuple[schemas.OUTPUT_BASE_TYPES],
+    schemas.Unset
+] = schemas.unset{{endChar}}
                                     {{else}}
 {{#if paramName}}{{paramName}}: {{/if}}typing.Tuple[schemas.OUTPUT_BASE_TYPES]{{endChar}}
                                     {{/if}}

@@ -309,7 +309,10 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             category.CategoryDict,
             schemas.Unset
         ] = schemas.unset,
-        tags: typing.Union[TagsTuple, schemas.Unset] = schemas.unset,
+        tags: typing.Union[
+            TagsTuple,
+            schemas.Unset
+        ] = schemas.unset,
         status: typing.Union[
             typing_extensions.Literal[
                 "available",

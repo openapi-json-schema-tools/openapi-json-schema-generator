@@ -68,7 +68,10 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             ],
             schemas.Unset
         ] = schemas.unset,
-        enum_header_string_array: typing.Union[schema_2.SchemaTuple, schemas.Unset] = schemas.unset,
+        enum_header_string_array: typing.Union[
+            schema_2.SchemaTuple,
+            schemas.Unset
+        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         arg_ = {}

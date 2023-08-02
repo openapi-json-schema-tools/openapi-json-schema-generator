@@ -190,7 +190,10 @@ class DrawingDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TY
             schemas.OUTPUT_BASE_TYPES,
             schemas.Unset
         ] = schemas.unset,
-        shapes: typing.Union[ShapesTuple, schemas.Unset] = schemas.unset,
+        shapes: typing.Union[
+            ShapesTuple,
+            schemas.Unset
+        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: typing.Any,
     ):
