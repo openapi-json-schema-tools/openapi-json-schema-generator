@@ -55,7 +55,8 @@ class GrandparentAnimalDict(schemas.immutabledict[str, str]):
             "pet_type": pet_type,
         }
         arg_.update(kwargs)
-        return GrandparentAnimal.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(GrandparentAnimalDictInput, arg_)
+        return GrandparentAnimal.validate(used_arg_, configuration=configuration_)
 GrandparentAnimalDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

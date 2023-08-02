@@ -101,7 +101,8 @@ class AppleDict(schemas.immutabledict[str, str]):
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return Apple.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(AppleDictInput, arg_)
+        return Apple.validate(used_arg_, configuration=configuration_)
 AppleDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

@@ -67,7 +67,8 @@ class ObjectModelWithArgAndArgsPropertiesDict(schemas.immutabledict[str, str]):
             "args": args,
         }
         arg_.update(kwargs)
-        return ObjectModelWithArgAndArgsProperties.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(ObjectModelWithArgAndArgsPropertiesDictInput, arg_)
+        return ObjectModelWithArgAndArgsProperties.validate(used_arg_, configuration=configuration_)
 ObjectModelWithArgAndArgsPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

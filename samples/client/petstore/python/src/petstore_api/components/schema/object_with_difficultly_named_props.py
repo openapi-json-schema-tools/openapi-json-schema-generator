@@ -52,7 +52,8 @@ class ObjectWithDifficultlyNamedPropsDict(schemas.immutabledict[str, schemas.OUT
         arg_ = {
         }
         arg_.update(kwargs)
-        return ObjectWithDifficultlyNamedProps.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(ObjectWithDifficultlyNamedPropsDictInput, arg_)
+        return ObjectWithDifficultlyNamedProps.validate(used_arg_, configuration=configuration_)
 ObjectWithDifficultlyNamedPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

@@ -87,7 +87,8 @@ class AnimalDict(schemas.immutabledict[str, str]):
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return Animal.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(AnimalDictInput, arg_)
+        return Animal.validate(used_arg_, configuration=configuration_)
 AnimalDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

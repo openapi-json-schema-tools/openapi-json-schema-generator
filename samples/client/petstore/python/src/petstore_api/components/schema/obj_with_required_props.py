@@ -55,7 +55,8 @@ class ObjWithRequiredPropsDict(schemas.immutabledict[str, str]):
             "a": a,
         }
         arg_.update(kwargs)
-        return ObjWithRequiredProps.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(ObjWithRequiredPropsDictInput, arg_)
+        return ObjWithRequiredProps.validate(used_arg_, configuration=configuration_)
 ObjWithRequiredPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

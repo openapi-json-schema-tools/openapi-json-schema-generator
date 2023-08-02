@@ -73,7 +73,7 @@ class PlayerDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
-        arg_ = {}
+        arg_: typing.Dict[str, typing.Any] = {}
         for key, val in (
             ("name", name),
             ("enemyPlayer", enemyPlayer),
@@ -82,7 +82,8 @@ class PlayerDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return Player.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(PlayerDictInput, arg_)
+        return Player.validate(used_arg_, configuration=configuration_)
 PlayerDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

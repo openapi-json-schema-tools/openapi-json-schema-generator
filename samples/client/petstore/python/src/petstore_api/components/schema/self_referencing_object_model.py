@@ -66,7 +66,7 @@ class SelfReferencingObjectModelDict(schemas.immutabledict[str, schemas.OUTPUT_B
             SelfReferencingObjectModelDict,
         ],
     ):
-        arg_ = {}
+        arg_: typing.Dict[str, typing.Any] = {}
         for key, val in (
             ("selfRef", selfRef),
         ):
@@ -74,7 +74,8 @@ class SelfReferencingObjectModelDict(schemas.immutabledict[str, schemas.OUTPUT_B
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return SelfReferencingObjectModel.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(SelfReferencingObjectModelDictInput, arg_)
+        return SelfReferencingObjectModel.validate(used_arg_, configuration=configuration_)
 SelfReferencingObjectModelDictInput = typing.Mapping[
     str,
     typing.Union[

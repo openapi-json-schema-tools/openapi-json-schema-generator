@@ -81,7 +81,8 @@ class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return Name.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(NameDictInput, arg_)
+        return Name.validate(used_arg_, configuration=configuration_)
 NameDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

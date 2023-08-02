@@ -1232,7 +1232,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             ],
         ],
     ):
-        arg_ = {}
+        arg_: typing.Dict[str, typing.Any] = {}
         for key, val in (
             ("integer_prop", integer_prop),
             ("number_prop", number_prop),
@@ -1251,7 +1251,8 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return NullableClass.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(NullableClassDictInput, arg_)
+        return NullableClass.validate(used_arg_, configuration=configuration_)
 NullableClassDictInput = typing.Mapping[
     str,
     typing.Union[

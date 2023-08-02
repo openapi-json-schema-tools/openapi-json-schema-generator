@@ -65,7 +65,7 @@ class ObjectWithNonIntersectingValuesDict(schemas.immutabledict[str, schemas.OUT
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: str,
     ):
-        arg_ = {}
+        arg_: typing.Dict[str, typing.Any] = {}
         for key, val in (
             ("a", a),
         ):
@@ -73,7 +73,8 @@ class ObjectWithNonIntersectingValuesDict(schemas.immutabledict[str, schemas.OUT
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return ObjectWithNonIntersectingValues.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(ObjectWithNonIntersectingValuesDictInput, arg_)
+        return ObjectWithNonIntersectingValues.validate(used_arg_, configuration=configuration_)
 ObjectWithNonIntersectingValuesDictInput = typing.Mapping[
     str,
     typing.Union[

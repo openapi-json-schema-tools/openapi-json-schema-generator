@@ -142,7 +142,7 @@ class CapitalizationDict(schemas.immutabledict[str, str]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
-        arg_ = {}
+        arg_: typing.Dict[str, typing.Any] = {}
         for key, val in (
             ("smallCamel", smallCamel),
             ("CapitalCamel", CapitalCamel),
@@ -155,7 +155,8 @@ class CapitalizationDict(schemas.immutabledict[str, str]):
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return Capitalization.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(CapitalizationDictInput, arg_)
+        return Capitalization.validate(used_arg_, configuration=configuration_)
 CapitalizationDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

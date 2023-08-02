@@ -56,7 +56,8 @@ class ReqPropsFromExplicitAddPropsDict(schemas.immutabledict[str, str]):
             "validName": validName,
         }
         arg_.update(kwargs)
-        return ReqPropsFromExplicitAddProps.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(ReqPropsFromExplicitAddPropsDictInput, arg_)
+        return ReqPropsFromExplicitAddProps.validate(used_arg_, configuration=configuration_)
 ReqPropsFromExplicitAddPropsDictInput = typing.Mapping[
     str,
     typing.Union[

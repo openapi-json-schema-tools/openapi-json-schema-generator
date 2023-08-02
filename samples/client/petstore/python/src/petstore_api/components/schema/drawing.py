@@ -204,7 +204,7 @@ class DrawingDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TY
             schemas.OUTPUT_BASE_TYPES
         ],
     ):
-        arg_ = {}
+        arg_: typing.Dict[str, typing.Any] = {}
         for key, val in (
             ("mainShape", mainShape),
             ("shapeOrNull", shapeOrNull),
@@ -215,7 +215,8 @@ class DrawingDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TY
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return Drawing.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(DrawingDictInput, arg_)
+        return Drawing.validate(used_arg_, configuration=configuration_)
 DrawingDictInput = typing.Mapping[
     str,
     typing.Union[

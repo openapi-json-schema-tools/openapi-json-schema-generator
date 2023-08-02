@@ -43,9 +43,10 @@ class ReturnDict(schemas.immutabledict[str, int]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
-        arg_ = {}
+        arg_: typing.Dict[str, typing.Any] = {}
         arg_.update(kwargs)
-        return _Return.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(ReturnDictInput, arg_)
+        return _Return.validate(used_arg_, configuration=configuration_)
 ReturnDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

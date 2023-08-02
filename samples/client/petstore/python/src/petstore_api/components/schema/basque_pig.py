@@ -110,7 +110,8 @@ class BasquePigDict(schemas.immutabledict[str, str]):
             "className": className,
         }
         arg_.update(kwargs)
-        return BasquePig.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(BasquePigDictInput, arg_)
+        return BasquePig.validate(used_arg_, configuration=configuration_)
 BasquePigDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

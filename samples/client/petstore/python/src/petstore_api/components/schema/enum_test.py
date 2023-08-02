@@ -514,7 +514,8 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return EnumTest.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(EnumTestDictInput, arg_)
+        return EnumTest.validate(used_arg_, configuration=configuration_)
 EnumTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

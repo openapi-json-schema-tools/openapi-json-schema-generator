@@ -319,7 +319,7 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
-        arg_ = {}
+        arg_: typing.Dict[str, typing.Any] = {}
         for key, val in (
             ("id", id),
             ("username", username),
@@ -339,7 +339,8 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return User.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(UserDictInput, arg_)
+        return User.validate(used_arg_, configuration=configuration_)
 UserDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

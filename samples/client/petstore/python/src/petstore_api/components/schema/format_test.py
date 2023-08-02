@@ -557,7 +557,8 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return FormatTest.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(FormatTestDictInput, arg_)
+        return FormatTest.validate(used_arg_, configuration=configuration_)
 FormatTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

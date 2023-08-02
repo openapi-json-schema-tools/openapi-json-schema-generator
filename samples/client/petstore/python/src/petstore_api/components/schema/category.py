@@ -87,7 +87,8 @@ class CategoryDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return Category.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(CategoryDictInput, arg_)
+        return Category.validate(used_arg_, configuration=configuration_)
 CategoryDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

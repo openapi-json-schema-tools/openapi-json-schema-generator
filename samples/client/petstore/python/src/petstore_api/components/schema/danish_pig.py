@@ -110,7 +110,8 @@ class DanishPigDict(schemas.immutabledict[str, str]):
             "className": className,
         }
         arg_.update(kwargs)
-        return DanishPig.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(DanishPigDictInput, arg_)
+        return DanishPig.validate(used_arg_, configuration=configuration_)
 DanishPigDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

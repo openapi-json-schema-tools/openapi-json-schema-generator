@@ -367,7 +367,8 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return Schema.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(SchemaDictInput, arg_)
+        return Schema.validate(used_arg_, configuration=configuration_)
 SchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

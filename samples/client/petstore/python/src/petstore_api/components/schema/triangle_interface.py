@@ -122,7 +122,8 @@ class TriangleInterfaceDict(schemas.immutabledict[str, str]):
             "triangleType": triangleType,
         }
         arg_.update(kwargs)
-        return TriangleInterface.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(TriangleInterfaceDictInput, arg_)
+        return TriangleInterface.validate(used_arg_, configuration=configuration_)
 TriangleInterfaceDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

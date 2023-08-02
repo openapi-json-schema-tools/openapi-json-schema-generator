@@ -51,7 +51,8 @@ class ReqPropsFromUnsetAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BA
             "validName": validName,
         }
         arg_.update(kwargs)
-        return ReqPropsFromUnsetAddProps.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(ReqPropsFromUnsetAddPropsDictInput, arg_)
+        return ReqPropsFromUnsetAddProps.validate(used_arg_, configuration=configuration_)
 ReqPropsFromUnsetAddPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

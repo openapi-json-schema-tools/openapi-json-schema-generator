@@ -74,7 +74,7 @@ class HasOnlyReadOnlyDict(schemas.immutabledict[str, str]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
-        arg_ = {}
+        arg_: typing.Dict[str, typing.Any] = {}
         for key, val in (
             ("bar", bar),
             ("foo", foo),
@@ -83,7 +83,8 @@ class HasOnlyReadOnlyDict(schemas.immutabledict[str, str]):
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return HasOnlyReadOnly.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(HasOnlyReadOnlyDictInput, arg_)
+        return HasOnlyReadOnly.validate(used_arg_, configuration=configuration_)
 HasOnlyReadOnlyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

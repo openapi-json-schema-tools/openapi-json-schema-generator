@@ -92,7 +92,7 @@ class ObjectWithDecimalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
-        arg_ = {}
+        arg_: typing.Dict[str, typing.Any] = {}
         for key, val in (
             ("length", length),
             ("width", width),
@@ -102,7 +102,8 @@ class ObjectWithDecimalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return ObjectWithDecimalProperties.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(ObjectWithDecimalPropertiesDictInput, arg_)
+        return ObjectWithDecimalProperties.validate(used_arg_, configuration=configuration_)
 ObjectWithDecimalPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

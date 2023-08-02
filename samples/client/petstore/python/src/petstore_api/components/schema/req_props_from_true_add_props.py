@@ -59,7 +59,8 @@ class ReqPropsFromTrueAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BAS
             "validName": validName,
         }
         arg_.update(kwargs)
-        return ReqPropsFromTrueAddProps.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(ReqPropsFromTrueAddPropsDictInput, arg_)
+        return ReqPropsFromTrueAddProps.validate(used_arg_, configuration=configuration_)
 ReqPropsFromTrueAddPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

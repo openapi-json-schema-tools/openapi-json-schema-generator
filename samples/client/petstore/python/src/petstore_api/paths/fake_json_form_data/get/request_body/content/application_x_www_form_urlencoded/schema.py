@@ -67,7 +67,8 @@ class SchemaDict(schemas.immutabledict[str, str]):
             "param2": param2,
         }
         arg_.update(kwargs)
-        return Schema.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(SchemaDictInput, arg_)
+        return Schema.validate(used_arg_, configuration=configuration_)
 SchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

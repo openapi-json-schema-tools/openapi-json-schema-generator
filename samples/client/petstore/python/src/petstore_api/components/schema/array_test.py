@@ -369,7 +369,7 @@ class ArrayTestDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
-        arg_ = {}
+        arg_: typing.Dict[str, typing.Any] = {}
         for key, val in (
             ("array_of_string", array_of_string),
             ("array_array_of_integer", array_array_of_integer),
@@ -379,7 +379,8 @@ class ArrayTestDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return ArrayTest.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(ArrayTestDictInput, arg_)
+        return ArrayTest.validate(used_arg_, configuration=configuration_)
 ArrayTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

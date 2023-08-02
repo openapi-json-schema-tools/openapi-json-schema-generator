@@ -81,7 +81,8 @@ class AbstractStepMessageDict(schemas.immutabledict[str, str]):
             "sequenceNumber": sequenceNumber,
         }
         arg_.update(kwargs)
-        return AbstractStepMessage.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(AbstractStepMessageDictInput, arg_)
+        return AbstractStepMessage.validate(used_arg_, configuration=configuration_)
 AbstractStepMessageDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

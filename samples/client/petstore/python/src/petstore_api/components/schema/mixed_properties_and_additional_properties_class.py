@@ -166,7 +166,7 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
-        arg_ = {}
+        arg_: typing.Dict[str, typing.Any] = {}
         for key, val in (
             ("uuid", uuid),
             ("dateTime", dateTime),
@@ -176,7 +176,8 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return MixedPropertiesAndAdditionalPropertiesClass.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(MixedPropertiesAndAdditionalPropertiesClassDictInput, arg_)
+        return MixedPropertiesAndAdditionalPropertiesClass.validate(used_arg_, configuration=configuration_)
 MixedPropertiesAndAdditionalPropertiesClassDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

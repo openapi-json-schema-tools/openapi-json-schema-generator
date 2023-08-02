@@ -225,7 +225,8 @@ class ZebraDict(schemas.immutabledict[str, str]):
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return Zebra.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(ZebraDictInput, arg_)
+        return Zebra.validate(used_arg_, configuration=configuration_)
 ZebraDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

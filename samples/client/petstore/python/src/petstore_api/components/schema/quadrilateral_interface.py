@@ -122,7 +122,8 @@ class QuadrilateralInterfaceDict(schemas.immutabledict[str, str]):
             "shapeType": shapeType,
         }
         arg_.update(kwargs)
-        return QuadrilateralInterface.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(QuadrilateralInterfaceDictInput, arg_)
+        return QuadrilateralInterface.validate(used_arg_, configuration=configuration_)
 QuadrilateralInterfaceDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

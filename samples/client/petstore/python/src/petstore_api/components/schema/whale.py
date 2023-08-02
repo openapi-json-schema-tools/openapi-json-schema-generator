@@ -151,7 +151,8 @@ class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return Whale.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(WhaleDictInput, arg_)
+        return Whale.validate(used_arg_, configuration=configuration_)
 WhaleDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

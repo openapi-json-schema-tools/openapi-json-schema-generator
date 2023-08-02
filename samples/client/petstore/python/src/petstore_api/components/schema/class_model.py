@@ -57,7 +57,7 @@ class ClassModelDict(schemas.immutabledict[str, str]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
-        arg_ = {}
+        arg_: typing.Dict[str, typing.Any] = {}
         for key, val in (
             ("_class", _class),
         ):
@@ -65,7 +65,8 @@ class ClassModelDict(schemas.immutabledict[str, str]):
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return ClassModel.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(ClassModelDictInput, arg_)
+        return ClassModel.validate(used_arg_, configuration=configuration_)
 ClassModelDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

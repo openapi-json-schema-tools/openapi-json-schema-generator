@@ -57,7 +57,7 @@ class FooDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
-        arg_ = {}
+        arg_: typing.Dict[str, typing.Any] = {}
         for key, val in (
             ("bar", bar),
         ):
@@ -65,7 +65,8 @@ class FooDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
                 continue
             arg_[key] = val
         arg_.update(kwargs)
-        return Foo.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(FooDictInput, arg_)
+        return Foo.validate(used_arg_, configuration=configuration_)
 FooDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

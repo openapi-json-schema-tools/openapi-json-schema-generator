@@ -58,7 +58,8 @@ class BananaDict(schemas.immutabledict[str, typing.Union[int, float]]):
             "lengthCm": lengthCm,
         }
         arg_.update(kwargs)
-        return Banana.validate(arg_, configuration=configuration_)
+        used_arg_ = typing.cast(BananaDictInput, arg_)
+        return Banana.validate(used_arg_, configuration=configuration_)
 BananaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
