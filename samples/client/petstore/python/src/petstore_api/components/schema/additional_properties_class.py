@@ -187,9 +187,8 @@ class MapOfMapPropertyDict(schemas.immutabledict[str, schemas.immutabledict[str,
 MapOfMapPropertyDictInput = typing.Mapping[
     str,
     typing.Union[
+        AdditionalPropertiesDictInput,
         AdditionalPropertiesDict,
-        dict,
-        schemas.immutabledict
     ],
 ]
 

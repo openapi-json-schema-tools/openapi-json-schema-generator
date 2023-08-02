@@ -52,9 +52,8 @@ class MapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 MapDictInput = typing.Mapping[
     str,
     typing.Union[
+        animal.AnimalDictInput,
         animal.AnimalDict,
-        dict,
-        schemas.immutabledict
     ],
 ]
 

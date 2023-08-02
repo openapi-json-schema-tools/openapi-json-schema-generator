@@ -593,8 +593,8 @@ class ObjectNullablePropDict(schemas.immutabledict[str, schemas.immutabledict[st
 ObjectNullablePropDictInput = typing.Mapping[
     str,
     typing.Union[
-        dict,
-        schemas.immutabledict
+        typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ],
 ]
 
@@ -733,8 +733,10 @@ ObjectAndItemsNullablePropDictInput = typing.Mapping[
     str,
     typing.Union[
         None,
-        dict,
-        schemas.immutabledict
+        typing.Union[
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        ],
     ],
 ]
 
@@ -873,8 +875,10 @@ ObjectItemsNullableDictInput = typing.Mapping[
     str,
     typing.Union[
         None,
-        dict,
-        schemas.immutabledict
+        typing.Union[
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        ],
     ],
 ]
 

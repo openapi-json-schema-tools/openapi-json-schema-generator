@@ -118,9 +118,8 @@ class MapMapOfStringDict(schemas.immutabledict[str, schemas.immutabledict[str, s
 MapMapOfStringDictInput = typing.Mapping[
     str,
     typing.Union[
+        AdditionalPropertiesDictInput,
         AdditionalPropertiesDict,
-        dict,
-        schemas.immutabledict
     ],
 ]
 
@@ -260,7 +259,10 @@ class MapOfEnumStringDict(schemas.immutabledict[str, str]):
         return MapOfEnumString.validate(arg, configuration=configuration)
 MapOfEnumStringDictInput = typing.Mapping[
     str,
-    str,
+    typing_extensions.Literal[
+        "UPPER",
+        "lower"
+    ],
 ]
 
 

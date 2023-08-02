@@ -101,9 +101,8 @@ class AdditionalPropertiesWithArrayOfEnumsDict(schemas.immutabledict[str, typing
 AdditionalPropertiesWithArrayOfEnumsDictInput = typing.Mapping[
     str,
     typing.Union[
-        AdditionalPropertiesTuple,
-        list,
-        tuple
+        AdditionalPropertiesTupleInput,
+        AdditionalPropertiesTuple
     ],
 ]
 

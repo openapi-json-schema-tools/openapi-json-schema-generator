@@ -124,21 +124,8 @@ class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 _1DictInput = typing.Mapping[
     str,
     typing.Union[
-        dict,
-        schemas.immutabledict,
-        str,
-        datetime.date,
-        datetime.datetime,
-        uuid.UUID,
-        int,
-        float,
-        bool,
-        None,
-        list,
-        tuple,
-        bytes,
-        io.FileIO,
-        io.BufferedReader
+        schemas.INPUT_TYPES_ALL,
+        schemas.OUTPUT_BASE_TYPES
     ],
 ]
 
@@ -220,21 +207,8 @@ class _2Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 _2DictInput = typing.Mapping[
     str,
     typing.Union[
-        dict,
-        schemas.immutabledict,
-        str,
-        datetime.date,
-        datetime.datetime,
-        uuid.UUID,
-        int,
-        float,
-        bool,
-        None,
-        list,
-        tuple,
-        bytes,
-        io.FileIO,
-        io.BufferedReader
+        schemas.INPUT_TYPES_ALL,
+        schemas.OUTPUT_BASE_TYPES
     ],
 ]
 

@@ -79,7 +79,7 @@ class {{mapInputJsonPathPiece.camelCase}}({{requiredProperties.jsonPathPiece.cam
 {{mapInputJsonPathPiece.camelCase}} = typing.Mapping[
     str,
                         {{#with additionalProperties}}
-    {{> components/schemas/_helper_property_value_type }}
+    {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," }}
                         {{/with}}
 ]
                     {{/if}}
