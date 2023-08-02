@@ -540,6 +540,7 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.immutable
             schemas.Unset
         ] = schemas.unset,
         anytype_1: typing.Union[
+            schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES,
             schemas.Unset
         ] = schemas.unset,

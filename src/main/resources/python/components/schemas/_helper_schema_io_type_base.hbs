@@ -190,10 +190,14 @@
 {{else}}
     {{#if optional}}
 {{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    schemas.INPUT_TYPES_ALL,
     schemas.OUTPUT_BASE_TYPES,
     schemas.Unset
 ] = schemas.unset{{endChar}}
     {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}schemas.OUTPUT_BASE_TYPES{{endChar}}
+{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    schemas.INPUT_TYPES_ALL,
+    schemas.OUTPUT_BASE_TYPES
+]{{endChar}}
     {{/if}}
 {{/if}}

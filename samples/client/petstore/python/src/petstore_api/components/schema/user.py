@@ -298,14 +298,17 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             schemas.Unset
         ] = schemas.unset,
         anyTypeProp: typing.Union[
+            schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES,
             schemas.Unset
         ] = schemas.unset,
         anyTypeExceptNullProp: typing.Union[
+            schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES,
             schemas.Unset
         ] = schemas.unset,
         anyTypePropNullable: typing.Union[
+            schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES,
             schemas.Unset
         ] = schemas.unset,

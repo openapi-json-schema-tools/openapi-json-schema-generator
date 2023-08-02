@@ -58,7 +58,10 @@ class _1Dict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
-        test: schemas.OUTPUT_BASE_TYPES,
+        test: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
         name: typing.Union[
             str,
             schemas.Unset

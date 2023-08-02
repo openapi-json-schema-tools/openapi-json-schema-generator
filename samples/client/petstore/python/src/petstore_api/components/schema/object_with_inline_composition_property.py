@@ -71,6 +71,7 @@ class ObjectWithInlineCompositionPropertyDict(schemas.immutabledict[str, schemas
     def __new__(
         cls,
         someProp: typing.Union[
+            schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES,
             schemas.Unset
         ] = schemas.unset,

@@ -71,6 +71,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def __new__(
         cls,
         someProp: typing.Union[
+            schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES,
             schemas.Unset
         ] = schemas.unset,

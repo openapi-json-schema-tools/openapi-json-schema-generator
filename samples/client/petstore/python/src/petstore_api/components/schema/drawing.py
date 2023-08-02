@@ -179,14 +179,17 @@ class DrawingDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TY
     def __new__(
         cls,
         mainShape: typing.Union[
+            schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES,
             schemas.Unset
         ] = schemas.unset,
         shapeOrNull: typing.Union[
+            schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES,
             schemas.Unset
         ] = schemas.unset,
         nullableShape: typing.Union[
+            schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES,
             schemas.Unset
         ] = schemas.unset,
