@@ -100,7 +100,9 @@ class BasquePigDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
-        className: typing_extensions.Literal["BasquePig"],
+        className: typing_extensions.Literal[
+            "BasquePig"
+        ],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

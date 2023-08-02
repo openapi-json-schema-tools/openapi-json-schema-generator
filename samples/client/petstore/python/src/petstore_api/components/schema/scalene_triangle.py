@@ -103,7 +103,12 @@ class _1Dict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
-        triangleType: typing.Union[typing_extensions.Literal["ScaleneTriangle"], schemas.Unset] = schemas.unset,
+        triangleType: typing.Union[
+            typing_extensions.Literal[
+                "ScaleneTriangle"
+            ],
+            schemas.Unset
+        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

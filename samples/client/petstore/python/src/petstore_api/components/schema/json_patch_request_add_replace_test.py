@@ -145,7 +145,11 @@ class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
-        op: typing_extensions.Literal["add", "replace", "test"],
+        op: typing_extensions.Literal[
+            "add",
+            "replace",
+            "test"
+        ],
         path: str,
         value: schemas.OUTPUT_BASE_TYPES,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,

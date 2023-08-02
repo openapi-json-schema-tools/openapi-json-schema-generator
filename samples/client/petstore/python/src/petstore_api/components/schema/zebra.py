@@ -201,8 +201,17 @@ class ZebraDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
-        className: typing_extensions.Literal["zebra"],
-        type: typing.Union[typing_extensions.Literal["plains", "mountain", "grevys"], schemas.Unset] = schemas.unset,
+        className: typing_extensions.Literal[
+            "zebra"
+        ],
+        type: typing.Union[
+            typing_extensions.Literal[
+                "plains",
+                "mountain",
+                "grevys"
+            ],
+            schemas.Unset
+        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

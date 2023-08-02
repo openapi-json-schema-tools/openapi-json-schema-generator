@@ -247,7 +247,13 @@ class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
-        just_symbol: typing.Union[typing_extensions.Literal[">=", "$"], schemas.Unset] = schemas.unset,
+        just_symbol: typing.Union[
+            typing_extensions.Literal[
+                ">=",
+                "$"
+            ],
+            schemas.Unset
+        ] = schemas.unset,
         array_enum: typing.Union[ArrayEnumTuple, schemas.Unset] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
