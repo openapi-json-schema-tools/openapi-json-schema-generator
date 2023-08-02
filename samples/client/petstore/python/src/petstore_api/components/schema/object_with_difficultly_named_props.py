@@ -49,7 +49,7 @@ class ObjectWithDifficultlyNamedPropsDict(schemas.immutabledict[str, schemas.OUT
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
-        arg_ = {
+        arg_: typing.Dict[str, typing.Any] = {
         }
         arg_.update(kwargs)
         used_arg_ = typing.cast(ObjectWithDifficultlyNamedPropsDictInput, arg_)

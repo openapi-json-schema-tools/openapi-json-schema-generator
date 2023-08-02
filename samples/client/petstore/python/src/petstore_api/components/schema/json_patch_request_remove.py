@@ -113,7 +113,7 @@ class JSONPatchRequestRemoveDict(schemas.immutabledict[str, str]):
         path: str,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
-        arg_ = {
+        arg_: typing.Dict[str, typing.Any] = {
             "op": op,
             "path": path,
         }

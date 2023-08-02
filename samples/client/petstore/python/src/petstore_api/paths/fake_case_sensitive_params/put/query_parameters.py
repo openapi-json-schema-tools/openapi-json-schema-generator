@@ -70,7 +70,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         some_var: str,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
-        arg_ = {
+        arg_: typing.Dict[str, typing.Any] = {
             "SomeVar": SomeVar,
             "someVar": someVar,
             "some_var": some_var,

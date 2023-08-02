@@ -77,7 +77,7 @@ class CategoryDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
-        arg_ = {
+        arg_: typing.Dict[str, typing.Any] = {
             "name": name,
         }
         for key, val in (

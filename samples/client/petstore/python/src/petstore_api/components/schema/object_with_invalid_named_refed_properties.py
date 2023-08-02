@@ -47,7 +47,7 @@ class ObjectWithInvalidNamedRefedPropertiesDict(schemas.immutabledict[str, schem
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
-        arg_ = {
+        arg_: typing.Dict[str, typing.Any] = {
         }
         arg_.update(kwargs)
         used_arg_ = typing.cast(ObjectWithInvalidNamedRefedPropertiesDictInput, arg_)

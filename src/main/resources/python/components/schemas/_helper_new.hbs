@@ -41,7 +41,7 @@ def __new__(
             {{/if}}
 ):
             {{#if requiredProperties}}
-    arg_ = {
+    arg_: typing.Dict[str, typing.Any] = {
                 {{#each requiredProperties}}
                     {{#if @key.isValid}}
         "{{@key.original}}": {{@key.original}},
@@ -92,7 +92,8 @@ def __new__(
     **kwargs: schemas.INPUT_TYPES_ALL,
             {{/if}}
 ):
-    return {{jsonPathPiece.camelCase}}.validate(kwargs, configuration=configuration_)
+    used_kwargs = typing.cast({{mapInputJsonPathPiece.camelCase}}, kwargs)
+    return {{jsonPathPiece.camelCase}}.validate(used_kwargs, configuration=configuration_)
 
 @staticmethod
 def from_dict_(

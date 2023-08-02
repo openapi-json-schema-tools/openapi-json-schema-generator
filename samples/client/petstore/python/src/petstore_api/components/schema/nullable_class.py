@@ -581,7 +581,8 @@ class ObjectNullablePropDict(schemas.immutabledict[str, schemas.immutabledict[st
             schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
         ],
     ):
-        return ObjectNullableProp.validate(kwargs, configuration=configuration_)
+        used_kwargs = typing.cast(ObjectNullablePropDictInput, kwargs)
+        return ObjectNullableProp.validate(used_kwargs, configuration=configuration_)
     
     @staticmethod
     def from_dict_(
@@ -719,7 +720,8 @@ class ObjectAndItemsNullablePropDict(schemas.immutabledict[str, typing.Union[
             ],
         ],
     ):
-        return ObjectAndItemsNullableProp.validate(kwargs, configuration=configuration_)
+        used_kwargs = typing.cast(ObjectAndItemsNullablePropDictInput, kwargs)
+        return ObjectAndItemsNullableProp.validate(used_kwargs, configuration=configuration_)
     
     @staticmethod
     def from_dict_(
@@ -858,7 +860,8 @@ class ObjectItemsNullableDict(schemas.immutabledict[str, typing.Union[
             ],
         ],
     ):
-        return ObjectItemsNullable.validate(kwargs, configuration=configuration_)
+        used_kwargs = typing.cast(ObjectItemsNullableDictInput, kwargs)
+        return ObjectItemsNullable.validate(used_kwargs, configuration=configuration_)
     
     @staticmethod
     def from_dict_(

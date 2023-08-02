@@ -61,7 +61,7 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
-        arg_ = {
+        arg_: typing.Dict[str, typing.Any] = {
             "amount": amount,
             "currency": currency,
         }

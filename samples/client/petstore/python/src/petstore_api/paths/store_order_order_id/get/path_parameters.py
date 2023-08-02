@@ -48,7 +48,7 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         order_id: int,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
-        arg_ = {
+        arg_: typing.Dict[str, typing.Any] = {
             "order_id": order_id,
         }
         used_arg_ = typing.cast(PathParametersDictInput, arg_)

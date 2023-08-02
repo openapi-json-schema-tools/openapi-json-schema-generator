@@ -51,7 +51,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         ],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
-        arg_ = {
+        arg_: typing.Dict[str, typing.Any] = {
             "status": status,
         }
         used_arg_ = typing.cast(QueryParametersDictInput, arg_)

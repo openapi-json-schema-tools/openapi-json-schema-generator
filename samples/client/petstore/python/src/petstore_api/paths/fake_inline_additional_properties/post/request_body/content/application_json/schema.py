@@ -35,7 +35,8 @@ class SchemaDict(schemas.immutabledict[str, str]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: str,
     ):
-        return Schema.validate(kwargs, configuration=configuration_)
+        used_kwargs = typing.cast(SchemaDictInput, kwargs)
+        return Schema.validate(used_kwargs, configuration=configuration_)
     
     @staticmethod
     def from_dict_(

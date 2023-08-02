@@ -35,7 +35,8 @@ class _0Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
-        return _0.validate(kwargs, configuration=configuration_)
+        used_kwargs = typing.cast(_0DictInput, kwargs)
+        return _0.validate(used_kwargs, configuration=configuration_)
     
     @staticmethod
     def from_dict_(
@@ -111,7 +112,8 @@ class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             schemas.OUTPUT_BASE_TYPES
         ],
     ):
-        return _1.validate(kwargs, configuration=configuration_)
+        used_kwargs = typing.cast(_1DictInput, kwargs)
+        return _1.validate(used_kwargs, configuration=configuration_)
     
     @staticmethod
     def from_dict_(
@@ -206,7 +208,8 @@ class _2Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             schemas.OUTPUT_BASE_TYPES
         ],
     ):
-        return _2.validate(kwargs, configuration=configuration_)
+        used_kwargs = typing.cast(_2DictInput, kwargs)
+        return _2.validate(used_kwargs, configuration=configuration_)
     
     @staticmethod
     def from_dict_(

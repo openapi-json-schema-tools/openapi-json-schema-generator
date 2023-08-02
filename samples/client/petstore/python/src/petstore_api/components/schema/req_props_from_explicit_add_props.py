@@ -52,7 +52,7 @@ class ReqPropsFromExplicitAddPropsDict(schemas.immutabledict[str, str]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: str,
     ):
-        arg_ = {
+        arg_: typing.Dict[str, typing.Any] = {
             "validName": validName,
         }
         arg_.update(kwargs)

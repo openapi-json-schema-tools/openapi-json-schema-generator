@@ -35,7 +35,8 @@ class MapPropertyDict(schemas.immutabledict[str, str]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: str,
     ):
-        return MapProperty.validate(kwargs, configuration=configuration_)
+        used_kwargs = typing.cast(MapPropertyDictInput, kwargs)
+        return MapProperty.validate(used_kwargs, configuration=configuration_)
     
     @staticmethod
     def from_dict_(
@@ -103,7 +104,8 @@ class AdditionalPropertiesDict(schemas.immutabledict[str, str]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: str,
     ):
-        return AdditionalProperties2.validate(kwargs, configuration=configuration_)
+        used_kwargs = typing.cast(AdditionalPropertiesDictInput, kwargs)
+        return AdditionalProperties2.validate(used_kwargs, configuration=configuration_)
     
     @staticmethod
     def from_dict_(
@@ -173,7 +175,8 @@ class MapOfMapPropertyDict(schemas.immutabledict[str, schemas.immutabledict[str,
             AdditionalPropertiesDict,
         ],
     ):
-        return MapOfMapProperty.validate(kwargs, configuration=configuration_)
+        used_kwargs = typing.cast(MapOfMapPropertyDictInput, kwargs)
+        return MapOfMapProperty.validate(used_kwargs, configuration=configuration_)
     
     @staticmethod
     def from_dict_(
@@ -248,7 +251,8 @@ class MapWithUndeclaredPropertiesAnytype3Dict(schemas.immutabledict[str, schemas
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
-        return MapWithUndeclaredPropertiesAnytype3.validate(kwargs, configuration=configuration_)
+        used_kwargs = typing.cast(MapWithUndeclaredPropertiesAnytype3DictInput, kwargs)
+        return MapWithUndeclaredPropertiesAnytype3.validate(used_kwargs, configuration=configuration_)
     
     @staticmethod
     def from_dict_(
@@ -303,7 +307,8 @@ class EmptyMapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
-        return EmptyMap.validate(kwargs, configuration=configuration_)
+        used_kwargs = typing.cast(EmptyMapDictInput, kwargs)
+        return EmptyMap.validate(used_kwargs, configuration=configuration_)
     
     @staticmethod
     def from_dict_(
@@ -368,7 +373,8 @@ class MapWithUndeclaredPropertiesStringDict(schemas.immutabledict[str, str]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: str,
     ):
-        return MapWithUndeclaredPropertiesString.validate(kwargs, configuration=configuration_)
+        used_kwargs = typing.cast(MapWithUndeclaredPropertiesStringDictInput, kwargs)
+        return MapWithUndeclaredPropertiesString.validate(used_kwargs, configuration=configuration_)
     
     @staticmethod
     def from_dict_(

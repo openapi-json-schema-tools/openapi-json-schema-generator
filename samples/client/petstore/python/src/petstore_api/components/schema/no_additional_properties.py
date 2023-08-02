@@ -77,7 +77,7 @@ class NoAdditionalPropertiesDict(schemas.immutabledict[str, int]):
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
-        arg_ = {
+        arg_: typing.Dict[str, typing.Any] = {
             "id": id,
         }
         for key, val in (

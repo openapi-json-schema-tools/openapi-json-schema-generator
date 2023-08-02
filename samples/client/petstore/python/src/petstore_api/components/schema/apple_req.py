@@ -77,7 +77,7 @@ class AppleReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
-        arg_ = {
+        arg_: typing.Dict[str, typing.Any] = {
             "cultivar": cultivar,
         }
         for key, val in (

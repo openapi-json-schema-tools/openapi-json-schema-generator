@@ -54,7 +54,7 @@ class BananaDict(schemas.immutabledict[str, typing.Union[int, float]]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
-        arg_ = {
+        arg_: typing.Dict[str, typing.Any] = {
             "lengthCm": lengthCm,
         }
         arg_.update(kwargs)

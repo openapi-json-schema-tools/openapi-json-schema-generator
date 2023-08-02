@@ -35,7 +35,8 @@ class AdditionalPropertiesDict(schemas.immutabledict[str, str]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: str,
     ):
-        return AdditionalProperties.validate(kwargs, configuration=configuration_)
+        used_kwargs = typing.cast(AdditionalPropertiesDictInput, kwargs)
+        return AdditionalProperties.validate(used_kwargs, configuration=configuration_)
     
     @staticmethod
     def from_dict_(
@@ -105,7 +106,8 @@ class MapMapOfStringDict(schemas.immutabledict[str, schemas.immutabledict[str, s
             AdditionalPropertiesDict,
         ],
     ):
-        return MapMapOfString.validate(kwargs, configuration=configuration_)
+        used_kwargs = typing.cast(MapMapOfStringDictInput, kwargs)
+        return MapMapOfString.validate(used_kwargs, configuration=configuration_)
     
     @staticmethod
     def from_dict_(
@@ -247,7 +249,8 @@ class MapOfEnumStringDict(schemas.immutabledict[str, str]):
             "lower"
         ],
     ):
-        return MapOfEnumString.validate(kwargs, configuration=configuration_)
+        used_kwargs = typing.cast(MapOfEnumStringDictInput, kwargs)
+        return MapOfEnumString.validate(used_kwargs, configuration=configuration_)
     
     @staticmethod
     def from_dict_(
@@ -315,7 +318,8 @@ class DirectMapDict(schemas.immutabledict[str, bool]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: bool,
     ):
-        return DirectMap.validate(kwargs, configuration=configuration_)
+        used_kwargs = typing.cast(DirectMapDictInput, kwargs)
+        return DirectMap.validate(used_kwargs, configuration=configuration_)
     
     @staticmethod
     def from_dict_(

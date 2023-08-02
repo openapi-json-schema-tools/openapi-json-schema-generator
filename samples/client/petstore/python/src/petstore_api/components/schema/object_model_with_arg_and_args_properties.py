@@ -62,7 +62,7 @@ class ObjectModelWithArgAndArgsPropertiesDict(schemas.immutabledict[str, str]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
-        arg_ = {
+        arg_: typing.Dict[str, typing.Any] = {
             "arg": arg,
             "args": args,
         }

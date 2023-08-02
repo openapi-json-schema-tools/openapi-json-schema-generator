@@ -89,7 +89,8 @@ class AdditionalPropertiesWithArrayOfEnumsDict(schemas.immutabledict[str, typing
             AdditionalPropertiesTuple
         ],
     ):
-        return AdditionalPropertiesWithArrayOfEnums.validate(kwargs, configuration=configuration_)
+        used_kwargs = typing.cast(AdditionalPropertiesWithArrayOfEnumsDictInput, kwargs)
+        return AdditionalPropertiesWithArrayOfEnums.validate(used_kwargs, configuration=configuration_)
     
     @staticmethod
     def from_dict_(

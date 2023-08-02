@@ -40,7 +40,8 @@ class MapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             animal.AnimalDict,
         ],
     ):
-        return Map.validate(kwargs, configuration=configuration_)
+        used_kwargs = typing.cast(MapDictInput, kwargs)
+        return Map.validate(used_kwargs, configuration=configuration_)
     
     @staticmethod
     def from_dict_(

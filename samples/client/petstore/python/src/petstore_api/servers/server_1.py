@@ -114,7 +114,7 @@ class VariablesDict(schemas.immutabledict[str, str]):
         ],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
-        arg_ = {
+        arg_: typing.Dict[str, typing.Any] = {
             "version": version,
         }
         used_arg_ = typing.cast(VariablesDictInput, arg_)
