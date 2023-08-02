@@ -77,7 +77,10 @@ class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE
     def __new__(
         cls,
         myNumber: typing.Union[int, float, schemas.Unset] = schemas.unset,
-        myString: typing.Union[str, schemas.Unset] = schemas.unset,
+        myString: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
         myBoolean: typing.Union[
             bool,
             schemas.Unset

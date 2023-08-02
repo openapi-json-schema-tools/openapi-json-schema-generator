@@ -70,7 +70,10 @@ class AnimalDict(schemas.immutabledict[str, str]):
     def __new__(
         cls,
         className: str,
-        color: typing.Union[str, schemas.Unset] = schemas.unset,
+        color: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

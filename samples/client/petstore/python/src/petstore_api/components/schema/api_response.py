@@ -77,8 +77,14 @@ class ApiResponseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def __new__(
         cls,
         code: typing.Union[int, schemas.Unset] = schemas.unset,
-        type: typing.Union[str, schemas.Unset] = schemas.unset,
-        message: typing.Union[str, schemas.Unset] = schemas.unset,
+        type: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        message: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

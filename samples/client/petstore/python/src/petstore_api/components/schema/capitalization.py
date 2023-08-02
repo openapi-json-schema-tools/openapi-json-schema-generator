@@ -115,12 +115,30 @@ class CapitalizationDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
-        smallCamel: typing.Union[str, schemas.Unset] = schemas.unset,
-        CapitalCamel: typing.Union[str, schemas.Unset] = schemas.unset,
-        small_Snake: typing.Union[str, schemas.Unset] = schemas.unset,
-        Capital_Snake: typing.Union[str, schemas.Unset] = schemas.unset,
-        SCA_ETH_Flow_Points: typing.Union[str, schemas.Unset] = schemas.unset,
-        ATT_NAME: typing.Union[str, schemas.Unset] = schemas.unset,
+        smallCamel: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        CapitalCamel: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        small_Snake: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        Capital_Snake: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        SCA_ETH_Flow_Points: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        ATT_NAME: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

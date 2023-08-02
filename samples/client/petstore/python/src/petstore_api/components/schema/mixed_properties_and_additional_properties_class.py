@@ -147,8 +147,14 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
     
     def __new__(
         cls,
-        uuid: typing.Union[str, schemas.Unset] = schemas.unset,
-        dateTime: typing.Union[str, schemas.Unset] = schemas.unset,
+        uuid: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        dateTime: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
         map: typing.Union[
             MapDict,
             schemas.Unset

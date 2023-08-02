@@ -63,7 +63,10 @@ class SchemaDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
-        additionalMetadata: typing.Union[str, schemas.Unset] = schemas.unset,
+        additionalMetadata: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
         file: typing.Union[
             bytes,
             schemas.FileIO,

@@ -303,16 +303,31 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         integer: typing.Union[int, schemas.Unset] = schemas.unset,
         int32: typing.Union[int, schemas.Unset] = schemas.unset,
         int64: typing.Union[int, schemas.Unset] = schemas.unset,
-        string: typing.Union[str, schemas.Unset] = schemas.unset,
+        string: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
         binary: typing.Union[
             bytes,
             schemas.FileIO,
             schemas.Unset
         ] = schemas.unset,
-        date: typing.Union[str, schemas.Unset] = schemas.unset,
-        dateTime: typing.Union[str, schemas.Unset] = schemas.unset,
-        password: typing.Union[str, schemas.Unset] = schemas.unset,
-        callback: typing.Union[str, schemas.Unset] = schemas.unset,
+        date: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        dateTime: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        password: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        callback: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):

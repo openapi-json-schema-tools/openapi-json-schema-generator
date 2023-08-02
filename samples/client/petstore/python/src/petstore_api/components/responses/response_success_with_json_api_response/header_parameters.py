@@ -93,7 +93,10 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         cls,
         int32: int,
         stringHeader: str,
-        numberHeader: typing.Union[str, schemas.Unset] = schemas.unset,
+        numberHeader: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         arg_ = {

@@ -208,7 +208,10 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         id: typing.Union[int, schemas.Unset] = schemas.unset,
         petId: typing.Union[int, schemas.Unset] = schemas.unset,
         quantity: typing.Union[int, schemas.Unset] = schemas.unset,
-        shipDate: typing.Union[str, schemas.Unset] = schemas.unset,
+        shipDate: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
         status: typing.Union[
             typing_extensions.Literal[
                 "placed",

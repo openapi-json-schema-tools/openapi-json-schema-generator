@@ -462,17 +462,35 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         double: typing.Union[int, float, schemas.Unset] = schemas.unset,
         float64: typing.Union[int, float, schemas.Unset] = schemas.unset,
         arrayWithUniqueItems: typing.Union[ArrayWithUniqueItemsTuple, schemas.Unset] = schemas.unset,
-        string: typing.Union[str, schemas.Unset] = schemas.unset,
+        string: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
         binary: typing.Union[
             bytes,
             schemas.FileIO,
             schemas.Unset
         ] = schemas.unset,
-        dateTime: typing.Union[str, schemas.Unset] = schemas.unset,
-        uuid: typing.Union[str, schemas.Unset] = schemas.unset,
-        uuidNoExample: typing.Union[str, schemas.Unset] = schemas.unset,
-        pattern_with_digits: typing.Union[str, schemas.Unset] = schemas.unset,
-        pattern_with_digits_and_delimiter: typing.Union[str, schemas.Unset] = schemas.unset,
+        dateTime: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        uuid: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        uuidNoExample: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        pattern_with_digits: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        pattern_with_digits_and_delimiter: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
         noneProp: typing.Union[
             None,
             schemas.Unset

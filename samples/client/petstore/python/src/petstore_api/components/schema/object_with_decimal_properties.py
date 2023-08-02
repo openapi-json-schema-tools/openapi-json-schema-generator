@@ -76,8 +76,14 @@ class ObjectWithDecimalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_
     
     def __new__(
         cls,
-        length: typing.Union[str, schemas.Unset] = schemas.unset,
-        width: typing.Union[str, schemas.Unset] = schemas.unset,
+        length: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        width: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
         cost: typing.Union[
             money.MoneyDict,
             schemas.Unset

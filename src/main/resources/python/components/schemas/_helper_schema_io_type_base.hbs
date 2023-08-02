@@ -67,7 +67,14 @@
 ]{{endChar}}
                             {{/if}}
                         {{else}}
-{{#if paramName}}{{paramName}}: {{/if}}{{#if optional}}typing.Union[str, schemas.Unset] = schemas.unset{{else}}str{{/if}}{{endChar}}
+                            {{#if optional}}
+{{#if paramName}}{{paramName}}: {{/if}}typing.Union[
+    str,
+    schemas.Unset
+] = schemas.unset{{endChar}}
+                            {{else}}
+{{#if paramName}}{{paramName}}: {{/if}}str{{endChar}}
+                            {{/if}}
                         {{/and}}
                     {{/eq}}
                 {{else}}
