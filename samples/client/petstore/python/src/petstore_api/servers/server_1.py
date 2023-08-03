@@ -27,7 +27,7 @@ class Version(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: str = "v2"
+    default: typing_extensions.Literal["v2"] = "v2"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "v1": "V1",

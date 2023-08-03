@@ -34,7 +34,7 @@ class Items(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: str = "available"
+    default: typing_extensions.Literal["available"] = "available"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "available": "AVAILABLE",

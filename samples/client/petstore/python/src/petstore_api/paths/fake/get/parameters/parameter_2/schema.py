@@ -30,7 +30,7 @@ class Items(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: str = "$"
+    default: typing_extensions.Literal["$"] = "$"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             ">": "GREATER_THAN_SIGN",

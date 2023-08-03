@@ -20,7 +20,7 @@ class Name(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: str = "default-name"
+    default: typing_extensions.Literal["default-name"] = "default-name"
 Properties = typing_extensions.TypedDict(
     'Properties',
     {

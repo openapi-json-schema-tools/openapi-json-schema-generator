@@ -105,7 +105,7 @@ class Complete(
     types: typing.FrozenSet[typing.Type] = frozenset({
         schemas.Bool,
     })
-    default: bool = False
+    default: typing_extensions.Literal[False] = False
 Properties = typing_extensions.TypedDict(
     'Properties',
     {

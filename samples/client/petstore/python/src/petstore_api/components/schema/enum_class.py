@@ -47,7 +47,7 @@ class EnumClass(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: str = "-efg"
+    default: typing_extensions.Literal["-efg"] = "-efg"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "_abc": "_ABC",

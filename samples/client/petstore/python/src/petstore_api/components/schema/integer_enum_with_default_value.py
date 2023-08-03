@@ -40,7 +40,7 @@ class IntegerEnumWithDefaultValue(
         int,
     })
     format: str = 'int'
-    default: int  = 0
+    default: typing_extensions.Literal[0]  = 0
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             0: "POSITIVE_0",
