@@ -76,10 +76,12 @@ def __new__(
             {{! only addProps}}
 def __new__(
     cls,
+            {{#and additionalProperties additionalProperties.isBooleanSchemaFalse}}
+    arg: {{mapInputJsonPathPiece.camelCase}},
+            {{/and}}
     configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
             {{#if additionalProperties}}
-                {{#if additionalProperties.isBooleanSchemaFalse}}
-                {{else}}
+                {{#unless additionalProperties.isBooleanSchemaFalse}}
                     {{#if additionalProperties.isBooleanSchemaTrue}}
     **kwargs: schemas.INPUT_TYPES_ALL,
                     {{else}}
@@ -87,13 +89,22 @@ def __new__(
     {{> components/schemas/_helper_schema_io_type paramName="**kwargs" fullRefModule="" endChar="," }}
                         {{/with}}
                     {{/if}}
-                {{/if}}
+                {{/unless}}
             {{else}}
     **kwargs: schemas.INPUT_TYPES_ALL,
             {{/if}}
 ):
+    {{#if additionalProperties}}
+        {{#if additionalProperties.isBooleanSchemaFalse}}
+    return {{jsonPathPiece.camelCase}}.validate(arg, configuration=configuration_)
+        {{else}}
     used_kwargs = typing.cast({{mapInputJsonPathPiece.camelCase}}, kwargs)
     return {{jsonPathPiece.camelCase}}.validate(used_kwargs, configuration=configuration_)
+        {{/if}}
+    {{else}}
+    used_kwargs = typing.cast({{mapInputJsonPathPiece.camelCase}}, kwargs)
+    return {{jsonPathPiece.camelCase}}.validate(used_kwargs, configuration=configuration_)
+    {{/if}}
 
 @staticmethod
 def from_dict_(

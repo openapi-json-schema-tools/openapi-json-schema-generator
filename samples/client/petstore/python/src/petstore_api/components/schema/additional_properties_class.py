@@ -299,15 +299,14 @@ class EmptyMapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    # empty mapping
-    pass
+    # map with no key value pairs
 
     def __new__(
         cls,
+        arg: EmptyMapDictInput,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
-        used_kwargs = typing.cast(EmptyMapDictInput, kwargs)
-        return EmptyMap.validate(used_kwargs, configuration=configuration_)
+        return EmptyMap.validate(arg, configuration=configuration_)
     
     @staticmethod
     def from_dict_(

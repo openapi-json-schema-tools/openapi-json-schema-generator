@@ -19,8 +19,7 @@ class {{mapOutputJsonPathPiece.camelCase}}(schemas.immutabledict[str, schemas.OU
         {{#eq requiredProperties null}}
             {{#if additionalProperties}}
                 {{#if additionalProperties.isBooleanSchemaFalse}}
-    # empty mapping
-    pass
+    # map with no key value pairs
                 {{/if}}
             {{/if}}
         {{/eq}}
