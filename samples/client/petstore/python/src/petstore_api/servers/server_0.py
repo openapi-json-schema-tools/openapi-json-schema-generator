@@ -31,7 +31,7 @@ class Server(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: str = "petstore"
+    default: typing_extensions.Literal["petstore"] = "petstore"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "petstore": "PETSTORE",
@@ -110,7 +110,7 @@ class Port(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: str = "80"
+    default: typing_extensions.Literal["80"] = "80"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "80": "POSITIVE_80",

@@ -132,17 +132,18 @@
 ]{{endChar}}
                                         {{/if}}
                                     {{else}}
-                                        {{#if selfReference}}
+                                        {{#eq rootClass arrayInputJsonPathPiece.camelCase}}
+                                            {{! self reference }}
                                             {{#if optional}}
 {{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
-    {{arrayInputJsonPathPiece.camelCase}},
-    '{{arrayOutputJsonPathPiece.camelCase}}',
+    '{{arrayInputJsonPathPiece.camelCase}}',
+    {{arrayOutputJsonPathPiece.camelCase}},
     schemas.Unset
 ] = schemas.unset{{endChar}}
                                             {{else}}
 {{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
-    {{arrayInputJsonPathPiece.camelCase}},
-    '{{arrayOutputJsonPathPiece.camelCase}}'
+    '{{arrayInputJsonPathPiece.camelCase}}',
+    {{arrayOutputJsonPathPiece.camelCase}}
 ]{{endChar}}
                                             {{/if}}
                                         {{else}}
@@ -158,7 +159,7 @@
     {{arrayOutputJsonPathPiece.camelCase}}
 ]{{endChar}}
                                             {{/if}}
-                                        {{/if}}
+                                        {{/eq}}
                                     {{/if}}
                                 {{else}}
                                     {{#if optional}}
