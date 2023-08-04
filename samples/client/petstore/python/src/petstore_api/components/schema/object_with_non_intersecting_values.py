@@ -27,27 +27,6 @@ class ObjectWithNonIntersectingValuesDict(schemas.immutabledict[str, schemas.OUT
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "a",
     })
-    
-    @property
-    def a(self) -> typing.Union[int, float, schemas.Unset]:
-        val = self.get("a", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing.Union[int, float],
-            val
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[str, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        val = self.get(name, schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-
     @staticmethod
     def from_dict_(
         arg: ObjectWithNonIntersectingValuesDictInput,
@@ -75,6 +54,27 @@ class ObjectWithNonIntersectingValuesDict(schemas.immutabledict[str, schemas.OUT
         arg_.update(kwargs)
         used_arg_ = typing.cast(ObjectWithNonIntersectingValuesDictInput, arg_)
         return ObjectWithNonIntersectingValues.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def a(self) -> typing.Union[int, float, schemas.Unset]:
+        val = self.get("a", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[int, float],
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[str, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
 ObjectWithNonIntersectingValuesDictInput = typing.Mapping[
     str,
     typing.Union[

@@ -26,21 +26,6 @@ class NumberOnlyDict(schemas.immutabledict[str, typing.Union[int, float]]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "JustNumber",
     })
-    
-    @property
-    def JustNumber(self) -> typing.Union[int, float, schemas.Unset]:
-        val = self.get("JustNumber", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing.Union[int, float],
-            val
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: NumberOnlyDictInput,
@@ -68,6 +53,21 @@ class NumberOnlyDict(schemas.immutabledict[str, typing.Union[int, float]]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(NumberOnlyDictInput, arg_)
         return NumberOnly.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def JustNumber(self) -> typing.Union[int, float, schemas.Unset]:
+        val = self.get("JustNumber", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[int, float],
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 NumberOnlyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

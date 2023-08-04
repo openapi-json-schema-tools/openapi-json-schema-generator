@@ -26,18 +26,6 @@ class GrandparentAnimalDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    
-    @property
-    def pet_type(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("pet_type")
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: GrandparentAnimalDictInput,
@@ -57,6 +45,18 @@ class GrandparentAnimalDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(GrandparentAnimalDictInput, arg_)
         return GrandparentAnimal.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def pet_type(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("pet_type")
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 GrandparentAnimalDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

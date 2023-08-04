@@ -30,27 +30,6 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         "compositionAtRoot",
         "compositionInProperty",
     })
-    
-    @property
-    def compositionAtRoot(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        val = self.get("compositionAtRoot", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            val
-        )
-    
-    @property
-    def compositionInProperty(self) -> typing.Union[schema_2.SchemaDict, schemas.Unset]:
-        val = self.get("compositionInProperty", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            schema_2.SchemaDict,
-            val
-        )
-
     @staticmethod
     def from_dict_(
         arg: QueryParametersDictInput,
@@ -82,6 +61,27 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             arg_[key] = val
         used_arg_ = typing.cast(QueryParametersDictInput, arg_)
         return QueryParameters.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def compositionAtRoot(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        val = self.get("compositionAtRoot", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
+    
+    @property
+    def compositionInProperty(self) -> typing.Union[schema_2.SchemaDict, schemas.Unset]:
+        val = self.get("compositionInProperty", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schema_2.SchemaDict,
+            val
+        )
 QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {

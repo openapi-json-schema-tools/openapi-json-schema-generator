@@ -43,24 +43,6 @@ class NoAdditionalPropertiesDict(schemas.immutabledict[str, int]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "petId",
     })
-    
-    @property
-    def id(self) -> int:
-        return typing.cast(
-            int,
-            self.__getitem__("id")
-        )
-    
-    @property
-    def petId(self) -> typing.Union[int, schemas.Unset]:
-        val = self.get("petId", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            int,
-            val
-        )
-
     @staticmethod
     def from_dict_(
         arg: NoAdditionalPropertiesDictInput,
@@ -88,6 +70,24 @@ class NoAdditionalPropertiesDict(schemas.immutabledict[str, int]):
             arg_[key] = val
         used_arg_ = typing.cast(NoAdditionalPropertiesDictInput, arg_)
         return NoAdditionalProperties.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def id(self) -> int:
+        return typing.cast(
+            int,
+            self.__getitem__("id")
+        )
+    
+    @property
+    def petId(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("petId", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
 
 
 class NoAdditionalPropertiesDictInput(NoAdditionalPropertiesRequiredDictInput, NoAdditionalPropertiesOptionalDictInput):

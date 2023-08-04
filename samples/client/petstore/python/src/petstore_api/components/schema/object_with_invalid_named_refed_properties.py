@@ -30,11 +30,6 @@ class ObjectWithInvalidNamedRefedPropertiesDict(schemas.immutabledict[str, schem
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: ObjectWithInvalidNamedRefedPropertiesDictInput,
@@ -52,6 +47,11 @@ class ObjectWithInvalidNamedRefedPropertiesDict(schemas.immutabledict[str, schem
         arg_.update(kwargs)
         used_arg_ = typing.cast(ObjectWithInvalidNamedRefedPropertiesDictInput, arg_)
         return ObjectWithInvalidNamedRefedProperties.validate(used_arg_, configuration=configuration_)
+
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 ObjectWithInvalidNamedRefedPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

@@ -19,17 +19,6 @@ class StringBooleanMapDict(schemas.immutabledict[str, bool]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    
-    def get_additional_property_(self, name: str) -> typing.Union[bool, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        val = self.get(name, schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            bool,
-            val
-        )
-
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
@@ -44,6 +33,17 @@ class StringBooleanMapDict(schemas.immutabledict[str, bool]):
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> StringBooleanMapDict:
         return StringBooleanMap.validate(arg, configuration=configuration)
+
+    
+    def get_additional_property_(self, name: str) -> typing.Union[bool, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            bool,
+            val
+        )
 StringBooleanMapDictInput = typing.Mapping[
     str,
     bool,

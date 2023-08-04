@@ -32,41 +32,6 @@ class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE
         "myString",
         "myBoolean",
     })
-    
-    @property
-    def myNumber(self) -> typing.Union[int, float, schemas.Unset]:
-        val = self.get("myNumber", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing.Union[int, float],
-            val
-        )
-    
-    @property
-    def myString(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("myString", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def myBoolean(self) -> typing.Union[bool, schemas.Unset]:
-        val = self.get("myBoolean", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            bool,
-            val
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: ObjectModelWithRefPropsDictInput,
@@ -104,6 +69,41 @@ class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE
         arg_.update(kwargs)
         used_arg_ = typing.cast(ObjectModelWithRefPropsDictInput, arg_)
         return ObjectModelWithRefProps.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def myNumber(self) -> typing.Union[int, float, schemas.Unset]:
+        val = self.get("myNumber", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[int, float],
+            val
+        )
+    
+    @property
+    def myString(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("myString", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
+    
+    @property
+    def myBoolean(self) -> typing.Union[bool, schemas.Unset]:
+        val = self.get("myBoolean", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            bool,
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 ObjectModelWithRefPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

@@ -36,47 +36,6 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         "enum_query_integer",
         "enum_query_string_array",
     })
-    
-    @property
-    def enum_query_double(self) -> typing.Union[int, float, schemas.Unset]:
-        val = self.get("enum_query_double", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing.Union[int, float],
-            val
-        )
-    
-    @property
-    def enum_query_string(self) -> typing.Union[typing_extensions.Literal["_abc", "-efg", "(xyz)"], schemas.Unset]:
-        val = self.get("enum_query_string", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing_extensions.Literal["_abc", "-efg", "(xyz)"],
-            val
-        )
-    
-    @property
-    def enum_query_integer(self) -> typing.Union[typing_extensions.Literal[1, -2], schemas.Unset]:
-        val = self.get("enum_query_integer", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing_extensions.Literal[1, -2],
-            val
-        )
-    
-    @property
-    def enum_query_string_array(self) -> typing.Union[schema_4.SchemaTuple, schemas.Unset]:
-        val = self.get("enum_query_string_array", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            schema_4.SchemaTuple,
-            val
-        )
-
     @staticmethod
     def from_dict_(
         arg: QueryParametersDictInput,
@@ -125,6 +84,47 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             arg_[key] = val
         used_arg_ = typing.cast(QueryParametersDictInput, arg_)
         return QueryParameters.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def enum_query_double(self) -> typing.Union[int, float, schemas.Unset]:
+        val = self.get("enum_query_double", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[int, float],
+            val
+        )
+    
+    @property
+    def enum_query_string(self) -> typing.Union[typing_extensions.Literal["_abc", "-efg", "(xyz)"], schemas.Unset]:
+        val = self.get("enum_query_string", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal["_abc", "-efg", "(xyz)"],
+            val
+        )
+    
+    @property
+    def enum_query_integer(self) -> typing.Union[typing_extensions.Literal[1, -2], schemas.Unset]:
+        val = self.get("enum_query_integer", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal[1, -2],
+            val
+        )
+    
+    @property
+    def enum_query_string_array(self) -> typing.Union[schema_4.SchemaTuple, schemas.Unset]:
+        val = self.get("enum_query_string_array", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schema_4.SchemaTuple,
+            val
+        )
 QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {

@@ -30,27 +30,6 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         "enum_header_string",
         "enum_header_string_array",
     })
-    
-    @property
-    def enum_header_string(self) -> typing.Union[typing_extensions.Literal["_abc", "-efg", "(xyz)"], schemas.Unset]:
-        val = self.get("enum_header_string", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing_extensions.Literal["_abc", "-efg", "(xyz)"],
-            val
-        )
-    
-    @property
-    def enum_header_string_array(self) -> typing.Union[schema_2.SchemaTuple, schemas.Unset]:
-        val = self.get("enum_header_string_array", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            schema_2.SchemaTuple,
-            val
-        )
-
     @staticmethod
     def from_dict_(
         arg: HeaderParametersDictInput,
@@ -85,6 +64,27 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             arg_[key] = val
         used_arg_ = typing.cast(HeaderParametersDictInput, arg_)
         return HeaderParameters.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def enum_header_string(self) -> typing.Union[typing_extensions.Literal["_abc", "-efg", "(xyz)"], schemas.Unset]:
+        val = self.get("enum_header_string", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal["_abc", "-efg", "(xyz)"],
+            val
+        )
+    
+    @property
+    def enum_header_string_array(self) -> typing.Union[schema_2.SchemaTuple, schemas.Unset]:
+        val = self.get("enum_header_string_array", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schema_2.SchemaTuple,
+            val
+        )
 HeaderParametersDictInput = typing_extensions.TypedDict(
     'HeaderParametersDictInput',
     {

@@ -219,31 +219,6 @@ class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "just_symbol",
         "array_enum",
     })
-    
-    @property
-    def just_symbol(self) -> typing.Union[typing_extensions.Literal[">=", "$"], schemas.Unset]:
-        val = self.get("just_symbol", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing_extensions.Literal[">=", "$"],
-            val
-        )
-    
-    @property
-    def array_enum(self) -> typing.Union[ArrayEnumTuple, schemas.Unset]:
-        val = self.get("array_enum", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            ArrayEnumTuple,
-            val
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: EnumArraysDictInput,
@@ -279,6 +254,31 @@ class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(EnumArraysDictInput, arg_)
         return EnumArrays.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def just_symbol(self) -> typing.Union[typing_extensions.Literal[">=", "$"], schemas.Unset]:
+        val = self.get("just_symbol", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal[">=", "$"],
+            val
+        )
+    
+    @property
+    def array_enum(self) -> typing.Union[ArrayEnumTuple, schemas.Unset]:
+        val = self.get("array_enum", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            ArrayEnumTuple,
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 EnumArraysDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

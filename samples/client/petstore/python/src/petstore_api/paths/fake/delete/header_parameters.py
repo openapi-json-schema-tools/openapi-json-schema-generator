@@ -49,24 +49,6 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "boolean_group",
     })
-    
-    @property
-    def required_boolean_group(self) -> typing_extensions.Literal["true", "false"]:
-        return typing.cast(
-            typing_extensions.Literal["true", "false"],
-            self.__getitem__("required_boolean_group")
-        )
-    
-    @property
-    def boolean_group(self) -> typing.Union[typing_extensions.Literal["true", "false"], schemas.Unset]:
-        val = self.get("boolean_group", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing_extensions.Literal["true", "false"],
-            val
-        )
-
     @staticmethod
     def from_dict_(
         arg: HeaderParametersDictInput,
@@ -100,6 +82,24 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             arg_[key] = val
         used_arg_ = typing.cast(HeaderParametersDictInput, arg_)
         return HeaderParameters.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def required_boolean_group(self) -> typing_extensions.Literal["true", "false"]:
+        return typing.cast(
+            typing_extensions.Literal["true", "false"],
+            self.__getitem__("required_boolean_group")
+        )
+    
+    @property
+    def boolean_group(self) -> typing.Union[typing_extensions.Literal["true", "false"], schemas.Unset]:
+        val = self.get("boolean_group", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal["true", "false"],
+            val
+        )
 
 
 class HeaderParametersDictInput(HeaderParametersRequiredDictInput, HeaderParametersOptionalDictInput):

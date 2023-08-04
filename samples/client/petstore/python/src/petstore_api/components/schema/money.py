@@ -30,21 +30,6 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    
-    @property
-    def amount(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("amount")
-        )
-    
-    @property
-    def currency(self) -> typing_extensions.Literal["eur", "usd"]:
-        return typing.cast(
-            typing_extensions.Literal["eur", "usd"],
-            self.__getitem__("currency")
-        )
-
     @staticmethod
     def from_dict_(
         arg: MoneyDictInput,
@@ -67,6 +52,21 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         }
         used_arg_ = typing.cast(MoneyDictInput, arg_)
         return Money.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def amount(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("amount")
+        )
+    
+    @property
+    def currency(self) -> typing_extensions.Literal["eur", "usd"]:
+        return typing.cast(
+            typing_extensions.Literal["eur", "usd"],
+            self.__getitem__("currency")
+        )
 MoneyDictInput = typing_extensions.TypedDict(
     'MoneyDictInput',
     {

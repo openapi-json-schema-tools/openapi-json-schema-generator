@@ -28,17 +28,6 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "someHeader",
     })
-    
-    @property
-    def someHeader(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("someHeader", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-
     @staticmethod
     def from_dict_(
         arg: HeadersDictInput,
@@ -63,6 +52,17 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             arg_[key] = val
         used_arg_ = typing.cast(HeadersDictInput, arg_)
         return Headers.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def someHeader(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("someHeader", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
 HeadersDictInput = typing_extensions.TypedDict(
     'HeadersDictInput',
     {

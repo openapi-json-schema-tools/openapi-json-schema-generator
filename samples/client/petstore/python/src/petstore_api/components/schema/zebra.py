@@ -164,34 +164,6 @@ class ZebraDict(schemas.immutabledict[str, str]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "type",
     })
-    
-    @property
-    def className(self) -> typing_extensions.Literal["zebra"]:
-        return typing.cast(
-            typing_extensions.Literal["zebra"],
-            self.__getitem__("className")
-        )
-    
-    @property
-    def type(self) -> typing.Union[typing_extensions.Literal["plains", "mountain", "grevys"], schemas.Unset]:
-        val = self.get("type", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing_extensions.Literal["plains", "mountain", "grevys"],
-            val
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        val = self.get(name, schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            val
-        )
-
     @staticmethod
     def from_dict_(
         arg: ZebraDictInput,
@@ -227,6 +199,34 @@ class ZebraDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(ZebraDictInput, arg_)
         return Zebra.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def className(self) -> typing_extensions.Literal["zebra"]:
+        return typing.cast(
+            typing_extensions.Literal["zebra"],
+            self.__getitem__("className")
+        )
+    
+    @property
+    def type(self) -> typing.Union[typing_extensions.Literal["plains", "mountain", "grevys"], schemas.Unset]:
+        val = self.get("type", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal["plains", "mountain", "grevys"],
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
 ZebraDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

@@ -30,27 +30,6 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
         "a",
         "b",
     })
-    
-    @property
-    def a(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("a", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def b(self) -> typing.Union[int, float, schemas.Unset]:
-        val = self.get("b", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing.Union[int, float],
-            val
-        )
-
     @staticmethod
     def from_dict_(
         arg: ObjectWithOnlyOptionalPropsDictInput,
@@ -81,6 +60,27 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
             arg_[key] = val
         used_arg_ = typing.cast(ObjectWithOnlyOptionalPropsDictInput, arg_)
         return ObjectWithOnlyOptionalProps.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def a(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("a", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
+    
+    @property
+    def b(self) -> typing.Union[int, float, schemas.Unset]:
+        val = self.get("b", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[int, float],
+            val
+        )
 ObjectWithOnlyOptionalPropsDictInput = typing_extensions.TypedDict(
     'ObjectWithOnlyOptionalPropsDictInput',
     {

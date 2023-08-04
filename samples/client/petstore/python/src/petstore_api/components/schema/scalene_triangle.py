@@ -79,21 +79,6 @@ class _1Dict(schemas.immutabledict[str, str]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "triangleType",
     })
-    
-    @property
-    def triangleType(self) -> typing.Union[typing_extensions.Literal["ScaleneTriangle"], schemas.Unset]:
-        val = self.get("triangleType", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing_extensions.Literal["ScaleneTriangle"],
-            val
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: _1DictInput,
@@ -122,6 +107,21 @@ class _1Dict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(_1DictInput, arg_)
         return _1.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def triangleType(self) -> typing.Union[typing_extensions.Literal["ScaleneTriangle"], schemas.Unset]:
+        val = self.get("triangleType", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal["ScaleneTriangle"],
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 _1DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

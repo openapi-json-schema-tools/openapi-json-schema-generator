@@ -21,17 +21,6 @@ class MapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    
-    def get_additional_property_(self, name: str) -> typing.Union[animal.AnimalDict, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        val = self.get(name, schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            animal.AnimalDict,
-            val
-        )
-
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
@@ -49,6 +38,17 @@ class MapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapDict:
         return Map.validate(arg, configuration=configuration)
+
+    
+    def get_additional_property_(self, name: str) -> typing.Union[animal.AnimalDict, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            animal.AnimalDict,
+            val
+        )
 MapDictInput = typing.Mapping[
     str,
     typing.Union[
@@ -106,41 +106,6 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
         "dateTime",
         "map",
     })
-    
-    @property
-    def uuid(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("uuid", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def dateTime(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("dateTime", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def map(self) -> typing.Union[MapDict, schemas.Unset]:
-        val = self.get("map", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            MapDict,
-            val
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: MixedPropertiesAndAdditionalPropertiesClassDictInput,
@@ -178,6 +143,41 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
         arg_.update(kwargs)
         used_arg_ = typing.cast(MixedPropertiesAndAdditionalPropertiesClassDictInput, arg_)
         return MixedPropertiesAndAdditionalPropertiesClass.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def uuid(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("uuid", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
+    
+    @property
+    def dateTime(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("dateTime", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
+    
+    @property
+    def map(self) -> typing.Union[MapDict, schemas.Unset]:
+        val = self.get("map", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            MapDict,
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 MixedPropertiesAndAdditionalPropertiesClassDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

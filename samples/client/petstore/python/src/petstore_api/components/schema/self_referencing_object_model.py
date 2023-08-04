@@ -25,27 +25,6 @@ class SelfReferencingObjectModelDict(schemas.immutabledict[str, schemas.OUTPUT_B
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "selfRef",
     })
-    
-    @property
-    def selfRef(self) -> typing.Union[SelfReferencingObjectModelDict, schemas.Unset]:
-        val = self.get("selfRef", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            SelfReferencingObjectModelDict,
-            val
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[SelfReferencingObjectModelDict, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        val = self.get(name, schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            SelfReferencingObjectModelDict,
-            val
-        )
-
     @staticmethod
     def from_dict_(
         arg: SelfReferencingObjectModelDictInput,
@@ -76,6 +55,27 @@ class SelfReferencingObjectModelDict(schemas.immutabledict[str, schemas.OUTPUT_B
         arg_.update(kwargs)
         used_arg_ = typing.cast(SelfReferencingObjectModelDictInput, arg_)
         return SelfReferencingObjectModel.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def selfRef(self) -> typing.Union[SelfReferencingObjectModelDict, schemas.Unset]:
+        val = self.get("selfRef", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            SelfReferencingObjectModelDict,
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[SelfReferencingObjectModelDict, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            SelfReferencingObjectModelDict,
+            val
+        )
 SelfReferencingObjectModelDictInput = typing.Mapping[
     str,
     typing.Union[

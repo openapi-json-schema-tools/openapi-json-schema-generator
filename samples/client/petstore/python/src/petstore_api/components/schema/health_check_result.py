@@ -64,27 +64,6 @@ class HealthCheckResultDict(schemas.immutabledict[str, typing.Union[
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "NullableMessage",
     })
-    
-    @property
-    def NullableMessage(self) -> typing.Union[
-        typing.Union[None, schemas.Unset],
-        typing.Union[str, schemas.Unset],
-    ]:
-        val = self.get("NullableMessage", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing.Union[
-                None,
-                str,
-            ],
-            val
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: HealthCheckResultDictInput,
@@ -112,6 +91,27 @@ class HealthCheckResultDict(schemas.immutabledict[str, typing.Union[
         arg_.update(kwargs)
         used_arg_ = typing.cast(HealthCheckResultDictInput, arg_)
         return HealthCheckResult.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def NullableMessage(self) -> typing.Union[
+        typing.Union[None, schemas.Unset],
+        typing.Union[str, schemas.Unset],
+    ]:
+        val = self.get("NullableMessage", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[
+                None,
+                str,
+            ],
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 HealthCheckResultDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

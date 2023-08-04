@@ -82,25 +82,6 @@ class QuadrilateralInterfaceDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    
-    @property
-    def quadrilateralType(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("quadrilateralType")
-        )
-    
-    @property
-    def shapeType(self) -> typing_extensions.Literal["Quadrilateral"]:
-        return typing.cast(
-            typing_extensions.Literal["Quadrilateral"],
-            self.__getitem__("shapeType")
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: QuadrilateralInterfaceDictInput,
@@ -124,6 +105,25 @@ class QuadrilateralInterfaceDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(QuadrilateralInterfaceDictInput, arg_)
         return QuadrilateralInterface.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def quadrilateralType(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("quadrilateralType")
+        )
+    
+    @property
+    def shapeType(self) -> typing_extensions.Literal["Quadrilateral"]:
+        return typing.cast(
+            typing_extensions.Literal["Quadrilateral"],
+            self.__getitem__("shapeType")
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 QuadrilateralInterfaceDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

@@ -32,41 +32,6 @@ class ApiResponseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "type",
         "message",
     })
-    
-    @property
-    def code(self) -> typing.Union[int, schemas.Unset]:
-        val = self.get("code", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            int,
-            val
-        )
-    
-    @property
-    def type(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("type", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def message(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("message", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: ApiResponseDictInput,
@@ -103,6 +68,41 @@ class ApiResponseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(ApiResponseDictInput, arg_)
         return ApiResponse.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def code(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("code", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
+    
+    @property
+    def type(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("type", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
+    
+    @property
+    def message(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("message", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 ApiResponseDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

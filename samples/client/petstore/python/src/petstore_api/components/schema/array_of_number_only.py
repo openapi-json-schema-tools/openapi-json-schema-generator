@@ -82,21 +82,6 @@ class ArrayOfNumberOnlyDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTP
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "ArrayNumber",
     })
-    
-    @property
-    def ArrayNumber(self) -> typing.Union[ArrayNumberTuple, schemas.Unset]:
-        val = self.get("ArrayNumber", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            ArrayNumberTuple,
-            val
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: ArrayOfNumberOnlyDictInput,
@@ -124,6 +109,21 @@ class ArrayOfNumberOnlyDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTP
         arg_.update(kwargs)
         used_arg_ = typing.cast(ArrayOfNumberOnlyDictInput, arg_)
         return ArrayOfNumberOnly.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def ArrayNumber(self) -> typing.Union[ArrayNumberTuple, schemas.Unset]:
+        val = self.get("ArrayNumber", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            ArrayNumberTuple,
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 ArrayOfNumberOnlyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

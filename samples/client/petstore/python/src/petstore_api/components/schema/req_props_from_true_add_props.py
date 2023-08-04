@@ -21,24 +21,6 @@ class ReqPropsFromTrueAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BAS
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    
-    @property
-    def validName(self) -> schemas.OUTPUT_BASE_TYPES:
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            self.__getitem__("validName")
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        val = self.get(name, schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            val
-        )
-
     @staticmethod
     def from_dict_(
         arg: ReqPropsFromTrueAddPropsDictInput,
@@ -61,6 +43,24 @@ class ReqPropsFromTrueAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BAS
         arg_.update(kwargs)
         used_arg_ = typing.cast(ReqPropsFromTrueAddPropsDictInput, arg_)
         return ReqPropsFromTrueAddProps.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def validName(self) -> schemas.OUTPUT_BASE_TYPES:
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            self.__getitem__("validName")
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
 ReqPropsFromTrueAddPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

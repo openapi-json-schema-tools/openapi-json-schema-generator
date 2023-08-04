@@ -29,25 +29,6 @@ class ObjectModelWithArgAndArgsPropertiesDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    
-    @property
-    def arg(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("arg")
-        )
-    
-    @property
-    def args(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("args")
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: ObjectModelWithArgAndArgsPropertiesDictInput,
@@ -69,6 +50,25 @@ class ObjectModelWithArgAndArgsPropertiesDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(ObjectModelWithArgAndArgsPropertiesDictInput, arg_)
         return ObjectModelWithArgAndArgsProperties.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def arg(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("arg")
+        )
+    
+    @property
+    def args(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("args")
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 ObjectModelWithArgAndArgsPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

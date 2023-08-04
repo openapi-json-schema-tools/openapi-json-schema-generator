@@ -114,28 +114,6 @@ class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    
-    @property
-    def op(self) -> typing_extensions.Literal["add", "replace", "test"]:
-        return typing.cast(
-            typing_extensions.Literal["add", "replace", "test"],
-            self.__getitem__("op")
-        )
-    
-    @property
-    def path(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("path")
-        )
-    
-    @property
-    def value(self) -> schemas.OUTPUT_BASE_TYPES:
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            self.__getitem__("value")
-        )
-
     @staticmethod
     def from_dict_(
         arg: JSONPatchRequestAddReplaceTestDictInput,
@@ -164,6 +142,28 @@ class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, str]):
         }
         used_arg_ = typing.cast(JSONPatchRequestAddReplaceTestDictInput, arg_)
         return JSONPatchRequestAddReplaceTest.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def op(self) -> typing_extensions.Literal["add", "replace", "test"]:
+        return typing.cast(
+            typing_extensions.Literal["add", "replace", "test"],
+            self.__getitem__("op")
+        )
+    
+    @property
+    def path(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("path")
+        )
+    
+    @property
+    def value(self) -> schemas.OUTPUT_BASE_TYPES:
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            self.__getitem__("value")
+        )
 JSONPatchRequestAddReplaceTestDictInput = typing_extensions.TypedDict(
     'JSONPatchRequestAddReplaceTestDictInput',
     {

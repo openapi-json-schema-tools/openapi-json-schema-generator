@@ -82,21 +82,6 @@ class SchemaDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TYP
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "files",
     })
-    
-    @property
-    def files(self) -> typing.Union[FilesTuple, schemas.Unset]:
-        val = self.get("files", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            FilesTuple,
-            val
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: SchemaDictInput,
@@ -124,6 +109,21 @@ class SchemaDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TYP
         arg_.update(kwargs)
         used_arg_ = typing.cast(SchemaDictInput, arg_)
         return Schema.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def files(self) -> typing.Union[FilesTuple, schemas.Unset]:
+        val = self.get("files", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            FilesTuple,
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 SchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

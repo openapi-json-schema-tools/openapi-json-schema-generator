@@ -36,17 +36,6 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         "A-B",
         "self",
     })
-    
-    @property
-    def aB(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("aB", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-
     @staticmethod
     def from_dict_(
         arg: HeaderParametersDictInput,
@@ -71,6 +60,17 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             arg_[key] = val
         used_arg_ = typing.cast(HeaderParametersDictInput, arg_)
         return HeaderParameters.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def aB(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("aB", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
 HeaderParametersDictInput = typing_extensions.TypedDict(
     'HeaderParametersDictInput',
     {

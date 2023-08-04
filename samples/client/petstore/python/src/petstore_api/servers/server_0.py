@@ -176,21 +176,6 @@ class VariablesDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    
-    @property
-    def port(self) -> typing_extensions.Literal["80", "8080"]:
-        return typing.cast(
-            typing_extensions.Literal["80", "8080"],
-            self.__getitem__("port")
-        )
-    
-    @property
-    def server(self) -> typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"]:
-        return typing.cast(
-            typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"],
-            self.__getitem__("server")
-        )
-
     @staticmethod
     def from_dict_(
         arg: VariablesDictInput,
@@ -217,6 +202,21 @@ class VariablesDict(schemas.immutabledict[str, str]):
         }
         used_arg_ = typing.cast(VariablesDictInput, arg_)
         return Variables.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def port(self) -> typing_extensions.Literal["80", "8080"]:
+        return typing.cast(
+            typing_extensions.Literal["80", "8080"],
+            self.__getitem__("port")
+        )
+    
+    @property
+    def server(self) -> typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"]:
+        return typing.cast(
+            typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"],
+            self.__getitem__("server")
+        )
 VariablesDictInput = typing_extensions.TypedDict(
     'VariablesDictInput',
     {

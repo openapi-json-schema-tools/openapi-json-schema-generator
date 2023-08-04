@@ -131,6 +131,62 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "status",
         "complete",
     })
+    @staticmethod
+    def from_dict_(
+        arg: OrderDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> OrderDict:
+        return Order.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        id: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        petId: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        quantity: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        shipDate: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        status: typing.Union[
+            typing_extensions.Literal[
+                "placed",
+                "approved",
+                "delivered"
+            ],
+            schemas.Unset
+        ] = schemas.unset,
+        complete: typing.Union[
+            bool,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("id", id),
+            ("petId", petId),
+            ("quantity", quantity),
+            ("shipDate", shipDate),
+            ("status", status),
+            ("complete", complete),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(OrderDictInput, arg_)
+        return Order.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def id(self) -> typing.Union[int, schemas.Unset]:
@@ -195,62 +251,6 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    @staticmethod
-    def from_dict_(
-        arg: OrderDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> OrderDict:
-        return Order.validate(arg, configuration=configuration)
-    
-    def __new__(
-        cls,
-        id: typing.Union[
-            int,
-            schemas.Unset
-        ] = schemas.unset,
-        petId: typing.Union[
-            int,
-            schemas.Unset
-        ] = schemas.unset,
-        quantity: typing.Union[
-            int,
-            schemas.Unset
-        ] = schemas.unset,
-        shipDate: typing.Union[
-            str,
-            schemas.Unset
-        ] = schemas.unset,
-        status: typing.Union[
-            typing_extensions.Literal[
-                "placed",
-                "approved",
-                "delivered"
-            ],
-            schemas.Unset
-        ] = schemas.unset,
-        complete: typing.Union[
-            bool,
-            schemas.Unset
-        ] = schemas.unset,
-        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL,
-    ):
-        arg_: typing.Dict[str, typing.Any] = {}
-        for key, val in (
-            ("id", id),
-            ("petId", petId),
-            ("quantity", quantity),
-            ("shipDate", shipDate),
-            ("status", status),
-            ("complete", complete),
-        ):
-            if isinstance(val, schemas.Unset):
-                continue
-            arg_[key] = val
-        arg_.update(kwargs)
-        used_arg_ = typing.cast(OrderDictInput, arg_)
-        return Order.validate(used_arg_, configuration=configuration_)
 OrderDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

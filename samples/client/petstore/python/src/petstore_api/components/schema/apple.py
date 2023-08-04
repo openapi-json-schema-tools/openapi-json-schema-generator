@@ -52,28 +52,6 @@ class AppleDict(schemas.immutabledict[str, str]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "origin",
     })
-    
-    @property
-    def cultivar(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("cultivar")
-        )
-    
-    @property
-    def origin(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("origin", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: AppleDictInput,
@@ -103,6 +81,28 @@ class AppleDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(AppleDictInput, arg_)
         return Apple.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def cultivar(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("cultivar")
+        )
+    
+    @property
+    def origin(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("origin", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 AppleDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

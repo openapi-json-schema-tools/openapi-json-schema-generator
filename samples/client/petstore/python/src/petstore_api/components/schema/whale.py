@@ -85,38 +85,6 @@ class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "hasBaleen",
         "hasTeeth",
     })
-    
-    @property
-    def className(self) -> typing_extensions.Literal["whale"]:
-        return typing.cast(
-            typing_extensions.Literal["whale"],
-            self.__getitem__("className")
-        )
-    
-    @property
-    def hasBaleen(self) -> typing.Union[bool, schemas.Unset]:
-        val = self.get("hasBaleen", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            bool,
-            val
-        )
-    
-    @property
-    def hasTeeth(self) -> typing.Union[bool, schemas.Unset]:
-        val = self.get("hasTeeth", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            bool,
-            val
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: WhaleDictInput,
@@ -153,6 +121,38 @@ class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(WhaleDictInput, arg_)
         return Whale.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def className(self) -> typing_extensions.Literal["whale"]:
+        return typing.cast(
+            typing_extensions.Literal["whale"],
+            self.__getitem__("className")
+        )
+    
+    @property
+    def hasBaleen(self) -> typing.Union[bool, schemas.Unset]:
+        val = self.get("hasBaleen", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            bool,
+            val
+        )
+    
+    @property
+    def hasTeeth(self) -> typing.Union[bool, schemas.Unset]:
+        val = self.get("hasTeeth", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            bool,
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 WhaleDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

@@ -29,21 +29,6 @@ class _200ResponseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "name",
         "class",
     })
-    
-    @property
-    def name(self) -> typing.Union[int, schemas.Unset]:
-        val = self.get("name", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            int,
-            val
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: _200ResponseDictInput,
@@ -70,6 +55,21 @@ class _200ResponseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(_200ResponseDictInput, arg_)
         return _200Response.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def name(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("name", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 _200ResponseDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

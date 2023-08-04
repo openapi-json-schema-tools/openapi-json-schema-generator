@@ -83,21 +83,6 @@ class JSONPatchRequestRemoveDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    
-    @property
-    def op(self) -> typing_extensions.Literal["remove"]:
-        return typing.cast(
-            typing_extensions.Literal["remove"],
-            self.__getitem__("op")
-        )
-    
-    @property
-    def path(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("path")
-        )
-
     @staticmethod
     def from_dict_(
         arg: JSONPatchRequestRemoveDictInput,
@@ -119,6 +104,21 @@ class JSONPatchRequestRemoveDict(schemas.immutabledict[str, str]):
         }
         used_arg_ = typing.cast(JSONPatchRequestRemoveDictInput, arg_)
         return JSONPatchRequestRemove.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def op(self) -> typing_extensions.Literal["remove"]:
+        return typing.cast(
+            typing_extensions.Literal["remove"],
+            self.__getitem__("op")
+        )
+    
+    @property
+    def path(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("path")
+        )
 JSONPatchRequestRemoveDictInput = typing_extensions.TypedDict(
     'JSONPatchRequestRemoveDictInput',
     {

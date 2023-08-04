@@ -79,18 +79,6 @@ class BasquePigDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    
-    @property
-    def className(self) -> typing_extensions.Literal["BasquePig"]:
-        return typing.cast(
-            typing_extensions.Literal["BasquePig"],
-            self.__getitem__("className")
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: BasquePigDictInput,
@@ -112,6 +100,18 @@ class BasquePigDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(BasquePigDictInput, arg_)
         return BasquePig.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def className(self) -> typing_extensions.Literal["BasquePig"]:
+        return typing.cast(
+            typing_extensions.Literal["BasquePig"],
+            self.__getitem__("className")
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 BasquePigDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

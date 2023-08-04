@@ -28,14 +28,6 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    
-    @property
-    def status(self) -> schema.SchemaTuple:
-        return typing.cast(
-            schema.SchemaTuple,
-            self.__getitem__("status")
-        )
-
     @staticmethod
     def from_dict_(
         arg: QueryParametersDictInput,
@@ -56,6 +48,14 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         }
         used_arg_ = typing.cast(QueryParametersDictInput, arg_)
         return QueryParameters.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def status(self) -> schema.SchemaTuple:
+        return typing.cast(
+            schema.SchemaTuple,
+            self.__getitem__("status")
+        )
 QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {

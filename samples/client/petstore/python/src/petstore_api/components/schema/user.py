@@ -106,6 +106,101 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "anyTypeExceptNullProp",
         "anyTypePropNullable",
     })
+    @staticmethod
+    def from_dict_(
+        arg: UserDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> UserDict:
+        return User.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        id: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        username: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        firstName: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        lastName: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        email: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        password: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        phone: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        userStatus: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        objectWithNoDeclaredProps: typing.Union[
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            schemas.Unset
+        ] = schemas.unset,
+        objectWithNoDeclaredPropsNullable: typing.Union[
+            None,
+            typing.Union[
+                typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            ],
+            schemas.Unset
+        ] = schemas.unset,
+        anyTypeProp: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
+        ] = schemas.unset,
+        anyTypeExceptNullProp: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
+        ] = schemas.unset,
+        anyTypePropNullable: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("id", id),
+            ("username", username),
+            ("firstName", firstName),
+            ("lastName", lastName),
+            ("email", email),
+            ("password", password),
+            ("phone", phone),
+            ("userStatus", userStatus),
+            ("objectWithNoDeclaredProps", objectWithNoDeclaredProps),
+            ("objectWithNoDeclaredPropsNullable", objectWithNoDeclaredPropsNullable),
+            ("anyTypeProp", anyTypeProp),
+            ("anyTypeExceptNullProp", anyTypeExceptNullProp),
+            ("anyTypePropNullable", anyTypePropNullable),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(UserDictInput, arg_)
+        return User.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def id(self) -> typing.Union[int, schemas.Unset]:
@@ -246,101 +341,6 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    @staticmethod
-    def from_dict_(
-        arg: UserDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> UserDict:
-        return User.validate(arg, configuration=configuration)
-    
-    def __new__(
-        cls,
-        id: typing.Union[
-            int,
-            schemas.Unset
-        ] = schemas.unset,
-        username: typing.Union[
-            str,
-            schemas.Unset
-        ] = schemas.unset,
-        firstName: typing.Union[
-            str,
-            schemas.Unset
-        ] = schemas.unset,
-        lastName: typing.Union[
-            str,
-            schemas.Unset
-        ] = schemas.unset,
-        email: typing.Union[
-            str,
-            schemas.Unset
-        ] = schemas.unset,
-        password: typing.Union[
-            str,
-            schemas.Unset
-        ] = schemas.unset,
-        phone: typing.Union[
-            str,
-            schemas.Unset
-        ] = schemas.unset,
-        userStatus: typing.Union[
-            int,
-            schemas.Unset
-        ] = schemas.unset,
-        objectWithNoDeclaredProps: typing.Union[
-            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
-            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-            schemas.Unset
-        ] = schemas.unset,
-        objectWithNoDeclaredPropsNullable: typing.Union[
-            None,
-            typing.Union[
-                typing.Mapping[str, schemas.INPUT_TYPES_ALL],
-                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-            ],
-            schemas.Unset
-        ] = schemas.unset,
-        anyTypeProp: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
-            schemas.Unset
-        ] = schemas.unset,
-        anyTypeExceptNullProp: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
-            schemas.Unset
-        ] = schemas.unset,
-        anyTypePropNullable: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
-            schemas.Unset
-        ] = schemas.unset,
-        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: schemas.INPUT_TYPES_ALL,
-    ):
-        arg_: typing.Dict[str, typing.Any] = {}
-        for key, val in (
-            ("id", id),
-            ("username", username),
-            ("firstName", firstName),
-            ("lastName", lastName),
-            ("email", email),
-            ("password", password),
-            ("phone", phone),
-            ("userStatus", userStatus),
-            ("objectWithNoDeclaredProps", objectWithNoDeclaredProps),
-            ("objectWithNoDeclaredPropsNullable", objectWithNoDeclaredPropsNullable),
-            ("anyTypeProp", anyTypeProp),
-            ("anyTypeExceptNullProp", anyTypeExceptNullProp),
-            ("anyTypePropNullable", anyTypePropNullable),
-        ):
-            if isinstance(val, schemas.Unset):
-                continue
-            arg_[key] = val
-        arg_.update(kwargs)
-        used_arg_ = typing.cast(UserDictInput, arg_)
-        return User.validate(used_arg_, configuration=configuration_)
 UserDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

@@ -42,49 +42,6 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    
-    @property
-    def context(self) -> schema_2.SchemaTuple:
-        return typing.cast(
-            schema_2.SchemaTuple,
-            self.__getitem__("context")
-        )
-    
-    @property
-    def http(self) -> schema_3.SchemaTuple:
-        return typing.cast(
-            schema_3.SchemaTuple,
-            self.__getitem__("http")
-        )
-    
-    @property
-    def ioutil(self) -> schema.SchemaTuple:
-        return typing.cast(
-            schema.SchemaTuple,
-            self.__getitem__("ioutil")
-        )
-    
-    @property
-    def pipe(self) -> schema_4.SchemaTuple:
-        return typing.cast(
-            schema_4.SchemaTuple,
-            self.__getitem__("pipe")
-        )
-    
-    @property
-    def refParam(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("refParam")
-        )
-    
-    @property
-    def url(self) -> schema_5.SchemaTuple:
-        return typing.cast(
-            schema_5.SchemaTuple,
-            self.__getitem__("url")
-        )
-
     @staticmethod
     def from_dict_(
         arg: QueryParametersDictInput,
@@ -127,6 +84,49 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         }
         used_arg_ = typing.cast(QueryParametersDictInput, arg_)
         return QueryParameters.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def context(self) -> schema_2.SchemaTuple:
+        return typing.cast(
+            schema_2.SchemaTuple,
+            self.__getitem__("context")
+        )
+    
+    @property
+    def http(self) -> schema_3.SchemaTuple:
+        return typing.cast(
+            schema_3.SchemaTuple,
+            self.__getitem__("http")
+        )
+    
+    @property
+    def ioutil(self) -> schema.SchemaTuple:
+        return typing.cast(
+            schema.SchemaTuple,
+            self.__getitem__("ioutil")
+        )
+    
+    @property
+    def pipe(self) -> schema_4.SchemaTuple:
+        return typing.cast(
+            schema_4.SchemaTuple,
+            self.__getitem__("pipe")
+        )
+    
+    @property
+    def refParam(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("refParam")
+        )
+    
+    @property
+    def url(self) -> schema_5.SchemaTuple:
+        return typing.cast(
+            schema_5.SchemaTuple,
+            self.__getitem__("url")
+        )
 QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {

@@ -46,21 +46,6 @@ class ObjectWithInlineCompositionPropertyDict(schemas.immutabledict[str, schemas
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "someProp",
     })
-    
-    @property
-    def someProp(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        val = self.get("someProp", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            val
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: ObjectWithInlineCompositionPropertyDictInput,
@@ -88,6 +73,21 @@ class ObjectWithInlineCompositionPropertyDict(schemas.immutabledict[str, schemas
         arg_.update(kwargs)
         used_arg_ = typing.cast(ObjectWithInlineCompositionPropertyDictInput, arg_)
         return ObjectWithInlineCompositionProperty.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def someProp(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        val = self.get("someProp", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            schemas.OUTPUT_BASE_TYPES,
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 ObjectWithInlineCompositionPropertyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

@@ -19,17 +19,6 @@ class AdditionalPropertiesDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    
-    def get_additional_property_(self, name: str) -> typing.Union[str, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        val = self.get(name, schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
@@ -44,6 +33,17 @@ class AdditionalPropertiesDict(schemas.immutabledict[str, str]):
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesDict:
         return AdditionalProperties.validate(arg, configuration=configuration)
+
+    
+    def get_additional_property_(self, name: str) -> typing.Union[str, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
 AdditionalPropertiesDictInput = typing.Mapping[
     str,
     str,
@@ -87,17 +87,6 @@ class MapMapOfStringDict(schemas.immutabledict[str, schemas.immutabledict[str, s
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    
-    def get_additional_property_(self, name: str) -> typing.Union[AdditionalPropertiesDict, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        val = self.get(name, schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            AdditionalPropertiesDict,
-            val
-        )
-
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
@@ -115,6 +104,17 @@ class MapMapOfStringDict(schemas.immutabledict[str, schemas.immutabledict[str, s
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapMapOfStringDict:
         return MapMapOfString.validate(arg, configuration=configuration)
+
+    
+    def get_additional_property_(self, name: str) -> typing.Union[AdditionalPropertiesDict, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            AdditionalPropertiesDict,
+            val
+        )
 MapMapOfStringDictInput = typing.Mapping[
     str,
     typing.Union[
@@ -229,17 +229,6 @@ class MapOfEnumStringDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    
-    def get_additional_property_(self, name: str) -> typing.Union[typing_extensions.Literal["UPPER", "lower"], schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        val = self.get(name, schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing_extensions.Literal["UPPER", "lower"],
-            val
-        )
-
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
@@ -257,6 +246,17 @@ class MapOfEnumStringDict(schemas.immutabledict[str, str]):
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapOfEnumStringDict:
         return MapOfEnumString.validate(arg, configuration=configuration)
+
+    
+    def get_additional_property_(self, name: str) -> typing.Union[typing_extensions.Literal["UPPER", "lower"], schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal["UPPER", "lower"],
+            val
+        )
 MapOfEnumStringDictInput = typing.Mapping[
     str,
     typing_extensions.Literal[
@@ -304,17 +304,6 @@ class DirectMapDict(schemas.immutabledict[str, bool]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    
-    def get_additional_property_(self, name: str) -> typing.Union[bool, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        val = self.get(name, schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            bool,
-            val
-        )
-
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
@@ -329,6 +318,17 @@ class DirectMapDict(schemas.immutabledict[str, bool]):
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> DirectMapDict:
         return DirectMap.validate(arg, configuration=configuration)
+
+    
+    def get_additional_property_(self, name: str) -> typing.Union[bool, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        val = self.get(name, schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            bool,
+            val
+        )
 DirectMapDictInput = typing.Mapping[
     str,
     bool,
@@ -386,51 +386,6 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "direct_map",
         "indirect_map",
     })
-    
-    @property
-    def map_map_of_string(self) -> typing.Union[MapMapOfStringDict, schemas.Unset]:
-        val = self.get("map_map_of_string", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            MapMapOfStringDict,
-            val
-        )
-    
-    @property
-    def map_of_enum_string(self) -> typing.Union[MapOfEnumStringDict, schemas.Unset]:
-        val = self.get("map_of_enum_string", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            MapOfEnumStringDict,
-            val
-        )
-    
-    @property
-    def direct_map(self) -> typing.Union[DirectMapDict, schemas.Unset]:
-        val = self.get("direct_map", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            DirectMapDict,
-            val
-        )
-    
-    @property
-    def indirect_map(self) -> typing.Union[string_boolean_map.StringBooleanMapDict, schemas.Unset]:
-        val = self.get("indirect_map", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            string_boolean_map.StringBooleanMapDict,
-            val
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: MapTestDictInput,
@@ -476,6 +431,51 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(MapTestDictInput, arg_)
         return MapTest.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def map_map_of_string(self) -> typing.Union[MapMapOfStringDict, schemas.Unset]:
+        val = self.get("map_map_of_string", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            MapMapOfStringDict,
+            val
+        )
+    
+    @property
+    def map_of_enum_string(self) -> typing.Union[MapOfEnumStringDict, schemas.Unset]:
+        val = self.get("map_of_enum_string", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            MapOfEnumStringDict,
+            val
+        )
+    
+    @property
+    def direct_map(self) -> typing.Union[DirectMapDict, schemas.Unset]:
+        val = self.get("direct_map", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            DirectMapDict,
+            val
+        )
+    
+    @property
+    def indirect_map(self) -> typing.Union[string_boolean_map.StringBooleanMapDict, schemas.Unset]:
+        val = self.get("indirect_map", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            string_boolean_map.StringBooleanMapDict,
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 MapTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

@@ -51,41 +51,6 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         "int64_group",
         "string_group",
     })
-    
-    @property
-    def required_int64_group(self) -> int:
-        return typing.cast(
-            int,
-            self.__getitem__("required_int64_group")
-        )
-    
-    @property
-    def required_string_group(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("required_string_group")
-        )
-    
-    @property
-    def int64_group(self) -> typing.Union[int, schemas.Unset]:
-        val = self.get("int64_group", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            int,
-            val
-        )
-    
-    @property
-    def string_group(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("string_group", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-
     @staticmethod
     def from_dict_(
         arg: QueryParametersDictInput,
@@ -120,6 +85,41 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             arg_[key] = val
         used_arg_ = typing.cast(QueryParametersDictInput, arg_)
         return QueryParameters.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def required_int64_group(self) -> int:
+        return typing.cast(
+            int,
+            self.__getitem__("required_int64_group")
+        )
+    
+    @property
+    def required_string_group(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("required_string_group")
+        )
+    
+    @property
+    def int64_group(self) -> typing.Union[int, schemas.Unset]:
+        val = self.get("int64_group", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            int,
+            val
+        )
+    
+    @property
+    def string_group(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("string_group", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
 
 
 class QueryParametersDictInput(QueryParametersRequiredDictInput, QueryParametersOptionalDictInput):

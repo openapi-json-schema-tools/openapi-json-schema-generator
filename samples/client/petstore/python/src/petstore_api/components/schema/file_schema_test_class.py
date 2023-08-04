@@ -85,31 +85,6 @@ class FileSchemaTestClassDict(schemas.immutabledict[str, typing.Tuple[schemas.OU
         "file",
         "files",
     })
-    
-    @property
-    def file(self) -> typing.Union[file.FileDict, schemas.Unset]:
-        val = self.get("file", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            file.FileDict,
-            val
-        )
-    
-    @property
-    def files(self) -> typing.Union[FilesTuple, schemas.Unset]:
-        val = self.get("files", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            FilesTuple,
-            val
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: FileSchemaTestClassDictInput,
@@ -143,6 +118,31 @@ class FileSchemaTestClassDict(schemas.immutabledict[str, typing.Tuple[schemas.OU
         arg_.update(kwargs)
         used_arg_ = typing.cast(FileSchemaTestClassDictInput, arg_)
         return FileSchemaTestClass.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def file(self) -> typing.Union[file.FileDict, schemas.Unset]:
+        val = self.get("file", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            file.FileDict,
+            val
+        )
+    
+    @property
+    def files(self) -> typing.Union[FilesTuple, schemas.Unset]:
+        val = self.get("files", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            FilesTuple,
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 FileSchemaTestClassDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

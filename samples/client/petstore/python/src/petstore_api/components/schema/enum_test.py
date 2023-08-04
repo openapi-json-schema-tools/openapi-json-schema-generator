@@ -320,104 +320,6 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "IntegerEnumWithDefaultValue",
         "IntegerEnumOneValue",
     })
-    
-    @property
-    def enum_string_required(self) -> typing_extensions.Literal["UPPER", "lower", ""]:
-        return typing.cast(
-            typing_extensions.Literal["UPPER", "lower", ""],
-            self.__getitem__("enum_string_required")
-        )
-    
-    @property
-    def enum_string(self) -> typing.Union[typing_extensions.Literal["UPPER", "lower", ""], schemas.Unset]:
-        val = self.get("enum_string", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing_extensions.Literal["UPPER", "lower", ""],
-            val
-        )
-    
-    @property
-    def enum_integer(self) -> typing.Union[typing_extensions.Literal[1, -1], schemas.Unset]:
-        val = self.get("enum_integer", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing_extensions.Literal[1, -1],
-            val
-        )
-    
-    @property
-    def enum_number(self) -> typing.Union[int, float, schemas.Unset]:
-        val = self.get("enum_number", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing.Union[int, float],
-            val
-        )
-    
-    @property
-    def stringEnum(self) -> typing.Union[
-        typing.Union[None, schemas.Unset],
-        typing.Union[typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"], schemas.Unset],
-    ]:
-        val = self.get("stringEnum", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing.Union[
-                None,
-                typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
-            ],
-            val
-        )
-    
-    @property
-    def IntegerEnum(self) -> typing.Union[typing_extensions.Literal[0, 1, 2], schemas.Unset]:
-        val = self.get("IntegerEnum", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing_extensions.Literal[0, 1, 2],
-            val
-        )
-    
-    @property
-    def StringEnumWithDefaultValue(self) -> typing.Union[typing_extensions.Literal["placed", "approved", "delivered"], schemas.Unset]:
-        val = self.get("StringEnumWithDefaultValue", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing_extensions.Literal["placed", "approved", "delivered"],
-            val
-        )
-    
-    @property
-    def IntegerEnumWithDefaultValue(self) -> typing.Union[typing_extensions.Literal[0, 1, 2], schemas.Unset]:
-        val = self.get("IntegerEnumWithDefaultValue", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing_extensions.Literal[0, 1, 2],
-            val
-        )
-    
-    @property
-    def IntegerEnumOneValue(self) -> typing.Union[typing_extensions.Literal[0], schemas.Unset]:
-        val = self.get("IntegerEnumOneValue", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing_extensions.Literal[0],
-            val
-        )
-    
-    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-        return self.get(name, schemas.unset)
-
     @staticmethod
     def from_dict_(
         arg: EnumTestDictInput,
@@ -516,6 +418,104 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(EnumTestDictInput, arg_)
         return EnumTest.validate(used_arg_, configuration=configuration_)
+
+    
+    @property
+    def enum_string_required(self) -> typing_extensions.Literal["UPPER", "lower", ""]:
+        return typing.cast(
+            typing_extensions.Literal["UPPER", "lower", ""],
+            self.__getitem__("enum_string_required")
+        )
+    
+    @property
+    def enum_string(self) -> typing.Union[typing_extensions.Literal["UPPER", "lower", ""], schemas.Unset]:
+        val = self.get("enum_string", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal["UPPER", "lower", ""],
+            val
+        )
+    
+    @property
+    def enum_integer(self) -> typing.Union[typing_extensions.Literal[1, -1], schemas.Unset]:
+        val = self.get("enum_integer", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal[1, -1],
+            val
+        )
+    
+    @property
+    def enum_number(self) -> typing.Union[int, float, schemas.Unset]:
+        val = self.get("enum_number", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[int, float],
+            val
+        )
+    
+    @property
+    def stringEnum(self) -> typing.Union[
+        typing.Union[None, schemas.Unset],
+        typing.Union[typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"], schemas.Unset],
+    ]:
+        val = self.get("stringEnum", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[
+                None,
+                typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
+            ],
+            val
+        )
+    
+    @property
+    def IntegerEnum(self) -> typing.Union[typing_extensions.Literal[0, 1, 2], schemas.Unset]:
+        val = self.get("IntegerEnum", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal[0, 1, 2],
+            val
+        )
+    
+    @property
+    def StringEnumWithDefaultValue(self) -> typing.Union[typing_extensions.Literal["placed", "approved", "delivered"], schemas.Unset]:
+        val = self.get("StringEnumWithDefaultValue", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal["placed", "approved", "delivered"],
+            val
+        )
+    
+    @property
+    def IntegerEnumWithDefaultValue(self) -> typing.Union[typing_extensions.Literal[0, 1, 2], schemas.Unset]:
+        val = self.get("IntegerEnumWithDefaultValue", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal[0, 1, 2],
+            val
+        )
+    
+    @property
+    def IntegerEnumOneValue(self) -> typing.Union[typing_extensions.Literal[0], schemas.Unset]:
+        val = self.get("IntegerEnumOneValue", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing_extensions.Literal[0],
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
 EnumTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
