@@ -19,6 +19,21 @@ class AdditionalpropertiesCanExistByItselfDict(schemas.immutabledict[str, bool])
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: bool,
+    ):
+        used_kwargs = typing.cast(AdditionalpropertiesCanExistByItselfDictInput, kwargs)
+        return AdditionalpropertiesCanExistByItself.validate(used_kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: AdditionalpropertiesCanExistByItselfDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AdditionalpropertiesCanExistByItselfDict:
+        return AdditionalpropertiesCanExistByItself.validate(arg, configuration=configuration)
+
     
     def get_additional_property_(self, name: str) -> typing.Union[bool, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -29,9 +44,6 @@ class AdditionalpropertiesCanExistByItselfDict(schemas.immutabledict[str, bool])
             bool,
             val
         )
-
-    def __new__(cls, arg: AdditionalpropertiesCanExistByItselfDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return AdditionalpropertiesCanExistByItself.validate(arg, configuration=configuration)
 AdditionalpropertiesCanExistByItselfDictInput = typing.Mapping[
     str,
     bool,

@@ -31,8 +31,9 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_enum_with_escaped_characters_request_body(
         self,
-        body: typing.Union[
-            typing_extensions.Literal["foo\nbar", "foo\rbar"],
+        body: typing_extensions.Literal[
+            "foo\nbar",
+            "foo\rbar"
         ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
@@ -45,8 +46,9 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_enum_with_escaped_characters_request_body(
         self,
-        body: typing.Union[
-            typing_extensions.Literal["foo\nbar", "foo\rbar"],
+        body: typing_extensions.Literal[
+            "foo\nbar",
+            "foo\rbar"
         ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
@@ -58,8 +60,9 @@ class BaseApi(api_client.Api):
 
     def _post_enum_with_escaped_characters_request_body(
         self,
-        body: typing.Union[
-            typing_extensions.Literal["foo\nbar", "foo\rbar"],
+        body: typing_extensions.Literal[
+            "foo\nbar",
+            "foo\rbar"
         ],
         *,
         skip_deserialization: bool = False,

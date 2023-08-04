@@ -31,8 +31,8 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_nul_characters_in_strings_request_body(
         self,
-        body: typing.Union[
-            typing_extensions.Literal["hello\x00there"],
+        body: typing_extensions.Literal[
+            "hello\x00there"
         ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
@@ -45,8 +45,8 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_nul_characters_in_strings_request_body(
         self,
-        body: typing.Union[
-            typing_extensions.Literal["hello\x00there"],
+        body: typing_extensions.Literal[
+            "hello\x00there"
         ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
@@ -58,8 +58,8 @@ class BaseApi(api_client.Api):
 
     def _post_nul_characters_in_strings_request_body(
         self,
-        body: typing.Union[
-            typing_extensions.Literal["hello\x00there"],
+        body: typing_extensions.Literal[
+            "hello\x00there"
         ],
         *,
         skip_deserialization: bool = False,

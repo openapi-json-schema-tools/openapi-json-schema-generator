@@ -22,7 +22,7 @@ class OperatorId(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: str = "SUB"
+    default: typing_extensions.Literal["SUB"] = "SUB"
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
@@ -42,6 +42,35 @@ class SubtractionOperatorDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    @staticmethod
+    def from_dict_(
+        arg: SubtractionOperatorDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SubtractionOperatorDict:
+        return SubtractionOperator.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        a: typing.Union[
+            int,
+            float
+        ],
+        b: typing.Union[
+            int,
+            float
+        ],
+        operator_id: str,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "a": a,
+            "b": b,
+            "operator_id": operator_id,
+        }
+        used_arg_ = typing.cast(SubtractionOperatorDictInput, arg_)
+        return SubtractionOperator.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def a(self) -> typing.Union[int, float]:
@@ -63,19 +92,16 @@ class SubtractionOperatorDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
             str,
             self.__getitem__("operator_id")
         )
-
-    def __new__(cls, arg: SubtractionOperatorDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return SubtractionOperator.validate(arg, configuration=configuration)
 SubtractionOperatorDictInput = typing_extensions.TypedDict(
     'SubtractionOperatorDictInput',
     {
         "a": typing.Union[
-            float,
-            int
+            int,
+            float
         ],
         "b": typing.Union[
-            float,
-            int
+            int,
+            float
         ],
         "operator_id": str,
     }
