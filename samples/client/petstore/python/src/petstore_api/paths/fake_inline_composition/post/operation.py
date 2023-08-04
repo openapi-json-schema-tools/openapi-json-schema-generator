@@ -50,8 +50,8 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             schemas.INPUT_TYPES_ALL,
-            schemas.Unset,
             schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
             QueryParametersDictInput,
@@ -72,8 +72,8 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             schemas.INPUT_TYPES_ALL,
-            schemas.Unset,
             schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
             QueryParametersDictInput,
@@ -94,8 +94,8 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             schema_2.SchemaDictInput,
-            schemas.Unset,
             schema_2.SchemaDict,
+            schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
             QueryParametersDictInput,
@@ -116,8 +116,8 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             schema_2.SchemaDictInput,
-            schemas.Unset,
             schema_2.SchemaDict,
+            schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
             QueryParametersDictInput,
@@ -136,10 +136,14 @@ class BaseApi(api_client.Api):
     def _inline_composition(
         self,
         body: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
-            schema_2.SchemaDictInput,
-            schema_2.SchemaDict,
+            typing.Union[
+                schemas.INPUT_TYPES_ALL,
+                schemas.OUTPUT_BASE_TYPES
+            ],
+            typing.Union[
+                schema_2.SchemaDictInput,
+                schema_2.SchemaDict,
+            ],
             schemas.Unset,
         ] = schemas.unset,
         query_params: typing.Union[

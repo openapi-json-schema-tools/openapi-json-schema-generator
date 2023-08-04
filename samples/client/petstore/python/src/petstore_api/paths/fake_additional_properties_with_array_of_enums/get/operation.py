@@ -37,8 +37,8 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnumsDictInput,
-            schemas.Unset,
             additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnumsDict,
+            schemas.Unset
         ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
@@ -54,8 +54,8 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnumsDictInput,
-            schemas.Unset,
             additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnumsDict,
+            schemas.Unset
         ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[True],
@@ -71,7 +71,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[
             additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnumsDictInput,
             additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnumsDict,
-            schemas.Unset,
+            schemas.Unset
         ] = schemas.unset,
         *,
         skip_deserialization: bool = False,

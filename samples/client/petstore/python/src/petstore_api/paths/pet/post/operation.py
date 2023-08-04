@@ -114,10 +114,14 @@ class BaseApi(api_client.Api):
     def _add_pet(
         self,
         body: typing.Union[
-            pet.PetDictInput,
-            pet.PetDict,
-            pet.PetDictInput,
-            pet.PetDict,
+            typing.Union[
+                pet.PetDictInput,
+                pet.PetDict,
+            ],
+            typing.Union[
+                pet.PetDictInput,
+                pet.PetDict,
+            ],
         ],
         *,
         skip_deserialization: bool = False,

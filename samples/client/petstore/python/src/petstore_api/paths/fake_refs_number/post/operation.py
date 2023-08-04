@@ -36,8 +36,9 @@ class BaseApi(api_client.Api):
     def _number_with_validations(
         self,
         body: typing.Union[
-            schemas.Unset,
-            typing.Union[int, float],
+            int,
+            float,
+            schemas.Unset
         ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
@@ -52,8 +53,9 @@ class BaseApi(api_client.Api):
     def _number_with_validations(
         self,
         body: typing.Union[
-            schemas.Unset,
-            typing.Union[int, float],
+            int,
+            float,
+            schemas.Unset
         ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[True],
@@ -67,8 +69,9 @@ class BaseApi(api_client.Api):
     def _number_with_validations(
         self,
         body: typing.Union[
-            typing.Union[int, float],
-            schemas.Unset,
+            int,
+            float,
+            schemas.Unset
         ] = schemas.unset,
         *,
         skip_deserialization: bool = False,

@@ -67,8 +67,8 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             schema.SchemaDictInput,
-            schemas.Unset,
             schema.SchemaDict,
+            schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
             QueryParametersDictInput,
@@ -94,8 +94,8 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             schema.SchemaDictInput,
-            schemas.Unset,
             schema.SchemaDict,
+            schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
             QueryParametersDictInput,
@@ -121,7 +121,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[
             schema.SchemaDictInput,
             schema.SchemaDict,
-            schemas.Unset,
+            schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
             QueryParametersDictInput,
