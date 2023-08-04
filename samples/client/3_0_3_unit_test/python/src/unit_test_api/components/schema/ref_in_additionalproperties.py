@@ -19,6 +19,24 @@ class RefInAdditionalpropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BA
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
+    ):
+        used_kwargs = typing.cast(RefInAdditionalpropertiesDictInput, kwargs)
+        return RefInAdditionalproperties.validate(used_kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: RefInAdditionalpropertiesDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> RefInAdditionalpropertiesDict:
+        return RefInAdditionalproperties.validate(arg, configuration=configuration)
+
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -29,27 +47,11 @@ class RefInAdditionalpropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_BA
             schemas.OUTPUT_BASE_TYPES,
             val
         )
-
-    def __new__(cls, arg: RefInAdditionalpropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return RefInAdditionalproperties.validate(arg, configuration=configuration)
 RefInAdditionalpropertiesDictInput = typing.Mapping[
     str,
     typing.Union[
-        dict,
-        schemas.immutabledict,
-        str,
-        datetime.date,
-        datetime.datetime,
-        uuid.UUID,
-        int,
-        float,
-        bool,
-        None,
-        list,
-        tuple,
-        bytes,
-        io.FileIO,
-        io.BufferedReader
+        schemas.INPUT_TYPES_ALL,
+        schemas.OUTPUT_BASE_TYPES
     ],
 ]
 

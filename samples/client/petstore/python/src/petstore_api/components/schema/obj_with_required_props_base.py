@@ -26,6 +26,27 @@ class ObjWithRequiredPropsBaseDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    @staticmethod
+    def from_dict_(
+        arg: ObjWithRequiredPropsBaseDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjWithRequiredPropsBaseDict:
+        return ObjWithRequiredPropsBase.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        b: str,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "b": b,
+        }
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(ObjWithRequiredPropsBaseDictInput, arg_)
+        return ObjWithRequiredPropsBase.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def b(self) -> str:
@@ -37,9 +58,6 @@ class ObjWithRequiredPropsBaseDict(schemas.immutabledict[str, str]):
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: ObjWithRequiredPropsBaseDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return ObjWithRequiredPropsBase.validate(arg, configuration=configuration)
 ObjWithRequiredPropsBaseDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

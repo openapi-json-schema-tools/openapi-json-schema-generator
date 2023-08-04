@@ -114,6 +114,36 @@ class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    @staticmethod
+    def from_dict_(
+        arg: JSONPatchRequestAddReplaceTestDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> JSONPatchRequestAddReplaceTestDict:
+        return JSONPatchRequestAddReplaceTest.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        op: typing_extensions.Literal[
+            "add",
+            "replace",
+            "test"
+        ],
+        path: str,
+        value: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "op": op,
+            "path": path,
+            "value": value,
+        }
+        used_arg_ = typing.cast(JSONPatchRequestAddReplaceTestDictInput, arg_)
+        return JSONPatchRequestAddReplaceTest.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def op(self) -> typing_extensions.Literal["add", "replace", "test"]:
@@ -135,30 +165,18 @@ class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, str]):
             schemas.OUTPUT_BASE_TYPES,
             self.__getitem__("value")
         )
-
-    def __new__(cls, arg: JSONPatchRequestAddReplaceTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return JSONPatchRequestAddReplaceTest.validate(arg, configuration=configuration)
 JSONPatchRequestAddReplaceTestDictInput = typing_extensions.TypedDict(
     'JSONPatchRequestAddReplaceTestDictInput',
     {
-        "op": str,
+        "op": typing_extensions.Literal[
+            "add",
+            "replace",
+            "test"
+        ],
         "path": str,
         "value": typing.Union[
-            dict,
-            schemas.immutabledict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
         ],
     }
 )

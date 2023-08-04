@@ -25,6 +25,38 @@ class SelfReferencingObjectModelDict(schemas.immutabledict[str, schemas.OUTPUT_B
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "selfRef",
     })
+    @staticmethod
+    def from_dict_(
+        arg: SelfReferencingObjectModelDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SelfReferencingObjectModelDict:
+        return SelfReferencingObjectModel.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        selfRef: typing.Union[
+            SelfReferencingObjectModelDictInput,
+            SelfReferencingObjectModelDict,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            SelfReferencingObjectModelDictInput,
+            SelfReferencingObjectModelDict,
+        ],
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("selfRef", selfRef),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(SelfReferencingObjectModelDictInput, arg_)
+        return SelfReferencingObjectModel.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def selfRef(self) -> typing.Union[SelfReferencingObjectModelDict, schemas.Unset]:
@@ -45,21 +77,16 @@ class SelfReferencingObjectModelDict(schemas.immutabledict[str, schemas.OUTPUT_B
             SelfReferencingObjectModelDict,
             val
         )
-
-    def __new__(cls, arg: SelfReferencingObjectModelDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return SelfReferencingObjectModel.validate(arg, configuration=configuration)
 SelfReferencingObjectModelDictInput = typing.Mapping[
     str,
     typing.Union[
         typing.Union[
+            'SelfReferencingObjectModelDictInput',
             SelfReferencingObjectModelDict,
-            dict,
-            schemas.immutabledict
         ],
         typing.Union[
+            'SelfReferencingObjectModelDictInput',
             SelfReferencingObjectModelDict,
-            dict,
-            schemas.immutabledict
         ],
     ]
 ]

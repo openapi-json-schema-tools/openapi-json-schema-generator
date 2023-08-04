@@ -24,16 +24,14 @@ class SelfReferencingArrayModelTuple(
 SelfReferencingArrayModelTupleInput = typing.Union[
     typing.List[
         typing.Union[
-            SelfReferencingArrayModelTuple,
-            list,
-            tuple
+            'SelfReferencingArrayModelTupleInput',
+            SelfReferencingArrayModelTuple
         ],
     ],
     typing.Tuple[
         typing.Union[
-            SelfReferencingArrayModelTuple,
-            list,
-            tuple
+            'SelfReferencingArrayModelTupleInput',
+            SelfReferencingArrayModelTuple
         ],
         ...
     ]

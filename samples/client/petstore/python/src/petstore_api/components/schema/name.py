@@ -32,6 +32,37 @@ class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "snake_case",
         "property",
     })
+    @staticmethod
+    def from_dict_(
+        arg: NameDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> NameDict:
+        return Name.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        name: int,
+        snake_case: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "name": name,
+        }
+        for key, val in (
+            ("snake_case", snake_case),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(NameDictInput, arg_)
+        return Name.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def name(self) -> int:
@@ -53,9 +84,6 @@ class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: NameDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return Name.validate(arg, configuration=configuration)
 NameDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

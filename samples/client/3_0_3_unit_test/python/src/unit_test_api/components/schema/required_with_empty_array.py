@@ -26,6 +26,35 @@ class RequiredWithEmptyArrayDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "foo",
     })
+    @staticmethod
+    def from_dict_(
+        arg: RequiredWithEmptyArrayDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> RequiredWithEmptyArrayDict:
+        return RequiredWithEmptyArray.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        foo: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("foo", foo),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(RequiredWithEmptyArrayDictInput, arg_)
+        return RequiredWithEmptyArray.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def foo(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
@@ -40,9 +69,6 @@ class RequiredWithEmptyArrayDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: RequiredWithEmptyArrayDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return RequiredWithEmptyArray.validate(arg, configuration=configuration)
 RequiredWithEmptyArrayDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

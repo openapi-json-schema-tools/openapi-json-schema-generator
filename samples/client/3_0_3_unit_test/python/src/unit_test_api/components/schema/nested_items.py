@@ -25,14 +25,14 @@ class ItemsTuple(
 ItemsTupleInput = typing.Union[
     typing.List[
         typing.Union[
-            float,
-            int
+            int,
+            float
         ],
     ],
     typing.Tuple[
         typing.Union[
-            float,
-            int
+            int,
+            float
         ],
         ...
     ]
@@ -81,16 +81,14 @@ class ItemsTuple2(
 ItemsTupleInput2 = typing.Union[
     typing.List[
         typing.Union[
-            ItemsTuple,
-            list,
-            tuple
+            ItemsTupleInput,
+            ItemsTuple
         ],
     ],
     typing.Tuple[
         typing.Union[
-            ItemsTuple,
-            list,
-            tuple
+            ItemsTupleInput,
+            ItemsTuple
         ],
         ...
     ]
@@ -139,16 +137,14 @@ class ItemsTuple3(
 ItemsTupleInput3 = typing.Union[
     typing.List[
         typing.Union[
-            ItemsTuple2,
-            list,
-            tuple
+            ItemsTupleInput2,
+            ItemsTuple2
         ],
     ],
     typing.Tuple[
         typing.Union[
-            ItemsTuple2,
-            list,
-            tuple
+            ItemsTupleInput2,
+            ItemsTuple2
         ],
         ...
     ]
@@ -197,16 +193,14 @@ class NestedItemsTuple(
 NestedItemsTupleInput = typing.Union[
     typing.List[
         typing.Union[
-            ItemsTuple3,
-            list,
-            tuple
+            ItemsTupleInput3,
+            ItemsTuple3
         ],
     ],
     typing.Tuple[
         typing.Union[
-            ItemsTuple3,
-            list,
-            tuple
+            ItemsTupleInput3,
+            ItemsTuple3
         ],
         ...
     ]

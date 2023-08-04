@@ -164,6 +164,94 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "password",
         "callback",
     })
+    @staticmethod
+    def from_dict_(
+        arg: SchemaDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SchemaDict:
+        return Schema.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        byte: str,
+        double: typing.Union[
+            int,
+            float
+        ],
+        number: typing.Union[
+            int,
+            float
+        ],
+        pattern_without_delimiter: str,
+        integer: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        int32: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        int64: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        string: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        binary: typing.Union[
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.FileIO,
+            schemas.Unset
+        ] = schemas.unset,
+        date: typing.Union[
+            str,
+            datetime.date,
+            schemas.Unset
+        ] = schemas.unset,
+        dateTime: typing.Union[
+            str,
+            datetime.datetime,
+            schemas.Unset
+        ] = schemas.unset,
+        password: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        callback: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "byte": byte,
+            "double": double,
+            "number": number,
+            "pattern_without_delimiter": pattern_without_delimiter,
+        }
+        for key, val in (
+            ("integer", integer),
+            ("int32", int32),
+            ("int64", int64),
+            ("string", string),
+            ("binary", binary),
+            ("date", date),
+            ("dateTime", dateTime),
+            ("password", password),
+            ("callback", callback),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(SchemaDictInput, arg_)
+        return Schema.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def byte(self) -> str:
@@ -286,9 +374,6 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: SchemaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return Schema.validate(arg, configuration=configuration)
 SchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

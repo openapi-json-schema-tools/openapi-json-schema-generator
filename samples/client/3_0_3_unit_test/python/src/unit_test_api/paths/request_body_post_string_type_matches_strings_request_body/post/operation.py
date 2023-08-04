@@ -31,9 +31,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_string_type_matches_strings_request_body(
         self,
-        body: typing.Union[
-            str,
-        ],
+        body: str,
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -45,9 +43,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_string_type_matches_strings_request_body(
         self,
-        body: typing.Union[
-            str,
-        ],
+        body: str,
         *,
         skip_deserialization: typing_extensions.Literal[True],
         content_type: typing_extensions.Literal["application/json"] = "application/json",
@@ -58,9 +54,7 @@ class BaseApi(api_client.Api):
 
     def _post_string_type_matches_strings_request_body(
         self,
-        body: typing.Union[
-            str,
-        ],
+        body: str,
         *,
         skip_deserialization: bool = False,
         content_type: typing_extensions.Literal["application/json"] = "application/json",

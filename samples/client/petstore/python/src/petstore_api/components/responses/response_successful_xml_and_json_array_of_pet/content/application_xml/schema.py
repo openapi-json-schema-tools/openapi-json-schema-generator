@@ -26,16 +26,14 @@ class SchemaTuple(
 SchemaTupleInput = typing.Union[
     typing.List[
         typing.Union[
+            pet.PetDictInput,
             pet.PetDict,
-            dict,
-            schemas.immutabledict
         ],
     ],
     typing.Tuple[
         typing.Union[
+            pet.PetDictInput,
             pet.PetDict,
-            dict,
-            schemas.immutabledict
         ],
         ...
     ]

@@ -29,6 +29,39 @@ class FromSchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "data",
         "id",
     })
+    @staticmethod
+    def from_dict_(
+        arg: FromSchemaDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> FromSchemaDict:
+        return FromSchema.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        data: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        id: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("data", data),
+            ("id", id),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(FromSchemaDictInput, arg_)
+        return FromSchema.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def data(self) -> typing.Union[str, schemas.Unset]:
@@ -53,9 +86,6 @@ class FromSchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: FromSchemaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return FromSchema.validate(arg, configuration=configuration)
 FromSchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

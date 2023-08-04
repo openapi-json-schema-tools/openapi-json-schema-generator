@@ -29,6 +29,41 @@ class RequiredValidationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPE
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "bar",
     })
+    @staticmethod
+    def from_dict_(
+        arg: RequiredValidationDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> RequiredValidationDict:
+        return RequiredValidation.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        foo: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
+        bar: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "foo": foo,
+        }
+        for key, val in (
+            ("bar", bar),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(RequiredValidationDictInput, arg_)
+        return RequiredValidation.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def foo(self) -> schemas.OUTPUT_BASE_TYPES:
@@ -50,9 +85,6 @@ class RequiredValidationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPE
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: RequiredValidationDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return RequiredValidation.validate(arg, configuration=configuration)
 RequiredValidationDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

@@ -32,7 +32,7 @@ class BaseApi(api_client.Api):
     def _post_oneof_with_required_request_body(
         self,
         body: typing.Union[
-            typing.Dict[str, schemas.INPUT_TYPES_ALL],
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
             schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
         ],
         *,
@@ -47,7 +47,7 @@ class BaseApi(api_client.Api):
     def _post_oneof_with_required_request_body(
         self,
         body: typing.Union[
-            typing.Dict[str, schemas.INPUT_TYPES_ALL],
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
             schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
         ],
         *,
@@ -61,7 +61,7 @@ class BaseApi(api_client.Api):
     def _post_oneof_with_required_request_body(
         self,
         body: typing.Union[
-            typing.Dict[str, schemas.INPUT_TYPES_ALL],
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
             schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
         ],
         *,

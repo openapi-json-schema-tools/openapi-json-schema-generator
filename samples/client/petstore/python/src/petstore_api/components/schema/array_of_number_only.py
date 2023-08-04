@@ -25,14 +25,14 @@ class ArrayNumberTuple(
 ArrayNumberTupleInput = typing.Union[
     typing.List[
         typing.Union[
-            float,
-            int
+            int,
+            float
         ],
     ],
     typing.Tuple[
         typing.Union[
-            float,
-            int
+            int,
+            float
         ],
         ...
     ]
@@ -82,6 +82,35 @@ class ArrayOfNumberOnlyDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTP
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "ArrayNumber",
     })
+    @staticmethod
+    def from_dict_(
+        arg: ArrayOfNumberOnlyDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ArrayOfNumberOnlyDict:
+        return ArrayOfNumberOnly.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        ArrayNumber: typing.Union[
+            ArrayNumberTupleInput,
+            ArrayNumberTuple,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("ArrayNumber", ArrayNumber),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(ArrayOfNumberOnlyDictInput, arg_)
+        return ArrayOfNumberOnly.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def ArrayNumber(self) -> typing.Union[ArrayNumberTuple, schemas.Unset]:
@@ -96,9 +125,6 @@ class ArrayOfNumberOnlyDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTP
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: ArrayOfNumberOnlyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return ArrayOfNumberOnly.validate(arg, configuration=configuration)
 ArrayOfNumberOnlyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

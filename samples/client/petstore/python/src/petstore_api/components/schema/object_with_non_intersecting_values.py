@@ -27,6 +27,35 @@ class ObjectWithNonIntersectingValuesDict(schemas.immutabledict[str, schemas.OUT
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "a",
     })
+    @staticmethod
+    def from_dict_(
+        arg: ObjectWithNonIntersectingValuesDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectWithNonIntersectingValuesDict:
+        return ObjectWithNonIntersectingValues.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        a: typing.Union[
+            int,
+            float,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: str,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("a", a),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(ObjectWithNonIntersectingValuesDictInput, arg_)
+        return ObjectWithNonIntersectingValues.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def a(self) -> typing.Union[int, float, schemas.Unset]:
@@ -47,15 +76,12 @@ class ObjectWithNonIntersectingValuesDict(schemas.immutabledict[str, schemas.OUT
             str,
             val
         )
-
-    def __new__(cls, arg: ObjectWithNonIntersectingValuesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return ObjectWithNonIntersectingValues.validate(arg, configuration=configuration)
 ObjectWithNonIntersectingValuesDictInput = typing.Mapping[
     str,
     typing.Union[
         typing.Union[
-            float,
-            int
+            int,
+            float
         ],
         str,
     ]

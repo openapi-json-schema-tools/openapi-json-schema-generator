@@ -29,40 +29,14 @@ class ShapesTuple(
 ShapesTupleInput = typing.Union[
     typing.List[
         typing.Union[
-            dict,
-            schemas.immutabledict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
         ],
     ],
     typing.Tuple[
         typing.Union[
-            dict,
-            schemas.immutabledict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
         ],
         ...
     ]
@@ -118,6 +92,56 @@ class DrawingDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TY
         "nullableShape",
         "shapes",
     })
+    @staticmethod
+    def from_dict_(
+        arg: DrawingDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> DrawingDict:
+        return Drawing.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        mainShape: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
+        ] = schemas.unset,
+        shapeOrNull: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
+        ] = schemas.unset,
+        nullableShape: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
+        ] = schemas.unset,
+        shapes: typing.Union[
+            ShapesTupleInput,
+            ShapesTuple,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("mainShape", mainShape),
+            ("shapeOrNull", shapeOrNull),
+            ("nullableShape", nullableShape),
+            ("shapes", shapes),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(DrawingDictInput, arg_)
+        return Drawing.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def mainShape(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
@@ -168,84 +192,28 @@ class DrawingDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TY
             schemas.OUTPUT_BASE_TYPES,
             val
         )
-
-    def __new__(cls, arg: DrawingDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return Drawing.validate(arg, configuration=configuration)
 DrawingDictInput = typing.Mapping[
     str,
     typing.Union[
         typing.Union[
-            dict,
-            schemas.immutabledict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
         ],
         typing.Union[
-            dict,
-            schemas.immutabledict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
         ],
         typing.Union[
-            dict,
-            schemas.immutabledict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
         ],
         typing.Union[
-            ShapesTuple,
-            list,
-            tuple
+            ShapesTupleInput,
+            ShapesTuple
         ],
         typing.Union[
-            dict,
-            schemas.immutabledict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
         ],
     ]
 ]

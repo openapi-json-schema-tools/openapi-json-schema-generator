@@ -164,6 +164,43 @@ class ZebraDict(schemas.immutabledict[str, str]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "type",
     })
+    @staticmethod
+    def from_dict_(
+        arg: ZebraDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ZebraDict:
+        return Zebra.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        className: typing_extensions.Literal[
+            "zebra"
+        ],
+        type: typing.Union[
+            typing_extensions.Literal[
+                "plains",
+                "mountain",
+                "grevys"
+            ],
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "className": className,
+        }
+        for key, val in (
+            ("type", type),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(ZebraDictInput, arg_)
+        return Zebra.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def className(self) -> typing_extensions.Literal["zebra"]:
@@ -191,9 +228,6 @@ class ZebraDict(schemas.immutabledict[str, str]):
             schemas.OUTPUT_BASE_TYPES,
             val
         )
-
-    def __new__(cls, arg: ZebraDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return Zebra.validate(arg, configuration=configuration)
 ZebraDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

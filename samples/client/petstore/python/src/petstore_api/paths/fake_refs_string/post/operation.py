@@ -36,8 +36,8 @@ class BaseApi(api_client.Api):
     def _string(
         self,
         body: typing.Union[
-            schemas.Unset,
             str,
+            schemas.Unset
         ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
@@ -52,8 +52,8 @@ class BaseApi(api_client.Api):
     def _string(
         self,
         body: typing.Union[
-            schemas.Unset,
             str,
+            schemas.Unset
         ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[True],
@@ -68,7 +68,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             str,
-            schemas.Unset,
+            schemas.Unset
         ] = schemas.unset,
         *,
         skip_deserialization: bool = False,

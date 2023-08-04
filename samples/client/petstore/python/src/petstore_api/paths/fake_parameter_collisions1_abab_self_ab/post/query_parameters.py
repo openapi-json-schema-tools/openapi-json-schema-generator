@@ -40,6 +40,37 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         "A-B",
         "self",
     })
+    @staticmethod
+    def from_dict_(
+        arg: QueryParametersDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> QueryParametersDict:
+        return QueryParameters.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        aB: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        Ab: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("aB", aB),
+            ("Ab", Ab),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        used_arg_ = typing.cast(QueryParametersDictInput, arg_)
+        return QueryParameters.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def aB(self) -> typing.Union[str, schemas.Unset]:
@@ -60,9 +91,6 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             str,
             val
         )
-
-    def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return QueryParameters.validate(arg, configuration=configuration)
 QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {

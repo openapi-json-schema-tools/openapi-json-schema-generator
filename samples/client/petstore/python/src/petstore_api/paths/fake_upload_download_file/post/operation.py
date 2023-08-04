@@ -36,8 +36,10 @@ class BaseApi(api_client.Api):
     def _upload_download_file(
         self,
         body: typing.Union[
-            typing.Union[io.FileIO, io.BufferedReader],
-            typing.Union[bytes, schemas.FileIO],
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.FileIO
         ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
@@ -52,8 +54,10 @@ class BaseApi(api_client.Api):
     def _upload_download_file(
         self,
         body: typing.Union[
-            typing.Union[io.FileIO, io.BufferedReader],
-            typing.Union[bytes, schemas.FileIO],
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.FileIO
         ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
@@ -67,8 +71,10 @@ class BaseApi(api_client.Api):
     def _upload_download_file(
         self,
         body: typing.Union[
-            typing.Union[io.FileIO, io.BufferedReader],
-            typing.Union[bytes, schemas.FileIO],
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.FileIO
         ],
         *,
         skip_deserialization: bool = False,

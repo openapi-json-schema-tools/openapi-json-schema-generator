@@ -32,6 +32,45 @@ class ObjectWithDecimalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_
         "width",
         "cost",
     })
+    @staticmethod
+    def from_dict_(
+        arg: ObjectWithDecimalPropertiesDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectWithDecimalPropertiesDict:
+        return ObjectWithDecimalProperties.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        length: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        width: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        cost: typing.Union[
+            money.MoneyDictInput,
+            money.MoneyDict,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("length", length),
+            ("width", width),
+            ("cost", cost),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(ObjectWithDecimalPropertiesDictInput, arg_)
+        return ObjectWithDecimalProperties.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def length(self) -> typing.Union[str, schemas.Unset]:
@@ -66,9 +105,6 @@ class ObjectWithDecimalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: ObjectWithDecimalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return ObjectWithDecimalProperties.validate(arg, configuration=configuration)
 ObjectWithDecimalPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

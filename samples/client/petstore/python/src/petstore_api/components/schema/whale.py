@@ -85,6 +85,44 @@ class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "hasBaleen",
         "hasTeeth",
     })
+    @staticmethod
+    def from_dict_(
+        arg: WhaleDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> WhaleDict:
+        return Whale.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        className: typing_extensions.Literal[
+            "whale"
+        ],
+        hasBaleen: typing.Union[
+            bool,
+            schemas.Unset
+        ] = schemas.unset,
+        hasTeeth: typing.Union[
+            bool,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "className": className,
+        }
+        for key, val in (
+            ("hasBaleen", hasBaleen),
+            ("hasTeeth", hasTeeth),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(WhaleDictInput, arg_)
+        return Whale.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def className(self) -> typing_extensions.Literal["whale"]:
@@ -116,9 +154,6 @@ class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: WhaleDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return Whale.validate(arg, configuration=configuration)
 WhaleDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

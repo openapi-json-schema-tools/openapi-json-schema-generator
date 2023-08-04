@@ -100,6 +100,30 @@ class JSONPatchRequestMoveCopyDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    @staticmethod
+    def from_dict_(
+        arg: JSONPatchRequestMoveCopyDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> JSONPatchRequestMoveCopyDict:
+        return JSONPatchRequestMoveCopy.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        op: typing_extensions.Literal[
+            "move",
+            "copy"
+        ],
+        path: str,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "op": op,
+            "path": path,
+        }
+        used_arg_ = typing.cast(JSONPatchRequestMoveCopyDictInput, arg_)
+        return JSONPatchRequestMoveCopy.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def op(self) -> typing_extensions.Literal["move", "copy"]:
@@ -114,14 +138,14 @@ class JSONPatchRequestMoveCopyDict(schemas.immutabledict[str, str]):
             str,
             self.__getitem__("path")
         )
-
-    def __new__(cls, arg: JSONPatchRequestMoveCopyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return JSONPatchRequestMoveCopy.validate(arg, configuration=configuration)
 JSONPatchRequestMoveCopyDictInput = typing_extensions.TypedDict(
     'JSONPatchRequestMoveCopyDictInput',
     {
         "from": str,
-        "op": str,
+        "op": typing_extensions.Literal[
+            "move",
+            "copy"
+        ],
         "path": str,
     }
 )

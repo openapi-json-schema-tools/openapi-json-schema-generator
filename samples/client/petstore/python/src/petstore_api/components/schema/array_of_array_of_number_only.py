@@ -25,14 +25,14 @@ class ItemsTuple(
 ItemsTupleInput = typing.Union[
     typing.List[
         typing.Union[
-            float,
-            int
+            int,
+            float
         ],
     ],
     typing.Tuple[
         typing.Union[
-            float,
-            int
+            int,
+            float
         ],
         ...
     ]
@@ -81,16 +81,14 @@ class ArrayArrayNumberTuple(
 ArrayArrayNumberTupleInput = typing.Union[
     typing.List[
         typing.Union[
-            ItemsTuple,
-            list,
-            tuple
+            ItemsTupleInput,
+            ItemsTuple
         ],
     ],
     typing.Tuple[
         typing.Union[
-            ItemsTuple,
-            list,
-            tuple
+            ItemsTupleInput,
+            ItemsTuple
         ],
         ...
     ]
@@ -140,6 +138,35 @@ class ArrayOfArrayOfNumberOnlyDict(schemas.immutabledict[str, typing.Tuple[schem
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "ArrayArrayNumber",
     })
+    @staticmethod
+    def from_dict_(
+        arg: ArrayOfArrayOfNumberOnlyDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ArrayOfArrayOfNumberOnlyDict:
+        return ArrayOfArrayOfNumberOnly.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        ArrayArrayNumber: typing.Union[
+            ArrayArrayNumberTupleInput,
+            ArrayArrayNumberTuple,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("ArrayArrayNumber", ArrayArrayNumber),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(ArrayOfArrayOfNumberOnlyDictInput, arg_)
+        return ArrayOfArrayOfNumberOnly.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def ArrayArrayNumber(self) -> typing.Union[ArrayArrayNumberTuple, schemas.Unset]:
@@ -154,9 +181,6 @@ class ArrayOfArrayOfNumberOnlyDict(schemas.immutabledict[str, typing.Tuple[schem
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: ArrayOfArrayOfNumberOnlyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return ArrayOfArrayOfNumberOnly.validate(arg, configuration=configuration)
 ArrayOfArrayOfNumberOnlyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

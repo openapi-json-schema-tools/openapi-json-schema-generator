@@ -27,14 +27,16 @@ FilesTupleInput = typing.Union[
         typing.Union[
             bytes,
             io.FileIO,
-            io.BufferedReader
+            io.BufferedReader,
+            schemas.FileIO
         ],
     ],
     typing.Tuple[
         typing.Union[
             bytes,
             io.FileIO,
-            io.BufferedReader
+            io.BufferedReader,
+            schemas.FileIO
         ],
         ...
     ]
@@ -84,6 +86,35 @@ class SchemaDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TYP
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "files",
     })
+    @staticmethod
+    def from_dict_(
+        arg: SchemaDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SchemaDict:
+        return Schema.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        files: typing.Union[
+            FilesTupleInput,
+            FilesTuple,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("files", files),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(SchemaDictInput, arg_)
+        return Schema.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def files(self) -> typing.Union[FilesTuple, schemas.Unset]:
@@ -98,9 +129,6 @@ class SchemaDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TYP
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: SchemaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return Schema.validate(arg, configuration=configuration)
 SchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

@@ -26,16 +26,14 @@ class AnimalFarmTuple(
 AnimalFarmTupleInput = typing.Union[
     typing.List[
         typing.Union[
+            animal.AnimalDictInput,
             animal.AnimalDict,
-            dict,
-            schemas.immutabledict
         ],
     ],
     typing.Tuple[
         typing.Union[
+            animal.AnimalDictInput,
             animal.AnimalDict,
-            dict,
-            schemas.immutabledict
         ],
         ...
     ]

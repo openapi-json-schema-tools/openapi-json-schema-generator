@@ -27,7 +27,7 @@ class Version(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: str = "v1"
+    default: typing_extensions.Literal["v1"] = "v1"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "v1": "V1",
@@ -91,6 +91,28 @@ class VariablesDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    @staticmethod
+    def from_dict_(
+        arg: VariablesDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> VariablesDict:
+        return Variables.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        version: typing_extensions.Literal[
+            "v1",
+            "v2"
+        ],
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "version": version,
+        }
+        used_arg_ = typing.cast(VariablesDictInput, arg_)
+        return Variables.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def version(self) -> typing_extensions.Literal["v1", "v2"]:
@@ -98,13 +120,13 @@ class VariablesDict(schemas.immutabledict[str, str]):
             typing_extensions.Literal["v1", "v2"],
             self.__getitem__("version")
         )
-
-    def __new__(cls, arg: VariablesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return Variables.validate(arg, configuration=configuration)
 VariablesDictInput = typing_extensions.TypedDict(
     'VariablesDictInput',
     {
-        "version": str,
+        "version": typing_extensions.Literal[
+            "v1",
+            "v2"
+        ],
     }
 )
 

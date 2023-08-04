@@ -27,6 +27,35 @@ class _0Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "foo",
     })
+    @staticmethod
+    def from_dict_(
+        arg: _0DictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> _0Dict:
+        return _0.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        foo: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("foo", foo),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(_0DictInput, arg_)
+        return _0.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def foo(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
@@ -41,9 +70,6 @@ class _0Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: _0DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return _0.validate(arg, configuration=configuration)
 _0DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
@@ -73,6 +99,21 @@ class AdditionalpropertiesShouldNotLookInApplicatorsDict(schemas.immutabledict[s
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: bool,
+    ):
+        used_kwargs = typing.cast(AdditionalpropertiesShouldNotLookInApplicatorsDictInput, kwargs)
+        return AdditionalpropertiesShouldNotLookInApplicators.validate(used_kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: AdditionalpropertiesShouldNotLookInApplicatorsDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AdditionalpropertiesShouldNotLookInApplicatorsDict:
+        return AdditionalpropertiesShouldNotLookInApplicators.validate(arg, configuration=configuration)
+
     
     def get_additional_property_(self, name: str) -> typing.Union[bool, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -83,9 +124,6 @@ class AdditionalpropertiesShouldNotLookInApplicatorsDict(schemas.immutabledict[s
             bool,
             val
         )
-
-    def __new__(cls, arg: AdditionalpropertiesShouldNotLookInApplicatorsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return AdditionalpropertiesShouldNotLookInApplicators.validate(arg, configuration=configuration)
 AdditionalpropertiesShouldNotLookInApplicatorsDictInput = typing.Mapping[
     str,
     bool,

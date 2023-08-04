@@ -22,7 +22,7 @@ class OperatorId(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: str = "ADD"
+    default: typing_extensions.Literal["ADD"] = "ADD"
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
@@ -42,6 +42,35 @@ class AdditionOperatorDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    @staticmethod
+    def from_dict_(
+        arg: AdditionOperatorDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AdditionOperatorDict:
+        return AdditionOperator.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        a: typing.Union[
+            int,
+            float
+        ],
+        b: typing.Union[
+            int,
+            float
+        ],
+        operator_id: str,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "a": a,
+            "b": b,
+            "operator_id": operator_id,
+        }
+        used_arg_ = typing.cast(AdditionOperatorDictInput, arg_)
+        return AdditionOperator.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def a(self) -> typing.Union[int, float]:
@@ -63,19 +92,16 @@ class AdditionOperatorDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             str,
             self.__getitem__("operator_id")
         )
-
-    def __new__(cls, arg: AdditionOperatorDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return AdditionOperator.validate(arg, configuration=configuration)
 AdditionOperatorDictInput = typing_extensions.TypedDict(
     'AdditionOperatorDictInput',
     {
         "a": typing.Union[
-            float,
-            int
+            int,
+            float
         ],
         "b": typing.Union[
-            float,
-            int
+            int,
+            float
         ],
         "operator_id": str,
     }

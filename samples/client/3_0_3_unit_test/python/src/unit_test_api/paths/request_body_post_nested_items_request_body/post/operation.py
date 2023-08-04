@@ -33,7 +33,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             nested_items.NestedItemsTupleInput,
-            nested_items.NestedItemsTuple,
+            nested_items.NestedItemsTuple
         ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
@@ -48,7 +48,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             nested_items.NestedItemsTupleInput,
-            nested_items.NestedItemsTuple,
+            nested_items.NestedItemsTuple
         ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
@@ -62,7 +62,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             nested_items.NestedItemsTupleInput,
-            nested_items.NestedItemsTuple,
+            nested_items.NestedItemsTuple
         ],
         *,
         skip_deserialization: bool = False,

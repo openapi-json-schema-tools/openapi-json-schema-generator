@@ -30,6 +30,42 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         "enum_header_string",
         "enum_header_string_array",
     })
+    @staticmethod
+    def from_dict_(
+        arg: HeaderParametersDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> HeaderParametersDict:
+        return HeaderParameters.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        enum_header_string: typing.Union[
+            typing_extensions.Literal[
+                "_abc",
+                "-efg",
+                "(xyz)"
+            ],
+            schemas.Unset
+        ] = schemas.unset,
+        enum_header_string_array: typing.Union[
+            schema_2.SchemaTupleInput,
+            schema_2.SchemaTuple,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("enum_header_string", enum_header_string),
+            ("enum_header_string_array", enum_header_string_array),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        used_arg_ = typing.cast(HeaderParametersDictInput, arg_)
+        return HeaderParameters.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def enum_header_string(self) -> typing.Union[typing_extensions.Literal["_abc", "-efg", "(xyz)"], schemas.Unset]:
@@ -50,17 +86,17 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             schema_2.SchemaTuple,
             val
         )
-
-    def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return HeaderParameters.validate(arg, configuration=configuration)
 HeaderParametersDictInput = typing_extensions.TypedDict(
     'HeaderParametersDictInput',
     {
-        "enum_header_string": str,
+        "enum_header_string": typing_extensions.Literal[
+            "_abc",
+            "-efg",
+            "(xyz)"
+        ],
         "enum_header_string_array": typing.Union[
-            schema_2.SchemaTuple,
-            list,
-            tuple
+            schema_2.SchemaTupleInput,
+            schema_2.SchemaTuple
         ],
     },
     total=False

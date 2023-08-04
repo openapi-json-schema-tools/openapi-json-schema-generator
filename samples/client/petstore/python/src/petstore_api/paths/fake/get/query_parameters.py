@@ -36,6 +36,56 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         "enum_query_integer",
         "enum_query_string_array",
     })
+    @staticmethod
+    def from_dict_(
+        arg: QueryParametersDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> QueryParametersDict:
+        return QueryParameters.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        enum_query_double: typing.Union[
+            int,
+            float,
+            schemas.Unset
+        ] = schemas.unset,
+        enum_query_string: typing.Union[
+            typing_extensions.Literal[
+                "_abc",
+                "-efg",
+                "(xyz)"
+            ],
+            schemas.Unset
+        ] = schemas.unset,
+        enum_query_integer: typing.Union[
+            typing_extensions.Literal[
+                1,
+                -2
+            ],
+            schemas.Unset
+        ] = schemas.unset,
+        enum_query_string_array: typing.Union[
+            schema_4.SchemaTupleInput,
+            schema_4.SchemaTuple,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("enum_query_double", enum_query_double),
+            ("enum_query_string", enum_query_string),
+            ("enum_query_integer", enum_query_integer),
+            ("enum_query_string_array", enum_query_string_array),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        used_arg_ = typing.cast(QueryParametersDictInput, arg_)
+        return QueryParameters.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def enum_query_double(self) -> typing.Union[int, float, schemas.Unset]:
@@ -76,22 +126,25 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             schema_4.SchemaTuple,
             val
         )
-
-    def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return QueryParameters.validate(arg, configuration=configuration)
 QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {
         "enum_query_double": typing.Union[
-            float,
-            int
+            int,
+            float
         ],
-        "enum_query_string": str,
-        "enum_query_integer": int,
+        "enum_query_string": typing_extensions.Literal[
+            "_abc",
+            "-efg",
+            "(xyz)"
+        ],
+        "enum_query_integer": typing_extensions.Literal[
+            1,
+            -2
+        ],
         "enum_query_string_array": typing.Union[
-            schema_4.SchemaTuple,
-            list,
-            tuple
+            schema_4.SchemaTupleInput,
+            schema_4.SchemaTuple
         ],
     },
     total=False

@@ -21,6 +21,30 @@ class ReqPropsFromTrueAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BAS
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    @staticmethod
+    def from_dict_(
+        arg: ReqPropsFromTrueAddPropsDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ReqPropsFromTrueAddPropsDict:
+        return ReqPropsFromTrueAddProps.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        validName: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "validName": validName,
+        }
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(ReqPropsFromTrueAddPropsDictInput, arg_)
+        return ReqPropsFromTrueAddProps.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def validName(self) -> schemas.OUTPUT_BASE_TYPES:
@@ -38,9 +62,6 @@ class ReqPropsFromTrueAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BAS
             schemas.OUTPUT_BASE_TYPES,
             val
         )
-
-    def __new__(cls, arg: ReqPropsFromTrueAddPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return ReqPropsFromTrueAddProps.validate(arg, configuration=configuration)
 ReqPropsFromTrueAddPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

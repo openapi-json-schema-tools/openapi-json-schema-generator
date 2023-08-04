@@ -51,6 +51,42 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         "int64_group",
         "string_group",
     })
+    @staticmethod
+    def from_dict_(
+        arg: QueryParametersDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> QueryParametersDict:
+        return QueryParameters.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        required_int64_group: int,
+        required_string_group: str,
+        int64_group: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        string_group: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "required_int64_group": required_int64_group,
+            "required_string_group": required_string_group,
+        }
+        for key, val in (
+            ("int64_group", int64_group),
+            ("string_group", string_group),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        used_arg_ = typing.cast(QueryParametersDictInput, arg_)
+        return QueryParameters.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def required_int64_group(self) -> int:
@@ -85,9 +121,6 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             str,
             val
         )
-
-    def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return QueryParameters.validate(arg, configuration=configuration)
 
 
 class QueryParametersDictInput(QueryParametersRequiredDictInput, QueryParametersOptionalDictInput):

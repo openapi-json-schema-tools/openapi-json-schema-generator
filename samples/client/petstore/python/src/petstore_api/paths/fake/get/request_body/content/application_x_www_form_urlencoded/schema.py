@@ -30,7 +30,7 @@ class Items(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: str = "$"
+    default: typing_extensions.Literal["$"] = "$"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             ">": "GREATER_THAN_SIGN",
@@ -92,10 +92,16 @@ class EnumFormStringArrayTuple(
         return EnumFormStringArray.validate(arg, configuration=configuration)
 EnumFormStringArrayTupleInput = typing.Union[
     typing.List[
-        str,
+        typing_extensions.Literal[
+            ">",
+            "$"
+        ],
     ],
     typing.Tuple[
-        str,
+        typing_extensions.Literal[
+            ">",
+            "$"
+        ],
         ...
     ]
 ]
@@ -153,7 +159,7 @@ class EnumFormString(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: str = "-efg"
+    default: typing_extensions.Literal["-efg"] = "-efg"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "_abc": "_ABC",
@@ -229,6 +235,44 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "enum_form_string_array",
         "enum_form_string",
     })
+    @staticmethod
+    def from_dict_(
+        arg: SchemaDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SchemaDict:
+        return Schema.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        enum_form_string_array: typing.Union[
+            EnumFormStringArrayTupleInput,
+            EnumFormStringArrayTuple,
+            schemas.Unset
+        ] = schemas.unset,
+        enum_form_string: typing.Union[
+            typing_extensions.Literal[
+                "_abc",
+                "-efg",
+                "(xyz)"
+            ],
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("enum_form_string_array", enum_form_string_array),
+            ("enum_form_string", enum_form_string),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(SchemaDictInput, arg_)
+        return Schema.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def enum_form_string_array(self) -> typing.Union[EnumFormStringArrayTuple, schemas.Unset]:
@@ -253,9 +297,6 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: SchemaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return Schema.validate(arg, configuration=configuration)
 SchemaDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
