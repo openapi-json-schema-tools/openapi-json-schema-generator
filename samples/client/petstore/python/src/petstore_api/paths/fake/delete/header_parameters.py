@@ -24,13 +24,19 @@ Properties = typing_extensions.TypedDict(
 HeaderParametersRequiredDictInput = typing_extensions.TypedDict(
     'HeaderParametersRequiredDictInput',
     {
-        "required_boolean_group": str,
+        "required_boolean_group": typing_extensions.Literal[
+            "true",
+            "false"
+        ],
     }
 )
 HeaderParametersOptionalDictInput = typing_extensions.TypedDict(
     'HeaderParametersOptionalDictInput',
     {
-        "boolean_group": str,
+        "boolean_group": typing_extensions.Literal[
+            "true",
+            "false"
+        ],
     },
     total=False
 )
@@ -43,6 +49,41 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "boolean_group",
     })
+    @staticmethod
+    def from_dict_(
+        arg: HeaderParametersDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> HeaderParametersDict:
+        return HeaderParameters.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        required_boolean_group: typing_extensions.Literal[
+            "true",
+            "false"
+        ],
+        boolean_group: typing.Union[
+            typing_extensions.Literal[
+                "true",
+                "false"
+            ],
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "required_boolean_group": required_boolean_group,
+        }
+        for key, val in (
+            ("boolean_group", boolean_group),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        used_arg_ = typing.cast(HeaderParametersDictInput, arg_)
+        return HeaderParameters.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def required_boolean_group(self) -> typing_extensions.Literal["true", "false"]:
@@ -60,9 +101,6 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             typing_extensions.Literal["true", "false"],
             val
         )
-
-    def __new__(cls, arg: HeaderParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return HeaderParameters.validate(arg, configuration=configuration)
 
 
 class HeaderParametersDictInput(HeaderParametersRequiredDictInput, HeaderParametersOptionalDictInput):

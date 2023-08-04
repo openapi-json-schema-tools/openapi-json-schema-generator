@@ -159,10 +159,16 @@ class ArrayEnumTuple(
         return ArrayEnum.validate(arg, configuration=configuration)
 ArrayEnumTupleInput = typing.Union[
     typing.List[
-        str,
+        typing_extensions.Literal[
+            "fish",
+            "crab"
+        ],
     ],
     typing.Tuple[
-        str,
+        typing_extensions.Literal[
+            "fish",
+            "crab"
+        ],
         ...
     ]
 ]
@@ -213,6 +219,43 @@ class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "just_symbol",
         "array_enum",
     })
+    @staticmethod
+    def from_dict_(
+        arg: EnumArraysDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> EnumArraysDict:
+        return EnumArrays.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        just_symbol: typing.Union[
+            typing_extensions.Literal[
+                ">=",
+                "$"
+            ],
+            schemas.Unset
+        ] = schemas.unset,
+        array_enum: typing.Union[
+            ArrayEnumTupleInput,
+            ArrayEnumTuple,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("just_symbol", just_symbol),
+            ("array_enum", array_enum),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(EnumArraysDictInput, arg_)
+        return EnumArrays.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def just_symbol(self) -> typing.Union[typing_extensions.Literal[">=", "$"], schemas.Unset]:
@@ -237,9 +280,6 @@ class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: EnumArraysDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return EnumArrays.validate(arg, configuration=configuration)
 EnumArraysDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

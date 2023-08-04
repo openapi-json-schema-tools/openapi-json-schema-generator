@@ -32,6 +32,45 @@ class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE
         "myString",
         "myBoolean",
     })
+    @staticmethod
+    def from_dict_(
+        arg: ObjectModelWithRefPropsDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectModelWithRefPropsDict:
+        return ObjectModelWithRefProps.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        myNumber: typing.Union[
+            int,
+            float,
+            schemas.Unset
+        ] = schemas.unset,
+        myString: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        myBoolean: typing.Union[
+            bool,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("myNumber", myNumber),
+            ("myString", myString),
+            ("myBoolean", myBoolean),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(ObjectModelWithRefPropsDictInput, arg_)
+        return ObjectModelWithRefProps.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def myNumber(self) -> typing.Union[int, float, schemas.Unset]:
@@ -66,9 +105,6 @@ class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: ObjectModelWithRefPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return ObjectModelWithRefProps.validate(arg, configuration=configuration)
 ObjectModelWithRefPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

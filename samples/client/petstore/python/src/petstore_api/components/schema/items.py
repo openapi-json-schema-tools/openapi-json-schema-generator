@@ -25,14 +25,14 @@ class ItemsTuple(
 ItemsTupleInput = typing.Union[
     typing.List[
         typing.Union[
-            dict,
-            schemas.immutabledict
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
         ],
     ],
     typing.Tuple[
         typing.Union[
-            dict,
-            schemas.immutabledict
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
         ],
         ...
     ]

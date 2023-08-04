@@ -19,6 +19,21 @@ class SchemaDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: str,
+    ):
+        used_kwargs = typing.cast(SchemaDictInput, kwargs)
+        return Schema.validate(used_kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: SchemaDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SchemaDict:
+        return Schema.validate(arg, configuration=configuration)
+
     
     def get_additional_property_(self, name: str) -> typing.Union[str, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -29,9 +44,6 @@ class SchemaDict(schemas.immutabledict[str, str]):
             str,
             val
         )
-
-    def __new__(cls, arg: SchemaDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return Schema.validate(arg, configuration=configuration)
 SchemaDictInput = typing.Mapping[
     str,
     str,

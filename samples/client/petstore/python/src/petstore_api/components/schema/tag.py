@@ -29,6 +29,39 @@ class TagDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "id",
         "name",
     })
+    @staticmethod
+    def from_dict_(
+        arg: TagDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> TagDict:
+        return Tag.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        id: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        name: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("id", id),
+            ("name", name),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(TagDictInput, arg_)
+        return Tag.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def id(self) -> typing.Union[int, schemas.Unset]:
@@ -53,9 +86,6 @@ class TagDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: TagDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return Tag.validate(arg, configuration=configuration)
 TagDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

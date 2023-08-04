@@ -20,7 +20,7 @@ class Name(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: str = "default-name"
+    default: typing_extensions.Literal["default-name"] = "default-name"
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
@@ -38,6 +38,37 @@ class CategoryDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "id",
     })
+    @staticmethod
+    def from_dict_(
+        arg: CategoryDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> CategoryDict:
+        return Category.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        name: str,
+        id: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "name": name,
+        }
+        for key, val in (
+            ("id", id),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(CategoryDictInput, arg_)
+        return Category.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def name(self) -> str:
@@ -59,9 +90,6 @@ class CategoryDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: CategoryDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return Category.validate(arg, configuration=configuration)
 CategoryDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

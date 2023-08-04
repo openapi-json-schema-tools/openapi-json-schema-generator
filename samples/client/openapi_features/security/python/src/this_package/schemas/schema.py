@@ -384,7 +384,6 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
             return inst
         assert issubclass(output_cls, validation.immutabledict)
         inst = super(output_cls, output_cls).__new__(output_cls, used_arg) # type: ignore
-        inst.__init__(used_arg)
         inst = typing.cast(T, inst)
         return inst
 

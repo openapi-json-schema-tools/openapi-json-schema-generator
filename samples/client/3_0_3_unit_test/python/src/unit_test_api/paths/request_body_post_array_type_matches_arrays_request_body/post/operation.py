@@ -33,7 +33,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             array_type_matches_arrays.ArrayTypeMatchesArraysTupleInput,
-            array_type_matches_arrays.ArrayTypeMatchesArraysTuple,
+            array_type_matches_arrays.ArrayTypeMatchesArraysTuple
         ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
@@ -48,7 +48,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             array_type_matches_arrays.ArrayTypeMatchesArraysTupleInput,
-            array_type_matches_arrays.ArrayTypeMatchesArraysTuple,
+            array_type_matches_arrays.ArrayTypeMatchesArraysTuple
         ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
@@ -62,7 +62,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             array_type_matches_arrays.ArrayTypeMatchesArraysTupleInput,
-            array_type_matches_arrays.ArrayTypeMatchesArraysTuple,
+            array_type_matches_arrays.ArrayTypeMatchesArraysTuple
         ],
         *,
         skip_deserialization: bool = False,

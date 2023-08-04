@@ -24,8 +24,8 @@ BananaReqRequiredDictInput = typing_extensions.TypedDict(
     'BananaReqRequiredDictInput',
     {
         "lengthCm": typing.Union[
-            float,
-            int
+            int,
+            float
         ],
     }
 )
@@ -46,6 +46,38 @@ class BananaReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "sweet",
     })
+    @staticmethod
+    def from_dict_(
+        arg: BananaReqDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> BananaReqDict:
+        return BananaReq.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        lengthCm: typing.Union[
+            int,
+            float
+        ],
+        sweet: typing.Union[
+            bool,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "lengthCm": lengthCm,
+        }
+        for key, val in (
+            ("sweet", sweet),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        used_arg_ = typing.cast(BananaReqDictInput, arg_)
+        return BananaReq.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def lengthCm(self) -> typing.Union[int, float]:
@@ -63,9 +95,6 @@ class BananaReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             bool,
             val
         )
-
-    def __new__(cls, arg: BananaReqDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return BananaReq.validate(arg, configuration=configuration)
 
 
 class BananaReqDictInput(BananaReqRequiredDictInput, BananaReqOptionalDictInput):

@@ -29,6 +29,39 @@ class HasOnlyReadOnlyDict(schemas.immutabledict[str, str]):
         "bar",
         "foo",
     })
+    @staticmethod
+    def from_dict_(
+        arg: HasOnlyReadOnlyDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> HasOnlyReadOnlyDict:
+        return HasOnlyReadOnly.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        bar: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        foo: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("bar", bar),
+            ("foo", foo),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(HasOnlyReadOnlyDictInput, arg_)
+        return HasOnlyReadOnly.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def bar(self) -> typing.Union[str, schemas.Unset]:
@@ -53,9 +86,6 @@ class HasOnlyReadOnlyDict(schemas.immutabledict[str, str]):
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: HasOnlyReadOnlyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return HasOnlyReadOnly.validate(arg, configuration=configuration)
 HasOnlyReadOnlyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

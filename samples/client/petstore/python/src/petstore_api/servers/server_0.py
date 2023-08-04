@@ -31,7 +31,7 @@ class Server(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: str = "petstore"
+    default: typing_extensions.Literal["petstore"] = "petstore"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "petstore": "PETSTORE",
@@ -110,7 +110,7 @@ class Port(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: str = "80"
+    default: typing_extensions.Literal["80"] = "80"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "80": "POSITIVE_80",
@@ -176,6 +176,34 @@ class VariablesDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    @staticmethod
+    def from_dict_(
+        arg: VariablesDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> VariablesDict:
+        return Variables.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        port: typing_extensions.Literal[
+            "80",
+            "8080"
+        ],
+        server: typing_extensions.Literal[
+            "petstore",
+            "qa-petstore",
+            "dev-petstore"
+        ],
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "port": port,
+            "server": server,
+        }
+        used_arg_ = typing.cast(VariablesDictInput, arg_)
+        return Variables.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def port(self) -> typing_extensions.Literal["80", "8080"]:
@@ -190,14 +218,18 @@ class VariablesDict(schemas.immutabledict[str, str]):
             typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"],
             self.__getitem__("server")
         )
-
-    def __new__(cls, arg: VariablesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return Variables.validate(arg, configuration=configuration)
 VariablesDictInput = typing_extensions.TypedDict(
     'VariablesDictInput',
     {
-        "port": str,
-        "server": str,
+        "port": typing_extensions.Literal[
+            "80",
+            "8080"
+        ],
+        "server": typing_extensions.Literal[
+            "petstore",
+            "qa-petstore",
+            "dev-petstore"
+        ],
     }
 )
 

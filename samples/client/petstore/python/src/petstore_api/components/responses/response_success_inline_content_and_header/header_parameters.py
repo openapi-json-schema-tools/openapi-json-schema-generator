@@ -28,6 +28,32 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "someHeader",
     })
+    @staticmethod
+    def from_dict_(
+        arg: HeadersDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> HeadersDict:
+        return Headers.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        someHeader: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("someHeader", someHeader),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        used_arg_ = typing.cast(HeadersDictInput, arg_)
+        return Headers.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def someHeader(self) -> typing.Union[str, schemas.Unset]:
@@ -38,9 +64,6 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             str,
             val
         )
-
-    def __new__(cls, arg: HeadersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return Headers.validate(arg, configuration=configuration)
 HeadersDictInput = typing_extensions.TypedDict(
     'HeadersDictInput',
     {

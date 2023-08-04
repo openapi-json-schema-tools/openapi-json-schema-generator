@@ -2359,7 +2359,7 @@ public class DefaultGenerator implements Generator {
         }
         // end of properties that need to be ordered to set correct camelCase jsonPathPieces
         CodegenSchema additionalProperties = property.additionalProperties;
-        LinkedHashMapWithContext<CodegenKey, CodegenSchema> properties = property.properties;
+        LinkedHashMapWithContext<CodegenSchema> properties = property.properties;
         if (additionalProperties != null || properties != null) {
             CodegenSchema mapValueSchema = new CodegenSchema();
             if (additionalProperties != null) {
@@ -3420,12 +3420,12 @@ public class DefaultGenerator implements Generator {
      * @param currentJsonPath the current json path
      * @return the properties
      */
-    protected LinkedHashMapWithContext<CodegenKey, CodegenSchema> getProperties(Map<String, Schema> properties, String sourceJsonPath, String currentJsonPath, HashMap<String, CodegenKey> requiredAndOptionalProperties) {
+    protected LinkedHashMapWithContext<CodegenSchema> getProperties(Map<String, Schema> properties, String sourceJsonPath, String currentJsonPath, HashMap<String, CodegenKey> requiredAndOptionalProperties) {
         if (properties == null || properties.isEmpty()) {
             return null;
         }
 
-        LinkedHashMapWithContext<CodegenKey, CodegenSchema> propertiesMap = new LinkedHashMapWithContext<>();
+        LinkedHashMapWithContext<CodegenSchema> propertiesMap = new LinkedHashMapWithContext<>();
 
         boolean allAreInline = true;
         for (Map.Entry<String, Schema> entry : properties.entrySet()) {
@@ -3459,13 +3459,13 @@ public class DefaultGenerator implements Generator {
      * @param required  a set of required properties' name
      * @return the optional properties
      */
-    protected LinkedHashMapWithContext<CodegenKey, CodegenSchema> getOptionalProperties(LinkedHashMapWithContext<CodegenKey, CodegenSchema> properties, Set<String> required, String sourceJsonPath, String currentName) {
+    protected LinkedHashMapWithContext<CodegenSchema> getOptionalProperties(LinkedHashMapWithContext<CodegenSchema> properties, Set<String> required, String sourceJsonPath, String currentName) {
         if (properties == null) {
             return null;
         }
         if (required.isEmpty()) {
             // all properties optional and there is no required
-            LinkedHashMapWithContext<CodegenKey, CodegenSchema> optionalProperties = new LinkedHashMapWithContext<>();
+            LinkedHashMapWithContext<CodegenSchema> optionalProperties = new LinkedHashMapWithContext<>();
             optionalProperties.putAll(properties);
             optionalProperties.setAllAreInline(properties.allAreInline());
             CodegenKey jsonPathPiece;
@@ -3475,7 +3475,7 @@ public class DefaultGenerator implements Generator {
         }
 
         // required exists and it can come from addProps or props
-        LinkedHashMapWithContext<CodegenKey, CodegenSchema> optionalProperties = new LinkedHashMapWithContext<>();
+        LinkedHashMapWithContext<CodegenSchema> optionalProperties = new LinkedHashMapWithContext<>();
         boolean allAreInline = true;
         for (Map.Entry<CodegenKey, CodegenSchema> entry : properties.entrySet()) {
             final CodegenKey key = entry.getKey();
@@ -4040,7 +4040,7 @@ public class DefaultGenerator implements Generator {
         }
 
         ArrayList<Object> values = new ArrayList<>(((Schema<?>) schema).getEnum());
-        LinkedHashMapWithContext<EnumValue, String> enumValueToName = new LinkedHashMapWithContext<>();
+        LinkedHashMap<EnumValue, String> enumValueToName = new LinkedHashMap<>();
         HashMap<String, List<EnumValue>> typeToValues = new LinkedHashMap<>();
         LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
         int truncateIdx = 0;
@@ -4131,13 +4131,13 @@ public class DefaultGenerator implements Generator {
             }
             i += 1;
         }
+        CodegenKey jsonPathPiece = null;
         if (currentJsonPath != null) {
             String currentName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
-            CodegenKey key = getKey(currentName + "Enums", "schemaProperty", sourceJsonPath);
-            enumValueToName.setJsonPathPiece(key);
+            jsonPathPiece = getKey(currentName + "Enums", "schemaProperty", sourceJsonPath);
         }
 
-        return new EnumInfo(enumValueToName, typeToValues);
+        return new EnumInfo(enumValueToName, typeToValues, jsonPathPiece);
     }
 
     /**
@@ -4658,7 +4658,7 @@ public class DefaultGenerator implements Generator {
         );
     }
 
-    protected LinkedHashMapWithContext<CodegenKey, CodegenSchema> getRequiredProperties(LinkedHashSet<String> required, LinkedHashMap<CodegenKey, CodegenSchema> properties, CodegenSchema additionalProperties, HashMap<String, CodegenKey> requiredAndOptionalProperties, String sourceJsonPath, Map<String, Schema> schemaProperties, String currentName) {
+    protected LinkedHashMapWithContext<CodegenSchema> getRequiredProperties(LinkedHashSet<String> required, LinkedHashMap<CodegenKey, CodegenSchema> properties, CodegenSchema additionalProperties, HashMap<String, CodegenKey> requiredAndOptionalProperties, String sourceJsonPath, Map<String, Schema> schemaProperties, String currentName) {
         if (required.isEmpty()) {
             return null;
         }
@@ -4681,7 +4681,7 @@ public class DefaultGenerator implements Generator {
         int propReqProps = 0;
         int addPropReqProps = 0;
         int reqPropsWithDef = 0;
-        LinkedHashMapWithContext<CodegenKey, CodegenSchema> requiredProperties = new LinkedHashMapWithContext<>();
+        LinkedHashMapWithContext<CodegenSchema> requiredProperties = new LinkedHashMapWithContext<>();
         boolean allAreInline = true;
         boolean addPropsIsFalse = additionalProperties != null && additionalProperties.isBooleanSchemaFalse;
         for (String requiredPropertyName: required) {

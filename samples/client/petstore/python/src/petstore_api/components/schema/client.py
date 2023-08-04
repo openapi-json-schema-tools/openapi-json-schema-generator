@@ -26,6 +26,34 @@ class ClientDict(schemas.immutabledict[str, str]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "client",
     })
+    @staticmethod
+    def from_dict_(
+        arg: ClientDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ClientDict:
+        return Client.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        client: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("client", client),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(ClientDictInput, arg_)
+        return Client.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def client(self) -> typing.Union[str, schemas.Unset]:
@@ -40,9 +68,6 @@ class ClientDict(schemas.immutabledict[str, str]):
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: ClientDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return Client.validate(arg, configuration=configuration)
 ClientDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

@@ -17,21 +17,20 @@ import types
 import typing
 import uuid
 
-import immutabledict as original_immutabledict
 import typing_extensions
 
 from unit_test_api import exceptions
 from unit_test_api.configurations import schema_configuration
 
-from . import format
+from . import format, original_immutabledict
 
 _K = typing.TypeVar('_K')
 _V = typing.TypeVar('_V', covariant=True)
 
 
 class immutabledict(typing.Generic[_K, _V], original_immutabledict.immutabledict[_K, _V]):
-    def __init__(self, arg: typing.Any, **kwargs: typing.Any):
-        super().__init__(arg)  # needed to omit passing on kwargs
+    # this class layer needed to not show init signature when making new instances
+    pass
 
 
 @dataclasses.dataclass

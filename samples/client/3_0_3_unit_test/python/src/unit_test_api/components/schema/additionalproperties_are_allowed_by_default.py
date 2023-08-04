@@ -29,6 +29,41 @@ class AdditionalpropertiesAreAllowedByDefaultDict(schemas.immutabledict[str, sch
         "foo",
         "bar",
     })
+    @staticmethod
+    def from_dict_(
+        arg: AdditionalpropertiesAreAllowedByDefaultDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AdditionalpropertiesAreAllowedByDefaultDict:
+        return AdditionalpropertiesAreAllowedByDefault.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        foo: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
+        ] = schemas.unset,
+        bar: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("foo", foo),
+            ("bar", bar),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(AdditionalpropertiesAreAllowedByDefaultDictInput, arg_)
+        return AdditionalpropertiesAreAllowedByDefault.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def foo(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
@@ -53,9 +88,6 @@ class AdditionalpropertiesAreAllowedByDefaultDict(schemas.immutabledict[str, sch
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: AdditionalpropertiesAreAllowedByDefaultDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return AdditionalpropertiesAreAllowedByDefault.validate(arg, configuration=configuration)
 AdditionalpropertiesAreAllowedByDefaultDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

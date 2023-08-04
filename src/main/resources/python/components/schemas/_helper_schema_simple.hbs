@@ -27,29 +27,29 @@ class {{jsonPathPiece.camelCase}}(
 {{#if defaultValue}}
     {{#with defaultValue}}
         {{#eq type "string"}}
-    default: str = "{{{value}}}"
+    default: typing_extensions.Literal["{{{value}}}"] = "{{{value}}}"
         {{/eq}}
         {{#eq type "number"}}
     default: typing.Union[int, float] = {{{value}}}
         {{/eq}}
         {{#eq type "integer"}}
-    default: int  = {{{value}}}
+    default: typing_extensions.Literal[{{{value}}}]  = {{{value}}}
         {{/eq}}
         {{#eq type "boolean"}}
             {{#if value}}
-    default: bool = True
+    default: typing_extensions.Literal[True] = True
             {{else}}
-    default: bool = False
+    default: typing_extensions.Literal[False] = False
             {{/if}}
         {{/eq}}
         {{#eq type "null"}}
-    default: schemas.none_type_ = None
+    default: None = None
         {{/eq}}
     {{/with}}
 {{/if}}
 {{#if enumInfo}}
     {{> components/schemas/_helper_schema_enum }}
-    enums = {{enumInfo.valueToName.jsonPathPiece.camelCase}}
+    enums = {{enumInfo.jsonPathPiece.camelCase}}
 
     {{> components/schemas/_helper_validate }}
 {{/if}}

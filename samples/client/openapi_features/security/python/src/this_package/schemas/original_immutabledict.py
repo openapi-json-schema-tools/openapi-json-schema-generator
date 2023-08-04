@@ -23,9 +23,11 @@ SOFTWARE.
 """
 from __future__ import annotations
 import typing
+import typing_extensions
 
 _K = typing.TypeVar("_K")
 _V = typing.TypeVar("_V", covariant=True)
+
 
 class immutabledict(typing.Mapping[_K, _V]):
     """
@@ -34,11 +36,12 @@ class immutabledict(typing.Mapping[_K, _V]):
     It can be used as a drop-in replacement for dictionaries
     where immutability is desired.
 
-    TODO:
-    Switch back to using this class from the provided library if the maintainer merges the PR that make _v covariant
+    Note: custom version of this class made to remove __init__
     """
 
     dict_cls: typing.Type[typing.Dict[typing.Any, typing.Any]] = dict
+    _dict: typing.Dict[_K, _V]
+    _hash: typing.Optional[int]
 
     @classmethod
     def fromkeys(
@@ -46,9 +49,11 @@ class immutabledict(typing.Mapping[_K, _V]):
     ) -> "immutabledict[_K, _V]":
         return cls(dict.fromkeys(seq, value))
 
-    def __init__(self, *args: typing.Any, **kwargs: typing.Any) -> None:
-        self._dict = self.dict_cls(*args, **kwargs)
-        self._hash: typing.Optional[int] = None
+    def __new__(cls, *args: typing.Any) -> typing_extensions.Self:
+        inst = super().__new__(cls)
+        setattr(inst, '_dict', cls.dict_cls(*args))
+        setattr(inst, '_hash', None)
+        return inst
 
     def __getitem__(self, key: _K) -> _V:
         return self._dict[key]

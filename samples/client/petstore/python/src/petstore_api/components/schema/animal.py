@@ -20,7 +20,7 @@ class Color(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: str = "red"
+    default: typing_extensions.Literal["red"] = "red"
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
@@ -38,6 +38,37 @@ class AnimalDict(schemas.immutabledict[str, str]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "color",
     })
+    @staticmethod
+    def from_dict_(
+        arg: AnimalDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AnimalDict:
+        return Animal.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        className: str,
+        color: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "className": className,
+        }
+        for key, val in (
+            ("color", color),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(AnimalDictInput, arg_)
+        return Animal.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def className(self) -> str:
@@ -59,9 +90,6 @@ class AnimalDict(schemas.immutabledict[str, str]):
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: AnimalDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return Animal.validate(arg, configuration=configuration)
 AnimalDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

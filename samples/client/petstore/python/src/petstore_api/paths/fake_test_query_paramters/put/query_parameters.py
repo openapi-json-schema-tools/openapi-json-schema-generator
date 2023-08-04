@@ -42,6 +42,50 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    @staticmethod
+    def from_dict_(
+        arg: QueryParametersDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> QueryParametersDict:
+        return QueryParameters.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        context: typing.Union[
+            schema_2.SchemaTupleInput,
+            schema_2.SchemaTuple
+        ],
+        http: typing.Union[
+            schema_3.SchemaTupleInput,
+            schema_3.SchemaTuple
+        ],
+        ioutil: typing.Union[
+            schema.SchemaTupleInput,
+            schema.SchemaTuple
+        ],
+        pipe: typing.Union[
+            schema_4.SchemaTupleInput,
+            schema_4.SchemaTuple
+        ],
+        refParam: str,
+        url: typing.Union[
+            schema_5.SchemaTupleInput,
+            schema_5.SchemaTuple
+        ],
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "context": context,
+            "http": http,
+            "ioutil": ioutil,
+            "pipe": pipe,
+            "refParam": refParam,
+            "url": url,
+        }
+        used_arg_ = typing.cast(QueryParametersDictInput, arg_)
+        return QueryParameters.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def context(self) -> schema_2.SchemaTuple:
@@ -84,37 +128,29 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             schema_5.SchemaTuple,
             self.__getitem__("url")
         )
-
-    def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return QueryParameters.validate(arg, configuration=configuration)
 QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {
         "context": typing.Union[
-            schema_2.SchemaTuple,
-            list,
-            tuple
+            schema_2.SchemaTupleInput,
+            schema_2.SchemaTuple
         ],
         "http": typing.Union[
-            schema_3.SchemaTuple,
-            list,
-            tuple
+            schema_3.SchemaTupleInput,
+            schema_3.SchemaTuple
         ],
         "ioutil": typing.Union[
-            schema.SchemaTuple,
-            list,
-            tuple
+            schema.SchemaTupleInput,
+            schema.SchemaTuple
         ],
         "pipe": typing.Union[
-            schema_4.SchemaTuple,
-            list,
-            tuple
+            schema_4.SchemaTupleInput,
+            schema_4.SchemaTuple
         ],
         "refParam": str,
         "url": typing.Union[
-            schema_5.SchemaTuple,
-            list,
-            tuple
+            schema_5.SchemaTupleInput,
+            schema_5.SchemaTuple
         ],
     }
 )

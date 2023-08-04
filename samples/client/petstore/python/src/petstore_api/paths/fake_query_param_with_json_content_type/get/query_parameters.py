@@ -28,6 +28,28 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    @staticmethod
+    def from_dict_(
+        arg: QueryParametersDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> QueryParametersDict:
+        return QueryParameters.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        someParam: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "someParam": someParam,
+        }
+        used_arg_ = typing.cast(QueryParametersDictInput, arg_)
+        return QueryParameters.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def someParam(self) -> schemas.OUTPUT_BASE_TYPES:
@@ -35,28 +57,12 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             schemas.OUTPUT_BASE_TYPES,
             self.__getitem__("someParam")
         )
-
-    def __new__(cls, arg: QueryParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return QueryParameters.validate(arg, configuration=configuration)
 QueryParametersDictInput = typing_extensions.TypedDict(
     'QueryParametersDictInput',
     {
         "someParam": typing.Union[
-            dict,
-            schemas.immutabledict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
         ],
     }
 )

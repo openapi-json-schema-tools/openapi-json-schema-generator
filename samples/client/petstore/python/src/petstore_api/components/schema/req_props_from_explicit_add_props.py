@@ -21,6 +21,27 @@ class ReqPropsFromExplicitAddPropsDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    @staticmethod
+    def from_dict_(
+        arg: ReqPropsFromExplicitAddPropsDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ReqPropsFromExplicitAddPropsDict:
+        return ReqPropsFromExplicitAddProps.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        validName: str,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: str,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "validName": validName,
+        }
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(ReqPropsFromExplicitAddPropsDictInput, arg_)
+        return ReqPropsFromExplicitAddProps.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def validName(self) -> str:
@@ -38,9 +59,6 @@ class ReqPropsFromExplicitAddPropsDict(schemas.immutabledict[str, str]):
             str,
             val
         )
-
-    def __new__(cls, arg: ReqPropsFromExplicitAddPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return ReqPropsFromExplicitAddProps.validate(arg, configuration=configuration)
 ReqPropsFromExplicitAddPropsDictInput = typing.Mapping[
     str,
     typing.Union[

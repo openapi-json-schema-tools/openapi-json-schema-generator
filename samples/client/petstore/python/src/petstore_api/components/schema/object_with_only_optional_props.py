@@ -30,6 +30,38 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
         "a",
         "b",
     })
+    @staticmethod
+    def from_dict_(
+        arg: ObjectWithOnlyOptionalPropsDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectWithOnlyOptionalPropsDict:
+        return ObjectWithOnlyOptionalProps.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        a: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        b: typing.Union[
+            int,
+            float,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("a", a),
+            ("b", b),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        used_arg_ = typing.cast(ObjectWithOnlyOptionalPropsDictInput, arg_)
+        return ObjectWithOnlyOptionalProps.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def a(self) -> typing.Union[str, schemas.Unset]:
@@ -50,16 +82,13 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
             typing.Union[int, float],
             val
         )
-
-    def __new__(cls, arg: ObjectWithOnlyOptionalPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return ObjectWithOnlyOptionalProps.validate(arg, configuration=configuration)
 ObjectWithOnlyOptionalPropsDictInput = typing_extensions.TypedDict(
     'ObjectWithOnlyOptionalPropsDictInput',
     {
         "a": str,
         "b": typing.Union[
-            float,
-            int
+            int,
+            float
         ],
     },
     total=False

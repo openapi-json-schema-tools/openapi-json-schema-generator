@@ -25,10 +25,22 @@ class AdditionalPropertiesTuple(
         return AdditionalProperties.validate(arg, configuration=configuration)
 AdditionalPropertiesTupleInput = typing.Union[
     typing.List[
-        str,
+        typing_extensions.Literal[
+            "_abc",
+            "-efg",
+            "(xyz)",
+            "COUNT_1M",
+            "COUNT_50M"
+        ],
     ],
     typing.Tuple[
-        str,
+        typing_extensions.Literal[
+            "_abc",
+            "-efg",
+            "(xyz)",
+            "COUNT_1M",
+            "COUNT_50M"
+        ],
         ...
     ]
 ]
@@ -70,6 +82,24 @@ class AdditionalPropertiesWithArrayOfEnumsDict(schemas.immutabledict[str, typing
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            AdditionalPropertiesTupleInput,
+            AdditionalPropertiesTuple
+        ],
+    ):
+        used_kwargs = typing.cast(AdditionalPropertiesWithArrayOfEnumsDictInput, kwargs)
+        return AdditionalPropertiesWithArrayOfEnums.validate(used_kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: AdditionalPropertiesWithArrayOfEnumsDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AdditionalPropertiesWithArrayOfEnumsDict:
+        return AdditionalPropertiesWithArrayOfEnums.validate(arg, configuration=configuration)
+
     
     def get_additional_property_(self, name: str) -> typing.Union[AdditionalPropertiesTuple, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -80,15 +110,11 @@ class AdditionalPropertiesWithArrayOfEnumsDict(schemas.immutabledict[str, typing
             AdditionalPropertiesTuple,
             val
         )
-
-    def __new__(cls, arg: AdditionalPropertiesWithArrayOfEnumsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return AdditionalPropertiesWithArrayOfEnums.validate(arg, configuration=configuration)
 AdditionalPropertiesWithArrayOfEnumsDictInput = typing.Mapping[
     str,
     typing.Union[
-        AdditionalPropertiesTuple,
-        list,
-        tuple
+        AdditionalPropertiesTupleInput,
+        AdditionalPropertiesTuple
     ],
 ]
 

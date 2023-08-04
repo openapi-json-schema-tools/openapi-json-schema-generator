@@ -29,6 +29,41 @@ class ObjectWithCollidingPropertiesDict(schemas.immutabledict[str, schemas.immut
         "someProp",
         "someprop",
     })
+    @staticmethod
+    def from_dict_(
+        arg: ObjectWithCollidingPropertiesDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectWithCollidingPropertiesDict:
+        return ObjectWithCollidingProperties.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        someProp: typing.Union[
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            schemas.Unset
+        ] = schemas.unset,
+        someprop: typing.Union[
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("someProp", someProp),
+            ("someprop", someprop),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(ObjectWithCollidingPropertiesDictInput, arg_)
+        return ObjectWithCollidingProperties.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def someProp(self) -> typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset]:
@@ -53,9 +88,6 @@ class ObjectWithCollidingPropertiesDict(schemas.immutabledict[str, schemas.immut
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: ObjectWithCollidingPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return ObjectWithCollidingProperties.validate(arg, configuration=configuration)
 ObjectWithCollidingPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

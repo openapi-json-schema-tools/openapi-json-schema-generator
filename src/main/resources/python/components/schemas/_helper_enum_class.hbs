@@ -1,7 +1,7 @@
 {{#if enumInfo}}
 
 
-class {{enumInfo.valueToName.jsonPathPiece.camelCase}}:
+class {{enumInfo.jsonPathPiece.camelCase}}:
     {{#each enumInfo.valueToName}}
 
     @schemas.classproperty

@@ -46,6 +46,35 @@ class ObjectWithInlineCompositionPropertyDict(schemas.immutabledict[str, schemas
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "someProp",
     })
+    @staticmethod
+    def from_dict_(
+        arg: ObjectWithInlineCompositionPropertyDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectWithInlineCompositionPropertyDict:
+        return ObjectWithInlineCompositionProperty.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        someProp: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("someProp", someProp),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(ObjectWithInlineCompositionPropertyDictInput, arg_)
+        return ObjectWithInlineCompositionProperty.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def someProp(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
@@ -60,9 +89,6 @@ class ObjectWithInlineCompositionPropertyDict(schemas.immutabledict[str, schemas
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: ObjectWithInlineCompositionPropertyDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return ObjectWithInlineCompositionProperty.validate(arg, configuration=configuration)
 ObjectWithInlineCompositionPropertyDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

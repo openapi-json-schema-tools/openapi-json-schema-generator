@@ -20,7 +20,7 @@ class Bar(
         str,
     })
     min_length: int = 4
-    default: str = "bad"
+    default: typing_extensions.Literal["bad"] = "bad"
 Properties = typing_extensions.TypedDict(
     'Properties',
     {
@@ -36,6 +36,34 @@ class InvalidStringValueForDefaultDict(schemas.immutabledict[str, str]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "bar",
     })
+    @staticmethod
+    def from_dict_(
+        arg: InvalidStringValueForDefaultDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> InvalidStringValueForDefaultDict:
+        return InvalidStringValueForDefault.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        bar: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("bar", bar),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(InvalidStringValueForDefaultDictInput, arg_)
+        return InvalidStringValueForDefault.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def bar(self) -> typing.Union[str, schemas.Unset]:
@@ -50,9 +78,6 @@ class InvalidStringValueForDefaultDict(schemas.immutabledict[str, str]):
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: InvalidStringValueForDefaultDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return InvalidStringValueForDefault.validate(arg, configuration=configuration)
 InvalidStringValueForDefaultDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

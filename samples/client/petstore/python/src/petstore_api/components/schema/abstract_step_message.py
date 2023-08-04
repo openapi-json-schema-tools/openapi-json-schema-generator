@@ -28,6 +28,37 @@ class AbstractStepMessageDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    @staticmethod
+    def from_dict_(
+        arg: AbstractStepMessageDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AbstractStepMessageDict:
+        return AbstractStepMessage.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        description: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
+        discriminator: str,
+        sequenceNumber: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "description": description,
+            "discriminator": discriminator,
+            "sequenceNumber": sequenceNumber,
+        }
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(AbstractStepMessageDictInput, arg_)
+        return AbstractStepMessage.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def description(self) -> schemas.OUTPUT_BASE_TYPES:
@@ -53,9 +84,6 @@ class AbstractStepMessageDict(schemas.immutabledict[str, str]):
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: AbstractStepMessageDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return AbstractStepMessage.validate(arg, configuration=configuration)
 AbstractStepMessageDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

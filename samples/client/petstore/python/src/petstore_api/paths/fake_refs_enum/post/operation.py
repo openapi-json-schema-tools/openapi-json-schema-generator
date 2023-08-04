@@ -36,11 +36,16 @@ class BaseApi(api_client.Api):
     def _string_enum(
         self,
         body: typing.Union[
-            schemas.Unset,
-            typing.Union[
-                None,
-                typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
+            None,
+            typing_extensions.Literal[
+                "placed",
+                "approved",
+                "delivered",
+                "single quoted",
+                "multiple\nlines",
+                "double quote \n with newline"
             ],
+            schemas.Unset
         ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
@@ -55,11 +60,16 @@ class BaseApi(api_client.Api):
     def _string_enum(
         self,
         body: typing.Union[
-            schemas.Unset,
-            typing.Union[
-                None,
-                typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
+            None,
+            typing_extensions.Literal[
+                "placed",
+                "approved",
+                "delivered",
+                "single quoted",
+                "multiple\nlines",
+                "double quote \n with newline"
             ],
+            schemas.Unset
         ] = schemas.unset,
         *,
         skip_deserialization: typing_extensions.Literal[True],
@@ -73,11 +83,16 @@ class BaseApi(api_client.Api):
     def _string_enum(
         self,
         body: typing.Union[
-            typing.Union[
-                None,
-                typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
+            None,
+            typing_extensions.Literal[
+                "placed",
+                "approved",
+                "delivered",
+                "single quoted",
+                "multiple\nlines",
+                "double quote \n with newline"
             ],
-            schemas.Unset,
+            schemas.Unset
         ] = schemas.unset,
         *,
         skip_deserialization: bool = False,

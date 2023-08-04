@@ -22,17 +22,13 @@ class {{mapInputJsonPathPiece.camelCase}}({{requiredProperties.jsonPathPiece.cam
     str,
     typing.Union[
                 {{#each requiredProperties}}
-                    {{#with this}}
-        {{> components/schemas/_helper_property_value_type }}
-                    {{/with}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
                 {{/each}}
                 {{#each optionalProperties}}
-                    {{#with this}}
-        {{> components/schemas/_helper_property_value_type }}
-                    {{/with}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
                 {{/each}}
                 {{#with additionalProperties}}
-        {{> components/schemas/_helper_property_value_type }}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
                 {{/with}}
     ]
 ]
@@ -44,12 +40,10 @@ class {{mapInputJsonPathPiece.camelCase}}({{requiredProperties.jsonPathPiece.cam
     str,
     typing.Union[
                     {{#each requiredProperties}}
-                        {{#with this}}
-        {{> components/schemas/_helper_property_value_type }}
-                        {{/with}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
                     {{/each}}
                     {{#with additionalProperties}}
-        {{> components/schemas/_helper_property_value_type }}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
                     {{/with}}
     ]
 ]
@@ -59,18 +53,11 @@ class {{mapInputJsonPathPiece.camelCase}}({{requiredProperties.jsonPathPiece.cam
 {{mapInputJsonPathPiece.camelCase}} = typing.Mapping[
     str,
     typing.Union[
-                        {{#each requiredProperties}}
-                            {{#with this}}
-        {{> components/schemas/_helper_property_value_type }}
-                            {{/with}}
-                        {{/each}}
                         {{#each optionalProperties}}
-                            {{#with this}}
-        {{> components/schemas/_helper_property_value_type }}
-                            {{/with}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
                         {{/each}}
                         {{#with additionalProperties}}
-        {{> components/schemas/_helper_property_value_type }}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
                         {{/with}}
     ]
 ]
@@ -79,7 +66,7 @@ class {{mapInputJsonPathPiece.camelCase}}({{requiredProperties.jsonPathPiece.cam
 {{mapInputJsonPathPiece.camelCase}} = typing.Mapping[
     str,
                         {{#with additionalProperties}}
-    {{> components/schemas/_helper_property_value_type }}
+    {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
                         {{/with}}
 ]
                     {{/if}}

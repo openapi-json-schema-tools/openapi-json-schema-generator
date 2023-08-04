@@ -38,9 +38,7 @@ HeadersRequiredDictInput = typing_extensions.TypedDict(
 HeadersOptionalDictInput = typing_extensions.TypedDict(
     'HeadersOptionalDictInput',
     {
-        "numberHeader": typing.Union[
-            str
-        ],
+        "numberHeader": str,
     },
     total=False
 )
@@ -57,6 +55,37 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "numberHeader",
     })
+    @staticmethod
+    def from_dict_(
+        arg: HeadersDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> HeadersDict:
+        return Headers.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        int32: int,
+        stringHeader: str,
+        numberHeader: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "int32": int32,
+            "stringHeader": stringHeader,
+        }
+        for key, val in (
+            ("numberHeader", numberHeader),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        used_arg_ = typing.cast(HeadersDictInput, arg_)
+        return Headers.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def int32(self) -> int:
@@ -81,9 +110,6 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             str,
             val
         )
-
-    def __new__(cls, arg: HeadersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return Headers.validate(arg, configuration=configuration)
 
 
 class HeadersDictInput(HeadersRequiredDictInput, HeadersOptionalDictInput):

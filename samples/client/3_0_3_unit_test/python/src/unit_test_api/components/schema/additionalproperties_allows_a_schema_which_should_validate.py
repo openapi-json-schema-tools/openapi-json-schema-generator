@@ -30,6 +30,41 @@ class AdditionalpropertiesAllowsASchemaWhichShouldValidateDict(schemas.immutable
         "foo",
         "bar",
     })
+    @staticmethod
+    def from_dict_(
+        arg: AdditionalpropertiesAllowsASchemaWhichShouldValidateDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AdditionalpropertiesAllowsASchemaWhichShouldValidateDict:
+        return AdditionalpropertiesAllowsASchemaWhichShouldValidate.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        foo: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
+        ] = schemas.unset,
+        bar: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: bool,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("foo", foo),
+            ("bar", bar),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(AdditionalpropertiesAllowsASchemaWhichShouldValidateDictInput, arg_)
+        return AdditionalpropertiesAllowsASchemaWhichShouldValidate.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def foo(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
@@ -60,45 +95,16 @@ class AdditionalpropertiesAllowsASchemaWhichShouldValidateDict(schemas.immutable
             bool,
             val
         )
-
-    def __new__(cls, arg: AdditionalpropertiesAllowsASchemaWhichShouldValidateDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return AdditionalpropertiesAllowsASchemaWhichShouldValidate.validate(arg, configuration=configuration)
 AdditionalpropertiesAllowsASchemaWhichShouldValidateDictInput = typing.Mapping[
     str,
     typing.Union[
         typing.Union[
-            dict,
-            schemas.immutabledict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
         ],
         typing.Union[
-            dict,
-            schemas.immutabledict,
-            str,
-            datetime.date,
-            datetime.datetime,
-            uuid.UUID,
-            int,
-            float,
-            bool,
-            None,
-            list,
-            tuple,
-            bytes,
-            io.FileIO,
-            io.BufferedReader
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
         ],
         bool,
     ]

@@ -19,6 +19,21 @@ class AddressDict(schemas.immutabledict[str, int]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: int,
+    ):
+        used_kwargs = typing.cast(AddressDictInput, kwargs)
+        return Address.validate(used_kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: AddressDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AddressDict:
+        return Address.validate(arg, configuration=configuration)
+
     
     def get_additional_property_(self, name: str) -> typing.Union[int, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -29,9 +44,6 @@ class AddressDict(schemas.immutabledict[str, int]):
             int,
             val
         )
-
-    def __new__(cls, arg: AddressDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return Address.validate(arg, configuration=configuration)
 AddressDictInput = typing.Mapping[
     str,
     int,

@@ -6,18 +6,7 @@
     {
         {{#each requiredProperties}}
             {{#with this}}
-                {{#if refInfo.refClass}}
-        {{> components/schemas/_helper_prefix_ref_property_value_type prefix=@key.original fullRefModule="" }}
-                {{else}}
-                    {{#if jsonPathPiece}}
-        {{> components/schemas/_helper_prefix_property_value_type prefix=@key.original }}
-                    {{else}}
-        "{{{@key.original}}}": typing.Union[
-            schemas.AnyTypeSchema,
-            {{> _helper_schema_python_types_newline }}
-        ],
-                    {{/if}}
-                {{/if}}
+        {{> components/schemas/_helper_schema_io_type paramName=@key.original quote=true fullRefModule="" endChar="," rootClass=../requiredProperties.jsonPathPiece.camelCase }}
             {{/with}}
         {{/each}}
     }
@@ -33,12 +22,10 @@
     str,
     typing.Union[
         {{#each requiredProperties}}
-            {{#with this}}
-        {{> components/schemas/_helper_property_value_type }}
-            {{/with}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../requiredProperties.jsonPathPiece.camelCase }}
         {{/each}}
         {{#with additionalProperties}}
-        {{> components/schemas/_helper_property_value_type }}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../requiredProperties.jsonPathPiece.camelCase }}
         {{/with}}
     ]
 ]

@@ -328,6 +328,31 @@ class TestValidateCalls(unittest.TestCase):
                 assert isinstance(new_inst, foo.FooDict)
                 assert new_inst == inst
 
+    def test_dict_validate_using_output_class_from_dict_(self):
+        with patch.object(foo.Foo, "_validate", side_effect=foo.Foo._validate) as mock_outer_validate:
+            with patch.object(
+                Bar,
+                "_validate",
+                side_effect=Bar._validate,
+            ) as mock_inner_validate:
+                used_configuration = schema_configuration.SchemaConfiguration()
+                inst = foo.FooDict.from_dict_({'bar': "a"}, configuration=used_configuration)
+                assert inst == {'bar': "a"}
+                mock_outer_validate.assert_called_once_with(
+                    schemas.immutabledict({"bar": "a"}),
+                    validation_metadata=ValidationMetadata(
+                        path_to_item=("args[0]",),
+                        configuration=used_configuration
+                    )
+                )
+                mock_inner_validate.assert_called_once_with(
+                    "a",
+                    validation_metadata=ValidationMetadata(
+                        path_to_item=("args[0]", "bar"),
+                        configuration=used_configuration
+                    ),
+                )
+
     def test_dict_validate_using_output_class(self):
         with patch.object(foo.Foo, "_validate", side_effect=foo.Foo._validate) as mock_outer_validate:
             with patch.object(
@@ -336,7 +361,8 @@ class TestValidateCalls(unittest.TestCase):
                 side_effect=Bar._validate,
             ) as mock_inner_validate:
                 used_configuration = schema_configuration.SchemaConfiguration()
-                inst = foo.FooDict({'bar': "a"}, configuration=used_configuration)
+                inst = foo.FooDict(bar="a", configuration_=used_configuration)
+                print(inst)
                 assert inst == {'bar': "a"}
                 mock_outer_validate.assert_called_once_with(
                     schemas.immutabledict({"bar": "a"}),

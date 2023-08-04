@@ -32,13 +32,29 @@ class ObjectWithDifficultlyNamedPropsDict(schemas.immutabledict[str, schemas.OUT
         "$special[property.name]",
         "123Number",
     })
+    @staticmethod
+    def from_dict_(
+        arg: ObjectWithDifficultlyNamedPropsDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectWithDifficultlyNamedPropsDict:
+        return ObjectWithDifficultlyNamedProps.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+        }
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(ObjectWithDifficultlyNamedPropsDictInput, arg_)
+        return ObjectWithDifficultlyNamedProps.validate(used_arg_, configuration=configuration_)
+
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: ObjectWithDifficultlyNamedPropsDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return ObjectWithDifficultlyNamedProps.validate(arg, configuration=configuration)
 ObjectWithDifficultlyNamedPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

@@ -44,7 +44,7 @@ public class CodegenSchema {
     public Boolean uniqueItems;
     public Integer maxProperties;
     public Integer minProperties;
-    public LinkedHashMapWithContext<CodegenKey, CodegenSchema> requiredProperties; // used to store required info
+    public LinkedHashMapWithContext<CodegenSchema> requiredProperties; // used to store required info
     public EnumInfo enumInfo;
     public String type;
     public ArrayListWithContext<CodegenSchema> allOf = null;
@@ -52,7 +52,7 @@ public class CodegenSchema {
     public ArrayListWithContext<CodegenSchema> oneOf = null;
     public CodegenSchema not = null;
     public CodegenSchema items;
-    public LinkedHashMapWithContext<CodegenKey, CodegenSchema> properties;
+    public LinkedHashMapWithContext<CodegenSchema> properties;
     public CodegenSchema additionalProperties;
     public String description;
     public String format;
@@ -86,7 +86,7 @@ public class CodegenSchema {
     public TreeSet<String> imports;
     public CodegenKey jsonPathPiece;
     public String unescapedDescription;
-    public LinkedHashMapWithContext<CodegenKey, CodegenSchema> optionalProperties;
+    public LinkedHashMapWithContext<CodegenSchema> optionalProperties;
     public CodegenKey mapInputJsonPathPiece;
     public CodegenKey mapOutputJsonPathPiece;
     public CodegenKey arrayInputJsonPathPiece;

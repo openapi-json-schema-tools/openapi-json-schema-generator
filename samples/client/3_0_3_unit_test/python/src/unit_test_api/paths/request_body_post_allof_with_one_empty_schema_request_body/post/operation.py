@@ -33,7 +33,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
+            schemas.OUTPUT_BASE_TYPES
         ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
@@ -48,7 +48,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
+            schemas.OUTPUT_BASE_TYPES
         ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
@@ -62,7 +62,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
+            schemas.OUTPUT_BASE_TYPES
         ],
         *,
         skip_deserialization: bool = False,

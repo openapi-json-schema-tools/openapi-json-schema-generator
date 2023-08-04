@@ -95,8 +95,8 @@ class BaseApi(api_client.Api):
         ],
         body: typing.Union[
             schemas.INPUT_TYPES_ALL,
-            schemas.Unset,
             schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
             QueryParametersDictInput,
@@ -131,8 +131,8 @@ class BaseApi(api_client.Api):
         ],
         body: typing.Union[
             schemas.INPUT_TYPES_ALL,
-            schemas.Unset,
             schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
             QueryParametersDictInput,
@@ -167,7 +167,7 @@ class BaseApi(api_client.Api):
         body: typing.Union[
             schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES,
-            schemas.Unset,
+            schemas.Unset
         ] = schemas.unset,
         query_params: typing.Union[
             QueryParametersDictInput,

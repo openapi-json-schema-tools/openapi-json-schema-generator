@@ -26,6 +26,27 @@ class _0Dict(schemas.immutabledict[str, int]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    @staticmethod
+    def from_dict_(
+        arg: _0DictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> _0Dict:
+        return _0.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        bar: int,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "bar": bar,
+        }
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(_0DictInput, arg_)
+        return _0.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def bar(self) -> int:
@@ -37,9 +58,6 @@ class _0Dict(schemas.immutabledict[str, int]):
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: _0DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return _0.validate(arg, configuration=configuration)
 _0DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
@@ -77,6 +95,27 @@ class _1Dict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    @staticmethod
+    def from_dict_(
+        arg: _1DictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> _1Dict:
+        return _1.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        foo: str,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "foo": foo,
+        }
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(_1DictInput, arg_)
+        return _1.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def foo(self) -> str:
@@ -88,9 +127,6 @@ class _1Dict(schemas.immutabledict[str, str]):
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: _1DictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return _1.validate(arg, configuration=configuration)
 _1DictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

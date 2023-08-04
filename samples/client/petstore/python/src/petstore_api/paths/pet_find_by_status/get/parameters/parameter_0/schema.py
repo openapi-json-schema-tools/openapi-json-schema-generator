@@ -34,7 +34,7 @@ class Items(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: str = "available"
+    default: typing_extensions.Literal["available"] = "available"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "available": "AVAILABLE",
@@ -106,10 +106,18 @@ class SchemaTuple(
         return Schema.validate(arg, configuration=configuration)
 SchemaTupleInput = typing.Union[
     typing.List[
-        str,
+        typing_extensions.Literal[
+            "available",
+            "pending",
+            "sold"
+        ],
     ],
     typing.Tuple[
-        str,
+        typing_extensions.Literal[
+            "available",
+            "pending",
+            "sold"
+        ],
         ...
     ]
 ]

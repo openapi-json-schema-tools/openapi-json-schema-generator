@@ -1,25 +1,24 @@
 {{#if isOverload}}
     {{! only one body at a time }}
     {{#with bodyRefSchema}}
-body: typing.Union[
-    {{> components/schemas/_helper_schema_input_ref_type fullRefModule="" endChar="," }}
-        {{#if bodyOptional}}
-    schemas.Unset,
-        {{/if}}
-    {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," }}
-]{{#if bodyOptional}} = schemas.unset{{/if}},
+{{> components/schemas/_helper_schema_io_type paramName="body" fullRefModule="" endChar="," optional=bodyOptional }}
     {{/with}}
 {{else}}
     {{! all request bodies }}
     {{#if requestBodySchema}}
+        {{#eq requestBodySchema.properties.size 1}}
+            {{#each requestBodySchema.properties}}
+{{> components/schemas/_helper_schema_io_type paramName="body" fullRefModule="" endChar="," optional=bodyOptional }}
+            {{/each}}
+        {{else}}
 body: typing.Union[
-        {{#each requestBodySchema.properties}}
-    {{> components/schemas/_helper_schema_input_ref_type fullRefModule="" endChar="," }}
-    {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," }}
-        {{/each}}
-        {{#if bodyOptional}}
+            {{#each requestBodySchema.properties}}
+    {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," optional=false }}
+            {{/each}}
+            {{#if bodyOptional}}
     schemas.Unset,
-        {{/if}}
+            {{/if}}
 ]{{#if bodyOptional}} = schemas.unset{{/if}},
+        {{/eq}}
     {{/if}}
 {{/if}}

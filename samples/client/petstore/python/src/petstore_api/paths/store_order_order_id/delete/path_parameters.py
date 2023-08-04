@@ -28,6 +28,25 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    @staticmethod
+    def from_dict_(
+        arg: PathParametersDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> PathParametersDict:
+        return PathParameters.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        order_id: str,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "order_id": order_id,
+        }
+        used_arg_ = typing.cast(PathParametersDictInput, arg_)
+        return PathParameters.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def order_id(self) -> str:
@@ -35,9 +54,6 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             str,
             self.__getitem__("order_id")
         )
-
-    def __new__(cls, arg: PathParametersDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return PathParameters.validate(arg, configuration=configuration)
 PathParametersDictInput = typing_extensions.TypedDict(
     'PathParametersDictInput',
     {

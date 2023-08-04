@@ -26,16 +26,14 @@ class FilesTuple(
 FilesTupleInput = typing.Union[
     typing.List[
         typing.Union[
+            file.FileDictInput,
             file.FileDict,
-            dict,
-            schemas.immutabledict
         ],
     ],
     typing.Tuple[
         typing.Union[
+            file.FileDictInput,
             file.FileDict,
-            dict,
-            schemas.immutabledict
         ],
         ...
     ]
@@ -87,6 +85,41 @@ class FileSchemaTestClassDict(schemas.immutabledict[str, typing.Tuple[schemas.OU
         "file",
         "files",
     })
+    @staticmethod
+    def from_dict_(
+        arg: FileSchemaTestClassDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> FileSchemaTestClassDict:
+        return FileSchemaTestClass.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        file: typing.Union[
+            file.FileDictInput,
+            file.FileDict,
+            schemas.Unset
+        ] = schemas.unset,
+        files: typing.Union[
+            FilesTupleInput,
+            FilesTuple,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("file", file),
+            ("files", files),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(FileSchemaTestClassDictInput, arg_)
+        return FileSchemaTestClass.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def file(self) -> typing.Union[file.FileDict, schemas.Unset]:
@@ -111,9 +144,6 @@ class FileSchemaTestClassDict(schemas.immutabledict[str, typing.Tuple[schemas.OU
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: FileSchemaTestClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return FileSchemaTestClass.validate(arg, configuration=configuration)
 FileSchemaTestClassDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

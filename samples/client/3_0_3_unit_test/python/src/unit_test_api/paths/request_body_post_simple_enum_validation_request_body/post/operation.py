@@ -32,7 +32,8 @@ class BaseApi(api_client.Api):
     def _post_simple_enum_validation_request_body(
         self,
         body: typing.Union[
-            typing.Union[int, float],
+            int,
+            float
         ],
         *,
         skip_deserialization: typing_extensions.Literal[False] = False,
@@ -46,7 +47,8 @@ class BaseApi(api_client.Api):
     def _post_simple_enum_validation_request_body(
         self,
         body: typing.Union[
-            typing.Union[int, float],
+            int,
+            float
         ],
         *,
         skip_deserialization: typing_extensions.Literal[True],
@@ -59,7 +61,8 @@ class BaseApi(api_client.Api):
     def _post_simple_enum_validation_request_body(
         self,
         body: typing.Union[
-            typing.Union[int, float],
+            int,
+            float
         ],
         *,
         skip_deserialization: bool = False,

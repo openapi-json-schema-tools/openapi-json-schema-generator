@@ -43,6 +43,35 @@ class NoAdditionalPropertiesDict(schemas.immutabledict[str, int]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "petId",
     })
+    @staticmethod
+    def from_dict_(
+        arg: NoAdditionalPropertiesDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> NoAdditionalPropertiesDict:
+        return NoAdditionalProperties.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        id: int,
+        petId: typing.Union[
+            int,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {
+            "id": id,
+        }
+        for key, val in (
+            ("petId", petId),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        used_arg_ = typing.cast(NoAdditionalPropertiesDictInput, arg_)
+        return NoAdditionalProperties.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def id(self) -> int:
@@ -60,9 +89,6 @@ class NoAdditionalPropertiesDict(schemas.immutabledict[str, int]):
             int,
             val
         )
-
-    def __new__(cls, arg: NoAdditionalPropertiesDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return NoAdditionalProperties.validate(arg, configuration=configuration)
 
 
 class NoAdditionalPropertiesDictInput(NoAdditionalPropertiesRequiredDictInput, NoAdditionalPropertiesOptionalDictInput):

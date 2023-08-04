@@ -39,7 +39,7 @@ class StringEnumWithDefaultValue(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: str = "placed"
+    default: typing_extensions.Literal["placed"] = "placed"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "placed": "PLACED",

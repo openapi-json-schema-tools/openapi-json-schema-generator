@@ -21,6 +21,24 @@ class MapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
+    def __new__(
+        cls,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: typing.Union[
+            animal.AnimalDictInput,
+            animal.AnimalDict,
+        ],
+    ):
+        used_kwargs = typing.cast(MapDictInput, kwargs)
+        return Map.validate(used_kwargs, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: MapDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> MapDict:
+        return Map.validate(arg, configuration=configuration)
+
     
     def get_additional_property_(self, name: str) -> typing.Union[animal.AnimalDict, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -31,15 +49,11 @@ class MapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             animal.AnimalDict,
             val
         )
-
-    def __new__(cls, arg: MapDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return Map.validate(arg, configuration=configuration)
 MapDictInput = typing.Mapping[
     str,
     typing.Union[
+        animal.AnimalDictInput,
         animal.AnimalDict,
-        dict,
-        schemas.immutabledict
     ],
 ]
 
@@ -92,6 +106,47 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
         "dateTime",
         "map",
     })
+    @staticmethod
+    def from_dict_(
+        arg: MixedPropertiesAndAdditionalPropertiesClassDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> MixedPropertiesAndAdditionalPropertiesClassDict:
+        return MixedPropertiesAndAdditionalPropertiesClass.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        uuid: typing.Union[
+            str,
+            uuid.UUID,
+            schemas.Unset
+        ] = schemas.unset,
+        dateTime: typing.Union[
+            str,
+            datetime.datetime,
+            schemas.Unset
+        ] = schemas.unset,
+        map: typing.Union[
+            MapDictInput,
+            MapDict,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("uuid", uuid),
+            ("dateTime", dateTime),
+            ("map", map),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(MixedPropertiesAndAdditionalPropertiesClassDictInput, arg_)
+        return MixedPropertiesAndAdditionalPropertiesClass.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def uuid(self) -> typing.Union[str, schemas.Unset]:
@@ -126,9 +181,6 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: MixedPropertiesAndAdditionalPropertiesClassDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return MixedPropertiesAndAdditionalPropertiesClass.validate(arg, configuration=configuration)
 MixedPropertiesAndAdditionalPropertiesClassDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 

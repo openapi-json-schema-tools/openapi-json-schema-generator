@@ -126,16 +126,14 @@ class ArrayArrayOfIntegerTuple(
 ArrayArrayOfIntegerTupleInput = typing.Union[
     typing.List[
         typing.Union[
-            ItemsTuple,
-            list,
-            tuple
+            ItemsTupleInput,
+            ItemsTuple
         ],
     ],
     typing.Tuple[
         typing.Union[
-            ItemsTuple,
-            list,
-            tuple
+            ItemsTupleInput,
+            ItemsTuple
         ],
         ...
     ]
@@ -186,16 +184,14 @@ class ItemsTuple2(
 ItemsTupleInput2 = typing.Union[
     typing.List[
         typing.Union[
+            read_only_first.ReadOnlyFirstDictInput,
             read_only_first.ReadOnlyFirstDict,
-            dict,
-            schemas.immutabledict
         ],
     ],
     typing.Tuple[
         typing.Union[
+            read_only_first.ReadOnlyFirstDictInput,
             read_only_first.ReadOnlyFirstDict,
-            dict,
-            schemas.immutabledict
         ],
         ...
     ]
@@ -244,16 +240,14 @@ class ArrayArrayOfModelTuple(
 ArrayArrayOfModelTupleInput = typing.Union[
     typing.List[
         typing.Union[
-            ItemsTuple2,
-            list,
-            tuple
+            ItemsTupleInput2,
+            ItemsTuple2
         ],
     ],
     typing.Tuple[
         typing.Union[
-            ItemsTuple2,
-            list,
-            tuple
+            ItemsTupleInput2,
+            ItemsTuple2
         ],
         ...
     ]
@@ -307,6 +301,47 @@ class ArrayTestDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_
         "array_array_of_integer",
         "array_array_of_model",
     })
+    @staticmethod
+    def from_dict_(
+        arg: ArrayTestDictInput,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ArrayTestDict:
+        return ArrayTest.validate(arg, configuration=configuration)
+    
+    def __new__(
+        cls,
+        *,
+        array_of_string: typing.Union[
+            ArrayOfStringTupleInput,
+            ArrayOfStringTuple,
+            schemas.Unset
+        ] = schemas.unset,
+        array_array_of_integer: typing.Union[
+            ArrayArrayOfIntegerTupleInput,
+            ArrayArrayOfIntegerTuple,
+            schemas.Unset
+        ] = schemas.unset,
+        array_array_of_model: typing.Union[
+            ArrayArrayOfModelTupleInput,
+            ArrayArrayOfModelTuple,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key, val in (
+            ("array_of_string", array_of_string),
+            ("array_array_of_integer", array_array_of_integer),
+            ("array_array_of_model", array_array_of_model),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(ArrayTestDictInput, arg_)
+        return ArrayTest.validate(used_arg_, configuration=configuration_)
+
     
     @property
     def array_of_string(self) -> typing.Union[ArrayOfStringTuple, schemas.Unset]:
@@ -341,9 +376,6 @@ class ArrayTestDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
-
-    def __new__(cls, arg: ArrayTestDictInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return ArrayTest.validate(arg, configuration=configuration)
 ArrayTestDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
