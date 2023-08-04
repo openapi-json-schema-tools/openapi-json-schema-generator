@@ -185,7 +185,7 @@ jobs:
           nodeNo: "3"
   node4:
     docker:
-      - image: fkrull/multi-python
+      - image: python:3.8
     working_directory: ~/OpenAPITools/openapi-json-schema-generator
     shell: /bin/bash --login
     environment:
