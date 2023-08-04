@@ -43,6 +43,8 @@
                     {{#eq format "binary"}}
 {{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     bytes,
+    io.FileIO,
+    io.BufferedReader,
     schemas.FileIO{{#if optional}},{{/if}}
                         {{#if optional}}
     schemas.Unset

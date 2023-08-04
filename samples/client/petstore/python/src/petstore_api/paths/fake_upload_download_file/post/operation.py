@@ -37,6 +37,8 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             bytes,
+            io.FileIO,
+            io.BufferedReader,
             schemas.FileIO
         ],
         *,
@@ -53,6 +55,8 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             bytes,
+            io.FileIO,
+            io.BufferedReader,
             schemas.FileIO
         ],
         *,
@@ -68,6 +72,8 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             bytes,
+            io.FileIO,
+            io.BufferedReader,
             schemas.FileIO
         ],
         *,

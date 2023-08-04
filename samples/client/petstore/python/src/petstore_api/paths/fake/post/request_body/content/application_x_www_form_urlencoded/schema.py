@@ -202,6 +202,8 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ] = schemas.unset,
         binary: typing.Union[
             bytes,
+            io.FileIO,
+            io.BufferedReader,
             schemas.FileIO,
             schemas.Unset
         ] = schemas.unset,

@@ -45,6 +45,8 @@ class SchemaDict(schemas.immutabledict[str, str]):
         ] = schemas.unset,
         file: typing.Union[
             bytes,
+            io.FileIO,
+            io.BufferedReader,
             schemas.FileIO,
             schemas.Unset
         ] = schemas.unset,
