@@ -992,12 +992,18 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ] = schemas.unset,
         date_prop: typing.Union[
             None,
-            str,
+            typing.Union[
+                str,
+                datetime.date
+            ],
             schemas.Unset
         ] = schemas.unset,
         datetime_prop: typing.Union[
             None,
-            str,
+            typing.Union[
+                str,
+                datetime.datetime
+            ],
             schemas.Unset
         ] = schemas.unset,
         array_nullable_prop: typing.Union[
@@ -1293,11 +1299,17 @@ NullableClassDictInput = typing.Mapping[
         ],
         typing.Union[
             None,
-            str,
+            typing.Union[
+                str,
+                datetime.date
+            ],
         ],
         typing.Union[
             None,
-            str,
+            typing.Union[
+                str,
+                datetime.datetime
+            ],
         ],
         typing.Union[
             None,

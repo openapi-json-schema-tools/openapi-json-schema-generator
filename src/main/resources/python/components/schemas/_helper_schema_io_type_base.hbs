@@ -67,14 +67,45 @@
 ]{{endChar}}
                             {{/if}}
                         {{else}}
-                            {{#if optional}}
+                            {{#and format (or (eq format "date") (eq format "date-time") (eq format "uuid"))}}
+                                {{#if optional}}
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
+    str,
+    {{#eq format "date"}}
+    datetime.date,
+    {{else}}
+        {{#eq format "date-time"}}
+    datetime.datetime,
+        {{else}}
+    uuid.UUID,
+        {{/eq}}
+    {{/eq}}
+    schemas.Unset
+] = schemas.unset{{endChar}}
+                                {{else}}
+{{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
+    str,
+    {{#eq format "date"}}
+    datetime.date
+    {{else}}
+        {{#eq format "date-time"}}
+    datetime.datetime
+        {{else}}
+    uuid.UUID
+        {{/eq}}
+    {{/eq}}
+]{{endChar}}
+                                {{/if}}
+                            {{else}}
+                                {{#if optional}}
 {{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     str,
     schemas.Unset
 ] = schemas.unset{{endChar}}
-                            {{else}}
+                                {{else}}
 {{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}str{{endChar}}
-                            {{/if}}
+                                {{/if}}
+                            {{/and}}
                         {{/and}}
                     {{/eq}}
                 {{else}}

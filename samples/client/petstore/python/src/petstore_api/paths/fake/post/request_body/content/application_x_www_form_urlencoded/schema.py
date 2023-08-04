@@ -207,10 +207,12 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ] = schemas.unset,
         date: typing.Union[
             str,
+            datetime.date,
             schemas.Unset
         ] = schemas.unset,
         dateTime: typing.Union[
             str,
+            datetime.datetime,
             schemas.Unset
         ] = schemas.unset,
         password: typing.Union[

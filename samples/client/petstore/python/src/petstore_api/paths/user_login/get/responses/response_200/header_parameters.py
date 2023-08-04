@@ -38,7 +38,10 @@ HeadersRequiredDictInput = typing_extensions.TypedDict(
 HeadersOptionalDictInput = typing_extensions.TypedDict(
     'HeadersOptionalDictInput',
     {
-        "X-Expires-After": str,
+        "X-Expires-After": typing.Union[
+            str,
+            datetime.datetime
+        ],
         "numberHeader": str,
     },
     total=False

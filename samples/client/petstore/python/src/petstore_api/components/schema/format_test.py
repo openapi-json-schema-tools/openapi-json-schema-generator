@@ -259,7 +259,10 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         cls,
         *,
         byte: str,
-        date: str,
+        date: typing.Union[
+            str,
+            datetime.date
+        ],
         number: typing.Union[
             int,
             float
@@ -312,14 +315,17 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ] = schemas.unset,
         dateTime: typing.Union[
             str,
+            datetime.datetime,
             schemas.Unset
         ] = schemas.unset,
         uuid: typing.Union[
             str,
+            uuid.UUID,
             schemas.Unset
         ] = schemas.unset,
         uuidNoExample: typing.Union[
             str,
+            uuid.UUID,
             schemas.Unset
         ] = schemas.unset,
         pattern_with_digits: typing.Union[

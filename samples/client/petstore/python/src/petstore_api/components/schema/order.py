@@ -155,6 +155,7 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ] = schemas.unset,
         shipDate: typing.Union[
             str,
+            datetime.datetime,
             schemas.Unset
         ] = schemas.unset,
         status: typing.Union[
