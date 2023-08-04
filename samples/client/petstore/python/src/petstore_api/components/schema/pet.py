@@ -238,6 +238,7 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
+        *,
         name: str,
         photoUrls: typing.Union[
             PhotoUrlsTupleInput,

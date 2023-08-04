@@ -329,6 +329,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
+        *,
         enum_string_required: typing_extensions.Literal[
             "UPPER",
             "lower",

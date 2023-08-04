@@ -35,6 +35,7 @@ class GmFruitDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
+        *,
         color: typing.Union[
             str,
             schemas.Unset

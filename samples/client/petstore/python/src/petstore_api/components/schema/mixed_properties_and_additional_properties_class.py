@@ -115,6 +115,7 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
     
     def __new__(
         cls,
+        *,
         uuid: typing.Union[
             str,
             schemas.Unset

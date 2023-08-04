@@ -39,6 +39,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     
     def __new__(
         cls,
+        *,
         enum_header_string: typing.Union[
             typing_extensions.Literal[
                 "_abc",

@@ -35,6 +35,7 @@ class FileDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
+        *,
         sourceURI: typing.Union[
             str,
             schemas.Unset

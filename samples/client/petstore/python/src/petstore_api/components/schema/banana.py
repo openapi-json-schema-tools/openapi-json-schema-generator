@@ -35,6 +35,7 @@ class BananaDict(schemas.immutabledict[str, typing.Union[int, float]]):
     
     def __new__(
         cls,
+        *,
         lengthCm: typing.Union[
             int,
             float

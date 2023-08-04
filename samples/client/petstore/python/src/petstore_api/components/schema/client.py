@@ -35,6 +35,7 @@ class ClientDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
+        *,
         client: typing.Union[
             str,
             schemas.Unset

@@ -88,6 +88,7 @@ class _1Dict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
+        *,
         triangleType: typing.Union[
             typing_extensions.Literal[
                 "EquilateralTriangle"

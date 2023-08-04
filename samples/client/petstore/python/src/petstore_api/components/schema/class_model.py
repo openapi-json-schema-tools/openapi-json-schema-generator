@@ -35,6 +35,7 @@ class ClassModelDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
+        *,
         _class: typing.Union[
             str,
             schemas.Unset

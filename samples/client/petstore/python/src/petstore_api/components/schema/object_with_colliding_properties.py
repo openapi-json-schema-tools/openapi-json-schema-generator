@@ -38,6 +38,7 @@ class ObjectWithCollidingPropertiesDict(schemas.immutabledict[str, schemas.immut
     
     def __new__(
         cls,
+        *,
         someProp: typing.Union[
             typing.Mapping[str, schemas.INPUT_TYPES_ALL],
             schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],

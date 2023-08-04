@@ -100,6 +100,7 @@ class VariablesDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
+        *,
         version: typing_extensions.Literal[
             "v1",
             "v2"

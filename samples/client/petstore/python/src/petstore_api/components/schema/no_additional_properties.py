@@ -52,6 +52,7 @@ class NoAdditionalPropertiesDict(schemas.immutabledict[str, int]):
     
     def __new__(
         cls,
+        *,
         id: int,
         petId: typing.Union[
             int,

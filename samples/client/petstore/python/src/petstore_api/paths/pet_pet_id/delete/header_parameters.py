@@ -37,6 +37,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     
     def __new__(
         cls,
+        *,
         api_key: typing.Union[
             str,
             schemas.Unset

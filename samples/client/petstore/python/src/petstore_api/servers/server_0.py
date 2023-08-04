@@ -185,6 +185,7 @@ class VariablesDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
+        *,
         port: typing_extensions.Literal[
             "80",
             "8080"

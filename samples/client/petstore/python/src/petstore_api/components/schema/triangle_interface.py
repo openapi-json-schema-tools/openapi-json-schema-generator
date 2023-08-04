@@ -91,6 +91,7 @@ class TriangleInterfaceDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
+        *,
         shapeType: typing_extensions.Literal[
             "Triangle"
         ],

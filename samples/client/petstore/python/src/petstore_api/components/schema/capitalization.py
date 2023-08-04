@@ -50,6 +50,7 @@ class CapitalizationDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
+        *,
         smallCamel: typing.Union[
             str,
             schemas.Unset

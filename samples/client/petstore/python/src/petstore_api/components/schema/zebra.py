@@ -173,6 +173,7 @@ class ZebraDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
+        *,
         className: typing_extensions.Literal[
             "zebra"
         ],

@@ -61,6 +61,7 @@ class AppleDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
+        *,
         cultivar: str,
         origin: typing.Union[
             str,

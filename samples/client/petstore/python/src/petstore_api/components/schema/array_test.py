@@ -310,6 +310,7 @@ class ArrayTestDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_
     
     def __new__(
         cls,
+        *,
         array_of_string: typing.Union[
             ArrayOfStringTupleInput,
             ArrayOfStringTuple,

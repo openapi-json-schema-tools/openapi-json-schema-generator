@@ -41,6 +41,7 @@ class ObjectWithDecimalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_
     
     def __new__(
         cls,
+        *,
         length: typing.Union[
             str,
             schemas.Unset

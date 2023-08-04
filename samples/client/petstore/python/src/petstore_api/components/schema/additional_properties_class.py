@@ -453,6 +453,7 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.immutable
     
     def __new__(
         cls,
+        *,
         map_property: typing.Union[
             MapPropertyDictInput,
             MapPropertyDict,

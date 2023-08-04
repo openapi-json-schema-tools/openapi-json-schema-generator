@@ -38,6 +38,7 @@ class FromSchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
+        *,
         data: typing.Union[
             str,
             schemas.Unset

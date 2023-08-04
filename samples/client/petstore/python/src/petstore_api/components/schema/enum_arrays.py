@@ -228,6 +228,7 @@ class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
+        *,
         just_symbol: typing.Union[
             typing_extensions.Literal[
                 ">=",

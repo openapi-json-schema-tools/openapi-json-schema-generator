@@ -35,6 +35,7 @@ class ObjectWithOptionalTestPropDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
+        *,
         test: typing.Union[
             str,
             schemas.Unset

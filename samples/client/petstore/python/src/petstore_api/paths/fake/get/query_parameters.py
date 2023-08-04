@@ -45,6 +45,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     
     def __new__(
         cls,
+        *,
         enum_query_double: typing.Union[
             int,
             float,

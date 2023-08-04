@@ -52,6 +52,7 @@ class AppleReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
+        *,
         cultivar: str,
         mealy: typing.Union[
             bool,

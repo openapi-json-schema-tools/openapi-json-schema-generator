@@ -92,6 +92,7 @@ class JSONPatchRequestRemoveDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
+        *,
         op: typing_extensions.Literal[
             "remove"
         ],

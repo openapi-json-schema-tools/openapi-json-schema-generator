@@ -41,6 +41,7 @@ class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
+        *,
         name: int,
         snake_case: typing.Union[
             int,

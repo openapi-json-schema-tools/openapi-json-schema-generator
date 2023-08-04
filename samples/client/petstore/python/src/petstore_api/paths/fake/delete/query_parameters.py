@@ -60,6 +60,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     
     def __new__(
         cls,
+        *,
         required_int64_group: int,
         required_string_group: str,
         int64_group: typing.Union[

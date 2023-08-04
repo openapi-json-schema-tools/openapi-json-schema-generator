@@ -35,6 +35,7 @@ class NumberOnlyDict(schemas.immutabledict[str, typing.Union[int, float]]):
     
     def __new__(
         cls,
+        *,
         JustNumber: typing.Union[
             int,
             float,

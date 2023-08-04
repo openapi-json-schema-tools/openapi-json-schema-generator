@@ -39,6 +39,7 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
+        *,
         amount: str,
         currency: typing_extensions.Literal[
             "eur",

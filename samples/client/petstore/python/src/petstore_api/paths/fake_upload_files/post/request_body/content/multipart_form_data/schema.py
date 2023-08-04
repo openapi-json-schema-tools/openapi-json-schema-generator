@@ -91,6 +91,7 @@ class SchemaDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TYP
     
     def __new__(
         cls,
+        *,
         files: typing.Union[
             FilesTupleInput,
             FilesTuple,

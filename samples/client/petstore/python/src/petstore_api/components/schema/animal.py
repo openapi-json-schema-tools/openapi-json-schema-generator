@@ -47,6 +47,7 @@ class AnimalDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
+        *,
         className: str,
         color: typing.Union[
             str,

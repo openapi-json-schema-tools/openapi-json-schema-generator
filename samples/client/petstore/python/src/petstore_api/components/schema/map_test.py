@@ -395,6 +395,7 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
+        *,
         map_map_of_string: typing.Union[
             MapMapOfStringDictInput,
             MapMapOfStringDict,

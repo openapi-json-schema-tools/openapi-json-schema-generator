@@ -37,6 +37,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     
     def __new__(
         cls,
+        *,
         mapBean: typing.Union[
             schema.SchemaDictInput,
             schema.SchemaDict,

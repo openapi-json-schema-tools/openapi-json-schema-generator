@@ -28,6 +28,7 @@ class ReqPropsFromUnsetAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BA
     
     def __new__(
         cls,
+        *,
         validName: typing.Union[
             schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES

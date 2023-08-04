@@ -35,6 +35,7 @@ class FooDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
+        *,
         bar: typing.Union[
             str,
             schemas.Unset

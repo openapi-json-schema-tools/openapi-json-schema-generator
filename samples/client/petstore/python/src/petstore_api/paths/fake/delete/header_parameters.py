@@ -58,6 +58,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     
     def __new__(
         cls,
+        *,
         required_boolean_group: typing_extensions.Literal[
             "true",
             "false"

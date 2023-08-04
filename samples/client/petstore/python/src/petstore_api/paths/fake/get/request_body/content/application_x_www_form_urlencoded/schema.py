@@ -244,6 +244,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
+        *,
         enum_form_string_array: typing.Union[
             EnumFormStringArrayTupleInput,
             EnumFormStringArrayTuple,

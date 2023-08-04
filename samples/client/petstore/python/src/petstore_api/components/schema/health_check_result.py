@@ -73,6 +73,7 @@ class HealthCheckResultDict(schemas.immutabledict[str, typing.Union[
     
     def __new__(
         cls,
+        *,
         NullableMessage: typing.Union[
             None,
             str,

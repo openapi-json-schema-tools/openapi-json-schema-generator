@@ -35,6 +35,7 @@ class SpecialModelNameDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
+        *,
         a: typing.Union[
             str,
             schemas.Unset

@@ -41,6 +41,7 @@ class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE
     
     def __new__(
         cls,
+        *,
         myNumber: typing.Union[
             int,
             float,

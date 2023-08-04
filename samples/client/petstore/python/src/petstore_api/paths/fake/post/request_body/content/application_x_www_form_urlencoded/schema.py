@@ -173,6 +173,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
+        *,
         byte: str,
         double: typing.Union[
             int,

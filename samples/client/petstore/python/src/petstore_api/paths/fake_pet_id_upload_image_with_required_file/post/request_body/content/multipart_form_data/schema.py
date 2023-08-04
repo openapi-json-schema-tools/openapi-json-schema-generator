@@ -38,6 +38,7 @@ class SchemaDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
+        *,
         requiredFile: typing.Union[
             bytes,
             schemas.FileIO

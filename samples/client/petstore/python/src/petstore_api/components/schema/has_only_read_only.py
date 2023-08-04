@@ -38,6 +38,7 @@ class HasOnlyReadOnlyDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
+        *,
         bar: typing.Union[
             str,
             schemas.Unset

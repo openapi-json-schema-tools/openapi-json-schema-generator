@@ -38,6 +38,7 @@ class SchemaDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
+        *,
         param: str,
         param2: str,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,

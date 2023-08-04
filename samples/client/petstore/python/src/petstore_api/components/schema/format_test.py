@@ -257,6 +257,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     def __new__(
         cls,
+        *,
         byte: str,
         date: str,
         number: typing.Union[

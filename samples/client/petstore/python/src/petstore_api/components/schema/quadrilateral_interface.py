@@ -91,6 +91,7 @@ class QuadrilateralInterfaceDict(schemas.immutabledict[str, str]):
     
     def __new__(
         cls,
+        *,
         quadrilateralType: str,
         shapeType: typing_extensions.Literal[
             "Quadrilateral"
