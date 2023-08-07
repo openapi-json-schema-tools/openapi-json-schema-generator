@@ -50,39 +50,39 @@ class TestComposedOneOfDifferentTypes(unittest.TestCase):
         # date
         inst = composed_one_of_different_types.ComposedOneOfDifferentTypes.validate('2019-01-10')
         assert isinstance(inst, str)
-        assert schemas.as_date_(inst).year == 2019
-        assert schemas.as_date_(inst).month == 1
-        assert schemas.as_date_(inst).day == 10
+        assert schemas.as_date(inst).year == 2019
+        assert schemas.as_date(inst).month == 1
+        assert schemas.as_date(inst).day == 10
 
         # date
         inst = composed_one_of_different_types.ComposedOneOfDifferentTypes.validate(date(2019, 1, 10))
         assert isinstance(inst, str)
-        assert schemas.as_date_(inst).year == 2019
-        assert schemas.as_date_(inst).month == 1
-        assert schemas.as_date_(inst).day == 10
+        assert schemas.as_date(inst).year == 2019
+        assert schemas.as_date(inst).month == 1
+        assert schemas.as_date(inst).day == 10
 
         # date-time
         inst = composed_one_of_different_types.ComposedOneOfDifferentTypes.validate('2020-01-02T03:04:05Z')
         assert isinstance(inst, str)
-        assert schemas.as_datetime_(inst).year == 2020
-        assert schemas.as_datetime_(inst).month == 1
-        assert schemas.as_datetime_(inst).day == 2
-        assert schemas.as_datetime_(inst).hour == 3
-        assert schemas.as_datetime_(inst).minute == 4
-        assert schemas.as_datetime_(inst).second == 5
+        assert schemas.as_datetime(inst).year == 2020
+        assert schemas.as_datetime(inst).month == 1
+        assert schemas.as_datetime(inst).day == 2
+        assert schemas.as_datetime(inst).hour == 3
+        assert schemas.as_datetime(inst).minute == 4
+        assert schemas.as_datetime(inst).second == 5
         utc_tz = tzutc()
-        assert schemas.as_datetime_(inst).tzinfo == utc_tz
+        assert schemas.as_datetime(inst).tzinfo == utc_tz
 
         # date-time
         inst = composed_one_of_different_types.ComposedOneOfDifferentTypes.validate(datetime(2020, 1, 2, 3, 4, 5, tzinfo=timezone.utc))
         assert isinstance(inst, str)
-        assert schemas.as_datetime_(inst).year == 2020
-        assert schemas.as_datetime_(inst).month == 1
-        assert schemas.as_datetime_(inst).day == 2
-        assert schemas.as_datetime_(inst).hour == 3
-        assert schemas.as_datetime_(inst).minute == 4
-        assert schemas.as_datetime_(inst).second == 5
-        assert schemas.as_datetime_(inst).tzinfo == utc_tz
+        assert schemas.as_datetime(inst).year == 2020
+        assert schemas.as_datetime(inst).month == 1
+        assert schemas.as_datetime(inst).day == 2
+        assert schemas.as_datetime(inst).hour == 3
+        assert schemas.as_datetime(inst).minute == 4
+        assert schemas.as_datetime(inst).second == 5
+        assert schemas.as_datetime(inst).tzinfo == utc_tz
 
 
 if __name__ == '__main__':

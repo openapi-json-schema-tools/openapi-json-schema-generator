@@ -82,7 +82,7 @@ class CustomIsoparser(parser.isoparser):
 DEFAULT_ISOPARSER = CustomIsoparser()
 
 @functools.lru_cache()
-def as_date_(arg: str) -> datetime.date:
+def as_date(arg: str) -> datetime.date:
     """
     type = "string"
     format = "date"
@@ -90,7 +90,7 @@ def as_date_(arg: str) -> datetime.date:
     return DEFAULT_ISOPARSER.parse_isodate_str(arg)
 
 @functools.lru_cache()
-def as_datetime_(arg: str) -> datetime.datetime:
+def as_datetime(arg: str) -> datetime.datetime:
     """
     type = "string"
     format = "date-time"
@@ -98,7 +98,7 @@ def as_datetime_(arg: str) -> datetime.datetime:
     return DEFAULT_ISOPARSER.parse_isodatetime(arg)
 
 @functools.lru_cache()
-def as_decimal_(arg: str) -> decimal.Decimal:
+def as_decimal(arg: str) -> decimal.Decimal:
     """
     Applicable when storing decimals that are sent over the wire as strings
     type = "string"
@@ -107,7 +107,7 @@ def as_decimal_(arg: str) -> decimal.Decimal:
     return decimal.Decimal(arg)
 
 @functools.lru_cache()
-def as_uuid_(arg: str) -> uuid.UUID:
+def as_uuid(arg: str) -> uuid.UUID:
     """
     type = "string"
     format = "uuid"
