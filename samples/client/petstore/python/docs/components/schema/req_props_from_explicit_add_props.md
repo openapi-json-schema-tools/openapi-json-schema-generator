@@ -16,7 +16,7 @@ Key | Type |  Description | Notes
 ## ReqPropsFromExplicitAddPropsDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**invalid-name** | str | str |  |
+**invalid-name** | str | str |  | value must be accessed with instance["invalid-name"] because the key is not a valid identifier 
 **validName** | str | str |  |
 **any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional]
 

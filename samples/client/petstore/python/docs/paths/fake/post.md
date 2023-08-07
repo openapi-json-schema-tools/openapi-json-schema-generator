@@ -78,7 +78,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **integer** | int | int | None | [optional]
 **int32** | int | int | None | [optional] value must be a 32 bit integer
 **int64** | int | int | None | [optional] value must be a 64 bit integer
-**float** | float, int | float, int | None | [optional] value must be a 32 bit float
+**float** | float, int | float, int | None | [optional] value must be accessed with instance["float"] because the key is not a valid identifier  value must be a 32 bit float
 **string** | str | str | None | [optional]
 **binary** | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO | None | [optional]
 **date** | str, datetime.date | str | None | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD

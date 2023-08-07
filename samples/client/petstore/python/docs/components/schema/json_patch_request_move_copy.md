@@ -16,7 +16,7 @@ Key | Type |  Description | Notes
 ## JSONPatchRequestMoveCopyDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**from** | str | str | A JSON Pointer path. |
+**from** | str | str | A JSON Pointer path. | value must be accessed with instance["from"] because the key is not a valid identifier 
 **op** | str | str | The operation to perform. | must be one of ["move", "copy"]
 **path** | str | str | A JSON Pointer path. |
 

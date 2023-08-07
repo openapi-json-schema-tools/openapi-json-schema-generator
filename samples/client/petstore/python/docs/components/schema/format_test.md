@@ -43,7 +43,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **int32** | int | int |  | [optional] value must be a 32 bit integer
 **int32withValidations** | int | int |  | [optional] value must be a 32 bit integer
 **int64** | int | int |  | [optional] value must be a 64 bit integer
-**float** | float, int | float, int | this is a reserved python keyword | [optional] value must be a 32 bit float
+**float** | float, int | float, int | this is a reserved python keyword | [optional] value must be accessed with instance["float"] because the key is not a valid identifier  value must be a 32 bit float
 **float32** | float, int | float, int |  | [optional] value must be a 32 bit float
 **double** | float, int | float, int |  | [optional] value must be a 64 bit float
 **float64** | float, int | float, int |  | [optional] value must be a 64 bit float
