@@ -3,7 +3,7 @@ commands: # a reusable command with parameters
   command_build_and_test:
     parameters:
       jobId:
-        default: "0"
+        default: "unset"
         type: string
     steps:
       # Restore the dependency cache
@@ -47,7 +47,6 @@ commands: # a reusable command with parameters
       - run: sleep 30
       - run: cat /etc/hosts
       # Test
-      - run: mvn --no-snapshot-updates --quiet clean install -Dorg.slf4j.simpleLogger.defaultLogLevel=error
       - run:
           name: "Setup custom environment variables"
           command: echo 'export CIRCLE_JOB_ID="<<parameters.jobId>>"' >> $BASH_ENV
@@ -106,7 +105,7 @@ commands: # a reusable command with parameters
   command_docker_build_and_test:
     parameters:
       jobId:
-        default: "0"
+        default: "unset"
         type: string
     steps:
       # Machine Setup
@@ -138,17 +137,6 @@ commands: # a reusable command with parameters
       - store_artifacts:
           path: /tmp/circleci-test-results
 jobs:
-  job0:
-    machine:
-      image: ubuntu-2004:202201-02
-    working_directory: ~/OpenAPITools/openapi-json-schema-generator
-    shell: /bin/bash --login
-    environment:
-      CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
-      CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
-    steps:
-      - command_build_and_test:
-          jobId: "0"
   ensureSamplesAndGeneratorDocsUpToDate:
     machine:
       image: ubuntu-2004:202201-02
@@ -160,7 +148,7 @@ jobs:
     steps:
       - command_build_and_test:
           jobId: "ensureSamplesAndGeneratorDocsUpToDate"
-  job2:
+  mvnCleanInstall:
     machine:
       image: ubuntu-2004:202201-02
     working_directory: ~/OpenAPITools/openapi-json-schema-generator
@@ -170,7 +158,7 @@ jobs:
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     steps:
       - command_build_and_test:
-          jobId: "2"
+          jobId: "mvnCleanInstall"
   testPythonClientSamples:
     docker:
       - image: python:3.8
@@ -187,7 +175,6 @@ workflows:
   version: 2
   build:
     jobs:
-      - job0
       - ensureSamplesAndGeneratorDocsUpToDate
-      - job2
+      - mvnCleanInstall
       - testPythonClientSamples
