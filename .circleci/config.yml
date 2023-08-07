@@ -171,7 +171,7 @@ jobs:
     steps:
       - command_build_and_test:
           jobId: "2"
-  job3:
+  testPythonClientSamples:
     docker:
       - image: python:3.8
     working_directory: ~/OpenAPITools/openapi-json-schema-generator
@@ -182,7 +182,7 @@ jobs:
     steps:
       - checkout
       - command_docker_build_and_test:
-          jobId: "3"
+          jobId: "testPythonClientSamples"
 workflows:
   version: 2
   build:
@@ -190,4 +190,4 @@ workflows:
       - job0
       - job1
       - job2
-      - job3
+      - testPythonClientSamples

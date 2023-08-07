@@ -29,10 +29,9 @@ elif [ "$JOB_ID" = "2" ]; then
   # node2
   echo "Running job $JOB_ID"
 
-elif [ "$JOB_ID" = "3" ]; then
-  # node4
+elif [ "$JOB_ID" = "testPythonClientSamples" ]; then
 
-  echo "Running job $JOB_ID to test python client samples ..."
+  echo "Running job $JOB_ID ..."
 
   (cd samples/client/petstore/python && make test)
   (cd samples/client/3_0_3_unit_test/python && make test)
