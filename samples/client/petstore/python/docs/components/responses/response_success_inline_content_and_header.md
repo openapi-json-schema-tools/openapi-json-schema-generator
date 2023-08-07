@@ -30,6 +30,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 #### Dictionary Keys
+#### content ApplicationJson Schema SchemaDictInput
+#### content ApplicationJson Schema SchemaDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | int | int | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer

@@ -7,6 +7,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## MoneyDictInput
+## MoneyDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **amount** | str | str |  | value must be int or float numeric

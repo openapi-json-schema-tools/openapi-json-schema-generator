@@ -10,6 +10,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | model with an invalid class name for python, starts with a number |
 
 ## Dictionary Keys
+## _200ResponseDictInput
+## _200ResponseDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **name** | int | int |  | [optional] value must be a 32 bit integer

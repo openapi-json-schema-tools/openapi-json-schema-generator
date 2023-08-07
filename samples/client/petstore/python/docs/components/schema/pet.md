@@ -10,6 +10,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict | Pet object that needs to be added to the store |
 
 ## Dictionary Keys
+## PetDictInput
+## PetDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **name** | str | str |  |

@@ -7,6 +7,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## ObjectWithInvalidNamedRefedPropertiesDictInput
+## ObjectWithInvalidNamedRefedPropertiesDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **!reference** | [**ArrayWithValidationsInItems**](array_with_validations_in_items.md), list, tuple | [**ArrayWithValidationsInItems**](array_with_validations_in_items.md) |  |

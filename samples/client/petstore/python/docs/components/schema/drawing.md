@@ -7,6 +7,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## DrawingDictInput
+## DrawingDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **mainShape** | [**Shape**](shape.md), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [**Shape**](shape.md) |  | [optional]

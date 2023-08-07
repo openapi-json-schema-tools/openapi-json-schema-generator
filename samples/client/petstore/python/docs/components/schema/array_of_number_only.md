@@ -7,6 +7,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## ArrayOfNumberOnlyDictInput
+## ArrayOfNumberOnlyDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **ArrayNumber** | list, tuple | [properties.ArrayNumber](#properties-arraynumber) |  | [optional]

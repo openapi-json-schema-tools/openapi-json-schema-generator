@@ -10,6 +10,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict | component with properties that have name collisions |
 
 ## Dictionary Keys
+## ObjectWithCollidingPropertiesDictInput
+## ObjectWithCollidingPropertiesDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **someProp** | dict, schemas.immutabledict | [properties.SomeProp](#properties-someprop) |  | [optional]

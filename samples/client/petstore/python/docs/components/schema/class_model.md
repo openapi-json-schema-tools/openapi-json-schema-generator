@@ -10,6 +10,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | Model for testing model with \&quot;_class\&quot; property |
 
 ## Dictionary Keys
+## ClassModelDictInput
+## ClassModelDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **_class** | str | str |  | [optional]

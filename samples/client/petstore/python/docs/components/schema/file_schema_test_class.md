@@ -7,6 +7,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## FileSchemaTestClassDictInput
+## FileSchemaTestClassDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **file** | [**File**](file.md), dict, schemas.immutabledict | [**File**](file.md) |  | [optional]

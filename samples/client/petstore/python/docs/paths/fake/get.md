@@ -51,6 +51,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ##### Dictionary Keys
+##### RequestBody content ApplicationXWwwFormUrlencoded Schema SchemaDictInput
+##### RequestBody content ApplicationXWwwFormUrlencoded Schema SchemaDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **enum_form_string_array** | list, tuple | [properties.EnumFormStringArray](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray) | Form parameter enum test (string array) | [optional]

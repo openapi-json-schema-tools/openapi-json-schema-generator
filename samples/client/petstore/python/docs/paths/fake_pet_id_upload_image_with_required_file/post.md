@@ -51,6 +51,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ##### Dictionary Keys
+##### RequestBody content MultipartFormData Schema SchemaDictInput
+##### RequestBody content MultipartFormData Schema SchemaDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **requiredFile** | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO | file to upload |

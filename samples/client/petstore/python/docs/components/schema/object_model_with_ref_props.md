@@ -10,6 +10,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict | a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations |
 
 ## Dictionary Keys
+## ObjectModelWithRefPropsDictInput
+## ObjectModelWithRefPropsDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **myNumber** | [**NumberWithValidations**](number_with_validations.md), float, int | [**NumberWithValidations**](number_with_validations.md) |  | [optional]

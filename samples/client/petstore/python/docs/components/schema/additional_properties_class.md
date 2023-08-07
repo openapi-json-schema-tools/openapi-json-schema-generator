@@ -7,6 +7,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## AdditionalPropertiesClassDictInput
+## AdditionalPropertiesClassDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **map_property** | dict, schemas.immutabledict | [properties.MapProperty](#properties-mapproperty) |  | [optional]
@@ -27,6 +30,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## properties MapProperty MapPropertyDictInput
+## properties MapProperty MapPropertyDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional]
@@ -39,6 +45,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## properties MapOfMapProperty MapOfMapPropertyDictInput
+## properties MapOfMapProperty MapOfMapPropertyDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict | [AdditionalProperties2](#properties-mapofmapproperty-additionalproperties2) | any string name can be used but the value must be the correct type | [optional]
@@ -51,6 +60,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## properties MapOfMapProperty AdditionalProperties2 AdditionalPropertiesDictInput
+## properties MapOfMapProperty AdditionalProperties2 AdditionalPropertiesDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional]
@@ -77,6 +89,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## properties MapWithUndeclaredPropertiesAnytype3 MapWithUndeclaredPropertiesAnytype3DictInput
+## properties MapWithUndeclaredPropertiesAnytype3 MapWithUndeclaredPropertiesAnytype3Dict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
@@ -92,6 +107,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. |
 
 ## Dictionary Keys
+## properties EmptyMap EmptyMapDictInput
+## properties EmptyMap EmptyMapDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 
@@ -103,6 +121,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## properties MapWithUndeclaredPropertiesString MapWithUndeclaredPropertiesStringDictInput
+## properties MapWithUndeclaredPropertiesString MapWithUndeclaredPropertiesStringDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional]

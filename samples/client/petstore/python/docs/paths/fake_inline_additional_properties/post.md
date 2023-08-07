@@ -50,6 +50,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ##### Dictionary Keys
+##### RequestBody content ApplicationJson Schema SchemaDictInput
+##### RequestBody content ApplicationJson Schema SchemaDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional]

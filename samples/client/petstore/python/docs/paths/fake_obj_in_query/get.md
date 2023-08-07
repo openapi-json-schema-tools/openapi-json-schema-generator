@@ -53,6 +53,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ###### Dictionary Keys
+###### Parameter0 Schema SchemaDictInput
+###### Parameter0 Schema SchemaDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **keyword** | str | str |  | [optional]

@@ -7,6 +7,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## ArrayTestDictInput
+## ArrayTestDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **array_of_string** | list, tuple | [properties.ArrayOfString](#properties-arrayofstring) |  | [optional]

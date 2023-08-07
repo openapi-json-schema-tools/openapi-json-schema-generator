@@ -7,6 +7,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## MixedPropertiesAndAdditionalPropertiesClassDictInput
+## MixedPropertiesAndAdditionalPropertiesClassDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **uuid** | str, uuid.UUID | str |  | [optional] value must be a uuid
@@ -22,6 +25,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## properties Map MapDictInput
+## properties Map MapDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | [**Animal**](animal.md), dict, schemas.immutabledict | [**Animal**](animal.md) | any string name can be used but the value must be the correct type | [optional]

@@ -7,6 +7,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## JSONPatchRequestRemoveDictInput
+## JSONPatchRequestRemoveDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **op** | str | str | The operation to perform. | must be one of ["remove"]

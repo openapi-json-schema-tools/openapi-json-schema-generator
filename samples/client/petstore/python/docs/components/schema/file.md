@@ -10,6 +10,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict | Must be named &#x60;File&#x60; for test. |
 
 ## Dictionary Keys
+## FileDictInput
+## FileDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **sourceURI** | str | str | Test capitalization | [optional]

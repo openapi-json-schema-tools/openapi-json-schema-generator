@@ -10,6 +10,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict | model with an invalid class name for python |
 
 ## Dictionary Keys
+## SpecialModelNameDictInput
+## SpecialModelNameDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **a** | str | str |  | [optional]

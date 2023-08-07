@@ -7,6 +7,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## MapTestDictInput
+## MapTestDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **map_map_of_string** | dict, schemas.immutabledict | [properties.MapMapOfString](#properties-mapmapofstring) |  | [optional]
@@ -23,6 +26,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## properties MapMapOfString MapMapOfStringDictInput
+## properties MapMapOfString MapMapOfStringDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict | [AdditionalProperties](#properties-mapmapofstring-additionalproperties) | any string name can be used but the value must be the correct type | [optional]
@@ -35,6 +41,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## properties MapMapOfString AdditionalProperties AdditionalPropertiesDictInput
+## properties MapMapOfString AdditionalProperties AdditionalPropertiesDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional]
@@ -47,6 +56,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## properties MapOfEnumString MapOfEnumStringDictInput
+## properties MapOfEnumString MapOfEnumStringDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower"]
@@ -59,6 +71,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## properties DirectMap DirectMapDictInput
+## properties DirectMap DirectMapDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | bool | bool | any string name can be used but the value must be the correct type | [optional]

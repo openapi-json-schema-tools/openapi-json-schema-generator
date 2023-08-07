@@ -10,6 +10,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict | Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model. |
 
 ## Dictionary Keys
+## HealthCheckResultDictInput
+## HealthCheckResultDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **NullableMessage** | None, str | None, str |  | [optional]

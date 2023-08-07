@@ -63,6 +63,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ##### Dictionary Keys
+##### Default content ApplicationJson Schema SchemaDictInput
+##### Default content ApplicationJson Schema SchemaDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **string** | [**Foo**](../../components/schema/foo.md), dict, schemas.immutabledict | [**Foo**](../../components/schema/foo.md) |  | [optional]

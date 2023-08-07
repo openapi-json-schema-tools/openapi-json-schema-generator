@@ -21,6 +21,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## allof _1 _1DictInput
+## allof _1 _1Dict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **quadrilateralType** | str | str |  | [optional] must be one of ["SimpleQuadrilateral"]

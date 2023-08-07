@@ -10,6 +10,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict | model with properties that have invalid names for python |
 
 ## Dictionary Keys
+## ObjectWithDifficultlyNamedPropsDictInput
+## ObjectWithDifficultlyNamedPropsDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **123-list** | str | str |  |

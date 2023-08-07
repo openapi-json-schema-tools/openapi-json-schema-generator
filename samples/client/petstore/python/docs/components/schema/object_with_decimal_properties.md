@@ -7,6 +7,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## ObjectWithDecimalPropertiesDictInput
+## ObjectWithDecimalPropertiesDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **length** | [**DecimalPayload**](decimal_payload.md), str | [**DecimalPayload**](decimal_payload.md) |  | [optional]

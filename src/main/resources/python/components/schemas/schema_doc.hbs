@@ -25,6 +25,22 @@ Input Type | Accessed Type | Description | Notes
     {{#or properties additionalProperties requiredProperties}}
 
 {{headerSize}}# Dictionary Keys
+{{#eq identifierPieces.size 0}}
+    {{#if mapInputJsonPathPiece}}
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}
+    {{/if}}
+    {{#if mapOutputJsonPathPiece}}
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}
+    {{/if}}
+{{else}}
+    {{#if mapInputJsonPathPiece}}
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}
+    {{/if}}
+    {{#if mapOutputJsonPathPiece}}
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}
+    {{/if}}
+{{/eq}}
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
         {{#each requiredProperties}}

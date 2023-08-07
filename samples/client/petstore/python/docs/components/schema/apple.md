@@ -7,6 +7,9 @@ Input Type | Accessed Type | Description | Notes
 None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
 
 ## Dictionary Keys
+## AppleDictInput
+## AppleDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **cultivar** | str | str |  |

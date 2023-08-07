@@ -48,6 +48,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ##### Dictionary Keys
+##### RequestBody content MultipartFormData Schema SchemaDictInput
+##### RequestBody content MultipartFormData Schema SchemaDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **files** | list, tuple | [properties.Files](#requestbody-content-multipartformdata-schema-properties-files) |  | [optional]

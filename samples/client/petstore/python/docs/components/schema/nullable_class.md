@@ -7,6 +7,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## NullableClassDictInput
+## NullableClassDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **integer_prop** | None, int | None, int |  | [optional]
@@ -88,6 +91,9 @@ Input Type | Accessed Type | Description | Notes
 None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
 
 ## Dictionary Keys
+## properties ObjectNullableProp ObjectNullablePropDictInput
+## properties ObjectNullableProp ObjectNullablePropDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict | [AdditionalProperties](#properties-objectnullableprop-additionalproperties) | any string name can be used but the value must be the correct type | [optional]
@@ -107,6 +113,9 @@ Input Type | Accessed Type | Description | Notes
 None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
 
 ## Dictionary Keys
+## properties ObjectAndItemsNullableProp ObjectAndItemsNullablePropDictInput
+## properties ObjectAndItemsNullableProp ObjectAndItemsNullablePropDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | None, dict, schemas.immutabledict | [AdditionalProperties2](#properties-objectanditemsnullableprop-additionalproperties2) | any string name can be used but the value must be the correct type | [optional]
@@ -126,6 +135,9 @@ Input Type | Accessed Type | Description | Notes
 dict, schemas.immutabledict | schemas.immutabledict |  |
 
 ## Dictionary Keys
+## properties ObjectItemsNullable ObjectItemsNullableDictInput
+## properties ObjectItemsNullable ObjectItemsNullableDict
+
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | None, dict, schemas.immutabledict | [AdditionalProperties3](#properties-objectitemsnullable-additionalproperties3) | any string name can be used but the value must be the correct type | [optional]
