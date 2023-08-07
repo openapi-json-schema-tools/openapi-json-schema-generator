@@ -2,7 +2,7 @@ version: 2.1
 commands: # a reusable command with parameters
   command_build_and_test:
     parameters:
-      nodeId:
+      jobId:
         default: "0"
         type: string
     steps:
@@ -50,7 +50,7 @@ commands: # a reusable command with parameters
       - run: mvn --no-snapshot-updates --quiet clean install -Dorg.slf4j.simpleLogger.defaultLogLevel=error
       - run:
           name: "Setup custom environment variables"
-          command: echo 'export CIRCLE_NODE_ID="<<parameters.nodeId>>"' >> $BASH_ENV
+          command: echo 'export CIRCLE_JOB_ID="<<parameters.jobId>>"' >> $BASH_ENV
       - run: ./.circleci/parallel.sh
       # Save dependency cache
       - save_cache:
@@ -105,7 +105,7 @@ commands: # a reusable command with parameters
           path: /tmp/circleci-test-results
   command_docker_build_and_test:
     parameters:
-      nodeId:
+      jobId:
         default: "0"
         type: string
     steps:
@@ -125,7 +125,7 @@ commands: # a reusable command with parameters
       #      - run: mvn --no-snapshot-updates --quiet clean install -Dorg.slf4j.simpleLogger.defaultLogLevel=error
       - run:
           name: "Setup custom environment variables"
-          command: echo 'export CIRCLE_NODE_ID="<<parameters.nodeId>>"' >> $BASH_ENV
+          command: echo 'export CIRCLE_JOB_ID="<<parameters.jobId>>"' >> $BASH_ENV
       - run: ./.circleci/parallel.sh
       # Teardown
       #   If you break your build into multiple jobs with workflows, you will probably want to do the parts of this that are relevant in each
@@ -138,7 +138,7 @@ commands: # a reusable command with parameters
       - store_artifacts:
           path: /tmp/circleci-test-results
 jobs:
-  node0:
+  job0:
     machine:
       image: ubuntu-2004:202201-02
     working_directory: ~/OpenAPITools/openapi-json-schema-generator
@@ -148,8 +148,8 @@ jobs:
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     steps:
       - command_build_and_test:
-          nodeId: "0"
-  node1:
+          jobId: "0"
+  job1:
     machine:
       image: ubuntu-2004:202201-02
     working_directory: ~/OpenAPITools/openapi-json-schema-generator
@@ -159,8 +159,8 @@ jobs:
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     steps:
       - command_build_and_test:
-          nodeId: "1"
-  node2:
+          jobId: "1"
+  job2:
     machine:
       image: ubuntu-2004:202201-02
     working_directory: ~/OpenAPITools/openapi-json-schema-generator
@@ -170,8 +170,8 @@ jobs:
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     steps:
       - command_build_and_test:
-          nodeId: "2"
-  node3:
+          jobId: "2"
+  job3:
     docker:
       - image: python:3.8
     working_directory: ~/OpenAPITools/openapi-json-schema-generator
@@ -182,12 +182,12 @@ jobs:
     steps:
       - checkout
       - command_docker_build_and_test:
-          nodeId: "3"
+          jobId: "3"
 workflows:
   version: 2
   build:
     jobs:
-      - node0
-      - node1
-      - node2
-      - node3
+      - job0
+      - job1
+      - job2
+      - job3
