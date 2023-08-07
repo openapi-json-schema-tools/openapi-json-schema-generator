@@ -165,7 +165,7 @@ class TestAnyTypeSchema(unittest.TestCase):
         m = Model.validate('12.34')
         assert m == '12.34'
         assert isinstance(m, str)
-        assert schemas.as_decimal_(m) == Decimal('12.34')
+        assert schemas.as_decimal(m) == Decimal('12.34')
 
 
 if __name__ == '__main__':

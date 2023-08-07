@@ -26,12 +26,12 @@ class TestDecimalPayload(unittest.TestCase):
         m = DecimalPayload.validate('12')
         assert isinstance(m, str)
         assert m == '12'
-        assert schemas.as_decimal_(m) == decimal.Decimal('12')
+        assert schemas.as_decimal(m) == decimal.Decimal('12')
 
         m = DecimalPayload.validate('12.34')
         assert isinstance(m, str)
         assert m == '12.34'
-        assert schemas.as_decimal_(m) == decimal.Decimal('12.34')
+        assert schemas.as_decimal(m) == decimal.Decimal('12.34')
 
         # passing in a Decimal does not work
         with self.assertRaises(petstore_api.ApiTypeError):
