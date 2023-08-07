@@ -4,7 +4,7 @@ petstore_api.components.schema.drawing
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[DrawingDictInput](#drawingdictinput) | schemas.immutabledict |  |
+[DrawingDictInput](#drawingdictinput) | [DrawingDict](#drawingdict) |  |
 
 ## Dictionary Keys
 ## DrawingDictInput

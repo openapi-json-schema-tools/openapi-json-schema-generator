@@ -4,7 +4,7 @@ petstore_api.components.schema.map_test
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[MapTestDictInput](#maptestdictinput) | schemas.immutabledict |  |
+[MapTestDictInput](#maptestdictinput) | [MapTestDict](#maptestdict) |  |
 
 ## Dictionary Keys
 ## MapTestDictInput
@@ -23,7 +23,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[MapMapOfStringDictInput](#properties-mapmapofstring-mapmapofstringdictinput) | schemas.immutabledict |  |
+[MapMapOfStringDictInput](#properties-mapmapofstring-mapmapofstringdictinput) | [MapMapOfStringDict](#properties-mapmapofstring-mapmapofstringdict) |  |
 
 ## Dictionary Keys
 ## properties MapMapOfString MapMapOfStringDictInput
@@ -38,7 +38,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[AdditionalPropertiesDictInput](#properties-mapmapofstring-additionalproperties-additionalpropertiesdictinput) | schemas.immutabledict |  |
+[AdditionalPropertiesDictInput](#properties-mapmapofstring-additionalproperties-additionalpropertiesdictinput) | [AdditionalPropertiesDict](#properties-mapmapofstring-additionalproperties-additionalpropertiesdict) |  |
 
 ## Dictionary Keys
 ## properties MapMapOfString AdditionalProperties AdditionalPropertiesDictInput
@@ -53,7 +53,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[MapOfEnumStringDictInput](#properties-mapofenumstring-mapofenumstringdictinput) | schemas.immutabledict |  |
+[MapOfEnumStringDictInput](#properties-mapofenumstring-mapofenumstringdictinput) | [MapOfEnumStringDict](#properties-mapofenumstring-mapofenumstringdict) |  |
 
 ## Dictionary Keys
 ## properties MapOfEnumString MapOfEnumStringDictInput
@@ -68,7 +68,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[DirectMapDictInput](#properties-directmap-directmapdictinput) | schemas.immutabledict |  |
+[DirectMapDictInput](#properties-directmap-directmapdictinput) | [DirectMapDict](#properties-directmap-directmapdict) |  |
 
 ## Dictionary Keys
 ## properties DirectMap DirectMapDictInput

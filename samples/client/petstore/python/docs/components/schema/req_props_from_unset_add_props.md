@@ -4,7 +4,7 @@ petstore_api.components.schema.req_props_from_unset_add_props
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[ReqPropsFromUnsetAddPropsDictInput](#reqpropsfromunsetaddpropsdictinput) | schemas.immutabledict |  |
+[ReqPropsFromUnsetAddPropsDictInput](#reqpropsfromunsetaddpropsdictinput) | [ReqPropsFromUnsetAddPropsDict](#reqpropsfromunsetaddpropsdict) |  |
 
 ## Dictionary Keys
 ## ReqPropsFromUnsetAddPropsDictInput

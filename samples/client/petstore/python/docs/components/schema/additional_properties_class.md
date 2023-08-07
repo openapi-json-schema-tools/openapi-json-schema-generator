@@ -4,7 +4,7 @@ petstore_api.components.schema.additional_properties_class
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[AdditionalPropertiesClassDictInput](#additionalpropertiesclassdictinput) | schemas.immutabledict |  |
+[AdditionalPropertiesClassDictInput](#additionalpropertiesclassdictinput) | [AdditionalPropertiesClassDict](#additionalpropertiesclassdict) |  |
 
 ## Dictionary Keys
 ## AdditionalPropertiesClassDictInput
@@ -27,7 +27,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[MapPropertyDictInput](#properties-mapproperty-mappropertydictinput) | schemas.immutabledict |  |
+[MapPropertyDictInput](#properties-mapproperty-mappropertydictinput) | [MapPropertyDict](#properties-mapproperty-mappropertydict) |  |
 
 ## Dictionary Keys
 ## properties MapProperty MapPropertyDictInput
@@ -42,7 +42,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[MapOfMapPropertyDictInput](#properties-mapofmapproperty-mapofmappropertydictinput) | schemas.immutabledict |  |
+[MapOfMapPropertyDictInput](#properties-mapofmapproperty-mapofmappropertydictinput) | [MapOfMapPropertyDict](#properties-mapofmapproperty-mapofmappropertydict) |  |
 
 ## Dictionary Keys
 ## properties MapOfMapProperty MapOfMapPropertyDictInput
@@ -57,7 +57,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[AdditionalPropertiesDictInput](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdictinput) | schemas.immutabledict |  |
+[AdditionalPropertiesDictInput](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdictinput) | [AdditionalPropertiesDict](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdict) |  |
 
 ## Dictionary Keys
 ## properties MapOfMapProperty AdditionalProperties2 AdditionalPropertiesDictInput
@@ -86,7 +86,7 @@ dict, schemas.immutabledict | schemas.immutabledict |  |
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[MapWithUndeclaredPropertiesAnytype3DictInput](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dictinput) | schemas.immutabledict |  |
+[MapWithUndeclaredPropertiesAnytype3DictInput](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dictinput) | [MapWithUndeclaredPropertiesAnytype3Dict](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dict) |  |
 
 ## Dictionary Keys
 ## properties MapWithUndeclaredPropertiesAnytype3 MapWithUndeclaredPropertiesAnytype3DictInput
@@ -104,7 +104,7 @@ an object with no declared properties and no undeclared properties, hence it&#x2
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[EmptyMapDictInput](#properties-emptymap-emptymapdictinput) | schemas.immutabledict | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. |
+[EmptyMapDictInput](#properties-emptymap-emptymapdictinput) | [EmptyMapDict](#properties-emptymap-emptymapdict) | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. |
 
 ## Dictionary Keys
 ## properties EmptyMap EmptyMapDictInput
@@ -118,7 +118,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[MapWithUndeclaredPropertiesStringDictInput](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdictinput) | schemas.immutabledict |  |
+[MapWithUndeclaredPropertiesStringDictInput](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdictinput) | [MapWithUndeclaredPropertiesStringDict](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdict) |  |
 
 ## Dictionary Keys
 ## properties MapWithUndeclaredPropertiesString MapWithUndeclaredPropertiesStringDictInput

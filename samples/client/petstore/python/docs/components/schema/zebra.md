@@ -4,7 +4,7 @@ petstore_api.components.schema.zebra
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[ZebraDictInput](#zebradictinput) | schemas.immutabledict |  |
+[ZebraDictInput](#zebradictinput) | [ZebraDict](#zebradict) |  |
 
 ## Dictionary Keys
 ## ZebraDictInput

@@ -4,7 +4,7 @@ petstore_api.components.schema.mixed_properties_and_additional_properties_class
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[MixedPropertiesAndAdditionalPropertiesClassDictInput](#mixedpropertiesandadditionalpropertiesclassdictinput) | schemas.immutabledict |  |
+[MixedPropertiesAndAdditionalPropertiesClassDictInput](#mixedpropertiesandadditionalpropertiesclassdictinput) | [MixedPropertiesAndAdditionalPropertiesClassDict](#mixedpropertiesandadditionalpropertiesclassdict) |  |
 
 ## Dictionary Keys
 ## MixedPropertiesAndAdditionalPropertiesClassDictInput
@@ -22,7 +22,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[MapDictInput](#properties-map-mapdictinput) | schemas.immutabledict |  |
+[MapDictInput](#properties-map-mapdictinput) | [MapDict](#properties-map-mapdict) |  |
 
 ## Dictionary Keys
 ## properties Map MapDictInput

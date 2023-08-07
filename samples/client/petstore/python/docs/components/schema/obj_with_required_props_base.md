@@ -4,7 +4,7 @@ petstore_api.components.schema.obj_with_required_props_base
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[ObjWithRequiredPropsBaseDictInput](#objwithrequiredpropsbasedictinput) | schemas.immutabledict |  |
+[ObjWithRequiredPropsBaseDictInput](#objwithrequiredpropsbasedictinput) | [ObjWithRequiredPropsBaseDict](#objwithrequiredpropsbasedict) |  |
 
 ## Dictionary Keys
 ## ObjWithRequiredPropsBaseDictInput

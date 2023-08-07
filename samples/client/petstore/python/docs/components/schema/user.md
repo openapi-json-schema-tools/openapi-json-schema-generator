@@ -4,7 +4,7 @@ petstore_api.components.schema.user
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[UserDictInput](#userdictinput) | schemas.immutabledict |  |
+[UserDictInput](#userdictinput) | [UserDict](#userdict) |  |
 
 ## Dictionary Keys
 ## UserDictInput

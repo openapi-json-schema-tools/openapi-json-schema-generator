@@ -19,7 +19,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[_0DictInput](#allof-_0-_0dictinput) | schemas.immutabledict |  |
+[_0DictInput](#allof-_0-_0dictinput) | [_0Dict](#allof-_0-_0dict) |  |
 
 ## Dictionary Keys
 ## allof _0 _0DictInput
@@ -34,7 +34,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[_1DictInput](#allof-_1-_1dictinput) | schemas.immutabledict |  |
+[_1DictInput](#allof-_1-_1dictinput) | [_1Dict](#allof-_1-_1dict) |  |
 
 ## Dictionary Keys
 ## allof _1 _1DictInput
@@ -49,7 +49,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[_2DictInput](#allof-_2-_2dictinput) | schemas.immutabledict |  |
+[_2DictInput](#allof-_2-_2dictinput) | [_2Dict](#allof-_2-_2dict) |  |
 
 ## Dictionary Keys
 ## allof _2 _2DictInput

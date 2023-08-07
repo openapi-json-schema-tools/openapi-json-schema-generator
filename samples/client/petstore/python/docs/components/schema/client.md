@@ -4,7 +4,7 @@ petstore_api.components.schema.client
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[ClientDictInput](#clientdictinput) | schemas.immutabledict |  |
+[ClientDictInput](#clientdictinput) | [ClientDict](#clientdict) |  |
 
 ## Dictionary Keys
 ## ClientDictInput

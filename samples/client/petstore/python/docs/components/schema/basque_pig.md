@@ -4,7 +4,7 @@ petstore_api.components.schema.basque_pig
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[BasquePigDictInput](#basquepigdictinput) | schemas.immutabledict |  |
+[BasquePigDictInput](#basquepigdictinput) | [BasquePigDict](#basquepigdict) |  |
 
 ## Dictionary Keys
 ## BasquePigDictInput

@@ -4,7 +4,7 @@ petstore_api.components.schema.has_only_read_only
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[HasOnlyReadOnlyDictInput](#hasonlyreadonlydictinput) | schemas.immutabledict |  |
+[HasOnlyReadOnlyDictInput](#hasonlyreadonlydictinput) | [HasOnlyReadOnlyDict](#hasonlyreadonlydict) |  |
 
 ## Dictionary Keys
 ## HasOnlyReadOnlyDictInput

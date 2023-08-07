@@ -4,7 +4,7 @@ petstore_api.components.schema.additional_properties_with_array_of_enums
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[AdditionalPropertiesWithArrayOfEnumsDictInput](#additionalpropertieswitharrayofenumsdictinput) | schemas.immutabledict |  |
+[AdditionalPropertiesWithArrayOfEnumsDictInput](#additionalpropertieswitharrayofenumsdictinput) | [AdditionalPropertiesWithArrayOfEnumsDict](#additionalpropertieswitharrayofenumsdict) |  |
 
 ## Dictionary Keys
 ## AdditionalPropertiesWithArrayOfEnumsDictInput

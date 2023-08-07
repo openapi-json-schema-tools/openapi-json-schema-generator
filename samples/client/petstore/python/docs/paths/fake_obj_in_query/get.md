@@ -50,7 +50,7 @@ mapBean
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[SchemaDictInput](#parameter0-schema-schemadictinput) | schemas.immutabledict |  |
+[SchemaDictInput](#parameter0-schema-schemadictinput) | [SchemaDict](#parameter0-schema-schemadict) |  |
 
 ###### Dictionary Keys
 ###### Parameter0 Schema SchemaDictInput

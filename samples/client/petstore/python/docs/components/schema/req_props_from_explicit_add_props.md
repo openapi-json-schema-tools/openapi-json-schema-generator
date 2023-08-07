@@ -4,7 +4,7 @@ petstore_api.components.schema.req_props_from_explicit_add_props
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[ReqPropsFromExplicitAddPropsDictInput](#reqpropsfromexplicitaddpropsdictinput) | schemas.immutabledict |  |
+[ReqPropsFromExplicitAddPropsDictInput](#reqpropsfromexplicitaddpropsdictinput) | [ReqPropsFromExplicitAddPropsDict](#reqpropsfromexplicitaddpropsdict) |  |
 
 ## Dictionary Keys
 ## ReqPropsFromExplicitAddPropsDictInput

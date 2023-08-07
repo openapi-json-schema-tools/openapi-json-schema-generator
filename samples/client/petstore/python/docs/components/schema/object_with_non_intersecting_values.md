@@ -4,7 +4,7 @@ petstore_api.components.schema.object_with_non_intersecting_values
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[ObjectWithNonIntersectingValuesDictInput](#objectwithnonintersectingvaluesdictinput) | schemas.immutabledict |  |
+[ObjectWithNonIntersectingValuesDictInput](#objectwithnonintersectingvaluesdictinput) | [ObjectWithNonIntersectingValuesDict](#objectwithnonintersectingvaluesdict) |  |
 
 ## Dictionary Keys
 ## ObjectWithNonIntersectingValuesDictInput

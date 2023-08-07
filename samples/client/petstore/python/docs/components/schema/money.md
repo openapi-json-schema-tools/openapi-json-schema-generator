@@ -4,7 +4,7 @@ petstore_api.components.schema.money
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[MoneyDictInput](#moneydictinput) | schemas.immutabledict |  |
+[MoneyDictInput](#moneydictinput) | [MoneyDict](#moneydict) |  |
 
 ## Dictionary Keys
 ## MoneyDictInput

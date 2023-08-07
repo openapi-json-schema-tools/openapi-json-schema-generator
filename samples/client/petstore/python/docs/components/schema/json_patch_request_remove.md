@@ -4,7 +4,7 @@ petstore_api.components.schema.json_patch_request_remove
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[JSONPatchRequestRemoveDictInput](#jsonpatchrequestremovedictinput) | schemas.immutabledict |  |
+[JSONPatchRequestRemoveDictInput](#jsonpatchrequestremovedictinput) | [JSONPatchRequestRemoveDict](#jsonpatchrequestremovedict) |  |
 
 ## Dictionary Keys
 ## JSONPatchRequestRemoveDictInput

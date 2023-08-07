@@ -7,7 +7,7 @@ model with an invalid class name for python
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[SpecialModelNameDictInput](#specialmodelnamedictinput) | schemas.immutabledict | model with an invalid class name for python |
+[SpecialModelNameDictInput](#specialmodelnamedictinput) | [SpecialModelNameDict](#specialmodelnamedict) | model with an invalid class name for python |
 
 ## Dictionary Keys
 ## SpecialModelNameDictInput

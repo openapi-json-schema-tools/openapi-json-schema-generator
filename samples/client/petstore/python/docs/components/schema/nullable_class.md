@@ -4,7 +4,7 @@ petstore_api.components.schema.nullable_class
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[NullableClassDictInput](#nullableclassdictinput) | schemas.immutabledict |  |
+[NullableClassDictInput](#nullableclassdictinput) | [NullableClassDict](#nullableclassdict) |  |
 
 ## Dictionary Keys
 ## NullableClassDictInput
@@ -88,7 +88,7 @@ None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-None, [ObjectNullablePropDictInput](#properties-objectnullableprop-objectnullablepropdictinput) | None, schemas.immutabledict |  |
+None, [ObjectNullablePropDictInput](#properties-objectnullableprop-objectnullablepropdictinput) | None, [ObjectNullablePropDict](#properties-objectnullableprop-objectnullablepropdict) |  |
 
 ## Dictionary Keys
 ## properties ObjectNullableProp ObjectNullablePropDictInput
@@ -110,7 +110,7 @@ dict, schemas.immutabledict | schemas.immutabledict |  |
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-None, [ObjectAndItemsNullablePropDictInput](#properties-objectanditemsnullableprop-objectanditemsnullablepropdictinput) | None, schemas.immutabledict |  |
+None, [ObjectAndItemsNullablePropDictInput](#properties-objectanditemsnullableprop-objectanditemsnullablepropdictinput) | None, [ObjectAndItemsNullablePropDict](#properties-objectanditemsnullableprop-objectanditemsnullablepropdict) |  |
 
 ## Dictionary Keys
 ## properties ObjectAndItemsNullableProp ObjectAndItemsNullablePropDictInput
@@ -132,7 +132,7 @@ None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[ObjectItemsNullableDictInput](#properties-objectitemsnullable-objectitemsnullabledictinput) | schemas.immutabledict |  |
+[ObjectItemsNullableDictInput](#properties-objectitemsnullable-objectitemsnullabledictinput) | [ObjectItemsNullableDict](#properties-objectitemsnullable-objectitemsnullabledict) |  |
 
 ## Dictionary Keys
 ## properties ObjectItemsNullable ObjectItemsNullableDictInput

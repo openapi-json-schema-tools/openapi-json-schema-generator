@@ -47,7 +47,7 @@ Content-Type | Schema
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[SchemaDictInput](#requestbody-content-applicationjson-schema-schemadictinput) | schemas.immutabledict |  |
+[SchemaDictInput](#requestbody-content-applicationjson-schema-schemadictinput) | [SchemaDict](#requestbody-content-applicationjson-schema-schemadict) |  |
 
 ##### Dictionary Keys
 ##### RequestBody content ApplicationJson Schema SchemaDictInput

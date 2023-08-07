@@ -7,7 +7,7 @@ a model that includes properties which should stay primitive (String + Boolean) 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[ObjectModelWithRefPropsDictInput](#objectmodelwithrefpropsdictinput) | schemas.immutabledict | a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations |
+[ObjectModelWithRefPropsDictInput](#objectmodelwithrefpropsdictinput) | [ObjectModelWithRefPropsDict](#objectmodelwithrefpropsdict) | a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations |
 
 ## Dictionary Keys
 ## ObjectModelWithRefPropsDictInput

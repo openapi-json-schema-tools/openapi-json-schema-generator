@@ -4,7 +4,7 @@ petstore_api.components.schema.string_boolean_map
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[StringBooleanMapDictInput](#stringbooleanmapdictinput) | schemas.immutabledict |  |
+[StringBooleanMapDictInput](#stringbooleanmapdictinput) | [StringBooleanMapDict](#stringbooleanmapdict) |  |
 
 ## Dictionary Keys
 ## StringBooleanMapDictInput

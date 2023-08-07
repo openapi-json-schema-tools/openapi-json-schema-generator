@@ -4,7 +4,7 @@ petstore_api.components.schema.grandparent_animal
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[GrandparentAnimalDictInput](#grandparentanimaldictinput) | schemas.immutabledict |  |
+[GrandparentAnimalDictInput](#grandparentanimaldictinput) | [GrandparentAnimalDict](#grandparentanimaldict) |  |
 
 ## Dictionary Keys
 ## GrandparentAnimalDictInput

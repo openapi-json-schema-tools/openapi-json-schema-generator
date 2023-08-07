@@ -4,7 +4,7 @@ petstore_api.components.schema.no_additional_properties
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[NoAdditionalPropertiesDictInput](#noadditionalpropertiesdictinput) | schemas.immutabledict |  |
+[NoAdditionalPropertiesDictInput](#noadditionalpropertiesdictinput) | [NoAdditionalPropertiesDict](#noadditionalpropertiesdict) |  |
 
 ## Dictionary Keys
 ## NoAdditionalPropertiesDictInput

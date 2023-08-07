@@ -4,7 +4,7 @@ petstore_api.components.schema.tag
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[TagDictInput](#tagdictinput) | schemas.immutabledict |  |
+[TagDictInput](#tagdictinput) | [TagDict](#tagdict) |  |
 
 ## Dictionary Keys
 ## TagDictInput

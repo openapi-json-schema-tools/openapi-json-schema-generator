@@ -7,7 +7,7 @@ Just a string to inform instance is up and running. Make it nullable in hope to 
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[HealthCheckResultDictInput](#healthcheckresultdictinput) | schemas.immutabledict | Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model. |
+[HealthCheckResultDictInput](#healthcheckresultdictinput) | [HealthCheckResultDict](#healthcheckresultdict) | Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model. |
 
 ## Dictionary Keys
 ## HealthCheckResultDictInput

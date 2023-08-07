@@ -4,7 +4,7 @@ petstore_api.components.schema.file_schema_test_class
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[FileSchemaTestClassDictInput](#fileschematestclassdictinput) | schemas.immutabledict |  |
+[FileSchemaTestClassDictInput](#fileschematestclassdictinput) | [FileSchemaTestClassDict](#fileschematestclassdict) |  |
 
 ## Dictionary Keys
 ## FileSchemaTestClassDictInput

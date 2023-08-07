@@ -4,7 +4,7 @@ petstore_api.components.schema.enum_arrays
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[EnumArraysDictInput](#enumarraysdictinput) | schemas.immutabledict |  |
+[EnumArraysDictInput](#enumarraysdictinput) | [EnumArraysDict](#enumarraysdict) |  |
 
 ## Dictionary Keys
 ## EnumArraysDictInput

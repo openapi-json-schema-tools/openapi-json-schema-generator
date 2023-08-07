@@ -60,7 +60,7 @@ Content-Type | Schema
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[SchemaDictInput](#default-content-applicationjson-schema-schemadictinput) | schemas.immutabledict |  |
+[SchemaDictInput](#default-content-applicationjson-schema-schemadictinput) | [SchemaDict](#default-content-applicationjson-schema-schemadict) |  |
 
 ##### Dictionary Keys
 ##### Default content ApplicationJson Schema SchemaDictInput

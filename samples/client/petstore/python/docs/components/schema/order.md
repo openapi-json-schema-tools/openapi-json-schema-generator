@@ -4,7 +4,7 @@ petstore_api.components.schema.order
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[OrderDictInput](#orderdictinput) | schemas.immutabledict |  |
+[OrderDictInput](#orderdictinput) | [OrderDict](#orderdict) |  |
 
 ## Dictionary Keys
 ## OrderDictInput

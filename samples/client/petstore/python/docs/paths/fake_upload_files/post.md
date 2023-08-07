@@ -45,7 +45,7 @@ Content-Type | Schema
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput) | schemas.immutabledict |  |
+[SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) |  |
 
 ##### Dictionary Keys
 ##### RequestBody content MultipartFormData Schema SchemaDictInput

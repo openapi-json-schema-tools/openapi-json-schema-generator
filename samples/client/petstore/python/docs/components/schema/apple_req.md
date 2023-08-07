@@ -4,7 +4,7 @@ petstore_api.components.schema.apple_req
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[AppleReqDictInput](#applereqdictinput) | schemas.immutabledict |  |
+[AppleReqDictInput](#applereqdictinput) | [AppleReqDict](#applereqdict) |  |
 
 ## Dictionary Keys
 ## AppleReqDictInput

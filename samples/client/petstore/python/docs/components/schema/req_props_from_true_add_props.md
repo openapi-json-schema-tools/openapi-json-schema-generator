@@ -4,7 +4,7 @@ petstore_api.components.schema.req_props_from_true_add_props
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[ReqPropsFromTrueAddPropsDictInput](#reqpropsfromtrueaddpropsdictinput) | schemas.immutabledict |  |
+[ReqPropsFromTrueAddPropsDictInput](#reqpropsfromtrueaddpropsdictinput) | [ReqPropsFromTrueAddPropsDict](#reqpropsfromtrueaddpropsdict) |  |
 
 ## Dictionary Keys
 ## ReqPropsFromTrueAddPropsDictInput

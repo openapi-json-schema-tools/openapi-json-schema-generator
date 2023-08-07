@@ -48,7 +48,7 @@ Content-Type | Schema
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput) | schemas.immutabledict |  |
+[SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput) | [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) |  |
 
 ##### Dictionary Keys
 ##### RequestBody content ApplicationXWwwFormUrlencoded Schema SchemaDictInput

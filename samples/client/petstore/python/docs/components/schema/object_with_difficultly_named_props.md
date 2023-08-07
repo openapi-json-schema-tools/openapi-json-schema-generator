@@ -7,7 +7,7 @@ model with properties that have invalid names for python
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[ObjectWithDifficultlyNamedPropsDictInput](#objectwithdifficultlynamedpropsdictinput) | schemas.immutabledict | model with properties that have invalid names for python |
+[ObjectWithDifficultlyNamedPropsDictInput](#objectwithdifficultlynamedpropsdictinput) | [ObjectWithDifficultlyNamedPropsDict](#objectwithdifficultlynamedpropsdict) | model with properties that have invalid names for python |
 
 ## Dictionary Keys
 ## ObjectWithDifficultlyNamedPropsDictInput
