@@ -18,7 +18,7 @@ function cleanup {
 
 trap cleanup EXIT
 
-if [ "$JOB_ID" = "1" ]; then
+if [ "$JOB_ID" = "ensureSamplesAndGeneratorDocsUpToDate" ]; then
   # node1
   # ensures samples + docs up to date
   echo "Running job $JOB_ID"

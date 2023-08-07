@@ -149,7 +149,7 @@ jobs:
     steps:
       - command_build_and_test:
           jobId: "0"
-  job1:
+  ensureSamplesAndGeneratorDocsUpToDate:
     machine:
       image: ubuntu-2004:202201-02
     working_directory: ~/OpenAPITools/openapi-json-schema-generator
@@ -159,7 +159,7 @@ jobs:
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     steps:
       - command_build_and_test:
-          jobId: "1"
+          jobId: "ensureSamplesAndGeneratorDocsUpToDate"
   job2:
     machine:
       image: ubuntu-2004:202201-02
@@ -188,6 +188,6 @@ workflows:
   build:
     jobs:
       - job0
-      - job1
+      - ensureSamplesAndGeneratorDocsUpToDate
       - job2
       - testPythonClientSamples
