@@ -2,7 +2,7 @@ version: 2.1
 commands: # a reusable command with parameters
   command_build_and_test:
     parameters:
-      nodeNo:
+      nodeId:
         default: "0"
         type: string
     steps:
@@ -50,7 +50,7 @@ commands: # a reusable command with parameters
       - run: mvn --no-snapshot-updates --quiet clean install -Dorg.slf4j.simpleLogger.defaultLogLevel=error
       - run:
           name: "Setup custom environment variables"
-          command: echo 'export CIRCLE_NODE_INDEX="<<parameters.nodeNo>>"' >> $BASH_ENV
+          command: echo 'export CIRCLE_NODE_ID="<<parameters.nodeId>>"' >> $BASH_ENV
       - run: ./.circleci/parallel.sh
       # Save dependency cache
       - save_cache:
@@ -105,7 +105,7 @@ commands: # a reusable command with parameters
           path: /tmp/circleci-test-results
   command_docker_build_and_test:
     parameters:
-      nodeNo:
+      nodeId:
         default: "0"
         type: string
     steps:
@@ -125,7 +125,7 @@ commands: # a reusable command with parameters
       #      - run: mvn --no-snapshot-updates --quiet clean install -Dorg.slf4j.simpleLogger.defaultLogLevel=error
       - run:
           name: "Setup custom environment variables"
-          command: echo 'export CIRCLE_NODE_INDEX="<<parameters.nodeNo>>"' >> $BASH_ENV
+          command: echo 'export CIRCLE_NODE_ID="<<parameters.nodeId>>"' >> $BASH_ENV
       - run: ./.circleci/parallel.sh
       # Teardown
       #   If you break your build into multiple jobs with workflows, you will probably want to do the parts of this that are relevant in each
@@ -148,7 +148,7 @@ jobs:
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     steps:
       - command_build_and_test:
-          nodeNo: "0"
+          nodeId: "0"
   node1:
     machine:
       image: ubuntu-2004:202201-02
@@ -159,7 +159,7 @@ jobs:
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     steps:
       - command_build_and_test:
-          nodeNo: "1"
+          nodeId: "1"
   node2:
     machine:
       image: ubuntu-2004:202201-02
@@ -170,7 +170,7 @@ jobs:
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     steps:
       - command_build_and_test:
-          nodeNo: "2"
+          nodeId: "2"
   node3:
     machine:
       image: ubuntu-2004:202201-02
@@ -182,7 +182,7 @@ jobs:
     steps:
       - checkout
       - command_build_and_test:
-          nodeNo: "3"
+          nodeId: "3"
   node4:
     docker:
       - image: python:3.8
@@ -194,7 +194,7 @@ jobs:
     steps:
       - checkout
       - command_docker_build_and_test:
-          nodeNo: "4"
+          nodeId: "4"
 workflows:
   version: 2
   build:

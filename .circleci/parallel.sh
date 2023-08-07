@@ -3,7 +3,7 @@
 # A bash script to run CircleCI node/test in parallel
 #
 
-NODE_INDEX=${CIRCLE_NODE_INDEX:-0}
+NODE_ID=${CIRCLE_NODE_ID:-0}
 
 set -e
 
@@ -11,28 +11,28 @@ export NODE_ENV=test
 
 function cleanup {
   # Show logs of 'petstore.swagger' container to troubleshoot Unit Test failures, if any.
-  if [ "$NODE_INDEX" != "4" ]; then
+  if [ "$NODE_ID" != "4" ]; then
     docker logs petstore.swagger # container name specified in circle.yml
   fi
 }
 
 trap cleanup EXIT
 
-if [ "$NODE_INDEX" = "1" ]; then
+if [ "$NODE_ID" = "1" ]; then
   # node1
   # ensures samples + docs up to date
-  echo "Running node $NODE_INDEX"
+  echo "Running node $NODE_ID"
 
   ./bin/utils/ensure-up-to-date
 
-elif [ "$NODE_INDEX" = "2" ]; then
+elif [ "$NODE_ID" = "2" ]; then
   # node2
-  echo "Running node $NODE_INDEX"
+  echo "Running node $NODE_ID"
 
-elif [ "$NODE_INDEX" = "3" ]; then
+elif [ "$NODE_ID" = "3" ]; then
   # node3
 
-  echo "Running node $NODE_INDEX to test 'samples.circleci.node3' defined in pom.xml ..."
+  echo "Running node $NODE_ID to test 'samples.circleci.node3' defined in pom.xml ..."
   #wget https://www.python.org/ftp/python/3.8.9/Python-3.8.9.tgz
   #tar -xf Python-3.8.9.tgz
   #cd Python-3.8.9
@@ -61,10 +61,10 @@ elif [ "$NODE_INDEX" = "3" ]; then
   # no longer testing python-prior
   #mvn --no-snapshot-updates --quiet verify -Psamples.circleci.node3 -Dorg.slf4j.simpleLogger.defaultLogLevel=error
 
-elif [ "$NODE_INDEX" = "4" ]; then
+elif [ "$NODE_ID" = "4" ]; then
   # node4
 
-  echo "Running node $NODE_INDEX to test 'samples.circleci.node4' defined in pom.xml ..."
+  echo "Running node $NODE_ID to test 'samples.circleci.node4' defined in pom.xml ..."
 
   #mvn --no-snapshot-updates --quiet verify -Psamples.circleci.node4 -Dorg.slf4j.simpleLogger.defaultLogLevel=error
   (cd samples/client/petstore/python && make test)
@@ -73,7 +73,7 @@ elif [ "$NODE_INDEX" = "4" ]; then
   (cd samples/client/openapi_features/security/python && make test)
 
 else
-  echo "Running node $NODE_INDEX"
+  echo "Running node $NODE_ID"
 
 fi
 
