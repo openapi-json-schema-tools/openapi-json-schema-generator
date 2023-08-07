@@ -9,15 +9,6 @@ set -e
 
 export NODE_ENV=test
 
-function cleanup {
-  # Show logs of 'petstore.swagger' container to troubleshoot Unit Test failures, if any.
-  if [ "$JOB_ID" != "testPythonClientSamples" ]; then
-    docker logs petstore.swagger # container name specified in circle.yml
-  fi
-}
-
-trap cleanup EXIT
-
 if [ "$JOB_ID" = "ensureSamplesAndGeneratorDocsUpToDate" ]; then
   echo "Running job $JOB_ID"
   ./bin/utils/ensure-up-to-date
