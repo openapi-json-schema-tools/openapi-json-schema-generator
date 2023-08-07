@@ -6,10 +6,13 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [BananaReqDictInput](#bananareqdictinput) | [BananaReqDict](#bananareqdict) |  |
 
-## Dictionary Keys
 ## BananaReqDictInput
-## BananaReqDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**lengthCm** | float, int |  |
+**sweet** | bool |  | [optional]
 
+## BananaReqDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **lengthCm** | float, int | float, int |  |

@@ -9,10 +9,13 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [HealthCheckResultDictInput](#healthcheckresultdictinput) | [HealthCheckResultDict](#healthcheckresultdict) | Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model. |
 
-## Dictionary Keys
 ## HealthCheckResultDictInput
-## HealthCheckResultDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**NullableMessage** | None, str |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## HealthCheckResultDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **NullableMessage** | None, str | None, str |  | [optional]

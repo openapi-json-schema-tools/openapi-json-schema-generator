@@ -6,10 +6,14 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [CategoryDictInput](#categorydictinput) | [CategoryDict](#categorydict) |  |
 
-## Dictionary Keys
 ## CategoryDictInput
-## CategoryDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | str |  | if omitted the server will use the default value of default-name
+**id** | int |  | [optional] value must be a 64 bit integer
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## CategoryDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **name** | str | str |  | if omitted the server will use the default value of default-name

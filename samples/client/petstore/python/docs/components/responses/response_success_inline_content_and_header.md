@@ -29,10 +29,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [SchemaDictInput](#content-applicationjson-schema-schemadictinput) | [SchemaDict](#content-applicationjson-schema-schemadict) |  |
 
-#### Dictionary Keys
 #### content ApplicationJson Schema SchemaDictInput
-#### content ApplicationJson Schema SchemaDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**any_string_name** | int | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
 
+#### content ApplicationJson Schema SchemaDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | int | int | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer

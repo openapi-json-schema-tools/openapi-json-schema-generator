@@ -6,10 +6,13 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [BasquePigDictInput](#basquepigdictinput) | [BasquePigDict](#basquepigdict) |  |
 
-## Dictionary Keys
 ## BasquePigDictInput
-## BasquePigDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**className** | str |  | must be one of ["BasquePig"]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## BasquePigDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **className** | str | str |  | must be one of ["BasquePig"]

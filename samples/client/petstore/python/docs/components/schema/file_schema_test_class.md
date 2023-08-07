@@ -6,10 +6,14 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [FileSchemaTestClassDictInput](#fileschematestclassdictinput) | [FileSchemaTestClassDict](#fileschematestclassdict) |  |
 
-## Dictionary Keys
 ## FileSchemaTestClassDictInput
-## FileSchemaTestClassDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**file** | [**File**](file.md), dict, schemas.immutabledict |  | [optional]
+**files** | list, tuple |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## FileSchemaTestClassDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **file** | [**File**](file.md), dict, schemas.immutabledict | [**File**](file.md) |  | [optional]

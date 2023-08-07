@@ -6,10 +6,16 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [MapTestDictInput](#maptestdictinput) | [MapTestDict](#maptestdict) |  |
 
-## Dictionary Keys
 ## MapTestDictInput
-## MapTestDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**map_map_of_string** | dict, schemas.immutabledict |  | [optional]
+**map_of_enum_string** | dict, schemas.immutabledict |  | [optional]
+**direct_map** | dict, schemas.immutabledict |  | [optional]
+**indirect_map** | [**StringBooleanMap**](string_boolean_map.md), dict, schemas.immutabledict |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## MapTestDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **map_map_of_string** | dict, schemas.immutabledict | [properties.MapMapOfString](#properties-mapmapofstring) |  | [optional]
@@ -25,10 +31,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [MapMapOfStringDictInput](#properties-mapmapofstring-mapmapofstringdictinput) | [MapMapOfStringDict](#properties-mapmapofstring-mapmapofstringdict) |  |
 
-## Dictionary Keys
 ## properties MapMapOfString MapMapOfStringDictInput
-## properties MapMapOfString MapMapOfStringDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**any_string_name** | dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
+## properties MapMapOfString MapMapOfStringDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict | [AdditionalProperties](#properties-mapmapofstring-additionalproperties) | any string name can be used but the value must be the correct type | [optional]
@@ -40,10 +48,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [AdditionalPropertiesDictInput](#properties-mapmapofstring-additionalproperties-additionalpropertiesdictinput) | [AdditionalPropertiesDict](#properties-mapmapofstring-additionalproperties-additionalpropertiesdict) |  |
 
-## Dictionary Keys
 ## properties MapMapOfString AdditionalProperties AdditionalPropertiesDictInput
-## properties MapMapOfString AdditionalProperties AdditionalPropertiesDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
+## properties MapMapOfString AdditionalProperties AdditionalPropertiesDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional]
@@ -55,10 +65,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [MapOfEnumStringDictInput](#properties-mapofenumstring-mapofenumstringdictinput) | [MapOfEnumStringDict](#properties-mapofenumstring-mapofenumstringdict) |  |
 
-## Dictionary Keys
 ## properties MapOfEnumString MapOfEnumStringDictInput
-## properties MapOfEnumString MapOfEnumStringDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**any_string_name** | str | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower"]
 
+## properties MapOfEnumString MapOfEnumStringDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower"]
@@ -70,10 +82,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [DirectMapDictInput](#properties-directmap-directmapdictinput) | [DirectMapDict](#properties-directmap-directmapdict) |  |
 
-## Dictionary Keys
 ## properties DirectMap DirectMapDictInput
-## properties DirectMap DirectMapDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**any_string_name** | bool | any string name can be used but the value must be the correct type | [optional]
 
+## properties DirectMap DirectMapDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | bool | bool | any string name can be used but the value must be the correct type | [optional]

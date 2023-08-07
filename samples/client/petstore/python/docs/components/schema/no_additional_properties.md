@@ -6,10 +6,13 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [NoAdditionalPropertiesDictInput](#noadditionalpropertiesdictinput) | [NoAdditionalPropertiesDict](#noadditionalpropertiesdict) |  |
 
-## Dictionary Keys
 ## NoAdditionalPropertiesDictInput
-## NoAdditionalPropertiesDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | int |  | value must be a 64 bit integer
+**petId** | int |  | [optional] value must be a 64 bit integer
 
+## NoAdditionalPropertiesDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **id** | int | int |  | value must be a 64 bit integer

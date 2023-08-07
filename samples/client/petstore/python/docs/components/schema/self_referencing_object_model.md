@@ -6,10 +6,13 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [SelfReferencingObjectModelDictInput](#selfreferencingobjectmodeldictinput) | [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) |  |
 
-## Dictionary Keys
 ## SelfReferencingObjectModelDictInput
-## SelfReferencingObjectModelDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**selfRef** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict |  | [optional]
+**any_string_name** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
+## SelfReferencingObjectModelDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **selfRef** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict | [**SelfReferencingObjectModel**](#top) |  | [optional]

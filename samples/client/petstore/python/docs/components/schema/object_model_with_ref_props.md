@@ -9,10 +9,15 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [ObjectModelWithRefPropsDictInput](#objectmodelwithrefpropsdictinput) | [ObjectModelWithRefPropsDict](#objectmodelwithrefpropsdict) | a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations |
 
-## Dictionary Keys
 ## ObjectModelWithRefPropsDictInput
-## ObjectModelWithRefPropsDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**myNumber** | [**NumberWithValidations**](number_with_validations.md), float, int |  | [optional]
+**myString** | [**String**](string.md), str |  | [optional]
+**myBoolean** | [**Boolean**](boolean.md), bool |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## ObjectModelWithRefPropsDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **myNumber** | [**NumberWithValidations**](number_with_validations.md), float, int | [**NumberWithValidations**](number_with_validations.md) |  | [optional]

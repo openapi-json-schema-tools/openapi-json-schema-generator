@@ -47,10 +47,13 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) |  |
 
-##### Dictionary Keys
 ##### RequestBody content MultipartFormData Schema SchemaDictInput
-##### RequestBody content MultipartFormData Schema SchemaDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**files** | list, tuple |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+##### RequestBody content MultipartFormData Schema SchemaDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **files** | list, tuple | [properties.Files](#requestbody-content-multipartformdata-schema-properties-files) |  | [optional]

@@ -6,10 +6,13 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [ObjectWithOnlyOptionalPropsDictInput](#objectwithonlyoptionalpropsdictinput) | [ObjectWithOnlyOptionalPropsDict](#objectwithonlyoptionalpropsdict) |  |
 
-## Dictionary Keys
 ## ObjectWithOnlyOptionalPropsDictInput
-## ObjectWithOnlyOptionalPropsDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**a** | str |  | [optional]
+**b** | float, int |  | [optional]
 
+## ObjectWithOnlyOptionalPropsDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **a** | str | str |  | [optional]

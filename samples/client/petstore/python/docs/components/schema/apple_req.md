@@ -6,10 +6,13 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [AppleReqDictInput](#applereqdictinput) | [AppleReqDict](#applereqdict) |  |
 
-## Dictionary Keys
 ## AppleReqDictInput
-## AppleReqDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**cultivar** | str |  |
+**mealy** | bool |  | [optional]
 
+## AppleReqDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **cultivar** | str | str |  |

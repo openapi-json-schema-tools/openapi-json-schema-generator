@@ -6,10 +6,20 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [AdditionalPropertiesClassDictInput](#additionalpropertiesclassdictinput) | [AdditionalPropertiesClassDict](#additionalpropertiesclassdict) |  |
 
-## Dictionary Keys
 ## AdditionalPropertiesClassDictInput
-## AdditionalPropertiesClassDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**map_property** | dict, schemas.immutabledict |  | [optional]
+**map_of_map_property** | dict, schemas.immutabledict |  | [optional]
+**anytype_1** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  | [optional]
+**map_with_undeclared_properties_anytype_1** | dict, schemas.immutabledict |  | [optional]
+**map_with_undeclared_properties_anytype_2** | dict, schemas.immutabledict |  | [optional]
+**map_with_undeclared_properties_anytype_3** | dict, schemas.immutabledict |  | [optional]
+**empty_map** | dict, schemas.immutabledict | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional]
+**map_with_undeclared_properties_string** | dict, schemas.immutabledict |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## AdditionalPropertiesClassDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **map_property** | dict, schemas.immutabledict | [properties.MapProperty](#properties-mapproperty) |  | [optional]
@@ -29,10 +39,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [MapPropertyDictInput](#properties-mapproperty-mappropertydictinput) | [MapPropertyDict](#properties-mapproperty-mappropertydict) |  |
 
-## Dictionary Keys
 ## properties MapProperty MapPropertyDictInput
-## properties MapProperty MapPropertyDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
+## properties MapProperty MapPropertyDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional]
@@ -44,10 +56,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [MapOfMapPropertyDictInput](#properties-mapofmapproperty-mapofmappropertydictinput) | [MapOfMapPropertyDict](#properties-mapofmapproperty-mapofmappropertydict) |  |
 
-## Dictionary Keys
 ## properties MapOfMapProperty MapOfMapPropertyDictInput
-## properties MapOfMapProperty MapOfMapPropertyDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**any_string_name** | dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
+## properties MapOfMapProperty MapOfMapPropertyDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict | [AdditionalProperties2](#properties-mapofmapproperty-additionalproperties2) | any string name can be used but the value must be the correct type | [optional]
@@ -59,10 +73,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [AdditionalPropertiesDictInput](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdictinput) | [AdditionalPropertiesDict](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdict) |  |
 
-## Dictionary Keys
 ## properties MapOfMapProperty AdditionalProperties2 AdditionalPropertiesDictInput
-## properties MapOfMapProperty AdditionalProperties2 AdditionalPropertiesDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
+## properties MapOfMapProperty AdditionalProperties2 AdditionalPropertiesDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional]
@@ -88,10 +104,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [MapWithUndeclaredPropertiesAnytype3DictInput](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dictinput) | [MapWithUndeclaredPropertiesAnytype3Dict](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dict) |  |
 
-## Dictionary Keys
 ## properties MapWithUndeclaredPropertiesAnytype3 MapWithUndeclaredPropertiesAnytype3DictInput
-## properties MapWithUndeclaredPropertiesAnytype3 MapWithUndeclaredPropertiesAnytype3Dict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**any_string_name** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
+## properties MapWithUndeclaredPropertiesAnytype3 MapWithUndeclaredPropertiesAnytype3Dict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
@@ -106,10 +124,11 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [EmptyMapDictInput](#properties-emptymap-emptymapdictinput) | [EmptyMapDict](#properties-emptymap-emptymapdict) | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. |
 
-## Dictionary Keys
 ## properties EmptyMap EmptyMapDictInput
-## properties EmptyMap EmptyMapDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
 
+## properties EmptyMap EmptyMapDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 
@@ -120,10 +139,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [MapWithUndeclaredPropertiesStringDictInput](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdictinput) | [MapWithUndeclaredPropertiesStringDict](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdict) |  |
 
-## Dictionary Keys
 ## properties MapWithUndeclaredPropertiesString MapWithUndeclaredPropertiesStringDictInput
-## properties MapWithUndeclaredPropertiesString MapWithUndeclaredPropertiesStringDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
+## properties MapWithUndeclaredPropertiesString MapWithUndeclaredPropertiesStringDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional]

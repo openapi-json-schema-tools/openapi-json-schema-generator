@@ -6,10 +6,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [StringBooleanMapDictInput](#stringbooleanmapdictinput) | [StringBooleanMapDict](#stringbooleanmapdict) |  |
 
-## Dictionary Keys
 ## StringBooleanMapDictInput
-## StringBooleanMapDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**any_string_name** | bool | any string name can be used but the value must be the correct type | [optional]
 
+## StringBooleanMapDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | bool | bool | any string name can be used but the value must be the correct type | [optional]

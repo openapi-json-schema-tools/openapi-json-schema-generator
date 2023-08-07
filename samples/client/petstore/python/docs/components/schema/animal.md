@@ -6,10 +6,14 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [AnimalDictInput](#animaldictinput) | [AnimalDict](#animaldict) |  |
 
-## Dictionary Keys
 ## AnimalDictInput
-## AnimalDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**className** | str |  |
+**color** | str |  | [optional] if omitted the server will use the default value of red
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## AnimalDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **className** | str | str |  |

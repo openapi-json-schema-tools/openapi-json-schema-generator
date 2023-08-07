@@ -52,10 +52,13 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [SchemaDictInput](#parameter0-schema-schemadictinput) | [SchemaDict](#parameter0-schema-schemadict) |  |
 
-###### Dictionary Keys
 ###### Parameter0 Schema SchemaDictInput
-###### Parameter0 Schema SchemaDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**keyword** | str |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+###### Parameter0 Schema SchemaDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **keyword** | str | str |  | [optional]

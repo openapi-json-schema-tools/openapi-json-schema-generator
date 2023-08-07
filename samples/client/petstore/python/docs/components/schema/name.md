@@ -9,10 +9,15 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | Model for testing model name same as property name |
 
-## Dictionary Keys
 ## NameDictInput
-## NameDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | int |  | value must be a 32 bit integer
+**snake_case** | int |  | [optional] value must be a 32 bit integer
+**property** | str | this is a reserved python keyword | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## NameDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **name** | int | int |  | value must be a 32 bit integer

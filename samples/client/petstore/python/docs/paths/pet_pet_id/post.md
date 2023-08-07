@@ -49,10 +49,14 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput) | [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) |  |
 
-##### Dictionary Keys
 ##### RequestBody content ApplicationXWwwFormUrlencoded Schema SchemaDictInput
-##### RequestBody content ApplicationXWwwFormUrlencoded Schema SchemaDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | str | Updated name of the pet | [optional]
+**status** | str | Updated status of the pet | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+##### RequestBody content ApplicationXWwwFormUrlencoded Schema SchemaDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **name** | str | str | Updated name of the pet | [optional]

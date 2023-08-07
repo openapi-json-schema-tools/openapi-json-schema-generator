@@ -9,10 +9,14 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [ObjectWithCollidingPropertiesDictInput](#objectwithcollidingpropertiesdictinput) | [ObjectWithCollidingPropertiesDict](#objectwithcollidingpropertiesdict) | component with properties that have name collisions |
 
-## Dictionary Keys
 ## ObjectWithCollidingPropertiesDictInput
-## ObjectWithCollidingPropertiesDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**someProp** | dict, schemas.immutabledict |  | [optional]
+**someprop** | dict, schemas.immutabledict |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## ObjectWithCollidingPropertiesDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **someProp** | dict, schemas.immutabledict | [properties.SomeProp](#properties-someprop) |  | [optional]

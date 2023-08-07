@@ -6,10 +6,15 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [WhaleDictInput](#whaledictinput) | [WhaleDict](#whaledict) |  |
 
-## Dictionary Keys
 ## WhaleDictInput
-## WhaleDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**className** | str |  | must be one of ["whale"]
+**hasBaleen** | bool |  | [optional]
+**hasTeeth** | bool |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## WhaleDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **className** | str | str |  | must be one of ["whale"]

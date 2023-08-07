@@ -6,10 +6,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [AdditionalPropertiesWithArrayOfEnumsDictInput](#additionalpropertieswitharrayofenumsdictinput) | [AdditionalPropertiesWithArrayOfEnumsDict](#additionalpropertieswitharrayofenumsdict) |  |
 
-## Dictionary Keys
 ## AdditionalPropertiesWithArrayOfEnumsDictInput
-## AdditionalPropertiesWithArrayOfEnumsDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**any_string_name** | list, tuple | any string name can be used but the value must be the correct type | [optional]
 
+## AdditionalPropertiesWithArrayOfEnumsDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | list, tuple | [AdditionalProperties](#additionalproperties) | any string name can be used but the value must be the correct type | [optional]

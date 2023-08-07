@@ -6,10 +6,14 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [TagDictInput](#tagdictinput) | [TagDict](#tagdict) |  |
 
-## Dictionary Keys
 ## TagDictInput
-## TagDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | int |  | [optional] value must be a 64 bit integer
+**name** | str |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## TagDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **id** | int | int |  | [optional] value must be a 64 bit integer

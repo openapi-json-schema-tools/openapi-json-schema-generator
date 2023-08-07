@@ -6,10 +6,14 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [FromSchemaDictInput](#fromschemadictinput) | [FromSchemaDict](#fromschemadict) |  |
 
-## Dictionary Keys
 ## FromSchemaDictInput
-## FromSchemaDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**data** | str |  | [optional]
+**id** | int |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## FromSchemaDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **data** | str | str |  | [optional]

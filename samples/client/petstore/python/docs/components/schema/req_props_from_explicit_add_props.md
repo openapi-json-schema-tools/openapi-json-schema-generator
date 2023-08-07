@@ -6,10 +6,14 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [ReqPropsFromExplicitAddPropsDictInput](#reqpropsfromexplicitaddpropsdictinput) | [ReqPropsFromExplicitAddPropsDict](#reqpropsfromexplicitaddpropsdict) |  |
 
-## Dictionary Keys
 ## ReqPropsFromExplicitAddPropsDictInput
-## ReqPropsFromExplicitAddPropsDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**invalid-name** | str |  |
+**validName** | str |  |
+**any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
+## ReqPropsFromExplicitAddPropsDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **invalid-name** | str | str |  |

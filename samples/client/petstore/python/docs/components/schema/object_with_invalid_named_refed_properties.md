@@ -6,10 +6,14 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [ObjectWithInvalidNamedRefedPropertiesDictInput](#objectwithinvalidnamedrefedpropertiesdictinput) | [ObjectWithInvalidNamedRefedPropertiesDict](#objectwithinvalidnamedrefedpropertiesdict) |  |
 
-## Dictionary Keys
 ## ObjectWithInvalidNamedRefedPropertiesDictInput
-## ObjectWithInvalidNamedRefedPropertiesDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**!reference** | [**ArrayWithValidationsInItems**](array_with_validations_in_items.md), list, tuple |  |
+**from** | [**FromSchema**](from_schema.md), dict, schemas.immutabledict |  |
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## ObjectWithInvalidNamedRefedPropertiesDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **!reference** | [**ArrayWithValidationsInItems**](array_with_validations_in_items.md), list, tuple | [**ArrayWithValidationsInItems**](array_with_validations_in_items.md) |  |

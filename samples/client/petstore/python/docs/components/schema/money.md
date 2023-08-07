@@ -6,10 +6,13 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [MoneyDictInput](#moneydictinput) | [MoneyDict](#moneydict) |  |
 
-## Dictionary Keys
 ## MoneyDictInput
-## MoneyDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**amount** | str |  | value must be int or float numeric
+**currency** | [**Currency**](currency.md), str |  |
 
+## MoneyDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **amount** | str | str |  | value must be int or float numeric

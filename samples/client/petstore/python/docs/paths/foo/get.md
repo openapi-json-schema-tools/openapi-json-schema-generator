@@ -62,10 +62,13 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [SchemaDictInput](#default-content-applicationjson-schema-schemadictinput) | [SchemaDict](#default-content-applicationjson-schema-schemadict) |  |
 
-##### Dictionary Keys
 ##### Default content ApplicationJson Schema SchemaDictInput
-##### Default content ApplicationJson Schema SchemaDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**string** | [**Foo**](../../components/schema/foo.md), dict, schemas.immutabledict |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+##### Default content ApplicationJson Schema SchemaDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **string** | [**Foo**](../../components/schema/foo.md), dict, schemas.immutabledict | [**Foo**](../../components/schema/foo.md) |  | [optional]

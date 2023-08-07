@@ -6,10 +6,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [AddressDictInput](#addressdictinput) | [AddressDict](#addressdict) |  |
 
-## Dictionary Keys
 ## AddressDictInput
-## AddressDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**any_string_name** | int | any string name can be used but the value must be the correct type | [optional]
 
+## AddressDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | int | int | any string name can be used but the value must be the correct type | [optional]

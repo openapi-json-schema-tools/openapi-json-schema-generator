@@ -9,10 +9,15 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [ObjectWithDifficultlyNamedPropsDictInput](#objectwithdifficultlynamedpropsdictinput) | [ObjectWithDifficultlyNamedPropsDict](#objectwithdifficultlynamedpropsdict) | model with properties that have invalid names for python |
 
-## Dictionary Keys
 ## ObjectWithDifficultlyNamedPropsDictInput
-## ObjectWithDifficultlyNamedPropsDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**123-list** | str |  |
+**$special[property.name]** | int |  | [optional] value must be a 64 bit integer
+**123Number** | int |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## ObjectWithDifficultlyNamedPropsDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **123-list** | str | str |  |

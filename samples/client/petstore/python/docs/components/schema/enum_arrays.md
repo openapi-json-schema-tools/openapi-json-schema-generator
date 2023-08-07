@@ -6,10 +6,14 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [EnumArraysDictInput](#enumarraysdictinput) | [EnumArraysDict](#enumarraysdict) |  |
 
-## Dictionary Keys
 ## EnumArraysDictInput
-## EnumArraysDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**just_symbol** | str |  | [optional] must be one of [">=", "$"]
+**array_enum** | list, tuple |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## EnumArraysDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **just_symbol** | str | str |  | [optional] must be one of [">=", "$"]

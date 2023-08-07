@@ -6,10 +6,14 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [JSONPatchRequestMoveCopyDictInput](#jsonpatchrequestmovecopydictinput) | [JSONPatchRequestMoveCopyDict](#jsonpatchrequestmovecopydict) |  |
 
-## Dictionary Keys
 ## JSONPatchRequestMoveCopyDictInput
-## JSONPatchRequestMoveCopyDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**from** | str | A JSON Pointer path. |
+**op** | str | The operation to perform. | must be one of ["move", "copy"]
+**path** | str | A JSON Pointer path. |
 
+## JSONPatchRequestMoveCopyDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **from** | str | str | A JSON Pointer path. |

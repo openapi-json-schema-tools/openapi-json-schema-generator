@@ -6,10 +6,24 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [NullableClassDictInput](#nullableclassdictinput) | [NullableClassDict](#nullableclassdict) |  |
 
-## Dictionary Keys
 ## NullableClassDictInput
-## NullableClassDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**integer_prop** | None, int |  | [optional]
+**number_prop** | None, float, int |  | [optional]
+**boolean_prop** | None, bool |  | [optional]
+**string_prop** | None, str |  | [optional]
+**date_prop** | None, str, datetime.date |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
+**datetime_prop** | None, str, datetime.datetime |  | [optional] value must conform to RFC-3339 date-time
+**array_nullable_prop** | None, list, tuple |  | [optional]
+**array_and_items_nullable_prop** | None, list, tuple |  | [optional]
+**array_items_nullable** | list, tuple |  | [optional]
+**object_nullable_prop** | None, dict, schemas.immutabledict |  | [optional]
+**object_and_items_nullable_prop** | None, dict, schemas.immutabledict |  | [optional]
+**object_items_nullable** | dict, schemas.immutabledict |  | [optional]
+**any_string_name** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
+## NullableClassDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **integer_prop** | None, int | None, int |  | [optional]
@@ -90,10 +104,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, [ObjectNullablePropDictInput](#properties-objectnullableprop-objectnullablepropdictinput) | None, [ObjectNullablePropDict](#properties-objectnullableprop-objectnullablepropdict) |  |
 
-## Dictionary Keys
 ## properties ObjectNullableProp ObjectNullablePropDictInput
-## properties ObjectNullableProp ObjectNullablePropDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**any_string_name** | dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
+## properties ObjectNullableProp ObjectNullablePropDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict | [AdditionalProperties](#properties-objectnullableprop-additionalproperties) | any string name can be used but the value must be the correct type | [optional]
@@ -112,10 +128,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, [ObjectAndItemsNullablePropDictInput](#properties-objectanditemsnullableprop-objectanditemsnullablepropdictinput) | None, [ObjectAndItemsNullablePropDict](#properties-objectanditemsnullableprop-objectanditemsnullablepropdict) |  |
 
-## Dictionary Keys
 ## properties ObjectAndItemsNullableProp ObjectAndItemsNullablePropDictInput
-## properties ObjectAndItemsNullableProp ObjectAndItemsNullablePropDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**any_string_name** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
+## properties ObjectAndItemsNullableProp ObjectAndItemsNullablePropDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | None, dict, schemas.immutabledict | [AdditionalProperties2](#properties-objectanditemsnullableprop-additionalproperties2) | any string name can be used but the value must be the correct type | [optional]
@@ -134,10 +152,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [ObjectItemsNullableDictInput](#properties-objectitemsnullable-objectitemsnullabledictinput) | [ObjectItemsNullableDict](#properties-objectitemsnullable-objectitemsnullabledict) |  |
 
-## Dictionary Keys
 ## properties ObjectItemsNullable ObjectItemsNullableDictInput
-## properties ObjectItemsNullable ObjectItemsNullableDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**any_string_name** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
+## properties ObjectItemsNullable ObjectItemsNullableDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **any_string_name** | None, dict, schemas.immutabledict | [AdditionalProperties3](#properties-objectitemsnullable-additionalproperties3) | any string name can be used but the value must be the correct type | [optional]

@@ -6,10 +6,13 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [JSONPatchRequestRemoveDictInput](#jsonpatchrequestremovedictinput) | [JSONPatchRequestRemoveDict](#jsonpatchrequestremovedict) |  |
 
-## Dictionary Keys
 ## JSONPatchRequestRemoveDictInput
-## JSONPatchRequestRemoveDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**op** | str | The operation to perform. | must be one of ["remove"]
+**path** | str | A JSON Pointer path. |
 
+## JSONPatchRequestRemoveDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **op** | str | str | The operation to perform. | must be one of ["remove"]

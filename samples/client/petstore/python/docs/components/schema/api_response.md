@@ -6,10 +6,15 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [ApiResponseDictInput](#apiresponsedictinput) | [ApiResponseDict](#apiresponsedict) |  |
 
-## Dictionary Keys
 ## ApiResponseDictInput
-## ApiResponseDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**code** | int |  | [optional] value must be a 32 bit integer
+**type** | str |  | [optional]
+**message** | str |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## ApiResponseDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **code** | int | int |  | [optional] value must be a 32 bit integer

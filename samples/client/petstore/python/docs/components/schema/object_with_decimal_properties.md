@@ -6,10 +6,15 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [ObjectWithDecimalPropertiesDictInput](#objectwithdecimalpropertiesdictinput) | [ObjectWithDecimalPropertiesDict](#objectwithdecimalpropertiesdict) |  |
 
-## Dictionary Keys
 ## ObjectWithDecimalPropertiesDictInput
-## ObjectWithDecimalPropertiesDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**length** | [**DecimalPayload**](decimal_payload.md), str |  | [optional]
+**width** | str |  | [optional] value must be int or float numeric
+**cost** | [**Money**](money.md), dict, schemas.immutabledict |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## ObjectWithDecimalPropertiesDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **length** | [**DecimalPayload**](decimal_payload.md), str | [**DecimalPayload**](decimal_payload.md) |  | [optional]

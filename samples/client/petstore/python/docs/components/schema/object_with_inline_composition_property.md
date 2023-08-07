@@ -6,10 +6,13 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [ObjectWithInlineCompositionPropertyDictInput](#objectwithinlinecompositionpropertydictinput) | [ObjectWithInlineCompositionPropertyDict](#objectwithinlinecompositionpropertydict) |  |
 
-## Dictionary Keys
 ## ObjectWithInlineCompositionPropertyDictInput
-## ObjectWithInlineCompositionPropertyDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**someProp** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## ObjectWithInlineCompositionPropertyDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **someProp** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [properties.SomeProp](#properties-someprop) |  | [optional]

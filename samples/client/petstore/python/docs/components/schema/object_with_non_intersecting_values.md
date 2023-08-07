@@ -6,10 +6,13 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [ObjectWithNonIntersectingValuesDictInput](#objectwithnonintersectingvaluesdictinput) | [ObjectWithNonIntersectingValuesDict](#objectwithnonintersectingvaluesdict) |  |
 
-## Dictionary Keys
 ## ObjectWithNonIntersectingValuesDictInput
-## ObjectWithNonIntersectingValuesDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**a** | float, int |  | [optional]
+**any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
+## ObjectWithNonIntersectingValuesDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **a** | float, int | float, int |  | [optional]

@@ -6,10 +6,15 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [ArrayTestDictInput](#arraytestdictinput) | [ArrayTestDict](#arraytestdict) |  |
 
-## Dictionary Keys
 ## ArrayTestDictInput
-## ArrayTestDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**array_of_string** | list, tuple |  | [optional]
+**array_array_of_integer** | list, tuple |  | [optional]
+**array_array_of_model** | list, tuple |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## ArrayTestDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **array_of_string** | list, tuple | [properties.ArrayOfString](#properties-arrayofstring) |  | [optional]

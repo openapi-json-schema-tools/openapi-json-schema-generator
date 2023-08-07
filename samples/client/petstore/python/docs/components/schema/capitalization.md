@@ -6,10 +6,18 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 [CapitalizationDictInput](#capitalizationdictinput) | [CapitalizationDict](#capitalizationdict) |  |
 
-## Dictionary Keys
 ## CapitalizationDictInput
-## CapitalizationDict
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**smallCamel** | str |  | [optional]
+**CapitalCamel** | str |  | [optional]
+**small_Snake** | str |  | [optional]
+**Capital_Snake** | str |  | [optional]
+**SCA_ETH_Flow_Points** | str |  | [optional]
+**ATT_NAME** | str | Name of the pet  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
 
+## CapitalizationDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **smallCamel** | str | str |  | [optional]
