@@ -19,7 +19,7 @@ Key | Type |  Description | Notes
 ## PlayerDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**name** | str | str |  | [optional]
+**name** | str | str, schemas.Unset |  | [optional]
 **enemyPlayer** | [**Player**](#top), dict, schemas.immutabledict | [**Player**](#top) |  | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
 

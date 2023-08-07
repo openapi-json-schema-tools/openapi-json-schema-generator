@@ -17,8 +17,8 @@ Key | Type |  Description | Notes
 ## MixedPropertiesAndAdditionalPropertiesClassDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**uuid** | str, uuid.UUID | str |  | [optional] value must be a uuid
-**dateTime** | str, datetime.datetime | str |  | [optional] value must conform to RFC-3339 date-time
+**uuid** | str, uuid.UUID | str, schemas.Unset |  | [optional] value must be a uuid
+**dateTime** | str, datetime.datetime | str, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
 **map** | dict, schemas.immutabledict | [properties.Map](#properties-map) |  | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
 

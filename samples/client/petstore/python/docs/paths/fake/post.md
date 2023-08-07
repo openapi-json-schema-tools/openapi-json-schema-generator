@@ -75,16 +75,16 @@ Key | Input Type | Accessed Type | Description | Notes
 **double** | float, int | float, int | None | value must be a 64 bit float
 **number** | float, int | float, int | None |
 **pattern_without_delimiter** | str | str | None |
-**integer** | int | int | None | [optional]
-**int32** | int | int | None | [optional] value must be a 32 bit integer
-**int64** | int | int | None | [optional] value must be a 64 bit integer
-**float** | float, int | float, int | None | [optional] value must be accessed with instance["float"] because the key is not a valid identifier  value must be a 32 bit float
-**string** | str | str | None | [optional]
-**binary** | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO | None | [optional]
-**date** | str, datetime.date | str | None | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
-**dateTime** | str, datetime.datetime | str | None | [optional] if omitted the server will use the default value of 2010-02-01T10:20:10.111110+01:00 value must conform to RFC-3339 date-time
-**password** | str | str | None | [optional]
-**callback** | str | str | None | [optional]
+**integer** | int | int, schemas.Unset | None | [optional]
+**int32** | int | int, schemas.Unset | None | [optional] value must be a 32 bit integer
+**int64** | int | int, schemas.Unset | None | [optional] value must be a 64 bit integer
+**float** | float, int | float, int, schemas.Unset | None | [optional] value must be accessed with instance["float"] because the key is not a valid identifier  value must be a 32 bit float
+**string** | str | str, schemas.Unset | None | [optional]
+**binary** | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO, schemas.Unset | None | [optional]
+**date** | str, datetime.date | str, schemas.Unset | None | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
+**dateTime** | str, datetime.datetime | str, schemas.Unset | None | [optional] if omitted the server will use the default value of 2010-02-01T10:20:10.111110+01:00 value must conform to RFC-3339 date-time
+**password** | str | str, schemas.Unset | None | [optional]
+**callback** | str | str, schemas.Unset | None | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ## Return Types

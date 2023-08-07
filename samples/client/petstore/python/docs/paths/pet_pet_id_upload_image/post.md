@@ -60,8 +60,8 @@ Key | Type |  Description | Notes
 ##### RequestBody content MultipartFormData Schema SchemaDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**additionalMetadata** | str | str | Additional data to pass to server | [optional]
-**file** | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO | file to upload | [optional]
+**additionalMetadata** | str | str, schemas.Unset | Additional data to pass to server | [optional]
+**file** | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO, schemas.Unset | file to upload | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ### path_params

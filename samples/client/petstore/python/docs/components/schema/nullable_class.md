@@ -26,12 +26,12 @@ Key | Type |  Description | Notes
 ## NullableClassDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**integer_prop** | None, int | None, int |  | [optional]
-**number_prop** | None, float, int | None, float, int |  | [optional]
-**boolean_prop** | None, bool | None, bool |  | [optional]
-**string_prop** | None, str | None, str |  | [optional]
-**date_prop** | None, str, datetime.date | None, str |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
-**datetime_prop** | None, str, datetime.datetime | None, str |  | [optional] value must conform to RFC-3339 date-time
+**integer_prop** | None, int | None, int, schemas.Unset |  | [optional]
+**number_prop** | None, float, int | None, float, int, schemas.Unset |  | [optional]
+**boolean_prop** | None, bool | None, bool, schemas.Unset |  | [optional]
+**string_prop** | None, str | None, str, schemas.Unset |  | [optional]
+**date_prop** | None, str, datetime.date | None, str, schemas.Unset |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
+**datetime_prop** | None, str, datetime.datetime | None, str, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
 **array_nullable_prop** | None, list, tuple | [properties.ArrayNullableProp](#properties-arraynullableprop) |  | [optional]
 **array_and_items_nullable_prop** | None, list, tuple | [properties.ArrayAndItemsNullableProp](#properties-arrayanditemsnullableprop) |  | [optional]
 **array_items_nullable** | list, tuple | [properties.ArrayItemsNullable](#properties-arrayitemsnullable) |  | [optional]

@@ -16,6 +16,6 @@ Key | Type |  Description | Notes
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **cultivar** | str | str |  |
-**mealy** | bool | bool |  | [optional]
+**mealy** | bool | bool, schemas.Unset |  | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

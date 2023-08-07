@@ -15,7 +15,7 @@ Key | Type |  Description | Notes
 ## ObjectWithOnlyOptionalPropsDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**a** | str | str |  | [optional]
-**b** | float, int | float, int |  | [optional]
+**a** | str | str, schemas.Unset |  | [optional]
+**b** | float, int | float, int, schemas.Unset |  | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

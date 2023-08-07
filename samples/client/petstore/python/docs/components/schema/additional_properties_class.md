@@ -24,7 +24,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **map_property** | dict, schemas.immutabledict | [properties.MapProperty](#properties-mapproperty) |  | [optional]
 **map_of_map_property** | dict, schemas.immutabledict | [properties.MapOfMapProperty](#properties-mapofmapproperty) |  | [optional]
-**anytype_1** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  | [optional]
+**anytype_1** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset |  | [optional]
 **map_with_undeclared_properties_anytype_1** | dict, schemas.immutabledict | [properties.MapWithUndeclaredPropertiesAnytype1](#properties-mapwithundeclaredpropertiesanytype1) |  | [optional]
 **map_with_undeclared_properties_anytype_2** | dict, schemas.immutabledict | [properties.MapWithUndeclaredPropertiesAnytype2](#properties-mapwithundeclaredpropertiesanytype2) |  | [optional]
 **map_with_undeclared_properties_anytype_3** | dict, schemas.immutabledict | [properties.MapWithUndeclaredPropertiesAnytype3](#properties-mapwithundeclaredpropertiesanytype3) |  | [optional]

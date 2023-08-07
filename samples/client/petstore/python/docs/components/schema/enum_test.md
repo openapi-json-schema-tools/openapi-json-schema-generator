@@ -24,9 +24,9 @@ Key | Type |  Description | Notes
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **enum_string_required** | str | str |  | must be one of ["UPPER", "lower", ""]
-**enum_string** | str | str |  | [optional] must be one of ["UPPER", "lower", ""]
-**enum_integer** | int | int |  | [optional] must be one of [1, -1] value must be a 32 bit integer
-**enum_number** | float, int | float, int |  | [optional] must be one of [1.1, -1.2] value must be a 64 bit float
+**enum_string** | str | str, schemas.Unset |  | [optional] must be one of ["UPPER", "lower", ""]
+**enum_integer** | int | int, schemas.Unset |  | [optional] must be one of [1, -1] value must be a 32 bit integer
+**enum_number** | float, int | float, int, schemas.Unset |  | [optional] must be one of [1.1, -1.2] value must be a 64 bit float
 **stringEnum** | [**StringEnum**](string_enum.md), None, str | [**StringEnum**](string_enum.md) |  | [optional]
 **IntegerEnum** | [**IntegerEnum**](integer_enum.md), int | [**IntegerEnum**](integer_enum.md) |  | [optional]
 **StringEnumWithDefaultValue** | [**StringEnumWithDefaultValue**](string_enum_with_default_value.md), str | [**StringEnumWithDefaultValue**](string_enum_with_default_value.md) |  | [optional]

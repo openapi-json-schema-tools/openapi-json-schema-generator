@@ -59,8 +59,8 @@ Key | Type |  Description | Notes
 ##### RequestBody content ApplicationXWwwFormUrlencoded Schema SchemaDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**name** | str | str | Updated name of the pet | [optional]
-**status** | str | str | Updated status of the pet | [optional]
+**name** | str | str, schemas.Unset | Updated name of the pet | [optional]
+**status** | str | str, schemas.Unset | Updated status of the pet | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ### path_params
