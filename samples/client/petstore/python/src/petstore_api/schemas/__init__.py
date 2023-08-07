@@ -52,10 +52,10 @@ from .validation import (
     immutabledict
 )
 from .format import (
-    as_date_,
-    as_datetime_,
-    as_decimal_,
-    as_uuid_
+    as_date,
+    as_datetime,
+    as_decimal,
+    as_uuid
 )
 
 def typed_dict_to_instance(t_dict: typing_extensions._TypedDictMeta) -> typing.Mapping: # type: ignore

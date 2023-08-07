@@ -45,7 +45,7 @@ class TestDateTimeWithValidations(unittest.TestCase):
         }
         for input_value, expected_datetime in input_value_to_datetime.items():
             inst = DateTimeWithValidations.validate(input_value)
-            assert schemas.as_datetime_(inst) == expected_datetime
+            assert schemas.as_datetime(inst) == expected_datetime
 
         # value error is raised if an invalid string is passed in
         with self.assertRaisesRegex(
