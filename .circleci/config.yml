@@ -172,18 +172,6 @@ jobs:
       - command_build_and_test:
           nodeId: "2"
   node3:
-    machine:
-      image: ubuntu-2004:202201-02
-    working_directory: ~/OpenAPITools/openapi-json-schema-generator
-    shell: /bin/bash --login
-    environment:
-      CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
-      CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
-    steps:
-      - checkout
-      - command_build_and_test:
-          nodeId: "3"
-  node4:
     docker:
       - image: python:3.8
     working_directory: ~/OpenAPITools/openapi-json-schema-generator
@@ -194,7 +182,7 @@ jobs:
     steps:
       - checkout
       - command_docker_build_and_test:
-          nodeId: "4"
+          nodeId: "3"
 workflows:
   version: 2
   build:
@@ -203,4 +191,3 @@ workflows:
       - node1
       - node2
       - node3
-      - node4
