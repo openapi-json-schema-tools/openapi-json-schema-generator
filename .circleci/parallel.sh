@@ -25,11 +25,11 @@ if [ "$JOB_ID" = "1" ]; then
 
   ./bin/utils/ensure-up-to-date
 
-elif [ "$NODE_ID" = "2" ]; then
+elif [ "$JOB_ID" = "2" ]; then
   # node2
   echo "Running job $JOB_ID"
 
-elif [ "$NODE_ID" = "3" ]; then
+elif [ "$JOB_ID" = "3" ]; then
   # node4
 
   echo "Running job $JOB_ID to test python client samples ..."
