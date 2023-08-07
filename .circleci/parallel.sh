@@ -11,7 +11,7 @@ export NODE_ENV=test
 
 function cleanup {
   # Show logs of 'petstore.swagger' container to troubleshoot Unit Test failures, if any.
-  if [ "$JOB_ID" != "3" ]; then
+  if [ "$JOB_ID" != "testPythonClientSamples" ]; then
     docker logs petstore.swagger # container name specified in circle.yml
   fi
 }
