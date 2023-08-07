@@ -18,7 +18,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[_1DictInput](#allof-_1-_1dictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## allof _1 _1DictInput

@@ -4,7 +4,7 @@ petstore_api.components.schema.read_only_first
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[ReadOnlyFirstDictInput](#readonlyfirstdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## ReadOnlyFirstDictInput

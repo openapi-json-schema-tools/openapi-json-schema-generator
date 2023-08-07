@@ -7,7 +7,7 @@ Pet object that needs to be added to the store
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict | Pet object that needs to be added to the store |
+[PetDictInput](#petdictinput) | schemas.immutabledict | Pet object that needs to be added to the store |
 
 ## Dictionary Keys
 ## PetDictInput

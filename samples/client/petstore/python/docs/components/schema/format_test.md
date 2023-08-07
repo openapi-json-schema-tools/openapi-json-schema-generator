@@ -4,7 +4,7 @@ petstore_api.components.schema.format_test
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[FormatTestDictInput](#formattestdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## FormatTestDictInput

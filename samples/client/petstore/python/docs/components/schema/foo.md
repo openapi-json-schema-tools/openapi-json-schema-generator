@@ -4,7 +4,7 @@ petstore_api.components.schema.foo
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[FooDictInput](#foodictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## FooDictInput

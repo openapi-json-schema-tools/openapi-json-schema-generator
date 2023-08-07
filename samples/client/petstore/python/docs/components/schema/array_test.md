@@ -4,7 +4,7 @@ petstore_api.components.schema.array_test
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[ArrayTestDictInput](#arraytestdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## ArrayTestDictInput

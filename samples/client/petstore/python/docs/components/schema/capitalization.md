@@ -4,7 +4,7 @@ petstore_api.components.schema.capitalization
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[CapitalizationDictInput](#capitalizationdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## CapitalizationDictInput

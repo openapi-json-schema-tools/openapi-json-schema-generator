@@ -4,7 +4,7 @@ petstore_api.components.schema.banana_req
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[BananaReqDictInput](#bananareqdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## BananaReqDictInput

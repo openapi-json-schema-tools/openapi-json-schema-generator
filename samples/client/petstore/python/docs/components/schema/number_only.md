@@ -4,7 +4,7 @@ petstore_api.components.schema.number_only
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[NumberOnlyDictInput](#numberonlydictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## NumberOnlyDictInput

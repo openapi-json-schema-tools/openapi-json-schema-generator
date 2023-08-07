@@ -4,7 +4,7 @@ petstore_api.components.schema.nullable_class
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[NullableClassDictInput](#nullableclassdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## NullableClassDictInput
@@ -88,7 +88,7 @@ None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
+None, [ObjectNullablePropDictInput](#properties-objectnullableprop-objectnullablepropdictinput) | None, schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## properties ObjectNullableProp ObjectNullablePropDictInput
@@ -110,7 +110,7 @@ dict, schemas.immutabledict | schemas.immutabledict |  |
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
+None, [ObjectAndItemsNullablePropDictInput](#properties-objectanditemsnullableprop-objectanditemsnullablepropdictinput) | None, schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## properties ObjectAndItemsNullableProp ObjectAndItemsNullablePropDictInput
@@ -132,7 +132,7 @@ None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[ObjectItemsNullableDictInput](#properties-objectitemsnullable-objectitemsnullabledictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## properties ObjectItemsNullable ObjectItemsNullableDictInput

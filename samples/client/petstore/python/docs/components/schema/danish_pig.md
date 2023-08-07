@@ -4,7 +4,7 @@ petstore_api.components.schema.danish_pig
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[DanishPigDictInput](#danishpigdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## DanishPigDictInput

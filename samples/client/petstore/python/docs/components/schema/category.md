@@ -4,7 +4,7 @@ petstore_api.components.schema.category
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[CategoryDictInput](#categorydictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## CategoryDictInput

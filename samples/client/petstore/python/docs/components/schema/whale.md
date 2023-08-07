@@ -4,7 +4,7 @@ petstore_api.components.schema.whale
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[WhaleDictInput](#whaledictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## WhaleDictInput

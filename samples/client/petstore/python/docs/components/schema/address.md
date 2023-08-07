@@ -4,7 +4,7 @@ petstore_api.components.schema.address
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[AddressDictInput](#addressdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## AddressDictInput

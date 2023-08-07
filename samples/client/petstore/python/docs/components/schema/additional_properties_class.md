@@ -4,7 +4,7 @@ petstore_api.components.schema.additional_properties_class
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[AdditionalPropertiesClassDictInput](#additionalpropertiesclassdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## AdditionalPropertiesClassDictInput
@@ -27,7 +27,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[MapPropertyDictInput](#properties-mapproperty-mappropertydictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## properties MapProperty MapPropertyDictInput
@@ -42,7 +42,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[MapOfMapPropertyDictInput](#properties-mapofmapproperty-mapofmappropertydictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## properties MapOfMapProperty MapOfMapPropertyDictInput
@@ -57,7 +57,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[AdditionalPropertiesDictInput](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## properties MapOfMapProperty AdditionalProperties2 AdditionalPropertiesDictInput
@@ -86,7 +86,7 @@ dict, schemas.immutabledict | schemas.immutabledict |  |
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[MapWithUndeclaredPropertiesAnytype3DictInput](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## properties MapWithUndeclaredPropertiesAnytype3 MapWithUndeclaredPropertiesAnytype3DictInput
@@ -104,7 +104,7 @@ an object with no declared properties and no undeclared properties, hence it&#x2
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. |
+[EmptyMapDictInput](#properties-emptymap-emptymapdictinput) | schemas.immutabledict | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. |
 
 ## Dictionary Keys
 ## properties EmptyMap EmptyMapDictInput
@@ -118,7 +118,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[MapWithUndeclaredPropertiesStringDictInput](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## properties MapWithUndeclaredPropertiesString MapWithUndeclaredPropertiesStringDictInput

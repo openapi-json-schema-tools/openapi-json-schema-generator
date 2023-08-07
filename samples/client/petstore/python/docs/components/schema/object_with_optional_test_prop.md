@@ -4,7 +4,7 @@ petstore_api.components.schema.object_with_optional_test_prop
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[ObjectWithOptionalTestPropDictInput](#objectwithoptionaltestpropdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## ObjectWithOptionalTestPropDictInput

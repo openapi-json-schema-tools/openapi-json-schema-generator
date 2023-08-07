@@ -70,7 +70,7 @@ str | str |  |
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput) | schemas.immutabledict |  |
 
 ##### Dictionary Keys
 ##### RequestBody content MultipartFormData Schema SchemaDictInput
@@ -140,7 +140,7 @@ str | str |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[SchemaDictInput](#parameter1-schema-schemadictinput) | schemas.immutabledict |  |
 
 ###### Dictionary Keys
 ###### Parameter1 Schema SchemaDictInput
@@ -221,7 +221,7 @@ str | str |  |
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[SchemaDictInput](#responsefor200-content-multipartformdata-schema-schemadictinput) | schemas.immutabledict |  |
 
 ##### Dictionary Keys
 ##### ResponseFor200 content MultipartFormData Schema SchemaDictInput

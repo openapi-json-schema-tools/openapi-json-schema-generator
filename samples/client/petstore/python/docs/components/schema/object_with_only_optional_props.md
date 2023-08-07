@@ -4,7 +4,7 @@ petstore_api.components.schema.object_with_only_optional_props
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[ObjectWithOnlyOptionalPropsDictInput](#objectwithonlyoptionalpropsdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## ObjectWithOnlyOptionalPropsDictInput

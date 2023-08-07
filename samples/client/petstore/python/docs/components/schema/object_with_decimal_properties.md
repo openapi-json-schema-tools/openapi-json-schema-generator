@@ -4,7 +4,7 @@ petstore_api.components.schema.object_with_decimal_properties
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[ObjectWithDecimalPropertiesDictInput](#objectwithdecimalpropertiesdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## ObjectWithDecimalPropertiesDictInput

@@ -7,7 +7,7 @@ component with properties that have name collisions
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict | component with properties that have name collisions |
+[ObjectWithCollidingPropertiesDictInput](#objectwithcollidingpropertiesdictinput) | schemas.immutabledict | component with properties that have name collisions |
 
 ## Dictionary Keys
 ## ObjectWithCollidingPropertiesDictInput

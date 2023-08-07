@@ -4,7 +4,7 @@ petstore_api.components.schema.json_patch_request_move_copy
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[JSONPatchRequestMoveCopyDictInput](#jsonpatchrequestmovecopydictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## JSONPatchRequestMoveCopyDictInput

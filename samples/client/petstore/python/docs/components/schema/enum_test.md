@@ -4,7 +4,7 @@ petstore_api.components.schema.enum_test
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[EnumTestDictInput](#enumtestdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## EnumTestDictInput

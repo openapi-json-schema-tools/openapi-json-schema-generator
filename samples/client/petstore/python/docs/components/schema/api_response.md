@@ -4,7 +4,7 @@ petstore_api.components.schema.api_response
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[ApiResponseDictInput](#apiresponsedictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## ApiResponseDictInput

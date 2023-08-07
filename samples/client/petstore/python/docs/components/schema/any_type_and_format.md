@@ -4,7 +4,7 @@ petstore_api.components.schema.any_type_and_format
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[AnyTypeAndFormatDictInput](#anytypeandformatdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## AnyTypeAndFormatDictInput

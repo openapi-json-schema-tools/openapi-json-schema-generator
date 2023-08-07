@@ -4,7 +4,7 @@ petstore_api.components.schema.apple
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
+None, [AppleDictInput](#appledictinput) | None, schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## AppleDictInput

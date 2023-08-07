@@ -4,7 +4,7 @@ petstore_api.components.schema.from_schema
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[FromSchemaDictInput](#fromschemadictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## FromSchemaDictInput

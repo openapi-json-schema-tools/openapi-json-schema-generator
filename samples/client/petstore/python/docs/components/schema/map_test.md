@@ -4,7 +4,7 @@ petstore_api.components.schema.map_test
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[MapTestDictInput](#maptestdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## MapTestDictInput
@@ -23,7 +23,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[MapMapOfStringDictInput](#properties-mapmapofstring-mapmapofstringdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## properties MapMapOfString MapMapOfStringDictInput
@@ -38,7 +38,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[AdditionalPropertiesDictInput](#properties-mapmapofstring-additionalproperties-additionalpropertiesdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## properties MapMapOfString AdditionalProperties AdditionalPropertiesDictInput
@@ -53,7 +53,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[MapOfEnumStringDictInput](#properties-mapofenumstring-mapofenumstringdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## properties MapOfEnumString MapOfEnumStringDictInput
@@ -68,7 +68,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[DirectMapDictInput](#properties-directmap-directmapdictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## properties DirectMap DirectMapDictInput

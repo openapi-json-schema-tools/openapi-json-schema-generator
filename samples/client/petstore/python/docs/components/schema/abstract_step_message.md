@@ -7,7 +7,7 @@ Abstract Step
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict | Abstract Step |
+[AbstractStepMessageDictInput](#abstractstepmessagedictinput) | schemas.immutabledict | Abstract Step |
 
 ## Dictionary Keys
 ## AbstractStepMessageDictInput

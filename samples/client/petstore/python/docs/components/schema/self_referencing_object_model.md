@@ -4,7 +4,7 @@ petstore_api.components.schema.self_referencing_object_model
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[SelfReferencingObjectModelDictInput](#selfreferencingobjectmodeldictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## SelfReferencingObjectModelDictInput

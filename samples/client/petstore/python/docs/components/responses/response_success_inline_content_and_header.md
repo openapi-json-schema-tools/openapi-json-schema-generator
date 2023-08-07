@@ -27,7 +27,7 @@ someHeader | [headers.header_some_header.schema](#headers-someheader-schema) | |
 #### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[SchemaDictInput](#content-applicationjson-schema-schemadictinput) | schemas.immutabledict |  |
 
 #### Dictionary Keys
 #### content ApplicationJson Schema SchemaDictInput

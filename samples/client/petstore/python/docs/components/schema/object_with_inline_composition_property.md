@@ -4,7 +4,7 @@ petstore_api.components.schema.object_with_inline_composition_property
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+[ObjectWithInlineCompositionPropertyDictInput](#objectwithinlinecompositionpropertydictinput) | schemas.immutabledict |  |
 
 ## Dictionary Keys
 ## ObjectWithInlineCompositionPropertyDictInput
