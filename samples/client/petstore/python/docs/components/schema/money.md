@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [MoneyDictInput](#moneydictinput), [MoneyDict](#moneydict) | [MoneyDict](#moneydict) |
 
 ## MoneyDictInput
+type: typing_extensions.TypedDict
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **amount** | str |  | value must be int or float numeric

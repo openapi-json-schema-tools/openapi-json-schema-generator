@@ -7,6 +7,88 @@ Input Type | Return Type | Notes
 [NullableClassDictInput](#nullableclassdictinput), [NullableClassDict](#nullableclassdict) | [NullableClassDict](#nullableclassdict) |
 
 ## NullableClassDictInput
+
+type: typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            None,
+            int,
+        ],
+        typing.Union[
+            None,
+            typing.Union[
+                int,
+                float
+            ],
+        ],
+        typing.Union[
+            None,
+            bool,
+        ],
+        typing.Union[
+            None,
+            str,
+        ],
+        typing.Union[
+            None,
+            typing.Union[
+                str,
+                datetime.date
+            ],
+        ],
+        typing.Union[
+            None,
+            typing.Union[
+                str,
+                datetime.datetime
+            ],
+        ],
+        typing.Union[
+            None,
+            typing.Union[
+                ArrayNullablePropTupleInput,
+                ArrayNullablePropTuple
+            ],
+        ],
+        typing.Union[
+            None,
+            typing.Union[
+                ArrayAndItemsNullablePropTupleInput,
+                ArrayAndItemsNullablePropTuple
+            ],
+        ],
+        typing.Union[
+            ArrayItemsNullableTupleInput,
+            ArrayItemsNullableTuple
+        ],
+        typing.Union[
+            None,
+            typing.Union[
+                ObjectNullablePropDictInput,
+                ObjectNullablePropDict,
+            ],
+        ],
+        typing.Union[
+            None,
+            typing.Union[
+                ObjectAndItemsNullablePropDictInput,
+                ObjectAndItemsNullablePropDict,
+            ],
+        ],
+        typing.Union[
+            ObjectItemsNullableDictInput,
+            ObjectItemsNullableDict,
+        ],
+        typing.Union[
+            None,
+            typing.Union[
+                typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            ],
+        ],
+    ]
+]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **integer_prop** | None, int |  | [optional]
@@ -145,6 +227,14 @@ Input Type | Return Type | Notes
 None, [ObjectNullablePropDictInput](#properties-objectnullableprop-objectnullablepropdictinput), [ObjectNullablePropDict](#properties-objectnullableprop-objectnullablepropdict) | None, [ObjectNullablePropDict](#properties-objectnullableprop-objectnullablepropdict) |
 
 ## properties ObjectNullableProp ObjectNullablePropDictInput
+
+type: typing.Mapping[
+    str,
+    typing.Union[
+        typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    ],
+]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
@@ -178,6 +268,17 @@ Input Type | Return Type | Notes
 None, [ObjectAndItemsNullablePropDictInput](#properties-objectanditemsnullableprop-objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#properties-objectanditemsnullableprop-objectanditemsnullablepropdict) | None, [ObjectAndItemsNullablePropDict](#properties-objectanditemsnullableprop-objectanditemsnullablepropdict) |
 
 ## properties ObjectAndItemsNullableProp ObjectAndItemsNullablePropDictInput
+
+type: typing.Mapping[
+    str,
+    typing.Union[
+        None,
+        typing.Union[
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        ],
+    ],
+]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
@@ -214,6 +315,17 @@ Input Type | Return Type | Notes
 [ObjectItemsNullableDictInput](#properties-objectitemsnullable-objectitemsnullabledictinput), [ObjectItemsNullableDict](#properties-objectitemsnullable-objectitemsnullabledict) | [ObjectItemsNullableDict](#properties-objectitemsnullable-objectitemsnullabledict) |
 
 ## properties ObjectItemsNullable ObjectItemsNullableDictInput
+
+type: typing.Mapping[
+    str,
+    typing.Union[
+        None,
+        typing.Union[
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        ],
+    ],
+]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]

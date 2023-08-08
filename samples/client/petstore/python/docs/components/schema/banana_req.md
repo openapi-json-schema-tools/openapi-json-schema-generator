@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [BananaReqDictInput](#bananareqdictinput), [BananaReqDict](#bananareqdict) | [BananaReqDict](#bananareqdict) |
 
 ## BananaReqDictInput
+type: typing_extensions.TypedDict
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **lengthCm** | float, int |  |

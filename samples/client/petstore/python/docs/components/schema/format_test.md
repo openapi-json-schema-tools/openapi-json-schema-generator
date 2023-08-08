@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [FormatTestDictInput](#formattestdictinput), [FormatTestDict](#formattestdict) | [FormatTestDict](#formattestdict) |
 
 ## FormatTestDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **byte** | str |  |

@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [ReadOnlyFirstDictInput](#readonlyfirstdictinput), [ReadOnlyFirstDict](#readonlyfirstdict) | [ReadOnlyFirstDict](#readonlyfirstdict) |
 
 ## ReadOnlyFirstDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bar** | str |  | [optional]

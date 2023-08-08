@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [ClientDictInput](#clientdictinput), [ClientDict](#clientdict) | [ClientDict](#clientdict) |
 
 ## ClientDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **client** | str |  | [optional]

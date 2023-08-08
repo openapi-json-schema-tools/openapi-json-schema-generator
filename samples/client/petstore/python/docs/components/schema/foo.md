@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [FooDictInput](#foodictinput), [FooDict](#foodict) | [FooDict](#foodict) |
 
 ## FooDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bar** | [**Bar**](bar.md), str |  | [optional]

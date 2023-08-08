@@ -63,6 +63,7 @@ Input Type | Return Type | Notes
 [SchemaDictInput](#default-content-applicationjson-schema-schemadictinput), [SchemaDict](#default-content-applicationjson-schema-schemadict) | [SchemaDict](#default-content-applicationjson-schema-schemadict) |
 
 ##### Default content ApplicationJson Schema SchemaDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **string** | [**Foo**](../../components/schema/foo.md), dict, schemas.immutabledict |  | [optional]

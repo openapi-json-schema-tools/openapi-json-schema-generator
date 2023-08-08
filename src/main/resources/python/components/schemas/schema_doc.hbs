@@ -34,6 +34,79 @@ Input Type | Return Type | Notes
     {{else}}
 {{headerSize}}# Input Dictionary Keys
     {{/if}}
+    {{#if additionalProperties}}
+        {{#if additionalProperties.isBooleanSchemaFalse}}
+            {{#or requiredProperties optionalProperties}}
+type: typing_extensions.TypedDict
+            {{else}}
+type: typing.Mapping (empty)
+            {{/or}}
+        {{else}}
+            {{#if additionalProperties.isBooleanSchemaTrue }}
+                {{! addProps True, does not matter what properties are because they are always covered by base types }}
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+            {{else}}
+                {{! addProps schema }}
+                {{#and requiredProperties optionalProperties}}
+type: typing.Mapping[
+    str,
+    typing.Union[
+                    {{#each requiredProperties}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+                    {{/each}}
+                    {{#each optionalProperties}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+                    {{/each}}
+                    {{#with additionalProperties}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+                    {{/with}}
+    ]
+]
+                {{else}}
+                    {{! no requiredProperties or optionalProperties or just one of them }}
+                    {{#if requiredProperties}}
+                        {{! requiredProperties + addProp }}
+type: typing.Mapping[
+    str,
+    typing.Union[
+                        {{#each requiredProperties}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+                        {{/each}}
+                        {{#with additionalProperties}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+                        {{/with}}
+    ]
+]
+                    {{else}}
+                        {{#if optionalProperties}}
+                            {{! optionalProperties + addProp }}
+type: typing.Mapping[
+    str,
+    typing.Union[
+                            {{#each optionalProperties}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+                            {{/each}}
+                            {{#with additionalProperties}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+                            {{/with}}
+    ]
+]
+                        {{else}}
+                            {{! only addProp }}
+type: typing.Mapping[
+    str,
+                            {{#with additionalProperties}}
+    {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+                            {{/with}}
+]
+                        {{/if}}
+                    {{/if}}
+                {{/and}}
+            {{/if}}
+        {{/if}}
+    {{else}}
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+    {{/if}}
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
         {{#each requiredProperties}}

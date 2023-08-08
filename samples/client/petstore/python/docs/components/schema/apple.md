@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 None, [AppleDictInput](#appledictinput), [AppleDict](#appledict) | None, [AppleDict](#appledict) |
 
 ## AppleDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cultivar** | str |  |

@@ -7,6 +7,20 @@ Input Type | Return Type | Notes
 [SelfReferencingObjectModelDictInput](#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) | [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) |
 
 ## SelfReferencingObjectModelDictInput
+
+type: typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            'SelfReferencingObjectModelDictInput',
+            SelfReferencingObjectModelDict,
+        ],
+        typing.Union[
+            'SelfReferencingObjectModelDictInput',
+            SelfReferencingObjectModelDict,
+        ],
+    ]
+]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **selfRef** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict |  | [optional]

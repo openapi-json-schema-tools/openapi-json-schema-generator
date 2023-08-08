@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [ObjectWithDecimalPropertiesDictInput](#objectwithdecimalpropertiesdictinput), [ObjectWithDecimalPropertiesDict](#objectwithdecimalpropertiesdict) | [ObjectWithDecimalPropertiesDict](#objectwithdecimalpropertiesdict) |
 
 ## ObjectWithDecimalPropertiesDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **length** | [**DecimalPayload**](decimal_payload.md), str |  | [optional]

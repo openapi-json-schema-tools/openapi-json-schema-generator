@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [EnumArraysDictInput](#enumarraysdictinput), [EnumArraysDict](#enumarraysdict) | [EnumArraysDict](#enumarraysdict) |
 
 ## EnumArraysDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **just_symbol** | str |  | [optional] must be one of [">=", "$"]

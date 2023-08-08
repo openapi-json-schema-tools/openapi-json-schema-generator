@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [CategoryDictInput](#categorydictinput), [CategoryDict](#categorydict) | [CategoryDict](#categorydict) |
 
 ## CategoryDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | str |  | if omitted the server will use the default value of default-name

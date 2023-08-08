@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [ObjectModelWithArgAndArgsPropertiesDictInput](#objectmodelwithargandargspropertiesdictinput), [ObjectModelWithArgAndArgsPropertiesDict](#objectmodelwithargandargspropertiesdict) | [ObjectModelWithArgAndArgsPropertiesDict](#objectmodelwithargandargspropertiesdict) |
 
 ## ObjectModelWithArgAndArgsPropertiesDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **arg** | str |  |

@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [MixedPropertiesAndAdditionalPropertiesClassDictInput](#mixedpropertiesandadditionalpropertiesclassdictinput), [MixedPropertiesAndAdditionalPropertiesClassDict](#mixedpropertiesandadditionalpropertiesclassdict) | [MixedPropertiesAndAdditionalPropertiesClassDict](#mixedpropertiesandadditionalpropertiesclassdict) |
 
 ## MixedPropertiesAndAdditionalPropertiesClassDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uuid** | str, uuid.UUID |  | [optional] value must be a uuid
@@ -46,6 +47,14 @@ Input Type | Return Type | Notes
 [MapDictInput](#properties-map-mapdictinput), [MapDict](#properties-map-mapdict) | [MapDict](#properties-map-mapdict) |
 
 ## properties Map MapDictInput
+
+type: typing.Mapping[
+    str,
+    typing.Union[
+        animal.AnimalDictInput,
+        animal.AnimalDict,
+    ],
+]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | [**Animal**](animal.md), dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]

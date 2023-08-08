@@ -10,6 +10,7 @@ Input Type | Return Type | Notes
 [ObjectWithDifficultlyNamedPropsDictInput](#objectwithdifficultlynamedpropsdictinput), [ObjectWithDifficultlyNamedPropsDict](#objectwithdifficultlynamedpropsdict) | [ObjectWithDifficultlyNamedPropsDict](#objectwithdifficultlynamedpropsdict) |
 
 ## ObjectWithDifficultlyNamedPropsDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **123-list** | str |  |

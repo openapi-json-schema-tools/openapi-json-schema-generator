@@ -10,6 +10,7 @@ Input Type | Return Type | Notes
 [SpecialModelNameDictInput](#specialmodelnamedictinput), [SpecialModelNameDict](#specialmodelnamedict) | [SpecialModelNameDict](#specialmodelnamedict) |
 
 ## SpecialModelNameDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a** | str |  | [optional]

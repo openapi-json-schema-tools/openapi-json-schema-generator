@@ -7,6 +7,17 @@ Input Type | Return Type | Notes
 [ObjectWithNonIntersectingValuesDictInput](#objectwithnonintersectingvaluesdictinput), [ObjectWithNonIntersectingValuesDict](#objectwithnonintersectingvaluesdict) | [ObjectWithNonIntersectingValuesDict](#objectwithnonintersectingvaluesdict) |
 
 ## ObjectWithNonIntersectingValuesDictInput
+
+type: typing.Mapping[
+    str,
+    typing.Union[
+        typing.Union[
+            int,
+            float
+        ],
+        str,
+    ]
+]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a** | float, int |  | [optional]

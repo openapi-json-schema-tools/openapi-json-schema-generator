@@ -7,6 +7,15 @@ Input Type | Return Type | Notes
 [ReqPropsFromExplicitAddPropsDictInput](#reqpropsfromexplicitaddpropsdictinput), [ReqPropsFromExplicitAddPropsDict](#reqpropsfromexplicitaddpropsdict) | [ReqPropsFromExplicitAddPropsDict](#reqpropsfromexplicitaddpropsdict) |
 
 ## ReqPropsFromExplicitAddPropsDictInput
+
+type: typing.Mapping[
+    str,
+    typing.Union[
+        str,
+        str,
+        str,
+    ]
+]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **invalid-name** | str |  |

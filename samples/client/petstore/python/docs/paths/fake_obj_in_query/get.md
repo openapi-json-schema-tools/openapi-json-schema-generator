@@ -53,6 +53,7 @@ Input Type | Return Type | Notes
 [SchemaDictInput](#parameter0-schema-schemadictinput), [SchemaDict](#parameter0-schema-schemadict) | [SchemaDict](#parameter0-schema-schemadict) |
 
 ###### Parameter0 Schema SchemaDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **keyword** | str |  | [optional]

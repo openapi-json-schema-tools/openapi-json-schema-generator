@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [ApiResponseDictInput](#apiresponsedictinput), [ApiResponseDict](#apiresponsedict) | [ApiResponseDict](#apiresponsedict) |
 
 ## ApiResponseDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | int |  | [optional] value must be a 32 bit integer

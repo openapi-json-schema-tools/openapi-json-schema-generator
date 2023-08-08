@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [ArrayTestDictInput](#arraytestdictinput), [ArrayTestDict](#arraytestdict) | [ArrayTestDict](#arraytestdict) |
 
 ## ArrayTestDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **array_of_string** | list, tuple |  | [optional]

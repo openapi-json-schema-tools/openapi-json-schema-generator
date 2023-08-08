@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [ObjectWithOptionalTestPropDictInput](#objectwithoptionaltestpropdictinput), [ObjectWithOptionalTestPropDict](#objectwithoptionaltestpropdict) | [ObjectWithOptionalTestPropDict](#objectwithoptionaltestpropdict) |
 
 ## ObjectWithOptionalTestPropDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **test** | str |  | [optional]

@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [HasOnlyReadOnlyDictInput](#hasonlyreadonlydictinput), [HasOnlyReadOnlyDict](#hasonlyreadonlydict) | [HasOnlyReadOnlyDict](#hasonlyreadonlydict) |
 
 ## HasOnlyReadOnlyDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bar** | str |  | [optional]

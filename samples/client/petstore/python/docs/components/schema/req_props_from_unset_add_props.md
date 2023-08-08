@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [ReqPropsFromUnsetAddPropsDictInput](#reqpropsfromunsetaddpropsdictinput), [ReqPropsFromUnsetAddPropsDict](#reqpropsfromunsetaddpropsdict) | [ReqPropsFromUnsetAddPropsDict](#reqpropsfromunsetaddpropsdict) |
 
 ## ReqPropsFromUnsetAddPropsDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **invalid-name** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  |

@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [GrandparentAnimalDictInput](#grandparentanimaldictinput), [GrandparentAnimalDict](#grandparentanimaldict) | [GrandparentAnimalDict](#grandparentanimaldict) |
 
 ## GrandparentAnimalDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pet_type** | str |  |

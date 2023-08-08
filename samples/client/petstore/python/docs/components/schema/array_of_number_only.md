@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [ArrayOfNumberOnlyDictInput](#arrayofnumberonlydictinput), [ArrayOfNumberOnlyDict](#arrayofnumberonlydict) | [ArrayOfNumberOnlyDict](#arrayofnumberonlydict) |
 
 ## ArrayOfNumberOnlyDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ArrayNumber** | list, tuple |  | [optional]

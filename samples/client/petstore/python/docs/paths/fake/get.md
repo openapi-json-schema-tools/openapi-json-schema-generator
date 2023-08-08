@@ -51,6 +51,7 @@ Input Type | Return Type | Notes
 [SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput), [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) | [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) |
 
 ##### RequestBody content ApplicationXWwwFormUrlencoded Schema SchemaDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **enum_form_string_array** | list, tuple | Form parameter enum test (string array) | [optional]

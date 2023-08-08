@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [NumberOnlyDictInput](#numberonlydictinput), [NumberOnlyDict](#numberonlydict) | [NumberOnlyDict](#numberonlydict) |
 
 ## NumberOnlyDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **JustNumber** | float, int |  | [optional]

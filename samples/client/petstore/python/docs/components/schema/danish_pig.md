@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [DanishPigDictInput](#danishpigdictinput), [DanishPigDict](#danishpigdict) | [DanishPigDict](#danishpigdict) |
 
 ## DanishPigDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **className** | str |  | must be one of ["DanishPig"]

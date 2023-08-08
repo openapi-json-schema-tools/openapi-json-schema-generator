@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [WhaleDictInput](#whaledictinput), [WhaleDict](#whaledict) | [WhaleDict](#whaledict) |
 
 ## WhaleDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **className** | str |  | must be one of ["whale"]

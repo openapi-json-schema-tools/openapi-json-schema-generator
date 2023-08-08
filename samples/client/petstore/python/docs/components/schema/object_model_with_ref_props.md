@@ -10,6 +10,7 @@ Input Type | Return Type | Notes
 [ObjectModelWithRefPropsDictInput](#objectmodelwithrefpropsdictinput), [ObjectModelWithRefPropsDict](#objectmodelwithrefpropsdict) | [ObjectModelWithRefPropsDict](#objectmodelwithrefpropsdict) |
 
 ## ObjectModelWithRefPropsDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **myNumber** | [**NumberWithValidations**](number_with_validations.md), float, int |  | [optional]

@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [BananaDictInput](#bananadictinput), [BananaDict](#bananadict) | [BananaDict](#bananadict) |
 
 ## BananaDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **lengthCm** | float, int |  |

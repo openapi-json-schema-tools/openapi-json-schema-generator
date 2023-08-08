@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [FileSchemaTestClassDictInput](#fileschematestclassdictinput), [FileSchemaTestClassDict](#fileschematestclassdict) | [FileSchemaTestClassDict](#fileschematestclassdict) |
 
 ## FileSchemaTestClassDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **file** | [**File**](file.md), dict, schemas.immutabledict |  | [optional]

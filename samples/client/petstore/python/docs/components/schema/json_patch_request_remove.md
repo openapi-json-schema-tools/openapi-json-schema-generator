@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [JSONPatchRequestRemoveDictInput](#jsonpatchrequestremovedictinput), [JSONPatchRequestRemoveDict](#jsonpatchrequestremovedict) | [JSONPatchRequestRemoveDict](#jsonpatchrequestremovedict) |
 
 ## JSONPatchRequestRemoveDictInput
+type: typing_extensions.TypedDict
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **op** | str | The operation to perform. | must be one of ["remove"]

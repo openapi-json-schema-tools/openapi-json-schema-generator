@@ -30,6 +30,11 @@ Input Type | Return Type | Notes
 [SchemaDictInput](#content-applicationjson-schema-schemadictinput), [SchemaDict](#content-applicationjson-schema-schemadict) | [SchemaDict](#content-applicationjson-schema-schemadict) |
 
 #### content ApplicationJson Schema SchemaDictInput
+
+type: typing.Mapping[
+    str,
+    int,
+]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | int | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer

@@ -10,6 +10,7 @@ Input Type | Return Type | Notes
 [FileDictInput](#filedictinput), [FileDict](#filedict) | [FileDict](#filedict) |
 
 ## FileDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **sourceURI** | str | Test capitalization | [optional]

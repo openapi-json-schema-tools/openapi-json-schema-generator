@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [JSONPatchRequestAddReplaceTestDictInput](#jsonpatchrequestaddreplacetestdictinput), [JSONPatchRequestAddReplaceTestDict](#jsonpatchrequestaddreplacetestdict) | [JSONPatchRequestAddReplaceTestDict](#jsonpatchrequestaddreplacetestdict) |
 
 ## JSONPatchRequestAddReplaceTestDictInput
+type: typing_extensions.TypedDict
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **op** | str | The operation to perform. | must be one of ["add", "replace", "test"]

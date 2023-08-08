@@ -7,6 +7,11 @@ Input Type | Return Type | Notes
 [StringBooleanMapDictInput](#stringbooleanmapdictinput), [StringBooleanMapDict](#stringbooleanmapdict) | [StringBooleanMapDict](#stringbooleanmapdict) |
 
 ## StringBooleanMapDictInput
+
+type: typing.Mapping[
+    str,
+    bool,
+]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | bool | any string name can be used but the value must be the correct type | [optional]

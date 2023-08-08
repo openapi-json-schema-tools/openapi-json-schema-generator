@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [JSONPatchRequestMoveCopyDictInput](#jsonpatchrequestmovecopydictinput), [JSONPatchRequestMoveCopyDict](#jsonpatchrequestmovecopydict) | [JSONPatchRequestMoveCopyDict](#jsonpatchrequestmovecopydict) |
 
 ## JSONPatchRequestMoveCopyDictInput
+type: typing_extensions.TypedDict
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **from** | str | A JSON Pointer path. |

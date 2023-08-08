@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [EnumTestDictInput](#enumtestdictinput), [EnumTestDict](#enumtestdict) | [EnumTestDict](#enumtestdict) |
 
 ## EnumTestDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **enum_string_required** | str |  | must be one of ["UPPER", "lower", ""]

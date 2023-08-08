@@ -10,6 +10,7 @@ Input Type | Return Type | Notes
 [PetDictInput](#petdictinput), [PetDict](#petdict) | [PetDict](#petdict) |
 
 ## PetDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | str |  |

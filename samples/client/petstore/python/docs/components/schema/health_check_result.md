@@ -10,6 +10,7 @@ Input Type | Return Type | Notes
 [HealthCheckResultDictInput](#healthcheckresultdictinput), [HealthCheckResultDict](#healthcheckresultdict) | [HealthCheckResultDict](#healthcheckresultdict) |
 
 ## HealthCheckResultDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NullableMessage** | None, str |  | [optional]

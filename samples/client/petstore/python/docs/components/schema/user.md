@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [UserDictInput](#userdictinput), [UserDict](#userdict) | [UserDict](#userdict) |
 
 ## UserDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | int |  | [optional] value must be a 64 bit integer

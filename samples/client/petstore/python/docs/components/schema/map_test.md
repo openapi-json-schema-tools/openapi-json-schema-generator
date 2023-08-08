@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [MapTestDictInput](#maptestdictinput), [MapTestDict](#maptestdict) | [MapTestDict](#maptestdict) |
 
 ## MapTestDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **map_map_of_string** | dict, schemas.immutabledict |  | [optional]
@@ -48,6 +49,14 @@ Input Type | Return Type | Notes
 [MapMapOfStringDictInput](#properties-mapmapofstring-mapmapofstringdictinput), [MapMapOfStringDict](#properties-mapmapofstring-mapmapofstringdict) | [MapMapOfStringDict](#properties-mapmapofstring-mapmapofstringdict) |
 
 ## properties MapMapOfString MapMapOfStringDictInput
+
+type: typing.Mapping[
+    str,
+    typing.Union[
+        AdditionalPropertiesDictInput,
+        AdditionalPropertiesDict,
+    ],
+]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
@@ -74,6 +83,11 @@ Input Type | Return Type | Notes
 [AdditionalPropertiesDictInput](#properties-mapmapofstring-additionalproperties-additionalpropertiesdictinput), [AdditionalPropertiesDict](#properties-mapmapofstring-additionalproperties-additionalpropertiesdict) | [AdditionalPropertiesDict](#properties-mapmapofstring-additionalproperties-additionalpropertiesdict) |
 
 ## properties MapMapOfString AdditionalProperties AdditionalPropertiesDictInput
+
+type: typing.Mapping[
+    str,
+    str,
+]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
@@ -100,6 +114,14 @@ Input Type | Return Type | Notes
 [MapOfEnumStringDictInput](#properties-mapofenumstring-mapofenumstringdictinput), [MapOfEnumStringDict](#properties-mapofenumstring-mapofenumstringdict) | [MapOfEnumStringDict](#properties-mapofenumstring-mapofenumstringdict) |
 
 ## properties MapOfEnumString MapOfEnumStringDictInput
+
+type: typing.Mapping[
+    str,
+    typing_extensions.Literal[
+        "UPPER",
+        "lower"
+    ],
+]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | str | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower"]
@@ -126,6 +148,11 @@ Input Type | Return Type | Notes
 [DirectMapDictInput](#properties-directmap-directmapdictinput), [DirectMapDict](#properties-directmap-directmapdict) | [DirectMapDict](#properties-directmap-directmapdict) |
 
 ## properties DirectMap DirectMapDictInput
+
+type: typing.Mapping[
+    str,
+    bool,
+]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | bool | any string name can be used but the value must be the correct type | [optional]

@@ -10,6 +10,7 @@ Input Type | Return Type | Notes
 [PlayerDictInput](#playerdictinput), [PlayerDict](#playerdict) | [PlayerDict](#playerdict) |
 
 ## PlayerDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | str |  | [optional]

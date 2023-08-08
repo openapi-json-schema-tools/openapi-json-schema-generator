@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [TagDictInput](#tagdictinput), [TagDict](#tagdict) | [TagDict](#tagdict) |
 
 ## TagDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | int |  | [optional] value must be a 64 bit integer

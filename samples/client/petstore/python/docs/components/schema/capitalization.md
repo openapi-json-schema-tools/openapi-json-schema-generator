@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [CapitalizationDictInput](#capitalizationdictinput), [CapitalizationDict](#capitalizationdict) | [CapitalizationDict](#capitalizationdict) |
 
 ## CapitalizationDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **smallCamel** | str |  | [optional]

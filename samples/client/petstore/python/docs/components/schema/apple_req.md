@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [AppleReqDictInput](#applereqdictinput), [AppleReqDict](#applereqdict) | [AppleReqDict](#applereqdict) |
 
 ## AppleReqDictInput
+type: typing_extensions.TypedDict
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cultivar** | str |  |

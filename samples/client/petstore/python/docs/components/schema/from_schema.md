@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [FromSchemaDictInput](#fromschemadictinput), [FromSchemaDict](#fromschemadict) | [FromSchemaDict](#fromschemadict) |
 
 ## FromSchemaDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **data** | str |  | [optional]

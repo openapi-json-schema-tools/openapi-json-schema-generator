@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [NoAdditionalPropertiesDictInput](#noadditionalpropertiesdictinput), [NoAdditionalPropertiesDict](#noadditionalpropertiesdict) | [NoAdditionalPropertiesDict](#noadditionalpropertiesdict) |
 
 ## NoAdditionalPropertiesDictInput
+type: typing_extensions.TypedDict
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | int |  | value must be a 64 bit integer

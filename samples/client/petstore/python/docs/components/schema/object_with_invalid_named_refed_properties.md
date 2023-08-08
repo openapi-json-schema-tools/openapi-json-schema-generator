@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [ObjectWithInvalidNamedRefedPropertiesDictInput](#objectwithinvalidnamedrefedpropertiesdictinput), [ObjectWithInvalidNamedRefedPropertiesDict](#objectwithinvalidnamedrefedpropertiesdict) | [ObjectWithInvalidNamedRefedPropertiesDict](#objectwithinvalidnamedrefedpropertiesdict) |
 
 ## ObjectWithInvalidNamedRefedPropertiesDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **!reference** | [**ArrayWithValidationsInItems**](array_with_validations_in_items.md), list, tuple |  |

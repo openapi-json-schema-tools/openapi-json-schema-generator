@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [ObjWithRequiredPropsBaseDictInput](#objwithrequiredpropsbasedictinput), [ObjWithRequiredPropsBaseDict](#objwithrequiredpropsbasedict) | [ObjWithRequiredPropsBaseDict](#objwithrequiredpropsbasedict) |
 
 ## ObjWithRequiredPropsBaseDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **b** | str |  |

@@ -22,6 +22,7 @@ Input Type | Return Type | Notes
 [_0DictInput](#allof-_0-_0dictinput), [_0Dict](#allof-_0-_0dict) | [_0Dict](#allof-_0-_0dict) |
 
 ## allof _0 _0DictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
@@ -48,6 +49,14 @@ Input Type | Return Type | Notes
 [_1DictInput](#allof-_1-_1dictinput), [_1Dict](#allof-_1-_1dict) | [_1Dict](#allof-_1-_1dict) |
 
 ## allof _1 _1DictInput
+
+type: typing.Mapping[
+    str,
+    typing.Union[
+        schemas.INPUT_TYPES_ALL,
+        schemas.OUTPUT_BASE_TYPES
+    ],
+]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
@@ -74,6 +83,14 @@ Input Type | Return Type | Notes
 [_2DictInput](#allof-_2-_2dictinput), [_2Dict](#allof-_2-_2dict) | [_2Dict](#allof-_2-_2dict) |
 
 ## allof _2 _2DictInput
+
+type: typing.Mapping[
+    str,
+    typing.Union[
+        schemas.INPUT_TYPES_ALL,
+        schemas.OUTPUT_BASE_TYPES
+    ],
+]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]

@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [AnimalDictInput](#animaldictinput), [AnimalDict](#animaldict) | [AnimalDict](#animaldict) |
 
 ## AnimalDictInput
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **className** | str |  |
