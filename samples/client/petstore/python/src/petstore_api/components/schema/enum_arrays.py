@@ -219,12 +219,6 @@ class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "just_symbol",
         "array_enum",
     })
-    @staticmethod
-    def from_dict_(
-        arg: EnumArraysDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> EnumArraysDict:
-        return EnumArrays.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -255,7 +249,16 @@ class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(EnumArraysDictInput, arg_)
         return EnumArrays.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            EnumArraysDictInput,
+            EnumArraysDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> EnumArraysDict:
+        return EnumArrays.validate(arg, configuration=configuration)
     
     @property
     def just_symbol(self) -> typing.Union[typing_extensions.Literal[">=", "$"], schemas.Unset]:

@@ -301,12 +301,6 @@ class ArrayTestDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_
         "array_array_of_integer",
         "array_array_of_model",
     })
-    @staticmethod
-    def from_dict_(
-        arg: ArrayTestDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> ArrayTestDict:
-        return ArrayTest.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -341,7 +335,16 @@ class ArrayTestDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_
         arg_.update(kwargs)
         used_arg_ = typing.cast(ArrayTestDictInput, arg_)
         return ArrayTest.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            ArrayTestDictInput,
+            ArrayTestDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ArrayTestDict:
+        return ArrayTest.validate(arg, configuration=configuration)
     
     @property
     def array_of_string(self) -> typing.Union[ArrayOfStringTuple, schemas.Unset]:

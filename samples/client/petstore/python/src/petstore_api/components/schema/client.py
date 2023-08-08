@@ -26,12 +26,6 @@ class ClientDict(schemas.immutabledict[str, str]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "client",
     })
-    @staticmethod
-    def from_dict_(
-        arg: ClientDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> ClientDict:
-        return Client.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -53,7 +47,16 @@ class ClientDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(ClientDictInput, arg_)
         return Client.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            ClientDictInput,
+            ClientDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ClientDict:
+        return Client.validate(arg, configuration=configuration)
     
     @property
     def client(self) -> typing.Union[str, schemas.Unset]:

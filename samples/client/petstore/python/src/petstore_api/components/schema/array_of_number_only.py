@@ -82,12 +82,6 @@ class ArrayOfNumberOnlyDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTP
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "ArrayNumber",
     })
-    @staticmethod
-    def from_dict_(
-        arg: ArrayOfNumberOnlyDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> ArrayOfNumberOnlyDict:
-        return ArrayOfNumberOnly.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -110,7 +104,16 @@ class ArrayOfNumberOnlyDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTP
         arg_.update(kwargs)
         used_arg_ = typing.cast(ArrayOfNumberOnlyDictInput, arg_)
         return ArrayOfNumberOnly.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            ArrayOfNumberOnlyDictInput,
+            ArrayOfNumberOnlyDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ArrayOfNumberOnlyDict:
+        return ArrayOfNumberOnly.validate(arg, configuration=configuration)
     
     @property
     def ArrayNumber(self) -> typing.Union[ArrayNumberTuple, schemas.Unset]:

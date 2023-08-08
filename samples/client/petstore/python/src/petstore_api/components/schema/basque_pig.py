@@ -79,12 +79,6 @@ class BasquePigDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: BasquePigDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> BasquePigDict:
-        return BasquePig.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -101,7 +95,16 @@ class BasquePigDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(BasquePigDictInput, arg_)
         return BasquePig.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            BasquePigDictInput,
+            BasquePigDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> BasquePigDict:
+        return BasquePig.validate(arg, configuration=configuration)
     
     @property
     def className(self) -> typing_extensions.Literal["BasquePig"]:

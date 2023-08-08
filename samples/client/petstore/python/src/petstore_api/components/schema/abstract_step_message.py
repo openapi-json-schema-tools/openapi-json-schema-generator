@@ -28,12 +28,6 @@ class AbstractStepMessageDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: AbstractStepMessageDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> AbstractStepMessageDict:
-        return AbstractStepMessage.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -58,7 +52,16 @@ class AbstractStepMessageDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(AbstractStepMessageDictInput, arg_)
         return AbstractStepMessage.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            AbstractStepMessageDictInput,
+            AbstractStepMessageDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AbstractStepMessageDict:
+        return AbstractStepMessage.validate(arg, configuration=configuration)
     
     @property
     def description(self) -> schemas.OUTPUT_BASE_TYPES:

@@ -32,12 +32,6 @@ class ObjectWithDecimalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_
         "width",
         "cost",
     })
-    @staticmethod
-    def from_dict_(
-        arg: ObjectWithDecimalPropertiesDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> ObjectWithDecimalPropertiesDict:
-        return ObjectWithDecimalProperties.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -70,7 +64,16 @@ class ObjectWithDecimalPropertiesDict(schemas.immutabledict[str, schemas.OUTPUT_
         arg_.update(kwargs)
         used_arg_ = typing.cast(ObjectWithDecimalPropertiesDictInput, arg_)
         return ObjectWithDecimalProperties.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            ObjectWithDecimalPropertiesDictInput,
+            ObjectWithDecimalPropertiesDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectWithDecimalPropertiesDict:
+        return ObjectWithDecimalProperties.validate(arg, configuration=configuration)
     
     @property
     def length(self) -> typing.Union[str, schemas.Unset]:

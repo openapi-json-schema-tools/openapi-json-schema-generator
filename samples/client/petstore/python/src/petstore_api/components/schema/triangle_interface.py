@@ -82,12 +82,6 @@ class TriangleInterfaceDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: TriangleInterfaceDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> TriangleInterfaceDict:
-        return TriangleInterface.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -106,7 +100,16 @@ class TriangleInterfaceDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(TriangleInterfaceDictInput, arg_)
         return TriangleInterface.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            TriangleInterfaceDictInput,
+            TriangleInterfaceDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> TriangleInterfaceDict:
+        return TriangleInterface.validate(arg, configuration=configuration)
     
     @property
     def shapeType(self) -> typing_extensions.Literal["Triangle"]:

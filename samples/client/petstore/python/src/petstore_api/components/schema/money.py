@@ -30,12 +30,6 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: MoneyDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> MoneyDict:
-        return Money.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -53,7 +47,16 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         }
         used_arg_ = typing.cast(MoneyDictInput, arg_)
         return Money.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            MoneyDictInput,
+            MoneyDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> MoneyDict:
+        return Money.validate(arg, configuration=configuration)
     
     @property
     def amount(self) -> str:

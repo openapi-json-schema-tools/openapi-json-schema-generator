@@ -41,12 +41,6 @@ class CapitalizationDict(schemas.immutabledict[str, str]):
         "SCA_ETH_Flow_Points",
         "ATT_NAME",
     })
-    @staticmethod
-    def from_dict_(
-        arg: CapitalizationDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> CapitalizationDict:
-        return Capitalization.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -93,7 +87,16 @@ class CapitalizationDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(CapitalizationDictInput, arg_)
         return Capitalization.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            CapitalizationDictInput,
+            CapitalizationDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> CapitalizationDict:
+        return Capitalization.validate(arg, configuration=configuration)
     
     @property
     def smallCamel(self) -> typing.Union[str, schemas.Unset]:

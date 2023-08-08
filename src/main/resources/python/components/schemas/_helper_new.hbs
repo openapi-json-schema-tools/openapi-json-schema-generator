@@ -5,12 +5,6 @@ def __new__(cls, arg: {{arrayInputJsonPathPiece.camelCase}}, configuration: typi
 {{else}}
     {{#eq instanceType "propertiesOutputType" }}
         {{#or requiredProperties optionalProperties}}
-@staticmethod
-def from_dict_(
-    arg: {{mapInputJsonPathPiece.camelCase}},
-    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-) -> {{mapOutputJsonPathPiece.camelCase}}:
-    return {{jsonPathPiece.camelCase}}.validate(arg, configuration=configuration)
 
 def __new__(
     cls,
@@ -95,21 +89,30 @@ def __new__(
     **kwargs: schemas.INPUT_TYPES_ALL,
             {{/if}}
 ):
-    {{#if additionalProperties}}
-        {{#if additionalProperties.isBooleanSchemaFalse}}
+            {{#if additionalProperties}}
+                {{#if additionalProperties.isBooleanSchemaFalse}}
     return {{jsonPathPiece.camelCase}}.validate(arg, configuration=configuration_)
-        {{else}}
+                {{else}}
     used_kwargs = typing.cast({{mapInputJsonPathPiece.camelCase}}, kwargs)
     return {{jsonPathPiece.camelCase}}.validate(used_kwargs, configuration=configuration_)
-        {{/if}}
-    {{else}}
+                {{/if}}
+            {{else}}
     used_kwargs = typing.cast({{mapInputJsonPathPiece.camelCase}}, kwargs)
     return {{jsonPathPiece.camelCase}}.validate(used_kwargs, configuration=configuration_)
-    {{/if}}
+            {{/if}}
+        {{/or}}
+        {{#or mapInputJsonPathPiece mapOutputJsonPathPiece}}
 
 @staticmethod
 def from_dict_(
-    arg: {{mapInputJsonPathPiece.camelCase}},
+            {{#and mapInputJsonPathPiece mapOutputJsonPathPiece}}
+    arg: typing.Union[
+        {{mapInputJsonPathPiece.camelCase}},
+        {{mapOutputJsonPathPiece.camelCase}}
+    ],
+            {{else}}
+    arg: {{#if mapInputJsonPathPiece}}{{mapInputJsonPathPiece.camelCase}}{{else}}{{mapOutputJsonPathPiece.camelCase}}{{/if}},
+            {{/and}}
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
 ) -> {{mapOutputJsonPathPiece.camelCase}}:
     return {{jsonPathPiece.camelCase}}.validate(arg, configuration=configuration)

@@ -26,12 +26,6 @@ class BananaDict(schemas.immutabledict[str, typing.Union[int, float]]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: BananaDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> BananaDict:
-        return Banana.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -49,7 +43,16 @@ class BananaDict(schemas.immutabledict[str, typing.Union[int, float]]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(BananaDictInput, arg_)
         return Banana.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            BananaDictInput,
+            BananaDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> BananaDict:
+        return Banana.validate(arg, configuration=configuration)
     
     @property
     def lengthCm(self) -> typing.Union[int, float]:

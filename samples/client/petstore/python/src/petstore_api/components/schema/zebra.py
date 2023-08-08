@@ -164,12 +164,6 @@ class ZebraDict(schemas.immutabledict[str, str]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "type",
     })
-    @staticmethod
-    def from_dict_(
-        arg: ZebraDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> ZebraDict:
-        return Zebra.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -200,7 +194,16 @@ class ZebraDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(ZebraDictInput, arg_)
         return Zebra.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            ZebraDictInput,
+            ZebraDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ZebraDict:
+        return Zebra.validate(arg, configuration=configuration)
     
     @property
     def className(self) -> typing_extensions.Literal["zebra"]:

@@ -248,12 +248,6 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "pattern_with_digits_and_delimiter",
         "noneProp",
     })
-    @staticmethod
-    def from_dict_(
-        arg: FormatTestDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> FormatTestDict:
-        return FormatTest.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -375,7 +369,16 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(FormatTestDictInput, arg_)
         return FormatTest.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            FormatTestDictInput,
+            FormatTestDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> FormatTestDict:
+        return FormatTest.validate(arg, configuration=configuration)
     
     @property
     def byte(self) -> str:

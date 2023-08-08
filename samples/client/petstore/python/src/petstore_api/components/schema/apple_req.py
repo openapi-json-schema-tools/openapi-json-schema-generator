@@ -43,12 +43,6 @@ class AppleReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "mealy",
     })
-    @staticmethod
-    def from_dict_(
-        arg: AppleReqDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> AppleReqDict:
-        return AppleReq.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -71,7 +65,16 @@ class AppleReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             arg_[key] = val
         used_arg_ = typing.cast(AppleReqDictInput, arg_)
         return AppleReq.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            AppleReqDictInput,
+            AppleReqDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AppleReqDict:
+        return AppleReq.validate(arg, configuration=configuration)
     
     @property
     def cultivar(self) -> str:

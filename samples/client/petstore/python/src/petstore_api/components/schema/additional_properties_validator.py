@@ -29,11 +29,13 @@ class _0Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @staticmethod
     def from_dict_(
-        arg: _0DictInput,
+        arg: typing.Union[
+            _0DictInput,
+            _0Dict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> _0Dict:
         return _0.validate(arg, configuration=configuration)
-
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -106,11 +108,13 @@ class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @staticmethod
     def from_dict_(
-        arg: _1DictInput,
+        arg: typing.Union[
+            _1DictInput,
+            _1Dict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> _1Dict:
         return _1.validate(arg, configuration=configuration)
-
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -189,11 +193,13 @@ class _2Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @staticmethod
     def from_dict_(
-        arg: _2DictInput,
+        arg: typing.Union[
+            _2DictInput,
+            _2Dict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> _2Dict:
         return _2.validate(arg, configuration=configuration)
-
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

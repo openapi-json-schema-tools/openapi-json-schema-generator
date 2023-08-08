@@ -40,12 +40,6 @@ class CookieParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         "A-B",
         "self",
     })
-    @staticmethod
-    def from_dict_(
-        arg: CookieParametersDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> CookieParametersDict:
-        return CookieParameters.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -70,7 +64,16 @@ class CookieParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             arg_[key] = val
         used_arg_ = typing.cast(CookieParametersDictInput, arg_)
         return CookieParameters.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            CookieParametersDictInput,
+            CookieParametersDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> CookieParametersDict:
+        return CookieParameters.validate(arg, configuration=configuration)
     
     @property
     def aB(self) -> typing.Union[str, schemas.Unset]:

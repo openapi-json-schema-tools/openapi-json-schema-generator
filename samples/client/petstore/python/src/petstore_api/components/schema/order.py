@@ -131,12 +131,6 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "status",
         "complete",
     })
-    @staticmethod
-    def from_dict_(
-        arg: OrderDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> OrderDict:
-        return Order.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -188,7 +182,16 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(OrderDictInput, arg_)
         return Order.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            OrderDictInput,
+            OrderDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> OrderDict:
+        return Order.validate(arg, configuration=configuration)
     
     @property
     def id(self) -> typing.Union[int, schemas.Unset]:

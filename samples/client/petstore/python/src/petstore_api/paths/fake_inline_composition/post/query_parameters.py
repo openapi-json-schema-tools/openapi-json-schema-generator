@@ -30,12 +30,6 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         "compositionAtRoot",
         "compositionInProperty",
     })
-    @staticmethod
-    def from_dict_(
-        arg: QueryParametersDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> QueryParametersDict:
-        return QueryParameters.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -62,7 +56,16 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             arg_[key] = val
         used_arg_ = typing.cast(QueryParametersDictInput, arg_)
         return QueryParameters.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            QueryParametersDictInput,
+            QueryParametersDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> QueryParametersDict:
+        return QueryParameters.validate(arg, configuration=configuration)
     
     @property
     def compositionAtRoot(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:

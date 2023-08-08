@@ -46,12 +46,6 @@ class BananaReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "sweet",
     })
-    @staticmethod
-    def from_dict_(
-        arg: BananaReqDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> BananaReqDict:
-        return BananaReq.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -77,7 +71,16 @@ class BananaReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             arg_[key] = val
         used_arg_ = typing.cast(BananaReqDictInput, arg_)
         return BananaReq.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            BananaReqDictInput,
+            BananaReqDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> BananaReqDict:
+        return BananaReq.validate(arg, configuration=configuration)
     
     @property
     def lengthCm(self) -> typing.Union[int, float]:

@@ -49,12 +49,6 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "boolean_group",
     })
-    @staticmethod
-    def from_dict_(
-        arg: HeaderParametersDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> HeaderParametersDict:
-        return HeaderParameters.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -83,7 +77,16 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             arg_[key] = val
         used_arg_ = typing.cast(HeaderParametersDictInput, arg_)
         return HeaderParameters.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            HeaderParametersDictInput,
+            HeaderParametersDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> HeaderParametersDict:
+        return HeaderParameters.validate(arg, configuration=configuration)
     
     @property
     def required_boolean_group(self) -> typing_extensions.Literal["true", "false"]:

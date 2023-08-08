@@ -95,11 +95,13 @@ class AdditionalPropertiesWithArrayOfEnumsDict(schemas.immutabledict[str, typing
     
     @staticmethod
     def from_dict_(
-        arg: AdditionalPropertiesWithArrayOfEnumsDictInput,
+        arg: typing.Union[
+            AdditionalPropertiesWithArrayOfEnumsDictInput,
+            AdditionalPropertiesWithArrayOfEnumsDict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesWithArrayOfEnumsDict:
         return AdditionalPropertiesWithArrayOfEnums.validate(arg, configuration=configuration)
-
     
     def get_additional_property_(self, name: str) -> typing.Union[AdditionalPropertiesTuple, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

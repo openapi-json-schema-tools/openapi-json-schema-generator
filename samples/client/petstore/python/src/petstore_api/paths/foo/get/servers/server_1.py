@@ -91,12 +91,6 @@ class VariablesDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: VariablesDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> VariablesDict:
-        return Variables.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -112,7 +106,16 @@ class VariablesDict(schemas.immutabledict[str, str]):
         }
         used_arg_ = typing.cast(VariablesDictInput, arg_)
         return Variables.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            VariablesDictInput,
+            VariablesDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> VariablesDict:
+        return Variables.validate(arg, configuration=configuration)
     
     @property
     def version(self) -> typing_extensions.Literal["v1", "v2"]:

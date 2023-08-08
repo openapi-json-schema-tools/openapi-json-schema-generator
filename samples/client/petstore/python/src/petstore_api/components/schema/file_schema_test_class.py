@@ -85,12 +85,6 @@ class FileSchemaTestClassDict(schemas.immutabledict[str, typing.Tuple[schemas.OU
         "file",
         "files",
     })
-    @staticmethod
-    def from_dict_(
-        arg: FileSchemaTestClassDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> FileSchemaTestClassDict:
-        return FileSchemaTestClass.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -119,7 +113,16 @@ class FileSchemaTestClassDict(schemas.immutabledict[str, typing.Tuple[schemas.OU
         arg_.update(kwargs)
         used_arg_ = typing.cast(FileSchemaTestClassDictInput, arg_)
         return FileSchemaTestClass.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            FileSchemaTestClassDictInput,
+            FileSchemaTestClassDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> FileSchemaTestClassDict:
+        return FileSchemaTestClass.validate(arg, configuration=configuration)
     
     @property
     def file(self) -> typing.Union[file.FileDict, schemas.Unset]:

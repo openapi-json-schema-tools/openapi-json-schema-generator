@@ -79,12 +79,6 @@ class DanishPigDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: DanishPigDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> DanishPigDict:
-        return DanishPig.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -101,7 +95,16 @@ class DanishPigDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(DanishPigDictInput, arg_)
         return DanishPig.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            DanishPigDictInput,
+            DanishPigDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> DanishPigDict:
+        return DanishPig.validate(arg, configuration=configuration)
     
     @property
     def className(self) -> typing_extensions.Literal["DanishPig"]:

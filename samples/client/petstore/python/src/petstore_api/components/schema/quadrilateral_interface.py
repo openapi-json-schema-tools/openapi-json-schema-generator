@@ -82,12 +82,6 @@ class QuadrilateralInterfaceDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: QuadrilateralInterfaceDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> QuadrilateralInterfaceDict:
-        return QuadrilateralInterface.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -106,7 +100,16 @@ class QuadrilateralInterfaceDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(QuadrilateralInterfaceDictInput, arg_)
         return QuadrilateralInterface.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            QuadrilateralInterfaceDictInput,
+            QuadrilateralInterfaceDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> QuadrilateralInterfaceDict:
+        return QuadrilateralInterface.validate(arg, configuration=configuration)
     
     @property
     def quadrilateralType(self) -> str:

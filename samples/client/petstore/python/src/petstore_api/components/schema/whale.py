@@ -85,12 +85,6 @@ class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "hasBaleen",
         "hasTeeth",
     })
-    @staticmethod
-    def from_dict_(
-        arg: WhaleDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> WhaleDict:
-        return Whale.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -122,7 +116,16 @@ class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(WhaleDictInput, arg_)
         return Whale.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            WhaleDictInput,
+            WhaleDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> WhaleDict:
+        return Whale.validate(arg, configuration=configuration)
     
     @property
     def className(self) -> typing_extensions.Literal["whale"]:

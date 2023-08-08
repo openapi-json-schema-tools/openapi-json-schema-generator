@@ -30,12 +30,6 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
         "a",
         "b",
     })
-    @staticmethod
-    def from_dict_(
-        arg: ObjectWithOnlyOptionalPropsDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> ObjectWithOnlyOptionalPropsDict:
-        return ObjectWithOnlyOptionalProps.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -61,7 +55,16 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
             arg_[key] = val
         used_arg_ = typing.cast(ObjectWithOnlyOptionalPropsDictInput, arg_)
         return ObjectWithOnlyOptionalProps.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            ObjectWithOnlyOptionalPropsDictInput,
+            ObjectWithOnlyOptionalPropsDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectWithOnlyOptionalPropsDict:
+        return ObjectWithOnlyOptionalProps.validate(arg, configuration=configuration)
     
     @property
     def a(self) -> typing.Union[str, schemas.Unset]:

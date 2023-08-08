@@ -29,12 +29,6 @@ class HasOnlyReadOnlyDict(schemas.immutabledict[str, str]):
         "bar",
         "foo",
     })
-    @staticmethod
-    def from_dict_(
-        arg: HasOnlyReadOnlyDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> HasOnlyReadOnlyDict:
-        return HasOnlyReadOnly.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -61,7 +55,16 @@ class HasOnlyReadOnlyDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(HasOnlyReadOnlyDictInput, arg_)
         return HasOnlyReadOnly.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            HasOnlyReadOnlyDictInput,
+            HasOnlyReadOnlyDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> HasOnlyReadOnlyDict:
+        return HasOnlyReadOnly.validate(arg, configuration=configuration)
     
     @property
     def bar(self) -> typing.Union[str, schemas.Unset]:

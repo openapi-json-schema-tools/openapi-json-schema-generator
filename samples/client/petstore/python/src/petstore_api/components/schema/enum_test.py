@@ -320,12 +320,6 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "IntegerEnumWithDefaultValue",
         "IntegerEnumOneValue",
     })
-    @staticmethod
-    def from_dict_(
-        arg: EnumTestDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> EnumTestDict:
-        return EnumTest.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -419,7 +413,16 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(EnumTestDictInput, arg_)
         return EnumTest.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            EnumTestDictInput,
+            EnumTestDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> EnumTestDict:
+        return EnumTest.validate(arg, configuration=configuration)
     
     @property
     def enum_string_required(self) -> typing_extensions.Literal["UPPER", "lower", ""]:

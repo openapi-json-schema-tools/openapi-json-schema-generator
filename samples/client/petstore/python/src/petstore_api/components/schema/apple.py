@@ -52,12 +52,6 @@ class AppleDict(schemas.immutabledict[str, str]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "origin",
     })
-    @staticmethod
-    def from_dict_(
-        arg: AppleDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> AppleDict:
-        return Apple.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -82,7 +76,16 @@ class AppleDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(AppleDictInput, arg_)
         return Apple.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            AppleDictInput,
+            AppleDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AppleDict:
+        return Apple.validate(arg, configuration=configuration)
     
     @property
     def cultivar(self) -> str:

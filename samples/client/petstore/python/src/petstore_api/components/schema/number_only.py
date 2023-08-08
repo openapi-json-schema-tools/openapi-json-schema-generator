@@ -26,12 +26,6 @@ class NumberOnlyDict(schemas.immutabledict[str, typing.Union[int, float]]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "JustNumber",
     })
-    @staticmethod
-    def from_dict_(
-        arg: NumberOnlyDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> NumberOnlyDict:
-        return NumberOnly.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -54,7 +48,16 @@ class NumberOnlyDict(schemas.immutabledict[str, typing.Union[int, float]]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(NumberOnlyDictInput, arg_)
         return NumberOnly.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            NumberOnlyDictInput,
+            NumberOnlyDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> NumberOnlyDict:
+        return NumberOnly.validate(arg, configuration=configuration)
     
     @property
     def JustNumber(self) -> typing.Union[int, float, schemas.Unset]:

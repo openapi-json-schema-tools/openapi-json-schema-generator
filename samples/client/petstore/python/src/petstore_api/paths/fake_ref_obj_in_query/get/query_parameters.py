@@ -28,12 +28,6 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "mapBean",
     })
-    @staticmethod
-    def from_dict_(
-        arg: QueryParametersDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> QueryParametersDict:
-        return QueryParameters.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -54,7 +48,16 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             arg_[key] = val
         used_arg_ = typing.cast(QueryParametersDictInput, arg_)
         return QueryParameters.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            QueryParametersDictInput,
+            QueryParametersDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> QueryParametersDict:
+        return QueryParameters.validate(arg, configuration=configuration)
     
     @property
     def mapBean(self) -> typing.Union[foo.FooDict, schemas.Unset]:

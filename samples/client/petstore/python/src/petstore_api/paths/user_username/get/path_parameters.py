@@ -28,12 +28,6 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: PathParametersDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> PathParametersDict:
-        return PathParameters.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -46,7 +40,16 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         }
         used_arg_ = typing.cast(PathParametersDictInput, arg_)
         return PathParameters.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            PathParametersDictInput,
+            PathParametersDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> PathParametersDict:
+        return PathParameters.validate(arg, configuration=configuration)
     
     @property
     def username(self) -> str:

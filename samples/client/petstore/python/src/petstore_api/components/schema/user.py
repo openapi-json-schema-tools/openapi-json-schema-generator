@@ -106,12 +106,6 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "anyTypeExceptNullProp",
         "anyTypePropNullable",
     })
-    @staticmethod
-    def from_dict_(
-        arg: UserDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> UserDict:
-        return User.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -201,7 +195,16 @@ class UserDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(UserDictInput, arg_)
         return User.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            UserDictInput,
+            UserDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> UserDict:
+        return User.validate(arg, configuration=configuration)
     
     @property
     def id(self) -> typing.Union[int, schemas.Unset]:

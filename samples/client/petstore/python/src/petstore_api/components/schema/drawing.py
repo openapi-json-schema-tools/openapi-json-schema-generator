@@ -92,12 +92,6 @@ class DrawingDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TY
         "nullableShape",
         "shapes",
     })
-    @staticmethod
-    def from_dict_(
-        arg: DrawingDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> DrawingDict:
-        return Drawing.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -141,7 +135,16 @@ class DrawingDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TY
         arg_.update(kwargs)
         used_arg_ = typing.cast(DrawingDictInput, arg_)
         return Drawing.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            DrawingDictInput,
+            DrawingDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> DrawingDict:
+        return Drawing.validate(arg, configuration=configuration)
     
     @property
     def mainShape(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:

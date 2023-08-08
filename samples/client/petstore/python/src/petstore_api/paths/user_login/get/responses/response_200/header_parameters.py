@@ -59,12 +59,6 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "X-Expires-After",
         "numberHeader",
     })
-    @staticmethod
-    def from_dict_(
-        arg: HeadersDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> HeadersDict:
-        return Headers.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -87,7 +81,16 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             arg_[key] = val
         used_arg_ = typing.cast(HeadersDictInput, arg_)
         return Headers.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            HeadersDictInput,
+            HeadersDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> HeadersDict:
+        return Headers.validate(arg, configuration=configuration)
     
     @property
     def int32(self) -> int:
