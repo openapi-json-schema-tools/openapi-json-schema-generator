@@ -13,7 +13,13 @@ Key | Type |  Description | Notes
 **currency** | [**Currency**](currency.md), str |  |
 
 ## MoneyDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[MoneyDictInput](#moneydictinput), [MoneyDict](#moneydict) | [MoneyDict](#moneydict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **amount** | str | str |  | value must be int or float numeric
 **currency** | [**Currency**](currency.md), str | [**Currency**](currency.md) |  |

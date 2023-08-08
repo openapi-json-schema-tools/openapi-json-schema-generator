@@ -14,7 +14,13 @@ Key | Type |  Description | Notes
 **path** | str | A JSON Pointer path. |
 
 ## JSONPatchRequestMoveCopyDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[JSONPatchRequestMoveCopyDictInput](#jsonpatchrequestmovecopydictinput), [JSONPatchRequestMoveCopyDict](#jsonpatchrequestmovecopydict) | [JSONPatchRequestMoveCopyDict](#jsonpatchrequestmovecopydict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **from** | str | str | A JSON Pointer path. | value must be accessed with instance["from"] because the key is not a valid identifier 
 **op** | str | str | The operation to perform. | must be one of ["move", "copy"]

@@ -13,7 +13,13 @@ Key | Type |  Description | Notes
 **petId** | int |  | [optional] value must be a 64 bit integer
 
 ## NoAdditionalPropertiesDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[NoAdditionalPropertiesDictInput](#noadditionalpropertiesdictinput), [NoAdditionalPropertiesDict](#noadditionalpropertiesdict) | [NoAdditionalPropertiesDict](#noadditionalpropertiesdict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **id** | int | int |  | value must be a 64 bit integer
 **petId** | int, schemas.Unset | int, schemas.Unset |  | [optional] value must be a 64 bit integer

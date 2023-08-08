@@ -13,9 +13,15 @@ Key | Type |  Description | Notes
 **any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
 ## ObjectWithNonIntersectingValuesDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[ObjectWithNonIntersectingValuesDictInput](#objectwithnonintersectingvaluesdictinput), [ObjectWithNonIntersectingValuesDict](#objectwithnonintersectingvaluesdict) | [ObjectWithNonIntersectingValuesDict](#objectwithnonintersectingvaluesdict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **a** | float, int, schemas.Unset | float, int, schemas.Unset |  | [optional]
-**any_string_name** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -33,7 +33,13 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## FormatTestDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[FormatTestDictInput](#formattestdictinput), [FormatTestDict](#formattestdict) | [FormatTestDict](#formattestdict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **byte** | str | str |  |
 **date** | str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
@@ -56,7 +62,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **pattern_with_digits** | str, schemas.Unset | str, schemas.Unset | A string that is a 10 digit number. Can have leading zeros. | [optional]
 **pattern_with_digits_and_delimiter** | str, schemas.Unset | str, schemas.Unset | A string starting with &#x27;image_&#x27; (case insensitive) and one to three digits following i.e. Image_01. | [optional]
 **noneProp** | None, schemas.Unset | None, schemas.Unset |  | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties ArrayWithUniqueItems
 

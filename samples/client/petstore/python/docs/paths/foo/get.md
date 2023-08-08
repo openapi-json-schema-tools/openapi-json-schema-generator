@@ -69,10 +69,16 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ##### Default content ApplicationJson Schema SchemaDict
-Key | Input Type | Accessed Type | Description | Notes
+###### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[SchemaDictInput](#default-content-applicationjson-schema-schemadictinput), [SchemaDict](#default-content-applicationjson-schema-schemadict) | [SchemaDict](#default-content-applicationjson-schema-schemadict)
+
+###### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **string** | [**Foo**](../../components/schema/foo.md), dict, schemas.immutabledict, schemas.Unset | [**Foo**](../../components/schema/foo.md) |  | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ## Servers
 

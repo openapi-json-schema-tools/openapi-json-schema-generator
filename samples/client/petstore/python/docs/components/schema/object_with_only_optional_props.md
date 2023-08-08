@@ -13,7 +13,13 @@ Key | Type |  Description | Notes
 **b** | float, int |  | [optional]
 
 ## ObjectWithOnlyOptionalPropsDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[ObjectWithOnlyOptionalPropsDictInput](#objectwithonlyoptionalpropsdictinput), [ObjectWithOnlyOptionalPropsDict](#objectwithonlyoptionalpropsdict) | [ObjectWithOnlyOptionalPropsDict](#objectwithonlyoptionalpropsdict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **a** | str, schemas.Unset | str, schemas.Unset |  | [optional]
 **b** | float, int, schemas.Unset | float, int, schemas.Unset |  | [optional]

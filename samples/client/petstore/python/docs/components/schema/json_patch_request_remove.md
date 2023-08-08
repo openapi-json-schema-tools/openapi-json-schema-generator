@@ -13,7 +13,13 @@ Key | Type |  Description | Notes
 **path** | str | A JSON Pointer path. |
 
 ## JSONPatchRequestRemoveDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[JSONPatchRequestRemoveDictInput](#jsonpatchrequestremovedictinput), [JSONPatchRequestRemoveDict](#jsonpatchrequestremovedict) | [JSONPatchRequestRemoveDict](#jsonpatchrequestremovedict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **op** | str | str | The operation to perform. | must be one of ["remove"]
 **path** | str | str | A JSON Pointer path. |

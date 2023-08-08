@@ -13,7 +13,13 @@ Key | Type |  Description | Notes
 **mealy** | bool |  | [optional]
 
 ## AppleReqDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[AppleReqDictInput](#applereqdictinput), [AppleReqDict](#applereqdict) | [AppleReqDict](#applereqdict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **cultivar** | str | str |  |
 **mealy** | bool, schemas.Unset | bool, schemas.Unset |  | [optional]

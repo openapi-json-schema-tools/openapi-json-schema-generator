@@ -13,7 +13,13 @@ Key | Type |  Description | Notes
 **sweet** | bool |  | [optional]
 
 ## BananaReqDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[BananaReqDictInput](#bananareqdictinput), [BananaReqDict](#bananareqdict) | [BananaReqDict](#bananareqdict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **lengthCm** | float, int | float, int |  |
 **sweet** | bool, schemas.Unset | bool, schemas.Unset |  | [optional]

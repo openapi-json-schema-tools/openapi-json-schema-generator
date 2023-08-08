@@ -20,7 +20,13 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalPropertiesClassDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[AdditionalPropertiesClassDictInput](#additionalpropertiesclassdictinput), [AdditionalPropertiesClassDict](#additionalpropertiesclassdict) | [AdditionalPropertiesClassDict](#additionalpropertiesclassdict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **map_property** | dict, schemas.immutabledict, schemas.Unset | [properties.MapProperty](#properties-mapproperty) |  | [optional]
 **map_of_map_property** | dict, schemas.immutabledict, schemas.Unset | [properties.MapOfMapProperty](#properties-mapofmapproperty) |  | [optional]
@@ -30,7 +36,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **map_with_undeclared_properties_anytype_3** | dict, schemas.immutabledict, schemas.Unset | [properties.MapWithUndeclaredPropertiesAnytype3](#properties-mapwithundeclaredpropertiesanytype3) |  | [optional]
 **empty_map** | dict, schemas.immutabledict, schemas.Unset | [properties.EmptyMap](#properties-emptymap) | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional]
 **map_with_undeclared_properties_string** | dict, schemas.immutabledict, schemas.Unset | [properties.MapWithUndeclaredPropertiesString](#properties-mapwithundeclaredpropertiesstring) |  | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties MapProperty
 
@@ -45,9 +51,15 @@ Key | Type |  Description | Notes
 **any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
 ## properties MapProperty MapPropertyDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[MapPropertyDictInput](#properties-mapproperty-mappropertydictinput), [MapPropertyDict](#properties-mapproperty-mappropertydict) | [MapPropertyDict](#properties-mapproperty-mappropertydict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties MapOfMapProperty
 
@@ -62,9 +74,15 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
 ## properties MapOfMapProperty MapOfMapPropertyDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[MapOfMapPropertyDictInput](#properties-mapofmapproperty-mapofmappropertydictinput), [MapOfMapPropertyDict](#properties-mapofmapproperty-mapofmappropertydict) | [MapOfMapPropertyDict](#properties-mapofmapproperty-mapofmappropertydict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | dict, schemas.immutabledict | [AdditionalProperties2](#properties-mapofmapproperty-additionalproperties2) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | dict, schemas.immutabledict | [AdditionalProperties2](#properties-mapofmapproperty-additionalproperties2) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties MapOfMapProperty AdditionalProperties2
 
@@ -79,9 +97,15 @@ Key | Type |  Description | Notes
 **any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
 ## properties MapOfMapProperty AdditionalProperties2 AdditionalPropertiesDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[AdditionalPropertiesDictInput](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdictinput), [AdditionalPropertiesDict](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdict) | [AdditionalPropertiesDict](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties MapWithUndeclaredPropertiesAnytype1
 
@@ -110,9 +134,15 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## properties MapWithUndeclaredPropertiesAnytype3 MapWithUndeclaredPropertiesAnytype3Dict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[MapWithUndeclaredPropertiesAnytype3DictInput](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dictinput), [MapWithUndeclaredPropertiesAnytype3Dict](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dict) | [MapWithUndeclaredPropertiesAnytype3Dict](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties EmptyMap
 
@@ -129,7 +159,13 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 
 ## properties EmptyMap EmptyMapDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[EmptyMapDictInput](#properties-emptymap-emptymapdictinput), [EmptyMapDict](#properties-emptymap-emptymapdict) | [EmptyMapDict](#properties-emptymap-emptymapdict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 
 # properties MapWithUndeclaredPropertiesString
@@ -145,8 +181,14 @@ Key | Type |  Description | Notes
 **any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
 ## properties MapWithUndeclaredPropertiesString MapWithUndeclaredPropertiesStringDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[MapWithUndeclaredPropertiesStringDictInput](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdictinput), [MapWithUndeclaredPropertiesStringDict](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdict) | [MapWithUndeclaredPropertiesStringDict](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

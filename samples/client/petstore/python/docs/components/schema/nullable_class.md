@@ -24,7 +24,13 @@ Key | Type |  Description | Notes
 **any_string_name** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
 ## NullableClassDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[NullableClassDictInput](#nullableclassdictinput), [NullableClassDict](#nullableclassdict) | [NullableClassDict](#nullableclassdict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **integer_prop** | None, int, schemas.Unset | None, int, schemas.Unset |  | [optional]
 **number_prop** | None, float, int, schemas.Unset | None, float, int, schemas.Unset |  | [optional]
@@ -38,7 +44,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **object_nullable_prop** | None, dict, schemas.immutabledict, schemas.Unset | [properties.ObjectNullableProp](#properties-objectnullableprop) |  | [optional]
 **object_and_items_nullable_prop** | None, dict, schemas.immutabledict, schemas.Unset | [properties.ObjectAndItemsNullableProp](#properties-objectanditemsnullableprop) |  | [optional]
 **object_items_nullable** | dict, schemas.immutabledict, schemas.Unset | [properties.ObjectItemsNullable](#properties-objectitemsnullable) |  | [optional]
-**any_string_name** | None, dict, schemas.immutabledict | [AdditionalProperties4](#additionalproperties4) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | None, dict, schemas.immutabledict | [AdditionalProperties4](#additionalproperties4) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties ArrayNullableProp
 
@@ -125,9 +131,15 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
 ## properties ObjectNullableProp ObjectNullablePropDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+None, [ObjectNullablePropDictInput](#properties-objectnullableprop-objectnullablepropdictinput), [ObjectNullablePropDict](#properties-objectnullableprop-objectnullablepropdict) | None, [ObjectNullablePropDict](#properties-objectnullableprop-objectnullablepropdict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | dict, schemas.immutabledict | [AdditionalProperties](#properties-objectnullableprop-additionalproperties) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | dict, schemas.immutabledict | [AdditionalProperties](#properties-objectnullableprop-additionalproperties) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties ObjectNullableProp AdditionalProperties
 
@@ -149,9 +161,15 @@ Key | Type |  Description | Notes
 **any_string_name** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
 ## properties ObjectAndItemsNullableProp ObjectAndItemsNullablePropDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+None, [ObjectAndItemsNullablePropDictInput](#properties-objectanditemsnullableprop-objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#properties-objectanditemsnullableprop-objectanditemsnullablepropdict) | None, [ObjectAndItemsNullablePropDict](#properties-objectanditemsnullableprop-objectanditemsnullablepropdict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | None, dict, schemas.immutabledict | [AdditionalProperties2](#properties-objectanditemsnullableprop-additionalproperties2) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | None, dict, schemas.immutabledict | [AdditionalProperties2](#properties-objectanditemsnullableprop-additionalproperties2) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties ObjectAndItemsNullableProp AdditionalProperties2
 
@@ -173,9 +191,15 @@ Key | Type |  Description | Notes
 **any_string_name** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
 ## properties ObjectItemsNullable ObjectItemsNullableDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[ObjectItemsNullableDictInput](#properties-objectitemsnullable-objectitemsnullabledictinput), [ObjectItemsNullableDict](#properties-objectitemsnullable-objectitemsnullabledict) | [ObjectItemsNullableDict](#properties-objectitemsnullable-objectitemsnullabledict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | None, dict, schemas.immutabledict | [AdditionalProperties3](#properties-objectitemsnullable-additionalproperties3) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | None, dict, schemas.immutabledict | [AdditionalProperties3](#properties-objectitemsnullable-additionalproperties3) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties ObjectItemsNullable AdditionalProperties3
 

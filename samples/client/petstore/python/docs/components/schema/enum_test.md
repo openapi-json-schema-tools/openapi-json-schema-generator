@@ -21,7 +21,13 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## EnumTestDict
-Key | Input Type | Accessed Type | Description | Notes
+### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[EnumTestDictInput](#enumtestdictinput), [EnumTestDict](#enumtestdict) | [EnumTestDict](#enumtestdict)
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **enum_string_required** | str | str |  | must be one of ["UPPER", "lower", ""]
 **enum_string** | str, schemas.Unset | str, schemas.Unset |  | [optional] must be one of ["UPPER", "lower", ""]
@@ -32,6 +38,6 @@ Key | Input Type | Accessed Type | Description | Notes
 **StringEnumWithDefaultValue** | [**StringEnumWithDefaultValue**](string_enum_with_default_value.md), str, schemas.Unset | [**StringEnumWithDefaultValue**](string_enum_with_default_value.md) |  | [optional]
 **IntegerEnumWithDefaultValue** | [**IntegerEnumWithDefaultValue**](integer_enum_with_default_value.md), int, schemas.Unset | [**IntegerEnumWithDefaultValue**](integer_enum_with_default_value.md) |  | [optional]
 **IntegerEnumOneValue** | [**IntegerEnumOneValue**](integer_enum_one_value.md), int, schemas.Unset | [**IntegerEnumOneValue**](integer_enum_one_value.md) |  | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

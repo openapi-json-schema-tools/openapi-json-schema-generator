@@ -55,9 +55,15 @@ Key | Type |  Description | Notes
 **any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
 ##### RequestBody content ApplicationJson Schema SchemaDict
-Key | Input Type | Accessed Type | Description | Notes
+###### from_dict_ method
+Input Type | Return Type
+---------- | -----------
+[SchemaDictInput](#requestbody-content-applicationjson-schema-schemadictinput), [SchemaDict](#requestbody-content-applicationjson-schema-schemadict) | [SchemaDict](#requestbody-content-applicationjson-schema-schemadict)
+
+###### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ## Return Types
 
