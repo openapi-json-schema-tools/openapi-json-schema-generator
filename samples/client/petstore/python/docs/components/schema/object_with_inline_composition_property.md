@@ -7,14 +7,18 @@ Input Type | Return Type | Notes
 [ObjectWithInlineCompositionPropertyDictInput](#objectwithinlinecompositionpropertydictinput), [ObjectWithInlineCompositionPropertyDict](#objectwithinlinecompositionpropertydict) | [ObjectWithInlineCompositionPropertyDict](#objectwithinlinecompositionpropertydict) |
 
 ## ObjectWithInlineCompositionPropertyDictInput
+```
 type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **someProp** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## ObjectWithInlineCompositionPropertyDict
+```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

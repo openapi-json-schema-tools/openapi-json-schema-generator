@@ -7,7 +7,9 @@ Input Type | Return Type | Notes
 [JSONPatchRequestMoveCopyDictInput](#jsonpatchrequestmovecopydictinput), [JSONPatchRequestMoveCopyDict](#jsonpatchrequestmovecopydict) | [JSONPatchRequestMoveCopyDict](#jsonpatchrequestmovecopydict) |
 
 ## JSONPatchRequestMoveCopyDictInput
+```
 type: typing_extensions.TypedDict
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **from** | str | A JSON Pointer path. |
@@ -15,8 +17,10 @@ Key | Type |  Description | Notes
 **path** | str | A JSON Pointer path. |
 
 ## JSONPatchRequestMoveCopyDict
+```
 base class: schemas.immutabledict[str, str]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [DrawingDictInput](#drawingdictinput), [DrawingDict](#drawingdict) | [DrawingDict](#drawingdict) |
 
 ## DrawingDictInput
+```
 type: typing.Mapping[
     str,
     typing.Union[
@@ -32,6 +33,7 @@ type: typing.Mapping[
         ],
     ]
 ]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **mainShape** | [**Shape**](shape.md), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  | [optional]
@@ -41,8 +43,10 @@ Key | Type |  Description | Notes
 **any_string_name** | [**Fruit**](fruit.md), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## DrawingDict
+```
 base class: schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TYPES]]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

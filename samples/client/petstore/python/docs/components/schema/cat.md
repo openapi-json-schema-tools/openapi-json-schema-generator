@@ -21,15 +21,19 @@ Input Type | Return Type | Notes
 [_1DictInput](#allof-_1-_1dictinput), [_1Dict](#allof-_1-_1dict) | [_1Dict](#allof-_1-_1dict) |
 
 ## allof _1 _1DictInput
+```
 type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **declawed** | bool |  | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## allof _1 _1Dict
+```
 base class: schemas.immutabledict[str, bool]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

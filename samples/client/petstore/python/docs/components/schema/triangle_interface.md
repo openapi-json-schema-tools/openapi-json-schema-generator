@@ -7,7 +7,9 @@ Input Type | Return Type | Notes
 dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## TriangleInterfaceDictInput
+```
 type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **shapeType** | str |  | must be one of ["Triangle"]
@@ -15,8 +17,10 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## TriangleInterfaceDict
+```
 base class: schemas.immutabledict[str, str]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

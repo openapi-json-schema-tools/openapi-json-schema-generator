@@ -7,7 +7,9 @@ Input Type | Return Type | Notes
 [ObjectWithInvalidNamedRefedPropertiesDictInput](#objectwithinvalidnamedrefedpropertiesdictinput), [ObjectWithInvalidNamedRefedPropertiesDict](#objectwithinvalidnamedrefedpropertiesdict) | [ObjectWithInvalidNamedRefedPropertiesDict](#objectwithinvalidnamedrefedpropertiesdict) |
 
 ## ObjectWithInvalidNamedRefedPropertiesDictInput
+```
 type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **!reference** | [**ArrayWithValidationsInItems**](array_with_validations_in_items.md), list, tuple |  |
@@ -15,8 +17,10 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## ObjectWithInvalidNamedRefedPropertiesDict
+```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

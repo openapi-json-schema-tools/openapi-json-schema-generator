@@ -7,15 +7,19 @@ Input Type | Return Type | Notes
 [AppleReqDictInput](#applereqdictinput), [AppleReqDict](#applereqdict) | [AppleReqDict](#applereqdict) |
 
 ## AppleReqDictInput
+```
 type: typing_extensions.TypedDict
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cultivar** | str |  |
 **mealy** | bool |  | [optional]
 
 ## AppleReqDict
+```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

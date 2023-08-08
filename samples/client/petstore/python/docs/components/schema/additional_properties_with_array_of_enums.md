@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [AdditionalPropertiesWithArrayOfEnumsDictInput](#additionalpropertieswitharrayofenumsdictinput), [AdditionalPropertiesWithArrayOfEnumsDict](#additionalpropertieswitharrayofenumsdict) | [AdditionalPropertiesWithArrayOfEnumsDict](#additionalpropertieswitharrayofenumsdict) |
 
 ## AdditionalPropertiesWithArrayOfEnumsDictInput
+```
 type: typing.Mapping[
     str,
     typing.Union[
@@ -14,13 +15,16 @@ type: typing.Mapping[
         AdditionalPropertiesTuple
     ],
 ]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | list, tuple | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalPropertiesWithArrayOfEnumsDict
+```
 base class: schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TYPES]]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

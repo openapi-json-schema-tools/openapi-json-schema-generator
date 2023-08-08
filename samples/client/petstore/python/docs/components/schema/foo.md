@@ -7,14 +7,18 @@ Input Type | Return Type | Notes
 [FooDictInput](#foodictinput), [FooDict](#foodict) | [FooDict](#foodict) |
 
 ## FooDictInput
+```
 type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **bar** | [**Bar**](bar.md), str |  | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## FooDict
+```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

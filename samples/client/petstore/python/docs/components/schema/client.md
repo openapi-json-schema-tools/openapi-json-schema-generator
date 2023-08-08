@@ -7,15 +7,19 @@ Input Type | Return Type | Notes
 [ClientDictInput](#clientdictinput), [ClientDict](#clientdict) | [ClientDict](#clientdict) |
 
 ## ClientDictInput
+```
 type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **client** | str |  | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## ClientDict
+```
 base class: schemas.immutabledict[str, str]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

@@ -7,15 +7,19 @@ Input Type | Return Type | Notes
 [NoAdditionalPropertiesDictInput](#noadditionalpropertiesdictinput), [NoAdditionalPropertiesDict](#noadditionalpropertiesdict) | [NoAdditionalPropertiesDict](#noadditionalpropertiesdict) |
 
 ## NoAdditionalPropertiesDictInput
+```
 type: typing_extensions.TypedDict
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | int |  | value must be a 64 bit integer
 **petId** | int |  | [optional] value must be a 64 bit integer
 
 ## NoAdditionalPropertiesDict
+```
 base class: schemas.immutabledict[str, int]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

@@ -7,7 +7,9 @@ Input Type | Return Type | Notes
 [JSONPatchRequestAddReplaceTestDictInput](#jsonpatchrequestaddreplacetestdictinput), [JSONPatchRequestAddReplaceTestDict](#jsonpatchrequestaddreplacetestdict) | [JSONPatchRequestAddReplaceTestDict](#jsonpatchrequestaddreplacetestdict) |
 
 ## JSONPatchRequestAddReplaceTestDictInput
+```
 type: typing_extensions.TypedDict
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **op** | str | The operation to perform. | must be one of ["add", "replace", "test"]
@@ -15,8 +17,10 @@ Key | Type |  Description | Notes
 **value** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | The value to add, replace or test. |
 
 ## JSONPatchRequestAddReplaceTestDict
+```
 base class: schemas.immutabledict[str, str]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

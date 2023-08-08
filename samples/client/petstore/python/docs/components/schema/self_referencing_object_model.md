@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [SelfReferencingObjectModelDictInput](#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) | [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) |
 
 ## SelfReferencingObjectModelDictInput
+```
 type: typing.Mapping[
     str,
     typing.Union[
@@ -20,14 +21,17 @@ type: typing.Mapping[
         ],
     ]
 ]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **selfRef** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict |  | [optional]
 **any_string_name** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
 ## SelfReferencingObjectModelDict
+```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

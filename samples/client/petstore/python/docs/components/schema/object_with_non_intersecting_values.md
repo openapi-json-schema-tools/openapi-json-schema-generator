@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [ObjectWithNonIntersectingValuesDictInput](#objectwithnonintersectingvaluesdictinput), [ObjectWithNonIntersectingValuesDict](#objectwithnonintersectingvaluesdict) | [ObjectWithNonIntersectingValuesDict](#objectwithnonintersectingvaluesdict) |
 
 ## ObjectWithNonIntersectingValuesDictInput
+```
 type: typing.Mapping[
     str,
     typing.Union[
@@ -17,14 +18,17 @@ type: typing.Mapping[
         str,
     ]
 ]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **a** | float, int |  | [optional]
 **any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
 ## ObjectWithNonIntersectingValuesDict
+```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

@@ -7,15 +7,19 @@ Input Type | Return Type | Notes
 [NumberOnlyDictInput](#numberonlydictinput), [NumberOnlyDict](#numberonlydict) | [NumberOnlyDict](#numberonlydict) |
 
 ## NumberOnlyDictInput
+```
 type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **JustNumber** | float, int |  | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## NumberOnlyDict
+```
 base class: schemas.immutabledict[str, typing.Union[int, float]]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

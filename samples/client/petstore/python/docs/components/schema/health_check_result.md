@@ -10,18 +10,22 @@ Input Type | Return Type | Notes
 [HealthCheckResultDictInput](#healthcheckresultdictinput), [HealthCheckResultDict](#healthcheckresultdict) | [HealthCheckResultDict](#healthcheckresultdict) |
 
 ## HealthCheckResultDictInput
+```
 type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NullableMessage** | None, str |  | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## HealthCheckResultDict
+```
 base class: schemas.immutabledict[str, typing.Union[
     None,
     str,
 ]]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

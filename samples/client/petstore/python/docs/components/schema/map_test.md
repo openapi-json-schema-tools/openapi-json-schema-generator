@@ -7,7 +7,9 @@ Input Type | Return Type | Notes
 [MapTestDictInput](#maptestdictinput), [MapTestDict](#maptestdict) | [MapTestDict](#maptestdict) |
 
 ## MapTestDictInput
+```
 type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **map_map_of_string** | dict, schemas.immutabledict |  | [optional]
@@ -17,7 +19,9 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## MapTestDict
+```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -49,6 +53,7 @@ Input Type | Return Type | Notes
 [MapMapOfStringDictInput](#properties-mapmapofstring-mapmapofstringdictinput), [MapMapOfStringDict](#properties-mapmapofstring-mapmapofstringdict) | [MapMapOfStringDict](#properties-mapmapofstring-mapmapofstringdict) |
 
 ## properties MapMapOfString MapMapOfStringDictInput
+```
 type: typing.Mapping[
     str,
     typing.Union[
@@ -56,13 +61,16 @@ type: typing.Mapping[
         AdditionalPropertiesDict,
     ],
 ]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
 ## properties MapMapOfString MapMapOfStringDict
+```
 base class: schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -82,17 +90,21 @@ Input Type | Return Type | Notes
 [AdditionalPropertiesDictInput](#properties-mapmapofstring-additionalproperties-additionalpropertiesdictinput), [AdditionalPropertiesDict](#properties-mapmapofstring-additionalproperties-additionalpropertiesdict) | [AdditionalPropertiesDict](#properties-mapmapofstring-additionalproperties-additionalpropertiesdict) |
 
 ## properties MapMapOfString AdditionalProperties AdditionalPropertiesDictInput
+```
 type: typing.Mapping[
     str,
     str,
 ]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
 ## properties MapMapOfString AdditionalProperties AdditionalPropertiesDict
+```
 base class: schemas.immutabledict[str, str]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -112,6 +124,7 @@ Input Type | Return Type | Notes
 [MapOfEnumStringDictInput](#properties-mapofenumstring-mapofenumstringdictinput), [MapOfEnumStringDict](#properties-mapofenumstring-mapofenumstringdict) | [MapOfEnumStringDict](#properties-mapofenumstring-mapofenumstringdict) |
 
 ## properties MapOfEnumString MapOfEnumStringDictInput
+```
 type: typing.Mapping[
     str,
     typing_extensions.Literal[
@@ -119,13 +132,16 @@ type: typing.Mapping[
         "lower"
     ],
 ]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | str | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower"]
 
 ## properties MapOfEnumString MapOfEnumStringDict
+```
 base class: schemas.immutabledict[str, str]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -145,17 +161,21 @@ Input Type | Return Type | Notes
 [DirectMapDictInput](#properties-directmap-directmapdictinput), [DirectMapDict](#properties-directmap-directmapdict) | [DirectMapDict](#properties-directmap-directmapdict) |
 
 ## properties DirectMap DirectMapDictInput
+```
 type: typing.Mapping[
     str,
     bool,
 ]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | bool | any string name can be used but the value must be the correct type | [optional]
 
 ## properties DirectMap DirectMapDict
+```
 base class: schemas.immutabledict[str, bool]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

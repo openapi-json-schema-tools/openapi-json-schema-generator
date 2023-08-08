@@ -63,14 +63,18 @@ Input Type | Return Type | Notes
 [SchemaDictInput](#default-content-applicationjson-schema-schemadictinput), [SchemaDict](#default-content-applicationjson-schema-schemadict) | [SchemaDict](#default-content-applicationjson-schema-schemadict) |
 
 ##### Default content ApplicationJson Schema SchemaDictInput
+```
 type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **string** | [**Foo**](../../components/schema/foo.md), dict, schemas.immutabledict |  | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ##### Default content ApplicationJson Schema SchemaDict
+```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+```
 ###### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

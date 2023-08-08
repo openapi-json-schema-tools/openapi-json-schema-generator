@@ -7,15 +7,19 @@ Input Type | Return Type | Notes
 [DanishPigDictInput](#danishpigdictinput), [DanishPigDict](#danishpigdict) | [DanishPigDict](#danishpigdict) |
 
 ## DanishPigDictInput
+```
 type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **className** | str |  | must be one of ["DanishPig"]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## DanishPigDict
+```
 base class: schemas.immutabledict[str, str]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

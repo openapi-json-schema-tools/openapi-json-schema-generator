@@ -7,17 +7,21 @@ Input Type | Return Type | Notes
 [AddressDictInput](#addressdictinput), [AddressDict](#addressdict) | [AddressDict](#addressdict) |
 
 ## AddressDictInput
+```
 type: typing.Mapping[
     str,
     int,
 ]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | int | any string name can be used but the value must be the correct type | [optional]
 
 ## AddressDict
+```
 base class: schemas.immutabledict[str, int]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

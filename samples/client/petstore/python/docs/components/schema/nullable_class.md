@@ -7,6 +7,7 @@ Input Type | Return Type | Notes
 [NullableClassDictInput](#nullableclassdictinput), [NullableClassDict](#nullableclassdict) | [NullableClassDict](#nullableclassdict) |
 
 ## NullableClassDictInput
+```
 type: typing.Mapping[
     str,
     typing.Union[
@@ -88,6 +89,7 @@ type: typing.Mapping[
         ],
     ]
 ]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **integer_prop** | None, int |  | [optional]
@@ -105,8 +107,10 @@ Key | Type |  Description | Notes
 **any_string_name** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
 ## NullableClassDict
+```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -313,6 +317,7 @@ Input Type | Return Type | Notes
 None, [ObjectNullablePropDictInput](#properties-objectnullableprop-objectnullablepropdictinput), [ObjectNullablePropDict](#properties-objectnullableprop-objectnullablepropdict) | None, [ObjectNullablePropDict](#properties-objectnullableprop-objectnullablepropdict) |
 
 ## properties ObjectNullableProp ObjectNullablePropDictInput
+```
 type: typing.Mapping[
     str,
     typing.Union[
@@ -320,13 +325,16 @@ type: typing.Mapping[
         schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ],
 ]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
 ## properties ObjectNullableProp ObjectNullablePropDict
+```
 base class: schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -353,6 +361,7 @@ Input Type | Return Type | Notes
 None, [ObjectAndItemsNullablePropDictInput](#properties-objectanditemsnullableprop-objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#properties-objectanditemsnullableprop-objectanditemsnullablepropdict) | None, [ObjectAndItemsNullablePropDict](#properties-objectanditemsnullableprop-objectanditemsnullablepropdict) |
 
 ## properties ObjectAndItemsNullableProp ObjectAndItemsNullablePropDictInput
+```
 type: typing.Mapping[
     str,
     typing.Union[
@@ -363,16 +372,19 @@ type: typing.Mapping[
         ],
     ],
 ]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
 ## properties ObjectAndItemsNullableProp ObjectAndItemsNullablePropDict
+```
 base class: schemas.immutabledict[str, typing.Union[
     None,
     schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
 ]]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -399,6 +411,7 @@ Input Type | Return Type | Notes
 [ObjectItemsNullableDictInput](#properties-objectitemsnullable-objectitemsnullabledictinput), [ObjectItemsNullableDict](#properties-objectitemsnullable-objectitemsnullabledict) | [ObjectItemsNullableDict](#properties-objectitemsnullable-objectitemsnullabledict) |
 
 ## properties ObjectItemsNullable ObjectItemsNullableDictInput
+```
 type: typing.Mapping[
     str,
     typing.Union[
@@ -409,16 +422,19 @@ type: typing.Mapping[
         ],
     ],
 ]
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
 ## properties ObjectItemsNullable ObjectItemsNullableDict
+```
 base class: schemas.immutabledict[str, typing.Union[
     None,
     schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
 ]]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

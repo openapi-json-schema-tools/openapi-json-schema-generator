@@ -7,15 +7,19 @@ Input Type | Return Type | Notes
 [BananaReqDictInput](#bananareqdictinput), [BananaReqDict](#bananareqdict) | [BananaReqDict](#bananareqdict) |
 
 ## BananaReqDictInput
+```
 type: typing_extensions.TypedDict
+```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **lengthCm** | float, int |  |
 **sweet** | bool |  | [optional]
 
 ## BananaReqDict
+```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
+```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
