@@ -4,7 +4,7 @@ petstore_api.components.schema.animal_farm
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[AnimalFarmTupleInput](#animalfarmtupleinput) | tuple |  |
 
 ## AnimalFarmTupleInput
 Class Name | Input Type | Description | Notes

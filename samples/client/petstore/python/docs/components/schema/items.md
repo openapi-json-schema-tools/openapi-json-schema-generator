@@ -7,7 +7,7 @@ component&#x27;s name collides with the inner schema name
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple | component&#x27;s name collides with the inner schema name |
+[ItemsTupleInput](#itemstupleinput) | tuple | component&#x27;s name collides with the inner schema name |
 
 ## ItemsTupleInput
 Class Name | Input Type | Description | Notes

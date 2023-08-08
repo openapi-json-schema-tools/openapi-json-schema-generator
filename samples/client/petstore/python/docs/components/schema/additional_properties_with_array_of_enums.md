@@ -21,7 +21,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[AdditionalPropertiesTupleInput](#additionalproperties-additionalpropertiestupleinput) | tuple |  |
 
 ## AdditionalProperties AdditionalPropertiesTupleInput
 Class Name | Input Type | Description | Notes

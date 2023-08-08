@@ -36,7 +36,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[PhotoUrlsTupleInput](#properties-photourls-photourlstupleinput) | tuple |  |
 
 ## properties PhotoUrls PhotoUrlsTupleInput
 Class Name | Input Type | Description | Notes
@@ -53,7 +53,7 @@ items | str | str |  |
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[TagsTupleInput](#properties-tags-tagstupleinput) | tuple |  |
 
 ## properties Tags TagsTupleInput
 Class Name | Input Type | Description | Notes

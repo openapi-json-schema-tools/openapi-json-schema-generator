@@ -25,7 +25,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[FilesTupleInput](#properties-files-filestupleinput) | tuple |  |
 
 ## properties Files FilesTupleInput
 Class Name | Input Type | Description | Notes

@@ -47,7 +47,7 @@ dict, schemas.immutabledict | schemas.immutabledict |  |
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[_5TupleInput](#oneof-_5-_5tupleinput) | tuple |  |
 
 ## oneof _5 _5TupleInput
 Class Name | Input Type | Description | Notes

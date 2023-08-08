@@ -63,7 +63,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[ArrayWithUniqueItemsTupleInput](#properties-arraywithuniqueitems-arraywithuniqueitemstupleinput) | tuple |  |
 
 ## properties ArrayWithUniqueItems ArrayWithUniqueItemsTupleInput
 Class Name | Input Type | Description | Notes

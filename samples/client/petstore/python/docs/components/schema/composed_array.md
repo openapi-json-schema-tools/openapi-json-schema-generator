@@ -4,7 +4,7 @@ petstore_api.components.schema.composed_array
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[ComposedArrayTupleInput](#composedarraytupleinput) | tuple |  |
 
 ## ComposedArrayTupleInput
 Class Name | Input Type | Description | Notes

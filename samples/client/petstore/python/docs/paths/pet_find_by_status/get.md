@@ -54,7 +54,7 @@ Status values that need to be considered for filter
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[SchemaTupleInput](#parameter0-schema-schematupleinput) | tuple |  |
 
 ###### Parameter0 Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes

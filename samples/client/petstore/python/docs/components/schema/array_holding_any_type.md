@@ -4,7 +4,7 @@ petstore_api.components.schema.array_holding_any_type
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[ArrayHoldingAnyTypeTupleInput](#arrayholdinganytypetupleinput) | tuple |  |
 
 ## ArrayHoldingAnyTypeTupleInput
 Class Name | Input Type | Description | Notes

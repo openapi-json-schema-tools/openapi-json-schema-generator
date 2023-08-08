@@ -72,7 +72,7 @@ Form parameter enum test (string array)
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple | Form parameter enum test (string array) |
+[EnumFormStringArrayTupleInput](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray-enumformstringarraytupleinput) | tuple | Form parameter enum test (string array) |
 
 ##### RequestBody content ApplicationXWwwFormUrlencoded Schema properties EnumFormStringArray EnumFormStringArrayTupleInput
 Class Name | Input Type | Description | Notes
@@ -106,7 +106,7 @@ Query parameter enum test (string array)
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[SchemaTupleInput](#parameter2-schema-schematupleinput) | tuple |  |
 
 ###### Parameter2 Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes
@@ -174,7 +174,7 @@ Header parameter enum test (string array)
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[SchemaTupleInput](#parameter0-schema-schematupleinput) | tuple |  |
 
 ###### Parameter0 Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes

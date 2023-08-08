@@ -64,7 +64,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ##### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[FilesTupleInput](#requestbody-content-multipartformdata-schema-properties-files-filestupleinput) | tuple |  |
 
 ##### RequestBody content MultipartFormData Schema properties Files FilesTupleInput
 Class Name | Input Type | Description | Notes

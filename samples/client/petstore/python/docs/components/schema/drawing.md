@@ -29,7 +29,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[ShapesTupleInput](#properties-shapes-shapestupleinput) | tuple |  |
 
 ## properties Shapes ShapesTupleInput
 Class Name | Input Type | Description | Notes

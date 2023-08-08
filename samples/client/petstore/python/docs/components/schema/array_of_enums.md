@@ -4,7 +4,7 @@ petstore_api.components.schema.array_of_enums
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[ArrayOfEnumsTupleInput](#arrayofenumstupleinput) | tuple |  |
 
 ## ArrayOfEnumsTupleInput
 Class Name | Input Type | Description | Notes

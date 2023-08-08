@@ -23,7 +23,7 @@ Content-Type | Schema
 #### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[SchemaTupleInput](#content-applicationxml-schema-schematupleinput) | tuple |  |
 
 #### content ApplicationXml Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes
@@ -39,7 +39,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 #### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[SchemaTupleInput](#content-applicationjson-schema-schematupleinput) | tuple |  |
 
 #### content ApplicationJson Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes

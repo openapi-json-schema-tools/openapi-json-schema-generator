@@ -95,7 +95,7 @@ None | None |  |
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[_9TupleInput](#anyof-_9-_9tupleinput) | tuple |  |
 
 ## anyof _9 _9TupleInput
 Class Name | Input Type | Description | Notes

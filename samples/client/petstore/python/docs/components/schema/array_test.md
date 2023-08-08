@@ -27,7 +27,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[ArrayOfStringTupleInput](#properties-arrayofstring-arrayofstringtupleinput) | tuple |  |
 
 ## properties ArrayOfString ArrayOfStringTupleInput
 Class Name | Input Type | Description | Notes
@@ -44,7 +44,7 @@ items | str | str |  |
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[ArrayArrayOfIntegerTupleInput](#properties-arrayarrayofinteger-arrayarrayofintegertupleinput) | tuple |  |
 
 ## properties ArrayArrayOfInteger ArrayArrayOfIntegerTupleInput
 Class Name | Input Type | Description | Notes
@@ -61,7 +61,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[ItemsTupleInput](#properties-arrayarrayofinteger-items2-itemstupleinput) | tuple |  |
 
 ## properties ArrayArrayOfInteger Items2 ItemsTupleInput
 Class Name | Input Type | Description | Notes
@@ -78,7 +78,7 @@ items | int | int |  | value must be a 64 bit integer
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[ArrayArrayOfModelTupleInput](#properties-arrayarrayofmodel-arrayarrayofmodeltupleinput) | tuple |  |
 
 ## properties ArrayArrayOfModel ArrayArrayOfModelTupleInput
 Class Name | Input Type | Description | Notes
@@ -95,7 +95,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+[ItemsTupleInput2](#properties-arrayarrayofmodel-items4-itemstupleinput2) | tuple |  |
 
 ## properties ArrayArrayOfModel Items4 ItemsTupleInput2
 Class Name | Input Type | Description | Notes
