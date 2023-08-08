@@ -23,7 +23,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[ArrayArrayNumberTupleInput](#properties-arrayarraynumber-arrayarraynumbertupleinput) | tuple |  |
+[ArrayArrayNumberTupleInput](#properties-arrayarraynumber-arrayarraynumbertupleinput) | [ArrayArrayNumberTuple](#properties-arrayarraynumber-arrayarraynumbertuple) |  |
 
 ## properties ArrayArrayNumber ArrayArrayNumberTupleInput
 Class Name | Input Type | Description | Notes
@@ -40,7 +40,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[ItemsTupleInput](#properties-arrayarraynumber-items-itemstupleinput) | tuple |  |
+[ItemsTupleInput](#properties-arrayarraynumber-items-itemstupleinput) | [ItemsTuple](#properties-arrayarraynumber-items-itemstuple) |  |
 
 ## properties ArrayArrayNumber Items ItemsTupleInput
 Class Name | Input Type | Description | Notes

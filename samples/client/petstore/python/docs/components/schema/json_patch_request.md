@@ -4,7 +4,7 @@ petstore_api.components.schema.json_patch_request
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[JSONPatchRequestTupleInput](#jsonpatchrequesttupleinput) | tuple |  |
+[JSONPatchRequestTupleInput](#jsonpatchrequesttupleinput) | [JSONPatchRequestTuple](#jsonpatchrequesttuple) |  |
 
 ## JSONPatchRequestTupleInput
 Class Name | Input Type | Description | Notes

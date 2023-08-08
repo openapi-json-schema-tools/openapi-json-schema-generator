@@ -52,7 +52,7 @@ refParam | [Parameter5.schema](#parameter5-schema), dict, schemas.immutabledict,
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[SchemaTupleInput](#parameter0-schema-schematupleinput) | tuple |  |
+[SchemaTupleInput](#parameter0-schema-schematupleinput) | [SchemaTuple](#parameter0-schema-schematuple) |  |
 
 ###### Parameter0 Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes
@@ -71,7 +71,7 @@ items | str | str |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[SchemaTupleInput](#parameter1-schema-schematupleinput) | tuple |  |
+[SchemaTupleInput](#parameter1-schema-schematupleinput) | [SchemaTuple](#parameter1-schema-schematuple) |  |
 
 ###### Parameter1 Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes
@@ -90,7 +90,7 @@ items | str | str |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[SchemaTupleInput](#parameter2-schema-schematupleinput) | tuple |  |
+[SchemaTupleInput](#parameter2-schema-schematupleinput) | [SchemaTuple](#parameter2-schema-schematuple) |  |
 
 ###### Parameter2 Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes
@@ -109,7 +109,7 @@ items | str | str |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[SchemaTupleInput](#parameter3-schema-schematupleinput) | tuple |  |
+[SchemaTupleInput](#parameter3-schema-schematupleinput) | [SchemaTuple](#parameter3-schema-schematuple) |  |
 
 ###### Parameter3 Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes
@@ -128,7 +128,7 @@ items | str | str |  |
 ###### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[SchemaTupleInput](#parameter4-schema-schematupleinput) | tuple |  |
+[SchemaTupleInput](#parameter4-schema-schematupleinput) | [SchemaTuple](#parameter4-schema-schematuple) |  |
 
 ###### Parameter4 Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes

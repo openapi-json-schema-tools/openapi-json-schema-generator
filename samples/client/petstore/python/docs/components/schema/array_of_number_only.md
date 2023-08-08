@@ -23,7 +23,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[ArrayNumberTupleInput](#properties-arraynumber-arraynumbertupleinput) | tuple |  |
+[ArrayNumberTupleInput](#properties-arraynumber-arraynumbertupleinput) | [ArrayNumberTuple](#properties-arraynumber-arraynumbertuple) |  |
 
 ## properties ArrayNumber ArrayNumberTupleInput
 Class Name | Input Type | Description | Notes

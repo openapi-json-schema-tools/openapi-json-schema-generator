@@ -45,7 +45,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-None, [ArrayNullablePropTupleInput](#properties-arraynullableprop-arraynullableproptupleinput) | None, tuple |  |
+None, [ArrayNullablePropTupleInput](#properties-arraynullableprop-arraynullableproptupleinput) | None, [ArrayNullablePropTuple](#properties-arraynullableprop-arraynullableproptuple) |  |
 
 ## properties ArrayNullableProp ArrayNullablePropTupleInput
 Class Name | Input Type | Description | Notes
@@ -69,7 +69,7 @@ dict, schemas.immutabledict | schemas.immutabledict |  |
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-None, [ArrayAndItemsNullablePropTupleInput](#properties-arrayanditemsnullableprop-arrayanditemsnullableproptupleinput) | None, tuple |  |
+None, [ArrayAndItemsNullablePropTupleInput](#properties-arrayanditemsnullableprop-arrayanditemsnullableproptupleinput) | None, [ArrayAndItemsNullablePropTuple](#properties-arrayanditemsnullableprop-arrayanditemsnullableproptuple) |  |
 
 ## properties ArrayAndItemsNullableProp ArrayAndItemsNullablePropTupleInput
 Class Name | Input Type | Description | Notes
@@ -93,7 +93,7 @@ None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[ArrayItemsNullableTupleInput](#properties-arrayitemsnullable-arrayitemsnullabletupleinput) | tuple |  |
+[ArrayItemsNullableTupleInput](#properties-arrayitemsnullable-arrayitemsnullabletupleinput) | [ArrayItemsNullableTuple](#properties-arrayitemsnullable-arrayitemsnullabletuple) |  |
 
 ## properties ArrayItemsNullable ArrayItemsNullableTupleInput
 Class Name | Input Type | Description | Notes

@@ -4,7 +4,7 @@ petstore_api.components.schema.self_referencing_array_model
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[SelfReferencingArrayModelTupleInput](#selfreferencingarraymodeltupleinput) | tuple |  |
+[SelfReferencingArrayModelTupleInput](#selfreferencingarraymodeltupleinput) | [SelfReferencingArrayModelTuple](#selfreferencingarraymodeltuple) |  |
 
 ## SelfReferencingArrayModelTupleInput
 Class Name | Input Type | Description | Notes

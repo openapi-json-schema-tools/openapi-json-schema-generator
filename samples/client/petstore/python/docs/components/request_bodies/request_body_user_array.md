@@ -14,7 +14,7 @@ Content-Type | Schema
 ### Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[SchemaTupleInput](#content-applicationjson-schema-schematupleinput) | tuple |  |
+[SchemaTupleInput](#content-applicationjson-schema-schematupleinput) | [SchemaTuple](#content-applicationjson-schema-schematuple) |  |
 
 ### content ApplicationJson Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes

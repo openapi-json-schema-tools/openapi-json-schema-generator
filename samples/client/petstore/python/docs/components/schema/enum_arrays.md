@@ -25,7 +25,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-[ArrayEnumTupleInput](#properties-arrayenum-arrayenumtupleinput) | tuple |  |
+[ArrayEnumTupleInput](#properties-arrayenum-arrayenumtupleinput) | [ArrayEnumTuple](#properties-arrayenum-arrayenumtuple) |  |
 
 ## properties ArrayEnum ArrayEnumTupleInput
 Class Name | Input Type | Description | Notes
