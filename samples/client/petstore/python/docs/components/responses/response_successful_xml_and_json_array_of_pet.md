@@ -25,7 +25,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-#### List Items
+#### content ApplicationXml Schema SchemaTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+[**Pet**](../../components/schema/pet.md) | [**Pet**](../../components/schema/pet.md) |  |
+
+#### content ApplicationXml Schema SchemaTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Pet**](../../components/schema/pet.md) | [**Pet**](../../components/schema/pet.md) | [**Pet**](../../components/schema/pet.md) |  |
@@ -36,7 +41,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-#### List Items
+#### content ApplicationJson Schema SchemaTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+[**RefPet**](../../components/schema/ref_pet.md) | [**RefPet**](../../components/schema/ref_pet.md) |  |
+
+#### content ApplicationJson Schema SchemaTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**RefPet**](../../components/schema/ref_pet.md) | [**RefPet**](../../components/schema/ref_pet.md) | [**RefPet**](../../components/schema/ref_pet.md) |  |

@@ -29,7 +29,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-## List Items
+## properties ArrayOfString ArrayOfStringTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+items | str |  |
+
+## properties ArrayOfString ArrayOfStringTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str | str |  |
@@ -41,7 +46,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-## List Items
+## properties ArrayArrayOfInteger ArrayArrayOfIntegerTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+[items](#properties-arrayarrayofinteger-items2) | list, tuple |  |
+
+## properties ArrayArrayOfInteger ArrayArrayOfIntegerTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [items](#properties-arrayarrayofinteger-items2) | list, tuple | tuple |  |
@@ -53,7 +63,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-## List Items
+## properties ArrayArrayOfInteger Items2 ItemsTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+items | int |  | value must be a 64 bit integer
+
+## properties ArrayArrayOfInteger Items2 ItemsTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | int | int |  | value must be a 64 bit integer
@@ -65,7 +80,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-## List Items
+## properties ArrayArrayOfModel ArrayArrayOfModelTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+[items](#properties-arrayarrayofmodel-items4) | list, tuple |  |
+
+## properties ArrayArrayOfModel ArrayArrayOfModelTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [items](#properties-arrayarrayofmodel-items4) | list, tuple | tuple |  |
@@ -77,7 +97,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-## List Items
+## properties ArrayArrayOfModel Items4 ItemsTupleInput2
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+[**ReadOnlyFirst**](read_only_first.md) | [**ReadOnlyFirst**](read_only_first.md) |  |
+
+## properties ArrayArrayOfModel Items4 ItemsTuple2
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**ReadOnlyFirst**](read_only_first.md) | [**ReadOnlyFirst**](read_only_first.md) | [**ReadOnlyFirst**](read_only_first.md) |  |

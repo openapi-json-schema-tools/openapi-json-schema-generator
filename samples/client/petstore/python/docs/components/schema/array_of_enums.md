@@ -6,7 +6,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-## List Items
+## ArrayOfEnumsTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+[**StringEnum**](string_enum.md) | [**StringEnum**](string_enum.md) |  |
+
+## ArrayOfEnumsTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**StringEnum**](string_enum.md) | [**StringEnum**](string_enum.md) | [**StringEnum**](string_enum.md) |  |

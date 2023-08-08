@@ -66,7 +66,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-##### List Items
+##### RequestBody content MultipartFormData Schema properties Files FilesTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+items | bytes, io.FileIO, io.BufferedReader |  |
+
+##### RequestBody content MultipartFormData Schema properties Files FilesTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |  |

@@ -55,7 +55,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-###### List Items
+###### Parameter0 Schema SchemaTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+items | str |  |
+
+###### Parameter0 Schema SchemaTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str | str |  |

@@ -23,7 +23,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-## List Items
+## AdditionalProperties AdditionalPropertiesTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+[**EnumClass**](enum_class.md) | [**EnumClass**](enum_class.md) |  |
+
+## AdditionalProperties AdditionalPropertiesTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**EnumClass**](enum_class.md) | [**EnumClass**](enum_class.md) | [**EnumClass**](enum_class.md) |  |

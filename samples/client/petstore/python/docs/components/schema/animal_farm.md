@@ -6,7 +6,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-## List Items
+## AnimalFarmTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+[**Animal**](animal.md) | [**Animal**](animal.md) |  |
+
+## AnimalFarmTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Animal**](animal.md) | [**Animal**](animal.md) | [**Animal**](animal.md) |  |

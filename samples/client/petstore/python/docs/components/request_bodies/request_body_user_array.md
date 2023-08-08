@@ -16,7 +16,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-### List Items
+### content ApplicationJson Schema SchemaTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+[**User**](../../components/schema/user.md) | [**User**](../../components/schema/user.md) |  |
+
+### content ApplicationJson Schema SchemaTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**User**](../../components/schema/user.md) | [**User**](../../components/schema/user.md) | [**User**](../../components/schema/user.md) |  |

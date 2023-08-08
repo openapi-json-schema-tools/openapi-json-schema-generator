@@ -27,7 +27,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-## List Items
+## properties ArrayEnum ArrayEnumTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+items | str |  | must be one of ["fish", "crab"]
+
+## properties ArrayEnum ArrayEnumTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str | str |  | must be one of ["fish", "crab"]

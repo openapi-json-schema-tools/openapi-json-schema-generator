@@ -38,7 +38,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-## List Items
+## properties PhotoUrls PhotoUrlsTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+items | str |  |
+
+## properties PhotoUrls PhotoUrlsTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str | str |  |
@@ -50,7 +55,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-## List Items
+## properties Tags TagsTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+[**Tag**](tag.md) | [**Tag**](tag.md) |  |
+
+## properties Tags TagsTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Tag**](tag.md) | [**Tag**](tag.md) | [**Tag**](tag.md) |  |

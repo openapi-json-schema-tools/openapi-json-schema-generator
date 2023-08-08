@@ -6,7 +6,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-## List Items
+## SelfReferencingArrayModelTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+[**SelfReferencingArrayModel**](#top) | [**SelfReferencingArrayModel**](#top) |  |
+
+## SelfReferencingArrayModelTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**SelfReferencingArrayModel**](#top) | [**SelfReferencingArrayModel**](#top) | [**SelfReferencingArrayModel**](#top) |  |

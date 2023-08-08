@@ -74,7 +74,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple | Form parameter enum test (string array) |
 
-##### List Items
+##### RequestBody content ApplicationXWwwFormUrlencoded Schema properties EnumFormStringArray EnumFormStringArrayTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+items | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
+
+##### RequestBody content ApplicationXWwwFormUrlencoded Schema properties EnumFormStringArray EnumFormStringArrayTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
@@ -103,7 +108,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-###### List Items
+###### Parameter2 Schema SchemaTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+items | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
+
+###### Parameter2 Schema SchemaTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
@@ -166,7 +176,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-###### List Items
+###### Parameter0 Schema SchemaTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+items | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
+
+###### Parameter0 Schema SchemaTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $

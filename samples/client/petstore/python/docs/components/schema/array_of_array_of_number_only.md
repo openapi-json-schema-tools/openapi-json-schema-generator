@@ -25,7 +25,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-## List Items
+## properties ArrayArrayNumber ArrayArrayNumberTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+[items](#properties-arrayarraynumber-items) | list, tuple |  |
+
+## properties ArrayArrayNumber ArrayArrayNumberTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [items](#properties-arrayarraynumber-items) | list, tuple | tuple |  |
@@ -37,7 +42,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-## List Items
+## properties ArrayArrayNumber Items ItemsTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+items | float, int |  |
+
+## properties ArrayArrayNumber Items ItemsTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | float, int | float, int |  |

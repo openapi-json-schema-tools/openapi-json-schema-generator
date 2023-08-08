@@ -9,7 +9,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple | component&#x27;s name collides with the inner schema name |
 
-## List Items
+## ItemsTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+[items](#items2) | dict, schemas.immutabledict |  |
+
+## ItemsTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [items](#items2) | dict, schemas.immutabledict | schemas.immutabledict |  |

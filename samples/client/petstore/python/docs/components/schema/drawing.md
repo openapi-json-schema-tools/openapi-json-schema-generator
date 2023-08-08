@@ -31,7 +31,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-## List Items
+## properties Shapes ShapesTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+[**Shape**](shape.md) | [**Shape**](shape.md) |  |
+
+## properties Shapes ShapesTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**Shape**](shape.md) | [**Shape**](shape.md) | [**Shape**](shape.md) |  |

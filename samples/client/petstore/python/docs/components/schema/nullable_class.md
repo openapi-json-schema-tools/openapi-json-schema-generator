@@ -47,7 +47,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, list, tuple | None, tuple |  |
 
-## List Items
+## properties ArrayNullableProp ArrayNullablePropTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+[items](#properties-arraynullableprop-items) | dict, schemas.immutabledict |  |
+
+## properties ArrayNullableProp ArrayNullablePropTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [items](#properties-arraynullableprop-items) | dict, schemas.immutabledict | schemas.immutabledict |  |
@@ -66,7 +71,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 None, list, tuple | None, tuple |  |
 
-## List Items
+## properties ArrayAndItemsNullableProp ArrayAndItemsNullablePropTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+[items](#properties-arrayanditemsnullableprop-items2) | None, dict, schemas.immutabledict |  |
+
+## properties ArrayAndItemsNullableProp ArrayAndItemsNullablePropTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [items](#properties-arrayanditemsnullableprop-items2) | None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
@@ -85,7 +95,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-## List Items
+## properties ArrayItemsNullable ArrayItemsNullableTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+[items](#properties-arrayitemsnullable-items3) | None, dict, schemas.immutabledict |  |
+
+## properties ArrayItemsNullable ArrayItemsNullableTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [items](#properties-arrayitemsnullable-items3) | None, dict, schemas.immutabledict | None, schemas.immutabledict |  |

@@ -65,7 +65,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-## List Items
+## properties ArrayWithUniqueItems ArrayWithUniqueItemsTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+items | float, int |  |
+
+## properties ArrayWithUniqueItems ArrayWithUniqueItemsTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 items | float, int | float, int |  |

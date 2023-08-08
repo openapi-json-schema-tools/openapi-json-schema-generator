@@ -26,9 +26,7 @@ Input Type | Accessed Type | Description | Notes
 
     {{#if mapInputJsonPathPiece}}
         {{#eq identifierPieces.size 0}}
-            {{#if mapInputJsonPathPiece}}
 {{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append (newArray ) mapInputJsonPathPiece) }}
-            {{/if}}
         {{else}}
 {{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}
         {{/eq}}
@@ -57,9 +55,7 @@ Key | Type |  Description | Notes
 
     {{#if mapOutputJsonPathPiece}}
         {{#eq identifierPieces.size 0}}
-            {{#if mapInputJsonPathPiece}}
 {{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append (newArray ) mapOutputJsonPathPiece) }}
-            {{/if}}
         {{else}}
 {{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}
         {{/eq}}
@@ -88,7 +84,30 @@ Key | Input Type | Accessed Type | Description | Notes
     {{/or}}
     {{#if items}}
 
-{{headerSize}}# List Items
+        {{#if arrayInputJsonPathPiece}}
+            {{#eq identifierPieces.size 0}}
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append (newArray ) arrayInputJsonPathPiece) }}
+            {{else}}
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}
+            {{/eq}}
+        {{else}}
+{{headerSize}}# Input List Items
+        {{/if}}
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+        {{#with items}}
+{{#unless refInfo.refClass}}{{#if isComplicated}}[{{/if}}{{jsonPathPiece.original}}{{#if isComplicated}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+        {{/with}}
+
+        {{#if arrayOutputJsonPathPiece}}
+            {{#eq identifierPieces.size 0}}
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append (newArray ) arrayOutputJsonPathPiece) }}
+            {{else}}
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}
+            {{/eq}}
+        {{else}}
+{{headerSize}}# Output List Items
+        {{/if}}
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
         {{#with items}}

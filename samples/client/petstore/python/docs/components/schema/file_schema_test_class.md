@@ -27,7 +27,12 @@ Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 list, tuple | tuple |  |
 
-## List Items
+## properties Files FilesTupleInput
+Class Name | Input Type | Description | Notes
+------------- | ------------- | ------------- | -------------
+[**File**](file.md) | [**File**](file.md) |  |
+
+## properties Files FilesTuple
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**File**](file.md) | [**File**](file.md) | [**File**](file.md) |  |
