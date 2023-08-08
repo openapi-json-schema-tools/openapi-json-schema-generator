@@ -57,7 +57,7 @@ Key | Type |  Description | Notes
 ##### RequestBody content ApplicationJson Schema SchemaDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ## Return Types
 

@@ -16,6 +16,6 @@ Key | Type |  Description | Notes
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **selfRef** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict, schemas.Unset | [**SelfReferencingObjectModel**](#top) |  | [optional]
-**any_string_name** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict | [**SelfReferencingObjectModel**](#top) | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict | [**SelfReferencingObjectModel**](#top) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

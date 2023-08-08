@@ -13,7 +13,7 @@ Key | Type |  Description | Notes
 **map_of_enum_string** | dict, schemas.immutabledict |  | [optional]
 **direct_map** | dict, schemas.immutabledict |  | [optional]
 **indirect_map** | [**StringBooleanMap**](string_boolean_map.md), dict, schemas.immutabledict |  | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## MapTestDict
 Key | Input Type | Accessed Type | Description | Notes
@@ -22,7 +22,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **map_of_enum_string** | dict, schemas.immutabledict, schemas.Unset | [properties.MapOfEnumString](#properties-mapofenumstring) |  | [optional]
 **direct_map** | dict, schemas.immutabledict, schemas.Unset | [properties.DirectMap](#properties-directmap) |  | [optional]
 **indirect_map** | [**StringBooleanMap**](string_boolean_map.md), dict, schemas.immutabledict, schemas.Unset | [**StringBooleanMap**](string_boolean_map.md) |  | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties MapMapOfString
 
@@ -39,7 +39,7 @@ Key | Type |  Description | Notes
 ## properties MapMapOfString MapMapOfStringDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | dict, schemas.immutabledict | [AdditionalProperties](#properties-mapmapofstring-additionalproperties) | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, schemas.immutabledict | [AdditionalProperties](#properties-mapmapofstring-additionalproperties) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties MapMapOfString AdditionalProperties
 
@@ -56,7 +56,7 @@ Key | Type |  Description | Notes
 ## properties MapMapOfString AdditionalProperties AdditionalPropertiesDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties MapOfEnumString
 
@@ -73,7 +73,7 @@ Key | Type |  Description | Notes
 ## properties MapOfEnumString MapOfEnumStringDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower"]
+**any_string_name** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower"] typed value is accessed with the get_additional_property_ method
 
 # properties DirectMap
 
@@ -90,6 +90,6 @@ Key | Type |  Description | Notes
 ## properties DirectMap DirectMapDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | bool | bool | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | bool | bool, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

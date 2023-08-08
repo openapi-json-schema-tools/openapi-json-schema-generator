@@ -17,7 +17,7 @@ Key | Type |  Description | Notes
 **map_with_undeclared_properties_anytype_3** | dict, schemas.immutabledict |  | [optional]
 **empty_map** | dict, schemas.immutabledict | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional]
 **map_with_undeclared_properties_string** | dict, schemas.immutabledict |  | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalPropertiesClassDict
 Key | Input Type | Accessed Type | Description | Notes
@@ -30,7 +30,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **map_with_undeclared_properties_anytype_3** | dict, schemas.immutabledict, schemas.Unset | [properties.MapWithUndeclaredPropertiesAnytype3](#properties-mapwithundeclaredpropertiesanytype3) |  | [optional]
 **empty_map** | dict, schemas.immutabledict, schemas.Unset | [properties.EmptyMap](#properties-emptymap) | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional]
 **map_with_undeclared_properties_string** | dict, schemas.immutabledict, schemas.Unset | [properties.MapWithUndeclaredPropertiesString](#properties-mapwithundeclaredpropertiesstring) |  | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties MapProperty
 
@@ -47,7 +47,7 @@ Key | Type |  Description | Notes
 ## properties MapProperty MapPropertyDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties MapOfMapProperty
 
@@ -64,7 +64,7 @@ Key | Type |  Description | Notes
 ## properties MapOfMapProperty MapOfMapPropertyDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | dict, schemas.immutabledict | [AdditionalProperties2](#properties-mapofmapproperty-additionalproperties2) | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, schemas.immutabledict | [AdditionalProperties2](#properties-mapofmapproperty-additionalproperties2) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties MapOfMapProperty AdditionalProperties2
 
@@ -81,7 +81,7 @@ Key | Type |  Description | Notes
 ## properties MapOfMapProperty AdditionalProperties2 AdditionalPropertiesDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties MapWithUndeclaredPropertiesAnytype1
 
@@ -112,7 +112,7 @@ Key | Type |  Description | Notes
 ## properties MapWithUndeclaredPropertiesAnytype3 MapWithUndeclaredPropertiesAnytype3Dict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties EmptyMap
 
@@ -147,6 +147,6 @@ Key | Type |  Description | Notes
 ## properties MapWithUndeclaredPropertiesString MapWithUndeclaredPropertiesStringDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

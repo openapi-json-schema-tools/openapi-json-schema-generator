@@ -16,6 +16,6 @@ Key | Type |  Description | Notes
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **a** | float, int, schemas.Unset | float, int, schemas.Unset |  | [optional]
-**any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

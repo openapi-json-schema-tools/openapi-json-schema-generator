@@ -37,7 +37,7 @@ Key | Type |  Description | Notes
 #### content ApplicationJson Schema SchemaDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | int | int | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
+**any_string_name** | int | int, schemas.Unset | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer typed value is accessed with the get_additional_property_ method
 
 ## Header Details
 ### headers SomeHeader

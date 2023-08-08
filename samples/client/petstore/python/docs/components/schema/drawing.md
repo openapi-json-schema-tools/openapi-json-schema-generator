@@ -22,7 +22,7 @@ Key | Input Type | Accessed Type | Description | Notes
 **shapeOrNull** | [**ShapeOrNull**](shape_or_null.md), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset | [**ShapeOrNull**](shape_or_null.md) |  | [optional]
 **nullableShape** | [**NullableShape**](nullable_shape.md), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset | [**NullableShape**](nullable_shape.md) |  | [optional]
 **shapes** | list, tuple, schemas.Unset | [properties.Shapes](#properties-shapes) |  | [optional]
-**any_string_name** | [**Fruit**](fruit.md), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [**Fruit**](fruit.md) | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | [**Fruit**](fruit.md), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [**Fruit**](fruit.md) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties Shapes
 

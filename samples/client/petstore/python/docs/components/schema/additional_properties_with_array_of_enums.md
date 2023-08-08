@@ -14,7 +14,7 @@ Key | Type |  Description | Notes
 ## AdditionalPropertiesWithArrayOfEnumsDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**any_string_name** | list, tuple | [AdditionalProperties](#additionalproperties) | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | list, tuple | [AdditionalProperties](#additionalproperties) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # AdditionalProperties
 
