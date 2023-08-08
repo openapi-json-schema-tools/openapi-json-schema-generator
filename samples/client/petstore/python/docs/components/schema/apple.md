@@ -37,7 +37,7 @@ Property | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | None, [AppleDictInput](#appledictinput), [AppleDict](#appledict) | None, [AppleDict](#appledict) | a constructor
+from_dict_ | [AppleDictInput](#appledictinput), [AppleDict](#appledict) | [AppleDict](#appledict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
