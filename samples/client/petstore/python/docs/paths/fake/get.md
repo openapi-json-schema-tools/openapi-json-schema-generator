@@ -91,6 +91,23 @@ Input Type | Return Type | Notes
 [EnumFormStringArrayTupleInput](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray-enumformstringarraytupleinput), [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray-enumformstringarraytuple) | [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray-enumformstringarraytuple) |
 
 ##### RequestBody content ApplicationXWwwFormUrlencoded Schema properties EnumFormStringArray EnumFormStringArrayTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing_extensions.Literal[
+            ">",
+            "$"
+        ],
+    ],
+    typing.Tuple[
+        typing_extensions.Literal[
+            ">",
+            "$"
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
@@ -125,6 +142,23 @@ Input Type | Return Type | Notes
 [SchemaTupleInput](#parameter2-schema-schematupleinput), [SchemaTuple](#parameter2-schema-schematuple) | [SchemaTuple](#parameter2-schema-schematuple) |
 
 ###### Parameter2 Schema SchemaTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing_extensions.Literal[
+            ">",
+            "$"
+        ],
+    ],
+    typing.Tuple[
+        typing_extensions.Literal[
+            ">",
+            "$"
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
@@ -193,6 +227,23 @@ Input Type | Return Type | Notes
 [SchemaTupleInput](#parameter0-schema-schematupleinput), [SchemaTuple](#parameter0-schema-schematuple) | [SchemaTuple](#parameter0-schema-schematuple) |
 
 ###### Parameter0 Schema SchemaTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing_extensions.Literal[
+            ">",
+            "$"
+        ],
+    ],
+    typing.Tuple[
+        typing_extensions.Literal[
+            ">",
+            "$"
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | str |  | must be one of [">", "$"] if omitted the server will use the default value of $

@@ -7,7 +7,6 @@ Input Type | Return Type | Notes
 [AddressDictInput](#addressdictinput), [AddressDict](#addressdict) | [AddressDict](#addressdict) |
 
 ## AddressDictInput
-
 type: typing.Mapping[
     str,
     int,

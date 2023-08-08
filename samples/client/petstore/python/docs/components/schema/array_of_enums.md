@@ -7,6 +7,37 @@ Input Type | Return Type | Notes
 [ArrayOfEnumsTupleInput](#arrayofenumstupleinput), [ArrayOfEnumsTuple](#arrayofenumstuple) | [ArrayOfEnumsTuple](#arrayofenumstuple) |
 
 ## ArrayOfEnumsTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            None,
+            typing_extensions.Literal[
+                "placed",
+                "approved",
+                "delivered",
+                "single quoted",
+                "multiple\nlines",
+                "double quote \n with newline"
+            ],
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            None,
+            typing_extensions.Literal[
+                "placed",
+                "approved",
+                "delivered",
+                "single quoted",
+                "multiple\nlines",
+                "double quote \n with newline"
+            ],
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**StringEnum**](string_enum.md) |  |

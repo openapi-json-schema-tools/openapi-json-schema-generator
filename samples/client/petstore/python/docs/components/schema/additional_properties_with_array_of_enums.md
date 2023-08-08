@@ -7,7 +7,6 @@ Input Type | Return Type | Notes
 [AdditionalPropertiesWithArrayOfEnumsDictInput](#additionalpropertieswitharrayofenumsdictinput), [AdditionalPropertiesWithArrayOfEnumsDict](#additionalpropertieswitharrayofenumsdict) | [AdditionalPropertiesWithArrayOfEnumsDict](#additionalpropertieswitharrayofenumsdict) |
 
 ## AdditionalPropertiesWithArrayOfEnumsDictInput
-
 type: typing.Mapping[
     str,
     typing.Union[
@@ -41,6 +40,29 @@ Input Type | Return Type | Notes
 [AdditionalPropertiesTupleInput](#additionalproperties-additionalpropertiestupleinput), [AdditionalPropertiesTuple](#additionalproperties-additionalpropertiestuple) | [AdditionalPropertiesTuple](#additionalproperties-additionalpropertiestuple) |
 
 ## AdditionalProperties AdditionalPropertiesTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing_extensions.Literal[
+            "_abc",
+            "-efg",
+            "(xyz)",
+            "COUNT_1M",
+            "COUNT_50M"
+        ],
+    ],
+    typing.Tuple[
+        typing_extensions.Literal[
+            "_abc",
+            "-efg",
+            "(xyz)",
+            "COUNT_1M",
+            "COUNT_50M"
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**EnumClass**](enum_class.md) |  |

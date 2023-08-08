@@ -57,6 +57,25 @@ Input Type | Return Type | Notes
 [SchemaTupleInput](#parameter0-schema-schematupleinput), [SchemaTuple](#parameter0-schema-schematuple) | [SchemaTuple](#parameter0-schema-schematuple) |
 
 ###### Parameter0 Schema SchemaTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing_extensions.Literal[
+            "available",
+            "pending",
+            "sold"
+        ],
+    ],
+    typing.Tuple[
+        typing_extensions.Literal[
+            "available",
+            "pending",
+            "sold"
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | str |  | must be one of ["available", "pending", "sold"] if omitted the server will use the default value of available

@@ -7,7 +7,6 @@ Input Type | Return Type | Notes
 [SelfReferencingObjectModelDictInput](#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) | [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) |
 
 ## SelfReferencingObjectModelDictInput
-
 type: typing.Mapping[
     str,
     typing.Union[

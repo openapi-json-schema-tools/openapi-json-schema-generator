@@ -7,7 +7,6 @@ Input Type | Return Type | Notes
 [ObjectWithNonIntersectingValuesDictInput](#objectwithnonintersectingvaluesdictinput), [ObjectWithNonIntersectingValuesDict](#objectwithnonintersectingvaluesdict) | [ObjectWithNonIntersectingValuesDict](#objectwithnonintersectingvaluesdict) |
 
 ## ObjectWithNonIntersectingValuesDictInput
-
 type: typing.Mapping[
     str,
     typing.Union[

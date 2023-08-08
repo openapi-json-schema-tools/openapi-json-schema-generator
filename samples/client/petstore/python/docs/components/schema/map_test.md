@@ -49,7 +49,6 @@ Input Type | Return Type | Notes
 [MapMapOfStringDictInput](#properties-mapmapofstring-mapmapofstringdictinput), [MapMapOfStringDict](#properties-mapmapofstring-mapmapofstringdict) | [MapMapOfStringDict](#properties-mapmapofstring-mapmapofstringdict) |
 
 ## properties MapMapOfString MapMapOfStringDictInput
-
 type: typing.Mapping[
     str,
     typing.Union[
@@ -83,7 +82,6 @@ Input Type | Return Type | Notes
 [AdditionalPropertiesDictInput](#properties-mapmapofstring-additionalproperties-additionalpropertiesdictinput), [AdditionalPropertiesDict](#properties-mapmapofstring-additionalproperties-additionalpropertiesdict) | [AdditionalPropertiesDict](#properties-mapmapofstring-additionalproperties-additionalpropertiesdict) |
 
 ## properties MapMapOfString AdditionalProperties AdditionalPropertiesDictInput
-
 type: typing.Mapping[
     str,
     str,
@@ -114,7 +112,6 @@ Input Type | Return Type | Notes
 [MapOfEnumStringDictInput](#properties-mapofenumstring-mapofenumstringdictinput), [MapOfEnumStringDict](#properties-mapofenumstring-mapofenumstringdict) | [MapOfEnumStringDict](#properties-mapofenumstring-mapofenumstringdict) |
 
 ## properties MapOfEnumString MapOfEnumStringDictInput
-
 type: typing.Mapping[
     str,
     typing_extensions.Literal[
@@ -148,7 +145,6 @@ Input Type | Return Type | Notes
 [DirectMapDictInput](#properties-directmap-directmapdictinput), [DirectMapDict](#properties-directmap-directmapdict) | [DirectMapDict](#properties-directmap-directmapdict) |
 
 ## properties DirectMap DirectMapDictInput
-
 type: typing.Mapping[
     str,
     bool,

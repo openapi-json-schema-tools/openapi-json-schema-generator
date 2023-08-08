@@ -7,7 +7,6 @@ Input Type | Return Type | Notes
 [StringBooleanMapDictInput](#stringbooleanmapdictinput), [StringBooleanMapDict](#stringbooleanmapdict) | [StringBooleanMapDict](#stringbooleanmapdict) |
 
 ## StringBooleanMapDictInput
-
 type: typing.Mapping[
     str,
     bool,

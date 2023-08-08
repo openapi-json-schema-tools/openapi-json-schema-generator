@@ -7,7 +7,6 @@ Input Type | Return Type | Notes
 [ReqPropsFromExplicitAddPropsDictInput](#reqpropsfromexplicitaddpropsdictinput), [ReqPropsFromExplicitAddPropsDict](#reqpropsfromexplicitaddpropsdict) | [ReqPropsFromExplicitAddPropsDict](#reqpropsfromexplicitaddpropsdict) |
 
 ## ReqPropsFromExplicitAddPropsDictInput
-
 type: typing.Mapping[
     str,
     typing.Union[

@@ -82,6 +82,27 @@ Input Type | Return Type | Notes
 [FilesTupleInput](#requestbody-content-multipartformdata-schema-properties-files-filestupleinput), [FilesTuple](#requestbody-content-multipartformdata-schema-properties-files-filestuple) | [FilesTuple](#requestbody-content-multipartformdata-schema-properties-files-filestuple) |
 
 ##### RequestBody content MultipartFormData Schema properties Files FilesTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.FileIO
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            bytes,
+            io.FileIO,
+            io.BufferedReader,
+            schemas.FileIO
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | bytes, io.FileIO, io.BufferedReader |  |

@@ -62,7 +62,6 @@ Input Type | Return Type | Notes
 [MapPropertyDictInput](#properties-mapproperty-mappropertydictinput), [MapPropertyDict](#properties-mapproperty-mappropertydict) | [MapPropertyDict](#properties-mapproperty-mappropertydict) |
 
 ## properties MapProperty MapPropertyDictInput
-
 type: typing.Mapping[
     str,
     str,
@@ -93,7 +92,6 @@ Input Type | Return Type | Notes
 [MapOfMapPropertyDictInput](#properties-mapofmapproperty-mapofmappropertydictinput), [MapOfMapPropertyDict](#properties-mapofmapproperty-mapofmappropertydict) | [MapOfMapPropertyDict](#properties-mapofmapproperty-mapofmappropertydict) |
 
 ## properties MapOfMapProperty MapOfMapPropertyDictInput
-
 type: typing.Mapping[
     str,
     typing.Union[
@@ -127,7 +125,6 @@ Input Type | Return Type | Notes
 [AdditionalPropertiesDictInput](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdictinput), [AdditionalPropertiesDict](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdict) | [AdditionalPropertiesDict](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdict) |
 
 ## properties MapOfMapProperty AdditionalProperties2 AdditionalPropertiesDictInput
-
 type: typing.Mapping[
     str,
     str,
@@ -225,7 +222,6 @@ Input Type | Return Type | Notes
 [MapWithUndeclaredPropertiesStringDictInput](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdictinput), [MapWithUndeclaredPropertiesStringDict](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdict) | [MapWithUndeclaredPropertiesStringDict](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdict) |
 
 ## properties MapWithUndeclaredPropertiesString MapWithUndeclaredPropertiesStringDictInput
-
 type: typing.Mapping[
     str,
     str,

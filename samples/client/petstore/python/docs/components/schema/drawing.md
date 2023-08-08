@@ -7,7 +7,6 @@ Input Type | Return Type | Notes
 [DrawingDictInput](#drawingdictinput), [DrawingDict](#drawingdict) | [DrawingDict](#drawingdict) |
 
 ## DrawingDictInput
-
 type: typing.Mapping[
     str,
     typing.Union[
@@ -75,6 +74,23 @@ Input Type | Return Type | Notes
 [ShapesTupleInput](#properties-shapes-shapestupleinput), [ShapesTuple](#properties-shapes-shapestuple) | [ShapesTuple](#properties-shapes-shapestuple) |
 
 ## properties Shapes ShapesTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**Shape**](shape.md) |  |

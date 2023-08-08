@@ -50,7 +50,6 @@ Input Type | Return Type | Notes
 [SchemaDictInput](#requestbody-content-applicationjson-schema-schemadictinput), [SchemaDict](#requestbody-content-applicationjson-schema-schemadict) | [SchemaDict](#requestbody-content-applicationjson-schema-schemadict) |
 
 ##### RequestBody content ApplicationJson Schema SchemaDictInput
-
 type: typing.Mapping[
     str,
     str,

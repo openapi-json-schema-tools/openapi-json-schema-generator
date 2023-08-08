@@ -49,7 +49,6 @@ Input Type | Return Type | Notes
 [_1DictInput](#allof-_1-_1dictinput), [_1Dict](#allof-_1-_1dict) | [_1Dict](#allof-_1-_1dict) |
 
 ## allof _1 _1DictInput
-
 type: typing.Mapping[
     str,
     typing.Union[
@@ -83,7 +82,6 @@ Input Type | Return Type | Notes
 [_2DictInput](#allof-_2-_2dictinput), [_2Dict](#allof-_2-_2dict) | [_2Dict](#allof-_2-_2dict) |
 
 ## allof _2 _2DictInput
-
 type: typing.Mapping[
     str,
     typing.Union[

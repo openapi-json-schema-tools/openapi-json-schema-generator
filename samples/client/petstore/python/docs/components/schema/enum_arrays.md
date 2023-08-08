@@ -44,6 +44,23 @@ Input Type | Return Type | Notes
 [ArrayEnumTupleInput](#properties-arrayenum-arrayenumtupleinput), [ArrayEnumTuple](#properties-arrayenum-arrayenumtuple) | [ArrayEnumTuple](#properties-arrayenum-arrayenumtuple) |
 
 ## properties ArrayEnum ArrayEnumTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing_extensions.Literal[
+            "fish",
+            "crab"
+        ],
+    ],
+    typing.Tuple[
+        typing_extensions.Literal[
+            "fish",
+            "crab"
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | str |  | must be one of ["fish", "crab"]

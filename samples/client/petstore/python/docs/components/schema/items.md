@@ -10,6 +10,23 @@ Input Type | Return Type | Notes
 [ItemsTupleInput](#itemstupleinput), [ItemsTuple](#itemstuple) | [ItemsTuple](#itemstuple) |
 
 ## ItemsTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | dict, schemas.immutabledict |  |

@@ -59,6 +59,17 @@ Input Type | Return Type | Notes
 [PhotoUrlsTupleInput](#properties-photourls-photourlstupleinput), [PhotoUrlsTuple](#properties-photourls-photourlstuple) | [PhotoUrlsTuple](#properties-photourls-photourlstuple) |
 
 ## properties PhotoUrls PhotoUrlsTupleInput
+```
+type: typing.Union[
+    typing.List[
+        str,
+    ],
+    typing.Tuple[
+        str,
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | str |  |
@@ -76,6 +87,23 @@ Input Type | Return Type | Notes
 [TagsTupleInput](#properties-tags-tagstupleinput), [TagsTuple](#properties-tags-tagstuple) | [TagsTuple](#properties-tags-tagstuple) |
 
 ## properties Tags TagsTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            tag.TagDictInput,
+            tag.TagDict,
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            tag.TagDictInput,
+            tag.TagDict,
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**Tag**](tag.md) |  |

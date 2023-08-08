@@ -7,6 +7,23 @@ Input Type | Return Type | Notes
 [SelfReferencingArrayModelTupleInput](#selfreferencingarraymodeltupleinput), [SelfReferencingArrayModelTuple](#selfreferencingarraymodeltuple) | [SelfReferencingArrayModelTuple](#selfreferencingarraymodeltuple) |
 
 ## SelfReferencingArrayModelTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            'SelfReferencingArrayModelTupleInput',
+            SelfReferencingArrayModelTuple
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            'SelfReferencingArrayModelTupleInput',
+            SelfReferencingArrayModelTuple
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**SelfReferencingArrayModel**](#top) |  |

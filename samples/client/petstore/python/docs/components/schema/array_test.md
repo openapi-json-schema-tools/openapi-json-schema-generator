@@ -47,6 +47,17 @@ Input Type | Return Type | Notes
 [ArrayOfStringTupleInput](#properties-arrayofstring-arrayofstringtupleinput), [ArrayOfStringTuple](#properties-arrayofstring-arrayofstringtuple) | [ArrayOfStringTuple](#properties-arrayofstring-arrayofstringtuple) |
 
 ## properties ArrayOfString ArrayOfStringTupleInput
+```
+type: typing.Union[
+    typing.List[
+        str,
+    ],
+    typing.Tuple[
+        str,
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | str |  |
@@ -64,6 +75,23 @@ Input Type | Return Type | Notes
 [ArrayArrayOfIntegerTupleInput](#properties-arrayarrayofinteger-arrayarrayofintegertupleinput), [ArrayArrayOfIntegerTuple](#properties-arrayarrayofinteger-arrayarrayofintegertuple) | [ArrayArrayOfIntegerTuple](#properties-arrayarrayofinteger-arrayarrayofintegertuple) |
 
 ## properties ArrayArrayOfInteger ArrayArrayOfIntegerTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            ItemsTupleInput,
+            ItemsTuple
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            ItemsTupleInput,
+            ItemsTuple
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | list, tuple |  |
@@ -81,6 +109,17 @@ Input Type | Return Type | Notes
 [ItemsTupleInput](#properties-arrayarrayofinteger-items2-itemstupleinput), [ItemsTuple](#properties-arrayarrayofinteger-items2-itemstuple) | [ItemsTuple](#properties-arrayarrayofinteger-items2-itemstuple) |
 
 ## properties ArrayArrayOfInteger Items2 ItemsTupleInput
+```
+type: typing.Union[
+    typing.List[
+        int,
+    ],
+    typing.Tuple[
+        int,
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | int |  | value must be a 64 bit integer
@@ -98,6 +137,23 @@ Input Type | Return Type | Notes
 [ArrayArrayOfModelTupleInput](#properties-arrayarrayofmodel-arrayarrayofmodeltupleinput), [ArrayArrayOfModelTuple](#properties-arrayarrayofmodel-arrayarrayofmodeltuple) | [ArrayArrayOfModelTuple](#properties-arrayarrayofmodel-arrayarrayofmodeltuple) |
 
 ## properties ArrayArrayOfModel ArrayArrayOfModelTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            ItemsTupleInput2,
+            ItemsTuple2
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            ItemsTupleInput2,
+            ItemsTuple2
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | list, tuple |  |
@@ -115,6 +171,23 @@ Input Type | Return Type | Notes
 [ItemsTupleInput2](#properties-arrayarrayofmodel-items4-itemstupleinput2), [ItemsTuple2](#properties-arrayarrayofmodel-items4-itemstuple2) | [ItemsTuple2](#properties-arrayarrayofmodel-items4-itemstuple2) |
 
 ## properties ArrayArrayOfModel Items4 ItemsTupleInput2
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            read_only_first.ReadOnlyFirstDictInput,
+            read_only_first.ReadOnlyFirstDict,
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            read_only_first.ReadOnlyFirstDictInput,
+            read_only_first.ReadOnlyFirstDict,
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**ReadOnlyFirst**](read_only_first.md) |  |

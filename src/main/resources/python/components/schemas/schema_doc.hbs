@@ -212,6 +212,21 @@ get_additional_property_ | str | {{> components/schemas/_helper_types_all_access
         {{else}}
 {{headerSize}}# Input List Items
         {{/if}}
+```
+type: typing.Union[
+    typing.List[
+        {{#with items}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.camelCase }}
+        {{/with}}
+    ],
+    typing.Tuple[
+        {{#with items}}
+        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.camelCase }}
+        ...
+        {{/with}}
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
         {{#with items}}

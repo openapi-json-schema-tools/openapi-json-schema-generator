@@ -7,7 +7,6 @@ Input Type | Return Type | Notes
 [NullableClassDictInput](#nullableclassdictinput), [NullableClassDict](#nullableclassdict) | [NullableClassDict](#nullableclassdict) |
 
 ## NullableClassDictInput
-
 type: typing.Mapping[
     str,
     typing.Union[
@@ -155,6 +154,23 @@ Input Type | Return Type | Notes
 None, [ArrayNullablePropTupleInput](#properties-arraynullableprop-arraynullableproptupleinput), [ArrayNullablePropTuple](#properties-arraynullableprop-arraynullableproptuple) | None, [ArrayNullablePropTuple](#properties-arraynullableprop-arraynullableproptuple) |
 
 ## properties ArrayNullableProp ArrayNullablePropTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | dict, schemas.immutabledict |  |
@@ -179,6 +195,29 @@ Input Type | Return Type | Notes
 None, [ArrayAndItemsNullablePropTupleInput](#properties-arrayanditemsnullableprop-arrayanditemsnullableproptupleinput), [ArrayAndItemsNullablePropTuple](#properties-arrayanditemsnullableprop-arrayanditemsnullableproptuple) | None, [ArrayAndItemsNullablePropTuple](#properties-arrayanditemsnullableprop-arrayanditemsnullableproptuple) |
 
 ## properties ArrayAndItemsNullableProp ArrayAndItemsNullablePropTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            None,
+            typing.Union[
+                typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            ],
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            None,
+            typing.Union[
+                typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            ],
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | None, dict, schemas.immutabledict |  |
@@ -203,6 +242,29 @@ Input Type | Return Type | Notes
 [ArrayItemsNullableTupleInput](#properties-arrayitemsnullable-arrayitemsnullabletupleinput), [ArrayItemsNullableTuple](#properties-arrayitemsnullable-arrayitemsnullabletuple) | [ArrayItemsNullableTuple](#properties-arrayitemsnullable-arrayitemsnullabletuple) |
 
 ## properties ArrayItemsNullable ArrayItemsNullableTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            None,
+            typing.Union[
+                typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            ],
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            None,
+            typing.Union[
+                typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+                schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            ],
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | None, dict, schemas.immutabledict |  |
@@ -227,7 +289,6 @@ Input Type | Return Type | Notes
 None, [ObjectNullablePropDictInput](#properties-objectnullableprop-objectnullablepropdictinput), [ObjectNullablePropDict](#properties-objectnullableprop-objectnullablepropdict) | None, [ObjectNullablePropDict](#properties-objectnullableprop-objectnullablepropdict) |
 
 ## properties ObjectNullableProp ObjectNullablePropDictInput
-
 type: typing.Mapping[
     str,
     typing.Union[
@@ -268,7 +329,6 @@ Input Type | Return Type | Notes
 None, [ObjectAndItemsNullablePropDictInput](#properties-objectanditemsnullableprop-objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#properties-objectanditemsnullableprop-objectanditemsnullablepropdict) | None, [ObjectAndItemsNullablePropDict](#properties-objectanditemsnullableprop-objectanditemsnullablepropdict) |
 
 ## properties ObjectAndItemsNullableProp ObjectAndItemsNullablePropDictInput
-
 type: typing.Mapping[
     str,
     typing.Union[
@@ -315,7 +375,6 @@ Input Type | Return Type | Notes
 [ObjectItemsNullableDictInput](#properties-objectitemsnullable-objectitemsnullabledictinput), [ObjectItemsNullableDict](#properties-objectitemsnullable-objectitemsnullabledict) | [ObjectItemsNullableDict](#properties-objectitemsnullable-objectitemsnullabledict) |
 
 ## properties ObjectItemsNullable ObjectItemsNullableDictInput
-
 type: typing.Mapping[
     str,
     typing.Union[

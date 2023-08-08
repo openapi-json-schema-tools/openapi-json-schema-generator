@@ -30,7 +30,6 @@ Input Type | Return Type | Notes
 [SchemaDictInput](#content-applicationjson-schema-schemadictinput), [SchemaDict](#content-applicationjson-schema-schemadict) | [SchemaDict](#content-applicationjson-schema-schemadict) |
 
 #### content ApplicationJson Schema SchemaDictInput
-
 type: typing.Mapping[
     str,
     int,

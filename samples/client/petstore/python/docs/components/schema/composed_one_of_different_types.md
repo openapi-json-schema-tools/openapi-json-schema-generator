@@ -50,6 +50,23 @@ Input Type | Return Type | Notes
 [_5TupleInput](#oneof-_5-_5tupleinput), [_5Tuple](#oneof-_5-_5tuple) | [_5Tuple](#oneof-_5-_5tuple) |
 
 ## oneof _5 _5TupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  |

@@ -41,6 +41,23 @@ Input Type | Return Type | Notes
 [ArrayArrayNumberTupleInput](#properties-arrayarraynumber-arrayarraynumbertupleinput), [ArrayArrayNumberTuple](#properties-arrayarraynumber-arrayarraynumbertuple) | [ArrayArrayNumberTuple](#properties-arrayarraynumber-arrayarraynumbertuple) |
 
 ## properties ArrayArrayNumber ArrayArrayNumberTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            ItemsTupleInput,
+            ItemsTuple
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            ItemsTupleInput,
+            ItemsTuple
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | list, tuple |  |
@@ -58,6 +75,23 @@ Input Type | Return Type | Notes
 [ItemsTupleInput](#properties-arrayarraynumber-items-itemstupleinput), [ItemsTuple](#properties-arrayarraynumber-items-itemstuple) | [ItemsTuple](#properties-arrayarraynumber-items-itemstuple) |
 
 ## properties ArrayArrayNumber Items ItemsTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            int,
+            float
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            int,
+            float
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | float, int |  |

@@ -7,6 +7,17 @@ Input Type | Return Type | Notes
 [ArrayWithValidationsInItemsTupleInput](#arraywithvalidationsinitemstupleinput), [ArrayWithValidationsInItemsTuple](#arraywithvalidationsinitemstuple) | [ArrayWithValidationsInItemsTuple](#arraywithvalidationsinitemstuple) |
 
 ## ArrayWithValidationsInItemsTupleInput
+```
+type: typing.Union[
+    typing.List[
+        int,
+    ],
+    typing.Tuple[
+        int,
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | int |  | value must be a 64 bit integer

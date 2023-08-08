@@ -44,6 +44,23 @@ Input Type | Return Type | Notes
 [FilesTupleInput](#properties-files-filestupleinput), [FilesTuple](#properties-files-filestuple) | [FilesTuple](#properties-files-filestuple) |
 
 ## properties Files FilesTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            file.FileDictInput,
+            file.FileDict,
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            file.FileDictInput,
+            file.FileDict,
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**File**](file.md) |  |

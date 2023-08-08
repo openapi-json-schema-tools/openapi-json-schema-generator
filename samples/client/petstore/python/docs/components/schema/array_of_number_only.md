@@ -41,6 +41,23 @@ Input Type | Return Type | Notes
 [ArrayNumberTupleInput](#properties-arraynumber-arraynumbertupleinput), [ArrayNumberTuple](#properties-arraynumber-arraynumbertuple) | [ArrayNumberTuple](#properties-arraynumber-arraynumbertuple) |
 
 ## properties ArrayNumber ArrayNumberTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            int,
+            float
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            int,
+            float
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | float, int |  |

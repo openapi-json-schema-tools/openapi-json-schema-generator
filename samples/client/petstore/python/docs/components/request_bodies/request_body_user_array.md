@@ -17,6 +17,23 @@ Input Type | Return Type | Notes
 [SchemaTupleInput](#content-applicationjson-schema-schematupleinput), [SchemaTuple](#content-applicationjson-schema-schematuple) | [SchemaTuple](#content-applicationjson-schema-schematuple) |
 
 ### content ApplicationJson Schema SchemaTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            user.UserDictInput,
+            user.UserDict,
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            user.UserDictInput,
+            user.UserDict,
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**User**](../../components/schema/user.md) |  |

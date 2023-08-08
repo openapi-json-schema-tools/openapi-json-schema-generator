@@ -100,6 +100,23 @@ Input Type | Return Type | Notes
 [ArrayWithUniqueItemsTupleInput](#properties-arraywithuniqueitems-arraywithuniqueitemstupleinput), [ArrayWithUniqueItemsTuple](#properties-arraywithuniqueitems-arraywithuniqueitemstuple) | [ArrayWithUniqueItemsTuple](#properties-arraywithuniqueitems-arraywithuniqueitemstuple) |
 
 ## properties ArrayWithUniqueItems ArrayWithUniqueItemsTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            int,
+            float
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            int,
+            float
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | float, int |  |

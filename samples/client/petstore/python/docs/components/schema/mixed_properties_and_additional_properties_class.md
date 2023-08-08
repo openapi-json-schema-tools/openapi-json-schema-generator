@@ -47,7 +47,6 @@ Input Type | Return Type | Notes
 [MapDictInput](#properties-map-mapdictinput), [MapDict](#properties-map-mapdict) | [MapDict](#properties-map-mapdict) |
 
 ## properties Map MapDictInput
-
 type: typing.Mapping[
     str,
     typing.Union[

@@ -56,6 +56,17 @@ Input Type | Return Type | Notes
 [SchemaTupleInput](#parameter0-schema-schematupleinput), [SchemaTuple](#parameter0-schema-schematuple) | [SchemaTuple](#parameter0-schema-schematuple) |
 
 ###### Parameter0 Schema SchemaTupleInput
+```
+type: typing.Union[
+    typing.List[
+        str,
+    ],
+    typing.Tuple[
+        str,
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | str |  |

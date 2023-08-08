@@ -26,6 +26,23 @@ Input Type | Return Type | Notes
 [SchemaTupleInput](#content-applicationxml-schema-schematupleinput), [SchemaTuple](#content-applicationxml-schema-schematuple) | [SchemaTuple](#content-applicationxml-schema-schematuple) |
 
 #### content ApplicationXml Schema SchemaTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            pet.PetDictInput,
+            pet.PetDict,
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            pet.PetDictInput,
+            pet.PetDict,
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**Pet**](../../components/schema/pet.md) |  |
@@ -42,6 +59,23 @@ Input Type | Return Type | Notes
 [SchemaTupleInput](#content-applicationjson-schema-schematupleinput), [SchemaTuple](#content-applicationjson-schema-schematuple) | [SchemaTuple](#content-applicationjson-schema-schematuple) |
 
 #### content ApplicationJson Schema SchemaTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            ref_pet.pet.PetDictInput,
+            ref_pet.pet.PetDict,
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            ref_pet.pet.PetDictInput,
+            ref_pet.pet.PetDict,
+        ],
+        ...
+    ]
+]
+```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**RefPet**](../../components/schema/ref_pet.md) |  |
