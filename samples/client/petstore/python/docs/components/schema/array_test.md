@@ -104,7 +104,7 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | list, tuple |  |
+≥ 0 | [ItemsTupleInput](#properties-arrayarrayofinteger-itemstupleinput), [ItemsTuple](#properties-arrayarrayofinteger-itemstuple) |  |
 
 ## properties ArrayArrayOfInteger ArrayArrayOfIntegerTuple
 ```
@@ -178,7 +178,7 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | list, tuple |  |
+≥ 0 | [ItemsTupleInput2](#properties-arrayarrayofmodel-itemstupleinput2), [ItemsTuple2](#properties-arrayarrayofmodel-itemstuple2) |  |
 
 ## properties ArrayArrayOfModel ArrayArrayOfModelTuple
 ```

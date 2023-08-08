@@ -64,7 +64,7 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | list, tuple |  |
+≥ 0 | [ItemsTupleInput](#properties-arrayarraynumber-itemstupleinput), [ItemsTuple](#properties-arrayarraynumber-itemstuple) |  |
 
 ## properties ArrayArrayNumber ArrayArrayNumberTuple
 ```
