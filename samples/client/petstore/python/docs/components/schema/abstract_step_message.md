@@ -4,10 +4,10 @@ petstore_api.components.schema.abstract_step_message
 ## Description
 Abstract Step
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[AbstractStepMessageDictInput](#abstractstepmessagedictinput) | [AbstractStepMessageDict](#abstractstepmessagedict) | Abstract Step |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[AbstractStepMessageDictInput](#abstractstepmessagedictinput) | [AbstractStepMessageDict](#abstractstepmessagedict) |
 
 ## AbstractStepMessageDictInput
 Key | Type |  Description | Notes

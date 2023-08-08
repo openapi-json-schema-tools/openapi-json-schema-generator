@@ -54,10 +54,10 @@ Required String in group parameters
 
 ##### Parameter0 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 #### Parameter2
 
@@ -66,10 +66,10 @@ Required Integer in group parameters
 
 ##### Parameter2 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-int | int |  | value must be a 64 bit integer
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+int | int | value must be a 64 bit integer
 
 #### Parameter3
 
@@ -78,10 +78,10 @@ String in group parameters
 
 ##### Parameter3 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 #### Parameter5
 
@@ -90,10 +90,10 @@ Integer in group parameters
 
 ##### Parameter5 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-int | int |  | value must be a 64 bit integer
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+int | int | value must be a 64 bit integer
 
 ### header_params
 #### RequestHeaderParameters.Params
@@ -112,10 +112,10 @@ Required Boolean in group parameters
 
 ##### Parameter1 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  | must be one of ["true", "false"]
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str | must be one of ["true", "false"]
 
 #### Parameter4
 
@@ -124,10 +124,10 @@ Boolean in group parameters
 
 ##### Parameter4 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  | must be one of ["true", "false"]
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str | must be one of ["true", "false"]
 
 ## Return Types
 

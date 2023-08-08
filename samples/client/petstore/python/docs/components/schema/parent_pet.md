@@ -1,10 +1,10 @@
 petstore_api.components.schema.parent_pet
 # Schema ParentPet
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict | schemas.immutabledict |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf

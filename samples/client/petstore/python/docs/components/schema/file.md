@@ -4,10 +4,10 @@ petstore_api.components.schema.file
 ## Description
 Must be named &#x60;File&#x60; for test.
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[FileDictInput](#filedictinput) | [FileDict](#filedict) | Must be named &#x60;File&#x60; for test. |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[FileDictInput](#filedictinput) | [FileDict](#filedict) |
 
 ## FileDictInput
 Key | Type |  Description | Notes

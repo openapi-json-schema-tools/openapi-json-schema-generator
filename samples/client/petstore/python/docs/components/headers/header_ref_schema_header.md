@@ -6,7 +6,7 @@ header that has a ref in the schema
 
 ## Schema
 
-### Type Info
+### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [StringWithValidation](../../components/schema/string_with_validation.md) | str | str |

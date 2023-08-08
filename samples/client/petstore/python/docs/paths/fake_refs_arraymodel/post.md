@@ -45,7 +45,7 @@ Content-Type | Schema
 
 #### RequestBody content ApplicationJson Schema
 
-##### Type Info
+##### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [AnimalFarm](../../components/schema/animal_farm.md) | list, tuple | tuple |
@@ -77,7 +77,7 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
 
-##### Type Info
+##### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [AnimalFarm](../../components/schema/animal_farm.md) | list, tuple | tuple |

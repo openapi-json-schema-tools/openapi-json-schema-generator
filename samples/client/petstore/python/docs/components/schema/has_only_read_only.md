@@ -1,10 +1,10 @@
 petstore_api.components.schema.has_only_read_only
 # Schema HasOnlyReadOnly
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[HasOnlyReadOnlyDictInput](#hasonlyreadonlydictinput) | [HasOnlyReadOnlyDict](#hasonlyreadonlydict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[HasOnlyReadOnlyDictInput](#hasonlyreadonlydictinput) | [HasOnlyReadOnlyDict](#hasonlyreadonlydict) |
 
 ## HasOnlyReadOnlyDictInput
 Key | Type |  Description | Notes

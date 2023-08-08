@@ -1,10 +1,10 @@
 petstore_api.components.schema.tag
 # Schema Tag
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[TagDictInput](#tagdictinput) | [TagDict](#tagdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[TagDictInput](#tagdictinput) | [TagDict](#tagdict) |
 
 ## TagDictInput
 Key | Type |  Description | Notes

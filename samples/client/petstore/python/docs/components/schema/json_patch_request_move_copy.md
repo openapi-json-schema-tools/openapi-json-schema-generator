@@ -1,10 +1,10 @@
 petstore_api.components.schema.json_patch_request_move_copy
 # Schema JSONPatchRequestMoveCopy
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[JSONPatchRequestMoveCopyDictInput](#jsonpatchrequestmovecopydictinput) | [JSONPatchRequestMoveCopyDict](#jsonpatchrequestmovecopydict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[JSONPatchRequestMoveCopyDictInput](#jsonpatchrequestmovecopydictinput) | [JSONPatchRequestMoveCopyDict](#jsonpatchrequestmovecopydict) |
 
 ## JSONPatchRequestMoveCopyDictInput
 Key | Type |  Description | Notes

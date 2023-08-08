@@ -47,7 +47,7 @@ mapBean
 
 ##### Parameter0 Schema
 
-###### Type Info
+###### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [Foo](../../components/schema/foo.md) | dict, schemas.immutabledict | schemas.immutabledict |

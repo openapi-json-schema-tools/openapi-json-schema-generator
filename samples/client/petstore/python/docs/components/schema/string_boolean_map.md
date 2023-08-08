@@ -1,10 +1,10 @@
 petstore_api.components.schema.string_boolean_map
 # Schema StringBooleanMap
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[StringBooleanMapDictInput](#stringbooleanmapdictinput) | [StringBooleanMapDict](#stringbooleanmapdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[StringBooleanMapDictInput](#stringbooleanmapdictinput) | [StringBooleanMapDict](#stringbooleanmapdict) |
 
 ## StringBooleanMapDictInput
 Key | Type |  Description | Notes

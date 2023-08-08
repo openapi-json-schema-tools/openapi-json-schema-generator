@@ -42,10 +42,10 @@ Content-Type | Schema
 
 #### RequestBody content MultipartFormData Schema
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) |
 
 ##### RequestBody content MultipartFormData Schema SchemaDictInput
 Key | Type |  Description | Notes
@@ -61,10 +61,10 @@ Key | Input Type | Accessed Type | Description | Notes
 
 #### RequestBody content MultipartFormData Schema properties Files
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[FilesTupleInput](#requestbody-content-multipartformdata-schema-properties-files-filestupleinput) | [FilesTuple](#requestbody-content-multipartformdata-schema-properties-files-filestuple) |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[FilesTupleInput](#requestbody-content-multipartformdata-schema-properties-files-filestupleinput) | [FilesTuple](#requestbody-content-multipartformdata-schema-properties-files-filestuple) |
 
 ##### RequestBody content MultipartFormData Schema properties Files FilesTupleInput
 Class Name | Input Type | Description | Notes
@@ -103,7 +103,7 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
 
-##### Type Info
+##### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [ApiResponse](../../components/schema/api_response.md) | dict, schemas.immutabledict | schemas.immutabledict |

@@ -1,10 +1,10 @@
 petstore_api.components.schema.money
 # Schema Money
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[MoneyDictInput](#moneydictinput) | [MoneyDict](#moneydict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[MoneyDictInput](#moneydictinput) | [MoneyDict](#moneydict) |
 
 ## MoneyDictInput
 Key | Type |  Description | Notes

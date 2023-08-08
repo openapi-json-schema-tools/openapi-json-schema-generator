@@ -4,10 +4,10 @@ petstore_api.components.schema.composed_one_of_different_types
 ## Description
 this is a model that allows payloads of type object or number
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | this is a model that allows payloads of type object or number |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf
@@ -23,31 +23,31 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # oneof _2
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-None | None |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+None | None |
 
 # oneof _3
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str, datetime.date | str | value must conform to RFC-3339 full-date YYYY-MM-DD
 
 # oneof _4
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict | schemas.immutabledict |
 
 # oneof _5
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[_5TupleInput](#oneof-_5-_5tupleinput) | [_5Tuple](#oneof-_5-_5tuple) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[_5TupleInput](#oneof-_5-_5tupleinput) | [_5Tuple](#oneof-_5-_5tuple) |
 
 ## oneof _5 _5TupleInput
 Class Name | Input Type | Description | Notes
@@ -61,9 +61,9 @@ items | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid
 
 # oneof _6
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str, datetime.datetime | str | value must conform to RFC-3339 date-time
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

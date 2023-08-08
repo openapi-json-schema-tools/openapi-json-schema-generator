@@ -1,10 +1,10 @@
 petstore_api.components.schema.enum_arrays
 # Schema EnumArrays
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[EnumArraysDictInput](#enumarraysdictinput) | [EnumArraysDict](#enumarraysdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[EnumArraysDictInput](#enumarraysdictinput) | [EnumArraysDict](#enumarraysdict) |
 
 ## EnumArraysDictInput
 Key | Type |  Description | Notes
@@ -22,10 +22,10 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # properties ArrayEnum
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ArrayEnumTupleInput](#properties-arrayenum-arrayenumtupleinput) | [ArrayEnumTuple](#properties-arrayenum-arrayenumtuple) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ArrayEnumTupleInput](#properties-arrayenum-arrayenumtupleinput) | [ArrayEnumTuple](#properties-arrayenum-arrayenumtuple) |
 
 ## properties ArrayEnum ArrayEnumTupleInput
 Class Name | Input Type | Description | Notes

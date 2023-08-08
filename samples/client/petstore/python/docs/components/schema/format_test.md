@@ -1,10 +1,10 @@
 petstore_api.components.schema.format_test
 # Schema FormatTest
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[FormatTestDictInput](#formattestdictinput) | [FormatTestDict](#formattestdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[FormatTestDictInput](#formattestdictinput) | [FormatTestDict](#formattestdict) |
 
 ## FormatTestDictInput
 Key | Type |  Description | Notes
@@ -60,10 +60,10 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # properties ArrayWithUniqueItems
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ArrayWithUniqueItemsTupleInput](#properties-arraywithuniqueitems-arraywithuniqueitemstupleinput) | [ArrayWithUniqueItemsTuple](#properties-arraywithuniqueitems-arraywithuniqueitemstuple) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ArrayWithUniqueItemsTupleInput](#properties-arraywithuniqueitems-arraywithuniqueitemstupleinput) | [ArrayWithUniqueItemsTuple](#properties-arraywithuniqueitems-arraywithuniqueitemstuple) |
 
 ## properties ArrayWithUniqueItems ArrayWithUniqueItemsTupleInput
 Class Name | Input Type | Description | Notes

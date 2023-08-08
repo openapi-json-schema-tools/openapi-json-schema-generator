@@ -49,10 +49,10 @@ The user name for login
 
 ##### Parameter0 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 #### Parameter1
 
@@ -61,10 +61,10 @@ The password for login in clear text
 
 ##### Parameter1 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 ## Return Types
 
@@ -104,16 +104,16 @@ numberHeader | [NumberHeader.schema](../../../components/headers/header_number_h
 ### Body Details
 #### ResponseFor200 content ApplicationXml Schema
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 #### ResponseFor200 content ApplicationJson Schema
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 ### Header Details
 #### ResponseFor200 headers XRateLimit
@@ -128,10 +128,10 @@ Content-Type | Schema
 
 ##### ResponseFor200 headers XRateLimit content ApplicationJson Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-int | int |  | value must be a 32 bit integer
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+int | int | value must be a 32 bit integer
 #### ResponseFor200 headers XExpiresAfter
 
 ##### Description
@@ -139,10 +139,10 @@ date in UTC when token expires
 
 ##### ResponseFor200 headers XExpiresAfter Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str, datetime.datetime | str | value must conform to RFC-3339 date-time
 
 ## ResponseFor400
 

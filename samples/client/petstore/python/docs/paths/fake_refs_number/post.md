@@ -45,7 +45,7 @@ Content-Type | Schema
 
 #### RequestBody content ApplicationJson Schema
 
-##### Type Info
+##### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [NumberWithValidations](../../components/schema/number_with_validations.md) | float, int | float, int |
@@ -77,7 +77,7 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
 
-##### Type Info
+##### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [NumberWithValidations](../../components/schema/number_with_validations.md) | float, int | float, int |

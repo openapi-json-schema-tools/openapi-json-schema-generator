@@ -48,10 +48,10 @@ The internal object id
 
 ##### Parameter0 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 ## Return Types
 

@@ -1,10 +1,10 @@
 petstore_api.components.schema.address
 # Schema Address
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[AddressDictInput](#addressdictinput) | [AddressDict](#addressdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[AddressDictInput](#addressdictinput) | [AddressDict](#addressdict) |
 
 ## AddressDictInput
 Key | Type |  Description | Notes

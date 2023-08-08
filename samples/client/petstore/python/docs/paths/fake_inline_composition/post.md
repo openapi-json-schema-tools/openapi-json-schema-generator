@@ -48,10 +48,10 @@ Content-Type | Schema
 
 #### RequestBody content ApplicationJson Schema
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ##### Composed Schemas (allOf/anyOf/oneOf/not)
 ##### allOf
@@ -61,16 +61,16 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 #### RequestBody content ApplicationJson Schema allof _0
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 #### RequestBody content MultipartFormData Schema
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) |
 
 ##### RequestBody content MultipartFormData Schema SchemaDictInput
 Key | Type |  Description | Notes
@@ -86,10 +86,10 @@ Key | Input Type | Accessed Type | Description | Notes
 
 #### RequestBody content MultipartFormData Schema properties SomeProp
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ##### Composed Schemas (allOf/anyOf/oneOf/not)
 ##### allOf
@@ -99,10 +99,10 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 #### RequestBody content MultipartFormData Schema properties SomeProp allof _0
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 ### query_params
 #### RequestQueryParameters.Params
@@ -118,10 +118,10 @@ compositionInProperty | [Parameter1.schema](#parameter1-schema), dict, schemas.i
 
 ##### Parameter0 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ###### Composed Schemas (allOf/anyOf/oneOf/not)
 ###### allOf
@@ -131,19 +131,19 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 ##### Parameter0 Schema allof _0
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 #### Parameter1
 
 ##### Parameter1 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[SchemaDictInput](#parameter1-schema-schemadictinput) | [SchemaDict](#parameter1-schema-schemadict) |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaDictInput](#parameter1-schema-schemadictinput) | [SchemaDict](#parameter1-schema-schemadict) |
 
 ###### Parameter1 Schema SchemaDictInput
 Key | Type |  Description | Notes
@@ -159,10 +159,10 @@ Key | Input Type | Accessed Type | Description | Notes
 
 ##### Parameter1 Schema properties SomeProp
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ###### Composed Schemas (allOf/anyOf/oneOf/not)
 ###### allOf
@@ -172,10 +172,10 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 ##### Parameter1 Schema properties SomeProp allof _0
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 ## Return Types
 
@@ -205,10 +205,10 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ##### Composed Schemas (allOf/anyOf/oneOf/not)
 ##### allOf
@@ -218,16 +218,16 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 #### ResponseFor200 content ApplicationJson Schema allof _0
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 #### ResponseFor200 content MultipartFormData Schema
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[SchemaDictInput](#responsefor200-content-multipartformdata-schema-schemadictinput) | [SchemaDict](#responsefor200-content-multipartformdata-schema-schemadict) |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaDictInput](#responsefor200-content-multipartformdata-schema-schemadictinput) | [SchemaDict](#responsefor200-content-multipartformdata-schema-schemadict) |
 
 ##### ResponseFor200 content MultipartFormData Schema SchemaDictInput
 Key | Type |  Description | Notes
@@ -243,10 +243,10 @@ Key | Input Type | Accessed Type | Description | Notes
 
 #### ResponseFor200 content MultipartFormData Schema properties SomeProp
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ##### Composed Schemas (allOf/anyOf/oneOf/not)
 ##### allOf
@@ -256,10 +256,10 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 #### ResponseFor200 content MultipartFormData Schema properties SomeProp allof _0
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 ## Servers
 

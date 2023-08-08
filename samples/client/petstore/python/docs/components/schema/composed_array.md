@@ -1,10 +1,10 @@
 petstore_api.components.schema.composed_array
 # Schema ComposedArray
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ComposedArrayTupleInput](#composedarraytupleinput) | [ComposedArrayTuple](#composedarraytuple) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ComposedArrayTupleInput](#composedarraytupleinput) | [ComposedArrayTuple](#composedarraytuple) |
 
 ## ComposedArrayTupleInput
 Class Name | Input Type | Description | Notes

@@ -57,10 +57,10 @@ Content-Type | Schema
 ### Body Details
 #### Default content ApplicationJson Schema
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[SchemaDictInput](#default-content-applicationjson-schema-schemadictinput) | [SchemaDict](#default-content-applicationjson-schema-schemadict) |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaDictInput](#default-content-applicationjson-schema-schemadictinput) | [SchemaDict](#default-content-applicationjson-schema-schemadict) |
 
 ##### Default content ApplicationJson Schema SchemaDictInput
 Key | Type |  Description | Notes

@@ -1,10 +1,10 @@
 petstore_api.components.schema.mixed_properties_and_additional_properties_class
 # Schema MixedPropertiesAndAdditionalPropertiesClass
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[MixedPropertiesAndAdditionalPropertiesClassDictInput](#mixedpropertiesandadditionalpropertiesclassdictinput) | [MixedPropertiesAndAdditionalPropertiesClassDict](#mixedpropertiesandadditionalpropertiesclassdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[MixedPropertiesAndAdditionalPropertiesClassDictInput](#mixedpropertiesandadditionalpropertiesclassdictinput) | [MixedPropertiesAndAdditionalPropertiesClassDict](#mixedpropertiesandadditionalpropertiesclassdict) |
 
 ## MixedPropertiesAndAdditionalPropertiesClassDictInput
 Key | Type |  Description | Notes
@@ -24,10 +24,10 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # properties Map
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[MapDictInput](#properties-map-mapdictinput) | [MapDict](#properties-map-mapdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[MapDictInput](#properties-map-mapdictinput) | [MapDict](#properties-map-mapdict) |
 
 ## properties Map MapDictInput
 Key | Type |  Description | Notes

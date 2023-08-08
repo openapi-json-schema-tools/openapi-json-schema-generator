@@ -42,7 +42,7 @@ Content-Type | Schema
 
 #### RequestBody content ApplicationJsonPatchjson Schema
 
-##### Type Info
+##### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [JSONPatchRequest](../../components/schema/json_patch_request.md) | list, tuple | tuple |

@@ -1,10 +1,10 @@
 petstore_api.components.schema.object_with_inline_composition_property
 # Schema ObjectWithInlineCompositionProperty
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ObjectWithInlineCompositionPropertyDictInput](#objectwithinlinecompositionpropertydictinput) | [ObjectWithInlineCompositionPropertyDict](#objectwithinlinecompositionpropertydict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ObjectWithInlineCompositionPropertyDictInput](#objectwithinlinecompositionpropertydictinput) | [ObjectWithInlineCompositionPropertyDict](#objectwithinlinecompositionpropertydict) |
 
 ## ObjectWithInlineCompositionPropertyDictInput
 Key | Type |  Description | Notes
@@ -20,10 +20,10 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # properties SomeProp
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf
@@ -33,9 +33,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # properties SomeProp allof _0
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -1,10 +1,10 @@
 petstore_api.components.schema.apple_req
 # Schema AppleReq
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[AppleReqDictInput](#applereqdictinput) | [AppleReqDict](#applereqdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[AppleReqDictInput](#applereqdictinput) | [AppleReqDict](#applereqdict) |
 
 ## AppleReqDictInput
 Key | Type |  Description | Notes

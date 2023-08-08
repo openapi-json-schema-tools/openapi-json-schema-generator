@@ -1,10 +1,10 @@
 petstore_api.components.schema.order
 # Schema Order
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[OrderDictInput](#orderdictinput) | [OrderDict](#orderdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[OrderDictInput](#orderdictinput) | [OrderDict](#orderdict) |
 
 ## OrderDictInput
 Key | Type |  Description | Notes

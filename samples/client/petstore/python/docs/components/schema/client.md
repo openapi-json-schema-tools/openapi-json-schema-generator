@@ -1,10 +1,10 @@
 petstore_api.components.schema.client
 # Schema Client
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ClientDictInput](#clientdictinput) | [ClientDict](#clientdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ClientDictInput](#clientdictinput) | [ClientDict](#clientdict) |
 
 ## ClientDictInput
 Key | Type |  Description | Notes

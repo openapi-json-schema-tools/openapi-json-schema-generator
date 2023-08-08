@@ -1,10 +1,10 @@
 petstore_api.components.schema.from_schema
 # Schema FromSchema
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[FromSchemaDictInput](#fromschemadictinput) | [FromSchemaDict](#fromschemadict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[FromSchemaDictInput](#fromschemadictinput) | [FromSchemaDict](#fromschemadict) |
 
 ## FromSchemaDictInput
 Key | Type |  Description | Notes

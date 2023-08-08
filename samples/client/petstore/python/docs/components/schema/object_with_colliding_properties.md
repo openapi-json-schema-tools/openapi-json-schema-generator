@@ -4,10 +4,10 @@ petstore_api.components.schema.object_with_colliding_properties
 ## Description
 component with properties that have name collisions
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ObjectWithCollidingPropertiesDictInput](#objectwithcollidingpropertiesdictinput) | [ObjectWithCollidingPropertiesDict](#objectwithcollidingpropertiesdict) | component with properties that have name collisions |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ObjectWithCollidingPropertiesDictInput](#objectwithcollidingpropertiesdictinput) | [ObjectWithCollidingPropertiesDict](#objectwithcollidingpropertiesdict) |
 
 ## ObjectWithCollidingPropertiesDictInput
 Key | Type |  Description | Notes
@@ -25,16 +25,16 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # properties SomeProp
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict | schemas.immutabledict |
 
 # properties Someprop2
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict | schemas.immutabledict |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -1,10 +1,10 @@
 petstore_api.components.schema.user
 # Schema User
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[UserDictInput](#userdictinput) | [UserDict](#userdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[UserDictInput](#userdictinput) | [UserDict](#userdict) |
 
 ## UserDictInput
 Key | Type |  Description | Notes
@@ -47,30 +47,30 @@ Key | Input Type | Accessed Type | Description | Notes
 ## Description
 test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value.
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict | test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value. |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict | schemas.immutabledict |
 
 # properties ObjectWithNoDeclaredPropsNullable
 
 ## Description
 test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value.
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-None, dict, schemas.immutabledict | None, schemas.immutabledict | test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value. |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+None, dict, schemas.immutabledict | None, schemas.immutabledict |
 
 # properties AnyTypeExceptNullProp
 
 ## Description
 any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object.
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## not
@@ -80,9 +80,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # properties AnyTypeExceptNullProp _Not
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-None | None |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+None | None |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

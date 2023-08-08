@@ -6,9 +6,9 @@ string header description
 
 ## Schema
 
-### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 [[Back to top]](#top) [[Back to Component Headers]](../../../README.md#Component-Headers) [[Back to README]](../../../README.md)

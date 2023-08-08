@@ -1,10 +1,10 @@
 petstore_api.components.schema.object_with_decimal_properties
 # Schema ObjectWithDecimalProperties
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ObjectWithDecimalPropertiesDictInput](#objectwithdecimalpropertiesdictinput) | [ObjectWithDecimalPropertiesDict](#objectwithdecimalpropertiesdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ObjectWithDecimalPropertiesDictInput](#objectwithdecimalpropertiesdictinput) | [ObjectWithDecimalPropertiesDict](#objectwithdecimalpropertiesdict) |
 
 ## ObjectWithDecimalPropertiesDictInput
 Key | Type |  Description | Notes

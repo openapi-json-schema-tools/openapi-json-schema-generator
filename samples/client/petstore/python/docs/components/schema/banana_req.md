@@ -1,10 +1,10 @@
 petstore_api.components.schema.banana_req
 # Schema BananaReq
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[BananaReqDictInput](#bananareqdictinput) | [BananaReqDict](#bananareqdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[BananaReqDictInput](#bananareqdictinput) | [BananaReqDict](#bananareqdict) |
 
 ## BananaReqDictInput
 Key | Type |  Description | Notes

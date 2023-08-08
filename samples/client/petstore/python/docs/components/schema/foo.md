@@ -1,10 +1,10 @@
 petstore_api.components.schema.foo
 # Schema Foo
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[FooDictInput](#foodictinput) | [FooDict](#foodict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[FooDictInput](#foodictinput) | [FooDict](#foodict) |
 
 ## FooDictInput
 Key | Type |  Description | Notes

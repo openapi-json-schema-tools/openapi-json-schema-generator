@@ -12,13 +12,13 @@ Content-Type | Schema
 
 ## content ApplicationJson Schema
 
-### Type Info
+### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [Pet](../../components/schema/pet.md) | dict, schemas.immutabledict | schemas.immutabledict |
 ## content ApplicationXml Schema
 
-### Type Info
+### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [RefPet](../../components/schema/ref_pet.md) | dict, schemas.immutabledict | schemas.immutabledict |

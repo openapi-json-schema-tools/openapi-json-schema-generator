@@ -4,10 +4,10 @@ petstore_api.components.schema.special_model_name
 ## Description
 model with an invalid class name for python
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[SpecialModelNameDictInput](#specialmodelnamedictinput) | [SpecialModelNameDict](#specialmodelnamedict) | model with an invalid class name for python |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SpecialModelNameDictInput](#specialmodelnamedictinput) | [SpecialModelNameDict](#specialmodelnamedict) |
 
 ## SpecialModelNameDictInput
 Key | Type |  Description | Notes

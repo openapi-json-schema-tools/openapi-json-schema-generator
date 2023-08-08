@@ -1,10 +1,10 @@
 petstore_api.components.schema.object_with_optional_test_prop
 # Schema ObjectWithOptionalTestProp
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ObjectWithOptionalTestPropDictInput](#objectwithoptionaltestpropdictinput) | [ObjectWithOptionalTestPropDict](#objectwithoptionaltestpropdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ObjectWithOptionalTestPropDictInput](#objectwithoptionaltestpropdictinput) | [ObjectWithOptionalTestPropDict](#objectwithoptionaltestpropdict) |
 
 ## ObjectWithOptionalTestPropDictInput
 Key | Type |  Description | Notes

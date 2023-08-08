@@ -49,10 +49,10 @@ ID of pet that needs to be fetched
 
 ##### Parameter0 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-int | int |  | value must be a 64 bit integer
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+int | int | value must be a 64 bit integer
 
 ## Return Types
 
@@ -84,13 +84,13 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor200 content ApplicationXml Schema
 
-##### Type Info
+##### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [Order](../../components/schema/order.md) | dict, schemas.immutabledict | schemas.immutabledict |
 #### ResponseFor200 content ApplicationJson Schema
 
-##### Type Info
+##### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [Order](../../components/schema/order.md) | dict, schemas.immutabledict | schemas.immutabledict |

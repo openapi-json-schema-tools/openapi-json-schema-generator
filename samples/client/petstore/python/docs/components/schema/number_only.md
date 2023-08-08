@@ -1,10 +1,10 @@
 petstore_api.components.schema.number_only
 # Schema NumberOnly
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[NumberOnlyDictInput](#numberonlydictinput) | [NumberOnlyDict](#numberonlydict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[NumberOnlyDictInput](#numberonlydictinput) | [NumberOnlyDict](#numberonlydict) |
 
 ## NumberOnlyDictInput
 Key | Type |  Description | Notes

@@ -1,10 +1,10 @@
 petstore_api.components.schema.zebra
 # Schema Zebra
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ZebraDictInput](#zebradictinput) | [ZebraDict](#zebradict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ZebraDictInput](#zebradictinput) | [ZebraDict](#zebradict) |
 
 ## ZebraDictInput
 Key | Type |  Description | Notes

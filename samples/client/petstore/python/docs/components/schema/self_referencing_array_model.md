@@ -1,10 +1,10 @@
 petstore_api.components.schema.self_referencing_array_model
 # Schema SelfReferencingArrayModel
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[SelfReferencingArrayModelTupleInput](#selfreferencingarraymodeltupleinput) | [SelfReferencingArrayModelTuple](#selfreferencingarraymodeltuple) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SelfReferencingArrayModelTupleInput](#selfreferencingarraymodeltupleinput) | [SelfReferencingArrayModelTuple](#selfreferencingarraymodeltuple) |
 
 ## SelfReferencingArrayModelTupleInput
 Class Name | Input Type | Description | Notes

@@ -1,10 +1,10 @@
 petstore_api.components.schema.animal
 # Schema Animal
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[AnimalDictInput](#animaldictinput) | [AnimalDict](#animaldict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[AnimalDictInput](#animaldictinput) | [AnimalDict](#animaldict) |
 
 ## AnimalDictInput
 Key | Type |  Description | Notes

@@ -46,7 +46,7 @@ Content-Type | Schema
 
 #### RequestBody content ApplicationJson Schema
 
-##### Type Info
+##### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [User](../../components/schema/user.md) | dict, schemas.immutabledict | schemas.immutabledict |

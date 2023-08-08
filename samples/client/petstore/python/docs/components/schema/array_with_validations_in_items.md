@@ -1,10 +1,10 @@
 petstore_api.components.schema.array_with_validations_in_items
 # Schema ArrayWithValidationsInItems
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ArrayWithValidationsInItemsTupleInput](#arraywithvalidationsinitemstupleinput) | [ArrayWithValidationsInItemsTuple](#arraywithvalidationsinitemstuple) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ArrayWithValidationsInItemsTupleInput](#arraywithvalidationsinitemstupleinput) | [ArrayWithValidationsInItemsTuple](#arraywithvalidationsinitemstuple) |
 
 ## ArrayWithValidationsInItemsTupleInput
 Class Name | Input Type | Description | Notes

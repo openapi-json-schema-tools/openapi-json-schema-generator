@@ -50,10 +50,10 @@ Tags to filter by
 
 ##### Parameter0 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[SchemaTupleInput](#parameter0-schema-schematupleinput) | [SchemaTuple](#parameter0-schema-schematuple) |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaTupleInput](#parameter0-schema-schematupleinput) | [SchemaTuple](#parameter0-schema-schematuple) |
 
 ###### Parameter0 Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes

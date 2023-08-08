@@ -11,9 +11,9 @@ Content-Type | Schema
 
 ## content ApplicationJson Schema
 
-### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-int | int |  | value must be a 32 bit integer
+### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+int | int | value must be a 32 bit integer
 
 [[Back to top]](#top) [[Back to Component Headers]](../../../README.md#Component-Headers) [[Back to README]](../../../README.md)

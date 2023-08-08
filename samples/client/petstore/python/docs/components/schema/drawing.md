@@ -1,10 +1,10 @@
 petstore_api.components.schema.drawing
 # Schema Drawing
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[DrawingDictInput](#drawingdictinput) | [DrawingDict](#drawingdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[DrawingDictInput](#drawingdictinput) | [DrawingDict](#drawingdict) |
 
 ## DrawingDictInput
 Key | Type |  Description | Notes
@@ -26,10 +26,10 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # properties Shapes
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ShapesTupleInput](#properties-shapes-shapestupleinput) | [ShapesTuple](#properties-shapes-shapestuple) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ShapesTupleInput](#properties-shapes-shapestupleinput) | [ShapesTuple](#properties-shapes-shapestuple) |
 
 ## properties Shapes ShapesTupleInput
 Class Name | Input Type | Description | Notes

@@ -1,10 +1,10 @@
 petstore_api.components.schema.additional_properties_validator
 # Schema AdditionalPropertiesValidator
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict | schemas.immutabledict |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf
@@ -16,10 +16,10 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # allof _0
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[_0DictInput](#allof-_0-_0dictinput) | [_0Dict](#allof-_0-_0dict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[_0DictInput](#allof-_0-_0dictinput) | [_0Dict](#allof-_0-_0dict) |
 
 ## allof _0 _0DictInput
 Key | Type |  Description | Notes
@@ -33,10 +33,10 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # allof _1
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[_1DictInput](#allof-_1-_1dictinput) | [_1Dict](#allof-_1-_1dict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[_1DictInput](#allof-_1-_1dictinput) | [_1Dict](#allof-_1-_1dict) |
 
 ## allof _1 _1DictInput
 Key | Type |  Description | Notes
@@ -50,10 +50,10 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # allof _2
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[_2DictInput](#allof-_2-_2dictinput) | [_2Dict](#allof-_2-_2dict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[_2DictInput](#allof-_2-_2dictinput) | [_2Dict](#allof-_2-_2dict) |
 
 ## allof _2 _2DictInput
 Key | Type |  Description | Notes

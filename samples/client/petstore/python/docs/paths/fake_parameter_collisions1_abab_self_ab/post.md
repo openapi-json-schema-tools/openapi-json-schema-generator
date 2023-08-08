@@ -46,10 +46,10 @@ Content-Type | Schema
 
 #### RequestBody content ApplicationJson Schema
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ### query_params
 #### RequestQueryParameters.Params
@@ -68,46 +68,46 @@ A-B | [Parameter4.schema](#parameter4-schema), str | | optional
 
 ##### Parameter0 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 #### Parameter1
 
 ##### Parameter1 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 #### Parameter2
 
 ##### Parameter2 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 #### Parameter3
 
 ##### Parameter3 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 #### Parameter4
 
 ##### Parameter4 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 ### header_params
 #### RequestHeaderParameters.Params
@@ -125,37 +125,37 @@ A-B | [Parameter8.schema](#parameter8-schema), str | | optional
 
 ##### Parameter5 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 #### Parameter6
 
 ##### Parameter6 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 #### Parameter7
 
 ##### Parameter7 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 #### Parameter8
 
 ##### Parameter8 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 ### path_params
 #### RequestPathParameters.Params
@@ -174,46 +174,46 @@ A-B | [Parameter13.schema](#parameter13-schema), str | |
 
 ##### Parameter9 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 #### Parameter10
 
 ##### Parameter10 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 #### Parameter11
 
 ##### Parameter11 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 #### Parameter12
 
 ##### Parameter12 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 #### Parameter13
 
 ##### Parameter13 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 ### cookie_params
 #### RequestCookieParameters.Params
@@ -232,46 +232,46 @@ A-B | [Parameter18.schema](#parameter18-schema), str | | optional
 
 ##### Parameter14 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 #### Parameter15
 
 ##### Parameter15 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 #### Parameter16
 
 ##### Parameter16 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 #### Parameter17
 
 ##### Parameter17 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 #### Parameter18
 
 ##### Parameter18 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 ## Return Types
 
@@ -300,10 +300,10 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## Servers
 

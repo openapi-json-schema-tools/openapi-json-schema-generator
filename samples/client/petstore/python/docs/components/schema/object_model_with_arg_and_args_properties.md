@@ -1,10 +1,10 @@
 petstore_api.components.schema.object_model_with_arg_and_args_properties
 # Schema ObjectModelWithArgAndArgsProperties
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ObjectModelWithArgAndArgsPropertiesDictInput](#objectmodelwithargandargspropertiesdictinput) | [ObjectModelWithArgAndArgsPropertiesDict](#objectmodelwithargandargspropertiesdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ObjectModelWithArgAndArgsPropertiesDictInput](#objectmodelwithargandargspropertiesdictinput) | [ObjectModelWithArgAndArgsPropertiesDict](#objectmodelwithargandargspropertiesdict) |
 
 ## ObjectModelWithArgAndArgsPropertiesDictInput
 Key | Type |  Description | Notes

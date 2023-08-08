@@ -1,10 +1,10 @@
 petstore_api.components.schema.object_with_non_intersecting_values
 # Schema ObjectWithNonIntersectingValues
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ObjectWithNonIntersectingValuesDictInput](#objectwithnonintersectingvaluesdictinput) | [ObjectWithNonIntersectingValuesDict](#objectwithnonintersectingvaluesdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ObjectWithNonIntersectingValuesDictInput](#objectwithnonintersectingvaluesdictinput) | [ObjectWithNonIntersectingValuesDict](#objectwithnonintersectingvaluesdict) |
 
 ## ObjectWithNonIntersectingValuesDictInput
 Key | Type |  Description | Notes

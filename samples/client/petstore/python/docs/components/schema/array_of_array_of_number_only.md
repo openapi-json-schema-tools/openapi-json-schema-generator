@@ -1,10 +1,10 @@
 petstore_api.components.schema.array_of_array_of_number_only
 # Schema ArrayOfArrayOfNumberOnly
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ArrayOfArrayOfNumberOnlyDictInput](#arrayofarrayofnumberonlydictinput) | [ArrayOfArrayOfNumberOnlyDict](#arrayofarrayofnumberonlydict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ArrayOfArrayOfNumberOnlyDictInput](#arrayofarrayofnumberonlydictinput) | [ArrayOfArrayOfNumberOnlyDict](#arrayofarrayofnumberonlydict) |
 
 ## ArrayOfArrayOfNumberOnlyDictInput
 Key | Type |  Description | Notes
@@ -20,10 +20,10 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # properties ArrayArrayNumber
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ArrayArrayNumberTupleInput](#properties-arrayarraynumber-arrayarraynumbertupleinput) | [ArrayArrayNumberTuple](#properties-arrayarraynumber-arrayarraynumbertuple) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ArrayArrayNumberTupleInput](#properties-arrayarraynumber-arrayarraynumbertupleinput) | [ArrayArrayNumberTuple](#properties-arrayarraynumber-arrayarraynumbertuple) |
 
 ## properties ArrayArrayNumber ArrayArrayNumberTupleInput
 Class Name | Input Type | Description | Notes
@@ -37,10 +37,10 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # properties ArrayArrayNumber Items
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ItemsTupleInput](#properties-arrayarraynumber-items-itemstupleinput) | [ItemsTuple](#properties-arrayarraynumber-items-itemstuple) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ItemsTupleInput](#properties-arrayarraynumber-items-itemstupleinput) | [ItemsTuple](#properties-arrayarraynumber-items-itemstuple) |
 
 ## properties ArrayArrayNumber Items ItemsTupleInput
 Class Name | Input Type | Description | Notes

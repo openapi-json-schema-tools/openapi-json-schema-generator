@@ -1,10 +1,10 @@
 petstore_api.components.schema.enum_test
 # Schema EnumTest
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[EnumTestDictInput](#enumtestdictinput) | [EnumTestDict](#enumtestdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[EnumTestDictInput](#enumtestdictinput) | [EnumTestDict](#enumtestdict) |
 
 ## EnumTestDictInput
 Key | Type |  Description | Notes

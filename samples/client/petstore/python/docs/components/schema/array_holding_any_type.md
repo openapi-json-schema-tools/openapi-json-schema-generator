@@ -1,10 +1,10 @@
 petstore_api.components.schema.array_holding_any_type
 # Schema ArrayHoldingAnyType
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ArrayHoldingAnyTypeTupleInput](#arrayholdinganytypetupleinput) | [ArrayHoldingAnyTypeTuple](#arrayholdinganytypetuple) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ArrayHoldingAnyTypeTupleInput](#arrayholdinganytypetupleinput) | [ArrayHoldingAnyTypeTuple](#arrayholdinganytypetuple) |
 
 ## ArrayHoldingAnyTypeTupleInput
 Class Name | Input Type | Description | Notes

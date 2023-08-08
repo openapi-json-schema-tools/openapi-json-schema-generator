@@ -1,10 +1,10 @@
 petstore_api.components.schema.danish_pig
 # Schema DanishPig
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[DanishPigDictInput](#danishpigdictinput) | [DanishPigDict](#danishpigdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[DanishPigDictInput](#danishpigdictinput) | [DanishPigDict](#danishpigdict) |
 
 ## DanishPigDictInput
 Key | Type |  Description | Notes

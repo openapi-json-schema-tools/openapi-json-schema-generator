@@ -45,10 +45,10 @@ Content-Type | Schema
 ##### Description
 file to upload
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO | file to upload |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |
 
 ## Return Types
 
@@ -80,10 +80,10 @@ Content-Type | Schema
 ##### Description
 file to download
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO | file to download |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |
 
 ## Servers
 

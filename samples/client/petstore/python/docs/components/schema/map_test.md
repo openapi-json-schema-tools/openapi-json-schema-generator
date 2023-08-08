@@ -1,10 +1,10 @@
 petstore_api.components.schema.map_test
 # Schema MapTest
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[MapTestDictInput](#maptestdictinput) | [MapTestDict](#maptestdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[MapTestDictInput](#maptestdictinput) | [MapTestDict](#maptestdict) |
 
 ## MapTestDictInput
 Key | Type |  Description | Notes
@@ -26,10 +26,10 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # properties MapMapOfString
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[MapMapOfStringDictInput](#properties-mapmapofstring-mapmapofstringdictinput) | [MapMapOfStringDict](#properties-mapmapofstring-mapmapofstringdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[MapMapOfStringDictInput](#properties-mapmapofstring-mapmapofstringdictinput) | [MapMapOfStringDict](#properties-mapmapofstring-mapmapofstringdict) |
 
 ## properties MapMapOfString MapMapOfStringDictInput
 Key | Type |  Description | Notes
@@ -43,10 +43,10 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # properties MapMapOfString AdditionalProperties
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[AdditionalPropertiesDictInput](#properties-mapmapofstring-additionalproperties-additionalpropertiesdictinput) | [AdditionalPropertiesDict](#properties-mapmapofstring-additionalproperties-additionalpropertiesdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[AdditionalPropertiesDictInput](#properties-mapmapofstring-additionalproperties-additionalpropertiesdictinput) | [AdditionalPropertiesDict](#properties-mapmapofstring-additionalproperties-additionalpropertiesdict) |
 
 ## properties MapMapOfString AdditionalProperties AdditionalPropertiesDictInput
 Key | Type |  Description | Notes
@@ -60,10 +60,10 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # properties MapOfEnumString
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[MapOfEnumStringDictInput](#properties-mapofenumstring-mapofenumstringdictinput) | [MapOfEnumStringDict](#properties-mapofenumstring-mapofenumstringdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[MapOfEnumStringDictInput](#properties-mapofenumstring-mapofenumstringdictinput) | [MapOfEnumStringDict](#properties-mapofenumstring-mapofenumstringdict) |
 
 ## properties MapOfEnumString MapOfEnumStringDictInput
 Key | Type |  Description | Notes
@@ -77,10 +77,10 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # properties DirectMap
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[DirectMapDictInput](#properties-directmap-directmapdictinput) | [DirectMapDict](#properties-directmap-directmapdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[DirectMapDictInput](#properties-directmap-directmapdictinput) | [DirectMapDict](#properties-directmap-directmapdict) |
 
 ## properties DirectMap DirectMapDictInput
 Key | Type |  Description | Notes

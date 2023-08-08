@@ -41,7 +41,7 @@ Content-Type | Schema
 
 #### RequestBody content ApplicationJson Schema
 
-##### Type Info
+##### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [FileSchemaTestClass](../../components/schema/file_schema_test_class.md) | dict, schemas.immutabledict | schemas.immutabledict |

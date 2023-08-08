@@ -45,10 +45,10 @@ Content-Type | Schema
 
 #### RequestBody content MultipartFormData Schema
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) |
 
 ##### RequestBody content MultipartFormData Schema SchemaDictInput
 Key | Type |  Description | Notes
@@ -80,10 +80,10 @@ ID of pet to update
 
 ##### Parameter0 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-int | int |  | value must be a 64 bit integer
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+int | int | value must be a 64 bit integer
 
 ## Return Types
 
@@ -112,7 +112,7 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
 
-##### Type Info
+##### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [ApiResponse](../../components/schema/api_response.md) | dict, schemas.immutabledict | schemas.immutabledict |

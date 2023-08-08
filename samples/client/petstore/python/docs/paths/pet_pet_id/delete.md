@@ -47,10 +47,10 @@ api_key | [Parameter0.schema](#parameter0-schema), str | | optional
 
 ##### Parameter0 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 ### path_params
 #### RequestPathParameters.Params
@@ -68,10 +68,10 @@ Pet id to delete
 
 ##### Parameter1 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-int | int |  | value must be a 64 bit integer
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+int | int | value must be a 64 bit integer
 
 ## Return Types
 

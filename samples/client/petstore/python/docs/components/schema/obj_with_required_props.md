@@ -1,10 +1,10 @@
 petstore_api.components.schema.obj_with_required_props
 # Schema ObjWithRequiredProps
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ObjWithRequiredPropsDictInput](#objwithrequiredpropsdictinput) | [ObjWithRequiredPropsDict](#objwithrequiredpropsdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ObjWithRequiredPropsDictInput](#objwithrequiredpropsdictinput) | [ObjWithRequiredPropsDict](#objwithrequiredpropsdict) |
 
 ## ObjWithRequiredPropsDictInput
 Key | Type |  Description | Notes

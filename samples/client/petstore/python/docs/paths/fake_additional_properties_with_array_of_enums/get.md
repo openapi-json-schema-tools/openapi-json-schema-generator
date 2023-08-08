@@ -45,7 +45,7 @@ Content-Type | Schema
 
 #### RequestBody content ApplicationJson Schema
 
-##### Type Info
+##### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [AdditionalPropertiesWithArrayOfEnums](../../components/schema/additional_properties_with_array_of_enums.md) | dict, schemas.immutabledict | schemas.immutabledict |
@@ -77,7 +77,7 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
 
-##### Type Info
+##### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [AdditionalPropertiesWithArrayOfEnums](../../components/schema/additional_properties_with_array_of_enums.md) | dict, schemas.immutabledict | schemas.immutabledict |

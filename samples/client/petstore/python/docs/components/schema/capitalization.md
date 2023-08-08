@@ -1,10 +1,10 @@
 petstore_api.components.schema.capitalization
 # Schema Capitalization
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[CapitalizationDictInput](#capitalizationdictinput) | [CapitalizationDict](#capitalizationdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[CapitalizationDictInput](#capitalizationdictinput) | [CapitalizationDict](#capitalizationdict) |
 
 ## CapitalizationDictInput
 Key | Type |  Description | Notes

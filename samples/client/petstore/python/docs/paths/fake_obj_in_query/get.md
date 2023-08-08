@@ -47,10 +47,10 @@ mapBean
 
 ##### Parameter0 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[SchemaDictInput](#parameter0-schema-schemadictinput) | [SchemaDict](#parameter0-schema-schemadict) |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaDictInput](#parameter0-schema-schemadictinput) | [SchemaDict](#parameter0-schema-schemadict) |
 
 ###### Parameter0 Schema SchemaDictInput
 Key | Type |  Description | Notes

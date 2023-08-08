@@ -4,10 +4,10 @@ petstore_api.components.schema.pet
 ## Description
 Pet object that needs to be added to the store
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[PetDictInput](#petdictinput) | [PetDict](#petdict) | Pet object that needs to be added to the store |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[PetDictInput](#petdictinput) | [PetDict](#petdict) |
 
 ## PetDictInput
 Key | Type |  Description | Notes
@@ -33,10 +33,10 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # properties PhotoUrls
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[PhotoUrlsTupleInput](#properties-photourls-photourlstupleinput) | [PhotoUrlsTuple](#properties-photourls-photourlstuple) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[PhotoUrlsTupleInput](#properties-photourls-photourlstupleinput) | [PhotoUrlsTuple](#properties-photourls-photourlstuple) |
 
 ## properties PhotoUrls PhotoUrlsTupleInput
 Class Name | Input Type | Description | Notes
@@ -50,10 +50,10 @@ items | str | str |  |
 
 # properties Tags
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[TagsTupleInput](#properties-tags-tagstupleinput) | [TagsTuple](#properties-tags-tagstuple) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[TagsTupleInput](#properties-tags-tagstupleinput) | [TagsTuple](#properties-tags-tagstuple) |
 
 ## properties Tags TagsTupleInput
 Class Name | Input Type | Description | Notes

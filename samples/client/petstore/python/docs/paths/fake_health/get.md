@@ -58,7 +58,7 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
 
-##### Type Info
+##### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [HealthCheckResult](../../components/schema/health_check_result.md) | dict, schemas.immutabledict | schemas.immutabledict |

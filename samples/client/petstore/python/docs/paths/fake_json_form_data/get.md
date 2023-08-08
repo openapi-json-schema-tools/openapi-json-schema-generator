@@ -41,10 +41,10 @@ Content-Type | Schema
 
 #### RequestBody content ApplicationXWwwFormUrlencoded Schema
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput) | [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput) | [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) |
 
 ##### RequestBody content ApplicationXWwwFormUrlencoded Schema SchemaDictInput
 Key | Type |  Description | Notes

@@ -4,10 +4,10 @@ petstore_api.components.schema.player
 ## Description
 a model that includes a self reference this forces properties and additionalProperties to be lazy loaded in python models because the Player class has not fully loaded when defining properties
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[PlayerDictInput](#playerdictinput) | [PlayerDict](#playerdict) | a model that includes a self reference this forces properties and additionalProperties to be lazy loaded in python models because the Player class has not fully loaded when defining properties |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[PlayerDictInput](#playerdictinput) | [PlayerDict](#playerdict) |
 
 ## PlayerDictInput
 Key | Type |  Description | Notes

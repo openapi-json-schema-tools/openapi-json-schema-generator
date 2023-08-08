@@ -1,10 +1,10 @@
 petstore_api.components.schema.array_of_number_only
 # Schema ArrayOfNumberOnly
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ArrayOfNumberOnlyDictInput](#arrayofnumberonlydictinput) | [ArrayOfNumberOnlyDict](#arrayofnumberonlydict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ArrayOfNumberOnlyDictInput](#arrayofnumberonlydictinput) | [ArrayOfNumberOnlyDict](#arrayofnumberonlydict) |
 
 ## ArrayOfNumberOnlyDictInput
 Key | Type |  Description | Notes
@@ -20,10 +20,10 @@ Key | Input Type | Accessed Type | Description | Notes
 
 # properties ArrayNumber
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ArrayNumberTupleInput](#properties-arraynumber-arraynumbertupleinput) | [ArrayNumberTuple](#properties-arraynumber-arraynumbertuple) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ArrayNumberTupleInput](#properties-arraynumber-arraynumbertupleinput) | [ArrayNumberTuple](#properties-arraynumber-arraynumbertuple) |
 
 ## properties ArrayNumber ArrayNumberTupleInput
 Class Name | Input Type | Description | Notes

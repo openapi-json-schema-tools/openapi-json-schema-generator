@@ -4,10 +4,10 @@ petstore_api.components.schema.object_model_with_ref_props
 ## Description
 a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ObjectModelWithRefPropsDictInput](#objectmodelwithrefpropsdictinput) | [ObjectModelWithRefPropsDict](#objectmodelwithrefpropsdict) | a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ObjectModelWithRefPropsDictInput](#objectmodelwithrefpropsdictinput) | [ObjectModelWithRefPropsDict](#objectmodelwithrefpropsdict) |
 
 ## ObjectModelWithRefPropsDictInput
 Key | Type |  Description | Notes

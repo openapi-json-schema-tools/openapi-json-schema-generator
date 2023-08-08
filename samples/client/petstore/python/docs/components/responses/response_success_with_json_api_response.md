@@ -28,7 +28,7 @@ numberHeader | [NumberHeader.schema](../../components/headers/header_number_head
 ## Body Details
 ### content ApplicationJson Schema
 
-#### Type Info
+#### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [ApiResponse](../../components/schema/api_response.md) | dict, schemas.immutabledict | schemas.immutabledict |

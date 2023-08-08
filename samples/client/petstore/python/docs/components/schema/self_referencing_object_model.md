@@ -1,10 +1,10 @@
 petstore_api.components.schema.self_referencing_object_model
 # Schema SelfReferencingObjectModel
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[SelfReferencingObjectModelDictInput](#selfreferencingobjectmodeldictinput) | [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SelfReferencingObjectModelDictInput](#selfreferencingobjectmodeldictinput) | [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) |
 
 ## SelfReferencingObjectModelDictInput
 Key | Type |  Description | Notes

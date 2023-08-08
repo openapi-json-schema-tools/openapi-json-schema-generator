@@ -1,10 +1,10 @@
 petstore_api.components.schema.composed_any_of_different_types_no_validations
 # Schema ComposedAnyOfDifferentTypesNoValidations
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## anyOf
@@ -29,73 +29,73 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # anyof _0
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict | schemas.immutabledict |
 
 # anyof _1
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str, datetime.date | str | value must conform to RFC-3339 full-date YYYY-MM-DD
 
 # anyof _2
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str, datetime.datetime | str | value must conform to RFC-3339 date-time
 
 # anyof _3
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |
 
 # anyof _4
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 # anyof _5
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 # anyof _6
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict | schemas.immutabledict |
 
 # anyof _7
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-bool | bool |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+bool | bool |
 
 # anyof _8
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-None | None |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+None | None |
 
 # anyof _9
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[_9TupleInput](#anyof-_9-_9tupleinput) | [_9Tuple](#anyof-_9-_9tuple) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[_9TupleInput](#anyof-_9-_9tupleinput) | [_9Tuple](#anyof-_9-_9tuple) |
 
 ## anyof _9 _9TupleInput
 Class Name | Input Type | Description | Notes
@@ -109,44 +109,44 @@ items | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid
 
 # anyof _10
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-float, int | float, int |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+float, int | float, int |
 
 # anyof _11
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-float, int | float, int |  | value must be a 32 bit float
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+float, int | float, int | value must be a 32 bit float
 
 # anyof _12
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-float, int | float, int |  | value must be a 64 bit float
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+float, int | float, int | value must be a 64 bit float
 
 # anyof _13
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-int | int |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+int | int |
 
 # anyof _14
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-int | int |  | value must be a 32 bit integer
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+int | int | value must be a 32 bit integer
 
 # anyof _15
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-int | int |  | value must be a 64 bit integer
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+int | int | value must be a 64 bit integer
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

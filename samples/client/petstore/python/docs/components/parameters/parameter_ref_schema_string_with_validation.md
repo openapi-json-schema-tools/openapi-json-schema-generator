@@ -6,7 +6,7 @@ a path string with validation
 
 ## Schema
 
-### Type Info
+### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [StringWithValidation](../../components/schema/string_with_validation.md) | str | str |

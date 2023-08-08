@@ -45,10 +45,10 @@ Content-Type | Schema
 
 #### RequestBody content ApplicationXWwwFormUrlencoded Schema
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput) | [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput) | [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) |
 
 ##### RequestBody content ApplicationXWwwFormUrlencoded Schema SchemaDictInput
 Key | Type |  Description | Notes
@@ -69,10 +69,10 @@ Key | Input Type | Accessed Type | Description | Notes
 ##### Description
 Form parameter enum test (string array)
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[EnumFormStringArrayTupleInput](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray-enumformstringarraytupleinput) | [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray-enumformstringarraytuple) | Form parameter enum test (string array) |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[EnumFormStringArrayTupleInput](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray-enumformstringarraytupleinput) | [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray-enumformstringarraytuple) |
 
 ##### RequestBody content ApplicationXWwwFormUrlencoded Schema properties EnumFormStringArray EnumFormStringArrayTupleInput
 Class Name | Input Type | Description | Notes
@@ -103,10 +103,10 @@ Query parameter enum test (string array)
 
 ##### Parameter2 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[SchemaTupleInput](#parameter2-schema-schematupleinput) | [SchemaTuple](#parameter2-schema-schematuple) |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaTupleInput](#parameter2-schema-schematupleinput) | [SchemaTuple](#parameter2-schema-schematuple) |
 
 ###### Parameter2 Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes
@@ -125,10 +125,10 @@ Query parameter enum test (string)
 
 ##### Parameter3 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  | must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str | must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
 
 #### Parameter4
 
@@ -137,10 +137,10 @@ Query parameter enum test (double)
 
 ##### Parameter4 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-int | int |  | must be one of [1, -2] value must be a 32 bit integer
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+int | int | must be one of [1, -2] value must be a 32 bit integer
 
 #### Parameter5
 
@@ -149,10 +149,10 @@ Query parameter enum test (double)
 
 ##### Parameter5 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-float, int | float, int |  | must be one of [1.1, -1.2] value must be a 64 bit float
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+float, int | float, int | must be one of [1.1, -1.2] value must be a 64 bit float
 
 ### header_params
 #### RequestHeaderParameters.Params
@@ -171,10 +171,10 @@ Header parameter enum test (string array)
 
 ##### Parameter0 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[SchemaTupleInput](#parameter0-schema-schematupleinput) | [SchemaTuple](#parameter0-schema-schematuple) |  |
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaTupleInput](#parameter0-schema-schematupleinput) | [SchemaTuple](#parameter0-schema-schematuple) |
 
 ###### Parameter0 Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes
@@ -193,10 +193,10 @@ Header parameter enum test (string)
 
 ##### Parameter1 Schema
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  | must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
+###### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str | must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
 
 ## Return Types
 
@@ -226,10 +226,10 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor404 content ApplicationJson Schema
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict | schemas.immutabledict |
 
 ## Servers
 

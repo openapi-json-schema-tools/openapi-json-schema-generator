@@ -1,10 +1,10 @@
 petstore_api.components.schema.read_only_first
 # Schema ReadOnlyFirst
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ReadOnlyFirstDictInput](#readonlyfirstdictinput) | [ReadOnlyFirstDict](#readonlyfirstdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ReadOnlyFirstDictInput](#readonlyfirstdictinput) | [ReadOnlyFirstDict](#readonlyfirstdict) |
 
 ## ReadOnlyFirstDictInput
 Key | Type |  Description | Notes

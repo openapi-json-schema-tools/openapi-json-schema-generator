@@ -24,10 +24,10 @@ someHeader | [headers.header_some_header.schema](#headers-someheader-schema) | |
 ## Body Details
 ### content ApplicationJson Schema
 
-#### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[SchemaDictInput](#content-applicationjson-schema-schemadictinput) | [SchemaDict](#content-applicationjson-schema-schemadict) |  |
+#### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaDictInput](#content-applicationjson-schema-schemadictinput) | [SchemaDict](#content-applicationjson-schema-schemadict) |
 
 #### content ApplicationJson Schema SchemaDictInput
 Key | Type |  Description | Notes
@@ -44,9 +44,9 @@ Key | Input Type | Accessed Type | Description | Notes
 
 #### headers SomeHeader Schema
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 [[Back to top]](#top) [[Back to Component Responses]](../../../README.md#Component-Responses) [[Back to README]](../../../README.md)

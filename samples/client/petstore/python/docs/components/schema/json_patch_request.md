@@ -1,10 +1,10 @@
 petstore_api.components.schema.json_patch_request
 # Schema JSONPatchRequest
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[JSONPatchRequestTupleInput](#jsonpatchrequesttupleinput) | [JSONPatchRequestTuple](#jsonpatchrequesttuple) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[JSONPatchRequestTupleInput](#jsonpatchrequesttupleinput) | [JSONPatchRequestTuple](#jsonpatchrequesttuple) |
 
 ## JSONPatchRequestTupleInput
 Class Name | Input Type | Description | Notes
@@ -18,10 +18,10 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # Items
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf

@@ -1,10 +1,10 @@
 petstore_api.components.schema.basque_pig
 # Schema BasquePig
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[BasquePigDictInput](#basquepigdictinput) | [BasquePigDict](#basquepigdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[BasquePigDictInput](#basquepigdictinput) | [BasquePigDict](#basquepigdict) |
 
 ## BasquePigDictInput
 Key | Type |  Description | Notes

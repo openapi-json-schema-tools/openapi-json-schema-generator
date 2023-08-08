@@ -1,10 +1,10 @@
 petstore_api.components.schema.req_props_from_unset_add_props
 # Schema ReqPropsFromUnsetAddProps
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ReqPropsFromUnsetAddPropsDictInput](#reqpropsfromunsetaddpropsdictinput) | [ReqPropsFromUnsetAddPropsDict](#reqpropsfromunsetaddpropsdict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ReqPropsFromUnsetAddPropsDictInput](#reqpropsfromunsetaddpropsdictinput) | [ReqPropsFromUnsetAddPropsDict](#reqpropsfromunsetaddpropsdict) |
 
 ## ReqPropsFromUnsetAddPropsDictInput
 Key | Type |  Description | Notes

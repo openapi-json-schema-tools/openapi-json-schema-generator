@@ -4,10 +4,10 @@ petstore_api.components.schema.items
 ## Description
 component&#x27;s name collides with the inner schema name
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ItemsTupleInput](#itemstupleinput) | [ItemsTuple](#itemstuple) | component&#x27;s name collides with the inner schema name |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ItemsTupleInput](#itemstupleinput) | [ItemsTuple](#itemstuple) |
 
 ## ItemsTupleInput
 Class Name | Input Type | Description | Notes
@@ -21,9 +21,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # Items2
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict | schemas.immutabledict |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

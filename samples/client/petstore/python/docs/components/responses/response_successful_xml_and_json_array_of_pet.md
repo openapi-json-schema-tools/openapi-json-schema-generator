@@ -20,10 +20,10 @@ Content-Type | Schema
 ## Body Details
 ### content ApplicationXml Schema
 
-#### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[SchemaTupleInput](#content-applicationxml-schema-schematupleinput) | [SchemaTuple](#content-applicationxml-schema-schematuple) |  |
+#### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaTupleInput](#content-applicationxml-schema-schematupleinput) | [SchemaTuple](#content-applicationxml-schema-schematuple) |
 
 #### content ApplicationXml Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes
@@ -36,10 +36,10 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**Pet**](../../components/schema/pet.md) | [**Pet**](../../components/schema/pet.md) | [**Pet**](../../components/schema/pet.md) |  |
 ### content ApplicationJson Schema
 
-#### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[SchemaTupleInput](#content-applicationjson-schema-schematupleinput) | [SchemaTuple](#content-applicationjson-schema-schematuple) |  |
+#### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaTupleInput](#content-applicationjson-schema-schematupleinput) | [SchemaTuple](#content-applicationjson-schema-schematuple) |
 
 #### content ApplicationJson Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes

@@ -1,10 +1,10 @@
 petstore_api.components.schema.banana
 # Schema Banana
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[BananaDictInput](#bananadictinput) | [BananaDict](#bananadict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[BananaDictInput](#bananadictinput) | [BananaDict](#bananadict) |
 
 ## BananaDictInput
 Key | Type |  Description | Notes

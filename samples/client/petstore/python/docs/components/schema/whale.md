@@ -1,10 +1,10 @@
 petstore_api.components.schema.whale
 # Schema Whale
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[WhaleDictInput](#whaledictinput) | [WhaleDict](#whaledict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[WhaleDictInput](#whaledictinput) | [WhaleDict](#whaledict) |
 
 ## WhaleDictInput
 Key | Type |  Description | Notes

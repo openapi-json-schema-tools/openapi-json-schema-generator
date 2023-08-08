@@ -1,10 +1,10 @@
 petstore_api.components.schema.animal_farm
 # Schema AnimalFarm
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[AnimalFarmTupleInput](#animalfarmtupleinput) | [AnimalFarmTuple](#animalfarmtuple) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[AnimalFarmTupleInput](#animalfarmtupleinput) | [AnimalFarmTuple](#animalfarmtuple) |
 
 ## AnimalFarmTupleInput
 Class Name | Input Type | Description | Notes

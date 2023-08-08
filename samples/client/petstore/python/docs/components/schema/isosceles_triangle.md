@@ -1,10 +1,10 @@
 petstore_api.components.schema.isosceles_triangle
 # Schema IsoscelesTriangle
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf
@@ -15,10 +15,10 @@ Class Name | Input Type | Accessed Type | Description | Notes
 
 # allof _1
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[_1DictInput](#allof-_1-_1dictinput) | [_1Dict](#allof-_1-_1dict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[_1DictInput](#allof-_1-_1dictinput) | [_1Dict](#allof-_1-_1dict) |
 
 ## allof _1 _1DictInput
 Key | Type |  Description | Notes

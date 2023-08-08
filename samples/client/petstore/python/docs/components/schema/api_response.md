@@ -1,10 +1,10 @@
 petstore_api.components.schema.api_response
 # Schema ApiResponse
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[ApiResponseDictInput](#apiresponsedictinput) | [ApiResponseDict](#apiresponsedict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ApiResponseDictInput](#apiresponsedictinput) | [ApiResponseDict](#apiresponsedict) |
 
 ## ApiResponseDictInput
 Key | Type |  Description | Notes

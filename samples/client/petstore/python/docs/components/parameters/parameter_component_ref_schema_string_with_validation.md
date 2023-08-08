@@ -10,7 +10,7 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 ## content ApplicationJson Schema
 
-### Type Info
+### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [StringWithValidation](../../components/schema/string_with_validation.md) | str | str |

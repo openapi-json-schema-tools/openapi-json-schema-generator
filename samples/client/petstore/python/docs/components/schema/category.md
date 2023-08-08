@@ -1,10 +1,10 @@
 petstore_api.components.schema.category
 # Schema Category
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[CategoryDictInput](#categorydictinput) | [CategoryDict](#categorydict) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[CategoryDictInput](#categorydictinput) | [CategoryDict](#categorydict) |
 
 ## CategoryDictInput
 Key | Type |  Description | Notes

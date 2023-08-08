@@ -44,10 +44,10 @@ Content-Type | Schema
 
 #### RequestBody content ApplicationJson Schema
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-[SchemaDictInput](#requestbody-content-applicationjson-schema-schemadictinput) | [SchemaDict](#requestbody-content-applicationjson-schema-schemadict) |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaDictInput](#requestbody-content-applicationjson-schema-schemadictinput) | [SchemaDict](#requestbody-content-applicationjson-schema-schemadict) |
 
 ##### RequestBody content ApplicationJson Schema SchemaDictInput
 Key | Type |  Description | Notes
