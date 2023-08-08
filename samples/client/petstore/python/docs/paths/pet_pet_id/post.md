@@ -63,11 +63,17 @@ Input Type | Return Type
 [SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput), [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) | [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict)
 
 ###### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**name** | str, schemas.Unset | str, schemas.Unset | Updated name of the pet | [optional]
-**status** | str, schemas.Unset | str, schemas.Unset | Updated status of the pet | [optional]
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**name** | str, schemas.Unset | Updated name of the pet | [optional]
+**status** | str, schemas.Unset | Updated status of the pet | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+###### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**name** | str, schemas.Unset | Updated name of the pet | [optional]
+**status** | str, schemas.Unset | Updated status of the pet | [optional]
 
 ### path_params
 #### RequestPathParameters.Params

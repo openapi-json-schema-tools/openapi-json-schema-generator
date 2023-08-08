@@ -22,13 +22,21 @@ Input Type | Return Type
 [DrawingDictInput](#drawingdictinput), [DrawingDict](#drawingdict) | [DrawingDict](#drawingdict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**mainShape** | [**Shape**](shape.md), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset | [**Shape**](shape.md) |  | [optional]
-**shapeOrNull** | [**ShapeOrNull**](shape_or_null.md), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset | [**ShapeOrNull**](shape_or_null.md) |  | [optional]
-**nullableShape** | [**NullableShape**](nullable_shape.md), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset | [**NullableShape**](nullable_shape.md) |  | [optional]
-**shapes** | list, tuple, schemas.Unset | [properties.Shapes](#properties-shapes) |  | [optional]
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**mainShape** | [**Shape**](shape.md), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset |  | [optional]
+**shapeOrNull** | [**ShapeOrNull**](shape_or_null.md), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset |  | [optional]
+**nullableShape** | [**NullableShape**](nullable_shape.md), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset |  | [optional]
+**shapes** | list, tuple, schemas.Unset |  | [optional]
 **kwargs** | [**Fruit**](fruit.md), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [**Fruit**](fruit.md) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**mainShape** | [**Shape**](shape.md) |  | [optional]
+**shapeOrNull** | [**ShapeOrNull**](shape_or_null.md) |  | [optional]
+**nullableShape** | [**NullableShape**](nullable_shape.md) |  | [optional]
+**shapes** | [properties.Shapes](#properties-shapes) |  | [optional]
 
 # properties Shapes
 

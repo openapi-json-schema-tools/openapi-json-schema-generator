@@ -33,8 +33,8 @@ Input Type | Return Type
 [_0DictInput](#allof-_0-_0dictinput), [_0Dict](#allof-_0-_0dict) | [_0Dict](#allof-_0-_0dict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
 **kwargs** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # allof _1
@@ -56,8 +56,8 @@ Input Type | Return Type
 [_1DictInput](#allof-_1-_1dictinput), [_1Dict](#allof-_1-_1dict) | [_1Dict](#allof-_1-_1dict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
 **kwargs** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # allof _2
@@ -79,8 +79,8 @@ Input Type | Return Type
 [_2DictInput](#allof-_2-_2dictinput), [_2Dict](#allof-_2-_2dict) | [_2Dict](#allof-_2-_2dict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
 **kwargs** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

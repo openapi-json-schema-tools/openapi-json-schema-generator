@@ -19,9 +19,15 @@ Input Type | Return Type
 [AppleReqDictInput](#applereqdictinput), [AppleReqDict](#applereqdict) | [AppleReqDict](#applereqdict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**cultivar** | str | str |  |
-**mealy** | bool, schemas.Unset | bool, schemas.Unset |  | [optional]
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**cultivar** | str |  |
+**mealy** | bool, schemas.Unset |  | [optional]
+
+### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**cultivar** | str |  |
+**mealy** | bool, schemas.Unset |  | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

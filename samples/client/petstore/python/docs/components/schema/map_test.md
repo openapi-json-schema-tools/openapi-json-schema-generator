@@ -22,13 +22,21 @@ Input Type | Return Type
 [MapTestDictInput](#maptestdictinput), [MapTestDict](#maptestdict) | [MapTestDict](#maptestdict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**map_map_of_string** | dict, schemas.immutabledict, schemas.Unset | [properties.MapMapOfString](#properties-mapmapofstring) |  | [optional]
-**map_of_enum_string** | dict, schemas.immutabledict, schemas.Unset | [properties.MapOfEnumString](#properties-mapofenumstring) |  | [optional]
-**direct_map** | dict, schemas.immutabledict, schemas.Unset | [properties.DirectMap](#properties-directmap) |  | [optional]
-**indirect_map** | [**StringBooleanMap**](string_boolean_map.md), dict, schemas.immutabledict, schemas.Unset | [**StringBooleanMap**](string_boolean_map.md) |  | [optional]
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**map_map_of_string** | dict, schemas.immutabledict, schemas.Unset |  | [optional]
+**map_of_enum_string** | dict, schemas.immutabledict, schemas.Unset |  | [optional]
+**direct_map** | dict, schemas.immutabledict, schemas.Unset |  | [optional]
+**indirect_map** | [**StringBooleanMap**](string_boolean_map.md), dict, schemas.immutabledict, schemas.Unset |  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**map_map_of_string** | [properties.MapMapOfString](#properties-mapmapofstring) |  | [optional]
+**map_of_enum_string** | [properties.MapOfEnumString](#properties-mapofenumstring) |  | [optional]
+**direct_map** | [properties.DirectMap](#properties-directmap) |  | [optional]
+**indirect_map** | [**StringBooleanMap**](string_boolean_map.md) |  | [optional]
 
 # properties MapMapOfString
 
@@ -49,8 +57,8 @@ Input Type | Return Type
 [MapMapOfStringDictInput](#properties-mapmapofstring-mapmapofstringdictinput), [MapMapOfStringDict](#properties-mapmapofstring-mapmapofstringdict) | [MapMapOfStringDict](#properties-mapmapofstring-mapmapofstringdict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
 **kwargs** | dict, schemas.immutabledict | [AdditionalProperties](#properties-mapmapofstring-additionalproperties) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties MapMapOfString AdditionalProperties
@@ -72,8 +80,8 @@ Input Type | Return Type
 [AdditionalPropertiesDictInput](#properties-mapmapofstring-additionalproperties-additionalpropertiesdictinput), [AdditionalPropertiesDict](#properties-mapmapofstring-additionalproperties-additionalpropertiesdict) | [AdditionalPropertiesDict](#properties-mapmapofstring-additionalproperties-additionalpropertiesdict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
 **kwargs** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties MapOfEnumString
@@ -95,8 +103,8 @@ Input Type | Return Type
 [MapOfEnumStringDictInput](#properties-mapofenumstring-mapofenumstringdictinput), [MapOfEnumStringDict](#properties-mapofenumstring-mapofenumstringdict) | [MapOfEnumStringDict](#properties-mapofenumstring-mapofenumstringdict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
 **kwargs** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower"] typed value is accessed with the get_additional_property_ method
 
 # properties DirectMap
@@ -118,8 +126,8 @@ Input Type | Return Type
 [DirectMapDictInput](#properties-directmap-directmapdictinput), [DirectMapDict](#properties-directmap-directmapdict) | [DirectMapDict](#properties-directmap-directmapdict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
 **kwargs** | bool | bool, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -41,8 +41,8 @@ Input Type | Return Type
 [SchemaDictInput](#content-applicationjson-schema-schemadictinput), [SchemaDict](#content-applicationjson-schema-schemadict) | [SchemaDict](#content-applicationjson-schema-schemadict)
 
 ##### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
 **kwargs** | int | int, schemas.Unset | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer typed value is accessed with the get_additional_property_ method
 
 ## Header Details

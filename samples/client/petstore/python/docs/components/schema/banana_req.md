@@ -19,9 +19,15 @@ Input Type | Return Type
 [BananaReqDictInput](#bananareqdictinput), [BananaReqDict](#bananareqdict) | [BananaReqDict](#bananareqdict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**lengthCm** | float, int | float, int |  |
-**sweet** | bool, schemas.Unset | bool, schemas.Unset |  | [optional]
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**lengthCm** | float, int |  |
+**sweet** | bool, schemas.Unset |  | [optional]
+
+### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**lengthCm** | float, int |  |
+**sweet** | bool, schemas.Unset |  | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

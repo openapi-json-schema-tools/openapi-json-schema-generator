@@ -19,9 +19,15 @@ Input Type | Return Type
 [MoneyDictInput](#moneydictinput), [MoneyDict](#moneydict) | [MoneyDict](#moneydict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**amount** | str | str |  | value must be int or float numeric
-**currency** | [**Currency**](currency.md), str | [**Currency**](currency.md) |  |
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**amount** | str |  | value must be int or float numeric
+**currency** | [**Currency**](currency.md), str |  |
+
+### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**amount** | str |  | value must be int or float numeric
+**currency** | [**Currency**](currency.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

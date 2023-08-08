@@ -75,23 +75,39 @@ Input Type | Return Type
 [SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput), [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) | [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict)
 
 ###### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**byte** | str | str | None |
-**double** | float, int | float, int | None | value must be a 64 bit float
-**number** | float, int | float, int | None |
-**pattern_without_delimiter** | str | str | None |
-**integer** | int, schemas.Unset | int, schemas.Unset | None | [optional]
-**int32** | int, schemas.Unset | int, schemas.Unset | None | [optional] value must be a 32 bit integer
-**int64** | int, schemas.Unset | int, schemas.Unset | None | [optional] value must be a 64 bit integer
-**float** | float, int, schemas.Unset | float, int, schemas.Unset | None | [optional] value must be accessed with instance["float"] because the key is not a valid identifier  value must be a 32 bit float
-**string** | str, schemas.Unset | str, schemas.Unset | None | [optional]
-**binary** | bytes, io.FileIO, io.BufferedReader, schemas.Unset | bytes, io.FileIO, schemas.Unset | None | [optional]
-**date** | str, datetime.date, schemas.Unset | str, schemas.Unset | None | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
-**dateTime** | str, datetime.datetime, schemas.Unset | str, schemas.Unset | None | [optional] if omitted the server will use the default value of 2010-02-01T10:20:10.111110+01:00 value must conform to RFC-3339 date-time
-**password** | str, schemas.Unset | str, schemas.Unset | None | [optional]
-**callback** | str, schemas.Unset | str, schemas.Unset | None | [optional]
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**byte** | str | None |
+**double** | float, int | None | value must be a 64 bit float
+**number** | float, int | None |
+**pattern_without_delimiter** | str | None |
+**integer** | int, schemas.Unset | None | [optional]
+**int32** | int, schemas.Unset | None | [optional] value must be a 32 bit integer
+**int64** | int, schemas.Unset | None | [optional] value must be a 64 bit integer
+**string** | str, schemas.Unset | None | [optional]
+**binary** | bytes, io.FileIO, io.BufferedReader, schemas.Unset | None | [optional]
+**date** | str, datetime.date, schemas.Unset | None | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
+**dateTime** | str, datetime.datetime, schemas.Unset | None | [optional] if omitted the server will use the default value of 2010-02-01T10:20:10.111110+01:00 value must conform to RFC-3339 date-time
+**password** | str, schemas.Unset | None | [optional]
+**callback** | str, schemas.Unset | None | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+###### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**byte** | str | None |
+**double** | float, int | None | value must be a 64 bit float
+**number** | float, int | None |
+**pattern_without_delimiter** | str | None |
+**integer** | int, schemas.Unset | None | [optional]
+**int32** | int, schemas.Unset | None | [optional] value must be a 32 bit integer
+**int64** | int, schemas.Unset | None | [optional] value must be a 64 bit integer
+**string** | str, schemas.Unset | None | [optional]
+**binary** | bytes, io.FileIO, schemas.Unset | None | [optional]
+**date** | str, schemas.Unset | None | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
+**dateTime** | str, schemas.Unset | None | [optional] if omitted the server will use the default value of 2010-02-01T10:20:10.111110+01:00 value must conform to RFC-3339 date-time
+**password** | str, schemas.Unset | None | [optional]
+**callback** | str, schemas.Unset | None | [optional]
 
 ## Return Types
 

@@ -19,9 +19,15 @@ Input Type | Return Type
 [JSONPatchRequestRemoveDictInput](#jsonpatchrequestremovedictinput), [JSONPatchRequestRemoveDict](#jsonpatchrequestremovedict) | [JSONPatchRequestRemoveDict](#jsonpatchrequestremovedict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**op** | str | str | The operation to perform. | must be one of ["remove"]
-**path** | str | str | A JSON Pointer path. |
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**op** | str | The operation to perform. | must be one of ["remove"]
+**path** | str | A JSON Pointer path. |
+
+### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**op** | str | The operation to perform. | must be one of ["remove"]
+**path** | str | A JSON Pointer path. |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

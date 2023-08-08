@@ -61,8 +61,8 @@ Input Type | Return Type
 [SchemaDictInput](#requestbody-content-applicationjson-schema-schemadictinput), [SchemaDict](#requestbody-content-applicationjson-schema-schemadict) | [SchemaDict](#requestbody-content-applicationjson-schema-schemadict)
 
 ###### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
 **kwargs** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ## Return Types

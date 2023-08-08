@@ -24,14 +24,24 @@ Input Type | Return Type
 [CapitalizationDictInput](#capitalizationdictinput), [CapitalizationDict](#capitalizationdict) | [CapitalizationDict](#capitalizationdict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**smallCamel** | str, schemas.Unset | str, schemas.Unset |  | [optional]
-**CapitalCamel** | str, schemas.Unset | str, schemas.Unset |  | [optional]
-**small_Snake** | str, schemas.Unset | str, schemas.Unset |  | [optional]
-**Capital_Snake** | str, schemas.Unset | str, schemas.Unset |  | [optional]
-**SCA_ETH_Flow_Points** | str, schemas.Unset | str, schemas.Unset |  | [optional]
-**ATT_NAME** | str, schemas.Unset | str, schemas.Unset | Name of the pet  | [optional]
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**smallCamel** | str, schemas.Unset |  | [optional]
+**CapitalCamel** | str, schemas.Unset |  | [optional]
+**small_Snake** | str, schemas.Unset |  | [optional]
+**Capital_Snake** | str, schemas.Unset |  | [optional]
+**SCA_ETH_Flow_Points** | str, schemas.Unset |  | [optional]
+**ATT_NAME** | str, schemas.Unset | Name of the pet  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**smallCamel** | str, schemas.Unset |  | [optional]
+**CapitalCamel** | str, schemas.Unset |  | [optional]
+**small_Snake** | str, schemas.Unset |  | [optional]
+**Capital_Snake** | str, schemas.Unset |  | [optional]
+**SCA_ETH_Flow_Points** | str, schemas.Unset |  | [optional]
+**ATT_NAME** | str, schemas.Unset | Name of the pet  | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

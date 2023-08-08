@@ -64,11 +64,17 @@ Input Type | Return Type
 [SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput), [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict)
 
 ###### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**additionalMetadata** | str, schemas.Unset | str, schemas.Unset | Additional data to pass to server | [optional]
-**file** | bytes, io.FileIO, io.BufferedReader, schemas.Unset | bytes, io.FileIO, schemas.Unset | file to upload | [optional]
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**additionalMetadata** | str, schemas.Unset | Additional data to pass to server | [optional]
+**file** | bytes, io.FileIO, io.BufferedReader, schemas.Unset | file to upload | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+###### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**additionalMetadata** | str, schemas.Unset | Additional data to pass to server | [optional]
+**file** | bytes, io.FileIO, schemas.Unset | file to upload | [optional]
 
 ### path_params
 #### RequestPathParameters.Params

@@ -60,10 +60,15 @@ Input Type | Return Type
 [SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput), [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict)
 
 ###### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**files** | list, tuple, schemas.Unset | [properties.Files](#requestbody-content-multipartformdata-schema-properties-files) |  | [optional]
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**files** | list, tuple, schemas.Unset |  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+###### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**files** | [properties.Files](#requestbody-content-multipartformdata-schema-properties-files) |  | [optional]
 
 #### RequestBody content MultipartFormData Schema properties Files
 

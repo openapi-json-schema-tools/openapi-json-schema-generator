@@ -19,9 +19,14 @@ Input Type | Return Type
 [ObjectWithNonIntersectingValuesDictInput](#objectwithnonintersectingvaluesdictinput), [ObjectWithNonIntersectingValuesDict](#objectwithnonintersectingvaluesdict) | [ObjectWithNonIntersectingValuesDict](#objectwithnonintersectingvaluesdict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**a** | float, int, schemas.Unset | float, int, schemas.Unset |  | [optional]
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**a** | float, int, schemas.Unset |  | [optional]
 **kwargs** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**a** | float, int, schemas.Unset |  | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

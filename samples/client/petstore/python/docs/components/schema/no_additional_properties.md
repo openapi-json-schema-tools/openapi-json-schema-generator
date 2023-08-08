@@ -19,9 +19,15 @@ Input Type | Return Type
 [NoAdditionalPropertiesDictInput](#noadditionalpropertiesdictinput), [NoAdditionalPropertiesDict](#noadditionalpropertiesdict) | [NoAdditionalPropertiesDict](#noadditionalpropertiesdict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**id** | int | int |  | value must be a 64 bit integer
-**petId** | int, schemas.Unset | int, schemas.Unset |  | [optional] value must be a 64 bit integer
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**id** | int |  | value must be a 64 bit integer
+**petId** | int, schemas.Unset |  | [optional] value must be a 64 bit integer
+
+### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**id** | int |  | value must be a 64 bit integer
+**petId** | int, schemas.Unset |  | [optional] value must be a 64 bit integer
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

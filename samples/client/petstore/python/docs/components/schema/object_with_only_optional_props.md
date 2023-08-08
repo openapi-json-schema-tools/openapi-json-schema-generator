@@ -19,9 +19,15 @@ Input Type | Return Type
 [ObjectWithOnlyOptionalPropsDictInput](#objectwithonlyoptionalpropsdictinput), [ObjectWithOnlyOptionalPropsDict](#objectwithonlyoptionalpropsdict) | [ObjectWithOnlyOptionalPropsDict](#objectwithonlyoptionalpropsdict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**a** | str, schemas.Unset | str, schemas.Unset |  | [optional]
-**b** | float, int, schemas.Unset | float, int, schemas.Unset |  | [optional]
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**a** | str, schemas.Unset |  | [optional]
+**b** | float, int, schemas.Unset |  | [optional]
+
+### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**a** | str, schemas.Unset |  | [optional]
+**b** | float, int, schemas.Unset |  | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

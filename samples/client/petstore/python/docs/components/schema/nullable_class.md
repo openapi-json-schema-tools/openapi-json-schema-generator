@@ -30,21 +30,37 @@ Input Type | Return Type
 [NullableClassDictInput](#nullableclassdictinput), [NullableClassDict](#nullableclassdict) | [NullableClassDict](#nullableclassdict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**integer_prop** | None, int, schemas.Unset | None, int, schemas.Unset |  | [optional]
-**number_prop** | None, float, int, schemas.Unset | None, float, int, schemas.Unset |  | [optional]
-**boolean_prop** | None, bool, schemas.Unset | None, bool, schemas.Unset |  | [optional]
-**string_prop** | None, str, schemas.Unset | None, str, schemas.Unset |  | [optional]
-**date_prop** | None, str, datetime.date, schemas.Unset | None, str, schemas.Unset |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
-**datetime_prop** | None, str, datetime.datetime, schemas.Unset | None, str, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
-**array_nullable_prop** | None, list, tuple, schemas.Unset | [properties.ArrayNullableProp](#properties-arraynullableprop) |  | [optional]
-**array_and_items_nullable_prop** | None, list, tuple, schemas.Unset | [properties.ArrayAndItemsNullableProp](#properties-arrayanditemsnullableprop) |  | [optional]
-**array_items_nullable** | list, tuple, schemas.Unset | [properties.ArrayItemsNullable](#properties-arrayitemsnullable) |  | [optional]
-**object_nullable_prop** | None, dict, schemas.immutabledict, schemas.Unset | [properties.ObjectNullableProp](#properties-objectnullableprop) |  | [optional]
-**object_and_items_nullable_prop** | None, dict, schemas.immutabledict, schemas.Unset | [properties.ObjectAndItemsNullableProp](#properties-objectanditemsnullableprop) |  | [optional]
-**object_items_nullable** | dict, schemas.immutabledict, schemas.Unset | [properties.ObjectItemsNullable](#properties-objectitemsnullable) |  | [optional]
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**integer_prop** | None, int, schemas.Unset |  | [optional]
+**number_prop** | None, float, int, schemas.Unset |  | [optional]
+**boolean_prop** | None, bool, schemas.Unset |  | [optional]
+**string_prop** | None, str, schemas.Unset |  | [optional]
+**date_prop** | None, str, datetime.date, schemas.Unset |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
+**datetime_prop** | None, str, datetime.datetime, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
+**array_nullable_prop** | None, list, tuple, schemas.Unset |  | [optional]
+**array_and_items_nullable_prop** | None, list, tuple, schemas.Unset |  | [optional]
+**array_items_nullable** | list, tuple, schemas.Unset |  | [optional]
+**object_nullable_prop** | None, dict, schemas.immutabledict, schemas.Unset |  | [optional]
+**object_and_items_nullable_prop** | None, dict, schemas.immutabledict, schemas.Unset |  | [optional]
+**object_items_nullable** | dict, schemas.immutabledict, schemas.Unset |  | [optional]
 **kwargs** | None, dict, schemas.immutabledict | [AdditionalProperties4](#additionalproperties4) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**integer_prop** | None, int, schemas.Unset |  | [optional]
+**number_prop** | None, float, int, schemas.Unset |  | [optional]
+**boolean_prop** | None, bool, schemas.Unset |  | [optional]
+**string_prop** | None, str, schemas.Unset |  | [optional]
+**date_prop** | None, str, schemas.Unset |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
+**datetime_prop** | None, str, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
+**array_nullable_prop** | [properties.ArrayNullableProp](#properties-arraynullableprop) |  | [optional]
+**array_and_items_nullable_prop** | [properties.ArrayAndItemsNullableProp](#properties-arrayanditemsnullableprop) |  | [optional]
+**array_items_nullable** | [properties.ArrayItemsNullable](#properties-arrayitemsnullable) |  | [optional]
+**object_nullable_prop** | [properties.ObjectNullableProp](#properties-objectnullableprop) |  | [optional]
+**object_and_items_nullable_prop** | [properties.ObjectAndItemsNullableProp](#properties-objectanditemsnullableprop) |  | [optional]
+**object_items_nullable** | [properties.ObjectItemsNullable](#properties-objectitemsnullable) |  | [optional]
 
 # properties ArrayNullableProp
 
@@ -137,8 +153,8 @@ Input Type | Return Type
 None, [ObjectNullablePropDictInput](#properties-objectnullableprop-objectnullablepropdictinput), [ObjectNullablePropDict](#properties-objectnullableprop-objectnullablepropdict) | None, [ObjectNullablePropDict](#properties-objectnullableprop-objectnullablepropdict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
 **kwargs** | dict, schemas.immutabledict | [AdditionalProperties](#properties-objectnullableprop-additionalproperties) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties ObjectNullableProp AdditionalProperties
@@ -167,8 +183,8 @@ Input Type | Return Type
 None, [ObjectAndItemsNullablePropDictInput](#properties-objectanditemsnullableprop-objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#properties-objectanditemsnullableprop-objectanditemsnullablepropdict) | None, [ObjectAndItemsNullablePropDict](#properties-objectanditemsnullableprop-objectanditemsnullablepropdict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
 **kwargs** | None, dict, schemas.immutabledict | [AdditionalProperties2](#properties-objectanditemsnullableprop-additionalproperties2) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties ObjectAndItemsNullableProp AdditionalProperties2
@@ -197,8 +213,8 @@ Input Type | Return Type
 [ObjectItemsNullableDictInput](#properties-objectitemsnullable-objectitemsnullabledictinput), [ObjectItemsNullableDict](#properties-objectitemsnullable-objectitemsnullabledict) | [ObjectItemsNullableDict](#properties-objectitemsnullable-objectitemsnullabledict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
 **kwargs** | None, dict, schemas.immutabledict | [AdditionalProperties3](#properties-objectitemsnullable-additionalproperties3) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 # properties ObjectItemsNullable AdditionalProperties3

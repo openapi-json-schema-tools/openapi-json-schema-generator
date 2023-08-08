@@ -20,10 +20,15 @@ Input Type | Return Type
 [JSONPatchRequestMoveCopyDictInput](#jsonpatchrequestmovecopydictinput), [JSONPatchRequestMoveCopyDict](#jsonpatchrequestmovecopydict) | [JSONPatchRequestMoveCopyDict](#jsonpatchrequestmovecopydict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**from** | str | str | A JSON Pointer path. | value must be accessed with instance["from"] because the key is not a valid identifier 
-**op** | str | str | The operation to perform. | must be one of ["move", "copy"]
-**path** | str | str | A JSON Pointer path. |
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**op** | str | The operation to perform. | must be one of ["move", "copy"]
+**path** | str | A JSON Pointer path. |
+
+### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**op** | str | The operation to perform. | must be one of ["move", "copy"]
+**path** | str | A JSON Pointer path. |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

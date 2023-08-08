@@ -69,13 +69,17 @@ Input Type | Return Type
 {{> components/_helper_schema_io_types }} | {{> components/_helper_schema_output_types }}
 
 {{headerSize}}## &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
         {{#each requiredProperties}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{#with getDeepestRef}}, {{> _helper_schema_python_types }}{{/with}}{{else}}{{> _helper_schema_python_types }}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[properties.{{@key.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "properties" @key.anchorPiece) }}){{else}}{{> components/_helper_schema_output_types }}{{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} |{{#unless @key.isValid}} value must be accessed with instance["{{@key.original}}"] because the key is not a valid identifier {{/unless}}{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+            {{#if @key.isValid}}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{#with getDeepestRef}}, {{> _helper_schema_python_types }}{{/with}}{{else}}{{> _helper_schema_python_types }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+            {{/if}}
         {{/each}}
         {{#each optionalProperties}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{#with getDeepestRef}}, {{> _helper_schema_python_types optional=true }}{{/with}}{{else}}{{> _helper_schema_python_types optional=true }}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[properties.{{@key.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "properties" @key.anchorPiece) }}){{else}}{{> components/_helper_schema_output_types optional=true }}{{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{#unless @key.isValid}} value must be accessed with instance["{{@key.original}}"] because the key is not a valid identifier {{/unless}}{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+            {{#if @key.isValid}}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{#with getDeepestRef}}, {{> _helper_schema_python_types optional=true }}{{/with}}{{else}}{{> _helper_schema_python_types optional=true }}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+            {{/if}}
         {{/each}}
         {{#with additionalProperties}}
             {{#unless isBooleanSchemaFalse}}
@@ -88,6 +92,22 @@ Keyword Argument | Input Type | Accessed Type | Description | Notes
         {{else}}
 **kwargs** | {{> components/schemas/_helper_types_all_incl_schema_oneline }} | {{> components/schemas/_helper_types_all_accessed_oneline optional=true }} | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
         {{/with}}
+        {{#or requiredProperties optionalProperties}}
+
+{{headerSize}}## properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+            {{#each requiredProperties}}
+                {{#if @key.isValid}}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[properties.{{@key.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "properties" @key.anchorPiece) }}){{else}}{{> components/_helper_schema_output_types }}{{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+                {{/if}}
+            {{/each}}
+            {{#each optionalProperties}}
+                {{#if @key.isValid}}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[properties.{{@key.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "properties" @key.anchorPiece) }}){{else}}{{> components/_helper_schema_output_types optional=true }}{{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+                {{/if}}
+            {{/each}}
+        {{/or}}
     {{/or}}
     {{#if items}}
 

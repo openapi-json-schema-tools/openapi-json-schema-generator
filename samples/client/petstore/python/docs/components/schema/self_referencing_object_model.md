@@ -19,9 +19,14 @@ Input Type | Return Type
 [SelfReferencingObjectModelDictInput](#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) | [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**selfRef** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict, schemas.Unset | [**SelfReferencingObjectModel**](#top) |  | [optional]
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**selfRef** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict, schemas.Unset |  | [optional]
 **kwargs** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict | [**SelfReferencingObjectModel**](#top) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**selfRef** | [**SelfReferencingObjectModel**](#top) |  | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

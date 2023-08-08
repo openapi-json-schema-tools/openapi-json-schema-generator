@@ -20,10 +20,12 @@ Input Type | Return Type
 [ObjectWithInvalidNamedRefedPropertiesDictInput](#objectwithinvalidnamedrefedpropertiesdictinput), [ObjectWithInvalidNamedRefedPropertiesDict](#objectwithinvalidnamedrefedpropertiesdict) | [ObjectWithInvalidNamedRefedPropertiesDict](#objectwithinvalidnamedrefedpropertiesdict)
 
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**!reference** | [**ArrayWithValidationsInItems**](array_with_validations_in_items.md), list, tuple | [**ArrayWithValidationsInItems**](array_with_validations_in_items.md) |  | value must be accessed with instance["!reference"] because the key is not a valid identifier 
-**from** | [**FromSchema**](from_schema.md), dict, schemas.immutabledict | [**FromSchema**](from_schema.md) |  | value must be accessed with instance["from"] because the key is not a valid identifier 
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
