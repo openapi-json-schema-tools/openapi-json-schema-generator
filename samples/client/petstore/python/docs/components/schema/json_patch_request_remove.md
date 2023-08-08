@@ -13,6 +13,8 @@ Key | Type |  Description | Notes
 **path** | str | A JSON Pointer path. |
 
 ## JSONPatchRequestRemoveDict
+base class: schemas.immutabledict[str, str]
+
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

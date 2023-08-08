@@ -14,6 +14,8 @@ Key | Type |  Description | Notes
 **value** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | The value to add, replace or test. |
 
 ## JSONPatchRequestAddReplaceTestDict
+base class: schemas.immutabledict[str, str]
+
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

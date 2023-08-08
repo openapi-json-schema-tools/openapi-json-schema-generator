@@ -63,6 +63,11 @@ Key | Type |  Description | Notes
     {{else}}
 {{headerSize}}# Output Dictionary Keys
     {{/if}}
+    {{#if mapValueSchema}}
+base class: schemas.immutabledict[str, {{#with mapValueSchema}}{{> components/schemas/_helper_schema_output_type mode="unprefixed" fullRefModule=null endChar="]" }}{{/with}}
+    {{else}}
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+    {{/if}}
 {{headerSize}}## &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

@@ -14,6 +14,8 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## ReqPropsFromTrueAddPropsDict
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

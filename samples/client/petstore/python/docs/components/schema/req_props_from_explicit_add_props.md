@@ -14,6 +14,8 @@ Key | Type |  Description | Notes
 **any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
 ## ReqPropsFromExplicitAddPropsDict
+base class: schemas.immutabledict[str, str]
+
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

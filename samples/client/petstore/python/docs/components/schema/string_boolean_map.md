@@ -12,6 +12,8 @@ Key | Type |  Description | Notes
 **any_string_name** | bool | any string name can be used but the value must be the correct type | [optional]
 
 ## StringBooleanMapDict
+base class: schemas.immutabledict[str, bool]
+
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----

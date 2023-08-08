@@ -13,6 +13,8 @@ Key | Type |  Description | Notes
 **petId** | int |  | [optional] value must be a 64 bit integer
 
 ## NoAdditionalPropertiesDict
+base class: schemas.immutabledict[str, int]
+
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
