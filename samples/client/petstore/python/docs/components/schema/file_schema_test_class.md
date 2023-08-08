@@ -32,7 +32,7 @@ Keyword Argument | Type | Description | Notes
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **file** | [**File**](file.md) |  | [optional]
-**files** | [properties.Files](#properties-files) |  | [optional]
+**files** | [Files](#files) |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes
@@ -40,14 +40,14 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [FileSchemaTestClassDictInput](#fileschematestclassdictinput), [FileSchemaTestClassDict](#fileschematestclassdict) | [FileSchemaTestClassDict](#fileschematestclassdict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-# properties Files
+# Files
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[FilesTupleInput](#properties-files-filestupleinput), [FilesTuple](#properties-files-filestuple) | [FilesTuple](#properties-files-filestuple) |
+[FilesTupleInput](#files-filestupleinput), [FilesTuple](#files-filestuple) | [FilesTuple](#files-filestuple) |
 
-## properties Files FilesTupleInput
+## Files FilesTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -69,7 +69,7 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**File**](file.md) |  |
 
-## properties Files FilesTuple
+## Files FilesTuple
 ```
 base class: typing.Tuple[
     file.FileDict,

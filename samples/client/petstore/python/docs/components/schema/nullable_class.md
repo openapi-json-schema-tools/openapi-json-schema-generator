@@ -137,12 +137,12 @@ Property | Type | Description | Notes
 **string_prop** | None, str, schemas.Unset |  | [optional]
 **date_prop** | None, str, schemas.Unset |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
 **datetime_prop** | None, str, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
-**array_nullable_prop** | [properties.ArrayNullableProp](#properties-arraynullableprop) |  | [optional]
-**array_and_items_nullable_prop** | [properties.ArrayAndItemsNullableProp](#properties-arrayanditemsnullableprop) |  | [optional]
-**array_items_nullable** | [properties.ArrayItemsNullable](#properties-arrayitemsnullable) |  | [optional]
-**object_nullable_prop** | [properties.ObjectNullableProp](#properties-objectnullableprop) |  | [optional]
-**object_and_items_nullable_prop** | [properties.ObjectAndItemsNullableProp](#properties-objectanditemsnullableprop) |  | [optional]
-**object_items_nullable** | [properties.ObjectItemsNullable](#properties-objectitemsnullable) |  | [optional]
+**array_nullable_prop** | [ArrayNullableProp](#arraynullableprop) |  | [optional]
+**array_and_items_nullable_prop** | [ArrayAndItemsNullableProp](#arrayanditemsnullableprop) |  | [optional]
+**array_items_nullable** | [ArrayItemsNullable](#arrayitemsnullable) |  | [optional]
+**object_nullable_prop** | [ObjectNullableProp](#objectnullableprop) |  | [optional]
+**object_and_items_nullable_prop** | [ObjectAndItemsNullableProp](#objectanditemsnullableprop) |  | [optional]
+**object_items_nullable** | [ObjectItemsNullable](#objectitemsnullable) |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes
@@ -150,14 +150,14 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [NullableClassDictInput](#nullableclassdictinput), [NullableClassDict](#nullableclassdict) | [NullableClassDict](#nullableclassdict) | a constructor
 get_additional_property_ | str | [AdditionalProperties4](#additionalproperties4) | provides type safety for additional properties
 
-# properties ArrayNullableProp
+# ArrayNullableProp
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-None, [ArrayNullablePropTupleInput](#properties-arraynullableprop-arraynullableproptupleinput), [ArrayNullablePropTuple](#properties-arraynullableprop-arraynullableproptuple) | None, [ArrayNullablePropTuple](#properties-arraynullableprop-arraynullableproptuple) |
+None, [ArrayNullablePropTupleInput](#arraynullableprop-arraynullableproptupleinput), [ArrayNullablePropTuple](#arraynullableprop-arraynullableproptuple) | None, [ArrayNullablePropTuple](#arraynullableprop-arraynullableproptuple) |
 
-## properties ArrayNullableProp ArrayNullablePropTupleInput
+## ArrayNullableProp ArrayNullablePropTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -179,7 +179,7 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | dict, schemas.immutabledict |  |
 
-## properties ArrayNullableProp ArrayNullablePropTuple
+## ArrayNullableProp ArrayNullablePropTuple
 ```
 base class: typing.Tuple[
     schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
@@ -190,21 +190,21 @@ Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | dict, schemas.immutabledict | schemas.immutabledict |  |
 
-# properties ArrayNullableProp Items
+# ArrayNullableProp Items
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict | schemas.immutabledict |
 
-# properties ArrayAndItemsNullableProp
+# ArrayAndItemsNullableProp
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-None, [ArrayAndItemsNullablePropTupleInput](#properties-arrayanditemsnullableprop-arrayanditemsnullableproptupleinput), [ArrayAndItemsNullablePropTuple](#properties-arrayanditemsnullableprop-arrayanditemsnullableproptuple) | None, [ArrayAndItemsNullablePropTuple](#properties-arrayanditemsnullableprop-arrayanditemsnullableproptuple) |
+None, [ArrayAndItemsNullablePropTupleInput](#arrayanditemsnullableprop-arrayanditemsnullableproptupleinput), [ArrayAndItemsNullablePropTuple](#arrayanditemsnullableprop-arrayanditemsnullableproptuple) | None, [ArrayAndItemsNullablePropTuple](#arrayanditemsnullableprop-arrayanditemsnullableproptuple) |
 
-## properties ArrayAndItemsNullableProp ArrayAndItemsNullablePropTupleInput
+## ArrayAndItemsNullableProp ArrayAndItemsNullablePropTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -232,7 +232,7 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | None, dict, schemas.immutabledict |  |
 
-## properties ArrayAndItemsNullableProp ArrayAndItemsNullablePropTuple
+## ArrayAndItemsNullableProp ArrayAndItemsNullablePropTuple
 ```
 base class: typing.Tuple[
     typing.Union[
@@ -246,21 +246,21 @@ Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
 
-# properties ArrayAndItemsNullableProp Items2
+# ArrayAndItemsNullableProp Items2
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 None, dict, schemas.immutabledict | None, schemas.immutabledict |
 
-# properties ArrayItemsNullable
+# ArrayItemsNullable
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayItemsNullableTupleInput](#properties-arrayitemsnullable-arrayitemsnullabletupleinput), [ArrayItemsNullableTuple](#properties-arrayitemsnullable-arrayitemsnullabletuple) | [ArrayItemsNullableTuple](#properties-arrayitemsnullable-arrayitemsnullabletuple) |
+[ArrayItemsNullableTupleInput](#arrayitemsnullable-arrayitemsnullabletupleinput), [ArrayItemsNullableTuple](#arrayitemsnullable-arrayitemsnullabletuple) | [ArrayItemsNullableTuple](#arrayitemsnullable-arrayitemsnullabletuple) |
 
-## properties ArrayItemsNullable ArrayItemsNullableTupleInput
+## ArrayItemsNullable ArrayItemsNullableTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -288,7 +288,7 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | None, dict, schemas.immutabledict |  |
 
-## properties ArrayItemsNullable ArrayItemsNullableTuple
+## ArrayItemsNullable ArrayItemsNullableTuple
 ```
 base class: typing.Tuple[
     typing.Union[
@@ -302,21 +302,21 @@ Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
 
-# properties ArrayItemsNullable Items3
+# ArrayItemsNullable Items3
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 None, dict, schemas.immutabledict | None, schemas.immutabledict |
 
-# properties ObjectNullableProp
+# ObjectNullableProp
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-None, [ObjectNullablePropDictInput](#properties-objectnullableprop-objectnullablepropdictinput), [ObjectNullablePropDict](#properties-objectnullableprop-objectnullablepropdict) | None, [ObjectNullablePropDict](#properties-objectnullableprop-objectnullablepropdict) |
+None, [ObjectNullablePropDictInput](#objectnullableprop-objectnullablepropdictinput), [ObjectNullablePropDict](#objectnullableprop-objectnullablepropdict) | None, [ObjectNullablePropDict](#objectnullableprop-objectnullablepropdict) |
 
-## properties ObjectNullableProp ObjectNullablePropDictInput
+## ObjectNullableProp ObjectNullablePropDictInput
 ```
 type: typing.Mapping[
     str,
@@ -330,7 +330,7 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
-## properties ObjectNullableProp ObjectNullablePropDict
+## ObjectNullableProp ObjectNullablePropDict
 ```
 base class: schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]]
 
@@ -343,24 +343,24 @@ Keyword Argument | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [ObjectNullablePropDictInput](#properties-objectnullableprop-objectnullablepropdictinput), [ObjectNullablePropDict](#properties-objectnullableprop-objectnullablepropdict) | [ObjectNullablePropDict](#properties-objectnullableprop-objectnullablepropdict) | a constructor
-get_additional_property_ | str | [AdditionalProperties](#properties-objectnullableprop-additionalproperties) | provides type safety for additional properties
+from_dict_ | [ObjectNullablePropDictInput](#objectnullableprop-objectnullablepropdictinput), [ObjectNullablePropDict](#objectnullableprop-objectnullablepropdict) | [ObjectNullablePropDict](#objectnullableprop-objectnullablepropdict) | a constructor
+get_additional_property_ | str | [AdditionalProperties](#objectnullableprop-additionalproperties) | provides type safety for additional properties
 
-# properties ObjectNullableProp AdditionalProperties
+# ObjectNullableProp AdditionalProperties
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict | schemas.immutabledict |
 
-# properties ObjectAndItemsNullableProp
+# ObjectAndItemsNullableProp
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-None, [ObjectAndItemsNullablePropDictInput](#properties-objectanditemsnullableprop-objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#properties-objectanditemsnullableprop-objectanditemsnullablepropdict) | None, [ObjectAndItemsNullablePropDict](#properties-objectanditemsnullableprop-objectanditemsnullablepropdict) |
+None, [ObjectAndItemsNullablePropDictInput](#objectanditemsnullableprop-objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#objectanditemsnullableprop-objectanditemsnullablepropdict) | None, [ObjectAndItemsNullablePropDict](#objectanditemsnullableprop-objectanditemsnullablepropdict) |
 
-## properties ObjectAndItemsNullableProp ObjectAndItemsNullablePropDictInput
+## ObjectAndItemsNullableProp ObjectAndItemsNullablePropDictInput
 ```
 type: typing.Mapping[
     str,
@@ -377,7 +377,7 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
-## properties ObjectAndItemsNullableProp ObjectAndItemsNullablePropDict
+## ObjectAndItemsNullableProp ObjectAndItemsNullablePropDict
 ```
 base class: schemas.immutabledict[str, typing.Union[
     None,
@@ -393,24 +393,24 @@ Keyword Argument | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [ObjectAndItemsNullablePropDictInput](#properties-objectanditemsnullableprop-objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#properties-objectanditemsnullableprop-objectanditemsnullablepropdict) | [ObjectAndItemsNullablePropDict](#properties-objectanditemsnullableprop-objectanditemsnullablepropdict) | a constructor
-get_additional_property_ | str | [AdditionalProperties2](#properties-objectanditemsnullableprop-additionalproperties2) | provides type safety for additional properties
+from_dict_ | [ObjectAndItemsNullablePropDictInput](#objectanditemsnullableprop-objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#objectanditemsnullableprop-objectanditemsnullablepropdict) | [ObjectAndItemsNullablePropDict](#objectanditemsnullableprop-objectanditemsnullablepropdict) | a constructor
+get_additional_property_ | str | [AdditionalProperties2](#objectanditemsnullableprop-additionalproperties2) | provides type safety for additional properties
 
-# properties ObjectAndItemsNullableProp AdditionalProperties2
+# ObjectAndItemsNullableProp AdditionalProperties2
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 None, dict, schemas.immutabledict | None, schemas.immutabledict |
 
-# properties ObjectItemsNullable
+# ObjectItemsNullable
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ObjectItemsNullableDictInput](#properties-objectitemsnullable-objectitemsnullabledictinput), [ObjectItemsNullableDict](#properties-objectitemsnullable-objectitemsnullabledict) | [ObjectItemsNullableDict](#properties-objectitemsnullable-objectitemsnullabledict) |
+[ObjectItemsNullableDictInput](#objectitemsnullable-objectitemsnullabledictinput), [ObjectItemsNullableDict](#objectitemsnullable-objectitemsnullabledict) | [ObjectItemsNullableDict](#objectitemsnullable-objectitemsnullabledict) |
 
-## properties ObjectItemsNullable ObjectItemsNullableDictInput
+## ObjectItemsNullable ObjectItemsNullableDictInput
 ```
 type: typing.Mapping[
     str,
@@ -427,7 +427,7 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
-## properties ObjectItemsNullable ObjectItemsNullableDict
+## ObjectItemsNullable ObjectItemsNullableDict
 ```
 base class: schemas.immutabledict[str, typing.Union[
     None,
@@ -443,10 +443,10 @@ Keyword Argument | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [ObjectItemsNullableDictInput](#properties-objectitemsnullable-objectitemsnullabledictinput), [ObjectItemsNullableDict](#properties-objectitemsnullable-objectitemsnullabledict) | [ObjectItemsNullableDict](#properties-objectitemsnullable-objectitemsnullabledict) | a constructor
-get_additional_property_ | str | [AdditionalProperties3](#properties-objectitemsnullable-additionalproperties3) | provides type safety for additional properties
+from_dict_ | [ObjectItemsNullableDictInput](#objectitemsnullable-objectitemsnullabledictinput), [ObjectItemsNullableDict](#objectitemsnullable-objectitemsnullabledict) | [ObjectItemsNullableDict](#objectitemsnullable-objectitemsnullabledict) | a constructor
+get_additional_property_ | str | [AdditionalProperties3](#objectitemsnullable-additionalproperties3) | provides type safety for additional properties
 
-# properties ObjectItemsNullable AdditionalProperties3
+# ObjectItemsNullable AdditionalProperties3
 
 ## validate method
 Input Type | Return Type | Notes

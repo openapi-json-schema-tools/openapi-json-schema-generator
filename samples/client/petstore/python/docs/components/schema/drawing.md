@@ -62,7 +62,7 @@ Property | Type | Description | Notes
 **mainShape** | [**Shape**](shape.md) |  | [optional]
 **shapeOrNull** | [**ShapeOrNull**](shape_or_null.md) |  | [optional]
 **nullableShape** | [**NullableShape**](nullable_shape.md) |  | [optional]
-**shapes** | [properties.Shapes](#properties-shapes) |  | [optional]
+**shapes** | [Shapes](#shapes) |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes
@@ -70,14 +70,14 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [DrawingDictInput](#drawingdictinput), [DrawingDict](#drawingdict) | [DrawingDict](#drawingdict) | a constructor
 get_additional_property_ | str | [**Fruit**](fruit.md) | provides type safety for additional properties
 
-# properties Shapes
+# Shapes
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ShapesTupleInput](#properties-shapes-shapestupleinput), [ShapesTuple](#properties-shapes-shapestuple) | [ShapesTuple](#properties-shapes-shapestuple) |
+[ShapesTupleInput](#shapes-shapestupleinput), [ShapesTuple](#shapes-shapestuple) | [ShapesTuple](#shapes-shapestuple) |
 
-## properties Shapes ShapesTupleInput
+## Shapes ShapesTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -99,7 +99,7 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**Shape**](shape.md) |  |
 
-## properties Shapes ShapesTuple
+## Shapes ShapesTuple
 ```
 base class: typing.Tuple[
     schemas.OUTPUT_BASE_TYPES,

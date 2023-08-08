@@ -43,10 +43,10 @@ Keyword Argument | Type | Description | Notes
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **name** | str |  |
-**photoUrls** | [properties.PhotoUrls](#properties-photourls) |  |
+**photoUrls** | [PhotoUrls](#photourls) |  |
 **id** | int, schemas.Unset |  | [optional] value must be a 64 bit integer
 **category** | [**Category**](category.md) |  | [optional]
-**tags** | [properties.Tags](#properties-tags) |  | [optional]
+**tags** | [Tags](#tags) |  | [optional]
 **status** | str, schemas.Unset | pet status in the store | [optional] must be one of ["available", "pending", "sold"]
 
 ### methods
@@ -55,14 +55,14 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [PetDictInput](#petdictinput), [PetDict](#petdict) | [PetDict](#petdict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-# properties PhotoUrls
+# PhotoUrls
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[PhotoUrlsTupleInput](#properties-photourls-photourlstupleinput), [PhotoUrlsTuple](#properties-photourls-photourlstuple) | [PhotoUrlsTuple](#properties-photourls-photourlstuple) |
+[PhotoUrlsTupleInput](#photourls-photourlstupleinput), [PhotoUrlsTuple](#photourls-photourlstuple) | [PhotoUrlsTuple](#photourls-photourlstuple) |
 
-## properties PhotoUrls PhotoUrlsTupleInput
+## PhotoUrls PhotoUrlsTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -78,7 +78,7 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | str |  |
 
-## properties PhotoUrls PhotoUrlsTuple
+## PhotoUrls PhotoUrlsTuple
 ```
 base class: typing.Tuple[
     str,
@@ -89,14 +89,14 @@ Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | str | str |  |
 
-# properties Tags
+# Tags
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[TagsTupleInput](#properties-tags-tagstupleinput), [TagsTuple](#properties-tags-tagstuple) | [TagsTuple](#properties-tags-tagstuple) |
+[TagsTupleInput](#tags-tagstupleinput), [TagsTuple](#tags-tagstuple) | [TagsTuple](#tags-tagstuple) |
 
-## properties Tags TagsTupleInput
+## Tags TagsTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -118,7 +118,7 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**Tag**](tag.md) |  |
 
-## properties Tags TagsTuple
+## Tags TagsTuple
 ```
 base class: typing.Tuple[
     tag.TagDict,

@@ -61,10 +61,10 @@ Property | Type | Description | Notes
 **password** | str, schemas.Unset |  | [optional]
 **phone** | str, schemas.Unset |  | [optional]
 **userStatus** | int, schemas.Unset | User Status | [optional] value must be a 32 bit integer
-**objectWithNoDeclaredProps** | [properties.ObjectWithNoDeclaredProps](#properties-objectwithnodeclaredprops) | test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value. | [optional]
-**objectWithNoDeclaredPropsNullable** | [properties.ObjectWithNoDeclaredPropsNullable](#properties-objectwithnodeclaredpropsnullable) | test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value. | [optional]
+**objectWithNoDeclaredProps** | [ObjectWithNoDeclaredProps](#objectwithnodeclaredprops) | test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value. | [optional]
+**objectWithNoDeclaredPropsNullable** | [ObjectWithNoDeclaredPropsNullable](#objectwithnodeclaredpropsnullable) | test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value. | [optional]
 **anyTypeProp** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. See https://github.com/OAI/OpenAPI-Specification/issues/1389 | [optional]
-**anyTypeExceptNullProp** | [properties.AnyTypeExceptNullProp](#properties-anytypeexceptnullprop) | any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. | [optional]
+**anyTypeExceptNullProp** | [AnyTypeExceptNullProp](#anytypeexceptnullprop) | any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. | [optional]
 **anyTypePropNullable** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. The &#x27;nullable&#x27; attribute does not change the allowed values. | [optional]
 
 ### methods
@@ -73,7 +73,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [UserDictInput](#userdictinput), [UserDict](#userdict) | [UserDict](#userdict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-# properties ObjectWithNoDeclaredProps
+# ObjectWithNoDeclaredProps
 
 ## Description
 test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value.
@@ -83,7 +83,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict | schemas.immutabledict |
 
-# properties ObjectWithNoDeclaredPropsNullable
+# ObjectWithNoDeclaredPropsNullable
 
 ## Description
 test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value.
@@ -93,7 +93,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 None, dict, schemas.immutabledict | None, schemas.immutabledict |
 
-# properties AnyTypeExceptNullProp
+# AnyTypeExceptNullProp
 
 ## Description
 any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object.
@@ -107,9 +107,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## not
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_not](#properties-anytypeexceptnullprop-_not) | None | None |  |
+[_not](#anytypeexceptnullprop-_not) | None | None |  |
 
-# properties AnyTypeExceptNullProp _Not
+# AnyTypeExceptNullProp _Not
 
 ## validate method
 Input Type | Return Type | Notes

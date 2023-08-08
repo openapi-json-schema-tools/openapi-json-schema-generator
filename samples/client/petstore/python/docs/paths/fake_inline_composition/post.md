@@ -94,7 +94,7 @@ Keyword Argument | Type | Description | Notes
 ###### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**someProp** | [properties.SomeProp](#requestbody-content-multipartformdata-schema-properties-someprop) |  | [optional]
+**someProp** | [SomeProp](#requestbody-content-multipartformdata-schema-someprop) |  | [optional]
 
 ###### methods
 Method | Input Type | Return Type | Notes
@@ -102,7 +102,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput), [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-#### RequestBody content MultipartFormData Schema properties SomeProp
+#### RequestBody content MultipartFormData Schema SomeProp
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -113,9 +113,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ##### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#requestbody-content-multipartformdata-schema-properties-someprop-allof-_0) | str | str |  |
+[_0](#requestbody-content-multipartformdata-schema-someprop-allof-_0) | str | str |  |
 
-#### RequestBody content MultipartFormData Schema properties SomeProp allof _0
+#### RequestBody content MultipartFormData Schema SomeProp allof _0
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -185,7 +185,7 @@ Keyword Argument | Type | Description | Notes
 ####### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**someProp** | [properties.SomeProp](#parameter1-schema-properties-someprop) |  | [optional]
+**someProp** | [SomeProp](#parameter1-schema-someprop) |  | [optional]
 
 ####### methods
 Method | Input Type | Return Type | Notes
@@ -193,7 +193,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [SchemaDictInput](#parameter1-schema-schemadictinput), [SchemaDict](#parameter1-schema-schemadict) | [SchemaDict](#parameter1-schema-schemadict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-##### Parameter1 Schema properties SomeProp
+##### Parameter1 Schema SomeProp
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -204,9 +204,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ###### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#parameter1-schema-properties-someprop-allof-_0) | str | str |  |
+[_0](#parameter1-schema-someprop-allof-_0) | str | str |  |
 
-##### Parameter1 Schema properties SomeProp allof _0
+##### Parameter1 Schema SomeProp allof _0
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -287,7 +287,7 @@ Keyword Argument | Type | Description | Notes
 ###### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**someProp** | [properties.SomeProp](#responsefor200-content-multipartformdata-schema-properties-someprop) |  | [optional]
+**someProp** | [SomeProp](#responsefor200-content-multipartformdata-schema-someprop) |  | [optional]
 
 ###### methods
 Method | Input Type | Return Type | Notes
@@ -295,7 +295,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [SchemaDictInput](#responsefor200-content-multipartformdata-schema-schemadictinput), [SchemaDict](#responsefor200-content-multipartformdata-schema-schemadict) | [SchemaDict](#responsefor200-content-multipartformdata-schema-schemadict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-#### ResponseFor200 content MultipartFormData Schema properties SomeProp
+#### ResponseFor200 content MultipartFormData Schema SomeProp
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -306,9 +306,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ##### allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#responsefor200-content-multipartformdata-schema-properties-someprop-allof-_0) | str | str |  |
+[_0](#responsefor200-content-multipartformdata-schema-someprop-allof-_0) | str | str |  |
 
-#### ResponseFor200 content MultipartFormData Schema properties SomeProp allof _0
+#### ResponseFor200 content MultipartFormData Schema SomeProp allof _0
 
 ##### validate method
 Input Type | Return Type | Notes

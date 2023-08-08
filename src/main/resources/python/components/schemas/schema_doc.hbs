@@ -176,12 +176,12 @@ Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
             {{#each requiredProperties}}
                 {{#if @key.isValid}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[properties.{{@key.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "properties" @key.anchorPiece) }}){{else}}{{> components/_helper_schema_output_types }}{{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{@key.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces @key.anchorPiece) }}){{else}}{{> components/_helper_schema_output_types }}{{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
                 {{/if}}
             {{/each}}
             {{#each optionalProperties}}
                 {{#if @key.isValid}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[properties.{{@key.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "properties" @key.anchorPiece) }}){{else}}{{> components/_helper_schema_output_types optional=true }}{{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{@key.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces @key.anchorPiece) }}){{else}}{{> components/_helper_schema_output_types optional=true }}{{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
                 {{/if}}
             {{/each}}
         {{/or}}
@@ -314,7 +314,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
             {{#unless refInfo.refClass}}
                 {{#if isComplicated}}
 
-{{> components/schemas/schema_doc schema=this identifierPieces=(append identifierPieces "properties" jsonPathPiece) }}
+{{> components/schemas/schema_doc schema=this identifierPieces=(append identifierPieces jsonPathPiece) }}
                 {{/if}}
             {{/unless}}
         {{/if}}
@@ -326,7 +326,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
         {{#unless refInfo.refClass}}
             {{#if isComplicated}}
 
-{{> components/schemas/schema_doc schema=this identifierPieces=(append identifierPieces "properties" jsonPathPiece) }}
+{{> components/schemas/schema_doc schema=this identifierPieces=(append identifierPieces jsonPathPiece) }}
             {{/if}}
         {{/unless}}
     {{/each}}

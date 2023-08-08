@@ -70,7 +70,7 @@ Keyword Argument | Type | Description | Notes
 ###### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**files** | [properties.Files](#requestbody-content-multipartformdata-schema-properties-files) |  | [optional]
+**files** | [Files](#requestbody-content-multipartformdata-schema-files) |  | [optional]
 
 ###### methods
 Method | Input Type | Return Type | Notes
@@ -78,14 +78,14 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput), [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-#### RequestBody content MultipartFormData Schema properties Files
+#### RequestBody content MultipartFormData Schema Files
 
 ##### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[FilesTupleInput](#requestbody-content-multipartformdata-schema-properties-files-filestupleinput), [FilesTuple](#requestbody-content-multipartformdata-schema-properties-files-filestuple) | [FilesTuple](#requestbody-content-multipartformdata-schema-properties-files-filestuple) |
+[FilesTupleInput](#requestbody-content-multipartformdata-schema-files-filestupleinput), [FilesTuple](#requestbody-content-multipartformdata-schema-files-filestuple) | [FilesTuple](#requestbody-content-multipartformdata-schema-files-filestuple) |
 
-##### RequestBody content MultipartFormData Schema properties Files FilesTupleInput
+##### RequestBody content MultipartFormData Schema Files FilesTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -111,7 +111,7 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | bytes, io.FileIO, io.BufferedReader |  |
 
-##### RequestBody content MultipartFormData Schema properties Files FilesTuple
+##### RequestBody content MultipartFormData Schema Files FilesTuple
 ```
 base class: typing.Tuple[
     typing.Union[bytes, schemas.FileIO],

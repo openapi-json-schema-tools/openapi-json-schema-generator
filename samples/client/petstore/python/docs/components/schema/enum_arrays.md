@@ -32,7 +32,7 @@ Keyword Argument | Type | Description | Notes
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **just_symbol** | str, schemas.Unset |  | [optional] must be one of [">=", "$"]
-**array_enum** | [properties.ArrayEnum](#properties-arrayenum) |  | [optional]
+**array_enum** | [ArrayEnum](#arrayenum) |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes
@@ -40,14 +40,14 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [EnumArraysDictInput](#enumarraysdictinput), [EnumArraysDict](#enumarraysdict) | [EnumArraysDict](#enumarraysdict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-# properties ArrayEnum
+# ArrayEnum
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayEnumTupleInput](#properties-arrayenum-arrayenumtupleinput), [ArrayEnumTuple](#properties-arrayenum-arrayenumtuple) | [ArrayEnumTuple](#properties-arrayenum-arrayenumtuple) |
+[ArrayEnumTupleInput](#arrayenum-arrayenumtupleinput), [ArrayEnumTuple](#arrayenum-arrayenumtuple) | [ArrayEnumTuple](#arrayenum-arrayenumtuple) |
 
-## properties ArrayEnum ArrayEnumTupleInput
+## ArrayEnum ArrayEnumTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -69,7 +69,7 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | str |  | must be one of ["fish", "crab"]
 
-## properties ArrayEnum ArrayEnumTuple
+## ArrayEnum ArrayEnumTuple
 ```
 base class: typing.Tuple[
     typing_extensions.Literal["fish", "crab"],

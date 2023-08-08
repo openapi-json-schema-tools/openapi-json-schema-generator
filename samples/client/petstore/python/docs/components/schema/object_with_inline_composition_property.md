@@ -28,7 +28,7 @@ Keyword Argument | Type | Description | Notes
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**someProp** | [properties.SomeProp](#properties-someprop) |  | [optional]
+**someProp** | [SomeProp](#someprop) |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes
@@ -36,7 +36,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [ObjectWithInlineCompositionPropertyDictInput](#objectwithinlinecompositionpropertydictinput), [ObjectWithInlineCompositionPropertyDict](#objectwithinlinecompositionpropertydict) | [ObjectWithInlineCompositionPropertyDict](#objectwithinlinecompositionpropertydict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-# properties SomeProp
+# SomeProp
 
 ## validate method
 Input Type | Return Type | Notes
@@ -47,9 +47,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#properties-someprop-allof-_0) | str | str |  |
+[_0](#someprop-allof-_0) | str | str |  |
 
-# properties SomeProp allof _0
+# SomeProp allof _0
 
 ## validate method
 Input Type | Return Type | Notes

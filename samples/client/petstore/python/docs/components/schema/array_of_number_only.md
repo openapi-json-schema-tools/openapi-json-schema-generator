@@ -29,7 +29,7 @@ Keyword Argument | Type | Description | Notes
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**ArrayNumber** | [properties.ArrayNumber](#properties-arraynumber) |  | [optional]
+**ArrayNumber** | [ArrayNumber](#arraynumber) |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes
@@ -37,14 +37,14 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [ArrayOfNumberOnlyDictInput](#arrayofnumberonlydictinput), [ArrayOfNumberOnlyDict](#arrayofnumberonlydict) | [ArrayOfNumberOnlyDict](#arrayofnumberonlydict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-# properties ArrayNumber
+# ArrayNumber
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayNumberTupleInput](#properties-arraynumber-arraynumbertupleinput), [ArrayNumberTuple](#properties-arraynumber-arraynumbertuple) | [ArrayNumberTuple](#properties-arraynumber-arraynumbertuple) |
+[ArrayNumberTupleInput](#arraynumber-arraynumbertupleinput), [ArrayNumberTuple](#arraynumber-arraynumbertuple) | [ArrayNumberTuple](#arraynumber-arraynumbertuple) |
 
-## properties ArrayNumber ArrayNumberTupleInput
+## ArrayNumber ArrayNumberTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -66,7 +66,7 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | float, int |  |
 
-## properties ArrayNumber ArrayNumberTuple
+## ArrayNumber ArrayNumberTuple
 ```
 base class: typing.Tuple[
     typing.Union[int, float],

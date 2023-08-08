@@ -75,7 +75,7 @@ Keyword Argument | Type | Description | Notes
 ###### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**enum_form_string_array** | [properties.EnumFormStringArray](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray) | Form parameter enum test (string array) | [optional]
+**enum_form_string_array** | [EnumFormStringArray](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarray) | Form parameter enum test (string array) | [optional]
 **enum_form_string** | str, schemas.Unset | Form parameter enum test (string) | [optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
 
 ###### methods
@@ -84,7 +84,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput), [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) | [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-#### RequestBody content ApplicationXWwwFormUrlencoded Schema properties EnumFormStringArray
+#### RequestBody content ApplicationXWwwFormUrlencoded Schema EnumFormStringArray
 
 ##### Description
 Form parameter enum test (string array)
@@ -92,9 +92,9 @@ Form parameter enum test (string array)
 ##### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[EnumFormStringArrayTupleInput](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray-enumformstringarraytupleinput), [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray-enumformstringarraytuple) | [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray-enumformstringarraytuple) |
+[EnumFormStringArrayTupleInput](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarray-enumformstringarraytupleinput), [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarray-enumformstringarraytuple) | [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarray-enumformstringarraytuple) |
 
-##### RequestBody content ApplicationXWwwFormUrlencoded Schema properties EnumFormStringArray EnumFormStringArrayTupleInput
+##### RequestBody content ApplicationXWwwFormUrlencoded Schema EnumFormStringArray EnumFormStringArrayTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -116,7 +116,7 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
-##### RequestBody content ApplicationXWwwFormUrlencoded Schema properties EnumFormStringArray EnumFormStringArrayTuple
+##### RequestBody content ApplicationXWwwFormUrlencoded Schema EnumFormStringArray EnumFormStringArrayTuple
 ```
 base class: typing.Tuple[
     typing_extensions.Literal[">", "$"],

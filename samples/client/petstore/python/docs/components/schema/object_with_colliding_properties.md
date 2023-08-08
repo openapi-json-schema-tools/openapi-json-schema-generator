@@ -34,8 +34,8 @@ Keyword Argument | Type | Description | Notes
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**someProp** | [properties.SomeProp](#properties-someprop) |  | [optional]
-**someprop** | [properties.Someprop2](#properties-someprop2) |  | [optional]
+**someProp** | [SomeProp](#someprop) |  | [optional]
+**someprop** | [Someprop2](#someprop2) |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes
@@ -43,14 +43,14 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [ObjectWithCollidingPropertiesDictInput](#objectwithcollidingpropertiesdictinput), [ObjectWithCollidingPropertiesDict](#objectwithcollidingpropertiesdict) | [ObjectWithCollidingPropertiesDict](#objectwithcollidingpropertiesdict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-# properties SomeProp
+# SomeProp
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict | schemas.immutabledict |
 
-# properties Someprop2
+# Someprop2
 
 ## validate method
 Input Type | Return Type | Notes

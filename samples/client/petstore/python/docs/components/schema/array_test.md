@@ -33,9 +33,9 @@ Keyword Argument | Type | Description | Notes
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**array_of_string** | [properties.ArrayOfString](#properties-arrayofstring) |  | [optional]
-**array_array_of_integer** | [properties.ArrayArrayOfInteger](#properties-arrayarrayofinteger) |  | [optional]
-**array_array_of_model** | [properties.ArrayArrayOfModel](#properties-arrayarrayofmodel) |  | [optional]
+**array_of_string** | [ArrayOfString](#arrayofstring) |  | [optional]
+**array_array_of_integer** | [ArrayArrayOfInteger](#arrayarrayofinteger) |  | [optional]
+**array_array_of_model** | [ArrayArrayOfModel](#arrayarrayofmodel) |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes
@@ -43,14 +43,14 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [ArrayTestDictInput](#arraytestdictinput), [ArrayTestDict](#arraytestdict) | [ArrayTestDict](#arraytestdict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-# properties ArrayOfString
+# ArrayOfString
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayOfStringTupleInput](#properties-arrayofstring-arrayofstringtupleinput), [ArrayOfStringTuple](#properties-arrayofstring-arrayofstringtuple) | [ArrayOfStringTuple](#properties-arrayofstring-arrayofstringtuple) |
+[ArrayOfStringTupleInput](#arrayofstring-arrayofstringtupleinput), [ArrayOfStringTuple](#arrayofstring-arrayofstringtuple) | [ArrayOfStringTuple](#arrayofstring-arrayofstringtuple) |
 
-## properties ArrayOfString ArrayOfStringTupleInput
+## ArrayOfString ArrayOfStringTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -66,7 +66,7 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | str |  |
 
-## properties ArrayOfString ArrayOfStringTuple
+## ArrayOfString ArrayOfStringTuple
 ```
 base class: typing.Tuple[
     str,
@@ -77,14 +77,14 @@ Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | str | str |  |
 
-# properties ArrayArrayOfInteger
+# ArrayArrayOfInteger
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayArrayOfIntegerTupleInput](#properties-arrayarrayofinteger-arrayarrayofintegertupleinput), [ArrayArrayOfIntegerTuple](#properties-arrayarrayofinteger-arrayarrayofintegertuple) | [ArrayArrayOfIntegerTuple](#properties-arrayarrayofinteger-arrayarrayofintegertuple) |
+[ArrayArrayOfIntegerTupleInput](#arrayarrayofinteger-arrayarrayofintegertupleinput), [ArrayArrayOfIntegerTuple](#arrayarrayofinteger-arrayarrayofintegertuple) | [ArrayArrayOfIntegerTuple](#arrayarrayofinteger-arrayarrayofintegertuple) |
 
-## properties ArrayArrayOfInteger ArrayArrayOfIntegerTupleInput
+## ArrayArrayOfInteger ArrayArrayOfIntegerTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -104,9 +104,9 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | [ItemsTupleInput](#properties-arrayarrayofinteger-itemstupleinput), [ItemsTuple](#properties-arrayarrayofinteger-itemstuple) |  |
+≥ 0 | [ItemsTupleInput](#arrayarrayofinteger-itemstupleinput), [ItemsTuple](#arrayarrayofinteger-itemstuple) |  |
 
-## properties ArrayArrayOfInteger ArrayArrayOfIntegerTuple
+## ArrayArrayOfInteger ArrayArrayOfIntegerTuple
 ```
 base class: typing.Tuple[
     ItemsTuple,
@@ -117,14 +117,14 @@ Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | list, tuple | tuple |  |
 
-# properties ArrayArrayOfInteger Items2
+# ArrayArrayOfInteger Items2
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ItemsTupleInput](#properties-arrayarrayofinteger-items2-itemstupleinput), [ItemsTuple](#properties-arrayarrayofinteger-items2-itemstuple) | [ItemsTuple](#properties-arrayarrayofinteger-items2-itemstuple) |
+[ItemsTupleInput](#arrayarrayofinteger-items2-itemstupleinput), [ItemsTuple](#arrayarrayofinteger-items2-itemstuple) | [ItemsTuple](#arrayarrayofinteger-items2-itemstuple) |
 
-## properties ArrayArrayOfInteger Items2 ItemsTupleInput
+## ArrayArrayOfInteger Items2 ItemsTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -140,7 +140,7 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | int |  | value must be a 64 bit integer
 
-## properties ArrayArrayOfInteger Items2 ItemsTuple
+## ArrayArrayOfInteger Items2 ItemsTuple
 ```
 base class: typing.Tuple[
     int,
@@ -151,14 +151,14 @@ Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | int | int |  | value must be a 64 bit integer
 
-# properties ArrayArrayOfModel
+# ArrayArrayOfModel
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayArrayOfModelTupleInput](#properties-arrayarrayofmodel-arrayarrayofmodeltupleinput), [ArrayArrayOfModelTuple](#properties-arrayarrayofmodel-arrayarrayofmodeltuple) | [ArrayArrayOfModelTuple](#properties-arrayarrayofmodel-arrayarrayofmodeltuple) |
+[ArrayArrayOfModelTupleInput](#arrayarrayofmodel-arrayarrayofmodeltupleinput), [ArrayArrayOfModelTuple](#arrayarrayofmodel-arrayarrayofmodeltuple) | [ArrayArrayOfModelTuple](#arrayarrayofmodel-arrayarrayofmodeltuple) |
 
-## properties ArrayArrayOfModel ArrayArrayOfModelTupleInput
+## ArrayArrayOfModel ArrayArrayOfModelTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -178,9 +178,9 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | [ItemsTupleInput2](#properties-arrayarrayofmodel-itemstupleinput2), [ItemsTuple2](#properties-arrayarrayofmodel-itemstuple2) |  |
+≥ 0 | [ItemsTupleInput2](#arrayarrayofmodel-itemstupleinput2), [ItemsTuple2](#arrayarrayofmodel-itemstuple2) |  |
 
-## properties ArrayArrayOfModel ArrayArrayOfModelTuple
+## ArrayArrayOfModel ArrayArrayOfModelTuple
 ```
 base class: typing.Tuple[
     ItemsTuple2,
@@ -191,14 +191,14 @@ Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | list, tuple | tuple |  |
 
-# properties ArrayArrayOfModel Items4
+# ArrayArrayOfModel Items4
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ItemsTupleInput2](#properties-arrayarrayofmodel-items4-itemstupleinput2), [ItemsTuple2](#properties-arrayarrayofmodel-items4-itemstuple2) | [ItemsTuple2](#properties-arrayarrayofmodel-items4-itemstuple2) |
+[ItemsTupleInput2](#arrayarrayofmodel-items4-itemstupleinput2), [ItemsTuple2](#arrayarrayofmodel-items4-itemstuple2) | [ItemsTuple2](#arrayarrayofmodel-items4-itemstuple2) |
 
-## properties ArrayArrayOfModel Items4 ItemsTupleInput2
+## ArrayArrayOfModel Items4 ItemsTupleInput2
 ```
 type: typing.Union[
     typing.List[
@@ -220,7 +220,7 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**ReadOnlyFirst**](read_only_first.md) |  |
 
-## properties ArrayArrayOfModel Items4 ItemsTuple2
+## ArrayArrayOfModel Items4 ItemsTuple2
 ```
 base class: typing.Tuple[
     read_only_first.ReadOnlyFirstDict,

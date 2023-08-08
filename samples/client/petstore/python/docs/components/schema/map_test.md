@@ -34,9 +34,9 @@ Keyword Argument | Type | Description | Notes
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**map_map_of_string** | [properties.MapMapOfString](#properties-mapmapofstring) |  | [optional]
-**map_of_enum_string** | [properties.MapOfEnumString](#properties-mapofenumstring) |  | [optional]
-**direct_map** | [properties.DirectMap](#properties-directmap) |  | [optional]
+**map_map_of_string** | [MapMapOfString](#mapmapofstring) |  | [optional]
+**map_of_enum_string** | [MapOfEnumString](#mapofenumstring) |  | [optional]
+**direct_map** | [DirectMap](#directmap) |  | [optional]
 **indirect_map** | [**StringBooleanMap**](string_boolean_map.md) |  | [optional]
 
 ### methods
@@ -45,14 +45,14 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [MapTestDictInput](#maptestdictinput), [MapTestDict](#maptestdict) | [MapTestDict](#maptestdict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-# properties MapMapOfString
+# MapMapOfString
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[MapMapOfStringDictInput](#properties-mapmapofstring-mapmapofstringdictinput), [MapMapOfStringDict](#properties-mapmapofstring-mapmapofstringdict) | [MapMapOfStringDict](#properties-mapmapofstring-mapmapofstringdict) |
+[MapMapOfStringDictInput](#mapmapofstring-mapmapofstringdictinput), [MapMapOfStringDict](#mapmapofstring-mapmapofstringdict) | [MapMapOfStringDict](#mapmapofstring-mapmapofstringdict) |
 
-## properties MapMapOfString MapMapOfStringDictInput
+## MapMapOfString MapMapOfStringDictInput
 ```
 type: typing.Mapping[
     str,
@@ -66,7 +66,7 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
-## properties MapMapOfString MapMapOfStringDict
+## MapMapOfString MapMapOfStringDict
 ```
 base class: schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]]
 
@@ -79,17 +79,17 @@ Keyword Argument | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [MapMapOfStringDictInput](#properties-mapmapofstring-mapmapofstringdictinput), [MapMapOfStringDict](#properties-mapmapofstring-mapmapofstringdict) | [MapMapOfStringDict](#properties-mapmapofstring-mapmapofstringdict) | a constructor
-get_additional_property_ | str | [AdditionalProperties](#properties-mapmapofstring-additionalproperties) | provides type safety for additional properties
+from_dict_ | [MapMapOfStringDictInput](#mapmapofstring-mapmapofstringdictinput), [MapMapOfStringDict](#mapmapofstring-mapmapofstringdict) | [MapMapOfStringDict](#mapmapofstring-mapmapofstringdict) | a constructor
+get_additional_property_ | str | [AdditionalProperties](#mapmapofstring-additionalproperties) | provides type safety for additional properties
 
-# properties MapMapOfString AdditionalProperties
+# MapMapOfString AdditionalProperties
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[AdditionalPropertiesDictInput](#properties-mapmapofstring-additionalproperties-additionalpropertiesdictinput), [AdditionalPropertiesDict](#properties-mapmapofstring-additionalproperties-additionalpropertiesdict) | [AdditionalPropertiesDict](#properties-mapmapofstring-additionalproperties-additionalpropertiesdict) |
+[AdditionalPropertiesDictInput](#mapmapofstring-additionalproperties-additionalpropertiesdictinput), [AdditionalPropertiesDict](#mapmapofstring-additionalproperties-additionalpropertiesdict) | [AdditionalPropertiesDict](#mapmapofstring-additionalproperties-additionalpropertiesdict) |
 
-## properties MapMapOfString AdditionalProperties AdditionalPropertiesDictInput
+## MapMapOfString AdditionalProperties AdditionalPropertiesDictInput
 ```
 type: typing.Mapping[
     str,
@@ -100,7 +100,7 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
-## properties MapMapOfString AdditionalProperties AdditionalPropertiesDict
+## MapMapOfString AdditionalProperties AdditionalPropertiesDict
 ```
 base class: schemas.immutabledict[str, str]
 
@@ -113,17 +113,17 @@ Keyword Argument | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [AdditionalPropertiesDictInput](#properties-mapmapofstring-additionalproperties-additionalpropertiesdictinput), [AdditionalPropertiesDict](#properties-mapmapofstring-additionalproperties-additionalpropertiesdict) | [AdditionalPropertiesDict](#properties-mapmapofstring-additionalproperties-additionalpropertiesdict) | a constructor
+from_dict_ | [AdditionalPropertiesDictInput](#mapmapofstring-additionalproperties-additionalpropertiesdictinput), [AdditionalPropertiesDict](#mapmapofstring-additionalproperties-additionalpropertiesdict) | [AdditionalPropertiesDict](#mapmapofstring-additionalproperties-additionalpropertiesdict) | a constructor
 get_additional_property_ | str | str, schemas.Unset | provides type safety for additional properties
 
-# properties MapOfEnumString
+# MapOfEnumString
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[MapOfEnumStringDictInput](#properties-mapofenumstring-mapofenumstringdictinput), [MapOfEnumStringDict](#properties-mapofenumstring-mapofenumstringdict) | [MapOfEnumStringDict](#properties-mapofenumstring-mapofenumstringdict) |
+[MapOfEnumStringDictInput](#mapofenumstring-mapofenumstringdictinput), [MapOfEnumStringDict](#mapofenumstring-mapofenumstringdict) | [MapOfEnumStringDict](#mapofenumstring-mapofenumstringdict) |
 
-## properties MapOfEnumString MapOfEnumStringDictInput
+## MapOfEnumString MapOfEnumStringDictInput
 ```
 type: typing.Mapping[
     str,
@@ -137,7 +137,7 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | str | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower"]
 
-## properties MapOfEnumString MapOfEnumStringDict
+## MapOfEnumString MapOfEnumStringDict
 ```
 base class: schemas.immutabledict[str, str]
 
@@ -150,17 +150,17 @@ Keyword Argument | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [MapOfEnumStringDictInput](#properties-mapofenumstring-mapofenumstringdictinput), [MapOfEnumStringDict](#properties-mapofenumstring-mapofenumstringdict) | [MapOfEnumStringDict](#properties-mapofenumstring-mapofenumstringdict) | a constructor
+from_dict_ | [MapOfEnumStringDictInput](#mapofenumstring-mapofenumstringdictinput), [MapOfEnumStringDict](#mapofenumstring-mapofenumstringdict) | [MapOfEnumStringDict](#mapofenumstring-mapofenumstringdict) | a constructor
 get_additional_property_ | str | str, schemas.Unset | provides type safety for additional properties
 
-# properties DirectMap
+# DirectMap
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[DirectMapDictInput](#properties-directmap-directmapdictinput), [DirectMapDict](#properties-directmap-directmapdict) | [DirectMapDict](#properties-directmap-directmapdict) |
+[DirectMapDictInput](#directmap-directmapdictinput), [DirectMapDict](#directmap-directmapdict) | [DirectMapDict](#directmap-directmapdict) |
 
-## properties DirectMap DirectMapDictInput
+## DirectMap DirectMapDictInput
 ```
 type: typing.Mapping[
     str,
@@ -171,7 +171,7 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | bool | any string name can be used but the value must be the correct type | [optional]
 
-## properties DirectMap DirectMapDict
+## DirectMap DirectMapDict
 ```
 base class: schemas.immutabledict[str, bool]
 
@@ -184,7 +184,7 @@ Keyword Argument | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [DirectMapDictInput](#properties-directmap-directmapdictinput), [DirectMapDict](#properties-directmap-directmapdict) | [DirectMapDict](#properties-directmap-directmapdict) | a constructor
+from_dict_ | [DirectMapDictInput](#directmap-directmapdictinput), [DirectMapDict](#directmap-directmapdict) | [DirectMapDict](#directmap-directmapdict) | a constructor
 get_additional_property_ | str | bool, schemas.Unset | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

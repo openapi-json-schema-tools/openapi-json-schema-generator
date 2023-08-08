@@ -29,7 +29,7 @@ Keyword Argument | Type | Description | Notes
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**ArrayArrayNumber** | [properties.ArrayArrayNumber](#properties-arrayarraynumber) |  | [optional]
+**ArrayArrayNumber** | [ArrayArrayNumber](#arrayarraynumber) |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes
@@ -37,14 +37,14 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [ArrayOfArrayOfNumberOnlyDictInput](#arrayofarrayofnumberonlydictinput), [ArrayOfArrayOfNumberOnlyDict](#arrayofarrayofnumberonlydict) | [ArrayOfArrayOfNumberOnlyDict](#arrayofarrayofnumberonlydict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-# properties ArrayArrayNumber
+# ArrayArrayNumber
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayArrayNumberTupleInput](#properties-arrayarraynumber-arrayarraynumbertupleinput), [ArrayArrayNumberTuple](#properties-arrayarraynumber-arrayarraynumbertuple) | [ArrayArrayNumberTuple](#properties-arrayarraynumber-arrayarraynumbertuple) |
+[ArrayArrayNumberTupleInput](#arrayarraynumber-arrayarraynumbertupleinput), [ArrayArrayNumberTuple](#arrayarraynumber-arrayarraynumbertuple) | [ArrayArrayNumberTuple](#arrayarraynumber-arrayarraynumbertuple) |
 
-## properties ArrayArrayNumber ArrayArrayNumberTupleInput
+## ArrayArrayNumber ArrayArrayNumberTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -64,9 +64,9 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | [ItemsTupleInput](#properties-arrayarraynumber-itemstupleinput), [ItemsTuple](#properties-arrayarraynumber-itemstuple) |  |
+≥ 0 | [ItemsTupleInput](#arrayarraynumber-itemstupleinput), [ItemsTuple](#arrayarraynumber-itemstuple) |  |
 
-## properties ArrayArrayNumber ArrayArrayNumberTuple
+## ArrayArrayNumber ArrayArrayNumberTuple
 ```
 base class: typing.Tuple[
     ItemsTuple,
@@ -77,14 +77,14 @@ Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | list, tuple | tuple |  |
 
-# properties ArrayArrayNumber Items
+# ArrayArrayNumber Items
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ItemsTupleInput](#properties-arrayarraynumber-items-itemstupleinput), [ItemsTuple](#properties-arrayarraynumber-items-itemstuple) | [ItemsTuple](#properties-arrayarraynumber-items-itemstuple) |
+[ItemsTupleInput](#arrayarraynumber-items-itemstupleinput), [ItemsTuple](#arrayarraynumber-items-itemstuple) | [ItemsTuple](#arrayarraynumber-items-itemstuple) |
 
-## properties ArrayArrayNumber Items ItemsTupleInput
+## ArrayArrayNumber Items ItemsTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -106,7 +106,7 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | float, int |  |
 
-## properties ArrayArrayNumber Items ItemsTuple
+## ArrayArrayNumber Items ItemsTuple
 ```
 base class: typing.Tuple[
     typing.Union[int, float],

@@ -79,7 +79,7 @@ Property | Type | Description | Notes
 **float32** | float, int, schemas.Unset |  | [optional] value must be a 32 bit float
 **double** | float, int, schemas.Unset |  | [optional] value must be a 64 bit float
 **float64** | float, int, schemas.Unset |  | [optional] value must be a 64 bit float
-**arrayWithUniqueItems** | [properties.ArrayWithUniqueItems](#properties-arraywithuniqueitems) |  | [optional]
+**arrayWithUniqueItems** | [ArrayWithUniqueItems](#arraywithuniqueitems) |  | [optional]
 **string** | str, schemas.Unset |  | [optional]
 **binary** | bytes, io.FileIO, schemas.Unset |  | [optional]
 **dateTime** | str, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
@@ -96,14 +96,14 @@ from_dict_ | [FormatTestDictInput](#formattestdictinput), [FormatTestDict](#form
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.OUTPUT_BASE_TYPES | This model has invalid python names so this method is used under the hood when you access instance["float"], 
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-# properties ArrayWithUniqueItems
+# ArrayWithUniqueItems
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayWithUniqueItemsTupleInput](#properties-arraywithuniqueitems-arraywithuniqueitemstupleinput), [ArrayWithUniqueItemsTuple](#properties-arraywithuniqueitems-arraywithuniqueitemstuple) | [ArrayWithUniqueItemsTuple](#properties-arraywithuniqueitems-arraywithuniqueitemstuple) |
+[ArrayWithUniqueItemsTupleInput](#arraywithuniqueitems-arraywithuniqueitemstupleinput), [ArrayWithUniqueItemsTuple](#arraywithuniqueitems-arraywithuniqueitemstuple) | [ArrayWithUniqueItemsTuple](#arraywithuniqueitems-arraywithuniqueitemstuple) |
 
-## properties ArrayWithUniqueItems ArrayWithUniqueItemsTupleInput
+## ArrayWithUniqueItems ArrayWithUniqueItemsTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -125,7 +125,7 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | float, int |  |
 
-## properties ArrayWithUniqueItems ArrayWithUniqueItemsTuple
+## ArrayWithUniqueItems ArrayWithUniqueItemsTuple
 ```
 base class: typing.Tuple[
     typing.Union[int, float],

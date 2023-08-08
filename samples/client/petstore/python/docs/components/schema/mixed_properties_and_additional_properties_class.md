@@ -35,7 +35,7 @@ Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **uuid** | str, schemas.Unset |  | [optional] value must be a uuid
 **dateTime** | str, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
-**map** | [properties.Map](#properties-map) |  | [optional]
+**map** | [Map](#map) |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes
@@ -43,14 +43,14 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [MixedPropertiesAndAdditionalPropertiesClassDictInput](#mixedpropertiesandadditionalpropertiesclassdictinput), [MixedPropertiesAndAdditionalPropertiesClassDict](#mixedpropertiesandadditionalpropertiesclassdict) | [MixedPropertiesAndAdditionalPropertiesClassDict](#mixedpropertiesandadditionalpropertiesclassdict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-# properties Map
+# Map
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[MapDictInput](#properties-map-mapdictinput), [MapDict](#properties-map-mapdict) | [MapDict](#properties-map-mapdict) |
+[MapDictInput](#map-mapdictinput), [MapDict](#map-mapdict) | [MapDict](#map-mapdict) |
 
-## properties Map MapDictInput
+## Map MapDictInput
 ```
 type: typing.Mapping[
     str,
@@ -64,7 +64,7 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | [**Animal**](animal.md), dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
-## properties Map MapDict
+## Map MapDict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ```
@@ -76,7 +76,7 @@ Keyword Argument | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [MapDictInput](#properties-map-mapdictinput), [MapDict](#properties-map-mapdict) | [MapDict](#properties-map-mapdict) | a constructor
+from_dict_ | [MapDictInput](#map-mapdictinput), [MapDict](#map-mapdict) | [MapDict](#map-mapdict) | a constructor
 get_additional_property_ | str | [**Animal**](animal.md) | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
