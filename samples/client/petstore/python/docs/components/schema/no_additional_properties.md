@@ -16,6 +16,6 @@ Key | Type |  Description | Notes
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
 **id** | int | int |  | value must be a 64 bit integer
-**petId** | int | int, schemas.Unset |  | [optional] value must be a 64 bit integer
+**petId** | int, schemas.Unset | int, schemas.Unset |  | [optional] value must be a 64 bit integer
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

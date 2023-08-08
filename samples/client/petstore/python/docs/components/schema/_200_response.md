@@ -19,8 +19,8 @@ Key | Type |  Description | Notes
 ## _200ResponseDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**name** | int | int, schemas.Unset |  | [optional] value must be a 32 bit integer
-**class** | str | str, schemas.Unset | this is a reserved python keyword | [optional] value must be accessed with instance["class"] because the key is not a valid identifier 
+**name** | int, schemas.Unset | int, schemas.Unset |  | [optional] value must be a 32 bit integer
+**class** | str, schemas.Unset | str, schemas.Unset | this is a reserved python keyword | [optional] value must be accessed with instance["class"] because the key is not a valid identifier 
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

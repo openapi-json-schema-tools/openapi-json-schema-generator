@@ -20,12 +20,12 @@ Key | Type |  Description | Notes
 ## OrderDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**id** | int | int, schemas.Unset |  | [optional] value must be a 64 bit integer
-**petId** | int | int, schemas.Unset |  | [optional] value must be a 64 bit integer
-**quantity** | int | int, schemas.Unset |  | [optional] value must be a 32 bit integer
-**shipDate** | str, datetime.datetime | str, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
-**status** | str | str, schemas.Unset | Order Status | [optional] must be one of ["placed", "approved", "delivered"]
-**complete** | bool | bool, schemas.Unset |  | [optional] if omitted the server will use the default value of false
+**id** | int, schemas.Unset | int, schemas.Unset |  | [optional] value must be a 64 bit integer
+**petId** | int, schemas.Unset | int, schemas.Unset |  | [optional] value must be a 64 bit integer
+**quantity** | int, schemas.Unset | int, schemas.Unset |  | [optional] value must be a 32 bit integer
+**shipDate** | str, datetime.datetime, schemas.Unset | str, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
+**status** | str, schemas.Unset | str, schemas.Unset | Order Status | [optional] must be one of ["placed", "approved", "delivered"]
+**complete** | bool, schemas.Unset | bool, schemas.Unset |  | [optional] if omitted the server will use the default value of false
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

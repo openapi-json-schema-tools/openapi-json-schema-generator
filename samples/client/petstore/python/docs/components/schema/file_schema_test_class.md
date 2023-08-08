@@ -16,8 +16,8 @@ Key | Type |  Description | Notes
 ## FileSchemaTestClassDict
 Key | Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | ------------- | -------------
-**file** | [**File**](file.md), dict, schemas.immutabledict | [**File**](file.md) |  | [optional]
-**files** | list, tuple | [properties.Files](#properties-files) |  | [optional]
+**file** | [**File**](file.md), dict, schemas.immutabledict, schemas.Unset | [**File**](file.md) |  | [optional]
+**files** | list, tuple, schemas.Unset | [properties.Files](#properties-files) |  | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
 
 # properties Files
