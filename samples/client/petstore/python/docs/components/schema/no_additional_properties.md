@@ -13,11 +13,6 @@ Key | Type |  Description | Notes
 **petId** | int |  | [optional] value must be a 64 bit integer
 
 ## NoAdditionalPropertiesDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[NoAdditionalPropertiesDictInput](#noadditionalpropertiesdictinput), [NoAdditionalPropertiesDict](#noadditionalpropertiesdict) | [NoAdditionalPropertiesDict](#noadditionalpropertiesdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -29,5 +24,10 @@ Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **id** | int |  | value must be a 64 bit integer
 **petId** | int, schemas.Unset |  | [optional] value must be a 64 bit integer
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [NoAdditionalPropertiesDictInput](#noadditionalpropertiesdictinput), [NoAdditionalPropertiesDict](#noadditionalpropertiesdict) | [NoAdditionalPropertiesDict](#noadditionalpropertiesdict) | a constructor
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

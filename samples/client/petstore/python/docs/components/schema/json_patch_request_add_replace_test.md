@@ -14,11 +14,6 @@ Key | Type |  Description | Notes
 **value** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | The value to add, replace or test. |
 
 ## JSONPatchRequestAddReplaceTestDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[JSONPatchRequestAddReplaceTestDictInput](#jsonpatchrequestaddreplacetestdictinput), [JSONPatchRequestAddReplaceTestDict](#jsonpatchrequestaddreplacetestdict) | [JSONPatchRequestAddReplaceTestDict](#jsonpatchrequestaddreplacetestdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -32,5 +27,10 @@ Property | Type | Description | Notes
 **op** | str | The operation to perform. | must be one of ["add", "replace", "test"]
 **path** | str | A JSON Pointer path. |
 **value** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | The value to add, replace or test. |
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [JSONPatchRequestAddReplaceTestDictInput](#jsonpatchrequestaddreplacetestdictinput), [JSONPatchRequestAddReplaceTestDict](#jsonpatchrequestaddreplacetestdict) | [JSONPatchRequestAddReplaceTestDict](#jsonpatchrequestaddreplacetestdict) | a constructor
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

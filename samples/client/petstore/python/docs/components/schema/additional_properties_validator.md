@@ -27,15 +27,16 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## allof _0 _0Dict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[_0DictInput](#allof-_0-_0dictinput), [_0Dict](#allof-_0-_0dict) | [_0Dict](#allof-_0-_0dict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **kwargs** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [_0DictInput](#allof-_0-_0dictinput), [_0Dict](#allof-_0-_0dict) | [_0Dict](#allof-_0-_0dict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | provides type safety for additional properties
 
 # allof _1
 
@@ -50,15 +51,16 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## allof _1 _1Dict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[_1DictInput](#allof-_1-_1dictinput), [_1Dict](#allof-_1-_1dict) | [_1Dict](#allof-_1-_1dict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **kwargs** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [_1DictInput](#allof-_1-_1dictinput), [_1Dict](#allof-_1-_1dict) | [_1Dict](#allof-_1-_1dict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | provides type safety for additional properties
 
 # allof _2
 
@@ -73,14 +75,15 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## allof _2 _2Dict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[_2DictInput](#allof-_2-_2dictinput), [_2Dict](#allof-_2-_2dict) | [_2Dict](#allof-_2-_2dict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **kwargs** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [_2DictInput](#allof-_2-_2dictinput), [_2Dict](#allof-_2-_2dict) | [_2Dict](#allof-_2-_2dict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

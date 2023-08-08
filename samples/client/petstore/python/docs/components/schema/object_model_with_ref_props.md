@@ -18,11 +18,6 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## ObjectModelWithRefPropsDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[ObjectModelWithRefPropsDictInput](#objectmodelwithrefpropsdictinput), [ObjectModelWithRefPropsDict](#objectmodelwithrefpropsdict) | [ObjectModelWithRefPropsDict](#objectmodelwithrefpropsdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -37,5 +32,11 @@ Property | Type | Description | Notes
 **myNumber** | [**NumberWithValidations**](number_with_validations.md) |  | [optional]
 **myString** | [**String**](string.md) |  | [optional]
 **myBoolean** | [**Boolean**](boolean.md) |  | [optional]
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [ObjectModelWithRefPropsDictInput](#objectmodelwithrefpropsdictinput), [ObjectModelWithRefPropsDict](#objectmodelwithrefpropsdict) | [ObjectModelWithRefPropsDict](#objectmodelwithrefpropsdict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

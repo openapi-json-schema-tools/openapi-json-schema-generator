@@ -13,11 +13,6 @@ Key | Type |  Description | Notes
 **b** | float, int |  | [optional]
 
 ## ObjectWithOnlyOptionalPropsDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[ObjectWithOnlyOptionalPropsDictInput](#objectwithonlyoptionalpropsdictinput), [ObjectWithOnlyOptionalPropsDict](#objectwithonlyoptionalpropsdict) | [ObjectWithOnlyOptionalPropsDict](#objectwithonlyoptionalpropsdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -29,5 +24,10 @@ Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **a** | str, schemas.Unset |  | [optional]
 **b** | float, int, schemas.Unset |  | [optional]
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [ObjectWithOnlyOptionalPropsDictInput](#objectwithonlyoptionalpropsdictinput), [ObjectWithOnlyOptionalPropsDict](#objectwithonlyoptionalpropsdict) | [ObjectWithOnlyOptionalPropsDict](#objectwithonlyoptionalpropsdict) | a constructor
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

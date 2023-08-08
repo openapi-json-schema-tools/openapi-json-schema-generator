@@ -33,11 +33,6 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## FormatTestDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[FormatTestDictInput](#formattestdictinput), [FormatTestDict](#formattestdict) | [FormatTestDict](#formattestdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -86,6 +81,13 @@ Property | Type | Description | Notes
 **pattern_with_digits** | str, schemas.Unset | A string that is a 10 digit number. Can have leading zeros. | [optional]
 **pattern_with_digits_and_delimiter** | str, schemas.Unset | A string starting with &#x27;image_&#x27; (case insensitive) and one to three digits following i.e. Image_01. | [optional]
 **noneProp** | None, schemas.Unset |  | [optional]
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [FormatTestDictInput](#formattestdictinput), [FormatTestDict](#formattestdict) | [FormatTestDict](#formattestdict) | a constructor
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.OUTPUT_BASE_TYPES | This model has invalid python names so this method is used under the hood when you access instance["float"], 
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # properties ArrayWithUniqueItems
 

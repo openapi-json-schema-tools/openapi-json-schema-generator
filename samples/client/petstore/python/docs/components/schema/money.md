@@ -13,11 +13,6 @@ Key | Type |  Description | Notes
 **currency** | [**Currency**](currency.md), str |  |
 
 ## MoneyDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[MoneyDictInput](#moneydictinput), [MoneyDict](#moneydict) | [MoneyDict](#moneydict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -29,5 +24,10 @@ Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **amount** | str |  | value must be int or float numeric
 **currency** | [**Currency**](currency.md) |  |
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [MoneyDictInput](#moneydictinput), [MoneyDict](#moneydict) | [MoneyDict](#moneydict) | a constructor
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

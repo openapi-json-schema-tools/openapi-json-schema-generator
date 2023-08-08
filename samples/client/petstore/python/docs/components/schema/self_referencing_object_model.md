@@ -13,11 +13,6 @@ Key | Type |  Description | Notes
 **any_string_name** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
 ## SelfReferencingObjectModelDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[SelfReferencingObjectModelDictInput](#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) | [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -28,5 +23,11 @@ Keyword Argument | Type | Description | Notes
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **selfRef** | [**SelfReferencingObjectModel**](#top) |  | [optional]
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [SelfReferencingObjectModelDictInput](#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) | [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) | a constructor
+get_additional_property_ | str | [**SelfReferencingObjectModel**](#top) | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

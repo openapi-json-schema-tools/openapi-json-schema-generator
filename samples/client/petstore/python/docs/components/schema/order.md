@@ -18,11 +18,6 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## OrderDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[OrderDictInput](#orderdictinput), [OrderDict](#orderdict) | [OrderDict](#orderdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -43,5 +38,11 @@ Property | Type | Description | Notes
 **shipDate** | str, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
 **status** | str, schemas.Unset | Order Status | [optional] must be one of ["placed", "approved", "delivered"]
 **complete** | bool, schemas.Unset |  | [optional] if omitted the server will use the default value of false
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [OrderDictInput](#orderdictinput), [OrderDict](#orderdict) | [OrderDict](#orderdict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

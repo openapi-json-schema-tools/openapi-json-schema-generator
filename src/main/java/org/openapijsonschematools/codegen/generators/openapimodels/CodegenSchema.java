@@ -81,6 +81,7 @@ public class CodegenSchema {
     public boolean isBooleanSchemaFalse;  // supports boolean schemas
 
     // Extra needed fields
+    // stores the mapping value schema, used to provide a value type for the object output class
     public CodegenSchema mapValueSchema;
     public boolean componentModule;
     public TreeSet<String> imports;

@@ -35,15 +35,16 @@ Key | Type |  Description | Notes
 **any_string_name** | int | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
 
 #### content ApplicationJson Schema SchemaDict
-##### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[SchemaDictInput](#content-applicationjson-schema-schemadictinput), [SchemaDict](#content-applicationjson-schema-schemadict) | [SchemaDict](#content-applicationjson-schema-schemadict)
-
 ##### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **kwargs** | int | int, schemas.Unset | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer typed value is accessed with the get_additional_property_ method
+
+##### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [SchemaDictInput](#content-applicationjson-schema-schemadictinput), [SchemaDict](#content-applicationjson-schema-schemadict) | [SchemaDict](#content-applicationjson-schema-schemadict) | a constructor
+get_additional_property_ | str | int, schemas.Unset | provides type safety for additional properties
 
 ## Header Details
 ### headers SomeHeader

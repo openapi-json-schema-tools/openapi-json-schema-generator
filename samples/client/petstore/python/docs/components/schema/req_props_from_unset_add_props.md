@@ -14,11 +14,6 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## ReqPropsFromUnsetAddPropsDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[ReqPropsFromUnsetAddPropsDictInput](#reqpropsfromunsetaddpropsdictinput), [ReqPropsFromUnsetAddPropsDict](#reqpropsfromunsetaddpropsdict) | [ReqPropsFromUnsetAddPropsDict](#reqpropsfromunsetaddpropsdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -29,5 +24,12 @@ Keyword Argument | Type | Description | Notes
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **validName** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [ReqPropsFromUnsetAddPropsDictInput](#reqpropsfromunsetaddpropsdictinput), [ReqPropsFromUnsetAddPropsDict](#reqpropsfromunsetaddpropsdict) | [ReqPropsFromUnsetAddPropsDict](#reqpropsfromunsetaddpropsdict) | a constructor
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.OUTPUT_BASE_TYPES | This model has invalid python names so this method is used under the hood when you access instance["invalid-name"], 
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

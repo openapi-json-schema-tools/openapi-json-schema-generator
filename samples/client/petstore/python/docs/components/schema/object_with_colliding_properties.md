@@ -17,11 +17,6 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## ObjectWithCollidingPropertiesDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[ObjectWithCollidingPropertiesDictInput](#objectwithcollidingpropertiesdictinput), [ObjectWithCollidingPropertiesDict](#objectwithcollidingpropertiesdict) | [ObjectWithCollidingPropertiesDict](#objectwithcollidingpropertiesdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -34,6 +29,12 @@ Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **someProp** | [properties.SomeProp](#properties-someprop) |  | [optional]
 **someprop** | [properties.Someprop2](#properties-someprop2) |  | [optional]
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [ObjectWithCollidingPropertiesDictInput](#objectwithcollidingpropertiesdictinput), [ObjectWithCollidingPropertiesDict](#objectwithcollidingpropertiesdict) | [ObjectWithCollidingPropertiesDict](#objectwithcollidingpropertiesdict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # properties SomeProp
 

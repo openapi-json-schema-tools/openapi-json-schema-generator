@@ -15,11 +15,6 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## MixedPropertiesAndAdditionalPropertiesClassDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[MixedPropertiesAndAdditionalPropertiesClassDictInput](#mixedpropertiesandadditionalpropertiesclassdictinput), [MixedPropertiesAndAdditionalPropertiesClassDict](#mixedpropertiesandadditionalpropertiesclassdict) | [MixedPropertiesAndAdditionalPropertiesClassDict](#mixedpropertiesandadditionalpropertiesclassdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -35,6 +30,12 @@ Property | Type | Description | Notes
 **dateTime** | str, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
 **map** | [properties.Map](#properties-map) |  | [optional]
 
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [MixedPropertiesAndAdditionalPropertiesClassDictInput](#mixedpropertiesandadditionalpropertiesclassdictinput), [MixedPropertiesAndAdditionalPropertiesClassDict](#mixedpropertiesandadditionalpropertiesclassdict) | [MixedPropertiesAndAdditionalPropertiesClassDict](#mixedpropertiesandadditionalpropertiesclassdict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
+
 # properties Map
 
 ## validate method
@@ -48,14 +49,15 @@ Key | Type |  Description | Notes
 **any_string_name** | [**Animal**](animal.md), dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
 ## properties Map MapDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[MapDictInput](#properties-map-mapdictinput), [MapDict](#properties-map-mapdict) | [MapDict](#properties-map-mapdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **kwargs** | [**Animal**](animal.md), dict, schemas.immutabledict | [**Animal**](animal.md) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [MapDictInput](#properties-map-mapdictinput), [MapDict](#properties-map-mapdict) | [MapDict](#properties-map-mapdict) | a constructor
+get_additional_property_ | str | [**Animal**](animal.md) | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

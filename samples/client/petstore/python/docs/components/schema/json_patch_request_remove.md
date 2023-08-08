@@ -13,11 +13,6 @@ Key | Type |  Description | Notes
 **path** | str | A JSON Pointer path. |
 
 ## JSONPatchRequestRemoveDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[JSONPatchRequestRemoveDictInput](#jsonpatchrequestremovedictinput), [JSONPatchRequestRemoveDict](#jsonpatchrequestremovedict) | [JSONPatchRequestRemoveDict](#jsonpatchrequestremovedict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -29,5 +24,10 @@ Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **op** | str | The operation to perform. | must be one of ["remove"]
 **path** | str | A JSON Pointer path. |
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [JSONPatchRequestRemoveDictInput](#jsonpatchrequestremovedictinput), [JSONPatchRequestRemoveDict](#jsonpatchrequestremovedict) | [JSONPatchRequestRemoveDict](#jsonpatchrequestremovedict) | a constructor
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

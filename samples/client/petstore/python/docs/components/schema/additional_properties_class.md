@@ -20,11 +20,6 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalPropertiesClassDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[AdditionalPropertiesClassDictInput](#additionalpropertiesclassdictinput), [AdditionalPropertiesClassDict](#additionalpropertiesclassdict) | [AdditionalPropertiesClassDict](#additionalpropertiesclassdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -50,6 +45,12 @@ Property | Type | Description | Notes
 **empty_map** | [properties.EmptyMap](#properties-emptymap) | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional]
 **map_with_undeclared_properties_string** | [properties.MapWithUndeclaredPropertiesString](#properties-mapwithundeclaredpropertiesstring) |  | [optional]
 
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [AdditionalPropertiesClassDictInput](#additionalpropertiesclassdictinput), [AdditionalPropertiesClassDict](#additionalpropertiesclassdict) | [AdditionalPropertiesClassDict](#additionalpropertiesclassdict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
+
 # properties MapProperty
 
 ## validate method
@@ -63,15 +64,16 @@ Key | Type |  Description | Notes
 **any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
 ## properties MapProperty MapPropertyDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[MapPropertyDictInput](#properties-mapproperty-mappropertydictinput), [MapPropertyDict](#properties-mapproperty-mappropertydict) | [MapPropertyDict](#properties-mapproperty-mappropertydict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **kwargs** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [MapPropertyDictInput](#properties-mapproperty-mappropertydictinput), [MapPropertyDict](#properties-mapproperty-mappropertydict) | [MapPropertyDict](#properties-mapproperty-mappropertydict) | a constructor
+get_additional_property_ | str | str, schemas.Unset | provides type safety for additional properties
 
 # properties MapOfMapProperty
 
@@ -86,15 +88,16 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
 ## properties MapOfMapProperty MapOfMapPropertyDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[MapOfMapPropertyDictInput](#properties-mapofmapproperty-mapofmappropertydictinput), [MapOfMapPropertyDict](#properties-mapofmapproperty-mapofmappropertydict) | [MapOfMapPropertyDict](#properties-mapofmapproperty-mapofmappropertydict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **kwargs** | dict, schemas.immutabledict | [AdditionalProperties2](#properties-mapofmapproperty-additionalproperties2) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [MapOfMapPropertyDictInput](#properties-mapofmapproperty-mapofmappropertydictinput), [MapOfMapPropertyDict](#properties-mapofmapproperty-mapofmappropertydict) | [MapOfMapPropertyDict](#properties-mapofmapproperty-mapofmappropertydict) | a constructor
+get_additional_property_ | str | [AdditionalProperties2](#properties-mapofmapproperty-additionalproperties2) | provides type safety for additional properties
 
 # properties MapOfMapProperty AdditionalProperties2
 
@@ -109,15 +112,16 @@ Key | Type |  Description | Notes
 **any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
 ## properties MapOfMapProperty AdditionalProperties2 AdditionalPropertiesDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[AdditionalPropertiesDictInput](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdictinput), [AdditionalPropertiesDict](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdict) | [AdditionalPropertiesDict](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **kwargs** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [AdditionalPropertiesDictInput](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdictinput), [AdditionalPropertiesDict](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdict) | [AdditionalPropertiesDict](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdict) | a constructor
+get_additional_property_ | str | str, schemas.Unset | provides type safety for additional properties
 
 # properties MapWithUndeclaredPropertiesAnytype1
 
@@ -146,15 +150,16 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## properties MapWithUndeclaredPropertiesAnytype3 MapWithUndeclaredPropertiesAnytype3Dict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[MapWithUndeclaredPropertiesAnytype3DictInput](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dictinput), [MapWithUndeclaredPropertiesAnytype3Dict](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dict) | [MapWithUndeclaredPropertiesAnytype3Dict](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **kwargs** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [MapWithUndeclaredPropertiesAnytype3DictInput](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dictinput), [MapWithUndeclaredPropertiesAnytype3Dict](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dict) | [MapWithUndeclaredPropertiesAnytype3Dict](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | provides type safety for additional properties
 
 # properties EmptyMap
 
@@ -171,14 +176,14 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 
 ## properties EmptyMap EmptyMapDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[EmptyMapDictInput](#properties-emptymap-emptymapdictinput), [EmptyMapDict](#properties-emptymap-emptymapdict) | [EmptyMapDict](#properties-emptymap-emptymapdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [EmptyMapDictInput](#properties-emptymap-emptymapdictinput), [EmptyMapDict](#properties-emptymap-emptymapdict) | [EmptyMapDict](#properties-emptymap-emptymapdict) | a constructor
 
 # properties MapWithUndeclaredPropertiesString
 
@@ -193,14 +198,15 @@ Key | Type |  Description | Notes
 **any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
 ## properties MapWithUndeclaredPropertiesString MapWithUndeclaredPropertiesStringDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[MapWithUndeclaredPropertiesStringDictInput](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdictinput), [MapWithUndeclaredPropertiesStringDict](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdict) | [MapWithUndeclaredPropertiesStringDict](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **kwargs** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [MapWithUndeclaredPropertiesStringDictInput](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdictinput), [MapWithUndeclaredPropertiesStringDict](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdict) | [MapWithUndeclaredPropertiesStringDict](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdict) | a constructor
+get_additional_property_ | str | str, schemas.Unset | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -13,11 +13,6 @@ Key | Type |  Description | Notes
 **any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
 ## ObjectWithNonIntersectingValuesDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[ObjectWithNonIntersectingValuesDictInput](#objectwithnonintersectingvaluesdictinput), [ObjectWithNonIntersectingValuesDict](#objectwithnonintersectingvaluesdict) | [ObjectWithNonIntersectingValuesDict](#objectwithnonintersectingvaluesdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -28,5 +23,11 @@ Keyword Argument | Type | Description | Notes
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **a** | float, int, schemas.Unset |  | [optional]
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [ObjectWithNonIntersectingValuesDictInput](#objectwithnonintersectingvaluesdictinput), [ObjectWithNonIntersectingValuesDict](#objectwithnonintersectingvaluesdict) | [ObjectWithNonIntersectingValuesDict](#objectwithnonintersectingvaluesdict) | a constructor
+get_additional_property_ | str | str, schemas.Unset | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

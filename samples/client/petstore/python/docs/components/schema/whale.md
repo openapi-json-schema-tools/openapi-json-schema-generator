@@ -15,11 +15,6 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## WhaleDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[WhaleDictInput](#whaledictinput), [WhaleDict](#whaledict) | [WhaleDict](#whaledict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -34,5 +29,11 @@ Property | Type | Description | Notes
 **className** | str |  | must be one of ["whale"]
 **hasBaleen** | bool, schemas.Unset |  | [optional]
 **hasTeeth** | bool, schemas.Unset |  | [optional]
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [WhaleDictInput](#whaledictinput), [WhaleDict](#whaledict) | [WhaleDict](#whaledict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

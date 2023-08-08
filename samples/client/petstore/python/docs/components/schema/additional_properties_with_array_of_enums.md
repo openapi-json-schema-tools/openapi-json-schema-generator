@@ -12,15 +12,16 @@ Key | Type |  Description | Notes
 **any_string_name** | list, tuple | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalPropertiesWithArrayOfEnumsDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[AdditionalPropertiesWithArrayOfEnumsDictInput](#additionalpropertieswitharrayofenumsdictinput), [AdditionalPropertiesWithArrayOfEnumsDict](#additionalpropertieswitharrayofenumsdict) | [AdditionalPropertiesWithArrayOfEnumsDict](#additionalpropertieswitharrayofenumsdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **kwargs** | list, tuple | [AdditionalProperties](#additionalproperties) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [AdditionalPropertiesWithArrayOfEnumsDictInput](#additionalpropertieswitharrayofenumsdictinput), [AdditionalPropertiesWithArrayOfEnumsDict](#additionalpropertieswitharrayofenumsdict) | [AdditionalPropertiesWithArrayOfEnumsDict](#additionalpropertieswitharrayofenumsdict) | a constructor
+get_additional_property_ | str | [AdditionalProperties](#additionalproperties) | provides type safety for additional properties
 
 # AdditionalProperties
 

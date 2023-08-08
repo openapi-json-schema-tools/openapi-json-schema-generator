@@ -21,11 +21,6 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## AnyTypeAndFormatDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[AnyTypeAndFormatDictInput](#anytypeandformatdictinput), [AnyTypeAndFormatDict](#anytypeandformatdict) | [AnyTypeAndFormatDict](#anytypeandformatdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -48,5 +43,12 @@ Property | Type | Description | Notes
 **int32** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset |  | [optional] value must be a 32 bit integer
 **int64** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset |  | [optional] value must be a 64 bit integer
 **double** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset |  | [optional] value must be a 64 bit float
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [AnyTypeAndFormatDictInput](#anytypeandformatdictinput), [AnyTypeAndFormatDict](#anytypeandformatdict) | [AnyTypeAndFormatDict](#anytypeandformatdict) | a constructor
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.OUTPUT_BASE_TYPES | This model has invalid python names so this method is used under the hood when you access instance["date-time"], instance["float"], 
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -16,11 +16,6 @@ Key | Type |  Description | Notes
 **any_string_name** | [**Fruit**](fruit.md), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## DrawingDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[DrawingDictInput](#drawingdictinput), [DrawingDict](#drawingdict) | [DrawingDict](#drawingdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -37,6 +32,12 @@ Property | Type | Description | Notes
 **shapeOrNull** | [**ShapeOrNull**](shape_or_null.md) |  | [optional]
 **nullableShape** | [**NullableShape**](nullable_shape.md) |  | [optional]
 **shapes** | [properties.Shapes](#properties-shapes) |  | [optional]
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [DrawingDictInput](#drawingdictinput), [DrawingDict](#drawingdict) | [DrawingDict](#drawingdict) | a constructor
+get_additional_property_ | str | [**Fruit**](fruit.md) | provides type safety for additional properties
 
 # properties Shapes
 

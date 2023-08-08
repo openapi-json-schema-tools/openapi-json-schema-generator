@@ -13,11 +13,6 @@ Key | Type |  Description | Notes
 **mealy** | bool |  | [optional]
 
 ## AppleReqDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[AppleReqDictInput](#applereqdictinput), [AppleReqDict](#applereqdict) | [AppleReqDict](#applereqdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -29,5 +24,10 @@ Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **cultivar** | str |  |
 **mealy** | bool, schemas.Unset |  | [optional]
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [AppleReqDictInput](#applereqdictinput), [AppleReqDict](#applereqdict) | [AppleReqDict](#applereqdict) | a constructor
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

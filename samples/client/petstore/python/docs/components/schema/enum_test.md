@@ -21,11 +21,6 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## EnumTestDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[EnumTestDictInput](#enumtestdictinput), [EnumTestDict](#enumtestdict) | [EnumTestDict](#enumtestdict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -52,5 +47,11 @@ Property | Type | Description | Notes
 **StringEnumWithDefaultValue** | [**StringEnumWithDefaultValue**](string_enum_with_default_value.md) |  | [optional]
 **IntegerEnumWithDefaultValue** | [**IntegerEnumWithDefaultValue**](integer_enum_with_default_value.md) |  | [optional]
 **IntegerEnumOneValue** | [**IntegerEnumOneValue**](integer_enum_one_value.md) |  | [optional]
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [EnumTestDictInput](#enumtestdictinput), [EnumTestDict](#enumtestdict) | [EnumTestDict](#enumtestdict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -18,11 +18,6 @@ Key | Type |  Description | Notes
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## AbstractStepMessageDict
-### from_dict_ method
-Input Type | Return Type
----------- | -----------
-[AbstractStepMessageDictInput](#abstractstepmessagedictinput), [AbstractStepMessageDict](#abstractstepmessagedict) | [AbstractStepMessageDict](#abstractstepmessagedict)
-
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
@@ -37,6 +32,12 @@ Property | Type | Description | Notes
 **description** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 **discriminator** | str |  |
 **sequenceNumber** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [AbstractStepMessageDictInput](#abstractstepmessagedictinput), [AbstractStepMessageDict](#abstractstepmessagedict) | [AbstractStepMessageDict](#abstractstepmessagedict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## anyOf
