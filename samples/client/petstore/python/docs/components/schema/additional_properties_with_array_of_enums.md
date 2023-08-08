@@ -24,13 +24,13 @@ Input Type | Return Type | Notes
 [AdditionalPropertiesTupleInput](#additionalproperties-additionalpropertiestupleinput), [AdditionalPropertiesTuple](#additionalproperties-additionalpropertiestuple) | [AdditionalPropertiesTuple](#additionalproperties-additionalpropertiestuple) |
 
 ## AdditionalProperties AdditionalPropertiesTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-[**EnumClass**](enum_class.md) | [**EnumClass**](enum_class.md) |  |
+≥ 0 | [**EnumClass**](enum_class.md) |  |
 
 ## AdditionalProperties AdditionalPropertiesTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**EnumClass**](enum_class.md) | [**EnumClass**](enum_class.md) | [**EnumClass**](enum_class.md) |  |
+≥ 0 | [**EnumClass**](enum_class.md) | [**EnumClass**](enum_class.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

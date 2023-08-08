@@ -26,14 +26,14 @@ Input Type | Return Type | Notes
 [SchemaTupleInput](#content-applicationxml-schema-schematupleinput), [SchemaTuple](#content-applicationxml-schema-schematuple) | [SchemaTuple](#content-applicationxml-schema-schematuple) |
 
 #### content ApplicationXml Schema SchemaTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-[**Pet**](../../components/schema/pet.md) | [**Pet**](../../components/schema/pet.md) |  |
+≥ 0 | [**Pet**](../../components/schema/pet.md) |  |
 
 #### content ApplicationXml Schema SchemaTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Pet**](../../components/schema/pet.md) | [**Pet**](../../components/schema/pet.md) | [**Pet**](../../components/schema/pet.md) |  |
+≥ 0 | [**Pet**](../../components/schema/pet.md) | [**Pet**](../../components/schema/pet.md) |  |
 ### content ApplicationJson Schema
 
 #### validate method
@@ -42,13 +42,13 @@ Input Type | Return Type | Notes
 [SchemaTupleInput](#content-applicationjson-schema-schematupleinput), [SchemaTuple](#content-applicationjson-schema-schematuple) | [SchemaTuple](#content-applicationjson-schema-schematuple) |
 
 #### content ApplicationJson Schema SchemaTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-[**RefPet**](../../components/schema/ref_pet.md) | [**RefPet**](../../components/schema/ref_pet.md) |  |
+≥ 0 | [**RefPet**](../../components/schema/ref_pet.md) |  |
 
 #### content ApplicationJson Schema SchemaTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**RefPet**](../../components/schema/ref_pet.md) | [**RefPet**](../../components/schema/ref_pet.md) | [**RefPet**](../../components/schema/ref_pet.md) |  |
+≥ 0 | [**RefPet**](../../components/schema/ref_pet.md) | [**RefPet**](../../components/schema/ref_pet.md) |  |
 
 [[Back to top]](#top) [[Back to Component Responses]](../../../README.md#Component-Responses) [[Back to README]](../../../README.md)

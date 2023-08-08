@@ -30,14 +30,14 @@ Input Type | Return Type | Notes
 [ArrayOfStringTupleInput](#properties-arrayofstring-arrayofstringtupleinput), [ArrayOfStringTuple](#properties-arrayofstring-arrayofstringtuple) | [ArrayOfStringTuple](#properties-arrayofstring-arrayofstringtuple) |
 
 ## properties ArrayOfString ArrayOfStringTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-items | str |  |
+≥ 0 | str |  |
 
 ## properties ArrayOfString ArrayOfStringTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str | str |  |
+≥ 0 | str | str |  |
 
 # properties ArrayArrayOfInteger
 
@@ -47,14 +47,14 @@ Input Type | Return Type | Notes
 [ArrayArrayOfIntegerTupleInput](#properties-arrayarrayofinteger-arrayarrayofintegertupleinput), [ArrayArrayOfIntegerTuple](#properties-arrayarrayofinteger-arrayarrayofintegertuple) | [ArrayArrayOfIntegerTuple](#properties-arrayarrayofinteger-arrayarrayofintegertuple) |
 
 ## properties ArrayArrayOfInteger ArrayArrayOfIntegerTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayarrayofinteger-items2) | list, tuple |  |
+≥ 0 | list, tuple |  |
 
 ## properties ArrayArrayOfInteger ArrayArrayOfIntegerTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayarrayofinteger-items2) | list, tuple | tuple |  |
+≥ 0 | list, tuple | tuple |  |
 
 # properties ArrayArrayOfInteger Items2
 
@@ -64,14 +64,14 @@ Input Type | Return Type | Notes
 [ItemsTupleInput](#properties-arrayarrayofinteger-items2-itemstupleinput), [ItemsTuple](#properties-arrayarrayofinteger-items2-itemstuple) | [ItemsTuple](#properties-arrayarrayofinteger-items2-itemstuple) |
 
 ## properties ArrayArrayOfInteger Items2 ItemsTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-items | int |  | value must be a 64 bit integer
+≥ 0 | int |  | value must be a 64 bit integer
 
 ## properties ArrayArrayOfInteger Items2 ItemsTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | int | int |  | value must be a 64 bit integer
+≥ 0 | int | int |  | value must be a 64 bit integer
 
 # properties ArrayArrayOfModel
 
@@ -81,14 +81,14 @@ Input Type | Return Type | Notes
 [ArrayArrayOfModelTupleInput](#properties-arrayarrayofmodel-arrayarrayofmodeltupleinput), [ArrayArrayOfModelTuple](#properties-arrayarrayofmodel-arrayarrayofmodeltuple) | [ArrayArrayOfModelTuple](#properties-arrayarrayofmodel-arrayarrayofmodeltuple) |
 
 ## properties ArrayArrayOfModel ArrayArrayOfModelTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayarrayofmodel-items4) | list, tuple |  |
+≥ 0 | list, tuple |  |
 
 ## properties ArrayArrayOfModel ArrayArrayOfModelTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayarrayofmodel-items4) | list, tuple | tuple |  |
+≥ 0 | list, tuple | tuple |  |
 
 # properties ArrayArrayOfModel Items4
 
@@ -98,13 +98,13 @@ Input Type | Return Type | Notes
 [ItemsTupleInput2](#properties-arrayarrayofmodel-items4-itemstupleinput2), [ItemsTuple2](#properties-arrayarrayofmodel-items4-itemstuple2) | [ItemsTuple2](#properties-arrayarrayofmodel-items4-itemstuple2) |
 
 ## properties ArrayArrayOfModel Items4 ItemsTupleInput2
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-[**ReadOnlyFirst**](read_only_first.md) | [**ReadOnlyFirst**](read_only_first.md) |  |
+≥ 0 | [**ReadOnlyFirst**](read_only_first.md) |  |
 
 ## properties ArrayArrayOfModel Items4 ItemsTuple2
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**ReadOnlyFirst**](read_only_first.md) | [**ReadOnlyFirst**](read_only_first.md) | [**ReadOnlyFirst**](read_only_first.md) |  |
+≥ 0 | [**ReadOnlyFirst**](read_only_first.md) | [**ReadOnlyFirst**](read_only_first.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

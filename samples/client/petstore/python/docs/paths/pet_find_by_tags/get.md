@@ -56,14 +56,14 @@ Input Type | Return Type | Notes
 [SchemaTupleInput](#parameter0-schema-schematupleinput), [SchemaTuple](#parameter0-schema-schematuple) | [SchemaTuple](#parameter0-schema-schematuple) |
 
 ###### Parameter0 Schema SchemaTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-items | str |  |
+≥ 0 | str |  |
 
 ###### Parameter0 Schema SchemaTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str | str |  |
+≥ 0 | str | str |  |
 
 ## Return Types
 

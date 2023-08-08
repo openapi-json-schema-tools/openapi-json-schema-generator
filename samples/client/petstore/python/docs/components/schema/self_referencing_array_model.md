@@ -7,13 +7,13 @@ Input Type | Return Type | Notes
 [SelfReferencingArrayModelTupleInput](#selfreferencingarraymodeltupleinput), [SelfReferencingArrayModelTuple](#selfreferencingarraymodeltuple) | [SelfReferencingArrayModelTuple](#selfreferencingarraymodeltuple) |
 
 ## SelfReferencingArrayModelTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-[**SelfReferencingArrayModel**](#top) | [**SelfReferencingArrayModel**](#top) |  |
+≥ 0 | [**SelfReferencingArrayModel**](#top) |  |
 
 ## SelfReferencingArrayModelTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**SelfReferencingArrayModel**](#top) | [**SelfReferencingArrayModel**](#top) | [**SelfReferencingArrayModel**](#top) |  |
+≥ 0 | [**SelfReferencingArrayModel**](#top) | [**SelfReferencingArrayModel**](#top) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

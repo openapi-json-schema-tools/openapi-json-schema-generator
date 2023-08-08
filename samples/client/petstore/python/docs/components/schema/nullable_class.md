@@ -48,14 +48,14 @@ Input Type | Return Type | Notes
 None, [ArrayNullablePropTupleInput](#properties-arraynullableprop-arraynullableproptupleinput), [ArrayNullablePropTuple](#properties-arraynullableprop-arraynullableproptuple) | None, [ArrayNullablePropTuple](#properties-arraynullableprop-arraynullableproptuple) |
 
 ## properties ArrayNullableProp ArrayNullablePropTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-[items](#properties-arraynullableprop-items) | dict, schemas.immutabledict |  |
+≥ 0 | dict, schemas.immutabledict |  |
 
 ## properties ArrayNullableProp ArrayNullablePropTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#properties-arraynullableprop-items) | dict, schemas.immutabledict | schemas.immutabledict |  |
+≥ 0 | dict, schemas.immutabledict | schemas.immutabledict |  |
 
 # properties ArrayNullableProp Items
 
@@ -72,14 +72,14 @@ Input Type | Return Type | Notes
 None, [ArrayAndItemsNullablePropTupleInput](#properties-arrayanditemsnullableprop-arrayanditemsnullableproptupleinput), [ArrayAndItemsNullablePropTuple](#properties-arrayanditemsnullableprop-arrayanditemsnullableproptuple) | None, [ArrayAndItemsNullablePropTuple](#properties-arrayanditemsnullableprop-arrayanditemsnullableproptuple) |
 
 ## properties ArrayAndItemsNullableProp ArrayAndItemsNullablePropTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayanditemsnullableprop-items2) | None, dict, schemas.immutabledict |  |
+≥ 0 | None, dict, schemas.immutabledict |  |
 
 ## properties ArrayAndItemsNullableProp ArrayAndItemsNullablePropTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayanditemsnullableprop-items2) | None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
+≥ 0 | None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
 
 # properties ArrayAndItemsNullableProp Items2
 
@@ -96,14 +96,14 @@ Input Type | Return Type | Notes
 [ArrayItemsNullableTupleInput](#properties-arrayitemsnullable-arrayitemsnullabletupleinput), [ArrayItemsNullableTuple](#properties-arrayitemsnullable-arrayitemsnullabletuple) | [ArrayItemsNullableTuple](#properties-arrayitemsnullable-arrayitemsnullabletuple) |
 
 ## properties ArrayItemsNullable ArrayItemsNullableTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayitemsnullable-items3) | None, dict, schemas.immutabledict |  |
+≥ 0 | None, dict, schemas.immutabledict |  |
 
 ## properties ArrayItemsNullable ArrayItemsNullableTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayitemsnullable-items3) | None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
+≥ 0 | None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
 
 # properties ArrayItemsNullable Items3
 

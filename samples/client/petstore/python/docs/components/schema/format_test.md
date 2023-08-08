@@ -66,13 +66,13 @@ Input Type | Return Type | Notes
 [ArrayWithUniqueItemsTupleInput](#properties-arraywithuniqueitems-arraywithuniqueitemstupleinput), [ArrayWithUniqueItemsTuple](#properties-arraywithuniqueitems-arraywithuniqueitemstuple) | [ArrayWithUniqueItemsTuple](#properties-arraywithuniqueitems-arraywithuniqueitemstuple) |
 
 ## properties ArrayWithUniqueItems ArrayWithUniqueItemsTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-items | float, int |  |
+≥ 0 | float, int |  |
 
 ## properties ArrayWithUniqueItems ArrayWithUniqueItemsTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | float, int | float, int |  |
+≥ 0 | float, int | float, int |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

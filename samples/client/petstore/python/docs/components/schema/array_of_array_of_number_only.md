@@ -26,14 +26,14 @@ Input Type | Return Type | Notes
 [ArrayArrayNumberTupleInput](#properties-arrayarraynumber-arrayarraynumbertupleinput), [ArrayArrayNumberTuple](#properties-arrayarraynumber-arrayarraynumbertuple) | [ArrayArrayNumberTuple](#properties-arrayarraynumber-arrayarraynumbertuple) |
 
 ## properties ArrayArrayNumber ArrayArrayNumberTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayarraynumber-items) | list, tuple |  |
+≥ 0 | list, tuple |  |
 
 ## properties ArrayArrayNumber ArrayArrayNumberTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayarraynumber-items) | list, tuple | tuple |  |
+≥ 0 | list, tuple | tuple |  |
 
 # properties ArrayArrayNumber Items
 
@@ -43,13 +43,13 @@ Input Type | Return Type | Notes
 [ItemsTupleInput](#properties-arrayarraynumber-items-itemstupleinput), [ItemsTuple](#properties-arrayarraynumber-items-itemstuple) | [ItemsTuple](#properties-arrayarraynumber-items-itemstuple) |
 
 ## properties ArrayArrayNumber Items ItemsTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-items | float, int |  |
+≥ 0 | float, int |  |
 
 ## properties ArrayArrayNumber Items ItemsTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | float, int | float, int |  |
+≥ 0 | float, int | float, int |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

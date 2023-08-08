@@ -7,13 +7,13 @@ Input Type | Return Type | Notes
 [ArrayOfEnumsTupleInput](#arrayofenumstupleinput), [ArrayOfEnumsTuple](#arrayofenumstuple) | [ArrayOfEnumsTuple](#arrayofenumstuple) |
 
 ## ArrayOfEnumsTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-[**StringEnum**](string_enum.md) | [**StringEnum**](string_enum.md) |  |
+≥ 0 | [**StringEnum**](string_enum.md) |  |
 
 ## ArrayOfEnumsTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**StringEnum**](string_enum.md) | [**StringEnum**](string_enum.md) | [**StringEnum**](string_enum.md) |  |
+≥ 0 | [**StringEnum**](string_enum.md) | [**StringEnum**](string_enum.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

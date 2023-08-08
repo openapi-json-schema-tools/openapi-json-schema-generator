@@ -26,13 +26,13 @@ Input Type | Return Type | Notes
 [ArrayNumberTupleInput](#properties-arraynumber-arraynumbertupleinput), [ArrayNumberTuple](#properties-arraynumber-arraynumbertuple) | [ArrayNumberTuple](#properties-arraynumber-arraynumbertuple) |
 
 ## properties ArrayNumber ArrayNumberTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-items | float, int |  |
+≥ 0 | float, int |  |
 
 ## properties ArrayNumber ArrayNumberTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | float, int | float, int |  |
+≥ 0 | float, int | float, int |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -75,14 +75,14 @@ Input Type | Return Type | Notes
 [EnumFormStringArrayTupleInput](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray-enumformstringarraytupleinput), [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray-enumformstringarraytuple) | [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray-enumformstringarraytuple) |
 
 ##### RequestBody content ApplicationXWwwFormUrlencoded Schema properties EnumFormStringArray EnumFormStringArrayTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-items | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
+≥ 0 | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 ##### RequestBody content ApplicationXWwwFormUrlencoded Schema properties EnumFormStringArray EnumFormStringArrayTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
+≥ 0 | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 ### query_params
 #### RequestQueryParameters.Params
@@ -109,14 +109,14 @@ Input Type | Return Type | Notes
 [SchemaTupleInput](#parameter2-schema-schematupleinput), [SchemaTuple](#parameter2-schema-schematuple) | [SchemaTuple](#parameter2-schema-schematuple) |
 
 ###### Parameter2 Schema SchemaTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-items | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
+≥ 0 | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 ###### Parameter2 Schema SchemaTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
+≥ 0 | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 #### Parameter3
 
@@ -177,14 +177,14 @@ Input Type | Return Type | Notes
 [SchemaTupleInput](#parameter0-schema-schematupleinput), [SchemaTuple](#parameter0-schema-schematuple) | [SchemaTuple](#parameter0-schema-schematuple) |
 
 ###### Parameter0 Schema SchemaTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-items | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
+≥ 0 | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 ###### Parameter0 Schema SchemaTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
+≥ 0 | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 #### Parameter1
 

@@ -67,14 +67,14 @@ Input Type | Return Type | Notes
 [FilesTupleInput](#requestbody-content-multipartformdata-schema-properties-files-filestupleinput), [FilesTuple](#requestbody-content-multipartformdata-schema-properties-files-filestuple) | [FilesTuple](#requestbody-content-multipartformdata-schema-properties-files-filestuple) |
 
 ##### RequestBody content MultipartFormData Schema properties Files FilesTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-items | bytes, io.FileIO, io.BufferedReader |  |
+≥ 0 | bytes, io.FileIO, io.BufferedReader |  |
 
 ##### RequestBody content MultipartFormData Schema properties Files FilesTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |  |
+≥ 0 | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |  |
 
 ## Return Types
 

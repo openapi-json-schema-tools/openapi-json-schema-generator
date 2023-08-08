@@ -39,14 +39,14 @@ Input Type | Return Type | Notes
 [PhotoUrlsTupleInput](#properties-photourls-photourlstupleinput), [PhotoUrlsTuple](#properties-photourls-photourlstuple) | [PhotoUrlsTuple](#properties-photourls-photourlstuple) |
 
 ## properties PhotoUrls PhotoUrlsTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-items | str |  |
+≥ 0 | str |  |
 
 ## properties PhotoUrls PhotoUrlsTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str | str |  |
+≥ 0 | str | str |  |
 
 # properties Tags
 
@@ -56,13 +56,13 @@ Input Type | Return Type | Notes
 [TagsTupleInput](#properties-tags-tagstupleinput), [TagsTuple](#properties-tags-tagstuple) | [TagsTuple](#properties-tags-tagstuple) |
 
 ## properties Tags TagsTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-[**Tag**](tag.md) | [**Tag**](tag.md) |  |
+≥ 0 | [**Tag**](tag.md) |  |
 
 ## properties Tags TagsTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Tag**](tag.md) | [**Tag**](tag.md) | [**Tag**](tag.md) |  |
+≥ 0 | [**Tag**](tag.md) | [**Tag**](tag.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

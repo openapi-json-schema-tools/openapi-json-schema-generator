@@ -7,13 +7,13 @@ Input Type | Return Type | Notes
 [ArrayWithValidationsInItemsTupleInput](#arraywithvalidationsinitemstupleinput), [ArrayWithValidationsInItemsTuple](#arraywithvalidationsinitemstuple) | [ArrayWithValidationsInItemsTuple](#arraywithvalidationsinitemstuple) |
 
 ## ArrayWithValidationsInItemsTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-items | int |  | value must be a 64 bit integer
+≥ 0 | int |  | value must be a 64 bit integer
 
 ## ArrayWithValidationsInItemsTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | int | int |  | value must be a 64 bit integer
+≥ 0 | int | int |  | value must be a 64 bit integer
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

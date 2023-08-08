@@ -28,13 +28,13 @@ Input Type | Return Type | Notes
 [ArrayEnumTupleInput](#properties-arrayenum-arrayenumtupleinput), [ArrayEnumTuple](#properties-arrayenum-arrayenumtuple) | [ArrayEnumTuple](#properties-arrayenum-arrayenumtuple) |
 
 ## properties ArrayEnum ArrayEnumTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-items | str |  | must be one of ["fish", "crab"]
+≥ 0 | str |  | must be one of ["fish", "crab"]
 
 ## properties ArrayEnum ArrayEnumTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-items | str | str |  | must be one of ["fish", "crab"]
+≥ 0 | str | str |  | must be one of ["fish", "crab"]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

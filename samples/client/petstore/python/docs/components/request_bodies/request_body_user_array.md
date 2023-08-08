@@ -17,13 +17,13 @@ Input Type | Return Type | Notes
 [SchemaTupleInput](#content-applicationjson-schema-schematupleinput), [SchemaTuple](#content-applicationjson-schema-schematuple) | [SchemaTuple](#content-applicationjson-schema-schematuple) |
 
 ### content ApplicationJson Schema SchemaTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-[**User**](../../components/schema/user.md) | [**User**](../../components/schema/user.md) |  |
+≥ 0 | [**User**](../../components/schema/user.md) |  |
 
 ### content ApplicationJson Schema SchemaTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**User**](../../components/schema/user.md) | [**User**](../../components/schema/user.md) | [**User**](../../components/schema/user.md) |  |
+≥ 0 | [**User**](../../components/schema/user.md) | [**User**](../../components/schema/user.md) |  |
 
 [[Back to top]](#top) [[Back to Component RequestBodies]](../../../README.md#Component-RequestBodies) [[Back to README]](../../../README.md)

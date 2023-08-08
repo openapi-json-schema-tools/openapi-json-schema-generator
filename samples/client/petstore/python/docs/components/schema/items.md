@@ -10,14 +10,14 @@ Input Type | Return Type | Notes
 [ItemsTupleInput](#itemstupleinput), [ItemsTuple](#itemstuple) | [ItemsTuple](#itemstuple) |
 
 ## ItemsTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-[items](#items2) | dict, schemas.immutabledict |  |
+≥ 0 | dict, schemas.immutabledict |  |
 
 ## ItemsTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[items](#items2) | dict, schemas.immutabledict | schemas.immutabledict |  |
+≥ 0 | dict, schemas.immutabledict | schemas.immutabledict |  |
 
 # Items2
 

@@ -32,13 +32,13 @@ Input Type | Return Type | Notes
 [ShapesTupleInput](#properties-shapes-shapestupleinput), [ShapesTuple](#properties-shapes-shapestuple) | [ShapesTuple](#properties-shapes-shapestuple) |
 
 ## properties Shapes ShapesTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-[**Shape**](shape.md) | [**Shape**](shape.md) |  |
+≥ 0 | [**Shape**](shape.md) |  |
 
 ## properties Shapes ShapesTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**Shape**](shape.md) | [**Shape**](shape.md) | [**Shape**](shape.md) |  |
+≥ 0 | [**Shape**](shape.md) | [**Shape**](shape.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

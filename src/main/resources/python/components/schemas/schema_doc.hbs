@@ -94,10 +94,10 @@ Key | Input Type | Accessed Type | Description | Notes
         {{else}}
 {{headerSize}}# Input List Items
         {{/if}}
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
         {{#with items}}
-{{#unless refInfo.refClass}}{{#if isComplicated}}[{{/if}}{{jsonPathPiece.original}}{{#if isComplicated}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+≥ 0 | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
         {{/with}}
 
         {{#if arrayOutputJsonPathPiece}}
@@ -109,10 +109,10 @@ Class Name | Input Type | Description | Notes
         {{else}}
 {{headerSize}}# Output List Items
         {{/if}}
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
         {{#with items}}
-{{#unless refInfo.refClass}}{{#if isComplicated}}[{{/if}}{{jsonPathPiece.original}}{{#if isComplicated}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+≥ 0 | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{> _helper_schema_python_types }}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{> components/_helper_schema_accessed_types }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
         {{/with}}
     {{/if}}
     {{#or allOf anyOf oneOf not}}

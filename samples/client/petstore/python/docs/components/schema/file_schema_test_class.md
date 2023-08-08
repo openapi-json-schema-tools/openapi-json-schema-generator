@@ -28,13 +28,13 @@ Input Type | Return Type | Notes
 [FilesTupleInput](#properties-files-filestupleinput), [FilesTuple](#properties-files-filestuple) | [FilesTuple](#properties-files-filestuple) |
 
 ## properties Files FilesTupleInput
-Class Name | Input Type | Description | Notes
+Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-[**File**](file.md) | [**File**](file.md) |  |
+≥ 0 | [**File**](file.md) |  |
 
 ## properties Files FilesTuple
-Class Name | Input Type | Accessed Type | Description | Notes
+Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[**File**](file.md) | [**File**](file.md) | [**File**](file.md) |  |
+≥ 0 | [**File**](file.md) | [**File**](file.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
