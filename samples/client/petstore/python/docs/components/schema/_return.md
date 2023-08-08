@@ -7,7 +7,7 @@ Model for testing reserved words
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ReturnDictInput](#returndictinput), [ReturnDict](#returndict), str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
+[ReturnDictInput](#returndictinput), [ReturnDict](#returndict), str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [ReturnDict](#returndict), str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## ReturnDictInput
 ```
@@ -31,7 +31,7 @@ Keyword Argument | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [ReturnDictInput](#returndictinput), [ReturnDict](#returndict), str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | a constructor
+from_dict_ | [ReturnDictInput](#returndictinput), [ReturnDict](#returndict), str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [ReturnDict](#returndict), str, float, int, bool, None, tuple, bytes, io.FileIO | a constructor
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | str | int | This model has invalid python names so this method is used under the hood when you access instance["return"], 
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
