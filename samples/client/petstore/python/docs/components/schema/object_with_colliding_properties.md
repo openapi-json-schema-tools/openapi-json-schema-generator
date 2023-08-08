@@ -7,7 +7,7 @@ component with properties that have name collisions
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ObjectWithCollidingPropertiesDictInput](#objectwithcollidingpropertiesdictinput) | [ObjectWithCollidingPropertiesDict](#objectwithcollidingpropertiesdict) |
+[ObjectWithCollidingPropertiesDictInput](#objectwithcollidingpropertiesdictinput), [ObjectWithCollidingPropertiesDict](#objectwithcollidingpropertiesdict) | [ObjectWithCollidingPropertiesDict](#objectwithcollidingpropertiesdict) |
 
 ## ObjectWithCollidingPropertiesDictInput
 Key | Type |  Description | Notes

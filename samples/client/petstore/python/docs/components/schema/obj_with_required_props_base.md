@@ -4,7 +4,7 @@ petstore_api.components.schema.obj_with_required_props_base
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ObjWithRequiredPropsBaseDictInput](#objwithrequiredpropsbasedictinput) | [ObjWithRequiredPropsBaseDict](#objwithrequiredpropsbasedict) |
+[ObjWithRequiredPropsBaseDictInput](#objwithrequiredpropsbasedictinput), [ObjWithRequiredPropsBaseDict](#objwithrequiredpropsbasedict) | [ObjWithRequiredPropsBaseDict](#objwithrequiredpropsbasedict) |
 
 ## ObjWithRequiredPropsBaseDictInput
 Key | Type |  Description | Notes

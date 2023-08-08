@@ -4,7 +4,7 @@ petstore_api.components.schema.additional_properties_with_array_of_enums
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[AdditionalPropertiesWithArrayOfEnumsDictInput](#additionalpropertieswitharrayofenumsdictinput) | [AdditionalPropertiesWithArrayOfEnumsDict](#additionalpropertieswitharrayofenumsdict) |
+[AdditionalPropertiesWithArrayOfEnumsDictInput](#additionalpropertieswitharrayofenumsdictinput), [AdditionalPropertiesWithArrayOfEnumsDict](#additionalpropertieswitharrayofenumsdict) | [AdditionalPropertiesWithArrayOfEnumsDict](#additionalpropertieswitharrayofenumsdict) |
 
 ## AdditionalPropertiesWithArrayOfEnumsDictInput
 Key | Type |  Description | Notes
@@ -21,7 +21,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[AdditionalPropertiesTupleInput](#additionalproperties-additionalpropertiestupleinput) | [AdditionalPropertiesTuple](#additionalproperties-additionalpropertiestuple) |
+[AdditionalPropertiesTupleInput](#additionalproperties-additionalpropertiestupleinput), [AdditionalPropertiesTuple](#additionalproperties-additionalpropertiestuple) | [AdditionalPropertiesTuple](#additionalproperties-additionalpropertiestuple) |
 
 ## AdditionalProperties AdditionalPropertiesTupleInput
 Class Name | Input Type | Description | Notes

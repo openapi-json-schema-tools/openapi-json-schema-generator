@@ -4,7 +4,7 @@ petstore_api.components.schema.string_boolean_map
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[StringBooleanMapDictInput](#stringbooleanmapdictinput) | [StringBooleanMapDict](#stringbooleanmapdict) |
+[StringBooleanMapDictInput](#stringbooleanmapdictinput), [StringBooleanMapDict](#stringbooleanmapdict) | [StringBooleanMapDict](#stringbooleanmapdict) |
 
 ## StringBooleanMapDictInput
 Key | Type |  Description | Notes

@@ -45,7 +45,7 @@ Content-Type | Schema
 ##### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) |
+[SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput), [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) |
 
 ##### RequestBody content MultipartFormData Schema SchemaDictInput
 Key | Type |  Description | Notes
@@ -64,7 +64,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ##### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[FilesTupleInput](#requestbody-content-multipartformdata-schema-properties-files-filestupleinput) | [FilesTuple](#requestbody-content-multipartformdata-schema-properties-files-filestuple) |
+[FilesTupleInput](#requestbody-content-multipartformdata-schema-properties-files-filestupleinput), [FilesTuple](#requestbody-content-multipartformdata-schema-properties-files-filestuple) | [FilesTuple](#requestbody-content-multipartformdata-schema-properties-files-filestuple) |
 
 ##### RequestBody content MultipartFormData Schema properties Files FilesTupleInput
 Class Name | Input Type | Description | Notes

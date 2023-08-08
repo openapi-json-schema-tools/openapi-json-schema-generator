@@ -4,7 +4,7 @@ petstore_api.components.schema.number_only
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[NumberOnlyDictInput](#numberonlydictinput) | [NumberOnlyDict](#numberonlydict) |
+[NumberOnlyDictInput](#numberonlydictinput), [NumberOnlyDict](#numberonlydict) | [NumberOnlyDict](#numberonlydict) |
 
 ## NumberOnlyDictInput
 Key | Type |  Description | Notes

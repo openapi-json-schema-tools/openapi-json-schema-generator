@@ -4,7 +4,7 @@ petstore_api.components.schema.danish_pig
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[DanishPigDictInput](#danishpigdictinput) | [DanishPigDict](#danishpigdict) |
+[DanishPigDictInput](#danishpigdictinput), [DanishPigDict](#danishpigdict) | [DanishPigDict](#danishpigdict) |
 
 ## DanishPigDictInput
 Key | Type |  Description | Notes

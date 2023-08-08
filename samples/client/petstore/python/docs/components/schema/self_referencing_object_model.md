@@ -4,7 +4,7 @@ petstore_api.components.schema.self_referencing_object_model
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SelfReferencingObjectModelDictInput](#selfreferencingobjectmodeldictinput) | [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) |
+[SelfReferencingObjectModelDictInput](#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) | [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) |
 
 ## SelfReferencingObjectModelDictInput
 Key | Type |  Description | Notes

@@ -47,7 +47,7 @@ Content-Type | Schema
 ##### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaDictInput](#requestbody-content-applicationjson-schema-schemadictinput) | [SchemaDict](#requestbody-content-applicationjson-schema-schemadict) |
+[SchemaDictInput](#requestbody-content-applicationjson-schema-schemadictinput), [SchemaDict](#requestbody-content-applicationjson-schema-schemadict) | [SchemaDict](#requestbody-content-applicationjson-schema-schemadict) |
 
 ##### RequestBody content ApplicationJson Schema SchemaDictInput
 Key | Type |  Description | Notes

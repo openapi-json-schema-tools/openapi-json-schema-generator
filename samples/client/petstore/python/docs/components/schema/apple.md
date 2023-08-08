@@ -4,7 +4,7 @@ petstore_api.components.schema.apple
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-None, [AppleDictInput](#appledictinput) | None, [AppleDict](#appledict) |
+None, [AppleDictInput](#appledictinput), [AppleDict](#appledict) | None, [AppleDict](#appledict) |
 
 ## AppleDictInput
 Key | Type |  Description | Notes

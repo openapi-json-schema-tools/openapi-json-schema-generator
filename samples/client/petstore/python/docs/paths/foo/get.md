@@ -60,7 +60,7 @@ Content-Type | Schema
 ##### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaDictInput](#default-content-applicationjson-schema-schemadictinput) | [SchemaDict](#default-content-applicationjson-schema-schemadict) |
+[SchemaDictInput](#default-content-applicationjson-schema-schemadictinput), [SchemaDict](#default-content-applicationjson-schema-schemadict) | [SchemaDict](#default-content-applicationjson-schema-schemadict) |
 
 ##### Default content ApplicationJson Schema SchemaDictInput
 Key | Type |  Description | Notes

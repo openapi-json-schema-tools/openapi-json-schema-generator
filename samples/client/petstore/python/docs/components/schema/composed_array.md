@@ -4,7 +4,7 @@ petstore_api.components.schema.composed_array
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ComposedArrayTupleInput](#composedarraytupleinput) | [ComposedArrayTuple](#composedarraytuple) |
+[ComposedArrayTupleInput](#composedarraytupleinput), [ComposedArrayTuple](#composedarraytuple) | [ComposedArrayTuple](#composedarraytuple) |
 
 ## ComposedArrayTupleInput
 Class Name | Input Type | Description | Notes

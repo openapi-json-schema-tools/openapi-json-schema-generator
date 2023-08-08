@@ -27,7 +27,7 @@ someHeader | [headers.header_some_header.schema](#headers-someheader-schema) | |
 #### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaDictInput](#content-applicationjson-schema-schemadictinput) | [SchemaDict](#content-applicationjson-schema-schemadict) |
+[SchemaDictInput](#content-applicationjson-schema-schemadictinput), [SchemaDict](#content-applicationjson-schema-schemadict) | [SchemaDict](#content-applicationjson-schema-schemadict) |
 
 #### content ApplicationJson Schema SchemaDictInput
 Key | Type |  Description | Notes

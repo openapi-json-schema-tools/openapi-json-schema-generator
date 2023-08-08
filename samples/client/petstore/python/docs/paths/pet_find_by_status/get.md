@@ -54,7 +54,7 @@ Status values that need to be considered for filter
 ###### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaTupleInput](#parameter0-schema-schematupleinput) | [SchemaTuple](#parameter0-schema-schematuple) |
+[SchemaTupleInput](#parameter0-schema-schematupleinput), [SchemaTuple](#parameter0-schema-schematuple) | [SchemaTuple](#parameter0-schema-schematuple) |
 
 ###### Parameter0 Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes

@@ -4,7 +4,7 @@ petstore_api.components.schema.order
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[OrderDictInput](#orderdictinput) | [OrderDict](#orderdict) |
+[OrderDictInput](#orderdictinput), [OrderDict](#orderdict) | [OrderDict](#orderdict) |
 
 ## OrderDictInput
 Key | Type |  Description | Notes

@@ -4,7 +4,7 @@ petstore_api.components.schema.address
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[AddressDictInput](#addressdictinput) | [AddressDict](#addressdict) |
+[AddressDictInput](#addressdictinput), [AddressDict](#addressdict) | [AddressDict](#addressdict) |
 
 ## AddressDictInput
 Key | Type |  Description | Notes

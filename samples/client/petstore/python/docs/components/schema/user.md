@@ -4,7 +4,7 @@ petstore_api.components.schema.user
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[UserDictInput](#userdictinput) | [UserDict](#userdict) |
+[UserDictInput](#userdictinput), [UserDict](#userdict) | [UserDict](#userdict) |
 
 ## UserDictInput
 Key | Type |  Description | Notes

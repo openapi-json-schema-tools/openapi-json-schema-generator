@@ -7,7 +7,7 @@ component&#x27;s name collides with the inner schema name
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ItemsTupleInput](#itemstupleinput) | [ItemsTuple](#itemstuple) |
+[ItemsTupleInput](#itemstupleinput), [ItemsTuple](#itemstuple) | [ItemsTuple](#itemstuple) |
 
 ## ItemsTupleInput
 Class Name | Input Type | Description | Notes

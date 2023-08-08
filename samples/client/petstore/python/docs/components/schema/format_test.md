@@ -4,7 +4,7 @@ petstore_api.components.schema.format_test
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[FormatTestDictInput](#formattestdictinput) | [FormatTestDict](#formattestdict) |
+[FormatTestDictInput](#formattestdictinput), [FormatTestDict](#formattestdict) | [FormatTestDict](#formattestdict) |
 
 ## FormatTestDictInput
 Key | Type |  Description | Notes
@@ -63,7 +63,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayWithUniqueItemsTupleInput](#properties-arraywithuniqueitems-arraywithuniqueitemstupleinput) | [ArrayWithUniqueItemsTuple](#properties-arraywithuniqueitems-arraywithuniqueitemstuple) |
+[ArrayWithUniqueItemsTupleInput](#properties-arraywithuniqueitems-arraywithuniqueitemstupleinput), [ArrayWithUniqueItemsTuple](#properties-arraywithuniqueitems-arraywithuniqueitemstuple) | [ArrayWithUniqueItemsTuple](#properties-arraywithuniqueitems-arraywithuniqueitemstuple) |
 
 ## properties ArrayWithUniqueItems ArrayWithUniqueItemsTupleInput
 Class Name | Input Type | Description | Notes

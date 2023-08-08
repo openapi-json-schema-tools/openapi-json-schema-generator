@@ -4,7 +4,7 @@ petstore_api.components.schema.self_referencing_array_model
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SelfReferencingArrayModelTupleInput](#selfreferencingarraymodeltupleinput) | [SelfReferencingArrayModelTuple](#selfreferencingarraymodeltuple) |
+[SelfReferencingArrayModelTupleInput](#selfreferencingarraymodeltupleinput), [SelfReferencingArrayModelTuple](#selfreferencingarraymodeltuple) | [SelfReferencingArrayModelTuple](#selfreferencingarraymodeltuple) |
 
 ## SelfReferencingArrayModelTupleInput
 Class Name | Input Type | Description | Notes

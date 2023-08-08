@@ -4,7 +4,7 @@ petstore_api.components.schema.json_patch_request
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[JSONPatchRequestTupleInput](#jsonpatchrequesttupleinput) | [JSONPatchRequestTuple](#jsonpatchrequesttuple) |
+[JSONPatchRequestTupleInput](#jsonpatchrequesttupleinput), [JSONPatchRequestTuple](#jsonpatchrequesttuple) | [JSONPatchRequestTuple](#jsonpatchrequesttuple) |
 
 ## JSONPatchRequestTupleInput
 Class Name | Input Type | Description | Notes

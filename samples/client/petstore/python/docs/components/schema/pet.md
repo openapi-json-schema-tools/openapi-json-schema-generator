@@ -7,7 +7,7 @@ Pet object that needs to be added to the store
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[PetDictInput](#petdictinput) | [PetDict](#petdict) |
+[PetDictInput](#petdictinput), [PetDict](#petdict) | [PetDict](#petdict) |
 
 ## PetDictInput
 Key | Type |  Description | Notes
@@ -36,7 +36,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[PhotoUrlsTupleInput](#properties-photourls-photourlstupleinput) | [PhotoUrlsTuple](#properties-photourls-photourlstuple) |
+[PhotoUrlsTupleInput](#properties-photourls-photourlstupleinput), [PhotoUrlsTuple](#properties-photourls-photourlstuple) | [PhotoUrlsTuple](#properties-photourls-photourlstuple) |
 
 ## properties PhotoUrls PhotoUrlsTupleInput
 Class Name | Input Type | Description | Notes
@@ -53,7 +53,7 @@ items | str | str |  |
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[TagsTupleInput](#properties-tags-tagstupleinput) | [TagsTuple](#properties-tags-tagstuple) |
+[TagsTupleInput](#properties-tags-tagstupleinput), [TagsTuple](#properties-tags-tagstuple) | [TagsTuple](#properties-tags-tagstuple) |
 
 ## properties Tags TagsTupleInput
 Class Name | Input Type | Description | Notes

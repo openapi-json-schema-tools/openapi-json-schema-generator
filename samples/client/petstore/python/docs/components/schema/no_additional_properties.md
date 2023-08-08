@@ -4,7 +4,7 @@ petstore_api.components.schema.no_additional_properties
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[NoAdditionalPropertiesDictInput](#noadditionalpropertiesdictinput) | [NoAdditionalPropertiesDict](#noadditionalpropertiesdict) |
+[NoAdditionalPropertiesDictInput](#noadditionalpropertiesdictinput), [NoAdditionalPropertiesDict](#noadditionalpropertiesdict) | [NoAdditionalPropertiesDict](#noadditionalpropertiesdict) |
 
 ## NoAdditionalPropertiesDictInput
 Key | Type |  Description | Notes

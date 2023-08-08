@@ -4,7 +4,7 @@ petstore_api.components.schema.tag
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[TagDictInput](#tagdictinput) | [TagDict](#tagdict) |
+[TagDictInput](#tagdictinput), [TagDict](#tagdict) | [TagDict](#tagdict) |
 
 ## TagDictInput
 Key | Type |  Description | Notes

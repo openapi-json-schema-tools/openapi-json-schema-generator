@@ -4,7 +4,7 @@ petstore_api.components.schema.category
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[CategoryDictInput](#categorydictinput) | [CategoryDict](#categorydict) |
+[CategoryDictInput](#categorydictinput), [CategoryDict](#categorydict) | [CategoryDict](#categorydict) |
 
 ## CategoryDictInput
 Key | Type |  Description | Notes

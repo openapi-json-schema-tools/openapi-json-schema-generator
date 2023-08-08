@@ -7,7 +7,7 @@ a model that includes a self reference this forces properties and additionalProp
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[PlayerDictInput](#playerdictinput) | [PlayerDict](#playerdict) |
+[PlayerDictInput](#playerdictinput), [PlayerDict](#playerdict) | [PlayerDict](#playerdict) |
 
 ## PlayerDictInput
 Key | Type |  Description | Notes

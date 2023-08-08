@@ -7,7 +7,7 @@ a model that includes properties which should stay primitive (String + Boolean) 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ObjectModelWithRefPropsDictInput](#objectmodelwithrefpropsdictinput) | [ObjectModelWithRefPropsDict](#objectmodelwithrefpropsdict) |
+[ObjectModelWithRefPropsDictInput](#objectmodelwithrefpropsdictinput), [ObjectModelWithRefPropsDict](#objectmodelwithrefpropsdict) | [ObjectModelWithRefPropsDict](#objectmodelwithrefpropsdict) |
 
 ## ObjectModelWithRefPropsDictInput
 Key | Type |  Description | Notes

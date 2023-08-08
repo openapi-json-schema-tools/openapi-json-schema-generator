@@ -4,7 +4,7 @@ petstore_api.components.schema.map_test
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[MapTestDictInput](#maptestdictinput) | [MapTestDict](#maptestdict) |
+[MapTestDictInput](#maptestdictinput), [MapTestDict](#maptestdict) | [MapTestDict](#maptestdict) |
 
 ## MapTestDictInput
 Key | Type |  Description | Notes
@@ -29,7 +29,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[MapMapOfStringDictInput](#properties-mapmapofstring-mapmapofstringdictinput) | [MapMapOfStringDict](#properties-mapmapofstring-mapmapofstringdict) |
+[MapMapOfStringDictInput](#properties-mapmapofstring-mapmapofstringdictinput), [MapMapOfStringDict](#properties-mapmapofstring-mapmapofstringdict) | [MapMapOfStringDict](#properties-mapmapofstring-mapmapofstringdict) |
 
 ## properties MapMapOfString MapMapOfStringDictInput
 Key | Type |  Description | Notes
@@ -46,7 +46,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[AdditionalPropertiesDictInput](#properties-mapmapofstring-additionalproperties-additionalpropertiesdictinput) | [AdditionalPropertiesDict](#properties-mapmapofstring-additionalproperties-additionalpropertiesdict) |
+[AdditionalPropertiesDictInput](#properties-mapmapofstring-additionalproperties-additionalpropertiesdictinput), [AdditionalPropertiesDict](#properties-mapmapofstring-additionalproperties-additionalpropertiesdict) | [AdditionalPropertiesDict](#properties-mapmapofstring-additionalproperties-additionalpropertiesdict) |
 
 ## properties MapMapOfString AdditionalProperties AdditionalPropertiesDictInput
 Key | Type |  Description | Notes
@@ -63,7 +63,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[MapOfEnumStringDictInput](#properties-mapofenumstring-mapofenumstringdictinput) | [MapOfEnumStringDict](#properties-mapofenumstring-mapofenumstringdict) |
+[MapOfEnumStringDictInput](#properties-mapofenumstring-mapofenumstringdictinput), [MapOfEnumStringDict](#properties-mapofenumstring-mapofenumstringdict) | [MapOfEnumStringDict](#properties-mapofenumstring-mapofenumstringdict) |
 
 ## properties MapOfEnumString MapOfEnumStringDictInput
 Key | Type |  Description | Notes
@@ -80,7 +80,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[DirectMapDictInput](#properties-directmap-directmapdictinput) | [DirectMapDict](#properties-directmap-directmapdict) |
+[DirectMapDictInput](#properties-directmap-directmapdictinput), [DirectMapDict](#properties-directmap-directmapdict) | [DirectMapDict](#properties-directmap-directmapdict) |
 
 ## properties DirectMap DirectMapDictInput
 Key | Type |  Description | Notes

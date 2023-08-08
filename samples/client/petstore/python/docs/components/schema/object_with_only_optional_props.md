@@ -4,7 +4,7 @@ petstore_api.components.schema.object_with_only_optional_props
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ObjectWithOnlyOptionalPropsDictInput](#objectwithonlyoptionalpropsdictinput) | [ObjectWithOnlyOptionalPropsDict](#objectwithonlyoptionalpropsdict) |
+[ObjectWithOnlyOptionalPropsDictInput](#objectwithonlyoptionalpropsdictinput), [ObjectWithOnlyOptionalPropsDict](#objectwithonlyoptionalpropsdict) | [ObjectWithOnlyOptionalPropsDict](#objectwithonlyoptionalpropsdict) |
 
 ## ObjectWithOnlyOptionalPropsDictInput
 Key | Type |  Description | Notes

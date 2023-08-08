@@ -4,7 +4,7 @@ petstore_api.components.schema.enum_test
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[EnumTestDictInput](#enumtestdictinput) | [EnumTestDict](#enumtestdict) |
+[EnumTestDictInput](#enumtestdictinput), [EnumTestDict](#enumtestdict) | [EnumTestDict](#enumtestdict) |
 
 ## EnumTestDictInput
 Key | Type |  Description | Notes

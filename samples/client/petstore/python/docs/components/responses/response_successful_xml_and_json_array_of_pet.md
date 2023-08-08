@@ -23,7 +23,7 @@ Content-Type | Schema
 #### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaTupleInput](#content-applicationxml-schema-schematupleinput) | [SchemaTuple](#content-applicationxml-schema-schematuple) |
+[SchemaTupleInput](#content-applicationxml-schema-schematupleinput), [SchemaTuple](#content-applicationxml-schema-schematuple) | [SchemaTuple](#content-applicationxml-schema-schematuple) |
 
 #### content ApplicationXml Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes
@@ -39,7 +39,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 #### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaTupleInput](#content-applicationjson-schema-schematupleinput) | [SchemaTuple](#content-applicationjson-schema-schematuple) |
+[SchemaTupleInput](#content-applicationjson-schema-schematupleinput), [SchemaTuple](#content-applicationjson-schema-schematuple) | [SchemaTuple](#content-applicationjson-schema-schematuple) |
 
 #### content ApplicationJson Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes

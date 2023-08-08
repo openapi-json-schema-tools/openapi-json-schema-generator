@@ -4,7 +4,7 @@ petstore_api.components.schema.from_schema
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[FromSchemaDictInput](#fromschemadictinput) | [FromSchemaDict](#fromschemadict) |
+[FromSchemaDictInput](#fromschemadictinput), [FromSchemaDict](#fromschemadict) | [FromSchemaDict](#fromschemadict) |
 
 ## FromSchemaDictInput
 Key | Type |  Description | Notes

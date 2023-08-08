@@ -18,7 +18,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[_1DictInput](#allof-_1-_1dictinput) | [_1Dict](#allof-_1-_1dict) |
+[_1DictInput](#allof-_1-_1dictinput), [_1Dict](#allof-_1-_1dict) | [_1Dict](#allof-_1-_1dict) |
 
 ## allof _1 _1DictInput
 Key | Type |  Description | Notes

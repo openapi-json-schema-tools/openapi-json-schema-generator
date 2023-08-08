@@ -52,7 +52,7 @@ refParam | [Parameter5.schema](#parameter5-schema), dict, schemas.immutabledict,
 ###### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaTupleInput](#parameter0-schema-schematupleinput) | [SchemaTuple](#parameter0-schema-schematuple) |
+[SchemaTupleInput](#parameter0-schema-schematupleinput), [SchemaTuple](#parameter0-schema-schematuple) | [SchemaTuple](#parameter0-schema-schematuple) |
 
 ###### Parameter0 Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes
@@ -71,7 +71,7 @@ items | str | str |  |
 ###### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaTupleInput](#parameter1-schema-schematupleinput) | [SchemaTuple](#parameter1-schema-schematuple) |
+[SchemaTupleInput](#parameter1-schema-schematupleinput), [SchemaTuple](#parameter1-schema-schematuple) | [SchemaTuple](#parameter1-schema-schematuple) |
 
 ###### Parameter1 Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes
@@ -90,7 +90,7 @@ items | str | str |  |
 ###### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaTupleInput](#parameter2-schema-schematupleinput) | [SchemaTuple](#parameter2-schema-schematuple) |
+[SchemaTupleInput](#parameter2-schema-schematupleinput), [SchemaTuple](#parameter2-schema-schematuple) | [SchemaTuple](#parameter2-schema-schematuple) |
 
 ###### Parameter2 Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes
@@ -109,7 +109,7 @@ items | str | str |  |
 ###### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaTupleInput](#parameter3-schema-schematupleinput) | [SchemaTuple](#parameter3-schema-schematuple) |
+[SchemaTupleInput](#parameter3-schema-schematupleinput), [SchemaTuple](#parameter3-schema-schematuple) | [SchemaTuple](#parameter3-schema-schematuple) |
 
 ###### Parameter3 Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes
@@ -128,7 +128,7 @@ items | str | str |  |
 ###### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaTupleInput](#parameter4-schema-schematupleinput) | [SchemaTuple](#parameter4-schema-schematuple) |
+[SchemaTupleInput](#parameter4-schema-schematupleinput), [SchemaTuple](#parameter4-schema-schematuple) | [SchemaTuple](#parameter4-schema-schematuple) |
 
 ###### Parameter4 Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes

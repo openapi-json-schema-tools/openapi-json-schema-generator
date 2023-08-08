@@ -14,7 +14,7 @@ Content-Type | Schema
 ### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaTupleInput](#content-applicationjson-schema-schematupleinput) | [SchemaTuple](#content-applicationjson-schema-schematuple) |
+[SchemaTupleInput](#content-applicationjson-schema-schematupleinput), [SchemaTuple](#content-applicationjson-schema-schematuple) | [SchemaTuple](#content-applicationjson-schema-schematuple) |
 
 ### content ApplicationJson Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes

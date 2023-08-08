@@ -4,7 +4,7 @@ petstore_api.components.schema.animal
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[AnimalDictInput](#animaldictinput) | [AnimalDict](#animaldict) |
+[AnimalDictInput](#animaldictinput), [AnimalDict](#animaldict) | [AnimalDict](#animaldict) |
 
 ## AnimalDictInput
 Key | Type |  Description | Notes

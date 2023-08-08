@@ -4,7 +4,7 @@ petstore_api.components.schema.any_type_and_format
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[AnyTypeAndFormatDictInput](#anytypeandformatdictinput) | [AnyTypeAndFormatDict](#anytypeandformatdict) |
+[AnyTypeAndFormatDictInput](#anytypeandformatdictinput), [AnyTypeAndFormatDict](#anytypeandformatdict) | [AnyTypeAndFormatDict](#anytypeandformatdict) |
 
 ## AnyTypeAndFormatDictInput
 Key | Type |  Description | Notes

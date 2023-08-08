@@ -7,7 +7,7 @@ model with an invalid class name for python
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SpecialModelNameDictInput](#specialmodelnamedictinput) | [SpecialModelNameDict](#specialmodelnamedict) |
+[SpecialModelNameDictInput](#specialmodelnamedictinput), [SpecialModelNameDict](#specialmodelnamedict) | [SpecialModelNameDict](#specialmodelnamedict) |
 
 ## SpecialModelNameDictInput
 Key | Type |  Description | Notes

@@ -4,7 +4,7 @@ petstore_api.components.schema.drawing
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[DrawingDictInput](#drawingdictinput) | [DrawingDict](#drawingdict) |
+[DrawingDictInput](#drawingdictinput), [DrawingDict](#drawingdict) | [DrawingDict](#drawingdict) |
 
 ## DrawingDictInput
 Key | Type |  Description | Notes
@@ -29,7 +29,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ShapesTupleInput](#properties-shapes-shapestupleinput) | [ShapesTuple](#properties-shapes-shapestuple) |
+[ShapesTupleInput](#properties-shapes-shapestupleinput), [ShapesTuple](#properties-shapes-shapestuple) | [ShapesTuple](#properties-shapes-shapestuple) |
 
 ## properties Shapes ShapesTupleInput
 Class Name | Input Type | Description | Notes

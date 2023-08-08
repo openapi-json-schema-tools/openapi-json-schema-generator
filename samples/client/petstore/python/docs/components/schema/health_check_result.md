@@ -7,7 +7,7 @@ Just a string to inform instance is up and running. Make it nullable in hope to 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[HealthCheckResultDictInput](#healthcheckresultdictinput) | [HealthCheckResultDict](#healthcheckresultdict) |
+[HealthCheckResultDictInput](#healthcheckresultdictinput), [HealthCheckResultDict](#healthcheckresultdict) | [HealthCheckResultDict](#healthcheckresultdict) |
 
 ## HealthCheckResultDictInput
 Key | Type |  Description | Notes

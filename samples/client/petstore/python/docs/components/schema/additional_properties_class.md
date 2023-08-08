@@ -4,7 +4,7 @@ petstore_api.components.schema.additional_properties_class
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[AdditionalPropertiesClassDictInput](#additionalpropertiesclassdictinput) | [AdditionalPropertiesClassDict](#additionalpropertiesclassdict) |
+[AdditionalPropertiesClassDictInput](#additionalpropertiesclassdictinput), [AdditionalPropertiesClassDict](#additionalpropertiesclassdict) | [AdditionalPropertiesClassDict](#additionalpropertiesclassdict) |
 
 ## AdditionalPropertiesClassDictInput
 Key | Type |  Description | Notes
@@ -37,7 +37,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[MapPropertyDictInput](#properties-mapproperty-mappropertydictinput) | [MapPropertyDict](#properties-mapproperty-mappropertydict) |
+[MapPropertyDictInput](#properties-mapproperty-mappropertydictinput), [MapPropertyDict](#properties-mapproperty-mappropertydict) | [MapPropertyDict](#properties-mapproperty-mappropertydict) |
 
 ## properties MapProperty MapPropertyDictInput
 Key | Type |  Description | Notes
@@ -54,7 +54,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[MapOfMapPropertyDictInput](#properties-mapofmapproperty-mapofmappropertydictinput) | [MapOfMapPropertyDict](#properties-mapofmapproperty-mapofmappropertydict) |
+[MapOfMapPropertyDictInput](#properties-mapofmapproperty-mapofmappropertydictinput), [MapOfMapPropertyDict](#properties-mapofmapproperty-mapofmappropertydict) | [MapOfMapPropertyDict](#properties-mapofmapproperty-mapofmappropertydict) |
 
 ## properties MapOfMapProperty MapOfMapPropertyDictInput
 Key | Type |  Description | Notes
@@ -71,7 +71,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[AdditionalPropertiesDictInput](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdictinput) | [AdditionalPropertiesDict](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdict) |
+[AdditionalPropertiesDictInput](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdictinput), [AdditionalPropertiesDict](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdict) | [AdditionalPropertiesDict](#properties-mapofmapproperty-additionalproperties2-additionalpropertiesdict) |
 
 ## properties MapOfMapProperty AdditionalProperties2 AdditionalPropertiesDictInput
 Key | Type |  Description | Notes
@@ -102,7 +102,7 @@ dict, schemas.immutabledict | schemas.immutabledict |
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[MapWithUndeclaredPropertiesAnytype3DictInput](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dictinput) | [MapWithUndeclaredPropertiesAnytype3Dict](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dict) |
+[MapWithUndeclaredPropertiesAnytype3DictInput](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dictinput), [MapWithUndeclaredPropertiesAnytype3Dict](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dict) | [MapWithUndeclaredPropertiesAnytype3Dict](#properties-mapwithundeclaredpropertiesanytype3-mapwithundeclaredpropertiesanytype3dict) |
 
 ## properties MapWithUndeclaredPropertiesAnytype3 MapWithUndeclaredPropertiesAnytype3DictInput
 Key | Type |  Description | Notes
@@ -122,7 +122,7 @@ an object with no declared properties and no undeclared properties, hence it&#x2
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[EmptyMapDictInput](#properties-emptymap-emptymapdictinput) | [EmptyMapDict](#properties-emptymap-emptymapdict) |
+[EmptyMapDictInput](#properties-emptymap-emptymapdictinput), [EmptyMapDict](#properties-emptymap-emptymapdict) | [EmptyMapDict](#properties-emptymap-emptymapdict) |
 
 ## properties EmptyMap EmptyMapDictInput
 Key | Type |  Description | Notes
@@ -137,7 +137,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[MapWithUndeclaredPropertiesStringDictInput](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdictinput) | [MapWithUndeclaredPropertiesStringDict](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdict) |
+[MapWithUndeclaredPropertiesStringDictInput](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdictinput), [MapWithUndeclaredPropertiesStringDict](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdict) | [MapWithUndeclaredPropertiesStringDict](#properties-mapwithundeclaredpropertiesstring-mapwithundeclaredpropertiesstringdict) |
 
 ## properties MapWithUndeclaredPropertiesString MapWithUndeclaredPropertiesStringDictInput
 Key | Type |  Description | Notes

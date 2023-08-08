@@ -4,7 +4,7 @@ petstore_api.components.schema.client
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ClientDictInput](#clientdictinput) | [ClientDict](#clientdict) |
+[ClientDictInput](#clientdictinput), [ClientDict](#clientdict) | [ClientDict](#clientdict) |
 
 ## ClientDictInput
 Key | Type |  Description | Notes

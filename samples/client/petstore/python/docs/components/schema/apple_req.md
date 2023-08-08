@@ -4,7 +4,7 @@ petstore_api.components.schema.apple_req
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[AppleReqDictInput](#applereqdictinput) | [AppleReqDict](#applereqdict) |
+[AppleReqDictInput](#applereqdictinput), [AppleReqDict](#applereqdict) | [AppleReqDict](#applereqdict) |
 
 ## AppleReqDictInput
 Key | Type |  Description | Notes

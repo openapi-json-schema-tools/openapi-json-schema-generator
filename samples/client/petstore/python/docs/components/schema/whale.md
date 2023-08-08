@@ -4,7 +4,7 @@ petstore_api.components.schema.whale
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[WhaleDictInput](#whaledictinput) | [WhaleDict](#whaledict) |
+[WhaleDictInput](#whaledictinput), [WhaleDict](#whaledict) | [WhaleDict](#whaledict) |
 
 ## WhaleDictInput
 Key | Type |  Description | Notes

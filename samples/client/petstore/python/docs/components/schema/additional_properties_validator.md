@@ -19,7 +19,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[_0DictInput](#allof-_0-_0dictinput) | [_0Dict](#allof-_0-_0dict) |
+[_0DictInput](#allof-_0-_0dictinput), [_0Dict](#allof-_0-_0dict) | [_0Dict](#allof-_0-_0dict) |
 
 ## allof _0 _0DictInput
 Key | Type |  Description | Notes
@@ -36,7 +36,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[_1DictInput](#allof-_1-_1dictinput) | [_1Dict](#allof-_1-_1dict) |
+[_1DictInput](#allof-_1-_1dictinput), [_1Dict](#allof-_1-_1dict) | [_1Dict](#allof-_1-_1dict) |
 
 ## allof _1 _1DictInput
 Key | Type |  Description | Notes
@@ -53,7 +53,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[_2DictInput](#allof-_2-_2dictinput) | [_2Dict](#allof-_2-_2dict) |
+[_2DictInput](#allof-_2-_2dictinput), [_2Dict](#allof-_2-_2dict) | [_2Dict](#allof-_2-_2dict) |
 
 ## allof _2 _2DictInput
 Key | Type |  Description | Notes

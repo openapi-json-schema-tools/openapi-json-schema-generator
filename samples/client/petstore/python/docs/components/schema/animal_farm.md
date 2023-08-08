@@ -4,7 +4,7 @@ petstore_api.components.schema.animal_farm
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[AnimalFarmTupleInput](#animalfarmtupleinput) | [AnimalFarmTuple](#animalfarmtuple) |
+[AnimalFarmTupleInput](#animalfarmtupleinput), [AnimalFarmTuple](#animalfarmtuple) | [AnimalFarmTuple](#animalfarmtuple) |
 
 ## AnimalFarmTupleInput
 Class Name | Input Type | Description | Notes

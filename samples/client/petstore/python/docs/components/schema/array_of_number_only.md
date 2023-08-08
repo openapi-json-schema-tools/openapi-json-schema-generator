@@ -4,7 +4,7 @@ petstore_api.components.schema.array_of_number_only
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayOfNumberOnlyDictInput](#arrayofnumberonlydictinput) | [ArrayOfNumberOnlyDict](#arrayofnumberonlydict) |
+[ArrayOfNumberOnlyDictInput](#arrayofnumberonlydictinput), [ArrayOfNumberOnlyDict](#arrayofnumberonlydict) | [ArrayOfNumberOnlyDict](#arrayofnumberonlydict) |
 
 ## ArrayOfNumberOnlyDictInput
 Key | Type |  Description | Notes
@@ -23,7 +23,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayNumberTupleInput](#properties-arraynumber-arraynumbertupleinput) | [ArrayNumberTuple](#properties-arraynumber-arraynumbertuple) |
+[ArrayNumberTupleInput](#properties-arraynumber-arraynumbertupleinput), [ArrayNumberTuple](#properties-arraynumber-arraynumbertuple) | [ArrayNumberTuple](#properties-arraynumber-arraynumbertuple) |
 
 ## properties ArrayNumber ArrayNumberTupleInput
 Class Name | Input Type | Description | Notes

@@ -4,7 +4,7 @@ petstore_api.components.schema.req_props_from_true_add_props
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ReqPropsFromTrueAddPropsDictInput](#reqpropsfromtrueaddpropsdictinput) | [ReqPropsFromTrueAddPropsDict](#reqpropsfromtrueaddpropsdict) |
+[ReqPropsFromTrueAddPropsDictInput](#reqpropsfromtrueaddpropsdictinput), [ReqPropsFromTrueAddPropsDict](#reqpropsfromtrueaddpropsdict) | [ReqPropsFromTrueAddPropsDict](#reqpropsfromtrueaddpropsdict) |
 
 ## ReqPropsFromTrueAddPropsDictInput
 Key | Type |  Description | Notes

@@ -4,7 +4,7 @@ petstore_api.components.schema.file_schema_test_class
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[FileSchemaTestClassDictInput](#fileschematestclassdictinput) | [FileSchemaTestClassDict](#fileschematestclassdict) |
+[FileSchemaTestClassDictInput](#fileschematestclassdictinput), [FileSchemaTestClassDict](#fileschematestclassdict) | [FileSchemaTestClassDict](#fileschematestclassdict) |
 
 ## FileSchemaTestClassDictInput
 Key | Type |  Description | Notes
@@ -25,7 +25,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[FilesTupleInput](#properties-files-filestupleinput) | [FilesTuple](#properties-files-filestuple) |
+[FilesTupleInput](#properties-files-filestupleinput), [FilesTuple](#properties-files-filestuple) | [FilesTuple](#properties-files-filestuple) |
 
 ## properties Files FilesTupleInput
 Class Name | Input Type | Description | Notes

@@ -4,7 +4,7 @@ petstore_api.components.schema.foo
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[FooDictInput](#foodictinput) | [FooDict](#foodict) |
+[FooDictInput](#foodictinput), [FooDict](#foodict) | [FooDict](#foodict) |
 
 ## FooDictInput
 Key | Type |  Description | Notes

@@ -4,7 +4,7 @@ petstore_api.components.schema.basque_pig
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[BasquePigDictInput](#basquepigdictinput) | [BasquePigDict](#basquepigdict) |
+[BasquePigDictInput](#basquepigdictinput), [BasquePigDict](#basquepigdict) | [BasquePigDict](#basquepigdict) |
 
 ## BasquePigDictInput
 Key | Type |  Description | Notes

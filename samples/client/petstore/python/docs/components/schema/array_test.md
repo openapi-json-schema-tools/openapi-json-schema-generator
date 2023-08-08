@@ -4,7 +4,7 @@ petstore_api.components.schema.array_test
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayTestDictInput](#arraytestdictinput) | [ArrayTestDict](#arraytestdict) |
+[ArrayTestDictInput](#arraytestdictinput), [ArrayTestDict](#arraytestdict) | [ArrayTestDict](#arraytestdict) |
 
 ## ArrayTestDictInput
 Key | Type |  Description | Notes
@@ -27,7 +27,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayOfStringTupleInput](#properties-arrayofstring-arrayofstringtupleinput) | [ArrayOfStringTuple](#properties-arrayofstring-arrayofstringtuple) |
+[ArrayOfStringTupleInput](#properties-arrayofstring-arrayofstringtupleinput), [ArrayOfStringTuple](#properties-arrayofstring-arrayofstringtuple) | [ArrayOfStringTuple](#properties-arrayofstring-arrayofstringtuple) |
 
 ## properties ArrayOfString ArrayOfStringTupleInput
 Class Name | Input Type | Description | Notes
@@ -44,7 +44,7 @@ items | str | str |  |
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayArrayOfIntegerTupleInput](#properties-arrayarrayofinteger-arrayarrayofintegertupleinput) | [ArrayArrayOfIntegerTuple](#properties-arrayarrayofinteger-arrayarrayofintegertuple) |
+[ArrayArrayOfIntegerTupleInput](#properties-arrayarrayofinteger-arrayarrayofintegertupleinput), [ArrayArrayOfIntegerTuple](#properties-arrayarrayofinteger-arrayarrayofintegertuple) | [ArrayArrayOfIntegerTuple](#properties-arrayarrayofinteger-arrayarrayofintegertuple) |
 
 ## properties ArrayArrayOfInteger ArrayArrayOfIntegerTupleInput
 Class Name | Input Type | Description | Notes
@@ -61,7 +61,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ItemsTupleInput](#properties-arrayarrayofinteger-items2-itemstupleinput) | [ItemsTuple](#properties-arrayarrayofinteger-items2-itemstuple) |
+[ItemsTupleInput](#properties-arrayarrayofinteger-items2-itemstupleinput), [ItemsTuple](#properties-arrayarrayofinteger-items2-itemstuple) | [ItemsTuple](#properties-arrayarrayofinteger-items2-itemstuple) |
 
 ## properties ArrayArrayOfInteger Items2 ItemsTupleInput
 Class Name | Input Type | Description | Notes
@@ -78,7 +78,7 @@ items | int | int |  | value must be a 64 bit integer
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayArrayOfModelTupleInput](#properties-arrayarrayofmodel-arrayarrayofmodeltupleinput) | [ArrayArrayOfModelTuple](#properties-arrayarrayofmodel-arrayarrayofmodeltuple) |
+[ArrayArrayOfModelTupleInput](#properties-arrayarrayofmodel-arrayarrayofmodeltupleinput), [ArrayArrayOfModelTuple](#properties-arrayarrayofmodel-arrayarrayofmodeltuple) | [ArrayArrayOfModelTuple](#properties-arrayarrayofmodel-arrayarrayofmodeltuple) |
 
 ## properties ArrayArrayOfModel ArrayArrayOfModelTupleInput
 Class Name | Input Type | Description | Notes
@@ -95,7 +95,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ItemsTupleInput2](#properties-arrayarrayofmodel-items4-itemstupleinput2) | [ItemsTuple2](#properties-arrayarrayofmodel-items4-itemstuple2) |
+[ItemsTupleInput2](#properties-arrayarrayofmodel-items4-itemstupleinput2), [ItemsTuple2](#properties-arrayarrayofmodel-items4-itemstuple2) | [ItemsTuple2](#properties-arrayarrayofmodel-items4-itemstuple2) |
 
 ## properties ArrayArrayOfModel Items4 ItemsTupleInput2
 Class Name | Input Type | Description | Notes

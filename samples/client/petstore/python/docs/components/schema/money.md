@@ -4,7 +4,7 @@ petstore_api.components.schema.money
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[MoneyDictInput](#moneydictinput) | [MoneyDict](#moneydict) |
+[MoneyDictInput](#moneydictinput), [MoneyDict](#moneydict) | [MoneyDict](#moneydict) |
 
 ## MoneyDictInput
 Key | Type |  Description | Notes

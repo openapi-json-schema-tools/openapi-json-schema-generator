@@ -4,7 +4,7 @@ petstore_api.components.schema.object_with_invalid_named_refed_properties
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ObjectWithInvalidNamedRefedPropertiesDictInput](#objectwithinvalidnamedrefedpropertiesdictinput) | [ObjectWithInvalidNamedRefedPropertiesDict](#objectwithinvalidnamedrefedpropertiesdict) |
+[ObjectWithInvalidNamedRefedPropertiesDictInput](#objectwithinvalidnamedrefedpropertiesdictinput), [ObjectWithInvalidNamedRefedPropertiesDict](#objectwithinvalidnamedrefedpropertiesdict) | [ObjectWithInvalidNamedRefedPropertiesDict](#objectwithinvalidnamedrefedpropertiesdict) |
 
 ## ObjectWithInvalidNamedRefedPropertiesDictInput
 Key | Type |  Description | Notes

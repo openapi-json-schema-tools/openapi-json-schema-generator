@@ -4,7 +4,7 @@ petstore_api.components.schema.json_patch_request_add_replace_test
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[JSONPatchRequestAddReplaceTestDictInput](#jsonpatchrequestaddreplacetestdictinput) | [JSONPatchRequestAddReplaceTestDict](#jsonpatchrequestaddreplacetestdict) |
+[JSONPatchRequestAddReplaceTestDictInput](#jsonpatchrequestaddreplacetestdictinput), [JSONPatchRequestAddReplaceTestDict](#jsonpatchrequestaddreplacetestdict) | [JSONPatchRequestAddReplaceTestDict](#jsonpatchrequestaddreplacetestdict) |
 
 ## JSONPatchRequestAddReplaceTestDictInput
 Key | Type |  Description | Notes

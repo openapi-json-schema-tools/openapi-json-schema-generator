@@ -4,7 +4,7 @@ petstore_api.components.schema.mixed_properties_and_additional_properties_class
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[MixedPropertiesAndAdditionalPropertiesClassDictInput](#mixedpropertiesandadditionalpropertiesclassdictinput) | [MixedPropertiesAndAdditionalPropertiesClassDict](#mixedpropertiesandadditionalpropertiesclassdict) |
+[MixedPropertiesAndAdditionalPropertiesClassDictInput](#mixedpropertiesandadditionalpropertiesclassdictinput), [MixedPropertiesAndAdditionalPropertiesClassDict](#mixedpropertiesandadditionalpropertiesclassdict) | [MixedPropertiesAndAdditionalPropertiesClassDict](#mixedpropertiesandadditionalpropertiesclassdict) |
 
 ## MixedPropertiesAndAdditionalPropertiesClassDictInput
 Key | Type |  Description | Notes
@@ -27,7 +27,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[MapDictInput](#properties-map-mapdictinput) | [MapDict](#properties-map-mapdict) |
+[MapDictInput](#properties-map-mapdictinput), [MapDict](#properties-map-mapdict) | [MapDict](#properties-map-mapdict) |
 
 ## properties Map MapDictInput
 Key | Type |  Description | Notes

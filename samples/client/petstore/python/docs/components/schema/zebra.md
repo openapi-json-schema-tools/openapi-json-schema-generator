@@ -4,7 +4,7 @@ petstore_api.components.schema.zebra
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ZebraDictInput](#zebradictinput) | [ZebraDict](#zebradict) |
+[ZebraDictInput](#zebradictinput), [ZebraDict](#zebradict) | [ZebraDict](#zebradict) |
 
 ## ZebraDictInput
 Key | Type |  Description | Notes

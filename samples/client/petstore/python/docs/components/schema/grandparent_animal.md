@@ -4,7 +4,7 @@ petstore_api.components.schema.grandparent_animal
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[GrandparentAnimalDictInput](#grandparentanimaldictinput) | [GrandparentAnimalDict](#grandparentanimaldict) |
+[GrandparentAnimalDictInput](#grandparentanimaldictinput), [GrandparentAnimalDict](#grandparentanimaldict) | [GrandparentAnimalDict](#grandparentanimaldict) |
 
 ## GrandparentAnimalDictInput
 Key | Type |  Description | Notes

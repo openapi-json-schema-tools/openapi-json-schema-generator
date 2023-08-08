@@ -4,7 +4,7 @@ petstore_api.components.schema.api_response
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ApiResponseDictInput](#apiresponsedictinput) | [ApiResponseDict](#apiresponsedict) |
+[ApiResponseDictInput](#apiresponsedictinput), [ApiResponseDict](#apiresponsedict) | [ApiResponseDict](#apiresponsedict) |
 
 ## ApiResponseDictInput
 Key | Type |  Description | Notes

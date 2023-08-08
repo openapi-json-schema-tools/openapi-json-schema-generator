@@ -50,7 +50,7 @@ mapBean
 ###### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaDictInput](#parameter0-schema-schemadictinput) | [SchemaDict](#parameter0-schema-schemadict) |
+[SchemaDictInput](#parameter0-schema-schemadictinput), [SchemaDict](#parameter0-schema-schemadict) | [SchemaDict](#parameter0-schema-schemadict) |
 
 ###### Parameter0 Schema SchemaDictInput
 Key | Type |  Description | Notes

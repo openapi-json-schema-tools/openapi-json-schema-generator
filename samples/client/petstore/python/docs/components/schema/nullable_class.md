@@ -4,7 +4,7 @@ petstore_api.components.schema.nullable_class
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[NullableClassDictInput](#nullableclassdictinput) | [NullableClassDict](#nullableclassdict) |
+[NullableClassDictInput](#nullableclassdictinput), [NullableClassDict](#nullableclassdict) | [NullableClassDict](#nullableclassdict) |
 
 ## NullableClassDictInput
 Key | Type |  Description | Notes
@@ -45,7 +45,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-None, [ArrayNullablePropTupleInput](#properties-arraynullableprop-arraynullableproptupleinput) | None, [ArrayNullablePropTuple](#properties-arraynullableprop-arraynullableproptuple) |
+None, [ArrayNullablePropTupleInput](#properties-arraynullableprop-arraynullableproptupleinput), [ArrayNullablePropTuple](#properties-arraynullableprop-arraynullableproptuple) | None, [ArrayNullablePropTuple](#properties-arraynullableprop-arraynullableproptuple) |
 
 ## properties ArrayNullableProp ArrayNullablePropTupleInput
 Class Name | Input Type | Description | Notes
@@ -69,7 +69,7 @@ dict, schemas.immutabledict | schemas.immutabledict |
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-None, [ArrayAndItemsNullablePropTupleInput](#properties-arrayanditemsnullableprop-arrayanditemsnullableproptupleinput) | None, [ArrayAndItemsNullablePropTuple](#properties-arrayanditemsnullableprop-arrayanditemsnullableproptuple) |
+None, [ArrayAndItemsNullablePropTupleInput](#properties-arrayanditemsnullableprop-arrayanditemsnullableproptupleinput), [ArrayAndItemsNullablePropTuple](#properties-arrayanditemsnullableprop-arrayanditemsnullableproptuple) | None, [ArrayAndItemsNullablePropTuple](#properties-arrayanditemsnullableprop-arrayanditemsnullableproptuple) |
 
 ## properties ArrayAndItemsNullableProp ArrayAndItemsNullablePropTupleInput
 Class Name | Input Type | Description | Notes
@@ -93,7 +93,7 @@ None, dict, schemas.immutabledict | None, schemas.immutabledict |
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayItemsNullableTupleInput](#properties-arrayitemsnullable-arrayitemsnullabletupleinput) | [ArrayItemsNullableTuple](#properties-arrayitemsnullable-arrayitemsnullabletuple) |
+[ArrayItemsNullableTupleInput](#properties-arrayitemsnullable-arrayitemsnullabletupleinput), [ArrayItemsNullableTuple](#properties-arrayitemsnullable-arrayitemsnullabletuple) | [ArrayItemsNullableTuple](#properties-arrayitemsnullable-arrayitemsnullabletuple) |
 
 ## properties ArrayItemsNullable ArrayItemsNullableTupleInput
 Class Name | Input Type | Description | Notes
@@ -117,7 +117,7 @@ None, dict, schemas.immutabledict | None, schemas.immutabledict |
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-None, [ObjectNullablePropDictInput](#properties-objectnullableprop-objectnullablepropdictinput) | None, [ObjectNullablePropDict](#properties-objectnullableprop-objectnullablepropdict) |
+None, [ObjectNullablePropDictInput](#properties-objectnullableprop-objectnullablepropdictinput), [ObjectNullablePropDict](#properties-objectnullableprop-objectnullablepropdict) | None, [ObjectNullablePropDict](#properties-objectnullableprop-objectnullablepropdict) |
 
 ## properties ObjectNullableProp ObjectNullablePropDictInput
 Key | Type |  Description | Notes
@@ -141,7 +141,7 @@ dict, schemas.immutabledict | schemas.immutabledict |
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-None, [ObjectAndItemsNullablePropDictInput](#properties-objectanditemsnullableprop-objectanditemsnullablepropdictinput) | None, [ObjectAndItemsNullablePropDict](#properties-objectanditemsnullableprop-objectanditemsnullablepropdict) |
+None, [ObjectAndItemsNullablePropDictInput](#properties-objectanditemsnullableprop-objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#properties-objectanditemsnullableprop-objectanditemsnullablepropdict) | None, [ObjectAndItemsNullablePropDict](#properties-objectanditemsnullableprop-objectanditemsnullablepropdict) |
 
 ## properties ObjectAndItemsNullableProp ObjectAndItemsNullablePropDictInput
 Key | Type |  Description | Notes
@@ -165,7 +165,7 @@ None, dict, schemas.immutabledict | None, schemas.immutabledict |
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ObjectItemsNullableDictInput](#properties-objectitemsnullable-objectitemsnullabledictinput) | [ObjectItemsNullableDict](#properties-objectitemsnullable-objectitemsnullabledict) |
+[ObjectItemsNullableDictInput](#properties-objectitemsnullable-objectitemsnullabledictinput), [ObjectItemsNullableDict](#properties-objectitemsnullable-objectitemsnullabledict) | [ObjectItemsNullableDict](#properties-objectitemsnullable-objectitemsnullabledict) |
 
 ## properties ObjectItemsNullable ObjectItemsNullableDictInput
 Key | Type |  Description | Notes

@@ -7,7 +7,7 @@ model with properties that have invalid names for python
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ObjectWithDifficultlyNamedPropsDictInput](#objectwithdifficultlynamedpropsdictinput) | [ObjectWithDifficultlyNamedPropsDict](#objectwithdifficultlynamedpropsdict) |
+[ObjectWithDifficultlyNamedPropsDictInput](#objectwithdifficultlynamedpropsdictinput), [ObjectWithDifficultlyNamedPropsDict](#objectwithdifficultlynamedpropsdict) | [ObjectWithDifficultlyNamedPropsDict](#objectwithdifficultlynamedpropsdict) |
 
 ## ObjectWithDifficultlyNamedPropsDictInput
 Key | Type |  Description | Notes

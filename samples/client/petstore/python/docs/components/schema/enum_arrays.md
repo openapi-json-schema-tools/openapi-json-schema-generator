@@ -4,7 +4,7 @@ petstore_api.components.schema.enum_arrays
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[EnumArraysDictInput](#enumarraysdictinput) | [EnumArraysDict](#enumarraysdict) |
+[EnumArraysDictInput](#enumarraysdictinput), [EnumArraysDict](#enumarraysdict) | [EnumArraysDict](#enumarraysdict) |
 
 ## EnumArraysDictInput
 Key | Type |  Description | Notes
@@ -25,7 +25,7 @@ Key | Input Type | Accessed Type | Description | Notes
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayEnumTupleInput](#properties-arrayenum-arrayenumtupleinput) | [ArrayEnumTuple](#properties-arrayenum-arrayenumtuple) |
+[ArrayEnumTupleInput](#properties-arrayenum-arrayenumtupleinput), [ArrayEnumTuple](#properties-arrayenum-arrayenumtuple) | [ArrayEnumTuple](#properties-arrayenum-arrayenumtuple) |
 
 ## properties ArrayEnum ArrayEnumTupleInput
 Class Name | Input Type | Description | Notes

@@ -4,7 +4,7 @@ petstore_api.components.schema.object_with_optional_test_prop
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ObjectWithOptionalTestPropDictInput](#objectwithoptionaltestpropdictinput) | [ObjectWithOptionalTestPropDict](#objectwithoptionaltestpropdict) |
+[ObjectWithOptionalTestPropDictInput](#objectwithoptionaltestpropdictinput), [ObjectWithOptionalTestPropDict](#objectwithoptionaltestpropdict) | [ObjectWithOptionalTestPropDict](#objectwithoptionaltestpropdict) |
 
 ## ObjectWithOptionalTestPropDictInput
 Key | Type |  Description | Notes

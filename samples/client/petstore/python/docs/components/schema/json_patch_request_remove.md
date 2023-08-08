@@ -4,7 +4,7 @@ petstore_api.components.schema.json_patch_request_remove
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[JSONPatchRequestRemoveDictInput](#jsonpatchrequestremovedictinput) | [JSONPatchRequestRemoveDict](#jsonpatchrequestremovedict) |
+[JSONPatchRequestRemoveDictInput](#jsonpatchrequestremovedictinput), [JSONPatchRequestRemoveDict](#jsonpatchrequestremovedict) | [JSONPatchRequestRemoveDict](#jsonpatchrequestremovedict) |
 
 ## JSONPatchRequestRemoveDictInput
 Key | Type |  Description | Notes

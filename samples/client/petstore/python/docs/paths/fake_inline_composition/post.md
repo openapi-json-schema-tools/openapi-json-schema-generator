@@ -70,7 +70,7 @@ str | str |
 ##### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) |
+[SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput), [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) |
 
 ##### RequestBody content MultipartFormData Schema SchemaDictInput
 Key | Type |  Description | Notes
@@ -143,7 +143,7 @@ str | str |
 ###### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaDictInput](#parameter1-schema-schemadictinput) | [SchemaDict](#parameter1-schema-schemadict) |
+[SchemaDictInput](#parameter1-schema-schemadictinput), [SchemaDict](#parameter1-schema-schemadict) | [SchemaDict](#parameter1-schema-schemadict) |
 
 ###### Parameter1 Schema SchemaDictInput
 Key | Type |  Description | Notes
@@ -227,7 +227,7 @@ str | str |
 ##### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaDictInput](#responsefor200-content-multipartformdata-schema-schemadictinput) | [SchemaDict](#responsefor200-content-multipartformdata-schema-schemadict) |
+[SchemaDictInput](#responsefor200-content-multipartformdata-schema-schemadictinput), [SchemaDict](#responsefor200-content-multipartformdata-schema-schemadict) | [SchemaDict](#responsefor200-content-multipartformdata-schema-schemadict) |
 
 ##### ResponseFor200 content MultipartFormData Schema SchemaDictInput
 Key | Type |  Description | Notes

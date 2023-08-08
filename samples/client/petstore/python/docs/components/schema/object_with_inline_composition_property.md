@@ -4,7 +4,7 @@ petstore_api.components.schema.object_with_inline_composition_property
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ObjectWithInlineCompositionPropertyDictInput](#objectwithinlinecompositionpropertydictinput) | [ObjectWithInlineCompositionPropertyDict](#objectwithinlinecompositionpropertydict) |
+[ObjectWithInlineCompositionPropertyDictInput](#objectwithinlinecompositionpropertydictinput), [ObjectWithInlineCompositionPropertyDict](#objectwithinlinecompositionpropertydict) | [ObjectWithInlineCompositionPropertyDict](#objectwithinlinecompositionpropertydict) |
 
 ## ObjectWithInlineCompositionPropertyDictInput
 Key | Type |  Description | Notes

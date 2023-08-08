@@ -7,7 +7,7 @@ Must be named &#x60;File&#x60; for test.
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[FileDictInput](#filedictinput) | [FileDict](#filedict) |
+[FileDictInput](#filedictinput), [FileDict](#filedict) | [FileDict](#filedict) |
 
 ## FileDictInput
 Key | Type |  Description | Notes

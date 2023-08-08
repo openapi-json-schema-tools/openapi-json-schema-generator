@@ -4,7 +4,7 @@ petstore_api.components.schema.object_with_decimal_properties
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ObjectWithDecimalPropertiesDictInput](#objectwithdecimalpropertiesdictinput) | [ObjectWithDecimalPropertiesDict](#objectwithdecimalpropertiesdict) |
+[ObjectWithDecimalPropertiesDictInput](#objectwithdecimalpropertiesdictinput), [ObjectWithDecimalPropertiesDict](#objectwithdecimalpropertiesdict) | [ObjectWithDecimalPropertiesDict](#objectwithdecimalpropertiesdict) |
 
 ## ObjectWithDecimalPropertiesDictInput
 Key | Type |  Description | Notes

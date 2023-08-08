@@ -4,7 +4,7 @@ petstore_api.components.schema.req_props_from_explicit_add_props
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ReqPropsFromExplicitAddPropsDictInput](#reqpropsfromexplicitaddpropsdictinput) | [ReqPropsFromExplicitAddPropsDict](#reqpropsfromexplicitaddpropsdict) |
+[ReqPropsFromExplicitAddPropsDictInput](#reqpropsfromexplicitaddpropsdictinput), [ReqPropsFromExplicitAddPropsDict](#reqpropsfromexplicitaddpropsdict) | [ReqPropsFromExplicitAddPropsDict](#reqpropsfromexplicitaddpropsdict) |
 
 ## ReqPropsFromExplicitAddPropsDictInput
 Key | Type |  Description | Notes

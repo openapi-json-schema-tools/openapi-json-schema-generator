@@ -7,7 +7,7 @@ Abstract Step
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[AbstractStepMessageDictInput](#abstractstepmessagedictinput) | [AbstractStepMessageDict](#abstractstepmessagedict) |
+[AbstractStepMessageDictInput](#abstractstepmessagedictinput), [AbstractStepMessageDict](#abstractstepmessagedict) | [AbstractStepMessageDict](#abstractstepmessagedict) |
 
 ## AbstractStepMessageDictInput
 Key | Type |  Description | Notes

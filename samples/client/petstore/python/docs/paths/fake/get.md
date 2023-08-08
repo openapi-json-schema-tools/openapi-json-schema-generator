@@ -48,7 +48,7 @@ Content-Type | Schema
 ##### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput) | [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) |
+[SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput), [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) | [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) |
 
 ##### RequestBody content ApplicationXWwwFormUrlencoded Schema SchemaDictInput
 Key | Type |  Description | Notes
@@ -72,7 +72,7 @@ Form parameter enum test (string array)
 ##### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[EnumFormStringArrayTupleInput](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray-enumformstringarraytupleinput) | [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray-enumformstringarraytuple) |
+[EnumFormStringArrayTupleInput](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray-enumformstringarraytupleinput), [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray-enumformstringarraytuple) | [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray-enumformstringarraytuple) |
 
 ##### RequestBody content ApplicationXWwwFormUrlencoded Schema properties EnumFormStringArray EnumFormStringArrayTupleInput
 Class Name | Input Type | Description | Notes
@@ -106,7 +106,7 @@ Query parameter enum test (string array)
 ###### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaTupleInput](#parameter2-schema-schematupleinput) | [SchemaTuple](#parameter2-schema-schematuple) |
+[SchemaTupleInput](#parameter2-schema-schematupleinput), [SchemaTuple](#parameter2-schema-schematuple) | [SchemaTuple](#parameter2-schema-schematuple) |
 
 ###### Parameter2 Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes
@@ -174,7 +174,7 @@ Header parameter enum test (string array)
 ###### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaTupleInput](#parameter0-schema-schematupleinput) | [SchemaTuple](#parameter0-schema-schematuple) |
+[SchemaTupleInput](#parameter0-schema-schematupleinput), [SchemaTuple](#parameter0-schema-schematuple) | [SchemaTuple](#parameter0-schema-schematuple) |
 
 ###### Parameter0 Schema SchemaTupleInput
 Class Name | Input Type | Description | Notes

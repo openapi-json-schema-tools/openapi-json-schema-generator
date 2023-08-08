@@ -4,7 +4,7 @@ petstore_api.components.schema.capitalization
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[CapitalizationDictInput](#capitalizationdictinput) | [CapitalizationDict](#capitalizationdict) |
+[CapitalizationDictInput](#capitalizationdictinput), [CapitalizationDict](#capitalizationdict) | [CapitalizationDict](#capitalizationdict) |
 
 ## CapitalizationDictInput
 Key | Type |  Description | Notes
