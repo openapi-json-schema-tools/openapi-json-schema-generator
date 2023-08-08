@@ -23,6 +23,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | int |  | value must be a 64 bit integer
 
 ## ArrayWithValidationsInItemsTuple
+```
+base class: typing.Tuple[
+    int,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | int | int |  | value must be a 64 bit integer

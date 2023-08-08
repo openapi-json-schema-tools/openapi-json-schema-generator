@@ -29,6 +29,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | [**Animal**](animal.md) |  |
 
 ## AnimalFarmTuple
+```
+base class: typing.Tuple[
+    animal.AnimalDict,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**Animal**](animal.md) | [**Animal**](animal.md) |  |

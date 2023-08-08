@@ -66,6 +66,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | [**File**](file.md) |  |
 
 ## properties Files FilesTuple
+```
+base class: typing.Tuple[
+    file.FileDict,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**File**](file.md) | [**File**](file.md) |  |

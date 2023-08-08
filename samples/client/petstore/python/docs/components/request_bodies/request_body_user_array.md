@@ -39,6 +39,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | [**User**](../../components/schema/user.md) |  |
 
 ### content ApplicationJson Schema SchemaTuple
+```
+base class: typing.Tuple[
+    user.UserDict,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**User**](../../components/schema/user.md) | [**User**](../../components/schema/user.md) |  |

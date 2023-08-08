@@ -63,6 +63,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | float, int |  |
 
 ## properties ArrayNumber ArrayNumberTuple
+```
+base class: typing.Tuple[
+    typing.Union[int, float],
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | float, int | float, int |  |

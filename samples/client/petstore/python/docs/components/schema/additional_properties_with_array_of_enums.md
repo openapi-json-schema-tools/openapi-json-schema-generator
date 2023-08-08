@@ -68,6 +68,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | [**EnumClass**](enum_class.md) |  |
 
 ## AdditionalProperties AdditionalPropertiesTuple
+```
+base class: typing.Tuple[
+    typing_extensions.Literal["_abc", "-efg", "(xyz)", "COUNT_1M", "COUNT_50M"],
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**EnumClass**](enum_class.md) | [**EnumClass**](enum_class.md) |  |

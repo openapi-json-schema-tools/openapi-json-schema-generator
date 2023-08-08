@@ -108,6 +108,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | bytes, io.FileIO, io.BufferedReader |  |
 
 ##### RequestBody content MultipartFormData Schema properties Files FilesTuple
+```
+base class: typing.Tuple[
+    typing.Union[bytes, schemas.FileIO],
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |  |

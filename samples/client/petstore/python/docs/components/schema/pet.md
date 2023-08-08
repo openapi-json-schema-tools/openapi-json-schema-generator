@@ -75,6 +75,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | str |  |
 
 ## properties PhotoUrls PhotoUrlsTuple
+```
+base class: typing.Tuple[
+    str,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | str | str |  |
@@ -109,6 +115,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | [**Tag**](tag.md) |  |
 
 ## properties Tags TagsTuple
+```
+base class: typing.Tuple[
+    tag.TagDict,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**Tag**](tag.md) | [**Tag**](tag.md) |  |

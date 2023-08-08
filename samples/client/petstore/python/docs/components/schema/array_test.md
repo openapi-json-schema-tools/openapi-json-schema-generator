@@ -63,6 +63,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | str |  |
 
 ## properties ArrayOfString ArrayOfStringTuple
+```
+base class: typing.Tuple[
+    str,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | str | str |  |
@@ -97,6 +103,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | list, tuple |  |
 
 ## properties ArrayArrayOfInteger ArrayArrayOfIntegerTuple
+```
+base class: typing.Tuple[
+    ItemsTuple,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | list, tuple | tuple |  |
@@ -125,6 +137,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | int |  | value must be a 64 bit integer
 
 ## properties ArrayArrayOfInteger Items2 ItemsTuple
+```
+base class: typing.Tuple[
+    int,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | int | int |  | value must be a 64 bit integer
@@ -159,6 +177,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | list, tuple |  |
 
 ## properties ArrayArrayOfModel ArrayArrayOfModelTuple
+```
+base class: typing.Tuple[
+    ItemsTuple2,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | list, tuple | tuple |  |
@@ -193,6 +217,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | [**ReadOnlyFirst**](read_only_first.md) |  |
 
 ## properties ArrayArrayOfModel Items4 ItemsTuple2
+```
+base class: typing.Tuple[
+    read_only_first.ReadOnlyFirstDict,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**ReadOnlyFirst**](read_only_first.md) | [**ReadOnlyFirst**](read_only_first.md) |  |

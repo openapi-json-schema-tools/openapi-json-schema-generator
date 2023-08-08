@@ -242,6 +242,23 @@ Index | Input Type | Description | Notes
         {{else}}
 {{headerSize}}# Output List Items
         {{/if}}
+```
+base class: typing.Tuple[
+        {{#with items}}
+            {{#if refInfo.refClass}}
+                {{#eq refModule null}}
+                    {{! self reference }}
+    {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," selfReference=true }}
+                {{else}}
+    {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," }}
+                {{/eq}}
+            {{else}}
+    {{> components/schemas/_helper_schema_output_type mode="unprefixed" fullRefModule="" endChar="," }}
+            {{/if}}
+        {{/with}}
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
         {{#with items}}

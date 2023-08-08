@@ -43,6 +43,15 @@ Index | Input Type | Description | Notes
 ≥ 0 | [**StringEnum**](string_enum.md) |  |
 
 ## ArrayOfEnumsTuple
+```
+base class: typing.Tuple[
+    typing.Union[
+        None,
+        typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
+    ],
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**StringEnum**](string_enum.md) | [**StringEnum**](string_enum.md) |  |

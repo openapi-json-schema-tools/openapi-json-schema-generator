@@ -81,6 +81,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | str |  | must be one of ["available", "pending", "sold"] if omitted the server will use the default value of available
 
 ###### Parameter0 Schema SchemaTuple
+```
+base class: typing.Tuple[
+    typing_extensions.Literal["available", "pending", "sold"],
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | str | str |  | must be one of ["available", "pending", "sold"] if omitted the server will use the default value of available

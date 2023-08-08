@@ -176,6 +176,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | dict, schemas.immutabledict |  |
 
 ## properties ArrayNullableProp ArrayNullablePropTuple
+```
+base class: typing.Tuple[
+    schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | dict, schemas.immutabledict | schemas.immutabledict |  |
@@ -223,6 +229,15 @@ Index | Input Type | Description | Notes
 ≥ 0 | None, dict, schemas.immutabledict |  |
 
 ## properties ArrayAndItemsNullableProp ArrayAndItemsNullablePropTuple
+```
+base class: typing.Tuple[
+    typing.Union[
+        None,
+        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    ],
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
@@ -270,6 +285,15 @@ Index | Input Type | Description | Notes
 ≥ 0 | None, dict, schemas.immutabledict |  |
 
 ## properties ArrayItemsNullable ArrayItemsNullableTuple
+```
+base class: typing.Tuple[
+    typing.Union[
+        None,
+        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    ],
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | None, dict, schemas.immutabledict | None, schemas.immutabledict |  |

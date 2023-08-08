@@ -113,6 +113,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 ##### RequestBody content ApplicationXWwwFormUrlencoded Schema properties EnumFormStringArray EnumFormStringArrayTuple
+```
+base class: typing.Tuple[
+    typing_extensions.Literal[">", "$"],
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
@@ -164,6 +170,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 ###### Parameter2 Schema SchemaTuple
+```
+base class: typing.Tuple[
+    typing_extensions.Literal[">", "$"],
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
@@ -249,6 +261,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 ###### Parameter0 Schema SchemaTuple
+```
+base class: typing.Tuple[
+    typing_extensions.Literal[">", "$"],
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $

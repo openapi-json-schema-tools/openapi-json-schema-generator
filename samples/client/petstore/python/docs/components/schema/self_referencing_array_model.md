@@ -29,6 +29,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | [**SelfReferencingArrayModel**](#top) |  |
 
 ## SelfReferencingArrayModelTuple
+```
+base class: typing.Tuple[
+    'SelfReferencingArrayModelTuple',
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**SelfReferencingArrayModel**](#top) | [**SelfReferencingArrayModel**](#top) |  |

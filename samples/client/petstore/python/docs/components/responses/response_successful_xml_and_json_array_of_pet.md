@@ -48,6 +48,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | [**Pet**](../../components/schema/pet.md) |  |
 
 #### content ApplicationXml Schema SchemaTuple
+```
+base class: typing.Tuple[
+    pet.PetDict,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**Pet**](../../components/schema/pet.md) | [**Pet**](../../components/schema/pet.md) |  |
@@ -81,6 +87,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | [**RefPet**](../../components/schema/ref_pet.md) |  |
 
 #### content ApplicationJson Schema SchemaTuple
+```
+base class: typing.Tuple[
+    ref_pet.pet.PetDict,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**RefPet**](../../components/schema/ref_pet.md) | [**RefPet**](../../components/schema/ref_pet.md) |  |

@@ -71,6 +71,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | str |  |
 
 ###### Parameter0 Schema SchemaTuple
+```
+base class: typing.Tuple[
+    str,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | str | str |  |
@@ -101,6 +107,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | str |  |
 
 ###### Parameter1 Schema SchemaTuple
+```
+base class: typing.Tuple[
+    str,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | str | str |  |
@@ -131,6 +143,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | str |  |
 
 ###### Parameter2 Schema SchemaTuple
+```
+base class: typing.Tuple[
+    str,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | str | str |  |
@@ -161,6 +179,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | str |  |
 
 ###### Parameter3 Schema SchemaTuple
+```
+base class: typing.Tuple[
+    str,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | str | str |  |
@@ -191,6 +215,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | str |  |
 
 ###### Parameter4 Schema SchemaTuple
+```
+base class: typing.Tuple[
+    str,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | str | str |  |

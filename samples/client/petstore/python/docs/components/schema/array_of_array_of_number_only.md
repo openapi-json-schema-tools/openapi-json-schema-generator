@@ -63,6 +63,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | list, tuple |  |
 
 ## properties ArrayArrayNumber ArrayArrayNumberTuple
+```
+base class: typing.Tuple[
+    ItemsTuple,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | list, tuple | tuple |  |
@@ -97,6 +103,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | float, int |  |
 
 ## properties ArrayArrayNumber Items ItemsTuple
+```
+base class: typing.Tuple[
+    typing.Union[int, float],
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | float, int | float, int |  |

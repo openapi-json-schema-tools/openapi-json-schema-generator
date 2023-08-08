@@ -96,6 +96,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | [**Shape**](shape.md) |  |
 
 ## properties Shapes ShapesTuple
+```
+base class: typing.Tuple[
+    schemas.OUTPUT_BASE_TYPES,
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**Shape**](shape.md) | [**Shape**](shape.md) |  |

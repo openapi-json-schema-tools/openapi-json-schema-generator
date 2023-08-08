@@ -32,6 +32,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | dict, schemas.immutabledict |  |
 
 ## ItemsTuple
+```
+base class: typing.Tuple[
+    schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | dict, schemas.immutabledict | schemas.immutabledict |  |

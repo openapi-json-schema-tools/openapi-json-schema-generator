@@ -66,6 +66,12 @@ Index | Input Type | Description | Notes
 ≥ 0 | str |  | must be one of ["fish", "crab"]
 
 ## properties ArrayEnum ArrayEnumTuple
+```
+base class: typing.Tuple[
+    typing_extensions.Literal["fish", "crab"],
+    ...
+]
+```
 Index | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 ≥ 0 | str | str |  | must be one of ["fish", "crab"]
