@@ -28,7 +28,7 @@ base class: schemas.immutabledict[str, str]
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **validName** | str |  |
-**kwargs** | str | str, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | str | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes

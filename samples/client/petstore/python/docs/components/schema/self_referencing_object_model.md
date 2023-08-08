@@ -32,7 +32,7 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **selfRef** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict, schemas.Unset |  | [optional]
-**kwargs** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict | [**SelfReferencingObjectModel**](#top) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes

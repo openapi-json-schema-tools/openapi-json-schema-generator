@@ -122,7 +122,7 @@ Keyword Argument | Type | Description | Notes
 **object_nullable_prop** | None, dict, schemas.immutabledict, schemas.Unset |  | [optional]
 **object_and_items_nullable_prop** | None, dict, schemas.immutabledict, schemas.Unset |  | [optional]
 **object_items_nullable** | dict, schemas.immutabledict, schemas.Unset |  | [optional]
-**kwargs** | None, dict, schemas.immutabledict | [AdditionalProperties4](#additionalproperties4) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes
@@ -330,7 +330,7 @@ base class: schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**kwargs** | dict, schemas.immutabledict | [AdditionalProperties](#properties-objectnullableprop-additionalproperties) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### methods
 Method | Input Type | Return Type | Notes
@@ -376,7 +376,7 @@ base class: schemas.immutabledict[str, typing.Union[
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**kwargs** | None, dict, schemas.immutabledict | [AdditionalProperties2](#properties-objectanditemsnullableprop-additionalproperties2) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### methods
 Method | Input Type | Return Type | Notes
@@ -422,7 +422,7 @@ base class: schemas.immutabledict[str, typing.Union[
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**kwargs** | None, dict, schemas.immutabledict | [AdditionalProperties3](#properties-objectitemsnullable-additionalproperties3) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### methods
 Method | Input Type | Return Type | Notes

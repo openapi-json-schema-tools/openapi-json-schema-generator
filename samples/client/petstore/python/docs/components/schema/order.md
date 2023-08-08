@@ -30,7 +30,7 @@ Keyword Argument | Type | Description | Notes
 **shipDate** | str, datetime.datetime, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
 **status** | str, schemas.Unset | Order Status | [optional] must be one of ["placed", "approved", "delivered"]
 **complete** | bool, schemas.Unset |  | [optional] if omitted the server will use the default value of false
-**kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes

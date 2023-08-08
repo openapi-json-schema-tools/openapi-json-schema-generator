@@ -44,7 +44,7 @@ base class: schemas.immutabledict[str, int]
 ##### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**kwargs** | int | int, schemas.Unset | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer typed value is accessed with the get_additional_property_ method
+**kwargs** | int | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer typed value is accessed with the get_additional_property_ method
 
 ##### methods
 Method | Input Type | Return Type | Notes
