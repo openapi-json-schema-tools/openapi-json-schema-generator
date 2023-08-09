@@ -7,4 +7,4 @@ type: schemas.Schema
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[ArrayOfEnums](array_of_enums.md) | [ArrayOfEnumsTupleInput](#arrayofenumstupleinput), [ArrayOfEnumsTuple](#arrayofenumstuple) | [ArrayOfEnumsTuple](#arrayofenumstuple) |
+[ArrayOfEnums](array_of_enums.md) | [array_of_enums.ArrayOfEnumsTupleInput](../../../../../../components/schema/array_of_enums.md#arrayofenumstupleinput), [array_of_enums.ArrayOfEnumsTuple](../../../../../../components/schema/array_of_enums.md#arrayofenumstuple) | [array_of_enums.ArrayOfEnumsTuple](../../../../../../components/schema/array_of_enums.md#arrayofenumstuple) |

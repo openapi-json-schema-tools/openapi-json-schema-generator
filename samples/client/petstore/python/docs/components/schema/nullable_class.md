@@ -195,7 +195,7 @@ base class: typing.Tuple[
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type
 -------- | ------
-arg      | [ArrayNullablePropTupleInput](#arraynullableproptupleinput), [ArrayNullablePropTuple](#arraynullableproptuple)
+arg      | None, [ArrayNullablePropTupleInput](#arraynullableproptupleinput), [ArrayNullablePropTuple](#arraynullableproptuple)
 configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 
 ### methods
@@ -264,7 +264,7 @@ base class: typing.Tuple[
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type
 -------- | ------
-arg      | [ArrayAndItemsNullablePropTupleInput](#arrayanditemsnullableproptupleinput), [ArrayAndItemsNullablePropTuple](#arrayanditemsnullableproptuple)
+arg      | None, [ArrayAndItemsNullablePropTupleInput](#arrayanditemsnullableproptupleinput), [ArrayAndItemsNullablePropTuple](#arrayanditemsnullableproptuple)
 configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 
 ### methods
@@ -390,7 +390,7 @@ Keyword Argument | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [ObjectNullablePropDictInput](#objectnullablepropdictinput), [ObjectNullablePropDict](#objectnullablepropdict) | [ObjectNullablePropDict](#objectnullablepropdict) | a constructor
+from_dict_ | None, [ObjectNullablePropDictInput](#objectnullablepropdictinput), [ObjectNullablePropDict](#objectnullablepropdict) | None, [ObjectNullablePropDict](#objectnullablepropdict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, schemas.Unset | provides type safety for additional properties
 
 # AdditionalProperties
@@ -446,7 +446,7 @@ Keyword Argument | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [ObjectAndItemsNullablePropDictInput](#objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#objectanditemsnullablepropdict) | [ObjectAndItemsNullablePropDict](#objectanditemsnullablepropdict) | a constructor
+from_dict_ | None, [ObjectAndItemsNullablePropDictInput](#objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#objectanditemsnullablepropdict) | None, [ObjectAndItemsNullablePropDict](#objectanditemsnullablepropdict) | a constructor
 get_additional_property_ | str | None, schemas.immutabledict, schemas.Unset | provides type safety for additional properties
 
 # AdditionalProperties2

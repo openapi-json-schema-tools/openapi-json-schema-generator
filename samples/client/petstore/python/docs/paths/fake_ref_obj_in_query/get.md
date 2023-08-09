@@ -54,7 +54,7 @@ type: schemas.Schema
 ###### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[Foo](../../components/schema/foo.md) | [FooDictInput](#parameter0-schema-foodictinput), [FooDict](#parameter0-schema-foodict) | [FooDict](#parameter0-schema-foodict) |
+[Foo](../../components/schema/foo.md) | [foo.FooDictInput](../../../components/schema/foo.md#foodictinput), [foo.FooDict](../../../components/schema/foo.md#foodict) | [foo.FooDict](../../../components/schema/foo.md#foodict) |
 
 ## Return Types
 

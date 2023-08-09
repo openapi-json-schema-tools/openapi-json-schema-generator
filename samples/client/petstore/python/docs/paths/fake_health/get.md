@@ -65,7 +65,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[HealthCheckResult](../../components/schema/health_check_result.md) | [HealthCheckResultDictInput](#responsefor200-content-applicationjson-schema-healthcheckresultdictinput), [HealthCheckResultDict](#responsefor200-content-applicationjson-schema-healthcheckresultdict) | [HealthCheckResultDict](#responsefor200-content-applicationjson-schema-healthcheckresultdict) |
+[HealthCheckResult](../../components/schema/health_check_result.md) | [health_check_result.HealthCheckResultDictInput](../../../components/schema/health_check_result.md#healthcheckresultdictinput), [health_check_result.HealthCheckResultDict](../../../components/schema/health_check_result.md#healthcheckresultdict) | [health_check_result.HealthCheckResultDict](../../../components/schema/health_check_result.md#healthcheckresultdict) |
 
 ## Servers
 

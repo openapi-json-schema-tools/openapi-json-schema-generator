@@ -119,7 +119,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[ApiResponse](../../components/schema/api_response.md) | [ApiResponseDictInput](#responsefor200-content-applicationjson-schema-apiresponsedictinput), [ApiResponseDict](#responsefor200-content-applicationjson-schema-apiresponsedict) | [ApiResponseDict](#responsefor200-content-applicationjson-schema-apiresponsedict) |
+[ApiResponse](../../components/schema/api_response.md) | [api_response.ApiResponseDictInput](../../../components/schema/api_response.md#apiresponsedictinput), [api_response.ApiResponseDict](../../../components/schema/api_response.md#apiresponsedict) | [api_response.ApiResponseDict](../../../components/schema/api_response.md#apiresponsedict) |
 
 ## Servers
 

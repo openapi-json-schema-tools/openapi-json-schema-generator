@@ -52,7 +52,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[Order](../../components/schema/order.md) | [OrderDictInput](#requestbody-content-applicationjson-schema-orderdictinput), [OrderDict](#requestbody-content-applicationjson-schema-orderdict) | [OrderDict](#requestbody-content-applicationjson-schema-orderdict) |
+[Order](../../components/schema/order.md) | [order.OrderDictInput](../../../components/schema/order.md#orderdictinput), [order.OrderDict](../../../components/schema/order.md#orderdict) | [order.OrderDict](../../../components/schema/order.md#orderdict) |
 
 ## Return Types
 
@@ -90,7 +90,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[Order](../../components/schema/order.md) | [OrderDictInput](#responsefor200-content-applicationxml-schema-orderdictinput), [OrderDict](#responsefor200-content-applicationxml-schema-orderdict) | [OrderDict](#responsefor200-content-applicationxml-schema-orderdict) |
+[Order](../../components/schema/order.md) | [order.OrderDictInput](../../../components/schema/order.md#orderdictinput), [order.OrderDict](../../../components/schema/order.md#orderdict) | [order.OrderDict](../../../components/schema/order.md#orderdict) |
 #### ResponseFor200 content ApplicationJson Schema
 petstore_api.paths.store_order.post.responses.response_200.content.application_json.schema
 ```
@@ -100,7 +100,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[Order](../../components/schema/order.md) | [OrderDictInput](#responsefor200-content-applicationjson-schema-orderdictinput), [OrderDict](#responsefor200-content-applicationjson-schema-orderdict) | [OrderDict](#responsefor200-content-applicationjson-schema-orderdict) |
+[Order](../../components/schema/order.md) | [order.OrderDictInput](../../../components/schema/order.md#orderdictinput), [order.OrderDict](../../../components/schema/order.md#orderdict) | [order.OrderDict](../../../components/schema/order.md#orderdict) |
 
 ## ResponseFor400
 

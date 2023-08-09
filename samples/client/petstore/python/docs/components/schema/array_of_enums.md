@@ -43,7 +43,7 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | [**StringEnum**](string_enum.md) |  |
+≥ 0 | None, str |  |
 
 ## ArrayOfEnumsTuple
 ```

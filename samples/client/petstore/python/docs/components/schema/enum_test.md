@@ -37,11 +37,11 @@ Keyword Argument | Type | Description | Notes
 **enum_string** | str, schemas.Unset |  | [optional] must be one of ["UPPER", "lower", ""]
 **enum_integer** | int, schemas.Unset |  | [optional] must be one of [1, -1] value must be a 32 bit integer
 **enum_number** | float, int, schemas.Unset |  | [optional] must be one of [1.1, -1.2] value must be a 64 bit float
-**stringEnum** | None, str |  | [optional]
-**IntegerEnum** | int |  | [optional]
-**StringEnumWithDefaultValue** | str |  | [optional]
-**IntegerEnumWithDefaultValue** | int |  | [optional]
-**IntegerEnumOneValue** | int |  | [optional]
+**stringEnum** | None, str, schemas.Unset |  | [optional]
+**IntegerEnum** | int, schemas.Unset |  | [optional]
+**StringEnumWithDefaultValue** | str, schemas.Unset |  | [optional]
+**IntegerEnumWithDefaultValue** | int, schemas.Unset |  | [optional]
+**IntegerEnumOneValue** | int, schemas.Unset |  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties

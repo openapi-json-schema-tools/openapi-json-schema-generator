@@ -52,7 +52,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[ObjectModelWithRefProps](../../components/schema/object_model_with_ref_props.md) | [ObjectModelWithRefPropsDictInput](#requestbody-content-applicationjson-schema-objectmodelwithrefpropsdictinput), [ObjectModelWithRefPropsDict](#requestbody-content-applicationjson-schema-objectmodelwithrefpropsdict) | [ObjectModelWithRefPropsDict](#requestbody-content-applicationjson-schema-objectmodelwithrefpropsdict) |
+[ObjectModelWithRefProps](../../components/schema/object_model_with_ref_props.md) | [object_model_with_ref_props.ObjectModelWithRefPropsDictInput](../../../components/schema/object_model_with_ref_props.md#objectmodelwithrefpropsdictinput), [object_model_with_ref_props.ObjectModelWithRefPropsDict](../../../components/schema/object_model_with_ref_props.md#objectmodelwithrefpropsdict) | [object_model_with_ref_props.ObjectModelWithRefPropsDict](../../../components/schema/object_model_with_ref_props.md#objectmodelwithrefpropsdict) |
 
 ## Return Types
 
@@ -88,7 +88,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[ObjectModelWithRefProps](../../components/schema/object_model_with_ref_props.md) | [ObjectModelWithRefPropsDictInput](#responsefor200-content-applicationjson-schema-objectmodelwithrefpropsdictinput), [ObjectModelWithRefPropsDict](#responsefor200-content-applicationjson-schema-objectmodelwithrefpropsdict) | [ObjectModelWithRefPropsDict](#responsefor200-content-applicationjson-schema-objectmodelwithrefpropsdict) |
+[ObjectModelWithRefProps](../../components/schema/object_model_with_ref_props.md) | [object_model_with_ref_props.ObjectModelWithRefPropsDictInput](../../../components/schema/object_model_with_ref_props.md#objectmodelwithrefpropsdictinput), [object_model_with_ref_props.ObjectModelWithRefPropsDict](../../../components/schema/object_model_with_ref_props.md#objectmodelwithrefpropsdict) | [object_model_with_ref_props.ObjectModelWithRefPropsDict](../../../components/schema/object_model_with_ref_props.md#objectmodelwithrefpropsdict) |
 
 ## Servers
 

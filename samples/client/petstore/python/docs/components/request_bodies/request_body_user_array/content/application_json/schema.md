@@ -29,7 +29,7 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | [**User**](user.md) |  |
+≥ 0 | [user.UserDictInput](../../../../components/schema/user.md#userdictinput), [user.UserDict](../../../../components/schema/user.md#userdict) |  |
 
 ## SchemaTuple
 ```

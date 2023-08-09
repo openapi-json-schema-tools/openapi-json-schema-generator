@@ -53,7 +53,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[User](../../components/schema/user.md) | [UserDictInput](#requestbody-content-applicationjson-schema-userdictinput), [UserDict](#requestbody-content-applicationjson-schema-userdict) | [UserDict](#requestbody-content-applicationjson-schema-userdict) |
+[User](../../components/schema/user.md) | [user.UserDictInput](../../../components/schema/user.md#userdictinput), [user.UserDict](../../../components/schema/user.md#userdict) | [user.UserDict](../../../components/schema/user.md#userdict) |
 
 ### path_params
 #### RequestPathParameters.Params

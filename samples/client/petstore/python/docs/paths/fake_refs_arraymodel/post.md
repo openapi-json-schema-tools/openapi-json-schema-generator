@@ -52,7 +52,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[AnimalFarm](../../components/schema/animal_farm.md) | [AnimalFarmTupleInput](#requestbody-content-applicationjson-schema-animalfarmtupleinput), [AnimalFarmTuple](#requestbody-content-applicationjson-schema-animalfarmtuple) | [AnimalFarmTuple](#requestbody-content-applicationjson-schema-animalfarmtuple) |
+[AnimalFarm](../../components/schema/animal_farm.md) | [animal_farm.AnimalFarmTupleInput](../../../components/schema/animal_farm.md#animalfarmtupleinput), [animal_farm.AnimalFarmTuple](../../../components/schema/animal_farm.md#animalfarmtuple) | [animal_farm.AnimalFarmTuple](../../../components/schema/animal_farm.md#animalfarmtuple) |
 
 ## Return Types
 
@@ -88,7 +88,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[AnimalFarm](../../components/schema/animal_farm.md) | [AnimalFarmTupleInput](#responsefor200-content-applicationjson-schema-animalfarmtupleinput), [AnimalFarmTuple](#responsefor200-content-applicationjson-schema-animalfarmtuple) | [AnimalFarmTuple](#responsefor200-content-applicationjson-schema-animalfarmtuple) |
+[AnimalFarm](../../components/schema/animal_farm.md) | [animal_farm.AnimalFarmTupleInput](../../../components/schema/animal_farm.md#animalfarmtupleinput), [animal_farm.AnimalFarmTuple](../../../components/schema/animal_farm.md#animalfarmtuple) | [animal_farm.AnimalFarmTuple](../../../components/schema/animal_farm.md#animalfarmtuple) |
 
 ## Servers
 

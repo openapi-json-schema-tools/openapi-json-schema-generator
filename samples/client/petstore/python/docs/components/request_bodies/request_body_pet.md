@@ -19,7 +19,7 @@ type: schemas.Schema
 ### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[Pet](../../components/schema/pet.md) | [PetDictInput](#content-applicationjson-schema-petdictinput), [PetDict](#content-applicationjson-schema-petdict) | [PetDict](#content-applicationjson-schema-petdict) |
+[Pet](../../components/schema/pet.md) | [pet.PetDictInput](../../components/schema/pet.md#petdictinput), [pet.PetDict](../../components/schema/pet.md#petdict) | [pet.PetDict](../../components/schema/pet.md#petdict) |
 ## content ApplicationXml Schema
 petstore_api.components.request_bodies.request_body_pet.content.application_xml.schema
 ```
@@ -29,6 +29,6 @@ type: schemas.Schema
 ### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[RefPet](../../components/schema/ref_pet.md) | [PetDictInput](#content-applicationxml-schema-petdictinput), [PetDict](#content-applicationxml-schema-petdict) | [PetDict](#content-applicationxml-schema-petdict) |
+[RefPet](../../components/schema/ref_pet.md) | [pet.PetDictInput](../../components/schema/pet.md#petdictinput), [pet.PetDict](../../components/schema/pet.md#petdict) | [pet.PetDict](../../components/schema/pet.md#petdict) |
 
 [[Back to top]](#top) [[Back to Component RequestBodies]](../../../README.md#Component-RequestBodies) [[Back to README]](../../../README.md)

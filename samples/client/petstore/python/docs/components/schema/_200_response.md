@@ -41,7 +41,7 @@ Property | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [_200ResponseDictInput](#_200responsedictinput), [_200ResponseDict](#_200responsedict) | [_200ResponseDict](#_200responsedict) | a constructor
+from_dict_ | [_200ResponseDictInput](#_200responsedictinput), [_200ResponseDict](#_200responsedict), str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [_200ResponseDict](#_200responsedict), str, float, int, bool, None, tuple, bytes, io.FileIO | a constructor
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.OUTPUT_BASE_TYPES | This model has invalid python names so this method is used under the hood when you access instance["class"], 
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 

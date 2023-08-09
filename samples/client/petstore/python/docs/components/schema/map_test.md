@@ -31,7 +31,7 @@ Keyword Argument | Type | Description | Notes
 **map_map_of_string** | [MapMapOfStringDictInput](#mapmapofstringdictinput), [MapMapOfStringDict](#mapmapofstringdict), schemas.Unset |  | [optional]
 **map_of_enum_string** | [MapOfEnumStringDictInput](#mapofenumstringdictinput), [MapOfEnumStringDict](#mapofenumstringdict), schemas.Unset |  | [optional]
 **direct_map** | [DirectMapDictInput](#directmapdictinput), [DirectMapDict](#directmapdict), schemas.Unset |  | [optional]
-**indirect_map** | [string_boolean_map.StringBooleanMapDictInput](../../components/schema/string_boolean_map.md#stringbooleanmapdictinput), [string_boolean_map.StringBooleanMapDict](../../components/schema/string_boolean_map.md#stringbooleanmapdict) |  | [optional]
+**indirect_map** | [string_boolean_map.StringBooleanMapDictInput](../../components/schema/string_boolean_map.md#stringbooleanmapdictinput), [string_boolean_map.StringBooleanMapDict](../../components/schema/string_boolean_map.md#stringbooleanmapdict), schemas.Unset |  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties

@@ -7,4 +7,4 @@ type: schemas.Schema
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[FileSchemaTestClass](file_schema_test_class.md) | [FileSchemaTestClassDictInput](#fileschematestclassdictinput), [FileSchemaTestClassDict](#fileschematestclassdict) | [FileSchemaTestClassDict](#fileschematestclassdict) |
+[FileSchemaTestClass](file_schema_test_class.md) | [file_schema_test_class.FileSchemaTestClassDictInput](../../../../../../components/schema/file_schema_test_class.md#fileschematestclassdictinput), [file_schema_test_class.FileSchemaTestClassDict](../../../../../../components/schema/file_schema_test_class.md#fileschematestclassdict) | [file_schema_test_class.FileSchemaTestClassDict](../../../../../../components/schema/file_schema_test_class.md#fileschematestclassdict) |

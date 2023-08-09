@@ -52,7 +52,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[ArrayOfEnums](../../components/schema/array_of_enums.md) | [ArrayOfEnumsTupleInput](#requestbody-content-applicationjson-schema-arrayofenumstupleinput), [ArrayOfEnumsTuple](#requestbody-content-applicationjson-schema-arrayofenumstuple) | [ArrayOfEnumsTuple](#requestbody-content-applicationjson-schema-arrayofenumstuple) |
+[ArrayOfEnums](../../components/schema/array_of_enums.md) | [array_of_enums.ArrayOfEnumsTupleInput](../../../components/schema/array_of_enums.md#arrayofenumstupleinput), [array_of_enums.ArrayOfEnumsTuple](../../../components/schema/array_of_enums.md#arrayofenumstuple) | [array_of_enums.ArrayOfEnumsTuple](../../../components/schema/array_of_enums.md#arrayofenumstuple) |
 
 ## Return Types
 
@@ -88,7 +88,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[ArrayOfEnums](../../components/schema/array_of_enums.md) | [ArrayOfEnumsTupleInput](#responsefor200-content-applicationjson-schema-arrayofenumstupleinput), [ArrayOfEnumsTuple](#responsefor200-content-applicationjson-schema-arrayofenumstuple) | [ArrayOfEnumsTuple](#responsefor200-content-applicationjson-schema-arrayofenumstuple) |
+[ArrayOfEnums](../../components/schema/array_of_enums.md) | [array_of_enums.ArrayOfEnumsTupleInput](../../../components/schema/array_of_enums.md#arrayofenumstupleinput), [array_of_enums.ArrayOfEnumsTuple](../../../components/schema/array_of_enums.md#arrayofenumstuple) | [array_of_enums.ArrayOfEnumsTuple](../../../components/schema/array_of_enums.md#arrayofenumstuple) |
 
 ## Servers
 

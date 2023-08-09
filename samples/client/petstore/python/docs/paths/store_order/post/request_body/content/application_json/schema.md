@@ -7,4 +7,4 @@ type: schemas.Schema
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[Order](order.md) | [OrderDictInput](#orderdictinput), [OrderDict](#orderdict) | [OrderDict](#orderdict) |
+[Order](order.md) | [order.OrderDictInput](../../../../../../components/schema/order.md#orderdictinput), [order.OrderDict](../../../../../../components/schema/order.md#orderdict) | [order.OrderDict](../../../../../../components/schema/order.md#orderdict) |

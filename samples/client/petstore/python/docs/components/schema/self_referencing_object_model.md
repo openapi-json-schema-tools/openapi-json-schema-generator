@@ -38,7 +38,7 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**selfRef** | [self_referencing_object_model.SelfReferencingObjectModelDictInput](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldictinput), [self_referencing_object_model.SelfReferencingObjectModelDict](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldict) |  | [optional]
+**selfRef** | [self_referencing_object_model.SelfReferencingObjectModelDictInput](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldictinput), [self_referencing_object_model.SelfReferencingObjectModelDict](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldict), schemas.Unset |  | [optional]
 **kwargs** | [self_referencing_object_model.SelfReferencingObjectModelDictInput](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldictinput), [self_referencing_object_model.SelfReferencingObjectModelDict](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldict) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties

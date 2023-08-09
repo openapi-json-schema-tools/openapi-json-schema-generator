@@ -30,9 +30,9 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**myNumber** | float, int |  | [optional]
-**myString** | str |  | [optional]
-**myBoolean** | bool |  | [optional]
+**myNumber** | float, int, schemas.Unset |  | [optional]
+**myString** | str, schemas.Unset |  | [optional]
+**myBoolean** | bool, schemas.Unset |  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties

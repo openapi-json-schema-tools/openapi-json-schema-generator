@@ -264,7 +264,7 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | [**ReadOnlyFirst**](read_only_first.md) |  |
+≥ 0 | [read_only_first.ReadOnlyFirstDictInput](../../components/schema/read_only_first.md#readonlyfirstdictinput), [read_only_first.ReadOnlyFirstDict](../../components/schema/read_only_first.md#readonlyfirstdict) |  |
 
 ## ItemsTuple2
 ```

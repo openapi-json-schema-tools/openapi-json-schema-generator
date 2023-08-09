@@ -75,7 +75,7 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | [**EnumClass**](enum_class.md) |  |
+≥ 0 | str |  |
 
 ## AdditionalPropertiesTuple
 ```

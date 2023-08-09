@@ -7,4 +7,4 @@ type: schemas.Schema
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[User](user.md) | [UserDictInput](#userdictinput), [UserDict](#userdict) | [UserDict](#userdict) |
+[User](user.md) | [user.UserDictInput](../../../../../../components/schema/user.md#userdictinput), [user.UserDict](../../../../../../components/schema/user.md#userdict) | [user.UserDict](../../../../../../components/schema/user.md#userdict) |

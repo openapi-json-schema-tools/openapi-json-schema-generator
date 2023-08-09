@@ -25,7 +25,7 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**string** | [foo.FooDictInput](../../../../../../../components/schema/foo.md#foodictinput), [foo.FooDict](../../../../../../../components/schema/foo.md#foodict) |  | [optional]
+**string** | [foo.FooDictInput](../../../../../../../components/schema/foo.md#foodictinput), [foo.FooDict](../../../../../../../components/schema/foo.md#foodict), schemas.Unset |  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties

@@ -27,9 +27,9 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**length** | str |  | [optional]
+**length** | str, schemas.Unset |  | [optional]
 **width** | str, schemas.Unset |  | [optional] value must be int or float numeric
-**cost** | [money.MoneyDictInput](../../components/schema/money.md#moneydictinput), [money.MoneyDict](../../components/schema/money.md#moneydict) |  | [optional]
+**cost** | [money.MoneyDictInput](../../components/schema/money.md#moneydictinput), [money.MoneyDict](../../components/schema/money.md#moneydict), schemas.Unset |  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties

@@ -52,7 +52,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[AdditionalPropertiesWithArrayOfEnums](../../components/schema/additional_properties_with_array_of_enums.md) | [AdditionalPropertiesWithArrayOfEnumsDictInput](#requestbody-content-applicationjson-schema-additionalpropertieswitharrayofenumsdictinput), [AdditionalPropertiesWithArrayOfEnumsDict](#requestbody-content-applicationjson-schema-additionalpropertieswitharrayofenumsdict) | [AdditionalPropertiesWithArrayOfEnumsDict](#requestbody-content-applicationjson-schema-additionalpropertieswitharrayofenumsdict) |
+[AdditionalPropertiesWithArrayOfEnums](../../components/schema/additional_properties_with_array_of_enums.md) | [additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnumsDictInput](../../../components/schema/additional_properties_with_array_of_enums.md#additionalpropertieswitharrayofenumsdictinput), [additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnumsDict](../../../components/schema/additional_properties_with_array_of_enums.md#additionalpropertieswitharrayofenumsdict) | [additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnumsDict](../../../components/schema/additional_properties_with_array_of_enums.md#additionalpropertieswitharrayofenumsdict) |
 
 ## Return Types
 
@@ -88,7 +88,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[AdditionalPropertiesWithArrayOfEnums](../../components/schema/additional_properties_with_array_of_enums.md) | [AdditionalPropertiesWithArrayOfEnumsDictInput](#responsefor200-content-applicationjson-schema-additionalpropertieswitharrayofenumsdictinput), [AdditionalPropertiesWithArrayOfEnumsDict](#responsefor200-content-applicationjson-schema-additionalpropertieswitharrayofenumsdict) | [AdditionalPropertiesWithArrayOfEnumsDict](#responsefor200-content-applicationjson-schema-additionalpropertieswitharrayofenumsdict) |
+[AdditionalPropertiesWithArrayOfEnums](../../components/schema/additional_properties_with_array_of_enums.md) | [additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnumsDictInput](../../../components/schema/additional_properties_with_array_of_enums.md#additionalpropertieswitharrayofenumsdictinput), [additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnumsDict](../../../components/schema/additional_properties_with_array_of_enums.md#additionalpropertieswitharrayofenumsdict) | [additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnumsDict](../../../components/schema/additional_properties_with_array_of_enums.md#additionalpropertieswitharrayofenumsdict) |
 
 ## Servers
 

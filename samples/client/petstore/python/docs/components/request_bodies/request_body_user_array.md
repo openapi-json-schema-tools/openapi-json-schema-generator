@@ -40,7 +40,7 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | [**User**](../../components/schema/user.md) |  |
+≥ 0 | [user.UserDictInput](../../components/schema/user.md#userdictinput), [user.UserDict](../../components/schema/user.md#userdict) |  |
 
 ### content ApplicationJson Schema SchemaTuple
 ```

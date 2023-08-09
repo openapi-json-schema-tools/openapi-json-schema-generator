@@ -68,7 +68,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[Client](../../components/schema/client.md) | [ClientDictInput](#responsefor200-content-applicationjson-schema-clientdictinput), [ClientDict](#responsefor200-content-applicationjson-schema-clientdict) | [ClientDict](#responsefor200-content-applicationjson-schema-clientdict) |
+[Client](../../components/schema/client.md) | [client.ClientDictInput](../../../components/schema/client.md#clientdictinput), [client.ClientDict](../../../components/schema/client.md#clientdict) | [client.ClientDict](../../../components/schema/client.md#clientdict) |
 
 ## Servers
 

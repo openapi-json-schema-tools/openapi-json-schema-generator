@@ -49,7 +49,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[JSONPatchRequest](../../components/schema/json_patch_request.md) | [JSONPatchRequestTupleInput](#requestbody-content-applicationjsonpatchjson-schema-jsonpatchrequesttupleinput), [JSONPatchRequestTuple](#requestbody-content-applicationjsonpatchjson-schema-jsonpatchrequesttuple) | [JSONPatchRequestTuple](#requestbody-content-applicationjsonpatchjson-schema-jsonpatchrequesttuple) |
+[JSONPatchRequest](../../components/schema/json_patch_request.md) | [json_patch_request.JSONPatchRequestTupleInput](../../../components/schema/json_patch_request.md#jsonpatchrequesttupleinput), [json_patch_request.JSONPatchRequestTuple](../../../components/schema/json_patch_request.md#jsonpatchrequesttuple) | [json_patch_request.JSONPatchRequestTuple](../../../components/schema/json_patch_request.md#jsonpatchrequesttuple) |
 
 ## Return Types
 

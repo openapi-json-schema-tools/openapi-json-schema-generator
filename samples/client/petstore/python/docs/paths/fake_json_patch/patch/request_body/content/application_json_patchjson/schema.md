@@ -7,4 +7,4 @@ type: schemas.Schema
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[JSONPatchRequest](json_patch_request.md) | [JSONPatchRequestTupleInput](#jsonpatchrequesttupleinput), [JSONPatchRequestTuple](#jsonpatchrequesttuple) | [JSONPatchRequestTuple](#jsonpatchrequesttuple) |
+[JSONPatchRequest](json_patch_request.md) | [json_patch_request.JSONPatchRequestTupleInput](../../../../../../components/schema/json_patch_request.md#jsonpatchrequesttupleinput), [json_patch_request.JSONPatchRequestTuple](../../../../../../components/schema/json_patch_request.md#jsonpatchrequesttuple) | [json_patch_request.JSONPatchRequestTuple](../../../../../../components/schema/json_patch_request.md#jsonpatchrequesttuple) |

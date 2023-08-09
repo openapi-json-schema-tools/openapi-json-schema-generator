@@ -29,7 +29,7 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | [**Animal**](animal.md) |  |
+≥ 0 | [animal.AnimalDictInput](../../components/schema/animal.md#animaldictinput), [animal.AnimalDict](../../components/schema/animal.md#animaldict) |  |
 
 ## AnimalFarmTuple
 ```

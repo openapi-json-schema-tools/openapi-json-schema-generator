@@ -49,7 +49,7 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | [**Pet**](../../components/schema/pet.md) |  |
+≥ 0 | [pet.PetDictInput](../../components/schema/pet.md#petdictinput), [pet.PetDict](../../components/schema/pet.md#petdict) |  |
 
 #### content ApplicationXml Schema SchemaTuple
 ```
@@ -99,7 +99,7 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | [**RefPet**](../../components/schema/ref_pet.md) |  |
+≥ 0 | [pet.PetDictInput](../../components/schema/pet.md#petdictinput), [pet.PetDict](../../components/schema/pet.md#petdict) |  |
 
 #### content ApplicationJson Schema SchemaTuple
 ```
