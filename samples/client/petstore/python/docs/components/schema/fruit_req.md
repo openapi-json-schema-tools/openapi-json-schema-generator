@@ -15,7 +15,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**BananaReq**](banana_req.md) | [**BananaReq**](banana_req.md) | [**BananaReq**](banana_req.md) |  |
 
 # _0
-petstore_api.components.schema.fruitReq.oneOf._0
 
 ## validate method
 Input Type | Return Type | Notes

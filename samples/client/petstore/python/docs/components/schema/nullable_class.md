@@ -151,7 +151,6 @@ from_dict_ | [NullableClassDictInput](#nullableclassdictinput), [NullableClassDi
 get_additional_property_ | str | [AdditionalProperties4](#) | provides type safety for additional properties
 
 # ArrayNullableProp
-petstore_api.components.schema.NullableClass.properties.array_nullable_prop
 
 ## validate method
 Input Type | Return Type | Notes
@@ -199,7 +198,6 @@ Method | Input Type | Return Type | Notes
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES] | This method is used under the hood when instance[0] is called
 
 # Items
-petstore_api.components.schema.NullableClass.properties.array_nullable_prop.items
 
 ## validate method
 Input Type | Return Type | Notes
@@ -207,7 +205,6 @@ Input Type | Return Type | Notes
 dict, schemas.immutabledict | schemas.immutabledict |
 
 # ArrayAndItemsNullableProp
-petstore_api.components.schema.NullableClass.properties.array_and_items_nullable_prop
 
 ## validate method
 Input Type | Return Type | Notes
@@ -265,7 +262,6 @@ Method | Input Type | Return Type | Notes
  | This method is used under the hood when instance[0] is called
 
 # Items2
-petstore_api.components.schema.NullableClass.properties.array_and_items_nullable_prop.items
 
 ## validate method
 Input Type | Return Type | Notes
@@ -273,7 +269,6 @@ Input Type | Return Type | Notes
 None, dict, schemas.immutabledict | None, schemas.immutabledict |
 
 # ArrayItemsNullable
-petstore_api.components.schema.NullableClass.properties.array_items_nullable
 
 ## validate method
 Input Type | Return Type | Notes
@@ -331,7 +326,6 @@ Method | Input Type | Return Type | Notes
  | This method is used under the hood when instance[0] is called
 
 # Items3
-petstore_api.components.schema.NullableClass.properties.array_items_nullable.items
 
 ## validate method
 Input Type | Return Type | Notes
@@ -339,7 +333,6 @@ Input Type | Return Type | Notes
 None, dict, schemas.immutabledict | None, schemas.immutabledict |
 
 # ObjectNullableProp
-petstore_api.components.schema.NullableClass.properties.object_nullable_prop
 
 ## validate method
 Input Type | Return Type | Notes
@@ -377,7 +370,6 @@ from_dict_ | [ObjectNullablePropDictInput](#objectnullablepropdictinput), [Objec
 get_additional_property_ | str | [AdditionalProperties](#) | provides type safety for additional properties
 
 # AdditionalProperties
-petstore_api.components.schema.NullableClass.properties.object_nullable_prop.additional_properties
 
 ## validate method
 Input Type | Return Type | Notes
@@ -385,7 +377,6 @@ Input Type | Return Type | Notes
 dict, schemas.immutabledict | schemas.immutabledict |
 
 # ObjectAndItemsNullableProp
-petstore_api.components.schema.NullableClass.properties.object_and_items_nullable_prop
 
 ## validate method
 Input Type | Return Type | Notes
@@ -429,7 +420,6 @@ from_dict_ | [ObjectAndItemsNullablePropDictInput](#objectanditemsnullablepropdi
 get_additional_property_ | str | [AdditionalProperties2](#) | provides type safety for additional properties
 
 # AdditionalProperties2
-petstore_api.components.schema.NullableClass.properties.object_and_items_nullable_prop.additional_properties
 
 ## validate method
 Input Type | Return Type | Notes
@@ -437,7 +427,6 @@ Input Type | Return Type | Notes
 None, dict, schemas.immutabledict | None, schemas.immutabledict |
 
 # ObjectItemsNullable
-petstore_api.components.schema.NullableClass.properties.object_items_nullable
 
 ## validate method
 Input Type | Return Type | Notes
@@ -481,7 +470,6 @@ from_dict_ | [ObjectItemsNullableDictInput](#objectitemsnullabledictinput), [Obj
 get_additional_property_ | str | [AdditionalProperties3](#) | provides type safety for additional properties
 
 # AdditionalProperties3
-petstore_api.components.schema.NullableClass.properties.object_items_nullable.additional_properties
 
 ## validate method
 Input Type | Return Type | Notes
@@ -489,7 +477,6 @@ Input Type | Return Type | Notes
 None, dict, schemas.immutabledict | None, schemas.immutabledict |
 
 # AdditionalProperties4
-petstore_api.components.schema.NullableClass.additional_properties
 
 ## validate method
 Input Type | Return Type | Notes

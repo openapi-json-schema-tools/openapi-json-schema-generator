@@ -38,7 +38,6 @@ from_dict_ | [SchemaDictInput](#schemadictinput), [SchemaDict](#schemadict) | [S
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # Files
-petstore_api.paths.fake_upload_files.post.request_body.content.multipart_form_data.schema.properties.files
 
 ## validate method
 Input Type | Return Type | Notes

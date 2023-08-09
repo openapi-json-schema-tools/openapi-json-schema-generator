@@ -41,7 +41,6 @@ from_dict_ | [SchemaDictInput](#schemadictinput), [SchemaDict](#schemadict) | [S
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # EnumFormStringArray
-petstore_api.paths.fake.get.request_body.content.application_x_www_form_urlencoded.schema.properties.enum_form_string_array
 
 ## Description
 Form parameter enum test (string array)

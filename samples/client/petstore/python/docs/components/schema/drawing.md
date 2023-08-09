@@ -71,7 +71,6 @@ from_dict_ | [DrawingDictInput](#drawingdictinput), [DrawingDict](#drawingdict) 
 get_additional_property_ | str | [**Fruit**](fruit.md) | provides type safety for additional properties
 
 # Shapes
-petstore_api.components.schema.Drawing.properties.shapes
 
 ## validate method
 Input Type | Return Type | Notes

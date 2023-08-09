@@ -80,7 +80,6 @@ from_dict_ | [SchemaDictInput](#requestbody-content-multipartformdata-schema-sch
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 #### RequestBody content MultipartFormData Schema
-petstore_api.paths.fake_upload_files.post.request_body.content.multipart_form_data.schema.properties.files
 
 ##### validate method
 Input Type | Return Type | Notes

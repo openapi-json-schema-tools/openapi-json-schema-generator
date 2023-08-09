@@ -22,7 +22,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_6](#) | str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
 
 # _2
-petstore_api.components.schema.ComposedOneOfDifferentTypes.oneOf._2
 
 ## validate method
 Input Type | Return Type | Notes
@@ -30,7 +29,6 @@ Input Type | Return Type | Notes
 None | None |
 
 # _3
-petstore_api.components.schema.ComposedOneOfDifferentTypes.oneOf._3
 
 ## validate method
 Input Type | Return Type | Notes
@@ -38,7 +36,6 @@ Input Type | Return Type | Notes
 str, datetime.date | str | value must conform to RFC-3339 full-date YYYY-MM-DD
 
 # _4
-petstore_api.components.schema.ComposedOneOfDifferentTypes.oneOf._4
 
 ## validate method
 Input Type | Return Type | Notes
@@ -46,7 +43,6 @@ Input Type | Return Type | Notes
 dict, schemas.immutabledict | schemas.immutabledict |
 
 # _5
-petstore_api.components.schema.ComposedOneOfDifferentTypes.oneOf._5
 
 ## validate method
 Input Type | Return Type | Notes
@@ -94,7 +90,6 @@ Method | Input Type | Return Type | Notes
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.OUTPUT_BASE_TYPES | This method is used under the hood when instance[0] is called
 
 # _6
-petstore_api.components.schema.ComposedOneOfDifferentTypes.oneOf._6
 
 ## validate method
 Input Type | Return Type | Notes

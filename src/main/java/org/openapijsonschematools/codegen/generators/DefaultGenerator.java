@@ -2238,7 +2238,12 @@ public class DefaultGenerator implements Generator {
         property.instanceType = "schema";
         property.jsonPath = currentJsonPath;
         if (currentJsonPath != null) {
-            property.moduleLocation = getRefModuleLocation(currentJsonPath);
+            property.moduleLocation = getModuleLocation(sourceJsonPath);
+            String pathFromDocRoot = property.moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
+            property.pathFromDocRoot = pathFromDocRoot;
+            if (currentJsonPath != sourceJsonPath) {
+                property.isInline = true;
+            }
         }
 
         String ref = p.get$ref();
@@ -4468,6 +4473,13 @@ public class DefaultGenerator implements Generator {
         if (pathPieces.length == 4 && currentJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
             instance.componentModule = true;
         }
+    }
+
+    private String getModuleLocation(String ref) {
+        String filePath = getFilepath(ref);
+        String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar;
+        String localFilepath = filePath.substring(prefix.length());
+        return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
     }
 
     private String getRefModuleLocation(String ref) {

@@ -101,8 +101,11 @@ public class CodegenSchema {
     public String instanceType;
     // used to store the expanded schemas that define a codegenschema in code file
     private ArrayList<CodegenSchema> allSchemas = null;
-    // converts jsonPath into moduleLocation for docs
+    // converts sourceJsonPath into code file moduleLocation for docs
     public String moduleLocation = null;
+    // stores the location of the documentation file
+    public String pathFromDocRoot = null;
+    public boolean isInline = false;
 
     public boolean hasValidation() {
         return maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || patternInfo != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null;

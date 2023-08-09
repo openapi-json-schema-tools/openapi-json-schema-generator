@@ -46,7 +46,6 @@ from_dict_ | [MapTestDictInput](#maptestdictinput), [MapTestDict](#maptestdict) 
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # MapMapOfString
-petstore_api.components.schema.MapTest.properties.map_map_of_string
 
 ## validate method
 Input Type | Return Type | Notes
@@ -84,7 +83,6 @@ from_dict_ | [MapMapOfStringDictInput](#mapmapofstringdictinput), [MapMapOfStrin
 get_additional_property_ | str | [AdditionalProperties](#) | provides type safety for additional properties
 
 # AdditionalProperties
-petstore_api.components.schema.MapTest.properties.map_map_of_string.additional_properties
 
 ## validate method
 Input Type | Return Type | Notes
@@ -119,7 +117,6 @@ from_dict_ | [AdditionalPropertiesDictInput](#additionalpropertiesdictinput), [A
 get_additional_property_ | str | str, schemas.Unset | provides type safety for additional properties
 
 # MapOfEnumString
-petstore_api.components.schema.MapTest.properties.map_of_enum_string
 
 ## validate method
 Input Type | Return Type | Notes
@@ -157,7 +154,6 @@ from_dict_ | [MapOfEnumStringDictInput](#mapofenumstringdictinput), [MapOfEnumSt
 get_additional_property_ | str | str, schemas.Unset | provides type safety for additional properties
 
 # DirectMap
-petstore_api.components.schema.MapTest.properties.direct_map
 
 ## validate method
 Input Type | Return Type | Notes

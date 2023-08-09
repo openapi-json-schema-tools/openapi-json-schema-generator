@@ -41,7 +41,6 @@ from_dict_ | [FileSchemaTestClassDictInput](#fileschematestclassdictinput), [Fil
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # Files
-petstore_api.components.schema.FileSchemaTestClass.properties.files
 
 ## validate method
 Input Type | Return Type | Notes

@@ -18,7 +18,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**Quadrilateral**](quadrilateral.md) | [**Quadrilateral**](quadrilateral.md) | [**Quadrilateral**](quadrilateral.md) |  |
 
 # _0
-petstore_api.components.schema.ShapeOrNull.oneOf._0
 
 ## validate method
 Input Type | Return Type | Notes

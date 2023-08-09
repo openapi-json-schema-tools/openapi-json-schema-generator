@@ -97,7 +97,6 @@ from_dict_ | [FormatTestDictInput](#formattestdictinput), [FormatTestDict](#form
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # ArrayWithUniqueItems
-petstore_api.components.schema.FormatTest.properties.array_with_unique_items
 
 ## validate method
 Input Type | Return Type | Notes

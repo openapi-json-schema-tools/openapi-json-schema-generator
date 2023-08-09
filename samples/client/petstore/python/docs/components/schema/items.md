@@ -50,7 +50,6 @@ Method | Input Type | Return Type | Notes
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES] | This method is used under the hood when instance[0] is called
 
 # Items2
-petstore_api.components.schema.Items.items
 
 ## validate method
 Input Type | Return Type | Notes

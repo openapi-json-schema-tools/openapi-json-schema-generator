@@ -44,7 +44,6 @@ from_dict_ | [ObjectWithCollidingPropertiesDictInput](#objectwithcollidingproper
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # SomeProp
-petstore_api.components.schema.ObjectWithCollidingProperties.properties.some_prop
 
 ## validate method
 Input Type | Return Type | Notes
@@ -52,7 +51,6 @@ Input Type | Return Type | Notes
 dict, schemas.immutabledict | schemas.immutabledict |
 
 # Someprop2
-petstore_api.components.schema.ObjectWithCollidingProperties.properties.someprop
 
 ## validate method
 Input Type | Return Type | Notes

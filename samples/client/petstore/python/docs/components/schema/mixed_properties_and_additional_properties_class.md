@@ -44,7 +44,6 @@ from_dict_ | [MixedPropertiesAndAdditionalPropertiesClassDictInput](#mixedproper
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # Map
-petstore_api.components.schema.MixedPropertiesAndAdditionalPropertiesClass.properties.map
 
 ## validate method
 Input Type | Return Type | Notes

@@ -7,7 +7,9 @@
 {{#if componentModule}}
 {{packageName}}.components.schema.{{jsonPathPiece.snakeCase}}
 {{else}}
-{{moduleLocation}}.{{jsonPathPiece.snakeCase}}
+{{#unless isInline}}
+{{moduleLocation}}
+{{/unless}}
 {{/if}}
 {{#if description}}
 

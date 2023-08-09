@@ -13,7 +13,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_0](#) | str | str |  |
 
 # _0
-petstore_api.paths.fake_inline_composition.post.request_body.content.application_json.schema.allOf._0
 
 ## validate method
 Input Type | Return Type | Notes

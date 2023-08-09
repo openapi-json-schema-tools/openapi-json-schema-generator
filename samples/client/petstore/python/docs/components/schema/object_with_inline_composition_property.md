@@ -37,7 +37,6 @@ from_dict_ | [ObjectWithInlineCompositionPropertyDictInput](#objectwithinlinecom
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # SomeProp
-petstore_api.components.schema.ObjectWithInlineCompositionProperty.properties.some_prop
 
 ## validate method
 Input Type | Return Type | Notes
@@ -51,7 +50,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_0](#) | str | str |  |
 
 # _0
-petstore_api.components.schema.ObjectWithInlineCompositionProperty.properties.someProp.allOf._0
 
 ## validate method
 Input Type | Return Type | Notes

@@ -15,7 +15,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_2](#) | dict, schemas.immutabledict | schemas.immutabledict |  |
 
 # _0
-petstore_api.components.schema.AdditionalPropertiesValidator.allOf._0
 
 ## validate method
 Input Type | Return Type | Notes
@@ -47,7 +46,6 @@ from_dict_ | [_0DictInput](#_0dictinput), [_0Dict](#_0dict) | [_0Dict](#_0dict) 
 get_additional_property_ | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | provides type safety for additional properties
 
 # _1
-petstore_api.components.schema.AdditionalPropertiesValidator.allOf._1
 
 ## validate method
 Input Type | Return Type | Notes
@@ -85,7 +83,6 @@ from_dict_ | [_1DictInput](#_1dictinput), [_1Dict](#_1dict) | [_1Dict](#_1dict) 
 get_additional_property_ | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | provides type safety for additional properties
 
 # _2
-petstore_api.components.schema.AdditionalPropertiesValidator.allOf._2
 
 ## validate method
 Input Type | Return Type | Notes

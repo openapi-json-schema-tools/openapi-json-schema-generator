@@ -18,7 +18,6 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_2](#) | None | None |  |
 
 # _2
-petstore_api.components.schema.NullableShape.oneOf._2
 
 ## validate method
 Input Type | Return Type | Notes

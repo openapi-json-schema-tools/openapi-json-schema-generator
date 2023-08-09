@@ -41,7 +41,6 @@ from_dict_ | [EnumArraysDictInput](#enumarraysdictinput), [EnumArraysDict](#enum
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # ArrayEnum
-petstore_api.components.schema.EnumArrays.properties.array_enum
 
 ## validate method
 Input Type | Return Type | Notes

@@ -38,7 +38,6 @@ from_dict_ | [ArrayOfNumberOnlyDictInput](#arrayofnumberonlydictinput), [ArrayOf
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # ArrayNumber
-petstore_api.components.schema.ArrayOfNumberOnly.properties.array_number
 
 ## validate method
 Input Type | Return Type | Notes
