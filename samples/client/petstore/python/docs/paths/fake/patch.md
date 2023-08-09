@@ -59,6 +59,7 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
+petstore_api.paths.fake.patch.responses.response_200.content.application_json
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### Ref Info

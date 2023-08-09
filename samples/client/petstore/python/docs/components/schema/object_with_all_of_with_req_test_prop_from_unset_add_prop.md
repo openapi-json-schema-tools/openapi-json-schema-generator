@@ -13,6 +13,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.md) | [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.md) | [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.md) |  |
 [_1](#) | dict, schemas.immutabledict | schemas.immutabledict |  |
 
+petstore_api.components.schema.ObjectWithAllOfWithReqTestPropFromUnsetAddProp.allOf
 # _1
 
 ## validate method

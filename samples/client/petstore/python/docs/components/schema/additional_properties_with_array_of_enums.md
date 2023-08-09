@@ -36,6 +36,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [AdditionalPropertiesWithArrayOfEnumsDictInput](#additionalpropertieswitharrayofenumsdictinput), [AdditionalPropertiesWithArrayOfEnumsDict](#additionalpropertieswitharrayofenumsdict) | [AdditionalPropertiesWithArrayOfEnumsDict](#additionalpropertieswitharrayofenumsdict) | a constructor
 get_additional_property_ | str | [AdditionalProperties](#) | provides type safety for additional properties
 
+petstore_api.components.schema.AdditionalPropertiesWithArrayOfEnums
 # AdditionalProperties
 
 ## validate method

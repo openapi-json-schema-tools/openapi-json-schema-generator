@@ -46,6 +46,7 @@ id | [Parameter0.schema](#parameter0-schema), str | |
 ##### Description
 The internal object id
 
+petstore_api.paths.fake_delete_coffee_id.delete.parameters.parameter_0
 ##### Parameter0 Schema
 
 ###### validate method

@@ -8,6 +8,7 @@ a path string with validation
 Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#content-applicationjson-schema)
+petstore_api.components.parameters.parameter_component_ref_schema_string_with_validation.content.application_json
 ## content ApplicationJson Schema
 
 ### Ref Info

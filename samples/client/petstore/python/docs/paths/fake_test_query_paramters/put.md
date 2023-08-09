@@ -47,6 +47,7 @@ refParam | [Parameter5.schema](#parameter5-schema), dict, schemas.immutabledict,
 
 #### Parameter0
 
+petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_0
 ##### Parameter0 Schema
 
 ###### validate method
@@ -90,6 +91,7 @@ Method | Input Type | Return Type | Notes
 
 #### Parameter1
 
+petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_1
 ##### Parameter1 Schema
 
 ###### validate method
@@ -133,6 +135,7 @@ Method | Input Type | Return Type | Notes
 
 #### Parameter2
 
+petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_2
 ##### Parameter2 Schema
 
 ###### validate method
@@ -176,6 +179,7 @@ Method | Input Type | Return Type | Notes
 
 #### Parameter3
 
+petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_3
 ##### Parameter3 Schema
 
 ###### validate method
@@ -219,6 +223,7 @@ Method | Input Type | Return Type | Notes
 
 #### Parameter4
 
+petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_4
 ##### Parameter4 Schema
 
 ###### validate method
@@ -262,6 +267,7 @@ Method | Input Type | Return Type | Notes
 
 #### Parameter5
 
+petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_5
 ##### Parameter5 Schema
 
 ###### Ref Info

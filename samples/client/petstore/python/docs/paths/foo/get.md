@@ -55,6 +55,7 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#default-content-applicationjson-schema)
 
 ### Body Details
+petstore_api.paths.foo.get.responses.response_default.content.application_json
 #### Default content ApplicationJson Schema
 
 ##### validate method

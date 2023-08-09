@@ -18,6 +18,7 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 
 ## Body Details
+petstore_api.components.responses.response_successful_xml_and_json_array_of_pet.content.application_xml
 ### content ApplicationXml Schema
 
 #### validate method
@@ -64,6 +65,7 @@ configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.OUTPUT_BASE_TYPES | This method is used under the hood when instance[0] is called
+petstore_api.components.responses.response_successful_xml_and_json_array_of_pet.content.application_json
 ### content ApplicationJson Schema
 
 #### validate method

@@ -22,6 +22,7 @@ Key | Accessed Type | Description  | Notes
 someHeader | [headers.header_some_header.schema](#headers-someheader-schema) | | optional
 
 ## Body Details
+petstore_api.components.responses.response_success_inline_content_and_header.content.application_json
 ### content ApplicationJson Schema
 
 #### validate method
@@ -59,6 +60,7 @@ get_additional_property_ | str | int, schemas.Unset | provides type safety for a
 ## Header Details
 ### headers SomeHeader
 
+petstore_api.components.responses.response_success_inline_content_and_header.headers.header_some_header
 #### headers SomeHeader Schema
 
 ##### validate method

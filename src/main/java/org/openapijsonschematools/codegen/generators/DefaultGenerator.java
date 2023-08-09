@@ -2237,6 +2237,9 @@ public class DefaultGenerator implements Generator {
         CodegenSchema property = codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
         property.instanceType = "schema";
         property.jsonPath = currentJsonPath;
+        if (currentJsonPath != null) {
+            property.moduleLocation = getRefModuleLocation(currentJsonPath);
+        }
 
         String ref = p.get$ref();
         // put toExampleValue in a try-catch block to log the error as example values are not critical

@@ -43,6 +43,7 @@ Content-Type | Schema
 ------------ | -------
 "application/x-www-form-urlencoded" | [content.application_x_www_form_urlencoded.Schema](#requestbody-content-applicationxwwwformurlencoded-schema)
 
+petstore_api.paths.fake.get.request_body.content.application_x_www_form_urlencoded
 #### RequestBody content ApplicationXWwwFormUrlencoded Schema
 
 ##### validate method
@@ -84,6 +85,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput), [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) | [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
+petstore_api.paths.fake.get.request_body.content.application_x_www_form_urlencoded.schema.properties
 #### RequestBody content ApplicationXWwwFormUrlencoded Schema
 
 ##### Description
@@ -151,6 +153,7 @@ enum_query_double | [Parameter5.schema](#parameter5-schema), float, int | | opti
 ##### Description
 Query parameter enum test (string array)
 
+petstore_api.paths.fake.get.parameters.parameter_2
 ##### Parameter2 Schema
 
 ###### validate method
@@ -203,6 +206,7 @@ Method | Input Type | Return Type | Notes
 ##### Description
 Query parameter enum test (string)
 
+petstore_api.paths.fake.get.parameters.parameter_3
 ##### Parameter3 Schema
 
 ###### validate method
@@ -215,6 +219,7 @@ str | str | must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will 
 ##### Description
 Query parameter enum test (double)
 
+petstore_api.paths.fake.get.parameters.parameter_4
 ##### Parameter4 Schema
 
 ###### validate method
@@ -227,6 +232,7 @@ int | int | must be one of [1, -2] value must be a 32 bit integer
 ##### Description
 Query parameter enum test (double)
 
+petstore_api.paths.fake.get.parameters.parameter_5
 ##### Parameter5 Schema
 
 ###### validate method
@@ -249,6 +255,7 @@ enum_header_string | [Parameter1.schema](#parameter1-schema), str | | optional
 ##### Description
 Header parameter enum test (string array)
 
+petstore_api.paths.fake.get.parameters.parameter_0
 ##### Parameter0 Schema
 
 ###### validate method
@@ -301,6 +308,7 @@ Method | Input Type | Return Type | Notes
 ##### Description
 Header parameter enum test (string)
 
+petstore_api.paths.fake.get.parameters.parameter_1
 ##### Parameter1 Schema
 
 ###### validate method
@@ -334,6 +342,7 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor404-content-applicationjson-schema)
 
 ### Body Details
+petstore_api.paths.fake.get.responses.response_404.content.application_json
 #### ResponseFor404 content ApplicationJson Schema
 
 ##### validate method

@@ -49,6 +49,7 @@ status | [Parameter0.schema](#parameter0-schema), list, tuple | |
 ##### Description
 Status values that need to be considered for filter
 
+petstore_api.paths.pet_find_by_status.get.parameters.parameter_0
 ##### Parameter0 Schema
 
 ###### validate method

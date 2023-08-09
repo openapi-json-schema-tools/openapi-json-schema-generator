@@ -40,6 +40,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [FileSchemaTestClassDictInput](#fileschematestclassdictinput), [FileSchemaTestClassDict](#fileschematestclassdict) | [FileSchemaTestClassDict](#fileschematestclassdict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
+petstore_api.components.schema.FileSchemaTestClass.properties
 # Files
 
 ## validate method

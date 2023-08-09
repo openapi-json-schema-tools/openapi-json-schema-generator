@@ -45,6 +45,7 @@ api_key | [Parameter0.schema](#parameter0-schema), str | | optional
 
 #### Parameter0
 
+petstore_api.paths.pet_pet_id.delete.parameters.parameter_0
 ##### Parameter0 Schema
 
 ###### validate method
@@ -66,6 +67,7 @@ petId | [Parameter1.schema](#parameter1-schema), int | |
 ##### Description
 Pet id to delete
 
+petstore_api.paths.pet_pet_id.delete.parameters.parameter_1
 ##### Parameter1 Schema
 
 ###### validate method

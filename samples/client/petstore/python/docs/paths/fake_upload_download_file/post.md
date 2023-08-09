@@ -40,6 +40,7 @@ Content-Type | Schema
 ------------ | -------
 "application/octet-stream" | [content.application_octet_stream.Schema](#requestbody-content-applicationoctetstream-schema)
 
+petstore_api.paths.fake_upload_download_file.post.request_body.content.application_octet_stream
 #### RequestBody content ApplicationOctetStream Schema
 
 ##### Description
@@ -75,6 +76,7 @@ Content-Type | Schema
 "application/octet-stream" | [content.application_octet_stream.Schema](#responsefor200-content-applicationoctetstream-schema)
 
 ### Body Details
+petstore_api.paths.fake_upload_download_file.post.responses.response_200.content.application_octet_stream
 #### ResponseFor200 content ApplicationOctetStream Schema
 
 ##### Description

@@ -50,6 +50,7 @@ The internal object id
 Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#parameter0-content-applicationjson-schema)
+petstore_api.paths.fake_query_param_with_json_content_type.get.parameters.parameter_0.content.application_json
 ##### Parameter0 content ApplicationJson Schema
 
 ###### validate method
@@ -82,6 +83,7 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
+petstore_api.paths.fake_query_param_with_json_content_type.get.responses.response_200.content.application_json
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### validate method

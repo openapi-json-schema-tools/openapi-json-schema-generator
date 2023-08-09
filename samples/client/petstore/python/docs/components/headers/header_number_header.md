@@ -4,6 +4,7 @@ petstore_api.components.headers.header_number_header
 ## Description
 number header description
 
+petstore_api.components.headers.header_number_header
 ## Schema
 
 ### validate method

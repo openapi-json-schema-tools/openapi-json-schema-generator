@@ -27,6 +27,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_14](#) | int | int |  | value must be a 32 bit integer
 [_15](#) | int | int |  | value must be a 64 bit integer
 
+petstore_api.components.schema.ComposedAnyOfDifferentTypesNoValidations.anyOf
 # _0
 
 ## validate method
@@ -34,6 +35,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict | schemas.immutabledict |
 
+petstore_api.components.schema.ComposedAnyOfDifferentTypesNoValidations.anyOf
 # _1
 
 ## validate method
@@ -41,6 +43,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 str, datetime.date | str | value must conform to RFC-3339 full-date YYYY-MM-DD
 
+petstore_api.components.schema.ComposedAnyOfDifferentTypesNoValidations.anyOf
 # _2
 
 ## validate method
@@ -48,6 +51,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 str, datetime.datetime | str | value must conform to RFC-3339 date-time
 
+petstore_api.components.schema.ComposedAnyOfDifferentTypesNoValidations.anyOf
 # _3
 
 ## validate method
@@ -55,6 +59,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |
 
+petstore_api.components.schema.ComposedAnyOfDifferentTypesNoValidations.anyOf
 # _4
 
 ## validate method
@@ -62,6 +67,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 str | str |
 
+petstore_api.components.schema.ComposedAnyOfDifferentTypesNoValidations.anyOf
 # _5
 
 ## validate method
@@ -69,6 +75,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 str | str |
 
+petstore_api.components.schema.ComposedAnyOfDifferentTypesNoValidations.anyOf
 # _6
 
 ## validate method
@@ -76,6 +83,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict | schemas.immutabledict |
 
+petstore_api.components.schema.ComposedAnyOfDifferentTypesNoValidations.anyOf
 # _7
 
 ## validate method
@@ -83,6 +91,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 bool | bool |
 
+petstore_api.components.schema.ComposedAnyOfDifferentTypesNoValidations.anyOf
 # _8
 
 ## validate method
@@ -90,6 +99,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 None | None |
 
+petstore_api.components.schema.ComposedAnyOfDifferentTypesNoValidations.anyOf
 # _9
 
 ## validate method
@@ -137,6 +147,7 @@ Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.OUTPUT_BASE_TYPES | This method is used under the hood when instance[0] is called
 
+petstore_api.components.schema.ComposedAnyOfDifferentTypesNoValidations.anyOf
 # _10
 
 ## validate method
@@ -144,6 +155,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 float, int | float, int |
 
+petstore_api.components.schema.ComposedAnyOfDifferentTypesNoValidations.anyOf
 # _11
 
 ## validate method
@@ -151,6 +163,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 float, int | float, int | value must be a 32 bit float
 
+petstore_api.components.schema.ComposedAnyOfDifferentTypesNoValidations.anyOf
 # _12
 
 ## validate method
@@ -158,6 +171,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 float, int | float, int | value must be a 64 bit float
 
+petstore_api.components.schema.ComposedAnyOfDifferentTypesNoValidations.anyOf
 # _13
 
 ## validate method
@@ -165,6 +179,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 int | int |
 
+petstore_api.components.schema.ComposedAnyOfDifferentTypesNoValidations.anyOf
 # _14
 
 ## validate method
@@ -172,6 +187,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 int | int | value must be a 32 bit integer
 
+petstore_api.components.schema.ComposedAnyOfDifferentTypesNoValidations.anyOf
 # _15
 
 ## validate method

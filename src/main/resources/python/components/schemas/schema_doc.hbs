@@ -1,6 +1,8 @@
 {{#with schema}}
 {{#if componentModule}}
 {{packageName}}.components.schema.{{jsonPathPiece.snakeCase}}
+{{else}}
+{{moduleLocation}}.{{jsonPathPiece.snakeCase}}
 {{/if}}
 {{#eq identifierPieces null}}
 {{> components/_helper_header_from_identifier_pieces identifierPieces=(append (newArray ) jsonPathPiece) }}

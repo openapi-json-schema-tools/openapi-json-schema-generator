@@ -42,6 +42,7 @@ Content-Type | Schema
 ------------ | -------
 "application/x-www-form-urlencoded" | [content.application_x_www_form_urlencoded.Schema](#requestbody-content-applicationxwwwformurlencoded-schema)
 
+petstore_api.paths.pet_pet_id.post.request_body.content.application_x_www_form_urlencoded
 #### RequestBody content ApplicationXWwwFormUrlencoded Schema
 
 ##### validate method
@@ -97,6 +98,7 @@ petId | [Parameter0.schema](#parameter0-schema), int | |
 ##### Description
 ID of pet that needs to be updated
 
+petstore_api.paths.pet_pet_id.post.parameters.parameter_0
 ##### Parameter0 Schema
 
 ###### validate method

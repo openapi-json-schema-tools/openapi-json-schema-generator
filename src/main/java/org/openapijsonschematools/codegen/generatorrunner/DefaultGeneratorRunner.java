@@ -376,9 +376,15 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
     }
 
-    private void generateSchemaDocumentation(List<File> files, Map<String, Object> modelData, String jsonPath) throws IOException {
-        modelData.put("headerSize", "#");
-        generateXDocs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA, CodegenConstants.MODEL_DOCS, modelData, generateModelDocumentation);
+    private void generateSchemaDocumentation(List<File> files, CodegenSchema schema, String jsonPath) {
+        Map<String, Object> schemaData = new HashMap<>();
+        schemaData.put("packageName", generator.packageName());
+        schemaData.put("schema", schema);
+        schemaData.putAll(generator.additionalProperties());
+        schemaData.put("complexTypePrefix", "");
+        schemaData.put("identifierPieces", null);
+        schemaData.put("headerSize", "#");
+        generateXDocs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA, CodegenConstants.MODEL_DOCS, schemaData, generateModelDocumentation);
     }
 
     private void generateSchema(List<File> files, CodegenSchema schema, String jsonPath) {
@@ -844,6 +850,9 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         if (schema != null) {
             String schemaJsonPath = header.getSetSchemaJsonPath(jsonPath);
             generateSchema(files, schema, schemaJsonPath);
+
+            // to generate schema doc
+            generateSchemaDocumentation(files, schema, schemaJsonPath);
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = header.content;
         if (schema == null && content != null && !content.isEmpty()) {
@@ -1013,8 +1022,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
 
                 // to generate model documentation files
                 if (generateModelDocumentation) {
-                    schemaData.put("identifierPieces", null);
-                    generateSchemaDocumentation(files, schemaData, jsonPath);
+                    generateSchemaDocumentation(files, schema, jsonPath);
                 }
 
             } catch (Exception e) {

@@ -13,6 +13,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**QuadrilateralInterface**](quadrilateral_interface.md) | [**QuadrilateralInterface**](quadrilateral_interface.md) | [**QuadrilateralInterface**](quadrilateral_interface.md) |  |
 [_1](#) | dict, schemas.immutabledict | schemas.immutabledict |  |
 
+petstore_api.components.schema.SimpleQuadrilateral.allOf
 # _1
 
 ## validate method

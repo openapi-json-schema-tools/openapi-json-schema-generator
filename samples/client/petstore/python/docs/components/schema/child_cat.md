@@ -13,6 +13,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**ParentPet**](parent_pet.md) | [**ParentPet**](parent_pet.md) | [**ParentPet**](parent_pet.md) |  |
 [_1](#) | dict, schemas.immutabledict | schemas.immutabledict |  |
 
+petstore_api.components.schema.ChildCat.allOf
 # _1
 
 ## validate method

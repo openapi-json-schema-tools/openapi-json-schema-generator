@@ -44,6 +44,7 @@ some_var | [Parameter2.schema](#parameter2-schema), str | |
 
 #### Parameter0
 
+petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_0
 ##### Parameter0 Schema
 
 ###### validate method
@@ -53,6 +54,7 @@ str | str |
 
 #### Parameter1
 
+petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_1
 ##### Parameter1 Schema
 
 ###### validate method
@@ -62,6 +64,7 @@ str | str |
 
 #### Parameter2
 
+petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_2
 ##### Parameter2 Schema
 
 ###### validate method

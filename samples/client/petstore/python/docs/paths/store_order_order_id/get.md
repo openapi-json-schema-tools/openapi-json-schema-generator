@@ -47,6 +47,7 @@ order_id | [Parameter0.schema](#parameter0-schema), int | |
 ##### Description
 ID of pet that needs to be fetched
 
+petstore_api.paths.store_order_order_id.get.parameters.parameter_0
 ##### Parameter0 Schema
 
 ###### validate method
@@ -82,12 +83,14 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
+petstore_api.paths.store_order_order_id.get.responses.response_200.content.application_xml
 #### ResponseFor200 content ApplicationXml Schema
 
 ##### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [Order](../../components/schema/order.md) | dict, schemas.immutabledict | schemas.immutabledict |
+petstore_api.paths.store_order_order_id.get.responses.response_200.content.application_json
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### Ref Info

@@ -43,6 +43,7 @@ Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#requestbody-content-applicationjson-schema)
 
+petstore_api.paths.fake_refs_arraymodel.post.request_body.content.application_json
 #### RequestBody content ApplicationJson Schema
 
 ##### Ref Info
@@ -75,6 +76,7 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
+petstore_api.paths.fake_refs_arraymodel.post.responses.response_200.content.application_json
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### Ref Info

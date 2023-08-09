@@ -9,6 +9,7 @@ Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 
+petstore_api.components.headers.header_ref_content_schema_header.content.application_json
 ## content ApplicationJson Schema
 
 ### Ref Info

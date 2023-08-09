@@ -150,6 +150,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [NullableClassDictInput](#nullableclassdictinput), [NullableClassDict](#nullableclassdict) | [NullableClassDict](#nullableclassdict) | a constructor
 get_additional_property_ | str | [AdditionalProperties4](#) | provides type safety for additional properties
 
+petstore_api.components.schema.NullableClass.properties
 # ArrayNullableProp
 
 ## validate method
@@ -197,6 +198,7 @@ Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES] | This method is used under the hood when instance[0] is called
 
+petstore_api.components.schema.NullableClass.properties.array_nullable_prop
 # Items
 
 ## validate method
@@ -204,6 +206,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict | schemas.immutabledict |
 
+petstore_api.components.schema.NullableClass.properties
 # ArrayAndItemsNullableProp
 
 ## validate method
@@ -261,6 +264,7 @@ Method | Input Type | Return Type | Notes
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing.Union[None,schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],]
  | This method is used under the hood when instance[0] is called
 
+petstore_api.components.schema.NullableClass.properties.array_and_items_nullable_prop
 # Items2
 
 ## validate method
@@ -268,6 +272,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 None, dict, schemas.immutabledict | None, schemas.immutabledict |
 
+petstore_api.components.schema.NullableClass.properties
 # ArrayItemsNullable
 
 ## validate method
@@ -325,6 +330,7 @@ Method | Input Type | Return Type | Notes
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing.Union[None,schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],]
  | This method is used under the hood when instance[0] is called
 
+petstore_api.components.schema.NullableClass.properties.array_items_nullable
 # Items3
 
 ## validate method
@@ -332,6 +338,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 None, dict, schemas.immutabledict | None, schemas.immutabledict |
 
+petstore_api.components.schema.NullableClass.properties
 # ObjectNullableProp
 
 ## validate method
@@ -369,6 +376,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [ObjectNullablePropDictInput](#objectnullablepropdictinput), [ObjectNullablePropDict](#objectnullablepropdict) | [ObjectNullablePropDict](#objectnullablepropdict) | a constructor
 get_additional_property_ | str | [AdditionalProperties](#) | provides type safety for additional properties
 
+petstore_api.components.schema.NullableClass.properties.object_nullable_prop
 # AdditionalProperties
 
 ## validate method
@@ -376,6 +384,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict | schemas.immutabledict |
 
+petstore_api.components.schema.NullableClass.properties
 # ObjectAndItemsNullableProp
 
 ## validate method
@@ -419,6 +428,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [ObjectAndItemsNullablePropDictInput](#objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#objectanditemsnullablepropdict) | [ObjectAndItemsNullablePropDict](#objectanditemsnullablepropdict) | a constructor
 get_additional_property_ | str | [AdditionalProperties2](#) | provides type safety for additional properties
 
+petstore_api.components.schema.NullableClass.properties.object_and_items_nullable_prop
 # AdditionalProperties2
 
 ## validate method
@@ -426,6 +436,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 None, dict, schemas.immutabledict | None, schemas.immutabledict |
 
+petstore_api.components.schema.NullableClass.properties
 # ObjectItemsNullable
 
 ## validate method
@@ -469,6 +480,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [ObjectItemsNullableDictInput](#objectitemsnullabledictinput), [ObjectItemsNullableDict](#objectitemsnullabledict) | [ObjectItemsNullableDict](#objectitemsnullabledict) | a constructor
 get_additional_property_ | str | [AdditionalProperties3](#) | provides type safety for additional properties
 
+petstore_api.components.schema.NullableClass.properties.object_items_nullable
 # AdditionalProperties3
 
 ## validate method
@@ -476,6 +488,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 None, dict, schemas.immutabledict | None, schemas.immutabledict |
 
+petstore_api.components.schema.NullableClass
 # AdditionalProperties4
 
 ## validate method

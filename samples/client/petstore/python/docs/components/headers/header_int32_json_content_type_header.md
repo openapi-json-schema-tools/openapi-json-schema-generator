@@ -9,6 +9,7 @@ Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 
+petstore_api.components.headers.header_int32_json_content_type_header.content.application_json
 ## content ApplicationJson Schema
 
 ### validate method

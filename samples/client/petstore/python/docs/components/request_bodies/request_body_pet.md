@@ -10,12 +10,14 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 "application/xml" | [content.application_xml.Schema](#content-applicationxml-schema)
 
+petstore_api.components.request_bodies.request_body_pet.content.application_json
 ## content ApplicationJson Schema
 
 ### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [Pet](../../components/schema/pet.md) | dict, schemas.immutabledict | schemas.immutabledict |
+petstore_api.components.request_bodies.request_body_pet.content.application_xml
 ## content ApplicationXml Schema
 
 ### Ref Info
