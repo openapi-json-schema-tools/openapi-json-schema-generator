@@ -504,6 +504,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 endpointInfo.put("headerSize", "#");
                 endpointInfo.put("complexTypePrefix", "../../components/schema/");
                 endpointInfo.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+                endpointInfo.put("docRoot", "../../../");
                 generateXDocs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointInfo, true);
 
                 // paths.some_path.security.security_requirement_0.py
