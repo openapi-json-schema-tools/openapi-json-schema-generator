@@ -16,10 +16,10 @@ type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | str |  |
-**photoUrls** | list, tuple |  |
+**photoUrls** | [PhotoUrlsTupleInput](#photourlstupleinput), [PhotoUrlsTuple](#photourlstuple) |  |
 **id** | int |  | [optional] value must be a 64 bit integer
 **category** | [**Category**](category.md), dict, schemas.immutabledict |  | [optional]
-**tags** | list, tuple |  | [optional]
+**tags** | [TagsTupleInput](#tagstupleinput), [TagsTuple](#tagstuple) |  | [optional]
 **status** | str | pet status in the store | [optional] must be one of ["available", "pending", "sold"]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 

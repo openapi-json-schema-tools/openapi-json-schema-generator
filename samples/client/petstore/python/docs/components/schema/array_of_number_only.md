@@ -12,7 +12,7 @@ type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ArrayNumber** | list, tuple |  | [optional]
+**ArrayNumber** | [ArrayNumberTupleInput](#arraynumbertupleinput), [ArrayNumberTuple](#arraynumbertuple) |  | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## ArrayOfNumberOnlyDict

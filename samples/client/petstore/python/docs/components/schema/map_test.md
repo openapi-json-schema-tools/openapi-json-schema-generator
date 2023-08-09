@@ -12,9 +12,9 @@ type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**map_map_of_string** | dict, schemas.immutabledict |  | [optional]
-**map_of_enum_string** | dict, schemas.immutabledict |  | [optional]
-**direct_map** | dict, schemas.immutabledict |  | [optional]
+**map_map_of_string** | [MapMapOfStringDictInput](#mapmapofstringdictinput), [MapMapOfStringDict](#mapmapofstringdict) |  | [optional]
+**map_of_enum_string** | [MapOfEnumStringDictInput](#mapofenumstringdictinput), [MapOfEnumStringDict](#mapofenumstringdict) |  | [optional]
+**direct_map** | [DirectMapDictInput](#directmapdictinput), [DirectMapDict](#directmapdict) |  | [optional]
 **indirect_map** | [**StringBooleanMap**](string_boolean_map.md), dict, schemas.immutabledict |  | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
@@ -65,7 +65,7 @@ type: typing.Mapping[
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any_string_name** | dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | [AdditionalPropertiesDictInput](#additionalpropertiesdictinput), [AdditionalPropertiesDict](#additionalpropertiesdict) | any string name can be used but the value must be the correct type | [optional]
 
 ## MapMapOfStringDict
 ```

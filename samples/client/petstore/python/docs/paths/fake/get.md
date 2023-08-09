@@ -57,7 +57,7 @@ type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**enum_form_string_array** | list, tuple | Form parameter enum test (string array) | [optional]
+**enum_form_string_array** | [EnumFormStringArrayTupleInput](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytupleinput), [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytuple) | Form parameter enum test (string array) | [optional]
 **enum_form_string** | str | Form parameter enum test (string) | [optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 

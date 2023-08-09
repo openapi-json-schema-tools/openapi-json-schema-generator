@@ -12,14 +12,14 @@ type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**map_property** | dict, schemas.immutabledict |  | [optional]
-**map_of_map_property** | dict, schemas.immutabledict |  | [optional]
+**map_property** | [MapPropertyDictInput](#mappropertydictinput), [MapPropertyDict](#mappropertydict) |  | [optional]
+**map_of_map_property** | [MapOfMapPropertyDictInput](#mapofmappropertydictinput), [MapOfMapPropertyDict](#mapofmappropertydict) |  | [optional]
 **anytype_1** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  | [optional]
 **map_with_undeclared_properties_anytype_1** | dict, schemas.immutabledict |  | [optional]
 **map_with_undeclared_properties_anytype_2** | dict, schemas.immutabledict |  | [optional]
-**map_with_undeclared_properties_anytype_3** | dict, schemas.immutabledict |  | [optional]
-**empty_map** | dict, schemas.immutabledict | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional]
-**map_with_undeclared_properties_string** | dict, schemas.immutabledict |  | [optional]
+**map_with_undeclared_properties_anytype_3** | [MapWithUndeclaredPropertiesAnytype3DictInput](#mapwithundeclaredpropertiesanytype3dictinput), [MapWithUndeclaredPropertiesAnytype3Dict](#mapwithundeclaredpropertiesanytype3dict) |  | [optional]
+**empty_map** | [EmptyMapDictInput](#emptymapdictinput), [EmptyMapDict](#emptymapdict) | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional]
+**map_with_undeclared_properties_string** | [MapWithUndeclaredPropertiesStringDictInput](#mapwithundeclaredpropertiesstringdictinput), [MapWithUndeclaredPropertiesStringDict](#mapwithundeclaredpropertiesstringdict) |  | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalPropertiesClassDict
@@ -113,7 +113,7 @@ type: typing.Mapping[
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any_string_name** | dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | [AdditionalPropertiesDictInput](#additionalpropertiesdictinput), [AdditionalPropertiesDict](#additionalpropertiesdict) | any string name can be used but the value must be the correct type | [optional]
 
 ## MapOfMapPropertyDict
 ```

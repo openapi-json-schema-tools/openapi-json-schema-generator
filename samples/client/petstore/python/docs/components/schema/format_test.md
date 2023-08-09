@@ -24,7 +24,7 @@ Key | Type |  Description | Notes
 **float32** | float, int |  | [optional] value must be a 32 bit float
 **double** | float, int |  | [optional] value must be a 64 bit float
 **float64** | float, int |  | [optional] value must be a 64 bit float
-**arrayWithUniqueItems** | list, tuple |  | [optional]
+**arrayWithUniqueItems** | [ArrayWithUniqueItemsTupleInput](#arraywithuniqueitemstupleinput), [ArrayWithUniqueItemsTuple](#arraywithuniqueitemstuple) |  | [optional]
 **string** | str |  | [optional]
 **binary** | bytes, io.FileIO, io.BufferedReader |  | [optional]
 **dateTime** | str, datetime.datetime |  | [optional] value must conform to RFC-3339 date-time

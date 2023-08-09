@@ -13,7 +13,7 @@ type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **just_symbol** | str |  | [optional] must be one of [">=", "$"]
-**array_enum** | list, tuple |  | [optional]
+**array_enum** | [ArrayEnumTupleInput](#arrayenumtupleinput), [ArrayEnumTuple](#arrayenumtuple) |  | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## EnumArraysDict

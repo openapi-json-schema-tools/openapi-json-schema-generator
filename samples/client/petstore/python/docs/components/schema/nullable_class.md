@@ -98,12 +98,12 @@ Key | Type |  Description | Notes
 **string_prop** | None, str |  | [optional]
 **date_prop** | None, str, datetime.date |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
 **datetime_prop** | None, str, datetime.datetime |  | [optional] value must conform to RFC-3339 date-time
-**array_nullable_prop** | None, list, tuple |  | [optional]
-**array_and_items_nullable_prop** | None, list, tuple |  | [optional]
-**array_items_nullable** | list, tuple |  | [optional]
-**object_nullable_prop** | None, dict, schemas.immutabledict |  | [optional]
-**object_and_items_nullable_prop** | None, dict, schemas.immutabledict |  | [optional]
-**object_items_nullable** | dict, schemas.immutabledict |  | [optional]
+**array_nullable_prop** | None, [ArrayNullablePropTupleInput](#arraynullableproptupleinput), [ArrayNullablePropTuple](#arraynullableproptuple) |  | [optional]
+**array_and_items_nullable_prop** | None, [ArrayAndItemsNullablePropTupleInput](#arrayanditemsnullableproptupleinput), [ArrayAndItemsNullablePropTuple](#arrayanditemsnullableproptuple) |  | [optional]
+**array_items_nullable** | [ArrayItemsNullableTupleInput](#arrayitemsnullabletupleinput), [ArrayItemsNullableTuple](#arrayitemsnullabletuple) |  | [optional]
+**object_nullable_prop** | None, [ObjectNullablePropDictInput](#objectnullablepropdictinput), [ObjectNullablePropDict](#objectnullablepropdict) |  | [optional]
+**object_and_items_nullable_prop** | None, [ObjectAndItemsNullablePropDictInput](#objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#objectanditemsnullablepropdict) |  | [optional]
+**object_items_nullable** | [ObjectItemsNullableDictInput](#objectitemsnullabledictinput), [ObjectItemsNullableDict](#objectitemsnullabledict) |  | [optional]
 **any_string_name** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
 ## NullableClassDict

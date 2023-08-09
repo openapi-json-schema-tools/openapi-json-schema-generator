@@ -14,7 +14,7 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **uuid** | str, uuid.UUID |  | [optional] value must be a uuid
 **dateTime** | str, datetime.datetime |  | [optional] value must conform to RFC-3339 date-time
-**map** | dict, schemas.immutabledict |  | [optional]
+**map** | [MapDictInput](#mapdictinput), [MapDict](#mapdict) |  | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## MixedPropertiesAndAdditionalPropertiesClassDict
