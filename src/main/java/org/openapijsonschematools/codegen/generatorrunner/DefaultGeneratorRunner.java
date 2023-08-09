@@ -701,6 +701,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             Map<String, Object> templateData = new HashMap<>();
             templateData.put("packageName", generator.packageName());
             templateData.put("complexTypePrefix", "../../components/schema/");
+            templateData.put("docRoot", "../../");
             templateData.put("headerSize", "#");
             templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
             templateData.put("response", response);
@@ -788,6 +789,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             templateData.put("headerSize", "#");
             templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
             templateData.put("complexTypePrefix", "../../components/schema/");
+            templateData.put("docRoot", "../../");
             // todo add flag to turn this off
             generateXDocs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY, CodegenConstants.REQUEST_BODY_DOCS, templateData, true);
         }
@@ -838,6 +840,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             templateData.put("headerSize", "#");
             templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
             templateData.put("complexTypePrefix", "../../components/schema/");
+            templateData.put("docRoot", "../../");
             // todo add flag to turn this off
             generateXDocs(files, parameterJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER, CodegenConstants.PARAMETER_DOCS, templateData, true);
         }
