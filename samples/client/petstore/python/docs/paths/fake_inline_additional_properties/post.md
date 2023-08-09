@@ -42,8 +42,8 @@ Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#requestbody-content-applicationjson-schema)
 
-petstore_api.paths.fake_inline_additional_properties.post.request_body.content.application_json.schema
 #### RequestBody content ApplicationJson Schema
+petstore_api.paths.fake_inline_additional_properties.post.request_body.content.application_json.schema
 
 ##### validate method
 Input Type | Return Type | Notes

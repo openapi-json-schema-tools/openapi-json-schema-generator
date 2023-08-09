@@ -1,5 +1,5 @@
-petstore_api.components.schema.drawing
 # Drawing
+petstore_api.components.schema.drawing
 
 ## validate method
 Input Type | Return Type | Notes
@@ -70,8 +70,8 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [DrawingDictInput](#drawingdictinput), [DrawingDict](#drawingdict) | [DrawingDict](#drawingdict) | a constructor
 get_additional_property_ | str | [**Fruit**](fruit.md) | provides type safety for additional properties
 
-petstore_api.components.schema.Drawing.properties.shapes
 # Shapes
+petstore_api.components.schema.Drawing.properties.shapes
 
 ## validate method
 Input Type | Return Type | Notes

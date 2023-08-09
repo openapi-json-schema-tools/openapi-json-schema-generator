@@ -1,7 +1,7 @@
-petstore_api.paths.fake_additional_properties_with_array_of_enums.get.request_body.content.application_json.schema
 # Schema
+petstore_api.paths.fake_additional_properties_with_array_of_enums.get.request_body.content.application_json.schema
 
-## Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[AdditionalPropertiesWithArrayOfEnums](additional_properties_with_array_of_enums.md) | dict, schemas.immutabledict | schemas.immutabledict |
+## Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[AdditionalPropertiesWithArrayOfEnums](additional_properties_with_array_of_enums.md) | [AdditionalPropertiesWithArrayOfEnumsDictInput](#additionalpropertieswitharrayofenumsdictinput), [AdditionalPropertiesWithArrayOfEnumsDict](#additionalpropertieswitharrayofenumsdict) | [AdditionalPropertiesWithArrayOfEnumsDict](#additionalpropertieswitharrayofenumsdict) |

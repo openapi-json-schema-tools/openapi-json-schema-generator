@@ -1,5 +1,5 @@
-petstore_api.components.schema.req_props_from_explicit_add_props
 # ReqPropsFromExplicitAddProps
+petstore_api.components.schema.req_props_from_explicit_add_props
 
 ## validate method
 Input Type | Return Type | Notes

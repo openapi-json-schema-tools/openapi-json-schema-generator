@@ -56,13 +56,13 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-petstore_api.paths.fake_health.get.responses.response_200.content.application_json.schema
 #### ResponseFor200 content ApplicationJson Schema
+petstore_api.paths.fake_health.get.responses.response_200.content.application_json.schema
 
-##### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[HealthCheckResult](../../components/schema/health_check_result.md) | dict, schemas.immutabledict | schemas.immutabledict |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[HealthCheckResult](../../components/schema/health_check_result.md) | [HealthCheckResultDictInput](#responsefor200-content-applicationjson-schema-healthcheckresultdictinput), [HealthCheckResultDict](#responsefor200-content-applicationjson-schema-healthcheckresultdict) | [HealthCheckResultDict](#responsefor200-content-applicationjson-schema-healthcheckresultdict) |
 
 ## Servers
 

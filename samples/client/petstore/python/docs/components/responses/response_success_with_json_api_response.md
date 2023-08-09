@@ -26,12 +26,12 @@ stringHeader | [RefStringHeader.schema](../../components/headers/header_ref_stri
 numberHeader | [NumberHeader.schema](../../components/headers/header_number_header.md#schema) | | optional
 
 ## Body Details
-petstore_api.components.responses.response_success_with_json_api_response.content.application_json.schema
 ### content ApplicationJson Schema
+petstore_api.components.responses.response_success_with_json_api_response.content.application_json.schema
 
-#### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[ApiResponse](../../components/schema/api_response.md) | dict, schemas.immutabledict | schemas.immutabledict |
+#### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[ApiResponse](../../components/schema/api_response.md) | [ApiResponseDictInput](#content-applicationjson-schema-apiresponsedictinput), [ApiResponseDict](#content-applicationjson-schema-apiresponsedict) | [ApiResponseDict](#content-applicationjson-schema-apiresponsedict) |
 
 [[Back to top]](#top) [[Back to Component Responses]](../../../README.md#Component-Responses) [[Back to README]](../../../README.md)

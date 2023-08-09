@@ -1,5 +1,5 @@
-petstore_api.components.schema.array_of_array_of_number_only
 # ArrayOfArrayOfNumberOnly
+petstore_api.components.schema.array_of_array_of_number_only
 
 ## validate method
 Input Type | Return Type | Notes
@@ -37,8 +37,8 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [ArrayOfArrayOfNumberOnlyDictInput](#arrayofarrayofnumberonlydictinput), [ArrayOfArrayOfNumberOnlyDict](#arrayofarrayofnumberonlydict) | [ArrayOfArrayOfNumberOnlyDict](#arrayofarrayofnumberonlydict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-petstore_api.components.schema.ArrayOfArrayOfNumberOnly.properties.array_array_number
 # ArrayArrayNumber
+petstore_api.components.schema.ArrayOfArrayOfNumberOnly.properties.array_array_number
 
 ## validate method
 Input Type | Return Type | Notes
@@ -85,8 +85,8 @@ Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | ItemsTuple | This method is used under the hood when instance[0] is called
 
-petstore_api.components.schema.ArrayOfArrayOfNumberOnly.properties.ArrayArrayNumber.items
 # Items
+petstore_api.components.schema.ArrayOfArrayOfNumberOnly.properties.ArrayArrayNumber.items
 
 ## validate method
 Input Type | Return Type | Notes

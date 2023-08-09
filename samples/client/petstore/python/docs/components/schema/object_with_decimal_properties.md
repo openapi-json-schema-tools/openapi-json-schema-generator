@@ -1,5 +1,5 @@
-petstore_api.components.schema.object_with_decimal_properties
 # ObjectWithDecimalProperties
+petstore_api.components.schema.object_with_decimal_properties
 
 ## validate method
 Input Type | Return Type | Notes

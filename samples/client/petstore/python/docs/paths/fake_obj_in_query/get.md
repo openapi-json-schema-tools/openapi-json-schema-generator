@@ -45,8 +45,8 @@ mapBean | [Parameter0.schema](#parameter0-schema), dict, schemas.immutabledict |
 ##### Description
 mapBean
 
-petstore_api.paths.fake_obj_in_query.get.parameters.parameter_0.schema
 ##### Parameter0 Schema
+petstore_api.paths.fake_obj_in_query.get.parameters.parameter_0.schema
 
 ###### validate method
 Input Type | Return Type | Notes

@@ -4,12 +4,12 @@ petstore_api.components.headers.header_ref_schema_header
 ## Description
 header that has a ref in the schema
 
-petstore_api.components.headers.header_ref_schema_header.schema
 ## Schema
+petstore_api.components.headers.header_ref_schema_header.schema
 
-### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
+### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
 [StringWithValidation](../../components/schema/string_with_validation.md) | str | str |
 
 [[Back to top]](#top) [[Back to Component Headers]](../../../README.md#Component-Headers) [[Back to README]](../../../README.md)

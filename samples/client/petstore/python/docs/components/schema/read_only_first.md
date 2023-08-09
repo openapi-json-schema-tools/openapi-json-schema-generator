@@ -1,5 +1,5 @@
-petstore_api.components.schema.read_only_first
 # ReadOnlyFirst
+petstore_api.components.schema.read_only_first
 
 ## validate method
 Input Type | Return Type | Notes

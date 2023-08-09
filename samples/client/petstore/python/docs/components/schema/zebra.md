@@ -1,5 +1,5 @@
-petstore_api.components.schema.zebra
 # Zebra
+petstore_api.components.schema.zebra
 
 ## validate method
 Input Type | Return Type | Notes

@@ -39,13 +39,13 @@ Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#requestbody-content-applicationjson-schema)
 
-petstore_api.paths.fake_body_with_query_params.put.request_body.content.application_json.schema
 #### RequestBody content ApplicationJson Schema
+petstore_api.paths.fake_body_with_query_params.put.request_body.content.application_json.schema
 
-##### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[User](../../components/schema/user.md) | dict, schemas.immutabledict | schemas.immutabledict |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[User](../../components/schema/user.md) | [UserDictInput](#requestbody-content-applicationjson-schema-userdictinput), [UserDict](#requestbody-content-applicationjson-schema-userdict) | [UserDict](#requestbody-content-applicationjson-schema-userdict) |
 
 ### query_params
 #### RequestQueryParameters.Params
@@ -58,8 +58,8 @@ query | [Parameter0.schema](#parameter0-schema), str | |
 
 #### Parameter0
 
-petstore_api.paths.fake_body_with_query_params.put.parameters.parameter_0.schema
 ##### Parameter0 Schema
+petstore_api.paths.fake_body_with_query_params.put.parameters.parameter_0.schema
 
 ###### validate method
 Input Type | Return Type | Notes

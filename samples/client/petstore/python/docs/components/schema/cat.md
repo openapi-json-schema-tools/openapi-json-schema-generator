@@ -1,5 +1,5 @@
-petstore_api.components.schema.cat
 # Cat
+petstore_api.components.schema.cat
 
 ## validate method
 Input Type | Return Type | Notes
@@ -13,8 +13,8 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**Animal**](animal.md) | [**Animal**](animal.md) | [**Animal**](animal.md) |  |
 [_1](#) | dict, schemas.immutabledict | schemas.immutabledict |  |
 
-petstore_api.components.schema.Cat.allOf._1
 # _1
+petstore_api.components.schema.Cat.allOf._1
 
 ## validate method
 Input Type | Return Type | Notes

@@ -1,5 +1,5 @@
-petstore_api.components.schema.array_of_number_only
 # ArrayOfNumberOnly
+petstore_api.components.schema.array_of_number_only
 
 ## validate method
 Input Type | Return Type | Notes
@@ -37,8 +37,8 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [ArrayOfNumberOnlyDictInput](#arrayofnumberonlydictinput), [ArrayOfNumberOnlyDict](#arrayofnumberonlydict) | [ArrayOfNumberOnlyDict](#arrayofnumberonlydict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-petstore_api.components.schema.ArrayOfNumberOnly.properties.array_number
 # ArrayNumber
+petstore_api.components.schema.ArrayOfNumberOnly.properties.array_number
 
 ## validate method
 Input Type | Return Type | Notes

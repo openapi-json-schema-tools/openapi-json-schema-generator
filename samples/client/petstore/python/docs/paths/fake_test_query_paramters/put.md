@@ -47,8 +47,8 @@ refParam | [Parameter5.schema](#parameter5-schema), dict, schemas.immutabledict,
 
 #### Parameter0
 
-petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_0.schema
 ##### Parameter0 Schema
+petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_0.schema
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -91,8 +91,8 @@ Method | Input Type | Return Type | Notes
 
 #### Parameter1
 
-petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_1.schema
 ##### Parameter1 Schema
+petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_1.schema
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -135,8 +135,8 @@ Method | Input Type | Return Type | Notes
 
 #### Parameter2
 
-petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_2.schema
 ##### Parameter2 Schema
+petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_2.schema
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -179,8 +179,8 @@ Method | Input Type | Return Type | Notes
 
 #### Parameter3
 
-petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_3.schema
 ##### Parameter3 Schema
+petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_3.schema
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -223,8 +223,8 @@ Method | Input Type | Return Type | Notes
 
 #### Parameter4
 
-petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_4.schema
 ##### Parameter4 Schema
+petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_4.schema
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -267,12 +267,12 @@ Method | Input Type | Return Type | Notes
 
 #### Parameter5
 
-petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_5.schema
 ##### Parameter5 Schema
+petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_5.schema
 
-###### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
+###### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
 [StringWithValidation](../../components/schema/string_with_validation.md) | str | str |
 
 ## Return Types

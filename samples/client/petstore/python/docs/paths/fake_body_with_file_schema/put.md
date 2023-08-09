@@ -39,13 +39,13 @@ Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#requestbody-content-applicationjson-schema)
 
-petstore_api.paths.fake_body_with_file_schema.put.request_body.content.application_json.schema
 #### RequestBody content ApplicationJson Schema
+petstore_api.paths.fake_body_with_file_schema.put.request_body.content.application_json.schema
 
-##### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[FileSchemaTestClass](../../components/schema/file_schema_test_class.md) | dict, schemas.immutabledict | schemas.immutabledict |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[FileSchemaTestClass](../../components/schema/file_schema_test_class.md) | [FileSchemaTestClassDictInput](#requestbody-content-applicationjson-schema-fileschematestclassdictinput), [FileSchemaTestClassDict](#requestbody-content-applicationjson-schema-fileschematestclassdict) | [FileSchemaTestClassDict](#requestbody-content-applicationjson-schema-fileschematestclassdict) |
 
 ## Return Types
 

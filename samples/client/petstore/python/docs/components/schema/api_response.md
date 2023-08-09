@@ -1,5 +1,5 @@
-petstore_api.components.schema.api_response
 # ApiResponse
+petstore_api.components.schema.api_response
 
 ## validate method
 Input Type | Return Type | Notes

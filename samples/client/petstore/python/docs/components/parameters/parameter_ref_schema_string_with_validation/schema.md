@@ -1,7 +1,7 @@
-petstore_api.components.parameters.parameter_ref_schema_string_with_validation.schema
 # Schema
+petstore_api.components.parameters.parameter_ref_schema_string_with_validation.schema
 
-## Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
+## Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
 [StringWithValidation](string_with_validation.md) | str | str |

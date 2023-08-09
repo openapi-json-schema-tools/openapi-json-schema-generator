@@ -1,5 +1,5 @@
-petstore_api.components.schema.apple_req
 # AppleReq
+petstore_api.components.schema.apple_req
 
 ## validate method
 Input Type | Return Type | Notes

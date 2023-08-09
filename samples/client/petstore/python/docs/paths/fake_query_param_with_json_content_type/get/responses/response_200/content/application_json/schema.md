@@ -1,5 +1,5 @@
-petstore_api.paths.fake_query_param_with_json_content_type.get.responses.response_200.content.application_json.schema
 # Schema
+petstore_api.paths.fake_query_param_with_json_content_type.get.responses.response_200.content.application_json.schema
 
 ## validate method
 Input Type | Return Type | Notes

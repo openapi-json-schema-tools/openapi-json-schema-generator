@@ -69,20 +69,20 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-petstore_api.paths.user_username.get.responses.response_200.content.application_xml.schema
 #### ResponseFor200 content ApplicationXml Schema
+petstore_api.paths.user_username.get.responses.response_200.content.application_xml.schema
 
-##### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[User](../../components/schema/user.md) | dict, schemas.immutabledict | schemas.immutabledict |
-petstore_api.paths.user_username.get.responses.response_200.content.application_json.schema
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[User](../../components/schema/user.md) | [UserDictInput](#responsefor200-content-applicationxml-schema-userdictinput), [UserDict](#responsefor200-content-applicationxml-schema-userdict) | [UserDict](#responsefor200-content-applicationxml-schema-userdict) |
 #### ResponseFor200 content ApplicationJson Schema
+petstore_api.paths.user_username.get.responses.response_200.content.application_json.schema
 
-##### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[User](../../components/schema/user.md) | dict, schemas.immutabledict | schemas.immutabledict |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[User](../../components/schema/user.md) | [UserDictInput](#responsefor200-content-applicationjson-schema-userdictinput), [UserDict](#responsefor200-content-applicationjson-schema-userdict) | [UserDict](#responsefor200-content-applicationjson-schema-userdict) |
 
 ## ResponseFor400
 

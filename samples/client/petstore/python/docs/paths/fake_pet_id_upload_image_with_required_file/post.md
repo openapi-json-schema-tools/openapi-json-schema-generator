@@ -43,8 +43,8 @@ Content-Type | Schema
 ------------ | -------
 "multipart/form-data" | [content.multipart_form_data.Schema](#requestbody-content-multipartformdata-schema)
 
-petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.request_body.content.multipart_form_data.schema
 #### RequestBody content MultipartFormData Schema
+petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.request_body.content.multipart_form_data.schema
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -99,8 +99,8 @@ petId | [Parameter0.schema](#parameter0-schema), int | |
 ##### Description
 ID of pet to update
 
-petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.parameters.parameter_0.schema
 ##### Parameter0 Schema
+petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.parameters.parameter_0.schema
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -132,13 +132,13 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.responses.response_200.content.application_json.schema
 #### ResponseFor200 content ApplicationJson Schema
+petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.responses.response_200.content.application_json.schema
 
-##### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[ApiResponse](../../components/schema/api_response.md) | dict, schemas.immutabledict | schemas.immutabledict |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[ApiResponse](../../components/schema/api_response.md) | [ApiResponseDictInput](#responsefor200-content-applicationjson-schema-apiresponsedictinput), [ApiResponseDict](#responsefor200-content-applicationjson-schema-apiresponsedict) | [ApiResponseDict](#responsefor200-content-applicationjson-schema-apiresponsedict) |
 
 ## Security
 

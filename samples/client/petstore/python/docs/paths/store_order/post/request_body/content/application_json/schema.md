@@ -1,7 +1,7 @@
-petstore_api.paths.store_order.post.request_body.content.application_json.schema
 # Schema
+petstore_api.paths.store_order.post.request_body.content.application_json.schema
 
-## Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[Order](order.md) | dict, schemas.immutabledict | schemas.immutabledict |
+## Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[Order](order.md) | [OrderDictInput](#orderdictinput), [OrderDict](#orderdict) | [OrderDict](#orderdict) |

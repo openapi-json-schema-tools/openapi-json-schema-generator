@@ -1,5 +1,5 @@
-petstore_api.components.schema.any_type_not_string
 # AnyTypeNotString
+petstore_api.components.schema.any_type_not_string
 
 ## validate method
 Input Type | Return Type | Notes
@@ -12,8 +12,8 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_not](#) | str | str |  |
 
-petstore_api.components.schema.AnyTypeNotString._not
 # _Not
+petstore_api.components.schema.AnyTypeNotString._not
 
 ## validate method
 Input Type | Return Type | Notes

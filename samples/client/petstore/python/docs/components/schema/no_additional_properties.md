@@ -1,5 +1,5 @@
-petstore_api.components.schema.no_additional_properties
 # NoAdditionalProperties
+petstore_api.components.schema.no_additional_properties
 
 ## validate method
 Input Type | Return Type | Notes

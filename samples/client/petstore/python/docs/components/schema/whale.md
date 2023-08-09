@@ -1,5 +1,5 @@
-petstore_api.components.schema.whale
 # Whale
+petstore_api.components.schema.whale
 
 ## validate method
 Input Type | Return Type | Notes

@@ -1,5 +1,5 @@
-petstore_api.paths.pet_pet_id.delete.parameters.parameter_1.schema
 # Schema
+petstore_api.paths.pet_pet_id.delete.parameters.parameter_1.schema
 
 ## validate method
 Input Type | Return Type | Notes

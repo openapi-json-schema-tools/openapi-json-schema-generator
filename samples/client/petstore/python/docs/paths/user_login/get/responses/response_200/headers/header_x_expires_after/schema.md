@@ -1,5 +1,5 @@
-petstore_api.paths.user_login.get.responses.response_200.headers.header_x_expires_after.schema
 # Schema
+petstore_api.paths.user_login.get.responses.response_200.headers.header_x_expires_after.schema
 
 ## validate method
 Input Type | Return Type | Notes

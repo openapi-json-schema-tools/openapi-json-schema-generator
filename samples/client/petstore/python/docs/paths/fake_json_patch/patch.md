@@ -40,13 +40,13 @@ Content-Type | Schema
 ------------ | -------
 "application/json-patch+json" | [content.application_json_patchjson.Schema](#requestbody-content-applicationjsonpatchjson-schema)
 
-petstore_api.paths.fake_json_patch.patch.request_body.content.application_json_patchjson.schema
 #### RequestBody content ApplicationJsonPatchjson Schema
+petstore_api.paths.fake_json_patch.patch.request_body.content.application_json_patchjson.schema
 
-##### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[JSONPatchRequest](../../components/schema/json_patch_request.md) | list, tuple | tuple |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[JSONPatchRequest](../../components/schema/json_patch_request.md) | [JSONPatchRequestTupleInput](#requestbody-content-applicationjsonpatchjson-schema-jsonpatchrequesttupleinput), [JSONPatchRequestTuple](#requestbody-content-applicationjsonpatchjson-schema-jsonpatchrequesttuple) | [JSONPatchRequestTuple](#requestbody-content-applicationjsonpatchjson-schema-jsonpatchrequesttuple) |
 
 ## Return Types
 

@@ -1,5 +1,5 @@
-petstore_api.components.schema.string_enum
 # StringEnum
+petstore_api.components.schema.string_enum
 
 ## validate method
 Input Type | Return Type | Notes

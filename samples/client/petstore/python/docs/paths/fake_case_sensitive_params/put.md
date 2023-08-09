@@ -44,8 +44,8 @@ some_var | [Parameter2.schema](#parameter2-schema), str | |
 
 #### Parameter0
 
-petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_0.schema
 ##### Parameter0 Schema
+petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_0.schema
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -54,8 +54,8 @@ str | str |
 
 #### Parameter1
 
-petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_1.schema
 ##### Parameter1 Schema
+petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_1.schema
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -64,8 +64,8 @@ str | str |
 
 #### Parameter2
 
-petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_2.schema
 ##### Parameter2 Schema
+petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_2.schema
 
 ###### validate method
 Input Type | Return Type | Notes

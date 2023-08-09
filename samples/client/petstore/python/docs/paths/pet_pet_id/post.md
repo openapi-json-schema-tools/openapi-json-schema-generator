@@ -42,8 +42,8 @@ Content-Type | Schema
 ------------ | -------
 "application/x-www-form-urlencoded" | [content.application_x_www_form_urlencoded.Schema](#requestbody-content-applicationxwwwformurlencoded-schema)
 
-petstore_api.paths.pet_pet_id.post.request_body.content.application_x_www_form_urlencoded.schema
 #### RequestBody content ApplicationXWwwFormUrlencoded Schema
+petstore_api.paths.pet_pet_id.post.request_body.content.application_x_www_form_urlencoded.schema
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -98,8 +98,8 @@ petId | [Parameter0.schema](#parameter0-schema), int | |
 ##### Description
 ID of pet that needs to be updated
 
-petstore_api.paths.pet_pet_id.post.parameters.parameter_0.schema
 ##### Parameter0 Schema
+petstore_api.paths.pet_pet_id.post.parameters.parameter_0.schema
 
 ###### validate method
 Input Type | Return Type | Notes

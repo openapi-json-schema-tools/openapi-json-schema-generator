@@ -43,13 +43,13 @@ Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#requestbody-content-applicationjson-schema)
 
-petstore_api.paths.fake_additional_properties_with_array_of_enums.get.request_body.content.application_json.schema
 #### RequestBody content ApplicationJson Schema
+petstore_api.paths.fake_additional_properties_with_array_of_enums.get.request_body.content.application_json.schema
 
-##### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[AdditionalPropertiesWithArrayOfEnums](../../components/schema/additional_properties_with_array_of_enums.md) | dict, schemas.immutabledict | schemas.immutabledict |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[AdditionalPropertiesWithArrayOfEnums](../../components/schema/additional_properties_with_array_of_enums.md) | [AdditionalPropertiesWithArrayOfEnumsDictInput](#requestbody-content-applicationjson-schema-additionalpropertieswitharrayofenumsdictinput), [AdditionalPropertiesWithArrayOfEnumsDict](#requestbody-content-applicationjson-schema-additionalpropertieswitharrayofenumsdict) | [AdditionalPropertiesWithArrayOfEnumsDict](#requestbody-content-applicationjson-schema-additionalpropertieswitharrayofenumsdict) |
 
 ## Return Types
 
@@ -76,13 +76,13 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-petstore_api.paths.fake_additional_properties_with_array_of_enums.get.responses.response_200.content.application_json.schema
 #### ResponseFor200 content ApplicationJson Schema
+petstore_api.paths.fake_additional_properties_with_array_of_enums.get.responses.response_200.content.application_json.schema
 
-##### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[AdditionalPropertiesWithArrayOfEnums](../../components/schema/additional_properties_with_array_of_enums.md) | dict, schemas.immutabledict | schemas.immutabledict |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[AdditionalPropertiesWithArrayOfEnums](../../components/schema/additional_properties_with_array_of_enums.md) | [AdditionalPropertiesWithArrayOfEnumsDictInput](#responsefor200-content-applicationjson-schema-additionalpropertieswitharrayofenumsdictinput), [AdditionalPropertiesWithArrayOfEnumsDict](#responsefor200-content-applicationjson-schema-additionalpropertieswitharrayofenumsdict) | [AdditionalPropertiesWithArrayOfEnumsDict](#responsefor200-content-applicationjson-schema-additionalpropertieswitharrayofenumsdict) |
 
 ## Servers
 

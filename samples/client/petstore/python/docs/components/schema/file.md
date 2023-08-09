@@ -1,5 +1,5 @@
-petstore_api.components.schema.file
 # File
+petstore_api.components.schema.file
 
 ## Description
 Must be named &#x60;File&#x60; for test.

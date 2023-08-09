@@ -61,8 +61,8 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor1xx-content-applicationjson-schema)
 
 ### Body Details
-petstore_api.paths.fake_wild_card_responses.get.responses.response_1xx.content.application_json.schema
 #### ResponseFor1XX content ApplicationJson Schema
+petstore_api.paths.fake_wild_card_responses.get.responses.response_1xx.content.application_json.schema
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -87,8 +87,8 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-petstore_api.paths.fake_wild_card_responses.get.responses.response_200.content.application_json.schema
 #### ResponseFor200 content ApplicationJson Schema
+petstore_api.paths.fake_wild_card_responses.get.responses.response_200.content.application_json.schema
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -113,8 +113,8 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor2xx-content-applicationjson-schema)
 
 ### Body Details
-petstore_api.paths.fake_wild_card_responses.get.responses.response_2xx.content.application_json.schema
 #### ResponseFor2XX content ApplicationJson Schema
+petstore_api.paths.fake_wild_card_responses.get.responses.response_2xx.content.application_json.schema
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -139,8 +139,8 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor3xx-content-applicationjson-schema)
 
 ### Body Details
-petstore_api.paths.fake_wild_card_responses.get.responses.response_3xx.content.application_json.schema
 #### ResponseFor3XX content ApplicationJson Schema
+petstore_api.paths.fake_wild_card_responses.get.responses.response_3xx.content.application_json.schema
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -165,8 +165,8 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor4xx-content-applicationjson-schema)
 
 ### Body Details
-petstore_api.paths.fake_wild_card_responses.get.responses.response_4xx.content.application_json.schema
 #### ResponseFor4XX content ApplicationJson Schema
+petstore_api.paths.fake_wild_card_responses.get.responses.response_4xx.content.application_json.schema
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -191,8 +191,8 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor5xx-content-applicationjson-schema)
 
 ### Body Details
-petstore_api.paths.fake_wild_card_responses.get.responses.response_5xx.content.application_json.schema
 #### ResponseFor5XX content ApplicationJson Schema
+petstore_api.paths.fake_wild_card_responses.get.responses.response_5xx.content.application_json.schema
 
 ##### validate method
 Input Type | Return Type | Notes

@@ -1,5 +1,5 @@
-petstore_api.components.schema.json_patch_request_add_replace_test
 # JSONPatchRequestAddReplaceTest
+petstore_api.components.schema.json_patch_request_add_replace_test
 
 ## validate method
 Input Type | Return Type | Notes

@@ -1,5 +1,5 @@
-petstore_api.components.schema.date_time_test
 # DateTimeTest
+petstore_api.components.schema.date_time_test
 
 ## validate method
 Input Type | Return Type | Notes

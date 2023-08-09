@@ -48,8 +48,8 @@ tags | [Parameter0.schema](#parameter0-schema), list, tuple | |
 ##### Description
 Tags to filter by
 
-petstore_api.paths.pet_find_by_tags.get.parameters.parameter_0.schema
 ##### Parameter0 Schema
+petstore_api.paths.pet_find_by_tags.get.parameters.parameter_0.schema
 
 ###### validate method
 Input Type | Return Type | Notes

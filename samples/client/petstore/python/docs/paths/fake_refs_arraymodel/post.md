@@ -43,13 +43,13 @@ Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#requestbody-content-applicationjson-schema)
 
-petstore_api.paths.fake_refs_arraymodel.post.request_body.content.application_json.schema
 #### RequestBody content ApplicationJson Schema
+petstore_api.paths.fake_refs_arraymodel.post.request_body.content.application_json.schema
 
-##### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[AnimalFarm](../../components/schema/animal_farm.md) | list, tuple | tuple |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[AnimalFarm](../../components/schema/animal_farm.md) | [AnimalFarmTupleInput](#requestbody-content-applicationjson-schema-animalfarmtupleinput), [AnimalFarmTuple](#requestbody-content-applicationjson-schema-animalfarmtuple) | [AnimalFarmTuple](#requestbody-content-applicationjson-schema-animalfarmtuple) |
 
 ## Return Types
 
@@ -76,13 +76,13 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-petstore_api.paths.fake_refs_arraymodel.post.responses.response_200.content.application_json.schema
 #### ResponseFor200 content ApplicationJson Schema
+petstore_api.paths.fake_refs_arraymodel.post.responses.response_200.content.application_json.schema
 
-##### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[AnimalFarm](../../components/schema/animal_farm.md) | list, tuple | tuple |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[AnimalFarm](../../components/schema/animal_farm.md) | [AnimalFarmTupleInput](#responsefor200-content-applicationjson-schema-animalfarmtupleinput), [AnimalFarmTuple](#responsefor200-content-applicationjson-schema-animalfarmtuple) | [AnimalFarmTuple](#responsefor200-content-applicationjson-schema-animalfarmtuple) |
 
 ## Servers
 

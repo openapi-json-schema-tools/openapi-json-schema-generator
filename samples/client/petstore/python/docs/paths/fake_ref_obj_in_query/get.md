@@ -45,13 +45,13 @@ mapBean | [Parameter0.schema](#parameter0-schema), dict, schemas.immutabledict, 
 ##### Description
 mapBean
 
-petstore_api.paths.fake_ref_obj_in_query.get.parameters.parameter_0.schema
 ##### Parameter0 Schema
+petstore_api.paths.fake_ref_obj_in_query.get.parameters.parameter_0.schema
 
-###### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[Foo](../../components/schema/foo.md) | dict, schemas.immutabledict | schemas.immutabledict |
+###### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[Foo](../../components/schema/foo.md) | [FooDictInput](#parameter0-schema-foodictinput), [FooDict](#parameter0-schema-foodict) | [FooDict](#parameter0-schema-foodict) |
 
 ## Return Types
 

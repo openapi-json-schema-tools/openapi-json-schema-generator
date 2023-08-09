@@ -43,8 +43,8 @@ Content-Type | Schema
 ------------ | -------
 "multipart/form-data" | [content.multipart_form_data.Schema](#requestbody-content-multipartformdata-schema)
 
-petstore_api.paths.pet_pet_id_upload_image.post.request_body.content.multipart_form_data.schema
 #### RequestBody content MultipartFormData Schema
+petstore_api.paths.pet_pet_id_upload_image.post.request_body.content.multipart_form_data.schema
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -99,8 +99,8 @@ petId | [Parameter0.schema](#parameter0-schema), int | |
 ##### Description
 ID of pet to update
 
-petstore_api.paths.pet_pet_id_upload_image.post.parameters.parameter_0.schema
 ##### Parameter0 Schema
+petstore_api.paths.pet_pet_id_upload_image.post.parameters.parameter_0.schema
 
 ###### validate method
 Input Type | Return Type | Notes

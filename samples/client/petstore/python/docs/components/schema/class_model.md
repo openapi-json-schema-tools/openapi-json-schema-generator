@@ -1,5 +1,5 @@
-petstore_api.components.schema.class_model
 # ClassModel
+petstore_api.components.schema.class_model
 
 ## Description
 Model for testing model with \&quot;_class\&quot; property

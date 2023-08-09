@@ -1,5 +1,5 @@
-petstore_api.components.schema.basque_pig
 # BasquePig
+petstore_api.components.schema.basque_pig
 
 ## validate method
 Input Type | Return Type | Notes

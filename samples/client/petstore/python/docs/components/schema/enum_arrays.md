@@ -1,5 +1,5 @@
-petstore_api.components.schema.enum_arrays
 # EnumArrays
+petstore_api.components.schema.enum_arrays
 
 ## validate method
 Input Type | Return Type | Notes
@@ -40,8 +40,8 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [EnumArraysDictInput](#enumarraysdictinput), [EnumArraysDict](#enumarraysdict) | [EnumArraysDict](#enumarraysdict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-petstore_api.components.schema.EnumArrays.properties.array_enum
 # ArrayEnum
+petstore_api.components.schema.EnumArrays.properties.array_enum
 
 ## validate method
 Input Type | Return Type | Notes

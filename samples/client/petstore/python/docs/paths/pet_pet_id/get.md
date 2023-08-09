@@ -49,8 +49,8 @@ petId | [Parameter0.schema](#parameter0-schema), int | |
 ##### Description
 ID of pet to return
 
-petstore_api.paths.pet_pet_id.get.parameters.parameter_0.schema
 ##### Parameter0 Schema
+petstore_api.paths.pet_pet_id.get.parameters.parameter_0.schema
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -85,20 +85,20 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-petstore_api.paths.pet_pet_id.get.responses.response_200.content.application_xml.schema
 #### ResponseFor200 content ApplicationXml Schema
+petstore_api.paths.pet_pet_id.get.responses.response_200.content.application_xml.schema
 
-##### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[Pet](../../components/schema/pet.md) | dict, schemas.immutabledict | schemas.immutabledict |
-petstore_api.paths.pet_pet_id.get.responses.response_200.content.application_json.schema
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[Pet](../../components/schema/pet.md) | [PetDictInput](#responsefor200-content-applicationxml-schema-petdictinput), [PetDict](#responsefor200-content-applicationxml-schema-petdict) | [PetDict](#responsefor200-content-applicationxml-schema-petdict) |
 #### ResponseFor200 content ApplicationJson Schema
+petstore_api.paths.pet_pet_id.get.responses.response_200.content.application_json.schema
 
-##### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[RefPet](../../components/schema/ref_pet.md) | dict, schemas.immutabledict | schemas.immutabledict |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[RefPet](../../components/schema/ref_pet.md) | [PetDictInput](#responsefor200-content-applicationjson-schema-petdictinput), [PetDict](#responsefor200-content-applicationjson-schema-petdict) | [PetDict](#responsefor200-content-applicationjson-schema-petdict) |
 
 ## ResponseFor400
 

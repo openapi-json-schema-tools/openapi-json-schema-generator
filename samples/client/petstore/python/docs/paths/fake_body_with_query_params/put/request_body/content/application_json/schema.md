@@ -1,7 +1,7 @@
-petstore_api.paths.fake_body_with_query_params.put.request_body.content.application_json.schema
 # Schema
+petstore_api.paths.fake_body_with_query_params.put.request_body.content.application_json.schema
 
-## Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[User](user.md) | dict, schemas.immutabledict | schemas.immutabledict |
+## Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[User](user.md) | [UserDictInput](#userdictinput), [UserDict](#userdict) | [UserDict](#userdict) |

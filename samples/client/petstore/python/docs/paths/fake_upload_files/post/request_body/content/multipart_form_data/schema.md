@@ -1,5 +1,5 @@
-petstore_api.paths.fake_upload_files.post.request_body.content.multipart_form_data.schema
 # Schema
+petstore_api.paths.fake_upload_files.post.request_body.content.multipart_form_data.schema
 
 ## validate method
 Input Type | Return Type | Notes
@@ -37,8 +37,8 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [SchemaDictInput](#schemadictinput), [SchemaDict](#schemadict) | [SchemaDict](#schemadict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-petstore_api.paths.fake_upload_files.post.request_body.content.multipart_form_data.schema.properties.files
 # Files
+petstore_api.paths.fake_upload_files.post.request_body.content.multipart_form_data.schema.properties.files
 
 ## validate method
 Input Type | Return Type | Notes

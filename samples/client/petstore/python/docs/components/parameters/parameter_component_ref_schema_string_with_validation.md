@@ -8,12 +8,12 @@ a path string with validation
 Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#content-applicationjson-schema)
-petstore_api.components.parameters.parameter_component_ref_schema_string_with_validation.content.application_json.schema
 ## content ApplicationJson Schema
+petstore_api.components.parameters.parameter_component_ref_schema_string_with_validation.content.application_json.schema
 
-### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
+### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
 [StringWithValidation](../../components/schema/string_with_validation.md) | str | str |
 
 [[Back to top]](#top) [[Back to Component Parameters]](../../../README.md#Component-Parameters) [[Back to README]](../../../README.md)

@@ -1,5 +1,5 @@
-petstore_api.components.schema.integer_enum_big
 # IntegerEnumBig
+petstore_api.components.schema.integer_enum_big
 
 ## validate method
 Input Type | Return Type | Notes

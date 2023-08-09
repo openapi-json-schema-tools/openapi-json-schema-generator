@@ -1,5 +1,5 @@
-petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_1.schema
 # Schema
+petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_1.schema
 
 ## validate method
 Input Type | Return Type | Notes

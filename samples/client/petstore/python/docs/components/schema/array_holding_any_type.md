@@ -1,5 +1,5 @@
-petstore_api.components.schema.array_holding_any_type
 # ArrayHoldingAnyType
+petstore_api.components.schema.array_holding_any_type
 
 ## validate method
 Input Type | Return Type | Notes

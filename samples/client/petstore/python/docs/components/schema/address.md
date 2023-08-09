@@ -1,5 +1,5 @@
-petstore_api.components.schema.address
 # Address
+petstore_api.components.schema.address
 
 ## validate method
 Input Type | Return Type | Notes

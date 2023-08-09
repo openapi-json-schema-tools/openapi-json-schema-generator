@@ -1,7 +1,7 @@
-petstore_api.paths.fake.patch.responses.response_200.content.application_json.schema
 # Schema
+petstore_api.paths.fake.patch.responses.response_200.content.application_json.schema
 
-## Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[Client](client.md) | dict, schemas.immutabledict | schemas.immutabledict |
+## Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[Client](client.md) | [ClientDictInput](#clientdictinput), [ClientDict](#clientdict) | [ClientDict](#clientdict) |

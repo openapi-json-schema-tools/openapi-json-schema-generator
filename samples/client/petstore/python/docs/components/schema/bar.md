@@ -1,5 +1,5 @@
-petstore_api.components.schema.bar
 # Bar
+petstore_api.components.schema.bar
 
 ## validate method
 Input Type | Return Type | Notes

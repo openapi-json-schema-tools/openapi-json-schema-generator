@@ -1,5 +1,5 @@
-petstore_api.components.schema.obj_with_required_props
 # ObjWithRequiredProps
+petstore_api.components.schema.obj_with_required_props
 
 ## validate method
 Input Type | Return Type | Notes

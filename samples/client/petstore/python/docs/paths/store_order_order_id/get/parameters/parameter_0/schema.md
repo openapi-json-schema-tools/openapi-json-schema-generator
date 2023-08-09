@@ -1,5 +1,5 @@
-petstore_api.paths.store_order_order_id.get.parameters.parameter_0.schema
 # Schema
+petstore_api.paths.store_order_order_id.get.parameters.parameter_0.schema
 
 ## validate method
 Input Type | Return Type | Notes

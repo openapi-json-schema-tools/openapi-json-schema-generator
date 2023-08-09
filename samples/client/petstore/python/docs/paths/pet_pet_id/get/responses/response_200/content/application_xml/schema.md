@@ -1,7 +1,7 @@
-petstore_api.paths.pet_pet_id.get.responses.response_200.content.application_xml.schema
 # Schema
+petstore_api.paths.pet_pet_id.get.responses.response_200.content.application_xml.schema
 
-## Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[Pet](pet.md) | dict, schemas.immutabledict | schemas.immutabledict |
+## Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[Pet](pet.md) | [PetDictInput](#petdictinput), [PetDict](#petdict) | [PetDict](#petdict) |

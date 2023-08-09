@@ -1,5 +1,5 @@
-petstore_api.components.schema.json_patch_request_remove
 # JSONPatchRequestRemove
+petstore_api.components.schema.json_patch_request_remove
 
 ## validate method
 Input Type | Return Type | Notes

@@ -59,13 +59,13 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-petstore_api.paths.another_fake_dummy.patch.responses.response_200.content.application_json.schema
 #### ResponseFor200 content ApplicationJson Schema
+petstore_api.paths.another_fake_dummy.patch.responses.response_200.content.application_json.schema
 
-##### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[Client](../../components/schema/client.md) | dict, schemas.immutabledict | schemas.immutabledict |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[Client](../../components/schema/client.md) | [ClientDictInput](#responsefor200-content-applicationjson-schema-clientdictinput), [ClientDict](#responsefor200-content-applicationjson-schema-clientdict) | [ClientDict](#responsefor200-content-applicationjson-schema-clientdict) |
 
 ## Servers
 

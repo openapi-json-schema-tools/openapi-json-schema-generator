@@ -1,5 +1,5 @@
-petstore_api.paths.fake_multiple_response_bodies.get.responses.response_200.content.application_json.schema
 # Schema
+petstore_api.paths.fake_multiple_response_bodies.get.responses.response_200.content.application_json.schema
 
 ## validate method
 Input Type | Return Type | Notes

@@ -1,5 +1,5 @@
-petstore_api.components.schema.some_object
 # SomeObject
+petstore_api.components.schema.some_object
 
 ## validate method
 Input Type | Return Type | Notes

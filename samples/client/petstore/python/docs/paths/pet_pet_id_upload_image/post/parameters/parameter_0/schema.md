@@ -1,5 +1,5 @@
-petstore_api.paths.pet_pet_id_upload_image.post.parameters.parameter_0.schema
 # Schema
+petstore_api.paths.pet_pet_id_upload_image.post.parameters.parameter_0.schema
 
 ## validate method
 Input Type | Return Type | Notes

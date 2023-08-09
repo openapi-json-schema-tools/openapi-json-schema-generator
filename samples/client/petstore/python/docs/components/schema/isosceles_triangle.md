@@ -1,5 +1,5 @@
-petstore_api.components.schema.isosceles_triangle
 # IsoscelesTriangle
+petstore_api.components.schema.isosceles_triangle
 
 ## validate method
 Input Type | Return Type | Notes
@@ -13,8 +13,8 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**TriangleInterface**](triangle_interface.md) | [**TriangleInterface**](triangle_interface.md) | [**TriangleInterface**](triangle_interface.md) |  |
 [_1](#) | dict, schemas.immutabledict | schemas.immutabledict |  |
 
-petstore_api.components.schema.IsoscelesTriangle.allOf._1
 # _1
+petstore_api.components.schema.IsoscelesTriangle.allOf._1
 
 ## validate method
 Input Type | Return Type | Notes

@@ -1,5 +1,5 @@
-petstore_api.components.schema.object_with_colliding_properties
 # ObjectWithCollidingProperties
+petstore_api.components.schema.object_with_colliding_properties
 
 ## Description
 component with properties that have name collisions
@@ -43,16 +43,16 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [ObjectWithCollidingPropertiesDictInput](#objectwithcollidingpropertiesdictinput), [ObjectWithCollidingPropertiesDict](#objectwithcollidingpropertiesdict) | [ObjectWithCollidingPropertiesDict](#objectwithcollidingpropertiesdict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-petstore_api.components.schema.ObjectWithCollidingProperties.properties.some_prop
 # SomeProp
+petstore_api.components.schema.ObjectWithCollidingProperties.properties.some_prop
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict | schemas.immutabledict |
 
-petstore_api.components.schema.ObjectWithCollidingProperties.properties.someprop
 # Someprop2
+petstore_api.components.schema.ObjectWithCollidingProperties.properties.someprop
 
 ## validate method
 Input Type | Return Type | Notes

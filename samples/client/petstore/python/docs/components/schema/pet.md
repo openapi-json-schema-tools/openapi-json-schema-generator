@@ -1,5 +1,5 @@
-petstore_api.components.schema.pet
 # Pet
+petstore_api.components.schema.pet
 
 ## Description
 Pet object that needs to be added to the store
@@ -55,8 +55,8 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [PetDictInput](#petdictinput), [PetDict](#petdict) | [PetDict](#petdict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-petstore_api.components.schema.Pet.properties.photo_urls
 # PhotoUrls
+petstore_api.components.schema.Pet.properties.photo_urls
 
 ## validate method
 Input Type | Return Type | Notes
@@ -97,8 +97,8 @@ Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | str | This method is used under the hood when instance[0] is called
 
-petstore_api.components.schema.Pet.properties.tags
 # Tags
+petstore_api.components.schema.Pet.properties.tags
 
 ## validate method
 Input Type | Return Type | Notes

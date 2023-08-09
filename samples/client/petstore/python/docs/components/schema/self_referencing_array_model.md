@@ -1,5 +1,5 @@
-petstore_api.components.schema.self_referencing_array_model
 # SelfReferencingArrayModel
+petstore_api.components.schema.self_referencing_array_model
 
 ## validate method
 Input Type | Return Type | Notes

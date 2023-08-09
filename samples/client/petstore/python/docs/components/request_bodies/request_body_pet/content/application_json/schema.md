@@ -1,7 +1,7 @@
-petstore_api.components.request_bodies.request_body_pet.content.application_json.schema
 # Schema
+petstore_api.components.request_bodies.request_body_pet.content.application_json.schema
 
-## Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[Pet](pet.md) | dict, schemas.immutabledict | schemas.immutabledict |
+## Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[Pet](pet.md) | [PetDictInput](#petdictinput), [PetDict](#petdict) | [PetDict](#petdict) |

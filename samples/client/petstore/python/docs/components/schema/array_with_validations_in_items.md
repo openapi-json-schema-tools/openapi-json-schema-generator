@@ -1,5 +1,5 @@
-petstore_api.components.schema.array_with_validations_in_items
 # ArrayWithValidationsInItems
+petstore_api.components.schema.array_with_validations_in_items
 
 ## validate method
 Input Type | Return Type | Notes

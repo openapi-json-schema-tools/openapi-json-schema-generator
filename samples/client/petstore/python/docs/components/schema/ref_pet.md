@@ -1,9 +1,9 @@
-petstore_api.components.schema.ref_pet
 # RefPet
+petstore_api.components.schema.ref_pet
 
-## Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[Pet](pet.md) | dict, schemas.immutabledict | schemas.immutabledict |
+## Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[Pet](pet.md) | [PetDictInput](#petdictinput), [PetDict](#petdict) | [PetDict](#petdict) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

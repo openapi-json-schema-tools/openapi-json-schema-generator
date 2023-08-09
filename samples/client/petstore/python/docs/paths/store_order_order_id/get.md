@@ -47,8 +47,8 @@ order_id | [Parameter0.schema](#parameter0-schema), int | |
 ##### Description
 ID of pet that needs to be fetched
 
-petstore_api.paths.store_order_order_id.get.parameters.parameter_0.schema
 ##### Parameter0 Schema
+petstore_api.paths.store_order_order_id.get.parameters.parameter_0.schema
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -83,20 +83,20 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-petstore_api.paths.store_order_order_id.get.responses.response_200.content.application_xml.schema
 #### ResponseFor200 content ApplicationXml Schema
+petstore_api.paths.store_order_order_id.get.responses.response_200.content.application_xml.schema
 
-##### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[Order](../../components/schema/order.md) | dict, schemas.immutabledict | schemas.immutabledict |
-petstore_api.paths.store_order_order_id.get.responses.response_200.content.application_json.schema
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[Order](../../components/schema/order.md) | [OrderDictInput](#responsefor200-content-applicationxml-schema-orderdictinput), [OrderDict](#responsefor200-content-applicationxml-schema-orderdict) | [OrderDict](#responsefor200-content-applicationxml-schema-orderdict) |
 #### ResponseFor200 content ApplicationJson Schema
+petstore_api.paths.store_order_order_id.get.responses.response_200.content.application_json.schema
 
-##### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[Order](../../components/schema/order.md) | dict, schemas.immutabledict | schemas.immutabledict |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[Order](../../components/schema/order.md) | [OrderDictInput](#responsefor200-content-applicationjson-schema-orderdictinput), [OrderDict](#responsefor200-content-applicationjson-schema-orderdict) | [OrderDict](#responsefor200-content-applicationjson-schema-orderdict) |
 
 ## ResponseFor400
 

@@ -1,5 +1,5 @@
-petstore_api.components.schema.object_with_only_optional_props
 # ObjectWithOnlyOptionalProps
+petstore_api.components.schema.object_with_only_optional_props
 
 ## validate method
 Input Type | Return Type | Notes

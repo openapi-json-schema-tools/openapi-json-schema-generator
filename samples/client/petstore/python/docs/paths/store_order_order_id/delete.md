@@ -46,8 +46,8 @@ order_id | [Parameter0.schema](#parameter0-schema), str | |
 ##### Description
 ID of the order that needs to be deleted
 
-petstore_api.paths.store_order_order_id.delete.parameters.parameter_0.schema
 ##### Parameter0 Schema
+petstore_api.paths.store_order_order_id.delete.parameters.parameter_0.schema
 
 ###### validate method
 Input Type | Return Type | Notes

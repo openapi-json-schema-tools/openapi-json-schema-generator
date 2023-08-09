@@ -1,5 +1,5 @@
-petstore_api.paths.fake_inline_composition.post.parameters.parameter_0.schema
 # Schema
+petstore_api.paths.fake_inline_composition.post.parameters.parameter_0.schema
 
 ## validate method
 Input Type | Return Type | Notes
@@ -12,8 +12,8 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#) | str | str |  |
 
-petstore_api.paths.fake_inline_composition.post.parameters.parameter_0.schema.allOf._0
 # _0
+petstore_api.paths.fake_inline_composition.post.parameters.parameter_0.schema.allOf._0
 
 ## validate method
 Input Type | Return Type | Notes

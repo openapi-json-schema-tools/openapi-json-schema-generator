@@ -1,5 +1,5 @@
-petstore_api.components.schema.tag
 # Tag
+petstore_api.components.schema.tag
 
 ## validate method
 Input Type | Return Type | Notes

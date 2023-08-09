@@ -1,5 +1,5 @@
-petstore_api.components.schema.object_with_all_of_with_req_test_prop_from_unset_add_prop
 # ObjectWithAllOfWithReqTestPropFromUnsetAddProp
+petstore_api.components.schema.object_with_all_of_with_req_test_prop_from_unset_add_prop
 
 ## validate method
 Input Type | Return Type | Notes
@@ -13,8 +13,8 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.md) | [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.md) | [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.md) |  |
 [_1](#) | dict, schemas.immutabledict | schemas.immutabledict |  |
 
-petstore_api.components.schema.ObjectWithAllOfWithReqTestPropFromUnsetAddProp.allOf._1
 # _1
+petstore_api.components.schema.ObjectWithAllOfWithReqTestPropFromUnsetAddProp.allOf._1
 
 ## validate method
 Input Type | Return Type | Notes

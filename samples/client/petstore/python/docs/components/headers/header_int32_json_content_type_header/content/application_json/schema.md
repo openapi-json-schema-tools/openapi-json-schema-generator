@@ -1,5 +1,5 @@
-petstore_api.components.headers.header_int32_json_content_type_header.content.application_json.schema
 # Schema
+petstore_api.components.headers.header_int32_json_content_type_header.content.application_json.schema
 
 ## validate method
 Input Type | Return Type | Notes

@@ -1,14 +1,14 @@
 {{#with schema}}
-{{#if componentModule}}
-{{packageName}}.components.schema.{{jsonPathPiece.snakeCase}}
-{{else}}
-{{moduleLocation}}.{{jsonPathPiece.snakeCase}}
-{{/if}}
 {{#eq identifierPieces null}}
 {{> components/_helper_header_from_identifier_pieces identifierPieces=(append (newArray ) jsonPathPiece) }}
 {{else}}
 {{> components/_helper_header_from_identifier_pieces }}
 {{/eq}}
+{{#if componentModule}}
+{{packageName}}.components.schema.{{jsonPathPiece.snakeCase}}
+{{else}}
+{{moduleLocation}}.{{jsonPathPiece.snakeCase}}
+{{/if}}
 {{#if description}}
 
 {{headerSize}}# Description
@@ -16,10 +16,10 @@
 {{/if}}
 
 {{#if refInfo}}
-{{headerSize}}# Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[{{refInfo.refClass}}]({{complexTypePrefix}}{{refInfo.refModule}}.md) | {{#with getDeepestRef}}{{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }}{{/with}} |{{#if description}} {{description}}{{/if}}
+{{headerSize}}# Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[{{refInfo.refClass}}]({{complexTypePrefix}}{{refInfo.refModule}}.md) | {{#with getDeepestRef}}{{> components/_helper_schema_io_types }} | {{> components/_helper_schema_output_types }}{{/with}} |{{#if description}} {{description}}{{/if}}
 {{else}}
 {{headerSize}}# validate method
 Input Type | Return Type | Notes

@@ -1,5 +1,5 @@
-petstore_api.components.schema.object_model_with_arg_and_args_properties
 # ObjectModelWithArgAndArgsProperties
+petstore_api.components.schema.object_model_with_arg_and_args_properties
 
 ## validate method
 Input Type | Return Type | Notes

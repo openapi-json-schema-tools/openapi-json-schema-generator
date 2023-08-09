@@ -1,5 +1,5 @@
-petstore_api.paths.fake_json_with_charset.post.request_body.content.application_json_charsetutf8.schema
 # Schema
+petstore_api.paths.fake_json_with_charset.post.request_body.content.application_json_charsetutf8.schema
 
 ## validate method
 Input Type | Return Type | Notes

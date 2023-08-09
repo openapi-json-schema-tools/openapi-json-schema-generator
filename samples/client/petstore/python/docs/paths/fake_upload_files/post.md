@@ -40,8 +40,8 @@ Content-Type | Schema
 ------------ | -------
 "multipart/form-data" | [content.multipart_form_data.Schema](#requestbody-content-multipartformdata-schema)
 
-petstore_api.paths.fake_upload_files.post.request_body.content.multipart_form_data.schema
 #### RequestBody content MultipartFormData Schema
+petstore_api.paths.fake_upload_files.post.request_body.content.multipart_form_data.schema
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -79,8 +79,8 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput), [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-petstore_api.paths.fake_upload_files.post.request_body.content.multipart_form_data.schema.properties.files
 #### RequestBody content MultipartFormData Schema
+petstore_api.paths.fake_upload_files.post.request_body.content.multipart_form_data.schema.properties.files
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -156,13 +156,13 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-petstore_api.paths.fake_upload_files.post.responses.response_200.content.application_json.schema
 #### ResponseFor200 content ApplicationJson Schema
+petstore_api.paths.fake_upload_files.post.responses.response_200.content.application_json.schema
 
-##### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[ApiResponse](../../components/schema/api_response.md) | dict, schemas.immutabledict | schemas.immutabledict |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[ApiResponse](../../components/schema/api_response.md) | [ApiResponseDictInput](#responsefor200-content-applicationjson-schema-apiresponsedictinput), [ApiResponseDict](#responsefor200-content-applicationjson-schema-apiresponsedict) | [ApiResponseDict](#responsefor200-content-applicationjson-schema-apiresponsedict) |
 
 ## Servers
 

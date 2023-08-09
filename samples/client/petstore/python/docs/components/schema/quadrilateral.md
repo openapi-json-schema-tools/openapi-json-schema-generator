@@ -1,5 +1,5 @@
-petstore_api.components.schema.quadrilateral
 # Quadrilateral
+petstore_api.components.schema.quadrilateral
 
 ## validate method
 Input Type | Return Type | Notes

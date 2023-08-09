@@ -1,5 +1,5 @@
-petstore_api.components.schema.abstract_step_message
 # AbstractStepMessage
+petstore_api.components.schema.abstract_step_message
 
 ## Description
 Abstract Step

@@ -10,19 +10,19 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 "application/xml" | [content.application_xml.Schema](#content-applicationxml-schema)
 
-petstore_api.components.request_bodies.request_body_pet.content.application_json.schema
 ## content ApplicationJson Schema
+petstore_api.components.request_bodies.request_body_pet.content.application_json.schema
 
-### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[Pet](../../components/schema/pet.md) | dict, schemas.immutabledict | schemas.immutabledict |
-petstore_api.components.request_bodies.request_body_pet.content.application_xml.schema
+### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[Pet](../../components/schema/pet.md) | [PetDictInput](#content-applicationjson-schema-petdictinput), [PetDict](#content-applicationjson-schema-petdict) | [PetDict](#content-applicationjson-schema-petdict) |
 ## content ApplicationXml Schema
+petstore_api.components.request_bodies.request_body_pet.content.application_xml.schema
 
-### Ref Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[RefPet](../../components/schema/ref_pet.md) | dict, schemas.immutabledict | schemas.immutabledict |
+### Ref Schema Info
+Ref Schema | Input Type | Output Type | Description
+---------- | ---------- | ----------- | ------------
+[RefPet](../../components/schema/ref_pet.md) | [PetDictInput](#content-applicationxml-schema-petdictinput), [PetDict](#content-applicationxml-schema-petdict) | [PetDict](#content-applicationxml-schema-petdict) |
 
 [[Back to top]](#top) [[Back to Component RequestBodies]](../../../README.md#Component-RequestBodies) [[Back to README]](../../../README.md)

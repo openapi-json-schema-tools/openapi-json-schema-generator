@@ -1,5 +1,5 @@
-petstore_api.components.schema.composed_array
 # ComposedArray
+petstore_api.components.schema.composed_array
 
 ## validate method
 Input Type | Return Type | Notes

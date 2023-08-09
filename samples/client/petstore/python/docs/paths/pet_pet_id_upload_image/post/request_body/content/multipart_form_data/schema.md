@@ -1,5 +1,5 @@
-petstore_api.paths.pet_pet_id_upload_image.post.request_body.content.multipart_form_data.schema
 # Schema
+petstore_api.paths.pet_pet_id_upload_image.post.request_body.content.multipart_form_data.schema
 
 ## validate method
 Input Type | Return Type | Notes

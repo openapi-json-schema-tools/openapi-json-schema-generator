@@ -1,5 +1,5 @@
-petstore_api.components.schema.child_cat
 # ChildCat
+petstore_api.components.schema.child_cat
 
 ## validate method
 Input Type | Return Type | Notes
@@ -13,8 +13,8 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**ParentPet**](parent_pet.md) | [**ParentPet**](parent_pet.md) | [**ParentPet**](parent_pet.md) |  |
 [_1](#) | dict, schemas.immutabledict | schemas.immutabledict |  |
 
-petstore_api.components.schema.ChildCat.allOf._1
 # _1
+petstore_api.components.schema.ChildCat.allOf._1
 
 ## validate method
 Input Type | Return Type | Notes

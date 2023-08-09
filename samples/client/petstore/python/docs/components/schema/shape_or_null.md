@@ -1,5 +1,5 @@
-petstore_api.components.schema.shape_or_null
 # ShapeOrNull
+petstore_api.components.schema.shape_or_null
 
 ## Description
 The value may be a shape or the &#x27;null&#x27; value. This is introduced in OAS schema &gt;&#x3D; 3.1.
@@ -17,8 +17,8 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**Triangle**](triangle.md) | [**Triangle**](triangle.md) | [**Triangle**](triangle.md) |  |
 [**Quadrilateral**](quadrilateral.md) | [**Quadrilateral**](quadrilateral.md) | [**Quadrilateral**](quadrilateral.md) |  |
 
-petstore_api.components.schema.ShapeOrNull.oneOf._0
 # _0
+petstore_api.components.schema.ShapeOrNull.oneOf._0
 
 ## validate method
 Input Type | Return Type | Notes
