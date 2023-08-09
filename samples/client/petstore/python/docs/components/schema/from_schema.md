@@ -1,5 +1,5 @@
 petstore_api.components.schema.from_schema
-# Schema FromSchema
+# FromSchema
 
 ## validate method
 Input Type | Return Type | Notes

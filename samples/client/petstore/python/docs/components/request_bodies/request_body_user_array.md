@@ -45,8 +45,15 @@ base class: typing.Tuple[
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | [**User**](../../components/schema/user.md) | [**User**](../../components/schema/user.md) |  |
+#### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [SchemaTupleInput](#content-applicationjson-schema-schematupleinput), [SchemaTuple](#content-applicationjson-schema-schematuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+#### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.OUTPUT_BASE_TYPES | This method is used under the hood when instance[0] is called
 
 [[Back to top]](#top) [[Back to Component RequestBodies]](../../../README.md#Component-RequestBodies) [[Back to README]](../../../README.md)

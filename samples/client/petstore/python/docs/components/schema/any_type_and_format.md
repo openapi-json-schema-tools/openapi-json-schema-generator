@@ -1,5 +1,5 @@
 petstore_api.components.schema.any_type_and_format
-# Schema AnyTypeAndFormat
+# AnyTypeAndFormat
 
 ## validate method
 Input Type | Return Type | Notes

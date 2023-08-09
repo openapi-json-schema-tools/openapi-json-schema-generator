@@ -155,7 +155,7 @@ class ArrayEnumTuple(
     ]
 ):
 
-    def __new__(cls, arg: ArrayEnumTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ArrayEnumTupleInput, ArrayEnumTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayEnum.validate(arg, configuration=configuration)
 ArrayEnumTupleInput = typing.Union[
     typing.List[

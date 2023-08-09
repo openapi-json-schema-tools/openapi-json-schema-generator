@@ -1,5 +1,5 @@
 petstore_api.components.schema.integer_enum_with_default_value
-# Schema IntegerEnumWithDefaultValue
+# IntegerEnumWithDefaultValue
 
 ## validate method
 Input Type | Return Type | Notes

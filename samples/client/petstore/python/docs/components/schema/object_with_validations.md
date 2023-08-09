@@ -1,5 +1,5 @@
 petstore_api.components.schema.object_with_validations
-# Schema ObjectWithValidations
+# ObjectWithValidations
 
 ## validate method
 Input Type | Return Type | Notes

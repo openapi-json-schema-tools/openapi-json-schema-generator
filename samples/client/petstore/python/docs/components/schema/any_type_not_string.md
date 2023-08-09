@@ -1,5 +1,5 @@
 petstore_api.components.schema.any_type_not_string
-# Schema AnyTypeNotString
+# AnyTypeNotString
 
 ## validate method
 Input Type | Return Type | Notes
@@ -10,7 +10,7 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## not
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_not](#_not) | str | str |  |
+[_not](#) | str | str |  |
 
 # _Not
 

@@ -22,7 +22,7 @@ class PhotoUrlsTuple(
     ]
 ):
 
-    def __new__(cls, arg: PhotoUrlsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[PhotoUrlsTupleInput, PhotoUrlsTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return PhotoUrls.validate(arg, configuration=configuration)
 PhotoUrlsTupleInput = typing.Union[
     typing.List[
@@ -157,7 +157,7 @@ class TagsTuple(
     ]
 ):
 
-    def __new__(cls, arg: TagsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[TagsTupleInput, TagsTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Tags.validate(arg, configuration=configuration)
 TagsTupleInput = typing.Union[
     typing.List[

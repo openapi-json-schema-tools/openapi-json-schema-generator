@@ -1,5 +1,5 @@
 petstore_api.components.schema.nullable_string
-# Schema NullableString
+# NullableString
 
 ## validate method
 Input Type | Return Type | Notes

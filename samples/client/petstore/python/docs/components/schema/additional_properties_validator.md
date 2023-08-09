@@ -1,5 +1,5 @@
 petstore_api.components.schema.additional_properties_validator
-# Schema AdditionalPropertiesValidator
+# AdditionalPropertiesValidator
 
 ## validate method
 Input Type | Return Type | Notes
@@ -10,18 +10,18 @@ dict, schemas.immutabledict | schemas.immutabledict |
 ## allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#allof-_0) | dict, schemas.immutabledict | schemas.immutabledict |  |
-[_1](#allof-_1) | dict, schemas.immutabledict | schemas.immutabledict |  |
-[_2](#allof-_2) | dict, schemas.immutabledict | schemas.immutabledict |  |
+[_0](#) | dict, schemas.immutabledict | schemas.immutabledict |  |
+[_1](#) | dict, schemas.immutabledict | schemas.immutabledict |  |
+[_2](#) | dict, schemas.immutabledict | schemas.immutabledict |  |
 
-# allof _0
+# _0
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[_0DictInput](#allof-_0-_0dictinput), [_0Dict](#allof-_0-_0dict) | [_0Dict](#allof-_0-_0dict) |
+[_0DictInput](#_0dictinput), [_0Dict](#_0dict) | [_0Dict](#_0dict) |
 
-## allof _0 _0DictInput
+## _0DictInput
 ```
 type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 ```
@@ -29,7 +29,7 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
-## allof _0 _0Dict
+## _0Dict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
@@ -42,17 +42,17 @@ Keyword Argument | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [_0DictInput](#allof-_0-_0dictinput), [_0Dict](#allof-_0-_0dict) | [_0Dict](#allof-_0-_0dict) | a constructor
+from_dict_ | [_0DictInput](#_0dictinput), [_0Dict](#_0dict) | [_0Dict](#_0dict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | provides type safety for additional properties
 
-# allof _1
+# _1
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[_1DictInput](#allof-_1-_1dictinput), [_1Dict](#allof-_1-_1dict) | [_1Dict](#allof-_1-_1dict) |
+[_1DictInput](#_1dictinput), [_1Dict](#_1dict) | [_1Dict](#_1dict) |
 
-## allof _1 _1DictInput
+## _1DictInput
 ```
 type: typing.Mapping[
     str,
@@ -66,7 +66,7 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
-## allof _1 _1Dict
+## _1Dict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
@@ -79,17 +79,17 @@ Keyword Argument | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [_1DictInput](#allof-_1-_1dictinput), [_1Dict](#allof-_1-_1dict) | [_1Dict](#allof-_1-_1dict) | a constructor
+from_dict_ | [_1DictInput](#_1dictinput), [_1Dict](#_1dict) | [_1Dict](#_1dict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | provides type safety for additional properties
 
-# allof _2
+# _2
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[_2DictInput](#allof-_2-_2dictinput), [_2Dict](#allof-_2-_2dict) | [_2Dict](#allof-_2-_2dict) |
+[_2DictInput](#_2dictinput), [_2Dict](#_2dict) | [_2Dict](#_2dict) |
 
-## allof _2 _2DictInput
+## _2DictInput
 ```
 type: typing.Mapping[
     str,
@@ -103,7 +103,7 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
-## allof _2 _2Dict
+## _2Dict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
@@ -116,7 +116,7 @@ Keyword Argument | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [_2DictInput](#allof-_2-_2dictinput), [_2Dict](#allof-_2-_2dict) | [_2Dict](#allof-_2-_2dict) | a constructor
+from_dict_ | [_2DictInput](#_2dictinput), [_2Dict](#_2dict) | [_2Dict](#_2dict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

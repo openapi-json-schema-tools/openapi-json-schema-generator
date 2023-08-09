@@ -1,5 +1,5 @@
 petstore_api.components.schema.boolean_enum
-# Schema BooleanEnum
+# BooleanEnum
 
 ## validate method
 Input Type | Return Type | Notes

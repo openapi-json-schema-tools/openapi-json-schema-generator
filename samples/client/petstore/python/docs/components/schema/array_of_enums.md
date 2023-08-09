@@ -1,5 +1,5 @@
 petstore_api.components.schema.array_of_enums
-# Schema ArrayOfEnums
+# ArrayOfEnums
 
 ## validate method
 Input Type | Return Type | Notes
@@ -52,8 +52,15 @@ base class: typing.Tuple[
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | [**StringEnum**](string_enum.md) | [**StringEnum**](string_enum.md) |  |
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ArrayOfEnumsTupleInput](#arrayofenumstupleinput), [ArrayOfEnumsTuple](#arrayofenumstuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.OUTPUT_BASE_TYPES | This method is used under the hood when instance[0] is called
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

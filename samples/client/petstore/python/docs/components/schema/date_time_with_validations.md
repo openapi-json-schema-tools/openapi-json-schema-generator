@@ -1,5 +1,5 @@
 petstore_api.components.schema.date_time_with_validations
-# Schema DateTimeWithValidations
+# DateTimeWithValidations
 
 ## validate method
 Input Type | Return Type | Notes

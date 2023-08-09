@@ -87,9 +87,16 @@ base class: typing.Tuple[
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | str | str |  | must be one of ["available", "pending", "sold"] if omitted the server will use the default value of available
+####### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [SchemaTupleInput](#parameter0-schema-schematupleinput), [SchemaTuple](#parameter0-schema-schematuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+####### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing_extensions.Literal["available", "pending", "sold"] | must be one of ["available", "pending", "sold"] if omitted the server will use the default value of available This method is used under the hood when instance[0] is called
 
 ## Return Types
 

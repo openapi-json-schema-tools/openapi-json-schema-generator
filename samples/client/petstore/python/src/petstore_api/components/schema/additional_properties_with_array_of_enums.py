@@ -21,7 +21,7 @@ class AdditionalPropertiesTuple(
     ]
 ):
 
-    def __new__(cls, arg: AdditionalPropertiesTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[AdditionalPropertiesTupleInput, AdditionalPropertiesTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AdditionalProperties.validate(arg, configuration=configuration)
 AdditionalPropertiesTupleInput = typing.Union[
     typing.List[

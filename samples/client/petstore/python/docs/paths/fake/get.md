@@ -84,7 +84,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput), [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) | [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-#### RequestBody content ApplicationXWwwFormUrlencoded Schema EnumFormStringArray
+#### RequestBody content ApplicationXWwwFormUrlencoded Schema
 
 ##### Description
 Form parameter enum test (string array)
@@ -92,9 +92,9 @@ Form parameter enum test (string array)
 ##### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[EnumFormStringArrayTupleInput](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarray-enumformstringarraytupleinput), [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarray-enumformstringarraytuple) | [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarray-enumformstringarraytuple) |
+[EnumFormStringArrayTupleInput](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytupleinput), [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytuple) | [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytuple) |
 
-##### RequestBody content ApplicationXWwwFormUrlencoded Schema EnumFormStringArray EnumFormStringArrayTupleInput
+##### RequestBody content ApplicationXWwwFormUrlencoded Schema EnumFormStringArrayTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -116,16 +116,23 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
-##### RequestBody content ApplicationXWwwFormUrlencoded Schema EnumFormStringArray EnumFormStringArrayTuple
+##### RequestBody content ApplicationXWwwFormUrlencoded Schema EnumFormStringArrayTuple
 ```
 base class: typing.Tuple[
     typing_extensions.Literal[">", "$"],
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
+###### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [EnumFormStringArrayTupleInput](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytupleinput), [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+###### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing_extensions.Literal[">", "$"] | must be one of [">", "$"] if omitted the server will use the default value of $ This method is used under the hood when instance[0] is called
 
 ### query_params
 #### RequestQueryParameters.Params
@@ -180,9 +187,16 @@ base class: typing.Tuple[
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
+####### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [SchemaTupleInput](#parameter2-schema-schematupleinput), [SchemaTuple](#parameter2-schema-schematuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+####### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing_extensions.Literal[">", "$"] | must be one of [">", "$"] if omitted the server will use the default value of $ This method is used under the hood when instance[0] is called
 
 #### Parameter3
 
@@ -271,9 +285,16 @@ base class: typing.Tuple[
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
+####### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [SchemaTupleInput](#parameter0-schema-schematupleinput), [SchemaTuple](#parameter0-schema-schematuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+####### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing_extensions.Literal[">", "$"] | must be one of [">", "$"] if omitted the server will use the default value of $ This method is used under the hood when instance[0] is called
 
 #### Parameter1
 

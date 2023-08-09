@@ -1,5 +1,5 @@
 petstore_api.components.schema.order
-# Schema Order
+# Order
 
 ## validate method
 Input Type | Return Type | Notes

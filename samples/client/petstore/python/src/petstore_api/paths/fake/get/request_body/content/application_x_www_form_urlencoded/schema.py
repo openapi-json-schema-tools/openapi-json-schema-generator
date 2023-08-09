@@ -88,7 +88,7 @@ class EnumFormStringArrayTuple(
     ]
 ):
 
-    def __new__(cls, arg: EnumFormStringArrayTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[EnumFormStringArrayTupleInput, EnumFormStringArrayTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return EnumFormStringArray.validate(arg, configuration=configuration)
 EnumFormStringArrayTupleInput = typing.Union[
     typing.List[

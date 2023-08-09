@@ -1,5 +1,5 @@
 petstore_api.components.schema.shape
-# Schema Shape
+# Shape
 
 ## validate method
 Input Type | Return Type | Notes

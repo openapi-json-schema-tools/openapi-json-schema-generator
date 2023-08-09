@@ -1,5 +1,5 @@
 petstore_api.components.schema.format_test
-# Schema FormatTest
+# FormatTest
 
 ## validate method
 Input Type | Return Type | Notes
@@ -101,9 +101,9 @@ get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayWithUniqueItemsTupleInput](#arraywithuniqueitems-arraywithuniqueitemstupleinput), [ArrayWithUniqueItemsTuple](#arraywithuniqueitems-arraywithuniqueitemstuple) | [ArrayWithUniqueItemsTuple](#arraywithuniqueitems-arraywithuniqueitemstuple) |
+[ArrayWithUniqueItemsTupleInput](#arraywithuniqueitemstupleinput), [ArrayWithUniqueItemsTuple](#arraywithuniqueitemstuple) | [ArrayWithUniqueItemsTuple](#arraywithuniqueitemstuple) |
 
-## ArrayWithUniqueItems ArrayWithUniqueItemsTupleInput
+## ArrayWithUniqueItemsTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -125,15 +125,22 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | float, int |  |
 
-## ArrayWithUniqueItems ArrayWithUniqueItemsTuple
+## ArrayWithUniqueItemsTuple
 ```
 base class: typing.Tuple[
     typing.Union[int, float],
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | float, int | float, int |  |
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ArrayWithUniqueItemsTupleInput](#arraywithuniqueitemstupleinput), [ArrayWithUniqueItemsTuple](#arraywithuniqueitemstuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing.Union[int, float] | This method is used under the hood when instance[0] is called
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

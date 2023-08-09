@@ -1,5 +1,5 @@
 petstore_api.components.schema.object_interface
-# Schema ObjectInterface
+# ObjectInterface
 
 ## validate method
 Input Type | Return Type | Notes

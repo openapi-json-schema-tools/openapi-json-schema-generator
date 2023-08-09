@@ -1,5 +1,5 @@
 petstore_api.components.schema.shape_or_null
-# Schema ShapeOrNull
+# ShapeOrNull
 
 ## Description
 The value may be a shape or the &#x27;null&#x27; value. This is introduced in OAS schema &gt;&#x3D; 3.1.
@@ -13,11 +13,11 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#oneof-_0) | None | None |  |
+[_0](#) | None | None |  |
 [**Triangle**](triangle.md) | [**Triangle**](triangle.md) | [**Triangle**](triangle.md) |  |
 [**Quadrilateral**](quadrilateral.md) | [**Quadrilateral**](quadrilateral.md) | [**Quadrilateral**](quadrilateral.md) |  |
 
-# oneof _0
+# _0
 
 ## validate method
 Input Type | Return Type | Notes

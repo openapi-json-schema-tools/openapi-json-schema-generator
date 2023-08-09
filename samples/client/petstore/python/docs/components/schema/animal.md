@@ -1,5 +1,5 @@
 petstore_api.components.schema.animal
-# Schema Animal
+# Animal
 
 ## validate method
 Input Type | Return Type | Notes

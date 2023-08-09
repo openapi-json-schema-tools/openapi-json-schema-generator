@@ -1,5 +1,5 @@
 petstore_api.components.schema.array_of_number_only
-# Schema ArrayOfNumberOnly
+# ArrayOfNumberOnly
 
 ## validate method
 Input Type | Return Type | Notes
@@ -42,9 +42,9 @@ get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayNumberTupleInput](#arraynumber-arraynumbertupleinput), [ArrayNumberTuple](#arraynumber-arraynumbertuple) | [ArrayNumberTuple](#arraynumber-arraynumbertuple) |
+[ArrayNumberTupleInput](#arraynumbertupleinput), [ArrayNumberTuple](#arraynumbertuple) | [ArrayNumberTuple](#arraynumbertuple) |
 
-## ArrayNumber ArrayNumberTupleInput
+## ArrayNumberTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -66,15 +66,22 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | float, int |  |
 
-## ArrayNumber ArrayNumberTuple
+## ArrayNumberTuple
 ```
 base class: typing.Tuple[
     typing.Union[int, float],
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | float, int | float, int |  |
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ArrayNumberTupleInput](#arraynumbertupleinput), [ArrayNumberTuple](#arraynumbertuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing.Union[int, float] | This method is used under the hood when instance[0] is called
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

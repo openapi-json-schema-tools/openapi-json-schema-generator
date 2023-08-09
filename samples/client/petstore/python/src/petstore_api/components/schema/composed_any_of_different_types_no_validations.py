@@ -29,7 +29,7 @@ class _9Tuple(
     ]
 ):
 
-    def __new__(cls, arg: _9TupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[_9TupleInput, _9Tuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _9.validate(arg, configuration=configuration)
 _9TupleInput = typing.Union[
     typing.List[

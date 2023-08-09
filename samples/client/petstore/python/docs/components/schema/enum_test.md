@@ -1,5 +1,5 @@
 petstore_api.components.schema.enum_test
-# Schema EnumTest
+# EnumTest
 
 ## validate method
 Input Type | Return Type | Notes

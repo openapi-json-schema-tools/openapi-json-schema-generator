@@ -276,7 +276,7 @@ class ArrayNullablePropTuple(
     ]
 ):
 
-    def __new__(cls, arg: ArrayNullablePropTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ArrayNullablePropTupleInput, ArrayNullablePropTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayNullableProp.validate(arg, configuration=configuration)
 ArrayNullablePropTupleInput = typing.Union[
     typing.List[
@@ -389,7 +389,7 @@ class ArrayAndItemsNullablePropTuple(
     ]
 ):
 
-    def __new__(cls, arg: ArrayAndItemsNullablePropTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ArrayAndItemsNullablePropTupleInput, ArrayAndItemsNullablePropTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayAndItemsNullableProp.validate(arg, configuration=configuration)
 ArrayAndItemsNullablePropTupleInput = typing.Union[
     typing.List[
@@ -508,7 +508,7 @@ class ArrayItemsNullableTuple(
     ]
 ):
 
-    def __new__(cls, arg: ArrayItemsNullableTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ArrayItemsNullableTupleInput, ArrayItemsNullableTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayItemsNullable.validate(arg, configuration=configuration)
 ArrayItemsNullableTupleInput = typing.Union[
     typing.List[

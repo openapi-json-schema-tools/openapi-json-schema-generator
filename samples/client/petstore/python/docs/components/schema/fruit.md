@@ -1,5 +1,5 @@
 petstore_api.components.schema.fruit
-# Schema Fruit
+# Fruit
 
 ## validate method
 Input Type | Return Type | Notes

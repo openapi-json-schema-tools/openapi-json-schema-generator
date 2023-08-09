@@ -1,5 +1,5 @@
 petstore_api.components.schema.name
-# Schema Name
+# Name
 
 ## Description
 Model for testing model name same as property name

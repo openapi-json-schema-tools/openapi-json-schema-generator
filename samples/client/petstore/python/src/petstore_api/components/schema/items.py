@@ -20,7 +20,7 @@ class ItemsTuple(
     ]
 ):
 
-    def __new__(cls, arg: ItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ItemsTupleInput, ItemsTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Items.validate(arg, configuration=configuration)
 ItemsTupleInput = typing.Union[
     typing.List[

@@ -1,5 +1,5 @@
 petstore_api.components.schema.composed_one_of_different_types
-# Schema ComposedOneOfDifferentTypes
+# ComposedOneOfDifferentTypes
 
 ## Description
 this is a model that allows payloads of type object or number
@@ -15,41 +15,41 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [**NumberWithValidations**](number_with_validations.md) | [**NumberWithValidations**](number_with_validations.md) | [**NumberWithValidations**](number_with_validations.md) |  |
 [**Animal**](animal.md) | [**Animal**](animal.md) | [**Animal**](animal.md) |  |
-[_2](#oneof-_2) | None | None |  |
-[_3](#oneof-_3) | str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
-[_4](#oneof-_4) | dict, schemas.immutabledict | schemas.immutabledict |  |
-[_5](#oneof-_5) | list, tuple | tuple |  |
-[_6](#oneof-_6) | str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
+[_2](#) | None | None |  |
+[_3](#) | str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+[_4](#) | dict, schemas.immutabledict | schemas.immutabledict |  |
+[_5](#) | list, tuple | tuple |  |
+[_6](#) | str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
 
-# oneof _2
+# _2
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 None | None |
 
-# oneof _3
+# _3
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 str, datetime.date | str | value must conform to RFC-3339 full-date YYYY-MM-DD
 
-# oneof _4
+# _4
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict | schemas.immutabledict |
 
-# oneof _5
+# _5
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[_5TupleInput](#oneof-_5-_5tupleinput), [_5Tuple](#oneof-_5-_5tuple) | [_5Tuple](#oneof-_5-_5tuple) |
+[_5TupleInput](#_5tupleinput), [_5Tuple](#_5tuple) | [_5Tuple](#_5tuple) |
 
-## oneof _5 _5TupleInput
+## _5TupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -71,18 +71,25 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  |
 
-## oneof _5 _5Tuple
+## _5Tuple
 ```
 base class: typing.Tuple[
     schemas.OUTPUT_BASE_TYPES,
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [_5TupleInput](#_5tupleinput), [_5Tuple](#_5tuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 
-# oneof _6
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.OUTPUT_BASE_TYPES | This method is used under the hood when instance[0] is called
+
+# _6
 
 ## validate method
 Input Type | Return Type | Notes

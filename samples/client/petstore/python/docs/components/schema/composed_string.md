@@ -1,5 +1,5 @@
 petstore_api.components.schema.composed_string
-# Schema ComposedString
+# ComposedString
 
 ## validate method
 Input Type | Return Type | Notes
@@ -10,9 +10,9 @@ str | str |
 ## allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#allof-_0) | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+[_0](#) | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 
-# allof _0
+# _0
 
 ## validate method
 Input Type | Return Type | Notes

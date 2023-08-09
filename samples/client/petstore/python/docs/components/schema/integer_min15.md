@@ -1,5 +1,5 @@
 petstore_api.components.schema.integer_min15
-# Schema IntegerMin15
+# IntegerMin15
 
 ## validate method
 Input Type | Return Type | Notes

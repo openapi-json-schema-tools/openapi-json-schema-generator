@@ -1,5 +1,5 @@
 petstore_api.components.schema.array_test
-# Schema ArrayTest
+# ArrayTest
 
 ## validate method
 Input Type | Return Type | Notes
@@ -48,9 +48,9 @@ get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayOfStringTupleInput](#arrayofstring-arrayofstringtupleinput), [ArrayOfStringTuple](#arrayofstring-arrayofstringtuple) | [ArrayOfStringTuple](#arrayofstring-arrayofstringtuple) |
+[ArrayOfStringTupleInput](#arrayofstringtupleinput), [ArrayOfStringTuple](#arrayofstringtuple) | [ArrayOfStringTuple](#arrayofstringtuple) |
 
-## ArrayOfString ArrayOfStringTupleInput
+## ArrayOfStringTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -66,25 +66,32 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | str |  |
 
-## ArrayOfString ArrayOfStringTuple
+## ArrayOfStringTuple
 ```
 base class: typing.Tuple[
     str,
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | str | str |  |
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ArrayOfStringTupleInput](#arrayofstringtupleinput), [ArrayOfStringTuple](#arrayofstringtuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | str | This method is used under the hood when instance[0] is called
 
 # ArrayArrayOfInteger
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayArrayOfIntegerTupleInput](#arrayarrayofinteger-arrayarrayofintegertupleinput), [ArrayArrayOfIntegerTuple](#arrayarrayofinteger-arrayarrayofintegertuple) | [ArrayArrayOfIntegerTuple](#arrayarrayofinteger-arrayarrayofintegertuple) |
+[ArrayArrayOfIntegerTupleInput](#arrayarrayofintegertupleinput), [ArrayArrayOfIntegerTuple](#arrayarrayofintegertuple) | [ArrayArrayOfIntegerTuple](#arrayarrayofintegertuple) |
 
-## ArrayArrayOfInteger ArrayArrayOfIntegerTupleInput
+## ArrayArrayOfIntegerTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -104,27 +111,34 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | [ItemsTupleInput](#arrayarrayofinteger-itemstupleinput), [ItemsTuple](#arrayarrayofinteger-itemstuple) |  |
+≥ 0 | [ItemsTupleInput](#itemstupleinput), [ItemsTuple](#itemstuple) |  |
 
-## ArrayArrayOfInteger ArrayArrayOfIntegerTuple
+## ArrayArrayOfIntegerTuple
 ```
 base class: typing.Tuple[
     ItemsTuple,
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | list, tuple | tuple |  |
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ArrayArrayOfIntegerTupleInput](#arrayarrayofintegertupleinput), [ArrayArrayOfIntegerTuple](#arrayarrayofintegertuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 
-# ArrayArrayOfInteger Items2
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | ItemsTuple | This method is used under the hood when instance[0] is called
+
+# Items2
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ItemsTupleInput](#arrayarrayofinteger-items2-itemstupleinput), [ItemsTuple](#arrayarrayofinteger-items2-itemstuple) | [ItemsTuple](#arrayarrayofinteger-items2-itemstuple) |
+[ItemsTupleInput](#itemstupleinput), [ItemsTuple](#itemstuple) | [ItemsTuple](#itemstuple) |
 
-## ArrayArrayOfInteger Items2 ItemsTupleInput
+## ItemsTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -140,25 +154,32 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | int |  | value must be a 64 bit integer
 
-## ArrayArrayOfInteger Items2 ItemsTuple
+## ItemsTuple
 ```
 base class: typing.Tuple[
     int,
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | int | int |  | value must be a 64 bit integer
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ItemsTupleInput](#itemstupleinput), [ItemsTuple](#itemstuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | int | value must be a 64 bit integer This method is used under the hood when instance[0] is called
 
 # ArrayArrayOfModel
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayArrayOfModelTupleInput](#arrayarrayofmodel-arrayarrayofmodeltupleinput), [ArrayArrayOfModelTuple](#arrayarrayofmodel-arrayarrayofmodeltuple) | [ArrayArrayOfModelTuple](#arrayarrayofmodel-arrayarrayofmodeltuple) |
+[ArrayArrayOfModelTupleInput](#arrayarrayofmodeltupleinput), [ArrayArrayOfModelTuple](#arrayarrayofmodeltuple) | [ArrayArrayOfModelTuple](#arrayarrayofmodeltuple) |
 
-## ArrayArrayOfModel ArrayArrayOfModelTupleInput
+## ArrayArrayOfModelTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -178,27 +199,34 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | [ItemsTupleInput2](#arrayarrayofmodel-itemstupleinput2), [ItemsTuple2](#arrayarrayofmodel-itemstuple2) |  |
+≥ 0 | [ItemsTupleInput2](#itemstupleinput2), [ItemsTuple2](#itemstuple2) |  |
 
-## ArrayArrayOfModel ArrayArrayOfModelTuple
+## ArrayArrayOfModelTuple
 ```
 base class: typing.Tuple[
     ItemsTuple2,
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | list, tuple | tuple |  |
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ArrayArrayOfModelTupleInput](#arrayarrayofmodeltupleinput), [ArrayArrayOfModelTuple](#arrayarrayofmodeltuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 
-# ArrayArrayOfModel Items4
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | ItemsTuple2 | This method is used under the hood when instance[0] is called
+
+# Items4
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ItemsTupleInput2](#arrayarrayofmodel-items4-itemstupleinput2), [ItemsTuple2](#arrayarrayofmodel-items4-itemstuple2) | [ItemsTuple2](#arrayarrayofmodel-items4-itemstuple2) |
+[ItemsTupleInput2](#itemstupleinput2), [ItemsTuple2](#itemstuple2) | [ItemsTuple2](#itemstuple2) |
 
-## ArrayArrayOfModel Items4 ItemsTupleInput2
+## ItemsTupleInput2
 ```
 type: typing.Union[
     typing.List[
@@ -220,15 +248,22 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**ReadOnlyFirst**](read_only_first.md) |  |
 
-## ArrayArrayOfModel Items4 ItemsTuple2
+## ItemsTuple2
 ```
 base class: typing.Tuple[
     read_only_first.ReadOnlyFirstDict,
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | [**ReadOnlyFirst**](read_only_first.md) | [**ReadOnlyFirst**](read_only_first.md) |  |
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ItemsTupleInput2](#itemstupleinput2), [ItemsTuple2](#itemstuple2)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.OUTPUT_BASE_TYPES | This method is used under the hood when instance[0] is called
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

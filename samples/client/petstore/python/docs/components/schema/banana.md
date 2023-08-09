@@ -1,5 +1,5 @@
 petstore_api.components.schema.banana
-# Schema Banana
+# Banana
 
 ## validate method
 Input Type | Return Type | Notes

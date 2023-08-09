@@ -1,5 +1,5 @@
 petstore_api.components.schema.integer_enum_one_value
-# Schema IntegerEnumOneValue
+# IntegerEnumOneValue
 
 ## validate method
 Input Type | Return Type | Notes

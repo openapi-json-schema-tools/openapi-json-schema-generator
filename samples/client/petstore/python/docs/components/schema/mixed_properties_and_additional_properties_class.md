@@ -1,5 +1,5 @@
 petstore_api.components.schema.mixed_properties_and_additional_properties_class
-# Schema MixedPropertiesAndAdditionalPropertiesClass
+# MixedPropertiesAndAdditionalPropertiesClass
 
 ## validate method
 Input Type | Return Type | Notes
@@ -48,9 +48,9 @@ get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[MapDictInput](#map-mapdictinput), [MapDict](#map-mapdict) | [MapDict](#map-mapdict) |
+[MapDictInput](#mapdictinput), [MapDict](#mapdict) | [MapDict](#mapdict) |
 
-## Map MapDictInput
+## MapDictInput
 ```
 type: typing.Mapping[
     str,
@@ -64,7 +64,7 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | [**Animal**](animal.md), dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
-## Map MapDict
+## MapDict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ```
@@ -76,7 +76,7 @@ Keyword Argument | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [MapDictInput](#map-mapdictinput), [MapDict](#map-mapdict) | [MapDict](#map-mapdict) | a constructor
+from_dict_ | [MapDictInput](#mapdictinput), [MapDict](#mapdict) | [MapDict](#mapdict) | a constructor
 get_additional_property_ | str | [**Animal**](animal.md) | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

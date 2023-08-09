@@ -1,5 +1,5 @@
 petstore_api.components.schema.drawing
-# Schema Drawing
+# Drawing
 
 ## validate method
 Input Type | Return Type | Notes
@@ -75,9 +75,9 @@ get_additional_property_ | str | [**Fruit**](fruit.md) | provides type safety fo
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ShapesTupleInput](#shapes-shapestupleinput), [ShapesTuple](#shapes-shapestuple) | [ShapesTuple](#shapes-shapestuple) |
+[ShapesTupleInput](#shapestupleinput), [ShapesTuple](#shapestuple) | [ShapesTuple](#shapestuple) |
 
-## Shapes ShapesTupleInput
+## ShapesTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -99,15 +99,22 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**Shape**](shape.md) |  |
 
-## Shapes ShapesTuple
+## ShapesTuple
 ```
 base class: typing.Tuple[
     schemas.OUTPUT_BASE_TYPES,
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | [**Shape**](shape.md) | [**Shape**](shape.md) |  |
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ShapesTupleInput](#shapestupleinput), [ShapesTuple](#shapestuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.OUTPUT_BASE_TYPES | This method is used under the hood when instance[0] is called
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

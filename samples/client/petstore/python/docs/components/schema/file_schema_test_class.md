@@ -1,5 +1,5 @@
 petstore_api.components.schema.file_schema_test_class
-# Schema FileSchemaTestClass
+# FileSchemaTestClass
 
 ## validate method
 Input Type | Return Type | Notes
@@ -45,9 +45,9 @@ get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[FilesTupleInput](#files-filestupleinput), [FilesTuple](#files-filestuple) | [FilesTuple](#files-filestuple) |
+[FilesTupleInput](#filestupleinput), [FilesTuple](#filestuple) | [FilesTuple](#filestuple) |
 
-## Files FilesTupleInput
+## FilesTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -69,15 +69,22 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**File**](file.md) |  |
 
-## Files FilesTuple
+## FilesTuple
 ```
 base class: typing.Tuple[
     file.FileDict,
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | [**File**](file.md) | [**File**](file.md) |  |
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [FilesTupleInput](#filestupleinput), [FilesTuple](#filestuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.OUTPUT_BASE_TYPES | This method is used under the hood when instance[0] is called
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

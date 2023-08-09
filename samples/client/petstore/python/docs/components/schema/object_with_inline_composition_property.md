@@ -1,5 +1,5 @@
 petstore_api.components.schema.object_with_inline_composition_property
-# Schema ObjectWithInlineCompositionProperty
+# ObjectWithInlineCompositionProperty
 
 ## validate method
 Input Type | Return Type | Notes
@@ -47,9 +47,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## allOf
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_0](#someprop-allof-_0) | str | str |  |
+[_0](#) | str | str |  |
 
-# SomeProp allof _0
+# _0
 
 ## validate method
 Input Type | Return Type | Notes

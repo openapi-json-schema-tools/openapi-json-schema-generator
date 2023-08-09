@@ -1,5 +1,5 @@
 petstore_api.components.schema.enum_arrays
-# Schema EnumArrays
+# EnumArrays
 
 ## validate method
 Input Type | Return Type | Notes
@@ -45,9 +45,9 @@ get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayEnumTupleInput](#arrayenum-arrayenumtupleinput), [ArrayEnumTuple](#arrayenum-arrayenumtuple) | [ArrayEnumTuple](#arrayenum-arrayenumtuple) |
+[ArrayEnumTupleInput](#arrayenumtupleinput), [ArrayEnumTuple](#arrayenumtuple) | [ArrayEnumTuple](#arrayenumtuple) |
 
-## ArrayEnum ArrayEnumTupleInput
+## ArrayEnumTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -69,15 +69,22 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | str |  | must be one of ["fish", "crab"]
 
-## ArrayEnum ArrayEnumTuple
+## ArrayEnumTuple
 ```
 base class: typing.Tuple[
     typing_extensions.Literal["fish", "crab"],
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | str | str |  | must be one of ["fish", "crab"]
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ArrayEnumTupleInput](#arrayenumtupleinput), [ArrayEnumTuple](#arrayenumtuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing_extensions.Literal["fish", "crab"] | must be one of ["fish", "crab"] This method is used under the hood when instance[0] is called
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

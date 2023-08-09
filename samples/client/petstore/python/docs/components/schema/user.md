@@ -1,5 +1,5 @@
 petstore_api.components.schema.user
-# Schema User
+# User
 
 ## validate method
 Input Type | Return Type | Notes
@@ -107,9 +107,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## not
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-[_not](#anytypeexceptnullprop-_not) | None | None |  |
+[_not](#) | None | None |  |
 
-# AnyTypeExceptNullProp _Not
+# _Not
 
 ## validate method
 Input Type | Return Type | Notes

@@ -24,7 +24,7 @@ class ShapesTuple(
     ]
 ):
 
-    def __new__(cls, arg: ShapesTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ShapesTupleInput, ShapesTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Shapes.validate(arg, configuration=configuration)
 ShapesTupleInput = typing.Union[
     typing.List[

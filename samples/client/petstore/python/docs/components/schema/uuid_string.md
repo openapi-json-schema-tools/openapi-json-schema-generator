@@ -1,5 +1,5 @@
 petstore_api.components.schema.uuid_string
-# Schema UUIDString
+# UUIDString
 
 ## validate method
 Input Type | Return Type | Notes

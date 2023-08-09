@@ -1,5 +1,5 @@
 petstore_api.components.schema.parent_pet
-# Schema ParentPet
+# ParentPet
 
 ## validate method
 Input Type | Return Type | Notes

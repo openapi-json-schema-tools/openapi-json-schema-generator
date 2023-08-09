@@ -1,5 +1,5 @@
 petstore_api.components.schema.decimal_payload
-# Schema DecimalPayload
+# DecimalPayload
 
 ## validate method
 Input Type | Return Type | Notes

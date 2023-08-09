@@ -24,7 +24,7 @@ class ArrayOfEnumsTuple(
     ]
 ):
 
-    def __new__(cls, arg: ArrayOfEnumsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ArrayOfEnumsTupleInput, ArrayOfEnumsTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayOfEnums.validate(arg, configuration=configuration)
 ArrayOfEnumsTupleInput = typing.Union[
     typing.List[

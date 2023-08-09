@@ -1,6 +1,6 @@
 {{! array and object output classes need this new method to ensure that validation is run when making instances }}
 {{#eq instanceType "arrayOutputType" }}
-def __new__(cls, arg: {{arrayInputJsonPathPiece.camelCase}}, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+def __new__(cls, arg: typing.Union[{{arrayInputJsonPathPiece.camelCase}}, {{arrayOutputJsonPathPiece.camelCase}}], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
     return {{jsonPathPiece.camelCase}}.validate(arg, configuration=configuration)
 {{else}}
     {{#eq instanceType "propertiesOutputType" }}

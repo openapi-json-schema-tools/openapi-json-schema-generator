@@ -1,5 +1,5 @@
 petstore_api.components.schema.string_boolean_map
-# Schema StringBooleanMap
+# StringBooleanMap
 
 ## validate method
 Input Type | Return Type | Notes

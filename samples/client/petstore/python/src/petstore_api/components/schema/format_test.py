@@ -88,7 +88,7 @@ class ArrayWithUniqueItemsTuple(
     ]
 ):
 
-    def __new__(cls, arg: ArrayWithUniqueItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ArrayWithUniqueItemsTupleInput, ArrayWithUniqueItemsTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayWithUniqueItems.validate(arg, configuration=configuration)
 ArrayWithUniqueItemsTupleInput = typing.Union[
     typing.List[

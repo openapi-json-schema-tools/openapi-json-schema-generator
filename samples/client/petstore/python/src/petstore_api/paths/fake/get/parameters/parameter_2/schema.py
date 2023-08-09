@@ -88,7 +88,7 @@ class SchemaTuple(
     ]
 ):
 
-    def __new__(cls, arg: SchemaTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[SchemaTupleInput, SchemaTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Schema.validate(arg, configuration=configuration)
 SchemaTupleInput = typing.Union[
     typing.List[

@@ -19,7 +19,7 @@ class SelfReferencingArrayModelTuple(
     ]
 ):
 
-    def __new__(cls, arg: SelfReferencingArrayModelTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[SelfReferencingArrayModelTupleInput, SelfReferencingArrayModelTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return SelfReferencingArrayModel.validate(arg, configuration=configuration)
 SelfReferencingArrayModelTupleInput = typing.Union[
     typing.List[

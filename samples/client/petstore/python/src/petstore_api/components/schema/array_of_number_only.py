@@ -20,7 +20,7 @@ class ArrayNumberTuple(
     ]
 ):
 
-    def __new__(cls, arg: ArrayNumberTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ArrayNumberTupleInput, ArrayNumberTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayNumber.validate(arg, configuration=configuration)
 ArrayNumberTupleInput = typing.Union[
     typing.List[

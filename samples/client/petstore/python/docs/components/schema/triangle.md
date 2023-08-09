@@ -1,5 +1,5 @@
 petstore_api.components.schema.triangle
-# Schema Triangle
+# Triangle
 
 ## validate method
 Input Type | Return Type | Notes

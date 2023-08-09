@@ -20,7 +20,7 @@ class FilesTuple(
     ]
 ):
 
-    def __new__(cls, arg: FilesTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[FilesTupleInput, FilesTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Files.validate(arg, configuration=configuration)
 FilesTupleInput = typing.Union[
     typing.List[

@@ -1013,7 +1013,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
 
                 // to generate model documentation files
                 if (generateModelDocumentation) {
-                    schemaData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
+                    schemaData.put("identifierPieces", null);
                     generateSchemaDocumentation(files, schemaData, jsonPath);
                 }
 

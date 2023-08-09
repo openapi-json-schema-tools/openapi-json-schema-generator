@@ -1,5 +1,5 @@
 petstore_api.components.schema.pet
-# Schema Pet
+# Pet
 
 ## Description
 Pet object that needs to be added to the store
@@ -60,9 +60,9 @@ get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[PhotoUrlsTupleInput](#photourls-photourlstupleinput), [PhotoUrlsTuple](#photourls-photourlstuple) | [PhotoUrlsTuple](#photourls-photourlstuple) |
+[PhotoUrlsTupleInput](#photourlstupleinput), [PhotoUrlsTuple](#photourlstuple) | [PhotoUrlsTuple](#photourlstuple) |
 
-## PhotoUrls PhotoUrlsTupleInput
+## PhotoUrlsTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -78,25 +78,32 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | str |  |
 
-## PhotoUrls PhotoUrlsTuple
+## PhotoUrlsTuple
 ```
 base class: typing.Tuple[
     str,
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | str | str |  |
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [PhotoUrlsTupleInput](#photourlstupleinput), [PhotoUrlsTuple](#photourlstuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | str | This method is used under the hood when instance[0] is called
 
 # Tags
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[TagsTupleInput](#tags-tagstupleinput), [TagsTuple](#tags-tagstuple) | [TagsTuple](#tags-tagstuple) |
+[TagsTupleInput](#tagstupleinput), [TagsTuple](#tagstuple) | [TagsTuple](#tagstuple) |
 
-## Tags TagsTupleInput
+## TagsTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -118,15 +125,22 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | [**Tag**](tag.md) |  |
 
-## Tags TagsTuple
+## TagsTuple
 ```
 base class: typing.Tuple[
     tag.TagDict,
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | [**Tag**](tag.md) | [**Tag**](tag.md) |  |
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [TagsTupleInput](#tagstupleinput), [TagsTuple](#tagstuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.OUTPUT_BASE_TYPES | This method is used under the hood when instance[0] is called
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

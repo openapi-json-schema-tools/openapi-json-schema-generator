@@ -1,5 +1,5 @@
 petstore_api.components.schema.nullable_class
-# Schema NullableClass
+# NullableClass
 
 ## validate method
 Input Type | Return Type | Notes
@@ -148,16 +148,16 @@ Property | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [NullableClassDictInput](#nullableclassdictinput), [NullableClassDict](#nullableclassdict) | [NullableClassDict](#nullableclassdict) | a constructor
-get_additional_property_ | str | [AdditionalProperties4](#additionalproperties4) | provides type safety for additional properties
+get_additional_property_ | str | [AdditionalProperties4](#) | provides type safety for additional properties
 
 # ArrayNullableProp
 
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-None, [ArrayNullablePropTupleInput](#arraynullableprop-arraynullableproptupleinput), [ArrayNullablePropTuple](#arraynullableprop-arraynullableproptuple) | None, [ArrayNullablePropTuple](#arraynullableprop-arraynullableproptuple) |
+None, [ArrayNullablePropTupleInput](#arraynullableproptupleinput), [ArrayNullablePropTuple](#arraynullableproptuple) | None, [ArrayNullablePropTuple](#arraynullableproptuple) |
 
-## ArrayNullableProp ArrayNullablePropTupleInput
+## ArrayNullablePropTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -179,18 +179,25 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | dict, schemas.immutabledict |  |
 
-## ArrayNullableProp ArrayNullablePropTuple
+## ArrayNullablePropTuple
 ```
 base class: typing.Tuple[
     schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | dict, schemas.immutabledict | schemas.immutabledict |  |
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ArrayNullablePropTupleInput](#arraynullableproptupleinput), [ArrayNullablePropTuple](#arraynullableproptuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 
-# ArrayNullableProp Items
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES] | This method is used under the hood when instance[0] is called
+
+# Items
 
 ## validate method
 Input Type | Return Type | Notes
@@ -202,9 +209,9 @@ dict, schemas.immutabledict | schemas.immutabledict |
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-None, [ArrayAndItemsNullablePropTupleInput](#arrayanditemsnullableprop-arrayanditemsnullableproptupleinput), [ArrayAndItemsNullablePropTuple](#arrayanditemsnullableprop-arrayanditemsnullableproptuple) | None, [ArrayAndItemsNullablePropTuple](#arrayanditemsnullableprop-arrayanditemsnullableproptuple) |
+None, [ArrayAndItemsNullablePropTupleInput](#arrayanditemsnullableproptupleinput), [ArrayAndItemsNullablePropTuple](#arrayanditemsnullableproptuple) | None, [ArrayAndItemsNullablePropTuple](#arrayanditemsnullableproptuple) |
 
-## ArrayAndItemsNullableProp ArrayAndItemsNullablePropTupleInput
+## ArrayAndItemsNullablePropTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -232,7 +239,7 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | None, dict, schemas.immutabledict |  |
 
-## ArrayAndItemsNullableProp ArrayAndItemsNullablePropTuple
+## ArrayAndItemsNullablePropTuple
 ```
 base class: typing.Tuple[
     typing.Union[
@@ -242,11 +249,19 @@ base class: typing.Tuple[
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ArrayAndItemsNullablePropTupleInput](#arrayanditemsnullableproptupleinput), [ArrayAndItemsNullablePropTuple](#arrayanditemsnullableproptuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 
-# ArrayAndItemsNullableProp Items2
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing.Union[None,schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],]
+ | This method is used under the hood when instance[0] is called
+
+# Items2
 
 ## validate method
 Input Type | Return Type | Notes
@@ -258,9 +273,9 @@ None, dict, schemas.immutabledict | None, schemas.immutabledict |
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ArrayItemsNullableTupleInput](#arrayitemsnullable-arrayitemsnullabletupleinput), [ArrayItemsNullableTuple](#arrayitemsnullable-arrayitemsnullabletuple) | [ArrayItemsNullableTuple](#arrayitemsnullable-arrayitemsnullabletuple) |
+[ArrayItemsNullableTupleInput](#arrayitemsnullabletupleinput), [ArrayItemsNullableTuple](#arrayitemsnullabletuple) | [ArrayItemsNullableTuple](#arrayitemsnullabletuple) |
 
-## ArrayItemsNullable ArrayItemsNullableTupleInput
+## ArrayItemsNullableTupleInput
 ```
 type: typing.Union[
     typing.List[
@@ -288,7 +303,7 @@ Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
 ≥ 0 | None, dict, schemas.immutabledict |  |
 
-## ArrayItemsNullable ArrayItemsNullableTuple
+## ArrayItemsNullableTuple
 ```
 base class: typing.Tuple[
     typing.Union[
@@ -298,11 +313,19 @@ base class: typing.Tuple[
     ...
 ]
 ```
-Index | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-≥ 0 | None, dict, schemas.immutabledict | None, schemas.immutabledict |  |
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ArrayItemsNullableTupleInput](#arrayitemsnullabletupleinput), [ArrayItemsNullableTuple](#arrayitemsnullabletuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 
-# ArrayItemsNullable Items3
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing.Union[None,schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],]
+ | This method is used under the hood when instance[0] is called
+
+# Items3
 
 ## validate method
 Input Type | Return Type | Notes
@@ -314,9 +337,9 @@ None, dict, schemas.immutabledict | None, schemas.immutabledict |
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-None, [ObjectNullablePropDictInput](#objectnullableprop-objectnullablepropdictinput), [ObjectNullablePropDict](#objectnullableprop-objectnullablepropdict) | None, [ObjectNullablePropDict](#objectnullableprop-objectnullablepropdict) |
+None, [ObjectNullablePropDictInput](#objectnullablepropdictinput), [ObjectNullablePropDict](#objectnullablepropdict) | None, [ObjectNullablePropDict](#objectnullablepropdict) |
 
-## ObjectNullableProp ObjectNullablePropDictInput
+## ObjectNullablePropDictInput
 ```
 type: typing.Mapping[
     str,
@@ -330,7 +353,7 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
-## ObjectNullableProp ObjectNullablePropDict
+## ObjectNullablePropDict
 ```
 base class: schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]]
 
@@ -343,10 +366,10 @@ Keyword Argument | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [ObjectNullablePropDictInput](#objectnullableprop-objectnullablepropdictinput), [ObjectNullablePropDict](#objectnullableprop-objectnullablepropdict) | [ObjectNullablePropDict](#objectnullableprop-objectnullablepropdict) | a constructor
-get_additional_property_ | str | [AdditionalProperties](#objectnullableprop-additionalproperties) | provides type safety for additional properties
+from_dict_ | [ObjectNullablePropDictInput](#objectnullablepropdictinput), [ObjectNullablePropDict](#objectnullablepropdict) | [ObjectNullablePropDict](#objectnullablepropdict) | a constructor
+get_additional_property_ | str | [AdditionalProperties](#) | provides type safety for additional properties
 
-# ObjectNullableProp AdditionalProperties
+# AdditionalProperties
 
 ## validate method
 Input Type | Return Type | Notes
@@ -358,9 +381,9 @@ dict, schemas.immutabledict | schemas.immutabledict |
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-None, [ObjectAndItemsNullablePropDictInput](#objectanditemsnullableprop-objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#objectanditemsnullableprop-objectanditemsnullablepropdict) | None, [ObjectAndItemsNullablePropDict](#objectanditemsnullableprop-objectanditemsnullablepropdict) |
+None, [ObjectAndItemsNullablePropDictInput](#objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#objectanditemsnullablepropdict) | None, [ObjectAndItemsNullablePropDict](#objectanditemsnullablepropdict) |
 
-## ObjectAndItemsNullableProp ObjectAndItemsNullablePropDictInput
+## ObjectAndItemsNullablePropDictInput
 ```
 type: typing.Mapping[
     str,
@@ -377,7 +400,7 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
-## ObjectAndItemsNullableProp ObjectAndItemsNullablePropDict
+## ObjectAndItemsNullablePropDict
 ```
 base class: schemas.immutabledict[str, typing.Union[
     None,
@@ -393,10 +416,10 @@ Keyword Argument | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [ObjectAndItemsNullablePropDictInput](#objectanditemsnullableprop-objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#objectanditemsnullableprop-objectanditemsnullablepropdict) | [ObjectAndItemsNullablePropDict](#objectanditemsnullableprop-objectanditemsnullablepropdict) | a constructor
-get_additional_property_ | str | [AdditionalProperties2](#objectanditemsnullableprop-additionalproperties2) | provides type safety for additional properties
+from_dict_ | [ObjectAndItemsNullablePropDictInput](#objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#objectanditemsnullablepropdict) | [ObjectAndItemsNullablePropDict](#objectanditemsnullablepropdict) | a constructor
+get_additional_property_ | str | [AdditionalProperties2](#) | provides type safety for additional properties
 
-# ObjectAndItemsNullableProp AdditionalProperties2
+# AdditionalProperties2
 
 ## validate method
 Input Type | Return Type | Notes
@@ -408,9 +431,9 @@ None, dict, schemas.immutabledict | None, schemas.immutabledict |
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[ObjectItemsNullableDictInput](#objectitemsnullable-objectitemsnullabledictinput), [ObjectItemsNullableDict](#objectitemsnullable-objectitemsnullabledict) | [ObjectItemsNullableDict](#objectitemsnullable-objectitemsnullabledict) |
+[ObjectItemsNullableDictInput](#objectitemsnullabledictinput), [ObjectItemsNullableDict](#objectitemsnullabledict) | [ObjectItemsNullableDict](#objectitemsnullabledict) |
 
-## ObjectItemsNullable ObjectItemsNullableDictInput
+## ObjectItemsNullableDictInput
 ```
 type: typing.Mapping[
     str,
@@ -427,7 +450,7 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **any_string_name** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
 
-## ObjectItemsNullable ObjectItemsNullableDict
+## ObjectItemsNullableDict
 ```
 base class: schemas.immutabledict[str, typing.Union[
     None,
@@ -443,10 +466,10 @@ Keyword Argument | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [ObjectItemsNullableDictInput](#objectitemsnullable-objectitemsnullabledictinput), [ObjectItemsNullableDict](#objectitemsnullable-objectitemsnullabledict) | [ObjectItemsNullableDict](#objectitemsnullable-objectitemsnullabledict) | a constructor
-get_additional_property_ | str | [AdditionalProperties3](#objectitemsnullable-additionalproperties3) | provides type safety for additional properties
+from_dict_ | [ObjectItemsNullableDictInput](#objectitemsnullabledictinput), [ObjectItemsNullableDict](#objectitemsnullabledict) | [ObjectItemsNullableDict](#objectitemsnullabledict) | a constructor
+get_additional_property_ | str | [AdditionalProperties3](#) | provides type safety for additional properties
 
-# ObjectItemsNullable AdditionalProperties3
+# AdditionalProperties3
 
 ## validate method
 Input Type | Return Type | Notes
