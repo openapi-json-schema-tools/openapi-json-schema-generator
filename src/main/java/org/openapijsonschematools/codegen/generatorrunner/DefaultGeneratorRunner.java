@@ -802,6 +802,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         if (schema != null) {
             String schemaJsonPath = parameter.getSetSchemaJsonPath(jsonPath);
             generateSchema(files, schema, schemaJsonPath);
+            generateSchemaDocumentation(files, schema, schemaJsonPath);
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = parameter.content;
         if (schema == null && content != null && !content.isEmpty()) {
