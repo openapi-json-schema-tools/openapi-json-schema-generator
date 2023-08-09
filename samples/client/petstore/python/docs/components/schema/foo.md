@@ -31,7 +31,7 @@ Keyword Argument | Type | Description | Notes
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**bar** | [**Bar**](bar.md) |  | [optional]
+**bar** | str, schemas.Unset |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes

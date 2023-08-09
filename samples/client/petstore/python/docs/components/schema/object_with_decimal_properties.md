@@ -35,9 +35,9 @@ Keyword Argument | Type | Description | Notes
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**length** | [**DecimalPayload**](decimal_payload.md) |  | [optional]
+**length** | str, schemas.Unset |  | [optional]
 **width** | str, schemas.Unset |  | [optional] value must be int or float numeric
-**cost** | [**Money**](money.md) |  | [optional]
+**cost** | [money.MoneyDict](../../components/schema/money.md#moneydict), schemas.Unset |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes

@@ -48,7 +48,7 @@ Property | Type | Description | Notes
 **name** | str |  |
 **photoUrls** | [PhotoUrlsTuple](#photourlstuple) |  |
 **id** | int, schemas.Unset |  | [optional] value must be a 64 bit integer
-**category** | [**Category**](category.md) |  | [optional]
+**category** | [category.CategoryDict](../../components/schema/category.md#categorydict), schemas.Unset |  | [optional]
 **tags** | [TagsTuple](#tagstuple), schemas.Unset |  | [optional]
 **status** | str, schemas.Unset | pet status in the store | [optional] must be one of ["available", "pending", "sold"]
 

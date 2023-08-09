@@ -31,7 +31,7 @@ Keyword Argument | Type | Description | Notes
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**string** | [**Foo**](foo.md) |  | [optional]
+**string** | [foo.FooDict](../../../../../../../components/schema/foo.md#foodict), schemas.Unset |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes

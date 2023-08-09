@@ -51,11 +51,11 @@ Property | Type | Description | Notes
 **enum_string** | str, schemas.Unset |  | [optional] must be one of ["UPPER", "lower", ""]
 **enum_integer** | int, schemas.Unset |  | [optional] must be one of [1, -1] value must be a 32 bit integer
 **enum_number** | float, int, schemas.Unset |  | [optional] must be one of [1.1, -1.2] value must be a 64 bit float
-**stringEnum** | [**StringEnum**](string_enum.md) |  | [optional]
-**IntegerEnum** | [**IntegerEnum**](integer_enum.md) |  | [optional]
-**StringEnumWithDefaultValue** | [**StringEnumWithDefaultValue**](string_enum_with_default_value.md) |  | [optional]
-**IntegerEnumWithDefaultValue** | [**IntegerEnumWithDefaultValue**](integer_enum_with_default_value.md) |  | [optional]
-**IntegerEnumOneValue** | [**IntegerEnumOneValue**](integer_enum_one_value.md) |  | [optional]
+**stringEnum** | None, str, schemas.Unset |  | [optional]
+**IntegerEnum** | int, schemas.Unset |  | [optional]
+**StringEnumWithDefaultValue** | str, schemas.Unset |  | [optional]
+**IntegerEnumWithDefaultValue** | int, schemas.Unset |  | [optional]
+**IntegerEnumOneValue** | int, schemas.Unset |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes

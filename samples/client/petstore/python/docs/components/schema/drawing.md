@@ -62,16 +62,16 @@ Keyword Argument | Type | Description | Notes
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**mainShape** | [**Shape**](shape.md) |  | [optional]
-**shapeOrNull** | [**ShapeOrNull**](shape_or_null.md) |  | [optional]
-**nullableShape** | [**NullableShape**](nullable_shape.md) |  | [optional]
+**mainShape** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset |  | [optional]
+**shapeOrNull** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset |  | [optional]
+**nullableShape** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset |  | [optional]
 **shapes** | [ShapesTuple](#shapestuple), schemas.Unset |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [DrawingDictInput](#drawingdictinput), [DrawingDict](#drawingdict) | [DrawingDict](#drawingdict) | a constructor
-get_additional_property_ | str | [**Fruit**](fruit.md) | provides type safety for additional properties
+get_additional_property_ | str | [fruit.FruitDict](../../components/schema/fruit.md#fruitdict), str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | provides type safety for additional properties
 
 # Shapes
 ```

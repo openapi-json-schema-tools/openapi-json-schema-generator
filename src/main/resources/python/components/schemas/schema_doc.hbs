@@ -24,12 +24,12 @@ type: schemas.Schema
 {{headerSize}}# Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
 ---------- | ---------- | ----------- | ------------
-[{{refInfo.refClass}}]({{complexTypePrefix}}{{refInfo.refModule}}.md) | {{#with getDeepestRef}}{{> components/_helper_schema_io_types }} | {{> components/_helper_schema_output_types }}{{/with}} |{{#if description}} {{description}}{{/if}}
+[{{refInfo.refClass}}]({{complexTypePrefix}}{{refInfo.refModule}}.md) | {{#with getDeepestRef}}{{> components/schemas/types/_helper_schema_io_types }} | {{> components/schemas/types/_helper_schema_output_types }}{{/with}} |{{#if description}} {{description}}{{/if}}
 {{else}}
 {{headerSize}}# validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-{{> components/_helper_schema_io_types }} | {{> components/_helper_schema_output_types }} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+{{> components/schemas/types/_helper_schema_io_types }} | {{> components/schemas/types/_helper_schema_output_types }} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
     {{#or properties additionalProperties requiredProperties}}
 
     {{#if mapInputJsonPathPiece}}
@@ -119,17 +119,17 @@ type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
         {{#each requiredProperties}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/_helper_schema_io_ref_types }}{{else}}{{> components/_helper_schema_io_types }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/types/_helper_schema_io_ref_types }}{{else}}{{> components/schemas/types/_helper_schema_io_types }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
         {{/each}}
         {{#each optionalProperties}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/_helper_schema_io_ref_types }}{{else}}{{> components/_helper_schema_io_types }}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/types/_helper_schema_io_ref_types }}{{else}}{{> components/schemas/types/_helper_schema_io_types }}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
         {{/each}}
         {{#with additionalProperties}}
             {{#unless isBooleanSchemaFalse}}
                 {{#if isBooleanSchemaTrue}}
 **any_string_name** | {{> _helper_schema_python_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]
             {{else}}
-**any_string_name** | {{#if refInfo.refClass}}{{> components/_helper_schema_io_ref_types }}{{else}}{{> components/_helper_schema_io_types }}{{/if}} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**any_string_name** | {{#if refInfo.refClass}}{{> components/schemas/types/_helper_schema_io_ref_types }}{{else}}{{> components/schemas/types/_helper_schema_io_types }}{{/if}} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
                 {{/if}}
             {{/unless}}
         {{else}}
@@ -157,12 +157,12 @@ Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
         {{#each requiredProperties}}
             {{#if @key.isValid}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/_helper_schema_io_ref_types }}{{else}}{{> components/_helper_schema_io_types }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/types/_helper_schema_io_ref_types }}{{else}}{{> components/schemas/types/_helper_schema_io_types }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
             {{/if}}
         {{/each}}
         {{#each optionalProperties}}
             {{#if @key.isValid}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/_helper_schema_io_ref_types }}{{else}}{{> components/_helper_schema_io_types optional=true }}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/types/_helper_schema_io_ref_types }}{{else}}{{> components/schemas/types/_helper_schema_io_types optional=true }}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
             {{/if}}
         {{/each}}
         {{#with additionalProperties}}
@@ -170,7 +170,7 @@ Keyword Argument | Type | Description | Notes
                 {{#if isBooleanSchemaTrue}}
 **kwargs** | {{> _helper_schema_python_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional] typed value is accessed with the get_additional_property_ method
             {{else}}
-**kwargs** | {{#if refInfo.refClass}}{{> components/_helper_schema_io_ref_types }}{{else}}{{> components/_helper_schema_io_types }}{{/if}} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }} typed value is accessed with the get_additional_property_ method
+**kwargs** | {{#if refInfo.refClass}}{{> components/schemas/types/_helper_schema_io_ref_types }}{{else}}{{> components/schemas/types/_helper_schema_io_types }}{{/if}} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }} typed value is accessed with the get_additional_property_ method
                 {{/if}}
             {{/unless}}
         {{else}}
@@ -183,12 +183,12 @@ Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
             {{#each requiredProperties}}
                 {{#if @key.isValid}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{> components/_helper_schema_output_types }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/types/_helper_schema_output_ref_types }}{{else}}{{> components/schemas/types/_helper_schema_output_types }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
                 {{/if}}
             {{/each}}
             {{#each optionalProperties}}
                 {{#if @key.isValid}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{> components/_helper_schema_output_types optional=true }}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/types/_helper_schema_output_ref_types optional=true }}{{else}}{{> components/schemas/types/_helper_schema_output_types optional=true }}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
                 {{/if}}
             {{/each}}
         {{/or}}
@@ -196,16 +196,16 @@ Property | Type | Description | Notes
 {{headerSize}}## methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | {{> components/_helper_schema_io_types types=(append (newArray ) "object") }} | {{> components/_helper_schema_output_types types=(append (newArray ) "object") }} | a constructor
+from_dict_ | {{> components/schemas/types/_helper_schema_io_types types=(append (newArray ) "object") }} | {{> components/schemas/types/_helper_schema_output_types types=(append (newArray ) "object") }} | a constructor
         {{#or (and requiredProperties requiredProperties.hasInvalidKey) (and optionalProperties optionalProperties.hasInvalidKey) }}
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | str | {{#with mapValueSchema}}{{> components/schemas/_helper_schema_output_type_oneline fullRefModule=null endChar="" }}{{else}}schemas.OUTPUT_BASE_TYPES{{/with}} | This model has invalid python names so this method is used under the hood when you access {{#each requiredProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}{{#each optionalProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}
         {{/or}}
         {{#with additionalProperties}}
             {{#unless isBooleanSchemaFalse}}
                 {{#if isBooleanSchemaTrue}}
-get_additional_property_ | str | {{> components/_helper_schema_output_types optional=true }} | provides type safety for additional properties
+get_additional_property_ | str | {{> components/schemas/types/_helper_schema_output_types optional=true }} | provides type safety for additional properties
             {{else}}
-get_additional_property_ | str | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{@jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece) }}){{else}}{{> components/_helper_schema_output_types optional=true }}{{/if}}{{/if}} | provides type safety for additional properties
+get_additional_property_ | str | {{#if refInfo.refClass}}{{> components/schemas/types/_helper_schema_output_ref_types optional=true }}{{else}}{{> components/schemas/types/_helper_schema_output_types optional=true }}{{/if}} | provides type safety for additional properties
                 {{/if}}
             {{/unless}}
         {{else}}
@@ -241,7 +241,7 @@ type: typing.Union[
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
         {{#with items}}
-≥ 0 | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{> components/_helper_schema_io_types }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+≥ 0 | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{> components/schemas/types/_helper_schema_io_types }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
         {{/with}}
 
         {{#if arrayOutputJsonPathPiece}}
@@ -273,7 +273,7 @@ base class: typing.Tuple[
 {{headerSize}}## &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type
 -------- | ------
-arg      | {{> components/_helper_schema_io_types types=(append (newArray ) "array") }}
+arg      | {{> components/schemas/types/_helper_schema_io_types types=(append (newArray ) "array") }}
 configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 
 {{headerSize}}## methods

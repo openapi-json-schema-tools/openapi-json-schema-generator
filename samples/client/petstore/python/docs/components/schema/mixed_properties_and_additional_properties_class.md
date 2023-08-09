@@ -83,6 +83,6 @@ Keyword Argument | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [MapDictInput](#mapdictinput), [MapDict](#mapdict) | [MapDict](#mapdict) | a constructor
-get_additional_property_ | str | [**Animal**](animal.md) | provides type safety for additional properties
+get_additional_property_ | str | [animal.AnimalDict](../../components/schema/animal.md#animaldict), schemas.Unset | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

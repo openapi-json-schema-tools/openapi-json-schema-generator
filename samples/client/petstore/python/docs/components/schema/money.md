@@ -32,7 +32,7 @@ Keyword Argument | Type | Description | Notes
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **amount** | str |  | value must be int or float numeric
-**currency** | [**Currency**](currency.md) |  |
+**currency** | str |  |
 
 ### methods
 Method | Input Type | Return Type | Notes

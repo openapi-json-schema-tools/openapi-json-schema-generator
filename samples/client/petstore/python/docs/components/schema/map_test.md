@@ -40,7 +40,7 @@ Property | Type | Description | Notes
 **map_map_of_string** | [MapMapOfStringDict](#mapmapofstringdict), schemas.Unset |  | [optional]
 **map_of_enum_string** | [MapOfEnumStringDict](#mapofenumstringdict), schemas.Unset |  | [optional]
 **direct_map** | [DirectMapDict](#directmapdict), schemas.Unset |  | [optional]
-**indirect_map** | [**StringBooleanMap**](string_boolean_map.md) |  | [optional]
+**indirect_map** | [string_boolean_map.StringBooleanMapDict](../../components/schema/string_boolean_map.md#stringbooleanmapdict), schemas.Unset |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes
@@ -86,7 +86,7 @@ Keyword Argument | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [MapMapOfStringDictInput](#mapmapofstringdictinput), [MapMapOfStringDict](#mapmapofstringdict) | [MapMapOfStringDict](#mapmapofstringdict) | a constructor
-get_additional_property_ | str | [AdditionalProperties](#) | provides type safety for additional properties
+get_additional_property_ | str | [AdditionalPropertiesDict](#additionalpropertiesdict), schemas.Unset | provides type safety for additional properties
 
 # AdditionalProperties
 ```

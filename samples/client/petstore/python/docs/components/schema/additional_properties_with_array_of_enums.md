@@ -37,7 +37,7 @@ Keyword Argument | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [AdditionalPropertiesWithArrayOfEnumsDictInput](#additionalpropertieswitharrayofenumsdictinput), [AdditionalPropertiesWithArrayOfEnumsDict](#additionalpropertieswitharrayofenumsdict) | [AdditionalPropertiesWithArrayOfEnumsDict](#additionalpropertieswitharrayofenumsdict) | a constructor
-get_additional_property_ | str | [AdditionalProperties](#) | provides type safety for additional properties
+get_additional_property_ | str | [AdditionalPropertiesTuple](#additionalpropertiestuple), schemas.Unset | provides type safety for additional properties
 
 # AdditionalProperties
 ```

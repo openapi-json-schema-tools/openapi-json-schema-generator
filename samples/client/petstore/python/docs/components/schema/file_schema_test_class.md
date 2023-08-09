@@ -34,7 +34,7 @@ Keyword Argument | Type | Description | Notes
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**file** | [**File**](file.md) |  | [optional]
+**file** | [file.FileDict](../../components/schema/file.md#filedict), schemas.Unset |  | [optional]
 **files** | [FilesTuple](#filestuple), schemas.Unset |  | [optional]
 
 ### methods

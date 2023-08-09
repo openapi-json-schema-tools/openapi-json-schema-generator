@@ -44,12 +44,12 @@ Keyword Argument | Type | Description | Notes
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**selfRef** | [**SelfReferencingObjectModel**](#top) |  | [optional]
+**selfRef** | [self_referencing_object_model.SelfReferencingObjectModelDict](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldict), schemas.Unset |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [SelfReferencingObjectModelDictInput](#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) | [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) | a constructor
-get_additional_property_ | str | [**SelfReferencingObjectModel**](#top) | provides type safety for additional properties
+get_additional_property_ | str | [self_referencing_object_model.SelfReferencingObjectModelDict](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldict), schemas.Unset | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

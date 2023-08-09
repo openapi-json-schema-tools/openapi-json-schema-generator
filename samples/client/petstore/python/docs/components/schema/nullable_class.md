@@ -151,7 +151,7 @@ Property | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [NullableClassDictInput](#nullableclassdictinput), [NullableClassDict](#nullableclassdict) | [NullableClassDict](#nullableclassdict) | a constructor
-get_additional_property_ | str | [AdditionalProperties4](#) | provides type safety for additional properties
+get_additional_property_ | str | None, schemas.immutabledict, schemas.Unset | provides type safety for additional properties
 
 # ArrayNullableProp
 ```
@@ -391,7 +391,7 @@ Keyword Argument | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [ObjectNullablePropDictInput](#objectnullablepropdictinput), [ObjectNullablePropDict](#objectnullablepropdict) | [ObjectNullablePropDict](#objectnullablepropdict) | a constructor
-get_additional_property_ | str | [AdditionalProperties](#) | provides type safety for additional properties
+get_additional_property_ | str | schemas.immutabledict, schemas.Unset | provides type safety for additional properties
 
 # AdditionalProperties
 ```
@@ -447,7 +447,7 @@ Keyword Argument | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [ObjectAndItemsNullablePropDictInput](#objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#objectanditemsnullablepropdict) | [ObjectAndItemsNullablePropDict](#objectanditemsnullablepropdict) | a constructor
-get_additional_property_ | str | [AdditionalProperties2](#) | provides type safety for additional properties
+get_additional_property_ | str | None, schemas.immutabledict, schemas.Unset | provides type safety for additional properties
 
 # AdditionalProperties2
 ```
@@ -503,7 +503,7 @@ Keyword Argument | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [ObjectItemsNullableDictInput](#objectitemsnullabledictinput), [ObjectItemsNullableDict](#objectitemsnullabledict) | [ObjectItemsNullableDict](#objectitemsnullabledict) | a constructor
-get_additional_property_ | str | [AdditionalProperties3](#) | provides type safety for additional properties
+get_additional_property_ | str | None, schemas.immutabledict, schemas.Unset | provides type safety for additional properties
 
 # AdditionalProperties3
 ```

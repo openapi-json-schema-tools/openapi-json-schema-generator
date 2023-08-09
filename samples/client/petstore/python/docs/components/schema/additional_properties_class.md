@@ -136,7 +136,7 @@ Keyword Argument | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [MapOfMapPropertyDictInput](#mapofmappropertydictinput), [MapOfMapPropertyDict](#mapofmappropertydict) | [MapOfMapPropertyDict](#mapofmappropertydict) | a constructor
-get_additional_property_ | str | [AdditionalProperties2](#) | provides type safety for additional properties
+get_additional_property_ | str | [AdditionalPropertiesDict](#additionalpropertiesdict), schemas.Unset | provides type safety for additional properties
 
 # AdditionalProperties2
 ```

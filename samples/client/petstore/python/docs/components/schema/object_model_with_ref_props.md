@@ -38,9 +38,9 @@ Keyword Argument | Type | Description | Notes
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**myNumber** | [**NumberWithValidations**](number_with_validations.md) |  | [optional]
-**myString** | [**String**](string.md) |  | [optional]
-**myBoolean** | [**Boolean**](boolean.md) |  | [optional]
+**myNumber** | float, int, schemas.Unset |  | [optional]
+**myString** | str, schemas.Unset |  | [optional]
+**myBoolean** | bool, schemas.Unset |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes

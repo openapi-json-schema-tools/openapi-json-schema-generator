@@ -37,7 +37,7 @@ Keyword Argument | Type | Description | Notes
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **name** | str, schemas.Unset |  | [optional]
-**enemyPlayer** | [**Player**](#top) |  | [optional]
+**enemyPlayer** | [player.PlayerDict](../../components/schema/player.md#playerdict), schemas.Unset |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes
