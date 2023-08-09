@@ -17,7 +17,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**Triangle**](triangle.md) | [**Triangle**](triangle.md) | [**Triangle**](triangle.md) |  |
 [**Quadrilateral**](quadrilateral.md) | [**Quadrilateral**](quadrilateral.md) | [**Quadrilateral**](quadrilateral.md) |  |
 
-petstore_api.components.schema.ShapeOrNull.oneOf
+petstore_api.components.schema.ShapeOrNull.oneOf._0
 # _0
 
 ## validate method

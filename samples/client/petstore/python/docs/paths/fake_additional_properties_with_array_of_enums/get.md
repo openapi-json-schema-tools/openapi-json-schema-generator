@@ -43,7 +43,7 @@ Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#requestbody-content-applicationjson-schema)
 
-petstore_api.paths.fake_additional_properties_with_array_of_enums.get.request_body.content.application_json
+petstore_api.paths.fake_additional_properties_with_array_of_enums.get.request_body.content.application_json.schema
 #### RequestBody content ApplicationJson Schema
 
 ##### Ref Info
@@ -76,7 +76,7 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-petstore_api.paths.fake_additional_properties_with_array_of_enums.get.responses.response_200.content.application_json
+petstore_api.paths.fake_additional_properties_with_array_of_enums.get.responses.response_200.content.application_json.schema
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### Ref Info

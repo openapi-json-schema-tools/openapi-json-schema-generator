@@ -46,7 +46,7 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#requestbody-content-applicationjson-schema)
 "multipart/form-data" | [content.multipart_form_data.Schema](#requestbody-content-multipartformdata-schema)
 
-petstore_api.paths.fake_inline_composition.post.request_body.content.application_json
+petstore_api.paths.fake_inline_composition.post.request_body.content.application_json.schema
 #### RequestBody content ApplicationJson Schema
 
 ##### validate method
@@ -60,14 +60,14 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#requestbody-content-applicationjson-schema-allof-_0) | str | str |  |
 
-petstore_api.paths.fake_inline_composition.post.request_body.content.application_json.schema.allOf
+petstore_api.paths.fake_inline_composition.post.request_body.content.application_json.schema.allOf._0
 #### RequestBody content ApplicationJson Schema
 
 ##### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 str | str |
-petstore_api.paths.fake_inline_composition.post.request_body.content.multipart_form_data
+petstore_api.paths.fake_inline_composition.post.request_body.content.multipart_form_data.schema
 #### RequestBody content MultipartFormData Schema
 
 ##### validate method
@@ -105,7 +105,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput), [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-petstore_api.paths.fake_inline_composition.post.request_body.content.multipart_form_data.schema.properties
+petstore_api.paths.fake_inline_composition.post.request_body.content.multipart_form_data.schema.properties.some_prop
 #### RequestBody content MultipartFormData Schema
 
 ##### validate method
@@ -119,7 +119,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#requestbody-content-multipartformdata-schema-allof-_0) | str | str |  |
 
-petstore_api.paths.fake_inline_composition.post.request_body.content.multipart_form_data.schema.properties.someProp.allOf
+petstore_api.paths.fake_inline_composition.post.request_body.content.multipart_form_data.schema.properties.someProp.allOf._0
 #### RequestBody content MultipartFormData Schema
 
 ##### validate method
@@ -139,7 +139,7 @@ compositionInProperty | [Parameter1.schema](#parameter1-schema), dict, schemas.i
 
 #### Parameter0
 
-petstore_api.paths.fake_inline_composition.post.parameters.parameter_0
+petstore_api.paths.fake_inline_composition.post.parameters.parameter_0.schema
 ##### Parameter0 Schema
 
 ###### validate method
@@ -153,7 +153,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#parameter0-schema-allof-_0) | str | str |  |
 
-petstore_api.paths.fake_inline_composition.post.parameters.parameter_0.schema.allOf
+petstore_api.paths.fake_inline_composition.post.parameters.parameter_0.schema.allOf._0
 ##### Parameter0 Schema
 
 ###### validate method
@@ -163,7 +163,7 @@ str | str |
 
 #### Parameter1
 
-petstore_api.paths.fake_inline_composition.post.parameters.parameter_1
+petstore_api.paths.fake_inline_composition.post.parameters.parameter_1.schema
 ##### Parameter1 Schema
 
 ###### validate method
@@ -201,7 +201,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [SchemaDictInput](#parameter1-schema-schemadictinput), [SchemaDict](#parameter1-schema-schemadict) | [SchemaDict](#parameter1-schema-schemadict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-petstore_api.paths.fake_inline_composition.post.parameters.parameter_1.schema.properties
+petstore_api.paths.fake_inline_composition.post.parameters.parameter_1.schema.properties.some_prop
 ##### Parameter1 Schema
 
 ###### validate method
@@ -215,7 +215,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#parameter1-schema-allof-_0) | str | str |  |
 
-petstore_api.paths.fake_inline_composition.post.parameters.parameter_1.schema.properties.someProp.allOf
+petstore_api.paths.fake_inline_composition.post.parameters.parameter_1.schema.properties.someProp.allOf._0
 ##### Parameter1 Schema
 
 ###### validate method
@@ -249,7 +249,7 @@ Content-Type | Schema
 "multipart/form-data" | [content.multipart_form_data.Schema](#responsefor200-content-multipartformdata-schema)
 
 ### Body Details
-petstore_api.paths.fake_inline_composition.post.responses.response_200.content.application_json
+petstore_api.paths.fake_inline_composition.post.responses.response_200.content.application_json.schema
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### validate method
@@ -263,14 +263,14 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#responsefor200-content-applicationjson-schema-allof-_0) | str | str |  |
 
-petstore_api.paths.fake_inline_composition.post.responses.response_200.content.application_json.schema.allOf
+petstore_api.paths.fake_inline_composition.post.responses.response_200.content.application_json.schema.allOf._0
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 str | str |
-petstore_api.paths.fake_inline_composition.post.responses.response_200.content.multipart_form_data
+petstore_api.paths.fake_inline_composition.post.responses.response_200.content.multipart_form_data.schema
 #### ResponseFor200 content MultipartFormData Schema
 
 ##### validate method
@@ -308,7 +308,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [SchemaDictInput](#responsefor200-content-multipartformdata-schema-schemadictinput), [SchemaDict](#responsefor200-content-multipartformdata-schema-schemadict) | [SchemaDict](#responsefor200-content-multipartformdata-schema-schemadict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-petstore_api.paths.fake_inline_composition.post.responses.response_200.content.multipart_form_data.schema.properties
+petstore_api.paths.fake_inline_composition.post.responses.response_200.content.multipart_form_data.schema.properties.some_prop
 #### ResponseFor200 content MultipartFormData Schema
 
 ##### validate method
@@ -322,7 +322,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#responsefor200-content-multipartformdata-schema-allof-_0) | str | str |  |
 
-petstore_api.paths.fake_inline_composition.post.responses.response_200.content.multipart_form_data.schema.properties.someProp.allOf
+petstore_api.paths.fake_inline_composition.post.responses.response_200.content.multipart_form_data.schema.properties.someProp.allOf._0
 #### ResponseFor200 content MultipartFormData Schema
 
 ##### validate method

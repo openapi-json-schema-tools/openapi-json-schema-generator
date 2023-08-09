@@ -4,7 +4,7 @@ petstore_api.components.headers.header_ref_schema_header
 ## Description
 header that has a ref in the schema
 
-petstore_api.components.headers.header_ref_schema_header
+petstore_api.components.headers.header_ref_schema_header.schema
 ## Schema
 
 ### Ref Info

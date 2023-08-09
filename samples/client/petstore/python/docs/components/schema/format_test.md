@@ -96,7 +96,7 @@ from_dict_ | [FormatTestDictInput](#formattestdictinput), [FormatTestDict](#form
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.OUTPUT_BASE_TYPES | This model has invalid python names so this method is used under the hood when you access instance["float"], 
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-petstore_api.components.schema.FormatTest.properties
+petstore_api.components.schema.FormatTest.properties.array_with_unique_items
 # ArrayWithUniqueItems
 
 ## validate method

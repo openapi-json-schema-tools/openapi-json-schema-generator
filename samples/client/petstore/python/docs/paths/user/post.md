@@ -43,7 +43,7 @@ Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#requestbody-content-applicationjson-schema)
 
-petstore_api.paths.user.post.request_body.content.application_json
+petstore_api.paths.user.post.request_body.content.application_json.schema
 #### RequestBody content ApplicationJson Schema
 
 ##### Ref Info

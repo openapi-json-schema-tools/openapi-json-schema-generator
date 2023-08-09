@@ -40,7 +40,7 @@ Content-Type | Schema
 ------------ | -------
 "application/json; charset&#x3D;utf-8" | [content.application_json_charsetutf8.Schema](#requestbody-content-applicationjsoncharsetutf8-schema)
 
-petstore_api.paths.fake_json_with_charset.post.request_body.content.application_json_charsetutf8
+petstore_api.paths.fake_json_with_charset.post.request_body.content.application_json_charsetutf8.schema
 #### RequestBody content ApplicationJsonCharsetutf8 Schema
 
 ##### validate method
@@ -73,7 +73,7 @@ Content-Type | Schema
 "application/json; charset&#x3D;utf-8" | [content.application_json_charsetutf8.Schema](#responsefor200-content-applicationjsoncharsetutf8-schema)
 
 ### Body Details
-petstore_api.paths.fake_json_with_charset.post.responses.response_200.content.application_json_charsetutf8
+petstore_api.paths.fake_json_with_charset.post.responses.response_200.content.application_json_charsetutf8.schema
 #### ResponseFor200 content ApplicationJsonCharsetutf8 Schema
 
 ##### validate method

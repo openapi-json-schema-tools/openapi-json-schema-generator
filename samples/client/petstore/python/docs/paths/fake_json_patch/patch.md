@@ -40,7 +40,7 @@ Content-Type | Schema
 ------------ | -------
 "application/json-patch+json" | [content.application_json_patchjson.Schema](#requestbody-content-applicationjsonpatchjson-schema)
 
-petstore_api.paths.fake_json_patch.patch.request_body.content.application_json_patchjson
+petstore_api.paths.fake_json_patch.patch.request_body.content.application_json_patchjson.schema
 #### RequestBody content ApplicationJsonPatchjson Schema
 
 ##### Ref Info

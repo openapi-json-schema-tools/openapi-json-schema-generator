@@ -52,7 +52,7 @@ int64_group | [Parameter5.schema](#parameter5-schema), int | | optional
 ##### Description
 Required String in group parameters
 
-petstore_api.paths.fake.delete.parameters.parameter_0
+petstore_api.paths.fake.delete.parameters.parameter_0.schema
 ##### Parameter0 Schema
 
 ###### validate method
@@ -65,7 +65,7 @@ str | str |
 ##### Description
 Required Integer in group parameters
 
-petstore_api.paths.fake.delete.parameters.parameter_2
+petstore_api.paths.fake.delete.parameters.parameter_2.schema
 ##### Parameter2 Schema
 
 ###### validate method
@@ -78,7 +78,7 @@ int | int | value must be a 64 bit integer
 ##### Description
 String in group parameters
 
-petstore_api.paths.fake.delete.parameters.parameter_3
+petstore_api.paths.fake.delete.parameters.parameter_3.schema
 ##### Parameter3 Schema
 
 ###### validate method
@@ -91,7 +91,7 @@ str | str |
 ##### Description
 Integer in group parameters
 
-petstore_api.paths.fake.delete.parameters.parameter_5
+petstore_api.paths.fake.delete.parameters.parameter_5.schema
 ##### Parameter5 Schema
 
 ###### validate method
@@ -114,7 +114,7 @@ boolean_group | [Parameter4.schema](#parameter4-schema), str | | optional
 ##### Description
 Required Boolean in group parameters
 
-petstore_api.paths.fake.delete.parameters.parameter_1
+petstore_api.paths.fake.delete.parameters.parameter_1.schema
 ##### Parameter1 Schema
 
 ###### validate method
@@ -127,7 +127,7 @@ str | str | must be one of ["true", "false"]
 ##### Description
 Boolean in group parameters
 
-petstore_api.paths.fake.delete.parameters.parameter_4
+petstore_api.paths.fake.delete.parameters.parameter_4.schema
 ##### Parameter4 Schema
 
 ###### validate method

@@ -26,7 +26,7 @@ stringHeader | [RefStringHeader.schema](../../components/headers/header_ref_stri
 numberHeader | [NumberHeader.schema](../../components/headers/header_number_header.md#schema) | | optional
 
 ## Body Details
-petstore_api.components.responses.response_success_with_json_api_response.content.application_json
+petstore_api.components.responses.response_success_with_json_api_response.content.application_json.schema
 ### content ApplicationJson Schema
 
 #### Ref Info

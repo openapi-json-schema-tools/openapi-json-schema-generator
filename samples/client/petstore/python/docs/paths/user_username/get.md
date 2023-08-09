@@ -69,14 +69,14 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-petstore_api.paths.user_username.get.responses.response_200.content.application_xml
+petstore_api.paths.user_username.get.responses.response_200.content.application_xml.schema
 #### ResponseFor200 content ApplicationXml Schema
 
 ##### Ref Info
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
 [User](../../components/schema/user.md) | dict, schemas.immutabledict | schemas.immutabledict |
-petstore_api.paths.user_username.get.responses.response_200.content.application_json
+petstore_api.paths.user_username.get.responses.response_200.content.application_json.schema
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### Ref Info

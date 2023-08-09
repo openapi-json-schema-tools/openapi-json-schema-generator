@@ -12,7 +12,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_not](#) | str | str |  |
 
-petstore_api.components.schema.AnyTypeNotString
+petstore_api.components.schema.AnyTypeNotString._not
 # _Not
 
 ## validate method

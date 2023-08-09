@@ -73,7 +73,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [UserDictInput](#userdictinput), [UserDict](#userdict) | [UserDict](#userdict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-petstore_api.components.schema.User.properties
+petstore_api.components.schema.User.properties.object_with_no_declared_props
 # ObjectWithNoDeclaredProps
 
 ## Description
@@ -84,7 +84,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict | schemas.immutabledict |
 
-petstore_api.components.schema.User.properties
+petstore_api.components.schema.User.properties.object_with_no_declared_props_nullable
 # ObjectWithNoDeclaredPropsNullable
 
 ## Description
@@ -95,7 +95,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 None, dict, schemas.immutabledict | None, schemas.immutabledict |
 
-petstore_api.components.schema.User.properties
+petstore_api.components.schema.User.properties.any_type_except_null_prop
 # AnyTypeExceptNullProp
 
 ## Description
@@ -112,7 +112,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_not](#) | None | None |  |
 
-petstore_api.components.schema.User.properties.anyTypeExceptNullProp
+petstore_api.components.schema.User.properties.anyTypeExceptNullProp._not
 # _Not
 
 ## validate method

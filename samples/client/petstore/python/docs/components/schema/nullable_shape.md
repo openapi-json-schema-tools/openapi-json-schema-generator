@@ -17,7 +17,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**Quadrilateral**](quadrilateral.md) | [**Quadrilateral**](quadrilateral.md) | [**Quadrilateral**](quadrilateral.md) |  |
 [_2](#) | None | None |  |
 
-petstore_api.components.schema.NullableShape.oneOf
+petstore_api.components.schema.NullableShape.oneOf._2
 # _2
 
 ## validate method

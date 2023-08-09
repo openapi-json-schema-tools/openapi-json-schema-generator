@@ -4,7 +4,7 @@ petstore_api.components.headers.header_string_header
 ## Description
 string header description
 
-petstore_api.components.headers.header_string_header
+petstore_api.components.headers.header_string_header.schema
 ## Schema
 
 ### validate method

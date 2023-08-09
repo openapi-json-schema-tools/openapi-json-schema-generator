@@ -39,7 +39,7 @@ Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#requestbody-content-applicationjson-schema)
 
-petstore_api.paths.fake_body_with_query_params.put.request_body.content.application_json
+petstore_api.paths.fake_body_with_query_params.put.request_body.content.application_json.schema
 #### RequestBody content ApplicationJson Schema
 
 ##### Ref Info
@@ -58,7 +58,7 @@ query | [Parameter0.schema](#parameter0-schema), str | |
 
 #### Parameter0
 
-petstore_api.paths.fake_body_with_query_params.put.parameters.parameter_0
+petstore_api.paths.fake_body_with_query_params.put.parameters.parameter_0.schema
 ##### Parameter0 Schema
 
 ###### validate method

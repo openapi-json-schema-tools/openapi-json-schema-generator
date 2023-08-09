@@ -1,4 +1,4 @@
-petstore_api.components.headers.header_ref_schema_header
+petstore_api.components.headers.header_ref_schema_header.schema
 # Schema
 
 ## Ref Info

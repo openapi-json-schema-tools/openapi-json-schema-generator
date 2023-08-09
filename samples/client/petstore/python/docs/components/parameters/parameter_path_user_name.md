@@ -4,7 +4,7 @@ petstore_api.components.parameters.parameter_path_user_name
 ## Description
 the use name to use
 
-petstore_api.components.parameters.parameter_path_user_name
+petstore_api.components.parameters.parameter_path_user_name.schema
 ## Schema
 
 ### validate method

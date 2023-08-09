@@ -9,7 +9,7 @@ Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 
-petstore_api.components.request_bodies.request_body_client.content.application_json
+petstore_api.components.request_bodies.request_body_client.content.application_json.schema
 ## content ApplicationJson Schema
 
 ### Ref Info

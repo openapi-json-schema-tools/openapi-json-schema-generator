@@ -47,7 +47,7 @@ password | [Parameter1.schema](#parameter1-schema), str | |
 ##### Description
 The user name for login
 
-petstore_api.paths.user_login.get.parameters.parameter_0
+petstore_api.paths.user_login.get.parameters.parameter_0.schema
 ##### Parameter0 Schema
 
 ###### validate method
@@ -60,7 +60,7 @@ str | str |
 ##### Description
 The password for login in clear text
 
-petstore_api.paths.user_login.get.parameters.parameter_1
+petstore_api.paths.user_login.get.parameters.parameter_1.schema
 ##### Parameter1 Schema
 
 ###### validate method
@@ -104,14 +104,14 @@ ref-content-schema-header | [RefContentSchemaHeader.content.application_json.sch
 numberHeader | [NumberHeader.schema](../../../components/headers/header_number_header.md#schema) | | optional
 
 ### Body Details
-petstore_api.paths.user_login.get.responses.response_200.content.application_xml
+petstore_api.paths.user_login.get.responses.response_200.content.application_xml.schema
 #### ResponseFor200 content ApplicationXml Schema
 
 ##### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 str | str |
-petstore_api.paths.user_login.get.responses.response_200.content.application_json
+petstore_api.paths.user_login.get.responses.response_200.content.application_json.schema
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### validate method
@@ -130,7 +130,7 @@ Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#responsefor200-headers-xratelimit-content-applicationjson-schema)
 
-petstore_api.paths.user_login.get.responses.response_200.headers.header_x_rate_limit.content.application_json
+petstore_api.paths.user_login.get.responses.response_200.headers.header_x_rate_limit.content.application_json.schema
 ##### ResponseFor200 headers XRateLimit content ApplicationJson Schema
 
 ###### validate method
@@ -142,7 +142,7 @@ int | int | value must be a 32 bit integer
 ##### Description
 date in UTC when token expires
 
-petstore_api.paths.user_login.get.responses.response_200.headers.header_x_expires_after
+petstore_api.paths.user_login.get.responses.response_200.headers.header_x_expires_after.schema
 ##### ResponseFor200 headers XExpiresAfter Schema
 
 ###### validate method

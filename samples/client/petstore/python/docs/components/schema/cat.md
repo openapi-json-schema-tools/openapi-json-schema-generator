@@ -13,7 +13,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**Animal**](animal.md) | [**Animal**](animal.md) | [**Animal**](animal.md) |  |
 [_1](#) | dict, schemas.immutabledict | schemas.immutabledict |  |
 
-petstore_api.components.schema.Cat.allOf
+petstore_api.components.schema.Cat.allOf._1
 # _1
 
 ## validate method

@@ -58,7 +58,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [AdditionalPropertiesClassDictInput](#additionalpropertiesclassdictinput), [AdditionalPropertiesClassDict](#additionalpropertiesclassdict) | [AdditionalPropertiesClassDict](#additionalpropertiesclassdict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-petstore_api.components.schema.AdditionalPropertiesClass.properties
+petstore_api.components.schema.AdditionalPropertiesClass.properties.map_property
 # MapProperty
 
 ## validate method
@@ -93,7 +93,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [MapPropertyDictInput](#mappropertydictinput), [MapPropertyDict](#mappropertydict) | [MapPropertyDict](#mappropertydict) | a constructor
 get_additional_property_ | str | str, schemas.Unset | provides type safety for additional properties
 
-petstore_api.components.schema.AdditionalPropertiesClass.properties
+petstore_api.components.schema.AdditionalPropertiesClass.properties.map_of_map_property
 # MapOfMapProperty
 
 ## validate method
@@ -131,7 +131,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [MapOfMapPropertyDictInput](#mapofmappropertydictinput), [MapOfMapPropertyDict](#mapofmappropertydict) | [MapOfMapPropertyDict](#mapofmappropertydict) | a constructor
 get_additional_property_ | str | [AdditionalProperties2](#) | provides type safety for additional properties
 
-petstore_api.components.schema.AdditionalPropertiesClass.properties.map_of_map_property
+petstore_api.components.schema.AdditionalPropertiesClass.properties.map_of_map_property.additional_properties
 # AdditionalProperties2
 
 ## validate method
@@ -166,7 +166,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [AdditionalPropertiesDictInput](#additionalpropertiesdictinput), [AdditionalPropertiesDict](#additionalpropertiesdict) | [AdditionalPropertiesDict](#additionalpropertiesdict) | a constructor
 get_additional_property_ | str | str, schemas.Unset | provides type safety for additional properties
 
-petstore_api.components.schema.AdditionalPropertiesClass.properties
+petstore_api.components.schema.AdditionalPropertiesClass.properties.map_with_undeclared_properties_anytype1
 # MapWithUndeclaredPropertiesAnytype1
 
 ## validate method
@@ -174,7 +174,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict | schemas.immutabledict |
 
-petstore_api.components.schema.AdditionalPropertiesClass.properties
+petstore_api.components.schema.AdditionalPropertiesClass.properties.map_with_undeclared_properties_anytype2
 # MapWithUndeclaredPropertiesAnytype2
 
 ## validate method
@@ -182,7 +182,7 @@ Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict | schemas.immutabledict |
 
-petstore_api.components.schema.AdditionalPropertiesClass.properties
+petstore_api.components.schema.AdditionalPropertiesClass.properties.map_with_undeclared_properties_anytype3
 # MapWithUndeclaredPropertiesAnytype3
 
 ## validate method
@@ -214,7 +214,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [MapWithUndeclaredPropertiesAnytype3DictInput](#mapwithundeclaredpropertiesanytype3dictinput), [MapWithUndeclaredPropertiesAnytype3Dict](#mapwithundeclaredpropertiesanytype3dict) | [MapWithUndeclaredPropertiesAnytype3Dict](#mapwithundeclaredpropertiesanytype3dict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | provides type safety for additional properties
 
-petstore_api.components.schema.AdditionalPropertiesClass.properties
+petstore_api.components.schema.AdditionalPropertiesClass.properties.empty_map
 # EmptyMap
 
 ## Description
@@ -245,7 +245,7 @@ Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [EmptyMapDictInput](#emptymapdictinput), [EmptyMapDict](#emptymapdict) | [EmptyMapDict](#emptymapdict) | a constructor
 
-petstore_api.components.schema.AdditionalPropertiesClass.properties
+petstore_api.components.schema.AdditionalPropertiesClass.properties.map_with_undeclared_properties_string
 # MapWithUndeclaredPropertiesString
 
 ## validate method

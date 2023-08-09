@@ -600,6 +600,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 // schema
                 String schemaJsonPath = contentTypeJsonPath + "/schema";
                 generateSchema(files, schema, schemaJsonPath);
+                generateSchemaDocumentation(files, schema, schemaJsonPath);
 
                 Map<String, String> contentTypeTemplateInfo = generator.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT_TYPE);
                 if (contentTypeTemplateInfo == null || contentTypeTemplateInfo.isEmpty()) {
@@ -850,8 +851,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         if (schema != null) {
             String schemaJsonPath = header.getSetSchemaJsonPath(jsonPath);
             generateSchema(files, schema, schemaJsonPath);
-
-            // to generate schema doc
             generateSchemaDocumentation(files, schema, schemaJsonPath);
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = header.content;

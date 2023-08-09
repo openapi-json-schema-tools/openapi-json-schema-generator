@@ -43,7 +43,7 @@ Content-Type | Schema
 ------------ | -------
 "multipart/form-data" | [content.multipart_form_data.Schema](#requestbody-content-multipartformdata-schema)
 
-petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.request_body.content.multipart_form_data
+petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.request_body.content.multipart_form_data.schema
 #### RequestBody content MultipartFormData Schema
 
 ##### validate method
@@ -99,7 +99,7 @@ petId | [Parameter0.schema](#parameter0-schema), int | |
 ##### Description
 ID of pet to update
 
-petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.parameters.parameter_0
+petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.parameters.parameter_0.schema
 ##### Parameter0 Schema
 
 ###### validate method
@@ -132,7 +132,7 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
 
 ### Body Details
-petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.responses.response_200.content.application_json
+petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.responses.response_200.content.application_json.schema
 #### ResponseFor200 content ApplicationJson Schema
 
 ##### Ref Info

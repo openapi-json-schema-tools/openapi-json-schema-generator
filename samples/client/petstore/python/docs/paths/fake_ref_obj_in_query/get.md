@@ -45,7 +45,7 @@ mapBean | [Parameter0.schema](#parameter0-schema), dict, schemas.immutabledict, 
 ##### Description
 mapBean
 
-petstore_api.paths.fake_ref_obj_in_query.get.parameters.parameter_0
+petstore_api.paths.fake_ref_obj_in_query.get.parameters.parameter_0.schema
 ##### Parameter0 Schema
 
 ###### Ref Info

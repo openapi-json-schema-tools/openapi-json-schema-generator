@@ -1,4 +1,4 @@
-petstore_api.components.headers.header_number_header
+petstore_api.components.headers.header_number_header.schema
 # Schema
 
 ## validate method

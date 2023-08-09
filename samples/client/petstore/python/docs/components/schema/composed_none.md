@@ -12,7 +12,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 [_0](#) | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 
-petstore_api.components.schema.ComposedNone.allOf
+petstore_api.components.schema.ComposedNone.allOf._0
 # _0
 
 ## validate method

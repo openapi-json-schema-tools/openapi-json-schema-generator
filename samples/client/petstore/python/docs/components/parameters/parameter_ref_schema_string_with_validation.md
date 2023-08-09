@@ -4,7 +4,7 @@ petstore_api.components.parameters.parameter_ref_schema_string_with_validation
 ## Description
 a path string with validation
 
-petstore_api.components.parameters.parameter_ref_schema_string_with_validation
+petstore_api.components.parameters.parameter_ref_schema_string_with_validation.schema
 ## Schema
 
 ### Ref Info

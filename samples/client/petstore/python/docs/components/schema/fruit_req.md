@@ -14,7 +14,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**AppleReq**](apple_req.md) | [**AppleReq**](apple_req.md) | [**AppleReq**](apple_req.md) |  |
 [**BananaReq**](banana_req.md) | [**BananaReq**](banana_req.md) | [**BananaReq**](banana_req.md) |  |
 
-petstore_api.components.schema.fruitReq.oneOf
+petstore_api.components.schema.fruitReq.oneOf._0
 # _0
 
 ## validate method

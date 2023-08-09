@@ -45,7 +45,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [MapTestDictInput](#maptestdictinput), [MapTestDict](#maptestdict) | [MapTestDict](#maptestdict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
-petstore_api.components.schema.MapTest.properties
+petstore_api.components.schema.MapTest.properties.map_map_of_string
 # MapMapOfString
 
 ## validate method
@@ -83,7 +83,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [MapMapOfStringDictInput](#mapmapofstringdictinput), [MapMapOfStringDict](#mapmapofstringdict) | [MapMapOfStringDict](#mapmapofstringdict) | a constructor
 get_additional_property_ | str | [AdditionalProperties](#) | provides type safety for additional properties
 
-petstore_api.components.schema.MapTest.properties.map_map_of_string
+petstore_api.components.schema.MapTest.properties.map_map_of_string.additional_properties
 # AdditionalProperties
 
 ## validate method
@@ -118,7 +118,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [AdditionalPropertiesDictInput](#additionalpropertiesdictinput), [AdditionalPropertiesDict](#additionalpropertiesdict) | [AdditionalPropertiesDict](#additionalpropertiesdict) | a constructor
 get_additional_property_ | str | str, schemas.Unset | provides type safety for additional properties
 
-petstore_api.components.schema.MapTest.properties
+petstore_api.components.schema.MapTest.properties.map_of_enum_string
 # MapOfEnumString
 
 ## validate method
@@ -156,7 +156,7 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [MapOfEnumStringDictInput](#mapofenumstringdictinput), [MapOfEnumStringDict](#mapofenumstringdict) | [MapOfEnumStringDict](#mapofenumstringdict) | a constructor
 get_additional_property_ | str | str, schemas.Unset | provides type safety for additional properties
 
-petstore_api.components.schema.MapTest.properties
+petstore_api.components.schema.MapTest.properties.direct_map
 # DirectMap
 
 ## validate method
