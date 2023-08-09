@@ -24,8 +24,8 @@ type: typing.Mapping[
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**selfRef** | [SelfReferencingObjectModelDictInput](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldict) |  | [optional]
-**any_string_name** | [SelfReferencingObjectModelDictInput](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldict) | any string name can be used but the value must be the correct type | [optional]
+**selfRef** | [self_referencing_object_model.SelfReferencingObjectModelDictInput](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldictinput), [self_referencing_object_model.SelfReferencingObjectModelDict](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldict) |  | [optional]
+**any_string_name** | [self_referencing_object_model.SelfReferencingObjectModelDictInput](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldictinput), [self_referencing_object_model.SelfReferencingObjectModelDict](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldict) | any string name can be used but the value must be the correct type | [optional]
 
 ## SelfReferencingObjectModelDict
 ```
@@ -35,8 +35,8 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**selfRef** | [SelfReferencingObjectModelDictInput](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldict) |  | [optional]
-**kwargs** | [SelfReferencingObjectModelDictInput](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldict) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**selfRef** | [self_referencing_object_model.SelfReferencingObjectModelDictInput](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldictinput), [self_referencing_object_model.SelfReferencingObjectModelDict](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldict) |  | [optional]
+**kwargs** | [self_referencing_object_model.SelfReferencingObjectModelDictInput](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldictinput), [self_referencing_object_model.SelfReferencingObjectModelDict](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldict) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes

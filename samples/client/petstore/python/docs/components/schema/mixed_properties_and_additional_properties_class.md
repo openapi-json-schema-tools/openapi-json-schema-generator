@@ -62,7 +62,7 @@ type: typing.Mapping[
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any_string_name** | [AnimalDictInput](../../components/schema/animal.md#animaldictinput), [AnimalDict](../../components/schema/animal.md#animaldict) | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | [animal.AnimalDictInput](../../components/schema/animal.md#animaldictinput), [animal.AnimalDict](../../components/schema/animal.md#animaldict) | any string name can be used but the value must be the correct type | [optional]
 
 ## MapDict
 ```
@@ -71,7 +71,7 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**kwargs** | [AnimalDictInput](../../components/schema/animal.md#animaldictinput), [AnimalDict](../../components/schema/animal.md#animaldict) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | [animal.AnimalDictInput](../../components/schema/animal.md#animaldictinput), [animal.AnimalDict](../../components/schema/animal.md#animaldict) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### methods
 Method | Input Type | Return Type | Notes

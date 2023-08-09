@@ -40,7 +40,7 @@ Key | Type |  Description | Notes
 **shapeOrNull** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  | [optional]
 **nullableShape** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  | [optional]
 **shapes** | [ShapesTupleInput](#shapestupleinput), [ShapesTuple](#shapestuple) |  | [optional]
-**any_string_name** | [FruitDictInput](../../components/schema/fruit.md#fruitdictinput), [FruitDict](../../components/schema/fruit.md#fruitdict), str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | [fruit.FruitDictInput](../../components/schema/fruit.md#fruitdictinput), [fruit.FruitDict](../../components/schema/fruit.md#fruitdict), str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## DrawingDict
 ```
@@ -54,7 +54,7 @@ Keyword Argument | Type | Description | Notes
 **shapeOrNull** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  | [optional]
 **nullableShape** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  | [optional]
 **shapes** | [ShapesTupleInput](#shapestupleinput), [ShapesTuple](#shapestuple), schemas.Unset |  | [optional]
-**kwargs** | [FruitDictInput](../../components/schema/fruit.md#fruitdictinput), [FruitDict](../../components/schema/fruit.md#fruitdict), str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | [fruit.FruitDictInput](../../components/schema/fruit.md#fruitdictinput), [fruit.FruitDict](../../components/schema/fruit.md#fruitdict), str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes

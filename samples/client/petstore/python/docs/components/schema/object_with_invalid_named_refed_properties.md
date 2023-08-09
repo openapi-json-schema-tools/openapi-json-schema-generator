@@ -12,8 +12,8 @@ type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**!reference** | [ArrayWithValidationsInItemsTupleInput](../../components/schema/array_with_validations_in_items.md#arraywithvalidationsinitemstupleinput), [ArrayWithValidationsInItemsTuple](../../components/schema/array_with_validations_in_items.md#arraywithvalidationsinitemstuple) |  |
-**from** | [FromSchemaDictInput](../../components/schema/from_schema.md#fromschemadictinput), [FromSchemaDict](../../components/schema/from_schema.md#fromschemadict) |  |
+**!reference** | [array_with_validations_in_items.ArrayWithValidationsInItemsTupleInput](../../components/schema/array_with_validations_in_items.md#arraywithvalidationsinitemstupleinput), [array_with_validations_in_items.ArrayWithValidationsInItemsTuple](../../components/schema/array_with_validations_in_items.md#arraywithvalidationsinitemstuple) |  |
+**from** | [from_schema.FromSchemaDictInput](../../components/schema/from_schema.md#fromschemadictinput), [from_schema.FromSchemaDict](../../components/schema/from_schema.md#fromschemadict) |  |
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## ObjectWithInvalidNamedRefedPropertiesDict
