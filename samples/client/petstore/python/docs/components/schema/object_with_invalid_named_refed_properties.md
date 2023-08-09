@@ -12,8 +12,8 @@ type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**!reference** | [**ArrayWithValidationsInItems**](array_with_validations_in_items.md), list, tuple |  |
-**from** | [**FromSchema**](from_schema.md), dict, schemas.immutabledict |  |
+**!reference** | [ArrayWithValidationsInItemsTupleInput](../../components/schema/array_with_validations_in_items.md#arraywithvalidationsinitemstupleinput), [ArrayWithValidationsInItemsTuple](../../components/schema/array_with_validations_in_items.md#arraywithvalidationsinitemstuple) |  |
+**from** | [FromSchemaDictInput](../../components/schema/from_schema.md#fromschemadictinput), [FromSchemaDict](../../components/schema/from_schema.md#fromschemadict) |  |
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## ObjectWithInvalidNamedRefedPropertiesDict

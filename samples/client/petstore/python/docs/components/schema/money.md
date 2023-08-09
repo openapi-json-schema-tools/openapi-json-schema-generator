@@ -13,7 +13,7 @@ type: typing_extensions.TypedDict
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **amount** | str |  | value must be int or float numeric
-**currency** | [**Currency**](currency.md), str |  |
+**currency** | str |  |
 
 ## MoneyDict
 ```
@@ -23,7 +23,7 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **amount** | str |  | value must be int or float numeric
-**currency** | [**Currency**](currency.md), str |  |
+**currency** | str |  |
 
 ### properties
 Property | Type | Description | Notes

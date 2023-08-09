@@ -15,7 +15,7 @@ Key | Type |  Description | Notes
 **map_map_of_string** | [MapMapOfStringDictInput](#mapmapofstringdictinput), [MapMapOfStringDict](#mapmapofstringdict) |  | [optional]
 **map_of_enum_string** | [MapOfEnumStringDictInput](#mapofenumstringdictinput), [MapOfEnumStringDict](#mapofenumstringdict) |  | [optional]
 **direct_map** | [DirectMapDictInput](#directmapdictinput), [DirectMapDict](#directmapdict) |  | [optional]
-**indirect_map** | [**StringBooleanMap**](string_boolean_map.md), dict, schemas.immutabledict |  | [optional]
+**indirect_map** | [StringBooleanMapDictInput](../../components/schema/string_boolean_map.md#stringbooleanmapdictinput), [StringBooleanMapDict](../../components/schema/string_boolean_map.md#stringbooleanmapdict) |  | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## MapTestDict
@@ -28,7 +28,7 @@ Keyword Argument | Type | Description | Notes
 **map_map_of_string** | [MapMapOfStringDictInput](#mapmapofstringdictinput), [MapMapOfStringDict](#mapmapofstringdict), schemas.Unset |  | [optional]
 **map_of_enum_string** | [MapOfEnumStringDictInput](#mapofenumstringdictinput), [MapOfEnumStringDict](#mapofenumstringdict), schemas.Unset |  | [optional]
 **direct_map** | [DirectMapDictInput](#directmapdictinput), [DirectMapDict](#directmapdict), schemas.Unset |  | [optional]
-**indirect_map** | [**StringBooleanMap**](string_boolean_map.md), dict, schemas.immutabledict, schemas.Unset |  | [optional]
+**indirect_map** | [StringBooleanMapDictInput](../../components/schema/string_boolean_map.md#stringbooleanmapdictinput), [StringBooleanMapDict](../../components/schema/string_boolean_map.md#stringbooleanmapdict) |  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
@@ -74,7 +74,7 @@ base class: schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**kwargs** | dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | [AdditionalPropertiesDictInput](#additionalpropertiesdictinput), [AdditionalPropertiesDict](#additionalpropertiesdict) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### methods
 Method | Input Type | Return Type | Notes

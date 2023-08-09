@@ -15,9 +15,9 @@ type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**myNumber** | [**NumberWithValidations**](number_with_validations.md), float, int |  | [optional]
-**myString** | [**String**](string.md), str |  | [optional]
-**myBoolean** | [**Boolean**](boolean.md), bool |  | [optional]
+**myNumber** | float, int |  | [optional]
+**myString** | str |  | [optional]
+**myBoolean** | bool |  | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## ObjectModelWithRefPropsDict
@@ -27,9 +27,9 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**myNumber** | [**NumberWithValidations**](number_with_validations.md), float, int, schemas.Unset |  | [optional]
-**myString** | [**String**](string.md), str, schemas.Unset |  | [optional]
-**myBoolean** | [**Boolean**](boolean.md), bool, schemas.Unset |  | [optional]
+**myNumber** | float, int |  | [optional]
+**myString** | str |  | [optional]
+**myBoolean** | bool |  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties

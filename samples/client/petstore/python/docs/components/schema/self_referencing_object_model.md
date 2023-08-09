@@ -24,8 +24,8 @@ type: typing.Mapping[
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**selfRef** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict |  | [optional]
-**any_string_name** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional]
+**selfRef** | [SelfReferencingObjectModelDictInput](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldict) |  | [optional]
+**any_string_name** | [SelfReferencingObjectModelDictInput](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldict) | any string name can be used but the value must be the correct type | [optional]
 
 ## SelfReferencingObjectModelDict
 ```
@@ -35,8 +35,8 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**selfRef** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict, schemas.Unset |  | [optional]
-**kwargs** | [**SelfReferencingObjectModel**](#top), dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**selfRef** | [SelfReferencingObjectModelDictInput](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldict) |  | [optional]
+**kwargs** | [SelfReferencingObjectModelDictInput](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldict) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes
