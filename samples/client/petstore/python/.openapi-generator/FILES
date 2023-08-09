@@ -40,11 +40,9 @@ docs/components/responses/response_ref_successful_xml_and_json_array_of_pet.md
 docs/components/responses/response_success_description_only.md
 docs/components/responses/response_success_inline_content_and_header.md
 docs/components/responses/response_success_inline_content_and_header/content/application_json/schema.md
-docs/components/responses/response_success_inline_content_and_header/header_parameters.md
 docs/components/responses/response_success_inline_content_and_header/headers/header_some_header/schema.md
 docs/components/responses/response_success_with_json_api_response.md
 docs/components/responses/response_success_with_json_api_response/content/application_json/schema.md
-docs/components/responses/response_success_with_json_api_response/header_parameters.md
 docs/components/responses/response_successful_xml_and_json_array_of_pet.md
 docs/components/responses/response_successful_xml_and_json_array_of_pet/content/application_json/schema.md
 docs/components/responses/response_successful_xml_and_json_array_of_pet/content/application_xml/schema.md
@@ -378,7 +376,6 @@ docs/paths/user_login/get/parameters/parameter_0/schema.md
 docs/paths/user_login/get/parameters/parameter_1/schema.md
 docs/paths/user_login/get/responses/response_200/content/application_json/schema.md
 docs/paths/user_login/get/responses/response_200/content/application_xml/schema.md
-docs/paths/user_login/get/responses/response_200/header_parameters.md
 docs/paths/user_login/get/responses/response_200/headers/header_x_expires_after/schema.md
 docs/paths/user_login/get/responses/response_200/headers/header_x_rate_limit/content/application_json/schema.md
 docs/paths/user_logout/get.md

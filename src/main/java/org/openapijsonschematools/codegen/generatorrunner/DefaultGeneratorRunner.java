@@ -474,16 +474,20 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 endpointMap.put("path", pathKey);
                 generateXs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointMap, true);
                 if (operation.pathParameters != null) {
-                    generateSchema(files, operation.pathParameters, operationJsonPath + "/" + "PathParameters");
+                    String objectJsonPath = operationJsonPath + "/" + "PathParameters";
+                    generateSchema(files, operation.pathParameters, objectJsonPath);
                 }
                 if (operation.queryParameters != null) {
-                    generateSchema(files, operation.queryParameters, operationJsonPath + "/" + "QueryParameters");
+                    String objectJsonPath = operationJsonPath + "/" + "QueryParameters";
+                    generateSchema(files, operation.queryParameters, objectJsonPath);
                 }
                 if (operation.headerParameters != null) {
-                    generateSchema(files, operation.headerParameters, operationJsonPath + "/" + "HeaderParameters");
+                    String objectJsonPath = operationJsonPath + "/" + "HeaderParameters";
+                    generateSchema(files, operation.headerParameters, objectJsonPath);
                 }
                 if (operation.cookieParameters != null) {
-                    generateSchema(files, operation.cookieParameters, operationJsonPath + "/" + "CookieParameters");
+                    String objectJsonPath = operationJsonPath + "/" + "CookieParameters";
+                    generateSchema(files, operation.cookieParameters, objectJsonPath);
                 }
 
                 // operation docs
@@ -670,7 +674,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             // synthetic json path
             String headersObjectJsonPath = jsonPath + "/" + "HeaderParameters";
             generateSchema(files, response.headersObjectSchema, headersObjectJsonPath);
-            generateSchemaDocumentation(files, response.headersObjectSchema, headersObjectJsonPath);
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = response.content;
         if (content != null && !content.isEmpty()) {
