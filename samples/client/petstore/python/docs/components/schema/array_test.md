@@ -25,17 +25,17 @@ base class: schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TYPES]]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**array_of_string** | list, tuple, schemas.Unset |  | [optional]
-**array_array_of_integer** | list, tuple, schemas.Unset |  | [optional]
-**array_array_of_model** | list, tuple, schemas.Unset |  | [optional]
+**array_of_string** | [ArrayOfStringTupleInput](#arrayofstringtupleinput), [ArrayOfStringTuple](#arrayofstringtuple) |  | [optional]
+**array_array_of_integer** | [ArrayArrayOfIntegerTupleInput](#arrayarrayofintegertupleinput), [ArrayArrayOfIntegerTuple](#arrayarrayofintegertuple) |  | [optional]
+**array_array_of_model** | [ArrayArrayOfModelTupleInput](#arrayarrayofmodeltupleinput), [ArrayArrayOfModelTuple](#arrayarrayofmodeltuple) |  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**array_of_string** | [ArrayOfString](#arrayofstring) |  | [optional]
-**array_array_of_integer** | [ArrayArrayOfInteger](#arrayarrayofinteger) |  | [optional]
-**array_array_of_model** | [ArrayArrayOfModel](#arrayarrayofmodel) |  | [optional]
+**array_of_string** | [ArrayOfStringTuple](#arrayofstringtuple), schemas.Unset |  | [optional]
+**array_array_of_integer** | [ArrayArrayOfIntegerTuple](#arrayarrayofintegertuple), schemas.Unset |  | [optional]
+**array_array_of_model** | [ArrayArrayOfModelTuple](#arrayarrayofmodeltuple), schemas.Unset |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes

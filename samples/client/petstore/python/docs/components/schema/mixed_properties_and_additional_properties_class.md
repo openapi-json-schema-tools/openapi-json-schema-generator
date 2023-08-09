@@ -25,9 +25,9 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**uuid** | str, uuid.UUID, schemas.Unset |  | [optional] value must be a uuid
-**dateTime** | str, datetime.datetime, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
-**map** | dict, schemas.immutabledict, schemas.Unset |  | [optional]
+**uuid** | str, uuid.UUID |  | [optional] value must be a uuid
+**dateTime** | str, datetime.datetime |  | [optional] value must conform to RFC-3339 date-time
+**map** | [MapDictInput](#mapdictinput), [MapDict](#mapdict) |  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
@@ -35,7 +35,7 @@ Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **uuid** | str, schemas.Unset |  | [optional] value must be a uuid
 **dateTime** | str, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
-**map** | [Map](#map) |  | [optional]
+**map** | [MapDict](#mapdict), schemas.Unset |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes

@@ -66,7 +66,7 @@ base class: schemas.immutabledict[str, str]
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **file** | bytes, io.FileIO, io.BufferedReader | file to upload |
-**additionalMetadata** | str, schemas.Unset | Additional data to pass to server | [optional]
+**additionalMetadata** | str | Additional data to pass to server | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ###### properties

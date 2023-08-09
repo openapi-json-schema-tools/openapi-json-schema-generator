@@ -150,12 +150,12 @@ Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
         {{#each requiredProperties}}
             {{#if @key.isValid}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{#with getDeepestRef}}, {{> _helper_schema_python_types }}{{/with}}{{else}}{{> _helper_schema_python_types }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{#with getDeepestRef}}, {{> _helper_schema_python_types }}{{/with}}{{else}}{{> components/_helper_schema_io_types }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
             {{/if}}
         {{/each}}
         {{#each optionalProperties}}
             {{#if @key.isValid}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{#with getDeepestRef}}, {{> _helper_schema_python_types optional=true }}{{/with}}{{else}}{{> _helper_schema_python_types optional=true }}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{#with getDeepestRef}}, {{> _helper_schema_python_types optional=true }}{{/with}}{{else}}{{> components/_helper_schema_io_types optional=true }}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
             {{/if}}
         {{/each}}
         {{#with additionalProperties}}
@@ -176,12 +176,12 @@ Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
             {{#each requiredProperties}}
                 {{#if @key.isValid}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{@key.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces @key.anchorPiece) }}){{else}}{{> components/_helper_schema_output_types }}{{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{> components/_helper_schema_output_types }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
                 {{/if}}
             {{/each}}
             {{#each optionalProperties}}
                 {{#if @key.isValid}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{@key.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces @key.anchorPiece) }}){{else}}{{> components/_helper_schema_output_types optional=true }}{{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{> components/_helper_schema_output_types optional=true }}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
                 {{/if}}
             {{/each}}
         {{/or}}

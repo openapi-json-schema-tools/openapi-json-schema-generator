@@ -26,8 +26,8 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **className** | str |  | must be one of ["whale"]
-**hasBaleen** | bool, schemas.Unset |  | [optional]
-**hasTeeth** | bool, schemas.Unset |  | [optional]
+**hasBaleen** | bool |  | [optional]
+**hasTeeth** | bool |  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties

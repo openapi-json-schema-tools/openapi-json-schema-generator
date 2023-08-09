@@ -29,7 +29,7 @@ base class: schemas.immutabledict[str, typing.Union[
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**NullableMessage** | None, str, schemas.Unset |  | [optional]
+**NullableMessage** | None, str |  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model. | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties

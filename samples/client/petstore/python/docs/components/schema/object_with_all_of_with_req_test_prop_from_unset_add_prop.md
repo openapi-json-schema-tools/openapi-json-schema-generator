@@ -39,7 +39,7 @@ base class: schemas.immutabledict[str, str]
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **test** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  |
-**name** | str, schemas.Unset |  | [optional]
+**name** | str |  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties

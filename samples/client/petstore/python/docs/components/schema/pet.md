@@ -32,21 +32,21 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **name** | str |  |
-**photoUrls** | list, tuple |  |
-**id** | int, schemas.Unset |  | [optional] value must be a 64 bit integer
+**photoUrls** | [PhotoUrlsTupleInput](#photourlstupleinput), [PhotoUrlsTuple](#photourlstuple) |  |
+**id** | int |  | [optional] value must be a 64 bit integer
 **category** | [**Category**](category.md), dict, schemas.immutabledict, schemas.Unset |  | [optional]
-**tags** | list, tuple, schemas.Unset |  | [optional]
-**status** | str, schemas.Unset | pet status in the store | [optional] must be one of ["available", "pending", "sold"]
+**tags** | [TagsTupleInput](#tagstupleinput), [TagsTuple](#tagstuple) |  | [optional]
+**status** | str | pet status in the store | [optional] must be one of ["available", "pending", "sold"]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type Pet object that needs to be added to the store | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **name** | str |  |
-**photoUrls** | [PhotoUrls](#photourls) |  |
+**photoUrls** | [PhotoUrlsTuple](#photourlstuple) |  |
 **id** | int, schemas.Unset |  | [optional] value must be a 64 bit integer
 **category** | [**Category**](category.md) |  | [optional]
-**tags** | [Tags](#tags) |  | [optional]
+**tags** | [TagsTuple](#tagstuple), schemas.Unset |  | [optional]
 **status** | str, schemas.Unset | pet status in the store | [optional] must be one of ["available", "pending", "sold"]
 
 ### methods

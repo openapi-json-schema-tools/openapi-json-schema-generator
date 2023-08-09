@@ -23,8 +23,8 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**a** | str, schemas.Unset |  | [optional]
-**b** | float, int, schemas.Unset |  | [optional]
+**a** | str |  | [optional]
+**b** | float, int |  | [optional]
 
 ### properties
 Property | Type | Description | Notes

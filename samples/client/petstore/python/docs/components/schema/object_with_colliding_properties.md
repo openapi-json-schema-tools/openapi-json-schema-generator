@@ -27,15 +27,15 @@ base class: schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**someProp** | dict, schemas.immutabledict, schemas.Unset |  | [optional]
-**someprop** | dict, schemas.immutabledict, schemas.Unset |  | [optional]
+**someProp** | dict, schemas.immutabledict |  | [optional]
+**someprop** | dict, schemas.immutabledict |  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type component with properties that have name collisions | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**someProp** | [SomeProp](#someprop) |  | [optional]
-**someprop** | [Someprop2](#someprop2) |  | [optional]
+**someProp** | schemas.immutabledict, schemas.Unset |  | [optional]
+**someprop** | schemas.immutabledict, schemas.Unset |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes

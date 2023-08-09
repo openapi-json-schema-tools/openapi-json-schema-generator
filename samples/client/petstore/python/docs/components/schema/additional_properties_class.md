@@ -30,27 +30,27 @@ base class: schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**map_property** | dict, schemas.immutabledict, schemas.Unset |  | [optional]
-**map_of_map_property** | dict, schemas.immutabledict, schemas.Unset |  | [optional]
-**anytype_1** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset |  | [optional]
-**map_with_undeclared_properties_anytype_1** | dict, schemas.immutabledict, schemas.Unset |  | [optional]
-**map_with_undeclared_properties_anytype_2** | dict, schemas.immutabledict, schemas.Unset |  | [optional]
-**map_with_undeclared_properties_anytype_3** | dict, schemas.immutabledict, schemas.Unset |  | [optional]
-**empty_map** | dict, schemas.immutabledict, schemas.Unset | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional]
-**map_with_undeclared_properties_string** | dict, schemas.immutabledict, schemas.Unset |  | [optional]
+**map_property** | [MapPropertyDictInput](#mappropertydictinput), [MapPropertyDict](#mappropertydict) |  | [optional]
+**map_of_map_property** | [MapOfMapPropertyDictInput](#mapofmappropertydictinput), [MapOfMapPropertyDict](#mapofmappropertydict) |  | [optional]
+**anytype_1** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  | [optional]
+**map_with_undeclared_properties_anytype_1** | dict, schemas.immutabledict |  | [optional]
+**map_with_undeclared_properties_anytype_2** | dict, schemas.immutabledict |  | [optional]
+**map_with_undeclared_properties_anytype_3** | [MapWithUndeclaredPropertiesAnytype3DictInput](#mapwithundeclaredpropertiesanytype3dictinput), [MapWithUndeclaredPropertiesAnytype3Dict](#mapwithundeclaredpropertiesanytype3dict) |  | [optional]
+**empty_map** | [EmptyMapDictInput](#emptymapdictinput), [EmptyMapDict](#emptymapdict) | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional]
+**map_with_undeclared_properties_string** | [MapWithUndeclaredPropertiesStringDictInput](#mapwithundeclaredpropertiesstringdictinput), [MapWithUndeclaredPropertiesStringDict](#mapwithundeclaredpropertiesstringdict) |  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**map_property** | [MapProperty](#mapproperty) |  | [optional]
-**map_of_map_property** | [MapOfMapProperty](#mapofmapproperty) |  | [optional]
+**map_property** | [MapPropertyDict](#mappropertydict), schemas.Unset |  | [optional]
+**map_of_map_property** | [MapOfMapPropertyDict](#mapofmappropertydict), schemas.Unset |  | [optional]
 **anytype_1** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset |  | [optional]
-**map_with_undeclared_properties_anytype_1** | [MapWithUndeclaredPropertiesAnytype1](#mapwithundeclaredpropertiesanytype1) |  | [optional]
-**map_with_undeclared_properties_anytype_2** | [MapWithUndeclaredPropertiesAnytype2](#mapwithundeclaredpropertiesanytype2) |  | [optional]
-**map_with_undeclared_properties_anytype_3** | [MapWithUndeclaredPropertiesAnytype3](#mapwithundeclaredpropertiesanytype3) |  | [optional]
-**empty_map** | [EmptyMap](#emptymap) | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional]
-**map_with_undeclared_properties_string** | [MapWithUndeclaredPropertiesString](#mapwithundeclaredpropertiesstring) |  | [optional]
+**map_with_undeclared_properties_anytype_1** | schemas.immutabledict, schemas.Unset |  | [optional]
+**map_with_undeclared_properties_anytype_2** | schemas.immutabledict, schemas.Unset |  | [optional]
+**map_with_undeclared_properties_anytype_3** | [MapWithUndeclaredPropertiesAnytype3Dict](#mapwithundeclaredpropertiesanytype3dict), schemas.Unset |  | [optional]
+**empty_map** | [EmptyMapDict](#emptymapdict), schemas.Unset | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional]
+**map_with_undeclared_properties_string** | [MapWithUndeclaredPropertiesStringDict](#mapwithundeclaredpropertiesstringdict), schemas.Unset |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes

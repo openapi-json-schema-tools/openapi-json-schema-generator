@@ -24,15 +24,15 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**just_symbol** | str, schemas.Unset |  | [optional] must be one of [">=", "$"]
-**array_enum** | list, tuple, schemas.Unset |  | [optional]
+**just_symbol** | str |  | [optional] must be one of [">=", "$"]
+**array_enum** | [ArrayEnumTupleInput](#arrayenumtupleinput), [ArrayEnumTuple](#arrayenumtuple) |  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **just_symbol** | str, schemas.Unset |  | [optional] must be one of [">=", "$"]
-**array_enum** | [ArrayEnum](#arrayenum) |  | [optional]
+**array_enum** | [ArrayEnumTuple](#arrayenumtuple), schemas.Unset |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes
