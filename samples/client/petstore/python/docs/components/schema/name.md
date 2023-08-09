@@ -29,7 +29,7 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **name** | int |  | value must be a 32 bit integer
-**snake_case** | int |  | [optional] value must be a 32 bit integer
+**snake_case** | int, schemas.Unset |  | [optional] value must be a 32 bit integer
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type Model for testing model name same as property name | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties

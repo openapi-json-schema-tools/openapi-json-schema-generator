@@ -25,7 +25,7 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **length** | [**DecimalPayload**](decimal_payload.md), str, schemas.Unset |  | [optional]
-**width** | str |  | [optional] value must be int or float numeric
+**width** | str, schemas.Unset |  | [optional] value must be int or float numeric
 **cost** | [**Money**](money.md), dict, schemas.immutabledict, schemas.Unset |  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 

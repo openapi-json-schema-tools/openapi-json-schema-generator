@@ -24,7 +24,7 @@ base class: schemas.immutabledict[str, int]
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **id** | int |  | value must be a 64 bit integer
-**petId** | int |  | [optional] value must be a 64 bit integer
+**petId** | int, schemas.Unset |  | [optional] value must be a 64 bit integer
 
 ### properties
 Property | Type | Description | Notes

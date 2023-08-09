@@ -25,7 +25,7 @@ base class: schemas.immutabledict[str, str]
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **className** | str |  |
-**color** | str |  | [optional] if omitted the server will use the default value of red
+**color** | str, schemas.Unset |  | [optional] if omitted the server will use the default value of red
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties

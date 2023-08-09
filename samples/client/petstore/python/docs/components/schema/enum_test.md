@@ -31,9 +31,9 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **enum_string_required** | str |  | must be one of ["UPPER", "lower", ""]
-**enum_string** | str |  | [optional] must be one of ["UPPER", "lower", ""]
-**enum_integer** | int |  | [optional] must be one of [1, -1] value must be a 32 bit integer
-**enum_number** | float, int |  | [optional] must be one of [1.1, -1.2] value must be a 64 bit float
+**enum_string** | str, schemas.Unset |  | [optional] must be one of ["UPPER", "lower", ""]
+**enum_integer** | int, schemas.Unset |  | [optional] must be one of [1, -1] value must be a 32 bit integer
+**enum_number** | float, int, schemas.Unset |  | [optional] must be one of [1.1, -1.2] value must be a 64 bit float
 **stringEnum** | [**StringEnum**](string_enum.md), None, str, schemas.Unset |  | [optional]
 **IntegerEnum** | [**IntegerEnum**](integer_enum.md), int, schemas.Unset |  | [optional]
 **StringEnumWithDefaultValue** | [**StringEnumWithDefaultValue**](string_enum_with_default_value.md), str, schemas.Unset |  | [optional]

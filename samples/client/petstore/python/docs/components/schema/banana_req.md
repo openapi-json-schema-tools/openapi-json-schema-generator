@@ -24,7 +24,7 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **lengthCm** | float, int |  |
-**sweet** | bool |  | [optional]
+**sweet** | bool, schemas.Unset |  | [optional]
 
 ### properties
 Property | Type | Description | Notes

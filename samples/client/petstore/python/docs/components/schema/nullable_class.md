@@ -114,18 +114,18 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**integer_prop** | None, int |  | [optional]
-**number_prop** | None, float, int |  | [optional]
-**boolean_prop** | None, bool |  | [optional]
-**string_prop** | None, str |  | [optional]
-**date_prop** | None, str, datetime.date |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
-**datetime_prop** | None, str, datetime.datetime |  | [optional] value must conform to RFC-3339 date-time
-**array_nullable_prop** | None, [ArrayNullablePropTupleInput](#arraynullableproptupleinput), [ArrayNullablePropTuple](#arraynullableproptuple) |  | [optional]
-**array_and_items_nullable_prop** | None, [ArrayAndItemsNullablePropTupleInput](#arrayanditemsnullableproptupleinput), [ArrayAndItemsNullablePropTuple](#arrayanditemsnullableproptuple) |  | [optional]
-**array_items_nullable** | [ArrayItemsNullableTupleInput](#arrayitemsnullabletupleinput), [ArrayItemsNullableTuple](#arrayitemsnullabletuple) |  | [optional]
-**object_nullable_prop** | None, [ObjectNullablePropDictInput](#objectnullablepropdictinput), [ObjectNullablePropDict](#objectnullablepropdict) |  | [optional]
-**object_and_items_nullable_prop** | None, [ObjectAndItemsNullablePropDictInput](#objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#objectanditemsnullablepropdict) |  | [optional]
-**object_items_nullable** | [ObjectItemsNullableDictInput](#objectitemsnullabledictinput), [ObjectItemsNullableDict](#objectitemsnullabledict) |  | [optional]
+**integer_prop** | None, int, schemas.Unset |  | [optional]
+**number_prop** | None, float, int, schemas.Unset |  | [optional]
+**boolean_prop** | None, bool, schemas.Unset |  | [optional]
+**string_prop** | None, str, schemas.Unset |  | [optional]
+**date_prop** | None, str, datetime.date, schemas.Unset |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
+**datetime_prop** | None, str, datetime.datetime, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
+**array_nullable_prop** | None, [ArrayNullablePropTupleInput](#arraynullableproptupleinput), [ArrayNullablePropTuple](#arraynullableproptuple), schemas.Unset |  | [optional]
+**array_and_items_nullable_prop** | None, [ArrayAndItemsNullablePropTupleInput](#arrayanditemsnullableproptupleinput), [ArrayAndItemsNullablePropTuple](#arrayanditemsnullableproptuple), schemas.Unset |  | [optional]
+**array_items_nullable** | [ArrayItemsNullableTupleInput](#arrayitemsnullabletupleinput), [ArrayItemsNullableTuple](#arrayitemsnullabletuple), schemas.Unset |  | [optional]
+**object_nullable_prop** | None, [ObjectNullablePropDictInput](#objectnullablepropdictinput), [ObjectNullablePropDict](#objectnullablepropdict), schemas.Unset |  | [optional]
+**object_and_items_nullable_prop** | None, [ObjectAndItemsNullablePropDictInput](#objectanditemsnullablepropdictinput), [ObjectAndItemsNullablePropDict](#objectanditemsnullablepropdict), schemas.Unset |  | [optional]
+**object_items_nullable** | [ObjectItemsNullableDictInput](#objectitemsnullabledictinput), [ObjectItemsNullableDict](#objectitemsnullabledict), schemas.Unset |  | [optional]
 **kwargs** | None, dict, schemas.immutabledict | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
