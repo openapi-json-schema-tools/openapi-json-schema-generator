@@ -1,5 +1,8 @@
 # ArrayOfArrayOfNumberOnly
 petstore_api.components.schema.array_of_array_of_number_only
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -38,6 +41,9 @@ from_dict_ | [ArrayOfArrayOfNumberOnlyDictInput](#arrayofarrayofnumberonlydictin
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # ArrayArrayNumber
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -85,6 +91,9 @@ Method | Input Type | Return Type | Notes
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | ItemsTuple | This method is used under the hood when instance[0] is called
 
 # Items
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

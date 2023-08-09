@@ -11,6 +11,9 @@ Content-Type | Schema
 
 ## content ApplicationJson Schema
 petstore_api.components.request_bodies.request_body_user_array.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ### validate method
 Input Type | Return Type | Notes

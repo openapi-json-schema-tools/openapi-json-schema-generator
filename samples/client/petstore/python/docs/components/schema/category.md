@@ -1,5 +1,8 @@
 # Category
 petstore_api.components.schema.category
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

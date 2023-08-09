@@ -1,5 +1,8 @@
 # RefPet
 petstore_api.components.schema.ref_pet
+```
+type: schemas.Schema
+```
 
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type | Description

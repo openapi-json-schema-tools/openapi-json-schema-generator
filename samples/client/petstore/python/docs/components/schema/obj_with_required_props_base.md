@@ -1,5 +1,8 @@
 # ObjWithRequiredPropsBase
 petstore_api.components.schema.obj_with_required_props_base
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

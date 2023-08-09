@@ -1,5 +1,8 @@
 # ReqPropsFromTrueAddProps
 petstore_api.components.schema.req_props_from_true_add_props
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

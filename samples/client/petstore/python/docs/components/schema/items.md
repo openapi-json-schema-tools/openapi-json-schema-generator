@@ -1,5 +1,8 @@
 # Items
 petstore_api.components.schema.items
+```
+type: schemas.Schema
+```
 
 ## Description
 component&#x27;s name collides with the inner schema name
@@ -50,6 +53,9 @@ Method | Input Type | Return Type | Notes
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES] | This method is used under the hood when instance[0] is called
 
 # Items2
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

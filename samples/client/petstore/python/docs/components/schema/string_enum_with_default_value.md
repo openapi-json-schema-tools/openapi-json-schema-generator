@@ -1,5 +1,8 @@
 # StringEnumWithDefaultValue
 petstore_api.components.schema.string_enum_with_default_value
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

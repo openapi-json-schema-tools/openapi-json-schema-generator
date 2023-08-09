@@ -1,5 +1,8 @@
 # ArrayTest
 petstore_api.components.schema.array_test
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -44,6 +47,9 @@ from_dict_ | [ArrayTestDictInput](#arraytestdictinput), [ArrayTestDict](#arrayte
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # ArrayOfString
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -85,6 +91,9 @@ Method | Input Type | Return Type | Notes
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | str | This method is used under the hood when instance[0] is called
 
 # ArrayArrayOfInteger
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -132,6 +141,9 @@ Method | Input Type | Return Type | Notes
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | ItemsTuple | This method is used under the hood when instance[0] is called
 
 # Items2
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -173,6 +185,9 @@ Method | Input Type | Return Type | Notes
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | int | value must be a 64 bit integer This method is used under the hood when instance[0] is called
 
 # ArrayArrayOfModel
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -220,6 +235,9 @@ Method | Input Type | Return Type | Notes
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | ItemsTuple2 | This method is used under the hood when instance[0] is called
 
 # Items4
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

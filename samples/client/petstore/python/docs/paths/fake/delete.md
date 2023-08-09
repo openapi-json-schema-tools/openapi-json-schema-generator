@@ -54,6 +54,9 @@ Required String in group parameters
 
 ##### Parameter0 Schema
 petstore_api.paths.fake.delete.parameters.parameter_0.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -67,6 +70,9 @@ Required Integer in group parameters
 
 ##### Parameter2 Schema
 petstore_api.paths.fake.delete.parameters.parameter_2.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -80,6 +86,9 @@ String in group parameters
 
 ##### Parameter3 Schema
 petstore_api.paths.fake.delete.parameters.parameter_3.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -93,6 +102,9 @@ Integer in group parameters
 
 ##### Parameter5 Schema
 petstore_api.paths.fake.delete.parameters.parameter_5.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -116,6 +128,9 @@ Required Boolean in group parameters
 
 ##### Parameter1 Schema
 petstore_api.paths.fake.delete.parameters.parameter_1.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -129,6 +144,9 @@ Boolean in group parameters
 
 ##### Parameter4 Schema
 petstore_api.paths.fake.delete.parameters.parameter_4.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes

@@ -42,6 +42,9 @@ Content-Type | Schema
 
 #### RequestBody content MultipartFormData Schema
 petstore_api.paths.fake_upload_file.post.request_body.content.multipart_form_data.schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -109,6 +112,9 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
 petstore_api.paths.fake_upload_file.post.responses.response_200.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description

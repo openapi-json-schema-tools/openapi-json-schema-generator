@@ -1,5 +1,8 @@
 # SelfReferencingArrayModel
 petstore_api.components.schema.self_referencing_array_model
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

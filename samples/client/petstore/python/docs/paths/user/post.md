@@ -45,6 +45,9 @@ Content-Type | Schema
 
 #### RequestBody content ApplicationJson Schema
 petstore_api.paths.user.post.request_body.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description

@@ -1,5 +1,8 @@
 # SpecialModelName
 petstore_api.components.schema.special_model_name
+```
+type: schemas.Schema
+```
 
 ## Description
 model with an invalid class name for python

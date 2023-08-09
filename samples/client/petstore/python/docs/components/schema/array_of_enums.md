@@ -1,5 +1,8 @@
 # ArrayOfEnums
 petstore_api.components.schema.array_of_enums
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

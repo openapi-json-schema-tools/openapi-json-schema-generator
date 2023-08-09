@@ -42,6 +42,9 @@ Content-Type | Schema
 
 #### RequestBody content ApplicationJsonCharsetutf8 Schema
 petstore_api.paths.fake_json_with_charset.post.request_body.content.application_json_charsetutf8.schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -75,6 +78,9 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor200 content ApplicationJsonCharsetutf8 Schema
 petstore_api.paths.fake_json_with_charset.post.responses.response_200.content.application_json_charsetutf8.schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes

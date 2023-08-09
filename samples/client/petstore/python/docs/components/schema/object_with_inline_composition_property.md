@@ -1,5 +1,8 @@
 # ObjectWithInlineCompositionProperty
 petstore_api.components.schema.object_with_inline_composition_property
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -37,6 +40,9 @@ from_dict_ | [ObjectWithInlineCompositionPropertyDictInput](#objectwithinlinecom
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # SomeProp
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -50,6 +56,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_0](#) | str | str |  |
 
 # _0
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

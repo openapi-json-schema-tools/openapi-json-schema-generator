@@ -12,6 +12,9 @@ Content-Type | Schema
 
 ## content ApplicationJson Schema
 petstore_api.components.request_bodies.request_body_pet.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
@@ -19,6 +22,9 @@ Ref Schema | Input Type | Output Type | Description
 [Pet](../../components/schema/pet.md) | [PetDictInput](#content-applicationjson-schema-petdictinput), [PetDict](#content-applicationjson-schema-petdict) | [PetDict](#content-applicationjson-schema-petdict) |
 ## content ApplicationXml Schema
 petstore_api.components.request_bodies.request_body_pet.content.application_xml.schema
+```
+type: schemas.Schema
+```
 
 ### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description

@@ -51,6 +51,9 @@ Status values that need to be considered for filter
 
 ##### Parameter0 Schema
 petstore_api.paths.pet_find_by_status.get.parameters.parameter_0.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes

@@ -1,5 +1,8 @@
 # ClassModel
 petstore_api.components.schema.class_model
+```
+type: schemas.Schema
+```
 
 ## Description
 Model for testing model with \&quot;_class\&quot; property

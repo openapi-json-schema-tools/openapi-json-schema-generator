@@ -1,5 +1,8 @@
 # NullableClass
 petstore_api.components.schema.nullable_class
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -151,6 +154,9 @@ from_dict_ | [NullableClassDictInput](#nullableclassdictinput), [NullableClassDi
 get_additional_property_ | str | [AdditionalProperties4](#) | provides type safety for additional properties
 
 # ArrayNullableProp
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -198,6 +204,9 @@ Method | Input Type | Return Type | Notes
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES] | This method is used under the hood when instance[0] is called
 
 # Items
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -205,6 +214,9 @@ Input Type | Return Type | Notes
 dict, schemas.immutabledict | schemas.immutabledict |
 
 # ArrayAndItemsNullableProp
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -262,6 +274,9 @@ Method | Input Type | Return Type | Notes
  | This method is used under the hood when instance[0] is called
 
 # Items2
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -269,6 +284,9 @@ Input Type | Return Type | Notes
 None, dict, schemas.immutabledict | None, schemas.immutabledict |
 
 # ArrayItemsNullable
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -326,6 +344,9 @@ Method | Input Type | Return Type | Notes
  | This method is used under the hood when instance[0] is called
 
 # Items3
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -333,6 +354,9 @@ Input Type | Return Type | Notes
 None, dict, schemas.immutabledict | None, schemas.immutabledict |
 
 # ObjectNullableProp
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -370,6 +394,9 @@ from_dict_ | [ObjectNullablePropDictInput](#objectnullablepropdictinput), [Objec
 get_additional_property_ | str | [AdditionalProperties](#) | provides type safety for additional properties
 
 # AdditionalProperties
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -377,6 +404,9 @@ Input Type | Return Type | Notes
 dict, schemas.immutabledict | schemas.immutabledict |
 
 # ObjectAndItemsNullableProp
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -420,6 +450,9 @@ from_dict_ | [ObjectAndItemsNullablePropDictInput](#objectanditemsnullablepropdi
 get_additional_property_ | str | [AdditionalProperties2](#) | provides type safety for additional properties
 
 # AdditionalProperties2
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -427,6 +460,9 @@ Input Type | Return Type | Notes
 None, dict, schemas.immutabledict | None, schemas.immutabledict |
 
 # ObjectItemsNullable
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -470,6 +506,9 @@ from_dict_ | [ObjectItemsNullableDictInput](#objectitemsnullabledictinput), [Obj
 get_additional_property_ | str | [AdditionalProperties3](#) | provides type safety for additional properties
 
 # AdditionalProperties3
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -477,6 +516,9 @@ Input Type | Return Type | Notes
 None, dict, schemas.immutabledict | None, schemas.immutabledict |
 
 # AdditionalProperties4
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

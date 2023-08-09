@@ -1,5 +1,8 @@
 # Schema
 petstore_api.paths.foo.get.responses.response_default.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

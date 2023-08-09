@@ -46,6 +46,9 @@ Content-Type | Schema
 
 #### RequestBody content ApplicationJson Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.request_body.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -69,6 +72,9 @@ A-B | [Parameter4.schema](#parameter4-schema), str | | optional
 
 ##### Parameter0 Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_0.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -79,6 +85,9 @@ str | str |
 
 ##### Parameter1 Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_1.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -89,6 +98,9 @@ str | str |
 
 ##### Parameter2 Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_2.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -99,6 +111,9 @@ str | str |
 
 ##### Parameter3 Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_3.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -109,6 +124,9 @@ str | str |
 
 ##### Parameter4 Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_4.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -131,6 +149,9 @@ A-B | [Parameter8.schema](#parameter8-schema), str | | optional
 
 ##### Parameter5 Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_5.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -141,6 +162,9 @@ str | str |
 
 ##### Parameter6 Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_6.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -151,6 +175,9 @@ str | str |
 
 ##### Parameter7 Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_7.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -161,6 +188,9 @@ str | str |
 
 ##### Parameter8 Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_8.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -184,6 +214,9 @@ A-B | [Parameter13.schema](#parameter13-schema), str | |
 
 ##### Parameter9 Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_9.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -194,6 +227,9 @@ str | str |
 
 ##### Parameter10 Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_10.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -204,6 +240,9 @@ str | str |
 
 ##### Parameter11 Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_11.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -214,6 +253,9 @@ str | str |
 
 ##### Parameter12 Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_12.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -224,6 +266,9 @@ str | str |
 
 ##### Parameter13 Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_13.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -247,6 +292,9 @@ A-B | [Parameter18.schema](#parameter18-schema), str | | optional
 
 ##### Parameter14 Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_14.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -257,6 +305,9 @@ str | str |
 
 ##### Parameter15 Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_15.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -267,6 +318,9 @@ str | str |
 
 ##### Parameter16 Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_16.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -277,6 +331,9 @@ str | str |
 
 ##### Parameter17 Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_17.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -287,6 +344,9 @@ str | str |
 
 ##### Parameter18 Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_18.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -320,6 +380,9 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
 petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.responses.response_200.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes

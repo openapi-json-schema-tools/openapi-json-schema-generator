@@ -1,5 +1,8 @@
 # Boolean
 petstore_api.components.schema.boolean
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

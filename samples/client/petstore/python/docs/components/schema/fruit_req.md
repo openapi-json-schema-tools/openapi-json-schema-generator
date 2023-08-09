@@ -1,5 +1,8 @@
 # FruitReq
 petstore_api.components.schema.fruit_req
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -15,6 +18,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [**BananaReq**](banana_req.md) | [**BananaReq**](banana_req.md) | [**BananaReq**](banana_req.md) |  |
 
 # _0
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

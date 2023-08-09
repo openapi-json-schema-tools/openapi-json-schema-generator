@@ -1,5 +1,8 @@
 # Schema
 petstore_api.paths.fake.delete.parameters.parameter_5.schema
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

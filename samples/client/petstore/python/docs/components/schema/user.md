@@ -1,5 +1,8 @@
 # User
 petstore_api.components.schema.user
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -74,6 +77,9 @@ from_dict_ | [UserDictInput](#userdictinput), [UserDict](#userdict) | [UserDict]
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # ObjectWithNoDeclaredProps
+```
+type: schemas.Schema
+```
 
 ## Description
 test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value.
@@ -84,6 +90,9 @@ Input Type | Return Type | Notes
 dict, schemas.immutabledict | schemas.immutabledict |
 
 # ObjectWithNoDeclaredPropsNullable
+```
+type: schemas.Schema
+```
 
 ## Description
 test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value.
@@ -94,6 +103,9 @@ Input Type | Return Type | Notes
 None, dict, schemas.immutabledict | None, schemas.immutabledict |
 
 # AnyTypeExceptNullProp
+```
+type: schemas.Schema
+```
 
 ## Description
 any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object.
@@ -110,6 +122,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_not](#) | None | None |  |
 
 # _Not
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

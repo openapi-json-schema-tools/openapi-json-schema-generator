@@ -59,6 +59,9 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
 petstore_api.paths.fake_multiple_response_bodies.get.responses.response_200.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -85,6 +88,9 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor202 content ApplicationJson Schema
 petstore_api.paths.fake_multiple_response_bodies.get.responses.response_202.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes

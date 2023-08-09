@@ -42,6 +42,9 @@ Content-Type | Schema
 
 #### RequestBody content MultipartFormData Schema
 petstore_api.paths.fake_upload_files.post.request_body.content.multipart_form_data.schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -80,6 +83,9 @@ from_dict_ | [SchemaDictInput](#requestbody-content-multipartformdata-schema-sch
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 #### RequestBody content MultipartFormData Schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -157,6 +163,9 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
 petstore_api.paths.fake_upload_files.post.responses.response_200.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description

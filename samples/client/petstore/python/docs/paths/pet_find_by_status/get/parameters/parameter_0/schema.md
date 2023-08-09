@@ -1,5 +1,8 @@
 # Schema
 petstore_api.paths.pet_find_by_status.get.parameters.parameter_0.schema
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

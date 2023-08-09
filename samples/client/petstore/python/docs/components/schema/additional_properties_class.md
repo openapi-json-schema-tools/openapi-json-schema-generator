@@ -1,5 +1,8 @@
 # AdditionalPropertiesClass
 petstore_api.components.schema.additional_properties_class
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -59,6 +62,9 @@ from_dict_ | [AdditionalPropertiesClassDictInput](#additionalpropertiesclassdict
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # MapProperty
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -93,6 +99,9 @@ from_dict_ | [MapPropertyDictInput](#mappropertydictinput), [MapPropertyDict](#m
 get_additional_property_ | str | str, schemas.Unset | provides type safety for additional properties
 
 # MapOfMapProperty
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -130,6 +139,9 @@ from_dict_ | [MapOfMapPropertyDictInput](#mapofmappropertydictinput), [MapOfMapP
 get_additional_property_ | str | [AdditionalProperties2](#) | provides type safety for additional properties
 
 # AdditionalProperties2
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -164,6 +176,9 @@ from_dict_ | [AdditionalPropertiesDictInput](#additionalpropertiesdictinput), [A
 get_additional_property_ | str | str, schemas.Unset | provides type safety for additional properties
 
 # MapWithUndeclaredPropertiesAnytype1
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -171,6 +186,9 @@ Input Type | Return Type | Notes
 dict, schemas.immutabledict | schemas.immutabledict |
 
 # MapWithUndeclaredPropertiesAnytype2
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -178,6 +196,9 @@ Input Type | Return Type | Notes
 dict, schemas.immutabledict | schemas.immutabledict |
 
 # MapWithUndeclaredPropertiesAnytype3
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -209,6 +230,9 @@ from_dict_ | [MapWithUndeclaredPropertiesAnytype3DictInput](#mapwithundeclaredpr
 get_additional_property_ | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset | provides type safety for additional properties
 
 # EmptyMap
+```
+type: schemas.Schema
+```
 
 ## Description
 an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map.
@@ -239,6 +263,9 @@ Method | Input Type | Return Type | Notes
 from_dict_ | [EmptyMapDictInput](#emptymapdictinput), [EmptyMapDict](#emptymapdict) | [EmptyMapDict](#emptymapdict) | a constructor
 
 # MapWithUndeclaredPropertiesString
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

@@ -1,5 +1,8 @@
 # AnyTypeNotString
 petstore_api.components.schema.any_type_not_string
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -13,6 +16,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_not](#) | str | str |  |
 
 # _Not
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

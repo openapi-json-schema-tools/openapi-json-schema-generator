@@ -1,5 +1,8 @@
 # AdditionalPropertiesWithArrayOfEnums
 petstore_api.components.schema.additional_properties_with_array_of_enums
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -37,6 +40,9 @@ from_dict_ | [AdditionalPropertiesWithArrayOfEnumsDictInput](#additionalproperti
 get_additional_property_ | str | [AdditionalProperties](#) | provides type safety for additional properties
 
 # AdditionalProperties
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

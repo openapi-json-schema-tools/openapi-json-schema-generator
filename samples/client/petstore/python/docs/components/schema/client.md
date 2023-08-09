@@ -1,5 +1,8 @@
 # Client
 petstore_api.components.schema.client
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

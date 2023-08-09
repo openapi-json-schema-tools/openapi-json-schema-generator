@@ -45,6 +45,9 @@ Content-Type | Schema
 
 #### RequestBody content ApplicationXWwwFormUrlencoded Schema
 petstore_api.paths.fake.get.request_body.content.application_x_www_form_urlencoded.schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -86,6 +89,9 @@ from_dict_ | [SchemaDictInput](#requestbody-content-applicationxwwwformurlencode
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 #### RequestBody content ApplicationXWwwFormUrlencoded Schema
+```
+type: schemas.Schema
+```
 
 ##### Description
 Form parameter enum test (string array)
@@ -154,6 +160,9 @@ Query parameter enum test (string array)
 
 ##### Parameter2 Schema
 petstore_api.paths.fake.get.parameters.parameter_2.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -207,6 +216,9 @@ Query parameter enum test (string)
 
 ##### Parameter3 Schema
 petstore_api.paths.fake.get.parameters.parameter_3.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -220,6 +232,9 @@ Query parameter enum test (double)
 
 ##### Parameter4 Schema
 petstore_api.paths.fake.get.parameters.parameter_4.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -233,6 +248,9 @@ Query parameter enum test (double)
 
 ##### Parameter5 Schema
 petstore_api.paths.fake.get.parameters.parameter_5.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -256,6 +274,9 @@ Header parameter enum test (string array)
 
 ##### Parameter0 Schema
 petstore_api.paths.fake.get.parameters.parameter_0.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -309,6 +330,9 @@ Header parameter enum test (string)
 
 ##### Parameter1 Schema
 petstore_api.paths.fake.get.parameters.parameter_1.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -343,6 +367,9 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor404 content ApplicationJson Schema
 petstore_api.paths.fake.get.responses.response_404.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes

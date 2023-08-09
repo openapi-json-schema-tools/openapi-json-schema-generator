@@ -51,6 +51,9 @@ ID of pet to return
 
 ##### Parameter0 Schema
 petstore_api.paths.pet_pet_id.get.parameters.parameter_0.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -87,6 +90,9 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor200 content ApplicationXml Schema
 petstore_api.paths.pet_pet_id.get.responses.response_200.content.application_xml.schema
+```
+type: schemas.Schema
+```
 
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
@@ -94,6 +100,9 @@ Ref Schema | Input Type | Output Type | Description
 [Pet](../../components/schema/pet.md) | [PetDictInput](#responsefor200-content-applicationxml-schema-petdictinput), [PetDict](#responsefor200-content-applicationxml-schema-petdict) | [PetDict](#responsefor200-content-applicationxml-schema-petdict) |
 #### ResponseFor200 content ApplicationJson Schema
 petstore_api.paths.pet_pet_id.get.responses.response_200.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description

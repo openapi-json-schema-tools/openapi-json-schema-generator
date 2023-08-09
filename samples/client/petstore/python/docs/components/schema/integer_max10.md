@@ -1,5 +1,8 @@
 # IntegerMax10
 petstore_api.components.schema.integer_max10
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

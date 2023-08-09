@@ -1,5 +1,8 @@
 # Schema
 petstore_api.paths.fake_ref_obj_in_query.get.parameters.parameter_0.schema
+```
+type: schemas.Schema
+```
 
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type | Description

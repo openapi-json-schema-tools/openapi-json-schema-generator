@@ -1,5 +1,8 @@
 # Player
 petstore_api.components.schema.player
+```
+type: schemas.Schema
+```
 
 ## Description
 a model that includes a self reference this forces properties and additionalProperties to be lazy loaded in python models because the Player class has not fully loaded when defining properties

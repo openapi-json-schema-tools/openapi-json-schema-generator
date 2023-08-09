@@ -1,5 +1,8 @@
 # IntegerEnum
 petstore_api.components.schema.integer_enum
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

@@ -1,5 +1,8 @@
 # Schema
 petstore_api.paths.fake_inline_composition.post.parameters.parameter_0.schema
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -13,6 +16,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_0](#) | str | str |  |
 
 # _0
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

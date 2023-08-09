@@ -61,6 +61,9 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
 petstore_api.paths.fake.patch.responses.response_200.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description

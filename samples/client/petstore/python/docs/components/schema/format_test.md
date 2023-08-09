@@ -1,5 +1,8 @@
 # FormatTest
 petstore_api.components.schema.format_test
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -97,6 +100,9 @@ from_dict_ | [FormatTestDictInput](#formattestdictinput), [FormatTestDict](#form
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # ArrayWithUniqueItems
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

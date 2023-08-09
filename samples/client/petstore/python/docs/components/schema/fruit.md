@@ -1,5 +1,8 @@
 # Fruit
 petstore_api.components.schema.fruit
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

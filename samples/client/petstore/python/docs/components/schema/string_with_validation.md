@@ -1,5 +1,8 @@
 # StringWithValidation
 petstore_api.components.schema.string_with_validation
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

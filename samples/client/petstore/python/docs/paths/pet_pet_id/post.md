@@ -44,6 +44,9 @@ Content-Type | Schema
 
 #### RequestBody content ApplicationXWwwFormUrlencoded Schema
 petstore_api.paths.pet_pet_id.post.request_body.content.application_x_www_form_urlencoded.schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -100,6 +103,9 @@ ID of pet that needs to be updated
 
 ##### Parameter0 Schema
 petstore_api.paths.pet_pet_id.post.parameters.parameter_0.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes

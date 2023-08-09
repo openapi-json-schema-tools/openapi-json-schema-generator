@@ -1,5 +1,8 @@
 # Money
 petstore_api.components.schema.money
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

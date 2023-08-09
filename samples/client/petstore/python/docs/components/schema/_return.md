@@ -1,5 +1,8 @@
 # _Return
 petstore_api.components.schema._return
+```
+type: schemas.Schema
+```
 
 ## Description
 Model for testing reserved words

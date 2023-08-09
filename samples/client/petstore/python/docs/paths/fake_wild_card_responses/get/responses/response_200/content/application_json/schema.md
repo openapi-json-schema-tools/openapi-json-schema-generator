@@ -1,5 +1,8 @@
 # Schema
 petstore_api.paths.fake_wild_card_responses.get.responses.response_200.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

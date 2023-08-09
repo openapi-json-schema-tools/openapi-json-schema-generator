@@ -1,5 +1,8 @@
 # Bar
 petstore_api.components.schema.bar
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

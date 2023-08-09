@@ -6,6 +6,9 @@ header that has a ref in the schema
 
 ## Schema
 petstore_api.components.headers.header_ref_schema_header.schema
+```
+type: schemas.Schema
+```
 
 ### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description

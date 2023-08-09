@@ -1,5 +1,8 @@
 # Quadrilateral
 petstore_api.components.schema.quadrilateral
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

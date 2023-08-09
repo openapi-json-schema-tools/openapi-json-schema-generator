@@ -1,5 +1,8 @@
 # ObjectWithCollidingProperties
 petstore_api.components.schema.object_with_colliding_properties
+```
+type: schemas.Schema
+```
 
 ## Description
 component with properties that have name collisions
@@ -44,6 +47,9 @@ from_dict_ | [ObjectWithCollidingPropertiesDictInput](#objectwithcollidingproper
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # SomeProp
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -51,6 +57,9 @@ Input Type | Return Type | Notes
 dict, schemas.immutabledict | schemas.immutabledict |
 
 # Someprop2
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

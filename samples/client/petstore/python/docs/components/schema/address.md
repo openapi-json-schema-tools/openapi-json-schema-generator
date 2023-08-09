@@ -1,5 +1,8 @@
 # Address
 petstore_api.components.schema.address
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

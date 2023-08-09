@@ -42,6 +42,9 @@ Content-Type | Schema
 
 #### RequestBody content ApplicationJsonPatchjson Schema
 petstore_api.paths.fake_json_patch.patch.request_body.content.application_json_patchjson.schema
+```
+type: schemas.Schema
+```
 
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description

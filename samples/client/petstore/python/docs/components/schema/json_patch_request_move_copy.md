@@ -1,5 +1,8 @@
 # JSONPatchRequestMoveCopy
 petstore_api.components.schema.json_patch_request_move_copy
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

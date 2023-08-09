@@ -1,5 +1,8 @@
 # ComposedOneOfDifferentTypes
 petstore_api.components.schema.composed_one_of_different_types
+```
+type: schemas.Schema
+```
 
 ## Description
 this is a model that allows payloads of type object or number
@@ -22,6 +25,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_6](#) | str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
 
 # _2
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -29,6 +35,9 @@ Input Type | Return Type | Notes
 None | None |
 
 # _3
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -36,6 +45,9 @@ Input Type | Return Type | Notes
 str, datetime.date | str | value must conform to RFC-3339 full-date YYYY-MM-DD
 
 # _4
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -43,6 +55,9 @@ Input Type | Return Type | Notes
 dict, schemas.immutabledict | schemas.immutabledict |
 
 # _5
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -90,6 +105,9 @@ Method | Input Type | Return Type | Notes
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.OUTPUT_BASE_TYPES | This method is used under the hood when instance[0] is called
 
 # _6
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

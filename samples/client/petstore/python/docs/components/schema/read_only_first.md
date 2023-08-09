@@ -1,5 +1,8 @@
 # ReadOnlyFirst
 petstore_api.components.schema.read_only_first
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

@@ -1,5 +1,8 @@
 # DanishPig
 petstore_api.components.schema.danish_pig
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

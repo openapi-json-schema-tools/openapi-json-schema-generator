@@ -1,5 +1,8 @@
 # ComposedAnyOfDifferentTypesNoValidations
 petstore_api.components.schema.composed_any_of_different_types_no_validations
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -28,6 +31,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_15](#) | int | int |  | value must be a 64 bit integer
 
 # _0
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -35,6 +41,9 @@ Input Type | Return Type | Notes
 dict, schemas.immutabledict | schemas.immutabledict |
 
 # _1
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -42,6 +51,9 @@ Input Type | Return Type | Notes
 str, datetime.date | str | value must conform to RFC-3339 full-date YYYY-MM-DD
 
 # _2
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -49,6 +61,9 @@ Input Type | Return Type | Notes
 str, datetime.datetime | str | value must conform to RFC-3339 date-time
 
 # _3
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -56,6 +71,9 @@ Input Type | Return Type | Notes
 bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |
 
 # _4
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -63,6 +81,9 @@ Input Type | Return Type | Notes
 str | str |
 
 # _5
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -70,6 +91,9 @@ Input Type | Return Type | Notes
 str | str |
 
 # _6
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -77,6 +101,9 @@ Input Type | Return Type | Notes
 dict, schemas.immutabledict | schemas.immutabledict |
 
 # _7
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -84,6 +111,9 @@ Input Type | Return Type | Notes
 bool | bool |
 
 # _8
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -91,6 +121,9 @@ Input Type | Return Type | Notes
 None | None |
 
 # _9
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -138,6 +171,9 @@ Method | Input Type | Return Type | Notes
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.OUTPUT_BASE_TYPES | This method is used under the hood when instance[0] is called
 
 # _10
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -145,6 +181,9 @@ Input Type | Return Type | Notes
 float, int | float, int |
 
 # _11
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -152,6 +191,9 @@ Input Type | Return Type | Notes
 float, int | float, int | value must be a 32 bit float
 
 # _12
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -159,6 +201,9 @@ Input Type | Return Type | Notes
 float, int | float, int | value must be a 64 bit float
 
 # _13
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -166,6 +211,9 @@ Input Type | Return Type | Notes
 int | int |
 
 # _14
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -173,6 +221,9 @@ Input Type | Return Type | Notes
 int | int | value must be a 32 bit integer
 
 # _15
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

@@ -1,5 +1,8 @@
 # Drawing
 petstore_api.components.schema.drawing
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -71,6 +74,9 @@ from_dict_ | [DrawingDictInput](#drawingdictinput), [DrawingDict](#drawingdict) 
 get_additional_property_ | str | [**Fruit**](fruit.md) | provides type safety for additional properties
 
 # Shapes
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

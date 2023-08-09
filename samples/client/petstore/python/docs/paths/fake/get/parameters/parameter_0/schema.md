@@ -1,5 +1,8 @@
 # Schema
 petstore_api.paths.fake.get.parameters.parameter_0.schema
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

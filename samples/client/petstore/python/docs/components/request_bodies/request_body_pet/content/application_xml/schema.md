@@ -1,5 +1,8 @@
 # Schema
 petstore_api.components.request_bodies.request_body_pet.content.application_xml.schema
+```
+type: schemas.Schema
+```
 
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type | Description

@@ -1,5 +1,8 @@
 # Foo
 petstore_api.components.schema.foo
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

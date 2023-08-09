@@ -45,6 +45,9 @@ Content-Type | Schema
 
 #### RequestBody content ApplicationJson Schema
 petstore_api.paths.fake_refs_enum.post.request_body.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
@@ -78,6 +81,9 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
 petstore_api.paths.fake_refs_enum.post.responses.response_200.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description

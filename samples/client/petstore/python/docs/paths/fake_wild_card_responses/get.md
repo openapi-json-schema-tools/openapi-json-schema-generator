@@ -63,6 +63,9 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor1XX content ApplicationJson Schema
 petstore_api.paths.fake_wild_card_responses.get.responses.response_1xx.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -89,6 +92,9 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
 petstore_api.paths.fake_wild_card_responses.get.responses.response_200.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -115,6 +121,9 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor2XX content ApplicationJson Schema
 petstore_api.paths.fake_wild_card_responses.get.responses.response_2xx.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -141,6 +150,9 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor3XX content ApplicationJson Schema
 petstore_api.paths.fake_wild_card_responses.get.responses.response_3xx.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -167,6 +179,9 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor4XX content ApplicationJson Schema
 petstore_api.paths.fake_wild_card_responses.get.responses.response_4xx.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -193,6 +208,9 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor5XX content ApplicationJson Schema
 petstore_api.paths.fake_wild_card_responses.get.responses.response_5xx.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes

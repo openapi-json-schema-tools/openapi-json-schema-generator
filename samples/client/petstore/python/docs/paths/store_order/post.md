@@ -45,6 +45,9 @@ Content-Type | Schema
 
 #### RequestBody content ApplicationJson Schema
 petstore_api.paths.store_order.post.request_body.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
@@ -80,6 +83,9 @@ Content-Type | Schema
 ### Body Details
 #### ResponseFor200 content ApplicationXml Schema
 petstore_api.paths.store_order.post.responses.response_200.content.application_xml.schema
+```
+type: schemas.Schema
+```
 
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description
@@ -87,6 +93,9 @@ Ref Schema | Input Type | Output Type | Description
 [Order](../../components/schema/order.md) | [OrderDictInput](#responsefor200-content-applicationxml-schema-orderdictinput), [OrderDict](#responsefor200-content-applicationxml-schema-orderdict) | [OrderDict](#responsefor200-content-applicationxml-schema-orderdict) |
 #### ResponseFor200 content ApplicationJson Schema
 petstore_api.paths.store_order.post.responses.response_200.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type | Description

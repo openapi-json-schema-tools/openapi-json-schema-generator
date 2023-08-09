@@ -1,5 +1,8 @@
 # ChildCat
 petstore_api.components.schema.child_cat
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -14,6 +17,9 @@ Class Name | Input Type | Accessed Type | Description | Notes
 [_1](#) | dict, schemas.immutabledict | schemas.immutabledict |  |
 
 # _1
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

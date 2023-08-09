@@ -1,5 +1,8 @@
 # GmFruit
 petstore_api.components.schema.gm_fruit
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

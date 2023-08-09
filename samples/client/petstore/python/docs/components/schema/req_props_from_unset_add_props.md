@@ -1,5 +1,8 @@
 # ReqPropsFromUnsetAddProps
 petstore_api.components.schema.req_props_from_unset_add_props
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

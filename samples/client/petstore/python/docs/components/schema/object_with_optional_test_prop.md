@@ -1,5 +1,8 @@
 # ObjectWithOptionalTestProp
 petstore_api.components.schema.object_with_optional_test_prop
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

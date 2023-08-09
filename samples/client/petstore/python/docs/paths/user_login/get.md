@@ -49,6 +49,9 @@ The user name for login
 
 ##### Parameter0 Schema
 petstore_api.paths.user_login.get.parameters.parameter_0.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -62,6 +65,9 @@ The password for login in clear text
 
 ##### Parameter1 Schema
 petstore_api.paths.user_login.get.parameters.parameter_1.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -106,6 +112,9 @@ numberHeader | [NumberHeader.schema](../../../components/headers/header_number_h
 ### Body Details
 #### ResponseFor200 content ApplicationXml Schema
 petstore_api.paths.user_login.get.responses.response_200.content.application_xml.schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -113,6 +122,9 @@ Input Type | Return Type | Notes
 str | str |
 #### ResponseFor200 content ApplicationJson Schema
 petstore_api.paths.user_login.get.responses.response_200.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ##### validate method
 Input Type | Return Type | Notes
@@ -132,6 +144,9 @@ Content-Type | Schema
 
 ##### ResponseFor200 headers XRateLimit content ApplicationJson Schema
 petstore_api.paths.user_login.get.responses.response_200.headers.header_x_rate_limit.content.application_json.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes
@@ -144,6 +159,9 @@ date in UTC when token expires
 
 ##### ResponseFor200 headers XExpiresAfter Schema
 petstore_api.paths.user_login.get.responses.response_200.headers.header_x_expires_after.schema
+```
+type: schemas.Schema
+```
 
 ###### validate method
 Input Type | Return Type | Notes

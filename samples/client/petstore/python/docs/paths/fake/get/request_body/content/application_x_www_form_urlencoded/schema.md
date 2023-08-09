@@ -1,5 +1,8 @@
 # Schema
 petstore_api.paths.fake.get.request_body.content.application_x_www_form_urlencoded.schema
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -41,6 +44,9 @@ from_dict_ | [SchemaDictInput](#schemadictinput), [SchemaDict](#schemadict) | [S
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
 
 # EnumFormStringArray
+```
+type: schemas.Schema
+```
 
 ## Description
 Form parameter enum test (string array)

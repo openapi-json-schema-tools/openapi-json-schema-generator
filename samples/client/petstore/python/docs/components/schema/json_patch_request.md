@@ -1,5 +1,8 @@
 # JSONPatchRequest
 petstore_api.components.schema.json_patch_request
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
@@ -47,6 +50,9 @@ Method | Input Type | Return Type | Notes
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.OUTPUT_BASE_TYPES | This method is used under the hood when instance[0] is called
 
 # Items
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

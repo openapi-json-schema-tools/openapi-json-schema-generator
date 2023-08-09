@@ -1,5 +1,8 @@
 # Currency
 petstore_api.components.schema.currency
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

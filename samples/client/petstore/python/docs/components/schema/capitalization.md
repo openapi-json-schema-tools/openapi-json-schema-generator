@@ -1,5 +1,8 @@
 # Capitalization
 petstore_api.components.schema.capitalization
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

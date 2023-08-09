@@ -1,5 +1,8 @@
 # Whale
 petstore_api.components.schema.whale
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

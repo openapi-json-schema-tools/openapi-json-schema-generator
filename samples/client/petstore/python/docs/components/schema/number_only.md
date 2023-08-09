@@ -1,5 +1,8 @@
 # NumberOnly
 petstore_api.components.schema.number_only
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

@@ -1,5 +1,8 @@
 # ObjectWithInvalidNamedRefedProperties
 petstore_api.components.schema.object_with_invalid_named_refed_properties
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

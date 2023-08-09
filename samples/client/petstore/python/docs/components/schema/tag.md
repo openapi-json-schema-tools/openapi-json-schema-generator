@@ -1,5 +1,8 @@
 # Tag
 petstore_api.components.schema.tag
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

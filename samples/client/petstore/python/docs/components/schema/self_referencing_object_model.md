@@ -1,5 +1,8 @@
 # SelfReferencingObjectModel
 petstore_api.components.schema.self_referencing_object_model
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

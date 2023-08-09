@@ -1,5 +1,8 @@
 # DateTimeTest
 petstore_api.components.schema.date_time_test
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes

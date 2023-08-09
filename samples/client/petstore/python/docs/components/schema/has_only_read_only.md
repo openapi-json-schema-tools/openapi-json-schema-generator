@@ -1,5 +1,8 @@
 # HasOnlyReadOnly
 petstore_api.components.schema.has_only_read_only
+```
+type: schemas.Schema
+```
 
 ## validate method
 Input Type | Return Type | Notes
