@@ -3,7 +3,7 @@
     {{#each value}}
     "{{{@key}}}":
         {{#with this}}
-        {{> components/schemas/_helper_payload_renderer endChar=','}}
+        {{> components/schemas/helpers/payload_renderer endChar=','}}
         {{/with}}
     {{/each}}
 }{{endChar}}
@@ -11,7 +11,7 @@
 {{#eq type"array"}}
 [
     {{#each value}}
-    {{> components/schemas/_helper_payload_renderer endChar=','}}
+    {{> components/schemas/helpers/payload_renderer endChar=','}}
     {{/each}}
 ]{{endChar}}
 {{/eq}}

@@ -6,19 +6,19 @@
 
 @property
 {{> components/schemas/types/schema_output_type fullRefModule="" mode="get_property" endChar=":" }}
-    {{> components/schemas/_helper_object_get_property required=true }}
+    {{> components/schemas/_object_output_get_property required=true }}
             {{else}}
                 {{#if jsonPathPiece}}
 
 @property
 {{> components/schemas/types/schema_output_type  mode="get_property" fullRefModule=null endChar=":" }}
-    {{> components/schemas/_helper_object_get_property required=true }}
+    {{> components/schemas/_object_output_get_property required=true }}
                 {{else}}
                     {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
 
 @property
 def {{@key.original}}(self) -> schemas.OUTPUT_BASE_TYPES:
-    {{> components/schemas/_helper_object_get_property required=true }}
+    {{> components/schemas/_object_output_get_property required=true }}
                 {{/if}}
             {{/if}}
         {{/with}}
@@ -33,12 +33,12 @@ def {{@key.original}}(self) -> schemas.OUTPUT_BASE_TYPES:
 
 @property
 {{> components/schemas/types/schema_output_type fullRefModule="" mode="get_property" endChar=":" optional=true }}
-    {{> components/schemas/_helper_object_get_property required=false }}
+    {{> components/schemas/_object_output_get_property required=false }}
             {{else}}
 
 @property
 {{> components/schemas/types/schema_output_type mode="get_property" fullRefModule=null endChar=":" optional=true }}
-    {{> components/schemas/_helper_object_get_property required=false }}
+    {{> components/schemas/_object_output_get_property required=false }}
             {{/if}}
         {{/with}}
         {{/if}}

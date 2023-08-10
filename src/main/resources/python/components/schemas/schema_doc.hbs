@@ -29,7 +29,7 @@ Ref Schema | Input Type | Output Type | Description
 {{headerSize}}# validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-{{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+{{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
     {{#or properties additionalProperties requiredProperties}}
 
     {{#if mapInputJsonPathPiece}}
@@ -119,17 +119,17 @@ type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
         {{#each requiredProperties}}
-**{{@key.original}}** | {{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/each}}
         {{#each optionalProperties}}
-**{{@key.original}}** | {{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/each}}
         {{#with additionalProperties}}
             {{#unless isBooleanSchemaFalse}}
                 {{#if isBooleanSchemaTrue}}
 **any_string_name** | {{> _helper_schema_python_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]
             {{else}}
-**any_string_name** | {{> components/schemas/types/docschema_io_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**any_string_name** | {{> components/schemas/types/docschema_io_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }}
                 {{/if}}
             {{/unless}}
         {{else}}
@@ -157,12 +157,12 @@ Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
         {{#each requiredProperties}}
             {{#if @key.isValid}}
-**{{@key.original}}** | {{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
             {{/if}}
         {{/each}}
         {{#each optionalProperties}}
             {{#if @key.isValid}}
-**{{@key.original}}** | {{> components/schemas/types/docschema_io_types optional=true }} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{> components/schemas/types/docschema_io_types optional=true }} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }}
             {{/if}}
         {{/each}}
         {{#with additionalProperties}}
@@ -170,7 +170,7 @@ Keyword Argument | Type | Description | Notes
                 {{#if isBooleanSchemaTrue}}
 **kwargs** | {{> _helper_schema_python_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional] typed value is accessed with the get_additional_property_ method
             {{else}}
-**kwargs** | {{> components/schemas/types/docschema_io_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }} typed value is accessed with the get_additional_property_ method
+**kwargs** | {{> components/schemas/types/docschema_io_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }} typed value is accessed with the get_additional_property_ method
                 {{/if}}
             {{/unless}}
         {{else}}
@@ -183,12 +183,12 @@ Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
             {{#each requiredProperties}}
                 {{#if @key.isValid}}
-**{{@key.original}}** | {{> components/schemas/types/docschema_output_types }} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{> components/schemas/types/docschema_output_types }} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
                 {{/if}}
             {{/each}}
             {{#each optionalProperties}}
                 {{#if @key.isValid}}
-**{{@key.original}}** | {{> components/schemas/types/docschema_output_types optional=true }} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{> components/schemas/types/docschema_output_types optional=true }} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }}
                 {{/if}}
             {{/each}}
         {{/or}}
@@ -241,7 +241,7 @@ type: typing.Union[
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
         {{#with items}}
-≥ 0 | {{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+≥ 0 | {{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/with}}
 
         {{#if arrayOutputJsonPathPiece}}
@@ -279,7 +279,7 @@ configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 {{headerSize}}## methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | {{#with items}}{{> components/schemas/types/docschema_output_types }}{{else}}schemas.OUTPUT_BASE_TYPES{{/with}} |{{#with items}}{{> components/schemas/_helper_notes_msg defaultUser="server" }}{{/with}} This method is used under the hood when instance[0] is called
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | {{#with items}}{{> components/schemas/types/docschema_output_types }}{{else}}schemas.OUTPUT_BASE_TYPES{{/with}} |{{#with items}}{{> components/schemas/helpers/notes_msg defaultUser="server" }}{{/with}} This method is used under the hood when instance[0] is called
     {{/if}}
     {{#or allOf anyOf oneOf not}}
 
@@ -290,7 +290,7 @@ Method | Input Type | Return Type | Notes
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
         {{#each allOf}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "allof" jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+{{#if refInfo.refClass}}{{> components/schemas/helpers/_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "allof" jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/helpers/_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/helpers/_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/each}}
     {{/if}}
     {{#if anyOf}}
@@ -298,7 +298,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
         {{#each anyOf}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "anyof" jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+{{#if refInfo.refClass}}{{> components/schemas/helpers/_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "anyof" jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/helpers/_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/helpers/_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/each}}
     {{/if}}
     {{#if oneOf}}
@@ -306,7 +306,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
         {{#each oneOf}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "oneof" jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+{{#if refInfo.refClass}}{{> components/schemas/helpers/_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "oneof" jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/helpers/_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/helpers/_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/each}}
     {{/if}}
     {{#if not}}
@@ -314,7 +314,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
 Class Name | Input Type | Accessed Type | Description | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
         {{#with not}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+{{#if refInfo.refClass}}{{> components/schemas/helpers/_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/helpers/_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/helpers/_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/with}}
     {{/if}}
 {{/if}}
