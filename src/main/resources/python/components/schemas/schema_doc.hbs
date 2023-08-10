@@ -147,7 +147,7 @@ Key | Type |  Description | Notes
     {{/if}}
 ```
     {{#if mapValueSchema}}
-base class: schemas.immutabledict[str, {{#with mapValueSchema}}{{> components/schemas/_helper_schema_output_type mode="unprefixed" fullRefModule=null endChar="]" }}{{/with}}
+base class: schemas.immutabledict[str, {{#with mapValueSchema}}{{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule=null endChar="]" }}{{/with}}
     {{else}}
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     {{/if}}
@@ -264,7 +264,7 @@ base class: typing.Tuple[
     {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," }}
                 {{/eq}}
             {{else}}
-    {{> components/schemas/_helper_schema_output_type mode="unprefixed" fullRefModule="" endChar="," }}
+    {{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="," }}
             {{/if}}
         {{/with}}
     ...

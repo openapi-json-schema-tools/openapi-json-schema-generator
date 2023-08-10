@@ -1,7 +1,7 @@
 
 
 {{#if mapValueSchema}}
-class {{mapOutputJsonPathPiece.camelCase}}(schemas.immutabledict[str, {{#with mapValueSchema}}{{> components/schemas/_helper_schema_output_type mode="unprefixed" fullRefModule=null endChar="]):" }}{{/with}}
+class {{mapOutputJsonPathPiece.camelCase}}(schemas.immutabledict[str, {{#with mapValueSchema}}{{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule=null endChar="]):" }}{{/with}}
 {{else}}
 class {{mapOutputJsonPathPiece.camelCase}}(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 {{/if}}
