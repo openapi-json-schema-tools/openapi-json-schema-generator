@@ -9,7 +9,7 @@
 from {{packageName}}.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
         {{/if}}
 {{> _helper_imports }}
-{{> components/schemas/_helper_schema_switch_case identifierPieces=(append identifierPieces jsonPathPiece) }}
+{{> components/schemas/schema_cls/schema_switch_case identifierPieces=(append identifierPieces jsonPathPiece) }}
     {{else}}
 from __future__ import annotations
 from {{packageName}}.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]

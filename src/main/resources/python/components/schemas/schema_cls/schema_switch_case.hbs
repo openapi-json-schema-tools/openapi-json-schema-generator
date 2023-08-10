@@ -1,14 +1,14 @@
 {{#if isBooleanSchemaFalse}}
-{{> components/schemas/_helper_var_equals_cls }}
+{{> components/schemas/schema_cls/_var_equals_cls }}
 {{else}}
     {{#or allOf anyOf oneOf not}}
-{{> components/schemas/_helper_schema_composed_or_anytype }}
+{{> components/schemas/schema_cls/_composed_or_anytype }}
     {{else}}
         {{#eq types null }}
             {{#or enumInfo hasValidation items properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties format}}
-{{> components/schemas/_helper_schema_composed_or_anytype }}
+{{> components/schemas/schema_cls/_composed_or_anytype }}
             {{else}}
-{{> components/schemas/_helper_var_equals_cls }}
+{{> components/schemas/schema_cls/_var_equals_cls }}
             {{/or}}
         {{else}}
             {{! types exist }}
@@ -17,29 +17,29 @@
                 {{#each types}}
                     {{#eq this "object"}}
                         {{#or properties hasValidation requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties }}
-{{> components/schemas/_helper_schema_dict }}
+{{> components/schemas/schema_cls/_schema_dict }}
                         {{else}}
-{{> components/schemas/_helper_var_equals_cls }}
+{{> components/schemas/schema_cls/_var_equals_cls }}
                         {{/or}}
                     {{else}}
                         {{#eq this "array"}}
                             {{#or items hasValidation}}
-{{> components/schemas/_helper_schema_list }}
+{{> components/schemas/schema_cls/_schema_list }}
                             {{else}}
-{{> components/schemas/_helper_var_equals_cls }}
+{{> components/schemas/schema_cls/_var_equals_cls }}
                             {{/or}}
                         {{else}}
                             {{#or enumInfo hasValidation defaultValue}}
-{{> components/schemas/_helper_schema_simple }}
+{{> components/schemas/schema_cls/_schema_simple }}
                             {{else}}
-{{> components/schemas/_helper_var_equals_cls }}
+{{> components/schemas/schema_cls/_var_equals_cls }}
                             {{/or}}
                         {{/eq}}
                     {{/eq}}
                 {{/each}}
             {{else}}
                 {{! multiple types }}
-{{> components/schemas/_helper_schema_composed_or_anytype }}
+{{> components/schemas/schema_cls/_composed_or_anytype }}
             {{/eq}}
         {{/eq}}
     {{/or}}

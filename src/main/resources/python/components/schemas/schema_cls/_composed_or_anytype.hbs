@@ -26,22 +26,22 @@ class {{jsonPathPiece.camelCase}}(
 {{#eq types null}}
     # any type
 {{/eq}}
-    {{> components/schemas/_helper_types }}
+    {{> components/schemas/schema_cls/_types }}
 {{#if format}}
     format: str = '{{format}}'
 {{/if}}
 {{#if enumInfo}}
-    {{> components/schemas/_helper_schema_enum }}
+    {{> components/schemas/schema_cls/_enum }}
     enums = {{enumInfo.jsonPathPiece.camelCase}}
 {{/if}}
 {{#if items}}
-    {{> components/schemas/_helper_list_partial }}
+    {{> components/schemas/schema_cls/_list_partial }}
 {{/if}}
 {{#or additionalProperties requiredProperties hasDiscriminatorWithNonEmptyMapping properties}}
-    {{> components/schemas/_helper_dict_partial }}
+    {{> components/schemas/schema_cls/_dict_partial }}
 {{/or}}
 {{#if hasValidation}}
-    {{> components/schemas/_helper_validations }}
+    {{> components/schemas/schema_cls/_validations }}
 {{/if}}
 {{#or allOf anyOf oneOf not}}
     {{> components/schemas/_helper_composed_schemas }}
