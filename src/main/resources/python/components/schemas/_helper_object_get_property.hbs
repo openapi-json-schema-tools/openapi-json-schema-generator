@@ -1,7 +1,7 @@
 {{#if required}}
 return typing.cast(
 {{#if refInfo.refClass}}
-    {{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="unprefixed" endChar="," }}
+    {{> components/schemas/types/schema_output_ref_type fullRefModule="" mode="unprefixed" endChar="," }}
 {{else}}
     {{> components/schemas/types/schema_output_type fullRefModule="" mode="unprefixed" endChar="," }}
 {{/if}}
@@ -13,7 +13,7 @@ if isinstance(val, schemas.Unset):
     return val
 return typing.cast(
 {{#if refInfo.refClass}}
-    {{> components/schemas/_helper_schema_output_ref_type fullRefModule="" mode="unprefixed" endChar="," }}
+    {{> components/schemas/types/schema_output_ref_type fullRefModule="" mode="unprefixed" endChar="," }}
 {{else}}
     {{> components/schemas/types/schema_output_type fullRefModule="" mode="unprefixed" endChar="," }}
 {{/if}}

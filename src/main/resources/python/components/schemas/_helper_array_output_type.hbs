@@ -6,9 +6,9 @@ class {{arrayOutputJsonPathPiece.camelCase}}(
             {{#if refInfo.refClass}}
                 {{#eq refModule null}}
                     {{! self reference }}
-        {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," selfReference=true }}
+        {{> components/schemas/types/schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," selfReference=true }}
                 {{else}}
-        {{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," }}
+        {{> components/schemas/types/schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," }}
                 {{/eq}}
             {{else}}
         {{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="," }}
