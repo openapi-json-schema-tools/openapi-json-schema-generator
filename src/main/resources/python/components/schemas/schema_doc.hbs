@@ -198,7 +198,7 @@ Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | {{> components/schemas/types/docschema_io_types types=(append (newArray ) "object") }} | {{> components/schemas/types/docschema_output_types types=(append (newArray ) "object") }} | a constructor
         {{#or (and requiredProperties requiredProperties.hasInvalidKey) (and optionalProperties optionalProperties.hasInvalidKey) }}
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | {{#with mapValueSchema}}{{> components/schemas/_helper_schema_output_type_oneline fullRefModule=null endChar="" }}{{else}}schemas.OUTPUT_BASE_TYPES{{/with}} | This model has invalid python names so this method is used under the hood when you access {{#each requiredProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}{{#each optionalProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | {{#with mapValueSchema}}{{> components/schemas/types/docschema_output_type_oneline fullRefModule=null endChar="" }}{{else}}schemas.OUTPUT_BASE_TYPES{{/with}} | This model has invalid python names so this method is used under the hood when you access {{#each requiredProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}{{#each optionalProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}
         {{/or}}
         {{#with additionalProperties}}
             {{#unless isBooleanSchemaFalse}}
@@ -279,7 +279,7 @@ configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 {{headerSize}}## methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | {{#with items}}{{> components/schemas/_helper_schema_output_type_oneline fullRefModule=null endChar="" }}{{else}}schemas.OUTPUT_BASE_TYPES{{/with}} |{{#with items}}{{> components/schemas/_helper_notes_msg defaultUser="server" }}{{/with}} This method is used under the hood when instance[0] is called
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | {{#with items}}{{> components/schemas/types/docschema_output_type_oneline fullRefModule=null endChar="" }}{{else}}schemas.OUTPUT_BASE_TYPES{{/with}} |{{#with items}}{{> components/schemas/_helper_notes_msg defaultUser="server" }}{{/with}} This method is used under the hood when instance[0] is called
     {{/if}}
     {{#or allOf anyOf oneOf not}}
 

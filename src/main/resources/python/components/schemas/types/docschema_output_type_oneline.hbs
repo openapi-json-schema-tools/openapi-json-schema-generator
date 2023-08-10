@@ -1,0 +1,9 @@
+{{#if types}}
+    {{#eq types.size 1}}
+{{> components/schemas/types/_schema_output_type_oneline_base }}
+    {{else}}
+typing.Union[{{> components/schemas/types/_schema_output_type_oneline_base endChar="," }}]{{endChar}}
+    {{/eq}}
+{{else}}
+{{> components/schemas/types/_schema_output_type_oneline_base }}
+{{/if}}
