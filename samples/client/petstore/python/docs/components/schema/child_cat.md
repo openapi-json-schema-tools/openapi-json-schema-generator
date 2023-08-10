@@ -13,7 +13,7 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## allOf
 Schema Class | Input Type | Return Type
 ------------ | ---------- | -----------
-[**parent_pet.ParentPet**](parent_pet.md) | dict, schemas.immutabledict | schemas.immutabledict
+[**parent_pet.ParentPet**](../../components/schema/parent_pet.md) | dict, schemas.immutabledict | schemas.immutabledict
 [_1](#_1) | [_1DictInput](#_1dictinput), [_1Dict](#_1dict) | [_1Dict](#_1dict)
 
 # _1

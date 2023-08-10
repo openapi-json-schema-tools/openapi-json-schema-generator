@@ -16,8 +16,8 @@ type: schemas.Schema
 ```
 
 ### Ref Schema Info
-Ref Schema | Input Type | Output Type | Description
----------- | ---------- | ----------- | ------------
-[Client](../../components/schema/client.md) | [client.ClientDictInput](../../components/schema/client.md#clientdictinput), [client.ClientDict](../../components/schema/client.md#clientdict) | [client.ClientDict](../../components/schema/client.md#clientdict) |
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+[**client.Client**](../../components/schema/client.md) | [client.ClientDictInput](../../components/schema/client.md#clientdictinput), [client.ClientDict](../../components/schema/client.md#clientdict) | [client.ClientDict](../../components/schema/client.md#clientdict)
 
 [[Back to top]](#top) [[Back to Component RequestBodies]](../../../README.md#Component-RequestBodies) [[Back to README]](../../../README.md)

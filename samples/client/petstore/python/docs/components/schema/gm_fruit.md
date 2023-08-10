@@ -44,7 +44,7 @@ get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, 
 ## anyOf
 Schema Class | Input Type | Return Type
 ------------ | ---------- | -----------
-[**apple.Apple**](apple.md) | None, [apple.AppleDictInput](../../components/schema/apple.md#appledictinput), [apple.AppleDict](../../components/schema/apple.md#appledict) | None, [apple.AppleDict](../../components/schema/apple.md#appledict)
-[**banana.Banana**](banana.md) | [banana.BananaDictInput](../../components/schema/banana.md#bananadictinput), [banana.BananaDict](../../components/schema/banana.md#bananadict) | [banana.BananaDict](../../components/schema/banana.md#bananadict)
+[**apple.Apple**](../../components/schema/apple.md) | None, [apple.AppleDictInput](../../components/schema/apple.md#appledictinput), [apple.AppleDict](../../components/schema/apple.md#appledict) | None, [apple.AppleDict](../../components/schema/apple.md#appledict)
+[**banana.Banana**](../../components/schema/banana.md) | [banana.BananaDictInput](../../components/schema/banana.md#bananadictinput), [banana.BananaDict](../../components/schema/banana.md#bananadict) | [banana.BananaDict](../../components/schema/banana.md#bananadict)
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

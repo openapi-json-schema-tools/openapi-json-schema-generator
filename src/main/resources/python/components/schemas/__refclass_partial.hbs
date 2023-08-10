@@ -1,1 +1,1 @@
-[**{{#neq refInfo.refModule null}}{{refInfo.refModule}}.{{/neq}}{{refInfo.refClass}}**]({{#eq refInfo.refModule null}}#top{{else}}{{complexTypePrefix}}{{refInfo.refModule}}.md{{/eq}})
+[**{{#neq refInfo.refModule null}}{{refInfo.refModule}}.{{/neq}}{{refInfo.refClass}}**]({{#eq refInfo.refModule null}}#top{{else}}{{#with refInfo.ref}}{{docRoot}}{{pathFromDocRoot}}.md{{/with}}{{/eq}})

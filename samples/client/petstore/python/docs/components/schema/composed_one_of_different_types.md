@@ -16,8 +16,8 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## oneOf
 Schema Class | Input Type | Return Type
 ------------ | ---------- | -----------
-[**number_with_validations.NumberWithValidations**](number_with_validations.md) | float, int | float, int
-[**animal.Animal**](animal.md) | [animal.AnimalDictInput](../../components/schema/animal.md#animaldictinput), [animal.AnimalDict](../../components/schema/animal.md#animaldict) | [animal.AnimalDict](../../components/schema/animal.md#animaldict)
+[**number_with_validations.NumberWithValidations**](../../components/schema/number_with_validations.md) | float, int | float, int
+[**animal.Animal**](../../components/schema/animal.md) | [animal.AnimalDictInput](../../components/schema/animal.md#animaldictinput), [animal.AnimalDict](../../components/schema/animal.md#animaldict) | [animal.AnimalDict](../../components/schema/animal.md#animaldict)
 [_2](#_2) | None | None
 [_3](#_3) | str, datetime.date | str
 [_4](#_4) | dict, schemas.immutabledict | schemas.immutabledict

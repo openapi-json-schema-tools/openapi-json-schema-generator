@@ -13,7 +13,7 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## allOf
 Schema Class | Input Type | Return Type
 ------------ | ---------- | -----------
-[**object_with_optional_test_prop.ObjectWithOptionalTestProp**](object_with_optional_test_prop.md) | [object_with_optional_test_prop.ObjectWithOptionalTestPropDictInput](../../components/schema/object_with_optional_test_prop.md#objectwithoptionaltestpropdictinput), [object_with_optional_test_prop.ObjectWithOptionalTestPropDict](../../components/schema/object_with_optional_test_prop.md#objectwithoptionaltestpropdict) | [object_with_optional_test_prop.ObjectWithOptionalTestPropDict](../../components/schema/object_with_optional_test_prop.md#objectwithoptionaltestpropdict)
+[**object_with_optional_test_prop.ObjectWithOptionalTestProp**](../../components/schema/object_with_optional_test_prop.md) | [object_with_optional_test_prop.ObjectWithOptionalTestPropDictInput](../../components/schema/object_with_optional_test_prop.md#objectwithoptionaltestpropdictinput), [object_with_optional_test_prop.ObjectWithOptionalTestPropDict](../../components/schema/object_with_optional_test_prop.md#objectwithoptionaltestpropdict) | [object_with_optional_test_prop.ObjectWithOptionalTestPropDict](../../components/schema/object_with_optional_test_prop.md#objectwithoptionaltestpropdict)
 [_1](#_1) | [_1DictInput](#_1dictinput), [_1Dict](#_1dict) | [_1Dict](#_1dict)
 
 # _1

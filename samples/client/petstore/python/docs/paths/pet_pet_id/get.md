@@ -95,9 +95,9 @@ type: schemas.Schema
 ```
 
 ##### Ref Schema Info
-Ref Schema | Input Type | Output Type | Description
----------- | ---------- | ----------- | ------------
-[Pet](../../components/schema/pet.md) | [pet.PetDictInput](../../../components/schema/pet.md#petdictinput), [pet.PetDict](../../../components/schema/pet.md#petdict) | [pet.PetDict](../../../components/schema/pet.md#petdict) |
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+[**pet.Pet**](../../../components/schema/pet.md) | [pet.PetDictInput](../../../components/schema/pet.md#petdictinput), [pet.PetDict](../../../components/schema/pet.md#petdict) | [pet.PetDict](../../../components/schema/pet.md#petdict)
 #### ResponseFor200 content ApplicationJson Schema
 petstore_api.paths.pet_pet_id.get.responses.response_200.content.application_json.schema
 ```
@@ -105,9 +105,9 @@ type: schemas.Schema
 ```
 
 ##### Ref Schema Info
-Ref Schema | Input Type | Output Type | Description
----------- | ---------- | ----------- | ------------
-[RefPet](../../components/schema/ref_pet.md) | [pet.PetDictInput](../../../components/schema/pet.md#petdictinput), [pet.PetDict](../../../components/schema/pet.md#petdict) | [pet.PetDict](../../../components/schema/pet.md#petdict) |
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+[**ref_pet.RefPet**](../../../components/schema/ref_pet.md) | [pet.PetDictInput](../../../components/schema/pet.md#petdictinput), [pet.PetDict](../../../components/schema/pet.md#petdict) | [pet.PetDict](../../../components/schema/pet.md#petdict)
 
 ## ResponseFor400
 

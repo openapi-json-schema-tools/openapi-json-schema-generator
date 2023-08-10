@@ -13,6 +13,6 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## allOf
 Schema Class | Input Type | Return Type
 ------------ | ---------- | -----------
-[**object_interface.ObjectInterface**](object_interface.md) | dict, schemas.immutabledict | schemas.immutabledict
+[**object_interface.ObjectInterface**](../../components/schema/object_interface.md) | dict, schemas.immutabledict | schemas.immutabledict
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

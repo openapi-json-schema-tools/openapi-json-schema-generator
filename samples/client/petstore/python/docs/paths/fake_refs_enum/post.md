@@ -50,9 +50,9 @@ type: schemas.Schema
 ```
 
 ##### Ref Schema Info
-Ref Schema | Input Type | Output Type | Description
----------- | ---------- | ----------- | ------------
-[StringEnum](../../components/schema/string_enum.md) | None, str | None, str |
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+[**string_enum.StringEnum**](../../../components/schema/string_enum.md) | None, str | None, str
 
 ## Return Types
 
@@ -86,9 +86,9 @@ type: schemas.Schema
 ```
 
 ##### Ref Schema Info
-Ref Schema | Input Type | Output Type | Description
----------- | ---------- | ----------- | ------------
-[StringEnum](../../components/schema/string_enum.md) | None, str | None, str |
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+[**string_enum.StringEnum**](../../../components/schema/string_enum.md) | None, str | None, str
 
 ## Servers
 
