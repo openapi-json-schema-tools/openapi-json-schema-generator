@@ -271,34 +271,34 @@ Method | Input Type | Return Type | Notes
     {{/or}}
     {{#if allOf}}
 {{headerSize}}# allOf
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
         {{#each allOf}}
-{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
+{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }}
         {{/each}}
     {{/if}}
     {{#if anyOf}}
 {{headerSize}}# anyOf
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
         {{#each anyOf}}
-{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
+{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }}
         {{/each}}
     {{/if}}
     {{#if oneOf}}
 {{headerSize}}# oneOf
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
         {{#each oneOf}}
-{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
+{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }}
         {{/each}}
     {{/if}}
     {{#if not}}
 {{headerSize}}# not
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
         {{#with not}}
-{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
+{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }}
         {{/with}}
     {{/if}}
 {{/if}}

@@ -11,8 +11,8 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
-[**object_interface.ObjectInterface**](object_interface.md) | [**object_interface.ObjectInterface**](object_interface.md) | [**object_interface.ObjectInterface**](object_interface.md) |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[**object_interface.ObjectInterface**](object_interface.md) | dict, schemas.immutabledict | schemas.immutabledict
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

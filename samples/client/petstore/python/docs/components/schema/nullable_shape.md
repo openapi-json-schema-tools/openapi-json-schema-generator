@@ -14,11 +14,11 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
-[**triangle.Triangle**](triangle.md) | [**triangle.Triangle**](triangle.md) | [**triangle.Triangle**](triangle.md) |  |
-[**quadrilateral.Quadrilateral**](quadrilateral.md) | [**quadrilateral.Quadrilateral**](quadrilateral.md) | [**quadrilateral.Quadrilateral**](quadrilateral.md) |  |
-[_2](#_2) | None | None |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[**triangle.Triangle**](triangle.md) | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO
+[**quadrilateral.Quadrilateral**](quadrilateral.md) | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO
+[_2](#_2) | None | None
 
 # _2
 ```

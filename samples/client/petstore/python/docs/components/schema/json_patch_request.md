@@ -61,10 +61,10 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
-[**json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.md) | [**json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.md) | [**json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.md) |  |
-[**json_patch_request_remove.JSONPatchRequestRemove**](json_patch_request_remove.md) | [**json_patch_request_remove.JSONPatchRequestRemove**](json_patch_request_remove.md) | [**json_patch_request_remove.JSONPatchRequestRemove**](json_patch_request_remove.md) |  |
-[**json_patch_request_move_copy.JSONPatchRequestMoveCopy**](json_patch_request_move_copy.md) | [**json_patch_request_move_copy.JSONPatchRequestMoveCopy**](json_patch_request_move_copy.md) | [**json_patch_request_move_copy.JSONPatchRequestMoveCopy**](json_patch_request_move_copy.md) |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[**json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.md) | [json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTestDictInput](../../components/schema/json_patch_request_add_replace_test.md#jsonpatchrequestaddreplacetestdictinput), [json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTestDict](../../components/schema/json_patch_request_add_replace_test.md#jsonpatchrequestaddreplacetestdict) | [json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTestDict](../../components/schema/json_patch_request_add_replace_test.md#jsonpatchrequestaddreplacetestdict)
+[**json_patch_request_remove.JSONPatchRequestRemove**](json_patch_request_remove.md) | [json_patch_request_remove.JSONPatchRequestRemoveDictInput](../../components/schema/json_patch_request_remove.md#jsonpatchrequestremovedictinput), [json_patch_request_remove.JSONPatchRequestRemoveDict](../../components/schema/json_patch_request_remove.md#jsonpatchrequestremovedict) | [json_patch_request_remove.JSONPatchRequestRemoveDict](../../components/schema/json_patch_request_remove.md#jsonpatchrequestremovedict)
+[**json_patch_request_move_copy.JSONPatchRequestMoveCopy**](json_patch_request_move_copy.md) | [json_patch_request_move_copy.JSONPatchRequestMoveCopyDictInput](../../components/schema/json_patch_request_move_copy.md#jsonpatchrequestmovecopydictinput), [json_patch_request_move_copy.JSONPatchRequestMoveCopyDict](../../components/schema/json_patch_request_move_copy.md#jsonpatchrequestmovecopydict) | [json_patch_request_move_copy.JSONPatchRequestMoveCopyDict](../../components/schema/json_patch_request_move_copy.md#jsonpatchrequestmovecopydict)
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

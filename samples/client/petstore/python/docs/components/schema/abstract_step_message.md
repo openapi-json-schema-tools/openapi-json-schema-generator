@@ -51,8 +51,8 @@ get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, 
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## anyOf
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
-[**AbstractStepMessage**](#top) | [**AbstractStepMessage**](#top) | [**AbstractStepMessage**](#top) |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[**AbstractStepMessage**](#top) | [abstract_step_message.AbstractStepMessageDictInput](../../components/schema/abstract_step_message.md#abstractstepmessagedictinput), [abstract_step_message.AbstractStepMessageDict](../../components/schema/abstract_step_message.md#abstractstepmessagedict) | [abstract_step_message.AbstractStepMessageDict](../../components/schema/abstract_step_message.md#abstractstepmessagedict)
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

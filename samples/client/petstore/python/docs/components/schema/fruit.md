@@ -42,9 +42,9 @@ get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, 
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
-[**apple.Apple**](apple.md) | [**apple.Apple**](apple.md) | [**apple.Apple**](apple.md) |  |
-[**banana.Banana**](banana.md) | [**banana.Banana**](banana.md) | [**banana.Banana**](banana.md) |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[**apple.Apple**](apple.md) | None, [apple.AppleDictInput](../../components/schema/apple.md#appledictinput), [apple.AppleDict](../../components/schema/apple.md#appledict) | None, [apple.AppleDict](../../components/schema/apple.md#appledict)
+[**banana.Banana**](banana.md) | [banana.BananaDictInput](../../components/schema/banana.md#bananadictinput), [banana.BananaDict](../../components/schema/banana.md#bananadict) | [banana.BananaDict](../../components/schema/banana.md#bananadict)
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

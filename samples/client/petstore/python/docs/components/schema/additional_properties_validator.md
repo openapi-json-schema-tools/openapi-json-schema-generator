@@ -11,11 +11,11 @@ dict, schemas.immutabledict | schemas.immutabledict |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
-[_0](#_0) | dict, schemas.immutabledict | schemas.immutabledict |  |
-[_1](#_1) | dict, schemas.immutabledict | schemas.immutabledict |  |
-[_2](#_2) | dict, schemas.immutabledict | schemas.immutabledict |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[_0](#_0) | [_0DictInput](#_0dictinput), [_0Dict](#_0dict) | [_0Dict](#_0dict)
+[_1](#_1) | [_1DictInput](#_1dictinput), [_1Dict](#_1dict) | [_1Dict](#_1dict)
+[_2](#_2) | [_2DictInput](#_2dictinput), [_2Dict](#_2dict) | [_2Dict](#_2dict)
 
 # _0
 ```

@@ -59,9 +59,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ##### Composed Schemas (allOf/anyOf/oneOf/not)
 ##### allOf
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
-[_0](#requestbody-content-applicationjson-schema-_0) | str | str |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[_0](#requestbody-content-applicationjson-schema-_0) | str | str
 
 #### RequestBody content ApplicationJson Schema
 ```
@@ -125,9 +125,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ##### Composed Schemas (allOf/anyOf/oneOf/not)
 ##### allOf
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
-[_0](#requestbody-content-multipartformdata-schema-_0) | str | str |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[_0](#requestbody-content-multipartformdata-schema-_0) | str | str
 
 #### RequestBody content MultipartFormData Schema
 ```
@@ -164,9 +164,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ###### Composed Schemas (allOf/anyOf/oneOf/not)
 ###### allOf
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
-[_0](#parameter0-schema-_0) | str | str |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[_0](#parameter0-schema-_0) | str | str
 
 ##### Parameter0 Schema
 ```
@@ -233,9 +233,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ###### Composed Schemas (allOf/anyOf/oneOf/not)
 ###### allOf
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
-[_0](#parameter1-schema-_0) | str | str |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[_0](#parameter1-schema-_0) | str | str
 
 ##### Parameter1 Schema
 ```
@@ -286,9 +286,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ##### Composed Schemas (allOf/anyOf/oneOf/not)
 ##### allOf
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
-[_0](#responsefor200-content-applicationjson-schema-_0) | str | str |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[_0](#responsefor200-content-applicationjson-schema-_0) | str | str
 
 #### ResponseFor200 content ApplicationJson Schema
 ```
@@ -352,9 +352,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ##### Composed Schemas (allOf/anyOf/oneOf/not)
 ##### allOf
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
-[_0](#responsefor200-content-multipartformdata-schema-_0) | str | str |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[_0](#responsefor200-content-multipartformdata-schema-_0) | str | str
 
 #### ResponseFor200 content MultipartFormData Schema
 ```

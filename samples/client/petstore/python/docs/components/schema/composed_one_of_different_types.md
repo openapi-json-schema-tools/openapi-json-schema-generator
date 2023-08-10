@@ -14,15 +14,15 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
-[**number_with_validations.NumberWithValidations**](number_with_validations.md) | [**number_with_validations.NumberWithValidations**](number_with_validations.md) | [**number_with_validations.NumberWithValidations**](number_with_validations.md) |  |
-[**animal.Animal**](animal.md) | [**animal.Animal**](animal.md) | [**animal.Animal**](animal.md) |  |
-[_2](#_2) | None | None |  |
-[_3](#_3) | str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
-[_4](#_4) | dict, schemas.immutabledict | schemas.immutabledict |  |
-[_5](#_5) | list, tuple | tuple |  |
-[_6](#_6) | str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[**number_with_validations.NumberWithValidations**](number_with_validations.md) | float, int | float, int
+[**animal.Animal**](animal.md) | [animal.AnimalDictInput](../../components/schema/animal.md#animaldictinput), [animal.AnimalDict](../../components/schema/animal.md#animaldict) | [animal.AnimalDict](../../components/schema/animal.md#animaldict)
+[_2](#_2) | None | None
+[_3](#_3) | str, datetime.date | str
+[_4](#_4) | dict, schemas.immutabledict | schemas.immutabledict
+[_5](#_5) | [_5TupleInput](#_5tupleinput), [_5Tuple](#_5tuple) | [_5Tuple](#_5tuple)
+[_6](#_6) | str, datetime.datetime | str
 
 # _2
 ```

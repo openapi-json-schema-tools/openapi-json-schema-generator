@@ -42,8 +42,8 @@ get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, 
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
-[**obj_with_required_props_base.ObjWithRequiredPropsBase**](obj_with_required_props_base.md) | [**obj_with_required_props_base.ObjWithRequiredPropsBase**](obj_with_required_props_base.md) | [**obj_with_required_props_base.ObjWithRequiredPropsBase**](obj_with_required_props_base.md) |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[**obj_with_required_props_base.ObjWithRequiredPropsBase**](obj_with_required_props_base.md) | [obj_with_required_props_base.ObjWithRequiredPropsBaseDictInput](../../components/schema/obj_with_required_props_base.md#objwithrequiredpropsbasedictinput), [obj_with_required_props_base.ObjWithRequiredPropsBaseDict](../../components/schema/obj_with_required_props_base.md#objwithrequiredpropsbasedict) | [obj_with_required_props_base.ObjWithRequiredPropsBaseDict](../../components/schema/obj_with_required_props_base.md#objwithrequiredpropsbasedict)
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -11,10 +11,10 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
-[**animal.Animal**](animal.md) | [**animal.Animal**](animal.md) | [**animal.Animal**](animal.md) |  |
-[_1](#_1) | dict, schemas.immutabledict | schemas.immutabledict |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[**animal.Animal**](animal.md) | [animal.AnimalDictInput](../../components/schema/animal.md#animaldictinput), [animal.AnimalDict](../../components/schema/animal.md#animaldict) | [animal.AnimalDict](../../components/schema/animal.md#animaldict)
+[_1](#_1) | [_1DictInput](#_1dictinput), [_1Dict](#_1dict) | [_1Dict](#_1dict)
 
 # _1
 ```

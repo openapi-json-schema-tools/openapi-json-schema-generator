@@ -11,10 +11,10 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf
-Schema Class | Input Type | Accessed Type | Description | Notes
------------- | ---------- | ------------- | ----------- | -----
-[**quadrilateral_interface.QuadrilateralInterface**](quadrilateral_interface.md) | [**quadrilateral_interface.QuadrilateralInterface**](quadrilateral_interface.md) | [**quadrilateral_interface.QuadrilateralInterface**](quadrilateral_interface.md) |  |
-[_1](#_1) | dict, schemas.immutabledict | schemas.immutabledict |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[**quadrilateral_interface.QuadrilateralInterface**](quadrilateral_interface.md) | [quadrilateral_interface.QuadrilateralInterfaceDictInput](../../components/schema/quadrilateral_interface.md#quadrilateralinterfacedictinput), [quadrilateral_interface.QuadrilateralInterfaceDict](../../components/schema/quadrilateral_interface.md#quadrilateralinterfacedict), str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [quadrilateral_interface.QuadrilateralInterfaceDict](../../components/schema/quadrilateral_interface.md#quadrilateralinterfacedict), str, float, int, bool, None, tuple, bytes, io.FileIO
+[_1](#_1) | [_1DictInput](#_1dictinput), [_1Dict](#_1dict) | [_1Dict](#_1dict)
 
 # _1
 ```
