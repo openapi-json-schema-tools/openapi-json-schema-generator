@@ -5,7 +5,7 @@
             {{#if refInfo.refClass}}
 
 @property
-{{> components/schemas/types/schema_output_ref_type fullRefModule="" mode="get_property" endChar=":" }}
+{{> components/schemas/types/schema_output_type fullRefModule="" mode="get_property" endChar=":" }}
     {{> components/schemas/_helper_object_get_property required=true }}
             {{else}}
                 {{#if jsonPathPiece}}
@@ -32,7 +32,7 @@ def {{@key.original}}(self) -> schemas.OUTPUT_BASE_TYPES:
             {{#if refInfo.refClass}}
 
 @property
-{{> components/schemas/types/schema_output_ref_type fullRefModule="" mode="get_property" endChar=":" optional=true }}
+{{> components/schemas/types/schema_output_type fullRefModule="" mode="get_property" endChar=":" optional=true }}
     {{> components/schemas/_helper_object_get_property required=false }}
             {{else}}
 
@@ -54,7 +54,7 @@ def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BAS
         {{#unless isBooleanSchemaFalse}}
             {{#if refInfo.refClass}}
 
-{{> components/schemas/types/schema_output_ref_type mode="get_additional_property_" fullRefModule="" endChar=":" key="str" optional=true }}
+{{> components/schemas/types/schema_output_type mode="get_additional_property_" fullRefModule="" endChar=":" key="str" optional=true }}
             {{else}}
 
 {{> components/schemas/types/schema_output_type mode="get_additional_property_" fullRefModule=null endChar=":" key="str" optional=true }}
@@ -65,7 +65,7 @@ def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BAS
         return val
     return typing.cast(
             {{#if refInfo.refClass}}
-        {{> components/schemas/types/schema_output_ref_type mode="unprefixed" fullRefModule="" endChar="," }}
+        {{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="," }}
             {{else}}
         {{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule=null endChar="," }}
             {{/if}}
