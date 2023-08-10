@@ -239,7 +239,7 @@ type: schemas.Schema
 ###### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-int | int | must be one of [1, -2] value must be a 32 bit integer
+typing_extensions.Literal[1, -2] | typing_extensions.Literal[1, -2] | must be one of [1, -2] value must be a 32 bit integer
 
 #### Parameter5
 
