@@ -44,7 +44,7 @@ class {{jsonPathPiece.camelCase}}(
     {{> components/schemas/schema_cls/_validations }}
 {{/if}}
 {{#or allOf anyOf oneOf not}}
-    {{> components/schemas/_helper_composed_schemas }}
+    {{> components/schemas/schema_cls/_composed_schemas }}
 {{/or}}
 {{#or mapOutputJsonPathPiece arrayOutputJsonPathPiece}}
     type_to_output_cls: typing.Mapping[
