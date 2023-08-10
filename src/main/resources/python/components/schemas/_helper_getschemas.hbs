@@ -1,7 +1,7 @@
 {{#each getSchemas}}
     {{! generate all schemas in post order traversal }}
     {{#eq instanceType "schema" }}
-{{> components/schemas/schema_cls/schema_switch_case identifierPieces=(append identifierPieces jsonPathPiece) }}
+{{> components/schemas/schema_cls/schema_cls identifierPieces=(append identifierPieces jsonPathPiece) }}
     {{else}}
         {{#eq instanceType "allOfType" }}
 {{> components/schemas/_helper_allof_type }}

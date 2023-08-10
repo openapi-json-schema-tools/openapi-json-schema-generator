@@ -5,7 +5,7 @@
 @typing.overload
 @classmethod
 def validate(
-    {{> components/schemas/method_validate/_validate_args }}
+    {{> components/schemas/schema_cls/validate/_validate_args }}
                 {{#if ../mapOutputJsonPathPiece}}
 ) -> {{../mapOutputJsonPathPiece.camelCase}}: ...
                 {{else}}
@@ -13,40 +13,40 @@ def validate(
                 {{/if}}
             {{else}}
                 {{#eq this "boolean"}}
-{{> components/schemas/method_validate/_validate_bool_overload includeNonEnum=true enumInfo=../enumInfo }}
+{{> components/schemas/schema_cls/validate/_validate_bool_overload includeNonEnum=true enumInfo=../enumInfo }}
                 {{else}}
                     {{#eq this "null"}}
 @typing.overload
 @classmethod
 def validate(
-    {{> components/schemas/method_validate/_validate_args }}
+    {{> components/schemas/schema_cls/validate/_validate_args }}
 ) -> None: ...
                     {{else}}
                         {{#eq this "string"}}
-{{> components/schemas/method_validate/_validate_str_overload includeNonEnum=true enumInfo=../enumInfo }}
+{{> components/schemas/schema_cls/validate/_validate_str_overload includeNonEnum=true enumInfo=../enumInfo }}
                         {{else}}
                             {{#eq this "number"}}
 @typing.overload
 @classmethod
 def validate(
-    {{> components/schemas/method_validate/_validate_args }}
+    {{> components/schemas/schema_cls/validate/_validate_args }}
 ) -> typing.Union[int, float]: ...
                             {{else}}
                                 {{#eq this "integer"}}
-{{> components/schemas/method_validate/_validate_int_overload includeNonEnum=true enumInfo=../enumInfo }}
+{{> components/schemas/schema_cls/validate/_validate_int_overload includeNonEnum=true enumInfo=../enumInfo }}
                                 {{else}}
                                     {{#eq this "array"}}
 @typing.overload
 @classmethod
 def validate(
-    {{> components/schemas/method_validate/_validate_args }}
+    {{> components/schemas/schema_cls/validate/_validate_args }}
 ) -> {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCase}}{{else}}typing.Tuple[schemas.OUTPUT_BASE_TYPES]{{/if}}: ...
                                     {{else}}
                                         {{#eq this "object"}}
 @typing.overload
 @classmethod
 def validate(
-    {{> components/schemas/method_validate/_validate_args }}
+    {{> components/schemas/schema_cls/validate/_validate_args }}
 ) -> {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.camelCase}}{{else}}schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{/if}}: ...
                                         {{/eq}}
                                     {{/eq}}
@@ -59,9 +59,9 @@ def validate(
         {{/each}}
     {{else}}
         {{! only one type }}
-{{> components/schemas/method_validate/_validate_str_overload includeNonEnum=false }}
-{{> components/schemas/method_validate/_validate_bool_overload includeNonEnum=false }}
-{{> components/schemas/method_validate/_validate_int_overload includeNonEnum=false }}
+{{> components/schemas/schema_cls/validate/_validate_str_overload includeNonEnum=false }}
+{{> components/schemas/schema_cls/validate/_validate_bool_overload includeNonEnum=false }}
+{{> components/schemas/schema_cls/validate/_validate_int_overload includeNonEnum=false }}
         {{! end of enum overloads }}
     {{/gt}}
 @classmethod
@@ -84,14 +84,14 @@ def validate(
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
                     {{else}}
         {{#each types}}
-    {{> components/schemas/method_validate/_validate_args }}
+    {{> components/schemas/schema_cls/validate/_validate_args }}
         {{/each}}
                     {{/eq}}
                 {{/eq}}
             {{/eq}}
         {{else}}
         {{#each types}}
-    {{> components/schemas/method_validate/_validate_args }}
+    {{> components/schemas/schema_cls/validate/_validate_args }}
         {{/each}}
         {{/if}}
     {{else}}
