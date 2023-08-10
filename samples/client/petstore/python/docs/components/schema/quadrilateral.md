@@ -11,9 +11,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf
-Class Name | Input Type | Accessed Type | Description | Notes
----------- | ---------- | ------------- | ----------- | -----
-[**SimpleQuadrilateral**](simple_quadrilateral.md) | [**SimpleQuadrilateral**](simple_quadrilateral.md) | [**SimpleQuadrilateral**](simple_quadrilateral.md) |  |
-[**ComplexQuadrilateral**](complex_quadrilateral.md) | [**ComplexQuadrilateral**](complex_quadrilateral.md) | [**ComplexQuadrilateral**](complex_quadrilateral.md) |  |
+Schema Class | Input Type | Accessed Type | Description | Notes
+------------ | ---------- | ------------- | ----------- | -----
+[**simple_quadrilateral.SimpleQuadrilateral**](simple_quadrilateral.md) | [**simple_quadrilateral.SimpleQuadrilateral**](simple_quadrilateral.md) | [**simple_quadrilateral.SimpleQuadrilateral**](simple_quadrilateral.md) |  |
+[**complex_quadrilateral.ComplexQuadrilateral**](complex_quadrilateral.md) | [**complex_quadrilateral.ComplexQuadrilateral**](complex_quadrilateral.md) | [**complex_quadrilateral.ComplexQuadrilateral**](complex_quadrilateral.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -11,10 +11,10 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf
-Class Name | Input Type | Accessed Type | Description | Notes
----------- | ---------- | ------------- | ----------- | -----
-[**Whale**](whale.md) | [**Whale**](whale.md) | [**Whale**](whale.md) |  |
-[**Zebra**](zebra.md) | [**Zebra**](zebra.md) | [**Zebra**](zebra.md) |  |
-[**Pig**](pig.md) | [**Pig**](pig.md) | [**Pig**](pig.md) |  |
+Schema Class | Input Type | Accessed Type | Description | Notes
+------------ | ---------- | ------------- | ----------- | -----
+[**whale.Whale**](whale.md) | [**whale.Whale**](whale.md) | [**whale.Whale**](whale.md) |  |
+[**zebra.Zebra**](zebra.md) | [**zebra.Zebra**](zebra.md) | [**zebra.Zebra**](zebra.md) |  |
+[**pig.Pig**](pig.md) | [**pig.Pig**](pig.md) | [**pig.Pig**](pig.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

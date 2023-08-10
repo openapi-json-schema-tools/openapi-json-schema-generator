@@ -11,10 +11,10 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf
-Class Name | Input Type | Accessed Type | Description | Notes
----------- | ---------- | ------------- | ----------- | -----
-[**EquilateralTriangle**](equilateral_triangle.md) | [**EquilateralTriangle**](equilateral_triangle.md) | [**EquilateralTriangle**](equilateral_triangle.md) |  |
-[**IsoscelesTriangle**](isosceles_triangle.md) | [**IsoscelesTriangle**](isosceles_triangle.md) | [**IsoscelesTriangle**](isosceles_triangle.md) |  |
-[**ScaleneTriangle**](scalene_triangle.md) | [**ScaleneTriangle**](scalene_triangle.md) | [**ScaleneTriangle**](scalene_triangle.md) |  |
+Schema Class | Input Type | Accessed Type | Description | Notes
+------------ | ---------- | ------------- | ----------- | -----
+[**equilateral_triangle.EquilateralTriangle**](equilateral_triangle.md) | [**equilateral_triangle.EquilateralTriangle**](equilateral_triangle.md) | [**equilateral_triangle.EquilateralTriangle**](equilateral_triangle.md) |  |
+[**isosceles_triangle.IsoscelesTriangle**](isosceles_triangle.md) | [**isosceles_triangle.IsoscelesTriangle**](isosceles_triangle.md) | [**isosceles_triangle.IsoscelesTriangle**](isosceles_triangle.md) |  |
+[**scalene_triangle.ScaleneTriangle**](scalene_triangle.md) | [**scalene_triangle.ScaleneTriangle**](scalene_triangle.md) | [**scalene_triangle.ScaleneTriangle**](scalene_triangle.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

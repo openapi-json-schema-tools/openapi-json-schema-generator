@@ -11,9 +11,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf
-Class Name | Input Type | Accessed Type | Description | Notes
----------- | ---------- | ------------- | ----------- | -----
-[**TriangleInterface**](triangle_interface.md) | [**TriangleInterface**](triangle_interface.md) | [**TriangleInterface**](triangle_interface.md) |  |
+Schema Class | Input Type | Accessed Type | Description | Notes
+------------ | ---------- | ------------- | ----------- | -----
+[**triangle_interface.TriangleInterface**](triangle_interface.md) | [**triangle_interface.TriangleInterface**](triangle_interface.md) | [**triangle_interface.TriangleInterface**](triangle_interface.md) |  |
 [_1](#_1) | dict, schemas.immutabledict | schemas.immutabledict |  |
 
 # _1

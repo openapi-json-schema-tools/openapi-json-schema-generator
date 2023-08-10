@@ -271,32 +271,32 @@ Method | Input Type | Return Type | Notes
     {{/or}}
     {{#if allOf}}
 {{headerSize}}# allOf
-Class Name | Input Type | Accessed Type | Description | Notes
----------- | ---------- | ------------- | ----------- | -----
+Schema Class | Input Type | Accessed Type | Description | Notes
+------------ | ---------- | ------------- | ----------- | -----
         {{#each allOf}}
 {{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/each}}
     {{/if}}
     {{#if anyOf}}
 {{headerSize}}# anyOf
-Class Name | Input Type | Accessed Type | Description | Notes
----------- | ---------- | ------------- | ----------- | -----
+Schema Class | Input Type | Accessed Type | Description | Notes
+------------ | ---------- | ------------- | ----------- | -----
         {{#each anyOf}}
 {{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/each}}
     {{/if}}
     {{#if oneOf}}
 {{headerSize}}# oneOf
-Class Name | Input Type | Accessed Type | Description | Notes
----------- | ---------- | ------------- | ----------- | -----
+Schema Class | Input Type | Accessed Type | Description | Notes
+------------ | ---------- | ------------- | ----------- | -----
         {{#each oneOf}}
 {{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/each}}
     {{/if}}
     {{#if not}}
 {{headerSize}}# not
-Class Name | Input Type | Accessed Type | Description | Notes
----------- | ---------- | ------------- | ----------- | -----
+Schema Class | Input Type | Accessed Type | Description | Notes
+------------ | ---------- | ------------- | ----------- | -----
         {{#with not}}
 {{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/with}}

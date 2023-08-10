@@ -14,10 +14,10 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf
-Class Name | Input Type | Accessed Type | Description | Notes
----------- | ---------- | ------------- | ----------- | -----
-[**NumberWithValidations**](number_with_validations.md) | [**NumberWithValidations**](number_with_validations.md) | [**NumberWithValidations**](number_with_validations.md) |  |
-[**Animal**](animal.md) | [**Animal**](animal.md) | [**Animal**](animal.md) |  |
+Schema Class | Input Type | Accessed Type | Description | Notes
+------------ | ---------- | ------------- | ----------- | -----
+[**number_with_validations.NumberWithValidations**](number_with_validations.md) | [**number_with_validations.NumberWithValidations**](number_with_validations.md) | [**number_with_validations.NumberWithValidations**](number_with_validations.md) |  |
+[**animal.Animal**](animal.md) | [**animal.Animal**](animal.md) | [**animal.Animal**](animal.md) |  |
 [_2](#_2) | None | None |  |
 [_3](#_3) | str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 [_4](#_4) | dict, schemas.immutabledict | schemas.immutabledict |  |

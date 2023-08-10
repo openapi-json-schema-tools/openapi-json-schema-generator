@@ -42,9 +42,9 @@ get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, 
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## anyOf
-Class Name | Input Type | Accessed Type | Description | Notes
----------- | ---------- | ------------- | ----------- | -----
-[**Apple**](apple.md) | [**Apple**](apple.md) | [**Apple**](apple.md) |  |
-[**Banana**](banana.md) | [**Banana**](banana.md) | [**Banana**](banana.md) |  |
+Schema Class | Input Type | Accessed Type | Description | Notes
+------------ | ---------- | ------------- | ----------- | -----
+[**apple.Apple**](apple.md) | [**apple.Apple**](apple.md) | [**apple.Apple**](apple.md) |  |
+[**banana.Banana**](banana.md) | [**banana.Banana**](banana.md) | [**banana.Banana**](banana.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

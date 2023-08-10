@@ -11,9 +11,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf
-Class Name | Input Type | Accessed Type | Description | Notes
----------- | ---------- | ------------- | ----------- | -----
-[**ObjectWithOptionalTestProp**](object_with_optional_test_prop.md) | [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.md) | [**ObjectWithOptionalTestProp**](object_with_optional_test_prop.md) |  |
+Schema Class | Input Type | Accessed Type | Description | Notes
+------------ | ---------- | ------------- | ----------- | -----
+[**object_with_optional_test_prop.ObjectWithOptionalTestProp**](object_with_optional_test_prop.md) | [**object_with_optional_test_prop.ObjectWithOptionalTestProp**](object_with_optional_test_prop.md) | [**object_with_optional_test_prop.ObjectWithOptionalTestProp**](object_with_optional_test_prop.md) |  |
 [_1](#_1) | dict, schemas.immutabledict | schemas.immutabledict |  |
 
 # _1

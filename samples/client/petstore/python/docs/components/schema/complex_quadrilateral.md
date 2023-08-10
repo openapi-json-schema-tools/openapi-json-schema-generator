@@ -11,9 +11,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf
-Class Name | Input Type | Accessed Type | Description | Notes
----------- | ---------- | ------------- | ----------- | -----
-[**QuadrilateralInterface**](quadrilateral_interface.md) | [**QuadrilateralInterface**](quadrilateral_interface.md) | [**QuadrilateralInterface**](quadrilateral_interface.md) |  |
+Schema Class | Input Type | Accessed Type | Description | Notes
+------------ | ---------- | ------------- | ----------- | -----
+[**quadrilateral_interface.QuadrilateralInterface**](quadrilateral_interface.md) | [**quadrilateral_interface.QuadrilateralInterface**](quadrilateral_interface.md) | [**quadrilateral_interface.QuadrilateralInterface**](quadrilateral_interface.md) |  |
 [_1](#_1) | dict, schemas.immutabledict | schemas.immutabledict |  |
 
 # _1

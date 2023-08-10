@@ -11,8 +11,8 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## anyOf
-Class Name | Input Type | Accessed Type | Description | Notes
----------- | ---------- | ------------- | ----------- | -----
+Schema Class | Input Type | Accessed Type | Description | Notes
+------------ | ---------- | ------------- | ----------- | -----
 [_0](#_0) | dict, schemas.immutabledict | schemas.immutabledict |  |
 [_1](#_1) | str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 [_2](#_2) | str, datetime.datetime | str |  | value must conform to RFC-3339 date-time

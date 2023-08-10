@@ -61,10 +61,10 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf
-Class Name | Input Type | Accessed Type | Description | Notes
----------- | ---------- | ------------- | ----------- | -----
-[**JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.md) | [**JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.md) | [**JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.md) |  |
-[**JSONPatchRequestRemove**](json_patch_request_remove.md) | [**JSONPatchRequestRemove**](json_patch_request_remove.md) | [**JSONPatchRequestRemove**](json_patch_request_remove.md) |  |
-[**JSONPatchRequestMoveCopy**](json_patch_request_move_copy.md) | [**JSONPatchRequestMoveCopy**](json_patch_request_move_copy.md) | [**JSONPatchRequestMoveCopy**](json_patch_request_move_copy.md) |  |
+Schema Class | Input Type | Accessed Type | Description | Notes
+------------ | ---------- | ------------- | ----------- | -----
+[**json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.md) | [**json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.md) | [**json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest**](json_patch_request_add_replace_test.md) |  |
+[**json_patch_request_remove.JSONPatchRequestRemove**](json_patch_request_remove.md) | [**json_patch_request_remove.JSONPatchRequestRemove**](json_patch_request_remove.md) | [**json_patch_request_remove.JSONPatchRequestRemove**](json_patch_request_remove.md) |  |
+[**json_patch_request_move_copy.JSONPatchRequestMoveCopy**](json_patch_request_move_copy.md) | [**json_patch_request_move_copy.JSONPatchRequestMoveCopy**](json_patch_request_move_copy.md) | [**json_patch_request_move_copy.JSONPatchRequestMoveCopy**](json_patch_request_move_copy.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

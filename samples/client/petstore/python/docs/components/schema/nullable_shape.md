@@ -14,10 +14,10 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf
-Class Name | Input Type | Accessed Type | Description | Notes
----------- | ---------- | ------------- | ----------- | -----
-[**Triangle**](triangle.md) | [**Triangle**](triangle.md) | [**Triangle**](triangle.md) |  |
-[**Quadrilateral**](quadrilateral.md) | [**Quadrilateral**](quadrilateral.md) | [**Quadrilateral**](quadrilateral.md) |  |
+Schema Class | Input Type | Accessed Type | Description | Notes
+------------ | ---------- | ------------- | ----------- | -----
+[**triangle.Triangle**](triangle.md) | [**triangle.Triangle**](triangle.md) | [**triangle.Triangle**](triangle.md) |  |
+[**quadrilateral.Quadrilateral**](quadrilateral.md) | [**quadrilateral.Quadrilateral**](quadrilateral.md) | [**quadrilateral.Quadrilateral**](quadrilateral.md) |  |
 [_2](#_2) | None | None |  |
 
 # _2
