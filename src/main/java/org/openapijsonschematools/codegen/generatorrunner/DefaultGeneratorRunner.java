@@ -381,7 +381,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         schemaData.put("packageName", generator.packageName());
         schemaData.put("schema", schema);
         schemaData.putAll(generator.additionalProperties());
-        schemaData.put("complexTypePrefix", "");
         schemaData.put("docRoot", docRoot);
         schemaData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
         schemaData.put("headerSize", "#");
@@ -502,7 +501,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 endpointInfo.put("packageName", generator.packageName());
                 endpointInfo.put("apiPackage", generator.apiPackage());
                 endpointInfo.put("headerSize", "#");
-                endpointInfo.put("complexTypePrefix", "../../components/schema/");
                 endpointInfo.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
                 endpointInfo.put("docRoot", "../../../");
                 generateXDocs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointInfo, true);
@@ -702,7 +700,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
 
             Map<String, Object> templateData = new HashMap<>();
             templateData.put("packageName", generator.packageName());
-            templateData.put("complexTypePrefix", "../../components/schema/");
             templateData.put("docRoot", "../../");
             templateData.put("headerSize", "#");
             templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
@@ -757,7 +754,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             templateData.put("securityScheme", securityScheme);
             templateData.put("headerSize", "#");
             templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-            templateData.put("complexTypePrefix", "../../components/schema/");
             // TODO add a flag to turn this off
             generateXDocs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEME, CodegenConstants.SECURITY_SCHEME_DOCS, templateData, true);
         }
@@ -790,7 +786,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             templateData.put("requestBody", requestBody);
             templateData.put("headerSize", "#");
             templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-            templateData.put("complexTypePrefix", "../../components/schema/");
             templateData.put("docRoot", "../../");
             // todo add flag to turn this off
             generateXDocs(files, sourceJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODY, CodegenConstants.REQUEST_BODY_DOCS, templateData, true);
@@ -841,7 +836,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             templateData.put("parameter", parameter);
             templateData.put("headerSize", "#");
             templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-            templateData.put("complexTypePrefix", "../../components/schema/");
             templateData.put("docRoot", "../../");
             // todo add flag to turn this off
             generateXDocs(files, parameterJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETER, CodegenConstants.PARAMETER_DOCS, templateData, true);
@@ -953,7 +947,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             templateData.put("packageName", generator.packageName());
             templateData.put("header", header);
             templateData.put("headerSize", "#");
-            templateData.put("complexTypePrefix", "../../components/schema/");
             templateData.put("docRoot", "../../");
             templateData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
             // TODO add flag to turn this off
@@ -1025,7 +1018,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 schemaData.put("packageName", generator.packageName());
                 schemaData.put("schema", schema);
                 schemaData.putAll(generator.additionalProperties());
-                schemaData.put("complexTypePrefix", "");
                 if (generateModelTests) {
                     generateSchemaTests(files, schemaData, componentName);
                 }
