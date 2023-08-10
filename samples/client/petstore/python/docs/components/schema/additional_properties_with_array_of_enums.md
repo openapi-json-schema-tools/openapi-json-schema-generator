@@ -53,7 +53,7 @@ Input Type | Return Type | Notes
 ```
 type: typing.Union[
     typing.List[
-        typing_extensions.Literal[
+        typing.Literal[
             "_abc",
             "-efg",
             "(xyz)",
@@ -62,7 +62,7 @@ type: typing.Union[
         ],
     ],
     typing.Tuple[
-        typing_extensions.Literal[
+        typing.Literal[
             "_abc",
             "-efg",
             "(xyz)",
@@ -75,12 +75,12 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | typing_extensions.Literal["_abc", "-efg", "(xyz)", "COUNT_1M", "COUNT_50M"] |  |
+≥ 0 | typing.Literal["_abc", "-efg", "(xyz)", "COUNT_1M", "COUNT_50M"] |  |
 
 ## AdditionalPropertiesTuple
 ```
 base class: typing.Tuple[
-    typing_extensions.Literal["_abc", "-efg", "(xyz)", "COUNT_1M", "COUNT_50M"],
+    typing.Literal["_abc", "-efg", "(xyz)", "COUNT_1M", "COUNT_50M"],
     ...
 ]
 ```
@@ -93,6 +93,6 @@ configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing_extensions.Literal["_abc", "-efg", "(xyz)", "COUNT_1M", "COUNT_50M"] | This method is used under the hood when instance[0] is called
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing.Literal["_abc", "-efg", "(xyz)", "COUNT_1M", "COUNT_50M"] | This method is used under the hood when instance[0] is called
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

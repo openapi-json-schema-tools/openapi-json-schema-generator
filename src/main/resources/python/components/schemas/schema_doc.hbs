@@ -41,7 +41,7 @@ Input Type | Return Type | Notes
     {{#if additionalProperties}}
         {{#if additionalProperties.isBooleanSchemaFalse}}
             {{#or requiredProperties optionalProperties}}
-type: typing_extensions.TypedDict
+type: typing.TypedDict
             {{else}}
 type: typing.Mapping (empty)
             {{/or}}

@@ -13,14 +13,14 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 LengthCm: typing_extensions.TypeAlias = schemas.NumberSchema
 Sweet: typing_extensions.TypeAlias = schemas.BoolSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "lengthCm": typing.Type[LengthCm],
         "sweet": typing.Type[Sweet],
     }
 )
-BananaReqRequiredDictInput = typing_extensions.TypedDict(
+BananaReqRequiredDictInput = typing.TypedDict(
     'BananaReqRequiredDictInput',
     {
         "lengthCm": typing.Union[
@@ -29,7 +29,7 @@ BananaReqRequiredDictInput = typing_extensions.TypedDict(
         ],
     }
 )
-BananaReqOptionalDictInput = typing_extensions.TypedDict(
+BananaReqOptionalDictInput = typing.TypedDict(
     'BananaReqOptionalDictInput',
     {
         "sweet": bool,

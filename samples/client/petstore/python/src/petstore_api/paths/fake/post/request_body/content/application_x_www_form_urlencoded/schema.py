@@ -123,7 +123,7 @@ class Password(
     max_length: int = 64
     min_length: int = 10
 Callback: typing_extensions.TypeAlias = schemas.StrSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "integer": typing.Type[Integer],

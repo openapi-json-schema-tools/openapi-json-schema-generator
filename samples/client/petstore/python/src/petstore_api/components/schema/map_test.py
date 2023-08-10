@@ -162,11 +162,11 @@ class MapMapOfString(
 class AdditionalPropertiesEnums:
 
     @schemas.classproperty
-    def UPPER(cls) -> typing_extensions.Literal["UPPER"]:
+    def UPPER(cls) -> typing.Literal["UPPER"]:
         return AdditionalProperties3.validate("UPPER")
 
     @schemas.classproperty
-    def LOWER(cls) -> typing_extensions.Literal["lower"]:
+    def LOWER(cls) -> typing.Literal["lower"]:
         return AdditionalProperties3.validate("lower")
 
 
@@ -189,29 +189,29 @@ class AdditionalProperties3(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["UPPER"],
+        arg: typing.Literal["UPPER"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["UPPER"]: ...
+    ) -> typing.Literal["UPPER"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["lower"],
+        arg: typing.Literal["lower"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["lower"]: ...
+    ) -> typing.Literal["lower"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["UPPER","lower",]: ...
+    ) -> typing.Literal["UPPER","lower",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "UPPER",
         "lower",
     ]:
@@ -219,7 +219,7 @@ class AdditionalProperties3(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "UPPER",
                 "lower",
             ],
@@ -236,7 +236,7 @@ class MapOfEnumStringDict(schemas.immutabledict[str, str]):
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing_extensions.Literal[
+        **kwargs: typing.Literal[
             "UPPER",
             "lower"
         ],
@@ -254,18 +254,18 @@ class MapOfEnumStringDict(schemas.immutabledict[str, str]):
     ) -> MapOfEnumStringDict:
         return MapOfEnumString.validate(arg, configuration=configuration)
     
-    def get_additional_property_(self, name: str) -> typing.Union[typing_extensions.Literal["UPPER", "lower"], schemas.Unset]:
+    def get_additional_property_(self, name: str) -> typing.Union[typing.Literal["UPPER", "lower"], schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         val = self.get(name, schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
-            typing_extensions.Literal["UPPER", "lower"],
+            typing.Literal["UPPER", "lower"],
             val
         )
 MapOfEnumStringDictInput = typing.Mapping[
     str,
-    typing_extensions.Literal[
+    typing.Literal[
         "UPPER",
         "lower"
     ],
@@ -374,7 +374,7 @@ class DirectMap(
 
 
 from petstore_api.components.schema import string_boolean_map
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "map_map_of_string": typing.Type[MapMapOfString],

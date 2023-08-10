@@ -71,7 +71,7 @@ class Shapes(
             arg,
             configuration=configuration,
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "mainShape": typing.Type[shape.Shape],

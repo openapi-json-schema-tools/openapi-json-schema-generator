@@ -55,7 +55,7 @@ from petstore_api.apis.paths.user_login import UserLogin
 from petstore_api.apis.paths.user_logout import UserLogout
 from petstore_api.apis.paths.user_username import UserUsername
 
-PathToApi = typing_extensions.TypedDict(
+PathToApi = typing.TypedDict(
     'PathToApi',
     {
     "/": typing.Type[Solidus],

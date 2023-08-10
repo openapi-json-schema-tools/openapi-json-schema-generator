@@ -282,7 +282,7 @@ class ArrayArrayOfModel(
             arg,
             configuration=configuration,
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "array_of_string": typing.Type[ArrayOfString],

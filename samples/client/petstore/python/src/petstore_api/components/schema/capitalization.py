@@ -16,7 +16,7 @@ SmallSnake: typing_extensions.TypeAlias = schemas.StrSchema
 CapitalSnake: typing_extensions.TypeAlias = schemas.StrSchema
 SCAETHFlowPoints: typing_extensions.TypeAlias = schemas.StrSchema
 ATTNAME: typing_extensions.TypeAlias = schemas.StrSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "smallCamel": typing.Type[SmallCamel],

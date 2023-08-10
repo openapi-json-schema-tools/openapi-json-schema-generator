@@ -17,7 +17,7 @@ Path: typing_extensions.TypeAlias = schemas.StrSchema
 class OpEnums:
 
     @schemas.classproperty
-    def REMOVE(cls) -> typing_extensions.Literal["remove"]:
+    def REMOVE(cls) -> typing.Literal["remove"]:
         return Op.validate("remove")
 
 
@@ -39,34 +39,34 @@ class Op(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["remove"],
+        arg: typing.Literal["remove"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["remove"]: ...
+    ) -> typing.Literal["remove"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["remove",]: ...
+    ) -> typing.Literal["remove",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "remove",
     ]:
         validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "remove",
             ],
             validated_arg
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "path": typing.Type[Path],
@@ -87,7 +87,7 @@ class JSONPatchRequestRemoveDict(schemas.immutabledict[str, str]):
     def __new__(
         cls,
         *,
-        op: typing_extensions.Literal[
+        op: typing.Literal[
             "remove"
         ],
         path: str,
@@ -111,9 +111,9 @@ class JSONPatchRequestRemoveDict(schemas.immutabledict[str, str]):
         return JSONPatchRequestRemove.validate(arg, configuration=configuration)
     
     @property
-    def op(self) -> typing_extensions.Literal["remove"]:
+    def op(self) -> typing.Literal["remove"]:
         return typing.cast(
-            typing_extensions.Literal["remove"],
+            typing.Literal["remove"],
             self.__getitem__("op")
         )
     
@@ -123,10 +123,10 @@ class JSONPatchRequestRemoveDict(schemas.immutabledict[str, str]):
             str,
             self.__getitem__("path")
         )
-JSONPatchRequestRemoveDictInput = typing_extensions.TypedDict(
+JSONPatchRequestRemoveDictInput = typing.TypedDict(
     'JSONPatchRequestRemoveDictInput',
     {
-        "op": typing_extensions.Literal[
+        "op": typing.Literal[
             "remove"
         ],
         "path": str,

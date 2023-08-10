@@ -18,7 +18,7 @@ from .responses import (
 )
 
 
-__StatusCodeToResponse = typing_extensions.TypedDict(
+__StatusCodeToResponse = typing.TypedDict(
     '__StatusCodeToResponse',
     {
         '200': typing.Type[response_200.ResponseFor200],
@@ -27,7 +27,7 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
 _status_code_to_response: __StatusCodeToResponse = {
     '200': response_200.ResponseFor200,
 }
-__RangedStatusCodeToResponse = typing_extensions.TypedDict(
+__RangedStatusCodeToResponse = typing.TypedDict(
     '__RangedStatusCodeToResponse',
     {
         '1': typing.Type[response_1xx.ResponseFor1XX],
@@ -67,7 +67,7 @@ class BaseApi(api_client.Api):
     def _wild_card_responses(
         self,
         *,
-        skip_deserialization: typing_extensions.Literal[False] = False,
+        skip_deserialization: typing.Literal[False] = False,
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -82,7 +82,7 @@ class BaseApi(api_client.Api):
     def _wild_card_responses(
         self,
         *,
-        skip_deserialization: typing_extensions.Literal[True],
+        skip_deserialization: typing.Literal[True],
         accept_content_types: typing.Tuple[str, ...] = _all_accept_content_types,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -128,7 +128,7 @@ class BaseApi(api_client.Api):
         status = str(raw_response.status)
         if status in _non_error_status_codes:
             status_code = typing.cast(
-                typing_extensions.Literal[
+                typing.Literal[
                     '200',
                 ],
                 status
@@ -139,7 +139,7 @@ class BaseApi(api_client.Api):
         ranged_response_status_code = str(raw_response.status)[0]
         if ranged_response_status_code in _non_error_ranged_status_codes:
             ranged_status_code = typing.cast(
-                typing_extensions.Literal[
+                typing.Literal[
                     '1',
                     '2',
                     '3',
@@ -150,7 +150,7 @@ class BaseApi(api_client.Api):
                 raw_response, self.api_client.schema_configuration)
         elif ranged_response_status_code in _error_ranged_status_codes:
             error_ranged_status_code = typing.cast(
-                typing_extensions.Literal[
+                typing.Literal[
                     '4',
                     '5',
                 ],

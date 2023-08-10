@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
 from petstore_api.components.schema import foo
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "mapBean": typing.Type[foo.Foo],
@@ -68,7 +68,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             foo.FooDict,
             val
         )
-QueryParametersDictInput = typing_extensions.TypedDict(
+QueryParametersDictInput = typing.TypedDict(
     'QueryParametersDictInput',
     {
         "mapBean": typing.Union[

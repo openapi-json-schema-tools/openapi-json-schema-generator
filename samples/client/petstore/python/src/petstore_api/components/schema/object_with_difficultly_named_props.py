@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 SpecialPropertyName: typing_extensions.TypeAlias = schemas.Int64Schema
 _123List: typing_extensions.TypeAlias = schemas.StrSchema
 _123Number: typing_extensions.TypeAlias = schemas.IntSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "$special[property.name]": typing.Type[SpecialPropertyName],

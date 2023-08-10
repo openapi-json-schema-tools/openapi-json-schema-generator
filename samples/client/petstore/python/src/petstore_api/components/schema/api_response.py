@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 Code: typing_extensions.TypeAlias = schemas.Int32Schema
 Type: typing_extensions.TypeAlias = schemas.StrSchema
 Message: typing_extensions.TypeAlias = schemas.StrSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "code": typing.Type[Code],

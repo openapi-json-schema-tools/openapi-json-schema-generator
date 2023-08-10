@@ -123,7 +123,7 @@ class ArrayArrayNumber(
             arg,
             configuration=configuration,
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "ArrayArrayNumber": typing.Type[ArrayArrayNumber],

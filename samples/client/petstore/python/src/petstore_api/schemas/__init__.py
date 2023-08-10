@@ -63,7 +63,7 @@ def typed_dict_to_instance(t_dict: typing_extensions._TypedDictMeta) -> typing.M
     for key, val in t_dict.__annotations__.items():
         if isinstance(val, typing._GenericAlias): # type: ignore
             # typing.Type[W] -> W
-            val_cls = typing_extensions.get_args(val)[0]
+            val_cls = typing.get_args(val)[0]
             res[key] = val_cls
     return res
 
@@ -71,10 +71,10 @@ X = typing.TypeVar('X', bound=typing.Tuple)
 
 def tuple_to_instance(tup: typing.Type[X]) -> X:
     res = []
-    for arg in typing_extensions.get_args(tup):
+    for arg in typing.get_args(tup):
         if isinstance(arg, typing._GenericAlias): # type: ignore
             # typing.Type[Schema] -> Schema
-            arg_cls = typing_extensions.get_args(arg)[0]
+            arg_cls = typing.get_args(arg)[0]
             res.append(arg_cls)
     return tuple(res) # type: ignore
 

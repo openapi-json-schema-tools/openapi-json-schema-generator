@@ -27,7 +27,7 @@ _security: typing.List[security_schemes.SecurityRequirementObject] = [
 ]
 
 
-__StatusCodeToResponse = typing_extensions.TypedDict(
+__StatusCodeToResponse = typing.TypedDict(
     '__StatusCodeToResponse',
     {
         '200': typing.Type[response_200.ResponseFor200],
@@ -55,8 +55,8 @@ class BaseApi(api_client.Api):
             pet.PetDict,
         ],
         *,
-        skip_deserialization: typing_extensions.Literal[False] = False,
-        content_type: typing_extensions.Literal["application/json"] = "application/json",
+        skip_deserialization: typing.Literal[False] = False,
+        content_type: typing.Literal["application/json"] = "application/json",
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -71,8 +71,8 @@ class BaseApi(api_client.Api):
             pet.PetDict,
         ],
         *,
-        skip_deserialization: typing_extensions.Literal[True],
-        content_type: typing_extensions.Literal["application/json"] = "application/json",
+        skip_deserialization: typing.Literal[True],
+        content_type: typing.Literal["application/json"] = "application/json",
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -87,8 +87,8 @@ class BaseApi(api_client.Api):
             pet.PetDict,
         ],
         *,
-        skip_deserialization: typing_extensions.Literal[False] = False,
-        content_type: typing_extensions.Literal["application/xml"],
+        skip_deserialization: typing.Literal[False] = False,
+        content_type: typing.Literal["application/xml"],
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -103,8 +103,8 @@ class BaseApi(api_client.Api):
             pet.PetDict,
         ],
         *,
-        skip_deserialization: typing_extensions.Literal[True],
-        content_type: typing_extensions.Literal["application/xml"],
+        skip_deserialization: typing.Literal[True],
+        content_type: typing.Literal["application/xml"],
         security_index: typing.Optional[int] = None,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
@@ -125,7 +125,7 @@ class BaseApi(api_client.Api):
         ],
         *,
         skip_deserialization: bool = False,
-        content_type: typing_extensions.Literal[
+        content_type: typing.Literal[
             "application/json",
             "application/xml",
         ] = "application/json",
@@ -179,7 +179,7 @@ class BaseApi(api_client.Api):
         status = str(raw_response.status)
         if status in _non_error_status_codes:
             status_code = typing.cast(
-                typing_extensions.Literal[
+                typing.Literal[
                     '200',
                 ],
                 status
@@ -188,7 +188,7 @@ class BaseApi(api_client.Api):
                 raw_response, self.api_client.schema_configuration)
         elif status in _error_status_codes:
             error_status_code = typing.cast(
-                typing_extensions.Literal[
+                typing.Literal[
                     '405',
                 ],
                 status

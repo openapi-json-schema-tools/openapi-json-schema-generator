@@ -15,7 +15,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class ShapeTypeEnums:
 
     @schemas.classproperty
-    def QUADRILATERAL(cls) -> typing_extensions.Literal["Quadrilateral"]:
+    def QUADRILATERAL(cls) -> typing.Literal["Quadrilateral"]:
         return ShapeType.validate("Quadrilateral")
 
 
@@ -37,35 +37,35 @@ class ShapeType(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["Quadrilateral"],
+        arg: typing.Literal["Quadrilateral"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["Quadrilateral"]: ...
+    ) -> typing.Literal["Quadrilateral"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["Quadrilateral",]: ...
+    ) -> typing.Literal["Quadrilateral",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "Quadrilateral",
     ]:
         validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "Quadrilateral",
             ],
             validated_arg
         )
 QuadrilateralType: typing_extensions.TypeAlias = schemas.StrSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "shapeType": typing.Type[ShapeType],
@@ -87,7 +87,7 @@ class QuadrilateralInterfaceDict(schemas.immutabledict[str, str]):
         cls,
         *,
         quadrilateralType: str,
-        shapeType: typing_extensions.Literal[
+        shapeType: typing.Literal[
             "Quadrilateral"
         ],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
@@ -119,9 +119,9 @@ class QuadrilateralInterfaceDict(schemas.immutabledict[str, str]):
         )
     
     @property
-    def shapeType(self) -> typing_extensions.Literal["Quadrilateral"]:
+    def shapeType(self) -> typing.Literal["Quadrilateral"]:
         return typing.cast(
-            typing_extensions.Literal["Quadrilateral"],
+            typing.Literal["Quadrilateral"],
             self.__getitem__("shapeType")
         )
     

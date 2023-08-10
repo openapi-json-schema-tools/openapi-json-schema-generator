@@ -11,11 +11,11 @@ Input Type | Return Type | Notes
 
 ## JSONPatchRequestRemoveDictInput
 ```
-type: typing_extensions.TypedDict
+type: typing.TypedDict
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**op** | typing_extensions.Literal["remove"] | The operation to perform. | must be one of ["remove"]
+**op** | typing.Literal["remove"] | The operation to perform. | must be one of ["remove"]
 **path** | str | A JSON Pointer path. |
 
 ## JSONPatchRequestRemoveDict
@@ -26,13 +26,13 @@ base class: schemas.immutabledict[str, str]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**op** | typing_extensions.Literal["remove"] | The operation to perform. | must be one of ["remove"]
+**op** | typing.Literal["remove"] | The operation to perform. | must be one of ["remove"]
 **path** | str | A JSON Pointer path. |
 
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**op** | typing_extensions.Literal["remove"] | The operation to perform. | must be one of ["remove"]
+**op** | typing.Literal["remove"] | The operation to perform. | must be one of ["remove"]
 **path** | str | A JSON Pointer path. |
 
 ### methods

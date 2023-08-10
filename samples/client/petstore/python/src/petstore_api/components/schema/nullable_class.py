@@ -926,7 +926,7 @@ class ObjectItemsNullable(
             configuration=configuration,
         )
 
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "integer_prop": typing.Type[IntegerProp],

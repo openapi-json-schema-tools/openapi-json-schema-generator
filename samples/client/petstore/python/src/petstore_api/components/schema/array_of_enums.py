@@ -18,7 +18,7 @@ class ArrayOfEnumsTuple(
     typing.Tuple[
         typing.Union[
             None,
-            typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
+            typing.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
         ],
         ...
     ]
@@ -30,7 +30,7 @@ ArrayOfEnumsTupleInput = typing.Union[
     typing.List[
         typing.Union[
             None,
-            typing_extensions.Literal[
+            typing.Literal[
                 "placed",
                 "approved",
                 "delivered",
@@ -43,7 +43,7 @@ ArrayOfEnumsTupleInput = typing.Union[
     typing.Tuple[
         typing.Union[
             None,
-            typing_extensions.Literal[
+            typing.Literal[
                 "placed",
                 "approved",
                 "delivered",

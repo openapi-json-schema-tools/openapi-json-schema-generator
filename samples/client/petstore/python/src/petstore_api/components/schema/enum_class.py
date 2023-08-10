@@ -15,23 +15,23 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class EnumClassEnums:
 
     @schemas.classproperty
-    def _ABC(cls) -> typing_extensions.Literal["_abc"]:
+    def _ABC(cls) -> typing.Literal["_abc"]:
         return EnumClass.validate("_abc")
 
     @schemas.classproperty
-    def HYPHEN_MINUS_EFG(cls) -> typing_extensions.Literal["-efg"]:
+    def HYPHEN_MINUS_EFG(cls) -> typing.Literal["-efg"]:
         return EnumClass.validate("-efg")
 
     @schemas.classproperty
-    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls) -> typing_extensions.Literal["(xyz)"]:
+    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls) -> typing.Literal["(xyz)"]:
         return EnumClass.validate("(xyz)")
 
     @schemas.classproperty
-    def COUNT_1M(cls) -> typing_extensions.Literal["COUNT_1M"]:
+    def COUNT_1M(cls) -> typing.Literal["COUNT_1M"]:
         return EnumClass.validate("COUNT_1M")
 
     @schemas.classproperty
-    def COUNT_50M(cls) -> typing_extensions.Literal["COUNT_50M"]:
+    def COUNT_50M(cls) -> typing.Literal["COUNT_50M"]:
         return EnumClass.validate("COUNT_50M")
 
 
@@ -47,7 +47,7 @@ class EnumClass(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: typing_extensions.Literal["-efg"] = "-efg"
+    default: typing.Literal["-efg"] = "-efg"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "_abc": "_ABC",
@@ -63,50 +63,50 @@ class EnumClass(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["_abc"],
+        arg: typing.Literal["_abc"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["_abc"]: ...
+    ) -> typing.Literal["_abc"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["-efg"],
+        arg: typing.Literal["-efg"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["-efg"]: ...
+    ) -> typing.Literal["-efg"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["(xyz)"],
+        arg: typing.Literal["(xyz)"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["(xyz)"]: ...
+    ) -> typing.Literal["(xyz)"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["COUNT_1M"],
+        arg: typing.Literal["COUNT_1M"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["COUNT_1M"]: ...
+    ) -> typing.Literal["COUNT_1M"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["COUNT_50M"],
+        arg: typing.Literal["COUNT_50M"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["COUNT_50M"]: ...
+    ) -> typing.Literal["COUNT_50M"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["_abc","-efg","(xyz)","COUNT_1M","COUNT_50M",]: ...
+    ) -> typing.Literal["_abc","-efg","(xyz)","COUNT_1M","COUNT_50M",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "_abc",
         "-efg",
         "(xyz)",
@@ -117,7 +117,7 @@ class EnumClass(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "_abc",
                 "-efg",
                 "(xyz)",

@@ -16,7 +16,7 @@ from petstore_api.paths.fake.delete.parameters.parameter_0 import schema
 from petstore_api.paths.fake.delete.parameters.parameter_2 import schema as schema_4
 from petstore_api.paths.fake.delete.parameters.parameter_3 import schema as schema_3
 from petstore_api.paths.fake.delete.parameters.parameter_5 import schema as schema_2
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "required_string_group": typing.Type[schema.Schema],
@@ -25,14 +25,14 @@ Properties = typing_extensions.TypedDict(
         "required_int64_group": typing.Type[schema_4.Schema],
     }
 )
-QueryParametersRequiredDictInput = typing_extensions.TypedDict(
+QueryParametersRequiredDictInput = typing.TypedDict(
     'QueryParametersRequiredDictInput',
     {
         "required_int64_group": int,
         "required_string_group": str,
     }
 )
-QueryParametersOptionalDictInput = typing_extensions.TypedDict(
+QueryParametersOptionalDictInput = typing.TypedDict(
     'QueryParametersOptionalDictInput',
     {
         "int64_group": int,

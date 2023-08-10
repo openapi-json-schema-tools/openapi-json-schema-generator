@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
 from petstore_api.paths.fake_query_param_with_json_content_type.get.parameters.parameter_0.content.application_json import schema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "someParam": typing.Type[schema.Schema],
@@ -60,7 +60,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             schemas.OUTPUT_BASE_TYPES,
             self.__getitem__("someParam")
         )
-QueryParametersDictInput = typing_extensions.TypedDict(
+QueryParametersDictInput = typing.TypedDict(
     'QueryParametersDictInput',
     {
         "someParam": typing.Union[

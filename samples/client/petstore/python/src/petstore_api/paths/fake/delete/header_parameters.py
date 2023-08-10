@@ -14,26 +14,26 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
 from petstore_api.paths.fake.delete.parameters.parameter_1 import schema
 from petstore_api.paths.fake.delete.parameters.parameter_4 import schema as schema_2
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "required_boolean_group": typing.Type[schema.Schema],
         "boolean_group": typing.Type[schema_2.Schema],
     }
 )
-HeaderParametersRequiredDictInput = typing_extensions.TypedDict(
+HeaderParametersRequiredDictInput = typing.TypedDict(
     'HeaderParametersRequiredDictInput',
     {
-        "required_boolean_group": typing_extensions.Literal[
+        "required_boolean_group": typing.Literal[
             "true",
             "false"
         ],
     }
 )
-HeaderParametersOptionalDictInput = typing_extensions.TypedDict(
+HeaderParametersOptionalDictInput = typing.TypedDict(
     'HeaderParametersOptionalDictInput',
     {
-        "boolean_group": typing_extensions.Literal[
+        "boolean_group": typing.Literal[
             "true",
             "false"
         ],
@@ -53,12 +53,12 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     def __new__(
         cls,
         *,
-        required_boolean_group: typing_extensions.Literal[
+        required_boolean_group: typing.Literal[
             "true",
             "false"
         ],
         boolean_group: typing.Union[
-            typing_extensions.Literal[
+            typing.Literal[
                 "true",
                 "false"
             ],
@@ -89,19 +89,19 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         return HeaderParameters.validate(arg, configuration=configuration)
     
     @property
-    def required_boolean_group(self) -> typing_extensions.Literal["true", "false"]:
+    def required_boolean_group(self) -> typing.Literal["true", "false"]:
         return typing.cast(
-            typing_extensions.Literal["true", "false"],
+            typing.Literal["true", "false"],
             self.__getitem__("required_boolean_group")
         )
     
     @property
-    def boolean_group(self) -> typing.Union[typing_extensions.Literal["true", "false"], schemas.Unset]:
+    def boolean_group(self) -> typing.Union[typing.Literal["true", "false"], schemas.Unset]:
         val = self.get("boolean_group", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
-            typing_extensions.Literal["true", "false"],
+            typing.Literal["true", "false"],
             val
         )
 

@@ -91,7 +91,7 @@ class _Float(
     # any type
     format: str = 'float'
 
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "uuid": typing.Type[Uuid],

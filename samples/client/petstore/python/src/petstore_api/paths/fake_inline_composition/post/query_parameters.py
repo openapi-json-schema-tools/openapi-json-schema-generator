@@ -14,7 +14,7 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
 from petstore_api.paths.fake_inline_composition.post.parameters.parameter_0 import schema
 from petstore_api.paths.fake_inline_composition.post.parameters.parameter_1 import schema as schema_2
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "compositionAtRoot": typing.Type[schema.Schema],
@@ -86,7 +86,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             schema_2.SchemaDict,
             val
         )
-QueryParametersDictInput = typing_extensions.TypedDict(
+QueryParametersDictInput = typing.TypedDict(
     'QueryParametersDictInput',
     {
         "compositionAtRoot": typing.Union[

@@ -16,7 +16,7 @@ type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **quadrilateralType** | str |  |
-**shapeType** | typing_extensions.Literal["Quadrilateral"] |  | must be one of ["Quadrilateral"]
+**shapeType** | typing.Literal["Quadrilateral"] |  | must be one of ["Quadrilateral"]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## QuadrilateralInterfaceDict
@@ -28,14 +28,14 @@ base class: schemas.immutabledict[str, str]
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **quadrilateralType** | str |  |
-**shapeType** | typing_extensions.Literal["Quadrilateral"] |  | must be one of ["Quadrilateral"]
+**shapeType** | typing.Literal["Quadrilateral"] |  | must be one of ["Quadrilateral"]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **quadrilateralType** | str |  |
-**shapeType** | typing_extensions.Literal["Quadrilateral"] |  | must be one of ["Quadrilateral"]
+**shapeType** | typing.Literal["Quadrilateral"] |  | must be one of ["Quadrilateral"]
 
 ### methods
 Method | Input Type | Return Type | Notes

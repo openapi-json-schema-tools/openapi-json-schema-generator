@@ -6,7 +6,7 @@ class {{enumInfo.jsonPathPiece.camelCase}}:
 
     @schemas.classproperty
         {{#eq @key.type "string"}}
-    def {{this}}(cls) -> typing_extensions.Literal["{{{@key.value}}}"]:
+    def {{this}}(cls) -> typing.Literal["{{{@key.value}}}"]:
         return {{jsonPathPiece.camelCase}}.validate("{{{@key.value}}}")
         {{/eq}}
         {{#eq @key.type "number"}}
@@ -14,20 +14,20 @@ class {{enumInfo.jsonPathPiece.camelCase}}:
         return {{jsonPathPiece.camelCase}}.validate({{{@key.value}}})
         {{/eq}}
         {{#eq @key.type "integer"}}
-    def {{this}}(cls) -> typing_extensions.Literal[{{{@key.value}}}]:
+    def {{this}}(cls) -> typing.Literal[{{{@key.value}}}]:
         return {{jsonPathPiece.camelCase}}.validate({{{@key.value}}})
         {{/eq}}
         {{#eq @key.type "boolean"}}
             {{#if @key.value}}
-    def {{this}}(cls) -> typing_extensions.Literal[True]:
+    def {{this}}(cls) -> typing.Literal[True]:
         return {{jsonPathPiece.camelCase}}.validate(True)
             {{else}}
-    def {{this}}(cls) -> typing_extensions.Literal[False]:
+    def {{this}}(cls) -> typing.Literal[False]:
         return {{jsonPathPiece.camelCase}}.validate(False)
             {{/if}}
         {{/eq}}
         {{#eq @key.type "null"}}
-    def {{this}}(cls) -> typing_extensions.Literal[None]:
+    def {{this}}(cls) -> typing.Literal[None]:
         return {{jsonPathPiece.camelCase}}.validate(None)
         {{/eq}}
     {{/each}}

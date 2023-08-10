@@ -68,15 +68,15 @@ class PhotoUrls(
 class StatusEnums:
 
     @schemas.classproperty
-    def AVAILABLE(cls) -> typing_extensions.Literal["available"]:
+    def AVAILABLE(cls) -> typing.Literal["available"]:
         return Status.validate("available")
 
     @schemas.classproperty
-    def PENDING(cls) -> typing_extensions.Literal["pending"]:
+    def PENDING(cls) -> typing.Literal["pending"]:
         return Status.validate("pending")
 
     @schemas.classproperty
-    def SOLD(cls) -> typing_extensions.Literal["sold"]:
+    def SOLD(cls) -> typing.Literal["sold"]:
         return Status.validate("sold")
 
 
@@ -100,36 +100,36 @@ class Status(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["available"],
+        arg: typing.Literal["available"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["available"]: ...
+    ) -> typing.Literal["available"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["pending"],
+        arg: typing.Literal["pending"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["pending"]: ...
+    ) -> typing.Literal["pending"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["sold"],
+        arg: typing.Literal["sold"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["sold"]: ...
+    ) -> typing.Literal["sold"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["available","pending","sold",]: ...
+    ) -> typing.Literal["available","pending","sold",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "available",
         "pending",
         "sold",
@@ -138,7 +138,7 @@ class Status(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "available",
                 "pending",
                 "sold",
@@ -204,7 +204,7 @@ class Tags(
             arg,
             configuration=configuration,
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "id": typing.Type[Id],
@@ -253,7 +253,7 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             schemas.Unset
         ] = schemas.unset,
         status: typing.Union[
-            typing_extensions.Literal[
+            typing.Literal[
                 "available",
                 "pending",
                 "sold"
@@ -335,12 +335,12 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def status(self) -> typing.Union[typing_extensions.Literal["available", "pending", "sold"], schemas.Unset]:
+    def status(self) -> typing.Union[typing.Literal["available", "pending", "sold"], schemas.Unset]:
         val = self.get("status", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
-            typing_extensions.Literal["available", "pending", "sold"],
+            typing.Literal["available", "pending", "sold"],
             val
         )
     

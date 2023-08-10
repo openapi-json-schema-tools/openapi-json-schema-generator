@@ -13,20 +13,20 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 Cultivar: typing_extensions.TypeAlias = schemas.StrSchema
 Mealy: typing_extensions.TypeAlias = schemas.BoolSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "cultivar": typing.Type[Cultivar],
         "mealy": typing.Type[Mealy],
     }
 )
-AppleReqRequiredDictInput = typing_extensions.TypedDict(
+AppleReqRequiredDictInput = typing.TypedDict(
     'AppleReqRequiredDictInput',
     {
         "cultivar": str,
     }
 )
-AppleReqOptionalDictInput = typing_extensions.TypedDict(
+AppleReqOptionalDictInput = typing.TypedDict(
     'AppleReqOptionalDictInput',
     {
         "mealy": bool,

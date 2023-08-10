@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 from petstore_api.components.schema import array_with_validations_in_items
 from petstore_api.components.schema import from_schema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "from": typing.Type[from_schema.FromSchema],

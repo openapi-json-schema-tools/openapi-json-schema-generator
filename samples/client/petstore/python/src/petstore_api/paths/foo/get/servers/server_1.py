@@ -12,11 +12,11 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 class VersionEnums:
 
     @schemas.classproperty
-    def V1(cls) -> typing_extensions.Literal["v1"]:
+    def V1(cls) -> typing.Literal["v1"]:
         return Version.validate("v1")
 
     @schemas.classproperty
-    def V2(cls) -> typing_extensions.Literal["v2"]:
+    def V2(cls) -> typing.Literal["v2"]:
         return Version.validate("v2")
 
 
@@ -27,7 +27,7 @@ class Version(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: typing_extensions.Literal["v1"] = "v1"
+    default: typing.Literal["v1"] = "v1"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "v1": "V1",
@@ -40,29 +40,29 @@ class Version(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["v1"],
+        arg: typing.Literal["v1"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["v1"]: ...
+    ) -> typing.Literal["v1"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["v2"],
+        arg: typing.Literal["v2"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["v2"]: ...
+    ) -> typing.Literal["v2"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["v1","v2",]: ...
+    ) -> typing.Literal["v1","v2",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "v1",
         "v2",
     ]:
@@ -70,13 +70,13 @@ class Version(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "v1",
                 "v2",
             ],
             validated_arg
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "version": typing.Type[Version],
@@ -95,7 +95,7 @@ class VariablesDict(schemas.immutabledict[str, str]):
     def __new__(
         cls,
         *,
-        version: typing_extensions.Literal[
+        version: typing.Literal[
             "v1",
             "v2"
         ],
@@ -118,15 +118,15 @@ class VariablesDict(schemas.immutabledict[str, str]):
         return Variables.validate(arg, configuration=configuration)
     
     @property
-    def version(self) -> typing_extensions.Literal["v1", "v2"]:
+    def version(self) -> typing.Literal["v1", "v2"]:
         return typing.cast(
-            typing_extensions.Literal["v1", "v2"],
+            typing.Literal["v1", "v2"],
             self.__getitem__("version")
         )
-VariablesDictInput = typing_extensions.TypedDict(
+VariablesDictInput = typing.TypedDict(
     'VariablesDictInput',
     {
-        "version": typing_extensions.Literal[
+        "version": typing.Literal[
             "v1",
             "v2"
         ],

@@ -150,7 +150,7 @@ def _get_class(
 ) -> typing.Type[SchemaValidator]:
     if isinstance(item_cls, typing._GenericAlias): # type: ignore
         # petstore_api.schemas.StrSchema[~U] -> petstore_api.schemas.StrSchema
-        origin_cls = typing_extensions.get_origin(item_cls)
+        origin_cls = typing.get_origin(item_cls)
         if origin_cls is None:
             raise ValueError('origin class must not be None')
         return origin_cls

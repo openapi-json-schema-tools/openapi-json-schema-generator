@@ -20,8 +20,8 @@ class Color(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: typing_extensions.Literal["red"] = "red"
-Properties = typing_extensions.TypedDict(
+    default: typing.Literal["red"] = "red"
+Properties = typing.TypedDict(
     'Properties',
     {
         "className": typing.Type[ClassName],

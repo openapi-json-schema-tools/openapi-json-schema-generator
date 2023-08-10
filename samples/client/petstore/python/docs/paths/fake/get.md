@@ -61,7 +61,7 @@ type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **enum_form_string_array** | [EnumFormStringArrayTupleInput](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytupleinput), [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytuple) | Form parameter enum test (string array) | [optional]
-**enum_form_string** | typing_extensions.Literal["_abc", "-efg", "(xyz)"] | Form parameter enum test (string) | [optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
+**enum_form_string** | typing.Literal["_abc", "-efg", "(xyz)"] | Form parameter enum test (string) | [optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ##### RequestBody content ApplicationXWwwFormUrlencoded Schema SchemaDict
@@ -73,14 +73,14 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **enum_form_string_array** | [EnumFormStringArrayTupleInput](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytupleinput), [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytuple), schemas.Unset | Form parameter enum test (string array) | [optional]
-**enum_form_string** | typing_extensions.Literal["_abc", "-efg", "(xyz)"], schemas.Unset | Form parameter enum test (string) | [optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
+**enum_form_string** | typing.Literal["_abc", "-efg", "(xyz)"], schemas.Unset | Form parameter enum test (string) | [optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ###### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **enum_form_string_array** | [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytuple), schemas.Unset | Form parameter enum test (string array) | [optional]
-**enum_form_string** | typing_extensions.Literal["_abc", "-efg", "(xyz)"], schemas.Unset | Form parameter enum test (string) | [optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
+**enum_form_string** | typing.Literal["_abc", "-efg", "(xyz)"], schemas.Unset | Form parameter enum test (string) | [optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
 
 ###### methods
 Method | Input Type | Return Type | Notes
@@ -105,13 +105,13 @@ Input Type | Return Type | Notes
 ```
 type: typing.Union[
     typing.List[
-        typing_extensions.Literal[
+        typing.Literal[
             ">",
             "$"
         ],
     ],
     typing.Tuple[
-        typing_extensions.Literal[
+        typing.Literal[
             ">",
             "$"
         ],
@@ -121,12 +121,12 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | typing_extensions.Literal[">", "$"] |  | must be one of [">", "$"] if omitted the server will use the default value of $
+≥ 0 | typing.Literal[">", "$"] |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 ##### RequestBody content ApplicationXWwwFormUrlencoded Schema EnumFormStringArrayTuple
 ```
 base class: typing.Tuple[
-    typing_extensions.Literal[">", "$"],
+    typing.Literal[">", "$"],
     ...
 ]
 ```
@@ -139,7 +139,7 @@ configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 ###### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing_extensions.Literal[">", "$"] | must be one of [">", "$"] if omitted the server will use the default value of $ This method is used under the hood when instance[0] is called
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing.Literal[">", "$"] | must be one of [">", "$"] if omitted the server will use the default value of $ This method is used under the hood when instance[0] is called
 
 ### query_params
 #### RequestQueryParameters.Params
@@ -173,13 +173,13 @@ Input Type | Return Type | Notes
 ```
 type: typing.Union[
     typing.List[
-        typing_extensions.Literal[
+        typing.Literal[
             ">",
             "$"
         ],
     ],
     typing.Tuple[
-        typing_extensions.Literal[
+        typing.Literal[
             ">",
             "$"
         ],
@@ -189,12 +189,12 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | typing_extensions.Literal[">", "$"] |  | must be one of [">", "$"] if omitted the server will use the default value of $
+≥ 0 | typing.Literal[">", "$"] |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 ###### Parameter2 Schema SchemaTuple
 ```
 base class: typing.Tuple[
-    typing_extensions.Literal[">", "$"],
+    typing.Literal[">", "$"],
     ...
 ]
 ```
@@ -207,7 +207,7 @@ configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 ####### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing_extensions.Literal[">", "$"] | must be one of [">", "$"] if omitted the server will use the default value of $ This method is used under the hood when instance[0] is called
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing.Literal[">", "$"] | must be one of [">", "$"] if omitted the server will use the default value of $ This method is used under the hood when instance[0] is called
 
 #### Parameter3
 
@@ -223,7 +223,7 @@ type: schemas.Schema
 ###### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-typing_extensions.Literal["_abc", "-efg", "(xyz)"] | typing_extensions.Literal["_abc", "-efg", "(xyz)"] | must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
+typing.Literal["_abc", "-efg", "(xyz)"] | typing.Literal["_abc", "-efg", "(xyz)"] | must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
 
 #### Parameter4
 
@@ -239,7 +239,7 @@ type: schemas.Schema
 ###### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-typing_extensions.Literal[1, -2] | typing_extensions.Literal[1, -2] | must be one of [1, -2] value must be a 32 bit integer
+typing.Literal[1, -2] | typing.Literal[1, -2] | must be one of [1, -2] value must be a 32 bit integer
 
 #### Parameter5
 
@@ -287,13 +287,13 @@ Input Type | Return Type | Notes
 ```
 type: typing.Union[
     typing.List[
-        typing_extensions.Literal[
+        typing.Literal[
             ">",
             "$"
         ],
     ],
     typing.Tuple[
-        typing_extensions.Literal[
+        typing.Literal[
             ">",
             "$"
         ],
@@ -303,12 +303,12 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | typing_extensions.Literal[">", "$"] |  | must be one of [">", "$"] if omitted the server will use the default value of $
+≥ 0 | typing.Literal[">", "$"] |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 ###### Parameter0 Schema SchemaTuple
 ```
 base class: typing.Tuple[
-    typing_extensions.Literal[">", "$"],
+    typing.Literal[">", "$"],
     ...
 ]
 ```
@@ -321,7 +321,7 @@ configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 ####### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing_extensions.Literal[">", "$"] | must be one of [">", "$"] if omitted the server will use the default value of $ This method is used under the hood when instance[0] is called
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing.Literal[">", "$"] | must be one of [">", "$"] if omitted the server will use the default value of $ This method is used under the hood when instance[0] is called
 
 #### Parameter1
 
@@ -337,7 +337,7 @@ type: schemas.Schema
 ###### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-typing_extensions.Literal["_abc", "-efg", "(xyz)"] | typing_extensions.Literal["_abc", "-efg", "(xyz)"] | must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
+typing.Literal["_abc", "-efg", "(xyz)"] | typing.Literal["_abc", "-efg", "(xyz)"] | must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
 
 ## Return Types
 

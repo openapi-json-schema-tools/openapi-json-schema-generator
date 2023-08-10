@@ -14,7 +14,7 @@ Width: typing_extensions.TypeAlias = schemas.DecimalSchema
 
 from petstore_api.components.schema import decimal_payload
 from petstore_api.components.schema import money
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "length": typing.Type[decimal_payload.DecimalPayload],

@@ -11,7 +11,7 @@ Input Type | Return Type | Notes
 
 ## BananaReqDictInput
 ```
-type: typing_extensions.TypedDict
+type: typing.TypedDict
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------

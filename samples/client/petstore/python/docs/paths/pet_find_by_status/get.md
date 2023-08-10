@@ -64,14 +64,14 @@ Input Type | Return Type | Notes
 ```
 type: typing.Union[
     typing.List[
-        typing_extensions.Literal[
+        typing.Literal[
             "available",
             "pending",
             "sold"
         ],
     ],
     typing.Tuple[
-        typing_extensions.Literal[
+        typing.Literal[
             "available",
             "pending",
             "sold"
@@ -82,12 +82,12 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | typing_extensions.Literal["available", "pending", "sold"] |  | must be one of ["available", "pending", "sold"] if omitted the server will use the default value of available
+≥ 0 | typing.Literal["available", "pending", "sold"] |  | must be one of ["available", "pending", "sold"] if omitted the server will use the default value of available
 
 ###### Parameter0 Schema SchemaTuple
 ```
 base class: typing.Tuple[
-    typing_extensions.Literal["available", "pending", "sold"],
+    typing.Literal["available", "pending", "sold"],
     ...
 ]
 ```
@@ -100,7 +100,7 @@ configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 ####### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing_extensions.Literal["available", "pending", "sold"] | must be one of ["available", "pending", "sold"] if omitted the server will use the default value of available This method is used under the hood when instance[0] is called
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing.Literal["available", "pending", "sold"] | must be one of ["available", "pending", "sold"] if omitted the server will use the default value of available This method is used under the hood when instance[0] is called
 
 ## Return Types
 

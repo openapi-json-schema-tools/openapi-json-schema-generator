@@ -27,19 +27,19 @@ class {{jsonPathPiece.camelCase}}(
 {{#if defaultValue}}
     {{#with defaultValue}}
         {{#eq type "string"}}
-    default: typing_extensions.Literal["{{{value}}}"] = "{{{value}}}"
+    default: typing.Literal["{{{value}}}"] = "{{{value}}}"
         {{/eq}}
         {{#eq type "number"}}
     default: typing.Union[int, float] = {{{value}}}
         {{/eq}}
         {{#eq type "integer"}}
-    default: typing_extensions.Literal[{{{value}}}]  = {{{value}}}
+    default: typing.Literal[{{{value}}}]  = {{{value}}}
         {{/eq}}
         {{#eq type "boolean"}}
             {{#if value}}
-    default: typing_extensions.Literal[True] = True
+    default: typing.Literal[True] = True
             {{else}}
-    default: typing_extensions.Literal[False] = False
+    default: typing.Literal[False] = False
             {{/if}}
         {{/eq}}
         {{#eq type "null"}}

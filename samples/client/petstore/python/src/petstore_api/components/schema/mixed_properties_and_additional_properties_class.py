@@ -89,7 +89,7 @@ class Map(
             configuration=configuration,
         )
 
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "uuid": typing.Type[Uuid],

@@ -15,11 +15,11 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class SchemaEnums:
 
     @schemas.classproperty
-    def TRUE(cls) -> typing_extensions.Literal["true"]:
+    def TRUE(cls) -> typing.Literal["true"]:
         return Schema.validate("true")
 
     @schemas.classproperty
-    def FALSE(cls) -> typing_extensions.Literal["false"]:
+    def FALSE(cls) -> typing.Literal["false"]:
         return Schema.validate("false")
 
 
@@ -42,29 +42,29 @@ class Schema(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["true"],
+        arg: typing.Literal["true"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["true"]: ...
+    ) -> typing.Literal["true"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["false"],
+        arg: typing.Literal["false"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["false"]: ...
+    ) -> typing.Literal["false"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["true","false",]: ...
+    ) -> typing.Literal["true","false",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "true",
         "false",
     ]:
@@ -72,7 +72,7 @@ class Schema(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "true",
                 "false",
             ],

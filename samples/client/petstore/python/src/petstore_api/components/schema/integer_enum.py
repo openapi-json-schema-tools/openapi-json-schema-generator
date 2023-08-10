@@ -15,15 +15,15 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class IntegerEnumEnums:
 
     @schemas.classproperty
-    def POSITIVE_0(cls) -> typing_extensions.Literal[0]:
+    def POSITIVE_0(cls) -> typing.Literal[0]:
         return IntegerEnum.validate(0)
 
     @schemas.classproperty
-    def POSITIVE_1(cls) -> typing_extensions.Literal[1]:
+    def POSITIVE_1(cls) -> typing.Literal[1]:
         return IntegerEnum.validate(1)
 
     @schemas.classproperty
-    def POSITIVE_2(cls) -> typing_extensions.Literal[2]:
+    def POSITIVE_2(cls) -> typing.Literal[2]:
         return IntegerEnum.validate(2)
 
 
@@ -53,36 +53,36 @@ class IntegerEnum(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal[0],
+        arg: typing.Literal[0],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[0]: ...
+    ) -> typing.Literal[0]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal[1],
+        arg: typing.Literal[1],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[1]: ...
+    ) -> typing.Literal[1]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal[2],
+        arg: typing.Literal[2],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[2]: ...
+    ) -> typing.Literal[2]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: int,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[0,1,2,]: ...
+    ) -> typing.Literal[0,1,2,]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         0,
         1,
         2,
@@ -91,7 +91,7 @@ class IntegerEnum(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 0,
                 1,
                 2,

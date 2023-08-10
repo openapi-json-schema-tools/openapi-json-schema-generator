@@ -17,7 +17,7 @@ from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.
 from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_2 import schema as schema_3
 from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_3 import schema as schema_5
 from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_4 import schema as schema_4
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "1": typing.Type[schema.Schema],
@@ -94,7 +94,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             str,
             val
         )
-QueryParametersDictInput = typing_extensions.TypedDict(
+QueryParametersDictInput = typing.TypedDict(
     'QueryParametersDictInput',
     {
         "1": str,

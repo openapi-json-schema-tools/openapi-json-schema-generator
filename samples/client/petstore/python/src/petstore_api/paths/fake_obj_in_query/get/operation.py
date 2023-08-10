@@ -18,7 +18,7 @@ query_parameter_classes = (
 )
 
 
-__StatusCodeToResponse = typing_extensions.TypedDict(
+__StatusCodeToResponse = typing.TypedDict(
     '__StatusCodeToResponse',
     {
         '200': typing.Type[response_200.ResponseFor200],
@@ -42,7 +42,7 @@ class BaseApi(api_client.Api):
             None
         ] = None,
         *,
-        skip_deserialization: typing_extensions.Literal[False] = False,
+        skip_deserialization: typing.Literal[False] = False,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -57,7 +57,7 @@ class BaseApi(api_client.Api):
             None
         ] = None,
         *,
-        skip_deserialization: typing_extensions.Literal[True],
+        skip_deserialization: typing.Literal[True],
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -112,7 +112,7 @@ class BaseApi(api_client.Api):
         status = str(raw_response.status)
         if status in _non_error_status_codes:
             status_code = typing.cast(
-                typing_extensions.Literal[
+                typing.Literal[
                     '200',
                 ],
                 status

@@ -15,11 +15,11 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class ItemsEnums:
 
     @schemas.classproperty
-    def GREATER_THAN_SIGN(cls) -> typing_extensions.Literal[">"]:
+    def GREATER_THAN_SIGN(cls) -> typing.Literal[">"]:
         return Items.validate(">")
 
     @schemas.classproperty
-    def DOLLAR_SIGN(cls) -> typing_extensions.Literal["$"]:
+    def DOLLAR_SIGN(cls) -> typing.Literal["$"]:
         return Items.validate("$")
 
 
@@ -30,7 +30,7 @@ class Items(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: typing_extensions.Literal["$"] = "$"
+    default: typing.Literal["$"] = "$"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             ">": "GREATER_THAN_SIGN",
@@ -43,29 +43,29 @@ class Items(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal[">"],
+        arg: typing.Literal[">"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[">"]: ...
+    ) -> typing.Literal[">"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["$"],
+        arg: typing.Literal["$"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["$"]: ...
+    ) -> typing.Literal["$"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[">","$",]: ...
+    ) -> typing.Literal[">","$",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         ">",
         "$",
     ]:
@@ -73,7 +73,7 @@ class Items(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 ">",
                 "$",
             ],
@@ -83,7 +83,7 @@ class Items(
 
 class EnumFormStringArrayTuple(
     typing.Tuple[
-        typing_extensions.Literal[">", "$"],
+        typing.Literal[">", "$"],
         ...
     ]
 ):
@@ -92,13 +92,13 @@ class EnumFormStringArrayTuple(
         return EnumFormStringArray.validate(arg, configuration=configuration)
 EnumFormStringArrayTupleInput = typing.Union[
     typing.List[
-        typing_extensions.Literal[
+        typing.Literal[
             ">",
             "$"
         ],
     ],
     typing.Tuple[
-        typing_extensions.Literal[
+        typing.Literal[
             ">",
             "$"
         ],
@@ -140,15 +140,15 @@ class EnumFormStringArray(
 class EnumFormStringEnums:
 
     @schemas.classproperty
-    def _ABC(cls) -> typing_extensions.Literal["_abc"]:
+    def _ABC(cls) -> typing.Literal["_abc"]:
         return EnumFormString.validate("_abc")
 
     @schemas.classproperty
-    def HYPHEN_MINUS_EFG(cls) -> typing_extensions.Literal["-efg"]:
+    def HYPHEN_MINUS_EFG(cls) -> typing.Literal["-efg"]:
         return EnumFormString.validate("-efg")
 
     @schemas.classproperty
-    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls) -> typing_extensions.Literal["(xyz)"]:
+    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls) -> typing.Literal["(xyz)"]:
         return EnumFormString.validate("(xyz)")
 
 
@@ -159,7 +159,7 @@ class EnumFormString(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: typing_extensions.Literal["-efg"] = "-efg"
+    default: typing.Literal["-efg"] = "-efg"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "_abc": "_ABC",
@@ -173,36 +173,36 @@ class EnumFormString(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["_abc"],
+        arg: typing.Literal["_abc"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["_abc"]: ...
+    ) -> typing.Literal["_abc"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["-efg"],
+        arg: typing.Literal["-efg"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["-efg"]: ...
+    ) -> typing.Literal["-efg"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["(xyz)"],
+        arg: typing.Literal["(xyz)"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["(xyz)"]: ...
+    ) -> typing.Literal["(xyz)"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["_abc","-efg","(xyz)",]: ...
+    ) -> typing.Literal["_abc","-efg","(xyz)",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "_abc",
         "-efg",
         "(xyz)",
@@ -211,14 +211,14 @@ class EnumFormString(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "_abc",
                 "-efg",
                 "(xyz)",
             ],
             validated_arg
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "enum_form_string_array": typing.Type[EnumFormStringArray],
@@ -245,7 +245,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             schemas.Unset
         ] = schemas.unset,
         enum_form_string: typing.Union[
-            typing_extensions.Literal[
+            typing.Literal[
                 "_abc",
                 "-efg",
                 "(xyz)"
@@ -288,12 +288,12 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def enum_form_string(self) -> typing.Union[typing_extensions.Literal["_abc", "-efg", "(xyz)"], schemas.Unset]:
+    def enum_form_string(self) -> typing.Union[typing.Literal["_abc", "-efg", "(xyz)"], schemas.Unset]:
         val = self.get("enum_form_string", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
-            typing_extensions.Literal["_abc", "-efg", "(xyz)"],
+            typing.Literal["_abc", "-efg", "(xyz)"],
             val
         )
     

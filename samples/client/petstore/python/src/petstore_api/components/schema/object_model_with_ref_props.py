@@ -14,7 +14,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 from petstore_api.components.schema import boolean
 from petstore_api.components.schema import number_with_validations
 from petstore_api.components.schema import string
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "myNumber": typing.Type[number_with_validations.NumberWithValidations],

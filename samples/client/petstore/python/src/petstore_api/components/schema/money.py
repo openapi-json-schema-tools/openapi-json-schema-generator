@@ -14,7 +14,7 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 Amount: typing_extensions.TypeAlias = schemas.DecimalSchema
 
 from petstore_api.components.schema import currency
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "amount": typing.Type[Amount],
@@ -35,7 +35,7 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         cls,
         *,
         amount: str,
-        currency: typing_extensions.Literal[
+        currency: typing.Literal[
             "eur",
             "usd"
         ],
@@ -66,16 +66,16 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def currency(self) -> typing_extensions.Literal["eur", "usd"]:
+    def currency(self) -> typing.Literal["eur", "usd"]:
         return typing.cast(
-            typing_extensions.Literal["eur", "usd"],
+            typing.Literal["eur", "usd"],
             self.__getitem__("currency")
         )
-MoneyDictInput = typing_extensions.TypedDict(
+MoneyDictInput = typing.TypedDict(
     'MoneyDictInput',
     {
         "amount": str,
-        "currency": typing_extensions.Literal[
+        "currency": typing.Literal[
             "eur",
             "usd"
         ],

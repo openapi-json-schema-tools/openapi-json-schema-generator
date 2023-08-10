@@ -109,7 +109,7 @@ def validate(
                 {{/if}}
             {{else}}
                 {{#eq this "boolean"}}
-) -> {{#if ../enumInfo}}typing_extensions.Literal[
+) -> {{#if ../enumInfo}}typing.Literal[
         {{#each ../enumInfo.typeToValues.boolean}}
     {{#if value}}True{{else}}False{{/if}},
         {{/each}}
@@ -119,7 +119,7 @@ def validate(
 ) -> None:
                     {{else}}
                         {{#eq this "string"}}
-) -> {{#if ../enumInfo}}typing_extensions.Literal[
+) -> {{#if ../enumInfo}}typing.Literal[
         {{#each ../enumInfo.typeToValues.string}}
     "{{{value}}}",
         {{/each}}
@@ -129,7 +129,7 @@ def validate(
 ) -> typing.Union[int, float]:
                             {{else}}
                                 {{#eq this "integer"}}
-) -> {{#if ../enumInfo}}typing_extensions.Literal[
+) -> {{#if ../enumInfo}}typing.Literal[
         {{#each ../enumInfo.typeToValues.integer}}
     {{value}},
         {{/each}}
@@ -159,7 +159,7 @@ def validate(
     )
         {{#eq types.size 1}}
             {{#eq type "string"}}
-    return typing.cast(typing_extensions.Literal[
+    return typing.cast(typing.Literal[
                 {{#each enumInfo.typeToValues.string}}
             "{{{value}}}",
                 {{/each}}
@@ -168,7 +168,7 @@ def validate(
     )
             {{else}}
                 {{#eq type "integer"}}
-    return typing.cast(typing_extensions.Literal[
+    return typing.cast(typing.Literal[
                 {{#each enumInfo.typeToValues.integer}}
             {{value}},
                 {{/each}}
@@ -177,7 +177,7 @@ def validate(
     )
                 {{else}}
                     {{#eq type "boolean"}}
-    return typing.cast(typing_extensions.Literal[
+    return typing.cast(typing.Literal[
                 {{#each enumInfo.typeToValues.boolean}}
             {{#if value}}True{{else}}False{{/if}},
                 {{/each}}

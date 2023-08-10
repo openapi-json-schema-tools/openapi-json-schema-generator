@@ -15,7 +15,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class TriangleTypeEnums:
 
     @schemas.classproperty
-    def SCALENE_TRIANGLE(cls) -> typing_extensions.Literal["ScaleneTriangle"]:
+    def SCALENE_TRIANGLE(cls) -> typing.Literal["ScaleneTriangle"]:
         return TriangleType.validate("ScaleneTriangle")
 
 
@@ -37,34 +37,34 @@ class TriangleType(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["ScaleneTriangle"],
+        arg: typing.Literal["ScaleneTriangle"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["ScaleneTriangle"]: ...
+    ) -> typing.Literal["ScaleneTriangle"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["ScaleneTriangle",]: ...
+    ) -> typing.Literal["ScaleneTriangle",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "ScaleneTriangle",
     ]:
         validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "ScaleneTriangle",
             ],
             validated_arg
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "triangleType": typing.Type[TriangleType],
@@ -84,7 +84,7 @@ class _1Dict(schemas.immutabledict[str, str]):
         cls,
         *,
         triangleType: typing.Union[
-            typing_extensions.Literal[
+            typing.Literal[
                 "ScaleneTriangle"
             ],
             schemas.Unset
@@ -114,12 +114,12 @@ class _1Dict(schemas.immutabledict[str, str]):
         return _1.validate(arg, configuration=configuration)
     
     @property
-    def triangleType(self) -> typing.Union[typing_extensions.Literal["ScaleneTriangle"], schemas.Unset]:
+    def triangleType(self) -> typing.Union[typing.Literal["ScaleneTriangle"], schemas.Unset]:
         val = self.get("triangleType", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
-            typing_extensions.Literal["ScaleneTriangle"],
+            typing.Literal["ScaleneTriangle"],
             val
         )
     

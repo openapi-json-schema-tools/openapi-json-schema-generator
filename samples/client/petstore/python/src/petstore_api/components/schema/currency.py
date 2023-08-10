@@ -15,11 +15,11 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class CurrencyEnums:
 
     @schemas.classproperty
-    def EUR(cls) -> typing_extensions.Literal["eur"]:
+    def EUR(cls) -> typing.Literal["eur"]:
         return Currency.validate("eur")
 
     @schemas.classproperty
-    def USD(cls) -> typing_extensions.Literal["usd"]:
+    def USD(cls) -> typing.Literal["usd"]:
         return Currency.validate("usd")
 
 
@@ -47,29 +47,29 @@ class Currency(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["eur"],
+        arg: typing.Literal["eur"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["eur"]: ...
+    ) -> typing.Literal["eur"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["usd"],
+        arg: typing.Literal["usd"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["usd"]: ...
+    ) -> typing.Literal["usd"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["eur","usd",]: ...
+    ) -> typing.Literal["eur","usd",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "eur",
         "usd",
     ]:
@@ -77,7 +77,7 @@ class Currency(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "eur",
                 "usd",
             ],

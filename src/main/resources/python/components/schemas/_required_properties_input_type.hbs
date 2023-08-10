@@ -1,7 +1,7 @@
 {{#if additionalProperties}}
     {{#if additionalProperties.isBooleanSchemaFalse}}
         {{! TypedDict use case }}
-{{requiredProperties.jsonPathPiece.camelCase}} = typing_extensions.TypedDict(
+{{requiredProperties.jsonPathPiece.camelCase}} = typing.TypedDict(
     '{{requiredProperties.jsonPathPiece.camelCase}}',
     {
         {{#each requiredProperties}}

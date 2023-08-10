@@ -15,15 +15,15 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class ItemsEnums:
 
     @schemas.classproperty
-    def AVAILABLE(cls) -> typing_extensions.Literal["available"]:
+    def AVAILABLE(cls) -> typing.Literal["available"]:
         return Items.validate("available")
 
     @schemas.classproperty
-    def PENDING(cls) -> typing_extensions.Literal["pending"]:
+    def PENDING(cls) -> typing.Literal["pending"]:
         return Items.validate("pending")
 
     @schemas.classproperty
-    def SOLD(cls) -> typing_extensions.Literal["sold"]:
+    def SOLD(cls) -> typing.Literal["sold"]:
         return Items.validate("sold")
 
 
@@ -34,7 +34,7 @@ class Items(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: typing_extensions.Literal["available"] = "available"
+    default: typing.Literal["available"] = "available"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "available": "AVAILABLE",
@@ -48,36 +48,36 @@ class Items(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["available"],
+        arg: typing.Literal["available"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["available"]: ...
+    ) -> typing.Literal["available"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["pending"],
+        arg: typing.Literal["pending"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["pending"]: ...
+    ) -> typing.Literal["pending"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["sold"],
+        arg: typing.Literal["sold"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["sold"]: ...
+    ) -> typing.Literal["sold"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["available","pending","sold",]: ...
+    ) -> typing.Literal["available","pending","sold",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "available",
         "pending",
         "sold",
@@ -86,7 +86,7 @@ class Items(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "available",
                 "pending",
                 "sold",
@@ -97,7 +97,7 @@ class Items(
 
 class SchemaTuple(
     typing.Tuple[
-        typing_extensions.Literal["available", "pending", "sold"],
+        typing.Literal["available", "pending", "sold"],
         ...
     ]
 ):
@@ -106,14 +106,14 @@ class SchemaTuple(
         return Schema.validate(arg, configuration=configuration)
 SchemaTupleInput = typing.Union[
     typing.List[
-        typing_extensions.Literal[
+        typing.Literal[
             "available",
             "pending",
             "sold"
         ],
     ],
     typing.Tuple[
-        typing_extensions.Literal[
+        typing.Literal[
             "available",
             "pending",
             "sold"

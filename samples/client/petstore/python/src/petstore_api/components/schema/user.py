@@ -67,7 +67,7 @@ class AnyTypeExceptNullProp(
     not_: typing.Type[_Not] = dataclasses.field(default_factory=lambda: _Not) # type: ignore
 
 AnyTypePropNullable: typing_extensions.TypeAlias = schemas.AnyTypeSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "id": typing.Type[Id],

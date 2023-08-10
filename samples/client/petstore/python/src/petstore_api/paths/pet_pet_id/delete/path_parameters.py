@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
 from petstore_api.paths.pet_pet_id.delete.parameters.parameter_1 import schema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "petId": typing.Type[schema.Schema],
@@ -57,7 +57,7 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             int,
             self.__getitem__("petId")
         )
-PathParametersDictInput = typing_extensions.TypedDict(
+PathParametersDictInput = typing.TypedDict(
     'PathParametersDictInput',
     {
         "petId": int,

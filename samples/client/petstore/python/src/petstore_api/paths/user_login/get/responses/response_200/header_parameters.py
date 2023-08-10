@@ -17,7 +17,7 @@ from petstore_api.components.headers.header_number_header import schema as schem
 from petstore_api.components.schema import string_with_validation
 from petstore_api.paths.user_login.get.responses.response_200.headers.header_x_expires_after import schema as schema_3
 from petstore_api.paths.user_login.get.responses.response_200.headers.header_x_rate_limit.content.application_json import schema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "X-Rate-Limit": typing.Type[schema.Schema],
@@ -27,7 +27,7 @@ Properties = typing_extensions.TypedDict(
         "numberHeader": typing.Type[schema_4.Schema],
     }
 )
-HeadersRequiredDictInput = typing_extensions.TypedDict(
+HeadersRequiredDictInput = typing.TypedDict(
     'HeadersRequiredDictInput',
     {
         "X-Rate-Limit": int,
@@ -35,7 +35,7 @@ HeadersRequiredDictInput = typing_extensions.TypedDict(
         "ref-content-schema-header": str,
     }
 )
-HeadersOptionalDictInput = typing_extensions.TypedDict(
+HeadersOptionalDictInput = typing.TypedDict(
     'HeadersOptionalDictInput',
     {
         "X-Expires-After": typing.Union[

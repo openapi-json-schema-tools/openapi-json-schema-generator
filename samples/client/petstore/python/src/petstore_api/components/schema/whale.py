@@ -17,7 +17,7 @@ HasTeeth: typing_extensions.TypeAlias = schemas.BoolSchema
 class ClassNameEnums:
 
     @schemas.classproperty
-    def WHALE(cls) -> typing_extensions.Literal["whale"]:
+    def WHALE(cls) -> typing.Literal["whale"]:
         return ClassName.validate("whale")
 
 
@@ -39,34 +39,34 @@ class ClassName(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["whale"],
+        arg: typing.Literal["whale"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["whale"]: ...
+    ) -> typing.Literal["whale"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["whale",]: ...
+    ) -> typing.Literal["whale",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "whale",
     ]:
         validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "whale",
             ],
             validated_arg
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "hasBaleen": typing.Type[HasBaleen],
@@ -89,7 +89,7 @@ class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     def __new__(
         cls,
         *,
-        className: typing_extensions.Literal[
+        className: typing.Literal[
             "whale"
         ],
         hasBaleen: typing.Union[
@@ -128,9 +128,9 @@ class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return Whale.validate(arg, configuration=configuration)
     
     @property
-    def className(self) -> typing_extensions.Literal["whale"]:
+    def className(self) -> typing.Literal["whale"]:
         return typing.cast(
-            typing_extensions.Literal["whale"],
+            typing.Literal["whale"],
             self.__getitem__("className")
         )
     

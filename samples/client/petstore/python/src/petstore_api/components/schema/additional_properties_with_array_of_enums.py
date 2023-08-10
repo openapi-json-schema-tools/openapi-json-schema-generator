@@ -16,7 +16,7 @@ from petstore_api.components.schema import enum_class
 
 class AdditionalPropertiesTuple(
     typing.Tuple[
-        typing_extensions.Literal["_abc", "-efg", "(xyz)", "COUNT_1M", "COUNT_50M"],
+        typing.Literal["_abc", "-efg", "(xyz)", "COUNT_1M", "COUNT_50M"],
         ...
     ]
 ):
@@ -25,7 +25,7 @@ class AdditionalPropertiesTuple(
         return AdditionalProperties.validate(arg, configuration=configuration)
 AdditionalPropertiesTupleInput = typing.Union[
     typing.List[
-        typing_extensions.Literal[
+        typing.Literal[
             "_abc",
             "-efg",
             "(xyz)",
@@ -34,7 +34,7 @@ AdditionalPropertiesTupleInput = typing.Union[
         ],
     ],
     typing.Tuple[
-        typing_extensions.Literal[
+        typing.Literal[
             "_abc",
             "-efg",
             "(xyz)",

@@ -193,7 +193,7 @@ class PatternWithDigitsAndDelimiter(
         flags=re.I,
     )
 NoneProp: typing_extensions.TypeAlias = schemas.NoneSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "integer": typing.Type[Integer],

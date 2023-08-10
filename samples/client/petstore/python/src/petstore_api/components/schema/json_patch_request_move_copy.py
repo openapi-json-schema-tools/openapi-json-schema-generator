@@ -18,11 +18,11 @@ Path: typing_extensions.TypeAlias = schemas.StrSchema
 class OpEnums:
 
     @schemas.classproperty
-    def MOVE(cls) -> typing_extensions.Literal["move"]:
+    def MOVE(cls) -> typing.Literal["move"]:
         return Op.validate("move")
 
     @schemas.classproperty
-    def COPY(cls) -> typing_extensions.Literal["copy"]:
+    def COPY(cls) -> typing.Literal["copy"]:
         return Op.validate("copy")
 
 
@@ -45,29 +45,29 @@ class Op(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["move"],
+        arg: typing.Literal["move"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["move"]: ...
+    ) -> typing.Literal["move"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["copy"],
+        arg: typing.Literal["copy"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["copy"]: ...
+    ) -> typing.Literal["copy"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["move","copy",]: ...
+    ) -> typing.Literal["move","copy",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "move",
         "copy",
     ]:
@@ -75,13 +75,13 @@ class Op(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "move",
                 "copy",
             ],
             validated_arg
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "from": typing.Type[_From],
@@ -104,7 +104,7 @@ class JSONPatchRequestMoveCopyDict(schemas.immutabledict[str, str]):
     def __new__(
         cls,
         *,
-        op: typing_extensions.Literal[
+        op: typing.Literal[
             "move",
             "copy"
         ],
@@ -129,9 +129,9 @@ class JSONPatchRequestMoveCopyDict(schemas.immutabledict[str, str]):
         return JSONPatchRequestMoveCopy.validate(arg, configuration=configuration)
     
     @property
-    def op(self) -> typing_extensions.Literal["move", "copy"]:
+    def op(self) -> typing.Literal["move", "copy"]:
         return typing.cast(
-            typing_extensions.Literal["move", "copy"],
+            typing.Literal["move", "copy"],
             self.__getitem__("op")
         )
     
@@ -141,11 +141,11 @@ class JSONPatchRequestMoveCopyDict(schemas.immutabledict[str, str]):
             str,
             self.__getitem__("path")
         )
-JSONPatchRequestMoveCopyDictInput = typing_extensions.TypedDict(
+JSONPatchRequestMoveCopyDictInput = typing.TypedDict(
     'JSONPatchRequestMoveCopyDictInput',
     {
         "from": str,
-        "op": typing_extensions.Literal[
+        "op": typing.Literal[
             "move",
             "copy"
         ],

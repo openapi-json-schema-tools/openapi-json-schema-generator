@@ -15,7 +15,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class QuadrilateralTypeEnums:
 
     @schemas.classproperty
-    def SIMPLE_QUADRILATERAL(cls) -> typing_extensions.Literal["SimpleQuadrilateral"]:
+    def SIMPLE_QUADRILATERAL(cls) -> typing.Literal["SimpleQuadrilateral"]:
         return QuadrilateralType.validate("SimpleQuadrilateral")
 
 
@@ -37,34 +37,34 @@ class QuadrilateralType(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["SimpleQuadrilateral"],
+        arg: typing.Literal["SimpleQuadrilateral"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["SimpleQuadrilateral"]: ...
+    ) -> typing.Literal["SimpleQuadrilateral"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["SimpleQuadrilateral",]: ...
+    ) -> typing.Literal["SimpleQuadrilateral",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "SimpleQuadrilateral",
     ]:
         validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "SimpleQuadrilateral",
             ],
             validated_arg
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "quadrilateralType": typing.Type[QuadrilateralType],
@@ -84,7 +84,7 @@ class _1Dict(schemas.immutabledict[str, str]):
         cls,
         *,
         quadrilateralType: typing.Union[
-            typing_extensions.Literal[
+            typing.Literal[
                 "SimpleQuadrilateral"
             ],
             schemas.Unset
@@ -114,12 +114,12 @@ class _1Dict(schemas.immutabledict[str, str]):
         return _1.validate(arg, configuration=configuration)
     
     @property
-    def quadrilateralType(self) -> typing.Union[typing_extensions.Literal["SimpleQuadrilateral"], schemas.Unset]:
+    def quadrilateralType(self) -> typing.Union[typing.Literal["SimpleQuadrilateral"], schemas.Unset]:
         val = self.get("quadrilateralType", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
-            typing_extensions.Literal["SimpleQuadrilateral"],
+            typing.Literal["SimpleQuadrilateral"],
             val
         )
     

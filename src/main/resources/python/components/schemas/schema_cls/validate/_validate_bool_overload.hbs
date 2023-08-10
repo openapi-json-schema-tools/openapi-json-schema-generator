@@ -5,9 +5,9 @@
 @classmethod
 def validate(
     cls,
-    arg: typing_extensions.Literal[{{#if value}}True{{else}}False{{/if}}],
+    arg: typing.Literal[{{#if value}}True{{else}}False{{/if}}],
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-) -> typing_extensions.Literal[{{#if value}}True{{else}}False{{/if}}]: ...
+) -> typing.Literal[{{#if value}}True{{else}}False{{/if}}]: ...
         {{/each}}
 @typing.overload
 @classmethod
@@ -15,7 +15,7 @@ def validate(
     cls,
     arg: bool,
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-) -> typing_extensions.Literal[{{#each enumInfo.typeToValues.boolean}}{{#if value}}True{{else}}False{{/if}},{{/each}}]: ...
+) -> typing.Literal[{{#each enumInfo.typeToValues.boolean}}{{#if value}}True{{else}}False{{/if}},{{/each}}]: ...
     {{else}}
         {{! enum is not bool type }}
         {{#if includeNonEnum}}

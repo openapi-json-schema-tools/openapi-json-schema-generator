@@ -152,7 +152,7 @@ default_response = response_default.{{jsonPathPiece.camelCase}}
         {{/with}}
     {{/if}}
     {{#if statusCodeResponses}}
-__StatusCodeToResponse = typing_extensions.TypedDict(
+__StatusCodeToResponse = typing.TypedDict(
     '__StatusCodeToResponse',
     {
         {{#each statusCodeResponses}}
@@ -167,7 +167,7 @@ _status_code_to_response: __StatusCodeToResponse = {
 }
     {{/if}}
     {{#if wildcardCodeResponses}}
-__RangedStatusCodeToResponse = typing_extensions.TypedDict(
+__RangedStatusCodeToResponse = typing.TypedDict(
     '__RangedStatusCodeToResponse',
     {
         {{#each wildcardCodeResponses}}
@@ -418,7 +418,7 @@ class BaseApi(api_client.Api):
             {{#and nonErrorStatusCodes errorStatusCodes}}
         if status in _non_error_status_codes:
             status_code = typing.cast(
-                typing_extensions.Literal[
+                typing.Literal[
                     {{#each nonErrorStatusCodes}}
                     '{{this}}',
                     {{/each}}
@@ -429,7 +429,7 @@ class BaseApi(api_client.Api):
                 raw_response, self.api_client.schema_configuration)
         elif status in _error_status_codes:
             error_status_code = typing.cast(
-                typing_extensions.Literal[
+                typing.Literal[
                     {{#each errorStatusCodes}}
                     '{{this}}',
                     {{/each}}
@@ -448,7 +448,7 @@ class BaseApi(api_client.Api):
                     {{#if nonErrorStatusCodes}}
         if status in _non_error_status_codes:
             status_code = typing.cast(
-                typing_extensions.Literal[
+                typing.Literal[
                     {{#each nonErrorStatusCodes}}
                     '{{this}}',
                     {{/each}}
@@ -461,7 +461,7 @@ class BaseApi(api_client.Api):
                     {{#if errorStatusCodes}}
         if status in _error_status_codes:
             error_status_code = typing.cast(
-                typing_extensions.Literal[
+                typing.Literal[
                     {{#each errorStatusCodes}}
                     '{{this}}',
                     {{/each}}
@@ -489,7 +489,7 @@ class BaseApi(api_client.Api):
         {{#and nonErrorWildcardStatusCodes errorWildcardStatusCodes}}
         if ranged_response_status_code in _non_error_ranged_status_codes:
             ranged_status_code = typing.cast(
-                typing_extensions.Literal[
+                typing.Literal[
                 {{#each nonErrorWildcardStatusCodes}}
                     '{{this}}',
                 {{/each}}
@@ -500,7 +500,7 @@ class BaseApi(api_client.Api):
                 raw_response, self.api_client.schema_configuration)
         elif ranged_response_status_code in _error_ranged_status_codes:
             error_ranged_status_code = typing.cast(
-                typing_extensions.Literal[
+                typing.Literal[
                 {{#each errorWildcardStatusCodes}}
                     '{{this}}',
                 {{/each}}
@@ -519,7 +519,7 @@ class BaseApi(api_client.Api):
                 {{#if nonErrorWildcardStatusCodes}}
         if ranged_response_status_code in _non_error_ranged_status_codes:
             ranged_status_code = typing.cast(
-                typing_extensions.Literal[
+                typing.Literal[
                         {{#each nonErrorWildcardStatusCodes}}
                     '{{this}}',
                         {{/each}}
@@ -532,7 +532,7 @@ class BaseApi(api_client.Api):
                 {{#if errorWildcardStatusCodes}}
         if ranged_response_status_code in _error_ranged_status_codes:
             error_ranged_status_code = typing.cast(
-                typing_extensions.Literal[
+                typing.Literal[
                         {{#each errorWildcardStatusCodes}}
                     '{{this}}',
                         {{/each}}

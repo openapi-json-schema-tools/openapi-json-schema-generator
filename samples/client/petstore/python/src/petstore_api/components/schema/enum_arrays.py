@@ -15,11 +15,11 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class JustSymbolEnums:
 
     @schemas.classproperty
-    def GREATER_THAN_SIGN_EQUALS_SIGN(cls) -> typing_extensions.Literal[">="]:
+    def GREATER_THAN_SIGN_EQUALS_SIGN(cls) -> typing.Literal[">="]:
         return JustSymbol.validate(">=")
 
     @schemas.classproperty
-    def DOLLAR_SIGN(cls) -> typing_extensions.Literal["$"]:
+    def DOLLAR_SIGN(cls) -> typing.Literal["$"]:
         return JustSymbol.validate("$")
 
 
@@ -42,29 +42,29 @@ class JustSymbol(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal[">="],
+        arg: typing.Literal[">="],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[">="]: ...
+    ) -> typing.Literal[">="]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["$"],
+        arg: typing.Literal["$"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["$"]: ...
+    ) -> typing.Literal["$"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[">=","$",]: ...
+    ) -> typing.Literal[">=","$",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         ">=",
         "$",
     ]:
@@ -72,7 +72,7 @@ class JustSymbol(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 ">=",
                 "$",
             ],
@@ -83,11 +83,11 @@ class JustSymbol(
 class ItemsEnums:
 
     @schemas.classproperty
-    def FISH(cls) -> typing_extensions.Literal["fish"]:
+    def FISH(cls) -> typing.Literal["fish"]:
         return Items.validate("fish")
 
     @schemas.classproperty
-    def CRAB(cls) -> typing_extensions.Literal["crab"]:
+    def CRAB(cls) -> typing.Literal["crab"]:
         return Items.validate("crab")
 
 
@@ -110,29 +110,29 @@ class Items(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["fish"],
+        arg: typing.Literal["fish"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["fish"]: ...
+    ) -> typing.Literal["fish"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["crab"],
+        arg: typing.Literal["crab"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["crab"]: ...
+    ) -> typing.Literal["crab"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["fish","crab",]: ...
+    ) -> typing.Literal["fish","crab",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "fish",
         "crab",
     ]:
@@ -140,7 +140,7 @@ class Items(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "fish",
                 "crab",
             ],
@@ -150,7 +150,7 @@ class Items(
 
 class ArrayEnumTuple(
     typing.Tuple[
-        typing_extensions.Literal["fish", "crab"],
+        typing.Literal["fish", "crab"],
         ...
     ]
 ):
@@ -159,13 +159,13 @@ class ArrayEnumTuple(
         return ArrayEnum.validate(arg, configuration=configuration)
 ArrayEnumTupleInput = typing.Union[
     typing.List[
-        typing_extensions.Literal[
+        typing.Literal[
             "fish",
             "crab"
         ],
     ],
     typing.Tuple[
-        typing_extensions.Literal[
+        typing.Literal[
             "fish",
             "crab"
         ],
@@ -202,7 +202,7 @@ class ArrayEnum(
             arg,
             configuration=configuration,
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "just_symbol": typing.Type[JustSymbol],
@@ -224,7 +224,7 @@ class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         cls,
         *,
         just_symbol: typing.Union[
-            typing_extensions.Literal[
+            typing.Literal[
                 ">=",
                 "$"
             ],
@@ -261,12 +261,12 @@ class EnumArraysDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return EnumArrays.validate(arg, configuration=configuration)
     
     @property
-    def just_symbol(self) -> typing.Union[typing_extensions.Literal[">=", "$"], schemas.Unset]:
+    def just_symbol(self) -> typing.Union[typing.Literal[">=", "$"], schemas.Unset]:
         val = self.get("just_symbol", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
-            typing_extensions.Literal[">=", "$"],
+            typing.Literal[">=", "$"],
             val
         )
     

@@ -16,7 +16,7 @@ from petstore_api.components.headers.header_int32_json_content_type_header.conte
 from petstore_api.components.headers.header_number_header import schema as schema_3
 from petstore_api.components.headers.header_string_header import schema as schema_2
 from petstore_api.components.schema import string_with_validation
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "ref-schema-header": typing.Type[string_with_validation.StringWithValidation],
@@ -26,7 +26,7 @@ Properties = typing_extensions.TypedDict(
         "numberHeader": typing.Type[schema_3.Schema],
     }
 )
-HeadersRequiredDictInput = typing_extensions.TypedDict(
+HeadersRequiredDictInput = typing.TypedDict(
     'HeadersRequiredDictInput',
     {
         "int32": int,
@@ -35,7 +35,7 @@ HeadersRequiredDictInput = typing_extensions.TypedDict(
         "stringHeader": str,
     }
 )
-HeadersOptionalDictInput = typing_extensions.TypedDict(
+HeadersOptionalDictInput = typing.TypedDict(
     'HeadersOptionalDictInput',
     {
         "numberHeader": str,

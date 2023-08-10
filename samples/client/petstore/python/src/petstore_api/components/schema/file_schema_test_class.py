@@ -68,7 +68,7 @@ class Files(
             arg,
             configuration=configuration,
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "file": typing.Type[file.File],

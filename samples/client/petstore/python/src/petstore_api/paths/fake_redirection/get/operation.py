@@ -14,7 +14,7 @@ from .responses import (
 )
 
 
-__StatusCodeToResponse = typing_extensions.TypedDict(
+__StatusCodeToResponse = typing.TypedDict(
     '__StatusCodeToResponse',
     {
         '303': typing.Type[response_303.ResponseFor303],
@@ -23,7 +23,7 @@ __StatusCodeToResponse = typing_extensions.TypedDict(
 _status_code_to_response: __StatusCodeToResponse = {
     '303': response_303.ResponseFor303,
 }
-__RangedStatusCodeToResponse = typing_extensions.TypedDict(
+__RangedStatusCodeToResponse = typing.TypedDict(
     '__RangedStatusCodeToResponse',
     {
         '3': typing.Type[response_3xx.ResponseFor3XX],
@@ -45,7 +45,7 @@ class BaseApi(api_client.Api):
     def _redirection(
         self,
         *,
-        skip_deserialization: typing_extensions.Literal[False] = False,
+        skip_deserialization: typing.Literal[False] = False,
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -58,7 +58,7 @@ class BaseApi(api_client.Api):
     def _redirection(
         self,
         *,
-        skip_deserialization: typing_extensions.Literal[True],
+        skip_deserialization: typing.Literal[True],
         server_index: typing.Optional[int] = None,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
@@ -100,7 +100,7 @@ class BaseApi(api_client.Api):
         status = str(raw_response.status)
         if status in _non_error_status_codes:
             status_code = typing.cast(
-                typing_extensions.Literal[
+                typing.Literal[
                     '303',
                 ],
                 status
@@ -111,7 +111,7 @@ class BaseApi(api_client.Api):
         ranged_response_status_code = str(raw_response.status)[0]
         if ranged_response_status_code in _non_error_ranged_status_codes:
             ranged_status_code = typing.cast(
-                typing_extensions.Literal[
+                typing.Literal[
                     '3',
                 ],
                 ranged_response_status_code

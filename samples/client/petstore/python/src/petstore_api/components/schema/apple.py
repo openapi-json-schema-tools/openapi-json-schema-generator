@@ -35,7 +35,7 @@ class Origin(
         pattern=r'^[A-Z\s]*$',  # noqa: E501
         flags=re.I,
     )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "cultivar": typing.Type[Cultivar],

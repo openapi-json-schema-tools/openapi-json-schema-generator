@@ -13,20 +13,20 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 Id: typing_extensions.TypeAlias = schemas.Int64Schema
 PetId: typing_extensions.TypeAlias = schemas.Int64Schema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "id": typing.Type[Id],
         "petId": typing.Type[PetId],
     }
 )
-NoAdditionalPropertiesRequiredDictInput = typing_extensions.TypedDict(
+NoAdditionalPropertiesRequiredDictInput = typing.TypedDict(
     'NoAdditionalPropertiesRequiredDictInput',
     {
         "id": int,
     }
 )
-NoAdditionalPropertiesOptionalDictInput = typing_extensions.TypedDict(
+NoAdditionalPropertiesOptionalDictInput = typing.TypedDict(
     'NoAdditionalPropertiesOptionalDictInput',
     {
         "petId": int,

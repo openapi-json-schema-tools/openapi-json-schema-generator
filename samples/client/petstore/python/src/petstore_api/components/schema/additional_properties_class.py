@@ -427,7 +427,7 @@ class MapWithUndeclaredPropertiesString(
             configuration=configuration,
         )
 
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "map_property": typing.Type[MapProperty],
