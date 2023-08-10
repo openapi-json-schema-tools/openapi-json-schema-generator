@@ -12,8 +12,8 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[_0](#) | None | None |  |
+---------- | ---------- | ------------- | ----------- | -----
+[_0](#_0) | None | None |  |
 [**AppleReq**](apple_req.md) | [**AppleReq**](apple_req.md) | [**AppleReq**](apple_req.md) |  |
 [**BananaReq**](banana_req.md) | [**BananaReq**](banana_req.md) | [**BananaReq**](banana_req.md) |  |
 

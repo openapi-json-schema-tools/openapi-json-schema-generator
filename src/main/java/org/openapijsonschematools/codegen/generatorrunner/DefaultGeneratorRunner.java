@@ -383,7 +383,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         schemaData.putAll(generator.additionalProperties());
         schemaData.put("complexTypePrefix", "");
         schemaData.put("docRoot", docRoot);
-        schemaData.put("identifierPieces", null);
+        schemaData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
         schemaData.put("headerSize", "#");
         generateXDocs(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA, CodegenConstants.MODEL_DOCS, schemaData, generateModelDocumentation);
     }

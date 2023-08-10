@@ -118,8 +118,8 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## not
 Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[_not](#) | None | None |  |
+---------- | ---------- | ------------- | ----------- | -----
+[_Not](#_not) | None | None |  |
 
 # _Not
 ```

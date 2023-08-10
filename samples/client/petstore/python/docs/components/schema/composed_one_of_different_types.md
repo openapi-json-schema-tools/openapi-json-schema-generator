@@ -15,14 +15,14 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
+---------- | ---------- | ------------- | ----------- | -----
 [**NumberWithValidations**](number_with_validations.md) | [**NumberWithValidations**](number_with_validations.md) | [**NumberWithValidations**](number_with_validations.md) |  |
 [**Animal**](animal.md) | [**Animal**](animal.md) | [**Animal**](animal.md) |  |
-[_2](#) | None | None |  |
-[_3](#) | str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
-[_4](#) | dict, schemas.immutabledict | schemas.immutabledict |  |
-[_5](#) | list, tuple | tuple |  |
-[_6](#) | str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
+[_2](#_2) | None | None |  |
+[_3](#_3) | str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+[_4](#_4) | dict, schemas.immutabledict | schemas.immutabledict |  |
+[_5](#_5) | list, tuple | tuple |  |
+[_6](#_6) | str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
 
 # _2
 ```

@@ -52,7 +52,7 @@ get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## anyOf
 Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
+---------- | ---------- | ------------- | ----------- | -----
 [**AbstractStepMessage**](#top) | [**AbstractStepMessage**](#top) | [**AbstractStepMessage**](#top) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

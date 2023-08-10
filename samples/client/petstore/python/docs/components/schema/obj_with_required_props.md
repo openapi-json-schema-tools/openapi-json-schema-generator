@@ -43,7 +43,7 @@ get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf
 Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
+---------- | ---------- | ------------- | ----------- | -----
 [**ObjWithRequiredPropsBase**](obj_with_required_props_base.md) | [**ObjWithRequiredPropsBase**](obj_with_required_props_base.md) | [**ObjWithRequiredPropsBase**](obj_with_required_props_base.md) |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

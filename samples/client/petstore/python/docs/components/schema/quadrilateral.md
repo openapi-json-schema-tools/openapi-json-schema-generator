@@ -12,7 +12,7 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
+---------- | ---------- | ------------- | ----------- | -----
 [**SimpleQuadrilateral**](simple_quadrilateral.md) | [**SimpleQuadrilateral**](simple_quadrilateral.md) | [**SimpleQuadrilateral**](simple_quadrilateral.md) |  |
 [**ComplexQuadrilateral**](complex_quadrilateral.md) | [**ComplexQuadrilateral**](complex_quadrilateral.md) | [**ComplexQuadrilateral**](complex_quadrilateral.md) |  |
 

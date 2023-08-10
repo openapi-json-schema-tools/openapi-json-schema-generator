@@ -43,7 +43,7 @@ get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## anyOf
 Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
+---------- | ---------- | ------------- | ----------- | -----
 [**Apple**](apple.md) | [**Apple**](apple.md) | [**Apple**](apple.md) |  |
 [**Banana**](banana.md) | [**Banana**](banana.md) | [**Banana**](banana.md) |  |
 

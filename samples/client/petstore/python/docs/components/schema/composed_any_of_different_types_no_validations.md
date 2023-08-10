@@ -12,23 +12,23 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## anyOf
 Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[_0](#) | dict, schemas.immutabledict | schemas.immutabledict |  |
-[_1](#) | str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
-[_2](#) | str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
-[_3](#) | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |  |
-[_4](#) | str | str |  |
-[_5](#) | str | str |  |
-[_6](#) | dict, schemas.immutabledict | schemas.immutabledict |  |
-[_7](#) | bool | bool |  |
-[_8](#) | None | None |  |
-[_9](#) | list, tuple | tuple |  |
-[_10](#) | float, int | float, int |  |
-[_11](#) | float, int | float, int |  | value must be a 32 bit float
-[_12](#) | float, int | float, int |  | value must be a 64 bit float
-[_13](#) | int | int |  |
-[_14](#) | int | int |  | value must be a 32 bit integer
-[_15](#) | int | int |  | value must be a 64 bit integer
+---------- | ---------- | ------------- | ----------- | -----
+[_0](#_0) | dict, schemas.immutabledict | schemas.immutabledict |  |
+[_1](#_1) | str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+[_2](#_2) | str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
+[_3](#_3) | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |  |
+[_4](#_4) | str | str |  |
+[_5](#_5) | str | str |  |
+[_6](#_6) | dict, schemas.immutabledict | schemas.immutabledict |  |
+[_7](#_7) | bool | bool |  |
+[_8](#_8) | None | None |  |
+[_9](#_9) | list, tuple | tuple |  |
+[_10](#_10) | float, int | float, int |  |
+[_11](#_11) | float, int | float, int |  | value must be a 32 bit float
+[_12](#_12) | float, int | float, int |  | value must be a 64 bit float
+[_13](#_13) | int | int |  |
+[_14](#_14) | int | int |  | value must be a 32 bit integer
+[_15](#_15) | int | int |  | value must be a 64 bit integer
 
 # _0
 ```

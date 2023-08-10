@@ -12,9 +12,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf
 Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
+---------- | ---------- | ------------- | ----------- | -----
 [**ParentPet**](parent_pet.md) | [**ParentPet**](parent_pet.md) | [**ParentPet**](parent_pet.md) |  |
-[_1](#) | dict, schemas.immutabledict | schemas.immutabledict |  |
+[_1](#_1) | dict, schemas.immutabledict | schemas.immutabledict |  |
 
 # _1
 ```

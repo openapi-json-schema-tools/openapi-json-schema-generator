@@ -12,7 +12,7 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf
 Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
+---------- | ---------- | ------------- | ----------- | -----
 [**BasquePig**](basque_pig.md) | [**BasquePig**](basque_pig.md) | [**BasquePig**](basque_pig.md) |  |
 [**DanishPig**](danish_pig.md) | [**DanishPig**](danish_pig.md) | [**DanishPig**](danish_pig.md) |  |
 
