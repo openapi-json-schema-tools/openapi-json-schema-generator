@@ -65,21 +65,21 @@ class {{jsonPathPiece.camelCase}}(
 {{#neq types null}}
     {{#eq types.size 1}}
         {{#contains types "array"}}
-    {{> components/schemas/_helper_validate }}
+    {{> components/schemas/method_validate/validate }}
 
         {{else}}
             {{#contains types "object" }}
-    {{> components/schemas/_helper_validate }}
+    {{> components/schemas/method_validate/validate }}
 
             {{else}}
                 {{#if enumInfo}}
-    {{> components/schemas/_helper_validate }}
+    {{> components/schemas/method_validate/validate }}
 
                 {{/if}}
             {{/contains}}
         {{/contains}}
     {{else}}
-    {{> components/schemas/_helper_validate }}
+    {{> components/schemas/method_validate/validate }}
 
     {{/eq}}
 {{/neq}}

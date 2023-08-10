@@ -51,6 +51,6 @@ class {{jsonPathPiece.camelCase}}(
     {{> components/schemas/_helper_schema_enum }}
     enums = {{enumInfo.jsonPathPiece.camelCase}}
 
-    {{> components/schemas/_helper_validate }}
+    {{> components/schemas/method_validate/validate }}
 {{/if}}
 {{/or}}
