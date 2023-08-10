@@ -16,7 +16,7 @@ type: typing_extensions.TypedDict
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **amount** | str |  | value must be int or float numeric
-**currency** | str |  |
+**currency** | typing_extensions.Literal["eur", "usd"] |  |
 
 ## MoneyDict
 ```
@@ -26,13 +26,13 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **amount** | str |  | value must be int or float numeric
-**currency** | str |  |
+**currency** | typing_extensions.Literal["eur", "usd"] |  |
 
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **amount** | str |  | value must be int or float numeric
-**currency** | str |  |
+**currency** | typing_extensions.Literal["eur", "usd"] |  |
 
 ### methods
 Method | Input Type | Return Type | Notes

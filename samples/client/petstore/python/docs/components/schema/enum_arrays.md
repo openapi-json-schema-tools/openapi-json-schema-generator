@@ -15,7 +15,7 @@ type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**just_symbol** | str |  | [optional] must be one of [">=", "$"]
+**just_symbol** | typing_extensions.Literal[">=", "$"] |  | [optional] must be one of [">=", "$"]
 **array_enum** | [ArrayEnumTupleInput](#arrayenumtupleinput), [ArrayEnumTuple](#arrayenumtuple) |  | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
@@ -27,14 +27,14 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**just_symbol** | str, schemas.Unset |  | [optional] must be one of [">=", "$"]
+**just_symbol** | typing_extensions.Literal[">=", "$"], schemas.Unset |  | [optional] must be one of [">=", "$"]
 **array_enum** | [ArrayEnumTupleInput](#arrayenumtupleinput), [ArrayEnumTuple](#arrayenumtuple), schemas.Unset |  | [optional]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**just_symbol** | str, schemas.Unset |  | [optional] must be one of [">=", "$"]
+**just_symbol** | typing_extensions.Literal[">=", "$"], schemas.Unset |  | [optional] must be one of [">=", "$"]
 **array_enum** | [ArrayEnumTuple](#arrayenumtuple), schemas.Unset |  | [optional]
 
 ### methods
@@ -73,7 +73,7 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | str |  | must be one of ["fish", "crab"]
+≥ 0 | typing_extensions.Literal["fish", "crab"] |  | must be one of ["fish", "crab"]
 
 ## ArrayEnumTuple
 ```
@@ -91,6 +91,6 @@ configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | str | must be one of ["fish", "crab"] This method is used under the hood when instance[0] is called
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing_extensions.Literal["fish", "crab"] | must be one of ["fish", "crab"] This method is used under the hood when instance[0] is called
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

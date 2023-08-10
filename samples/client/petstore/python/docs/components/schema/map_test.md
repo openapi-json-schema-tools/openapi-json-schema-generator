@@ -147,7 +147,7 @@ type: typing.Mapping[
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any_string_name** | str | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower"]
+**any_string_name** | typing_extensions.Literal["UPPER", "lower"] | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower"]
 
 ## MapOfEnumStringDict
 ```
@@ -157,13 +157,13 @@ base class: schemas.immutabledict[str, str]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**kwargs** | str | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower"] typed value is accessed with the get_additional_property_ method
+**kwargs** | typing_extensions.Literal["UPPER", "lower"] | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower"] typed value is accessed with the get_additional_property_ method
 
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [MapOfEnumStringDictInput](#mapofenumstringdictinput), [MapOfEnumStringDict](#mapofenumstringdict) | [MapOfEnumStringDict](#mapofenumstringdict) | a constructor
-get_additional_property_ | str | str, schemas.Unset | provides type safety for additional properties
+get_additional_property_ | str | typing_extensions.Literal["UPPER", "lower"], schemas.Unset | provides type safety for additional properties
 
 # DirectMap
 ```

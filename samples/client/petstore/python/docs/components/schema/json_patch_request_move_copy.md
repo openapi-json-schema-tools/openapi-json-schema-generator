@@ -16,7 +16,7 @@ type: typing_extensions.TypedDict
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **from** | str | A JSON Pointer path. |
-**op** | str | The operation to perform. | must be one of ["move", "copy"]
+**op** | typing_extensions.Literal["move", "copy"] | The operation to perform. | must be one of ["move", "copy"]
 **path** | str | A JSON Pointer path. |
 
 ## JSONPatchRequestMoveCopyDict
@@ -27,13 +27,13 @@ base class: schemas.immutabledict[str, str]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**op** | str | The operation to perform. | must be one of ["move", "copy"]
+**op** | typing_extensions.Literal["move", "copy"] | The operation to perform. | must be one of ["move", "copy"]
 **path** | str | A JSON Pointer path. |
 
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**op** | str | The operation to perform. | must be one of ["move", "copy"]
+**op** | typing_extensions.Literal["move", "copy"] | The operation to perform. | must be one of ["move", "copy"]
 **path** | str | A JSON Pointer path. |
 
 ### methods

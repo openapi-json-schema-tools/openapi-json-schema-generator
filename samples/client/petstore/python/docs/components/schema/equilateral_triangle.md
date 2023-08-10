@@ -32,7 +32,7 @@ type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**triangleType** | str |  | [optional] must be one of ["EquilateralTriangle"]
+**triangleType** | typing_extensions.Literal["EquilateralTriangle"] |  | [optional] must be one of ["EquilateralTriangle"]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
 
 ## _1Dict
@@ -43,13 +43,13 @@ base class: schemas.immutabledict[str, str]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**triangleType** | str, schemas.Unset |  | [optional] must be one of ["EquilateralTriangle"]
+**triangleType** | typing_extensions.Literal["EquilateralTriangle"], schemas.Unset |  | [optional] must be one of ["EquilateralTriangle"]
 **kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**triangleType** | str, schemas.Unset |  | [optional] must be one of ["EquilateralTriangle"]
+**triangleType** | typing_extensions.Literal["EquilateralTriangle"], schemas.Unset |  | [optional] must be one of ["EquilateralTriangle"]
 
 ### methods
 Method | Input Type | Return Type | Notes

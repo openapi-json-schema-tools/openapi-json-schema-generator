@@ -29,7 +29,7 @@ type: typing.Union[
 ```
 Index | Input Type | Description | Notes
 ------------- | ------------- | ------------- | -------------
-≥ 0 | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
+≥ 0 | typing_extensions.Literal[">", "$"] |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 ## SchemaTuple
 ```
@@ -47,4 +47,4 @@ configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | str | must be one of [">", "$"] if omitted the server will use the default value of $ This method is used under the hood when instance[0] is called
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing_extensions.Literal[">", "$"] | must be one of [">", "$"] if omitted the server will use the default value of $ This method is used under the hood when instance[0] is called

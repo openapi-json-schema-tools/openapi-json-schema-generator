@@ -15,7 +15,7 @@ type: typing_extensions.TypedDict
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**op** | str | The operation to perform. | must be one of ["add", "replace", "test"]
+**op** | typing_extensions.Literal["add", "replace", "test"] | The operation to perform. | must be one of ["add", "replace", "test"]
 **path** | str | A JSON Pointer path. |
 **value** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | The value to add, replace or test. |
 
@@ -27,14 +27,14 @@ base class: schemas.immutabledict[str, str]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**op** | str | The operation to perform. | must be one of ["add", "replace", "test"]
+**op** | typing_extensions.Literal["add", "replace", "test"] | The operation to perform. | must be one of ["add", "replace", "test"]
 **path** | str | A JSON Pointer path. |
 **value** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | The value to add, replace or test. |
 
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**op** | str | The operation to perform. | must be one of ["add", "replace", "test"]
+**op** | typing_extensions.Literal["add", "replace", "test"] | The operation to perform. | must be one of ["add", "replace", "test"]
 **path** | str | A JSON Pointer path. |
 **value** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | The value to add, replace or test. |
 

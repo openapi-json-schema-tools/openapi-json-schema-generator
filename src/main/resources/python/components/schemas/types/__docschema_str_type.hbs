@@ -1,0 +1,1 @@
+{{#and ../enumInfo ../enumInfo.typeToValues.string}}typing_extensions.Literal[{{#each ../enumInfo.typeToValues.string}}"{{{value}}}"{{#unless @last}}, {{/unless}}{{/each}}]{{else}}str{{/and}}

@@ -135,7 +135,7 @@ type: schemas.Schema
 ###### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-str | str | must be one of ["true", "false"]
+typing_extensions.Literal["true", "false"] | typing_extensions.Literal["true", "false"] | must be one of ["true", "false"]
 
 #### Parameter4
 
@@ -151,7 +151,7 @@ type: schemas.Schema
 ###### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-str | str | must be one of ["true", "false"]
+typing_extensions.Literal["true", "false"] | typing_extensions.Literal["true", "false"] | must be one of ["true", "false"]
 
 ## Return Types
 
