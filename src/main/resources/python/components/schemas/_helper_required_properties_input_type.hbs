@@ -6,7 +6,7 @@
     {
         {{#each requiredProperties}}
             {{#with this}}
-        {{> components/schemas/_helper_schema_io_type paramName=@key.original quote=true fullRefModule="" endChar="," rootClass=../requiredProperties.jsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=@key.original quote=true fullRefModule="" endChar="," rootClass=../requiredProperties.jsonPathPiece.camelCase }}
             {{/with}}
         {{/each}}
     }
@@ -22,10 +22,10 @@
     str,
     typing.Union[
         {{#each requiredProperties}}
-        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../requiredProperties.jsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../requiredProperties.jsonPathPiece.camelCase }}
         {{/each}}
         {{#with additionalProperties}}
-        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../requiredProperties.jsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../requiredProperties.jsonPathPiece.camelCase }}
         {{/with}}
     ]
 ]

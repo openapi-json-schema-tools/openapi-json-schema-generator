@@ -60,13 +60,13 @@ type: typing.Mapping[
     str,
     typing.Union[
                     {{#each requiredProperties}}
-        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
                     {{/each}}
                     {{#each optionalProperties}}
-        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
                     {{/each}}
                     {{#with additionalProperties}}
-        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
                     {{/with}}
     ]
 ]
@@ -78,10 +78,10 @@ type: typing.Mapping[
     str,
     typing.Union[
                         {{#each requiredProperties}}
-        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
                         {{/each}}
                         {{#with additionalProperties}}
-        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
                         {{/with}}
     ]
 ]
@@ -92,10 +92,10 @@ type: typing.Mapping[
     str,
     typing.Union[
                             {{#each optionalProperties}}
-        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
                             {{/each}}
                             {{#with additionalProperties}}
-        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
                             {{/with}}
     ]
 ]
@@ -104,7 +104,7 @@ type: typing.Mapping[
 type: typing.Mapping[
     str,
                             {{#with additionalProperties}}
-    {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+    {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
                             {{/with}}
 ]
                         {{/if}}
@@ -227,12 +227,12 @@ get_additional_property_ | str | {{> components/schemas/_helper_types_all_access
 type: typing.Union[
     typing.List[
         {{#with items}}
-        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.camelCase }}
         {{/with}}
     ],
     typing.Tuple[
         {{#with items}}
-        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.camelCase }}
         ...
         {{/with}}
     ]

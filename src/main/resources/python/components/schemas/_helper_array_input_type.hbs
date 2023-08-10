@@ -2,12 +2,12 @@
 {{arrayInputJsonPathPiece.camelCase}} = typing.Union[
     typing.List[
     {{#with items}}
-        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.camelCase }}
     {{/with}}
     ],
     typing.Tuple[
     {{#with items}}
-        {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.camelCase }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.camelCase }}
         ...
     {{/with}}
     ]
