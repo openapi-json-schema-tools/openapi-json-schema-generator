@@ -201,7 +201,7 @@ configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES] | This method is used under the hood when instance[0] is called
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.immutabledict | This method is used under the hood when instance[0] is called
 
 # Items
 ```
@@ -270,8 +270,7 @@ configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing.Union[None,schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],]
- | This method is used under the hood when instance[0] is called
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | None, schemas.immutabledict | This method is used under the hood when instance[0] is called
 
 # Items2
 ```
@@ -340,8 +339,7 @@ configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing.Union[None,schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],]
- | This method is used under the hood when instance[0] is called
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | None, schemas.immutabledict | This method is used under the hood when instance[0] is called
 
 # Items3
 ```

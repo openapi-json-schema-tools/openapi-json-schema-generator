@@ -67,7 +67,7 @@ configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 ##### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.OUTPUT_BASE_TYPES | This method is used under the hood when instance[0] is called
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | [pet.PetDict](../../components/schema/pet.md#petdict) | This method is used under the hood when instance[0] is called
 ### content ApplicationJson Schema
 petstore_api.components.responses.response_successful_xml_and_json_array_of_pet.content.application_json.schema
 ```
@@ -117,6 +117,6 @@ configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 ##### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.OUTPUT_BASE_TYPES | This method is used under the hood when instance[0] is called
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | [pet.PetDict](../../components/schema/pet.md#petdict) | This method is used under the hood when instance[0] is called
 
 [[Back to top]](#top) [[Back to Component Responses]](../../../README.md#Component-Responses) [[Back to README]](../../../README.md)
