@@ -27,9 +27,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | [animal.AnimalDictInput](../../components/schema/animal.md#animaldictinput), [animal.AnimalDict](../../components/schema/animal.md#animaldict) |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+[animal.AnimalDictInput](../../components/schema/animal.md#animaldictinput), [animal.AnimalDict](../../components/schema/animal.md#animaldict) |  |
 
 ## AnimalFarmTuple
 ```

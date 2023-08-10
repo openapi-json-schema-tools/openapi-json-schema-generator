@@ -27,9 +27,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  |
 
 ## ComposedArrayTuple
 ```

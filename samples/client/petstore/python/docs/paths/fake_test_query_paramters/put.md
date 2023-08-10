@@ -70,9 +70,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | str |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+str |  |
 
 ###### Parameter0 Schema SchemaTuple
 ```
@@ -117,9 +117,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | str |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+str |  |
 
 ###### Parameter1 Schema SchemaTuple
 ```
@@ -164,9 +164,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | str |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+str |  |
 
 ###### Parameter2 Schema SchemaTuple
 ```
@@ -211,9 +211,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | str |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+str |  |
 
 ###### Parameter3 Schema SchemaTuple
 ```
@@ -258,9 +258,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | str |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+str |  |
 
 ###### Parameter4 Schema SchemaTuple
 ```

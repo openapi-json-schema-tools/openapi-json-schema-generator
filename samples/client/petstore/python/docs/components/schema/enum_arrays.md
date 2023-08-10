@@ -71,9 +71,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | typing.Literal["fish", "crab"] |  | must be one of ["fish", "crab"]
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+typing.Literal["fish", "crab"] |  | must be one of ["fish", "crab"]
 
 ## ArrayEnumTuple
 ```

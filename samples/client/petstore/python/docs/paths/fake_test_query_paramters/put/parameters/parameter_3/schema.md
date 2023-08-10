@@ -21,9 +21,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | str |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+str |  |
 
 ## SchemaTuple
 ```

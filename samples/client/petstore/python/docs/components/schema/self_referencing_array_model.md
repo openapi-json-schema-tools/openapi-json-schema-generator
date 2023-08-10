@@ -27,9 +27,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | [self_referencing_array_model.SelfReferencingArrayModelTupleInput](../../components/schema/self_referencing_array_model.md#selfreferencingarraymodeltupleinput), [self_referencing_array_model.SelfReferencingArrayModelTuple](../../components/schema/self_referencing_array_model.md#selfreferencingarraymodeltuple) |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+[self_referencing_array_model.SelfReferencingArrayModelTupleInput](../../components/schema/self_referencing_array_model.md#selfreferencingarraymodeltupleinput), [self_referencing_array_model.SelfReferencingArrayModelTuple](../../components/schema/self_referencing_array_model.md#selfreferencingarraymodeltuple) |  |
 
 ## SelfReferencingArrayModelTuple
 ```

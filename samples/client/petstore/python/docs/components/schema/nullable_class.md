@@ -181,9 +181,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | dict, schemas.immutabledict |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+dict, schemas.immutabledict |  |
 
 ## ArrayNullablePropTuple
 ```
@@ -247,9 +247,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | None, dict, schemas.immutabledict |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+None, dict, schemas.immutabledict |  |
 
 ## ArrayAndItemsNullablePropTuple
 ```
@@ -316,9 +316,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | None, dict, schemas.immutabledict |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+None, dict, schemas.immutabledict |  |
 
 ## ArrayItemsNullableTuple
 ```

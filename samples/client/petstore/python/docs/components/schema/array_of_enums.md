@@ -41,9 +41,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | None, typing.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"] |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+None, typing.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"] |  |
 
 ## ArrayOfEnumsTuple
 ```

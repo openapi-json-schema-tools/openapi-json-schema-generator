@@ -71,9 +71,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | [file.FileDictInput](../../components/schema/file.md#filedictinput), [file.FileDict](../../components/schema/file.md#filedict) |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+[file.FileDictInput](../../components/schema/file.md#filedictinput), [file.FileDict](../../components/schema/file.md#filedict) |  |
 
 ## FilesTuple
 ```

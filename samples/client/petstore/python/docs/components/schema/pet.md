@@ -80,9 +80,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | str |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+str |  |
 
 ## PhotoUrlsTuple
 ```
@@ -130,9 +130,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | [tag.TagDictInput](../../components/schema/tag.md#tagdictinput), [tag.TagDict](../../components/schema/tag.md#tagdict) |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+[tag.TagDictInput](../../components/schema/tag.md#tagdictinput), [tag.TagDict](../../components/schema/tag.md#tagdict) |  |
 
 ## TagsTuple
 ```

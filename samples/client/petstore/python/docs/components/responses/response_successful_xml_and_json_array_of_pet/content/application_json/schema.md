@@ -27,9 +27,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | [pet.PetDictInput](../../../../components/schema/pet.md#petdictinput), [pet.PetDict](../../../../components/schema/pet.md#petdict) |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+[pet.PetDictInput](../../../../components/schema/pet.md#petdictinput), [pet.PetDict](../../../../components/schema/pet.md#petdict) |  |
 
 ## SchemaTuple
 ```

@@ -127,9 +127,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | float, int |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+float, int |  |
 
 ## ArrayWithUniqueItemsTuple
 ```

@@ -21,9 +21,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | int |  | value must be a 64 bit integer
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+int |  | value must be a 64 bit integer
 
 ## ArrayWithValidationsInItemsTuple
 ```

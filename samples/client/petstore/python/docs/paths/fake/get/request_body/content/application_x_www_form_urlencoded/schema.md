@@ -74,9 +74,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | typing.Literal[">", "$"] |  | must be one of [">", "$"] if omitted the server will use the default value of $
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+typing.Literal[">", "$"] |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 ## EnumFormStringArrayTuple
 ```

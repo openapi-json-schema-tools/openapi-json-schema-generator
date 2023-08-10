@@ -38,9 +38,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | [user.UserDictInput](../../components/schema/user.md#userdictinput), [user.UserDict](../../components/schema/user.md#userdict) |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+[user.UserDictInput](../../components/schema/user.md#userdictinput), [user.UserDict](../../components/schema/user.md#userdict) |  |
 
 ### content ApplicationJson Schema SchemaTuple
 ```

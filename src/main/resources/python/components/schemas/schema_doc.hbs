@@ -226,10 +226,10 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
         {{#with items}}
-≥ 0 | {{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
+{{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/with}}
 
         {{#if arrayOutputJsonPathPiece}}

@@ -114,9 +114,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | bytes, io.FileIO, io.BufferedReader |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+bytes, io.FileIO, io.BufferedReader |  |
 
 ##### RequestBody content MultipartFormData Schema FilesTuple
 ```

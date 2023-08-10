@@ -73,9 +73,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | typing.Literal["_abc", "-efg", "(xyz)", "COUNT_1M", "COUNT_50M"] |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+typing.Literal["_abc", "-efg", "(xyz)", "COUNT_1M", "COUNT_50M"] |  |
 
 ## AdditionalPropertiesTuple
 ```

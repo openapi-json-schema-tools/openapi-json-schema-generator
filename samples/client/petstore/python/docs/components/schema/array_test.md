@@ -68,9 +68,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | str |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+str |  |
 
 ## ArrayOfStringTuple
 ```
@@ -118,9 +118,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | [ItemsTupleInput](#itemstupleinput), [ItemsTuple](#itemstuple) |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+[ItemsTupleInput](#itemstupleinput), [ItemsTuple](#itemstuple) |  |
 
 ## ArrayArrayOfIntegerTuple
 ```
@@ -162,9 +162,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | int |  | value must be a 64 bit integer
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+int |  | value must be a 64 bit integer
 
 ## ItemsTuple
 ```
@@ -212,9 +212,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | [ItemsTupleInput2](#itemstupleinput2), [ItemsTuple2](#itemstuple2) |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+[ItemsTupleInput2](#itemstupleinput2), [ItemsTuple2](#itemstuple2) |  |
 
 ## ArrayArrayOfModelTuple
 ```
@@ -262,9 +262,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | [read_only_first.ReadOnlyFirstDictInput](../../components/schema/read_only_first.md#readonlyfirstdictinput), [read_only_first.ReadOnlyFirstDict](../../components/schema/read_only_first.md#readonlyfirstdict) |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+[read_only_first.ReadOnlyFirstDictInput](../../components/schema/read_only_first.md#readonlyfirstdictinput), [read_only_first.ReadOnlyFirstDict](../../components/schema/read_only_first.md#readonlyfirstdict) |  |
 
 ## ItemsTuple2
 ```

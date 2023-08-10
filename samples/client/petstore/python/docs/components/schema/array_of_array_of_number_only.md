@@ -68,9 +68,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | [ItemsTupleInput](#itemstupleinput), [ItemsTuple](#itemstuple) |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+[ItemsTupleInput](#itemstupleinput), [ItemsTuple](#itemstuple) |  |
 
 ## ArrayArrayNumberTuple
 ```
@@ -118,9 +118,9 @@ type: typing.Union[
     ]
 ]
 ```
-Index | Input Type | Description | Notes
-------------- | ------------- | ------------- | -------------
-≥ 0 | float, int |  |
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+float, int |  |
 
 ## ItemsTuple
 ```
