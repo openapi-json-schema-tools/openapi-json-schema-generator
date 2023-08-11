@@ -53,6 +53,6 @@ get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, 
 ## anyOf
 Schema Class | Input Type | Return Type
 ------------ | ---------- | -----------
-[**AbstractStepMessage**](#top) | [abstract_step_message.AbstractStepMessageDictInput](../../components/schema/abstract_step_message.md#abstractstepmessagedictinput), [AbstractStepMessageDict](#abstractstepmessagedict) | [AbstractStepMessageDict](#abstractstepmessagedict)
+[**AbstractStepMessage**](#top) | [AbstractStepMessageDictInput](#abstractstepmessagedictinput), [AbstractStepMessageDict](#abstractstepmessagedict) | [AbstractStepMessageDict](#abstractstepmessagedict)
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

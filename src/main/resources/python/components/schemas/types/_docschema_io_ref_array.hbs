@@ -1,1 +1,1 @@
-{{#if arrayInputJsonPathPiece}}[{{jsonPathPiece.snakeCase}}.{{arrayInputJsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{arrayInputJsonPathPiece.anchorPiece}}){{else}}list{{/if}}, {{> components/schemas/types/_docschema_output_ref_array }}
+{{#if arrayInputJsonPathPiece}}[{{#unless selfRef}}{{jsonPathPiece.snakeCase}}.{{/unless}}{{arrayInputJsonPathPiece.camelCase}}]({{#unless selfRef}}{{docRoot}}{{pathFromDocRoot}}.md{{/unless}}#{{arrayInputJsonPathPiece.anchorPiece}}){{else}}list{{/if}}, {{> components/schemas/types/_docschema_output_ref_array }}

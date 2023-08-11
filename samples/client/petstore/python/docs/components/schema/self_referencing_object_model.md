@@ -27,8 +27,8 @@ type: typing.Mapping[
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**selfRef** | [self_referencing_object_model.SelfReferencingObjectModelDictInput](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) |  | [optional]
-**any_string_name** | [self_referencing_object_model.SelfReferencingObjectModelDictInput](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) | any string name can be used but the value must be the correct type | [optional]
+**selfRef** | [SelfReferencingObjectModelDictInput](#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) |  | [optional]
+**any_string_name** | [SelfReferencingObjectModelDictInput](#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) | any string name can be used but the value must be the correct type | [optional]
 
 ## SelfReferencingObjectModelDict
 ```
@@ -38,8 +38,8 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**selfRef** | [self_referencing_object_model.SelfReferencingObjectModelDictInput](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict), schemas.Unset |  | [optional]
-**kwargs** | [self_referencing_object_model.SelfReferencingObjectModelDictInput](../../components/schema/self_referencing_object_model.md#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**selfRef** | [SelfReferencingObjectModelDictInput](#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict), schemas.Unset |  | [optional]
+**kwargs** | [SelfReferencingObjectModelDictInput](#selfreferencingobjectmodeldictinput), [SelfReferencingObjectModelDict](#selfreferencingobjectmodeldict) | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes

@@ -29,7 +29,7 @@ type: typing.Union[
 ```
 List/Tuple Item Type | Description | Notes
 -------------------- | ------------- | -------------
-[self_referencing_array_model.SelfReferencingArrayModelTupleInput](../../components/schema/self_referencing_array_model.md#selfreferencingarraymodeltupleinput), [SelfReferencingArrayModelTuple](#selfreferencingarraymodeltuple) |  |
+[SelfReferencingArrayModelTupleInput](#selfreferencingarraymodeltupleinput), [SelfReferencingArrayModelTuple](#selfreferencingarraymodeltuple) |  |
 
 ## SelfReferencingArrayModelTuple
 ```
