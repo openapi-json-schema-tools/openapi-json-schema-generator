@@ -1,1 +1,1 @@
-{{#if mapOutputJsonPathPiece}}[{{jsonPathPiece.snakeCase}}.{{mapOutputJsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{mapOutputJsonPathPiece.anchorPiece}}){{else}}schemas.immutabledict{{/if}}
+{{#if mapOutputJsonPathPiece}}[{{#unless selfRef}}{{jsonPathPiece.snakeCase}}.{{/unless}}{{mapOutputJsonPathPiece.camelCase}}]({{#unless selfRef}}{{docRoot}}{{pathFromDocRoot}}.md{{/unless}}#{{mapOutputJsonPathPiece.anchorPiece}}){{else}}schemas.immutabledict{{/if}}

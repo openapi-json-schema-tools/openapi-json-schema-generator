@@ -29,7 +29,7 @@ type: typing.Union[
 ```
 List/Tuple Item Type | Description | Notes
 -------------------- | ------------- | -------------
-[self_referencing_array_model.SelfReferencingArrayModelTupleInput](../../components/schema/self_referencing_array_model.md#selfreferencingarraymodeltupleinput), [self_referencing_array_model.SelfReferencingArrayModelTuple](../../components/schema/self_referencing_array_model.md#selfreferencingarraymodeltuple) |  |
+[self_referencing_array_model.SelfReferencingArrayModelTupleInput](../../components/schema/self_referencing_array_model.md#selfreferencingarraymodeltupleinput), [SelfReferencingArrayModelTuple](#selfreferencingarraymodeltuple) |  |
 
 ## SelfReferencingArrayModelTuple
 ```
@@ -47,6 +47,6 @@ configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | [self_referencing_array_model.SelfReferencingArrayModelTuple](../../components/schema/self_referencing_array_model.md#selfreferencingarraymodeltuple) | This method is used under the hood when instance[0] is called
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | [SelfReferencingArrayModelTuple](#selfreferencingarraymodeltuple) | This method is used under the hood when instance[0] is called
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
