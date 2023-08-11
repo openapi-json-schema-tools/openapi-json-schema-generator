@@ -52,7 +52,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**boolean.Boolean**](../../../components/schema/boolean.md) | bool | bool
+[**boolean.Boolean**](../../components/schema/boolean.md) | bool | bool
 
 ## Return Types
 
@@ -88,7 +88,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**boolean.Boolean**](../../../components/schema/boolean.md) | bool | bool
+[**boolean.Boolean**](../../components/schema/boolean.md) | bool | bool
 
 ## Servers
 

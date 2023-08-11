@@ -502,7 +502,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 endpointInfo.put("apiPackage", generator.apiPackage());
                 endpointInfo.put("headerSize", "#");
                 endpointInfo.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
-                endpointInfo.put("docRoot", "../../../");
+                endpointInfo.put("docRoot", "../../");
                 generateXDocs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointInfo, true);
 
                 // paths.some_path.security.security_requirement_0.py
@@ -677,7 +677,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = response.content;
         if (content != null && !content.isEmpty()) {
-            generateContent(files, content, jsonPath, docRoot);
+            generateContent(files, content, jsonPath, docRoot + "../");
         }
     }
 
@@ -856,11 +856,11 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         if (schema != null) {
             String schemaJsonPath = header.getSetSchemaJsonPath(jsonPath);
             generateSchema(files, schema, schemaJsonPath);
-            generateSchemaDocumentation(files, schema, schemaJsonPath, docRoot);
+            generateSchemaDocumentation(files, schema, schemaJsonPath, docRoot + "../");
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = header.content;
         if (schema == null && content != null && !content.isEmpty()) {
-            generateContent(files, content, jsonPath, docRoot);
+            generateContent(files, content, jsonPath, docRoot + "../");
         }
     }
 

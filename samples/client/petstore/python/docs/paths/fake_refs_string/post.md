@@ -52,7 +52,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**string.String**](../../../components/schema/string.md) | str | str
+[**string.String**](../../components/schema/string.md) | str | str
 
 ## Return Types
 
@@ -88,7 +88,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**string.String**](../../../components/schema/string.md) | str | str
+[**string.String**](../../components/schema/string.md) | str | str
 
 ## Servers
 

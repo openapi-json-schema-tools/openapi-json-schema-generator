@@ -7,9 +7,9 @@
 {{#if componentModule}}
 {{packageName}}.components.schema.{{jsonPathPiece.snakeCase}}
 {{else}}
-{{#unless isInline}}
+    {{#unless isInline}}
 {{moduleLocation}}
-{{/unless}}
+    {{/unless}}
 {{/if}}
 ```
 type: schemas.Schema
