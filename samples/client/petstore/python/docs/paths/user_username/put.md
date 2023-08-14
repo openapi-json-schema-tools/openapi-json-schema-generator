@@ -98,15 +98,15 @@ from_dict_ | [PathParametersDictInput](#pathparameters-pathparametersdictinput),
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [ResponseFor400.response_cls](#responsefor400-response_cls) | Invalid user supplied
-404 | [ResponseFor404.response_cls](#responsefor404-response_cls) | User not found
+400 | [ResponseFor400.ApiResponse](#responsefor400-apiresponse) | Invalid user supplied
+404 | [ResponseFor404.ApiResponse](#responsefor404-apiresponse) | User not found
 
 ## ResponseFor400
 
 ### Description
 Invalid user supplied
 
-### ResponseFor400 response_cls
+### ResponseFor400 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -118,7 +118,7 @@ headers | Unset | headers were not defined |
 ### Description
 User not found
 
-### ResponseFor404 response_cls
+### ResponseFor404 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

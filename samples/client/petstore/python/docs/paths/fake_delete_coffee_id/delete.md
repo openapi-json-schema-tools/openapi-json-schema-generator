@@ -75,15 +75,15 @@ from_dict_ | [PathParametersDictInput](#pathparameters-pathparametersdictinput),
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [Default.response_cls](#default-response_cls) | Unexpected error
-200 | [SuccessDescriptionOnly.response_cls](../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+default | [Default.ApiResponse](#default-apiresponse) | Unexpected error
+200 | [SuccessDescriptionOnly.ApiResponse](../../components/responses/response_success_description_only.md#apiresponse) | Success
 
 ## Default
 
 ### Description
 Unexpected error
 
-### Default response_cls
+### Default ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

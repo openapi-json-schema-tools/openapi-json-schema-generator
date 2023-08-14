@@ -130,14 +130,14 @@ from_dict_ | [PathParametersDictInput](#pathparameters-pathparametersdictinput),
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-405 | [ResponseFor405.response_cls](#responsefor405-response_cls) | Invalid input
+405 | [ResponseFor405.ApiResponse](#responsefor405-apiresponse) | Invalid input
 
 ## ResponseFor405
 
 ### Description
 Invalid input
 
-### ResponseFor405 response_cls
+### ResponseFor405 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

@@ -89,7 +89,7 @@ get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, 
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+200 | [SuccessDescriptionOnly.ApiResponse](../../components/responses/response_success_description_only.md#apiresponse) | Success
 
 ## Servers
 

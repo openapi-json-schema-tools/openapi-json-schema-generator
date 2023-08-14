@@ -78,15 +78,15 @@ from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinpu
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessfulXmlAndJsonArrayOfPet.response_cls](../../components/responses/response_successful_xml_and_json_array_of_pet.md#response_successful_xml_and_json_array_of_petresponse_cls) | successful operation, multiple content types
-400 | [ResponseFor400.response_cls](#responsefor400-response_cls) | Invalid status value
+200 | [SuccessfulXmlAndJsonArrayOfPet.ApiResponse](../../components/responses/response_successful_xml_and_json_array_of_pet.md#apiresponse) | successful operation, multiple content types
+400 | [ResponseFor400.ApiResponse](#responsefor400-apiresponse) | Invalid status value
 
 ## ResponseFor400
 
 ### Description
 Invalid status value
 
-### ResponseFor400 response_cls
+### ResponseFor400 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

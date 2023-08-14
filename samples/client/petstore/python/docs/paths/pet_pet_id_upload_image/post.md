@@ -131,7 +131,7 @@ from_dict_ | [PathParametersDictInput](#pathparameters-pathparametersdictinput),
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessWithJsonApiResponse.response_cls](../../components/responses/response_success_with_json_api_response.md#response_success_with_json_api_responseresponse_cls) | successful operation
+200 | [SuccessWithJsonApiResponse.ApiResponse](../../components/responses/response_success_with_json_api_response.md#apiresponse) | successful operation
 
 ## Security
 

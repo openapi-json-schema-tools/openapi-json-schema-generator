@@ -4,7 +4,7 @@ petstore_api.components.responses.response_successful_xml_and_json_array_of_pet
 ## Description
 successful operation, multiple content types
 
-## response_cls
+## ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

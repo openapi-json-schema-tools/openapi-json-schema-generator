@@ -1,7 +1,7 @@
 petstore_api.components.responses.response_ref_success_description_only
 # Response RefSuccessDescriptionOnly
 
-## response_cls
+## ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

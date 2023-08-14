@@ -40,15 +40,15 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
-405 | [ResponseFor405.response_cls](#responsefor405-response_cls) | Invalid input
+200 | [SuccessDescriptionOnly.ApiResponse](../../components/responses/response_success_description_only.md#apiresponse) | Success
+405 | [ResponseFor405.ApiResponse](#responsefor405-apiresponse) | Invalid input
 
 ## ResponseFor405
 
 ### Description
 Invalid input
 
-### ResponseFor405 response_cls
+### ResponseFor405 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

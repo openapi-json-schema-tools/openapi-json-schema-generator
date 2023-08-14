@@ -115,14 +115,14 @@ from_dict_ | [PathParametersDictInput](#pathparameters-pathparametersdictinput),
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [ResponseFor400.response_cls](#responsefor400-response_cls) | Invalid pet value
+400 | [ResponseFor400.ApiResponse](#responsefor400-apiresponse) | Invalid pet value
 
 ## ResponseFor400
 
 ### Description
 Invalid pet value
 
-### ResponseFor400 response_cls
+### ResponseFor400 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

@@ -59,15 +59,15 @@ Ref Schema | Input Type | Output Type
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | successful operation
-400 | [ResponseFor400.response_cls](#responsefor400-response_cls) | Invalid Order
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | successful operation
+400 | [ResponseFor400.ApiResponse](#responsefor400-apiresponse) | Invalid Order
 
 ## ResponseFor200
 
 ### Description
 successful operation
 
-### ResponseFor200 response_cls
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -107,7 +107,7 @@ Ref Schema | Input Type | Output Type
 ### Description
 Invalid Order
 
-### ResponseFor400 response_cls
+### ResponseFor400 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

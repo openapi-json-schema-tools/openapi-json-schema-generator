@@ -232,15 +232,15 @@ from_dict_ | [HeaderParametersDictInput](#headerparameters-headerparametersdicti
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
-404 | [ResponseFor404.response_cls](#responsefor404-response_cls) | Not found
+200 | [SuccessDescriptionOnly.ApiResponse](../../components/responses/response_success_description_only.md#apiresponse) | Success
+404 | [ResponseFor404.ApiResponse](#responsefor404-apiresponse) | Not found
 
 ## ResponseFor404
 
 ### Description
 Not found
 
-### ResponseFor404 response_cls
+### ResponseFor404 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

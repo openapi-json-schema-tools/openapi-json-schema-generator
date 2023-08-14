@@ -36,19 +36,19 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-1XX | [ResponseFor1XX.response_cls](#responsefor1xx-response_cls) | 1XX response
-200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | success
-2XX | [ResponseFor2XX.response_cls](#responsefor2xx-response_cls) | 2XX response
-3XX | [ResponseFor3XX.response_cls](#responsefor3xx-response_cls) | 3XX response
-4XX | [ResponseFor4XX.response_cls](#responsefor4xx-response_cls) | 4XX response
-5XX | [ResponseFor5XX.response_cls](#responsefor5xx-response_cls) | 5XX response
+1XX | [ResponseFor1XX.ApiResponse](#responsefor1xx-apiresponse) | 1XX response
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | success
+2XX | [ResponseFor2XX.ApiResponse](#responsefor2xx-apiresponse) | 2XX response
+3XX | [ResponseFor3XX.ApiResponse](#responsefor3xx-apiresponse) | 3XX response
+4XX | [ResponseFor4XX.ApiResponse](#responsefor4xx-apiresponse) | 4XX response
+5XX | [ResponseFor5XX.ApiResponse](#responsefor5xx-apiresponse) | 5XX response
 
 ## ResponseFor1XX
 
 ### Description
 1XX response
 
-### ResponseFor1XX response_cls
+### ResponseFor1XX ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -77,7 +77,7 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ### Description
 success
 
-### ResponseFor200 response_cls
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -106,7 +106,7 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ### Description
 2XX response
 
-### ResponseFor2XX response_cls
+### ResponseFor2XX ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -135,7 +135,7 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ### Description
 3XX response
 
-### ResponseFor3XX response_cls
+### ResponseFor3XX ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -164,7 +164,7 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ### Description
 4XX response
 
-### ResponseFor4XX response_cls
+### ResponseFor4XX ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -193,7 +193,7 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ### Description
 5XX response
 
-### ResponseFor5XX response_cls
+### ResponseFor5XX ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

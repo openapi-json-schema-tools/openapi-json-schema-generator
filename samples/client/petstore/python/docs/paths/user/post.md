@@ -59,14 +59,14 @@ Ref Schema | Input Type | Output Type
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-default | [Default.response_cls](#default-response_cls) | successful operation
+default | [Default.ApiResponse](#default-apiresponse) | successful operation
 
 ## Default
 
 ### Description
 successful operation
 
-### Default response_cls
+### Default ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

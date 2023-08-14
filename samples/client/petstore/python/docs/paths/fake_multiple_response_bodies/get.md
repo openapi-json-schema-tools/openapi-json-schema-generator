@@ -36,15 +36,15 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | success
-202 | [ResponseFor202.response_cls](#responsefor202-response_cls) | success
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | success
+202 | [ResponseFor202.ApiResponse](#responsefor202-apiresponse) | success
 
 ## ResponseFor200
 
 ### Description
 success
 
-### ResponseFor200 response_cls
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -73,7 +73,7 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ### Description
 success
 
-### ResponseFor202 response_cls
+### ResponseFor202 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

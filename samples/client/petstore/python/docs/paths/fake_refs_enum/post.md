@@ -59,14 +59,14 @@ Ref Schema | Input Type | Output Type
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | Output enum
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | Output enum
 
 ## ResponseFor200
 
 ### Description
 Output enum
 
-### ResponseFor200 response_cls
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

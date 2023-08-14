@@ -4,7 +4,7 @@ petstore_api.components.responses.response_success_inline_content_and_header
 ## Description
 successful operation
 
-## response_cls
+## ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
