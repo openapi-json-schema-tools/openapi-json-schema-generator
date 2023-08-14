@@ -26,7 +26,7 @@ petstore_api.paths.fake_body_with_file_schema.operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#requestbody) | typing.Union[[file_schema_test_class.FileSchemaTestClassDictInput](../../components/schema/file_schema_test_class.md#fileschematestclassdictinput), [file_schema_test_class.FileSchemaTestClassDict](../../components/schema/file_schema_test_class.md#fileschematestclassdict)] | required |
-content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body. value must be one of 'application/json'
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client

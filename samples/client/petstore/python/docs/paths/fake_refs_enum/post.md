@@ -26,7 +26,7 @@ petstore_api.paths.fake_refs_enum.operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#requestbody) | typing.Union[None, typing.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"], schemas.Unset] | optional, default is unset |
-content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body. value must be one of 'application/json'
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
