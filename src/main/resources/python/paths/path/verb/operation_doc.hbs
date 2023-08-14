@@ -74,10 +74,10 @@ Name | Type | Description  | Notes
     {{#with requestBody}}
         {{#if refInfo}}
             {{#with getDeepestRef}}
-content_type | str | optional, default is {{#each content}}{{#if @first}}'{{@key.original}}'{{/if}}{{/each}} | Selects the schema and serialization of the request body. value must be one of {{#each content}}'{{@key.original}}'{{#unless @last}}, {{/unless}}{{/each}}
+content_type | str | optional, default is {{#each content}}{{#if @first}}'{{@key.original}}'{{/if}}{{/each}} | Selects the schema and serialization of the request body. value must be one of [{{#each content}}'{{@key.original}}'{{#unless @last}}, {{/unless}}{{/each}}]
             {{/with}}
         {{else}}
-content_type | str | optional, default is {{#each content}}{{#if @first}}'{{@key.original}}'{{/if}}{{/each}} | Selects the schema and serialization of the request body. value must be one of {{#each content}}'{{@key.original}}'{{#unless @last}}, {{/unless}}{{/each}}
+content_type | str | optional, default is {{#each content}}{{#if @first}}'{{@key.original}}'{{/if}}{{/each}} | Selects the schema and serialization of the request body. value must be one of [{{#each content}}'{{@key.original}}'{{#unless @last}}, {{/unless}}{{/each}}]
         {{/if}}
     {{/with}}
     {{#if produces}}

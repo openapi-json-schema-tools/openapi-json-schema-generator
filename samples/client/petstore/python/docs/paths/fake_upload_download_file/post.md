@@ -26,7 +26,7 @@ petstore_api.paths.fake_upload_download_file.operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#requestbody) | typing.Union[bytes, io.FileIO, io.BufferedReader] | required |
-content_type | str | optional, default is 'application/octet-stream' | Selects the schema and serialization of the request body. value must be one of 'application/octet-stream'
+content_type | str | optional, default is 'application/octet-stream' | Selects the schema and serialization of the request body. value must be one of ['application/octet-stream']
 accept_content_types | typing.Tuple[str] | default is ("application/octet-stream", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
