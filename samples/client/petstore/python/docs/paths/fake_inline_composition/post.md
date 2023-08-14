@@ -138,18 +138,18 @@ type: schemas.Schema
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 str | str |
-## query_params
-## QueryParameters
+### query_params
+### QueryParameters
 ```
 type: schemas.Schema
 ```
 
-### validate method
+#### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
 
-### QueryParameters QueryParametersDictInput
+#### QueryParameters QueryParametersDictInput
 ```
 type: typing.TypedDict
 ```
@@ -158,23 +158,23 @@ Key | Type |  Description | Notes
 **compositionAtRoot** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  | [optional]
 **compositionInProperty** | [schema_2.SchemaDictInput](../../paths/fake_inline_composition/post/parameters/parameter_1/schema.md#schemadictinput), [schema_2.SchemaDict](../../paths/fake_inline_composition/post/parameters/parameter_1/schema.md#schemadict) |  | [optional]
 
-### QueryParameters QueryParametersDict
+#### QueryParameters QueryParametersDict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ```
-#### &lowbar;&lowbar;new&lowbar;&lowbar; method
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **compositionAtRoot** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset |  | [optional]
 **compositionInProperty** | [schema_2.SchemaDictInput](../../paths/fake_inline_composition/post/parameters/parameter_1/schema.md#schemadictinput), [schema_2.SchemaDict](../../paths/fake_inline_composition/post/parameters/parameter_1/schema.md#schemadict), schemas.Unset |  | [optional]
 
-#### properties
+##### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **compositionAtRoot** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset |  | [optional]
 **compositionInProperty** | [schema.SchemaDict](../../paths/fake_inline_composition/post/parameters/parameter_1/schema.md#schemadict), schemas.Unset |  | [optional]
 
-#### methods
+##### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor

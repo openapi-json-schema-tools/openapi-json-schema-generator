@@ -27,7 +27,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#requestbody) | typing.Union[dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] | optional, default is unset |
 [query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
-[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
+[header_params](#header_params) | [HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | |
 [path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
 [cookie_params](#cookie-params) | [RequestCookieParameters.Params](#requestcookieparametersparams), dict | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body. value must be one of 'application/json'
@@ -54,18 +54,18 @@ type: schemas.Schema
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
-## query_params
-## QueryParameters
+### query_params
+### QueryParameters
 ```
 type: schemas.Schema
 ```
 
-### validate method
+#### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
 
-### QueryParameters QueryParametersDictInput
+#### QueryParameters QueryParametersDictInput
 ```
 type: typing.TypedDict
 ```
@@ -77,92 +77,69 @@ Key | Type |  Description | Notes
 **A-B** | str |  | [optional]
 **self** | str |  | [optional]
 
-### QueryParameters QueryParametersDict
+#### QueryParameters QueryParametersDict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
 ```
-#### &lowbar;&lowbar;new&lowbar;&lowbar; method
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **aB** | str, schemas.Unset |  | [optional]
 **Ab** | str, schemas.Unset |  | [optional]
 
-#### properties
+##### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **aB** | str, schemas.Unset |  | [optional]
 **Ab** | str, schemas.Unset |  | [optional]
 
-#### methods
+##### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], instance["self"], 
-
 ### header_params
-#### RequestHeaderParameters.Params
-This is a TypedDict
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-1 | [Parameter5.schema](#parameter5-schema), str | | optional
-aB | [Parameter6.schema](#parameter6-schema), str | | optional
-self | [Parameter7.schema](#parameter7-schema), str | | optional
-A-B | [Parameter8.schema](#parameter8-schema), str | | optional
-
-
-#### Parameter5
-
-##### Parameter5 Schema
-petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_5.schema
+### HeaderParameters
 ```
 type: schemas.Schema
 ```
 
-###### validate method
+#### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-str | str |
+[HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | [HeaderParametersDict](#headerparameters-headerparametersdict) |
 
-#### Parameter6
-
-##### Parameter6 Schema
-petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_6.schema
+#### HeaderParameters HeaderParametersDictInput
 ```
-type: schemas.Schema
+type: typing.TypedDict
 ```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**1** | str |  | [optional]
+**aB** | str |  | [optional]
+**A-B** | str |  | [optional]
+**self** | str |  | [optional]
 
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-str | str |
-
-#### Parameter7
-
-##### Parameter7 Schema
-petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_7.schema
+#### HeaderParameters HeaderParametersDict
 ```
-type: schemas.Schema
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ```
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**aB** | str, schemas.Unset |  | [optional]
 
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-str | str |
+##### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**aB** | str, schemas.Unset |  | [optional]
 
-#### Parameter8
-
-##### Parameter8 Schema
-petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_8.schema
-```
-type: schemas.Schema
-```
-
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-str | str |
+##### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | [HeaderParametersDict](#headerparameters-headerparametersdict) | a constructor
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.OUTPUT_BASE_TYPES | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], instance["self"], 
 
 ### path_params
 #### RequestPathParameters.Params

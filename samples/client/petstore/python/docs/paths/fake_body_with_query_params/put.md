@@ -49,18 +49,18 @@ type: schemas.Schema
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
 [**user.User**](../../components/schema/user.md) | [user.UserDictInput](../../components/schema/user.md#userdictinput), [user.UserDict](../../components/schema/user.md#userdict) | [user.UserDict](../../components/schema/user.md#userdict)
-## query_params
-## QueryParameters
+### query_params
+### QueryParameters
 ```
 type: schemas.Schema
 ```
 
-### validate method
+#### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
 
-### QueryParameters QueryParametersDictInput
+#### QueryParameters QueryParametersDictInput
 ```
 type: typing.TypedDict
 ```
@@ -68,22 +68,22 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **query** | str |  |
 
-### QueryParameters QueryParametersDict
+#### QueryParameters QueryParametersDict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
 ```
-#### &lowbar;&lowbar;new&lowbar;&lowbar; method
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **query** | str |  |
 
-#### properties
+##### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **query** | str |  |
 
-#### methods
+##### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor

@@ -62,8 +62,8 @@ Name | Type | Description  | Notes
     {{#if queryParameters}}
 [query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
     {{/if}}
-    {{#if headerParams}}
-[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
+    {{#if headerParameters}}
+[header_params](#header_params) | [HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | |
     {{/if}}
     {{#if pathParams}}
 [path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
@@ -105,12 +105,13 @@ skip_deserialization | bool | default is False | when True, headers and body wil
         {{/unless}}
     {{/if}}
     {{#with queryParameters}}
-## query_params
-{{> components/schemas/schema_doc schema=this headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
+### query_params
+{{> components/schemas/schema_doc schema=this headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
     {{/with}}
-    {{#if headerParams}}
-{{> paths/path/verb/_helper_operation_docs_xparams paramPrefix="header" paramType="Header" parameters=headerParams }}
-    {{/if}}
+    {{#with headerParameters}}
+### header_params
+{{> components/schemas/schema_doc schema=this headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
+    {{/with}}
     {{#if pathParams}}
 {{> paths/path/verb/_helper_operation_docs_xparams paramPrefix="path" paramType="Path" parameters=pathParams }}
     {{/if}}

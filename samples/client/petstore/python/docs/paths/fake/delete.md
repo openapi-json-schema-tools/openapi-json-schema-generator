@@ -28,24 +28,24 @@ petstore_api.paths.fake.operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
-[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
+[header_params](#header_params) | [HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | |
 security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [0]
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_response.ApiResponseWithoutDeserialization will be returned
-## query_params
-## QueryParameters
+### query_params
+### QueryParameters
 ```
 type: schemas.Schema
 ```
 
-### validate method
+#### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
 
-### QueryParameters QueryParametersDictInput
+#### QueryParameters QueryParametersDictInput
 ```
 type: typing.TypedDict
 ```
@@ -56,11 +56,11 @@ Key | Type |  Description | Notes
 **int64_group** | int |  | [optional]
 **string_group** | str |  | [optional]
 
-### QueryParameters QueryParametersDict
+#### QueryParameters QueryParametersDict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ```
-#### &lowbar;&lowbar;new&lowbar;&lowbar; method
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **required_int64_group** | int |  |
@@ -68,7 +68,7 @@ Keyword Argument | Type | Description | Notes
 **int64_group** | int, schemas.Unset |  | [optional]
 **string_group** | str, schemas.Unset |  | [optional]
 
-#### properties
+##### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **required_int64_group** | int |  |
@@ -76,52 +76,50 @@ Property | Type | Description | Notes
 **int64_group** | int, schemas.Unset |  | [optional]
 **string_group** | str, schemas.Unset |  | [optional]
 
-#### methods
+##### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
-
 ### header_params
-#### RequestHeaderParameters.Params
-This is a TypedDict
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-required_boolean_group | [Parameter1.schema](#parameter1-schema), str | | 
-boolean_group | [Parameter4.schema](#parameter4-schema), str | | optional
-
-
-#### Parameter1
-
-##### Description
-Required Boolean in group parameters
-
-##### Parameter1 Schema
-petstore_api.paths.fake.delete.parameters.parameter_1.schema
+### HeaderParameters
 ```
 type: schemas.Schema
 ```
 
-###### validate method
+#### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-typing.Literal["true", "false"] | typing.Literal["true", "false"] | must be one of ["true", "false"]
+[HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | [HeaderParametersDict](#headerparameters-headerparametersdict) |
 
-#### Parameter4
-
-##### Description
-Boolean in group parameters
-
-##### Parameter4 Schema
-petstore_api.paths.fake.delete.parameters.parameter_4.schema
+#### HeaderParameters HeaderParametersDictInput
 ```
-type: schemas.Schema
+type: typing.TypedDict
 ```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**required_boolean_group** | typing.Literal["true", "false"] |  |
+**boolean_group** | typing.Literal["true", "false"] |  | [optional]
 
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-typing.Literal["true", "false"] | typing.Literal["true", "false"] | must be one of ["true", "false"]
+#### HeaderParameters HeaderParametersDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+```
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**required_boolean_group** | typing.Literal["true", "false"] |  |
+**boolean_group** | typing.Literal["true", "false"], schemas.Unset |  | [optional]
+
+##### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**required_boolean_group** | typing.Literal["true", "false"] |  |
+**boolean_group** | typing.Literal["true", "false"], schemas.Unset |  | [optional]
+
+##### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | [HeaderParametersDict](#headerparameters-headerparametersdict) | a constructor
 
 ## Return Types
 
