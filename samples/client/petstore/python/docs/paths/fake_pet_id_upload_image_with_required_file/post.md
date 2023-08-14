@@ -27,7 +27,7 @@ petstore_api.paths.fake_pet_id_upload_image_with_required_file.operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#requestbody) | typing.Union[[schema.SchemaDictInput](../../paths/fake_pet_id_upload_image_with_required_file/post/request_body/content/multipart_form_data/schema.md#schemadictinput), [schema.SchemaDict](../../paths/fake_pet_id_upload_image_with_required_file/post/request_body/content/multipart_form_data/schema.md#schemadict), schemas.Unset] | optional, default is unset |
-[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
+[path_params](#path_params) | [PathParametersDictInput](#pathparameters-pathparametersdictinput), [PathParametersDict](#pathparameters-pathparametersdict) | |
 content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body. value must be one of ['multipart/form-data']
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [0]
@@ -87,31 +87,44 @@ Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput), [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | a constructor
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
-
 ### path_params
-#### RequestPathParameters.Params
-This is a TypedDict
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-petId | [Parameter0.schema](#parameter0-schema), int | | 
-
-
-#### Parameter0
-
-##### Description
-ID of pet to update
-
-##### Parameter0 Schema
-petstore_api.paths.fake_pet_id_upload_image_with_required_file.post.parameters.parameter_0.schema
+### PathParameters
 ```
 type: schemas.Schema
 ```
 
-###### validate method
+#### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-int | int | value must be a 64 bit integer
+[PathParametersDictInput](#pathparameters-pathparametersdictinput), [PathParametersDict](#pathparameters-pathparametersdict) | [PathParametersDict](#pathparameters-pathparametersdict) |
+
+#### PathParameters PathParametersDictInput
+```
+type: typing.TypedDict
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**petId** | int |  |
+
+#### PathParameters PathParametersDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
+```
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**petId** | int |  |
+
+##### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**petId** | int |  |
+
+##### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [PathParametersDictInput](#pathparameters-pathparametersdictinput), [PathParametersDict](#pathparameters-pathparametersdict) | [PathParametersDict](#pathparameters-pathparametersdict) | a constructor
 
 ## Return Types
 
