@@ -26,7 +26,7 @@ petstore_api.paths.another_fake_dummy.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[**body**](../../components/request_bodies/request_body_client.md) | typing.Union[[Client.content.application_json.schema](../../components/request_bodies/request_body_client.md#content-applicationjson-schema), dict, schemas.immutabledict] | required |
+[**body**](../../components/request_bodies/request_body_client.md) | typing.Union[[client.ClientDictInput](../../components/schema/client.md#clientdictinput), [client.ClientDict](../../components/schema/client.md#clientdict)] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]

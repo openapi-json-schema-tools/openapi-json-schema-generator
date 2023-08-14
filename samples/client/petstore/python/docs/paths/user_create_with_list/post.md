@@ -25,7 +25,7 @@ petstore_api.paths.user_create_with_list.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[**body**](../../components/request_bodies/request_body_ref_user_array.md) | typing.Union[[RefUserArray.content.application_json.schema](../../components/request_bodies/request_body_ref_user_array.md#content-applicationjson-schema), list, tuple] | required |
+[**body**](../../components/request_bodies/request_body_ref_user_array.md) | typing.Union[dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader] | required |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file

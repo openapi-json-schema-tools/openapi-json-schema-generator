@@ -46,13 +46,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
     {{#if requestBody}}
         {{#if requestBody.refInfo}}
-            {{#with requestBody.getDeepestRef}}
-                {{#if required}}
-[**body**](../../components/request_bodies/{{../requestBody.refInfo.refModule}}.md) | typing.Union[{{#each content}}{{#with this.schema}}[{{../../../requestBody.refInfo.refClass}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}](../../components/request_bodies/{{../../../requestBody.refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) }}){{/with}}, {{/each}}{{#each getContentSchemas}}{{> _helper_schema_python_types }}{{#unless @last}}, {{/unless}}{{/each}}] | required |
+                {{#if requestBody.getDeepestRef.required}}
+[**body**](../../components/request_bodies/{{requestBody.refInfo.refModule}}.md) | typing.Union[{{#each requestBodySchema.properties}}{{> components/schemas/types/docschema_io_types }}{{#unless @last}}, {{/unless}}{{/each}}] | required |
                 {{else}}
-[**body**](../../components/request_bodies/{{../requestBody.refInfo.refModule}}.md) | typing.Union[{{#each content}}{{#with this.schema}}[{{../../../requestBody.refInfo.refClass}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}](../../components/request_bodies/{{../../../requestBody.refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) }}){{/with}}, {{/each}}Unset, {{#each getContentSchemas}}{{> _helper_schema_python_types }}{{#unless @last}}, {{/unless}}{{/each}}] | optional, default is unset |
+[**body**](../../components/request_bodies/{{requestBody.refInfo.refModule}}.md) | typing.Union[{{#each requestBodySchema.properties}}{{> components/schemas/types/docschema_io_types }}{{#unless @last}}, {{else}}, schemas.Unset{{/unless}}{{/each}}] | optional, default is unset |
                 {{/if}}
-            {{/with}}
         {{else}}
             {{#if requestBody.required}}
 [body](#requestbody) | typing.Union[{{#each requestBodySchema.properties}}{{> components/schemas/types/docschema_io_types }}{{#unless @last}}, {{/unless}}{{/each}}] | required |
