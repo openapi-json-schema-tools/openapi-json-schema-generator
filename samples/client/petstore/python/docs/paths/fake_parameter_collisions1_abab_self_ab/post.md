@@ -25,7 +25,7 @@ petstore_api.paths.fake_parameter_collisions1_abab_self_ab.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[refInfo=CodegenRefInfo{refModule&#x3D;schema, refClass&#x3D;Schema, refModuleLocation&#x3D;petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.request_body.content.application_json, refModuleAlias&#x3D;null}dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] | optional, default is unset |
+[body](#requestbody) | typing.Union[dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] | optional, default is unset |
 [query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
 [header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
 [path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |

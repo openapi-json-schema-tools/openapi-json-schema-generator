@@ -1482,6 +1482,34 @@ paths:
                     allOf:
                       - type: string
                         minLength: 1
+  /fake/multipleRequestBodyContentTypes/:
+    post:
+      tags:
+        - fake
+      summary: testing composed schemas at inline locations
+      description: composed schemas at inline locations + multiple requestBody content types
+      operationId: multipleRequestBodyContentTypes
+      requestBody:
+        description: multiple (inline) request body content types
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                a:
+                  type: string
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                b:
+                  type: string
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema: {}
   '/fake/objInQuery':
     get:
       tags:

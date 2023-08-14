@@ -244,6 +244,10 @@ docs/paths/fake_json_patch/patch/request_body/content/application_json_patchjson
 docs/paths/fake_json_with_charset/post.md
 docs/paths/fake_json_with_charset/post/request_body/content/application_json_charsetutf8/schema.md
 docs/paths/fake_json_with_charset/post/responses/response_200/content/application_json_charsetutf8/schema.md
+docs/paths/fake_multiple_request_body_content_types/post.md
+docs/paths/fake_multiple_request_body_content_types/post/request_body/content/application_json/schema.md
+docs/paths/fake_multiple_request_body_content_types/post/request_body/content/multipart_form_data/schema.md
+docs/paths/fake_multiple_request_body_content_types/post/responses/response_200/content/application_json/schema.md
 docs/paths/fake_multiple_response_bodies/get.md
 docs/paths/fake_multiple_response_bodies/get/responses/response_200/content/application_json/schema.md
 docs/paths/fake_multiple_response_bodies/get/responses/response_202/content/application_json/schema.md
@@ -412,6 +416,7 @@ src/petstore_api/apis/paths/fake_inline_composition.py
 src/petstore_api/apis/paths/fake_json_form_data.py
 src/petstore_api/apis/paths/fake_json_patch.py
 src/petstore_api/apis/paths/fake_json_with_charset.py
+src/petstore_api/apis/paths/fake_multiple_request_body_content_types.py
 src/petstore_api/apis/paths/fake_multiple_response_bodies.py
 src/petstore_api/apis/paths/fake_multiple_securities.py
 src/petstore_api/apis/paths/fake_obj_in_query.py
@@ -896,6 +901,20 @@ src/petstore_api/paths/fake_json_with_charset/post/responses/response_200/__init
 src/petstore_api/paths/fake_json_with_charset/post/responses/response_200/content/__init__.py
 src/petstore_api/paths/fake_json_with_charset/post/responses/response_200/content/application_json_charsetutf8/__init__.py
 src/petstore_api/paths/fake_json_with_charset/post/responses/response_200/content/application_json_charsetutf8/schema.py
+src/petstore_api/paths/fake_multiple_request_body_content_types/__init__.py
+src/petstore_api/paths/fake_multiple_request_body_content_types/post/__init__.py
+src/petstore_api/paths/fake_multiple_request_body_content_types/post/operation.py
+src/petstore_api/paths/fake_multiple_request_body_content_types/post/request_body/__init__.py
+src/petstore_api/paths/fake_multiple_request_body_content_types/post/request_body/content/__init__.py
+src/petstore_api/paths/fake_multiple_request_body_content_types/post/request_body/content/application_json/__init__.py
+src/petstore_api/paths/fake_multiple_request_body_content_types/post/request_body/content/application_json/schema.py
+src/petstore_api/paths/fake_multiple_request_body_content_types/post/request_body/content/multipart_form_data/__init__.py
+src/petstore_api/paths/fake_multiple_request_body_content_types/post/request_body/content/multipart_form_data/schema.py
+src/petstore_api/paths/fake_multiple_request_body_content_types/post/responses/__init__.py
+src/petstore_api/paths/fake_multiple_request_body_content_types/post/responses/response_200/__init__.py
+src/petstore_api/paths/fake_multiple_request_body_content_types/post/responses/response_200/content/__init__.py
+src/petstore_api/paths/fake_multiple_request_body_content_types/post/responses/response_200/content/application_json/__init__.py
+src/petstore_api/paths/fake_multiple_request_body_content_types/post/responses/response_200/content/application_json/schema.py
 src/petstore_api/paths/fake_multiple_response_bodies/__init__.py
 src/petstore_api/paths/fake_multiple_response_bodies/get/__init__.py
 src/petstore_api/paths/fake_multiple_response_bodies/get/operation.py
@@ -1580,6 +1599,7 @@ test/test_paths/__init__.py
 test/test_paths/__init__.py
 test/test_paths/__init__.py
 test/test_paths/__init__.py
+test/test_paths/__init__.py
 test/test_paths/test_another_fake_dummy/__init__.py
 test/test_paths/test_another_fake_dummy/test_patch.py
 test/test_paths/test_fake/__init__.py
@@ -1611,6 +1631,8 @@ test/test_paths/test_fake_json_patch/__init__.py
 test/test_paths/test_fake_json_patch/test_patch.py
 test/test_paths/test_fake_json_with_charset/__init__.py
 test/test_paths/test_fake_json_with_charset/test_post.py
+test/test_paths/test_fake_multiple_request_body_content_types/__init__.py
+test/test_paths/test_fake_multiple_request_body_content_types/test_post.py
 test/test_paths/test_fake_multiple_response_bodies/__init__.py
 test/test_paths/test_fake_multiple_response_bodies/test_get.py
 test/test_paths/test_fake_multiple_securities/__init__.py

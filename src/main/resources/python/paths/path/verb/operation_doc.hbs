@@ -57,7 +57,7 @@ Name | Type | Description  | Notes
             {{#if requestBody.required}}
 [body](#requestbody) | typing.Union[{{#each requestBodySchema.properties}}{{> components/schemas/types/docschema_io_types }}{{#unless @last}}, {{/unless}}{{/each}}] | required |
             {{else}}
-[body](#requestbody) | typing.Union[{{#each requestBodySchema.properties}}refInfo={{this.refInfo}}{{> components/schemas/types/docschema_io_types }}{{#unless @last}}, {{else}}, schemas.Unset{{/unless}}{{/each}}] | optional, default is unset |
+[body](#requestbody) | typing.Union[{{#each requestBodySchema.properties}}{{> components/schemas/types/docschema_io_types }}{{#unless @last}}, {{else}}, schemas.Unset{{/unless}}{{/each}}] | optional, default is unset |
             {{/if}}
         {{/if}}
     {{/if}}

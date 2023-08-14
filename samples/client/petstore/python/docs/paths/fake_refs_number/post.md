@@ -25,7 +25,7 @@ petstore_api.paths.fake_refs_number.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[refInfo=CodegenRefInfo{refModule&#x3D;number_with_validations, refClass&#x3D;NumberWithValidations, refModuleLocation&#x3D;petstore_api.components.schema, refModuleAlias&#x3D;null}float, int, schemas.Unset] | optional, default is unset |
+[body](#requestbody) | typing.Union[float, int, schemas.Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]

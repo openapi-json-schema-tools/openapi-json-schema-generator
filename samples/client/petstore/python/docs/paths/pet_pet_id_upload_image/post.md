@@ -26,7 +26,7 @@ petstore_api.paths.pet_pet_id_upload_image.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[refInfo=CodegenRefInfo{refModule&#x3D;schema, refClass&#x3D;Schema, refModuleLocation&#x3D;petstore_api.paths.pet_pet_id_upload_image.post.request_body.content.multipart_form_data, refModuleAlias&#x3D;null}[schema.SchemaDictInput](../../paths/pet_pet_id_upload_image/post/request_body/content/multipart_form_data/schema.md#schemadictinput), [schema.SchemaDict](../../paths/pet_pet_id_upload_image/post/request_body/content/multipart_form_data/schema.md#schemadict), schemas.Unset] | optional, default is unset |
+[body](#requestbody) | typing.Union[[schema.SchemaDictInput](../../paths/pet_pet_id_upload_image/post/request_body/content/multipart_form_data/schema.md#schemadictinput), [schema.SchemaDict](../../paths/pet_pet_id_upload_image/post/request_body/content/multipart_form_data/schema.md#schemadict), schemas.Unset] | optional, default is unset |
 [path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
 content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client

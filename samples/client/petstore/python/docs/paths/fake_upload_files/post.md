@@ -25,7 +25,7 @@ petstore_api.paths.fake_upload_files.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[refInfo=CodegenRefInfo{refModule&#x3D;schema, refClass&#x3D;Schema, refModuleLocation&#x3D;petstore_api.paths.fake_upload_files.post.request_body.content.multipart_form_data, refModuleAlias&#x3D;null}[schema.SchemaDictInput](../../paths/fake_upload_files/post/request_body/content/multipart_form_data/schema.md#schemadictinput), [schema.SchemaDict](../../paths/fake_upload_files/post/request_body/content/multipart_form_data/schema.md#schemadict), schemas.Unset] | optional, default is unset |
+[body](#requestbody) | typing.Union[[schema.SchemaDictInput](../../paths/fake_upload_files/post/request_body/content/multipart_form_data/schema.md#schemadictinput), [schema.SchemaDict](../../paths/fake_upload_files/post/request_body/content/multipart_form_data/schema.md#schemadict), schemas.Unset] | optional, default is unset |
 content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]

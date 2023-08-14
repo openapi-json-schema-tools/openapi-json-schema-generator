@@ -192,6 +192,7 @@ HTTP request | Method | Description
 /fake/jsonFormData **get** | [FakeApi](docs/apis/tags/fake_api.md).[json_form_data](docs/paths/fake_json_form_data/get.md)  | test json serialization of form data
 /fake/jsonPatch **patch** | [FakeApi](docs/apis/tags/fake_api.md).[json_patch](docs/paths/fake_json_patch/patch.md)  | json patch
 /fake/jsonWithCharset **post** | [FakeApi](docs/apis/tags/fake_api.md).[json_with_charset](docs/paths/fake_json_with_charset/post.md)  | json with charset tx and rx
+/fake/multipleRequestBodyContentTypes/ **post** | [FakeApi](docs/apis/tags/fake_api.md).[multiple_request_body_content_types](docs/paths/fake_multiple_request_body_content_types/post.md)  | testing composed schemas at inline locations
 /fake/multipleResponseBodies **get** | [FakeApi](docs/apis/tags/fake_api.md).[multiple_response_bodies](docs/paths/fake_multiple_response_bodies/get.md)  | multiple responses have response bodies
 /fake/multipleSecurities **get** | [FakeApi](docs/apis/tags/fake_api.md).[multiple_securities](docs/paths/fake_multiple_securities/get.md)  | multiple security requirements
 /fake/objInQuery **get** | [FakeApi](docs/apis/tags/fake_api.md).[object_in_query](docs/paths/fake_obj_in_query/get.md)  | user list

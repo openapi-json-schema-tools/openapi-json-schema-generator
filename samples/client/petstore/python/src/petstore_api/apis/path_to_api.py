@@ -15,6 +15,7 @@ from petstore_api.apis.paths.fake_inline_composition import FakeInlineCompositio
 from petstore_api.apis.paths.fake_json_form_data import FakeJsonFormData
 from petstore_api.apis.paths.fake_json_patch import FakeJsonPatch
 from petstore_api.apis.paths.fake_json_with_charset import FakeJsonWithCharset
+from petstore_api.apis.paths.fake_multiple_request_body_content_types import FakeMultipleRequestBodyContentTypes
 from petstore_api.apis.paths.fake_multiple_response_bodies import FakeMultipleResponseBodies
 from petstore_api.apis.paths.fake_multiple_securities import FakeMultipleSecurities
 from petstore_api.apis.paths.fake_obj_in_query import FakeObjInQuery
@@ -72,6 +73,7 @@ PathToApi = typing.TypedDict(
     "/fake/jsonFormData": typing.Type[FakeJsonFormData],
     "/fake/jsonPatch": typing.Type[FakeJsonPatch],
     "/fake/jsonWithCharset": typing.Type[FakeJsonWithCharset],
+    "/fake/multipleRequestBodyContentTypes/": typing.Type[FakeMultipleRequestBodyContentTypes],
     "/fake/multipleResponseBodies": typing.Type[FakeMultipleResponseBodies],
     "/fake/multipleSecurities": typing.Type[FakeMultipleSecurities],
     "/fake/objInQuery": typing.Type[FakeObjInQuery],
@@ -130,6 +132,7 @@ path_to_api = PathToApi(
     "/fake/jsonFormData": FakeJsonFormData,
     "/fake/jsonPatch": FakeJsonPatch,
     "/fake/jsonWithCharset": FakeJsonWithCharset,
+    "/fake/multipleRequestBodyContentTypes/": FakeMultipleRequestBodyContentTypes,
     "/fake/multipleResponseBodies": FakeMultipleResponseBodies,
     "/fake/multipleSecurities": FakeMultipleSecurities,
     "/fake/objInQuery": FakeObjInQuery,
