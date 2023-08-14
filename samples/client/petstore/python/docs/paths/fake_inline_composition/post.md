@@ -27,7 +27,7 @@ petstore_api.paths.fake_inline_composition.operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#requestbody) | typing.Union[dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, [schema_2.SchemaDictInput](../../paths/fake_inline_composition/post/request_body/content/multipart_form_data/schema.md#schemadictinput), [schema_2.SchemaDict](../../paths/fake_inline_composition/post/request_body/content/multipart_form_data/schema.md#schemadict), schemas.Unset] | optional, default is unset |
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
+[query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body. value must be one of 'application/json', 'multipart/form-data'
 accept_content_types | typing.Tuple[str] | default is ("application/json", "multipart/form-data", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
@@ -138,114 +138,46 @@ type: schemas.Schema
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 str | str |
-
-### query_params
-#### RequestQueryParameters.Params
-This is a TypedDict
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-compositionAtRoot | [Parameter0.schema](#parameter0-schema), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | | optional
-compositionInProperty | [Parameter1.schema](#parameter1-schema), dict, schemas.immutabledict | | optional
-
-
-#### Parameter0
-
-##### Parameter0 Schema
-petstore_api.paths.fake_inline_composition.post.parameters.parameter_0.schema
+## query_params
+## QueryParameters
 ```
 type: schemas.Schema
 ```
 
-###### validate method
+### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
+[QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
 
-###### Composed Schemas (allOf/anyOf/oneOf/not)
-###### allOf
-Schema Class | Input Type | Return Type
------------- | ---------- | -----------
-[_0](#parameter0-schema-_0) | str | str
-
-##### Parameter0 Schema
+### QueryParameters QueryParametersDictInput
 ```
-type: schemas.Schema
-```
-
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-str | str |
-
-#### Parameter1
-
-##### Parameter1 Schema
-petstore_api.paths.fake_inline_composition.post.parameters.parameter_1.schema
-```
-type: schemas.Schema
-```
-
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-[SchemaDictInput](#parameter1-schema-schemadictinput), [SchemaDict](#parameter1-schema-schemadict) | [SchemaDict](#parameter1-schema-schemadict) |
-
-###### Parameter1 Schema SchemaDictInput
-```
-type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+type: typing.TypedDict
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**someProp** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
+**compositionAtRoot** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  | [optional]
+**compositionInProperty** | [schema_2.SchemaDictInput](../../paths/fake_inline_composition/post/parameters/parameter_1/schema.md#schemadictinput), [schema_2.SchemaDict](../../paths/fake_inline_composition/post/parameters/parameter_1/schema.md#schemadict) |  | [optional]
 
-###### Parameter1 Schema SchemaDict
+### QueryParameters QueryParametersDict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ```
-####### &lowbar;&lowbar;new&lowbar;&lowbar; method
+#### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**someProp** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset |  | [optional]
-**kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**compositionAtRoot** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset |  | [optional]
+**compositionInProperty** | [schema_2.SchemaDictInput](../../paths/fake_inline_composition/post/parameters/parameter_1/schema.md#schemadictinput), [schema_2.SchemaDict](../../paths/fake_inline_composition/post/parameters/parameter_1/schema.md#schemadict), schemas.Unset |  | [optional]
 
-####### properties
+#### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**someProp** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset |  | [optional]
+**compositionAtRoot** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset |  | [optional]
+**compositionInProperty** | [schema.SchemaDict](../../paths/fake_inline_composition/post/parameters/parameter_1/schema.md#schemadict), schemas.Unset |  | [optional]
 
-####### methods
+#### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [SchemaDictInput](#parameter1-schema-schemadictinput), [SchemaDict](#parameter1-schema-schemadict) | [SchemaDict](#parameter1-schema-schemadict) | a constructor
-get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
-
-##### Parameter1 Schema
-```
-type: schemas.Schema
-```
-
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
-
-###### Composed Schemas (allOf/anyOf/oneOf/not)
-###### allOf
-Schema Class | Input Type | Return Type
------------- | ---------- | -----------
-[_0](#parameter1-schema-_0) | str | str
-
-##### Parameter1 Schema
-```
-type: schemas.Schema
-```
-
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-str | str |
+from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
 
 ## Return Types
 

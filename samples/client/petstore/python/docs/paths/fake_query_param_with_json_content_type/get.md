@@ -25,41 +25,50 @@ petstore_api.paths.fake_query_param_with_json_content_type.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
+[query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_response.ApiResponseWithoutDeserialization will be returned
-
-### query_params
-#### RequestQueryParameters.Params
-This is a TypedDict
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-someParam | [Parameter0.content.application_json.schema](#parameter0-content-applicationjson-schema), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | | 
-
-
-#### Parameter0
-
-##### Description
-The internal object id
-
-##### Content Type To Schema
-Content-Type | Schema
------------- | -------
-"application/json" | [content.application_json.Schema](#parameter0-content-applicationjson-schema)
-##### Parameter0 content ApplicationJson Schema
-petstore_api.paths.fake_query_param_with_json_content_type.get.parameters.parameter_0.content.application_json.schema
+## query_params
+## QueryParameters
 ```
 type: schemas.Schema
 ```
 
-###### validate method
+### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
+[QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
+
+### QueryParameters QueryParametersDictInput
+```
+type: typing.TypedDict
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**someParam** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  |
+
+### QueryParameters QueryParametersDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
+```
+#### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**someParam** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  |
+
+#### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**someParam** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+
+#### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
 
 ## Return Types
 

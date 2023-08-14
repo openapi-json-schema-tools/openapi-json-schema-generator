@@ -27,71 +27,50 @@ petstore_api.paths.pet_find_by_tags.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
+[query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
 security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [0, 1]
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_response.ApiResponseWithoutDeserialization will be returned
-
-### query_params
-#### RequestQueryParameters.Params
-This is a TypedDict
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-tags | [Parameter0.schema](#parameter0-schema), list, tuple | | 
-
-
-#### Parameter0
-
-##### Description
-Tags to filter by
-
-##### Parameter0 Schema
-petstore_api.paths.pet_find_by_tags.get.parameters.parameter_0.schema
+## query_params
+## QueryParameters
 ```
 type: schemas.Schema
 ```
 
-###### validate method
+### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaTupleInput](#parameter0-schema-schematupleinput), [SchemaTuple](#parameter0-schema-schematuple) | [SchemaTuple](#parameter0-schema-schematuple) |
+[QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
 
-###### Parameter0 Schema SchemaTupleInput
+### QueryParameters QueryParametersDictInput
 ```
-type: typing.Union[
-    typing.List[
-        str,
-    ],
-    typing.Tuple[
-        str,
-        ...
-    ]
-]
+type: typing.TypedDict
 ```
-List/Tuple Item Type | Description | Notes
--------------------- | ------------- | -------------
-str |  |
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**tags** | [schema.SchemaTupleInput](../../paths/pet_find_by_tags/get/parameters/parameter_0/schema.md#schematupleinput), [schema.SchemaTuple](../../paths/pet_find_by_tags/get/parameters/parameter_0/schema.md#schematuple) |  |
 
-###### Parameter0 Schema SchemaTuple
+### QueryParameters QueryParametersDict
 ```
-base class: typing.Tuple[
-    str,
-    ...
-]
-```
-####### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | [SchemaTupleInput](#parameter0-schema-schematupleinput), [SchemaTuple](#parameter0-schema-schematuple)
-configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
-####### methods
+```
+#### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**tags** | [schema.SchemaTupleInput](../../paths/pet_find_by_tags/get/parameters/parameter_0/schema.md#schematupleinput), [schema.SchemaTuple](../../paths/pet_find_by_tags/get/parameters/parameter_0/schema.md#schematuple) |  |
+
+#### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**tags** | [schema.SchemaTuple](../../paths/pet_find_by_tags/get/parameters/parameter_0/schema.md#schematuple) |  |
+
+#### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | str | This method is used under the hood when instance[0] is called
+from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
 
 ## Return Types
 

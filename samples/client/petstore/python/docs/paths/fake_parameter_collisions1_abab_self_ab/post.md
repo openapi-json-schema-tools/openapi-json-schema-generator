@@ -26,7 +26,7 @@ petstore_api.paths.fake_parameter_collisions1_abab_self_ab.operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#requestbody) | typing.Union[dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] | optional, default is unset |
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
+[query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
 [header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
 [path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
 [cookie_params](#cookie-params) | [RequestCookieParameters.Params](#requestcookieparametersparams), dict | |
@@ -54,84 +54,51 @@ type: schemas.Schema
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
-
-### query_params
-#### RequestQueryParameters.Params
-This is a TypedDict
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-1 | [Parameter0.schema](#parameter0-schema), str | | optional
-aB | [Parameter1.schema](#parameter1-schema), str | | optional
-Ab | [Parameter2.schema](#parameter2-schema), str | | optional
-self | [Parameter3.schema](#parameter3-schema), str | | optional
-A-B | [Parameter4.schema](#parameter4-schema), str | | optional
-
-
-#### Parameter0
-
-##### Parameter0 Schema
-petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_0.schema
+## query_params
+## QueryParameters
 ```
 type: schemas.Schema
 ```
 
-###### validate method
+### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-str | str |
+[QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
 
-#### Parameter1
-
-##### Parameter1 Schema
-petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_1.schema
+### QueryParameters QueryParametersDictInput
 ```
-type: schemas.Schema
+type: typing.TypedDict
 ```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**1** | str |  | [optional]
+**aB** | str |  | [optional]
+**Ab** | str |  | [optional]
+**A-B** | str |  | [optional]
+**self** | str |  | [optional]
 
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-str | str |
-
-#### Parameter2
-
-##### Parameter2 Schema
-petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_2.schema
+### QueryParameters QueryParametersDict
 ```
-type: schemas.Schema
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
 ```
+#### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**aB** | str, schemas.Unset |  | [optional]
+**Ab** | str, schemas.Unset |  | [optional]
 
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-str | str |
+#### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**aB** | str, schemas.Unset |  | [optional]
+**Ab** | str, schemas.Unset |  | [optional]
 
-#### Parameter3
-
-##### Parameter3 Schema
-petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_3.schema
-```
-type: schemas.Schema
-```
-
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-str | str |
-
-#### Parameter4
-
-##### Parameter4 Schema
-petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_4.schema
-```
-type: schemas.Schema
-```
-
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-str | str |
+#### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], instance["self"], 
 
 ### header_params
 #### RequestHeaderParameters.Params

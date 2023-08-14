@@ -25,7 +25,7 @@ petstore_api.paths.fake_body_with_query_params.operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#requestbody) | typing.Union[[user.UserDictInput](../../components/schema/user.md#userdictinput), [user.UserDict](../../components/schema/user.md#userdict)] | required |
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
+[query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body. value must be one of 'application/json'
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -49,28 +49,44 @@ type: schemas.Schema
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
 [**user.User**](../../components/schema/user.md) | [user.UserDictInput](../../components/schema/user.md#userdictinput), [user.UserDict](../../components/schema/user.md#userdict) | [user.UserDict](../../components/schema/user.md#userdict)
-
-### query_params
-#### RequestQueryParameters.Params
-This is a TypedDict
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-query | [Parameter0.schema](#parameter0-schema), str | | 
-
-
-#### Parameter0
-
-##### Parameter0 Schema
-petstore_api.paths.fake_body_with_query_params.put.parameters.parameter_0.schema
+## query_params
+## QueryParameters
 ```
 type: schemas.Schema
 ```
 
-###### validate method
+### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-str | str |
+[QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
+
+### QueryParameters QueryParametersDictInput
+```
+type: typing.TypedDict
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**query** | str |  |
+
+### QueryParameters QueryParametersDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
+```
+#### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**query** | str |  |
+
+#### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**query** | str |  |
+
+#### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
 
 ## Return Types
 

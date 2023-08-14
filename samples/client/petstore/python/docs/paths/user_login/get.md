@@ -25,54 +25,52 @@ petstore_api.paths.user_login.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
+[query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
 accept_content_types | typing.Tuple[str] | default is ("application/xml", "application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_response.ApiResponseWithoutDeserialization will be returned
-
-### query_params
-#### RequestQueryParameters.Params
-This is a TypedDict
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-username | [Parameter0.schema](#parameter0-schema), str | | 
-password | [Parameter1.schema](#parameter1-schema), str | | 
-
-
-#### Parameter0
-
-##### Description
-The user name for login
-
-##### Parameter0 Schema
-petstore_api.paths.user_login.get.parameters.parameter_0.schema
+## query_params
+## QueryParameters
 ```
 type: schemas.Schema
 ```
 
-###### validate method
+### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-str | str |
+[QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
 
-#### Parameter1
-
-##### Description
-The password for login in clear text
-
-##### Parameter1 Schema
-petstore_api.paths.user_login.get.parameters.parameter_1.schema
+### QueryParameters QueryParametersDictInput
 ```
-type: schemas.Schema
+type: typing.TypedDict
 ```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**password** | str |  |
+**username** | str |  |
 
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-str | str |
+### QueryParameters QueryParametersDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+```
+#### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**password** | str |  |
+**username** | str |  |
+
+#### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**password** | str |  |
+**username** | str |  |
+
+#### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
 
 ## Return Types
 

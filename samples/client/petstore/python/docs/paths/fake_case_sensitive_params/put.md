@@ -25,61 +25,55 @@ petstore_api.paths.fake_case_sensitive_params.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
+[query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_response.ApiResponseWithoutDeserialization will be returned
-
-### query_params
-#### RequestQueryParameters.Params
-This is a TypedDict
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-someVar | [Parameter0.schema](#parameter0-schema), str | | 
-SomeVar | [Parameter1.schema](#parameter1-schema), str | | 
-some_var | [Parameter2.schema](#parameter2-schema), str | | 
-
-
-#### Parameter0
-
-##### Parameter0 Schema
-petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_0.schema
+## query_params
+## QueryParameters
 ```
 type: schemas.Schema
 ```
 
-###### validate method
+### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-str | str |
+[QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
 
-#### Parameter1
-
-##### Parameter1 Schema
-petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_1.schema
+### QueryParameters QueryParametersDictInput
 ```
-type: schemas.Schema
+type: typing.TypedDict
 ```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**SomeVar** | str |  |
+**someVar** | str |  |
+**some_var** | str |  |
 
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-str | str |
-
-#### Parameter2
-
-##### Parameter2 Schema
-petstore_api.paths.fake_case_sensitive_params.put.parameters.parameter_2.schema
+### QueryParameters QueryParametersDict
 ```
-type: schemas.Schema
-```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-str | str |
+```
+#### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**SomeVar** | str |  |
+**someVar** | str |  |
+**some_var** | str |  |
+
+#### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**SomeVar** | str |  |
+**someVar** | str |  |
+**some_var** | str |  |
+
+#### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
 
 ## Return Types
 

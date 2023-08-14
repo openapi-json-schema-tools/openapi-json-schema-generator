@@ -25,36 +25,49 @@ petstore_api.paths.fake_ref_obj_in_query.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
+[query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_response.ApiResponseWithoutDeserialization will be returned
-
-### query_params
-#### RequestQueryParameters.Params
-This is a TypedDict
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-mapBean | [Parameter0.schema](#parameter0-schema), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | | optional
-
-
-#### Parameter0
-
-##### Description
-mapBean
-
-##### Parameter0 Schema
-petstore_api.paths.fake_ref_obj_in_query.get.parameters.parameter_0.schema
+## query_params
+## QueryParameters
 ```
 type: schemas.Schema
 ```
 
-###### Ref Schema Info
-Ref Schema | Input Type | Output Type
----------- | ---------- | -----------
-[**foo.Foo**](../../components/schema/foo.md) | [foo.FooDictInput](../../components/schema/foo.md#foodictinput), [foo.FooDict](../../components/schema/foo.md#foodict) | [foo.FooDict](../../components/schema/foo.md#foodict)
+### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
+
+### QueryParameters QueryParametersDictInput
+```
+type: typing.TypedDict
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**mapBean** | [foo.FooDictInput](../../components/schema/foo.md#foodictinput), [foo.FooDict](../../components/schema/foo.md#foodict) |  | [optional]
+
+### QueryParameters QueryParametersDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
+```
+#### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**mapBean** | [foo.FooDictInput](../../components/schema/foo.md#foodictinput), [foo.FooDict](../../components/schema/foo.md#foodict), schemas.Unset |  | [optional]
+
+#### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**mapBean** | [foo.FooDict](../../components/schema/foo.md#foodict), schemas.Unset |  | [optional]
+
+#### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
 
 ## Return Types
 

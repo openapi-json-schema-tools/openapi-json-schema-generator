@@ -27,7 +27,7 @@ petstore_api.paths.fake.operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 [body](#requestbody) | typing.Union[[schema.SchemaDictInput](../../paths/fake/get/request_body/content/application_x_www_form_urlencoded/schema.md#schemadictinput), [schema.SchemaDict](../../paths/fake/get/request_body/content/application_x_www_form_urlencoded/schema.md#schemadict), schemas.Unset] | optional, default is unset |
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
+[query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
 [header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body. value must be one of 'application/x-www-form-urlencoded'
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
@@ -140,122 +140,52 @@ configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing.Literal[">", "$"] | must be one of [">", "$"] if omitted the server will use the default value of $ This method is used under the hood when instance[0] is called
-
-### query_params
-#### RequestQueryParameters.Params
-This is a TypedDict
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-enum_query_string_array | [Parameter2.schema](#parameter2-schema), list, tuple | | optional
-enum_query_string | [Parameter3.schema](#parameter3-schema), str | | optional
-enum_query_integer | [Parameter4.schema](#parameter4-schema), int | | optional
-enum_query_double | [Parameter5.schema](#parameter5-schema), float, int | | optional
-
-
-#### Parameter2
-
-##### Description
-Query parameter enum test (string array)
-
-##### Parameter2 Schema
-petstore_api.paths.fake.get.parameters.parameter_2.schema
+## query_params
+## QueryParameters
 ```
 type: schemas.Schema
 ```
 
-###### validate method
+### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaTupleInput](#parameter2-schema-schematupleinput), [SchemaTuple](#parameter2-schema-schematuple) | [SchemaTuple](#parameter2-schema-schematuple) |
+[QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
 
-###### Parameter2 Schema SchemaTupleInput
+### QueryParameters QueryParametersDictInput
 ```
-type: typing.Union[
-    typing.List[
-        typing.Literal[
-            ">",
-            "$"
-        ],
-    ],
-    typing.Tuple[
-        typing.Literal[
-            ">",
-            "$"
-        ],
-        ...
-    ]
-]
+type: typing.TypedDict
 ```
-List/Tuple Item Type | Description | Notes
--------------------- | ------------- | -------------
-typing.Literal[">", "$"] |  | must be one of [">", "$"] if omitted the server will use the default value of $
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**enum_query_double** | float, int |  | [optional]
+**enum_query_string** | typing.Literal["_abc", "-efg", "(xyz)"] |  | [optional]
+**enum_query_integer** | typing.Literal[1, -2] |  | [optional]
+**enum_query_string_array** | [schema.SchemaTupleInput](../../paths/fake/get/parameters/parameter_2/schema.md#schematupleinput), [schema_4.SchemaTuple](../../paths/fake/get/parameters/parameter_2/schema.md#schematuple) |  | [optional]
 
-###### Parameter2 Schema SchemaTuple
+### QueryParameters QueryParametersDict
 ```
-base class: typing.Tuple[
-    typing.Literal[">", "$"],
-    ...
-]
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ```
-####### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | [SchemaTupleInput](#parameter2-schema-schematupleinput), [SchemaTuple](#parameter2-schema-schematuple)
-configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+#### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**enum_query_double** | float, int, schemas.Unset |  | [optional]
+**enum_query_string** | typing.Literal["_abc", "-efg", "(xyz)"], schemas.Unset |  | [optional]
+**enum_query_integer** | typing.Literal[1, -2], schemas.Unset |  | [optional]
+**enum_query_string_array** | [schema.SchemaTupleInput](../../paths/fake/get/parameters/parameter_2/schema.md#schematupleinput), [schema_4.SchemaTuple](../../paths/fake/get/parameters/parameter_2/schema.md#schematuple), schemas.Unset |  | [optional]
 
-####### methods
+#### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**enum_query_double** | float, int, schemas.Unset |  | [optional]
+**enum_query_string** | typing.Literal["_abc", "-efg", "(xyz)"], schemas.Unset |  | [optional]
+**enum_query_integer** | typing.Literal[1, -2], schemas.Unset |  | [optional]
+**enum_query_string_array** | [schema.SchemaTuple](../../paths/fake/get/parameters/parameter_2/schema.md#schematuple), schemas.Unset |  | [optional]
+
+#### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing.Literal[">", "$"] | must be one of [">", "$"] if omitted the server will use the default value of $ This method is used under the hood when instance[0] is called
-
-#### Parameter3
-
-##### Description
-Query parameter enum test (string)
-
-##### Parameter3 Schema
-petstore_api.paths.fake.get.parameters.parameter_3.schema
-```
-type: schemas.Schema
-```
-
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-typing.Literal["_abc", "-efg", "(xyz)"] | typing.Literal["_abc", "-efg", "(xyz)"] | must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
-
-#### Parameter4
-
-##### Description
-Query parameter enum test (double)
-
-##### Parameter4 Schema
-petstore_api.paths.fake.get.parameters.parameter_4.schema
-```
-type: schemas.Schema
-```
-
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-typing.Literal[1, -2] | typing.Literal[1, -2] | must be one of [1, -2] value must be a 32 bit integer
-
-#### Parameter5
-
-##### Description
-Query parameter enum test (double)
-
-##### Parameter5 Schema
-petstore_api.paths.fake.get.parameters.parameter_5.schema
-```
-type: schemas.Schema
-```
-
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-float, int | float, int | must be one of [1.1, -1.2] value must be a 64 bit float
+from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
 
 ### header_params
 #### RequestHeaderParameters.Params

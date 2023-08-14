@@ -25,273 +25,63 @@ petstore_api.paths.fake_test_query_paramters.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
+[query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_response.ApiResponseWithoutDeserialization will be returned
-
-### query_params
-#### RequestQueryParameters.Params
-This is a TypedDict
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-pipe | [Parameter0.schema](#parameter0-schema), list, tuple | | 
-ioutil | [Parameter1.schema](#parameter1-schema), list, tuple | | 
-http | [Parameter2.schema](#parameter2-schema), list, tuple | | 
-url | [Parameter3.schema](#parameter3-schema), list, tuple | | 
-context | [Parameter4.schema](#parameter4-schema), list, tuple | | 
-refParam | [Parameter5.schema](#parameter5-schema), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | | 
-
-
-#### Parameter0
-
-##### Parameter0 Schema
-petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_0.schema
+## query_params
+## QueryParameters
 ```
 type: schemas.Schema
 ```
 
-###### validate method
+### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaTupleInput](#parameter0-schema-schematupleinput), [SchemaTuple](#parameter0-schema-schematuple) | [SchemaTuple](#parameter0-schema-schematuple) |
+[QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
 
-###### Parameter0 Schema SchemaTupleInput
+### QueryParameters QueryParametersDictInput
 ```
-type: typing.Union[
-    typing.List[
-        str,
-    ],
-    typing.Tuple[
-        str,
-        ...
-    ]
-]
+type: typing.TypedDict
 ```
-List/Tuple Item Type | Description | Notes
--------------------- | ------------- | -------------
-str |  |
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**context** | [schema.SchemaTupleInput](../../paths/fake_test_query_paramters/put/parameters/parameter_4/schema.md#schematupleinput), [schema_2.SchemaTuple](../../paths/fake_test_query_paramters/put/parameters/parameter_4/schema.md#schematuple) |  |
+**http** | [schema.SchemaTupleInput](../../paths/fake_test_query_paramters/put/parameters/parameter_2/schema.md#schematupleinput), [schema_3.SchemaTuple](../../paths/fake_test_query_paramters/put/parameters/parameter_2/schema.md#schematuple) |  |
+**ioutil** | [schema.SchemaTupleInput](../../paths/fake_test_query_paramters/put/parameters/parameter_1/schema.md#schematupleinput), [schema.SchemaTuple](../../paths/fake_test_query_paramters/put/parameters/parameter_1/schema.md#schematuple) |  |
+**pipe** | [schema.SchemaTupleInput](../../paths/fake_test_query_paramters/put/parameters/parameter_0/schema.md#schematupleinput), [schema_4.SchemaTuple](../../paths/fake_test_query_paramters/put/parameters/parameter_0/schema.md#schematuple) |  |
+**refParam** | str |  |
+**url** | [schema.SchemaTupleInput](../../paths/fake_test_query_paramters/put/parameters/parameter_3/schema.md#schematupleinput), [schema_5.SchemaTuple](../../paths/fake_test_query_paramters/put/parameters/parameter_3/schema.md#schematuple) |  |
 
-###### Parameter0 Schema SchemaTuple
+### QueryParameters QueryParametersDict
 ```
-base class: typing.Tuple[
-    str,
-    ...
-]
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ```
-####### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | [SchemaTupleInput](#parameter0-schema-schematupleinput), [SchemaTuple](#parameter0-schema-schematuple)
-configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+#### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**context** | [schema.SchemaTupleInput](../../paths/fake_test_query_paramters/put/parameters/parameter_4/schema.md#schematupleinput), [schema_2.SchemaTuple](../../paths/fake_test_query_paramters/put/parameters/parameter_4/schema.md#schematuple) |  |
+**http** | [schema.SchemaTupleInput](../../paths/fake_test_query_paramters/put/parameters/parameter_2/schema.md#schematupleinput), [schema_3.SchemaTuple](../../paths/fake_test_query_paramters/put/parameters/parameter_2/schema.md#schematuple) |  |
+**ioutil** | [schema.SchemaTupleInput](../../paths/fake_test_query_paramters/put/parameters/parameter_1/schema.md#schematupleinput), [schema.SchemaTuple](../../paths/fake_test_query_paramters/put/parameters/parameter_1/schema.md#schematuple) |  |
+**pipe** | [schema.SchemaTupleInput](../../paths/fake_test_query_paramters/put/parameters/parameter_0/schema.md#schematupleinput), [schema_4.SchemaTuple](../../paths/fake_test_query_paramters/put/parameters/parameter_0/schema.md#schematuple) |  |
+**refParam** | str |  |
+**url** | [schema.SchemaTupleInput](../../paths/fake_test_query_paramters/put/parameters/parameter_3/schema.md#schematupleinput), [schema_5.SchemaTuple](../../paths/fake_test_query_paramters/put/parameters/parameter_3/schema.md#schematuple) |  |
 
-####### methods
+#### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**context** | [schema.SchemaTuple](../../paths/fake_test_query_paramters/put/parameters/parameter_4/schema.md#schematuple) |  |
+**http** | [schema.SchemaTuple](../../paths/fake_test_query_paramters/put/parameters/parameter_2/schema.md#schematuple) |  |
+**ioutil** | [schema.SchemaTuple](../../paths/fake_test_query_paramters/put/parameters/parameter_1/schema.md#schematuple) |  |
+**pipe** | [schema.SchemaTuple](../../paths/fake_test_query_paramters/put/parameters/parameter_0/schema.md#schematuple) |  |
+**refParam** | str |  |
+**url** | [schema.SchemaTuple](../../paths/fake_test_query_paramters/put/parameters/parameter_3/schema.md#schematuple) |  |
+
+#### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | str | This method is used under the hood when instance[0] is called
-
-#### Parameter1
-
-##### Parameter1 Schema
-petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_1.schema
-```
-type: schemas.Schema
-```
-
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-[SchemaTupleInput](#parameter1-schema-schematupleinput), [SchemaTuple](#parameter1-schema-schematuple) | [SchemaTuple](#parameter1-schema-schematuple) |
-
-###### Parameter1 Schema SchemaTupleInput
-```
-type: typing.Union[
-    typing.List[
-        str,
-    ],
-    typing.Tuple[
-        str,
-        ...
-    ]
-]
-```
-List/Tuple Item Type | Description | Notes
--------------------- | ------------- | -------------
-str |  |
-
-###### Parameter1 Schema SchemaTuple
-```
-base class: typing.Tuple[
-    str,
-    ...
-]
-```
-####### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | [SchemaTupleInput](#parameter1-schema-schematupleinput), [SchemaTuple](#parameter1-schema-schematuple)
-configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
-
-####### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | str | This method is used under the hood when instance[0] is called
-
-#### Parameter2
-
-##### Parameter2 Schema
-petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_2.schema
-```
-type: schemas.Schema
-```
-
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-[SchemaTupleInput](#parameter2-schema-schematupleinput), [SchemaTuple](#parameter2-schema-schematuple) | [SchemaTuple](#parameter2-schema-schematuple) |
-
-###### Parameter2 Schema SchemaTupleInput
-```
-type: typing.Union[
-    typing.List[
-        str,
-    ],
-    typing.Tuple[
-        str,
-        ...
-    ]
-]
-```
-List/Tuple Item Type | Description | Notes
--------------------- | ------------- | -------------
-str |  |
-
-###### Parameter2 Schema SchemaTuple
-```
-base class: typing.Tuple[
-    str,
-    ...
-]
-```
-####### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | [SchemaTupleInput](#parameter2-schema-schematupleinput), [SchemaTuple](#parameter2-schema-schematuple)
-configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
-
-####### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | str | This method is used under the hood when instance[0] is called
-
-#### Parameter3
-
-##### Parameter3 Schema
-petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_3.schema
-```
-type: schemas.Schema
-```
-
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-[SchemaTupleInput](#parameter3-schema-schematupleinput), [SchemaTuple](#parameter3-schema-schematuple) | [SchemaTuple](#parameter3-schema-schematuple) |
-
-###### Parameter3 Schema SchemaTupleInput
-```
-type: typing.Union[
-    typing.List[
-        str,
-    ],
-    typing.Tuple[
-        str,
-        ...
-    ]
-]
-```
-List/Tuple Item Type | Description | Notes
--------------------- | ------------- | -------------
-str |  |
-
-###### Parameter3 Schema SchemaTuple
-```
-base class: typing.Tuple[
-    str,
-    ...
-]
-```
-####### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | [SchemaTupleInput](#parameter3-schema-schematupleinput), [SchemaTuple](#parameter3-schema-schematuple)
-configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
-
-####### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | str | This method is used under the hood when instance[0] is called
-
-#### Parameter4
-
-##### Parameter4 Schema
-petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_4.schema
-```
-type: schemas.Schema
-```
-
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-[SchemaTupleInput](#parameter4-schema-schematupleinput), [SchemaTuple](#parameter4-schema-schematuple) | [SchemaTuple](#parameter4-schema-schematuple) |
-
-###### Parameter4 Schema SchemaTupleInput
-```
-type: typing.Union[
-    typing.List[
-        str,
-    ],
-    typing.Tuple[
-        str,
-        ...
-    ]
-]
-```
-List/Tuple Item Type | Description | Notes
--------------------- | ------------- | -------------
-str |  |
-
-###### Parameter4 Schema SchemaTuple
-```
-base class: typing.Tuple[
-    str,
-    ...
-]
-```
-####### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | [SchemaTupleInput](#parameter4-schema-schematupleinput), [SchemaTuple](#parameter4-schema-schematuple)
-configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
-
-####### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | str | This method is used under the hood when instance[0] is called
-
-#### Parameter5
-
-##### Parameter5 Schema
-petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_5.schema
-```
-type: schemas.Schema
-```
-
-###### Ref Schema Info
-Ref Schema | Input Type | Output Type
----------- | ---------- | -----------
-[**string_with_validation.StringWithValidation**](../../components/schema/string_with_validation.md) | str | str
+from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
 
 ## Return Types
 

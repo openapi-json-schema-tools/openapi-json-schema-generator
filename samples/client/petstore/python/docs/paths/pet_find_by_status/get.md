@@ -27,80 +27,51 @@ petstore_api.paths.pet_find_by_status.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
+[query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
 accept_content_types | typing.Tuple[str] | default is ("application/xml", "application/json", ) | Tells the server the content type(s) that are accepted by the client
 security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [0, 1, 2]
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_response.ApiResponseWithoutDeserialization will be returned
-
-### query_params
-#### RequestQueryParameters.Params
-This is a TypedDict
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-status | [Parameter0.schema](#parameter0-schema), list, tuple | | 
-
-
-#### Parameter0
-
-##### Description
-Status values that need to be considered for filter
-
-##### Parameter0 Schema
-petstore_api.paths.pet_find_by_status.get.parameters.parameter_0.schema
+## query_params
+## QueryParameters
 ```
 type: schemas.Schema
 ```
 
-###### validate method
+### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaTupleInput](#parameter0-schema-schematupleinput), [SchemaTuple](#parameter0-schema-schematuple) | [SchemaTuple](#parameter0-schema-schematuple) |
+[QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
 
-###### Parameter0 Schema SchemaTupleInput
+### QueryParameters QueryParametersDictInput
 ```
-type: typing.Union[
-    typing.List[
-        typing.Literal[
-            "available",
-            "pending",
-            "sold"
-        ],
-    ],
-    typing.Tuple[
-        typing.Literal[
-            "available",
-            "pending",
-            "sold"
-        ],
-        ...
-    ]
-]
+type: typing.TypedDict
 ```
-List/Tuple Item Type | Description | Notes
--------------------- | ------------- | -------------
-typing.Literal["available", "pending", "sold"] |  | must be one of ["available", "pending", "sold"] if omitted the server will use the default value of available
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**status** | [schema.SchemaTupleInput](../../paths/pet_find_by_status/get/parameters/parameter_0/schema.md#schematupleinput), [schema.SchemaTuple](../../paths/pet_find_by_status/get/parameters/parameter_0/schema.md#schematuple) |  |
 
-###### Parameter0 Schema SchemaTuple
+### QueryParameters QueryParametersDict
 ```
-base class: typing.Tuple[
-    typing.Literal["available", "pending", "sold"],
-    ...
-]
-```
-####### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | [SchemaTupleInput](#parameter0-schema-schematupleinput), [SchemaTuple](#parameter0-schema-schematuple)
-configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
-####### methods
+```
+#### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**status** | [schema.SchemaTupleInput](../../paths/pet_find_by_status/get/parameters/parameter_0/schema.md#schematupleinput), [schema.SchemaTuple](../../paths/pet_find_by_status/get/parameters/parameter_0/schema.md#schematuple) |  |
+
+#### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**status** | [schema.SchemaTuple](../../paths/pet_find_by_status/get/parameters/parameter_0/schema.md#schematuple) |  |
+
+#### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing.Literal["available", "pending", "sold"] | must be one of ["available", "pending", "sold"] if omitted the server will use the default value of available This method is used under the hood when instance[0] is called
+from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
 
 ## Return Types
 

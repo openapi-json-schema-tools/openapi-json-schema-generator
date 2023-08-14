@@ -25,67 +25,49 @@ petstore_api.paths.fake_obj_in_query.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
+[query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_response.ApiResponseWithoutDeserialization will be returned
-
-### query_params
-#### RequestQueryParameters.Params
-This is a TypedDict
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-mapBean | [Parameter0.schema](#parameter0-schema), dict, schemas.immutabledict | | optional
-
-
-#### Parameter0
-
-##### Description
-mapBean
-
-##### Parameter0 Schema
-petstore_api.paths.fake_obj_in_query.get.parameters.parameter_0.schema
+## query_params
+## QueryParameters
 ```
 type: schemas.Schema
 ```
 
-###### validate method
+### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-[SchemaDictInput](#parameter0-schema-schemadictinput), [SchemaDict](#parameter0-schema-schemadict) | [SchemaDict](#parameter0-schema-schemadict) |
+[QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
 
-###### Parameter0 Schema SchemaDictInput
+### QueryParameters QueryParametersDictInput
 ```
-type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+type: typing.TypedDict
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**keyword** | str |  | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
+**mapBean** | [schema.SchemaDictInput](../../paths/fake_obj_in_query/get/parameters/parameter_0/schema.md#schemadictinput), [schema.SchemaDict](../../paths/fake_obj_in_query/get/parameters/parameter_0/schema.md#schemadict) |  | [optional]
 
-###### Parameter0 Schema SchemaDict
+### QueryParameters QueryParametersDict
 ```
-base class: schemas.immutabledict[str, str]
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
 ```
-####### &lowbar;&lowbar;new&lowbar;&lowbar; method
+#### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**keyword** | str, schemas.Unset |  | [optional]
-**kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**mapBean** | [schema.SchemaDictInput](../../paths/fake_obj_in_query/get/parameters/parameter_0/schema.md#schemadictinput), [schema.SchemaDict](../../paths/fake_obj_in_query/get/parameters/parameter_0/schema.md#schemadict), schemas.Unset |  | [optional]
 
-####### properties
+#### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**keyword** | str, schemas.Unset |  | [optional]
+**mapBean** | [schema.SchemaDict](../../paths/fake_obj_in_query/get/parameters/parameter_0/schema.md#schemadict), schemas.Unset |  | [optional]
 
-####### methods
+#### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ | [SchemaDictInput](#parameter0-schema-schemadictinput), [SchemaDict](#parameter0-schema-schemadict) | [SchemaDict](#parameter0-schema-schemadict) | a constructor
-get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
+from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
 
 ## Return Types
 
