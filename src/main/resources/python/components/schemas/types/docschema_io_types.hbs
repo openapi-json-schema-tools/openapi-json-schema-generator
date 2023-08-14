@@ -1,1 +1,1 @@
-{{#if refInfo.refClass}}{{> components/schemas/types/_docschema_io_ref_types selfRef=(eq refInfo.refModule null) }}{{else}}{{> components/schemas/types/_docschema_io_inline_types }}{{/if}}
+{{#if refInfo.refClass}}{{> components/schemas/types/_docschema_io_ref_types selfRef=(eq refInfo.refModule null) refModuleAlias=refInfo.refModuleAlias }}{{else}}{{> components/schemas/types/_docschema_io_inline_types }}{{/if}}

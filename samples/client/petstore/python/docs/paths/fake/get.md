@@ -26,7 +26,7 @@ petstore_api.paths.fake.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_x_www_form_urlencoded.schema](#RequestBody-content-applicationxwwwformurlencoded-schema), Unset, dict, schemas.immutabledict] | optional, default is unset |
+[body](#requestbody) | typing.Union[refInfo=CodegenRefInfo{refModule&#x3D;schema, refClass&#x3D;Schema, refModuleLocation&#x3D;petstore_api.paths.fake.get.request_body.content.application_x_www_form_urlencoded, refModuleAlias&#x3D;null}[schema.SchemaDictInput](../../paths/fake/get/request_body/content/application_x_www_form_urlencoded/schema.md#schemadictinput), [schema.SchemaDict](../../paths/fake/get/request_body/content/application_x_www_form_urlencoded/schema.md#schemadict), schemas.Unset] | optional, default is unset |
 [query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
 [header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body

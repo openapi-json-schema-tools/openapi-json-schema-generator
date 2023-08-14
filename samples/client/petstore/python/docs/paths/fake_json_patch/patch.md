@@ -26,7 +26,7 @@ petstore_api.paths.fake_json_patch.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json_patchjson.schema](#RequestBody-content-applicationjsonpatchjson-schema), Unset, list, tuple] | optional, default is unset |
+[body](#requestbody) | typing.Union[refInfo=CodegenRefInfo{refModule&#x3D;json_patch_request, refClass&#x3D;JSONPatchRequest, refModuleLocation&#x3D;petstore_api.components.schema, refModuleAlias&#x3D;null}[json_patch_request.JSONPatchRequestTupleInput](../../components/schema/json_patch_request.md#jsonpatchrequesttupleinput), [json_patch_request.JSONPatchRequestTuple](../../components/schema/json_patch_request.md#jsonpatchrequesttuple), schemas.Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json-patch+json' | Selects the schema and serialization of the request body
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file

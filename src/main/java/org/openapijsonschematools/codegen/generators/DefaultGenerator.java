@@ -2678,7 +2678,9 @@ public class DefaultGenerator implements Generator {
                 bodySchema.set$ref(bodySchemaRef);
                 requestBodySchemaProperties.put(contentType, bodySchema);
             }
-            requestBodySchema = getXParametersSchema(requestBodySchemaProperties, new ArrayList<String>(), jsonPath, jsonPath + "/RequestBodySchema");
+            // current json path used because
+            // schemas are imported into a python file generated from that jsonPath
+            requestBodySchema = getXParametersSchema(requestBodySchemaProperties, new ArrayList<String>(), jsonPath, jsonPath);
         }
 
         HashMap<String, Schema> pathParametersProperties = new HashMap<>();

@@ -25,7 +25,7 @@ petstore_api.paths.fake_refs_object_model_with_ref_props.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), Unset, dict, schemas.immutabledict] | optional, default is unset |
+[body](#requestbody) | typing.Union[refInfo=CodegenRefInfo{refModule&#x3D;object_model_with_ref_props, refClass&#x3D;ObjectModelWithRefProps, refModuleLocation&#x3D;petstore_api.components.schema, refModuleAlias&#x3D;null}[object_model_with_ref_props.ObjectModelWithRefPropsDictInput](../../components/schema/object_model_with_ref_props.md#objectmodelwithrefpropsdictinput), [object_model_with_ref_props.ObjectModelWithRefPropsDict](../../components/schema/object_model_with_ref_props.md#objectmodelwithrefpropsdict), schemas.Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]

@@ -26,7 +26,7 @@ petstore_api.paths.pet_pet_id.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_x_www_form_urlencoded.schema](#RequestBody-content-applicationxwwwformurlencoded-schema), Unset, dict, schemas.immutabledict] | optional, default is unset |
+[body](#requestbody) | typing.Union[refInfo=CodegenRefInfo{refModule&#x3D;schema, refClass&#x3D;Schema, refModuleLocation&#x3D;petstore_api.paths.pet_pet_id.post.request_body.content.application_x_www_form_urlencoded, refModuleAlias&#x3D;null}[schema.SchemaDictInput](../../paths/pet_pet_id/post/request_body/content/application_x_www_form_urlencoded/schema.md#schemadictinput), [schema.SchemaDict](../../paths/pet_pet_id/post/request_body/content/application_x_www_form_urlencoded/schema.md#schemadict), schemas.Unset] | optional, default is unset |
 [path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
 content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
 security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [0, 1]

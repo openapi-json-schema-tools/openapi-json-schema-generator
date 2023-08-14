@@ -25,7 +25,7 @@ petstore_api.paths.fake_refs_composed_one_of_number_with_validations.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), Unset, dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader] | optional, default is unset |
+[body](#requestbody) | typing.Union[refInfo=CodegenRefInfo{refModule&#x3D;composed_one_of_different_types, refClass&#x3D;ComposedOneOfDifferentTypes, refModuleLocation&#x3D;petstore_api.components.schema, refModuleAlias&#x3D;null}dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] | optional, default is unset |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
