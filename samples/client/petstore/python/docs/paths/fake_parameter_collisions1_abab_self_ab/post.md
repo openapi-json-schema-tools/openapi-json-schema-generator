@@ -29,7 +29,7 @@ Name | Type | Description  | Notes
 [query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
 [header_params](#header_params) | [HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | |
 [path_params](#path_params) | [PathParametersDictInput](#pathparameters-pathparametersdictinput), [PathParametersDict](#pathparameters-pathparametersdict) | |
-[cookie_params](#cookie-params) | [RequestCookieParameters.Params](#requestcookieparametersparams), dict | |
+[cookie_params](#cookie-params) | [CookieParametersDictInput](#cookieparameters-cookieparametersdictinput), [CookieParametersDict](#cookieparameters-cookieparametersdict) | |
 content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body. value must be one of ['application/json']
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
@@ -185,84 +185,51 @@ Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [PathParametersDictInput](#pathparameters-pathparametersdictinput), [PathParametersDict](#pathparameters-pathparametersdict) | [PathParametersDict](#pathparameters-pathparametersdict) | a constructor
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], instance["self"], 
-
 ### cookie_params
-#### RequestCookieParameters.Params
-This is a TypedDict
-
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-1 | [Parameter14.schema](#parameter14-schema), str | | optional
-aB | [Parameter15.schema](#parameter15-schema), str | | optional
-Ab | [Parameter16.schema](#parameter16-schema), str | | optional
-self | [Parameter17.schema](#parameter17-schema), str | | optional
-A-B | [Parameter18.schema](#parameter18-schema), str | | optional
-
-
-#### Parameter14
-
-##### Parameter14 Schema
-petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_14.schema
+### CookieParameters
 ```
 type: schemas.Schema
 ```
 
-###### validate method
+#### validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
-str | str |
+[CookieParametersDictInput](#cookieparameters-cookieparametersdictinput), [CookieParametersDict](#cookieparameters-cookieparametersdict) | [CookieParametersDict](#cookieparameters-cookieparametersdict) |
 
-#### Parameter15
-
-##### Parameter15 Schema
-petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_15.schema
+#### CookieParameters CookieParametersDictInput
 ```
-type: schemas.Schema
+type: typing.TypedDict
 ```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**1** | str |  | [optional]
+**aB** | str |  | [optional]
+**Ab** | str |  | [optional]
+**A-B** | str |  | [optional]
+**self** | str |  | [optional]
 
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-str | str |
-
-#### Parameter16
-
-##### Parameter16 Schema
-petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_16.schema
+#### CookieParameters CookieParametersDict
 ```
-type: schemas.Schema
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
 ```
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**aB** | str, schemas.Unset |  | [optional]
+**Ab** | str, schemas.Unset |  | [optional]
 
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-str | str |
+##### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**aB** | str, schemas.Unset |  | [optional]
+**Ab** | str, schemas.Unset |  | [optional]
 
-#### Parameter17
-
-##### Parameter17 Schema
-petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_17.schema
-```
-type: schemas.Schema
-```
-
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-str | str |
-
-#### Parameter18
-
-##### Parameter18 Schema
-petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_18.schema
-```
-type: schemas.Schema
-```
-
-###### validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-str | str |
+##### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [CookieParametersDictInput](#cookieparameters-cookieparametersdictinput), [CookieParametersDict](#cookieparameters-cookieparametersdict) | [CookieParametersDict](#cookieparameters-cookieparametersdict) | a constructor
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], instance["self"], 
 
 ## Return Types
 

@@ -68,8 +68,8 @@ Name | Type | Description  | Notes
     {{#if pathParameters}}
 [path_params](#path_params) | [PathParametersDictInput](#pathparameters-pathparametersdictinput), [PathParametersDict](#pathparameters-pathparametersdict) | |
     {{/if}}
-    {{#if cookieParams}}
-[cookie_params](#cookie-params) | [RequestCookieParameters.Params](#requestcookieparametersparams), dict | |
+    {{#if cookieParameters}}
+[cookie_params](#cookie-params) | [CookieParametersDictInput](#cookieparameters-cookieparametersdictinput), [CookieParametersDict](#cookieparameters-cookieparametersdict) | |
     {{/if}}
     {{#with requestBody}}
         {{#if refInfo}}
@@ -116,9 +116,10 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 ### path_params
 {{> components/schemas/schema_doc schema=this headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
     {{/with}}
-    {{#if cookieParams}}
-{{> paths/path/verb/_helper_operation_docs_xparams paramPrefix="cookie" paramType="Cookie" parameters=cookieParams }}
-    {{/if}}
+    {{#with cookieParameters}}
+### cookie_params
+{{> components/schemas/schema_doc schema=this headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
+    {{/with}}
 
 {{headerSize}}# Return Types
 
