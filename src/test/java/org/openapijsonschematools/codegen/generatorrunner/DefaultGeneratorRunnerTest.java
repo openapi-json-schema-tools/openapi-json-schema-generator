@@ -354,6 +354,7 @@ public class DefaultGeneratorRunnerTest {
         ClientOptInput opts = new ClientOptInput();
         opts.openAPI(openAPI);
         DefaultGenerator config = new DefaultGenerator();
+        config.setModelPackage("components");
         config.setStrictSpecBehavior(false);
         opts.config(config);
 

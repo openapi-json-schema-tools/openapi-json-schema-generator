@@ -129,7 +129,7 @@ Key | Type |  Description | Notes
                 {{/if}}
             {{/unless}}
         {{else}}
-**any_string_name** | {{> components/schemas/_helper_types_all_incl_schema_oneline }} | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
         {{/with}}
 
     {{#if mapOutputJsonPathPiece}}
@@ -166,7 +166,7 @@ Keyword Argument | Type | Description | Notes
                 {{/if}}
             {{/unless}}
         {{else}}
-**kwargs** | {{> components/schemas/_helper_types_all_incl_schema_oneline }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional] typed value is accessed with the get_additional_property_ method
         {{/with}}
         {{#or (and requiredProperties requiredProperties.hasValidKey) (and optionalProperties optionalProperties.hasValidKey) }}
 
@@ -201,7 +201,7 @@ get_additional_property_ | str | {{> components/schemas/types/docschema_output_t
                 {{/if}}
             {{/unless}}
         {{else}}
-get_additional_property_ | str | {{> components/schemas/_helper_types_all_accessed_oneline optional=true }} | provides type safety for additional properties
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
         {{/with}}
     {{/or}}
     {{#if items}}
