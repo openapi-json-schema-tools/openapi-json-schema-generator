@@ -652,6 +652,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         }
         supportingFiles.add(new SupportingFile(readmeTemplate, "", readmePath));
         supportingFiles.add(new SupportingFile("migration_2_0_0.hbs", "", "migration_2_0_0.md"));
+        supportingFiles.add(new SupportingFile("migration_3_0_0.hbs", "", "migration_3_0_0.md"));
         supportingFiles.add(new SupportingFile("migration_other_python_generators.hbs", "", "migration_other_python_generators.md"));
         supportingFiles.add(new SupportingFile("__init__package.hbs", packagePath(), "__init__.py"));
         supportingFiles.add(new SupportingFile("__init__.hbs", packagePath(), "py.typed"));
