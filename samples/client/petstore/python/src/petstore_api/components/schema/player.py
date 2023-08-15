@@ -11,7 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 Name: typing_extensions.TypeAlias = schemas.StrSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "name": typing.Type[Name],
@@ -27,12 +27,6 @@ class PlayerDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "name",
         "enemyPlayer",
     })
-    @staticmethod
-    def from_dict_(
-        arg: PlayerDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> PlayerDict:
-        return Player.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -60,7 +54,16 @@ class PlayerDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(PlayerDictInput, arg_)
         return Player.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            PlayerDictInput,
+            PlayerDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> PlayerDict:
+        return Player.validate(arg, configuration=configuration)
     
     @property
     def name(self) -> typing.Union[str, schemas.Unset]:

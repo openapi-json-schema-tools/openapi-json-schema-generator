@@ -26,9 +26,9 @@ petstore_api.paths.user_username.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), dict, schemas.immutabledict] | required |
-[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
-content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+[body](#requestbody) | typing.Union[[user.UserDictInput](../../components/schema/user.md#userdictinput), [user.UserDict](../../components/schema/user.md#userdict)] | required |
+[path_params](#path_params) | [PathParametersDictInput](#pathparameters-pathparametersdictinput), [PathParametersDict](#pathparameters-pathparametersdict) | |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body. value must be one of ['application/json']
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -45,35 +45,68 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#requestbody-content-applicationjson-schema)
 
 #### RequestBody content ApplicationJson Schema
+petstore_api.paths.user_username.put.request_body.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[User](../../components/schema/user.md) | dict, schemas.immutabledict | schemas.immutabledict |
-
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+[**user.User**](../../components/schema/user.md) | [user.UserDictInput](../../components/schema/user.md#userdictinput), [user.UserDict](../../components/schema/user.md#userdict) | [user.UserDict](../../components/schema/user.md#userdict)
 ### path_params
-#### RequestPathParameters.Params
-This is a TypedDict
+### PathParameters
+```
+type: schemas.Schema
+```
 
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-username | [PathUserName.schema](../../../components/parameters/parameter_path_user_name.md#schema), str | | 
+#### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[PathParametersDictInput](#pathparameters-pathparametersdictinput), [PathParametersDict](#pathparameters-pathparametersdict) | [PathParametersDict](#pathparameters-pathparametersdict) |
 
+#### PathParameters PathParametersDictInput
+```
+type: typing.TypedDict
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**username** | str |  |
+
+#### PathParameters PathParametersDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
+```
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**username** | str |  |
+
+##### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**username** | str |  |
+
+##### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [PathParametersDictInput](#pathparameters-pathparametersdictinput), [PathParametersDict](#pathparameters-pathparametersdict) | [PathParametersDict](#pathparameters-pathparametersdict) | a constructor
 
 ## Return Types
 
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [ResponseFor400.response_cls](#responsefor400-response_cls) | Invalid user supplied
-404 | [ResponseFor404.response_cls](#responsefor404-response_cls) | User not found
+400 | [ResponseFor400.ApiResponse](#responsefor400-apiresponse) | Invalid user supplied
+404 | [ResponseFor404.ApiResponse](#responsefor404-apiresponse) | User not found
 
 ## ResponseFor400
 
 ### Description
 Invalid user supplied
 
-### ResponseFor400 response_cls
+### ResponseFor400 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -85,7 +118,7 @@ headers | Unset | headers were not defined |
 ### Description
 User not found
 
-### ResponseFor404 response_cls
+### ResponseFor404 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

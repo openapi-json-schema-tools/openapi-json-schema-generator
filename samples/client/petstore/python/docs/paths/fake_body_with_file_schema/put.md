@@ -25,8 +25,8 @@ petstore_api.paths.fake_body_with_file_schema.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), dict, schemas.immutabledict] | required |
-content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+[body](#requestbody) | typing.Union[[file_schema_test_class.FileSchemaTestClassDictInput](../../components/schema/file_schema_test_class.md#fileschematestclassdictinput), [file_schema_test_class.FileSchemaTestClassDict](../../components/schema/file_schema_test_class.md#fileschematestclassdict)] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body. value must be one of ['application/json']
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -40,18 +40,22 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#requestbody-content-applicationjson-schema)
 
 #### RequestBody content ApplicationJson Schema
+petstore_api.paths.fake_body_with_file_schema.put.request_body.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[FileSchemaTestClass](../../components/schema/file_schema_test_class.md) | dict, schemas.immutabledict | schemas.immutabledict |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+[**file_schema_test_class.FileSchemaTestClass**](../../components/schema/file_schema_test_class.md) | [file_schema_test_class.FileSchemaTestClassDictInput](../../components/schema/file_schema_test_class.md#fileschematestclassdictinput), [file_schema_test_class.FileSchemaTestClassDict](../../components/schema/file_schema_test_class.md#fileschematestclassdict) | [file_schema_test_class.FileSchemaTestClassDict](../../components/schema/file_schema_test_class.md#fileschematestclassdict)
 
 ## Return Types
 
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+200 | [SuccessDescriptionOnly.ApiResponse](../../components/responses/response_success_description_only.md#apiresponse) | Success
 
 ## Servers
 

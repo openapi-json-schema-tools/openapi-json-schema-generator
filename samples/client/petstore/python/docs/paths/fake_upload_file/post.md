@@ -25,8 +25,8 @@ petstore_api.paths.fake_upload_file.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.multipart_form_data.schema](#RequestBody-content-multipartformdata-schema), Unset, dict, schemas.immutabledict] | optional, default is unset |
-content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body
+[body](#requestbody) | typing.Union[[schema.SchemaDictInput](../../paths/fake_upload_file/post/request_body/content/multipart_form_data/schema.md#schemadictinput), [schema.SchemaDict](../../paths/fake_upload_file/post/request_body/content/multipart_form_data/schema.md#schemadict), schemas.Unset] | optional, default is unset |
+content_type | str | optional, default is 'multipart/form-data' | Selects the schema and serialization of the request body. value must be one of ['multipart/form-data']
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -41,36 +41,67 @@ Content-Type | Schema
 "multipart/form-data" | [content.multipart_form_data.Schema](#requestbody-content-multipartformdata-schema)
 
 #### RequestBody content MultipartFormData Schema
+petstore_api.paths.fake_upload_file.post.request_body.content.multipart_form_data.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput), [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) |
+
+##### RequestBody content MultipartFormData Schema SchemaDictInput
+```
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
+Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+**file** | bytes, io.FileIO, io.BufferedReader | file to upload |
+**additionalMetadata** | str | Additional data to pass to server | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
 
-##### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**file** | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO | file to upload |
-**additionalMetadata** | str | str | Additional data to pass to server | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
+##### RequestBody content MultipartFormData Schema SchemaDict
+```
+base class: schemas.immutabledict[str, str]
+
+```
+###### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**file** | bytes, io.FileIO, io.BufferedReader | file to upload |
+**additionalMetadata** | str, schemas.Unset | Additional data to pass to server | [optional]
+**kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+###### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**file** | bytes, io.FileIO | file to upload |
+**additionalMetadata** | str, schemas.Unset | Additional data to pass to server | [optional]
+
+###### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput), [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
 
 ## Return Types
 
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | successful operation
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | successful operation
 
 ## ResponseFor200
 
 ### Description
 successful operation
 
-### ResponseFor200 response_cls
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | [content.application_json.schema](#responsefor200-content-applicationjson-schema) |  |
+[body](#responsefor200-body) | [api_response.ApiResponseDict](../../components/schema/api_response.md#apiresponsedict) |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body
@@ -80,11 +111,15 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
+petstore_api.paths.fake_upload_file.post.responses.response_200.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[ApiResponse](../../components/schema/api_response.md) | dict, schemas.immutabledict | schemas.immutabledict |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+[**api_response.ApiResponse**](../../components/schema/api_response.md) | [api_response.ApiResponseDictInput](../../components/schema/api_response.md#apiresponsedictinput), [api_response.ApiResponseDict](../../components/schema/api_response.md#apiresponsedict) | [api_response.ApiResponseDict](../../components/schema/api_response.md#apiresponsedict)
 
 ## Servers
 

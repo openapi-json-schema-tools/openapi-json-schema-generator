@@ -15,7 +15,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class ShapeTypeEnums:
 
     @schemas.classproperty
-    def TRIANGLE(cls) -> typing_extensions.Literal["Triangle"]:
+    def TRIANGLE(cls) -> typing.Literal["Triangle"]:
         return ShapeType.validate("Triangle")
 
 
@@ -37,35 +37,35 @@ class ShapeType(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["Triangle"],
+        arg: typing.Literal["Triangle"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["Triangle"]: ...
+    ) -> typing.Literal["Triangle"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["Triangle",]: ...
+    ) -> typing.Literal["Triangle",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "Triangle",
     ]:
         validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "Triangle",
             ],
             validated_arg
         )
 TriangleType: typing_extensions.TypeAlias = schemas.StrSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "shapeType": typing.Type[ShapeType],
@@ -82,17 +82,11 @@ class TriangleInterfaceDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: TriangleInterfaceDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> TriangleInterfaceDict:
-        return TriangleInterface.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
         *,
-        shapeType: typing_extensions.Literal[
+        shapeType: typing.Literal[
             "Triangle"
         ],
         triangleType: str,
@@ -106,12 +100,21 @@ class TriangleInterfaceDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(TriangleInterfaceDictInput, arg_)
         return TriangleInterface.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            TriangleInterfaceDictInput,
+            TriangleInterfaceDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> TriangleInterfaceDict:
+        return TriangleInterface.validate(arg, configuration=configuration)
     
     @property
-    def shapeType(self) -> typing_extensions.Literal["Triangle"]:
+    def shapeType(self) -> typing.Literal["Triangle"]:
         return typing.cast(
-            typing_extensions.Literal["Triangle"],
+            typing.Literal["Triangle"],
             self.__getitem__("shapeType")
         )
     

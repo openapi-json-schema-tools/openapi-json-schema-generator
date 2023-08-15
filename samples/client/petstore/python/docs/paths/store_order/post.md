@@ -25,8 +25,8 @@ petstore_api.paths.store_order.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), dict, schemas.immutabledict] | required |
-content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+[body](#requestbody) | typing.Union[[order.OrderDictInput](../../components/schema/order.md#orderdictinput), [order.OrderDict](../../components/schema/order.md#orderdict)] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body. value must be one of ['application/json']
 accept_content_types | typing.Tuple[str] | default is ("application/xml", "application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -44,30 +44,34 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#requestbody-content-applicationjson-schema)
 
 #### RequestBody content ApplicationJson Schema
+petstore_api.paths.store_order.post.request_body.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[Order](../../components/schema/order.md) | dict, schemas.immutabledict | schemas.immutabledict |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+[**order.Order**](../../components/schema/order.md) | [order.OrderDictInput](../../components/schema/order.md#orderdictinput), [order.OrderDict](../../components/schema/order.md#orderdict) | [order.OrderDict](../../components/schema/order.md#orderdict)
 
 ## Return Types
 
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | successful operation
-400 | [ResponseFor400.response_cls](#responsefor400-response_cls) | Invalid Order
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | successful operation
+400 | [ResponseFor400.ApiResponse](#responsefor400-apiresponse) | Invalid Order
 
 ## ResponseFor200
 
 ### Description
 successful operation
 
-### ResponseFor200 response_cls
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | typing.Union[[content.application_xml.schema](#responsefor200-content-applicationxml-schema), [content.application_json.schema](#responsefor200-content-applicationjson-schema)] |  |
+[body](#responsefor200-body) | typing.Union[[order.OrderDict](../../components/schema/order.md#orderdict), [order.OrderDict](../../components/schema/order.md#orderdict)] |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body
@@ -78,24 +82,32 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor200 content ApplicationXml Schema
+petstore_api.paths.store_order.post.responses.response_200.content.application_xml.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[Order](../../components/schema/order.md) | dict, schemas.immutabledict | schemas.immutabledict |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+[**order.Order**](../../components/schema/order.md) | [order.OrderDictInput](../../components/schema/order.md#orderdictinput), [order.OrderDict](../../components/schema/order.md#orderdict) | [order.OrderDict](../../components/schema/order.md#orderdict)
 #### ResponseFor200 content ApplicationJson Schema
+petstore_api.paths.store_order.post.responses.response_200.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[Order](../../components/schema/order.md) | dict, schemas.immutabledict | schemas.immutabledict |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+[**order.Order**](../../components/schema/order.md) | [order.OrderDictInput](../../components/schema/order.md#orderdictinput), [order.OrderDict](../../components/schema/order.md#orderdict) | [order.OrderDict](../../components/schema/order.md#orderdict)
 
 ## ResponseFor400
 
 ### Description
 Invalid Order
 
-### ResponseFor400 response_cls
+### ResponseFor400 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

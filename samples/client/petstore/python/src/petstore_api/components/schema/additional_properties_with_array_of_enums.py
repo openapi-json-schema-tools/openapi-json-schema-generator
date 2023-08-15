@@ -16,16 +16,16 @@ from petstore_api.components.schema import enum_class
 
 class AdditionalPropertiesTuple(
     typing.Tuple[
-        typing_extensions.Literal["_abc", "-efg", "(xyz)", "COUNT_1M", "COUNT_50M"],
+        typing.Literal["_abc", "-efg", "(xyz)", "COUNT_1M", "COUNT_50M"],
         ...
     ]
 ):
 
-    def __new__(cls, arg: AdditionalPropertiesTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[AdditionalPropertiesTupleInput, AdditionalPropertiesTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AdditionalProperties.validate(arg, configuration=configuration)
 AdditionalPropertiesTupleInput = typing.Union[
     typing.List[
-        typing_extensions.Literal[
+        typing.Literal[
             "_abc",
             "-efg",
             "(xyz)",
@@ -34,7 +34,7 @@ AdditionalPropertiesTupleInput = typing.Union[
         ],
     ],
     typing.Tuple[
-        typing_extensions.Literal[
+        typing.Literal[
             "_abc",
             "-efg",
             "(xyz)",
@@ -95,11 +95,13 @@ class AdditionalPropertiesWithArrayOfEnumsDict(schemas.immutabledict[str, typing
     
     @staticmethod
     def from_dict_(
-        arg: AdditionalPropertiesWithArrayOfEnumsDictInput,
+        arg: typing.Union[
+            AdditionalPropertiesWithArrayOfEnumsDictInput,
+            AdditionalPropertiesWithArrayOfEnumsDict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesWithArrayOfEnumsDict:
         return AdditionalPropertiesWithArrayOfEnums.validate(arg, configuration=configuration)
-
     
     def get_additional_property_(self, name: str) -> typing.Union[AdditionalPropertiesTuple, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

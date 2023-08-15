@@ -19,12 +19,6 @@ class ReqPropsFromUnsetAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BA
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: ReqPropsFromUnsetAddPropsDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> ReqPropsFromUnsetAddPropsDict:
-        return ReqPropsFromUnsetAddProps.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -42,7 +36,16 @@ class ReqPropsFromUnsetAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BA
         arg_.update(kwargs)
         used_arg_ = typing.cast(ReqPropsFromUnsetAddPropsDictInput, arg_)
         return ReqPropsFromUnsetAddProps.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            ReqPropsFromUnsetAddPropsDictInput,
+            ReqPropsFromUnsetAddPropsDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ReqPropsFromUnsetAddPropsDict:
+        return ReqPropsFromUnsetAddProps.validate(arg, configuration=configuration)
     
     @property
     def validName(self) -> schemas.OUTPUT_BASE_TYPES:

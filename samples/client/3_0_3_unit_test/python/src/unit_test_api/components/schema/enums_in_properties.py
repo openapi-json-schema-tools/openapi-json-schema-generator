@@ -15,7 +15,7 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 class FooEnums:
 
     @schemas.classproperty
-    def FOO(cls) -> typing_extensions.Literal["foo"]:
+    def FOO(cls) -> typing.Literal["foo"]:
         return Foo.validate("foo")
 
 
@@ -37,29 +37,29 @@ class Foo(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["foo"],
+        arg: typing.Literal["foo"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["foo"]: ...
+    ) -> typing.Literal["foo"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["foo",]: ...
+    ) -> typing.Literal["foo",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "foo",
     ]:
         validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "foo",
             ],
             validated_arg
@@ -69,7 +69,7 @@ class Foo(
 class BarEnums:
 
     @schemas.classproperty
-    def BAR(cls) -> typing_extensions.Literal["bar"]:
+    def BAR(cls) -> typing.Literal["bar"]:
         return Bar.validate("bar")
 
 
@@ -91,34 +91,34 @@ class Bar(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["bar"],
+        arg: typing.Literal["bar"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["bar"]: ...
+    ) -> typing.Literal["bar"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["bar",]: ...
+    ) -> typing.Literal["bar",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "bar",
     ]:
         validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "bar",
             ],
             validated_arg
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "foo": typing.Type[Foo],
@@ -135,21 +135,15 @@ class EnumsInPropertiesDict(schemas.immutabledict[str, str]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "foo",
     })
-    @staticmethod
-    def from_dict_(
-        arg: EnumsInPropertiesDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> EnumsInPropertiesDict:
-        return EnumsInProperties.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
         *,
-        bar: typing_extensions.Literal[
+        bar: typing.Literal[
             "bar"
         ],
         foo: typing.Union[
-            typing_extensions.Literal[
+            typing.Literal[
                 "foo"
             ],
             schemas.Unset
@@ -169,22 +163,31 @@ class EnumsInPropertiesDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(EnumsInPropertiesDictInput, arg_)
         return EnumsInProperties.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            EnumsInPropertiesDictInput,
+            EnumsInPropertiesDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> EnumsInPropertiesDict:
+        return EnumsInProperties.validate(arg, configuration=configuration)
     
     @property
-    def bar(self) -> typing_extensions.Literal["bar"]:
+    def bar(self) -> typing.Literal["bar"]:
         return typing.cast(
-            typing_extensions.Literal["bar"],
+            typing.Literal["bar"],
             self.__getitem__("bar")
         )
     
     @property
-    def foo(self) -> typing.Union[typing_extensions.Literal["foo"], schemas.Unset]:
+    def foo(self) -> typing.Union[typing.Literal["foo"], schemas.Unset]:
         val = self.get("foo", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
-            typing_extensions.Literal["foo"],
+            typing.Literal["foo"],
             val
         )
     

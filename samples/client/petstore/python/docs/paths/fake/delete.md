@@ -27,114 +27,106 @@ petstore_api.paths.fake.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
-[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
+[query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
+[header_params](#header_params) | [HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | |
 security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [0]
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_response.ApiResponseWithoutDeserialization will be returned
-
 ### query_params
-#### RequestQueryParameters.Params
-This is a TypedDict
+### QueryParameters
+```
+type: schemas.Schema
+```
 
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-required_string_group | [Parameter0.schema](#parameter0-schema), str | | 
-required_int64_group | [Parameter2.schema](#parameter2-schema), int | | 
-string_group | [Parameter3.schema](#parameter3-schema), str | | optional
-int64_group | [Parameter5.schema](#parameter5-schema), int | | optional
+#### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
 
-
-#### Parameter0
-
-##### Description
-Required String in group parameters
-
-##### Parameter0 Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
+#### QueryParameters QueryParametersDictInput
+```
+type: typing.TypedDict
+```
+Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str |  |
+**required_int64_group** | int |  |
+**required_string_group** | str |  |
+**int64_group** | int |  | [optional]
+**string_group** | str |  | [optional]
 
-#### Parameter2
+#### QueryParameters QueryParametersDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+```
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**required_int64_group** | int |  |
+**required_string_group** | str |  |
+**int64_group** | int, schemas.Unset |  | [optional]
+**string_group** | str, schemas.Unset |  | [optional]
 
-##### Description
-Required Integer in group parameters
+##### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**required_int64_group** | int |  |
+**required_string_group** | str |  |
+**int64_group** | int, schemas.Unset |  | [optional]
+**string_group** | str, schemas.Unset |  | [optional]
 
-##### Parameter2 Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-int | int |  | value must be a 64 bit integer
-
-#### Parameter3
-
-##### Description
-String in group parameters
-
-##### Parameter3 Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
-
-#### Parameter5
-
-##### Description
-Integer in group parameters
-
-##### Parameter5 Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-int | int |  | value must be a 64 bit integer
-
+##### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
 ### header_params
-#### RequestHeaderParameters.Params
-This is a TypedDict
+### HeaderParameters
+```
+type: schemas.Schema
+```
 
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-required_boolean_group | [Parameter1.schema](#parameter1-schema), str | | 
-boolean_group | [Parameter4.schema](#parameter4-schema), str | | optional
+#### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | [HeaderParametersDict](#headerparameters-headerparametersdict) |
 
-
-#### Parameter1
-
-##### Description
-Required Boolean in group parameters
-
-##### Parameter1 Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
+#### HeaderParameters HeaderParametersDictInput
+```
+type: typing.TypedDict
+```
+Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str |  | must be one of ["true", "false"]
+**required_boolean_group** | typing.Literal["true", "false"] |  |
+**boolean_group** | typing.Literal["true", "false"] |  | [optional]
 
-#### Parameter4
+#### HeaderParameters HeaderParametersDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+```
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**required_boolean_group** | typing.Literal["true", "false"] |  |
+**boolean_group** | typing.Literal["true", "false"], schemas.Unset |  | [optional]
 
-##### Description
-Boolean in group parameters
+##### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**required_boolean_group** | typing.Literal["true", "false"] |  |
+**boolean_group** | typing.Literal["true", "false"], schemas.Unset |  | [optional]
 
-##### Parameter4 Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  | must be one of ["true", "false"]
+##### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | [HeaderParametersDict](#headerparameters-headerparametersdict) | a constructor
 
 ## Return Types
 
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+200 | [SuccessDescriptionOnly.ApiResponse](../../components/responses/response_success_description_only.md#apiresponse) | Success
 
 ## Security
 

@@ -1,0 +1,21 @@
+
+
+class {{arrayOutputJsonPathPiece.camelCase}}(
+    typing.Tuple[
+        {{#with items}}
+            {{#if refInfo.refClass}}
+                {{#eq refModule null}}
+                    {{! self reference }}
+        {{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="," selfReference=true }}
+                {{else}}
+        {{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="," }}
+                {{/eq}}
+            {{else}}
+        {{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="," }}
+            {{/if}}
+        {{/with}}
+        ...
+    ]
+):
+
+    {{> components/schemas/__new__ }}

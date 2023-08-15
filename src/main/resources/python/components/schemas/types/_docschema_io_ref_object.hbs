@@ -1,0 +1,1 @@
+{{#if mapInputJsonPathPiece}}[{{#unless selfRef}}{{#if refModuleAlias}}{{refModuleAlias}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}.{{/unless}}{{mapInputJsonPathPiece.camelCase}}]({{#unless selfRef}}{{docRoot}}{{pathFromDocRoot}}.md{{/unless}}#{{mapInputJsonPathPiece.anchorPiece}}){{else}}dict{{/if}}, {{> components/schemas/types/_docschema_output_ref_object }}

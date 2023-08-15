@@ -20,7 +20,7 @@ class ComposedArrayTuple(
     ]
 ):
 
-    def __new__(cls, arg: ComposedArrayTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ComposedArrayTupleInput, ComposedArrayTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ComposedArray.validate(arg, configuration=configuration)
 ComposedArrayTupleInput = typing.Union[
     typing.List[

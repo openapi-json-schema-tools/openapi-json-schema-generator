@@ -36,23 +36,23 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-1XX | [ResponseFor1XX.response_cls](#responsefor1xx-response_cls) | 1XX response
-200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | success
-2XX | [ResponseFor2XX.response_cls](#responsefor2xx-response_cls) | 2XX response
-3XX | [ResponseFor3XX.response_cls](#responsefor3xx-response_cls) | 3XX response
-4XX | [ResponseFor4XX.response_cls](#responsefor4xx-response_cls) | 4XX response
-5XX | [ResponseFor5XX.response_cls](#responsefor5xx-response_cls) | 5XX response
+1XX | [ResponseFor1XX.ApiResponse](#responsefor1xx-apiresponse) | 1XX response
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | success
+2XX | [ResponseFor2XX.ApiResponse](#responsefor2xx-apiresponse) | 2XX response
+3XX | [ResponseFor3XX.ApiResponse](#responsefor3xx-apiresponse) | 3XX response
+4XX | [ResponseFor4XX.ApiResponse](#responsefor4xx-apiresponse) | 4XX response
+5XX | [ResponseFor5XX.ApiResponse](#responsefor5xx-apiresponse) | 5XX response
 
 ## ResponseFor1XX
 
 ### Description
 1XX response
 
-### ResponseFor1XX response_cls
+### ResponseFor1XX ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor1xx-body) | [content.application_json.schema](#responsefor1xx-content-applicationjson-schema) |  |
+[body](#responsefor1xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor1XX Body
@@ -62,22 +62,26 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor1XX content ApplicationJson Schema
+petstore_api.paths.fake_wild_card_responses.get.responses.response_1xx.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## ResponseFor200
 
 ### Description
 success
 
-### ResponseFor200 response_cls
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | [content.application_json.schema](#responsefor200-content-applicationjson-schema) |  |
+[body](#responsefor200-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body
@@ -87,22 +91,26 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
+petstore_api.paths.fake_wild_card_responses.get.responses.response_200.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## ResponseFor2XX
 
 ### Description
 2XX response
 
-### ResponseFor2XX response_cls
+### ResponseFor2XX ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor2xx-body) | [content.application_json.schema](#responsefor2xx-content-applicationjson-schema) |  |
+[body](#responsefor2xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor2XX Body
@@ -112,22 +120,26 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor2XX content ApplicationJson Schema
+petstore_api.paths.fake_wild_card_responses.get.responses.response_2xx.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## ResponseFor3XX
 
 ### Description
 3XX response
 
-### ResponseFor3XX response_cls
+### ResponseFor3XX ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor3xx-body) | [content.application_json.schema](#responsefor3xx-content-applicationjson-schema) |  |
+[body](#responsefor3xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor3XX Body
@@ -137,22 +149,26 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor3XX content ApplicationJson Schema
+petstore_api.paths.fake_wild_card_responses.get.responses.response_3xx.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## ResponseFor4XX
 
 ### Description
 4XX response
 
-### ResponseFor4XX response_cls
+### ResponseFor4XX ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor4xx-body) | [content.application_json.schema](#responsefor4xx-content-applicationjson-schema) |  |
+[body](#responsefor4xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor4XX Body
@@ -162,22 +178,26 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor4XX content ApplicationJson Schema
+petstore_api.paths.fake_wild_card_responses.get.responses.response_4xx.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## ResponseFor5XX
 
 ### Description
 5XX response
 
-### ResponseFor5XX response_cls
+### ResponseFor5XX ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor5xx-body) | [content.application_json.schema](#responsefor5xx-content-applicationjson-schema) |  |
+[body](#responsefor5xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor5XX Body
@@ -187,11 +207,15 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor5XX content ApplicationJson Schema
+petstore_api.paths.fake_wild_card_responses.get.responses.response_5xx.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## Servers
 

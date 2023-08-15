@@ -18,7 +18,7 @@ from petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_1 imp
 from petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_2 import schema as schema_3
 from petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_3 import schema as schema_5
 from petstore_api.paths.fake_test_query_paramters.put.parameters.parameter_4 import schema as schema_2
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "refParam": typing.Type[string_with_validation.StringWithValidation],
@@ -42,12 +42,6 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: QueryParametersDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> QueryParametersDict:
-        return QueryParameters.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -85,7 +79,16 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         }
         used_arg_ = typing.cast(QueryParametersDictInput, arg_)
         return QueryParameters.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            QueryParametersDictInput,
+            QueryParametersDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> QueryParametersDict:
+        return QueryParameters.validate(arg, configuration=configuration)
     
     @property
     def context(self) -> schema_2.SchemaTuple:
@@ -128,7 +131,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             schema_5.SchemaTuple,
             self.__getitem__("url")
         )
-QueryParametersDictInput = typing_extensions.TypedDict(
+QueryParametersDictInput = typing.TypedDict(
     'QueryParametersDictInput',
     {
         "context": typing.Union[

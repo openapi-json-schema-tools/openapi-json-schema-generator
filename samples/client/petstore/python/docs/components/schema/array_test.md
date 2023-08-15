@@ -1,77 +1,287 @@
+# ArrayTest
 petstore_api.components.schema.array_test
-# Schema ArrayTest
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ArrayTestDictInput](#arraytestdictinput), [ArrayTestDict](#arraytestdict) | [ArrayTestDict](#arraytestdict) |
+
+## ArrayTestDictInput
+```
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
+Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+**array_of_string** | [ArrayOfStringTupleInput](#arrayofstringtupleinput), [ArrayOfStringTuple](#arrayofstringtuple) |  | [optional]
+**array_array_of_integer** | [ArrayArrayOfIntegerTupleInput](#arrayarrayofintegertupleinput), [ArrayArrayOfIntegerTuple](#arrayarrayofintegertuple) |  | [optional]
+**array_array_of_model** | [ArrayArrayOfModelTupleInput](#arrayarrayofmodeltupleinput), [ArrayArrayOfModelTuple](#arrayarrayofmodeltuple) |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
 
-## Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**array_of_string** | list, tuple | [properties.ArrayOfString](#properties-arrayofstring) |  | [optional]
-**array_array_of_integer** | list, tuple | [properties.ArrayArrayOfInteger](#properties-arrayarrayofinteger) |  | [optional]
-**array_array_of_model** | list, tuple | [properties.ArrayArrayOfModel](#properties-arrayarrayofmodel) |  | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
+## ArrayTestDict
+```
+base class: schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TYPES]]
 
-# properties ArrayOfString
+```
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**array_of_string** | [ArrayOfStringTupleInput](#arrayofstringtupleinput), [ArrayOfStringTuple](#arrayofstringtuple), schemas.Unset |  | [optional]
+**array_array_of_integer** | [ArrayArrayOfIntegerTupleInput](#arrayarrayofintegertupleinput), [ArrayArrayOfIntegerTuple](#arrayarrayofintegertuple), schemas.Unset |  | [optional]
+**array_array_of_model** | [ArrayArrayOfModelTupleInput](#arrayarrayofmodeltupleinput), [ArrayArrayOfModelTuple](#arrayarrayofmodeltuple), schemas.Unset |  | [optional]
+**kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**array_of_string** | [ArrayOfStringTuple](#arrayofstringtuple), schemas.Unset |  | [optional]
+**array_array_of_integer** | [ArrayArrayOfIntegerTuple](#arrayarrayofintegertuple), schemas.Unset |  | [optional]
+**array_array_of_model** | [ArrayArrayOfModelTuple](#arrayarrayofmodeltuple), schemas.Unset |  | [optional]
 
-## List Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | str | str |  |
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [ArrayTestDictInput](#arraytestdictinput), [ArrayTestDict](#arraytestdict) | [ArrayTestDict](#arraytestdict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
 
-# properties ArrayArrayOfInteger
+# ArrayOfString
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ArrayOfStringTupleInput](#arrayofstringtupleinput), [ArrayOfStringTuple](#arrayofstringtuple) | [ArrayOfStringTuple](#arrayofstringtuple) |
 
-## List Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayarrayofinteger-items2) | list, tuple | tuple |  |
+## ArrayOfStringTupleInput
+```
+type: typing.Union[
+    typing.List[
+        str,
+    ],
+    typing.Tuple[
+        str,
+        ...
+    ]
+]
+```
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+str |  |
 
-# properties ArrayArrayOfInteger Items2
+## ArrayOfStringTuple
+```
+base class: typing.Tuple[
+    str,
+    ...
+]
+```
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ArrayOfStringTupleInput](#arrayofstringtupleinput), [ArrayOfStringTuple](#arrayofstringtuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | str | This method is used under the hood when instance[0] is called
 
-## List Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | int | int |  | value must be a 64 bit integer
+# ArrayArrayOfInteger
+```
+type: schemas.Schema
+```
 
-# properties ArrayArrayOfModel
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ArrayArrayOfIntegerTupleInput](#arrayarrayofintegertupleinput), [ArrayArrayOfIntegerTuple](#arrayarrayofintegertuple) | [ArrayArrayOfIntegerTuple](#arrayarrayofintegertuple) |
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+## ArrayArrayOfIntegerTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            ItemsTupleInput,
+            ItemsTuple
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            ItemsTupleInput,
+            ItemsTuple
+        ],
+        ...
+    ]
+]
+```
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+[ItemsTupleInput](#itemstupleinput), [ItemsTuple](#itemstuple) |  |
 
-## List Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[items](#properties-arrayarrayofmodel-items4) | list, tuple | tuple |  |
+## ArrayArrayOfIntegerTuple
+```
+base class: typing.Tuple[
+    ItemsTuple,
+    ...
+]
+```
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ArrayArrayOfIntegerTupleInput](#arrayarrayofintegertupleinput), [ArrayArrayOfIntegerTuple](#arrayarrayofintegertuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 
-# properties ArrayArrayOfModel Items4
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | [ItemsTuple](#itemstuple) | This method is used under the hood when instance[0] is called
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+# Items2
+```
+type: schemas.Schema
+```
 
-## List Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[**ReadOnlyFirst**](read_only_first.md) | [**ReadOnlyFirst**](read_only_first.md) | [**ReadOnlyFirst**](read_only_first.md) |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ItemsTupleInput](#itemstupleinput), [ItemsTuple](#itemstuple) | [ItemsTuple](#itemstuple) |
+
+## ItemsTupleInput
+```
+type: typing.Union[
+    typing.List[
+        int,
+    ],
+    typing.Tuple[
+        int,
+        ...
+    ]
+]
+```
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+int |  | value must be a 64 bit integer
+
+## ItemsTuple
+```
+base class: typing.Tuple[
+    int,
+    ...
+]
+```
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ItemsTupleInput](#itemstupleinput), [ItemsTuple](#itemstuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | int | value must be a 64 bit integer This method is used under the hood when instance[0] is called
+
+# ArrayArrayOfModel
+```
+type: schemas.Schema
+```
+
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ArrayArrayOfModelTupleInput](#arrayarrayofmodeltupleinput), [ArrayArrayOfModelTuple](#arrayarrayofmodeltuple) | [ArrayArrayOfModelTuple](#arrayarrayofmodeltuple) |
+
+## ArrayArrayOfModelTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            ItemsTupleInput2,
+            ItemsTuple2
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            ItemsTupleInput2,
+            ItemsTuple2
+        ],
+        ...
+    ]
+]
+```
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+[ItemsTupleInput2](#itemstupleinput2), [ItemsTuple2](#itemstuple2) |  |
+
+## ArrayArrayOfModelTuple
+```
+base class: typing.Tuple[
+    ItemsTuple2,
+    ...
+]
+```
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ArrayArrayOfModelTupleInput](#arrayarrayofmodeltupleinput), [ArrayArrayOfModelTuple](#arrayarrayofmodeltuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | [ItemsTuple2](#itemstuple2) | This method is used under the hood when instance[0] is called
+
+# Items4
+```
+type: schemas.Schema
+```
+
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ItemsTupleInput2](#itemstupleinput2), [ItemsTuple2](#itemstuple2) | [ItemsTuple2](#itemstuple2) |
+
+## ItemsTupleInput2
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            read_only_first.ReadOnlyFirstDictInput,
+            read_only_first.ReadOnlyFirstDict,
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            read_only_first.ReadOnlyFirstDictInput,
+            read_only_first.ReadOnlyFirstDict,
+        ],
+        ...
+    ]
+]
+```
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+[read_only_first.ReadOnlyFirstDictInput](../../components/schema/read_only_first.md#readonlyfirstdictinput), [read_only_first.ReadOnlyFirstDict](../../components/schema/read_only_first.md#readonlyfirstdict) |  |
+
+## ItemsTuple2
+```
+base class: typing.Tuple[
+    read_only_first.ReadOnlyFirstDict,
+    ...
+]
+```
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ItemsTupleInput2](#itemstupleinput2), [ItemsTuple2](#itemstuple2)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | [read_only_first.ReadOnlyFirstDict](../../components/schema/read_only_first.md#readonlyfirstdict) | This method is used under the hood when instance[0] is called
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

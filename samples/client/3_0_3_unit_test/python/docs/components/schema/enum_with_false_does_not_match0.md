@@ -1,9 +1,12 @@
+# EnumWithFalseDoesNotMatch0
 unit_test_api.components.schema.enum_with_false_does_not_match0
-# Schema EnumWithFalseDoesNotMatch0
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-bool | bool |  | must be one of [False]
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+typing.Literal[False] | typing.Literal[False] | must be one of [False]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

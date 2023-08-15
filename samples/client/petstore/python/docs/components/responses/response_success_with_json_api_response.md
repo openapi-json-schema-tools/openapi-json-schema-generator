@@ -4,33 +4,76 @@ petstore_api.components.responses.response_success_with_json_api_response
 ## Description
 successful operation
 
-## response_cls
+## ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | [content.application_json.schema](#content-applicationjson-schema) |  |
-[headers](#headers) | [Headers](#headers) |  |
+[body](#body) | [api_response.ApiResponseDict](../../components/schema/api_response.md#apiresponsedict) |  |
+[headers](#headers) | [HeadersDict](#headers-headersdict) | |
 
 ## Body
 Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 
-## Headers
-Key | Accessed Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-ref-schema-header | [RefSchemaHeader.schema](../../components/headers/header_ref_schema_header.md#schema) | | 
-int32 | [Int32JsonContentTypeHeader.content.application_json.schema](../../components/headers/header_int32_json_content_type_header.md#content-applicationjson-schema) | | 
-ref-content-schema-header | [RefContentSchemaHeader.content.application_json.schema](../../components/headers/header_ref_content_schema_header.md#content-applicationjson-schema) | | 
-stringHeader | [RefStringHeader.schema](../../components/headers/header_ref_string_header.md#schema) | | 
-numberHeader | [NumberHeader.schema](../../components/headers/header_number_header.md#schema) | | optional
-
 ## Body Details
 ### content ApplicationJson Schema
+petstore_api.components.responses.response_success_with_json_api_response.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-#### Type Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[ApiResponse](../../components/schema/api_response.md) | dict, schemas.immutabledict | schemas.immutabledict |
+#### Ref Schema Info
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+[**api_response.ApiResponse**](../../components/schema/api_response.md) | [api_response.ApiResponseDictInput](../../components/schema/api_response.md#apiresponsedictinput), [api_response.ApiResponseDict](../../components/schema/api_response.md#apiresponsedict) | [api_response.ApiResponseDict](../../components/schema/api_response.md#apiresponsedict)
+
+## Headers
+### Headers
+```
+type: schemas.Schema
+```
+
+#### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[HeadersDictInput](#headers-headersdictinput), [HeadersDict](#headers-headersdict) | [HeadersDict](#headers-headersdict) |
+
+#### Headers HeadersDictInput
+```
+type: typing.TypedDict
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**int32** | int |  |
+**ref-content-schema-header** | str |  |
+**ref-schema-header** | str |  |
+**stringHeader** | str |  |
+**numberHeader** | str |  | [optional]
+
+#### Headers HeadersDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
+```
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**int32** | int |  |
+**stringHeader** | str |  |
+**numberHeader** | str, schemas.Unset |  | [optional]
+
+##### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**int32** | int |  |
+**stringHeader** | str |  |
+**numberHeader** | str, schemas.Unset |  | [optional]
+
+##### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [HeadersDictInput](#headers-headersdictinput), [HeadersDict](#headers-headersdict) | [HeadersDict](#headers-headersdict) | a constructor
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["ref-content-schema-header"], instance["ref-schema-header"], 
 
 [[Back to top]](#top) [[Back to Component Responses]](../../../README.md#Component-Responses) [[Back to README]](../../../README.md)

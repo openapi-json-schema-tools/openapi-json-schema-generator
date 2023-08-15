@@ -1,24 +1,30 @@
+# FruitReq
 petstore_api.components.schema.fruit_req
-# Schema FruitReq
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[_0](#oneof-_0) | None | None |  |
-[**AppleReq**](apple_req.md) | [**AppleReq**](apple_req.md) | [**AppleReq**](apple_req.md) |  |
-[**BananaReq**](banana_req.md) | [**BananaReq**](banana_req.md) | [**BananaReq**](banana_req.md) |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[_0](#_0) | None | None
+[**apple_req.AppleReq**](../../components/schema/apple_req.md) | [apple_req.AppleReqDictInput](../../components/schema/apple_req.md#applereqdictinput), [apple_req.AppleReqDict](../../components/schema/apple_req.md#applereqdict) | [apple_req.AppleReqDict](../../components/schema/apple_req.md#applereqdict)
+[**banana_req.BananaReq**](../../components/schema/banana_req.md) | [banana_req.BananaReqDictInput](../../components/schema/banana_req.md#bananareqdictinput), [banana_req.BananaReqDict](../../components/schema/banana_req.md#bananareqdict) | [banana_req.BananaReqDict](../../components/schema/banana_req.md#bananareqdict)
 
-# oneof _0
+# _0
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-None | None |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+None | None |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

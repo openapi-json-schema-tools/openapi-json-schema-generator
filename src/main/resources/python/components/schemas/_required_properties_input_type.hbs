@@ -1,0 +1,37 @@
+{{#if additionalProperties}}
+    {{#if additionalProperties.isBooleanSchemaFalse}}
+        {{! TypedDict use case }}
+{{requiredProperties.jsonPathPiece.camelCase}} = typing.TypedDict(
+    '{{requiredProperties.jsonPathPiece.camelCase}}',
+    {
+        {{#each requiredProperties}}
+            {{#with this}}
+        {{> components/schemas/types/schema_io_type paramName=@key.original quote=true fullRefModule="" endChar="," rootClass=../requiredProperties.jsonPathPiece.camelCase }}
+            {{/with}}
+        {{/each}}
+    }
+)
+    {{else}}
+        {{! additionalProperties True/schema }}
+        {{#if additionalProperties.isBooleanSchemaTrue }}
+            {{! addProps True, does not matter what properties are because they are always covered by base types }}
+{{requiredProperties.jsonPathPiece.camelCase}} = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+        {{else}}
+            {{! addProps schema }}
+{{requiredProperties.jsonPathPiece.camelCase}} = typing.Mapping[
+    str,
+    typing.Union[
+        {{#each requiredProperties}}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../requiredProperties.jsonPathPiece.camelCase }}
+        {{/each}}
+        {{#with additionalProperties}}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../requiredProperties.jsonPathPiece.camelCase }}
+        {{/with}}
+    ]
+]
+        {{/if}}
+    {{/if}}
+{{else}}
+    {{! addProps unset, does not matter what required props are }}
+{{requiredProperties.jsonPathPiece.camelCase}} = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+{{/if}}

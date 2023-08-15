@@ -123,7 +123,7 @@ class Password(
     max_length: int = 64
     min_length: int = 10
 Callback: typing_extensions.TypeAlias = schemas.StrSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "integer": typing.Type[Integer],
@@ -164,12 +164,6 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "password",
         "callback",
     })
-    @staticmethod
-    def from_dict_(
-        arg: SchemaDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> SchemaDict:
-        return Schema.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -251,7 +245,16 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(SchemaDictInput, arg_)
         return Schema.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            SchemaDictInput,
+            SchemaDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SchemaDict:
+        return Schema.validate(arg, configuration=configuration)
     
     @property
     def byte(self) -> str:

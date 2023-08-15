@@ -29,11 +29,13 @@ class AdditionalpropertiesCanExistByItselfDict(schemas.immutabledict[str, bool])
     
     @staticmethod
     def from_dict_(
-        arg: AdditionalpropertiesCanExistByItselfDictInput,
+        arg: typing.Union[
+            AdditionalpropertiesCanExistByItselfDictInput,
+            AdditionalpropertiesCanExistByItselfDict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalpropertiesCanExistByItselfDict:
         return AdditionalpropertiesCanExistByItself.validate(arg, configuration=configuration)
-
     
     def get_additional_property_(self, name: str) -> typing.Union[bool, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

@@ -1,0 +1,28 @@
+
+
+{{#if mapValueSchema}}
+class {{mapOutputJsonPathPiece.camelCase}}(schemas.immutabledict[str, {{#with mapValueSchema}}{{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule=null endChar="]):" }}{{/with}}
+{{else}}
+class {{mapOutputJsonPathPiece.camelCase}}(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+{{/if}}
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+        {{#each requiredProperties}}
+        "{{{@key.original}}}",
+        {{/each}}
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        {{#each optionalProperties}}
+        "{{{@key.original}}}",
+        {{/each}}
+    })
+    {{#eq optionalProperties null}}
+        {{#eq requiredProperties null}}
+            {{#if additionalProperties}}
+                {{#if additionalProperties.isBooleanSchemaFalse}}
+    # map with no key value pairs
+                {{/if}}
+            {{/if}}
+        {{/eq}}
+    {{/eq}}
+    {{> components/schemas/__new__ }}
+    {{> components/schemas/_object_output_properties }}

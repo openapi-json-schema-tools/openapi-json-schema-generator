@@ -30,7 +30,7 @@ class ArrayWithValidationsInItemsTuple(
     ]
 ):
 
-    def __new__(cls, arg: ArrayWithValidationsInItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ArrayWithValidationsInItemsTupleInput, ArrayWithValidationsInItemsTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayWithValidationsInItems.validate(arg, configuration=configuration)
 ArrayWithValidationsInItemsTupleInput = typing.Union[
     typing.List[

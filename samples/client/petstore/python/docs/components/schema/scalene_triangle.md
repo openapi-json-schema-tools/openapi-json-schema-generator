@@ -1,29 +1,60 @@
+# ScaleneTriangle
 petstore_api.components.schema.scalene_triangle
-# Schema ScaleneTriangle
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[**TriangleInterface**](triangle_interface.md) | [**TriangleInterface**](triangle_interface.md) | [**TriangleInterface**](triangle_interface.md) |  |
-[_1](#allof-_1) | dict, schemas.immutabledict | schemas.immutabledict |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[**triangle_interface.TriangleInterface**](../../components/schema/triangle_interface.md) | [triangle_interface.TriangleInterfaceDictInput](../../components/schema/triangle_interface.md#triangleinterfacedictinput), [triangle_interface.TriangleInterfaceDict](../../components/schema/triangle_interface.md#triangleinterfacedict), str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [triangle_interface.TriangleInterfaceDict](../../components/schema/triangle_interface.md#triangleinterfacedict), str, float, int, bool, None, tuple, bytes, io.FileIO
+[_1](#_1) | [_1DictInput](#_1dictinput), [_1Dict](#_1dict) | [_1Dict](#_1dict)
 
-# allof _1
+# _1
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[_1DictInput](#_1dictinput), [_1Dict](#_1dict) | [_1Dict](#_1dict) |
+
+## _1DictInput
+```
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
+Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+**triangleType** | typing.Literal["ScaleneTriangle"] |  | [optional] must be one of ["ScaleneTriangle"]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
 
-## Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**triangleType** | str | str |  | [optional] must be one of ["ScaleneTriangle"]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
+## _1Dict
+```
+base class: schemas.immutabledict[str, str]
+
+```
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**triangleType** | typing.Literal["ScaleneTriangle"], schemas.Unset |  | [optional] must be one of ["ScaleneTriangle"]
+**kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**triangleType** | typing.Literal["ScaleneTriangle"], schemas.Unset |  | [optional] must be one of ["ScaleneTriangle"]
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [_1DictInput](#_1dictinput), [_1Dict](#_1dict) | [_1Dict](#_1dict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

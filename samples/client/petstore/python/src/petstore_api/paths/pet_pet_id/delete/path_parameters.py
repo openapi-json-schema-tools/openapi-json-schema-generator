@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
 from petstore_api.paths.pet_pet_id.delete.parameters.parameter_1 import schema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "petId": typing.Type[schema.Schema],
@@ -28,12 +28,6 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: PathParametersDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> PathParametersDict:
-        return PathParameters.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -46,7 +40,16 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         }
         used_arg_ = typing.cast(PathParametersDictInput, arg_)
         return PathParameters.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            PathParametersDictInput,
+            PathParametersDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> PathParametersDict:
+        return PathParameters.validate(arg, configuration=configuration)
     
     @property
     def petId(self) -> int:
@@ -54,7 +57,7 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             int,
             self.__getitem__("petId")
         )
-PathParametersDictInput = typing_extensions.TypedDict(
+PathParametersDictInput = typing.TypedDict(
     'PathParametersDictInput',
     {
         "petId": int,

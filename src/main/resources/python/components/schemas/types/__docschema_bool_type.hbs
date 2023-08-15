@@ -1,0 +1,1 @@
+{{#and ../enumInfo ../enumInfo.typeToValues.boolean}}typing.Literal[{{#each ../enumInfo.typeToValues.boolean}}{{#if value}}True{{else}}False{{/if}}{{#unless @last}}, {{/unless}}{{/each}}]{{else}}bool{{/and}}

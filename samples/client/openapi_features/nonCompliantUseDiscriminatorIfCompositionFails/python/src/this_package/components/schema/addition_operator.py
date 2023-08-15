@@ -22,8 +22,8 @@ class OperatorId(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: typing_extensions.Literal["ADD"] = "ADD"
-Properties = typing_extensions.TypedDict(
+    default: typing.Literal["ADD"] = "ADD"
+Properties = typing.TypedDict(
     'Properties',
     {
         "a": typing.Type[A],
@@ -42,12 +42,6 @@ class AdditionOperatorDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: AdditionOperatorDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> AdditionOperatorDict:
-        return AdditionOperator.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -70,7 +64,16 @@ class AdditionOperatorDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         }
         used_arg_ = typing.cast(AdditionOperatorDictInput, arg_)
         return AdditionOperator.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            AdditionOperatorDictInput,
+            AdditionOperatorDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AdditionOperatorDict:
+        return AdditionOperator.validate(arg, configuration=configuration)
     
     @property
     def a(self) -> typing.Union[int, float]:
@@ -92,7 +95,7 @@ class AdditionOperatorDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             str,
             self.__getitem__("operator_id")
         )
-AdditionOperatorDictInput = typing_extensions.TypedDict(
+AdditionOperatorDictInput = typing.TypedDict(
     'AdditionOperatorDictInput',
     {
         "a": typing.Union[

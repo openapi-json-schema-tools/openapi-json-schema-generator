@@ -14,7 +14,7 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 Amount: typing_extensions.TypeAlias = schemas.DecimalSchema
 
 from petstore_api.components.schema import currency
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "amount": typing.Type[Amount],
@@ -30,18 +30,12 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: MoneyDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> MoneyDict:
-        return Money.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
         *,
         amount: str,
-        currency: typing_extensions.Literal[
+        currency: typing.Literal[
             "eur",
             "usd"
         ],
@@ -53,7 +47,16 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         }
         used_arg_ = typing.cast(MoneyDictInput, arg_)
         return Money.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            MoneyDictInput,
+            MoneyDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> MoneyDict:
+        return Money.validate(arg, configuration=configuration)
     
     @property
     def amount(self) -> str:
@@ -63,16 +66,16 @@ class MoneyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def currency(self) -> typing_extensions.Literal["eur", "usd"]:
+    def currency(self) -> typing.Literal["eur", "usd"]:
         return typing.cast(
-            typing_extensions.Literal["eur", "usd"],
+            typing.Literal["eur", "usd"],
             self.__getitem__("currency")
         )
-MoneyDictInput = typing_extensions.TypedDict(
+MoneyDictInput = typing.TypedDict(
     'MoneyDictInput',
     {
         "amount": str,
-        "currency": typing_extensions.Literal[
+        "currency": typing.Literal[
             "eur",
             "usd"
         ],

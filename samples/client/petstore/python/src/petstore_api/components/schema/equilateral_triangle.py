@@ -15,7 +15,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class TriangleTypeEnums:
 
     @schemas.classproperty
-    def EQUILATERAL_TRIANGLE(cls) -> typing_extensions.Literal["EquilateralTriangle"]:
+    def EQUILATERAL_TRIANGLE(cls) -> typing.Literal["EquilateralTriangle"]:
         return TriangleType.validate("EquilateralTriangle")
 
 
@@ -37,34 +37,34 @@ class TriangleType(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["EquilateralTriangle"],
+        arg: typing.Literal["EquilateralTriangle"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["EquilateralTriangle"]: ...
+    ) -> typing.Literal["EquilateralTriangle"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["EquilateralTriangle",]: ...
+    ) -> typing.Literal["EquilateralTriangle",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "EquilateralTriangle",
     ]:
         validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "EquilateralTriangle",
             ],
             validated_arg
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "triangleType": typing.Type[TriangleType],
@@ -79,18 +79,12 @@ class _1Dict(schemas.immutabledict[str, str]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "triangleType",
     })
-    @staticmethod
-    def from_dict_(
-        arg: _1DictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> _1Dict:
-        return _1.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
         *,
         triangleType: typing.Union[
-            typing_extensions.Literal[
+            typing.Literal[
                 "EquilateralTriangle"
             ],
             schemas.Unset
@@ -108,15 +102,24 @@ class _1Dict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(_1DictInput, arg_)
         return _1.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            _1DictInput,
+            _1Dict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> _1Dict:
+        return _1.validate(arg, configuration=configuration)
     
     @property
-    def triangleType(self) -> typing.Union[typing_extensions.Literal["EquilateralTriangle"], schemas.Unset]:
+    def triangleType(self) -> typing.Union[typing.Literal["EquilateralTriangle"], schemas.Unset]:
         val = self.get("triangleType", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
-            typing_extensions.Literal["EquilateralTriangle"],
+            typing.Literal["EquilateralTriangle"],
             val
         )
     

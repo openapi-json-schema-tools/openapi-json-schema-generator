@@ -15,7 +15,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class IntegerEnumOneValueEnums:
 
     @schemas.classproperty
-    def POSITIVE_0(cls) -> typing_extensions.Literal[0]:
+    def POSITIVE_0(cls) -> typing.Literal[0]:
         return IntegerEnumOneValue.validate(0)
 
 
@@ -43,29 +43,29 @@ class IntegerEnumOneValue(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal[0],
+        arg: typing.Literal[0],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[0]: ...
+    ) -> typing.Literal[0]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: int,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[0,]: ...
+    ) -> typing.Literal[0,]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         0,
     ]:
         validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 0,
             ],
             validated_arg

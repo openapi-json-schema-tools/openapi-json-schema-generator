@@ -11,7 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 Declawed: typing_extensions.TypeAlias = schemas.BoolSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "declawed": typing.Type[Declawed],
@@ -26,12 +26,6 @@ class _1Dict(schemas.immutabledict[str, bool]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "declawed",
     })
-    @staticmethod
-    def from_dict_(
-        arg: _1DictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> _1Dict:
-        return _1.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -53,7 +47,16 @@ class _1Dict(schemas.immutabledict[str, bool]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(_1DictInput, arg_)
         return _1.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            _1DictInput,
+            _1Dict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> _1Dict:
+        return _1.validate(arg, configuration=configuration)
     
     @property
     def declawed(self) -> typing.Union[bool, schemas.Unset]:

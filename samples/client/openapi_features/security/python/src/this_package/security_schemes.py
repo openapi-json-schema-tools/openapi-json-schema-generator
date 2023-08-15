@@ -219,7 +219,7 @@ class OpenIdConnectSecurityScheme(__SecuritySchemeBase, abc.ABC):
 Key is the Security scheme class
 Value is the list of scopes
 """
-SecurityRequirementObject = typing_extensions.TypedDict(
+SecurityRequirementObject = typing.TypedDict(
     'SecurityRequirementObject',
     {
         'api_key': typing.Tuple[str, ...],

@@ -12,15 +12,15 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 class ServerEnums:
 
     @schemas.classproperty
-    def PETSTORE(cls) -> typing_extensions.Literal["petstore"]:
+    def PETSTORE(cls) -> typing.Literal["petstore"]:
         return Server.validate("petstore")
 
     @schemas.classproperty
-    def QA_HYPHEN_MINUS_PETSTORE(cls) -> typing_extensions.Literal["qa-petstore"]:
+    def QA_HYPHEN_MINUS_PETSTORE(cls) -> typing.Literal["qa-petstore"]:
         return Server.validate("qa-petstore")
 
     @schemas.classproperty
-    def DEV_HYPHEN_MINUS_PETSTORE(cls) -> typing_extensions.Literal["dev-petstore"]:
+    def DEV_HYPHEN_MINUS_PETSTORE(cls) -> typing.Literal["dev-petstore"]:
         return Server.validate("dev-petstore")
 
 
@@ -31,7 +31,7 @@ class Server(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: typing_extensions.Literal["petstore"] = "petstore"
+    default: typing.Literal["petstore"] = "petstore"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "petstore": "PETSTORE",
@@ -45,36 +45,36 @@ class Server(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["petstore"],
+        arg: typing.Literal["petstore"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["petstore"]: ...
+    ) -> typing.Literal["petstore"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["qa-petstore"],
+        arg: typing.Literal["qa-petstore"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["qa-petstore"]: ...
+    ) -> typing.Literal["qa-petstore"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["dev-petstore"],
+        arg: typing.Literal["dev-petstore"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["dev-petstore"]: ...
+    ) -> typing.Literal["dev-petstore"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["petstore","qa-petstore","dev-petstore",]: ...
+    ) -> typing.Literal["petstore","qa-petstore","dev-petstore",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "petstore",
         "qa-petstore",
         "dev-petstore",
@@ -83,7 +83,7 @@ class Server(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "petstore",
                 "qa-petstore",
                 "dev-petstore",
@@ -95,11 +95,11 @@ class Server(
 class PortEnums:
 
     @schemas.classproperty
-    def POSITIVE_80(cls) -> typing_extensions.Literal["80"]:
+    def POSITIVE_80(cls) -> typing.Literal["80"]:
         return Port.validate("80")
 
     @schemas.classproperty
-    def POSITIVE_8080(cls) -> typing_extensions.Literal["8080"]:
+    def POSITIVE_8080(cls) -> typing.Literal["8080"]:
         return Port.validate("8080")
 
 
@@ -110,7 +110,7 @@ class Port(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: typing_extensions.Literal["80"] = "80"
+    default: typing.Literal["80"] = "80"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "80": "POSITIVE_80",
@@ -123,29 +123,29 @@ class Port(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["80"],
+        arg: typing.Literal["80"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["80"]: ...
+    ) -> typing.Literal["80"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["8080"],
+        arg: typing.Literal["8080"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["8080"]: ...
+    ) -> typing.Literal["8080"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["80","8080",]: ...
+    ) -> typing.Literal["80","8080",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "80",
         "8080",
     ]:
@@ -153,13 +153,13 @@ class Port(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "80",
                 "8080",
             ],
             validated_arg
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "server": typing.Type[Server],
@@ -176,21 +176,15 @@ class VariablesDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: VariablesDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> VariablesDict:
-        return Variables.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
         *,
-        port: typing_extensions.Literal[
+        port: typing.Literal[
             "80",
             "8080"
         ],
-        server: typing_extensions.Literal[
+        server: typing.Literal[
             "petstore",
             "qa-petstore",
             "dev-petstore"
@@ -203,29 +197,38 @@ class VariablesDict(schemas.immutabledict[str, str]):
         }
         used_arg_ = typing.cast(VariablesDictInput, arg_)
         return Variables.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            VariablesDictInput,
+            VariablesDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> VariablesDict:
+        return Variables.validate(arg, configuration=configuration)
     
     @property
-    def port(self) -> typing_extensions.Literal["80", "8080"]:
+    def port(self) -> typing.Literal["80", "8080"]:
         return typing.cast(
-            typing_extensions.Literal["80", "8080"],
+            typing.Literal["80", "8080"],
             self.__getitem__("port")
         )
     
     @property
-    def server(self) -> typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"]:
+    def server(self) -> typing.Literal["petstore", "qa-petstore", "dev-petstore"]:
         return typing.cast(
-            typing_extensions.Literal["petstore", "qa-petstore", "dev-petstore"],
+            typing.Literal["petstore", "qa-petstore", "dev-petstore"],
             self.__getitem__("server")
         )
-VariablesDictInput = typing_extensions.TypedDict(
+VariablesDictInput = typing.TypedDict(
     'VariablesDictInput',
     {
-        "port": typing_extensions.Literal[
+        "port": typing.Literal[
             "80",
             "8080"
         ],
-        "server": typing_extensions.Literal[
+        "server": typing.Literal[
             "petstore",
             "qa-petstore",
             "dev-petstore"

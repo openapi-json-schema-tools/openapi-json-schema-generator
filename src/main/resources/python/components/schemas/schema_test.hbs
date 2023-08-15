@@ -21,7 +21,7 @@ class Test{{jsonPathPiece.camelCase}}(unittest.TestCase):
 {{#if valid}}
         {{jsonPathPiece.camelCase}}.validate(
 {{#with data}}
-            {{> components/schemas/_helper_payload_renderer endChar=',' }}
+            {{> components/schemas/helpers/payload_renderer endChar=',' }}
 {{/with}}
             configuration=self.configuration
         )
@@ -29,7 +29,7 @@ class Test{{jsonPathPiece.camelCase}}(unittest.TestCase):
         with self.assertRaises(({{packageName}}.ApiValueError, {{packageName}}.ApiTypeError)):
             {{jsonPathPiece.camelCase}}.validate(
 {{#with data}}
-                {{> components/schemas/_helper_payload_renderer endChar=','}}
+                {{> components/schemas/helpers/payload_renderer endChar=','}}
 {{/with}}
                 configuration=self.configuration
             )

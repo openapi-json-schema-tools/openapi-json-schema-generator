@@ -1,147 +1,233 @@
+# ComposedAnyOfDifferentTypesNoValidations
 petstore_api.components.schema.composed_any_of_different_types_no_validations
-# Schema ComposedAnyOfDifferentTypesNoValidations
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## anyOf
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[_0](#anyof-_0) | dict, schemas.immutabledict | schemas.immutabledict |  |
-[_1](#anyof-_1) | str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
-[_2](#anyof-_2) | str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
-[_3](#anyof-_3) | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |  |
-[_4](#anyof-_4) | str | str |  |
-[_5](#anyof-_5) | str | str |  |
-[_6](#anyof-_6) | dict, schemas.immutabledict | schemas.immutabledict |  |
-[_7](#anyof-_7) | bool | bool |  |
-[_8](#anyof-_8) | None | None |  |
-[_9](#anyof-_9) | list, tuple | tuple |  |
-[_10](#anyof-_10) | float, int | float, int |  |
-[_11](#anyof-_11) | float, int | float, int |  | value must be a 32 bit float
-[_12](#anyof-_12) | float, int | float, int |  | value must be a 64 bit float
-[_13](#anyof-_13) | int | int |  |
-[_14](#anyof-_14) | int | int |  | value must be a 32 bit integer
-[_15](#anyof-_15) | int | int |  | value must be a 64 bit integer
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[_0](#_0) | dict, schemas.immutabledict | schemas.immutabledict
+[_1](#_1) | str, datetime.date | str
+[_2](#_2) | str, datetime.datetime | str
+[_3](#_3) | bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO
+[_4](#_4) | str | str
+[_5](#_5) | str | str
+[_6](#_6) | dict, schemas.immutabledict | schemas.immutabledict
+[_7](#_7) | bool | bool
+[_8](#_8) | None | None
+[_9](#_9) | [_9TupleInput](#_9tupleinput), [_9Tuple](#_9tuple) | [_9Tuple](#_9tuple)
+[_10](#_10) | float, int | float, int
+[_11](#_11) | float, int | float, int
+[_12](#_12) | float, int | float, int
+[_13](#_13) | int | int
+[_14](#_14) | int | int
+[_15](#_15) | int | int
 
-# anyof _0
+# _0
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict | schemas.immutabledict |
 
-# anyof _1
+# _1
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str, datetime.date | str |  | value must conform to RFC-3339 full-date YYYY-MM-DD
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str, datetime.date | str | value must conform to RFC-3339 full-date YYYY-MM-DD
 
-# anyof _2
+# _2
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str, datetime.datetime | str |  | value must conform to RFC-3339 date-time
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str, datetime.datetime | str | value must conform to RFC-3339 date-time
 
-# anyof _3
+# _3
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+bytes, io.FileIO, io.BufferedReader | bytes, io.FileIO |
 
-# anyof _4
+# _4
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
-# anyof _5
+# _5
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
-# anyof _6
+# _6
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict | schemas.immutabledict |
 
-# anyof _7
+# _7
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-bool | bool |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+bool | bool |
 
-# anyof _8
+# _8
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-None | None |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+None | None |
 
-# anyof _9
+# _9
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[_9TupleInput](#_9tupleinput), [_9Tuple](#_9tuple) | [_9Tuple](#_9tuple) |
 
-## List Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+## _9TupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES
+        ],
+        ...
+    ]
+]
+```
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  |
 
-# anyof _10
+## _9Tuple
+```
+base class: typing.Tuple[
+    schemas.OUTPUT_BASE_TYPES,
+    ...
+]
+```
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [_9TupleInput](#_9tupleinput), [_9Tuple](#_9tuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-float, int | float, int |  |
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This method is used under the hood when instance[0] is called
 
-# anyof _11
+# _10
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-float, int | float, int |  | value must be a 32 bit float
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+float, int | float, int |
 
-# anyof _12
+# _11
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-float, int | float, int |  | value must be a 64 bit float
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+float, int | float, int | value must be a 32 bit float
 
-# anyof _13
+# _12
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-int | int |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+float, int | float, int | value must be a 64 bit float
 
-# anyof _14
+# _13
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-int | int |  | value must be a 32 bit integer
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+int | int |
 
-# anyof _15
+# _14
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-int | int |  | value must be a 64 bit integer
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+int | int | value must be a 32 bit integer
+
+# _15
+```
+type: schemas.Schema
+```
+
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+int | int | value must be a 64 bit integer
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

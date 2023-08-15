@@ -15,7 +15,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class ClassNameEnums:
 
     @schemas.classproperty
-    def BASQUE_PIG(cls) -> typing_extensions.Literal["BasquePig"]:
+    def BASQUE_PIG(cls) -> typing.Literal["BasquePig"]:
         return ClassName.validate("BasquePig")
 
 
@@ -37,34 +37,34 @@ class ClassName(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["BasquePig"],
+        arg: typing.Literal["BasquePig"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["BasquePig"]: ...
+    ) -> typing.Literal["BasquePig"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["BasquePig",]: ...
+    ) -> typing.Literal["BasquePig",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "BasquePig",
     ]:
         validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "BasquePig",
             ],
             validated_arg
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "className": typing.Type[ClassName],
@@ -79,17 +79,11 @@ class BasquePigDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: BasquePigDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> BasquePigDict:
-        return BasquePig.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
         *,
-        className: typing_extensions.Literal[
+        className: typing.Literal[
             "BasquePig"
         ],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
@@ -101,12 +95,21 @@ class BasquePigDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(BasquePigDictInput, arg_)
         return BasquePig.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            BasquePigDictInput,
+            BasquePigDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> BasquePigDict:
+        return BasquePig.validate(arg, configuration=configuration)
     
     @property
-    def className(self) -> typing_extensions.Literal["BasquePig"]:
+    def className(self) -> typing.Literal["BasquePig"]:
         return typing.cast(
-            typing_extensions.Literal["BasquePig"],
+            typing.Literal["BasquePig"],
             self.__getitem__("className")
         )
     

@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 from petstore_api.components.schema import array_with_validations_in_items
 from petstore_api.components.schema import from_schema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "from": typing.Type[from_schema.FromSchema],
@@ -30,12 +30,6 @@ class ObjectWithInvalidNamedRefedPropertiesDict(schemas.immutabledict[str, schem
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: ObjectWithInvalidNamedRefedPropertiesDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> ObjectWithInvalidNamedRefedPropertiesDict:
-        return ObjectWithInvalidNamedRefedProperties.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -48,7 +42,16 @@ class ObjectWithInvalidNamedRefedPropertiesDict(schemas.immutabledict[str, schem
         arg_.update(kwargs)
         used_arg_ = typing.cast(ObjectWithInvalidNamedRefedPropertiesDictInput, arg_)
         return ObjectWithInvalidNamedRefedProperties.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            ObjectWithInvalidNamedRefedPropertiesDictInput,
+            ObjectWithInvalidNamedRefedPropertiesDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectWithInvalidNamedRefedPropertiesDict:
+        return ObjectWithInvalidNamedRefedProperties.validate(arg, configuration=configuration)
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

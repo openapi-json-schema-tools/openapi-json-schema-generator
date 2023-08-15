@@ -35,7 +35,7 @@ from petstore_api.paths.pet_find_by_status.servers import server_0 as pet_find_b
 from petstore_api.paths.pet_find_by_status.servers import server_1 as pet_find_by_status_server_1
 
 # security scheme key identifier to security scheme instance
-SecuritySchemeInfo = typing_extensions.TypedDict(
+SecuritySchemeInfo = typing.TypedDict(
     'SecuritySchemeInfo',
     {
         "api_key": security_scheme_api_key.ApiKey,
@@ -50,26 +50,26 @@ SecuritySchemeInfo = typing_extensions.TypedDict(
 )
 
 
-class SecurityIndexInfoRequired(typing_extensions.TypedDict):
+class SecurityIndexInfoRequired(typing.TypedDict):
     security: int
 
-SecurityIndexInfoOptional = typing_extensions.TypedDict(
+SecurityIndexInfoOptional = typing.TypedDict(
     'SecurityIndexInfoOptional',
     {
-        "paths//fake/delete/security": typing_extensions.Literal[0],
-        "paths//fake/post/security": typing_extensions.Literal[0],
-        "paths//fake/multipleSecurities/get/security": typing_extensions.Literal[0, 1, 2],
-        "paths//fake/{petId}/uploadImageWithRequiredFile/post/security": typing_extensions.Literal[0],
-        "paths//fake_classname_test/patch/security": typing_extensions.Literal[0],
-        "paths//pet/post/security": typing_extensions.Literal[0, 1, 2],
-        "paths//pet/put/security": typing_extensions.Literal[0, 1],
-        "paths//pet/findByStatus/get/security": typing_extensions.Literal[0, 1, 2],
-        "paths//pet/findByTags/get/security": typing_extensions.Literal[0, 1],
-        "paths//pet/{petId}/delete/security": typing_extensions.Literal[0, 1],
-        "paths//pet/{petId}/get/security": typing_extensions.Literal[0],
-        "paths//pet/{petId}/post/security": typing_extensions.Literal[0, 1],
-        "paths//pet/{petId}/uploadImage/post/security": typing_extensions.Literal[0],
-        "paths//store/inventory/get/security": typing_extensions.Literal[0],
+        "paths//fake/delete/security": typing.Literal[0],
+        "paths//fake/post/security": typing.Literal[0],
+        "paths//fake/multipleSecurities/get/security": typing.Literal[0, 1, 2],
+        "paths//fake/{petId}/uploadImageWithRequiredFile/post/security": typing.Literal[0],
+        "paths//fake_classname_test/patch/security": typing.Literal[0],
+        "paths//pet/post/security": typing.Literal[0, 1, 2],
+        "paths//pet/put/security": typing.Literal[0, 1],
+        "paths//pet/findByStatus/get/security": typing.Literal[0, 1, 2],
+        "paths//pet/findByTags/get/security": typing.Literal[0, 1],
+        "paths//pet/{petId}/delete/security": typing.Literal[0, 1],
+        "paths//pet/{petId}/get/security": typing.Literal[0],
+        "paths//pet/{petId}/post/security": typing.Literal[0, 1],
+        "paths//pet/{petId}/uploadImage/post/security": typing.Literal[0],
+        "paths//store/inventory/get/security": typing.Literal[0],
     },
     total=False
 )
@@ -82,7 +82,7 @@ class SecurityIndexInfo(SecurityIndexInfoRequired, SecurityIndexInfoOptional):
     """
 
 # the server to use at each openapi document json path
-ServerInfo = typing_extensions.TypedDict(
+ServerInfo = typing.TypedDict(
     'ServerInfo',
     {
         'servers/0': server_0.Server0,
@@ -97,14 +97,14 @@ ServerInfo = typing_extensions.TypedDict(
 )
 
 
-class ServerIndexInfoRequired(typing_extensions.TypedDict):
-    servers: typing_extensions.Literal[0, 1, 2]
+class ServerIndexInfoRequired(typing.TypedDict):
+    servers: typing.Literal[0, 1, 2]
 
-ServerIndexInfoOptional = typing_extensions.TypedDict(
+ServerIndexInfoOptional = typing.TypedDict(
     'ServerIndexInfoOptional',
     {
-        "paths//foo/get/servers": typing_extensions.Literal[0, 1],
-        "paths//pet/findByStatus/servers": typing_extensions.Literal[0, 1],
+        "paths//foo/get/servers": typing.Literal[0, 1],
+        "paths//pet/findByStatus/servers": typing.Literal[0, 1],
     },
     total=False
 )
@@ -333,7 +333,7 @@ class ApiConfiguration(object):
 
     def get_server_url(
         self,
-        key_prefix: typing_extensions.Literal[
+        key_prefix: typing.Literal[
             "servers",
             "paths//foo/get/servers",
             "paths//pet/findByStatus/servers",
@@ -353,7 +353,7 @@ class ApiConfiguration(object):
                 # fallback and use the default index
                 used_index = self.server_index_info.get("servers", 0)
         server_info_key = typing.cast(
-            typing_extensions.Literal[
+            typing.Literal[
                 "servers/0",
                 "servers/1",
                 "servers/2",
@@ -372,7 +372,7 @@ class ApiConfiguration(object):
 
     def get_security_requirement_object(
         self,
-        key_prefix: typing_extensions.Literal[
+        key_prefix: typing.Literal[
             "security",
             "paths//fake/delete/security",
             "paths//fake/post/security",

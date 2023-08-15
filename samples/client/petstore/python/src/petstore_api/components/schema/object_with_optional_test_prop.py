@@ -11,7 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 Test: typing_extensions.TypeAlias = schemas.StrSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "test": typing.Type[Test],
@@ -26,12 +26,6 @@ class ObjectWithOptionalTestPropDict(schemas.immutabledict[str, str]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "test",
     })
-    @staticmethod
-    def from_dict_(
-        arg: ObjectWithOptionalTestPropDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> ObjectWithOptionalTestPropDict:
-        return ObjectWithOptionalTestProp.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -53,7 +47,16 @@ class ObjectWithOptionalTestPropDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(ObjectWithOptionalTestPropDictInput, arg_)
         return ObjectWithOptionalTestProp.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            ObjectWithOptionalTestPropDictInput,
+            ObjectWithOptionalTestPropDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectWithOptionalTestPropDict:
+        return ObjectWithOptionalTestProp.validate(arg, configuration=configuration)
     
     @property
     def test(self) -> typing.Union[str, schemas.Unset]:

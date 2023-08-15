@@ -17,7 +17,7 @@ from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.
 from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_12 import schema as schema_5
 from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_13 import schema as schema_4
 from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_9 import schema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "1": typing.Type[schema.Schema],
@@ -40,12 +40,6 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: PathParametersDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> PathParametersDict:
-        return PathParameters.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -60,7 +54,16 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         }
         used_arg_ = typing.cast(PathParametersDictInput, arg_)
         return PathParameters.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            PathParametersDictInput,
+            PathParametersDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> PathParametersDict:
+        return PathParameters.validate(arg, configuration=configuration)
     
     @property
     def Ab(self) -> str:
@@ -75,7 +78,7 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             str,
             self.__getitem__("aB")
         )
-PathParametersDictInput = typing_extensions.TypedDict(
+PathParametersDictInput = typing.TypedDict(
     'PathParametersDictInput',
     {
         "1": str,

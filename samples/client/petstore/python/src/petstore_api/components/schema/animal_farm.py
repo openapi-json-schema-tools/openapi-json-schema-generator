@@ -21,7 +21,7 @@ class AnimalFarmTuple(
     ]
 ):
 
-    def __new__(cls, arg: AnimalFarmTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[AnimalFarmTupleInput, AnimalFarmTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return AnimalFarm.validate(arg, configuration=configuration)
 AnimalFarmTupleInput = typing.Union[
     typing.List[

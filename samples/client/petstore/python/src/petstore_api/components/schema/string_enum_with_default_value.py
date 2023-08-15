@@ -15,15 +15,15 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class StringEnumWithDefaultValueEnums:
 
     @schemas.classproperty
-    def PLACED(cls) -> typing_extensions.Literal["placed"]:
+    def PLACED(cls) -> typing.Literal["placed"]:
         return StringEnumWithDefaultValue.validate("placed")
 
     @schemas.classproperty
-    def APPROVED(cls) -> typing_extensions.Literal["approved"]:
+    def APPROVED(cls) -> typing.Literal["approved"]:
         return StringEnumWithDefaultValue.validate("approved")
 
     @schemas.classproperty
-    def DELIVERED(cls) -> typing_extensions.Literal["delivered"]:
+    def DELIVERED(cls) -> typing.Literal["delivered"]:
         return StringEnumWithDefaultValue.validate("delivered")
 
 
@@ -39,7 +39,7 @@ class StringEnumWithDefaultValue(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: typing_extensions.Literal["placed"] = "placed"
+    default: typing.Literal["placed"] = "placed"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "placed": "PLACED",
@@ -53,36 +53,36 @@ class StringEnumWithDefaultValue(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["placed"],
+        arg: typing.Literal["placed"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["placed"]: ...
+    ) -> typing.Literal["placed"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["approved"],
+        arg: typing.Literal["approved"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["approved"]: ...
+    ) -> typing.Literal["approved"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["delivered"],
+        arg: typing.Literal["delivered"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["delivered"]: ...
+    ) -> typing.Literal["delivered"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["placed","approved","delivered",]: ...
+    ) -> typing.Literal["placed","approved","delivered",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "placed",
         "approved",
         "delivered",
@@ -91,7 +91,7 @@ class StringEnumWithDefaultValue(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "placed",
                 "approved",
                 "delivered",

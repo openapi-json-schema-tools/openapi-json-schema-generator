@@ -26,8 +26,8 @@ petstore_api.paths.fake_json_patch.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json_patchjson.schema](#RequestBody-content-applicationjsonpatchjson-schema), Unset, list, tuple] | optional, default is unset |
-content_type | str | optional, default is 'application/json-patch+json' | Selects the schema and serialization of the request body
+[body](#requestbody) | typing.Union[[json_patch_request.JSONPatchRequestTupleInput](../../components/schema/json_patch_request.md#jsonpatchrequesttupleinput), [json_patch_request.JSONPatchRequestTuple](../../components/schema/json_patch_request.md#jsonpatchrequesttuple), schemas.Unset] | optional, default is unset |
+content_type | str | optional, default is 'application/json-patch+json' | Selects the schema and serialization of the request body. value must be one of ['application/json-patch+json']
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -41,18 +41,22 @@ Content-Type | Schema
 "application/json-patch+json" | [content.application_json_patchjson.Schema](#requestbody-content-applicationjsonpatchjson-schema)
 
 #### RequestBody content ApplicationJsonPatchjson Schema
+petstore_api.paths.fake_json_patch.patch.request_body.content.application_json_patchjson.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[JSONPatchRequest](../../components/schema/json_patch_request.md) | list, tuple | tuple |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+[**json_patch_request.JSONPatchRequest**](../../components/schema/json_patch_request.md) | [json_patch_request.JSONPatchRequestTupleInput](../../components/schema/json_patch_request.md#jsonpatchrequesttupleinput), [json_patch_request.JSONPatchRequestTuple](../../components/schema/json_patch_request.md#jsonpatchrequesttuple) | [json_patch_request.JSONPatchRequestTuple](../../components/schema/json_patch_request.md#jsonpatchrequesttuple)
 
 ## Return Types
 
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+200 | [SuccessDescriptionOnly.ApiResponse](../../components/responses/response_success_description_only.md#apiresponse) | Success
 
 ## Servers
 

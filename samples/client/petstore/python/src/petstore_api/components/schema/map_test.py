@@ -29,11 +29,13 @@ class AdditionalPropertiesDict(schemas.immutabledict[str, str]):
     
     @staticmethod
     def from_dict_(
-        arg: AdditionalPropertiesDictInput,
+        arg: typing.Union[
+            AdditionalPropertiesDictInput,
+            AdditionalPropertiesDict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesDict:
         return AdditionalProperties.validate(arg, configuration=configuration)
-
     
     def get_additional_property_(self, name: str) -> typing.Union[str, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -100,11 +102,13 @@ class MapMapOfStringDict(schemas.immutabledict[str, schemas.immutabledict[str, s
     
     @staticmethod
     def from_dict_(
-        arg: MapMapOfStringDictInput,
+        arg: typing.Union[
+            MapMapOfStringDictInput,
+            MapMapOfStringDict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapMapOfStringDict:
         return MapMapOfString.validate(arg, configuration=configuration)
-
     
     def get_additional_property_(self, name: str) -> typing.Union[AdditionalPropertiesDict, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -158,11 +162,11 @@ class MapMapOfString(
 class AdditionalPropertiesEnums:
 
     @schemas.classproperty
-    def UPPER(cls) -> typing_extensions.Literal["UPPER"]:
+    def UPPER(cls) -> typing.Literal["UPPER"]:
         return AdditionalProperties3.validate("UPPER")
 
     @schemas.classproperty
-    def LOWER(cls) -> typing_extensions.Literal["lower"]:
+    def LOWER(cls) -> typing.Literal["lower"]:
         return AdditionalProperties3.validate("lower")
 
 
@@ -185,29 +189,29 @@ class AdditionalProperties3(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["UPPER"],
+        arg: typing.Literal["UPPER"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["UPPER"]: ...
+    ) -> typing.Literal["UPPER"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["lower"],
+        arg: typing.Literal["lower"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["lower"]: ...
+    ) -> typing.Literal["lower"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["UPPER","lower",]: ...
+    ) -> typing.Literal["UPPER","lower",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "UPPER",
         "lower",
     ]:
@@ -215,7 +219,7 @@ class AdditionalProperties3(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "UPPER",
                 "lower",
             ],
@@ -232,7 +236,7 @@ class MapOfEnumStringDict(schemas.immutabledict[str, str]):
     def __new__(
         cls,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
-        **kwargs: typing_extensions.Literal[
+        **kwargs: typing.Literal[
             "UPPER",
             "lower"
         ],
@@ -242,24 +246,26 @@ class MapOfEnumStringDict(schemas.immutabledict[str, str]):
     
     @staticmethod
     def from_dict_(
-        arg: MapOfEnumStringDictInput,
+        arg: typing.Union[
+            MapOfEnumStringDictInput,
+            MapOfEnumStringDict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapOfEnumStringDict:
         return MapOfEnumString.validate(arg, configuration=configuration)
-
     
-    def get_additional_property_(self, name: str) -> typing.Union[typing_extensions.Literal["UPPER", "lower"], schemas.Unset]:
+    def get_additional_property_(self, name: str) -> typing.Union[typing.Literal["UPPER", "lower"], schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         val = self.get(name, schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
-            typing_extensions.Literal["UPPER", "lower"],
+            typing.Literal["UPPER", "lower"],
             val
         )
 MapOfEnumStringDictInput = typing.Mapping[
     str,
-    typing_extensions.Literal[
+    typing.Literal[
         "UPPER",
         "lower"
     ],
@@ -314,11 +320,13 @@ class DirectMapDict(schemas.immutabledict[str, bool]):
     
     @staticmethod
     def from_dict_(
-        arg: DirectMapDictInput,
+        arg: typing.Union[
+            DirectMapDictInput,
+            DirectMapDict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> DirectMapDict:
         return DirectMap.validate(arg, configuration=configuration)
-
     
     def get_additional_property_(self, name: str) -> typing.Union[bool, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -366,7 +374,7 @@ class DirectMap(
 
 
 from petstore_api.components.schema import string_boolean_map
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "map_map_of_string": typing.Type[MapMapOfString],
@@ -386,12 +394,6 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "direct_map",
         "indirect_map",
     })
-    @staticmethod
-    def from_dict_(
-        arg: MapTestDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> MapTestDict:
-        return MapTest.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -432,7 +434,16 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(MapTestDictInput, arg_)
         return MapTest.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            MapTestDictInput,
+            MapTestDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> MapTestDict:
+        return MapTest.validate(arg, configuration=configuration)
     
     @property
     def map_map_of_string(self) -> typing.Union[MapMapOfStringDict, schemas.Unset]:

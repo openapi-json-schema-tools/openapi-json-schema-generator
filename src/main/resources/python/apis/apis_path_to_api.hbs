@@ -5,7 +5,7 @@ import typing_extensions
 from {{packageName}}.apis.paths.{{@key.snakeCase}} import {{@key.camelCase}}
 {{/each}}
 
-PathToApi = typing_extensions.TypedDict(
+PathToApi = typing.TypedDict(
     'PathToApi',
     {
 {{#each paths}}

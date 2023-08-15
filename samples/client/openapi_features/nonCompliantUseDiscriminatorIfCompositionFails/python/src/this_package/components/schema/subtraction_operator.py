@@ -22,8 +22,8 @@ class OperatorId(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: typing_extensions.Literal["SUB"] = "SUB"
-Properties = typing_extensions.TypedDict(
+    default: typing.Literal["SUB"] = "SUB"
+Properties = typing.TypedDict(
     'Properties',
     {
         "a": typing.Type[A],
@@ -42,12 +42,6 @@ class SubtractionOperatorDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: SubtractionOperatorDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> SubtractionOperatorDict:
-        return SubtractionOperator.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -70,7 +64,16 @@ class SubtractionOperatorDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
         }
         used_arg_ = typing.cast(SubtractionOperatorDictInput, arg_)
         return SubtractionOperator.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            SubtractionOperatorDictInput,
+            SubtractionOperatorDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SubtractionOperatorDict:
+        return SubtractionOperator.validate(arg, configuration=configuration)
     
     @property
     def a(self) -> typing.Union[int, float]:
@@ -92,7 +95,7 @@ class SubtractionOperatorDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
             str,
             self.__getitem__("operator_id")
         )
-SubtractionOperatorDictInput = typing_extensions.TypedDict(
+SubtractionOperatorDictInput = typing.TypedDict(
     'SubtractionOperatorDictInput',
     {
         "a": typing.Union[

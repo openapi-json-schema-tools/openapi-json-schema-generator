@@ -10,10 +10,14 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#content-applicationjson-schema)
 
 ## content ApplicationJson Schema
+petstore_api.components.request_bodies.request_body_client.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-### Type Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[Client](../../components/schema/client.md) | dict, schemas.immutabledict | schemas.immutabledict |
+### Ref Schema Info
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+[**client.Client**](../../components/schema/client.md) | [client.ClientDictInput](../../components/schema/client.md#clientdictinput), [client.ClientDict](../../components/schema/client.md#clientdict) | [client.ClientDict](../../components/schema/client.md#clientdict)
 
 [[Back to top]](#top) [[Back to Component RequestBodies]](../../../README.md#Component-RequestBodies) [[Back to README]](../../../README.md)

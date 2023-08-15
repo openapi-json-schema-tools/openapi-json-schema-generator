@@ -29,6 +29,7 @@ Method | Description
 [**json_patch**](../../paths/fake_json_patch/patch.md) | json patch
 [**json_with_charset**](../../paths/fake_json_with_charset/post.md) | json with charset tx and rx
 [**mammal**](../../paths/fake_refs_mammal/post.md) | 
+[**multiple_request_body_content_types**](../../paths/fake_multiple_request_body_content_types/post.md) | testing composed schemas at inline locations
 [**multiple_response_bodies**](../../paths/fake_multiple_response_bodies/get.md) | multiple responses have response bodies
 [**multiple_securities**](../../paths/fake_multiple_securities/get.md) | multiple security requirements
 [**number_with_validations**](../../paths/fake_refs_number/post.md) | 

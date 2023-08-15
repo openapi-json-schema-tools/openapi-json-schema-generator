@@ -29,11 +29,13 @@ class AddressDict(schemas.immutabledict[str, int]):
     
     @staticmethod
     def from_dict_(
-        arg: AddressDictInput,
+        arg: typing.Union[
+            AddressDictInput,
+            AddressDict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AddressDict:
         return Address.validate(arg, configuration=configuration)
-
     
     def get_additional_property_(self, name: str) -> typing.Union[int, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

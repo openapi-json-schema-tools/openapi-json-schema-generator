@@ -399,17 +399,17 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
     @classmethod
     def validate_base(
         cls,
-        arg: typing_extensions.Literal[True],
+        arg: typing.Literal[True],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[True]: ...
+    ) -> typing.Literal[True]: ...
 
     @typing.overload
     @classmethod
     def validate_base(
         cls,
-        arg: typing_extensions.Literal[False],
+        arg: typing.Literal[False],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[False]: ...
+    ) -> typing.Literal[False]: ...
 
     @typing.overload
     @classmethod
@@ -541,7 +541,7 @@ def get_class(
 ) -> typing.Type[Schema]:
     if isinstance(item_cls, typing._GenericAlias): # type: ignore
         # petstore_api.schemas.StrSchema[~U] -> petstore_api.schemas.StrSchema
-        origin_cls = typing_extensions.get_origin(item_cls)
+        origin_cls = typing.get_origin(item_cls)
         if origin_cls is None:
             raise ValueError('origin class must not be None')
         return origin_cls
@@ -574,17 +574,17 @@ class AnyTypeSchema(Schema[T, U]):
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal[True],
+        arg: typing.Literal[True],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[True]: ...
+    ) -> typing.Literal[True]: ...
 
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal[False],
+        arg: typing.Literal[False],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[False]: ...
+    ) -> typing.Literal[False]: ...
 
     @typing.overload
     @classmethod

@@ -1,58 +1,269 @@
 {{#with schema}}
-{{#if componentModule}}
-{{packageName}}.components.schema.{{jsonPathPiece.snakeCase}}
-{{/if}}
 {{#eq identifierPieces.size 0}}
-{{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces "Schema" jsonPathPiece) }}
+{{> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces jsonPathPiece) }}
 {{else}}
 {{> components/_helper_header_from_identifier_pieces }}
 {{/eq}}
+{{#if componentModule}}
+{{packageName}}.components.schema.{{jsonPathPiece.snakeCase}}
+{{else}}
+    {{#unless isInline}}
+{{moduleLocation}}
+    {{/unless}}
+{{/if}}
+```
+type: schemas.Schema
+```
 {{#if description}}
 
 {{headerSize}}# Description
 {{description}}
 {{/if}}
 
-{{headerSize}}# Type Info
 {{#if refInfo}}
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[{{refInfo.refClass}}]({{complexTypePrefix}}{{refInfo.refModule}}.md) | {{#with getDeepestRef}}{{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }}{{/with}} |{{#if description}} {{description}}{{/if}}
+{{headerSize}}# Ref Schema Info
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+{{> components/schemas/__refclass_partial }} | {{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }}
 {{else}}
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-{{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+{{headerSize}}# validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+{{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
     {{#or properties additionalProperties requiredProperties}}
 
-{{headerSize}}# Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
+    {{#if mapInputJsonPathPiece}}
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}
+    {{else}}
+{{headerSize}}# Input Dictionary Keys
+    {{/if}}
+```
+    {{#if additionalProperties}}
+        {{#if additionalProperties.isBooleanSchemaFalse}}
+            {{#or requiredProperties optionalProperties}}
+type: typing.TypedDict
+            {{else}}
+type: typing.Mapping (empty)
+            {{/or}}
+        {{else}}
+            {{#if additionalProperties.isBooleanSchemaTrue }}
+                {{! addProps True, does not matter what properties are because they are always covered by base types }}
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+            {{else}}
+                {{! addProps schema }}
+                {{#and requiredProperties optionalProperties}}
+type: typing.Mapping[
+    str,
+    typing.Union[
+                    {{#each requiredProperties}}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+                    {{/each}}
+                    {{#each optionalProperties}}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+                    {{/each}}
+                    {{#with additionalProperties}}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+                    {{/with}}
+    ]
+]
+                {{else}}
+                    {{! no requiredProperties or optionalProperties or just one of them }}
+                    {{#if requiredProperties}}
+                        {{! requiredProperties + addProp }}
+type: typing.Mapping[
+    str,
+    typing.Union[
+                        {{#each requiredProperties}}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+                        {{/each}}
+                        {{#with additionalProperties}}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+                        {{/with}}
+    ]
+]
+                    {{else}}
+                        {{#if optionalProperties}}
+                            {{! optionalProperties + addProp }}
+type: typing.Mapping[
+    str,
+    typing.Union[
+                            {{#each optionalProperties}}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+                            {{/each}}
+                            {{#with additionalProperties}}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+                            {{/with}}
+    ]
+]
+                        {{else}}
+                            {{! only addProp }}
+type: typing.Mapping[
+    str,
+                            {{#with additionalProperties}}
+    {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
+                            {{/with}}
+]
+                        {{/if}}
+                    {{/if}}
+                {{/and}}
+            {{/if}}
+        {{/if}}
+    {{else}}
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+    {{/if}}
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
         {{#each requiredProperties}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{#with getDeepestRef}}, {{> _helper_schema_python_types }}{{/with}}{{else}}{{> _helper_schema_python_types }}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[properties.{{@key.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "properties" @key.anchorPiece) }}){{else}}{{> components/_helper_schema_accessed_types }}{{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/each}}
         {{#each optionalProperties}}
-**{{@key.original}}** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{#with getDeepestRef}}, {{> _helper_schema_python_types }}{{/with}}{{else}}{{> _helper_schema_python_types }}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[properties.{{@key.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "properties" @key.anchorPiece) }}){{else}}{{> components/_helper_schema_accessed_types }}{{/if}}{{/if}} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/each}}
         {{#with additionalProperties}}
             {{#unless isBooleanSchemaFalse}}
                 {{#if isBooleanSchemaTrue}}
-**any_string_name** | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]
+**any_string_name** | {{> _helper_schema_python_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]
             {{else}}
-**any_string_name** | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{#with getDeepestRef}}, {{> _helper_schema_python_types }}{{/with}}{{else}}{{> _helper_schema_python_types }}{{/if}} | {{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}{{#if isComplicated}}[{{@jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece) }}){{else}}{{> components/_helper_schema_accessed_types }}{{/if}}{{/if}} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+**any_string_name** | {{> components/schemas/types/docschema_io_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }}
                 {{/if}}
             {{/unless}}
         {{else}}
-**any_string_name** | {{> components/schemas/_helper_types_all_incl_schema_oneline }} | {{> components/schemas/_helper_types_all_accessed_oneline }} | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
+        {{/with}}
+
+    {{#if mapOutputJsonPathPiece}}
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}
+    {{else}}
+{{headerSize}}# Output Dictionary Keys
+    {{/if}}
+```
+    {{#if mapValueSchema}}
+base class: schemas.immutabledict[str, {{#with mapValueSchema}}{{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule=null endChar="]" }}{{/with}}
+    {{else}}
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+    {{/if}}
+```
+{{headerSize}}## &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+        {{#each requiredProperties}}
+            {{#if @key.isValid}}
+**{{@key.original}}** | {{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
+            {{/if}}
+        {{/each}}
+        {{#each optionalProperties}}
+            {{#if @key.isValid}}
+**{{@key.original}}** | {{> components/schemas/types/docschema_io_types optional=true }} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }}
+            {{/if}}
+        {{/each}}
+        {{#with additionalProperties}}
+            {{#unless isBooleanSchemaFalse}}
+                {{#if isBooleanSchemaTrue}}
+**kwargs** | {{> _helper_schema_python_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional] typed value is accessed with the get_additional_property_ method
+            {{else}}
+**kwargs** | {{> components/schemas/types/docschema_io_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }} typed value is accessed with the get_additional_property_ method
+                {{/if}}
+            {{/unless}}
+        {{else}}
+**kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional] typed value is accessed with the get_additional_property_ method
+        {{/with}}
+        {{#or (and requiredProperties requiredProperties.hasValidKey) (and optionalProperties optionalProperties.hasValidKey) }}
+
+{{headerSize}}## properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+            {{#each requiredProperties}}
+                {{#if @key.isValid}}
+**{{@key.original}}** | {{> components/schemas/types/docschema_output_types }} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
+                {{/if}}
+            {{/each}}
+            {{#each optionalProperties}}
+                {{#if @key.isValid}}
+**{{@key.original}}** | {{> components/schemas/types/docschema_output_types optional=true }} | {{#if description}}{{description}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }}
+                {{/if}}
+            {{/each}}
+        {{/or}}
+
+{{headerSize}}## methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | {{> components/schemas/types/docschema_io_types types=(append (newArray ) "object") }} | {{> components/schemas/types/docschema_output_types types=(append (newArray ) "object") }} | a constructor
+        {{#or (and requiredProperties requiredProperties.hasInvalidKey) (and optionalProperties optionalProperties.hasInvalidKey) }}
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | {{#with mapValueSchema}}{{> components/schemas/types/docschema_output_types }}{{else}}schemas.OUTPUT_BASE_TYPES{{/with}} | This model has invalid python names so this method is used under the hood when you access {{#each requiredProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}{{#each optionalProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}
+        {{/or}}
+        {{#with additionalProperties}}
+            {{#unless isBooleanSchemaFalse}}
+                {{#if isBooleanSchemaTrue}}
+get_additional_property_ | str | {{> components/schemas/types/docschema_output_types optional=true }} | provides type safety for additional properties
+            {{else}}
+get_additional_property_ | str | {{> components/schemas/types/docschema_output_types optional=true }} | provides type safety for additional properties
+                {{/if}}
+            {{/unless}}
+        {{else}}
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
         {{/with}}
     {{/or}}
     {{#if items}}
 
-{{headerSize}}# List Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
+        {{#if arrayInputJsonPathPiece}}
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}
+        {{else}}
+{{headerSize}}# Input List Items
+        {{/if}}
+```
+type: typing.Union[
+    typing.List[
         {{#with items}}
-{{#unless refInfo.refClass}}{{#if isComplicated}}[{{/if}}{{jsonPathPiece.original}}{{#if isComplicated}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.camelCase }}
         {{/with}}
+    ],
+    typing.Tuple[
+        {{#with items}}
+        {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.camelCase }}
+        ...
+        {{/with}}
+    ]
+]
+```
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+        {{#with items}}
+{{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
+        {{/with}}
+
+        {{#if arrayOutputJsonPathPiece}}
+{{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}
+        {{else}}
+{{headerSize}}# Output List Items
+        {{/if}}
+```
+base class: typing.Tuple[
+        {{#with items}}
+            {{#if refInfo.refClass}}
+                {{#eq refModule null}}
+                    {{! self reference }}
+    {{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="," selfReference=true }}
+                {{else}}
+    {{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="," }}
+                {{/eq}}
+            {{else}}
+    {{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="," }}
+            {{/if}}
+        {{/with}}
+    ...
+]
+```
+{{headerSize}}## &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | {{> components/schemas/types/docschema_io_types types=(append (newArray ) "array") }}
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+{{headerSize}}## methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | {{#with items}}{{> components/schemas/types/docschema_output_types }}{{else}}schemas.OUTPUT_BASE_TYPES{{/with}} |{{#with items}}{{> components/schemas/helpers/notes_msg defaultUser="server" }}{{/with}} This method is used under the hood when instance[0] is called
     {{/if}}
     {{#or allOf anyOf oneOf not}}
 
@@ -60,34 +271,34 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{/or}}
     {{#if allOf}}
 {{headerSize}}# allOf
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
         {{#each allOf}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "allof" jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }}
         {{/each}}
     {{/if}}
     {{#if anyOf}}
 {{headerSize}}# anyOf
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
         {{#each anyOf}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "anyof" jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }}
         {{/each}}
     {{/if}}
     {{#if oneOf}}
 {{headerSize}}# oneOf
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
         {{#each oneOf}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "oneof" jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }}
         {{/each}}
     {{/if}}
     {{#if not}}
 {{headerSize}}# not
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
         {{#with not}}
-{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{else}}[{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{#unless refInfo.refClass}}{{> _helper_schema_python_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#unless refInfo.refClass}}{{> components/_helper_schema_accessed_types }}{{/unless}}{{#if refInfo.refClass}}{{> components/schemas/_helper_refclass_partial }}{{/if}} | {{#if description}}{{description}}{{/if}} |{{> components/schemas/_helper_notes_msg defaultUser="server" }}
+{{#if refInfo.refClass}}{{> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{> components/schemas/types/docschema_io_types }} | {{> components/schemas/types/docschema_output_types }}
         {{/with}}
     {{/if}}
 {{/if}}
@@ -99,7 +310,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
             {{#unless refInfo.refClass}}
                 {{#if isComplicated}}
 
-{{> components/schemas/schema_doc schema=this identifierPieces=(append identifierPieces "properties" jsonPathPiece) }}
+{{> components/schemas/schema_doc schema=this }}
                 {{/if}}
             {{/unless}}
         {{/if}}
@@ -111,7 +322,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
         {{#unless refInfo.refClass}}
             {{#if isComplicated}}
 
-{{> components/schemas/schema_doc schema=this identifierPieces=(append identifierPieces "properties" jsonPathPiece) }}
+{{> components/schemas/schema_doc schema=this }}
             {{/if}}
         {{/unless}}
     {{/each}}
@@ -124,7 +335,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
                 {{#unless refInfo.refClass}}
                     {{#if isComplicated}}
 
-{{> components/schemas/schema_doc schema=this identifierPieces=(append identifierPieces jsonPathPiece) }}
+{{> components/schemas/schema_doc schema=this }}
                     {{/if}}
                 {{/unless}}
             {{/unless}}
@@ -137,7 +348,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
         {{#unless refInfo.refClass}}
             {{#if isComplicated}}
 
-{{> components/schemas/schema_doc schema=this identifierPieces=(append identifierPieces jsonPathPiece) }}
+{{> components/schemas/schema_doc schema=this }}
             {{/if}}
         {{/unless}}
     {{/with}}
@@ -147,7 +358,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#each allOf}}
         {{#unless refInfo.refClass}}
 
-{{> components/schemas/schema_doc schema=this identifierPieces=(append identifierPieces "allof" jsonPathPiece) }}
+{{> components/schemas/schema_doc schema=this }}
         {{/unless}}
     {{/each}}
 {{/if}}
@@ -155,7 +366,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#each anyOf}}
         {{#unless refInfo.refClass}}
 
-{{> components/schemas/schema_doc schema=this identifierPieces=(append identifierPieces "anyof" jsonPathPiece) }}
+{{> components/schemas/schema_doc schema=this }}
         {{/unless}}
     {{/each}}
 {{/if}}
@@ -163,7 +374,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#each oneOf}}
         {{#unless refInfo.refClass}}
 
-{{> components/schemas/schema_doc schema=this identifierPieces=(append identifierPieces "oneof" jsonPathPiece) }}
+{{> components/schemas/schema_doc schema=this }}
         {{/unless}}
     {{/each}}
 {{/if}}
@@ -171,7 +382,7 @@ Class Name | Input Type | Accessed Type | Description | Notes
     {{#with not}}
         {{#unless refInfo.refClass}}
 
-{{> components/schemas/schema_doc schema=this identifierPieces=(append identifierPieces jsonPathPiece) }}
+{{> components/schemas/schema_doc schema=this }}
         {{/unless}}
     {{/with}}
 {{/if}}

@@ -17,7 +17,7 @@ from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.
 from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_2 import schema as schema_3
 from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_3 import schema as schema_5
 from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_4 import schema as schema_4
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "1": typing.Type[schema.Schema],
@@ -40,12 +40,6 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         "A-B",
         "self",
     })
-    @staticmethod
-    def from_dict_(
-        arg: QueryParametersDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> QueryParametersDict:
-        return QueryParameters.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -70,7 +64,16 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             arg_[key] = val
         used_arg_ = typing.cast(QueryParametersDictInput, arg_)
         return QueryParameters.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            QueryParametersDictInput,
+            QueryParametersDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> QueryParametersDict:
+        return QueryParameters.validate(arg, configuration=configuration)
     
     @property
     def aB(self) -> typing.Union[str, schemas.Unset]:
@@ -91,7 +94,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             str,
             val
         )
-QueryParametersDictInput = typing_extensions.TypedDict(
+QueryParametersDictInput = typing.TypedDict(
     'QueryParametersDictInput',
     {
         "1": str,

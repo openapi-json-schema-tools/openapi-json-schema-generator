@@ -1,24 +1,65 @@
+# Items
 petstore_api.components.schema.items
-# Schema Items
+```
+type: schemas.Schema
+```
 
 ## Description
 component&#x27;s name collides with the inner schema name
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple | tuple | component&#x27;s name collides with the inner schema name |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ItemsTupleInput](#itemstupleinput), [ItemsTuple](#itemstuple) | [ItemsTuple](#itemstuple) |
 
-## List Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[items](#items2) | dict, schemas.immutabledict | schemas.immutabledict |  |
+## ItemsTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            typing.Mapping[str, schemas.INPUT_TYPES_ALL],
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+        ],
+        ...
+    ]
+]
+```
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+dict, schemas.immutabledict |  |
+
+## ItemsTuple
+```
+base class: typing.Tuple[
+    schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    ...
+]
+```
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ItemsTupleInput](#itemstupleinput), [ItemsTuple](#itemstuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | schemas.immutabledict | This method is used under the hood when instance[0] is called
 
 # Items2
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict | schemas.immutabledict |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

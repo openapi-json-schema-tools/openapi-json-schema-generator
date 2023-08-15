@@ -16,7 +16,7 @@ from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.
 from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_6 import schema as schema_2
 from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_7 import schema as schema_4
 from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.parameters.parameter_8 import schema as schema_3
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "1": typing.Type[schema.Schema],
@@ -36,12 +36,6 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         "A-B",
         "self",
     })
-    @staticmethod
-    def from_dict_(
-        arg: HeaderParametersDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> HeaderParametersDict:
-        return HeaderParameters.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -61,7 +55,16 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             arg_[key] = val
         used_arg_ = typing.cast(HeaderParametersDictInput, arg_)
         return HeaderParameters.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            HeaderParametersDictInput,
+            HeaderParametersDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> HeaderParametersDict:
+        return HeaderParameters.validate(arg, configuration=configuration)
     
     @property
     def aB(self) -> typing.Union[str, schemas.Unset]:
@@ -72,7 +75,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             str,
             val
         )
-HeaderParametersDictInput = typing_extensions.TypedDict(
+HeaderParametersDictInput = typing.TypedDict(
     'HeaderParametersDictInput',
     {
         "1": str,

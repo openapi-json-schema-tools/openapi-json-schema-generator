@@ -22,6 +22,18 @@ public class LinkedHashMapWithContext<V> extends LinkedHashMap<CodegenKey, V> im
         return false;
     }
 
+    public boolean hasInvalidKey() {
+        if (this.isEmpty()) {
+            return false;
+        }
+        for (CodegenKey key: this.keySet()) {
+            if (!key.isValid) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void setAllAreInline(boolean allAreInline) {
         this.internalallAreInline = allAreInline;
     }

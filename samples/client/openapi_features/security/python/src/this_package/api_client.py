@@ -1145,7 +1145,7 @@ class ApiClient:
             return
         for security_scheme_component_name, scope_names in security_requirement_object.items():
             scope_names = typing.cast(typing.Tuple[str, ...], scope_names)
-            security_scheme_component_name = typing.cast(typing_extensions.Literal[
+            security_scheme_component_name = typing.cast(typing.Literal[
                     'api_key',
                     'bearer_test',
                     'http_basic_test',
@@ -1270,7 +1270,7 @@ class Api:
             )
 
 
-class SerializedRequestBody(typing_extensions.TypedDict, total=False):
+class SerializedRequestBody(typing.TypedDict, total=False):
     body: typing.Union[str, bytes]
     fields: typing.Tuple[rest.RequestField, ...]
 

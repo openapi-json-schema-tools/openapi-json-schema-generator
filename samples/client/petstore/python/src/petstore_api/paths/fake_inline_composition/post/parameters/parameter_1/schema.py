@@ -32,7 +32,7 @@ class SomeProp(
     # any type
     all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "someProp": typing.Type[SomeProp],
@@ -46,12 +46,6 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "someProp",
     })
-    @staticmethod
-    def from_dict_(
-        arg: SchemaDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> SchemaDict:
-        return Schema.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -74,7 +68,16 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(SchemaDictInput, arg_)
         return Schema.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            SchemaDictInput,
+            SchemaDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SchemaDict:
+        return Schema.validate(arg, configuration=configuration)
     
     @property
     def someProp(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:

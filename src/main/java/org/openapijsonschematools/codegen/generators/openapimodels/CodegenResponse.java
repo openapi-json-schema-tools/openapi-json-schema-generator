@@ -30,6 +30,7 @@ public class CodegenResponse {
     public final Map<String, Object> vendorExtensions;
     public final TreeSet<String> imports;
     public final boolean componentModule;
+    public final String pathFromDocRoot;
 
     public CodegenResponse getSelfOrDeepestRef() {
         if (refInfo == null) {
@@ -42,7 +43,7 @@ public class CodegenResponse {
         return refObject;
     }
 
-    public CodegenResponse(CodegenKey jsonPathPiece, Map<String, CodegenHeader> headers, CodegenSchema headersObjectSchema, String description, Map<String, Object> vendorExtensions, LinkedHashMap<CodegenKey, CodegenMediaType> content, CodegenRefInfo<CodegenResponse> refInfo, TreeSet<String> imports, boolean componentModule) {
+    public CodegenResponse(CodegenKey jsonPathPiece, Map<String, CodegenHeader> headers, CodegenSchema headersObjectSchema, String description, Map<String, Object> vendorExtensions, LinkedHashMap<CodegenKey, CodegenMediaType> content, CodegenRefInfo<CodegenResponse> refInfo, TreeSet<String> imports, boolean componentModule, String pathFromDocRoot) {
         this.jsonPathPiece = jsonPathPiece;
         this.headers = headers;
         this.headersObjectSchema = headersObjectSchema;
@@ -52,6 +53,7 @@ public class CodegenResponse {
         this.refInfo = refInfo;
         this.imports = imports;
         this.componentModule = componentModule;
+        this.pathFromDocRoot = pathFromDocRoot;
     }
 
     /**

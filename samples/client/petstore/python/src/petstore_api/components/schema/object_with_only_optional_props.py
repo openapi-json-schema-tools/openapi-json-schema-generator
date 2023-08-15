@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 A: typing_extensions.TypeAlias = schemas.StrSchema
 B: typing_extensions.TypeAlias = schemas.NumberSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "a": typing.Type[A],
@@ -30,12 +30,6 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
         "a",
         "b",
     })
-    @staticmethod
-    def from_dict_(
-        arg: ObjectWithOnlyOptionalPropsDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> ObjectWithOnlyOptionalPropsDict:
-        return ObjectWithOnlyOptionalProps.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -61,7 +55,16 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
             arg_[key] = val
         used_arg_ = typing.cast(ObjectWithOnlyOptionalPropsDictInput, arg_)
         return ObjectWithOnlyOptionalProps.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            ObjectWithOnlyOptionalPropsDictInput,
+            ObjectWithOnlyOptionalPropsDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectWithOnlyOptionalPropsDict:
+        return ObjectWithOnlyOptionalProps.validate(arg, configuration=configuration)
     
     @property
     def a(self) -> typing.Union[str, schemas.Unset]:
@@ -82,7 +85,7 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
             typing.Union[int, float],
             val
         )
-ObjectWithOnlyOptionalPropsDictInput = typing_extensions.TypedDict(
+ObjectWithOnlyOptionalPropsDictInput = typing.TypedDict(
     'ObjectWithOnlyOptionalPropsDictInput',
     {
         "a": str,

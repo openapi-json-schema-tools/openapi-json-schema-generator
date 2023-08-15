@@ -287,17 +287,17 @@ class BoolSchema(schema.Schema):
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal[True],
+        arg: typing.Literal[True],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[True]: ...
+    ) -> typing.Literal[True]: ...
 
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal[False],
+        arg: typing.Literal[False],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[False]: ...
+    ) -> typing.Literal[False]: ...
 
     @typing.overload
     @classmethod

@@ -36,18 +36,18 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | The instance started successfully
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | The instance started successfully
 
 ## ResponseFor200
 
 ### Description
 The instance started successfully
 
-### ResponseFor200 response_cls
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | [content.application_json.schema](#responsefor200-content-applicationjson-schema) |  |
+[body](#responsefor200-body) | [health_check_result.HealthCheckResultDict](../../components/schema/health_check_result.md#healthcheckresultdict) |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body
@@ -57,11 +57,15 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
+petstore_api.paths.fake_health.get.responses.response_200.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[HealthCheckResult](../../components/schema/health_check_result.md) | dict, schemas.immutabledict | schemas.immutabledict |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+[**health_check_result.HealthCheckResult**](../../components/schema/health_check_result.md) | [health_check_result.HealthCheckResultDictInput](../../components/schema/health_check_result.md#healthcheckresultdictinput), [health_check_result.HealthCheckResultDict](../../components/schema/health_check_result.md#healthcheckresultdict) | [health_check_result.HealthCheckResultDict](../../components/schema/health_check_result.md#healthcheckresultdict)
 
 ## Servers
 

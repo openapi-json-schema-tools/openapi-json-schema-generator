@@ -2212,6 +2212,10 @@ public class DefaultGenerator implements Generator {
         return types;
     }
 
+    private String schemaPathFromDocRoot(String moduleLocation) {
+        return moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
+    }
+
     /**
      * Convert OAS Property object to Codegen Property object.
      * <p>
@@ -2237,6 +2241,13 @@ public class DefaultGenerator implements Generator {
         CodegenSchema property = codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
         property.instanceType = "schema";
         property.jsonPath = currentJsonPath;
+        if (currentJsonPath != null) {
+            property.moduleLocation = getModuleLocation(sourceJsonPath);
+            property.pathFromDocRoot = schemaPathFromDocRoot(property.moduleLocation);
+            if (currentJsonPath != sourceJsonPath) {
+                property.isInline = true;
+            }
+        }
 
         String ref = p.get$ref();
         // put toExampleValue in a try-catch block to log the error as example values are not critical
@@ -2670,7 +2681,9 @@ public class DefaultGenerator implements Generator {
                 bodySchema.set$ref(bodySchemaRef);
                 requestBodySchemaProperties.put(contentType, bodySchema);
             }
-            requestBodySchema = getXParametersSchema(requestBodySchemaProperties, new ArrayList<String>(), jsonPath, jsonPath + "/RequestBodySchema");
+            // current json path used because
+            // schemas are imported into a python file generated from that jsonPath
+            requestBodySchema = getXParametersSchema(requestBodySchemaProperties, new ArrayList<String>(), jsonPath, jsonPath);
         }
 
         HashMap<String, Schema> pathParametersProperties = new HashMap<>();
@@ -2837,6 +2850,19 @@ public class DefaultGenerator implements Generator {
         return securityRequirements;
     }
 
+    private String responsePathFromDocRoot(String sourceJsonPath) {
+        if (sourceJsonPath.startsWith("#/components/responses")) {
+            String moduleLocation = getModuleLocation(sourceJsonPath);
+            return moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
+        }
+        // otherwise response is inline and the operation file is the location
+        // #/paths/somePath/verb/responses/200
+        int secondToLastSlashIndex = sourceJsonPath.lastIndexOf("/", sourceJsonPath.lastIndexOf("/")-1);
+        String sourceJsonPathSubstring = sourceJsonPath.substring(0, secondToLastSlashIndex);
+        String moduleLocation = getModuleLocation(sourceJsonPathSubstring);
+        return moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
+    }
+
     /**
      * Convert OAS Response object to Codegen Response object
      *
@@ -2905,7 +2931,8 @@ public class DefaultGenerator implements Generator {
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         TreeSet<String> finalImports = imports;
         CodegenSchema headersObjectSchema = getXParametersSchema(headersProperties, headersRequired, sourceJsonPath + "/" + "Headers", sourceJsonPath + "/" + "Headers");
-        r = new CodegenResponse(jsonPathPiece, headers, headersObjectSchema, description, finalVendorExtensions, content, refInfo, finalImports, componentModule);
+        String pathFromDocRoot = responsePathFromDocRoot(sourceJsonPath);
+        r = new CodegenResponse(jsonPathPiece, headers, headersObjectSchema, description, finalVendorExtensions, content, refInfo, finalImports, componentModule, pathFromDocRoot);
         codegenResponseCache.put(sourceJsonPath, r);
         return r;
     }
@@ -4465,6 +4492,13 @@ public class DefaultGenerator implements Generator {
         if (pathPieces.length == 4 && currentJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
             instance.componentModule = true;
         }
+    }
+
+    private String getModuleLocation(String ref) {
+        String filePath = getFilepath(ref);
+        String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar;
+        String localFilepath = filePath.substring(prefix.length());
+        return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
     }
 
     private String getRefModuleLocation(String ref) {

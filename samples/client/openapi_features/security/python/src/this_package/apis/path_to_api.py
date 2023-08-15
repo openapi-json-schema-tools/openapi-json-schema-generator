@@ -6,7 +6,7 @@ from this_package.apis.paths.path_with_one_explicit_security import PathWithOneE
 from this_package.apis.paths.path_with_security_from_root import PathWithSecurityFromRoot
 from this_package.apis.paths.path_with_two_explicit_security import PathWithTwoExplicitSecurity
 
-PathToApi = typing_extensions.TypedDict(
+PathToApi = typing.TypedDict(
     'PathToApi',
     {
     "/pathWithNoExplicitSecurity": typing.Type[PathWithNoExplicitSecurity],

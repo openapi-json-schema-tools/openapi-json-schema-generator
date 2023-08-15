@@ -12,7 +12,7 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 
 
 from unit_test_api.components.schema import property_named_ref_that_is_not_a_reference
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "a": typing.Type[property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference],
@@ -26,12 +26,6 @@ class RefInPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "a",
     })
-    @staticmethod
-    def from_dict_(
-        arg: RefInPropertyDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> RefInPropertyDict:
-        return RefInProperty.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -54,7 +48,16 @@ class RefInPropertyDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(RefInPropertyDictInput, arg_)
         return RefInProperty.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            RefInPropertyDictInput,
+            RefInPropertyDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> RefInPropertyDict:
+        return RefInProperty.validate(arg, configuration=configuration)
     
     @property
     def a(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:

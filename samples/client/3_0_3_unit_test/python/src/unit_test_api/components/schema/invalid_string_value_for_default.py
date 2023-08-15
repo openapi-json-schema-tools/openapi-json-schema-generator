@@ -20,8 +20,8 @@ class Bar(
         str,
     })
     min_length: int = 4
-    default: typing_extensions.Literal["bad"] = "bad"
-Properties = typing_extensions.TypedDict(
+    default: typing.Literal["bad"] = "bad"
+Properties = typing.TypedDict(
     'Properties',
     {
         "bar": typing.Type[Bar],
@@ -36,12 +36,6 @@ class InvalidStringValueForDefaultDict(schemas.immutabledict[str, str]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "bar",
     })
-    @staticmethod
-    def from_dict_(
-        arg: InvalidStringValueForDefaultDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> InvalidStringValueForDefaultDict:
-        return InvalidStringValueForDefault.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -63,7 +57,16 @@ class InvalidStringValueForDefaultDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(InvalidStringValueForDefaultDictInput, arg_)
         return InvalidStringValueForDefault.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            InvalidStringValueForDefaultDictInput,
+            InvalidStringValueForDefaultDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> InvalidStringValueForDefaultDict:
+        return InvalidStringValueForDefault.validate(arg, configuration=configuration)
     
     @property
     def bar(self) -> typing.Union[str, schemas.Unset]:
