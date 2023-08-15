@@ -89,23 +89,14 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | typing.Union[[content.application_xml.schema](#responsefor200-content-applicationxml-schema), [content.application_json.schema](#responsefor200-content-applicationjson-schema)] |  |
-[headers](#headers) | [Headers](#headers) |  |
+[body](#responsefor200-body) | typing.Union[str, str] |  |
+[headers](#headers) | [HeadersDict](#headers-headersdict) | |
 
 ### ResponseFor200 Body
 Content-Type | Schema
 ------------ | -------
 "application/xml" | [content.application_xml.Schema](#responsefor200-content-applicationxml-schema)
 "application/json" | [content.application_json.Schema](#responsefor200-content-applicationjson-schema)
-
-### Headers
-Key | Accessed Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-X-Rate-Limit | [headers.header_x_rate_limit.content.application_json.schema](#responsefor200-headers-xratelimit-content-applicationjson-schema) | | 
-int32 | [Int32JsonContentTypeHeader.content.application_json.schema](../../../components/headers/header_int32_json_content_type_header.md#content-applicationjson-schema) | | 
-X-Expires-After | [headers.header_x_expires_after.schema](#responsefor200-headers-xexpiresafter-schema) | | optional
-ref-content-schema-header | [RefContentSchemaHeader.content.application_json.schema](../../../components/headers/header_ref_content_schema_header.md#content-applicationjson-schema) | | 
-numberHeader | [NumberHeader.schema](../../../components/headers/header_number_header.md#schema) | | optional
 
 ### Body Details
 #### ResponseFor200 content ApplicationXml Schema
@@ -128,6 +119,52 @@ type: schemas.Schema
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------
 str | str |
+
+### Headers
+#### ResponseFor200 Headers
+```
+type: schemas.Schema
+```
+
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[HeadersDictInput](#responsefor200-headers-headersdictinput), [HeadersDict](#responsefor200-headers-headersdict) | [HeadersDict](#responsefor200-headers-headersdict) |
+
+##### ResponseFor200 Headers HeadersDictInput
+```
+type: typing.TypedDict
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**X-Rate-Limit** | int |  |
+**int32** | int |  |
+**ref-content-schema-header** | str |  |
+**X-Expires-After** | str, datetime.datetime |  | [optional]
+**numberHeader** | str |  | [optional]
+
+##### ResponseFor200 Headers HeadersDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
+```
+###### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**int32** | int |  |
+**numberHeader** | str, schemas.Unset |  | [optional]
+
+###### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**int32** | int |  |
+**numberHeader** | str, schemas.Unset |  | [optional]
+
+###### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [HeadersDictInput](#responsefor200-headers-headersdictinput), [HeadersDict](#responsefor200-headers-headersdict) | [HeadersDict](#responsefor200-headers-headersdict) | a constructor
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["X-Rate-Limit"], instance["ref-content-schema-header"], instance["X-Expires-After"], 
 
 ### Header Details
 #### ResponseFor200 headers XRateLimit

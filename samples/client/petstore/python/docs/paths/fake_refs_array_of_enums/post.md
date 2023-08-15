@@ -70,7 +70,7 @@ Got named array of enums
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | [content.application_json.schema](#responsefor200-content-applicationjson-schema) |  |
+[body](#responsefor200-body) | [array_of_enums.ArrayOfEnumsTuple](../../components/schema/array_of_enums.md#arrayofenumstuple) |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body

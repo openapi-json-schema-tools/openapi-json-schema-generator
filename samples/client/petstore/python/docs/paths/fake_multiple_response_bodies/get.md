@@ -48,7 +48,7 @@ success
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | [content.application_json.schema](#responsefor200-content-applicationjson-schema) |  |
+[body](#responsefor200-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body
@@ -77,7 +77,7 @@ success
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor202-body) | [content.application_json.schema](#responsefor202-content-applicationjson-schema) |  |
+[body](#responsefor202-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor202 Body

@@ -8,18 +8,13 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | [content.application_json.schema](#content-applicationjson-schema) |  |
-[headers](#headers) | [Headers](#headers) |  |
+[body](#body) | [SchemaDict](#content-applicationjson-schema-schemadict) |  |
+[headers](#headers) | [HeadersDict](#headers-headersdict) | |
 
 ## Body
 Content-Type | Schema
 ------------ | -------
 "application/json" | [content.application_json.Schema](#content-applicationjson-schema)
-
-## Headers
-Key | Accessed Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-someHeader | [headers.header_some_header.schema](#headers-someheader-schema) | | optional
 
 ## Body Details
 ### content ApplicationJson Schema
@@ -59,6 +54,45 @@ Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [SchemaDictInput](#content-applicationjson-schema-schemadictinput), [SchemaDict](#content-applicationjson-schema-schemadict) | [SchemaDict](#content-applicationjson-schema-schemadict) | a constructor
 get_additional_property_ | str | int, schemas.Unset | provides type safety for additional properties
+
+## Headers
+### Headers
+```
+type: schemas.Schema
+```
+
+#### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[HeadersDictInput](#headers-headersdictinput), [HeadersDict](#headers-headersdict) | [HeadersDict](#headers-headersdict) |
+
+#### Headers HeadersDictInput
+```
+type: typing.TypedDict
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**someHeader** | str |  | [optional]
+
+#### Headers HeadersDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
+```
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**someHeader** | str, schemas.Unset |  | [optional]
+
+##### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**someHeader** | str, schemas.Unset |  | [optional]
+
+##### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [HeadersDictInput](#headers-headersdictinput), [HeadersDict](#headers-headersdict) | [HeadersDict](#headers-headersdict) | a constructor
 
 ## Header Details
 ### headers SomeHeader

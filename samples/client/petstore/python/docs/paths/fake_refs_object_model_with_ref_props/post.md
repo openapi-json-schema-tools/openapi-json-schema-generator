@@ -70,7 +70,7 @@ Output model
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | [content.application_json.schema](#responsefor200-content-applicationjson-schema) |  |
+[body](#responsefor200-body) | [object_model_with_ref_props.ObjectModelWithRefPropsDict](../../components/schema/object_model_with_ref_props.md#objectmodelwithrefpropsdict) |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body

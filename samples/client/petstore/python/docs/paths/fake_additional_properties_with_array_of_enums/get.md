@@ -70,7 +70,7 @@ Got object with additional properties with array of enums
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | [content.application_json.schema](#responsefor200-content-applicationjson-schema) |  |
+[body](#responsefor200-body) | [additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnumsDict](../../components/schema/additional_properties_with_array_of_enums.md#additionalpropertieswitharrayofenumsdict) |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body

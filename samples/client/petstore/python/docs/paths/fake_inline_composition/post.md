@@ -195,7 +195,7 @@ success, multiple content types
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | typing.Union[[content.application_json.schema](#responsefor200-content-applicationjson-schema), [content.multipart_form_data.schema](#responsefor200-content-multipartformdata-schema)] |  |
+[body](#responsefor200-body) | typing.Union[schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, [SchemaDict](#responsefor200-content-multipartformdata-schema-schemadict)] |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body

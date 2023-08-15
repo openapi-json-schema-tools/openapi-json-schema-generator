@@ -52,7 +52,7 @@ n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor1xx-body) | [content.application_json.schema](#responsefor1xx-content-applicationjson-schema) |  |
+[body](#responsefor1xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor1XX Body
@@ -81,7 +81,7 @@ success
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | [content.application_json.schema](#responsefor200-content-applicationjson-schema) |  |
+[body](#responsefor200-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body
@@ -110,7 +110,7 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor2xx-body) | [content.application_json.schema](#responsefor2xx-content-applicationjson-schema) |  |
+[body](#responsefor2xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor2XX Body
@@ -139,7 +139,7 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor3xx-body) | [content.application_json.schema](#responsefor3xx-content-applicationjson-schema) |  |
+[body](#responsefor3xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor3XX Body
@@ -168,7 +168,7 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor4xx-body) | [content.application_json.schema](#responsefor4xx-content-applicationjson-schema) |  |
+[body](#responsefor4xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor4XX Body
@@ -197,7 +197,7 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor5xx-body) | [content.application_json.schema](#responsefor5xx-content-applicationjson-schema) |  |
+[body](#responsefor5xx-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor5XX Body

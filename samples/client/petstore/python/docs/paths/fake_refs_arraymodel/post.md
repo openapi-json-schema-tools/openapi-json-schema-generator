@@ -70,7 +70,7 @@ Output model
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | [content.application_json.schema](#responsefor200-content-applicationjson-schema) |  |
+[body](#responsefor200-body) | [animal_farm.AnimalFarmTuple](../../components/schema/animal_farm.md#animalfarmtuple) |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body

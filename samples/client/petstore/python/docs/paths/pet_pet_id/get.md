@@ -91,7 +91,7 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | typing.Union[[content.application_xml.schema](#responsefor200-content-applicationxml-schema), [content.application_json.schema](#responsefor200-content-applicationjson-schema)] |  |
+[body](#responsefor200-body) | typing.Union[[pet.PetDict](../../components/schema/pet.md#petdict), [pet.PetDict](../../components/schema/pet.md#petdict)] |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body

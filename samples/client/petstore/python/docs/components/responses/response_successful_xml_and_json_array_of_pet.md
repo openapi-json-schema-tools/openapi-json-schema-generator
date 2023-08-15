@@ -8,7 +8,7 @@ successful operation, multiple content types
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#body) | typing.Union[[content.application_xml.schema](#content-applicationxml-schema), [content.application_json.schema](#content-applicationjson-schema)] |  |
+[body](#body) | typing.Union[[SchemaTuple](#content-applicationxml-schema-schematuple), [SchemaTuple](#content-applicationjson-schema-schematuple)] |  |
 headers | Unset | headers were not defined |
 
 ## Body

@@ -47,7 +47,7 @@ The instance started successfully
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | [content.application_json.schema](#responsefor200-content-applicationjson-schema) |  |
+[body](#responsefor200-body) | [health_check_result.HealthCheckResultDict](../../components/schema/health_check_result.md#healthcheckresultdict) |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body

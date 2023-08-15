@@ -52,7 +52,7 @@ successful operation
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | [content.application_json.schema](#responsefor200-content-applicationjson-schema) |  |
+[body](#responsefor200-body) | [client.ClientDict](../../components/schema/client.md#clientdict) |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body

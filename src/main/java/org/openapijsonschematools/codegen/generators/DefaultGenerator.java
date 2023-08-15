@@ -2212,6 +2212,10 @@ public class DefaultGenerator implements Generator {
         return types;
     }
 
+    private String schemaPathFromDocRoot(String moduleLocation) {
+        return moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
+    }
+
     /**
      * Convert OAS Property object to Codegen Property object.
      * <p>
@@ -2239,8 +2243,7 @@ public class DefaultGenerator implements Generator {
         property.jsonPath = currentJsonPath;
         if (currentJsonPath != null) {
             property.moduleLocation = getModuleLocation(sourceJsonPath);
-            String pathFromDocRoot = property.moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
-            property.pathFromDocRoot = pathFromDocRoot;
+            property.pathFromDocRoot = schemaPathFromDocRoot(property.moduleLocation);
             if (currentJsonPath != sourceJsonPath) {
                 property.isInline = true;
             }
@@ -2847,6 +2850,19 @@ public class DefaultGenerator implements Generator {
         return securityRequirements;
     }
 
+    private String responsePathFromDocRoot(String sourceJsonPath) {
+        if (sourceJsonPath.startsWith("#/components/responses")) {
+            String moduleLocation = getModuleLocation(sourceJsonPath);
+            return moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
+        }
+        // otherwise response is inline and the operation file is the location
+        // #/paths/somePath/verb/responses/200
+        int secondToLastSlashIndex = sourceJsonPath.lastIndexOf("/", sourceJsonPath.lastIndexOf("/")-1);
+        String sourceJsonPathSubstring = sourceJsonPath.substring(0, secondToLastSlashIndex);
+        String moduleLocation = getModuleLocation(sourceJsonPathSubstring);
+        return moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
+    }
+
     /**
      * Convert OAS Response object to Codegen Response object
      *
@@ -2915,7 +2931,8 @@ public class DefaultGenerator implements Generator {
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         TreeSet<String> finalImports = imports;
         CodegenSchema headersObjectSchema = getXParametersSchema(headersProperties, headersRequired, sourceJsonPath + "/" + "Headers", sourceJsonPath + "/" + "Headers");
-        r = new CodegenResponse(jsonPathPiece, headers, headersObjectSchema, description, finalVendorExtensions, content, refInfo, finalImports, componentModule);
+        String pathFromDocRoot = responsePathFromDocRoot(sourceJsonPath);
+        r = new CodegenResponse(jsonPathPiece, headers, headersObjectSchema, description, finalVendorExtensions, content, refInfo, finalImports, componentModule, pathFromDocRoot);
         codegenResponseCache.put(sourceJsonPath, r);
         return r;
     }

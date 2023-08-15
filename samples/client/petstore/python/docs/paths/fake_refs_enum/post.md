@@ -70,7 +70,7 @@ Output enum
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | [content.application_json.schema](#responsefor200-content-applicationjson-schema) |  |
+[body](#responsefor200-body) | None, typing.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"] |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body
