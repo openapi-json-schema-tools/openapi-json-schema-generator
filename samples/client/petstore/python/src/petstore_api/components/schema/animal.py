@@ -20,8 +20,8 @@ class Color(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: typing_extensions.Literal["red"] = "red"
-Properties = typing_extensions.TypedDict(
+    default: typing.Literal["red"] = "red"
+Properties = typing.TypedDict(
     'Properties',
     {
         "className": typing.Type[ClassName],
@@ -38,12 +38,6 @@ class AnimalDict(schemas.immutabledict[str, str]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "color",
     })
-    @staticmethod
-    def from_dict_(
-        arg: AnimalDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> AnimalDict:
-        return Animal.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -68,7 +62,16 @@ class AnimalDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(AnimalDictInput, arg_)
         return Animal.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            AnimalDictInput,
+            AnimalDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AnimalDict:
+        return Animal.validate(arg, configuration=configuration)
     
     @property
     def className(self) -> str:

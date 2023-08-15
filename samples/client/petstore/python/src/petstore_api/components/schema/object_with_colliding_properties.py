@@ -12,7 +12,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 SomeProp: typing_extensions.TypeAlias = schemas.DictSchema
 Someprop2: typing_extensions.TypeAlias = schemas.DictSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "someProp": typing.Type[SomeProp],
@@ -29,12 +29,6 @@ class ObjectWithCollidingPropertiesDict(schemas.immutabledict[str, schemas.immut
         "someProp",
         "someprop",
     })
-    @staticmethod
-    def from_dict_(
-        arg: ObjectWithCollidingPropertiesDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> ObjectWithCollidingPropertiesDict:
-        return ObjectWithCollidingProperties.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -63,7 +57,16 @@ class ObjectWithCollidingPropertiesDict(schemas.immutabledict[str, schemas.immut
         arg_.update(kwargs)
         used_arg_ = typing.cast(ObjectWithCollidingPropertiesDictInput, arg_)
         return ObjectWithCollidingProperties.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            ObjectWithCollidingPropertiesDictInput,
+            ObjectWithCollidingPropertiesDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectWithCollidingPropertiesDict:
+        return ObjectWithCollidingProperties.validate(arg, configuration=configuration)
     
     @property
     def someProp(self) -> typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset]:

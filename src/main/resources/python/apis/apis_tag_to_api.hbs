@@ -5,7 +5,7 @@ import typing_extensions
 from {{packageName}}.apis.tags.{{@key.moduleName}} import {{@key.className}}
 {{/each}}
 
-TagToApi = typing_extensions.TypedDict(
+TagToApi = typing.TypedDict(
     'TagToApi',
     {
 {{#each tagToPathToOperations}}

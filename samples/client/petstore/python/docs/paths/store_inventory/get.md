@@ -39,7 +39,7 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessInlineContentAndHeader.response_cls](../../components/responses/response_success_inline_content_and_header.md#response_success_inline_content_and_headerresponse_cls) | successful operation
+200 | [SuccessInlineContentAndHeader.ApiResponse](../../components/responses/response_success_inline_content_and_header.md#apiresponse) | successful operation
 
 ## Security
 

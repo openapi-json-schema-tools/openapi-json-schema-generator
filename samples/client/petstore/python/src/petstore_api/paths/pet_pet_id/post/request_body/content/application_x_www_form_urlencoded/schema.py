@@ -12,7 +12,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 Name: typing_extensions.TypeAlias = schemas.StrSchema
 Status: typing_extensions.TypeAlias = schemas.StrSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "name": typing.Type[Name],
@@ -29,12 +29,6 @@ class SchemaDict(schemas.immutabledict[str, str]):
         "name",
         "status",
     })
-    @staticmethod
-    def from_dict_(
-        arg: SchemaDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> SchemaDict:
-        return Schema.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -61,7 +55,16 @@ class SchemaDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(SchemaDictInput, arg_)
         return Schema.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            SchemaDictInput,
+            SchemaDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SchemaDict:
+        return Schema.validate(arg, configuration=configuration)
     
     @property
     def name(self) -> typing.Union[str, schemas.Unset]:

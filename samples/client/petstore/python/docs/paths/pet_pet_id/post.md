@@ -26,9 +26,9 @@ petstore_api.paths.pet_pet_id.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_x_www_form_urlencoded.schema](#RequestBody-content-applicationxwwwformurlencoded-schema), Unset, dict, schemas.immutabledict] | optional, default is unset |
-[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
-content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
+[body](#requestbody) | typing.Union[[schema.SchemaDictInput](../../paths/pet_pet_id/post/request_body/content/application_x_www_form_urlencoded/schema.md#schemadictinput), [schema.SchemaDict](../../paths/pet_pet_id/post/request_body/content/application_x_www_form_urlencoded/schema.md#schemadict), schemas.Unset] | optional, default is unset |
+[path_params](#path_params) | [PathParametersDictInput](#pathparameters-pathparametersdictinput), [PathParametersDict](#pathparameters-pathparametersdict) | |
+content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body. value must be one of ['application/x-www-form-urlencoded']
 security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [0, 1]
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -43,53 +43,101 @@ Content-Type | Schema
 "application/x-www-form-urlencoded" | [content.application_x_www_form_urlencoded.Schema](#requestbody-content-applicationxwwwformurlencoded-schema)
 
 #### RequestBody content ApplicationXWwwFormUrlencoded Schema
+petstore_api.paths.pet_pet_id.post.request_body.content.application_x_www_form_urlencoded.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput), [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) | [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) |
+
+##### RequestBody content ApplicationXWwwFormUrlencoded Schema SchemaDictInput
+```
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
+Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+**name** | str | Updated name of the pet | [optional]
+**status** | str | Updated status of the pet | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
 
-##### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**name** | str | str | Updated name of the pet | [optional]
-**status** | str | str | Updated status of the pet | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
+##### RequestBody content ApplicationXWwwFormUrlencoded Schema SchemaDict
+```
+base class: schemas.immutabledict[str, str]
 
+```
+###### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**name** | str, schemas.Unset | Updated name of the pet | [optional]
+**status** | str, schemas.Unset | Updated status of the pet | [optional]
+**kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+###### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**name** | str, schemas.Unset | Updated name of the pet | [optional]
+**status** | str, schemas.Unset | Updated status of the pet | [optional]
+
+###### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput), [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) | [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
 ### path_params
-#### RequestPathParameters.Params
-This is a TypedDict
+### PathParameters
+```
+type: schemas.Schema
+```
 
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-petId | [Parameter0.schema](#parameter0-schema), int | | 
+#### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[PathParametersDictInput](#pathparameters-pathparametersdictinput), [PathParametersDict](#pathparameters-pathparametersdict) | [PathParametersDict](#pathparameters-pathparametersdict) |
 
-
-#### Parameter0
-
-##### Description
-ID of pet that needs to be updated
-
-##### Parameter0 Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
+#### PathParameters PathParametersDictInput
+```
+type: typing.TypedDict
+```
+Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-int | int |  | value must be a 64 bit integer
+**petId** | int |  |
+
+#### PathParameters PathParametersDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
+```
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**petId** | int |  |
+
+##### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**petId** | int |  |
+
+##### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [PathParametersDictInput](#pathparameters-pathparametersdictinput), [PathParametersDict](#pathparameters-pathparametersdict) | [PathParametersDict](#pathparameters-pathparametersdict) | a constructor
 
 ## Return Types
 
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-405 | [ResponseFor405.response_cls](#responsefor405-response_cls) | Invalid input
+405 | [ResponseFor405.ApiResponse](#responsefor405-apiresponse) | Invalid input
 
 ## ResponseFor405
 
 ### Description
 Invalid input
 
-### ResponseFor405 response_cls
+### ResponseFor405 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

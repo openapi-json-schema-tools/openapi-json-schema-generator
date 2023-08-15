@@ -20,7 +20,7 @@ class ArrayOfStringTuple(
     ]
 ):
 
-    def __new__(cls, arg: ArrayOfStringTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ArrayOfStringTupleInput, ArrayOfStringTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayOfString.validate(arg, configuration=configuration)
 ArrayOfStringTupleInput = typing.Union[
     typing.List[
@@ -71,7 +71,7 @@ class ItemsTuple(
     ]
 ):
 
-    def __new__(cls, arg: ItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ItemsTupleInput, ItemsTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Items2.validate(arg, configuration=configuration)
 ItemsTupleInput = typing.Union[
     typing.List[
@@ -121,7 +121,7 @@ class ArrayArrayOfIntegerTuple(
     ]
 ):
 
-    def __new__(cls, arg: ArrayArrayOfIntegerTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ArrayArrayOfIntegerTupleInput, ArrayArrayOfIntegerTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayArrayOfInteger.validate(arg, configuration=configuration)
 ArrayArrayOfIntegerTupleInput = typing.Union[
     typing.List[
@@ -179,7 +179,7 @@ class ItemsTuple2(
     ]
 ):
 
-    def __new__(cls, arg: ItemsTupleInput2, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ItemsTupleInput2, ItemsTuple2], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Items4.validate(arg, configuration=configuration)
 ItemsTupleInput2 = typing.Union[
     typing.List[
@@ -235,7 +235,7 @@ class ArrayArrayOfModelTuple(
     ]
 ):
 
-    def __new__(cls, arg: ArrayArrayOfModelTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ArrayArrayOfModelTupleInput, ArrayArrayOfModelTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayArrayOfModel.validate(arg, configuration=configuration)
 ArrayArrayOfModelTupleInput = typing.Union[
     typing.List[
@@ -282,7 +282,7 @@ class ArrayArrayOfModel(
             arg,
             configuration=configuration,
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "array_of_string": typing.Type[ArrayOfString],
@@ -301,12 +301,6 @@ class ArrayTestDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_
         "array_array_of_integer",
         "array_array_of_model",
     })
-    @staticmethod
-    def from_dict_(
-        arg: ArrayTestDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> ArrayTestDict:
-        return ArrayTest.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -341,7 +335,16 @@ class ArrayTestDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_
         arg_.update(kwargs)
         used_arg_ = typing.cast(ArrayTestDictInput, arg_)
         return ArrayTest.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            ArrayTestDictInput,
+            ArrayTestDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ArrayTestDict:
+        return ArrayTest.validate(arg, configuration=configuration)
     
     @property
     def array_of_string(self) -> typing.Union[ArrayOfStringTuple, schemas.Unset]:

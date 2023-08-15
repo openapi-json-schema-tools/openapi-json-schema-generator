@@ -15,7 +15,7 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 class NulCharactersInStringsEnums:
 
     @schemas.classproperty
-    def HELLO_NULL_THERE(cls) -> typing_extensions.Literal["hello\x00there"]:
+    def HELLO_NULL_THERE(cls) -> typing.Literal["hello\x00there"]:
         return NulCharactersInStrings.validate("hello\x00there")
 
 
@@ -42,29 +42,29 @@ class NulCharactersInStrings(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["hello\x00there"],
+        arg: typing.Literal["hello\x00there"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["hello\x00there"]: ...
+    ) -> typing.Literal["hello\x00there"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["hello\x00there",]: ...
+    ) -> typing.Literal["hello\x00there",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "hello\x00there",
     ]:
         validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "hello\x00there",
             ],
             validated_arg

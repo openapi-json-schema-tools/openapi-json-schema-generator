@@ -13,7 +13,7 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 AdditionalProperties: typing_extensions.TypeAlias = schemas.BoolSchema
 Foo: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 Bar: typing_extensions.TypeAlias = schemas.AnyTypeSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "foo": typing.Type[Foo],
@@ -30,12 +30,6 @@ class AdditionalpropertiesAllowsASchemaWhichShouldValidateDict(schemas.immutable
         "foo",
         "bar",
     })
-    @staticmethod
-    def from_dict_(
-        arg: AdditionalpropertiesAllowsASchemaWhichShouldValidateDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> AdditionalpropertiesAllowsASchemaWhichShouldValidateDict:
-        return AdditionalpropertiesAllowsASchemaWhichShouldValidate.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -64,7 +58,16 @@ class AdditionalpropertiesAllowsASchemaWhichShouldValidateDict(schemas.immutable
         arg_.update(kwargs)
         used_arg_ = typing.cast(AdditionalpropertiesAllowsASchemaWhichShouldValidateDictInput, arg_)
         return AdditionalpropertiesAllowsASchemaWhichShouldValidate.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            AdditionalpropertiesAllowsASchemaWhichShouldValidateDictInput,
+            AdditionalpropertiesAllowsASchemaWhichShouldValidateDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AdditionalpropertiesAllowsASchemaWhichShouldValidateDict:
+        return AdditionalpropertiesAllowsASchemaWhichShouldValidate.validate(arg, configuration=configuration)
     
     @property
     def foo(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:

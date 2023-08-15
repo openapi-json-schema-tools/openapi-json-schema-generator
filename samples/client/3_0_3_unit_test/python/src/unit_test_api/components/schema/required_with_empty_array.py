@@ -11,7 +11,7 @@ from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 Foo: typing_extensions.TypeAlias = schemas.AnyTypeSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "foo": typing.Type[Foo],
@@ -26,12 +26,6 @@ class RequiredWithEmptyArrayDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "foo",
     })
-    @staticmethod
-    def from_dict_(
-        arg: RequiredWithEmptyArrayDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> RequiredWithEmptyArrayDict:
-        return RequiredWithEmptyArray.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -54,7 +48,16 @@ class RequiredWithEmptyArrayDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_
         arg_.update(kwargs)
         used_arg_ = typing.cast(RequiredWithEmptyArrayDictInput, arg_)
         return RequiredWithEmptyArray.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            RequiredWithEmptyArrayDictInput,
+            RequiredWithEmptyArrayDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> RequiredWithEmptyArrayDict:
+        return RequiredWithEmptyArray.validate(arg, configuration=configuration)
     
     @property
     def foo(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:

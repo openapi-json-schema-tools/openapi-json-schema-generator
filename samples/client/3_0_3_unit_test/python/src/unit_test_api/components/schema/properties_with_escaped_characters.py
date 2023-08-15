@@ -16,7 +16,7 @@ FooBar: typing_extensions.TypeAlias = schemas.NumberSchema
 FooRbar: typing_extensions.TypeAlias = schemas.NumberSchema
 FooTbar: typing_extensions.TypeAlias = schemas.NumberSchema
 FooFbar: typing_extensions.TypeAlias = schemas.NumberSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "foo\nbar": typing.Type[FooNbar],
@@ -41,12 +41,6 @@ class PropertiesWithEscapedCharactersDict(schemas.immutabledict[str, typing.Unio
         "foo\tbar",
         "foo\fbar",
     })
-    @staticmethod
-    def from_dict_(
-        arg: PropertiesWithEscapedCharactersDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> PropertiesWithEscapedCharactersDict:
-        return PropertiesWithEscapedCharacters.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -58,7 +52,16 @@ class PropertiesWithEscapedCharactersDict(schemas.immutabledict[str, typing.Unio
         arg_.update(kwargs)
         used_arg_ = typing.cast(PropertiesWithEscapedCharactersDictInput, arg_)
         return PropertiesWithEscapedCharacters.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            PropertiesWithEscapedCharactersDictInput,
+            PropertiesWithEscapedCharactersDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> PropertiesWithEscapedCharactersDict:
+        return PropertiesWithEscapedCharacters.validate(arg, configuration=configuration)
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

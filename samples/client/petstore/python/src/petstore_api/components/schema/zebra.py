@@ -16,15 +16,15 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 class TypeEnums:
 
     @schemas.classproperty
-    def PLAINS(cls) -> typing_extensions.Literal["plains"]:
+    def PLAINS(cls) -> typing.Literal["plains"]:
         return Type.validate("plains")
 
     @schemas.classproperty
-    def MOUNTAIN(cls) -> typing_extensions.Literal["mountain"]:
+    def MOUNTAIN(cls) -> typing.Literal["mountain"]:
         return Type.validate("mountain")
 
     @schemas.classproperty
-    def GREVYS(cls) -> typing_extensions.Literal["grevys"]:
+    def GREVYS(cls) -> typing.Literal["grevys"]:
         return Type.validate("grevys")
 
 
@@ -48,36 +48,36 @@ class Type(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["plains"],
+        arg: typing.Literal["plains"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["plains"]: ...
+    ) -> typing.Literal["plains"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["mountain"],
+        arg: typing.Literal["mountain"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["mountain"]: ...
+    ) -> typing.Literal["mountain"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["grevys"],
+        arg: typing.Literal["grevys"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["grevys"]: ...
+    ) -> typing.Literal["grevys"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["plains","mountain","grevys",]: ...
+    ) -> typing.Literal["plains","mountain","grevys",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "plains",
         "mountain",
         "grevys",
@@ -86,7 +86,7 @@ class Type(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "plains",
                 "mountain",
                 "grevys",
@@ -98,7 +98,7 @@ class Type(
 class ClassNameEnums:
 
     @schemas.classproperty
-    def ZEBRA(cls) -> typing_extensions.Literal["zebra"]:
+    def ZEBRA(cls) -> typing.Literal["zebra"]:
         return ClassName.validate("zebra")
 
 
@@ -120,34 +120,34 @@ class ClassName(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["zebra"],
+        arg: typing.Literal["zebra"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["zebra"]: ...
+    ) -> typing.Literal["zebra"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["zebra",]: ...
+    ) -> typing.Literal["zebra",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "zebra",
     ]:
         validated_arg = super().validate_base(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "zebra",
             ],
             validated_arg
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "type": typing.Type[Type],
@@ -164,21 +164,15 @@ class ZebraDict(schemas.immutabledict[str, str]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "type",
     })
-    @staticmethod
-    def from_dict_(
-        arg: ZebraDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> ZebraDict:
-        return Zebra.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
         *,
-        className: typing_extensions.Literal[
+        className: typing.Literal[
             "zebra"
         ],
         type: typing.Union[
-            typing_extensions.Literal[
+            typing.Literal[
                 "plains",
                 "mountain",
                 "grevys"
@@ -200,22 +194,31 @@ class ZebraDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(ZebraDictInput, arg_)
         return Zebra.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            ZebraDictInput,
+            ZebraDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ZebraDict:
+        return Zebra.validate(arg, configuration=configuration)
     
     @property
-    def className(self) -> typing_extensions.Literal["zebra"]:
+    def className(self) -> typing.Literal["zebra"]:
         return typing.cast(
-            typing_extensions.Literal["zebra"],
+            typing.Literal["zebra"],
             self.__getitem__("className")
         )
     
     @property
-    def type(self) -> typing.Union[typing_extensions.Literal["plains", "mountain", "grevys"], schemas.Unset]:
+    def type(self) -> typing.Union[typing.Literal["plains", "mountain", "grevys"], schemas.Unset]:
         val = self.get("type", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
-            typing_extensions.Literal["plains", "mountain", "grevys"],
+            typing.Literal["plains", "mountain", "grevys"],
             val
         )
     

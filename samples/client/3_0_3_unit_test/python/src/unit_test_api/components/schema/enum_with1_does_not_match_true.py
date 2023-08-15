@@ -15,7 +15,7 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 class EnumWith1DoesNotMatchTrueEnums:
 
     @schemas.classproperty
-    def POSITIVE_1(cls) -> typing_extensions.Literal[1]:
+    def POSITIVE_1(cls) -> typing.Literal[1]:
         return EnumWith1DoesNotMatchTrue.validate(1)
 
 
@@ -43,16 +43,16 @@ class EnumWith1DoesNotMatchTrue(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal[1],
+        arg: typing.Literal[1],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[1]: ...
+    ) -> typing.Literal[1]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: int,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[1,]: ...
+    ) -> typing.Literal[1,]: ...
     @classmethod
     def validate(
         cls,

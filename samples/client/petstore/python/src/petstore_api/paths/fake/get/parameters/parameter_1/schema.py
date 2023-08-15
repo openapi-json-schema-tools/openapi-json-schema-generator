@@ -15,15 +15,15 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class SchemaEnums:
 
     @schemas.classproperty
-    def _ABC(cls) -> typing_extensions.Literal["_abc"]:
+    def _ABC(cls) -> typing.Literal["_abc"]:
         return Schema.validate("_abc")
 
     @schemas.classproperty
-    def HYPHEN_MINUS_EFG(cls) -> typing_extensions.Literal["-efg"]:
+    def HYPHEN_MINUS_EFG(cls) -> typing.Literal["-efg"]:
         return Schema.validate("-efg")
 
     @schemas.classproperty
-    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls) -> typing_extensions.Literal["(xyz)"]:
+    def LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS(cls) -> typing.Literal["(xyz)"]:
         return Schema.validate("(xyz)")
 
 
@@ -34,7 +34,7 @@ class Schema(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: typing_extensions.Literal["-efg"] = "-efg"
+    default: typing.Literal["-efg"] = "-efg"
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
         default_factory=lambda: {
             "_abc": "_ABC",
@@ -48,36 +48,36 @@ class Schema(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["_abc"],
+        arg: typing.Literal["_abc"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["_abc"]: ...
+    ) -> typing.Literal["_abc"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["-efg"],
+        arg: typing.Literal["-efg"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["-efg"]: ...
+    ) -> typing.Literal["-efg"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["(xyz)"],
+        arg: typing.Literal["(xyz)"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["(xyz)"]: ...
+    ) -> typing.Literal["(xyz)"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["_abc","-efg","(xyz)",]: ...
+    ) -> typing.Literal["_abc","-efg","(xyz)",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "_abc",
         "-efg",
         "(xyz)",
@@ -86,7 +86,7 @@ class Schema(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "_abc",
                 "-efg",
                 "(xyz)",

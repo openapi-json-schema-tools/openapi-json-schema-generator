@@ -14,7 +14,7 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
 from petstore_api.paths.fake.get.parameters.parameter_0 import schema as schema_2
 from petstore_api.paths.fake.get.parameters.parameter_1 import schema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "enum_header_string": typing.Type[schema.Schema],
@@ -30,18 +30,12 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         "enum_header_string",
         "enum_header_string_array",
     })
-    @staticmethod
-    def from_dict_(
-        arg: HeaderParametersDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> HeaderParametersDict:
-        return HeaderParameters.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
         *,
         enum_header_string: typing.Union[
-            typing_extensions.Literal[
+            typing.Literal[
                 "_abc",
                 "-efg",
                 "(xyz)"
@@ -65,15 +59,24 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             arg_[key] = val
         used_arg_ = typing.cast(HeaderParametersDictInput, arg_)
         return HeaderParameters.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            HeaderParametersDictInput,
+            HeaderParametersDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> HeaderParametersDict:
+        return HeaderParameters.validate(arg, configuration=configuration)
     
     @property
-    def enum_header_string(self) -> typing.Union[typing_extensions.Literal["_abc", "-efg", "(xyz)"], schemas.Unset]:
+    def enum_header_string(self) -> typing.Union[typing.Literal["_abc", "-efg", "(xyz)"], schemas.Unset]:
         val = self.get("enum_header_string", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
-            typing_extensions.Literal["_abc", "-efg", "(xyz)"],
+            typing.Literal["_abc", "-efg", "(xyz)"],
             val
         )
     
@@ -86,10 +89,10 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             schema_2.SchemaTuple,
             val
         )
-HeaderParametersDictInput = typing_extensions.TypedDict(
+HeaderParametersDictInput = typing.TypedDict(
     'HeaderParametersDictInput',
     {
-        "enum_header_string": typing_extensions.Literal[
+        "enum_header_string": typing.Literal[
             "_abc",
             "-efg",
             "(xyz)"

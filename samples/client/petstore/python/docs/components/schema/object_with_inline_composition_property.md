@@ -1,35 +1,68 @@
+# ObjectWithInlineCompositionProperty
 petstore_api.components.schema.object_with_inline_composition_property
-# Schema ObjectWithInlineCompositionProperty
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ObjectWithInlineCompositionPropertyDictInput](#objectwithinlinecompositionpropertydictinput), [ObjectWithInlineCompositionPropertyDict](#objectwithinlinecompositionpropertydict) | [ObjectWithInlineCompositionPropertyDict](#objectwithinlinecompositionpropertydict) |
+
+## ObjectWithInlineCompositionPropertyDictInput
+```
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
+Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+**someProp** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
 
-## Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**someProp** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [properties.SomeProp](#properties-someprop) |  | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
+## ObjectWithInlineCompositionPropertyDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+```
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**someProp** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset |  | [optional]
+**kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
-# properties SomeProp
+### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**someProp** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset |  | [optional]
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [ObjectWithInlineCompositionPropertyDictInput](#objectwithinlinecompositionpropertydictinput), [ObjectWithInlineCompositionPropertyDict](#objectwithinlinecompositionpropertydict) | [ObjectWithInlineCompositionPropertyDict](#objectwithinlinecompositionpropertydict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
+
+# SomeProp
+```
+type: schemas.Schema
+```
+
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[_0](#properties-someprop-allof-_0) | str | str |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[_0](#_0) | str | str
 
-# properties SomeProp allof _0
+# _0
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

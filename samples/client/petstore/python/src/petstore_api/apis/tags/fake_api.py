@@ -39,6 +39,7 @@ from petstore_api.paths.fake_refs_boolean.post.operation import Boolean
 from petstore_api.paths.fake_delete_coffee_id.delete.operation import DeleteCoffee
 from petstore_api.paths.fake_refs_enum.post.operation import StringEnum
 from petstore_api.paths.fake_refs_number.post.operation import NumberWithValidations
+from petstore_api.paths.fake_multiple_request_body_content_types.post.operation import MultipleRequestBodyContentTypes
 from petstore_api.paths.fake_upload_file.post.operation import UploadFile
 from petstore_api.paths.fake_body_with_file_schema.put.operation import BodyWithFileSchema
 from petstore_api.paths.fake_upload_download_file.post.operation import UploadDownloadFile
@@ -80,6 +81,7 @@ class FakeApi(
     DeleteCoffee,
     StringEnum,
     NumberWithValidations,
+    MultipleRequestBodyContentTypes,
     UploadFile,
     BodyWithFileSchema,
     UploadDownloadFile,

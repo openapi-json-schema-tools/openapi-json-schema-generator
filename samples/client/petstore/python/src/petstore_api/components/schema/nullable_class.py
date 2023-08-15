@@ -276,7 +276,7 @@ class ArrayNullablePropTuple(
     ]
 ):
 
-    def __new__(cls, arg: ArrayNullablePropTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ArrayNullablePropTupleInput, ArrayNullablePropTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayNullableProp.validate(arg, configuration=configuration)
 ArrayNullablePropTupleInput = typing.Union[
     typing.List[
@@ -389,7 +389,7 @@ class ArrayAndItemsNullablePropTuple(
     ]
 ):
 
-    def __new__(cls, arg: ArrayAndItemsNullablePropTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ArrayAndItemsNullablePropTupleInput, ArrayAndItemsNullablePropTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayAndItemsNullableProp.validate(arg, configuration=configuration)
 ArrayAndItemsNullablePropTupleInput = typing.Union[
     typing.List[
@@ -508,7 +508,7 @@ class ArrayItemsNullableTuple(
     ]
 ):
 
-    def __new__(cls, arg: ArrayItemsNullableTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ArrayItemsNullableTupleInput, ArrayItemsNullableTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayItemsNullable.validate(arg, configuration=configuration)
 ArrayItemsNullableTupleInput = typing.Union[
     typing.List[
@@ -583,11 +583,13 @@ class ObjectNullablePropDict(schemas.immutabledict[str, schemas.immutabledict[st
     
     @staticmethod
     def from_dict_(
-        arg: ObjectNullablePropDictInput,
+        arg: typing.Union[
+            ObjectNullablePropDictInput,
+            ObjectNullablePropDict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectNullablePropDict:
         return ObjectNullableProp.validate(arg, configuration=configuration)
-
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -716,11 +718,13 @@ class ObjectAndItemsNullablePropDict(schemas.immutabledict[str, typing.Union[
     
     @staticmethod
     def from_dict_(
-        arg: ObjectAndItemsNullablePropDictInput,
+        arg: typing.Union[
+            ObjectAndItemsNullablePropDictInput,
+            ObjectAndItemsNullablePropDict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectAndItemsNullablePropDict:
         return ObjectAndItemsNullableProp.validate(arg, configuration=configuration)
-
     
     def get_additional_property_(self, name: str) -> typing.Union[
         typing.Union[None, schemas.Unset],
@@ -858,11 +862,13 @@ class ObjectItemsNullableDict(schemas.immutabledict[str, typing.Union[
     
     @staticmethod
     def from_dict_(
-        arg: ObjectItemsNullableDictInput,
+        arg: typing.Union[
+            ObjectItemsNullableDictInput,
+            ObjectItemsNullableDict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> ObjectItemsNullableDict:
         return ObjectItemsNullable.validate(arg, configuration=configuration)
-
     
     def get_additional_property_(self, name: str) -> typing.Union[
         typing.Union[None, schemas.Unset],
@@ -920,7 +926,7 @@ class ObjectItemsNullable(
             configuration=configuration,
         )
 
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "integer_prop": typing.Type[IntegerProp],
@@ -957,12 +963,6 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "object_and_items_nullable_prop",
         "object_items_nullable",
     })
-    @staticmethod
-    def from_dict_(
-        arg: NullableClassDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> NullableClassDict:
-        return NullableClass.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -1078,7 +1078,16 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(NullableClassDictInput, arg_)
         return NullableClass.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            NullableClassDictInput,
+            NullableClassDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> NullableClassDict:
+        return NullableClass.validate(arg, configuration=configuration)
     
     @property
     def integer_prop(self) -> typing.Union[

@@ -26,8 +26,8 @@ petstore_api.paths.pet.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[**body**](../../components/request_bodies/request_body_pet.md) | typing.Union[[Pet.content.application_json.schema](../../components/request_bodies/request_body_pet.md#content-applicationjson-schema), [Pet.content.application_xml.schema](../../components/request_bodies/request_body_pet.md#content-applicationxml-schema), dict, schemas.immutabledict] | required |
-content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+[**body**](../../components/request_bodies/request_body_pet.md) | typing.Union[[pet.PetDictInput](../../components/schema/pet.md#petdictinput), [pet.PetDict](../../components/schema/pet.md#petdict), [pet.PetDictInput](../../components/schema/pet.md#petdictinput), [pet.PetDict](../../components/schema/pet.md#petdict)] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body. value must be one of ['application/json', 'application/xml']
 security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [0, 1]
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -39,16 +39,16 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [ResponseFor400.response_cls](#responsefor400-response_cls) | Invalid ID supplied
-404 | [ResponseFor404.response_cls](#responsefor404-response_cls) | Pet not found
-405 | [ResponseFor405.response_cls](#responsefor405-response_cls) | Validation exception
+400 | [ResponseFor400.ApiResponse](#responsefor400-apiresponse) | Invalid ID supplied
+404 | [ResponseFor404.ApiResponse](#responsefor404-apiresponse) | Pet not found
+405 | [ResponseFor405.ApiResponse](#responsefor405-apiresponse) | Validation exception
 
 ## ResponseFor400
 
 ### Description
 Invalid ID supplied
 
-### ResponseFor400 response_cls
+### ResponseFor400 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -60,7 +60,7 @@ headers | Unset | headers were not defined |
 ### Description
 Pet not found
 
-### ResponseFor404 response_cls
+### ResponseFor404 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -72,7 +72,7 @@ headers | Unset | headers were not defined |
 ### Description
 Validation exception
 
-### ResponseFor405 response_cls
+### ResponseFor405 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

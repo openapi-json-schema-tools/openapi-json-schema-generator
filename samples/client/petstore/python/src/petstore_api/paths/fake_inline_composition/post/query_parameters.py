@@ -14,7 +14,7 @@ AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
 from petstore_api.paths.fake_inline_composition.post.parameters.parameter_0 import schema
 from petstore_api.paths.fake_inline_composition.post.parameters.parameter_1 import schema as schema_2
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "compositionAtRoot": typing.Type[schema.Schema],
@@ -30,12 +30,6 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         "compositionAtRoot",
         "compositionInProperty",
     })
-    @staticmethod
-    def from_dict_(
-        arg: QueryParametersDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> QueryParametersDict:
-        return QueryParameters.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -62,7 +56,16 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             arg_[key] = val
         used_arg_ = typing.cast(QueryParametersDictInput, arg_)
         return QueryParameters.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            QueryParametersDictInput,
+            QueryParametersDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> QueryParametersDict:
+        return QueryParameters.validate(arg, configuration=configuration)
     
     @property
     def compositionAtRoot(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
@@ -83,7 +86,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             schema_2.SchemaDict,
             val
         )
-QueryParametersDictInput = typing_extensions.TypedDict(
+QueryParametersDictInput = typing.TypedDict(
     'QueryParametersDictInput',
     {
         "compositionAtRoot": typing.Union[

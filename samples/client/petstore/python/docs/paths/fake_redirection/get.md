@@ -35,15 +35,15 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-303 | [ResponseFor303.response_cls](#responsefor303-response_cls) | see other
-3XX | [ResponseFor3XX.response_cls](#responsefor3xx-response_cls) | 3XX response
+303 | [ResponseFor303.ApiResponse](#responsefor303-apiresponse) | see other
+3XX | [ResponseFor3XX.ApiResponse](#responsefor3xx-apiresponse) | 3XX response
 
 ## ResponseFor303
 
 ### Description
 see other
 
-### ResponseFor303 response_cls
+### ResponseFor303 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
@@ -55,7 +55,7 @@ headers | Unset | headers were not defined |
 ### Description
 3XX response
 
-### ResponseFor3XX response_cls
+### ResponseFor3XX ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

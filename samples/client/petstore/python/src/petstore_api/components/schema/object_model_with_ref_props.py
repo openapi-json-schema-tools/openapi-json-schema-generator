@@ -14,7 +14,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 from petstore_api.components.schema import boolean
 from petstore_api.components.schema import number_with_validations
 from petstore_api.components.schema import string
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "myNumber": typing.Type[number_with_validations.NumberWithValidations],
@@ -32,12 +32,6 @@ class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE
         "myString",
         "myBoolean",
     })
-    @staticmethod
-    def from_dict_(
-        arg: ObjectModelWithRefPropsDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> ObjectModelWithRefPropsDict:
-        return ObjectModelWithRefProps.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -70,7 +64,16 @@ class ObjectModelWithRefPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE
         arg_.update(kwargs)
         used_arg_ = typing.cast(ObjectModelWithRefPropsDictInput, arg_)
         return ObjectModelWithRefProps.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            ObjectModelWithRefPropsDictInput,
+            ObjectModelWithRefPropsDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectModelWithRefPropsDict:
+        return ObjectModelWithRefProps.validate(arg, configuration=configuration)
     
     @property
     def myNumber(self) -> typing.Union[int, float, schemas.Unset]:

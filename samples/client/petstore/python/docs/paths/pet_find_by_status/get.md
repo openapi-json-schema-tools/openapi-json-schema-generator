@@ -27,54 +27,66 @@ petstore_api.paths.pet_find_by_status.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
+[query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
 accept_content_types | typing.Tuple[str] | default is ("application/xml", "application/json", ) | Tells the server the content type(s) that are accepted by the client
 security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [0, 1, 2]
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_response.ApiResponseWithoutDeserialization will be returned
-
 ### query_params
-#### RequestQueryParameters.Params
-This is a TypedDict
+### QueryParameters
+```
+type: schemas.Schema
+```
 
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-status | [Parameter0.schema](#parameter0-schema), list, tuple | | 
+#### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
 
-
-#### Parameter0
-
-##### Description
-Status values that need to be considered for filter
-
-##### Parameter0 Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
+#### QueryParameters QueryParametersDictInput
+```
+type: typing.TypedDict
+```
+Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+**status** | [schema.SchemaTupleInput](../../paths/pet_find_by_status/get/parameters/parameter_0/schema.md#schematupleinput), [schema.SchemaTuple](../../paths/pet_find_by_status/get/parameters/parameter_0/schema.md#schematuple) |  |
 
-###### List Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | str | str |  | must be one of ["available", "pending", "sold"] if omitted the server will use the default value of available
+#### QueryParameters QueryParametersDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
+```
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**status** | [schema.SchemaTupleInput](../../paths/pet_find_by_status/get/parameters/parameter_0/schema.md#schematupleinput), [schema.SchemaTuple](../../paths/pet_find_by_status/get/parameters/parameter_0/schema.md#schematuple) |  |
+
+##### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**status** | [schema.SchemaTuple](../../paths/pet_find_by_status/get/parameters/parameter_0/schema.md#schematuple) |  |
+
+##### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
 
 ## Return Types
 
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessfulXmlAndJsonArrayOfPet.response_cls](../../components/responses/response_successful_xml_and_json_array_of_pet.md#response_successful_xml_and_json_array_of_petresponse_cls) | successful operation, multiple content types
-400 | [ResponseFor400.response_cls](#responsefor400-response_cls) | Invalid status value
+200 | [SuccessfulXmlAndJsonArrayOfPet.ApiResponse](../../components/responses/response_successful_xml_and_json_array_of_pet.md#apiresponse) | successful operation, multiple content types
+400 | [ResponseFor400.ApiResponse](#responsefor400-apiresponse) | Invalid status value
 
 ## ResponseFor400
 
 ### Description
 Invalid status value
 
-### ResponseFor400 response_cls
+### ResponseFor400 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

@@ -11,7 +11,7 @@ from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 Ref: typing_extensions.TypeAlias = schemas.StrSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "$ref": typing.Type[Ref],
@@ -26,12 +26,6 @@ class PropertyNamedRefThatIsNotAReferenceDict(schemas.immutabledict[str, str]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "$ref",
     })
-    @staticmethod
-    def from_dict_(
-        arg: PropertyNamedRefThatIsNotAReferenceDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> PropertyNamedRefThatIsNotAReferenceDict:
-        return PropertyNamedRefThatIsNotAReference.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -43,7 +37,16 @@ class PropertyNamedRefThatIsNotAReferenceDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(PropertyNamedRefThatIsNotAReferenceDictInput, arg_)
         return PropertyNamedRefThatIsNotAReference.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            PropertyNamedRefThatIsNotAReferenceDictInput,
+            PropertyNamedRefThatIsNotAReferenceDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> PropertyNamedRefThatIsNotAReferenceDict:
+        return PropertyNamedRefThatIsNotAReference.validate(arg, configuration=configuration)
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

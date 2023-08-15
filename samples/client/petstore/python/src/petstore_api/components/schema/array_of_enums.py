@@ -18,19 +18,19 @@ class ArrayOfEnumsTuple(
     typing.Tuple[
         typing.Union[
             None,
-            typing_extensions.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
+            typing.Literal["placed", "approved", "delivered", "single quoted", "multiple\nlines", "double quote \n with newline"],
         ],
         ...
     ]
 ):
 
-    def __new__(cls, arg: ArrayOfEnumsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ArrayOfEnumsTupleInput, ArrayOfEnumsTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayOfEnums.validate(arg, configuration=configuration)
 ArrayOfEnumsTupleInput = typing.Union[
     typing.List[
         typing.Union[
             None,
-            typing_extensions.Literal[
+            typing.Literal[
                 "placed",
                 "approved",
                 "delivered",
@@ -43,7 +43,7 @@ ArrayOfEnumsTupleInput = typing.Union[
     typing.Tuple[
         typing.Union[
             None,
-            typing_extensions.Literal[
+            typing.Literal[
                 "placed",
                 "approved",
                 "delivered",

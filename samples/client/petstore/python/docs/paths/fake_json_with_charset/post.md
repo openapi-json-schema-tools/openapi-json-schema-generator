@@ -25,8 +25,8 @@ petstore_api.paths.fake_json_with_charset.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json_charsetutf8.schema](#RequestBody-content-applicationjsoncharsetutf8-schema), Unset, dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader] | optional, default is unset |
-content_type | str | optional, default is 'application/json; charset&#x3D;utf-8' | Selects the schema and serialization of the request body
+[body](#requestbody) | typing.Union[dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset] | optional, default is unset |
+content_type | str | optional, default is 'application/json; charset&#x3D;utf-8' | Selects the schema and serialization of the request body. value must be one of ['application/json; charset&#x3D;utf-8']
 accept_content_types | typing.Tuple[str] | default is ("application/json; charset=utf-8", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -41,29 +41,33 @@ Content-Type | Schema
 "application/json; charset&#x3D;utf-8" | [content.application_json_charsetutf8.Schema](#requestbody-content-applicationjsoncharsetutf8-schema)
 
 #### RequestBody content ApplicationJsonCharsetutf8 Schema
+petstore_api.paths.fake_json_with_charset.post.request_body.content.application_json_charsetutf8.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## Return Types
 
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | success
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | success
 
 ## ResponseFor200
 
 ### Description
 success
 
-### ResponseFor200 response_cls
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | [content.application_json_charsetutf8.schema](#responsefor200-content-applicationjsoncharsetutf8-schema) |  |
+[body](#responsefor200-body) | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body
@@ -73,11 +77,15 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor200 content ApplicationJsonCharsetutf8 Schema
+petstore_api.paths.fake_json_with_charset.post.responses.response_200.content.application_json_charsetutf8.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ## Servers
 

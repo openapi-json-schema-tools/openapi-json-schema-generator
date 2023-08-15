@@ -11,7 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 PetType: typing_extensions.TypeAlias = schemas.StrSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "pet_type": typing.Type[PetType],
@@ -26,12 +26,6 @@ class GrandparentAnimalDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: GrandparentAnimalDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> GrandparentAnimalDict:
-        return GrandparentAnimal.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -46,7 +40,16 @@ class GrandparentAnimalDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(GrandparentAnimalDictInput, arg_)
         return GrandparentAnimal.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            GrandparentAnimalDictInput,
+            GrandparentAnimalDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> GrandparentAnimalDict:
+        return GrandparentAnimal.validate(arg, configuration=configuration)
     
     @property
     def pet_type(self) -> str:

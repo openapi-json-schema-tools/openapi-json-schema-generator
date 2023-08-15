@@ -34,11 +34,13 @@ class MapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @staticmethod
     def from_dict_(
-        arg: MapDictInput,
+        arg: typing.Union[
+            MapDictInput,
+            MapDict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapDict:
         return Map.validate(arg, configuration=configuration)
-
     
     def get_additional_property_(self, name: str) -> typing.Union[animal.AnimalDict, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -87,7 +89,7 @@ class Map(
             configuration=configuration,
         )
 
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "uuid": typing.Type[Uuid],
@@ -106,12 +108,6 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
         "dateTime",
         "map",
     })
-    @staticmethod
-    def from_dict_(
-        arg: MixedPropertiesAndAdditionalPropertiesClassDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> MixedPropertiesAndAdditionalPropertiesClassDict:
-        return MixedPropertiesAndAdditionalPropertiesClass.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -146,7 +142,16 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
         arg_.update(kwargs)
         used_arg_ = typing.cast(MixedPropertiesAndAdditionalPropertiesClassDictInput, arg_)
         return MixedPropertiesAndAdditionalPropertiesClass.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            MixedPropertiesAndAdditionalPropertiesClassDictInput,
+            MixedPropertiesAndAdditionalPropertiesClassDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> MixedPropertiesAndAdditionalPropertiesClassDict:
+        return MixedPropertiesAndAdditionalPropertiesClass.validate(arg, configuration=configuration)
     
     @property
     def uuid(self) -> typing.Union[str, schemas.Unset]:

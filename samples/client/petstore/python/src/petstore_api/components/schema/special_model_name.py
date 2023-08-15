@@ -11,7 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 A: typing_extensions.TypeAlias = schemas.StrSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "a": typing.Type[A],
@@ -26,12 +26,6 @@ class SpecialModelNameDict(schemas.immutabledict[str, str]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "a",
     })
-    @staticmethod
-    def from_dict_(
-        arg: SpecialModelNameDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> SpecialModelNameDict:
-        return SpecialModelName.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -53,7 +47,16 @@ class SpecialModelNameDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(SpecialModelNameDictInput, arg_)
         return SpecialModelName.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            SpecialModelNameDictInput,
+            SpecialModelNameDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> SpecialModelNameDict:
+        return SpecialModelName.validate(arg, configuration=configuration)
     
     @property
     def a(self) -> typing.Union[str, schemas.Unset]:

@@ -9,7 +9,7 @@ from petstore_api.apis.tags.user_api import UserApi
 from petstore_api.apis.tags.fake_classname_tags123_api import FakeClassnameTags123Api
 from petstore_api.apis.tags.another_fake_api import AnotherFakeApi
 
-TagToApi = typing_extensions.TypedDict(
+TagToApi = typing.TypedDict(
     'TagToApi',
     {
         "pet": typing.Type[PetApi],

@@ -1,16 +1,46 @@
+# SubtractionOperator
 this_package.components.schema.subtraction_operator
-# Schema SubtractionOperator
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SubtractionOperatorDictInput](#subtractionoperatordictinput), [SubtractionOperatorDict](#subtractionoperatordict) | [SubtractionOperatorDict](#subtractionoperatordict) |
+
+## SubtractionOperatorDictInput
+```
+type: typing.TypedDict
+```
+Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+**a** | float, int |  | value must be a 64 bit float
+**b** | float, int |  | value must be a 64 bit float
+**operator_id** | str |  | if omitted the server will use the default value of SUB
 
-## Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**a** | float, int | float, int |  | value must be a 64 bit float
-**b** | float, int | float, int |  | value must be a 64 bit float
-**operator_id** | str | str |  | if omitted the server will use the default value of SUB
+## SubtractionOperatorDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
+```
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**a** | float, int |  | value must be a 64 bit float
+**b** | float, int |  | value must be a 64 bit float
+**operator_id** | str |  | if omitted the server will use the default value of SUB
+
+### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**a** | float, int |  | value must be a 64 bit float
+**b** | float, int |  | value must be a 64 bit float
+**operator_id** | str |  | if omitted the server will use the default value of SUB
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [SubtractionOperatorDictInput](#subtractionoperatordictinput), [SubtractionOperatorDict](#subtractionoperatordict) | [SubtractionOperatorDict](#subtractionoperatordict) | a constructor
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

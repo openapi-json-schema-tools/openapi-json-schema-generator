@@ -25,7 +25,7 @@ from this_package.components.security_schemes import security_scheme_http_basic_
 from this_package.servers import server_0
 
 # security scheme key identifier to security scheme instance
-SecuritySchemeInfo = typing_extensions.TypedDict(
+SecuritySchemeInfo = typing.TypedDict(
     'SecuritySchemeInfo',
     {
         "api_key": security_scheme_api_key.ApiKey,
@@ -36,14 +36,14 @@ SecuritySchemeInfo = typing_extensions.TypedDict(
 )
 
 
-class SecurityIndexInfoRequired(typing_extensions.TypedDict):
-    security: typing_extensions.Literal[0, 1, 2, 3]
+class SecurityIndexInfoRequired(typing.TypedDict):
+    security: typing.Literal[0, 1, 2, 3]
 
-SecurityIndexInfoOptional = typing_extensions.TypedDict(
+SecurityIndexInfoOptional = typing.TypedDict(
     'SecurityIndexInfoOptional',
     {
-        "paths//pathWithOneExplicitSecurity/get/security": typing_extensions.Literal[0],
-        "paths//pathWithTwoExplicitSecurity/get/security": typing_extensions.Literal[0, 1],
+        "paths//pathWithOneExplicitSecurity/get/security": typing.Literal[0],
+        "paths//pathWithTwoExplicitSecurity/get/security": typing.Literal[0, 1],
     },
     total=False
 )
@@ -56,7 +56,7 @@ class SecurityIndexInfo(SecurityIndexInfoRequired, SecurityIndexInfoOptional):
     """
 
 # the server to use at each openapi document json path
-ServerInfo = typing_extensions.TypedDict(
+ServerInfo = typing.TypedDict(
     'ServerInfo',
     {
         'servers/0': server_0.Server0,
@@ -65,10 +65,10 @@ ServerInfo = typing_extensions.TypedDict(
 )
 
 
-class ServerIndexInfoRequired(typing_extensions.TypedDict):
-    servers: typing_extensions.Literal[0]
+class ServerIndexInfoRequired(typing.TypedDict):
+    servers: typing.Literal[0]
 
-ServerIndexInfoOptional = typing_extensions.TypedDict(
+ServerIndexInfoOptional = typing.TypedDict(
     'ServerIndexInfoOptional',
     {
     },
@@ -293,7 +293,7 @@ class ApiConfiguration(object):
 
     def get_server_url(
         self,
-        key_prefix: typing_extensions.Literal[
+        key_prefix: typing.Literal[
             "servers",
         ],
         index: typing.Optional[int],
@@ -311,7 +311,7 @@ class ApiConfiguration(object):
                 # fallback and use the default index
                 used_index = self.server_index_info.get("servers", 0)
         server_info_key = typing.cast(
-            typing_extensions.Literal[
+            typing.Literal[
                 "servers/0",
             ],
             f"{key_prefix}/{used_index}"
@@ -324,7 +324,7 @@ class ApiConfiguration(object):
 
     def get_security_requirement_object(
         self,
-        key_prefix: typing_extensions.Literal[
+        key_prefix: typing.Literal[
             "security",
             "paths//pathWithOneExplicitSecurity/get/security",
             "paths//pathWithTwoExplicitSecurity/get/security",

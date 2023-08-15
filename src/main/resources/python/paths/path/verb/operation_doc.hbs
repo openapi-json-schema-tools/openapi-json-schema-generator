@@ -44,48 +44,40 @@
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+    {{#if requestBody}}
+        {{#if requestBody.refInfo}}
+                {{#if requestBody.getDeepestRef.required}}
+[**body**](../../components/request_bodies/{{requestBody.refInfo.refModule}}.md) | typing.Union[{{#each requestBodySchema.properties}}{{> components/schemas/types/docschema_io_types }}{{#unless @last}}, {{/unless}}{{/each}}] | required |
+                {{else}}
+[**body**](../../components/request_bodies/{{requestBody.refInfo.refModule}}.md) | typing.Union[{{#each requestBodySchema.properties}}{{> components/schemas/types/docschema_io_types }}{{#unless @last}}, {{else}}, schemas.Unset{{/unless}}{{/each}}] | optional, default is unset |
+                {{/if}}
+        {{else}}
+            {{#if requestBody.required}}
+[body](#requestbody) | typing.Union[{{#each requestBodySchema.properties}}{{> components/schemas/types/docschema_io_types }}{{#unless @last}}, {{/unless}}{{/each}}] | required |
+            {{else}}
+[body](#requestbody) | typing.Union[{{#each requestBodySchema.properties}}{{> components/schemas/types/docschema_io_types }}{{#unless @last}}, {{else}}, schemas.Unset{{/unless}}{{/each}}] | optional, default is unset |
+            {{/if}}
+        {{/if}}
+    {{/if}}
+    {{#if queryParameters}}
+[query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
+    {{/if}}
+    {{#if headerParameters}}
+[header_params](#header_params) | [HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | |
+    {{/if}}
+    {{#if pathParameters}}
+[path_params](#path_params) | [PathParametersDictInput](#pathparameters-pathparametersdictinput), [PathParametersDict](#pathparameters-pathparametersdict) | |
+    {{/if}}
+    {{#if cookieParameters}}
+[cookie_params](#cookie-params) | [CookieParametersDictInput](#cookieparameters-cookieparametersdictinput), [CookieParametersDict](#cookieparameters-cookieparametersdict) | |
+    {{/if}}
     {{#with requestBody}}
         {{#if refInfo}}
             {{#with getDeepestRef}}
-                {{#if required}}
-[**body**](../../components/request_bodies/{{../refInfo.refModule}}.md) | typing.Union[{{#each content}}{{#with this.schema}}[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}](../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) }}){{/with}}, {{/each}}{{#each getContentSchemas}}{{> _helper_schema_python_types }}{{#unless @last}}, {{/unless}}{{/each}}] | required |
-                {{else}}
-[**body**](../../components/request_bodies/{{../refInfo.refModule}}.md) | typing.Union[{{#each content}}{{#with this.schema}}[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.{{jsonPathPiece.snakeCase}}](../../components/request_bodies/{{../../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "content" ../@key jsonPathPiece) }}){{/with}}, {{/each}}Unset, {{#each getContentSchemas}}{{> _helper_schema_python_types }}{{#unless @last}}, {{/unless}}{{/each}}] | optional, default is unset |
-                {{/if}}
+content_type | str | optional, default is {{#each content}}{{#if @first}}'{{@key.original}}'{{/if}}{{/each}} | Selects the schema and serialization of the request body. value must be one of [{{#each content}}'{{@key.original}}'{{#unless @last}}, {{/unless}}{{/each}}]
             {{/with}}
         {{else}}
-            {{#if required}}
-[body](#requestbody) | typing.Union[{{#each content}}{{#with this.schema}}[{{../../jsonPathPiece.camelCase}}.content.{{../@key.snakeCase}}.{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "RequestBody" "content" ../@key jsonPathPiece) }}){{/with}}, {{/each}}{{#each getContentSchemas}}{{> _helper_schema_python_types }}{{#unless @last}}, {{/unless}}{{/each}}] | required |
-            {{else}}
-[body](#requestbody) | typing.Union[{{#each content}}{{#with this.schema}}[{{../../jsonPathPiece.camelCase}}.content.{{../@key.snakeCase}}.{{#if jsonPathPiece.isValid}}{{jsonPathPiece.original}}{{else}}{{jsonPathPiece.snakeCase}}{{/if}}](#{{> components/_helper_anchor_id identifierPieces=(append identifierPieces "RequestBody" "content" ../@key jsonPathPiece) }}){{/with}}, {{/each}}Unset, {{#each getContentSchemas}}{{> _helper_schema_python_types }}{{#unless @last}}, {{/unless}}{{/each}}] | optional, default is unset |
-            {{/if}}
-        {{/if}}
-    {{/with}}
-    {{#if queryParams}}
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
-    {{/if}}
-    {{#if headerParams}}
-[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
-    {{/if}}
-    {{#if pathParams}}
-[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
-    {{/if}}
-    {{#if cookieParams}}
-[cookie_params](#cookie-params) | [RequestCookieParameters.Params](#requestcookieparametersparams), dict | |
-    {{/if}}
-    {{#with requestBody}}
-        {{#if refInfo}}
-            {{#each getDeepestRef.content}}
-            {{#if @first}}
-content_type | str | optional, default is '{{@key.original}}' | Selects the schema and serialization of the request body
-            {{/if}}
-            {{/each}}
-        {{else}}
-            {{#each content}}
-            {{#if @first}}
-content_type | str | optional, default is '{{@key.original}}' | Selects the schema and serialization of the request body
-            {{/if}}
-            {{/each}}
+content_type | str | optional, default is {{#each content}}{{#if @first}}'{{@key.original}}'{{/if}}{{/each}} | Selects the schema and serialization of the request body. value must be one of [{{#each content}}'{{@key.original}}'{{#unless @last}}, {{/unless}}{{/each}}]
         {{/if}}
     {{/with}}
     {{#if produces}}
@@ -112,18 +104,22 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 {{> components/request_bodies/request_body_doc requestBody=requestBody headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces requestBody.jsonPathPiece) }}
         {{/unless}}
     {{/if}}
-    {{#if queryParams}}
-{{> paths/path/verb/_helper_operation_docs_xparams paramPrefix="query" paramType="Query" parameters=queryParams }}
-    {{/if}}
-    {{#if headerParams}}
-{{> paths/path/verb/_helper_operation_docs_xparams paramPrefix="header" paramType="Header" parameters=headerParams }}
-    {{/if}}
-    {{#if pathParams}}
-{{> paths/path/verb/_helper_operation_docs_xparams paramPrefix="path" paramType="Path" parameters=pathParams }}
-    {{/if}}
-    {{#if cookieParams}}
-{{> paths/path/verb/_helper_operation_docs_xparams paramPrefix="cookie" paramType="Cookie" parameters=cookieParams }}
-    {{/if}}
+    {{#with queryParameters}}
+### query_params
+{{> components/schemas/schema_doc schema=this headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
+    {{/with}}
+    {{#with headerParameters}}
+### header_params
+{{> components/schemas/schema_doc schema=this headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
+    {{/with}}
+    {{#with pathParameters}}
+### path_params
+{{> components/schemas/schema_doc schema=this headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
+    {{/with}}
+    {{#with cookieParameters}}
+### cookie_params
+{{> components/schemas/schema_doc schema=this headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
+    {{/with}}
 
 {{headerSize}}# Return Types
 
@@ -133,17 +129,17 @@ n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization
 {{#if defaultResponse}}
     {{#with defaultResponse}}
         {{#if refInfo}}
-default | [{{refInfo.refClass}}.response_cls](../../components/responses/{{refInfo.refModule}}.md#{{refInfo.refModule}}response_cls) | {{#with getDeepestRef}}{{description}}{{/with}}
+default | [{{refInfo.refClass}}.ApiResponse](../../components/responses/{{refInfo.refModule}}.md#apiresponse) | {{#with getDeepestRef}}{{description}}{{/with}}
         {{else}}
-default | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.anchorPiece}}-response_cls) | {{description}}
+default | [{{jsonPathPiece.camelCase}}.ApiResponse](#{{jsonPathPiece.anchorPiece}}-apiresponse) | {{description}}
         {{/if}}
     {{/with}}
 {{/if}}
 {{#each nonDefaultResponses}}
     {{#if refInfo}}
-{{@key}} | [{{refInfo.refClass}}.response_cls](../../components/responses/{{refInfo.refModule}}.md#{{refInfo.refModule}}response_cls) | {{#with getDeepestRef}}{{description}}{{/with}}
+{{@key}} | [{{refInfo.refClass}}.ApiResponse](../../components/responses/{{refInfo.refModule}}.md#apiresponse) | {{#with getDeepestRef}}{{description}}{{/with}}
     {{else}}
-{{@key}} | [{{jsonPathPiece.camelCase}}.response_cls](#{{jsonPathPiece.anchorPiece}}-response_cls) | {{description}}
+{{@key}} | [{{jsonPathPiece.camelCase}}.ApiResponse](#{{jsonPathPiece.anchorPiece}}-apiresponse) | {{description}}
     {{/if}}
 {{/each}}
 {{#each responses}}

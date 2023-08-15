@@ -21,7 +21,7 @@ class RefInItemsTuple(
     ]
 ):
 
-    def __new__(cls, arg: RefInItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[RefInItemsTupleInput, RefInItemsTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return RefInItems.validate(arg, configuration=configuration)
 RefInItemsTupleInput = typing.Union[
     typing.List[

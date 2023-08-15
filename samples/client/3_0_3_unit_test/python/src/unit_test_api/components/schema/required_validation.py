@@ -12,7 +12,7 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 
 Foo: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 Bar: typing_extensions.TypeAlias = schemas.AnyTypeSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "foo": typing.Type[Foo],
@@ -29,12 +29,6 @@ class RequiredValidationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPE
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "bar",
     })
-    @staticmethod
-    def from_dict_(
-        arg: RequiredValidationDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> RequiredValidationDict:
-        return RequiredValidation.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -63,7 +57,16 @@ class RequiredValidationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPE
         arg_.update(kwargs)
         used_arg_ = typing.cast(RequiredValidationDictInput, arg_)
         return RequiredValidation.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            RequiredValidationDictInput,
+            RequiredValidationDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> RequiredValidationDict:
+        return RequiredValidation.validate(arg, configuration=configuration)
     
     @property
     def foo(self) -> schemas.OUTPUT_BASE_TYPES:

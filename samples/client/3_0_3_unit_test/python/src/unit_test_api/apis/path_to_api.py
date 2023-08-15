@@ -176,7 +176,7 @@ from unit_test_api.apis.paths.response_body_post_uri_format_response_body_for_co
 from unit_test_api.apis.paths.response_body_post_uri_reference_format_response_body_for_content_types import ResponseBodyPostUriReferenceFormatResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_uri_template_format_response_body_for_content_types import ResponseBodyPostUriTemplateFormatResponseBodyForContentTypes
 
-PathToApi = typing_extensions.TypedDict(
+PathToApi = typing.TypedDict(
     'PathToApi',
     {
     "/requestBody/postAdditionalpropertiesAllowsASchemaWhichShouldValidateRequestBody": typing.Type[RequestBodyPostAdditionalpropertiesAllowsASchemaWhichShouldValidateRequestBody],

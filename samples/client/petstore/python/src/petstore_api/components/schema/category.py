@@ -20,8 +20,8 @@ class Name(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: typing_extensions.Literal["default-name"] = "default-name"
-Properties = typing_extensions.TypedDict(
+    default: typing.Literal["default-name"] = "default-name"
+Properties = typing.TypedDict(
     'Properties',
     {
         "id": typing.Type[Id],
@@ -38,12 +38,6 @@ class CategoryDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "id",
     })
-    @staticmethod
-    def from_dict_(
-        arg: CategoryDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> CategoryDict:
-        return Category.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -68,7 +62,16 @@ class CategoryDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(CategoryDictInput, arg_)
         return Category.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            CategoryDictInput,
+            CategoryDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> CategoryDict:
+        return Category.validate(arg, configuration=configuration)
     
     @property
     def name(self) -> str:

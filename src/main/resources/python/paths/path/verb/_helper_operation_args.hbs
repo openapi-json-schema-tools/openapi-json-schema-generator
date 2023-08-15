@@ -4,10 +4,10 @@
     *,
 {{#if isOverload}}
     {{#eq skipDeserialization true}}
-    skip_deserialization: typing_extensions.Literal[True],
+    skip_deserialization: typing.Literal[True],
     {{/eq}}
     {{#eq skipDeserialization false}}
-    skip_deserialization: typing_extensions.Literal[False] = False,
+    skip_deserialization: typing.Literal[False] = False,
     {{/eq}}
 {{else}}
     skip_deserialization: bool = False,
@@ -15,13 +15,13 @@
 {{#if requestBodySchema}}
     {{#if isOverload}}
         {{! only one content type at a time }}
-    content_type: typing_extensions.Literal["{{{contentType}}}"]{{#if isDefaultContentType}} = "{{{contentType}}}"{{/if}},
+    content_type: typing.Literal["{{{contentType}}}"]{{#if isDefaultContentType}} = "{{{contentType}}}"{{/if}},
     {{else}}
         {{! all content types }}
         {{#eq requestBodySchema.properties.size 1}}
-    content_type: typing_extensions.Literal[{{#each requestBodySchema.properties}}"{{{@key.original}}}"{{/each}}] = {{#each requestBodySchema.properties}}"{{{@key.original}}}"{{/each}},
+    content_type: typing.Literal[{{#each requestBodySchema.properties}}"{{{@key.original}}}"{{/each}}] = {{#each requestBodySchema.properties}}"{{{@key.original}}}"{{/each}},
         {{else}}
-    content_type: typing_extensions.Literal[
+    content_type: typing.Literal[
             {{#each requestBodySchema.properties}}
         "{{{@key.original}}}",
             {{/each}}

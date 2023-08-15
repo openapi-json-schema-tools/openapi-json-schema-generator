@@ -112,7 +112,7 @@ N schemas can be validated on the same payload.
 To allow multiple schemas to validate, the data must be stored using one base class whether or not
 a json schema format constraint exists in the schema.
 See te below accessors for string data:
-- type string + format: See .as_date_, .as_datetime_, .as_decimal_, .as_uuid_
+- type string + format: See .as_date, .as_datetime, .as_decimal, .as_uuid
 
 In json schema, type: number with no format validates both integers and floats,
 so int and float values are stored for type number.
@@ -131,7 +131,7 @@ For example the string payload '2023-12-20' is validates to both of these schema
   format: date
 ```
 Because of use cases like this, a datetime.date is allowed as an input to this schema, but the data
-is stored as a string, with a date accessor, instance.as_date_
+is stored as a string, with a date accessor, instance.as_date
 </details>
 
 ## Getting Started
@@ -192,6 +192,7 @@ HTTP request | Method | Description
 /fake/jsonFormData **get** | [FakeApi](docs/apis/tags/fake_api.md).[json_form_data](docs/paths/fake_json_form_data/get.md)  | test json serialization of form data
 /fake/jsonPatch **patch** | [FakeApi](docs/apis/tags/fake_api.md).[json_patch](docs/paths/fake_json_patch/patch.md)  | json patch
 /fake/jsonWithCharset **post** | [FakeApi](docs/apis/tags/fake_api.md).[json_with_charset](docs/paths/fake_json_with_charset/post.md)  | json with charset tx and rx
+/fake/multipleRequestBodyContentTypes/ **post** | [FakeApi](docs/apis/tags/fake_api.md).[multiple_request_body_content_types](docs/paths/fake_multiple_request_body_content_types/post.md)  | testing composed schemas at inline locations
 /fake/multipleResponseBodies **get** | [FakeApi](docs/apis/tags/fake_api.md).[multiple_response_bodies](docs/paths/fake_multiple_response_bodies/get.md)  | multiple responses have response bodies
 /fake/multipleSecurities **get** | [FakeApi](docs/apis/tags/fake_api.md).[multiple_securities](docs/paths/fake_multiple_securities/get.md)  | multiple security requirements
 /fake/objInQuery **get** | [FakeApi](docs/apis/tags/fake_api.md).[object_in_query](docs/paths/fake_obj_in_query/get.md)  | user list

@@ -25,8 +25,8 @@ petstore_api.paths.fake_inline_additional_properties.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), dict, schemas.immutabledict] | required |
-content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+[body](#requestbody) | typing.Union[[schema.SchemaDictInput](../../paths/fake_inline_additional_properties/post/request_body/content/application_json/schema.md#schemadictinput), [schema.SchemaDict](../../paths/fake_inline_additional_properties/post/request_body/content/application_json/schema.md#schemadict)] | required |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body. value must be one of ['application/json']
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
@@ -43,23 +43,49 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#requestbody-content-applicationjson-schema)
 
 #### RequestBody content ApplicationJson Schema
+petstore_api.paths.fake_inline_additional_properties.post.request_body.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaDictInput](#requestbody-content-applicationjson-schema-schemadictinput), [SchemaDict](#requestbody-content-applicationjson-schema-schemadict) | [SchemaDict](#requestbody-content-applicationjson-schema-schemadict) |
+
+##### RequestBody content ApplicationJson Schema SchemaDictInput
+```
+type: typing.Mapping[
+    str,
+    str,
+]
+```
+Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+**any_string_name** | str | any string name can be used but the value must be the correct type | [optional]
 
-##### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**any_string_name** | str | str | any string name can be used but the value must be the correct type | [optional]
+##### RequestBody content ApplicationJson Schema SchemaDict
+```
+base class: schemas.immutabledict[str, str]
+
+```
+###### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**kwargs** | str | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+###### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [SchemaDictInput](#requestbody-content-applicationjson-schema-schemadictinput), [SchemaDict](#requestbody-content-applicationjson-schema-schemadict) | [SchemaDict](#requestbody-content-applicationjson-schema-schemadict) | a constructor
+get_additional_property_ | str | str, schemas.Unset | provides type safety for additional properties
 
 ## Return Types
 
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
+200 | [SuccessDescriptionOnly.ApiResponse](../../components/responses/response_success_description_only.md#apiresponse) | Success
 
 ## Servers
 

@@ -18,15 +18,15 @@ Value: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 class OpEnums:
 
     @schemas.classproperty
-    def ADD(cls) -> typing_extensions.Literal["add"]:
+    def ADD(cls) -> typing.Literal["add"]:
         return Op.validate("add")
 
     @schemas.classproperty
-    def REPLACE(cls) -> typing_extensions.Literal["replace"]:
+    def REPLACE(cls) -> typing.Literal["replace"]:
         return Op.validate("replace")
 
     @schemas.classproperty
-    def TEST(cls) -> typing_extensions.Literal["test"]:
+    def TEST(cls) -> typing.Literal["test"]:
         return Op.validate("test")
 
 
@@ -50,36 +50,36 @@ class Op(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["add"],
+        arg: typing.Literal["add"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["add"]: ...
+    ) -> typing.Literal["add"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["replace"],
+        arg: typing.Literal["replace"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["replace"]: ...
+    ) -> typing.Literal["replace"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["test"],
+        arg: typing.Literal["test"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["test"]: ...
+    ) -> typing.Literal["test"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["add","replace","test",]: ...
+    ) -> typing.Literal["add","replace","test",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "add",
         "replace",
         "test",
@@ -88,14 +88,14 @@ class Op(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "add",
                 "replace",
                 "test",
             ],
             validated_arg
         )
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "path": typing.Type[Path],
@@ -114,17 +114,11 @@ class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: JSONPatchRequestAddReplaceTestDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> JSONPatchRequestAddReplaceTestDict:
-        return JSONPatchRequestAddReplaceTest.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
         *,
-        op: typing_extensions.Literal[
+        op: typing.Literal[
             "add",
             "replace",
             "test"
@@ -143,12 +137,21 @@ class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, str]):
         }
         used_arg_ = typing.cast(JSONPatchRequestAddReplaceTestDictInput, arg_)
         return JSONPatchRequestAddReplaceTest.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            JSONPatchRequestAddReplaceTestDictInput,
+            JSONPatchRequestAddReplaceTestDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> JSONPatchRequestAddReplaceTestDict:
+        return JSONPatchRequestAddReplaceTest.validate(arg, configuration=configuration)
     
     @property
-    def op(self) -> typing_extensions.Literal["add", "replace", "test"]:
+    def op(self) -> typing.Literal["add", "replace", "test"]:
         return typing.cast(
-            typing_extensions.Literal["add", "replace", "test"],
+            typing.Literal["add", "replace", "test"],
             self.__getitem__("op")
         )
     
@@ -165,10 +168,10 @@ class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, str]):
             schemas.OUTPUT_BASE_TYPES,
             self.__getitem__("value")
         )
-JSONPatchRequestAddReplaceTestDictInput = typing_extensions.TypedDict(
+JSONPatchRequestAddReplaceTestDictInput = typing.TypedDict(
     'JSONPatchRequestAddReplaceTestDictInput',
     {
-        "op": typing_extensions.Literal[
+        "op": typing.Literal[
             "add",
             "replace",
             "test"

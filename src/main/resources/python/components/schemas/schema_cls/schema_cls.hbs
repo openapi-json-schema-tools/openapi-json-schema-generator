@@ -1,0 +1,46 @@
+{{#if isBooleanSchemaFalse}}
+{{> components/schemas/schema_cls/_schema_var_equals_cls }}
+{{else}}
+    {{#or allOf anyOf oneOf not}}
+{{> components/schemas/schema_cls/_schema_composed_or_anytype }}
+    {{else}}
+        {{#eq types null }}
+            {{#or enumInfo hasValidation items properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties format}}
+{{> components/schemas/schema_cls/_schema_composed_or_anytype }}
+            {{else}}
+{{> components/schemas/schema_cls/_schema_var_equals_cls }}
+            {{/or}}
+        {{else}}
+            {{! types exist }}
+            {{#eq types.size 1}}
+                {{! one type }}
+                {{#each types}}
+                    {{#eq this "object"}}
+                        {{#or properties hasValidation requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties }}
+{{> components/schemas/schema_cls/_schema_dict }}
+                        {{else}}
+{{> components/schemas/schema_cls/_schema_var_equals_cls }}
+                        {{/or}}
+                    {{else}}
+                        {{#eq this "array"}}
+                            {{#or items hasValidation}}
+{{> components/schemas/schema_cls/_schema_list }}
+                            {{else}}
+{{> components/schemas/schema_cls/_schema_var_equals_cls }}
+                            {{/or}}
+                        {{else}}
+                            {{#or enumInfo hasValidation defaultValue}}
+{{> components/schemas/schema_cls/_schema_simple }}
+                            {{else}}
+{{> components/schemas/schema_cls/_schema_var_equals_cls }}
+                            {{/or}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/each}}
+            {{else}}
+                {{! multiple types }}
+{{> components/schemas/schema_cls/_schema_composed_or_anytype }}
+            {{/eq}}
+        {{/eq}}
+    {{/or}}
+{{/if}}

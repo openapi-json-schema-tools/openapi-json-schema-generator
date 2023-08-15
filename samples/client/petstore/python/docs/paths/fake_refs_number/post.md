@@ -25,8 +25,8 @@ petstore_api.paths.fake_refs_number.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), Unset, float, int] | optional, default is unset |
-content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+[body](#requestbody) | typing.Union[float, int, schemas.Unset] | optional, default is unset |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body. value must be one of ['application/json']
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -44,29 +44,33 @@ Content-Type | Schema
 "application/json" | [content.application_json.Schema](#requestbody-content-applicationjson-schema)
 
 #### RequestBody content ApplicationJson Schema
+petstore_api.paths.fake_refs_number.post.request_body.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[NumberWithValidations](../../components/schema/number_with_validations.md) | float, int | float, int |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+[**number_with_validations.NumberWithValidations**](../../components/schema/number_with_validations.md) | float, int | float, int
 
 ## Return Types
 
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | Output number
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | Output number
 
 ## ResponseFor200
 
 ### Description
 Output number
 
-### ResponseFor200 response_cls
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | [content.application_json.schema](#responsefor200-content-applicationjson-schema) |  |
+[body](#responsefor200-body) | float, int |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body
@@ -76,11 +80,15 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
+petstore_api.paths.fake_refs_number.post.responses.response_200.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[NumberWithValidations](../../components/schema/number_with_validations.md) | float, int | float, int |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+[**number_with_validations.NumberWithValidations**](../../components/schema/number_with_validations.md) | float, int | float, int
 
 ## Servers
 

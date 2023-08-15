@@ -19,15 +19,15 @@ ShipDate: typing_extensions.TypeAlias = schemas.DateTimeSchema
 class StatusEnums:
 
     @schemas.classproperty
-    def PLACED(cls) -> typing_extensions.Literal["placed"]:
+    def PLACED(cls) -> typing.Literal["placed"]:
         return Status.validate("placed")
 
     @schemas.classproperty
-    def APPROVED(cls) -> typing_extensions.Literal["approved"]:
+    def APPROVED(cls) -> typing.Literal["approved"]:
         return Status.validate("approved")
 
     @schemas.classproperty
-    def DELIVERED(cls) -> typing_extensions.Literal["delivered"]:
+    def DELIVERED(cls) -> typing.Literal["delivered"]:
         return Status.validate("delivered")
 
 
@@ -51,36 +51,36 @@ class Status(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["placed"],
+        arg: typing.Literal["placed"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["placed"]: ...
+    ) -> typing.Literal["placed"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["approved"],
+        arg: typing.Literal["approved"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["approved"]: ...
+    ) -> typing.Literal["approved"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["delivered"],
+        arg: typing.Literal["delivered"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["delivered"]: ...
+    ) -> typing.Literal["delivered"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["placed","approved","delivered",]: ...
+    ) -> typing.Literal["placed","approved","delivered",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "placed",
         "approved",
         "delivered",
@@ -89,7 +89,7 @@ class Status(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "placed",
                 "approved",
                 "delivered",
@@ -105,8 +105,8 @@ class Complete(
     types: typing.FrozenSet[typing.Type] = frozenset({
         schemas.Bool,
     })
-    default: typing_extensions.Literal[False] = False
-Properties = typing_extensions.TypedDict(
+    default: typing.Literal[False] = False
+Properties = typing.TypedDict(
     'Properties',
     {
         "id": typing.Type[Id],
@@ -131,12 +131,6 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "status",
         "complete",
     })
-    @staticmethod
-    def from_dict_(
-        arg: OrderDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> OrderDict:
-        return Order.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -159,7 +153,7 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             schemas.Unset
         ] = schemas.unset,
         status: typing.Union[
-            typing_extensions.Literal[
+            typing.Literal[
                 "placed",
                 "approved",
                 "delivered"
@@ -188,7 +182,16 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(OrderDictInput, arg_)
         return Order.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            OrderDictInput,
+            OrderDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> OrderDict:
+        return Order.validate(arg, configuration=configuration)
     
     @property
     def id(self) -> typing.Union[int, schemas.Unset]:
@@ -231,12 +234,12 @@ class OrderDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def status(self) -> typing.Union[typing_extensions.Literal["placed", "approved", "delivered"], schemas.Unset]:
+    def status(self) -> typing.Union[typing.Literal["placed", "approved", "delivered"], schemas.Unset]:
         val = self.get("status", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(
-            typing_extensions.Literal["placed", "approved", "delivered"],
+            typing.Literal["placed", "approved", "delivered"],
             val
         )
     

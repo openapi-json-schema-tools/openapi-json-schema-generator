@@ -26,10 +26,10 @@ petstore_api.paths.fake.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_x_www_form_urlencoded.schema](#RequestBody-content-applicationxwwwformurlencoded-schema), Unset, dict, schemas.immutabledict] | optional, default is unset |
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
-[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
-content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body
+[body](#requestbody) | typing.Union[[schema.SchemaDictInput](../../paths/fake/get/request_body/content/application_x_www_form_urlencoded/schema.md#schemadictinput), [schema.SchemaDict](../../paths/fake/get/request_body/content/application_x_www_form_urlencoded/schema.md#schemadict), schemas.Unset] | optional, default is unset |
+[query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
+[header_params](#header_params) | [HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | |
+content_type | str | optional, default is 'application/x-www-form-urlencoded' | Selects the schema and serialization of the request body. value must be one of ['application/x-www-form-urlencoded']
 accept_content_types | typing.Tuple[str] | default is ("application/json", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -44,156 +44,207 @@ Content-Type | Schema
 "application/x-www-form-urlencoded" | [content.application_x_www_form_urlencoded.Schema](#requestbody-content-applicationxwwwformurlencoded-schema)
 
 #### RequestBody content ApplicationXWwwFormUrlencoded Schema
+petstore_api.paths.fake.get.request_body.content.application_x_www_form_urlencoded.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput), [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) | [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) |
+
+##### RequestBody content ApplicationXWwwFormUrlencoded Schema SchemaDictInput
+```
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
+Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+**enum_form_string_array** | [EnumFormStringArrayTupleInput](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytupleinput), [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytuple) | Form parameter enum test (string array) | [optional]
+**enum_form_string** | typing.Literal["_abc", "-efg", "(xyz)"] | Form parameter enum test (string) | [optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
+**any_string_name** | dict, schemas.immutabledict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
 
-##### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**enum_form_string_array** | list, tuple | [properties.EnumFormStringArray](#requestbody-content-applicationxwwwformurlencoded-schema-properties-enumformstringarray) | Form parameter enum test (string array) | [optional]
-**enum_form_string** | str | str | Form parameter enum test (string) | [optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
+##### RequestBody content ApplicationXWwwFormUrlencoded Schema SchemaDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
-#### RequestBody content ApplicationXWwwFormUrlencoded Schema properties EnumFormStringArray
+```
+###### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**enum_form_string_array** | [EnumFormStringArrayTupleInput](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytupleinput), [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytuple), schemas.Unset | Form parameter enum test (string array) | [optional]
+**enum_form_string** | typing.Literal["_abc", "-efg", "(xyz)"], schemas.Unset | Form parameter enum test (string) | [optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
+**kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+
+###### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**enum_form_string_array** | [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytuple), schemas.Unset | Form parameter enum test (string array) | [optional]
+**enum_form_string** | typing.Literal["_abc", "-efg", "(xyz)"], schemas.Unset | Form parameter enum test (string) | [optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
+
+###### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput), [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) | [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
+
+#### RequestBody content ApplicationXWwwFormUrlencoded Schema
+```
+type: schemas.Schema
+```
 
 ##### Description
 Form parameter enum test (string array)
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple | tuple | Form parameter enum test (string array) |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[EnumFormStringArrayTupleInput](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytupleinput), [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytuple) | [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytuple) |
 
-##### List Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
+##### RequestBody content ApplicationXWwwFormUrlencoded Schema EnumFormStringArrayTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Literal[
+            ">",
+            "$"
+        ],
+    ],
+    typing.Tuple[
+        typing.Literal[
+            ">",
+            "$"
+        ],
+        ...
+    ]
+]
+```
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+typing.Literal[">", "$"] |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
+##### RequestBody content ApplicationXWwwFormUrlencoded Schema EnumFormStringArrayTuple
+```
+base class: typing.Tuple[
+    typing.Literal[">", "$"],
+    ...
+]
+```
+###### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [EnumFormStringArrayTupleInput](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytupleinput), [EnumFormStringArrayTuple](#requestbody-content-applicationxwwwformurlencoded-schema-enumformstringarraytuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+###### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | typing.Literal[">", "$"] | must be one of [">", "$"] if omitted the server will use the default value of $ This method is used under the hood when instance[0] is called
 ### query_params
-#### RequestQueryParameters.Params
-This is a TypedDict
+### QueryParameters
+```
+type: schemas.Schema
+```
 
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-enum_query_string_array | [Parameter2.schema](#parameter2-schema), list, tuple | | optional
-enum_query_string | [Parameter3.schema](#parameter3-schema), str | | optional
-enum_query_integer | [Parameter4.schema](#parameter4-schema), int | | optional
-enum_query_double | [Parameter5.schema](#parameter5-schema), float, int | | optional
+#### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
 
-
-#### Parameter2
-
-##### Description
-Query parameter enum test (string array)
-
-##### Parameter2 Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
+#### QueryParameters QueryParametersDictInput
+```
+type: typing.TypedDict
+```
+Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+**enum_query_double** | float, int |  | [optional]
+**enum_query_string** | typing.Literal["_abc", "-efg", "(xyz)"] |  | [optional]
+**enum_query_integer** | typing.Literal[1, -2] |  | [optional]
+**enum_query_string_array** | [schema.SchemaTupleInput](../../paths/fake/get/parameters/parameter_2/schema.md#schematupleinput), [schema_4.SchemaTuple](../../paths/fake/get/parameters/parameter_2/schema.md#schematuple) |  | [optional]
 
-###### List Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
+#### QueryParameters QueryParametersDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+```
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**enum_query_double** | float, int, schemas.Unset |  | [optional]
+**enum_query_string** | typing.Literal["_abc", "-efg", "(xyz)"], schemas.Unset |  | [optional]
+**enum_query_integer** | typing.Literal[1, -2], schemas.Unset |  | [optional]
+**enum_query_string_array** | [schema.SchemaTupleInput](../../paths/fake/get/parameters/parameter_2/schema.md#schematupleinput), [schema_4.SchemaTuple](../../paths/fake/get/parameters/parameter_2/schema.md#schematuple), schemas.Unset |  | [optional]
 
-#### Parameter3
+##### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**enum_query_double** | float, int, schemas.Unset |  | [optional]
+**enum_query_string** | typing.Literal["_abc", "-efg", "(xyz)"], schemas.Unset |  | [optional]
+**enum_query_integer** | typing.Literal[1, -2], schemas.Unset |  | [optional]
+**enum_query_string_array** | [schema.SchemaTuple](../../paths/fake/get/parameters/parameter_2/schema.md#schematuple), schemas.Unset |  | [optional]
 
-##### Description
-Query parameter enum test (string)
-
-##### Parameter3 Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  | must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
-
-#### Parameter4
-
-##### Description
-Query parameter enum test (double)
-
-##### Parameter4 Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-int | int |  | must be one of [1, -2] value must be a 32 bit integer
-
-#### Parameter5
-
-##### Description
-Query parameter enum test (double)
-
-##### Parameter5 Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-float, int | float, int |  | must be one of [1.1, -1.2] value must be a 64 bit float
-
+##### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
 ### header_params
-#### RequestHeaderParameters.Params
-This is a TypedDict
+### HeaderParameters
+```
+type: schemas.Schema
+```
 
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-enum_header_string_array | [Parameter0.schema](#parameter0-schema), list, tuple | | optional
-enum_header_string | [Parameter1.schema](#parameter1-schema), str | | optional
+#### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | [HeaderParametersDict](#headerparameters-headerparametersdict) |
 
-
-#### Parameter0
-
-##### Description
-Header parameter enum test (string array)
-
-##### Parameter0 Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
+#### HeaderParameters HeaderParametersDictInput
+```
+type: typing.TypedDict
+```
+Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+**enum_header_string** | typing.Literal["_abc", "-efg", "(xyz)"] |  | [optional]
+**enum_header_string_array** | [schema.SchemaTupleInput](../../paths/fake/get/parameters/parameter_0/schema.md#schematupleinput), [schema_2.SchemaTuple](../../paths/fake/get/parameters/parameter_0/schema.md#schematuple) |  | [optional]
 
-###### List Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | str | str |  | must be one of [">", "$"] if omitted the server will use the default value of $
+#### HeaderParameters HeaderParametersDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+```
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**enum_header_string** | typing.Literal["_abc", "-efg", "(xyz)"], schemas.Unset |  | [optional]
+**enum_header_string_array** | [schema.SchemaTupleInput](../../paths/fake/get/parameters/parameter_0/schema.md#schematupleinput), [schema_2.SchemaTuple](../../paths/fake/get/parameters/parameter_0/schema.md#schematuple), schemas.Unset |  | [optional]
 
-#### Parameter1
+##### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**enum_header_string** | typing.Literal["_abc", "-efg", "(xyz)"], schemas.Unset |  | [optional]
+**enum_header_string_array** | [schema.SchemaTuple](../../paths/fake/get/parameters/parameter_0/schema.md#schematuple), schemas.Unset |  | [optional]
 
-##### Description
-Header parameter enum test (string)
-
-##### Parameter1 Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  | must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
+##### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | [HeaderParametersDict](#headerparameters-headerparametersdict) | a constructor
 
 ## Return Types
 
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [SuccessDescriptionOnly.response_cls](../../components/responses/response_success_description_only.md#response_success_description_onlyresponse_cls) | Success
-404 | [ResponseFor404.response_cls](#responsefor404-response_cls) | Not found
+200 | [SuccessDescriptionOnly.ApiResponse](../../components/responses/response_success_description_only.md#apiresponse) | Success
+404 | [ResponseFor404.ApiResponse](#responsefor404-apiresponse) | Not found
 
 ## ResponseFor404
 
 ### Description
 Not found
 
-### ResponseFor404 response_cls
+### ResponseFor404 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor404-body) | [content.application_json.schema](#responsefor404-content-applicationjson-schema) |  |
+[body](#responsefor404-body) | schemas.immutabledict |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor404 Body
@@ -203,11 +254,15 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor404 content ApplicationJson Schema
+petstore_api.paths.fake.get.responses.response_404.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict | schemas.immutabledict |
 
 ## Servers
 

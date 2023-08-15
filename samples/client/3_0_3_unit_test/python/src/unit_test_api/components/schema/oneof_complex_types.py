@@ -11,7 +11,7 @@ from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 Bar: typing_extensions.TypeAlias = schemas.IntSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "bar": typing.Type[Bar],
@@ -26,12 +26,6 @@ class _0Dict(schemas.immutabledict[str, int]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: _0DictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> _0Dict:
-        return _0.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -46,7 +40,16 @@ class _0Dict(schemas.immutabledict[str, int]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(_0DictInput, arg_)
         return _0.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            _0DictInput,
+            _0Dict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> _0Dict:
+        return _0.validate(arg, configuration=configuration)
     
     @property
     def bar(self) -> int:
@@ -80,7 +83,7 @@ class _0(
     )
 
 Foo: typing_extensions.TypeAlias = schemas.StrSchema
-Properties2 = typing_extensions.TypedDict(
+Properties2 = typing.TypedDict(
     'Properties2',
     {
         "foo": typing.Type[Foo],
@@ -95,12 +98,6 @@ class _1Dict(schemas.immutabledict[str, str]):
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: _1DictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> _1Dict:
-        return _1.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -115,7 +112,16 @@ class _1Dict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(_1DictInput, arg_)
         return _1.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            _1DictInput,
+            _1Dict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> _1Dict:
+        return _1.validate(arg, configuration=configuration)
     
     @property
     def foo(self) -> str:

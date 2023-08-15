@@ -11,7 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 SourceURI: typing_extensions.TypeAlias = schemas.StrSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "sourceURI": typing.Type[SourceURI],
@@ -26,12 +26,6 @@ class FileDict(schemas.immutabledict[str, str]):
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "sourceURI",
     })
-    @staticmethod
-    def from_dict_(
-        arg: FileDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> FileDict:
-        return File.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -53,7 +47,16 @@ class FileDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(FileDictInput, arg_)
         return File.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            FileDictInput,
+            FileDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> FileDict:
+        return File.validate(arg, configuration=configuration)
     
     @property
     def sourceURI(self) -> typing.Union[str, schemas.Unset]:

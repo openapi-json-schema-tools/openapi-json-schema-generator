@@ -20,7 +20,7 @@ class ArrayHoldingAnyTypeTuple(
     ]
 ):
 
-    def __new__(cls, arg: ArrayHoldingAnyTypeTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ArrayHoldingAnyTypeTupleInput, ArrayHoldingAnyTypeTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayHoldingAnyType.validate(arg, configuration=configuration)
 ArrayHoldingAnyTypeTupleInput = typing.Union[
     typing.List[

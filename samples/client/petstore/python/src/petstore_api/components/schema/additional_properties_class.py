@@ -29,11 +29,13 @@ class MapPropertyDict(schemas.immutabledict[str, str]):
     
     @staticmethod
     def from_dict_(
-        arg: MapPropertyDictInput,
+        arg: typing.Union[
+            MapPropertyDictInput,
+            MapPropertyDict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapPropertyDict:
         return MapProperty.validate(arg, configuration=configuration)
-
     
     def get_additional_property_(self, name: str) -> typing.Union[str, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -98,11 +100,13 @@ class AdditionalPropertiesDict(schemas.immutabledict[str, str]):
     
     @staticmethod
     def from_dict_(
-        arg: AdditionalPropertiesDictInput,
+        arg: typing.Union[
+            AdditionalPropertiesDictInput,
+            AdditionalPropertiesDict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AdditionalPropertiesDict:
         return AdditionalProperties2.validate(arg, configuration=configuration)
-
     
     def get_additional_property_(self, name: str) -> typing.Union[str, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -169,11 +173,13 @@ class MapOfMapPropertyDict(schemas.immutabledict[str, schemas.immutabledict[str,
     
     @staticmethod
     def from_dict_(
-        arg: MapOfMapPropertyDictInput,
+        arg: typing.Union[
+            MapOfMapPropertyDictInput,
+            MapOfMapPropertyDict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapOfMapPropertyDict:
         return MapOfMapProperty.validate(arg, configuration=configuration)
-
     
     def get_additional_property_(self, name: str) -> typing.Union[AdditionalPropertiesDict, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -244,11 +250,13 @@ class MapWithUndeclaredPropertiesAnytype3Dict(schemas.immutabledict[str, schemas
     
     @staticmethod
     def from_dict_(
-        arg: MapWithUndeclaredPropertiesAnytype3DictInput,
+        arg: typing.Union[
+            MapWithUndeclaredPropertiesAnytype3DictInput,
+            MapWithUndeclaredPropertiesAnytype3Dict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapWithUndeclaredPropertiesAnytype3Dict:
         return MapWithUndeclaredPropertiesAnytype3.validate(arg, configuration=configuration)
-
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -309,11 +317,13 @@ class EmptyMapDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @staticmethod
     def from_dict_(
-        arg: EmptyMapDictInput,
+        arg: typing.Union[
+            EmptyMapDictInput,
+            EmptyMapDict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> EmptyMapDict:
         return EmptyMap.validate(arg, configuration=configuration)
-
 EmptyMapDictInput = typing.Mapping # mapping must be empty
 
 
@@ -365,11 +375,13 @@ class MapWithUndeclaredPropertiesStringDict(schemas.immutabledict[str, str]):
     
     @staticmethod
     def from_dict_(
-        arg: MapWithUndeclaredPropertiesStringDictInput,
+        arg: typing.Union[
+            MapWithUndeclaredPropertiesStringDictInput,
+            MapWithUndeclaredPropertiesStringDict
+        ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MapWithUndeclaredPropertiesStringDict:
         return MapWithUndeclaredPropertiesString.validate(arg, configuration=configuration)
-
     
     def get_additional_property_(self, name: str) -> typing.Union[str, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -415,7 +427,7 @@ class MapWithUndeclaredPropertiesString(
             configuration=configuration,
         )
 
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "map_property": typing.Type[MapProperty],
@@ -444,12 +456,6 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.immutable
         "empty_map",
         "map_with_undeclared_properties_string",
     })
-    @staticmethod
-    def from_dict_(
-        arg: AdditionalPropertiesClassDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> AdditionalPropertiesClassDict:
-        return AdditionalPropertiesClass.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -514,7 +520,16 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.immutable
         arg_.update(kwargs)
         used_arg_ = typing.cast(AdditionalPropertiesClassDictInput, arg_)
         return AdditionalPropertiesClass.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            AdditionalPropertiesClassDictInput,
+            AdditionalPropertiesClassDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AdditionalPropertiesClassDict:
+        return AdditionalPropertiesClass.validate(arg, configuration=configuration)
     
     @property
     def map_property(self) -> typing.Union[MapPropertyDict, schemas.Unset]:

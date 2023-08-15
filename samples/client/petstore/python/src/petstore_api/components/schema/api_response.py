@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 Code: typing_extensions.TypeAlias = schemas.Int32Schema
 Type: typing_extensions.TypeAlias = schemas.StrSchema
 Message: typing_extensions.TypeAlias = schemas.StrSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "code": typing.Type[Code],
@@ -32,12 +32,6 @@ class ApiResponseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "type",
         "message",
     })
-    @staticmethod
-    def from_dict_(
-        arg: ApiResponseDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> ApiResponseDict:
-        return ApiResponse.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -69,7 +63,16 @@ class ApiResponseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(ApiResponseDictInput, arg_)
         return ApiResponse.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            ApiResponseDictInput,
+            ApiResponseDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ApiResponseDict:
+        return ApiResponse.validate(arg, configuration=configuration)
     
     @property
     def code(self) -> typing.Union[int, schemas.Unset]:

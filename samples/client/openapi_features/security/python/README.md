@@ -112,7 +112,7 @@ N schemas can be validated on the same payload.
 To allow multiple schemas to validate, the data must be stored using one base class whether or not
 a json schema format constraint exists in the schema.
 See te below accessors for string data:
-- type string + format: See .as_date_, .as_datetime_, .as_decimal_, .as_uuid_
+- type string + format: See .as_date, .as_datetime, .as_decimal, .as_uuid
 
 In json schema, type: number with no format validates both integers and floats,
 so int and float values are stored for type number.
@@ -131,7 +131,7 @@ For example the string payload '2023-12-20' is validates to both of these schema
   format: date
 ```
 Because of use cases like this, a datetime.date is allowed as an input to this schema, but the data
-is stored as a string, with a date accessor, instance.as_date_
+is stored as a string, with a date accessor, instance.as_date
 </details>
 
 ## Getting Started

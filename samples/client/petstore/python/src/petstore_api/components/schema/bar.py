@@ -24,4 +24,4 @@ class Bar(
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
     })
-    default: typing_extensions.Literal["bar"] = "bar"
+    default: typing.Literal["bar"] = "bar"

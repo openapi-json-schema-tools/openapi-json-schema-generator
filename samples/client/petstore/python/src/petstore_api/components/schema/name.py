@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 Name2: typing_extensions.TypeAlias = schemas.Int32Schema
 SnakeCase: typing_extensions.TypeAlias = schemas.Int32Schema
 _Property: typing_extensions.TypeAlias = schemas.StrSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "name": typing.Type[Name2],
@@ -32,12 +32,6 @@ class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         "snake_case",
         "property",
     })
-    @staticmethod
-    def from_dict_(
-        arg: NameDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> NameDict:
-        return Name.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -62,7 +56,16 @@ class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(NameDictInput, arg_)
         return Name.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            NameDictInput,
+            NameDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> NameDict:
+        return Name.validate(arg, configuration=configuration)
     
     @property
     def name(self) -> int:

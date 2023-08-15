@@ -15,11 +15,11 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 class SchemaEnums:
 
     @schemas.classproperty
-    def POSITIVE_1(cls) -> typing_extensions.Literal[1]:
+    def POSITIVE_1(cls) -> typing.Literal[1]:
         return Schema.validate(1)
 
     @schemas.classproperty
-    def NEGATIVE_2(cls) -> typing_extensions.Literal[-2]:
+    def NEGATIVE_2(cls) -> typing.Literal[-2]:
         return Schema.validate(-2)
 
 
@@ -43,29 +43,29 @@ class Schema(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal[1],
+        arg: typing.Literal[1],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[1]: ...
+    ) -> typing.Literal[1]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal[-2],
+        arg: typing.Literal[-2],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[-2]: ...
+    ) -> typing.Literal[-2]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: int,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[1,-2,]: ...
+    ) -> typing.Literal[1,-2,]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         1,
         -2,
     ]:
@@ -73,7 +73,7 @@ class Schema(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 1,
                 -2,
             ],

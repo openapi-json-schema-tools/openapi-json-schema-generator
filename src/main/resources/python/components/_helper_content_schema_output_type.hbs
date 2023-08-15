@@ -1,13 +1,13 @@
 {{#if paramName}}
     {{#if refInfo.refClass}}
-{{> components/schemas/_helper_schema_output_ref_type mode="typehint" key=paramName fullRefModule=(join modulePrefix jsonPathPiece.snakeCase "_") }}
+{{> components/schemas/types/schema_output_type mode="typehint" key=paramName fullRefModule=(join modulePrefix jsonPathPiece.snakeCase "_") }}
     {{else}}
-{{> components/schemas/_helper_schema_output_type mode="typehint" key=paramName fullRefModule=(join modulePrefix jsonPathPiece.snakeCase "_") }}
+{{> components/schemas/types/schema_output_type mode="typehint" key=paramName fullRefModule=(join modulePrefix jsonPathPiece.snakeCase "_") }}
     {{/if}}
 {{else}}
     {{#if refInfo.refClass}}
-{{> components/schemas/_helper_schema_output_ref_type mode="unprefixed" fullRefModule=(join modulePrefix jsonPathPiece.snakeCase "_") endChar="," }}
+{{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule=(join modulePrefix jsonPathPiece.snakeCase "_") endChar="," }}
     {{else}}
-{{> components/schemas/_helper_schema_output_type mode="unprefixed" fullRefModule=(join modulePrefix jsonPathPiece.snakeCase "_") endChar="," }}
+{{> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule=(join modulePrefix jsonPathPiece.snakeCase "_") endChar="," }}
     {{/if}}
 {{/if}}

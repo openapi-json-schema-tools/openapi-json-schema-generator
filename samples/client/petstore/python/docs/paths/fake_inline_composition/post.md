@@ -26,9 +26,9 @@ petstore_api.paths.fake_inline_composition.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[body](#requestbody) | typing.Union[[RequestBody.content.application_json.schema](#RequestBody-content-applicationjson-schema), [RequestBody.content.multipart_form_data.schema](#RequestBody-content-multipartformdata-schema), Unset, dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader] | optional, default is unset |
-[query_params](#query_params) | [RequestQueryParameters.Params](#requestqueryparametersparams), dict | |
-content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body
+[body](#requestbody) | typing.Union[dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, [schema_2.SchemaDictInput](../../paths/fake_inline_composition/post/request_body/content/multipart_form_data/schema.md#schemadictinput), [schema_2.SchemaDict](../../paths/fake_inline_composition/post/request_body/content/multipart_form_data/schema.md#schemadict), schemas.Unset] | optional, default is unset |
+[query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
+content_type | str | optional, default is 'application/json' | Selects the schema and serialization of the request body. value must be one of ['application/json', 'multipart/form-data']
 accept_content_types | typing.Tuple[str] | default is ("application/json", "multipart/form-data", ) | Tells the server the content type(s) that are accepted by the client
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
@@ -47,141 +47,155 @@ Content-Type | Schema
 "multipart/form-data" | [content.multipart_form_data.Schema](#requestbody-content-multipartformdata-schema)
 
 #### RequestBody content ApplicationJson Schema
+petstore_api.paths.fake_inline_composition.post.request_body.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ##### Composed Schemas (allOf/anyOf/oneOf/not)
 ##### allOf
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[_0](#requestbody-content-applicationjson-schema-allof-_0) | str | str |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[_0](#requestbody-content-applicationjson-schema-_0) | str | str
 
-#### RequestBody content ApplicationJson Schema allof _0
+#### RequestBody content ApplicationJson Schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 #### RequestBody content MultipartFormData Schema
+petstore_api.paths.fake_inline_composition.post.request_body.content.multipart_form_data.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput), [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) |
+
+##### RequestBody content MultipartFormData Schema SchemaDictInput
+```
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
+Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+**someProp** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
 
-##### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**someProp** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [properties.SomeProp](#requestbody-content-multipartformdata-schema-properties-someprop) |  | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
+##### RequestBody content MultipartFormData Schema SchemaDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+```
+###### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**someProp** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset |  | [optional]
+**kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
-#### RequestBody content MultipartFormData Schema properties SomeProp
+###### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**someProp** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset |  | [optional]
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+###### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [SchemaDictInput](#requestbody-content-multipartformdata-schema-schemadictinput), [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | [SchemaDict](#requestbody-content-multipartformdata-schema-schemadict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
+
+#### RequestBody content MultipartFormData Schema
+```
+type: schemas.Schema
+```
+
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ##### Composed Schemas (allOf/anyOf/oneOf/not)
 ##### allOf
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[_0](#requestbody-content-multipartformdata-schema-properties-someprop-allof-_0) | str | str |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[_0](#requestbody-content-multipartformdata-schema-_0) | str | str
 
-#### RequestBody content MultipartFormData Schema properties SomeProp allof _0
+#### RequestBody content MultipartFormData Schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
-
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 ### query_params
-#### RequestQueryParameters.Params
-This is a TypedDict
+### QueryParameters
+```
+type: schemas.Schema
+```
 
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-compositionAtRoot | [Parameter0.schema](#parameter0-schema), dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | | optional
-compositionInProperty | [Parameter1.schema](#parameter1-schema), dict, schemas.immutabledict | | optional
+#### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) |
 
-
-#### Parameter0
-
-##### Parameter0 Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
+#### QueryParameters QueryParametersDictInput
+```
+type: typing.TypedDict
+```
+Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+**compositionAtRoot** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  | [optional]
+**compositionInProperty** | [schema_2.SchemaDictInput](../../paths/fake_inline_composition/post/parameters/parameter_1/schema.md#schemadictinput), [schema_2.SchemaDict](../../paths/fake_inline_composition/post/parameters/parameter_1/schema.md#schemadict) |  | [optional]
 
-###### Composed Schemas (allOf/anyOf/oneOf/not)
-###### allOf
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[_0](#parameter0-schema-allof-_0) | str | str |  |
+#### QueryParameters QueryParametersDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+```
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**compositionAtRoot** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset |  | [optional]
+**compositionInProperty** | [schema_2.SchemaDictInput](../../paths/fake_inline_composition/post/parameters/parameter_1/schema.md#schemadictinput), [schema_2.SchemaDict](../../paths/fake_inline_composition/post/parameters/parameter_1/schema.md#schemadict), schemas.Unset |  | [optional]
 
-##### Parameter0 Schema allof _0
+##### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**compositionAtRoot** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset |  | [optional]
+**compositionInProperty** | [schema.SchemaDict](../../paths/fake_inline_composition/post/parameters/parameter_1/schema.md#schemadict), schemas.Unset |  | [optional]
 
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
-
-#### Parameter1
-
-##### Parameter1 Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
-
-###### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**someProp** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [properties.SomeProp](#parameter1-schema-properties-someprop) |  | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
-
-##### Parameter1 Schema properties SomeProp
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
-
-###### Composed Schemas (allOf/anyOf/oneOf/not)
-###### allOf
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[_0](#parameter1-schema-properties-someprop-allof-_0) | str | str |  |
-
-##### Parameter1 Schema properties SomeProp allof _0
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+##### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
 
 ## Return Types
 
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | success, multiple content types
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | success, multiple content types
 
 ## ResponseFor200
 
 ### Description
 success, multiple content types
 
-### ResponseFor200 response_cls
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | typing.Union[[content.application_json.schema](#responsefor200-content-applicationjson-schema), [content.multipart_form_data.schema](#responsefor200-content-multipartformdata-schema)] |  |
+[body](#responsefor200-body) | typing.Union[schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, [SchemaDict](#responsefor200-content-multipartformdata-schema-schemadict)] |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body
@@ -192,56 +206,97 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
+petstore_api.paths.fake_inline_composition.post.responses.response_200.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ##### Composed Schemas (allOf/anyOf/oneOf/not)
 ##### allOf
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[_0](#responsefor200-content-applicationjson-schema-allof-_0) | str | str |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[_0](#responsefor200-content-applicationjson-schema-_0) | str | str
 
-#### ResponseFor200 content ApplicationJson Schema allof _0
+#### ResponseFor200 content ApplicationJson Schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 #### ResponseFor200 content MultipartFormData Schema
+petstore_api.paths.fake_inline_composition.post.responses.response_200.content.multipart_form_data.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[SchemaDictInput](#responsefor200-content-multipartformdata-schema-schemadictinput), [SchemaDict](#responsefor200-content-multipartformdata-schema-schemadict) | [SchemaDict](#responsefor200-content-multipartformdata-schema-schemadict) |
+
+##### ResponseFor200 content MultipartFormData Schema SchemaDictInput
+```
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
+Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict |  |
+**someProp** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
 
-##### Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**someProp** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [properties.SomeProp](#responsefor200-content-multipartformdata-schema-properties-someprop) |  | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
+##### ResponseFor200 content MultipartFormData Schema SchemaDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+```
+###### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**someProp** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader, schemas.Unset |  | [optional]
+**kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
-#### ResponseFor200 content MultipartFormData Schema properties SomeProp
+###### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**someProp** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO, schemas.Unset |  | [optional]
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+###### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [SchemaDictInput](#responsefor200-content-multipartformdata-schema-schemadictinput), [SchemaDict](#responsefor200-content-multipartformdata-schema-schemadict) | [SchemaDict](#responsefor200-content-multipartformdata-schema-schemadict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
+
+#### ResponseFor200 content MultipartFormData Schema
+```
+type: schemas.Schema
+```
+
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |
 
 ##### Composed Schemas (allOf/anyOf/oneOf/not)
 ##### allOf
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[_0](#responsefor200-content-multipartformdata-schema-properties-someprop-allof-_0) | str | str |  |
+Schema Class | Input Type | Return Type
+------------ | ---------- | -----------
+[_0](#responsefor200-content-multipartformdata-schema-_0) | str | str
 
-#### ResponseFor200 content MultipartFormData Schema properties SomeProp allof _0
+#### ResponseFor200 content MultipartFormData Schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-str | str |  |
+##### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+str | str |
 
 ## Servers
 

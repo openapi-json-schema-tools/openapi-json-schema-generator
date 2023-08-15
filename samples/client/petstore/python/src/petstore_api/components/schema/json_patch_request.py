@@ -37,7 +37,7 @@ class JSONPatchRequestTuple(
     ]
 ):
 
-    def __new__(cls, arg: JSONPatchRequestTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[JSONPatchRequestTupleInput, JSONPatchRequestTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return JSONPatchRequest.validate(arg, configuration=configuration)
 JSONPatchRequestTupleInput = typing.Union[
     typing.List[

@@ -1,19 +1,19 @@
 {{#if isOverload}}
     {{! only one body at a time }}
     {{#with bodyRefSchema}}
-{{> components/schemas/_helper_schema_io_type paramName="body" fullRefModule="" endChar="," optional=bodyOptional }}
+{{> components/schemas/types/schema_io_type paramName="body" fullRefModule="" endChar="," optional=bodyOptional }}
     {{/with}}
 {{else}}
     {{! all request bodies }}
     {{#if requestBodySchema}}
         {{#eq requestBodySchema.properties.size 1}}
             {{#each requestBodySchema.properties}}
-{{> components/schemas/_helper_schema_io_type paramName="body" fullRefModule="" endChar="," optional=bodyOptional }}
+{{> components/schemas/types/schema_io_type paramName="body" fullRefModule="" endChar="," optional=bodyOptional }}
             {{/each}}
         {{else}}
 body: typing.Union[
             {{#each requestBodySchema.properties}}
-    {{> components/schemas/_helper_schema_io_type paramName=false fullRefModule="" endChar="," optional=false }}
+    {{> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," optional=false }}
             {{/each}}
             {{#if bodyOptional}}
     schemas.Unset,

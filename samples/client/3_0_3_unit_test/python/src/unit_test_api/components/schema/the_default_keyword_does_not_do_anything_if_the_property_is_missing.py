@@ -22,7 +22,7 @@ class Alpha(
     })
     inclusive_maximum: typing.Union[int, float] = 3
     default: typing.Union[int, float] = 5
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "alpha": typing.Type[Alpha],
@@ -37,12 +37,6 @@ class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDict(schemas.immut
     __optional_keys__: typing.FrozenSet[str] = frozenset({
         "alpha",
     })
-    @staticmethod
-    def from_dict_(
-        arg: TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDict:
-        return TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -65,7 +59,16 @@ class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDict(schemas.immut
         arg_.update(kwargs)
         used_arg_ = typing.cast(TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDictInput, arg_)
         return TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDictInput,
+            TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDict:
+        return TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.validate(arg, configuration=configuration)
     
     @property
     def alpha(self) -> typing.Union[int, float, schemas.Unset]:

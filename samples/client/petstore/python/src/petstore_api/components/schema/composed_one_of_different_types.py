@@ -43,7 +43,7 @@ class _5Tuple(
     ]
 ):
 
-    def __new__(cls, arg: _5TupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[_5TupleInput, _5Tuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return _5.validate(arg, configuration=configuration)
 _5TupleInput = typing.Union[
     typing.List[

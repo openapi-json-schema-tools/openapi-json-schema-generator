@@ -26,66 +26,103 @@ petstore_api.paths.pet_pet_id.operation
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-[header_params](#header_params) | [RequestHeaderParameters.Params](#requestheaderparametersparams), dict | |
-[path_params](#path_params) | [RequestPathParameters.Params](#requestpathparametersparams), dict | |
+[header_params](#header_params) | [HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | |
+[path_params](#path_params) | [PathParametersDictInput](#pathparameters-pathparametersdictinput), [PathParametersDict](#pathparameters-pathparametersdict) | |
 security_index | typing.Optional[int] | default is None | Allows one to select a different [security](#security) definition. If not None, must be one of [0, 1]
 server_index | typing.Optional[int] | default is None | Allows one to select a different [server](#servers). If not None, must be one of [0, 1, 2]
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_response.ApiResponseWithoutDeserialization will be returned
-
 ### header_params
-#### RequestHeaderParameters.Params
-This is a TypedDict
+### HeaderParameters
+```
+type: schemas.Schema
+```
 
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-api_key | [Parameter0.schema](#parameter0-schema), str | | optional
+#### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | [HeaderParametersDict](#headerparameters-headerparametersdict) |
 
-
-#### Parameter0
-
-##### Parameter0 Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
+#### HeaderParameters HeaderParametersDictInput
+```
+type: typing.TypedDict
+```
+Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-str | str |  |
+**api_key** | str |  | [optional]
 
+#### HeaderParameters HeaderParametersDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
+```
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**api_key** | str, schemas.Unset |  | [optional]
+
+##### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**api_key** | str, schemas.Unset |  | [optional]
+
+##### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | [HeaderParametersDict](#headerparameters-headerparametersdict) | a constructor
 ### path_params
-#### RequestPathParameters.Params
-This is a TypedDict
+### PathParameters
+```
+type: schemas.Schema
+```
 
-Key | Input Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
-petId | [Parameter1.schema](#parameter1-schema), int | | 
+#### validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[PathParametersDictInput](#pathparameters-pathparametersdictinput), [PathParametersDict](#pathparameters-pathparametersdict) | [PathParametersDict](#pathparameters-pathparametersdict) |
 
-
-#### Parameter1
-
-##### Description
-Pet id to delete
-
-##### Parameter1 Schema
-
-###### Type Info
-Input Type | Accessed Type | Description | Notes
+#### PathParameters PathParametersDictInput
+```
+type: typing.TypedDict
+```
+Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-int | int |  | value must be a 64 bit integer
+**petId** | int |  |
+
+#### PathParameters PathParametersDict
+```
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
+```
+##### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**petId** | int |  |
+
+##### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**petId** | int |  |
+
+##### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [PathParametersDictInput](#pathparameters-pathparametersdictinput), [PathParametersDict](#pathparameters-pathparametersdict) | [PathParametersDict](#pathparameters-pathparametersdict) | a constructor
 
 ## Return Types
 
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | [ResponseFor400.response_cls](#responsefor400-response_cls) | Invalid pet value
+400 | [ResponseFor400.ApiResponse](#responsefor400-apiresponse) | Invalid pet value
 
 ## ResponseFor400
 
 ### Description
 Invalid pet value
 
-### ResponseFor400 response_cls
+### ResponseFor400 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |

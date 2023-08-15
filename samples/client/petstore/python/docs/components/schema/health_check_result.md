@@ -1,18 +1,49 @@
+# HealthCheckResult
 petstore_api.components.schema.health_check_result
-# Schema HealthCheckResult
+```
+type: schemas.Schema
+```
 
 ## Description
 Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model.
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-dict, schemas.immutabledict | schemas.immutabledict | Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model. |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[HealthCheckResultDictInput](#healthcheckresultdictinput), [HealthCheckResultDict](#healthcheckresultdict) | [HealthCheckResultDict](#healthcheckresultdict) |
 
-## Dictionary Keys
-Key | Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | ------------- | -------------
-**NullableMessage** | None, str | None, str |  | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.Schema | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO | any string name can be used but the value must be the correct type | [optional]
+## HealthCheckResultDictInput
+```
+type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**NullableMessage** | None, str |  | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
+
+## HealthCheckResultDict
+```
+base class: schemas.immutabledict[str, typing.Union[
+    None,
+    str,
+]]
+
+```
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Keyword Argument | Type | Description | Notes
+---------------- | ---- | ----------- | -----
+**NullableMessage** | None, str, schemas.Unset |  | [optional]
+**kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model. | [optional] typed value is accessed with the get_additional_property_ method
+
+### properties
+Property | Type | Description | Notes
+-------- | ---- | ----------- | -----
+**NullableMessage** | None, str, schemas.Unset |  | [optional]
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+from_dict_ | [HealthCheckResultDictInput](#healthcheckresultdictinput), [HealthCheckResultDict](#healthcheckresultdict) | [HealthCheckResultDict](#healthcheckresultdict) | a constructor
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

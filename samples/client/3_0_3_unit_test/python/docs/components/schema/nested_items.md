@@ -1,50 +1,202 @@
+# NestedItems
 unit_test_api.components.schema.nested_items
-# Schema NestedItems
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[NestedItemsTupleInput](#nesteditemstupleinput), [NestedItemsTuple](#nesteditemstuple) | [NestedItemsTuple](#nesteditemstuple) |
 
-## List Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[items](#items) | list, tuple | tuple |  |
+## NestedItemsTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            ItemsTupleInput3,
+            ItemsTuple3
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            ItemsTupleInput3,
+            ItemsTuple3
+        ],
+        ...
+    ]
+]
+```
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+[ItemsTupleInput3](#itemstupleinput3), [ItemsTuple3](#itemstuple3) |  |
+
+## NestedItemsTuple
+```
+base class: typing.Tuple[
+    ItemsTuple3,
+    ...
+]
+```
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [NestedItemsTupleInput](#nesteditemstupleinput), [NestedItemsTuple](#nesteditemstuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | [ItemsTuple3](#itemstuple3) | This method is used under the hood when instance[0] is called
 
 # Items
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ItemsTupleInput3](#itemstupleinput3), [ItemsTuple3](#itemstuple3) | [ItemsTuple3](#itemstuple3) |
 
-## List Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[items](#items-items2) | list, tuple | tuple |  |
+## ItemsTupleInput3
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            ItemsTupleInput2,
+            ItemsTuple2
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            ItemsTupleInput2,
+            ItemsTuple2
+        ],
+        ...
+    ]
+]
+```
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+[ItemsTupleInput2](#itemstupleinput2), [ItemsTuple2](#itemstuple2) |  |
 
-# Items Items2
+## ItemsTuple3
+```
+base class: typing.Tuple[
+    ItemsTuple2,
+    ...
+]
+```
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ItemsTupleInput3](#itemstupleinput3), [ItemsTuple3](#itemstuple3)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | [ItemsTuple2](#itemstuple2) | This method is used under the hood when instance[0] is called
 
-## List Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-[items](#items-items2-items3) | list, tuple | tuple |  |
+# Items2
+```
+type: schemas.Schema
+```
 
-# Items Items2 Items3
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ItemsTupleInput2](#itemstupleinput2), [ItemsTuple2](#itemstuple2) | [ItemsTuple2](#itemstuple2) |
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-list, tuple | tuple |  |
+## ItemsTupleInput2
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            ItemsTupleInput,
+            ItemsTuple
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            ItemsTupleInput,
+            ItemsTuple
+        ],
+        ...
+    ]
+]
+```
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+[ItemsTupleInput](#itemstupleinput), [ItemsTuple](#itemstuple) |  |
 
-## List Items
-Class Name | Input Type | Accessed Type | Description | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-items | float, int | float, int |  |
+## ItemsTuple2
+```
+base class: typing.Tuple[
+    ItemsTuple,
+    ...
+]
+```
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ItemsTupleInput2](#itemstupleinput2), [ItemsTuple2](#itemstuple2)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | [ItemsTuple](#itemstuple) | This method is used under the hood when instance[0] is called
+
+# Items3
+```
+type: schemas.Schema
+```
+
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+[ItemsTupleInput](#itemstupleinput), [ItemsTuple](#itemstuple) | [ItemsTuple](#itemstuple) |
+
+## ItemsTupleInput
+```
+type: typing.Union[
+    typing.List[
+        typing.Union[
+            int,
+            float
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            int,
+            float
+        ],
+        ...
+    ]
+]
+```
+List/Tuple Item Type | Description | Notes
+-------------------- | ------------- | -------------
+float, int |  |
+
+## ItemsTuple
+```
+base class: typing.Tuple[
+    typing.Union[int, float],
+    ...
+]
+```
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | [ItemsTupleInput](#itemstupleinput), [ItemsTuple](#itemstuple)
+configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int | float, int | This method is used under the hood when instance[0] is called
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

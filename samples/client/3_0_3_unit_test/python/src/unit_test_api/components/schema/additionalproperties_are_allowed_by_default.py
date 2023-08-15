@@ -12,7 +12,7 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 
 Foo: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 Bar: typing_extensions.TypeAlias = schemas.AnyTypeSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "foo": typing.Type[Foo],
@@ -29,12 +29,6 @@ class AdditionalpropertiesAreAllowedByDefaultDict(schemas.immutabledict[str, sch
         "foo",
         "bar",
     })
-    @staticmethod
-    def from_dict_(
-        arg: AdditionalpropertiesAreAllowedByDefaultDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> AdditionalpropertiesAreAllowedByDefaultDict:
-        return AdditionalpropertiesAreAllowedByDefault.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -63,7 +57,16 @@ class AdditionalpropertiesAreAllowedByDefaultDict(schemas.immutabledict[str, sch
         arg_.update(kwargs)
         used_arg_ = typing.cast(AdditionalpropertiesAreAllowedByDefaultDictInput, arg_)
         return AdditionalpropertiesAreAllowedByDefault.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            AdditionalpropertiesAreAllowedByDefaultDictInput,
+            AdditionalpropertiesAreAllowedByDefaultDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> AdditionalpropertiesAreAllowedByDefaultDict:
+        return AdditionalpropertiesAreAllowedByDefault.validate(arg, configuration=configuration)
     
     @property
     def foo(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:

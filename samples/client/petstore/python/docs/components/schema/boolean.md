@@ -1,9 +1,12 @@
+# Boolean
 petstore_api.components.schema.boolean
-# Schema Boolean
+```
+type: schemas.Schema
+```
 
-## Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-bool | bool |  |
+## validate method
+Input Type | Return Type | Notes
+------------ | ------------- | -------------
+bool | bool |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

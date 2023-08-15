@@ -12,7 +12,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 Bar: typing_extensions.TypeAlias = schemas.StrSchema
 Baz: typing_extensions.TypeAlias = schemas.StrSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "bar": typing.Type[Bar],
@@ -29,12 +29,6 @@ class ReadOnlyFirstDict(schemas.immutabledict[str, str]):
         "bar",
         "baz",
     })
-    @staticmethod
-    def from_dict_(
-        arg: ReadOnlyFirstDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> ReadOnlyFirstDict:
-        return ReadOnlyFirst.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -61,7 +55,16 @@ class ReadOnlyFirstDict(schemas.immutabledict[str, str]):
         arg_.update(kwargs)
         used_arg_ = typing.cast(ReadOnlyFirstDictInput, arg_)
         return ReadOnlyFirst.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            ReadOnlyFirstDictInput,
+            ReadOnlyFirstDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ReadOnlyFirstDict:
+        return ReadOnlyFirst.validate(arg, configuration=configuration)
     
     @property
     def bar(self) -> typing.Union[str, schemas.Unset]:
