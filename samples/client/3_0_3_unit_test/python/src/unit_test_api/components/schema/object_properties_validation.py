@@ -12,7 +12,7 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 
 Foo: typing_extensions.TypeAlias = schemas.IntSchema
 Bar: typing_extensions.TypeAlias = schemas.StrSchema
-Properties = typing_extensions.TypedDict(
+Properties = typing.TypedDict(
     'Properties',
     {
         "foo": typing.Type[Foo],
@@ -29,12 +29,6 @@ class ObjectPropertiesValidationDict(schemas.immutabledict[str, schemas.OUTPUT_B
         "foo",
         "bar",
     })
-    @staticmethod
-    def from_dict_(
-        arg: ObjectPropertiesValidationDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> ObjectPropertiesValidationDict:
-        return ObjectPropertiesValidation.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -61,7 +55,16 @@ class ObjectPropertiesValidationDict(schemas.immutabledict[str, schemas.OUTPUT_B
         arg_.update(kwargs)
         used_arg_ = typing.cast(ObjectPropertiesValidationDictInput, arg_)
         return ObjectPropertiesValidation.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            ObjectPropertiesValidationDictInput,
+            ObjectPropertiesValidationDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ObjectPropertiesValidationDict:
+        return ObjectPropertiesValidation.validate(arg, configuration=configuration)
     
     @property
     def foo(self) -> typing.Union[int, schemas.Unset]:

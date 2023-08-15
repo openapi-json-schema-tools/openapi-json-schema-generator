@@ -20,7 +20,7 @@ class ArrayTypeMatchesArraysTuple(
     ]
 ):
 
-    def __new__(cls, arg: ArrayTypeMatchesArraysTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ArrayTypeMatchesArraysTupleInput, ArrayTypeMatchesArraysTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return ArrayTypeMatchesArrays.validate(arg, configuration=configuration)
 ArrayTypeMatchesArraysTupleInput = typing.Union[
     typing.List[

@@ -19,7 +19,7 @@ Key | Type |  Description | Notes
 **map_of_enum_string** | [MapOfEnumStringDictInput](#mapofenumstringdictinput), [MapOfEnumStringDict](#mapofenumstringdict) |  | [optional]
 **direct_map** | [DirectMapDictInput](#directmapdictinput), [DirectMapDict](#directmapdict) |  | [optional]
 **indirect_map** | [string_boolean_map.StringBooleanMapDictInput](../../components/schema/string_boolean_map.md#stringbooleanmapdictinput), [string_boolean_map.StringBooleanMapDict](../../components/schema/string_boolean_map.md#stringbooleanmapdict) |  | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ## MapTestDict
 ```
@@ -32,7 +32,7 @@ Keyword Argument | Type | Description | Notes
 **map_of_enum_string** | [MapOfEnumStringDictInput](#mapofenumstringdictinput), [MapOfEnumStringDict](#mapofenumstringdict), schemas.Unset |  | [optional]
 **direct_map** | [DirectMapDictInput](#directmapdictinput), [DirectMapDict](#directmapdict), schemas.Unset |  | [optional]
 **indirect_map** | [string_boolean_map.StringBooleanMapDictInput](../../components/schema/string_boolean_map.md#stringbooleanmapdictinput), [string_boolean_map.StringBooleanMapDict](../../components/schema/string_boolean_map.md#stringbooleanmapdict), schemas.Unset |  | [optional]
-**kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes
@@ -46,7 +46,7 @@ Property | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [MapTestDictInput](#maptestdictinput), [MapTestDict](#maptestdict) | [MapTestDict](#maptestdict) | a constructor
-get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
 
 # MapMapOfString
 ```

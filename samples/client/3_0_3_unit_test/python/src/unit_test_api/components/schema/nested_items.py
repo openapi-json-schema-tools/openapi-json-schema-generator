@@ -20,7 +20,7 @@ class ItemsTuple(
     ]
 ):
 
-    def __new__(cls, arg: ItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ItemsTupleInput, ItemsTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Items3.validate(arg, configuration=configuration)
 ItemsTupleInput = typing.Union[
     typing.List[
@@ -76,7 +76,7 @@ class ItemsTuple2(
     ]
 ):
 
-    def __new__(cls, arg: ItemsTupleInput2, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ItemsTupleInput2, ItemsTuple2], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Items2.validate(arg, configuration=configuration)
 ItemsTupleInput2 = typing.Union[
     typing.List[
@@ -132,7 +132,7 @@ class ItemsTuple3(
     ]
 ):
 
-    def __new__(cls, arg: ItemsTupleInput3, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[ItemsTupleInput3, ItemsTuple3], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return Items.validate(arg, configuration=configuration)
 ItemsTupleInput3 = typing.Union[
     typing.List[
@@ -188,7 +188,7 @@ class NestedItemsTuple(
     ]
 ):
 
-    def __new__(cls, arg: NestedItemsTupleInput, configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+    def __new__(cls, arg: typing.Union[NestedItemsTupleInput, NestedItemsTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
         return NestedItems.validate(arg, configuration=configuration)
 NestedItemsTupleInput = typing.Union[
     typing.List[

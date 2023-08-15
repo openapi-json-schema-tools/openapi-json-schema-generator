@@ -37,7 +37,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             None,
-            typing_extensions.Literal[
+            typing.Literal[
                 "placed",
                 "approved",
                 "delivered",
@@ -61,7 +61,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             None,
-            typing_extensions.Literal[
+            typing.Literal[
                 "placed",
                 "approved",
                 "delivered",
@@ -84,7 +84,7 @@ class BaseApi(api_client.Api):
         self,
         body: typing.Union[
             None,
-            typing_extensions.Literal[
+            typing.Literal[
                 "placed",
                 "approved",
                 "delivered",

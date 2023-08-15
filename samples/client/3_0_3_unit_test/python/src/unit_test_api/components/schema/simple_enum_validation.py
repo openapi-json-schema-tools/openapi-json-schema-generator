@@ -15,15 +15,15 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 class SimpleEnumValidationEnums:
 
     @schemas.classproperty
-    def POSITIVE_1(cls) -> typing_extensions.Literal[1]:
+    def POSITIVE_1(cls) -> typing.Literal[1]:
         return SimpleEnumValidation.validate(1)
 
     @schemas.classproperty
-    def POSITIVE_2(cls) -> typing_extensions.Literal[2]:
+    def POSITIVE_2(cls) -> typing.Literal[2]:
         return SimpleEnumValidation.validate(2)
 
     @schemas.classproperty
-    def POSITIVE_3(cls) -> typing_extensions.Literal[3]:
+    def POSITIVE_3(cls) -> typing.Literal[3]:
         return SimpleEnumValidation.validate(3)
 
 
@@ -53,30 +53,30 @@ class SimpleEnumValidation(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal[1],
+        arg: typing.Literal[1],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[1]: ...
+    ) -> typing.Literal[1]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal[2],
+        arg: typing.Literal[2],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[2]: ...
+    ) -> typing.Literal[2]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal[3],
+        arg: typing.Literal[3],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[3]: ...
+    ) -> typing.Literal[3]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: int,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[1,2,3,]: ...
+    ) -> typing.Literal[1,2,3,]: ...
     @classmethod
     def validate(
         cls,

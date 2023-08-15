@@ -23,12 +23,6 @@ class RequiredWithEscapedCharactersDict(schemas.immutabledict[str, schemas.OUTPU
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({
     })
-    @staticmethod
-    def from_dict_(
-        arg: RequiredWithEscapedCharactersDictInput,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> RequiredWithEscapedCharactersDict:
-        return RequiredWithEscapedCharacters.validate(arg, configuration=configuration)
     
     def __new__(
         cls,
@@ -41,7 +35,16 @@ class RequiredWithEscapedCharactersDict(schemas.immutabledict[str, schemas.OUTPU
         arg_.update(kwargs)
         used_arg_ = typing.cast(RequiredWithEscapedCharactersDictInput, arg_)
         return RequiredWithEscapedCharacters.validate(used_arg_, configuration=configuration_)
-
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            RequiredWithEscapedCharactersDictInput,
+            RequiredWithEscapedCharactersDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> RequiredWithEscapedCharactersDict:
+        return RequiredWithEscapedCharacters.validate(arg, configuration=configuration)
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

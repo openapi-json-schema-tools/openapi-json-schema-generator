@@ -21,7 +21,7 @@ from unit_test_api import exceptions
 from unit_test_api.servers import server_0
 
 # the server to use at each openapi document json path
-ServerInfo = typing_extensions.TypedDict(
+ServerInfo = typing.TypedDict(
     'ServerInfo',
     {
         'servers/0': server_0.Server0,
@@ -30,10 +30,10 @@ ServerInfo = typing_extensions.TypedDict(
 )
 
 
-class ServerIndexInfoRequired(typing_extensions.TypedDict):
-    servers: typing_extensions.Literal[0]
+class ServerIndexInfoRequired(typing.TypedDict):
+    servers: typing.Literal[0]
 
-ServerIndexInfoOptional = typing_extensions.TypedDict(
+ServerIndexInfoOptional = typing.TypedDict(
     'ServerIndexInfoOptional',
     {
     },
@@ -251,7 +251,7 @@ class ApiConfiguration(object):
 
     def get_server_url(
         self,
-        key_prefix: typing_extensions.Literal[
+        key_prefix: typing.Literal[
             "servers",
         ],
         index: typing.Optional[int],
@@ -269,7 +269,7 @@ class ApiConfiguration(object):
                 # fallback and use the default index
                 used_index = self.server_index_info.get("servers", 0)
         server_info_key = typing.cast(
-            typing_extensions.Literal[
+            typing.Literal[
                 "servers/0",
             ],
             f"{key_prefix}/{used_index}"

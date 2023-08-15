@@ -30,7 +30,7 @@ from unit_test_api.apis.tags.max_properties_api import MaxPropertiesApi
 from unit_test_api.apis.tags.enum_api import EnumApi
 from unit_test_api.apis.tags.max_items_api import MaxItemsApi
 
-TagToApi = typing_extensions.TypedDict(
+TagToApi = typing.TypedDict(
     'TagToApi',
     {
         "maximum": typing.Type[MaximumApi],

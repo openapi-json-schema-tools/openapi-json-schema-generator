@@ -18,7 +18,7 @@ Key | Type |  Description | Notes
 **array_of_string** | [ArrayOfStringTupleInput](#arrayofstringtupleinput), [ArrayOfStringTuple](#arrayofstringtuple) |  | [optional]
 **array_array_of_integer** | [ArrayArrayOfIntegerTupleInput](#arrayarrayofintegertupleinput), [ArrayArrayOfIntegerTuple](#arrayarrayofintegertuple) |  | [optional]
 **array_array_of_model** | [ArrayArrayOfModelTupleInput](#arrayarrayofmodeltupleinput), [ArrayArrayOfModelTuple](#arrayarrayofmodeltuple) |  | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ## ArrayTestDict
 ```
@@ -31,7 +31,7 @@ Keyword Argument | Type | Description | Notes
 **array_of_string** | [ArrayOfStringTupleInput](#arrayofstringtupleinput), [ArrayOfStringTuple](#arrayofstringtuple), schemas.Unset |  | [optional]
 **array_array_of_integer** | [ArrayArrayOfIntegerTupleInput](#arrayarrayofintegertupleinput), [ArrayArrayOfIntegerTuple](#arrayarrayofintegertuple), schemas.Unset |  | [optional]
 **array_array_of_model** | [ArrayArrayOfModelTupleInput](#arrayarrayofmodeltupleinput), [ArrayArrayOfModelTuple](#arrayarrayofmodeltuple), schemas.Unset |  | [optional]
-**kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes
@@ -44,7 +44,7 @@ Property | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [ArrayTestDictInput](#arraytestdictinput), [ArrayTestDict](#arraytestdict) | [ArrayTestDict](#arraytestdict) | a constructor
-get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
 
 # ArrayOfString
 ```

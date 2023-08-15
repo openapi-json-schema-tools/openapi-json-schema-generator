@@ -38,18 +38,18 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | success
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | success
 
 ## ResponseFor200
 
 ### Description
 success
 
-### ResponseFor200 response_cls
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | [content.application_json.schema](#responsefor200-content-applicationjson-schema) |  |
+[body](#responsefor200-body) | [array_type_matches_arrays.ArrayTypeMatchesArraysTuple](../../components/schema/array_type_matches_arrays.md#arraytypematchesarraystuple) |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body
@@ -59,11 +59,15 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
+unit_test_api.paths.response_body_post_array_type_matches_arrays_response_body_for_content_types.post.responses.response_200.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[ArrayTypeMatchesArrays](../../components/schema/array_type_matches_arrays.md) | list, tuple | tuple |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+[**array_type_matches_arrays.ArrayTypeMatchesArrays**](../../components/schema/array_type_matches_arrays.md) | [array_type_matches_arrays.ArrayTypeMatchesArraysTupleInput](../../components/schema/array_type_matches_arrays.md#arraytypematchesarraystupleinput), [array_type_matches_arrays.ArrayTypeMatchesArraysTuple](../../components/schema/array_type_matches_arrays.md#arraytypematchesarraystuple) | [array_type_matches_arrays.ArrayTypeMatchesArraysTuple](../../components/schema/array_type_matches_arrays.md#arraytypematchesarraystuple)
 
 ## Servers
 

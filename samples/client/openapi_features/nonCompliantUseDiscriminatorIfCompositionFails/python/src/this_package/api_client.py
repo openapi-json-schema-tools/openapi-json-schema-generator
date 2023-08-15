@@ -1247,7 +1247,7 @@ class Api:
             )
 
 
-class SerializedRequestBody(typing_extensions.TypedDict, total=False):
+class SerializedRequestBody(typing.TypedDict, total=False):
     body: typing.Union[str, bytes]
     fields: typing.Tuple[rest.RequestField, ...]
 

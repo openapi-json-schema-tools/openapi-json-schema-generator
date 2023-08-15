@@ -13,7 +13,7 @@
 {{> components/schemas/_enum_class }}
                 {{else}}
                     {{#eq instanceType "oneOfType" }}
-{{> components/schemas/_helper_oneof_type }}
+{{> components/schemas/_oneof_type }}
                     {{else}}
                         {{#eq instanceType "propertiesType" }}
 {{> components/schemas/_properties_type }}

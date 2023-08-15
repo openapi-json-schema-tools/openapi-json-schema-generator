@@ -15,11 +15,11 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 class EnumWithEscapedCharactersEnums:
 
     @schemas.classproperty
-    def FOO_LINE_FEED_LF_BAR(cls) -> typing_extensions.Literal["foo\nbar"]:
+    def FOO_LINE_FEED_LF_BAR(cls) -> typing.Literal["foo\nbar"]:
         return EnumWithEscapedCharacters.validate("foo\nbar")
 
     @schemas.classproperty
-    def FOO_CARRIAGE_RETURN_CR_BAR(cls) -> typing_extensions.Literal["foo\rbar"]:
+    def FOO_CARRIAGE_RETURN_CR_BAR(cls) -> typing.Literal["foo\rbar"]:
         return EnumWithEscapedCharacters.validate("foo\rbar")
 
 
@@ -47,29 +47,29 @@ class EnumWithEscapedCharacters(
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["foo\nbar"],
+        arg: typing.Literal["foo\nbar"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["foo\nbar"]: ...
+    ) -> typing.Literal["foo\nbar"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
-        arg: typing_extensions.Literal["foo\rbar"],
+        arg: typing.Literal["foo\rbar"],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["foo\rbar"]: ...
+    ) -> typing.Literal["foo\rbar"]: ...
     @typing.overload
     @classmethod
     def validate(
         cls,
         arg: str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal["foo\nbar","foo\rbar",]: ...
+    ) -> typing.Literal["foo\nbar","foo\rbar",]: ...
     @classmethod
     def validate(
         cls,
         arg,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing_extensions.Literal[
+    ) -> typing.Literal[
         "foo\nbar",
         "foo\rbar",
     ]:
@@ -77,7 +77,7 @@ class EnumWithEscapedCharacters(
             arg,
             configuration=configuration,
         )
-        return typing.cast(typing_extensions.Literal[
+        return typing.cast(typing.Literal[
                 "foo\nbar",
                 "foo\rbar",
             ],

@@ -38,18 +38,18 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 HTTP Status Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | [ResponseFor200.response_cls](#responsefor200-response_cls) | success
+200 | [ResponseFor200.ApiResponse](#responsefor200-apiresponse) | success
 
 ## ResponseFor200
 
 ### Description
 success
 
-### ResponseFor200 response_cls
+### ResponseFor200 ApiResponse
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
-[body](#responsefor200-body) | [content.application_json.schema](#responsefor200-content-applicationjson-schema) |  |
+[body](#responsefor200-body) | None |  |
 headers | Unset | headers were not defined |
 
 ### ResponseFor200 Body
@@ -59,11 +59,15 @@ Content-Type | Schema
 
 ### Body Details
 #### ResponseFor200 content ApplicationJson Schema
+unit_test_api.paths.response_body_post_null_type_matches_only_the_null_object_response_body_for_content_types.post.responses.response_200.content.application_json.schema
+```
+type: schemas.Schema
+```
 
-##### Type Info
-Ref Class | Input Type | Accessed Type | Description
---------- | ---------- | ------------- | ------------
-[NullTypeMatchesOnlyTheNullObject](../../components/schema/null_type_matches_only_the_null_object.md) | None | None |
+##### Ref Schema Info
+Ref Schema | Input Type | Output Type
+---------- | ---------- | -----------
+[**null_type_matches_only_the_null_object.NullTypeMatchesOnlyTheNullObject**](../../components/schema/null_type_matches_only_the_null_object.md) | None | None
 
 ## Servers
 

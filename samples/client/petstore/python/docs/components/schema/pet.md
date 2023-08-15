@@ -24,7 +24,7 @@ Key | Type |  Description | Notes
 **category** | [category.CategoryDictInput](../../components/schema/category.md#categorydictinput), [category.CategoryDict](../../components/schema/category.md#categorydict) |  | [optional]
 **tags** | [TagsTupleInput](#tagstupleinput), [TagsTuple](#tagstuple) |  | [optional]
 **status** | typing.Literal["available", "pending", "sold"] | pet status in the store | [optional] must be one of ["available", "pending", "sold"]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | dict, schemas.immutabledict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ## PetDict
 ```
@@ -40,7 +40,7 @@ Keyword Argument | Type | Description | Notes
 **category** | [category.CategoryDictInput](../../components/schema/category.md#categorydictinput), [category.CategoryDict](../../components/schema/category.md#categorydict), schemas.Unset |  | [optional]
 **tags** | [TagsTupleInput](#tagstupleinput), [TagsTuple](#tagstuple), schemas.Unset |  | [optional]
 **status** | typing.Literal["available", "pending", "sold"], schemas.Unset | pet status in the store | [optional] must be one of ["available", "pending", "sold"]
-**kwargs** | dict, schemas.immutabledict, list, tuple, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader | any string name can be used but the value must be the correct type Pet object that needs to be added to the store | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type Pet object that needs to be added to the store | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes
@@ -56,7 +56,7 @@ Property | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [PetDictInput](#petdictinput), [PetDict](#petdict) | [PetDict](#petdict) | a constructor
-get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bytes, bool, None, FileIO, schemas.Unset | provides type safety for additional properties
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
 
 # PhotoUrls
 ```
