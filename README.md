@@ -53,11 +53,11 @@ You can join us here: https://discord.gg/mHB8WEQuYQ
 - Endpoint response deserialization can be skipped with the skip_deserialization argument
 
 And many more!
-- [Docs for the python generator](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/docs/generators/python.md)
-- [generated client sample code](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/samples/client/petstore/python)
-  - [Openapi v3.0.3 general petstore spec, general features](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/src/test/resources/3_0/python/petstore_customized.yaml)
-- [generated client sample code](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/tree/master/samples/client/3_0_3_unit_test/python)
-  - [Openapi json schema v3.0.3 unit test spec](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/master/src/test/resources/3_0/unit_test_spec/3_0_3_unit_test_spec.yaml)
+- [Docs for the python generator](docs/generators/python.md)
+- [generated client sample code](samples/client/petstore/python)
+  - [Openapi v3.0.3 general petstore spec, general features](src/test/resources/3_0/python/petstore_customized.yaml)
+- [generated client sample code](samples/client/3_0_3_unit_test/python)
+  - [Openapi json schema v3.0.3 unit test spec](src/test/resources/3_0/unit_test_spec/3_0_3_unit_test_spec.yaml)
 
 ### Can I build here?
 
@@ -286,7 +286,7 @@ OPTIONS
 
 You can then use the auto-generated client. The README.md is a good starting point.
 
-Other generators have [samples](https://github.com/OpenAPITools/openapi-json-schema-generator/tree/master/samples) too.
+Other generators have [samples](samples) too.
 
 ### Customization
 
