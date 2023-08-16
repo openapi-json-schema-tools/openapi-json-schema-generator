@@ -468,6 +468,7 @@ docs/paths/response_body_post_uri_template_format_response_body_for_content_type
 docs/servers/server_0.md
 git_push.sh
 migration_2_0_0.md
+migration_3_0_0.md
 migration_other_python_generators.md
 pyproject.toml
 src/unit_test_api/__init__.py
