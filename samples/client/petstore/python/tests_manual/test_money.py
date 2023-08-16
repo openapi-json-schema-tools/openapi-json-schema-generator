@@ -12,7 +12,7 @@ import decimal
 import unittest
 
 from petstore_api import schemas
-from petstore_api.components.schema.money import Money
+from petstore_api.components.schema import money
 
 
 class TestMoney(unittest.TestCase):
@@ -20,7 +20,7 @@ class TestMoney(unittest.TestCase):
 
     def test_Money(self):
         """Test Money"""
-        price = Money.validate({
+        price = money.Money.validate({
             'currency': 'usd',
             'amount': '10.99'
         })
