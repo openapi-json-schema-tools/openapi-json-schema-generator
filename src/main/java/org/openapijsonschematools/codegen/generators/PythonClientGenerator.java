@@ -845,14 +845,15 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
                 "- endpoint parameter names use the spec defined keys and cases",
                 "- inline schemas are supported at any location including composition",
                 "- multiple content types supported in request body and response bodies",
-                "- run time type checking",
+                "- run time type checking + json schema validation",
+                "- json schema keyword validation may be selectively disabled with SchemaConfiguration",
+                "- enums of type string/integer/boolean typed using typing.Literal",
+                "- mypy static type checking run on generated sample",
                 "- Sending/receiving decimals as strings supported with type:string format: number -> DecimalSchema",
                 "- Sending/receiving uuids as strings supported with type:string format: uuid -> UUIDSchema",
                 "- quicker load time for python modules (a single endpoint can be imported and used without loading others)",
-                "- all instances of schemas dynamically inherit from all matching schemas so one can use isinstance to check if validation passed",
                 "- composed schemas with type constraints supported (type:object + oneOf/anyOf/allOf)",
-                "- schemas are not coerced/cast. For example string + date are both stored as string, and there is a date accessor",
-                "    - Exceptions: int/float is stored as Decimal, When receiving data from headers it will start as str and may need to be cast for example to int");
+                "- schemas are not coerced/cast. For example string + date are both stored as string, and there is a date accessor");
     }
 
     public String pythonDate(Object dateValue) {
@@ -963,7 +964,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         CodegenSchema cp = super.fromSchema(p, sourceJsonPath, currentJsonPath);
         if (cp.types != null && cp.types.contains("integer") && cp.format == null) {
             // this generator treats integers as type number
-            // this is done so type int + float has the same base class (decimal.Decimal)
             // so integer validation info must be set using formatting
             cp.format = "int";
         }
