@@ -7,27 +7,28 @@ DEACTIVE=false
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-### set virtualenv
+# set virtualenv
 if [ -z "$VENVV" ]; then
 		python3 -m venv $VENV
 		source $VENV/bin/activate
     DEACTIVE=true
 fi
 
-### install dependencies
+# install dependencies
 pip install tox
-### locally install the package, needed for pycharm problem checking
+# locally install the package, needed for pycharm problem checking
 python -m pip install .
 
-### run tests
+# run tests
 tox || exit 1
 pip install mypy
+# run mypy, static type checking
 mypy src/petstore_api
 
-### static analysis of code
+# static analysis of code
 #flake8 --show-source petstore_api/
 
-### deactivate virtualenv
+# deactivate virtualenv
 #if [ $DEACTIVE == true ]; then
 #    deactivate
 #fi
