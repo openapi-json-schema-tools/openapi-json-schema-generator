@@ -238,6 +238,7 @@ public class CodegenSchema {
         additionalProperties
         allOf
         anyOf
+        contains
         items
         not
         oneOf
@@ -281,6 +282,9 @@ public class CodegenSchema {
             } else {
                 schemasAfterImports.add(extraSchema);
             }
+        }
+        if (contains != null) {
+            contains.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
         }
         if (enumInfo != null) {
             // write the class as a separate entity so enum values do not collide with
