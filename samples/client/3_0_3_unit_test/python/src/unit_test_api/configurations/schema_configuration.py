@@ -16,6 +16,7 @@ PYTHON_KEYWORD_TO_JSON_SCHEMA_KEYWORD = {
     'additional_properties': 'additionalProperties',
     'all_of': 'allOf',
     'any_of': 'anyOf',
+    'contains': 'contains',
     'discriminator': 'discriminator',
     # default omitted because it has no validation impact
     'enum_value_to_name': 'enum',

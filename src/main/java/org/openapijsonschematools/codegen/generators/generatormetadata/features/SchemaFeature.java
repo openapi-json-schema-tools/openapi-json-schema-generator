@@ -16,8 +16,8 @@
 
 package org.openapijsonschematools.codegen.generators.generatormetadata.features;
 
-import org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations.OAS3;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations.OAS2;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.annotations.OAS3;
 
 /**
  * Defines special circumstances handled by the generator.
@@ -39,6 +39,9 @@ public enum SchemaFeature {
      */
     @OAS3
     AnyOf,
+
+    @OAS3
+    Contains,
 
     @OAS2 @OAS3
     Default,
