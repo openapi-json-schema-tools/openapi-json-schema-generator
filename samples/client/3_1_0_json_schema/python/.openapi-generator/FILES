@@ -1,6 +1,5 @@
 .gitignore
 .gitlab-ci.yml
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/apis/tags/default_api.md
@@ -65,8 +64,6 @@ test-requirements.txt
 test/__init__.py
 test/components/__init__.py
 test/components/schema/__init__.py
-test/components/schema/test_any_type_contains_value.py
-test/components/schema/test_array_contains_value.py
 test/test_paths/__init__.py
 test/test_paths/test_some_path/__init__.py
 test/test_paths/test_some_path/test_get.py
