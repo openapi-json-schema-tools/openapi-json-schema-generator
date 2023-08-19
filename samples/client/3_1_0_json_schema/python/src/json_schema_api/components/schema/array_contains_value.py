@@ -21,6 +21,8 @@ class ArrayContainsValue(
 
     Do not edit the class manually.
     """
+    types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+    contains: typing.Type[Contains] = dataclasses.field(default_factory=lambda: Contains) # type: ignore
 
     @classmethod
     def validate(

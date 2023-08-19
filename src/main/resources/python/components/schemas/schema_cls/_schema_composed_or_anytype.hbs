@@ -37,6 +37,9 @@ class {{jsonPathPiece.camelCase}}(
 {{#if items}}
     {{> components/schemas/schema_cls/_list_partial }}
 {{/if}}
+{{#if contains}}
+    {{> components/schemas/schema_cls/_contains_partial }}
+{{/if}}
 {{#or additionalProperties requiredProperties hasDiscriminatorWithNonEmptyMapping properties}}
     {{> components/schemas/schema_cls/_dict_partial }}
 {{/or}}

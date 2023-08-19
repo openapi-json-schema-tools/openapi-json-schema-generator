@@ -22,4 +22,5 @@ class AnyTypeContainsValue(
     Do not edit the class manually.
     """
     # any type
+    contains: typing.Type[Contains] = dataclasses.field(default_factory=lambda: Contains) # type: ignore
 
