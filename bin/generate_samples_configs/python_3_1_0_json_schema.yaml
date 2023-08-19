@@ -1,0 +1,5 @@
+generatorName: python
+outputDir: samples/client/3_1_0_json_schema/python
+inputSpec: src/test/resources/3_1/json_schema.yaml
+additionalProperties:
+  packageName: json_schema_api

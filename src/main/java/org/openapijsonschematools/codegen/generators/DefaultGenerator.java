@@ -28,6 +28,7 @@ import com.samskivert.mustache.Mustache.Lambda;
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.Paths;
+import io.swagger.v3.oas.models.SpecVersion;
 import io.swagger.v3.oas.models.security.OAuthFlow;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import org.apache.commons.text.StringEscapeUtils;
@@ -445,7 +446,7 @@ public class DefaultGenerator implements Generator {
             this.setEnumUnknownDefaultCase(Boolean.parseBoolean(additionalProperties
                     .get(CodegenConstants.ENUM_UNKNOWN_DEFAULT_CASE).toString()));
         }
-        requiredAddPropUnsetSchema = fromSchema(new Schema(), null, null);
+        requiredAddPropUnsetSchema = fromSchema(new JsonSchema(), null, null);
 
     }
 
@@ -2186,26 +2187,26 @@ public class DefaultGenerator implements Generator {
         }
         if (schema.getTypes() != null) {
             // NoneFrozenDictTupleStrDecimalBoolFileBytes
-            if (types.contains("null")) {
-                types.add("null");
-            }
-            if (types.contains("object")) {
-                types.add("object");
-            }
-            if (types.contains("array")) {
-                types.add("array");
-            }
-            if (types.contains("string")) {
-                types.add("string");
-            }
-            if (types.contains("number")) {
-                types.add("number");
-            }
-            if (types.contains("integer")) {
-                types.add("integer");
-            }
-            if (types.contains("boolean")) {
-                types.add("boolean");
+            for (Object typeObj: schema.getTypes()) {
+                String type = typeObj.toString();
+                switch (type) {
+                    case "null":  types.add("null");
+                        break;
+                    case "object":  types.add("object");
+                        break;
+                    case "array":  types.add("array");
+                        break;
+                    case "string":  types.add("string");
+                        break;
+                    case "number":  types.add("number");
+                        break;
+                    case "integer": types.add("integer");
+                        break;
+                    case "boolean":  types.add("boolean");
+                        break;
+                    default:
+                        break;
+                }
             }
             // the above order used so mixins will stay the same
         }
@@ -2266,8 +2267,10 @@ public class DefaultGenerator implements Generator {
                 assert generatorMetadata != null;
                 addImports(property.imports, getImports(property, generatorMetadata.getFeatureSet()));
             }
-            // TODO with 3.1.0 schemas continue processing
-            return property;
+            if (p.getSpecVersion().compareTo(SpecVersion.V31) < 0) {
+                //  stop processing if version is less than 3.1.0
+                return property;
+            }
         }
 
         if (p.equals(trueSchema)) {
@@ -2293,6 +2296,7 @@ public class DefaultGenerator implements Generator {
         oneOf
         not
         items
+        contains
         anyOf
         allOf
         additionalProperties
@@ -2315,6 +2319,9 @@ public class DefaultGenerator implements Generator {
                     p.getItems(), sourceJsonPath, currentJsonPath + "/items");
         }
         property.enumInfo = getEnumInfo(p, currentJsonPath, sourceJsonPath, property.types);
+        if (p.getContains() != null) {
+            property.contains = fromSchema(p.getContains(), sourceJsonPath, currentJsonPath + "/contains");
+        }
         List<Schema> anyOfs = ((Schema<?>) p).getAnyOf();
         if (anyOfs != null && !anyOfs.isEmpty()) {
             property.anyOf = getComposedProperties(anyOfs, "anyOf", sourceJsonPath, currentJsonPath);

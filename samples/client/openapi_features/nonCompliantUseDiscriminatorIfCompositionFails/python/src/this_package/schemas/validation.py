@@ -1033,6 +1033,42 @@ def validate_discriminator(
     return discriminated_cls._validate(arg, validation_metadata=updated_vm)
 
 
+def validate_contains(
+    arg: typing.Any,
+    contains_cls: typing.Type[SchemaValidator],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+    **kwargs
+) -> typing.Optional[PathToSchemasType]:
+    if not isinstance(arg, tuple):
+        return None
+    contains_cls = _get_class(contains_cls)
+    path_to_schemas: PathToSchemasType = {}
+    array_contains_item = False
+    for i, value in enumerate(arg):
+        item_validation_metadata = ValidationMetadata(
+            path_to_item=validation_metadata.path_to_item+(i,),
+            configuration=validation_metadata.configuration,
+            validated_path_to_schemas=validation_metadata.validated_path_to_schemas
+        )
+        if item_validation_metadata.validation_ran_earlier(contains_cls):
+            add_deeper_validated_schemas(item_validation_metadata, path_to_schemas)
+            return path_to_schemas
+        try:
+            other_path_to_schemas = contains_cls._validate(
+                value, validation_metadata=item_validation_metadata)
+            update(path_to_schemas, other_path_to_schemas)
+            return path_to_schemas
+        except exceptions.OpenApiException:
+            pass
+    if not array_contains_item:
+        raise exceptions.ApiValueError(
+            "Validation failed for contains keyword in class={} at path_to_item={}. No "
+            "items validated to the contains schema.".format(cls, validation_metadata.path_to_item)
+        )
+    return path_to_schemas
+
+
 validator_type = typing.Callable[[typing.Any, typing.Any, type, ValidationMetadata], typing.Optional[PathToSchemasType]]
 json_schema_keyword_to_validator: typing.Mapping[str, validator_type] = {
     'types': validate_types,
@@ -1059,5 +1095,6 @@ json_schema_keyword_to_validator: typing.Mapping[str, validator_type] = {
     'any_of': validate_any_of,
     'all_of': validate_all_of,
     'not_': validate_not,
-    'discriminator': validate_discriminator
+    'discriminator': validate_discriminator,
+    'contains': validate_contains
 }

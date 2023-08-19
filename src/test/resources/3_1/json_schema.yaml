@@ -1,0 +1,33 @@
+# OAS document that uses 3.1 features:
+# 'null' type
+# type array
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Example
+  license:
+    name: MIT
+    identifier: MIT
+servers:
+  - url: http://api.example.xyz/v1
+paths:
+  /somePath:
+    get:
+      operationId: getSomePath
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema: {}
+components:
+  schemas:
+    ArrayContainsValue:
+      type: array
+      contains:
+        enum:
+          - 1
+    AnyTypeContainsValue:
+      contains:
+        enum:
+          - 1

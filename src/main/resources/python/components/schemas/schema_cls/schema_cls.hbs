@@ -5,7 +5,7 @@
 {{> components/schemas/schema_cls/_schema_composed_or_anytype }}
     {{else}}
         {{#eq types null }}
-            {{#or enumInfo hasValidation items properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties format}}
+            {{#or enumInfo hasValidation items properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties format contains}}
 {{> components/schemas/schema_cls/_schema_composed_or_anytype }}
             {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
@@ -23,7 +23,7 @@
                         {{/or}}
                     {{else}}
                         {{#eq this "array"}}
-                            {{#or items hasValidation}}
+                            {{#or items hasValidation contains}}
 {{> components/schemas/schema_cls/_schema_list }}
                             {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
