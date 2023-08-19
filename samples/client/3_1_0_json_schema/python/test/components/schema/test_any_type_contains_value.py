@@ -18,6 +18,18 @@ class TestAnyTypeContainsValue(unittest.TestCase):
     """AnyTypeContainsValue unit test stubs"""
     configuration = schema_configuration.SchemaConfiguration()
 
+    def test_contains_success_single(self):
+        inst = AnyTypeContainsValue.validate((1,))
+        assert inst == (1,)
+
+    def test_contains_success_multiple(self):
+        inst = AnyTypeContainsValue.validate((2, 1, 1))
+        assert inst == (2, 1, 1)
+
+    def test_contains_failure(self):
+        with self.assertRaises(json_schema_api.ApiValueError):
+            AnyTypeContainsValue.validate((2,))
+
 
 if __name__ == '__main__':
     unittest.main()

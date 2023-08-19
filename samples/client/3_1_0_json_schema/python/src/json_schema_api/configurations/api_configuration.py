@@ -66,7 +66,7 @@ class ApiConfiguration(object):
         """Constructor
         """
         # Authentication Settings
-        self.security_scheme_info = {}
+        self.security_scheme_info: typing.Dict[str, typing.Any] = {}
         self.security_index_info = {'security': 0}
         # Server Info
         self.server_info: ServerInfo = server_info or {

@@ -973,13 +973,16 @@ def validate_contains(
             configuration=validation_metadata.configuration,
             validated_path_to_schemas=validation_metadata.validated_path_to_schemas
         )
-        if item_validation_metadata.validation_ran_earlier(item_cls):
+        if item_validation_metadata.validation_ran_earlier(contains_cls):
             add_deeper_validated_schemas(item_validation_metadata, path_to_schemas)
             return path_to_schemas
-        other_path_to_schemas = item_cls._validate(
-            value, validation_metadata=item_validation_metadata)
-        update(path_to_schemas, other_path_to_schemas)
-        return path_to_schemas
+        try:
+            other_path_to_schemas = contains_cls._validate(
+                value, validation_metadata=item_validation_metadata)
+            update(path_to_schemas, other_path_to_schemas)
+            return path_to_schemas
+        except exceptions.OpenApiException:
+            pass
     if not array_contains_item:
         raise exceptions.ApiValueError(
             "Validation failed for contains keyword in class={} at path_to_item={}. No "

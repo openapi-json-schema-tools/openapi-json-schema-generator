@@ -40,7 +40,7 @@ def validate(
 @classmethod
 def validate(
     {{> components/schemas/schema_cls/validate/_validate_args }}
-) -> {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCase}}{{else}}typing.Tuple[schemas.OUTPUT_BASE_TYPES]{{/if}}: ...
+) -> {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCase}}{{else}}typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]{{/if}}: ...
                                     {{else}}
                                         {{#eq this "object"}}
 @typing.overload
@@ -139,7 +139,7 @@ def validate(
                                         {{#if arrayOutputJsonPathPiece}}
 ) -> {{arrayOutputJsonPathPiece.camelCase}}:
                                         {{else}}
-) -> typing.Tuple[schemas.OUTPUT_BASE_TYPES]:
+) -> typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]:
                                         {{/if}}
                                     {{/eq}}
                                 {{/eq}}

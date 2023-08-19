@@ -81,7 +81,7 @@ class ArrayContainsValue(
             typing.Tuple[schemas.INPUT_TYPES_ALL, ...],
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> typing.Tuple[schemas.OUTPUT_BASE_TYPES]:
+    ) -> typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]:
         return super().validate_base(
             arg,
             configuration=configuration,
