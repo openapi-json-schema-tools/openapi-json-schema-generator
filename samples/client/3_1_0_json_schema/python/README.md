@@ -174,7 +174,11 @@ HTTP request | Method | Description
 Class | Description
 ----- | ------------
 [AnyTypeContainsValue](docs/components/schema/any_type_contains_value.md) |
+[AnyTypeMaxContainsValue](docs/components/schema/any_type_max_contains_value.md) |
+[AnyTypeMinContainsValue](docs/components/schema/any_type_min_contains_value.md) |
 [ArrayContainsValue](docs/components/schema/array_contains_value.md) |
+[ArrayMaxContainsValue](docs/components/schema/array_max_contains_value.md) |
+[ArrayMinContainsValue](docs/components/schema/array_min_contains_value.md) |
 
 ## Notes for Large OpenAPI documents
 If the OpenAPI document is large, imports in json_schema_api.apis.tags.tag_to_api and json_schema_api.components.schemas may fail with a

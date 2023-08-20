@@ -20,7 +20,7 @@ class {{jsonPathPiece.camelCase}}(
     {{#if hasValidation}}
     {{> components/schemas/schema_cls/_validations }}
     {{/if}}
-    {{> components/schemas/schema_cls/_list_partial }}
+    {{> components/schemas/schema_cls/_items }}
     {{> components/schemas/schema_cls/_contains_partial }}
     {{#if arrayOutputJsonPathPiece}}
     type_to_output_cls: typing.Mapping[

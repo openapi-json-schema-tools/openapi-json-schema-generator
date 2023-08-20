@@ -31,3 +31,25 @@ components:
       contains:
         enum:
           - 1
+    ArrayMaxContainsValue:
+      type: array
+      contains:
+        enum:
+          - 1
+      maxContains: 2
+    AnyTypeMaxContainsValue:
+      contains:
+        enum:
+          - 1
+      maxContains: 2
+    ArrayMinContainsValue:
+      type: array
+      contains:
+        enum:
+          - 1
+      minContains: 3
+    AnyTypeMinContainsValue:
+      contains:
+        enum:
+          - 1
+      minContains: 3

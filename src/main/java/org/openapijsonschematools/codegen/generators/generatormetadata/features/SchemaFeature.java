@@ -64,6 +64,9 @@ public enum SchemaFeature {
     @OAS2 @OAS3
     Items,
 
+    @OAS3
+    MaxContains,
+
     @OAS2 @OAS3
     MaxItems,
 
@@ -75,6 +78,9 @@ public enum SchemaFeature {
 
     @OAS2 @OAS3
     Maximum,
+
+    @OAS3
+    MinContains,
 
     @OAS2 @OAS3
     MinItems,
