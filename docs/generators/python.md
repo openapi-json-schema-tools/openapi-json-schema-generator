@@ -235,10 +235,12 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |ExclusiveMaximum|✓|OAS2,OAS3
 |Format|✓|OAS2,OAS3
 |Items|✓|OAS2,OAS3
+|MaxContains|✓|OAS3
 |MaxItems|✓|OAS2,OAS3
 |MaxLength|✓|OAS2,OAS3
 |MaxProperties|✓|OAS2,OAS3
 |Maximum|✓|OAS2,OAS3
+|MinContains|✓|OAS3
 |MinItems|✓|OAS2,OAS3
 |MinLength|✓|OAS2,OAS3
 |MinProperties|✓|OAS2,OAS3
