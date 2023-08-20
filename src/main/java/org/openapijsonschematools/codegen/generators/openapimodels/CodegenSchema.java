@@ -76,6 +76,8 @@ public class CodegenSchema {
     // 3.1.0
     public LinkedHashSet<String> types;
     public CodegenSchema contains;
+    public Integer minContains;
+    public Integer maxContains;
     public LinkedHashMap<String, List<String>> dependentRequired;
     public boolean isBooleanSchemaTrue;  // supports boolean schemas
     public boolean isBooleanSchemaFalse;  // supports boolean schemas

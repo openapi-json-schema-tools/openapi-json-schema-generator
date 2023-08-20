@@ -2284,6 +2284,8 @@ public class DefaultGenerator implements Generator {
         ModelUtils.syncValidationProperties(p, property);
         property.format = p.getFormat();
         property.externalDocumentation = p.getExternalDocs();
+        property.maxContains = p.getMaxContains();
+        property.minContains = p.getMaxContains();
 
         /*
          Order of assigning properties must reverse the order in
