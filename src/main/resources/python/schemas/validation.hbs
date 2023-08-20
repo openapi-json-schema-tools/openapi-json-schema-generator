@@ -105,13 +105,14 @@ class SchemaValidator:
             }
 {{/if}}
         contains_qty = 0
+        path_to_schemas: PathToSchemasType = {}
         if 'contains' in vars(cls_schema):
             contains_qty = _get_contains_qty(
                 arg,
                 json_schema_data['contains'],
-                validation_metadata
+                validation_metadata,
+                path_to_schemas
             )
-        path_to_schemas: PathToSchemasType = {}
         for keyword, val in json_schema_data.items():
             used_val = (val, contains_qty) if keyword in {'contains', 'min_contains', 'max_contains'} else val
             validator = json_schema_keyword_to_validator[keyword]
@@ -1109,11 +1110,12 @@ def _get_contains_qty(
     arg: typing.Any,
     contains_cls: typing.Type[SchemaValidator],
     validation_metadata: ValidationMetadata,
+    path_to_schemas: PathToSchemasType
 ) -> int:
     if not isinstance(arg, tuple):
-        return None
+        return 0
     contains_cls = _get_class(contains_cls)
-    path_to_schemas: PathToSchemasType = {}
+    these_path_to_schemas: PathToSchemasType = {}
     contains_qty = 0
     for i, value in enumerate(arg):
         item_validation_metadata = ValidationMetadata(
@@ -1128,10 +1130,12 @@ def _get_contains_qty(
         try:
             other_path_to_schemas = contains_cls._validate(
                 value, validation_metadata=item_validation_metadata)
-            update(path_to_schemas, other_path_to_schemas)
+            update(these_path_to_schemas, other_path_to_schemas)
             contains_qty += 1
         except exceptions.OpenApiException:
             pass
+    if contains_qty:
+        update(path_to_schemas, these_path_to_schemas)
     return contains_qty
 
 
@@ -1151,7 +1155,7 @@ def validate_contains(
             "Validation failed for contains keyword in class={} at path_to_item={}. No "
             "items validated to the contains schema.".format(cls, validation_metadata.path_to_item)
         )
-    return path_to_schemas
+    return None
 
 
 def validate_min_contains(
@@ -1172,10 +1176,10 @@ def validate_min_contains(
             "Validation failed for minContains keyword in class={} at path_to_item={}. No "
             "items validated to the contains schema.".format(cls, validation_metadata.path_to_item)
         )
-    return path_to_schemas
+    return None
 
 
-def validate_min_contains(
+def validate_max_contains(
     arg: typing.Any,
     max_contains_and_qty: typing.Tuple[int, int],
     cls: typing.Type,
@@ -1190,10 +1194,10 @@ def validate_min_contains(
     contains_qty = max_contains_and_qty[1]
     if not contains_qty or contains_qty > max_contains:
         raise exceptions.ApiValueError(
-            "Validation failed for axContains keyword in class={} at path_to_item={}. Too "
+            "Validation failed for maxContains keyword in class={} at path_to_item={}. Too "
             "many items validated to the contains schema.".format(cls, validation_metadata.path_to_item)
         )
-    return path_to_schemas
+    return None
 
 
 validator_type = typing.Callable[[typing.Any, typing.Any, type, ValidationMetadata], typing.Optional[PathToSchemasType]]

@@ -35,7 +35,7 @@ class {{jsonPathPiece.camelCase}}(
     enums = {{enumInfo.jsonPathPiece.camelCase}}
 {{/if}}
 {{#if items}}
-    {{> components/schemas/schema_cls/_list_partial }}
+    {{> components/schemas/schema_cls/_items }}
 {{/if}}
 {{#if contains}}
     {{> components/schemas/schema_cls/_contains_partial }}

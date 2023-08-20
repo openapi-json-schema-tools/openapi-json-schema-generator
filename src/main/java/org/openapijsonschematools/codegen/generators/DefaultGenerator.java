@@ -2285,7 +2285,7 @@ public class DefaultGenerator implements Generator {
         property.format = p.getFormat();
         property.externalDocumentation = p.getExternalDocs();
         property.maxContains = p.getMaxContains();
-        property.minContains = p.getMaxContains();
+        property.minContains = p.getMinContains();
 
         /*
          Order of assigning properties must reverse the order in
