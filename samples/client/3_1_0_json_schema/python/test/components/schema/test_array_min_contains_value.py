@@ -18,6 +18,18 @@ class TestArrayMinContainsValue(unittest.TestCase):
     """ArrayMinContainsValue unit test stubs"""
     configuration = schema_configuration.SchemaConfiguration()
 
+    def test_min_contains_success_at_min(self):
+        inst = ArrayMinContainsValue.validate((1, 1, 1))
+        assert inst == (1, 1, 1)
+
+    def test_min_contains_success_over_min(self):
+        inst = ArrayMinContainsValue.validate((1, 1, 1, 1))
+        assert inst == (1, 1, 1, 1)
+
+    def test_min_contains_failure(self):
+        with self.assertRaises(json_schema_api.ApiValueError):
+            ArrayMinContainsValue.validate((1, 1))
+
 
 if __name__ == '__main__':
     unittest.main()

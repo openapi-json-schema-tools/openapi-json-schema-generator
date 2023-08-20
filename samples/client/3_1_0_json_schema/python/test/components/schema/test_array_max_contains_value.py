@@ -18,6 +18,18 @@ class TestArrayMaxContainsValue(unittest.TestCase):
     """ArrayMaxContainsValue unit test stubs"""
     configuration = schema_configuration.SchemaConfiguration()
 
+    def test_max_contains_success_under_max(self):
+        inst = ArrayMaxContainsValue.validate((1,))
+        assert inst == (1,)
+
+    def test_max_contains_success_at_max(self):
+        inst = ArrayMaxContainsValue.validate((2, 1, 1))
+        assert inst == (2, 1, 1)
+
+    def test_max_contains_failure(self):
+        with self.assertRaises(json_schema_api.ApiValueError):
+            ArrayMaxContainsValue.validate((2, 1, 1, 1))
+
 
 if __name__ == '__main__':
     unittest.main()
