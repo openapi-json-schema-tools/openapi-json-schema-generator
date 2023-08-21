@@ -37,3 +37,28 @@ class StringConstString(
         }
     )
     const = StringConstStringConst
+
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Literal["someVal"],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal["someVal"]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal["someVal",]: ...
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> str:
+        return super().validate_base(
+            arg,
+            configuration=configuration,
+        )
