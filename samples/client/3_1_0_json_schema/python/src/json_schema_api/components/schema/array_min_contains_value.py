@@ -34,6 +34,20 @@ class Contains(
     )
     enums = ContainsEnums
 
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Literal[1],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal[1]: ...
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: int,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> typing.Literal[1,]: ...
     @classmethod
     def validate(
         cls,

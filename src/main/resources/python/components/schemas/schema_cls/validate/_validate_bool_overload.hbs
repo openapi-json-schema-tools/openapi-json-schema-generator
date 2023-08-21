@@ -60,8 +60,15 @@ def validate(
             {{/if}}
         {{/if}}
     {{else}}
-{{> components/schemas/schema_cls/validate/_validate_bool_overload_no_enum }}
+        {{! no enum }}
+        {{#if includeNonEnum}}
+@typing.overload
+@classmethod
+def validate(
+    cls,
+    arg: bool,
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+) -> bool: ...
+        {{/if}}
     {{/if}}
-{{else}}
-{{> components/schemas/schema_cls/validate/_validate_bool_overload_no_enum }}
 {{/if}}

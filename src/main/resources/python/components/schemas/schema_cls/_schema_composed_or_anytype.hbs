@@ -79,13 +79,14 @@ class {{jsonPathPiece.camelCase}}(
     {{> components/schemas/schema_cls/validate/validate }}
 
             {{else}}
-                {{#if enumInfo}}
+                {{#or enumInfo constInfo}}
     {{> components/schemas/schema_cls/validate/validate }}
 
-                {{/if}}
+                {{/or}}
             {{/contains}}
         {{/contains}}
     {{else}}
+        {{! more than one type }}
     {{> components/schemas/schema_cls/validate/validate }}
 
     {{/eq}}
