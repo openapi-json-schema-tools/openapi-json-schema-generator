@@ -58,7 +58,12 @@ class StringConstString(
         arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> str:
-        return super().validate_base(
+        validated_arg = super().validate_base(
             arg,
             configuration=configuration,
+        )
+        return typing.cast(typing.Literal[
+                "someVal",
+            ],
+            validated_arg
         )
