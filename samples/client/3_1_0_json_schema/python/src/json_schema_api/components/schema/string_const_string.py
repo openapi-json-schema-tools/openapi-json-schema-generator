@@ -28,3 +28,12 @@ class StringConstString(
 
     Do not edit the class manually.
     """
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        str,
+    })
+    const_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
+        default_factory=lambda: {
+            "someVal": "SOME_VAL",
+        }
+    )
+    const = StringConstStringConst
