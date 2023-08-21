@@ -13,15 +13,7 @@ def validate(
                 {{/if}}
             {{else}}
                 {{#eq this "boolean"}}
-                    {{#if ../constInfo}}
-{{> components/schemas/schema_cls/validate/_validate_bool_overload includeNonEnum=true enumInfo=../constInfo }}
-                    {{else}}
-                        {{#if ../enumInfo}}
-{{> components/schemas/schema_cls/validate/_validate_bool_overload includeNonEnum=true enumInfo=../enumInfo }}
-                        {{else}}
-{{> components/schemas/schema_cls/validate/_validate_bool_overload includeNonEnum=true }}
-                        {{/if}}
-                    {{/if}}
+{{> components/schemas/schema_cls/validate/_validate_bool_overload includeNonEnum=true enumInfo=../enumInfo constInfo=../constInfo }}
                 {{else}}
                     {{#eq this "null"}}
 @typing.overload
@@ -41,7 +33,7 @@ def validate(
 ) -> typing.Union[int, float]: ...
                             {{else}}
                                 {{#eq this "integer"}}
-{{> components/schemas/schema_cls/validate/_validate_int_overload includeNonEnum=true enumInfo=../enumInfo }}
+{{> components/schemas/schema_cls/validate/_validate_int_overload includeNonEnum=true enumInfo=../enumInfo constInfo=../constInfo }}
                                 {{else}}
                                     {{#eq this "array"}}
 @typing.overload

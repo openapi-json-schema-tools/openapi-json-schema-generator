@@ -1,6 +1,6 @@
-{{#if enumInfo}}
-    {{#if enumInfo.typeToValues.integer}}
-        {{#each enumInfo.typeToValues.integer}}
+{{#if constInfo}}
+    {{#if constInfo.typeToValues.integer}}
+        {{#each constInfo.typeToValues.integer}}
 @typing.overload
 @classmethod
 def validate(
@@ -15,7 +15,7 @@ def validate(
     cls,
     arg: int,
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-) -> typing.Literal[{{#each enumInfo.typeToValues.integer}}{{value}},{{/each}}]: ...
+) -> typing.Literal[{{#each constInfo.typeToValues.integer}}{{value}},{{/each}}]: ...
     {{else}}
         {{! enum is not int type }}
         {{#if includeNonEnum}}
@@ -29,8 +29,27 @@ def validate(
         {{/if}}
     {{/if}}
 {{else}}
-    {{! no enum }}
-    {{#if includeNonEnum}}
+    {{#if enumInfo}}
+        {{#if enumInfo.typeToValues.integer}}
+            {{#each enumInfo.typeToValues.integer}}
+@typing.overload
+@classmethod
+def validate(
+    cls,
+    arg: typing.Literal[{{value}}],
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+) -> typing.Literal[{{value}}]: ...
+            {{/each}}
+@typing.overload
+@classmethod
+def validate(
+    cls,
+    arg: int,
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+) -> typing.Literal[{{#each enumInfo.typeToValues.integer}}{{value}},{{/each}}]: ...
+        {{else}}
+            {{! enum is not int type }}
+            {{#if includeNonEnum}}
 @typing.overload
 @classmethod
 def validate(
@@ -38,5 +57,11 @@ def validate(
     arg: int,
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
 ) -> int: ...
+            {{/if}}
+        {{/if}}
+    {{else}}
+{{> components/schemas/schema_cls/validate/_validate_int_overload_no_enum }}
     {{/if}}
+{{else}}
+{{> components/schemas/schema_cls/validate/_validate_int_overload_no_enum }}
 {{/if}}
