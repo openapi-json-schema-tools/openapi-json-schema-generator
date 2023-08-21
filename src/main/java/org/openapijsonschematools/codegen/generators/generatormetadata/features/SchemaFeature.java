@@ -41,6 +41,9 @@ public enum SchemaFeature {
     AnyOf,
 
     @OAS3
+    Const,
+
+    @OAS3
     Contains,
 
     @OAS2 @OAS3
