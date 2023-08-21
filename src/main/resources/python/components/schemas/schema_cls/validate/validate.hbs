@@ -109,42 +109,66 @@ def validate(
                 {{/if}}
             {{else}}
                 {{#eq this "boolean"}}
-                    {{#if ../enumInfo}}
+                    {{#if ../constInfo}}
 ) -> typing.Literal[
-        {{#each ../enumInfo.typeToValues.boolean}}
+                            {{#each ../constInfo.typeToValues.boolean}}
     {{#if value}}True{{else}}False{{/if}},
-        {{/each}}
+                            {{/each}}
 ]:
                     {{else}}
+                        {{#if ../enumInfo}}
+) -> typing.Literal[
+                            {{#each ../enumInfo.typeToValues.boolean}}
+    {{#if value}}True{{else}}False{{/if}},
+                            {{/each}}
+]:
+                        {{else}}
 ) -> bool:
+                        {{/if}}
                     {{/if}}
                 {{else}}
                     {{#eq this "null"}}
 ) -> None:
                     {{else}}
                         {{#eq this "string"}}
-                            {{#if ../enumInfo}}
+                            {{#if ../constInfo}}
 ) -> typing.Literal[
-        {{#each ../enumInfo.typeToValues.string}}
+                                    {{#each ../constInfo.typeToValues.string}}
     "{{{value}}}",
-        {{/each}}
+                                    {{/each}}
 ]:
                             {{else}}
+                                {{#if ../enumInfo}}
+) -> typing.Literal[
+                                    {{#each ../enumInfo.typeToValues.string}}
+    "{{{value}}}",
+                                    {{/each}}
+]:
+                                {{else}}
 ) -> str:
+                                {{/if}}
                             {{/if}}
                         {{else}}
                             {{#eq this "number"}}
 ) -> typing.Union[int, float]:
                             {{else}}
                                 {{#eq this "integer"}}
-                                    {{#if ../enumInfo}}
+                                    {{#if ../constInfo}}
 ) -> typing.Literal[
-        {{#each ../enumInfo.typeToValues.integer}}
+                                            {{#each ../constInfo.typeToValues.integer}}
     {{{value}}},
-        {{/each}}
+                                            {{/each}}
 ]:
                                     {{else}}
+                                        {{#if ../enumInfo}}
+) -> typing.Literal[
+                                            {{#each ../enumInfo.typeToValues.integer}}
+    {{{value}}},
+                                            {{/each}}
+]:
+                                        {{else}}
 ) -> int:
+                                        {{/if}}
                                     {{/if}}
                                 {{else}}
                                     {{#eq this "array"}}
