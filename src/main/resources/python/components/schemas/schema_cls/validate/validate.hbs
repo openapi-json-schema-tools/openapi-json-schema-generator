@@ -109,31 +109,43 @@ def validate(
                 {{/if}}
             {{else}}
                 {{#eq this "boolean"}}
-) -> {{#if ../enumInfo}}typing.Literal[
+                    {{#if ../enumInfo}}
+) -> typing.Literal[
         {{#each ../enumInfo.typeToValues.boolean}}
     {{#if value}}True{{else}}False{{/if}},
         {{/each}}
-]{{else}}bool{{/if}}:
+]:
+                    {{else}}
+) -> bool:
+                    {{/if}}
                 {{else}}
                     {{#eq this "null"}}
 ) -> None:
                     {{else}}
                         {{#eq this "string"}}
-) -> {{#if ../enumInfo}}typing.Literal[
+                            {{#if ../enumInfo}}
+) -> typing.Literal[
         {{#each ../enumInfo.typeToValues.string}}
     "{{{value}}}",
         {{/each}}
-]{{else}}str{{/if}}:
+]:
+                            {{else}}
+) -> str:
+                            {{/if}}
                         {{else}}
                             {{#eq this "number"}}
 ) -> typing.Union[int, float]:
                             {{else}}
                                 {{#eq this "integer"}}
-) -> {{#if ../enumInfo}}typing.Literal[
+                                    {{#if ../enumInfo}}
+) -> typing.Literal[
         {{#each ../enumInfo.typeToValues.integer}}
-    {{value}},
+    {{{value}}},
         {{/each}}
-]{{else}}int{{/if}}:
+]:
+                                    {{else}}
+) -> int:
+                                    {{/if}}
                                 {{else}}
                                     {{#eq this "array"}}
                                         {{#if arrayOutputJsonPathPiece}}
