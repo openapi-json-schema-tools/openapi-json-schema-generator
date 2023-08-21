@@ -202,37 +202,39 @@ def validate(
         configuration=configuration,
     )
             {{#eq types.size 1}}
-                {{#eq type "string"}}
+                {{#each types}}
+                    {{#eq this "string"}}
     return typing.cast(typing.Literal[
-                    {{#each enumInfo.typeToValues.string}}
+                        {{#each ../enumInfo.typeToValues.string}}
             "{{{value}}}",
-                    {{/each}}
-        ],
-        validated_arg
-    )
-                {{else}}
-                    {{#eq type "integer"}}
-    return typing.cast(typing.Literal[
-                    {{#each enumInfo.typeToValues.integer}}
-            {{value}},
-                    {{/each}}
+                        {{/each}}
         ],
         validated_arg
     )
                     {{else}}
-                        {{#eq type "boolean"}}
+                        {{#eq this "integer"}}
     return typing.cast(typing.Literal[
-                    {{#each enumInfo.typeToValues.boolean}}
-            {{#if value}}True{{else}}False{{/if}},
-                    {{/each}}
+                        {{#each ../enumInfo.typeToValues.integer}}
+            {{value}},
+                        {{/each}}
         ],
         validated_arg
     )
                         {{else}}
+                            {{#eq this "boolean"}}
+    return typing.cast(typing.Literal[
+                                {{#each ../enumInfo.typeToValues.boolean}}
+            {{#if value}}True{{else}}False{{/if}},
+                                {{/each}}
+        ],
+        validated_arg
+    )
+                            {{else}}
     return validated_arg
+                            {{/eq}}
                         {{/eq}}
                     {{/eq}}
-                {{/eq}}
+                {{/each}}
             {{else}}
                 {{! no multiple enum types }}
     return validated_arg
