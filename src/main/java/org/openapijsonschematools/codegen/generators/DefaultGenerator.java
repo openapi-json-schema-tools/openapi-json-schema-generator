@@ -2298,7 +2298,9 @@ public class DefaultGenerator implements Generator {
         oneOf
         not
         items
+        enums
         contains
+        const
         anyOf
         allOf
         additionalProperties
@@ -2320,9 +2322,17 @@ public class DefaultGenerator implements Generator {
             property.items = fromSchema(
                     p.getItems(), sourceJsonPath, currentJsonPath + "/items");
         }
-        property.enumInfo = getEnumInfo(p, currentJsonPath, sourceJsonPath, property.types);
+        if (p.getEnum() != null) {
+            ArrayList<Object> values = new ArrayList<>(((Schema<?>) p).getEnum());
+            property.enumInfo = getEnumInfo(values, p, currentJsonPath, sourceJsonPath, property.types, "Enums");
+        }
         if (p.getContains() != null) {
             property.contains = fromSchema(p.getContains(), sourceJsonPath, currentJsonPath + "/contains");
+        }
+        if (p.getConst() != null) {
+            ArrayList<Object> values = new ArrayList<>();
+            values.add(p.getConst());
+            property.constInfo = getEnumInfo(values, p, currentJsonPath, sourceJsonPath, property.types, "Const");
         }
         List<Schema> anyOfs = ((Schema<?>) p).getAnyOf();
         if (anyOfs != null && !anyOfs.isEmpty()) {
@@ -4070,12 +4080,7 @@ public class DefaultGenerator implements Generator {
         return tag;
     }
 
-    protected EnumInfo getEnumInfo(Schema schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types) {
-        if (schema.getEnum() == null) {
-            return null;
-        }
-
-        ArrayList<Object> values = new ArrayList<>(((Schema<?>) schema).getEnum());
+    protected EnumInfo getEnumInfo(ArrayList<Object> values, Schema schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types, String classSuffix) {
         LinkedHashMap<EnumValue, String> enumValueToName = new LinkedHashMap<>();
         HashMap<String, List<EnumValue>> typeToValues = new LinkedHashMap<>();
         LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
@@ -4170,7 +4175,7 @@ public class DefaultGenerator implements Generator {
         CodegenKey jsonPathPiece = null;
         if (currentJsonPath != null) {
             String currentName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
-            jsonPathPiece = getKey(currentName + "Enums", "schemaProperty", sourceJsonPath);
+            jsonPathPiece = getKey(currentName + classSuffix, "schemaProperty", sourceJsonPath);
         }
 
         return new EnumInfo(enumValueToName, typeToValues, jsonPathPiece);
