@@ -67,7 +67,7 @@ def validate(
 @classmethod
 def validate(
     {{#eq types.size 1}}
-        {{#if enumInfo}}
+        {{#or enumInfo constInfo}}
             {{#eq type "integer"}}
     cls,
     arg,
@@ -83,17 +83,17 @@ def validate(
     arg,
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
                     {{else}}
-        {{#each types}}
+                        {{#each types}}
     {{> components/schemas/schema_cls/validate/_validate_args }}
-        {{/each}}
+                        {{/each}}
                     {{/eq}}
                 {{/eq}}
             {{/eq}}
         {{else}}
-        {{#each types}}
+            {{#each types}}
     {{> components/schemas/schema_cls/validate/_validate_args }}
-        {{/each}}
-        {{/if}}
+            {{/each}}
+        {{/or}}
     {{else}}
     cls,
     arg,
