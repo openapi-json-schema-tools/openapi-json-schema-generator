@@ -36,7 +36,7 @@ class SequenceNotStr(typing.Protocol[_T_co]):
 
 none_type_ = type(None)
 T = typing.TypeVar('T', bound=typing.Mapping)
-U = typing.TypeVar('U', bound=typing.SequenceNotStr)
+U = typing.TypeVar('U', bound=SequenceNotStr)
 W = typing.TypeVar('W')
 
 
