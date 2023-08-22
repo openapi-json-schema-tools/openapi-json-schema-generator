@@ -5,7 +5,7 @@
 {{> components/schemas/schema_cls/_schema_composed_or_anytype }}
     {{else}}
         {{#eq types null }}
-            {{#or enumInfo hasValidation items properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties format contains maxContains minContains constInfo}}
+            {{#or enumInfo hasValidation items properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties format contains maxContains minContains constInfo dependentRequired }}
 {{> components/schemas/schema_cls/_schema_composed_or_anytype }}
             {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
@@ -16,7 +16,7 @@
                 {{! one type }}
                 {{#each types}}
                     {{#eq this "object"}}
-                        {{#or properties hasValidation requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties }}
+                        {{#or properties hasValidation requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties dependentRequired }}
 {{> components/schemas/schema_cls/_schema_dict }}
                         {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}

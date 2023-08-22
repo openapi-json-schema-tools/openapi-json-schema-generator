@@ -5,11 +5,13 @@ README.md
 docs/apis/tags/default_api.md
 docs/components/schema/any_type_const_string.md
 docs/components/schema/any_type_contains_value.md
+docs/components/schema/any_type_dependent_required.md
 docs/components/schema/any_type_max_contains_value.md
 docs/components/schema/any_type_min_contains_value.md
 docs/components/schema/array_contains_value.md
 docs/components/schema/array_max_contains_value.md
 docs/components/schema/array_min_contains_value.md
+docs/components/schema/object_dependent_required.md
 docs/components/schema/string_const_string.md
 docs/paths/some_path/get.md
 docs/paths/some_path/get/responses/response_200/content/application_json/schema.md
@@ -33,11 +35,13 @@ src/json_schema_api/components/__init__.py
 src/json_schema_api/components/schema/__init__.py
 src/json_schema_api/components/schema/any_type_const_string.py
 src/json_schema_api/components/schema/any_type_contains_value.py
+src/json_schema_api/components/schema/any_type_dependent_required.py
 src/json_schema_api/components/schema/any_type_max_contains_value.py
 src/json_schema_api/components/schema/any_type_min_contains_value.py
 src/json_schema_api/components/schema/array_contains_value.py
 src/json_schema_api/components/schema/array_max_contains_value.py
 src/json_schema_api/components/schema/array_min_contains_value.py
+src/json_schema_api/components/schema/object_dependent_required.py
 src/json_schema_api/components/schema/string_const_string.py
 src/json_schema_api/components/schemas/__init__.py
 src/json_schema_api/configurations/__init__.py

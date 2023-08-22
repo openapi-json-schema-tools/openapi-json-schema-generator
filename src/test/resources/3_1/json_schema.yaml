@@ -58,3 +58,12 @@ components:
     StringConstString:
       type: string
       const: someVal
+    AnyTypeDependentRequired:
+      dependentRequired:
+        a:
+        - b
+    ObjectDependentRequired:
+      type: object
+      dependentRequired:
+        a:
+        - b
