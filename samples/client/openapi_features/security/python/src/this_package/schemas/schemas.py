@@ -133,7 +133,7 @@ class Float64Schema(NumberSchema):
 
 
 @dataclasses.dataclass(frozen=True)
-class StrSchema(schema.Schema[validation.immutabledict, str]):
+class StrSchema(schema.Schema):
     """
     date + datetime string types must inherit from this class
     That is because one can validate a str payload as both:
@@ -216,7 +216,7 @@ class DecimalSchema(schema.Schema):
 
 
 @dataclasses.dataclass(frozen=True)
-class BytesSchema(schema.Schema[validation.immutabledict, bytes]):
+class BytesSchema(schema.Schema):
     """
     this class will subclass bytes and is immutable
     """
@@ -261,7 +261,7 @@ class FileSchema(schema.Schema):
 
 
 @dataclasses.dataclass(frozen=True)
-class BinarySchema(schema.Schema[validation.immutabledict, bytes]):
+class BinarySchema(schema.Schema):
     types: typing.FrozenSet[typing.Type] = frozenset({schema.FileIO, bytes})
     format: str = 'binary'
 

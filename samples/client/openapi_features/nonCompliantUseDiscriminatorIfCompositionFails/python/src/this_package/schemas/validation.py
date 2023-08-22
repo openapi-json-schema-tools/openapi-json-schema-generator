@@ -1130,6 +1130,18 @@ def validate_max_contains(
     return None
 
 
+def validate_const(
+    arg: typing.Any,
+    const_value_to_name: typing.Dict[typing.Any, str],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+    **kwargs
+) -> None:
+    if arg not in const_value_to_name:
+        raise exceptions.ApiValueError("Invalid value {} passed in to {}, allowed_values={}".format(arg, cls, const_value_to_name.keys()))
+    return None
+
+
 validator_type = typing.Callable[[typing.Any, typing.Any, type, ValidationMetadata], typing.Optional[PathToSchemasType]]
 json_schema_keyword_to_validator: typing.Mapping[str, validator_type] = {
     'types': validate_types,
@@ -1159,5 +1171,6 @@ json_schema_keyword_to_validator: typing.Mapping[str, validator_type] = {
     'discriminator': validate_discriminator,
     'contains': validate_contains,
     'min_contains': validate_min_contains,
-    'max_contains': validate_max_contains
+    'max_contains': validate_max_contains,
+    'const_value_to_name': validate_const,
 }
