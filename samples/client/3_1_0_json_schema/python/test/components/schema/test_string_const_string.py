@@ -11,20 +11,22 @@ import unittest
 
 import json_schema_api
 from json_schema_api.components.schema.string_const_string import StringConstString
-from json_schema_api.configurations import schema_configuration
 
 
 class TestStringConstString(unittest.TestCase):
     """StringConstString unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
 
     def test_success(self):
         inst = StringConstString.validate('someVal')
         assert inst == 'someVal'
 
-    def test_fails(self):
+    def test_fails_with_incorrect_str(self):
         with self.assertRaises(json_schema_api.ApiValueError):
             StringConstString.validate('someWrongVal')
+
+    def test_fails_with_incorrect_type(self):
+        with self.assertRaises(json_schema_api.ApiTypeError):
+            StringConstString.validate(1)
 
 
 if __name__ == '__main__':
