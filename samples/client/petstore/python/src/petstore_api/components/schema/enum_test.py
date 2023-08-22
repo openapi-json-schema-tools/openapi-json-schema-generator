@@ -29,7 +29,7 @@ class EnumStringEnums:
 
 @dataclasses.dataclass(frozen=True)
 class EnumString(
-    schemas.Schema[schemas.immutabledict, str]
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -111,7 +111,7 @@ class EnumStringRequiredEnums:
 
 @dataclasses.dataclass(frozen=True)
 class EnumStringRequired(
-    schemas.Schema[schemas.immutabledict, str]
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,

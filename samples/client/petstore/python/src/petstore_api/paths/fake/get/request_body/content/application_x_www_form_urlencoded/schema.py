@@ -25,7 +25,7 @@ class ItemsEnums:
 
 @dataclasses.dataclass(frozen=True)
 class Items(
-    schemas.Schema[schemas.immutabledict, str]
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -154,7 +154,7 @@ class EnumFormStringEnums:
 
 @dataclasses.dataclass(frozen=True)
 class EnumFormString(
-    schemas.Schema[schemas.immutabledict, str]
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,

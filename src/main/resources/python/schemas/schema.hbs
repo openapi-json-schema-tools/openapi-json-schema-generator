@@ -20,7 +20,8 @@ _T_co = typing.TypeVar("_T_co", covariant=True)
 class SequenceNotStr(typing.Protocol[_T_co]):
     """
     if a Protocol would define the interface of Sequence, this protocol
-    would NOT allow str as its __contains__ is incompatible with the definition in Sequence.
+    would NOT allow str/bytes as their __contains__ methods are incompatible with the definition in Sequence
+    methods from: https://docs.python.org/3/library/collections.abc.html#collections.abc.Collection
     """
     def __contains__(self, value: object, /) -> bool:
         raise NotImplementedError
@@ -32,6 +33,9 @@ class SequenceNotStr(typing.Protocol[_T_co]):
         raise NotImplementedError
 
     def __iter__(self) -> typing.Iterator[_T_co]:
+        raise NotImplementedError
+
+    def __reversed__(self, /) -> typing.Iterator[_T_co]:
         raise NotImplementedError
 
 none_type_ = type(None)

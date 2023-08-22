@@ -26,7 +26,7 @@ class ServerEnums:
 
 @dataclasses.dataclass(frozen=True)
 class Server(
-    schemas.Schema[schemas.immutabledict, str]
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -105,7 +105,7 @@ class PortEnums:
 
 @dataclasses.dataclass(frozen=True)
 class Port(
-    schemas.Schema[schemas.immutabledict, str]
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,

@@ -25,7 +25,7 @@ class JustSymbolEnums:
 
 @dataclasses.dataclass(frozen=True)
 class JustSymbol(
-    schemas.Schema[schemas.immutabledict, str]
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
@@ -93,7 +93,7 @@ class ItemsEnums:
 
 @dataclasses.dataclass(frozen=True)
 class Items(
-    schemas.Schema[schemas.immutabledict, str]
+    schemas.Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         str,
