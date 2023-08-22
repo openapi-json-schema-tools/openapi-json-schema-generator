@@ -1,6 +1,6 @@
-{{#if enumInfo}}
-    {{#if enumInfo.typeToValues.boolean}}
-        {{#each enumInfo.typeToValues.boolean}}
+{{#if constInfo}}
+    {{#if constInfo.typeToValues.boolean}}
+        {{#each constInfo.typeToValues.boolean}}
 @typing.overload
 @classmethod
 def validate(
@@ -15,7 +15,7 @@ def validate(
     cls,
     arg: bool,
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-) -> typing.Literal[{{#each enumInfo.typeToValues.boolean}}{{#if value}}True{{else}}False{{/if}},{{/each}}]: ...
+) -> typing.Literal[{{#each constInfo.typeToValues.boolean}}{{#if value}}True{{else}}False{{/if}},{{/each}}]: ...
     {{else}}
         {{! enum is not bool type }}
         {{#if includeNonEnum}}
@@ -29,8 +29,27 @@ def validate(
         {{/if}}
     {{/if}}
 {{else}}
-    {{! no enum }}
-    {{#if includeNonEnum}}
+    {{#if enumInfo}}
+        {{#if enumInfo.typeToValues.boolean}}
+            {{#each enumInfo.typeToValues.boolean}}
+@typing.overload
+@classmethod
+def validate(
+    cls,
+    arg: typing.Literal[{{#if value}}True{{else}}False{{/if}}],
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+) -> typing.Literal[{{#if value}}True{{else}}False{{/if}}]: ...
+            {{/each}}
+@typing.overload
+@classmethod
+def validate(
+    cls,
+    arg: bool,
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+) -> typing.Literal[{{#each enumInfo.typeToValues.boolean}}{{#if value}}True{{else}}False{{/if}},{{/each}}]: ...
+        {{else}}
+            {{! enum is not bool type }}
+            {{#if includeNonEnum}}
 @typing.overload
 @classmethod
 def validate(
@@ -38,5 +57,18 @@ def validate(
     arg: bool,
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
 ) -> bool: ...
+            {{/if}}
+        {{/if}}
+    {{else}}
+        {{! no enum }}
+        {{#if includeNonEnum}}
+@typing.overload
+@classmethod
+def validate(
+    cls,
+    arg: bool,
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+) -> bool: ...
+        {{/if}}
     {{/if}}
 {{/if}}

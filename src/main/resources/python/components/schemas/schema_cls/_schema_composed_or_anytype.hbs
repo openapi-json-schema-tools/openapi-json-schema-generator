@@ -34,6 +34,10 @@ class {{jsonPathPiece.camelCase}}(
     {{> components/schemas/schema_cls/_enum }}
     enums = {{enumInfo.jsonPathPiece.camelCase}}
 {{/if}}
+{{#if constInfo}}
+    {{> components/schemas/schema_cls/_const }}
+    const = {{constInfo.jsonPathPiece.camelCase}}
+{{/if}}
 {{#if items}}
     {{> components/schemas/schema_cls/_items }}
 {{/if}}
@@ -75,13 +79,14 @@ class {{jsonPathPiece.camelCase}}(
     {{> components/schemas/schema_cls/validate/validate }}
 
             {{else}}
-                {{#if enumInfo}}
+                {{#or enumInfo constInfo}}
     {{> components/schemas/schema_cls/validate/validate }}
 
-                {{/if}}
+                {{/or}}
             {{/contains}}
         {{/contains}}
     {{else}}
+        {{! more than one type }}
     {{> components/schemas/schema_cls/validate/validate }}
 
     {{/eq}}

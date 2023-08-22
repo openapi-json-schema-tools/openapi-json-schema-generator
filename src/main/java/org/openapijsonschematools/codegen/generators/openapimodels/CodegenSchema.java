@@ -81,6 +81,7 @@ public class CodegenSchema {
     public LinkedHashMap<String, List<String>> dependentRequired;
     public boolean isBooleanSchemaTrue;  // supports boolean schemas
     public boolean isBooleanSchemaFalse;  // supports boolean schemas
+    public EnumInfo constInfo;
 
     // Extra needed fields
     // stores the mapping value schema, used to provide a value type for the object output class
@@ -231,7 +232,6 @@ public class CodegenSchema {
     /**
      * Returns all schemas in post order traversal, used by templates to write schema classes
      * @param schemasBeforeImports the input list that stores this and all required schemas
-     * @return the list that stores this and all required schemas
      */
     private void getAllSchemas(ArrayList<CodegenSchema> schemasBeforeImports, ArrayList<CodegenSchema> schemasAfterImports, int level) {
         /*
@@ -240,7 +240,9 @@ public class CodegenSchema {
         additionalProperties
         allOf
         anyOf
+        const
         contains
+        enums
         items
         not
         oneOf
@@ -284,6 +286,15 @@ public class CodegenSchema {
             } else {
                 schemasAfterImports.add(extraSchema);
             }
+        }
+        if (constInfo != null) {
+            // write the class as a separate entity so enum values do not collide with
+            // json schema keywords
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.jsonPathPiece = jsonPathPiece;
+            extraSchema.instanceType = "enumClass";
+            extraSchema.enumInfo = constInfo;
+            schemasBeforeImports.add(extraSchema);
         }
         if (contains != null) {
             contains.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);

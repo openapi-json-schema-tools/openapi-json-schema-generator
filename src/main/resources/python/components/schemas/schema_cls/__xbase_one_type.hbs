@@ -26,12 +26,12 @@ schemas.BinarySchema
         {{#neq ../format "uuid"}}
         {{#neq ../format "number"}}
         {{#neq ../format "binary"}}
-            {{#and ../enumInfo.typeToValues.string}}
+            {{#or ../constInfo.typeToValues.string ../enumInfo.typeToValues.string}}
                 {{! use Schema so validate is not overwritten }}
-schemas.Schema[schemas.immutabledict, str]
+schemas.Schema
             {{else}}
 schemas.StrSchema
-            {{/and}}
+            {{/or}}
         {{/neq}}
         {{/neq}}
         {{/neq}}
@@ -57,7 +57,7 @@ schemas.NumberSchema
         {{/and}}
     {{/eq}}
     {{#eq this "integer"}}
-        {{#and ../enumInfo.typeToValues.integer}}
+        {{#or ../constInfo.typeToValues.integer ../enumInfo.typeToValues.integer}}
             {{! use Schema so validate is not overwritten }}
 schemas.Schema
         {{else}}
@@ -72,15 +72,15 @@ schemas.Int64Schema
 schemas.IntSchema
                 {{/neq}}
             {{/neq}}
-        {{/and}}
+        {{/or}}
     {{/eq}}
     {{#eq this "boolean"}}
-        {{#and ../enumInfo.typeToValues.boolean}}
+        {{#or ../constInfo.typeToValues.boolean ../enumInfo.typeToValues.boolean}}
             {{! use Schema so validate is not overwritten }}
 schemas.Schema
         {{else}}
 schemas.BoolSchema
-        {{/and}}
+        {{/or}}
     {{/eq}}
     {{#eq this "null"}}
 schemas.NoneSchema

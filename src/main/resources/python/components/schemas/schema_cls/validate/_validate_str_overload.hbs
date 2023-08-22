@@ -1,6 +1,6 @@
-{{#if enumInfo}}
-    {{#if enumInfo.typeToValues.string}}
-        {{#each enumInfo.typeToValues.string}}
+{{#if constInfo}}
+    {{#if constInfo.typeToValues.string}}
+        {{#each constInfo.typeToValues.string}}
 @typing.overload
 @classmethod
 def validate(
@@ -15,7 +15,7 @@ def validate(
     cls,
     arg: str,
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-) -> typing.Literal[{{#each enumInfo.typeToValues.string}}"{{{value}}}",{{/each}}]: ...
+) -> typing.Literal[{{#each constInfo.typeToValues.string}}"{{{value}}}",{{/each}}]: ...
     {{else}}
         {{! enum is not string type }}
         {{#if includeNonEnum}}
@@ -29,8 +29,27 @@ def validate(
         {{/if}}
     {{/if}}
 {{else}}
-    {{! no enum }}
-    {{#if includeNonEnum}}
+    {{#if enumInfo}}
+        {{#if enumInfo.typeToValues.string}}
+            {{#each enumInfo.typeToValues.string}}
+@typing.overload
+@classmethod
+def validate(
+    cls,
+    arg: typing.Literal["{{{value}}}"],
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+) -> typing.Literal["{{{value}}}"]: ...
+            {{/each}}
+@typing.overload
+@classmethod
+def validate(
+    cls,
+    arg: str,
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+) -> typing.Literal[{{#each enumInfo.typeToValues.string}}"{{{value}}}",{{/each}}]: ...
+        {{else}}
+            {{! enum is not string type }}
+            {{#if includeNonEnum}}
 @typing.overload
 @classmethod
 def validate(
@@ -38,5 +57,18 @@ def validate(
     arg: str,
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
 ) -> str: ...
+            {{/if}}
+        {{/if}}
+    {{else}}
+        {{! no enum }}
+        {{#if includeNonEnum}}
+@typing.overload
+@classmethod
+def validate(
+    cls,
+    arg: str,
+    configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+) -> str: ...
+        {{/if}}
     {{/if}}
 {{/if}}
