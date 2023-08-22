@@ -4,7 +4,6 @@ import dataclasses
 import io
 import types
 import typing
-from typing import Iterator
 import uuid
 
 import functools
@@ -17,26 +16,27 @@ from . import validation
 
 _T_co = typing.TypeVar("_T_co", covariant=True)
 
+
 class SequenceNotStr(typing.Protocol[_T_co]):
     """
-    if a Protocol would define the interface of Sequence, this protocol 
+    if a Protocol would define the interface of Sequence, this protocol
     would NOT allow str as its __contains__ is incompatible with the definition in Sequence.
     """
     def __contains__(self, value: object, /) -> bool:
         raise NotImplementedError
-    
+
     def __getitem__(self, index, /):
         raise NotImplementedError
 
     def __len__(self) -> int:
         raise NotImplementedError
 
-    def __iter__(self) -> Iterator[_T_co]:
+    def __iter__(self) -> typing.Iterator[_T_co]:
         raise NotImplementedError
 
 none_type_ = type(None)
 T = typing.TypeVar('T', bound=typing.Mapping)
-U = typing.TypeVar('U', bound=SequenceNotStr)
+U = typing.TypeVar('U', bound=typing.SequenceNotStr)
 W = typing.TypeVar('W')
 
 
@@ -467,7 +467,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
     @classmethod
     def validate_base(
         cls,
-        arg: SequenceNotStr[INPUT_TYPES_ALL],  # also covers str, tuple, list, bytes
+        arg: SequenceNotStr[INPUT_TYPES_ALL],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> U: ...
 
@@ -502,17 +502,17 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
     @classmethod
     def validate_base(
         cls,
-        arg: bytes,
+        arg: typing.Union[io.FileIO, io.BufferedReader],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> bytes: ...
+    ) -> FileIO: ...
 
     @typing.overload
     @classmethod
     def validate_base(
         cls,
-        arg: typing.Union[io.FileIO, io.BufferedReader],
+        arg: bytes,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> FileIO: ...
+    ) -> bytes: ...
 
     @classmethod
     def validate_base(
@@ -642,25 +642,9 @@ class AnyTypeSchema(Schema[T, U]):
     @classmethod
     def validate(
         cls,
-        arg: typing.Union[datetime.date, datetime.datetime, uuid.UUID],
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> str: ...
-
-    @typing.overload
-    @classmethod
-    def validate(
-        cls,
-        arg: str,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> str: ...  # 8
-
-    @typing.overload
-    @classmethod
-    def validate(
-        cls,
-        arg: bytes,
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> bytes: ...
 
     @typing.overload
     @classmethod
@@ -697,6 +681,14 @@ class AnyTypeSchema(Schema[T, U]):
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> FileIO: ...
 
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: bytes,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> bytes: ...
+
     @classmethod
     def validate(
         cls,
@@ -711,20 +703,6 @@ class AnyTypeSchema(Schema[T, U]):
 class UnsetAnyTypeSchema(AnyTypeSchema[T, U]):
     # Used when additionalProperties/items was not explicitly defined and a defining schema is needed
     pass
-
-INPUT_TYPES_NOT_STR_BYTES_FILE = typing.Union[
-    dict,
-    validation.immutabledict,
-    list,
-    tuple,
-    float,
-    int,
-    datetime.date,
-    datetime.datetime,
-    uuid.UUID,
-    bool,
-    None,
-]
 
 INPUT_TYPES_ALL = typing.Union[
     dict,
