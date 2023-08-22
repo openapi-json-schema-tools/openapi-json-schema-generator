@@ -4,6 +4,7 @@ import dataclasses
 import io
 import types
 import typing
+from typing import Iterator
 import uuid
 
 import functools
@@ -14,9 +15,28 @@ from json_schema_api.configurations import schema_configuration
 
 from . import validation
 
+_T_co = typing.TypeVar("_T_co", covariant=True)
+
+class SequenceNotStr(typing.Protocol[_T_co]):
+    """
+    if a Protocol would define the interface of Sequence, this protocol 
+    would NOT allow str as its __contains__ is incompatible with the definition in Sequence.
+    """
+    def __contains__(self, value: object, /) -> bool:
+        raise NotImplementedError
+    
+    def __getitem__(self, index, /):
+        raise NotImplementedError
+
+    def __len__(self) -> int:
+        raise NotImplementedError
+
+    def __iter__(self) -> Iterator[_T_co]:
+        raise NotImplementedError
+
 none_type_ = type(None)
 T = typing.TypeVar('T', bound=typing.Mapping)
-U = typing.TypeVar('U', bound=typing.Sequence)
+U = typing.TypeVar('U', bound=SequenceNotStr)
 W = typing.TypeVar('W')
 
 
@@ -439,7 +459,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
     @classmethod
     def validate_base(
         cls,
-        arg: typing.Union[datetime.date, datetime.datetime, uuid.UUID],
+        arg: typing.Union[str, datetime.date, datetime.datetime, uuid.UUID],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> str: ...
 
@@ -447,7 +467,7 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
     @classmethod
     def validate_base(
         cls,
-        arg: typing.Sequence[INPUT_TYPES_ALL],  # also covers str, tuple, list, bytes
+        arg: SequenceNotStr[INPUT_TYPES_ALL],  # also covers str, tuple, list, bytes
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> U: ...
 
@@ -477,6 +497,14 @@ class Schema(typing.Generic[T, U], validation.SchemaValidator, metaclass=Singlet
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> T: ...
+
+    @typing.overload
+    @classmethod
+    def validate_base(
+        cls,
+        arg: bytes,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> bytes: ...
 
     @typing.overload
     @classmethod
@@ -622,7 +650,23 @@ class AnyTypeSchema(Schema[T, U]):
     @classmethod
     def validate(
         cls,
-        arg: typing.Sequence[INPUT_TYPES_ALL],  # also covers str, tuple, list, bytes
+        arg: str,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> str: ...  # 8
+
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: bytes,
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> bytes: ...
+
+    @typing.overload
+    @classmethod
+    def validate(
+        cls,
+        arg: SequenceNotStr[INPUT_TYPES_ALL],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> U: ...
 
