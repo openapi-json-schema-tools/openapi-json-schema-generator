@@ -11,13 +11,18 @@ import unittest
 
 import json_schema_api
 from json_schema_api.components.schema.object_dependent_required import ObjectDependentRequired
-from json_schema_api.configurations import schema_configuration
 
 
 class TestObjectDependentRequired(unittest.TestCase):
     """ObjectDependentRequired unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
 
+    def test_success(self):
+        inst = ObjectDependentRequired.validate({'a': 1, 'b': 2})
+        assert inst == {'a': 1, 'b': 2}
+
+    def test_failure(self):
+        with self.assertRaises(json_schema_api.ApiValueError):
+            ObjectDependentRequired.validate({'a': 1, 'c': 2})
 
 if __name__ == '__main__':
     unittest.main()

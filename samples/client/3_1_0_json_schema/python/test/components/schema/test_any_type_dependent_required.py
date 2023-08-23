@@ -11,13 +11,21 @@ import unittest
 
 import json_schema_api
 from json_schema_api.components.schema.any_type_dependent_required import AnyTypeDependentRequired
-from json_schema_api.configurations import schema_configuration
 
 
 class TestAnyTypeDependentRequired(unittest.TestCase):
     """AnyTypeDependentRequired unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
 
+    def test_success(self):
+        inst = AnyTypeDependentRequired.validate({'a': 1, 'b': 2})
+        assert inst == {'a': 1, 'b': 2}
+
+        inst = AnyTypeDependentRequired.validate(0)
+        assert inst == 0
+
+    def test_failure(self):
+        with self.assertRaises(json_schema_api.ApiValueError):
+            AnyTypeDependentRequired.validate({'a': 1, 'c': 2})
 
 if __name__ == '__main__':
     unittest.main()
