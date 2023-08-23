@@ -142,6 +142,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
                         SchemaFeature.Const,
                         SchemaFeature.Contains,
                         SchemaFeature.Default,
+                        SchemaFeature.DependentRequired,
                         SchemaFeature.Discriminator,
                         SchemaFeature.Enum,
                         SchemaFeature.ExclusiveMaximum,
