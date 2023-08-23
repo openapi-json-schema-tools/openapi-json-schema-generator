@@ -16,10 +16,15 @@ from json_schema_api.components.schema.any_type_dependent_required import AnyTyp
 class TestAnyTypeDependentRequired(unittest.TestCase):
     """AnyTypeDependentRequired unit test stubs"""
 
-    def test_success(self):
+    def test_success_with_key_and_conditionally_required_keys(self):
         inst = AnyTypeDependentRequired.validate({'a': 1, 'b': 2})
         assert inst == {'a': 1, 'b': 2}
 
+    def test_success_without_key(self):
+        inst = AnyTypeDependentRequired.validate({'b': 2})
+        assert inst == {'b': 2}
+
+    def test_success_non_object_type(self):
         inst = AnyTypeDependentRequired.validate(0)
         assert inst == 0
 
