@@ -53,6 +53,9 @@ class {{jsonPathPiece.camelCase}}(
 {{#or allOf anyOf oneOf not}}
     {{> components/schemas/schema_cls/_composed_schemas }}
 {{/or}}
+{{#if dependentRequired}}
+    {{> components/schemas/schema_cls/_dependent_required }}
+{{/if}}
 {{#or mapOutputJsonPathPiece arrayOutputJsonPathPiece}}
     type_to_output_cls: typing.Mapping[
         typing.Type,

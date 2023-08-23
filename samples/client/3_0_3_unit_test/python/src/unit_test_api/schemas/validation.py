@@ -1061,6 +1061,26 @@ def validate_const(
     return None
 
 
+def validate_dependent_required(
+    arg: typing.Any,
+    dependent_required: typing.Mapping[str, typing.Set[str]],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+) -> None:
+    if not isinstance(arg, immutabledict):
+        return None
+    for key, keys_that_must_exist in dependent_required.items():
+        if key not in arg:
+            continue
+        missing_keys = keys_that_must_exist - arg.keys()
+        if missing_keys:
+            raise exceptions.ApiValueError(
+                f"Validation failed for dependentRequired because these_keys={missing_keys} are "
+                f"missing at path_to_item={validation_metadata.path_to_item} in class {cls}"
+            )
+    return None
+
+
 validator_type = typing.Callable[[typing.Any, typing.Any, type, ValidationMetadata], typing.Optional[PathToSchemasType]]
 json_schema_keyword_to_validator: typing.Mapping[str, validator_type] = {
     'types': validate_types,
@@ -1092,4 +1112,5 @@ json_schema_keyword_to_validator: typing.Mapping[str, validator_type] = {
     'min_contains': validate_min_contains,
     'max_contains': validate_max_contains,
     'const_value_to_name': validate_const,
+    'dependent_required': validate_dependent_required,
 }

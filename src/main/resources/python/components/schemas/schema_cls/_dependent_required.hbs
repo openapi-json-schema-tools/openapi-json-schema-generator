@@ -1,0 +1,11 @@
+dependent_required: typing.Mapping[str, typing.Set[str]] = dataclasses.field(
+    default_factory=lambda: {
+{{#each dependentRequired}}
+        "{{{@key}}}": {
+        {{#each this}}
+            "{{{this}}}",
+        {{/each}}
+        },
+{{/each}}
+    }
+)

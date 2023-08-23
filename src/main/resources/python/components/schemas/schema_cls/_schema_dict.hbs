@@ -15,10 +15,13 @@ class {{jsonPathPiece.camelCase}}(
 {{/if}}
     """
 {{/if}}
-{{#or additionalProperties requiredProperties hasDiscriminatorWithNonEmptyMapping properties hasValidation}}
+{{#or additionalProperties requiredProperties hasDiscriminatorWithNonEmptyMapping properties hasValidation dependentRequired}}
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     {{> components/schemas/schema_cls/_dict_partial }}
     {{> components/schemas/schema_cls/_validations }}
+    {{#if dependentRequired}}
+    {{> components/schemas/schema_cls/_dependent_required }}
+    {{/if}}
     {{#if mapOutputJsonPathPiece}}
     type_to_output_cls: typing.Mapping[
         typing.Type,

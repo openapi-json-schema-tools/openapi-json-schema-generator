@@ -230,6 +230,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |Const|✓|OAS3
 |Contains|✓|OAS3
 |Default|✓|OAS2,OAS3
+|DependentRequired|✓|OAS3
 |Discriminator|✓|OAS2,OAS3
 |Enum|✓|OAS2,OAS3
 |ExclusiveMinimum|✓|OAS2,OAS3
