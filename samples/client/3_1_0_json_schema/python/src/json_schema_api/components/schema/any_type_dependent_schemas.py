@@ -22,4 +22,5 @@ class AnyTypeDependentSchemas(
     Do not edit the class manually.
     """
     # any type
+    dependent_schemas: DependentSchemas = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(DependentSchemas)) # type: ignore
 

@@ -21,6 +21,8 @@ class ObjectDependentSchemas(
 
     Do not edit the class manually.
     """
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
+    dependent_schemas: DependentSchemas = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(DependentSchemas)) # type: ignore
 
     @classmethod
     def validate(
