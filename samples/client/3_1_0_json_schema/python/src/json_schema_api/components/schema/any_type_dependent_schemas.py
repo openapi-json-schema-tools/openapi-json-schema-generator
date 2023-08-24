@@ -13,6 +13,21 @@ from json_schema_api.shared_imports.schema_imports import *  # pyright: ignore [
 
 
 @dataclasses.dataclass(frozen=True)
+class A(
+    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+):
+    # any type
+    min_properties: int = 2
+
+DependentSchemas = typing.TypedDict(
+    'DependentSchemas',
+    {
+        "a": typing.Type[A],
+    }
+)
+
+
+@dataclasses.dataclass(frozen=True)
 class AnyTypeDependentSchemas(
     schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
