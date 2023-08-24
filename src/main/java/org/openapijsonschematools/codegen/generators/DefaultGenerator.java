@@ -3504,7 +3504,7 @@ public class DefaultGenerator implements Generator {
     /**
      * Add variables (properties) to codegen model (list of properties, various flags, etc)
      *
-     * @param requiredSchemas a map of properties (schema)
+     * @param dependentSchemas a map of properties (schema)
      * @param sourceJsonPath the source json path
      * @param currentJsonPath the current json path
      * @return the properties
