@@ -1098,7 +1098,7 @@ def validate_dependent_schemas(
         if validation_metadata.validation_ran_earlier(schema):
             add_deeper_validated_schemas(validation_metadata, path_to_schemas)
             continue
-        other_path_to_schemas = schema._validate(value, validation_metadata=validation_metadata)
+        other_path_to_schemas = schema._validate(arg, validation_metadata=validation_metadata)
         update(path_to_schemas, other_path_to_schemas)
     return path_to_schemas
 

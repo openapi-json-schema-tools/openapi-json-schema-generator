@@ -11,12 +11,22 @@ import unittest
 
 import json_schema_api
 from json_schema_api.components.schema.object_dependent_schemas import ObjectDependentSchemas
-from json_schema_api.configurations import schema_configuration
 
 
 class TestObjectDependentSchemas(unittest.TestCase):
     """ObjectDependentSchemas unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+
+    def test_success_non_dependent_schema_key(self):
+        inst = ObjectDependentSchemas.validate({'b': 0})
+        assert inst == {'b': 0}
+
+    def test_success_dependent_schema_key(self):
+        inst = ObjectDependentSchemas.validate({'a': 0, 'b': 1})
+        assert inst == {'a': 0, 'b': 1}
+
+    def test_failure_dependent_schema_key_not_enough_properties(self):
+        with self.assertRaises(json_schema_api.ApiValueError):
+            ObjectDependentSchemas.validate({'a': 0})
 
 
 if __name__ == '__main__':
