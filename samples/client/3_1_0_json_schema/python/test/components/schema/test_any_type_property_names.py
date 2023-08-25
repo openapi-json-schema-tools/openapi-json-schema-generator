@@ -11,12 +11,18 @@ import unittest
 
 import json_schema_api
 from json_schema_api.components.schema.any_type_property_names import AnyTypePropertyNames
-from json_schema_api.configurations import schema_configuration
 
 
 class TestAnyTypePropertyNames(unittest.TestCase):
     """AnyTypePropertyNames unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+
+    def test_success_valid_property_names(self):
+        inst = AnyTypePropertyNames.validate({'a1': 0})
+        assert inst == {'a1': 0}
+    
+    def test_invalid_property_names_fails(self):
+        with self.assertRaises(json_schema_api.ApiValueError):
+            AnyTypePropertyNames.validate({'1a': 0})
 
 
 if __name__ == '__main__':
