@@ -20,7 +20,9 @@ class {{jsonPathPiece.camelCase}}(
     {{#if hasValidation}}
     {{> components/schemas/schema_cls/_validations }}
     {{/if}}
+    {{#if items}}
     {{> components/schemas/schema_cls/_items }}
+    {{/if}}
     {{#if contains}}
     {{> components/schemas/schema_cls/_contains }}
     {{/if}}
