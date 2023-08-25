@@ -26,6 +26,9 @@ class {{jsonPathPiece.camelCase}}(
 {{#if maxLength}}
     {{> components/schemas/schema_cls/_max_length }}
 {{/if}}
+{{#if minLength}}
+    {{> components/schemas/schema_cls/_min_length }}
+{{/if}}
     {{> components/schemas/schema_cls/_validations }}
 {{#if defaultValue}}
     {{#with defaultValue}}
