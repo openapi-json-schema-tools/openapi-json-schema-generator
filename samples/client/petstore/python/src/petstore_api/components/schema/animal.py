@@ -109,6 +109,7 @@ class Animal(
     required: typing.FrozenSet[str] = frozenset({
         "className",
     })
+    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
         default_factory=lambda: {
             'className': {
@@ -117,7 +118,6 @@ class Animal(
             }
         }
     )
-    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type

@@ -109,6 +109,7 @@ class AbstractStepMessage(
         "discriminator",
         "sequenceNumber",
     })
+    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
         default_factory=lambda: {
             'discriminator': {
@@ -116,7 +117,6 @@ class AbstractStepMessage(
             }
         }
     )
-    properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
     any_of: AnyOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AnyOf)) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,

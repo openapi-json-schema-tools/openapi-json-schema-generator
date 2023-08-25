@@ -21,7 +21,9 @@ class {{jsonPathPiece.camelCase}}(
     {{> components/schemas/schema_cls/_validations }}
     {{/if}}
     {{> components/schemas/schema_cls/_items }}
+    {{#if contains}}
     {{> components/schemas/schema_cls/_contains }}
+    {{/if}}
     {{#if arrayOutputJsonPathPiece}}
     type_to_output_cls: typing.Mapping[
         typing.Type,
