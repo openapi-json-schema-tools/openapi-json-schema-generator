@@ -16,6 +16,9 @@ class {{jsonPathPiece.camelCase}}(
     """
 {{/if}}
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+    {{#if uniqueItems}}
+    {{> components/schemas/schema_cls/_unique_items }}
+    {{/if}}
     {{#if hasValidation}}
     {{> components/schemas/schema_cls/_validations }}
     {{/if}}

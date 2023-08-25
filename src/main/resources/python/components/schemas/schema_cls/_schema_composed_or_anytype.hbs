@@ -55,6 +55,9 @@ class {{jsonPathPiece.camelCase}}(
 {{#if additionalProperties}}
     {{> components/schemas/schema_cls/_additional_properties }}
 {{/if}}
+{{#if uniqueItems}}
+    {{> components/schemas/schema_cls/_unique_items }}
+{{/if}}
 {{#if hasValidation}}
     {{> components/schemas/schema_cls/_validations }}
 {{/if}}
