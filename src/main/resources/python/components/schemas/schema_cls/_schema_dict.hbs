@@ -20,14 +20,14 @@ class {{jsonPathPiece.camelCase}}(
     {{#if requiredProperties}}
     {{> components/schemas/schema_cls/_required }}
     {{/if}}
+    {{#if hasDiscriminatorWithNonEmptyMapping}}
+    {{> components/schemas/schema_cls/_discriminator }}
+    {{/if}}
     {{#if properties}}
     {{> components/schemas/schema_cls/_properties }}
     {{/if}}
     {{#if additionalProperties}}
     {{> components/schemas/schema_cls/_additional_properties }}
-    {{/if}}
-    {{#if hasDiscriminatorWithNonEmptyMapping}}
-    {{> components/schemas/schema_cls/_discriminator }}
     {{/if}}
     {{> components/schemas/schema_cls/_validations }}
     {{#if dependentRequired}}
