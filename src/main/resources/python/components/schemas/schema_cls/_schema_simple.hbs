@@ -23,6 +23,9 @@ class {{jsonPathPiece.camelCase}}(
 {{#if format}}
     format: str = '{{format}}'
 {{/if}}
+{{#if maxLength}}
+    {{> components/schemas/schema_cls/_max_length }}
+{{/if}}
     {{> components/schemas/schema_cls/_validations }}
 {{#if defaultValue}}
     {{#with defaultValue}}

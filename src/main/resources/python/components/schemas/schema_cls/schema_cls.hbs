@@ -5,7 +5,7 @@
 {{> components/schemas/schema_cls/_schema_composed_or_anytype }}
     {{else}}
         {{#eq types null }}
-            {{#or enumInfo hasValidation items properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties format contains maxContains minContains constInfo dependentRequired dependentSchemas propertyNames uniqueItems }}
+            {{#or enumInfo hasValidation items properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties format contains maxContains minContains constInfo dependentRequired dependentSchemas propertyNames uniqueItems maxLength }}
 {{> components/schemas/schema_cls/_schema_composed_or_anytype }}
             {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
@@ -29,7 +29,7 @@
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
                             {{/or}}
                         {{else}}
-                            {{#or enumInfo hasValidation defaultValue constInfo}}
+                            {{#or enumInfo hasValidation defaultValue constInfo maxLength}}
 {{> components/schemas/schema_cls/_schema_simple }}
                             {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
