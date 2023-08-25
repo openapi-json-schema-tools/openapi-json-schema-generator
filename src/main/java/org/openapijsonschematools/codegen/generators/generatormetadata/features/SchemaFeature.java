@@ -121,6 +121,9 @@ public enum SchemaFeature {
     @OAS2 @OAS3
     Properties,
 
+    @OAS3
+    PropertyNames,
+
     @OAS2 @OAS3
     Required,
 

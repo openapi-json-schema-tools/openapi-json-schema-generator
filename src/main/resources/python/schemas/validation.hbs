@@ -1262,6 +1262,30 @@ def validate_dependent_schemas(
     return path_to_schemas
 
 
+def validate_property_names(
+    arg: typing.Any,
+    property_names_schema: typing.Type[SchemaValidator],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+{{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+    **kwargs
+{{/if}}
+) -> None:
+    if not isinstance(arg, immutabledict):
+        return None
+    module_namespace = vars(sys.modules[cls.__module__])
+    property_names_schema = _get_class(property_names_schema, module_namespace)
+    for key in arg.keys():
+        path_to_item = validation_metadata.path_to_item + (key,)
+        key_validation_metadata = ValidationMetadata(
+            path_to_item=path_to_item,
+            configuration=validation_metadata.configuration,
+            validated_path_to_schemas=validation_metadata.validated_path_to_schemas
+        )
+        property_names_schema._validate(key, validation_metadata=key_validation_metadata)
+    return None
+
+
 validator_type = typing.Callable[[typing.Any, typing.Any, type, ValidationMetadata], typing.Optional[PathToSchemasType]]
 json_schema_keyword_to_validator: typing.Mapping[str, validator_type] = {
     'types': validate_types,
@@ -1294,5 +1318,6 @@ json_schema_keyword_to_validator: typing.Mapping[str, validator_type] = {
     'max_contains': validate_max_contains,
     'const_value_to_name': validate_const,
     'dependent_required': validate_dependent_required,
-    'dependent_schemas': validate_dependent_schemas
+    'dependent_schemas': validate_dependent_schemas,
+    'property_names': validate_property_names
 }
