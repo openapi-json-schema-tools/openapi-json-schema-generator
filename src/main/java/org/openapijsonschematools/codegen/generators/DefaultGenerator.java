@@ -2295,6 +2295,7 @@ public class DefaultGenerator implements Generator {
          with the root schema having an unmodified jsonPathPiece.className
          -->
         (self)
+        propertyNames
         properties
         oneOf
         not
@@ -2389,6 +2390,15 @@ public class DefaultGenerator implements Generator {
                 property.arrayOutputJsonPathPiece = getKey(currentName + "Tuple", "schemaProperty", sourceJsonPath);
                 property.arrayInputJsonPathPiece = getKey(currentName + "TupleInput", "schemaProperty", sourceJsonPath);
             }
+        }
+        Schema propertyNamesSchema = p.getPropertyNames();
+        if (propertyNamesSchema != null) {
+            if (propertyNamesSchema.getTypes() == null) {
+                HashSet<String> types = new HashSet<>();
+                types.add("string");
+                propertyNamesSchema.setTypes(types);
+            }
+            property.propertyNames = fromSchema(propertyNamesSchema, sourceJsonPath, currentJsonPath + "/propertyNames");
         }
         // end of properties that need to be ordered to set correct camelCase jsonPathPieces
         CodegenSchema additionalProperties = property.additionalProperties;

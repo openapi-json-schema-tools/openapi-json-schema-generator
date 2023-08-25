@@ -83,6 +83,7 @@ public class CodegenSchema {
     public boolean isBooleanSchemaTrue;  // supports boolean schemas
     public boolean isBooleanSchemaFalse;  // supports boolean schemas
     public EnumInfo constInfo;
+    public CodegenSchema propertyNames;
 
     // Extra needed fields
     // stores the mapping value schema, used to provide a value type for the object output class
@@ -249,6 +250,7 @@ public class CodegenSchema {
         not
         oneOf
         properties
+        propertyNames
         (self)
 
         excluded:
@@ -494,6 +496,9 @@ public class CodegenSchema {
                 }
                 schemasAfterImports.add(mapIn);
             }
+        }
+        if (propertyNames != null) {
+            propertyNames.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
         }
 
         if (refInfo != null && level > 0) {

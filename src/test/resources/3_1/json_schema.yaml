@@ -76,3 +76,10 @@ components:
       dependentSchemas:
         a:
           minProperties: 2
+    AnyTypePropertyNames:
+      propertyNames:
+        pattern: "^[A-Za-z_][A-Za-z0-9_]*$"
+    ObjectPropertyNames:
+      type: object
+      propertyNames:
+        pattern: "^[A-Za-z_][A-Za-z0-9_]*$"
