@@ -176,12 +176,14 @@ Class | Description
 [AnyTypeConstString](docs/components/schema/any_type_const_string.md) |
 [AnyTypeContainsValue](docs/components/schema/any_type_contains_value.md) |
 [AnyTypeDependentRequired](docs/components/schema/any_type_dependent_required.md) |
+[AnyTypeDependentSchemas](docs/components/schema/any_type_dependent_schemas.md) |
 [AnyTypeMaxContainsValue](docs/components/schema/any_type_max_contains_value.md) |
 [AnyTypeMinContainsValue](docs/components/schema/any_type_min_contains_value.md) |
 [ArrayContainsValue](docs/components/schema/array_contains_value.md) |
 [ArrayMaxContainsValue](docs/components/schema/array_max_contains_value.md) |
 [ArrayMinContainsValue](docs/components/schema/array_min_contains_value.md) |
 [ObjectDependentRequired](docs/components/schema/object_dependent_required.md) |
+[ObjectDependentSchemas](docs/components/schema/object_dependent_schemas.md) |
 [StringConstString](docs/components/schema/string_const_string.md) |
 
 ## Notes for Large OpenAPI documents

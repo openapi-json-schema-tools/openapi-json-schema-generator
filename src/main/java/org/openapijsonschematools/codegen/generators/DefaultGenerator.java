@@ -2300,6 +2300,7 @@ public class DefaultGenerator implements Generator {
         not
         items
         enums
+        dependentSchemas
         contains
         const
         anyOf
@@ -2327,6 +2328,7 @@ public class DefaultGenerator implements Generator {
             ArrayList<Object> values = new ArrayList<>(((Schema<?>) p).getEnum());
             property.enumInfo = getEnumInfo(values, p, currentJsonPath, sourceJsonPath, property.types, "Enums");
         }
+        property.dependentSchemas = getDependentSchemas(((Schema<?>) p).getDependentSchemas(), sourceJsonPath, currentJsonPath);
         if (p.getContains() != null) {
             property.contains = fromSchema(p.getContains(), sourceJsonPath, currentJsonPath + "/contains");
         }
@@ -3497,6 +3499,45 @@ public class DefaultGenerator implements Generator {
         CodegenKey jsonPathPiece = getKey("properties", "schemaProperty", sourceJsonPath);
         propertiesMap.setJsonPathPiece(jsonPathPiece);
         return propertiesMap;
+    }
+
+    /**
+     * Add variables (properties) to codegen model (list of properties, various flags, etc)
+     *
+     * @param dependentSchemas a map of properties (schema)
+     * @param sourceJsonPath the source json path
+     * @param currentJsonPath the current json path
+     * @return the properties
+     */
+    protected LinkedHashMapWithContext<CodegenSchema> getDependentSchemas(Map<String, Schema> dependentSchemas, String sourceJsonPath, String currentJsonPath) {
+        if (dependentSchemas == null || dependentSchemas.isEmpty()) {
+            return null;
+        }
+
+        LinkedHashMapWithContext<CodegenSchema> dependentSchemasMap = new LinkedHashMapWithContext<>();
+
+        boolean allAreInline = true;
+        for (Map.Entry<String, Schema> entry : dependentSchemas.entrySet()) {
+            final String propertyName = entry.getKey();
+            final Schema prop = entry.getValue();
+            if (prop == null) {
+                LOGGER.warn("Please report the issue. There shouldn't be null property for {}", propertyName);
+            } else {
+                final CodegenSchema cp;
+
+                String propertyJsonPath = currentJsonPath + "/dependentSchemas/" + ModelUtils.encodeSlashes(propertyName);
+                cp = fromSchema(prop, sourceJsonPath, propertyJsonPath);
+                if (cp.hasAnyRefs()) {
+                    allAreInline = false;
+                }
+
+                dependentSchemasMap.put(cp.jsonPathPiece, cp);
+            }
+        }
+        dependentSchemasMap.setAllAreInline(allAreInline);
+        CodegenKey jsonPathPiece = getKey("dependentSchemas", "schemaProperty", sourceJsonPath);
+        dependentSchemasMap.setJsonPathPiece(jsonPathPiece);
+        return dependentSchemasMap;
     }
 
     /**

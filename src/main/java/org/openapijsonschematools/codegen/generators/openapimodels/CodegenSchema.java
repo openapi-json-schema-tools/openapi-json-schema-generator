@@ -79,6 +79,7 @@ public class CodegenSchema {
     public Integer minContains;
     public Integer maxContains;
     public LinkedHashMap<String, List<String>> dependentRequired;
+    public LinkedHashMapWithContext<CodegenSchema> dependentSchemas;
     public boolean isBooleanSchemaTrue;  // supports boolean schemas
     public boolean isBooleanSchemaFalse;  // supports boolean schemas
     public EnumInfo constInfo;
@@ -242,6 +243,7 @@ public class CodegenSchema {
         anyOf
         const
         contains
+        dependentSchemas
         enums
         items
         not
@@ -298,6 +300,19 @@ public class CodegenSchema {
         }
         if (contains != null) {
             contains.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+        }
+        if (dependentSchemas != null) {
+            for (CodegenSchema someSchema: dependentSchemas.values()) {
+                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+            }
+            CodegenSchema extraSchema = new CodegenSchema();
+            extraSchema.instanceType = "propertiesType";
+            extraSchema.properties = dependentSchemas;
+            if (dependentSchemas.allAreInline()) {
+                schemasBeforeImports.add(extraSchema);
+            } else {
+                schemasAfterImports.add(extraSchema);
+            }
         }
         if (enumInfo != null) {
             // write the class as a separate entity so enum values do not collide with

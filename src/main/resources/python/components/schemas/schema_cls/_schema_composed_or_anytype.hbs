@@ -56,6 +56,9 @@ class {{jsonPathPiece.camelCase}}(
 {{#if dependentRequired}}
     {{> components/schemas/schema_cls/_dependent_required }}
 {{/if}}
+{{#if dependentSchemas}}
+    {{> components/schemas/schema_cls/_dependent_schemas }}
+{{/if}}
 {{#or mapOutputJsonPathPiece arrayOutputJsonPathPiece}}
     type_to_output_cls: typing.Mapping[
         typing.Type,

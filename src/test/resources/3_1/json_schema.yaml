@@ -67,3 +67,12 @@ components:
       dependentRequired:
         a:
         - b
+    AnyTypeDependentSchemas:
+      dependentSchemas:
+        a:
+          minProperties: 2
+    ObjectDependentSchemas:
+      type: object
+      dependentSchemas:
+        a:
+          minProperties: 2

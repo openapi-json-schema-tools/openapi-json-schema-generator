@@ -19,6 +19,7 @@ PYTHON_KEYWORD_TO_JSON_SCHEMA_KEYWORD = {
     'const_value_to_name': 'const',
     'contains': 'contains',
     'dependent_required': 'dependentRequired',
+    'dependent_schemas': 'dependentSchemas',
     'discriminator': 'discriminator',
     # default omitted because it has no validation impact
     'enum_value_to_name': 'enum',
