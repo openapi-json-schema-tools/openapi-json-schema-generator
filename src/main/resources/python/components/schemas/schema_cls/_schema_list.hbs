@@ -9,13 +9,12 @@ class {{jsonPathPiece.camelCase}}(
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
 
     Do not edit the class manually.
-{{#if description}}
+    {{#if description}}
 
     {{{unescapedDescription}}}
-{{/if}}
+    {{/if}}
     """
 {{/if}}
-{{#or items hasValidation contains}}
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
     {{#if hasValidation}}
     {{> components/schemas/schema_cls/_validations }}
@@ -36,6 +35,5 @@ class {{jsonPathPiece.camelCase}}(
         }
     )
     {{/if}}
-{{/or}}
 
     {{> components/schemas/schema_cls/validate/validate }}
