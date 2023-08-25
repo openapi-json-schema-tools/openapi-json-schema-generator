@@ -52,6 +52,9 @@ public enum SchemaFeature {
     @OAS3
     DependentRequired,
 
+    @OAS3
+    DependentSchemas,
+
     @OAS2 @OAS3
     Discriminator,
 
