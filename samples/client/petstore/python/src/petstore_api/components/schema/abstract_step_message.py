@@ -101,9 +101,7 @@ class AbstractStepMessage(
 
     Abstract Step
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.immutabledict,
-    })
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "description",
         "discriminator",
@@ -123,7 +121,7 @@ class AbstractStepMessage(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            schemas.immutabledict: AbstractStepMessageDict,
+            schemas.immutabledict: AbstractStepMessageDict
         }
     )
 

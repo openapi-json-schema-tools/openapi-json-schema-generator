@@ -28,6 +28,18 @@ class {{jsonPathPiece.camelCase}}(
     {{#if contains}}
     {{> components/schemas/schema_cls/_contains }}
     {{/if}}
+    {{#if allOf}}
+    {{> components/schemas/schema_cls/_all_of }}
+    {{/if}}
+    {{#if anyOf}}
+    {{> components/schemas/schema_cls/_any_of }}
+    {{/if}}
+    {{#if oneOf}}
+    {{> components/schemas/schema_cls/_one_of }}
+    {{/if}}
+    {{#if not}}
+    {{> components/schemas/schema_cls/_not }}
+    {{/if}}
     {{#if arrayOutputJsonPathPiece}}
     type_to_output_cls: typing.Mapping[
         typing.Type,

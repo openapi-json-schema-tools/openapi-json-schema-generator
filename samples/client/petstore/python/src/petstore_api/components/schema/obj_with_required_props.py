@@ -73,9 +73,7 @@ class ObjWithRequiredProps(
 
     Do not edit the class manually.
     """
-    types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.immutabledict,
-    })
+    types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({
         "a",
     })
@@ -86,7 +84,7 @@ class ObjWithRequiredProps(
         typing.Type
     ] = dataclasses.field(
         default_factory=lambda: {
-            schemas.immutabledict: ObjWithRequiredPropsDict,
+            schemas.immutabledict: ObjWithRequiredPropsDict
         }
     )
 

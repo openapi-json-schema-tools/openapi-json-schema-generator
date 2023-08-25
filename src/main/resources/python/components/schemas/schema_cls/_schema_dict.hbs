@@ -29,6 +29,18 @@ class {{jsonPathPiece.camelCase}}(
     {{> components/schemas/schema_cls/_additional_properties }}
     {{/if}}
     {{> components/schemas/schema_cls/_validations }}
+    {{#if allOf}}
+    {{> components/schemas/schema_cls/_all_of }}
+    {{/if}}
+    {{#if anyOf}}
+    {{> components/schemas/schema_cls/_any_of }}
+    {{/if}}
+    {{#if oneOf}}
+    {{> components/schemas/schema_cls/_one_of }}
+    {{/if}}
+    {{#if not}}
+    {{> components/schemas/schema_cls/_not }}
+    {{/if}}
     {{#if dependentRequired}}
     {{> components/schemas/schema_cls/_dependent_required }}
     {{/if}}

@@ -15,7 +15,6 @@ class {{jsonPathPiece.camelCase}}(
 {{/if}}
     """
 {{/if}}
-{{#or hasValidation enumInfo format defaultValue constInfo}}
 {{#eq types null}}
     # any type
 {{/eq}}
@@ -59,8 +58,19 @@ class {{jsonPathPiece.camelCase}}(
 {{#if constInfo}}
     {{> components/schemas/schema_cls/_const }}
 {{/if}}
+    {{#if allOf}}
+    {{> components/schemas/schema_cls/_all_of }}
+    {{/if}}
+    {{#if anyOf}}
+    {{> components/schemas/schema_cls/_any_of }}
+    {{/if}}
+    {{#if oneOf}}
+    {{> components/schemas/schema_cls/_one_of }}
+    {{/if}}
+    {{#if not}}
+    {{> components/schemas/schema_cls/_not }}
+    {{/if}}
 {{#or enumInfo constInfo}}
 
     {{> components/schemas/schema_cls/validate/validate }}
-{{/or}}
 {{/or}}

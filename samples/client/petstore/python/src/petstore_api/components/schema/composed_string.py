@@ -29,4 +29,3 @@ class ComposedString(
         str,
     })
     all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
-
