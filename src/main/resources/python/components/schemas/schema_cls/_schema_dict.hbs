@@ -17,7 +17,18 @@ class {{jsonPathPiece.camelCase}}(
 {{/if}}
 {{#or additionalProperties requiredProperties hasDiscriminatorWithNonEmptyMapping properties hasValidation dependentRequired dependentSchemas propertyNames }}
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
-    {{> components/schemas/schema_cls/_dict_partial }}
+    {{#if requiredProperties}}
+    {{> components/schemas/schema_cls/_required }}
+    {{/if}}
+    {{#if properties}}
+    {{> components/schemas/schema_cls/_properties }}
+    {{/if}}
+    {{#if additionalProperties}}
+    {{> components/schemas/schema_cls/_additional_properties }}
+    {{/if}}
+    {{#if hasDiscriminatorWithNonEmptyMapping}}
+    {{> components/schemas/schema_cls/_discriminator }}
+    {{/if}}
     {{> components/schemas/schema_cls/_validations }}
     {{#if dependentRequired}}
     {{> components/schemas/schema_cls/_dependent_required }}

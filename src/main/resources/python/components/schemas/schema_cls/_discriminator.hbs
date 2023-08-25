@@ -1,0 +1,11 @@
+{{#with discriminator}}
+discriminator: typing.Mapping[str, typing.Mapping[str, typing.Type[schemas.Schema]]] = dataclasses.field(
+    default_factory=lambda: {
+        '{{{propertyName.original}}}': {
+    {{#each mappedModels}}
+            '{{mappingName}}': {{{modelName}}},
+    {{/each}}
+        }
+    }
+)
+{{/with}}

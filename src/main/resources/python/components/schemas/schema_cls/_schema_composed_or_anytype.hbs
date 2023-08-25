@@ -42,11 +42,20 @@ class {{jsonPathPiece.camelCase}}(
     {{> components/schemas/schema_cls/_items }}
 {{/if}}
 {{#if contains}}
-    {{> components/schemas/schema_cls/_contains_partial }}
+    {{> components/schemas/schema_cls/_contains }}
 {{/if}}
-{{#or additionalProperties requiredProperties hasDiscriminatorWithNonEmptyMapping properties}}
-    {{> components/schemas/schema_cls/_dict_partial }}
-{{/or}}
+{{#if requiredProperties}}
+    {{> components/schemas/schema_cls/_required }}
+{{/if}}
+{{#if properties}}
+    {{> components/schemas/schema_cls/_properties }}
+{{/if}}
+{{#if additionalProperties}}
+    {{> components/schemas/schema_cls/_additional_properties }}
+{{/if}}
+{{#if hasDiscriminatorWithNonEmptyMapping}}
+    {{> components/schemas/schema_cls/_discriminator }}
+{{/if}}
 {{#if hasValidation}}
     {{> components/schemas/schema_cls/_validations }}
 {{/if}}
