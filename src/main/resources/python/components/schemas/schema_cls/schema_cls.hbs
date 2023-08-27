@@ -28,15 +28,23 @@
                     {{else}}
                         {{#eq this "boolean"}}
                             {{#or enumInfo constInfo allOf anyOf oneOf not }}
-{{> components/schemas/schema_cls/_schema_simple }}
+{{> components/schemas/schema_cls/_schema_boolean }}
                             {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
                             {{/or}}
                         {{else}}
-                            {{#or enumInfo constInfo defaultValue maxLength minLength allOf anyOf oneOf not maximum minimum multipleOf patternInfo }}
-{{> components/schemas/schema_cls/_schema_simple }}
-                            {{else}}
+                            {{#or (eq this "number") (eq this "integer") }}
+                                {{#or enumInfo constInfo allOf anyOf oneOf not maximum minimum multipleOf }}
+{{> components/schemas/schema_cls/_schema_number }}
+                                {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
+                                {{/or}}
+                            {{else}}
+                                {{#or enumInfo constInfo defaultValue maxLength minLength allOf anyOf oneOf not patternInfo }}
+{{> components/schemas/schema_cls/_schema_string }}
+                                {{else}}
+{{> components/schemas/schema_cls/_schema_var_equals_cls }}
+                                {{/or}}
                             {{/or}}
                         {{/eq}}
                     {{/eq}}
