@@ -15,12 +15,9 @@ class {{jsonPathPiece.camelCase}}(
 {{/if}}
     """
 {{/if}}
-{{#eq types null}}
-    # any type
-{{/eq}}
     {{> components/schemas/schema_cls/_types }}
 {{#if format}}
-    format: str = '{{format}}'
+    {{> components/schemas/schema_cls/_format }}
 {{/if}}
 {{#if maxLength}}
     {{> components/schemas/schema_cls/_max_length }}
@@ -41,27 +38,7 @@ class {{jsonPathPiece.camelCase}}(
     {{> components/schemas/schema_cls/_pattern }}
 {{/if}}
 {{#if defaultValue}}
-    {{#with defaultValue}}
-        {{#eq type "string"}}
-    default: typing.Literal["{{{value}}}"] = "{{{value}}}"
-        {{/eq}}
-        {{#eq type "number"}}
-    default: typing.Union[int, float] = {{{value}}}
-        {{/eq}}
-        {{#eq type "integer"}}
-    default: typing.Literal[{{{value}}}]  = {{{value}}}
-        {{/eq}}
-        {{#eq type "boolean"}}
-            {{#if value}}
-    default: typing.Literal[True] = True
-            {{else}}
-    default: typing.Literal[False] = False
-            {{/if}}
-        {{/eq}}
-        {{#eq type "null"}}
-    default: None = None
-        {{/eq}}
-    {{/with}}
+    {{> components/schemas/schema_cls/_default }}
 {{/if}}
 {{#if enumInfo}}
     {{> components/schemas/schema_cls/_enum }}
@@ -69,18 +46,18 @@ class {{jsonPathPiece.camelCase}}(
 {{#if constInfo}}
     {{> components/schemas/schema_cls/_const }}
 {{/if}}
-    {{#if allOf}}
+{{#if allOf}}
     {{> components/schemas/schema_cls/_all_of }}
-    {{/if}}
-    {{#if anyOf}}
+{{/if}}
+{{#if anyOf}}
     {{> components/schemas/schema_cls/_any_of }}
-    {{/if}}
-    {{#if oneOf}}
+{{/if}}
+{{#if oneOf}}
     {{> components/schemas/schema_cls/_one_of }}
-    {{/if}}
-    {{#if not}}
+{{/if}}
+{{#if not}}
     {{> components/schemas/schema_cls/_not }}
-    {{/if}}
+{{/if}}
 {{#or enumInfo constInfo}}
 
     {{> components/schemas/schema_cls/validate/validate }}

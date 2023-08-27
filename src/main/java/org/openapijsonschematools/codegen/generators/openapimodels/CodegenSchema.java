@@ -112,6 +112,10 @@ public class CodegenSchema {
     public String pathFromDocRoot = null;
     public boolean isInline = false;
 
+    /*
+    Remove this in the 4.0.0 release because it is unused
+     */
+    @Deprecated
     public boolean hasValidation() {
         return maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || patternInfo != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null;
     }
