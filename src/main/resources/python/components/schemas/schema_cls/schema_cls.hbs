@@ -26,11 +26,19 @@
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
                         {{/or}}
                     {{else}}
-                        {{#or enumInfo constInfo defaultValue constInfo maxLength minLength allOf anyOf oneOf not maximum minimum multipleOf patternInfo }}
+                        {{#eq this "boolean"}}
+                            {{#or enumInfo constInfo allOf anyOf oneOf not }}
 {{> components/schemas/schema_cls/_schema_simple }}
-                        {{else}}
+                            {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
-                        {{/or}}
+                            {{/or}}
+                        {{else}}
+                            {{#or enumInfo constInfo defaultValue maxLength minLength allOf anyOf oneOf not maximum minimum multipleOf patternInfo }}
+{{> components/schemas/schema_cls/_schema_simple }}
+                            {{else}}
+{{> components/schemas/schema_cls/_schema_var_equals_cls }}
+                            {{/or}}
+                        {{/eq}}
                     {{/eq}}
                 {{/eq}}
             {{/each}}
