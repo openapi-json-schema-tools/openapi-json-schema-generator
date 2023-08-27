@@ -19,12 +19,12 @@ class {{jsonPathPiece.camelCase}}(
     {{#if uniqueItems}}
     {{> components/schemas/schema_cls/_unique_items }}
     {{/if}}
-    {{#if maxItems}}
+    {{#neq maxItems null}}
     {{> components/schemas/schema_cls/_max_items }}
-    {{/if}}
-    {{#if minItems}}
+    {{/neq}}
+    {{#neq minItems null}}
     {{> components/schemas/schema_cls/_min_items }}
-    {{/if}}
+    {{/neq}}
     {{#if items}}
     {{> components/schemas/schema_cls/_items }}
     {{/if}}

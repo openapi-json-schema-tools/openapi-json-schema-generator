@@ -19,12 +19,12 @@ class {{jsonPathPiece.camelCase}}(
 {{#if format}}
     {{> components/schemas/schema_cls/_format }}
 {{/if}}
-{{#if maxLength}}
+{{#neq maxLength null}}
     {{> components/schemas/schema_cls/_max_length }}
-{{/if}}
-{{#if minLength}}
+{{/neq}}
+{{#neq minLength null}}
     {{> components/schemas/schema_cls/_min_length }}
-{{/if}}
+{{/neq}}
 {{#if maximum}}
     {{> components/schemas/schema_cls/_maximum }}
 {{/if}}

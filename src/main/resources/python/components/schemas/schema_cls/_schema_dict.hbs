@@ -28,12 +28,12 @@ class {{jsonPathPiece.camelCase}}(
     {{#if additionalProperties}}
     {{> components/schemas/schema_cls/_additional_properties }}
     {{/if}}
-    {{#if maxProperties}}
+    {{#neq maxProperties null}}
     {{> components/schemas/schema_cls/_max_properties }}
-    {{/if}}
-    {{#if minProperties}}
+    {{/neq}}
+    {{#neq minProperties null}}
     {{> components/schemas/schema_cls/_min_properties }}
-    {{/if}}
+    {{/neq}}
     {{#if allOf}}
     {{> components/schemas/schema_cls/_all_of }}
     {{/if}}
