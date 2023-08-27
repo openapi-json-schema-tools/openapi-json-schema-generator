@@ -35,5 +35,4 @@ class AnyTypeConstString(
         }
     )
     const = AnyTypeConstStringConst
-    const = AnyTypeConstStringConst
 
