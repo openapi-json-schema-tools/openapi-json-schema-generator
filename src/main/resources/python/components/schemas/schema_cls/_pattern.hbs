@@ -1,4 +1,3 @@
-{{#neq patternInfo null}}
 pattern: schemas.PatternInfo = schemas.PatternInfo(
     {{#with patternInfo}}
     pattern=r'{{{pattern}}}'{{#if flags}},{{/if}}  # noqa: E501
@@ -26,7 +25,3 @@ pattern: schemas.PatternInfo = schemas.PatternInfo(
         {{/if}}
     {{/with}}
 )
-{{/neq}}
-{{#neq multipleOf null}}
-multiple_of: typing.Union[int, float] = {{multipleOf}}
-{{/neq}}

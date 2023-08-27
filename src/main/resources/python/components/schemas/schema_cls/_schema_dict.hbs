@@ -34,7 +34,6 @@ class {{jsonPathPiece.camelCase}}(
     {{#if minProperties}}
     {{> components/schemas/schema_cls/_min_properties }}
     {{/if}}
-    {{> components/schemas/schema_cls/_validations }}
     {{#if allOf}}
     {{> components/schemas/schema_cls/_all_of }}
     {{/if}}

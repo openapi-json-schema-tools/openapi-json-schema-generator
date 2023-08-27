@@ -25,9 +25,6 @@ class {{jsonPathPiece.camelCase}}(
     {{#if minItems}}
     {{> components/schemas/schema_cls/_min_items }}
     {{/if}}
-    {{#if hasValidation}}
-    {{> components/schemas/schema_cls/_validations }}
-    {{/if}}
     {{#if items}}
     {{> components/schemas/schema_cls/_items }}
     {{/if}}

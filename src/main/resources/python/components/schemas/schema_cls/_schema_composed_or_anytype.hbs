@@ -82,8 +82,11 @@ class {{jsonPathPiece.camelCase}}(
 {{#if minimum}}
     {{> components/schemas/schema_cls/_minimum }}
 {{/if}}
-{{#if hasValidation}}
-    {{> components/schemas/schema_cls/_validations }}
+{{#if multipleOf}}
+    {{> components/schemas/schema_cls/_multiple_of }}
+{{/if}}
+{{#if patternInfo}}
+    {{> components/schemas/schema_cls/_pattern }}
 {{/if}}
 {{#if allOf}}
     {{> components/schemas/schema_cls/_all_of }}
