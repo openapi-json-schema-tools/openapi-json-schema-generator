@@ -1,9 +1,3 @@
-{{#neq maximum null}}
-{{#if exclusiveMaximum}}exclusive_maximum{{/if}}inclusive_maximum{{#unless exclusiveMaximum}}{{/unless}}: typing.Union[int, float] = {{maximum}}
-{{/neq}}
-{{#neq minimum null}}
-{{#if exclusiveMinimum}}exclusive_minimum{{/if}}inclusive_minimum{{#unless exclusiveMinimum}}{{/unless}}: typing.Union[int, float] = {{minimum}}
-{{/neq}}
 {{#neq patternInfo null}}
 pattern: schemas.PatternInfo = schemas.PatternInfo(
     {{#with patternInfo}}

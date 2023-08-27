@@ -76,6 +76,12 @@ class {{jsonPathPiece.camelCase}}(
 {{#if minProperties}}
     {{> components/schemas/schema_cls/_min_properties }}
 {{/if}}
+{{#if maximum}}
+    {{> components/schemas/schema_cls/_maximum }}
+{{/if}}
+{{#if minimum}}
+    {{> components/schemas/schema_cls/_minimum }}
+{{/if}}
 {{#if hasValidation}}
     {{> components/schemas/schema_cls/_validations }}
 {{/if}}
