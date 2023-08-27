@@ -179,12 +179,14 @@ Class | Description
 [AnyTypeDependentSchemas](docs/components/schema/any_type_dependent_schemas.md) |
 [AnyTypeMaxContainsValue](docs/components/schema/any_type_max_contains_value.md) |
 [AnyTypeMinContainsValue](docs/components/schema/any_type_min_contains_value.md) |
+[AnyTypePatternProperties](docs/components/schema/any_type_pattern_properties.md) |
 [AnyTypePropertyNames](docs/components/schema/any_type_property_names.md) |
 [ArrayContainsValue](docs/components/schema/array_contains_value.md) |
 [ArrayMaxContainsValue](docs/components/schema/array_max_contains_value.md) |
 [ArrayMinContainsValue](docs/components/schema/array_min_contains_value.md) |
 [ObjectDependentRequired](docs/components/schema/object_dependent_required.md) |
 [ObjectDependentSchemas](docs/components/schema/object_dependent_schemas.md) |
+[ObjectPatternProperties](docs/components/schema/object_pattern_properties.md) |
 [ObjectPropertyNames](docs/components/schema/object_property_names.md) |
 [StringConstString](docs/components/schema/string_const_string.md) |
 
