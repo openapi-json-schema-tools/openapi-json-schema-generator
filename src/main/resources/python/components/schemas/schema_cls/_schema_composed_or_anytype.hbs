@@ -70,6 +70,12 @@ class {{jsonPathPiece.camelCase}}(
 {{#if minItems}}
     {{> components/schemas/schema_cls/_min_items }}
 {{/if}}
+{{#if maxProperties}}
+    {{> components/schemas/schema_cls/_max_properties }}
+{{/if}}
+{{#if minProperties}}
+    {{> components/schemas/schema_cls/_min_properties }}
+{{/if}}
 {{#if hasValidation}}
     {{> components/schemas/schema_cls/_validations }}
 {{/if}}

@@ -1,9 +1,3 @@
-{{#neq maxProperties null }}
-max_properties: int = {{maxProperties}}
-{{/neq}}
-{{#neq minProperties null}}
-min_properties: int = {{minProperties}}
-{{/neq}}
 {{#neq maximum null}}
 {{#if exclusiveMaximum}}exclusive_maximum{{/if}}inclusive_maximum{{#unless exclusiveMaximum}}{{/unless}}: typing.Union[int, float] = {{maximum}}
 {{/neq}}
