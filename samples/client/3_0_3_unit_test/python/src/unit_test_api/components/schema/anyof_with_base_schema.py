@@ -47,4 +47,3 @@ class AnyofWithBaseSchema(
         str,
     })
     any_of: AnyOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AnyOf)) # type: ignore
-

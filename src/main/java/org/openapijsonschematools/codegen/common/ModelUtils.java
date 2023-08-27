@@ -689,6 +689,10 @@ public class ModelUtils {
         return false;
     }
 
+    /*
+    Remove this in the 4.0.0 release because it is unused
+     */
+    @Deprecated
     public static boolean hasValidation(Schema sc) {
         return (
                 sc.getMaxItems() != null ||

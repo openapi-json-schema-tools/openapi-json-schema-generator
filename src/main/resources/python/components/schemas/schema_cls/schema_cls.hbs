@@ -1,46 +1,58 @@
-{{#if isBooleanSchemaFalse}}
+{{#or isBooleanSchemaFalse isBooleanSchemaTrue}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
 {{else}}
-    {{#or allOf anyOf oneOf not}}
-{{> components/schemas/schema_cls/_schema_composed_or_anytype }}
-    {{else}}
-        {{#eq types null }}
-            {{#or enumInfo hasValidation items properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties format contains maxContains minContains constInfo dependentRequired dependentSchemas propertyNames }}
-{{> components/schemas/schema_cls/_schema_composed_or_anytype }}
-            {{else}}
-{{> components/schemas/schema_cls/_schema_var_equals_cls }}
-            {{/or}}
+    {{#eq types null }}
+        {{#or allOf anyOf oneOf not enumInfo constInfo properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties dependentRequired dependentSchemas propertyNames (neq maxProperties null) (neq minProperties null) items uniqueItems (neq maxItems null) (neq minItems null) contains (neq maxContains null) (neq minContains null) format (neq maxLength null) (neq minLength null) maximum minimum multipleOf patternInfo }}
+{{> components/schemas/schema_cls/_schema_anytype_or_multitype }}
         {{else}}
-            {{! types exist }}
-            {{#eq types.size 1}}
-                {{! one type }}
-                {{#each types}}
-                    {{#eq this "object"}}
-                        {{#or properties hasValidation requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties dependentRequired dependentSchemas propertyNames }}
+{{> components/schemas/schema_cls/_schema_var_equals_cls }}
+        {{/or}}
+    {{else}}
+        {{! types exist }}
+        {{#eq types.size 1}}
+            {{! one type }}
+            {{#each types}}
+                {{#eq this "object"}}
+                    {{#or allOf anyOf oneOf not properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties dependentRequired dependentSchemas propertyNames maxProperties minProperties }}
 {{> components/schemas/schema_cls/_schema_dict }}
+                    {{else}}
+{{> components/schemas/schema_cls/_schema_var_equals_cls }}
+                    {{/or}}
+                {{else}}
+                    {{#eq this "array"}}
+                        {{#or allOf anyOf oneOf not items uniqueItems contains (neq maxContains null) (neq minContains null) (neq maxItems null) (neq minItems null) }}
+{{> components/schemas/schema_cls/_schema_list }}
                         {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
                         {{/or}}
                     {{else}}
-                        {{#eq this "array"}}
-                            {{#or items hasValidation contains maxContains minContains}}
-{{> components/schemas/schema_cls/_schema_list }}
+                        {{#eq this "boolean"}}
+                            {{#or enumInfo constInfo allOf anyOf oneOf not }}
+{{> components/schemas/schema_cls/_schema_boolean }}
                             {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
                             {{/or}}
                         {{else}}
-                            {{#or enumInfo hasValidation defaultValue constInfo}}
-{{> components/schemas/schema_cls/_schema_simple }}
-                            {{else}}
+                            {{#or (eq this "number") (eq this "integer") }}
+                                {{#or enumInfo constInfo allOf anyOf oneOf not maximum minimum multipleOf }}
+{{> components/schemas/schema_cls/_schema_number }}
+                                {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
+                                {{/or}}
+                            {{else}}
+                                {{#or enumInfo constInfo allOf anyOf oneOf not defaultValue (neq maxLength null) (neq minLength null) patternInfo }}
+{{> components/schemas/schema_cls/_schema_string }}
+                                {{else}}
+{{> components/schemas/schema_cls/_schema_var_equals_cls }}
+                                {{/or}}
                             {{/or}}
                         {{/eq}}
                     {{/eq}}
-                {{/each}}
-            {{else}}
-                {{! multiple types }}
-{{> components/schemas/schema_cls/_schema_composed_or_anytype }}
-            {{/eq}}
+                {{/eq}}
+            {{/each}}
+        {{else}}
+            {{! multiple types }}
+{{> components/schemas/schema_cls/_schema_anytype_or_multitype }}
         {{/eq}}
-    {{/or}}
-{{/if}}
+    {{/eq}}
+{{/or}}

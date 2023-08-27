@@ -47,4 +47,3 @@ class OneofWithBaseSchema(
         str,
     })
     one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
-

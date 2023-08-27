@@ -9,16 +9,43 @@ class {{jsonPathPiece.camelCase}}(
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
 
     Do not edit the class manually.
-{{#if description}}
+    {{#if description}}
 
     {{{unescapedDescription}}}
-{{/if}}
+    {{/if}}
     """
 {{/if}}
-{{#or additionalProperties requiredProperties hasDiscriminatorWithNonEmptyMapping properties hasValidation dependentRequired dependentSchemas propertyNames }}
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
-    {{> components/schemas/schema_cls/_dict_partial }}
-    {{> components/schemas/schema_cls/_validations }}
+    {{#if requiredProperties}}
+    {{> components/schemas/schema_cls/_required }}
+    {{/if}}
+    {{#if hasDiscriminatorWithNonEmptyMapping}}
+    {{> components/schemas/schema_cls/_discriminator }}
+    {{/if}}
+    {{#if properties}}
+    {{> components/schemas/schema_cls/_properties }}
+    {{/if}}
+    {{#if additionalProperties}}
+    {{> components/schemas/schema_cls/_additional_properties }}
+    {{/if}}
+    {{#neq maxProperties null}}
+    {{> components/schemas/schema_cls/_max_properties }}
+    {{/neq}}
+    {{#neq minProperties null}}
+    {{> components/schemas/schema_cls/_min_properties }}
+    {{/neq}}
+    {{#if allOf}}
+    {{> components/schemas/schema_cls/_all_of }}
+    {{/if}}
+    {{#if anyOf}}
+    {{> components/schemas/schema_cls/_any_of }}
+    {{/if}}
+    {{#if oneOf}}
+    {{> components/schemas/schema_cls/_one_of }}
+    {{/if}}
+    {{#if not}}
+    {{> components/schemas/schema_cls/_not }}
+    {{/if}}
     {{#if dependentRequired}}
     {{> components/schemas/schema_cls/_dependent_required }}
     {{/if}}
@@ -38,7 +65,6 @@ class {{jsonPathPiece.camelCase}}(
         }
     )
     {{/if}}
-{{/or}}
 
     {{> components/schemas/schema_cls/validate/validate }}
 

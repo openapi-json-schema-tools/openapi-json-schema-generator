@@ -96,16 +96,7 @@ class Status(
             ],
             validated_arg
         )
-
-
-@dataclasses.dataclass(frozen=True)
-class Complete(
-    schemas.BoolSchema
-):
-    types: typing.FrozenSet[typing.Type] = frozenset({
-        schemas.Bool,
-    })
-    default: typing.Literal[False] = False
+Complete: typing_extensions.TypeAlias = schemas.BoolSchema
 Properties = typing.TypedDict(
     'Properties',
     {

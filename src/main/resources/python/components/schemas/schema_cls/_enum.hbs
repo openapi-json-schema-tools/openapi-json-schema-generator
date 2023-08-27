@@ -23,3 +23,4 @@ enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, N
 {{/each}}
     }
 )
+enums = {{enumInfo.jsonPathPiece.camelCase}}

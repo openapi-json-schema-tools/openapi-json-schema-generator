@@ -9,19 +9,40 @@ class {{jsonPathPiece.camelCase}}(
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
 
     Do not edit the class manually.
-{{#if description}}
+    {{#if description}}
 
     {{{unescapedDescription}}}
-{{/if}}
+    {{/if}}
     """
 {{/if}}
-{{#or items hasValidation contains}}
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-    {{#if hasValidation}}
-    {{> components/schemas/schema_cls/_validations }}
+    {{#if uniqueItems}}
+    {{> components/schemas/schema_cls/_unique_items }}
     {{/if}}
+    {{#neq maxItems null}}
+    {{> components/schemas/schema_cls/_max_items }}
+    {{/neq}}
+    {{#neq minItems null}}
+    {{> components/schemas/schema_cls/_min_items }}
+    {{/neq}}
+    {{#if items}}
     {{> components/schemas/schema_cls/_items }}
-    {{> components/schemas/schema_cls/_contains_partial }}
+    {{/if}}
+    {{#if contains}}
+    {{> components/schemas/schema_cls/_contains }}
+    {{/if}}
+    {{#if allOf}}
+    {{> components/schemas/schema_cls/_all_of }}
+    {{/if}}
+    {{#if anyOf}}
+    {{> components/schemas/schema_cls/_any_of }}
+    {{/if}}
+    {{#if oneOf}}
+    {{> components/schemas/schema_cls/_one_of }}
+    {{/if}}
+    {{#if not}}
+    {{> components/schemas/schema_cls/_not }}
+    {{/if}}
     {{#if arrayOutputJsonPathPiece}}
     type_to_output_cls: typing.Mapping[
         typing.Type,
@@ -32,6 +53,5 @@ class {{jsonPathPiece.camelCase}}(
         }
     )
     {{/if}}
-{{/or}}
 
     {{> components/schemas/schema_cls/validate/validate }}

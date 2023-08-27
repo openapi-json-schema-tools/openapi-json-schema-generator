@@ -1,0 +1,21 @@
+{{#with defaultValue}}
+    {{#eq type "string"}}
+default: typing.Literal["{{{value}}}"] = "{{{value}}}"
+    {{/eq}}
+    {{#eq type "number"}}
+default: typing.Union[int, float] = {{{value}}}
+    {{/eq}}
+    {{#eq type "integer"}}
+default: typing.Literal[{{{value}}}]  = {{{value}}}
+    {{/eq}}
+    {{#eq type "boolean"}}
+        {{#if value}}
+default: typing.Literal[True] = True
+        {{else}}
+default: typing.Literal[False] = False
+        {{/if}}
+    {{/eq}}
+    {{#eq type "null"}}
+default: None = None
+    {{/eq}}
+{{/with}}

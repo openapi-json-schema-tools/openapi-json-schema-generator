@@ -1,11 +1,9 @@
-{{#if contains}}
-    {{#with contains}}
+{{#with contains}}
 contains: typing.Type[{{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.camelCase}}{{/if}}] = dataclasses.field(default_factory=lambda: {{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.camelCase}}{{/if}}) # type: ignore
-    {{/with}}
-    {{#if maxContains}}
+{{/with}}
+{{#neq maxContains null}}
 max_contains: typing.Literal[{{maxContains}}] = {{maxContains}}
-    {{/if}}
-    {{#if minContains}}
+{{/neq}}
+{{#neq minContains null}}
 min_contains: typing.Literal[{{minContains}}] = {{minContains}}
-    {{/if}}
-{{/if}}
+{{/neq}}

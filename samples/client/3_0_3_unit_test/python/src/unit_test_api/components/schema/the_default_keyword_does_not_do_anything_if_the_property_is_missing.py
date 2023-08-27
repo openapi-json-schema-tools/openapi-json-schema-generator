@@ -21,7 +21,6 @@ class Alpha(
         int,
     })
     inclusive_maximum: typing.Union[int, float] = 3
-    default: typing.Union[int, float] = 5
 Properties = typing.TypedDict(
     'Properties',
     {

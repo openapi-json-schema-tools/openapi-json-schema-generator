@@ -17,10 +17,10 @@ class {{jsonPathPiece.camelCase}}(
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
 
     Do not edit the class manually.
-{{#if description}}
+    {{#if description}}
 
     {{{unescapedDescription}}}
-{{/if}}
+    {{/if}}
     """
 {{/if}}
 {{#eq types null}}
@@ -32,27 +32,73 @@ class {{jsonPathPiece.camelCase}}(
 {{/if}}
 {{#if enumInfo}}
     {{> components/schemas/schema_cls/_enum }}
-    enums = {{enumInfo.jsonPathPiece.camelCase}}
 {{/if}}
 {{#if constInfo}}
     {{> components/schemas/schema_cls/_const }}
-    const = {{constInfo.jsonPathPiece.camelCase}}
 {{/if}}
 {{#if items}}
     {{> components/schemas/schema_cls/_items }}
 {{/if}}
 {{#if contains}}
-    {{> components/schemas/schema_cls/_contains_partial }}
+    {{> components/schemas/schema_cls/_contains }}
 {{/if}}
-{{#or additionalProperties requiredProperties hasDiscriminatorWithNonEmptyMapping properties}}
-    {{> components/schemas/schema_cls/_dict_partial }}
-{{/or}}
-{{#if hasValidation}}
-    {{> components/schemas/schema_cls/_validations }}
+{{#if requiredProperties}}
+    {{> components/schemas/schema_cls/_required }}
 {{/if}}
-{{#or allOf anyOf oneOf not}}
-    {{> components/schemas/schema_cls/_composed_schemas }}
-{{/or}}
+{{#if hasDiscriminatorWithNonEmptyMapping}}
+    {{> components/schemas/schema_cls/_discriminator }}
+{{/if}}
+{{#if properties}}
+    {{> components/schemas/schema_cls/_properties }}
+{{/if}}
+{{#if additionalProperties}}
+    {{> components/schemas/schema_cls/_additional_properties }}
+{{/if}}
+{{#if uniqueItems}}
+    {{> components/schemas/schema_cls/_unique_items }}
+{{/if}}
+{{#neq maxLength null}}
+    {{> components/schemas/schema_cls/_max_length }}
+{{/neq}}
+{{#neq minLength null}}
+    {{> components/schemas/schema_cls/_min_length }}
+{{/neq}}
+{{#neq maxItems null}}
+    {{> components/schemas/schema_cls/_max_items }}
+{{/neq}}
+{{#neq minItems null}}
+    {{> components/schemas/schema_cls/_min_items }}
+{{/neq}}
+{{#neq maxProperties null}}
+    {{> components/schemas/schema_cls/_max_properties }}
+{{/neq}}
+{{#neq minProperties null}}
+    {{> components/schemas/schema_cls/_min_properties }}
+{{/neq}}
+{{#if maximum}}
+    {{> components/schemas/schema_cls/_maximum }}
+{{/if}}
+{{#if minimum}}
+    {{> components/schemas/schema_cls/_minimum }}
+{{/if}}
+{{#if multipleOf}}
+    {{> components/schemas/schema_cls/_multiple_of }}
+{{/if}}
+{{#if patternInfo}}
+    {{> components/schemas/schema_cls/_pattern }}
+{{/if}}
+{{#if allOf}}
+    {{> components/schemas/schema_cls/_all_of }}
+{{/if}}
+{{#if anyOf}}
+    {{> components/schemas/schema_cls/_any_of }}
+{{/if}}
+{{#if oneOf}}
+    {{> components/schemas/schema_cls/_one_of }}
+{{/if}}
+{{#if not}}
+    {{> components/schemas/schema_cls/_not }}
+{{/if}}
 {{#if dependentRequired}}
     {{> components/schemas/schema_cls/_dependent_required }}
 {{/if}}
