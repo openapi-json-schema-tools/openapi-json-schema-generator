@@ -18,6 +18,7 @@
 package org.openapijsonschematools.codegen.generators.openapimodels;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -84,6 +85,7 @@ public class CodegenSchema {
     public boolean isBooleanSchemaFalse;  // supports boolean schemas
     public EnumInfo constInfo;
     public CodegenSchema propertyNames;
+    public ArrayList<Pair<CodegenPatternInfo, CodegenSchema>> patternProperties;
 
     // Extra needed fields
     // stores the mapping value schema, used to provide a value type for the object output class
