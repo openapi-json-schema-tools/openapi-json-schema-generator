@@ -85,6 +85,7 @@ public class CodegenSchema {
     public EnumInfo constInfo;
     public CodegenSchema propertyNames;
     public LinkedHashMap<CodegenPatternInfo, CodegenSchema> patternProperties;
+    public ArrayList<CodegenSchema> prefixItems;
 
     // Extra needed fields
     // stores the mapping value schema, used to provide a value type for the object output class

@@ -2228,6 +2228,17 @@ public class DefaultGenerator implements Generator {
         return patternProperties;
     }
 
+    private ArrayList<CodegenSchema> getPrefixItems(List<Schema> schemaPrefixItems, String jsonPath, String sourceJsonPath) {
+        ArrayList<CodegenSchema> prefixItems = new ArrayList<>();
+        for(int i = 0; i < schemaPrefixItems.size(); i++) {
+            Schema schema = schemaPrefixItems.get(i);
+            String currentJsonPath = jsonPath + "/prefixItems/" + i;
+            CodegenSchema prefixItem = fromSchema(schema, sourceJsonPath, currentJsonPath);
+            prefixItems.add(prefixItem);
+        }
+        return prefixItems;
+    }
+
 
     /**
      * Convert OAS Property object to Codegen Property object.
@@ -2309,6 +2320,7 @@ public class DefaultGenerator implements Generator {
         (self)
         propertyNames
         properties
+        prefixItems
         patternProperties
         oneOf
         not
@@ -2326,6 +2338,9 @@ public class DefaultGenerator implements Generator {
         property.properties = getProperties(((Schema<?>) p).getProperties(), sourceJsonPath, currentJsonPath, requiredAndOptionalProperties);
         if (p.getPatternProperties() != null) {
             property.patternProperties = getPatternProperties(p.getPatternProperties(), currentJsonPath, sourceJsonPath);
+        }
+        if (p.getPrefixItems() != null && !p.getPrefixItems().isEmpty()) {
+            property.prefixItems = getPrefixItems(p.getPrefixItems(), currentJsonPath, sourceJsonPath);
         }
         LinkedHashSet<String> required = p.getRequired() == null ? new LinkedHashSet<>()
                 : new LinkedHashSet<>(((Schema<?>) p).getRequired());
