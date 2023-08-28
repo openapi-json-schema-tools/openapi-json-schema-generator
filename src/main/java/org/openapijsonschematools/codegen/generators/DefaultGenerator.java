@@ -2217,14 +2217,13 @@ public class DefaultGenerator implements Generator {
         return moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
     }
 
-    private ArrayList<Pair<CodegenPatternInfo, CodegenSchema>> getPatternProperties(Map<String, Schema> schemaPatternProperties, String jsonPath, String sourceJsonPath) {
-        ArrayList<Pair<CodegenPatternInfo, CodegenSchema>> patternProperties = new ArrayList<>();
+    private LinkedHashMap<CodegenPatternInfo, CodegenSchema> getPatternProperties(Map<String, Schema> schemaPatternProperties, String jsonPath, String sourceJsonPath) {
+        LinkedHashMap<CodegenPatternInfo, CodegenSchema> patternProperties = new LinkedHashMap<>();
         for (Entry<String, Schema> entry: schemaPatternProperties.entrySet()) {
             String pattern = entry.getKey();
             CodegenPatternInfo patternInfo = getPatternInfo(pattern);
             CodegenSchema schema = fromSchema(entry.getValue(), sourceJsonPath, jsonPath + "/patternProperties/" + ModelUtils.encodeSlashes(pattern));
-            Pair<CodegenPatternInfo, CodegenSchema> pair = Pair.of(patternInfo, schema);
-            patternProperties.add(pair);
+            patternProperties.put(patternInfo, schema);
         }
         return patternProperties;
     }

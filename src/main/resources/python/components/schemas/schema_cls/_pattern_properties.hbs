@@ -1,0 +1,10 @@
+pattern_properties: typing.Mapping[
+    schemas.PatternInfo,
+    typing.Type[schemas.Schema]
+] = dataclasses.field(
+    default_factory=lambda: {
+{{#each patternProperties}}
+        {{> components/schemas/schema_cls/__pattern_info propertyName=false patternInfo=@key }}
+{{/each}}
+    }
+)

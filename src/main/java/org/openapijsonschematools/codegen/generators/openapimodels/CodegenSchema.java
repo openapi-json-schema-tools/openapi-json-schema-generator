@@ -85,7 +85,7 @@ public class CodegenSchema {
     public boolean isBooleanSchemaFalse;  // supports boolean schemas
     public EnumInfo constInfo;
     public CodegenSchema propertyNames;
-    public ArrayList<Pair<CodegenPatternInfo, CodegenSchema>> patternProperties;
+    public LinkedHashMap<CodegenPatternInfo, CodegenSchema> patternProperties;
 
     // Extra needed fields
     // stores the mapping value schema, used to provide a value type for the object output class
