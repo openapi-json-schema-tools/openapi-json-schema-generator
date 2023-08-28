@@ -10,6 +10,8 @@
 from __future__ import annotations
 from json_schema_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
+_0: typing_extensions.TypeAlias = schemas.NumberSchema
+_1: typing_extensions.TypeAlias = schemas.StrSchema
 
 
 @dataclasses.dataclass(frozen=True)
@@ -22,4 +24,11 @@ class AnyTypePrefixItems(
     Do not edit the class manually.
     """
     # any type
+    prefix_items: typing.Tuple[
+        typing.Type[_0],
+        typing.Type[_1],
+    ] = (
+        _0,
+        _1,
+    )
 
