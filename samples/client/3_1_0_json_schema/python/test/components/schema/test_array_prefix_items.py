@@ -11,12 +11,34 @@ import unittest
 
 import json_schema_api
 from json_schema_api.components.schema.array_prefix_items import ArrayPrefixItems
-from json_schema_api.configurations import schema_configuration
 
 
 class TestArrayPrefixItems(unittest.TestCase):
     """ArrayPrefixItems unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+
+    def test_success_both_items(self):
+        inst = ArrayPrefixItems.validate((1, 'a'))
+        assert inst == (1, 'a')
+
+    def test_success_partial_prefix_items(self):
+        inst = ArrayPrefixItems.validate((1,))
+        assert inst == (1,)
+
+    def test_success_empty_array(self):
+        inst = ArrayPrefixItems.validate(())
+        assert inst == ()
+
+    def test_success_length_exceeds_prefix_items(self):
+        inst = ArrayPrefixItems.validate((1, 'a', None))
+        assert inst == (1, 'a', None)
+
+    def test_fails_first_item_incorrect(self):
+        with self.assertRaises(json_schema_api.ApiTypeError):
+            ArrayPrefixItems.validate((True, 'a'))
+
+    def test_fails_second_item_incorrect(self):
+        with self.assertRaises(json_schema_api.ApiTypeError):
+            ArrayPrefixItems.validate((1, True))
 
 
 if __name__ == '__main__':

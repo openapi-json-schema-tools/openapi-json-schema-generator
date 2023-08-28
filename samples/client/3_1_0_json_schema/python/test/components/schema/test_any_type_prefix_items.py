@@ -11,13 +11,38 @@ import unittest
 
 import json_schema_api
 from json_schema_api.components.schema.any_type_prefix_items import AnyTypePrefixItems
-from json_schema_api.configurations import schema_configuration
 
 
 class TestAnyTypePrefixItems(unittest.TestCase):
     """AnyTypePrefixItems unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
 
+    def test_success_different_type(self):
+        inst = AnyTypePrefixItems.validate(True)
+        assert inst == True
+
+    def test_success_both_items(self):
+        inst = AnyTypePrefixItems.validate((1, 'a'))
+        assert inst == (1, 'a')
+
+    def test_success_partial_prefix_items(self):
+        inst = AnyTypePrefixItems.validate((1,))
+        assert inst == (1,)
+
+    def test_success_empty_array(self):
+        inst = AnyTypePrefixItems.validate(())
+        assert inst == ()
+
+    def test_success_length_exceeds_prefix_items(self):
+        inst = AnyTypePrefixItems.validate((1, 'a', None))
+        assert inst == (1, 'a', None)
+
+    def test_fails_first_item_incorrect(self):
+        with self.assertRaises(json_schema_api.ApiTypeError):
+            AnyTypePrefixItems.validate((True, 'a'))
+
+    def test_fails_second_item_incorrect(self):
+        with self.assertRaises(json_schema_api.ApiTypeError):
+            AnyTypePrefixItems.validate((1, True))
 
 if __name__ == '__main__':
     unittest.main()

@@ -326,6 +326,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |OneOf|✗|OAS3
 |Pattern|✓|OAS2,OAS3
 |PatternProperties|✗|OAS3
+|PrefixItems|✗|OAS3
 |Properties|✓|OAS2,OAS3
 |PropertyNames|✗|OAS3
 |Required|✓|OAS2,OAS3

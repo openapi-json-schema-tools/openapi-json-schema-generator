@@ -121,6 +121,9 @@ public enum SchemaFeature {
     @OAS3
     PatternProperties,
 
+    @OAS3
+    PrefixItems,
+
     @OAS2 @OAS3
     Properties,
 
