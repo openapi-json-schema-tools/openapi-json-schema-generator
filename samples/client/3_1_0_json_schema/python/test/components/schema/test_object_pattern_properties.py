@@ -11,12 +11,10 @@ import unittest
 
 import json_schema_api
 from json_schema_api.components.schema.object_pattern_properties import ObjectPatternProperties
-from json_schema_api.configurations import schema_configuration
 
 
 class TestObjectPatternProperties(unittest.TestCase):
     """ObjectPatternProperties unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
 
     def test_succceds_with_non_matching_key(self):
         inst = ObjectPatternProperties.validate({"keyword": "value"})
