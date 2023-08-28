@@ -255,6 +255,7 @@ public class CodegenSchema {
         items
         not
         oneOf
+        patternProperties
         properties
         propertyNames
         (self)
@@ -374,6 +375,11 @@ public class CodegenSchema {
                 schemasBeforeImports.add(extraSchema);
             } else {
                 schemasAfterImports.add(extraSchema);
+            }
+        }
+        if (patternProperties != null) {
+            for (CodegenSchema someSchema: patternProperties.values()) {
+                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
             }
         }
         if (properties != null) {
