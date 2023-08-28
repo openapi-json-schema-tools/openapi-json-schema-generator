@@ -18,7 +18,6 @@
 package org.openapijsonschematools.codegen.generators.openapimodels;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
-import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.ArrayList;
 import java.util.HashMap;
