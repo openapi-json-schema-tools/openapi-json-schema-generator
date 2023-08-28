@@ -84,6 +84,7 @@ public class CodegenSchema {
     public boolean isBooleanSchemaFalse;  // supports boolean schemas
     public EnumInfo constInfo;
     public CodegenSchema propertyNames;
+    public LinkedHashMap<CodegenPatternInfo, CodegenSchema> patternProperties;
 
     // Extra needed fields
     // stores the mapping value schema, used to provide a value type for the object output class
@@ -253,6 +254,7 @@ public class CodegenSchema {
         items
         not
         oneOf
+        patternProperties
         properties
         propertyNames
         (self)
@@ -372,6 +374,11 @@ public class CodegenSchema {
                 schemasBeforeImports.add(extraSchema);
             } else {
                 schemasAfterImports.add(extraSchema);
+            }
+        }
+        if (patternProperties != null) {
+            for (CodegenSchema someSchema: patternProperties.values()) {
+                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
             }
         }
         if (properties != null) {

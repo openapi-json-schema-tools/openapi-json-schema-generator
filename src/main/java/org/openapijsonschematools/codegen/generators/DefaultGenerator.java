@@ -2217,6 +2217,18 @@ public class DefaultGenerator implements Generator {
         return moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
     }
 
+    private LinkedHashMap<CodegenPatternInfo, CodegenSchema> getPatternProperties(Map<String, Schema> schemaPatternProperties, String jsonPath, String sourceJsonPath) {
+        LinkedHashMap<CodegenPatternInfo, CodegenSchema> patternProperties = new LinkedHashMap<>();
+        for (Entry<String, Schema> entry: schemaPatternProperties.entrySet()) {
+            String pattern = entry.getKey();
+            CodegenPatternInfo patternInfo = getPatternInfo(pattern);
+            CodegenSchema schema = fromSchema(entry.getValue(), sourceJsonPath, jsonPath + "/patternProperties/" + ModelUtils.encodeSlashes(pattern));
+            patternProperties.put(patternInfo, schema);
+        }
+        return patternProperties;
+    }
+
+
     /**
      * Convert OAS Property object to Codegen Property object.
      * <p>
@@ -2297,6 +2309,7 @@ public class DefaultGenerator implements Generator {
         (self)
         propertyNames
         properties
+        patternProperties
         oneOf
         not
         items
@@ -2311,6 +2324,9 @@ public class DefaultGenerator implements Generator {
         setSchemaLocationInfo(null, sourceJsonPath, currentJsonPath, property);
         HashMap<String, CodegenKey> requiredAndOptionalProperties = new HashMap<>();
         property.properties = getProperties(((Schema<?>) p).getProperties(), sourceJsonPath, currentJsonPath, requiredAndOptionalProperties);
+        if (p.getPatternProperties() != null) {
+            property.patternProperties = getPatternProperties(p.getPatternProperties(), currentJsonPath, sourceJsonPath);
+        }
         LinkedHashSet<String> required = p.getRequired() == null ? new LinkedHashSet<>()
                 : new LinkedHashSet<>(((Schema<?>) p).getRequired());
         List<Schema> oneOfs = ((Schema<?>) p).getOneOf();

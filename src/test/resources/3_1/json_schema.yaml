@@ -83,3 +83,16 @@ components:
       type: object
       propertyNames:
         pattern: "^[A-Za-z_][A-Za-z0-9_]*$"
+    AnyTypePatternProperties:
+      patternProperties:
+        "^S_":
+          type: string
+        "^I_":
+          type: integer
+    ObjectPatternProperties:
+      type: object
+      patternProperties:
+        "^S_":
+          type: string
+        "^I_":
+          type: integer

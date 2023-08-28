@@ -165,6 +165,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
                         SchemaFeature.Nullable,
                         SchemaFeature.OneOf,
                         SchemaFeature.Pattern,
+                        SchemaFeature.PatternProperties,
                         SchemaFeature.Properties,
                         SchemaFeature.PropertyNames,
                         SchemaFeature.Required,

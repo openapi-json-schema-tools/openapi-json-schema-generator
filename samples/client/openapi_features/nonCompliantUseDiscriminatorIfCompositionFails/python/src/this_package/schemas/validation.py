@@ -1208,6 +1208,37 @@ def validate_property_names(
     return None
 
 
+def validate_pattern_properties(
+    arg: typing.Any,
+    pattern_properties: typing.Mapping[PatternInfo, typing.Type[SchemaValidator]],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+    **kwargs
+) -> typing.Optional[PathToSchemasType]:
+    if not isinstance(arg, immutabledict):
+        return None
+    path_to_schemas: PathToSchemasType = {}
+    module_namespace = vars(sys.modules[cls.__module__])
+    for property_name, property_value in arg.items():
+        path_to_item = validation_metadata.path_to_item + (property_name,)
+        property_validation_metadata = ValidationMetadata(
+            path_to_item=path_to_item,
+            configuration=validation_metadata.configuration,
+            validated_path_to_schemas=validation_metadata.validated_path_to_schemas
+        )
+        for pattern_info, schema in pattern_properties.items():
+            flags = pattern_info.flags if pattern_info.flags is not None else 0
+            if not re.search(pattern_info.pattern, property_name, flags=flags):
+                continue
+            schema = _get_class(schema, module_namespace)
+            if validation_metadata.validation_ran_earlier(schema):
+                add_deeper_validated_schemas(validation_metadata, path_to_schemas)
+                continue
+            other_path_to_schemas = schema._validate(property_value, validation_metadata=property_validation_metadata)
+            update(path_to_schemas, other_path_to_schemas)
+    return path_to_schemas
+
+
 validator_type = typing.Callable[[typing.Any, typing.Any, type, ValidationMetadata], typing.Optional[PathToSchemasType]]
 json_schema_keyword_to_validator: typing.Mapping[str, validator_type] = {
     'types': validate_types,
@@ -1241,5 +1272,6 @@ json_schema_keyword_to_validator: typing.Mapping[str, validator_type] = {
     'const_value_to_name': validate_const,
     'dependent_required': validate_dependent_required,
     'dependent_schemas': validate_dependent_schemas,
-    'property_names': validate_property_names
+    'property_names': validate_property_names,
+    'pattern_properties': validate_pattern_properties
 }

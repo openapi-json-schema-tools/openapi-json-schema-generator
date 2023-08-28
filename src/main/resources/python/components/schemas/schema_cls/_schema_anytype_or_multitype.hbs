@@ -108,6 +108,9 @@ class {{jsonPathPiece.camelCase}}(
 {{#if propertyNames}}
     {{> components/schemas/schema_cls/_property_names }}
 {{/if}}
+{{#if patternProperties}}
+    {{> components/schemas/schema_cls/_pattern_properties }}
+{{/if}}
 {{#or mapOutputJsonPathPiece arrayOutputJsonPathPiece}}
     type_to_output_cls: typing.Mapping[
         typing.Type,
