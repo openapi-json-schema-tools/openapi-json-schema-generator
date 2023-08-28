@@ -18,6 +18,22 @@ class TestObjectPatternProperties(unittest.TestCase):
     """ObjectPatternProperties unit test stubs"""
     configuration = schema_configuration.SchemaConfiguration()
 
+    def test_succceds_with_non_matching_key(self):
+        inst = ObjectPatternProperties.validate({"keyword": "value"})
+        assert inst == {"keyword": "value"}
+
+    def test_succceds_with_matching_keys(self):
+        inst = ObjectPatternProperties.validate({"S_25": "This is a string", "I_0": 42})
+        assert inst == {"S_25": "This is a string", "I_0": 42}
+
+    def test_fails_with_incorrect_value_type_for_s_key(self):
+        with self.assertRaises(json_schema_api.ApiTypeError):
+            ObjectPatternProperties.validate({"S_0": 42})
+
+    def test_fails_with_incorrect_value_type_for_i_key(self):
+        with self.assertRaises(json_schema_api.ApiTypeError):
+            ObjectPatternProperties.validate({"I_0": "This is a string"})
+
 
 if __name__ == '__main__':
     unittest.main()

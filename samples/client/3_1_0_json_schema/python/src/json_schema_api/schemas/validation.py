@@ -1136,7 +1136,6 @@ def validate_pattern_properties(
     module_namespace = vars(sys.modules[cls.__module__])
     for property_name, property_value in arg.items():
         path_to_item = validation_metadata.path_to_item + (property_name,)
-        schema = properties[property_name]
         property_validation_metadata = ValidationMetadata(
             path_to_item=path_to_item,
             configuration=validation_metadata.configuration,
@@ -1144,7 +1143,7 @@ def validate_pattern_properties(
         )
         for pattern_info, schema in pattern_properties.items():
             flags = pattern_info.flags if pattern_info.flags is not None else 0
-            if not re.search(pattern_info.pattern, arg, flags=flags):
+            if not re.search(pattern_info.pattern, property_name, flags=flags):
                 continue
             schema = _get_class(schema, module_namespace)
             if validation_metadata.validation_ran_earlier(schema):
