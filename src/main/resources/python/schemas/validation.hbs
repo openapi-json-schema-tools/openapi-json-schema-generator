@@ -109,12 +109,20 @@ class SchemaValidator:
         if 'contains' in vars(cls_schema):
             contains_qty = _get_contains_qty(
                 arg,
-                json_schema_data['contains'],
+                vars(cls_schema)['contains'],
                 validation_metadata,
                 path_to_schemas
             )
+        prefix_items_length = 0
+        if 'prefix_items' in vars(cls_schema):
+            prefix_items_length = len(vars(cls_schema)['prefix_items'])
         for keyword, val in json_schema_data.items():
-            used_val = (val, contains_qty) if keyword in {'contains', 'min_contains', 'max_contains'} else val
+            if keyword in {'contains', 'min_contains', 'max_contains'}:
+                used_val = (val, contains_qty)
+            elif keyword == 'items':
+                used_val = (val, prefix_items_length)
+            else:
+                used_val = val
             validator = json_schema_keyword_to_validator[keyword]
 
             other_path_to_schemas = validator(
@@ -722,7 +730,7 @@ def validate_required(
 
 def validate_items(
     arg: typing.Any,
-    item_cls: typing.Type[SchemaValidator],
+    item_cls_prefix_items_length: typing.Tuple[typing.Type[SchemaValidator], int],
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
@@ -731,9 +739,11 @@ def validate_items(
 ) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, tuple):
         return None
-    item_cls = _get_class(item_cls)
+    item_cls = _get_class(item_cls_prefix_items_length[0])
+    prefix_items_length = item_cls_prefix_items_length[1]
     path_to_schemas: PathToSchemasType = {}
-    for i, value in enumerate(arg):
+    for i in range(prefix_items_length, len(arg)):
+        value = arg[i]
         item_validation_metadata = ValidationMetadata(
             path_to_item=validation_metadata.path_to_item+(i,),
             configuration=validation_metadata.configuration,
