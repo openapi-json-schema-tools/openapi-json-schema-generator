@@ -1288,7 +1288,7 @@ def validate_property_names(
 
 def validate_pattern_properties(
     arg: typing.Any,
-    pattern_properties: typing.Mapping[schemas.PatternInfo, typing.Type[SchemaValidator]],
+    pattern_properties: typing.Mapping[PatternInfo, typing.Type[SchemaValidator]],
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
