@@ -96,3 +96,12 @@ components:
           type: string
         "^I_":
           type: integer
+    AnyTypePrefixItems:
+      prefixItems:
+      - type: number
+      - type: string
+    ArrayPrefixItems:
+      type: array
+      prefixItems:
+        - type: number
+        - type: string

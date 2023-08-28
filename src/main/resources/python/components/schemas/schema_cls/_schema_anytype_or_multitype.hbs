@@ -36,6 +36,9 @@ class {{jsonPathPiece.camelCase}}(
 {{#if constInfo}}
     {{> components/schemas/schema_cls/_const }}
 {{/if}}
+{{#if prefixItems}}
+    {{> components/schemas/schema_cls/_prefix_items }}
+{{/if}}
 {{#if items}}
     {{> components/schemas/schema_cls/_items }}
 {{/if}}

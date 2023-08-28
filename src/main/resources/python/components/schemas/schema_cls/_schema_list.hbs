@@ -25,6 +25,9 @@ class {{jsonPathPiece.camelCase}}(
     {{#neq minItems null}}
     {{> components/schemas/schema_cls/_min_items }}
     {{/neq}}
+    {{#if prefixItems}}
+    {{> components/schemas/schema_cls/_prefix_items }}
+    {{/if}}
     {{#if items}}
     {{> components/schemas/schema_cls/_items }}
     {{/if}}

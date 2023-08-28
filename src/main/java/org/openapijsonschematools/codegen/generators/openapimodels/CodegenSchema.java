@@ -85,6 +85,7 @@ public class CodegenSchema {
     public EnumInfo constInfo;
     public CodegenSchema propertyNames;
     public LinkedHashMap<CodegenPatternInfo, CodegenSchema> patternProperties;
+    public ArrayList<CodegenSchema> prefixItems;
 
     // Extra needed fields
     // stores the mapping value schema, used to provide a value type for the object output class
@@ -255,6 +256,7 @@ public class CodegenSchema {
         not
         oneOf
         patternProperties
+        prefixItems
         properties
         propertyNames
         (self)
@@ -378,6 +380,11 @@ public class CodegenSchema {
         }
         if (patternProperties != null) {
             for (CodegenSchema someSchema: patternProperties.values()) {
+                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+            }
+        }
+        if (prefixItems != null) {
+            for (CodegenSchema someSchema: prefixItems) {
                 someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
             }
         }

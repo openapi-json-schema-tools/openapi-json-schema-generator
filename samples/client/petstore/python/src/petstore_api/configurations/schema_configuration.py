@@ -41,6 +41,8 @@ PYTHON_KEYWORD_TO_JSON_SCHEMA_KEYWORD = {
     'not_': 'not',
     'one_of': 'oneOf',
     'pattern': 'pattern',
+    'pattern_properties': 'patternProperties',
+    'prefix_items': 'prefixItems',
     'properties': 'properties',
     'property_names': 'propertyNames',
     'required': 'required',
