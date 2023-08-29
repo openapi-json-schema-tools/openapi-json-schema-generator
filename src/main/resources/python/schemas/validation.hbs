@@ -117,6 +117,7 @@ class SchemaValidator:
         if 'prefix_items' in vars(cls_schema):
             prefix_items_length = len(vars(cls_schema)['prefix_items'])
         for keyword, val in json_schema_data.items():
+            used_val: typing.Any
             if keyword in {'contains', 'min_contains', 'max_contains'}:
                 used_val = (val, contains_qty)
             elif keyword == 'items':
