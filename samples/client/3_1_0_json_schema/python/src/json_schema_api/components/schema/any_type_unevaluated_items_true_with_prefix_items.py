@@ -29,4 +29,5 @@ class AnyTypeUnevaluatedItemsTrueWithPrefixItems(
     ] = (
         _0,
     )
+    unevaluated_items: typing.Type[UnevaluatedItems] = dataclasses.field(default_factory=lambda: UnevaluatedItems) # type: ignore
 

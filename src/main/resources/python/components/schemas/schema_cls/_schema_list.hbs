@@ -46,6 +46,9 @@ class {{jsonPathPiece.camelCase}}(
     {{#if not}}
     {{> components/schemas/schema_cls/_not }}
     {{/if}}
+    {{#if unevaluatedItems}}
+    {{> components/schemas/schema_cls/_unevaluated_items }}
+    {{/if}}
     {{#if arrayOutputJsonPathPiece}}
     type_to_output_cls: typing.Mapping[
         typing.Type,

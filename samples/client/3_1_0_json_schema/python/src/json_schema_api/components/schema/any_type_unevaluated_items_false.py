@@ -32,4 +32,5 @@ class AnyTypeUnevaluatedItemsFalse(
     Do not edit the class manually.
     """
     # any type
+    unevaluated_items: typing.Type[UnevaluatedItems] = dataclasses.field(default_factory=lambda: UnevaluatedItems) # type: ignore
 
