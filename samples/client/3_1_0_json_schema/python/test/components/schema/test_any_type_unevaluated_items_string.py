@@ -11,12 +11,22 @@ import unittest
 
 import json_schema_api
 from json_schema_api.components.schema.any_type_unevaluated_items_string import AnyTypeUnevaluatedItemsString
-from json_schema_api.configurations import schema_configuration
 
 
 class TestAnyTypeUnevaluatedItemsString(unittest.TestCase):
     """AnyTypeUnevaluatedItemsString unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+
+    def test_succeeds_with_no_unevaluated_items(self):
+        inst = AnyTypeUnevaluatedItemsString.validate(())
+        assert inst == ()
+
+    def test_succeeds_with_unevaluated_items(self):
+        inst = AnyTypeUnevaluatedItemsString.validate(('foo',))
+        assert inst == ('foo',)
+
+    def test_fails_with_unevaluated_items_of_wrong_type(self):
+        with self.assertRaises(json_schema_api.ApiTypeError):
+            AnyTypeUnevaluatedItemsString.validate((1,))
 
 
 if __name__ == '__main__':
