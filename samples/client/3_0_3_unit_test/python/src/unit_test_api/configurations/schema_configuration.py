@@ -47,7 +47,8 @@ PYTHON_KEYWORD_TO_JSON_SCHEMA_KEYWORD = {
     'property_names': 'propertyNames',
     'required': 'required',
     'types': 'type',
-    'unique_items': 'uniqueItems'
+    'unique_items': 'uniqueItems',
+    'unevaluated_items': 'unevaluatedItems'
 }
 
 class SchemaConfiguration:

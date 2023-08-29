@@ -104,7 +104,6 @@ test-requirements.txt
 test/__init__.py
 test/components/__init__.py
 test/components/schema/__init__.py
-test/components/schema/test_any_type_unevaluated_items_false_with_prefix_items.py
 test/test_paths/__init__.py
 test/test_paths/test_some_path/__init__.py
 test/test_paths/test_some_path/test_get.py

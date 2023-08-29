@@ -300,6 +300,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |PropertyNames|✗|OAS3
 |Required|✓|OAS2,OAS3
 |Type|✓|OAS2,OAS3
+|UnevaluatedItems|✗|OAS3
 |UniqueItems|✓|OAS2,OAS3
 |Xml|✗|OAS2,OAS3
 
