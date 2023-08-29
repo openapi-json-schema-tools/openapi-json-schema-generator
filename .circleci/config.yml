@@ -122,9 +122,21 @@ jobs:
     steps:
       - command_build_and_test:
           jobId: "mvnCleanInstall"
-  testPythonClientSamples:
+  testPython38ClientSamples:
     docker:
       - image: python:3.8
+    working_directory: ~/OpenAPITools/openapi-json-schema-generator
+    shell: /bin/bash --login
+    environment:
+      CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
+      CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+    steps:
+      - checkout
+      - command_docker_build_and_test:
+          jobId: "testPythonClientSamples"
+  testPython39ClientSamples:
+    docker:
+      - image: python:3.9
     working_directory: ~/OpenAPITools/openapi-json-schema-generator
     shell: /bin/bash --login
     environment:
@@ -140,4 +152,5 @@ workflows:
     jobs:
       - ensureSamplesAndGeneratorDocsUpToDate
       - mvnCleanInstall
-      - testPythonClientSamples
+      - testPython38ClientSamples
+      - testPython39ClientSamples
