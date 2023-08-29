@@ -11,12 +11,18 @@ import unittest
 
 import json_schema_api
 from json_schema_api.components.schema.any_type_unevaluated_items_true import AnyTypeUnevaluatedItemsTrue
-from json_schema_api.configurations import schema_configuration
 
 
 class TestAnyTypeUnevaluatedItemsTrue(unittest.TestCase):
     """AnyTypeUnevaluatedItemsTrue unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+
+    def test_succeeds_with_no_unevaluated_items(self):
+        inst = AnyTypeUnevaluatedItemsTrue.validate(())
+        assert inst == ()
+
+    def test_succeeds_with_unevaluated_items(self):
+        inst = AnyTypeUnevaluatedItemsTrue.validate(('foo',))
+        assert inst == ('foo',)
 
 
 if __name__ == '__main__':
