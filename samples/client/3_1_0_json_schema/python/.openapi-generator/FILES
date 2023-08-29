@@ -12,6 +12,10 @@ docs/components/schema/any_type_min_contains_value.md
 docs/components/schema/any_type_pattern_properties.md
 docs/components/schema/any_type_prefix_items.md
 docs/components/schema/any_type_property_names.md
+docs/components/schema/any_type_unevaluated_items_false.md
+docs/components/schema/any_type_unevaluated_items_string.md
+docs/components/schema/any_type_unevaluated_items_true.md
+docs/components/schema/any_type_unevaluated_items_true_with_prefix_items.md
 docs/components/schema/array_contains_value.md
 docs/components/schema/array_max_contains_value.md
 docs/components/schema/array_min_contains_value.md
@@ -50,6 +54,10 @@ src/json_schema_api/components/schema/any_type_min_contains_value.py
 src/json_schema_api/components/schema/any_type_pattern_properties.py
 src/json_schema_api/components/schema/any_type_prefix_items.py
 src/json_schema_api/components/schema/any_type_property_names.py
+src/json_schema_api/components/schema/any_type_unevaluated_items_false.py
+src/json_schema_api/components/schema/any_type_unevaluated_items_string.py
+src/json_schema_api/components/schema/any_type_unevaluated_items_true.py
+src/json_schema_api/components/schema/any_type_unevaluated_items_true_with_prefix_items.py
 src/json_schema_api/components/schema/array_contains_value.py
 src/json_schema_api/components/schema/array_max_contains_value.py
 src/json_schema_api/components/schema/array_min_contains_value.py

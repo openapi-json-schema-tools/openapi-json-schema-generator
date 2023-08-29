@@ -2,7 +2,7 @@
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
 {{else}}
     {{#eq types null }}
-        {{#or allOf anyOf oneOf not enumInfo constInfo properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties dependentRequired dependentSchemas propertyNames (neq maxProperties null) (neq minProperties null) patternProperties items uniqueItems (neq maxItems null) (neq minItems null) contains (neq maxContains null) (neq minContains null) prefixItems format (neq maxLength null) (neq minLength null) maximum minimum multipleOf patternInfo }}
+        {{#or allOf anyOf oneOf not enumInfo constInfo properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties dependentRequired dependentSchemas propertyNames (neq maxProperties null) (neq minProperties null) patternProperties items uniqueItems (neq maxItems null) (neq minItems null) contains (neq maxContains null) (neq minContains null) prefixItems unevaluatedItems format (neq maxLength null) (neq minLength null) maximum minimum multipleOf patternInfo }}
 {{> components/schemas/schema_cls/_schema_anytype_or_multitype }}
         {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
@@ -20,7 +20,7 @@
                     {{/or}}
                 {{else}}
                     {{#eq this "array"}}
-                        {{#or allOf anyOf oneOf not items uniqueItems contains (neq maxContains null) (neq minContains null) (neq maxItems null) (neq minItems null) prefixItems }}
+                        {{#or allOf anyOf oneOf not items uniqueItems contains (neq maxContains null) (neq minContains null) (neq maxItems null) (neq minItems null) prefixItems unevaluatedItems }}
 {{> components/schemas/schema_cls/_schema_list }}
                         {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
