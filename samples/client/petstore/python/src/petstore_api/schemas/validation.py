@@ -24,13 +24,7 @@ from petstore_api.configurations import schema_configuration
 
 from . import format, original_immutabledict
 
-_K = typing.TypeVar('_K')
-_V = typing.TypeVar('_V', covariant=True)
-
-
-class immutabledict(typing.Generic[_K, _V], original_immutabledict.immutabledict[_K, _V]):
-    # this class layer needed to not show init signature when making new instances
-    pass
+immutabledict = original_immutabledict.immutabledict
 
 
 @dataclasses.dataclass
