@@ -105,3 +105,16 @@ components:
       prefixItems:
         - type: number
         - type: string
+    AnyTypeUnevaluatedItemsTrue:
+      unevaluatedItems: {}
+    AnyTypeUnevaluatedItemsFalse:
+      unevaluatedItems:
+        not: {}
+    AnyTypeUnevaluatedItemsString:
+      unevaluatedItems:
+        type: string
+    AnyTypeUnevaluatedItemsFalseWithPrefixItems:
+      prefixItems:
+      - type: string
+      unevaluatedItems:
+        not: {}

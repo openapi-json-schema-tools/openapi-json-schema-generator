@@ -136,6 +136,9 @@ public enum SchemaFeature {
     @OAS2 @OAS3
     Type,
 
+    @OAS3
+    UnevaluatedItems,
+
     @OAS2 @OAS3
     UniqueItems,
 
