@@ -183,9 +183,9 @@ Class | Description
 [AnyTypePrefixItems](docs/components/schema/any_type_prefix_items.md) |
 [AnyTypePropertyNames](docs/components/schema/any_type_property_names.md) |
 [AnyTypeUnevaluatedItemsFalse](docs/components/schema/any_type_unevaluated_items_false.md) |
+[AnyTypeUnevaluatedItemsFalseWithPrefixItems](docs/components/schema/any_type_unevaluated_items_false_with_prefix_items.md) |
 [AnyTypeUnevaluatedItemsString](docs/components/schema/any_type_unevaluated_items_string.md) |
 [AnyTypeUnevaluatedItemsTrue](docs/components/schema/any_type_unevaluated_items_true.md) |
-[AnyTypeUnevaluatedItemsTrueWithPrefixItems](docs/components/schema/any_type_unevaluated_items_true_with_prefix_items.md) |
 [ArrayContainsValue](docs/components/schema/array_contains_value.md) |
 [ArrayMaxContainsValue](docs/components/schema/array_max_contains_value.md) |
 [ArrayMinContainsValue](docs/components/schema/array_min_contains_value.md) |

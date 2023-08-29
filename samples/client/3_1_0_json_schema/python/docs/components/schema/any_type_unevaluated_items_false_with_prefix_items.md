@@ -1,5 +1,5 @@
-# AnyTypeUnevaluatedItemsTrueWithPrefixItems
-json_schema_api.components.schema.any_type_unevaluated_items_true_with_prefix_items
+# AnyTypeUnevaluatedItemsFalseWithPrefixItems
+json_schema_api.components.schema.any_type_unevaluated_items_false_with_prefix_items
 ```
 type: schemas.Schema
 ```

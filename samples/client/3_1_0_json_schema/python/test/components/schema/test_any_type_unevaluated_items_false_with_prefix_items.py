@@ -10,12 +10,12 @@
 import unittest
 
 import json_schema_api
-from json_schema_api.components.schema.any_type_unevaluated_items_true_with_prefix_items import AnyTypeUnevaluatedItemsTrueWithPrefixItems
+from json_schema_api.components.schema.any_type_unevaluated_items_false_with_prefix_items import AnyTypeUnevaluatedItemsFalseWithPrefixItems
 from json_schema_api.configurations import schema_configuration
 
 
-class TestAnyTypeUnevaluatedItemsTrueWithPrefixItems(unittest.TestCase):
-    """AnyTypeUnevaluatedItemsTrueWithPrefixItems unit test stubs"""
+class TestAnyTypeUnevaluatedItemsFalseWithPrefixItems(unittest.TestCase):
+    """AnyTypeUnevaluatedItemsFalseWithPrefixItems unit test stubs"""
     configuration = schema_configuration.SchemaConfiguration()
 
 

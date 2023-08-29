@@ -113,7 +113,8 @@ components:
     AnyTypeUnevaluatedItemsString:
       unevaluatedItems:
         type: string
-    AnyTypeUnevaluatedItemsTrueWithPrefixItems:
+    AnyTypeUnevaluatedItemsFalseWithPrefixItems:
       prefixItems:
       - type: string
-      unevaluatedItems: {}
+      unevaluatedItems:
+        not: {}
