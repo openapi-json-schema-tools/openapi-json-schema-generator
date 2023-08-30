@@ -72,6 +72,16 @@ class AnyTypeUnevaluatedPropertiesFalseWithPropertiesDict(schemas.immutabledict[
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 AnyTypeUnevaluatedPropertiesFalseWithPropertiesDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+_Not: typing_extensions.TypeAlias = schemas.AnyTypeSchema
+
+
+@dataclasses.dataclass(frozen=True)
+class UnevaluatedProperties(
+    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+):
+    # any type
+    not_: typing.Type[_Not] = dataclasses.field(default_factory=lambda: _Not) # type: ignore
+
 
 
 @dataclasses.dataclass(frozen=True)

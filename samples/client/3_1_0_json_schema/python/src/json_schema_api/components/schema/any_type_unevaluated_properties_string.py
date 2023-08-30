@@ -10,6 +10,7 @@
 from __future__ import annotations
 from json_schema_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
+UnevaluatedProperties: typing_extensions.TypeAlias = schemas.StrSchema
 
 
 @dataclasses.dataclass(frozen=True)

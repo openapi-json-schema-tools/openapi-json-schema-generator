@@ -262,6 +262,7 @@ public class CodegenSchema {
         properties
         propertyNames
         unevaluatedItems
+        unevaluatedProperties
         (self)
 
         excluded:
@@ -523,6 +524,9 @@ public class CodegenSchema {
         }
         if (unevaluatedItems != null) {
             unevaluatedItems.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+        }
+        if (unevaluatedProperties != null) {
+            unevaluatedProperties.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
         }
         // end of keyword section
 
