@@ -11,12 +11,22 @@ import unittest
 
 import json_schema_api
 from json_schema_api.components.schema.any_type_unevaluated_properties_string import AnyTypeUnevaluatedPropertiesString
-from json_schema_api.configurations import schema_configuration
 
 
 class TestAnyTypeUnevaluatedPropertiesString(unittest.TestCase):
     """AnyTypeUnevaluatedPropertiesString unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+
+    def test_succeeds_with_no_unevaluated_properties(self):
+        inst = AnyTypeUnevaluatedPropertiesString.validate({})
+        assert inst == {}
+
+    def test_succeeds_with_unevaluated_property(self):
+        inst = AnyTypeUnevaluatedPropertiesString.validate({'foo': 'bar'})
+        assert inst == {'foo': 'bar'}
+
+    def test_fails_with_unevaluated_items_of_wrong_type(self):
+        with self.assertRaises(json_schema_api.ApiTypeError):
+            AnyTypeUnevaluatedPropertiesString.validate({'foo': True})
 
 
 if __name__ == '__main__':
