@@ -172,6 +172,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
                         SchemaFeature.Required,
                         SchemaFeature.Type,
                         SchemaFeature.UnevaluatedItems,
+                        SchemaFeature.UnevaluatedProperties,
                         SchemaFeature.UniqueItems
                 )
                 .includeDocumentationFeatures(
