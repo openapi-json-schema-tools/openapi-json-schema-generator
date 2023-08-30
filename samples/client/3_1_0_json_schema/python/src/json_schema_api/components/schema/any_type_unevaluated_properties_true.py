@@ -22,4 +22,5 @@ class AnyTypeUnevaluatedPropertiesTrue(
     Do not edit the class manually.
     """
     # any type
+    unevaluated_properties: typing.Type[UnevaluatedProperties] = dataclasses.field(default_factory=lambda: UnevaluatedProperties) # type: ignore
 

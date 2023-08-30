@@ -85,6 +85,7 @@ class AnyTypeUnevaluatedPropertiesFalseWithProperties(
     """
     # any type
     properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
+    unevaluated_properties: typing.Type[UnevaluatedProperties] = dataclasses.field(default_factory=lambda: UnevaluatedProperties) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type

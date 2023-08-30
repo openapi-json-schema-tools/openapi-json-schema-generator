@@ -58,6 +58,9 @@ class {{jsonPathPiece.camelCase}}(
     {{#if patternProperties}}
     {{> components/schemas/schema_cls/_pattern_properties }}
     {{/if}}
+    {{#if unevaluatedProperties}}
+    {{> components/schemas/schema_cls/_unevaluated_properties }}
+    {{/if}}
     {{#if mapOutputJsonPathPiece}}
     type_to_output_cls: typing.Mapping[
         typing.Type,
