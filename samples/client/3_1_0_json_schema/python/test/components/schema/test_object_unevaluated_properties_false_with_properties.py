@@ -11,12 +11,22 @@ import unittest
 
 import json_schema_api
 from json_schema_api.components.schema.object_unevaluated_properties_false_with_properties import ObjectUnevaluatedPropertiesFalseWithProperties
-from json_schema_api.configurations import schema_configuration
 
 
 class TestObjectUnevaluatedPropertiesFalseWithProperties(unittest.TestCase):
     """ObjectUnevaluatedPropertiesFalseWithProperties unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+
+    def test_succeeds_with_no_unevaluated_properties(self):
+        inst = ObjectUnevaluatedPropertiesFalseWithProperties.validate({})
+        assert inst == {}
+
+    def test_succeeds_with_property(self):
+        inst = ObjectUnevaluatedPropertiesFalseWithProperties.validate({'someProp': 'a'})
+        assert inst == {'someProp': 'a'}
+
+    def test_fails_with_unevaluated_property(self):
+        with self.assertRaises(json_schema_api.ApiValueError):
+            ObjectUnevaluatedPropertiesFalseWithProperties.validate({'foo': True})
 
 
 if __name__ == '__main__':
