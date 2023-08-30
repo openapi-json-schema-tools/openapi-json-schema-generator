@@ -11,12 +11,18 @@ import unittest
 
 import json_schema_api
 from json_schema_api.components.schema.array_unevaluated_items_false_with_prefix_items import ArrayUnevaluatedItemsFalseWithPrefixItems
-from json_schema_api.configurations import schema_configuration
 
 
 class TestArrayUnevaluatedItemsFalseWithPrefixItems(unittest.TestCase):
     """ArrayUnevaluatedItemsFalseWithPrefixItems unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+
+    def test_succeeds_with_no_unevaluated_items(self):
+        inst = ArrayUnevaluatedItemsFalseWithPrefixItems.validate(())
+        assert inst == ()
+
+    def test_fails_with_unevaluated_items(self):
+        with self.assertRaises(json_schema_api.ApiValueError):
+            ArrayUnevaluatedItemsFalseWithPrefixItems.validate(('foo', 'bar'))
 
 
 if __name__ == '__main__':
