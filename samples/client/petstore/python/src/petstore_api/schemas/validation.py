@@ -108,7 +108,7 @@ class SchemaValidator:
                 used_val = (val, contains_qty)
             elif keyword == 'items':
                 used_val = (val, prefix_items_length)
-            elif keyword == 'unevaluated_items':
+            elif keyword in {'unevaluated_items', 'unevaluated_properties'}:
                 used_val = (val, path_to_schemas)
             else:
                 used_val = val
@@ -1217,6 +1217,32 @@ def validate_unevaluated_items(
     return path_to_schemas
 
 
+def validate_unevaluated_properties(
+    arg: typing.Any,
+    unevaluated_properties_validated_path_to_schemas: typing.Tuple[typing.Type[SchemaValidator], PathToSchemasType],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+) -> typing.Optional[PathToSchemasType]:
+    if not isinstance(arg, immutabledict):
+        return None
+    path_to_schemas: PathToSchemasType = {}
+    module_namespace = vars(sys.modules[cls.__module__])
+    schema = _get_class(unevaluated_properties_validated_path_to_schemas[0], module_namespace)
+    validated_path_to_schemas = unevaluated_properties_validated_path_to_schemas[1]
+    for property_name, val in arg.items():
+        path_to_item = validation_metadata.path_to_item + (property_name,)
+        if path_to_item in validated_path_to_schemas:
+            continue
+        property_validation_metadata = ValidationMetadata(
+            path_to_item=path_to_item,
+            configuration=validation_metadata.configuration,
+            validated_path_to_schemas=validation_metadata.validated_path_to_schemas
+        )
+        other_path_to_schemas = schema._validate(val, validation_metadata=property_validation_metadata)
+        update(path_to_schemas, other_path_to_schemas)
+    return path_to_schemas
+
+
 validator_type = typing.Callable[[typing.Any, typing.Any, type, ValidationMetadata], typing.Optional[PathToSchemasType]]
 json_schema_keyword_to_validator: typing.Mapping[str, validator_type] = {
     'types': validate_types,
@@ -1253,5 +1279,6 @@ json_schema_keyword_to_validator: typing.Mapping[str, validator_type] = {
     'property_names': validate_property_names,
     'pattern_properties': validate_pattern_properties,
     'prefix_items': validate_prefix_items,
-    'unevaluated_items': validate_unevaluated_items
+    'unevaluated_items': validate_unevaluated_items,
+    'unevaluated_properties': validate_unevaluated_properties
 }
