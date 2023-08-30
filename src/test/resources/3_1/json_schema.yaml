@@ -118,3 +118,30 @@ components:
       - type: string
       unevaluatedItems:
         not: {}
+    ArrayUnevaluatedItemsFalseWithPrefixItems:
+      type: array
+      prefixItems:
+        - type: string
+      unevaluatedItems:
+        not: {}
+    AnyTypeUnevaluatedPropertiesTrue:
+      unevaluatedProperties: {}
+    AnyTypeUnevaluatedPropertiesFalse:
+      unevaluatedProperties:
+        not: {}
+    AnyTypeUnevaluatedPropertiesString:
+      unevaluatedProperties:
+        type: string
+    AnyTypeUnevaluatedPropertiesFalseWithProperties:
+      properties:
+        someProp:
+          type: string
+      unevaluatedProperties:
+        not: {}
+    ObjectUnevaluatedPropertiesFalseWithProperties:
+      type: object
+      properties:
+        someProp:
+          type: string
+      unevaluatedProperties:
+        not: {}

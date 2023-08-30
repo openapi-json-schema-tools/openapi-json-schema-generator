@@ -2339,7 +2339,7 @@ public class DefaultGenerator implements Generator {
         HashMap<String, CodegenKey> requiredAndOptionalProperties = new HashMap<>();
         Schema unevaluatedPropertiesSchema = getSchemaFromBooleanOrSchema(p.getUnevaluatedProperties());
         if (unevaluatedPropertiesSchema != null) {
-            property.unevaluatedItems = fromSchema(unevaluatedPropertiesSchema, sourceJsonPath, currentJsonPath + "/unevaluatedProperties");
+            property.unevaluatedProperties = fromSchema(unevaluatedPropertiesSchema, sourceJsonPath, currentJsonPath + "/unevaluatedProperties");
         }
         Schema unevaluatedItemsSchema = p.getUnevaluatedItems();
         if (unevaluatedItemsSchema != null) {
