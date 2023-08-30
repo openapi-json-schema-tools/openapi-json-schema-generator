@@ -18,6 +18,14 @@ class TestAnyTypeUnevaluatedPropertiesFalse(unittest.TestCase):
     """AnyTypeUnevaluatedPropertiesFalse unit test stubs"""
     configuration = schema_configuration.SchemaConfiguration()
 
+    def test_succeeds_with_no_unevaluated_properties(self):
+        inst = AnyTypeUnevaluatedPropertiesFalse.validate({})
+        assert inst == {}
+
+    def test_fails_with_unevaluated_property(self):
+        with self.assertRaises(json_schema_api.ApiValueError):
+            AnyTypeUnevaluatedPropertiesFalse.validate({'foo': True})
+
 
 if __name__ == '__main__':
     unittest.main()
