@@ -2318,6 +2318,7 @@ public class DefaultGenerator implements Generator {
          with the root schema having an unmodified jsonPathPiece.className
          -->
         (self)
+        unevaluatedProperties
         unevaluatedItems
         propertyNames
         properties
@@ -2336,6 +2337,10 @@ public class DefaultGenerator implements Generator {
          */
         setSchemaLocationInfo(null, sourceJsonPath, currentJsonPath, property);
         HashMap<String, CodegenKey> requiredAndOptionalProperties = new HashMap<>();
+        Schema unevaluatedPropertiesSchema = getSchemaFromBooleanOrSchema(p.getUnevaluatedProperties());
+        if (unevaluatedPropertiesSchema != null) {
+            property.unevaluatedItems = fromSchema(unevaluatedPropertiesSchema, sourceJsonPath, currentJsonPath + "/unevaluatedProperties");
+        }
         Schema unevaluatedItemsSchema = p.getUnevaluatedItems();
         if (unevaluatedItemsSchema != null) {
             property.unevaluatedItems = fromSchema(unevaluatedItemsSchema, sourceJsonPath, currentJsonPath + "/unevaluatedItems");
