@@ -190,6 +190,7 @@ Class | Description
 [AnyTypeUnevaluatedPropertiesFalseWithProperties](docs/components/schema/any_type_unevaluated_properties_false_with_properties.md) |
 [AnyTypeUnevaluatedPropertiesString](docs/components/schema/any_type_unevaluated_properties_string.md) |
 [AnyTypeUnevaluatedPropertiesTrue](docs/components/schema/any_type_unevaluated_properties_true.md) |
+[AnyTypeWithDefs](docs/components/schema/any_type_with_defs.md) |
 [ArrayContainsValue](docs/components/schema/array_contains_value.md) |
 [ArrayMaxContainsValue](docs/components/schema/array_max_contains_value.md) |
 [ArrayMinContainsValue](docs/components/schema/array_min_contains_value.md) |
@@ -200,6 +201,7 @@ Class | Description
 [ObjectPatternProperties](docs/components/schema/object_pattern_properties.md) |
 [ObjectPropertyNames](docs/components/schema/object_property_names.md) |
 [ObjectUnevaluatedPropertiesFalseWithProperties](docs/components/schema/object_unevaluated_properties_false_with_properties.md) |
+[ObjectWithDefs](docs/components/schema/object_with_defs.md) |
 [StringConstString](docs/components/schema/string_const_string.md) |
 
 ## Notes for Large OpenAPI documents

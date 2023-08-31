@@ -145,3 +145,21 @@ components:
           type: string
       unevaluatedProperties:
         not: {}
+    AnyTypeWithDefs:
+      properties:
+        firstName:
+          $ref: "#/components/schemas/AnyTypeWithDefs/$defs/name"
+        lastName:
+          $ref: "#/components/schemas/AnyTypeWithDefs/$defs/name"
+      $defs:
+        name:
+          type: string
+    ObjectWithDefs:
+      properties:
+        firstName:
+          $ref: "#/components/schemas/ObjectWithDefs/$defs/name"
+        lastName:
+          $ref: "#/components/schemas/ObjectWithDefs/$defs/name"
+      $defs:
+        name:
+          type: string

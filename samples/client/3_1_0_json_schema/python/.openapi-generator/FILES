@@ -20,6 +20,7 @@ docs/components/schema/any_type_unevaluated_properties_false.md
 docs/components/schema/any_type_unevaluated_properties_false_with_properties.md
 docs/components/schema/any_type_unevaluated_properties_string.md
 docs/components/schema/any_type_unevaluated_properties_true.md
+docs/components/schema/any_type_with_defs.md
 docs/components/schema/array_contains_value.md
 docs/components/schema/array_max_contains_value.md
 docs/components/schema/array_min_contains_value.md
@@ -30,6 +31,7 @@ docs/components/schema/object_dependent_schemas.md
 docs/components/schema/object_pattern_properties.md
 docs/components/schema/object_property_names.md
 docs/components/schema/object_unevaluated_properties_false_with_properties.md
+docs/components/schema/object_with_defs.md
 docs/components/schema/string_const_string.md
 docs/paths/some_path/get.md
 docs/paths/some_path/get/responses/response_200/content/application_json/schema.md
@@ -68,6 +70,7 @@ src/json_schema_api/components/schema/any_type_unevaluated_properties_false.py
 src/json_schema_api/components/schema/any_type_unevaluated_properties_false_with_properties.py
 src/json_schema_api/components/schema/any_type_unevaluated_properties_string.py
 src/json_schema_api/components/schema/any_type_unevaluated_properties_true.py
+src/json_schema_api/components/schema/any_type_with_defs.py
 src/json_schema_api/components/schema/array_contains_value.py
 src/json_schema_api/components/schema/array_max_contains_value.py
 src/json_schema_api/components/schema/array_min_contains_value.py
@@ -78,6 +81,7 @@ src/json_schema_api/components/schema/object_dependent_schemas.py
 src/json_schema_api/components/schema/object_pattern_properties.py
 src/json_schema_api/components/schema/object_property_names.py
 src/json_schema_api/components/schema/object_unevaluated_properties_false_with_properties.py
+src/json_schema_api/components/schema/object_with_defs.py
 src/json_schema_api/components/schema/string_const_string.py
 src/json_schema_api/components/schemas/__init__.py
 src/json_schema_api/configurations/__init__.py
@@ -116,6 +120,7 @@ test-requirements.txt
 test/__init__.py
 test/components/__init__.py
 test/components/schema/__init__.py
+test/components/schema/test_object_with_defs.py
 test/test_paths/__init__.py
 test/test_paths/test_some_path/__init__.py
 test/test_paths/test_some_path/test_get.py
