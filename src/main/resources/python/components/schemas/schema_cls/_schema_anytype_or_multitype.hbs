@@ -117,6 +117,9 @@ class {{jsonPathPiece.camelCase}}(
 {{#if unevaluatedItems}}
     {{> components/schemas/schema_cls/_unevaluated_items }}
 {{/if}}
+{{#if unevaluatedProperties}}
+    {{> components/schemas/schema_cls/_unevaluated_properties }}
+{{/if}}
 {{#or mapOutputJsonPathPiece arrayOutputJsonPathPiece}}
     type_to_output_cls: typing.Mapping[
         typing.Type,

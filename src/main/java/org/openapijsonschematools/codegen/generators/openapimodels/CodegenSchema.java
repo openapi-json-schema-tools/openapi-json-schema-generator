@@ -87,6 +87,7 @@ public class CodegenSchema {
     public LinkedHashMap<CodegenPatternInfo, CodegenSchema> patternProperties;
     public ArrayList<CodegenSchema> prefixItems;
     public CodegenSchema unevaluatedItems;
+    public CodegenSchema unevaluatedProperties;
 
     // Extra needed fields
     // stores the mapping value schema, used to provide a value type for the object output class
@@ -261,6 +262,7 @@ public class CodegenSchema {
         properties
         propertyNames
         unevaluatedItems
+        unevaluatedProperties
         (self)
 
         excluded:
@@ -522,6 +524,9 @@ public class CodegenSchema {
         }
         if (unevaluatedItems != null) {
             unevaluatedItems.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+        }
+        if (unevaluatedProperties != null) {
+            unevaluatedProperties.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
         }
         // end of keyword section
 

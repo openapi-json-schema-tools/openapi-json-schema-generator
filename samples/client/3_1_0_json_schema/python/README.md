@@ -186,14 +186,20 @@ Class | Description
 [AnyTypeUnevaluatedItemsFalseWithPrefixItems](docs/components/schema/any_type_unevaluated_items_false_with_prefix_items.md) |
 [AnyTypeUnevaluatedItemsString](docs/components/schema/any_type_unevaluated_items_string.md) |
 [AnyTypeUnevaluatedItemsTrue](docs/components/schema/any_type_unevaluated_items_true.md) |
+[AnyTypeUnevaluatedPropertiesFalse](docs/components/schema/any_type_unevaluated_properties_false.md) |
+[AnyTypeUnevaluatedPropertiesFalseWithProperties](docs/components/schema/any_type_unevaluated_properties_false_with_properties.md) |
+[AnyTypeUnevaluatedPropertiesString](docs/components/schema/any_type_unevaluated_properties_string.md) |
+[AnyTypeUnevaluatedPropertiesTrue](docs/components/schema/any_type_unevaluated_properties_true.md) |
 [ArrayContainsValue](docs/components/schema/array_contains_value.md) |
 [ArrayMaxContainsValue](docs/components/schema/array_max_contains_value.md) |
 [ArrayMinContainsValue](docs/components/schema/array_min_contains_value.md) |
 [ArrayPrefixItems](docs/components/schema/array_prefix_items.md) |
+[ArrayUnevaluatedItemsFalseWithPrefixItems](docs/components/schema/array_unevaluated_items_false_with_prefix_items.md) |
 [ObjectDependentRequired](docs/components/schema/object_dependent_required.md) |
 [ObjectDependentSchemas](docs/components/schema/object_dependent_schemas.md) |
 [ObjectPatternProperties](docs/components/schema/object_pattern_properties.md) |
 [ObjectPropertyNames](docs/components/schema/object_property_names.md) |
+[ObjectUnevaluatedPropertiesFalseWithProperties](docs/components/schema/object_unevaluated_properties_false_with_properties.md) |
 [StringConstString](docs/components/schema/string_const_string.md) |
 
 ## Notes for Large OpenAPI documents
