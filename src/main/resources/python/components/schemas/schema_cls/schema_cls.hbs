@@ -2,7 +2,7 @@
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
 {{else}}
     {{#eq types null }}
-        {{#or allOf anyOf oneOf not enumInfo constInfo properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties dependentRequired dependentSchemas propertyNames (neq maxProperties null) (neq minProperties null) patternProperties unevaluatedProperties items uniqueItems (neq maxItems null) (neq minItems null) contains (neq maxContains null) (neq minContains null) prefixItems unevaluatedItems format (neq maxLength null) (neq minLength null) maximum minimum multipleOf patternInfo }}
+        {{#or allOf anyOf oneOf not if_ then enumInfo constInfo properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties dependentRequired dependentSchemas propertyNames (neq maxProperties null) (neq minProperties null) patternProperties unevaluatedProperties items uniqueItems (neq maxItems null) (neq minItems null) contains (neq maxContains null) (neq minContains null) prefixItems unevaluatedItems format (neq maxLength null) (neq minLength null) maximum minimum multipleOf patternInfo }}
 {{> components/schemas/schema_cls/_schema_anytype_or_multitype }}
         {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
@@ -13,34 +13,34 @@
             {{! one type }}
             {{#each types}}
                 {{#eq this "object"}}
-                    {{#or allOf anyOf oneOf not properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties dependentRequired dependentSchemas propertyNames (neq maxProperties null) (neq minProperties null) patternProperties unevaluatedProperties }}
+                    {{#or allOf anyOf oneOf not if_ then properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties dependentRequired dependentSchemas propertyNames (neq maxProperties null) (neq minProperties null) patternProperties unevaluatedProperties }}
 {{> components/schemas/schema_cls/_schema_dict }}
                     {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
                     {{/or}}
                 {{else}}
                     {{#eq this "array"}}
-                        {{#or allOf anyOf oneOf not items uniqueItems contains (neq maxContains null) (neq minContains null) (neq maxItems null) (neq minItems null) prefixItems unevaluatedItems }}
+                        {{#or allOf anyOf oneOf not if_ then items uniqueItems contains (neq maxContains null) (neq minContains null) (neq maxItems null) (neq minItems null) prefixItems unevaluatedItems }}
 {{> components/schemas/schema_cls/_schema_list }}
                         {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
                         {{/or}}
                     {{else}}
                         {{#eq this "boolean"}}
-                            {{#or enumInfo constInfo allOf anyOf oneOf not }}
+                            {{#or allOf anyOf oneOf not if_ then enumInfo constInfo }}
 {{> components/schemas/schema_cls/_schema_boolean }}
                             {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
                             {{/or}}
                         {{else}}
                             {{#or (eq this "number") (eq this "integer") }}
-                                {{#or enumInfo constInfo allOf anyOf oneOf not maximum minimum multipleOf }}
+                                {{#or allOf anyOf oneOf not if_ then enumInfo constInfo maximum minimum multipleOf }}
 {{> components/schemas/schema_cls/_schema_number }}
                                 {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
                                 {{/or}}
                             {{else}}
-                                {{#or enumInfo constInfo allOf anyOf oneOf not defaultValue (neq maxLength null) (neq minLength null) patternInfo }}
+                                {{#or allOf anyOf oneOf not if_ then enumInfo constInfo defaultValue (neq maxLength null) (neq minLength null) patternInfo }}
 {{> components/schemas/schema_cls/_schema_string }}
                                 {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}

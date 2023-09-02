@@ -2340,6 +2340,7 @@ public class DefaultGenerator implements Generator {
         (self)
         unevaluatedProperties
         unevaluatedItems
+        then
         propertyNames
         properties
         prefixItems
@@ -2347,6 +2348,7 @@ public class DefaultGenerator implements Generator {
         oneOf
         not
         items
+        if_
         enums
         dependentSchemas
         contains
@@ -2364,6 +2366,9 @@ public class DefaultGenerator implements Generator {
         Schema unevaluatedItemsSchema = p.getUnevaluatedItems();
         if (unevaluatedItemsSchema != null) {
             property.unevaluatedItems = fromSchema(unevaluatedItemsSchema, sourceJsonPath, currentJsonPath + "/unevaluatedItems");
+        }
+        if (p.getThen() != null) {
+            property.then = fromSchema(p.getThen(), sourceJsonPath, currentJsonPath + "/then");
         }
 
         property.properties = getProperties(((Schema<?>) p).getProperties(), sourceJsonPath, currentJsonPath, requiredAndOptionalProperties);
@@ -2386,6 +2391,9 @@ public class DefaultGenerator implements Generator {
         if (p.getItems() != null) {
             property.items = fromSchema(
                     p.getItems(), sourceJsonPath, currentJsonPath + "/items");
+        }
+        if (p.getIf() != null) {
+            property.if_ = fromSchema(p.getIf(), sourceJsonPath, currentJsonPath + "/if");
         }
         if (p.getEnum() != null) {
             ArrayList<Object> values = new ArrayList<>(((Schema<?>) p).getEnum());
