@@ -46,6 +46,12 @@ class {{jsonPathPiece.camelCase}}(
     {{#if not}}
     {{> components/schemas/schema_cls/_not }}
     {{/if}}
+    {{#if if_}}
+    {{> components/schemas/schema_cls/_if }}
+    {{/if}}
+    {{#if then}}
+    {{> components/schemas/schema_cls/_then }}
+    {{/if}}
     {{#if unevaluatedItems}}
     {{> components/schemas/schema_cls/_unevaluated_items }}
     {{/if}}
