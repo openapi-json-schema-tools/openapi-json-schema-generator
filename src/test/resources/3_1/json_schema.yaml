@@ -150,6 +150,7 @@ components:
         street_address:
           type: string
         country:
+          type: string
           default: United States of America
           enum:
             - "United States of America"
@@ -161,10 +162,12 @@ components:
       then:
         properties:
           postal_code:
+            type: string
             pattern: "[0-9]{5}(-[0-9]{4})?"
       else:
         properties:
           postal_code:
+            type: string
             pattern: "[A-Z][0-9][A-Z] [0-9][A-Z][0-9]"
     ObjectIfThenElse:
       type: object
@@ -172,6 +175,7 @@ components:
         street_address:
           type: string
         country:
+          type: string
           default: United States of America
           enum:
           - "United States of America"
@@ -183,8 +187,10 @@ components:
       then:
         properties:
           postal_code:
+            type: string
             pattern: "[0-9]{5}(-[0-9]{4})?"
       else:
         properties:
           postal_code:
+            type: string
             pattern: "[A-Z][0-9][A-Z] [0-9][A-Z][0-9]"
