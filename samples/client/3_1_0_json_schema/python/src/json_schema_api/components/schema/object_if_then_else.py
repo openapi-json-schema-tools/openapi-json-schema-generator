@@ -364,6 +364,8 @@ class ObjectIfThenElse(
     """
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties2 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties2)) # type: ignore
+    if_: typing.Type[_If] = dataclasses.field(default_factory=lambda: _If) # type: ignore
+    then: typing.Type[Then] = dataclasses.field(default_factory=lambda: Then) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type
