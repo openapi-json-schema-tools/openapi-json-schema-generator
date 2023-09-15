@@ -60,15 +60,11 @@ Method | Description
 [**post_maxlength_validation_request_body**](../../paths/request_body_post_maxlength_validation_request_body/post.md) | 
 [**post_maxproperties0_means_the_object_is_empty_request_body**](../../paths/request_body_post_maxproperties0_means_the_object_is_empty_request_body/post.md) | 
 [**post_maxproperties_validation_request_body**](../../paths/request_body_post_maxproperties_validation_request_body/post.md) | 
-[**post_maxproperties_validation_with_a_decimal_request_body**](../../paths/request_body_post_maxproperties_validation_with_a_decimal_request_body/post.md) | 
 [**post_minimum_validation_request_body**](../../paths/request_body_post_minimum_validation_request_body/post.md) | 
 [**post_minimum_validation_with_signed_integer_request_body**](../../paths/request_body_post_minimum_validation_with_signed_integer_request_body/post.md) | 
 [**post_minitems_validation_request_body**](../../paths/request_body_post_minitems_validation_request_body/post.md) | 
-[**post_minitems_validation_with_a_decimal_request_body**](../../paths/request_body_post_minitems_validation_with_a_decimal_request_body/post.md) | 
 [**post_minlength_validation_request_body**](../../paths/request_body_post_minlength_validation_request_body/post.md) | 
-[**post_minlength_validation_with_a_decimal_request_body**](../../paths/request_body_post_minlength_validation_with_a_decimal_request_body/post.md) | 
 [**post_minproperties_validation_request_body**](../../paths/request_body_post_minproperties_validation_request_body/post.md) | 
-[**post_minproperties_validation_with_a_decimal_request_body**](../../paths/request_body_post_minproperties_validation_with_a_decimal_request_body/post.md) | 
 [**post_multiple_types_can_be_specified_in_an_array_request_body**](../../paths/request_body_post_multiple_types_can_be_specified_in_an_array_request_body/post.md) | 
 [**post_nested_allof_to_check_validation_semantics_request_body**](../../paths/request_body_post_nested_allof_to_check_validation_semantics_request_body/post.md) | 
 [**post_nested_anyof_to_check_validation_semantics_request_body**](../../paths/request_body_post_nested_anyof_to_check_validation_semantics_request_body/post.md) | 

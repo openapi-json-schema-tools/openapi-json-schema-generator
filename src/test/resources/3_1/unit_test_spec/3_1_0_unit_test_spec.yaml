@@ -2015,42 +2015,6 @@ paths:
       - path.post
       - contentType_json
       - maxProperties
-  /requestBody/postMaxpropertiesValidationWithADecimalRequestBody:
-    post:
-      operationId: postMaxpropertiesValidationWithADecimalRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MaxpropertiesValidationWithADecimal'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/MaxpropertiesValidationWithADecimal'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - maxProperties
-  /responseBody/postMaxpropertiesValidationWithADecimalResponseBodyForContentTypes:
-    post:
-      operationId: postMaxpropertiesValidationWithADecimalResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MaxpropertiesValidationWithADecimal'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/MaxpropertiesValidationWithADecimal'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - maxProperties
   /requestBody/postMaxproperties0MeansTheObjectIsEmptyRequestBody:
     post:
       operationId: postMaxproperties0MeansTheObjectIsEmptyRequestBody
@@ -2195,42 +2159,6 @@ paths:
       - path.post
       - contentType_json
       - minItems
-  /requestBody/postMinitemsValidationWithADecimalRequestBody:
-    post:
-      operationId: postMinitemsValidationWithADecimalRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MinitemsValidationWithADecimal'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/MinitemsValidationWithADecimal'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - minItems
-  /responseBody/postMinitemsValidationWithADecimalResponseBodyForContentTypes:
-    post:
-      operationId: postMinitemsValidationWithADecimalResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MinitemsValidationWithADecimal'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/MinitemsValidationWithADecimal'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - minItems
   /requestBody/postMinlengthValidationRequestBody:
     post:
       operationId: postMinlengthValidationRequestBody
@@ -2267,42 +2195,6 @@ paths:
       - path.post
       - contentType_json
       - minLength
-  /requestBody/postMinlengthValidationWithADecimalRequestBody:
-    post:
-      operationId: postMinlengthValidationWithADecimalRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MinlengthValidationWithADecimal'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/MinlengthValidationWithADecimal'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - minLength
-  /responseBody/postMinlengthValidationWithADecimalResponseBodyForContentTypes:
-    post:
-      operationId: postMinlengthValidationWithADecimalResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MinlengthValidationWithADecimal'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/MinlengthValidationWithADecimal'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - minLength
   /requestBody/postMinpropertiesValidationRequestBody:
     post:
       operationId: postMinpropertiesValidationRequestBody
@@ -2334,42 +2226,6 @@ paths:
                 $ref: '#/components/schemas/MinpropertiesValidation'
               x-schema-test-examples:
                 $ref: '#/components/x-schema-test-examples/MinpropertiesValidation'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - minProperties
-  /requestBody/postMinpropertiesValidationWithADecimalRequestBody:
-    post:
-      operationId: postMinpropertiesValidationWithADecimalRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MinpropertiesValidationWithADecimal'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/MinpropertiesValidationWithADecimal'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - minProperties
-  /responseBody/postMinpropertiesValidationWithADecimalResponseBodyForContentTypes:
-    post:
-      operationId: postMinpropertiesValidationWithADecimalResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MinpropertiesValidationWithADecimal'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/MinpropertiesValidationWithADecimal'
       tags:
       - response.content.contentType.schema
       - path.post
@@ -4127,9 +3983,6 @@ components:
     MaxpropertiesValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       maxProperties: 2
-    MaxpropertiesValidationWithADecimal:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      maxProperties: 2.0
     Maxproperties0MeansTheObjectIsEmpty:
       $schema: https://json-schema.org/draft/2020-12/schema
       maxProperties: 0
@@ -4142,21 +3995,12 @@ components:
     MinitemsValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       minItems: 1
-    MinitemsValidationWithADecimal:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      minItems: 1.0
     MinlengthValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       minLength: 2
-    MinlengthValidationWithADecimal:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      minLength: 2.0
     MinpropertiesValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       minProperties: 1
-    MinpropertiesValidationWithADecimal:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      minProperties: 1.0
     ByInt:
       $schema: https://json-schema.org/draft/2020-12/schema
       multipleOf: 2
@@ -5480,19 +5324,6 @@ components:
         description: ignores other non-objects
         data: 12
         valid: true
-    MaxpropertiesValidationWithADecimal:
-      ShorterIsValid:
-        description: shorter is valid
-        data:
-          foo: 1
-        valid: true
-      TooLongIsInvalid:
-        description: too long is invalid
-        data:
-          foo: 1
-          bar: 2
-          baz: 3
-        valid: false
     Maxproperties0MeansTheObjectIsEmpty:
       NoPropertiesIsValid:
         description: no properties is valid
@@ -5569,17 +5400,6 @@ components:
         description: ignores non-arrays
         data: ''
         valid: true
-    MinitemsValidationWithADecimal:
-      LongerIsValid:
-        description: longer is valid
-        data:
-        - 1
-        - 2
-        valid: true
-      TooShortIsInvalid:
-        description: too short is invalid
-        data: []
-        valid: false
     MinlengthValidation:
       LongerIsValid:
         description: longer is valid
@@ -5600,15 +5420,6 @@ components:
       OneSupplementaryUnicodeCodePointIsNotLongEnough:
         description: one supplementary Unicode code point is not long enough
         data: "\U0001F4A9"
-        valid: false
-    MinlengthValidationWithADecimal:
-      LongerIsValid:
-        description: longer is valid
-        data: foo
-        valid: true
-      TooShortIsInvalid:
-        description: too short is invalid
-        data: f
         valid: false
     MinpropertiesValidation:
       LongerIsValid:
@@ -5638,17 +5449,6 @@ components:
         description: ignores other non-objects
         data: 12
         valid: true
-    MinpropertiesValidationWithADecimal:
-      LongerIsValid:
-        description: longer is valid
-        data:
-          foo: 1
-          bar: 2
-        valid: true
-      TooShortIsInvalid:
-        description: too short is invalid
-        data: {}
-        valid: false
     ByInt:
       IntByInt:
         description: int by int
