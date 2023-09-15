@@ -118,6 +118,9 @@ class SchemaValidator:
                 used_val = (val, prefix_items_length)
             elif keyword in {'unevaluated_items', 'unevaluated_properties'}:
                 used_val = (val, path_to_schemas)
+            elif keyword in {'types'}:
+                format: typing.Optional[str] = vars(cls_schema).get('format', None)
+                used_val = (val, format)
             else:
                 used_val = val
             validator = json_schema_keyword_to_validator[keyword]
@@ -268,13 +271,14 @@ class PatternInfo:
 
 def validate_types(
     arg: typing.Any,
-    allowed_types: typing.Set[typing.Type],
+    allowed_types_format: typing.Tuple[typing.Set[typing.Type], typing.Optional[str]],
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
     **kwargs
 {{/if}}
 ) -> None:
+    allowed_types = allowed_types_format[0]
     if type(arg) not in allowed_types:
         raise __get_type_error(
             arg,
@@ -282,7 +286,18 @@ def validate_types(
             allowed_types,
             key_type=False,
         )
+    if isinstance(arg, bool) or not isinstance(arg, (int, float)):
+        return None
+    format = allowed_types_format[1]
+    if format and format == 'int' and arg != int(arg):
+        # there is a json schema test where 1.0 validates as an integer
+        raise exceptions.ApiValueError(
+            "Invalid non-integer value '{}' for type {} at {}".format(
+                arg, format, validation_metadata.path_to_item
+            )
+        )
     return None
+
 
 def validate_enum(
     arg: typing.Any,
