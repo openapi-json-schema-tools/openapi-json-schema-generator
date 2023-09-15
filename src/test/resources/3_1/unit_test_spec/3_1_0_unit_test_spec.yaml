@@ -21,6 +21,10 @@ tags:
 - name: maxItems
 - name: maxLength
 - name: maxProperties
+- name: minimum
+- name: minItems
+- name: minLength
+- name: minProperties
 - name: oneOf
 paths:
   /requestBody/postAdditionalpropertiesWithSchemaRequestBody:
@@ -2147,6 +2151,294 @@ paths:
       - path.post
       - contentType_json
       - maxProperties
+  /requestBody/postMinimumValidationRequestBody:
+    post:
+      operationId: postMinimumValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MinimumValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MinimumValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - minimum
+  /responseBody/postMinimumValidationResponseBodyForContentTypes:
+    post:
+      operationId: postMinimumValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MinimumValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MinimumValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - minimum
+  /requestBody/postMinimumValidationWithSignedIntegerRequestBody:
+    post:
+      operationId: postMinimumValidationWithSignedIntegerRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MinimumValidationWithSignedInteger'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MinimumValidationWithSignedInteger'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - minimum
+  /responseBody/postMinimumValidationWithSignedIntegerResponseBodyForContentTypes:
+    post:
+      operationId: postMinimumValidationWithSignedIntegerResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MinimumValidationWithSignedInteger'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MinimumValidationWithSignedInteger'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - minimum
+  /requestBody/postMinitemsValidationRequestBody:
+    post:
+      operationId: postMinitemsValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MinitemsValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MinitemsValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - minItems
+  /responseBody/postMinitemsValidationResponseBodyForContentTypes:
+    post:
+      operationId: postMinitemsValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MinitemsValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MinitemsValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - minItems
+  /requestBody/postMinitemsValidationWithADecimalRequestBody:
+    post:
+      operationId: postMinitemsValidationWithADecimalRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MinitemsValidationWithADecimal'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MinitemsValidationWithADecimal'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - minItems
+  /responseBody/postMinitemsValidationWithADecimalResponseBodyForContentTypes:
+    post:
+      operationId: postMinitemsValidationWithADecimalResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MinitemsValidationWithADecimal'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MinitemsValidationWithADecimal'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - minItems
+  /requestBody/postMinlengthValidationRequestBody:
+    post:
+      operationId: postMinlengthValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MinlengthValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MinlengthValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - minLength
+  /responseBody/postMinlengthValidationResponseBodyForContentTypes:
+    post:
+      operationId: postMinlengthValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MinlengthValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MinlengthValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - minLength
+  /requestBody/postMinlengthValidationWithADecimalRequestBody:
+    post:
+      operationId: postMinlengthValidationWithADecimalRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MinlengthValidationWithADecimal'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MinlengthValidationWithADecimal'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - minLength
+  /responseBody/postMinlengthValidationWithADecimalResponseBodyForContentTypes:
+    post:
+      operationId: postMinlengthValidationWithADecimalResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MinlengthValidationWithADecimal'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MinlengthValidationWithADecimal'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - minLength
+  /requestBody/postMinpropertiesValidationRequestBody:
+    post:
+      operationId: postMinpropertiesValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MinpropertiesValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MinpropertiesValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - minProperties
+  /responseBody/postMinpropertiesValidationResponseBodyForContentTypes:
+    post:
+      operationId: postMinpropertiesValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MinpropertiesValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MinpropertiesValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - minProperties
+  /requestBody/postMinpropertiesValidationWithADecimalRequestBody:
+    post:
+      operationId: postMinpropertiesValidationWithADecimalRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MinpropertiesValidationWithADecimal'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MinpropertiesValidationWithADecimal'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - minProperties
+  /responseBody/postMinpropertiesValidationWithADecimalResponseBodyForContentTypes:
+    post:
+      operationId: postMinpropertiesValidationWithADecimalResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MinpropertiesValidationWithADecimal'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MinpropertiesValidationWithADecimal'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - minProperties
   /requestBody/postOneofRequestBody:
     post:
       operationId: postOneofRequestBody
@@ -2651,6 +2943,30 @@ components:
     Maxproperties0MeansTheObjectIsEmpty:
       $schema: https://json-schema.org/draft/2020-12/schema
       maxProperties: 0
+    MinimumValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      minimum: 1.1
+    MinimumValidationWithSignedInteger:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      minimum: -2
+    MinitemsValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      minItems: 1
+    MinitemsValidationWithADecimal:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      minItems: 1.0
+    MinlengthValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      minLength: 2
+    MinlengthValidationWithADecimal:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      minLength: 2.0
+    MinpropertiesValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      minProperties: 1
+    MinpropertiesValidationWithADecimal:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      minProperties: 1.0
     Oneof:
       $schema: https://json-schema.org/draft/2020-12/schema
       oneOf:
@@ -3842,6 +4158,152 @@ components:
         description: one property is invalid
         data:
           foo: 1
+        valid: false
+    MinimumValidation:
+      AboveTheMinimumIsValid:
+        description: above the minimum is valid
+        data: 2.6
+        valid: true
+      BoundaryPointIsValid:
+        description: boundary point is valid
+        data: 1.1
+        valid: true
+      BelowTheMinimumIsInvalid:
+        description: below the minimum is invalid
+        data: 0.6
+        valid: false
+      IgnoresNonNumbers:
+        description: ignores non-numbers
+        data: x
+        valid: true
+    MinimumValidationWithSignedInteger:
+      NegativeAboveTheMinimumIsValid:
+        description: negative above the minimum is valid
+        data: -1
+        valid: true
+      PositiveAboveTheMinimumIsValid:
+        description: positive above the minimum is valid
+        data: 0
+        valid: true
+      BoundaryPointIsValid:
+        description: boundary point is valid
+        data: -2
+        valid: true
+      BoundaryPointWithFloatIsValid:
+        description: boundary point with float is valid
+        data: -2.0
+        valid: true
+      FloatBelowTheMinimumIsInvalid:
+        description: float below the minimum is invalid
+        data: -2.0001
+        valid: false
+      IntBelowTheMinimumIsInvalid:
+        description: int below the minimum is invalid
+        data: -3
+        valid: false
+      IgnoresNonNumbers:
+        description: ignores non-numbers
+        data: x
+        valid: true
+    MinitemsValidation:
+      LongerIsValid:
+        description: longer is valid
+        data:
+        - 1
+        - 2
+        valid: true
+      ExactLengthIsValid:
+        description: exact length is valid
+        data:
+        - 1
+        valid: true
+      TooShortIsInvalid:
+        description: too short is invalid
+        data: []
+        valid: false
+      IgnoresNonArrays:
+        description: ignores non-arrays
+        data: ''
+        valid: true
+    MinitemsValidationWithADecimal:
+      LongerIsValid:
+        description: longer is valid
+        data:
+        - 1
+        - 2
+        valid: true
+      TooShortIsInvalid:
+        description: too short is invalid
+        data: []
+        valid: false
+    MinlengthValidation:
+      LongerIsValid:
+        description: longer is valid
+        data: foo
+        valid: true
+      ExactLengthIsValid:
+        description: exact length is valid
+        data: fo
+        valid: true
+      TooShortIsInvalid:
+        description: too short is invalid
+        data: f
+        valid: false
+      IgnoresNonStrings:
+        description: ignores non-strings
+        data: 1
+        valid: true
+      OneSupplementaryUnicodeCodePointIsNotLongEnough:
+        description: one supplementary Unicode code point is not long enough
+        data: "\U0001F4A9"
+        valid: false
+    MinlengthValidationWithADecimal:
+      LongerIsValid:
+        description: longer is valid
+        data: foo
+        valid: true
+      TooShortIsInvalid:
+        description: too short is invalid
+        data: f
+        valid: false
+    MinpropertiesValidation:
+      LongerIsValid:
+        description: longer is valid
+        data:
+          foo: 1
+          bar: 2
+        valid: true
+      ExactLengthIsValid:
+        description: exact length is valid
+        data:
+          foo: 1
+        valid: true
+      TooShortIsInvalid:
+        description: too short is invalid
+        data: {}
+        valid: false
+      IgnoresArrays:
+        description: ignores arrays
+        data: []
+        valid: true
+      IgnoresStrings:
+        description: ignores strings
+        data: ''
+        valid: true
+      IgnoresOtherNonObjects:
+        description: ignores other non-objects
+        data: 12
+        valid: true
+    MinpropertiesValidationWithADecimal:
+      LongerIsValid:
+        description: longer is valid
+        data:
+          foo: 1
+          bar: 2
+        valid: true
+      TooShortIsInvalid:
+        description: too short is invalid
+        data: {}
         valid: false
     Oneof:
       FirstOneofValid:
