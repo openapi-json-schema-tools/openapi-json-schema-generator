@@ -177,11 +177,6 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         'relative pointer ref to object': ExclusionReason.ref_location_not_the_same_for_json_and_openapi,
         'root pointer ref': ExclusionReason.ref_location_not_the_same_for_json_and_openapi,
     },
-    # (openapi_additions, 'ref.json'): {
-    #     'property refs adjacent property': ExclusionReason.ref_to_adjacent_property_bug,
-    #     'property refs containing component schema': ExclusionReason.swagger_parser_anytype_bug,
-    #     'component refs another component': ExclusionReason.component_ref_component_bug,
-    # },
     (json_schema_test_draft, 'refRemote.json'): {
         'base URI change - change folder': ExclusionReason.v303_does_not_support_id,
         'base URI change - change folder in subschema': ExclusionReason.v303_does_not_support_definitions,
@@ -250,9 +245,9 @@ JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
     'multipleOf.json': (json_schema_test_draft,),
     'not.json': (json_schema_test_draft,),
     'oneOf.json': (json_schema_test_draft,),
-#     'pattern.json': (json_schema_test_draft,),
+    'pattern.json': (json_schema_test_draft,),
 #     'patternProperties.json': (json_schema_test_draft,),
-#     'properties.json': (json_schema_test_draft,),
+    'properties.json': (json_schema_test_draft,),
 #     'propertyNames.json': (json_schema_test_draft,),
 #     'ref.json': (json_schema_test_draft,),
 #     'refRemote.json': (json_schema_test_draft,),

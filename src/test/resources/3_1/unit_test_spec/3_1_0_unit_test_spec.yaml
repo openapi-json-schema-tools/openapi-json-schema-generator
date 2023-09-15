@@ -28,6 +28,8 @@ tags:
 - name: multipleOf
 - name: not
 - name: oneOf
+- name: pattern
+- name: properties
 paths:
   /requestBody/postAdditionalpropertiesWithSchemaRequestBody:
     post:
@@ -2945,6 +2947,222 @@ paths:
       - path.post
       - contentType_json
       - oneOf
+  /requestBody/postPatternValidationRequestBody:
+    post:
+      operationId: postPatternValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatternValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/PatternValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - pattern
+  /responseBody/postPatternValidationResponseBodyForContentTypes:
+    post:
+      operationId: postPatternValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatternValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/PatternValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - pattern
+  /requestBody/postPatternIsNotAnchoredRequestBody:
+    post:
+      operationId: postPatternIsNotAnchoredRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatternIsNotAnchored'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/PatternIsNotAnchored'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - pattern
+  /responseBody/postPatternIsNotAnchoredResponseBodyForContentTypes:
+    post:
+      operationId: postPatternIsNotAnchoredResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatternIsNotAnchored'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/PatternIsNotAnchored'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - pattern
+  /requestBody/postObjectPropertiesValidationRequestBody:
+    post:
+      operationId: postObjectPropertiesValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ObjectPropertiesValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ObjectPropertiesValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - properties
+  /responseBody/postObjectPropertiesValidationResponseBodyForContentTypes:
+    post:
+      operationId: postObjectPropertiesValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectPropertiesValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ObjectPropertiesValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - properties
+  /requestBody/postPropertiesWithEscapedCharactersRequestBody:
+    post:
+      operationId: postPropertiesWithEscapedCharactersRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertiesWithEscapedCharacters'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/PropertiesWithEscapedCharacters'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - properties
+  /responseBody/postPropertiesWithEscapedCharactersResponseBodyForContentTypes:
+    post:
+      operationId: postPropertiesWithEscapedCharactersResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertiesWithEscapedCharacters'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/PropertiesWithEscapedCharacters'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - properties
+  /requestBody/postPropertiesWithNullValuedInstancePropertiesRequestBody:
+    post:
+      operationId: postPropertiesWithNullValuedInstancePropertiesRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertiesWithNullValuedInstanceProperties'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/PropertiesWithNullValuedInstanceProperties'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - properties
+  /responseBody/postPropertiesWithNullValuedInstancePropertiesResponseBodyForContentTypes:
+    post:
+      operationId: postPropertiesWithNullValuedInstancePropertiesResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertiesWithNullValuedInstanceProperties'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/PropertiesWithNullValuedInstanceProperties'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - properties
+  /requestBody/postPropertiesWhoseNamesAreJavascriptObjectPropertyNamesRequestBody:
+    post:
+      operationId: postPropertiesWhoseNamesAreJavascriptObjectPropertyNamesRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertiesWhoseNamesAreJavascriptObjectPropertyNames'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/PropertiesWhoseNamesAreJavascriptObjectPropertyNames'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - properties
+  /responseBody/postPropertiesWhoseNamesAreJavascriptObjectPropertyNamesResponseBodyForContentTypes:
+    post:
+      operationId: postPropertiesWhoseNamesAreJavascriptObjectPropertyNamesResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertiesWhoseNamesAreJavascriptObjectPropertyNames'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/PropertiesWhoseNamesAreJavascriptObjectPropertyNames'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - properties
 components:
   schemas:
     AdditionalpropertiesWithSchema:
@@ -3334,6 +3552,52 @@ components:
       oneOf:
       - oneOf:
         - type: 'null'
+    PatternValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      pattern: ^a*$
+    PatternIsNotAnchored:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      pattern: a+
+    ObjectPropertiesValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      properties:
+        foo:
+          type: integer
+        bar:
+          type: string
+    PropertiesWithEscapedCharacters:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      properties:
+        ? 'foo
+
+          bar'
+        : type: number
+        foo"bar:
+          type: number
+        foo\bar:
+          type: number
+        "foo\rbar":
+          type: number
+        "foo\tbar":
+          type: number
+        "foo\fbar":
+          type: number
+    PropertiesWithNullValuedInstanceProperties:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      properties:
+        foo:
+          type: 'null'
+    PropertiesWhoseNamesAreJavascriptObjectPropertyNames:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      properties:
+        __proto__:
+          type: number
+        toString:
+          properties:
+            length:
+              type: string
+        constructor:
+          type: number
   x-schema-test-examples:
     AdditionalpropertiesWithSchema:
       NoAdditionalPropertiesIsValid:
@@ -4807,3 +5071,144 @@ components:
         description: anything non-null is invalid
         data: 123
         valid: false
+    PatternValidation:
+      AMatchingPatternIsValid:
+        description: a matching pattern is valid
+        data: aaa
+        valid: true
+      ANonMatchingPatternIsInvalid:
+        description: a non-matching pattern is invalid
+        data: abc
+        valid: false
+      IgnoresBooleans:
+        description: ignores booleans
+        data: true
+        valid: true
+      IgnoresIntegers:
+        description: ignores integers
+        data: 123
+        valid: true
+      IgnoresFloats:
+        description: ignores floats
+        data: 1.0
+        valid: true
+      IgnoresObjects:
+        description: ignores objects
+        data: {}
+        valid: true
+      IgnoresArrays:
+        description: ignores arrays
+        data: []
+        valid: true
+      IgnoresNull:
+        description: ignores null
+        data: null
+        valid: true
+    PatternIsNotAnchored:
+      MatchesASubstring:
+        description: matches a substring
+        data: xxaayy
+        valid: true
+    ObjectPropertiesValidation:
+      BothPropertiesPresentAndValidIsValid:
+        description: both properties present and valid is valid
+        data:
+          foo: 1
+          bar: baz
+        valid: true
+      OnePropertyInvalidIsInvalid:
+        description: one property invalid is invalid
+        data:
+          foo: 1
+          bar: {}
+        valid: false
+      BothPropertiesInvalidIsInvalid:
+        description: both properties invalid is invalid
+        data:
+          foo: []
+          bar: {}
+        valid: false
+      DoesnTInvalidateOtherProperties:
+        description: doesn't invalidate other properties
+        data:
+          quux: []
+        valid: true
+      IgnoresArrays:
+        description: ignores arrays
+        data: []
+        valid: true
+      IgnoresOtherNonObjects:
+        description: ignores other non-objects
+        data: 12
+        valid: true
+    PropertiesWithEscapedCharacters:
+      ObjectWithAllNumbersIsValid:
+        description: object with all numbers is valid
+        data:
+          ? 'foo
+
+            bar'
+          : 1
+          foo"bar: 1
+          foo\bar: 1
+          "foo\rbar": 1
+          "foo\tbar": 1
+          "foo\fbar": 1
+        valid: true
+      ObjectWithStringsIsInvalid:
+        description: object with strings is invalid
+        data:
+          ? 'foo
+
+            bar'
+          : '1'
+          foo"bar: '1'
+          foo\bar: '1'
+          "foo\rbar": '1'
+          "foo\tbar": '1'
+          "foo\fbar": '1'
+        valid: false
+    PropertiesWithNullValuedInstanceProperties:
+      AllowsNullValues:
+        description: allows null values
+        data:
+          foo: null
+        valid: true
+    PropertiesWhoseNamesAreJavascriptObjectPropertyNames:
+      IgnoresArrays:
+        description: ignores arrays
+        data: []
+        valid: true
+      IgnoresOtherNonObjects:
+        description: ignores other non-objects
+        data: 12
+        valid: true
+      NoneOfThePropertiesMentioned:
+        description: none of the properties mentioned
+        data: {}
+        valid: true
+      ProtoNotValid:
+        description: __proto__ not valid
+        data:
+          __proto__: foo
+        valid: false
+      TostringNotValid:
+        description: toString not valid
+        data:
+          toString:
+            length: 37
+        valid: false
+      ConstructorNotValid:
+        description: constructor not valid
+        data:
+          constructor:
+            length: 37
+        valid: false
+      AllPresentAndValid:
+        description: all present and valid
+        data:
+          __proto__: 12
+          toString:
+            length: foo
+          constructor: 37
+        valid: true

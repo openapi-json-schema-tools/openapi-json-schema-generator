@@ -2,6 +2,7 @@ import typing
 import typing_extensions
 
 from unit_test_api.apis.tags.maximum_api import MaximumApi
+from unit_test_api.apis.tags.pattern_api import PatternApi
 from unit_test_api.apis.tags.additional_properties_api import AdditionalPropertiesApi
 from unit_test_api.apis.tags.response_content_content_type_schema_api import ResponseContentContentTypeSchemaApi
 from unit_test_api.apis.tags.min_items_api import MinItemsApi
@@ -14,6 +15,7 @@ from unit_test_api.apis.tags.min_length_api import MinLengthApi
 from unit_test_api.apis.tags.format_api import FormatApi
 from unit_test_api.apis.tags.max_length_api import MaxLengthApi
 from unit_test_api.apis.tags._not_api import _NotApi
+from unit_test_api.apis.tags.properties_api import PropertiesApi
 from unit_test_api.apis.tags.path_post_api import PathPostApi
 from unit_test_api.apis.tags.content_type_json_api import ContentTypeJsonApi
 from unit_test_api.apis.tags.max_properties_api import MaxPropertiesApi
@@ -27,6 +29,7 @@ TagToApi = typing.TypedDict(
     'TagToApi',
     {
         "maximum": typing.Type[MaximumApi],
+        "pattern": typing.Type[PatternApi],
         "additionalProperties": typing.Type[AdditionalPropertiesApi],
         "response.content.contentType.schema": typing.Type[ResponseContentContentTypeSchemaApi],
         "minItems": typing.Type[MinItemsApi],
@@ -39,6 +42,7 @@ TagToApi = typing.TypedDict(
         "format": typing.Type[FormatApi],
         "maxLength": typing.Type[MaxLengthApi],
         "not": typing.Type[_NotApi],
+        "properties": typing.Type[PropertiesApi],
         "path.post": typing.Type[PathPostApi],
         "contentType_json": typing.Type[ContentTypeJsonApi],
         "maxProperties": typing.Type[MaxPropertiesApi],
@@ -53,6 +57,7 @@ TagToApi = typing.TypedDict(
 tag_to_api = TagToApi(
     {
         "maximum": MaximumApi,
+        "pattern": PatternApi,
         "additionalProperties": AdditionalPropertiesApi,
         "response.content.contentType.schema": ResponseContentContentTypeSchemaApi,
         "minItems": MinItemsApi,
@@ -65,6 +70,7 @@ tag_to_api = TagToApi(
         "format": FormatApi,
         "maxLength": MaxLengthApi,
         "not": _NotApi,
+        "properties": PropertiesApi,
         "path.post": PathPostApi,
         "contentType_json": ContentTypeJsonApi,
         "maxProperties": MaxPropertiesApi,

@@ -141,6 +141,8 @@ Method | Description
 [**post_not_response_body_for_content_types**](../../paths/response_body_post_not_response_body_for_content_types/post.md) | 
 [**post_nul_characters_in_strings_request_body**](../../paths/request_body_post_nul_characters_in_strings_request_body/post.md) | 
 [**post_nul_characters_in_strings_response_body_for_content_types**](../../paths/response_body_post_nul_characters_in_strings_response_body_for_content_types/post.md) | 
+[**post_object_properties_validation_request_body**](../../paths/request_body_post_object_properties_validation_request_body/post.md) | 
+[**post_object_properties_validation_response_body_for_content_types**](../../paths/response_body_post_object_properties_validation_response_body_for_content_types/post.md) | 
 [**post_oneof_complex_types_request_body**](../../paths/request_body_post_oneof_complex_types_request_body/post.md) | 
 [**post_oneof_complex_types_response_body_for_content_types**](../../paths/response_body_post_oneof_complex_types_response_body_for_content_types/post.md) | 
 [**post_oneof_request_body**](../../paths/request_body_post_oneof_request_body/post.md) | 
@@ -151,8 +153,18 @@ Method | Description
 [**post_oneof_with_empty_schema_response_body_for_content_types**](../../paths/response_body_post_oneof_with_empty_schema_response_body_for_content_types/post.md) | 
 [**post_oneof_with_required_request_body**](../../paths/request_body_post_oneof_with_required_request_body/post.md) | 
 [**post_oneof_with_required_response_body_for_content_types**](../../paths/response_body_post_oneof_with_required_response_body_for_content_types/post.md) | 
+[**post_pattern_is_not_anchored_request_body**](../../paths/request_body_post_pattern_is_not_anchored_request_body/post.md) | 
+[**post_pattern_is_not_anchored_response_body_for_content_types**](../../paths/response_body_post_pattern_is_not_anchored_response_body_for_content_types/post.md) | 
+[**post_pattern_validation_request_body**](../../paths/request_body_post_pattern_validation_request_body/post.md) | 
+[**post_pattern_validation_response_body_for_content_types**](../../paths/response_body_post_pattern_validation_response_body_for_content_types/post.md) | 
 [**post_prefixitems_validation_adjusts_the_starting_index_for_items_request_body**](../../paths/request_body_post_prefixitems_validation_adjusts_the_starting_index_for_items_request_body/post.md) | 
 [**post_prefixitems_validation_adjusts_the_starting_index_for_items_response_body_for_content_types**](../../paths/response_body_post_prefixitems_validation_adjusts_the_starting_index_for_items_response_body_for_content_types/post.md) | 
+[**post_properties_whose_names_are_javascript_object_property_names_request_body**](../../paths/request_body_post_properties_whose_names_are_javascript_object_property_names_request_body/post.md) | 
+[**post_properties_whose_names_are_javascript_object_property_names_response_body_for_content_types**](../../paths/response_body_post_properties_whose_names_are_javascript_object_property_names_response_body_for_content_types/post.md) | 
+[**post_properties_with_escaped_characters_request_body**](../../paths/request_body_post_properties_with_escaped_characters_request_body/post.md) | 
+[**post_properties_with_escaped_characters_response_body_for_content_types**](../../paths/response_body_post_properties_with_escaped_characters_response_body_for_content_types/post.md) | 
+[**post_properties_with_null_valued_instance_properties_request_body**](../../paths/request_body_post_properties_with_null_valued_instance_properties_request_body/post.md) | 
+[**post_properties_with_null_valued_instance_properties_response_body_for_content_types**](../../paths/response_body_post_properties_with_null_valued_instance_properties_response_body_for_content_types/post.md) | 
 [**post_regex_format_request_body**](../../paths/request_body_post_regex_format_request_body/post.md) | 
 [**post_regex_format_response_body_for_content_types**](../../paths/response_body_post_regex_format_response_body_for_content_types/post.md) | 
 [**post_relative_json_pointer_format_request_body**](../../paths/request_body_post_relative_json_pointer_format_request_body/post.md) | 
