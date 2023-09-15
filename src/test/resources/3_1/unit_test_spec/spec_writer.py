@@ -210,10 +210,8 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         'ref within remote ref': ExclusionReason.not_running_the_localhost_server,
     },
     (json_schema_test_draft, 'uniqueItems.json'): {
-        'uniqueItems with an array of items': ExclusionReason.v303_does_not_support_items_schema_array,
-        'uniqueItems=false with an array of items': ExclusionReason.v303_does_not_support_items_schema_array,
-        'uniqueItems with an array of items and additionalItems=false': ExclusionReason.v303_does_not_support_items_schema_array,
-        'uniqueItems=false with an array of items and additionalItems=false': ExclusionReason.v303_does_not_support_items_schema_array,
+        'uniqueItems with an array of items and additionalItems=false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        'uniqueItems=false with an array of items and additionalItems=false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     },
 }
 FILEPATH_TO_EXCLUDE_REASON = {
@@ -269,7 +267,7 @@ JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
     'refRemote.json': (json_schema_test_draft,),
     'required.json': (json_schema_test_draft,),
     'type.json': (json_schema_test_draft,),
-#     'uniqueItems.json': (json_schema_test_draft,),
+    'uniqueItems.json': (json_schema_test_draft,),
 #     'unknownKeyword.json': (json_schema_test_draft,),
 }
 

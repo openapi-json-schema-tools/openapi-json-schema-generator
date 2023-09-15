@@ -109,6 +109,10 @@ Method | Description
 [**post_type_array_object_or_null_response_body_for_content_types**](../../paths/response_body_post_type_array_object_or_null_response_body_for_content_types/post.md) | 
 [**post_type_array_or_object_response_body_for_content_types**](../../paths/response_body_post_type_array_or_object_response_body_for_content_types/post.md) | 
 [**post_type_as_array_with_one_item_response_body_for_content_types**](../../paths/response_body_post_type_as_array_with_one_item_response_body_for_content_types/post.md) | 
+[**post_uniqueitems_false_validation_response_body_for_content_types**](../../paths/response_body_post_uniqueitems_false_validation_response_body_for_content_types/post.md) | 
+[**post_uniqueitems_false_with_an_array_of_items_response_body_for_content_types**](../../paths/response_body_post_uniqueitems_false_with_an_array_of_items_response_body_for_content_types/post.md) | 
+[**post_uniqueitems_validation_response_body_for_content_types**](../../paths/response_body_post_uniqueitems_validation_response_body_for_content_types/post.md) | 
+[**post_uniqueitems_with_an_array_of_items_response_body_for_content_types**](../../paths/response_body_post_uniqueitems_with_an_array_of_items_response_body_for_content_types/post.md) | 
 [**post_uri_format_response_body_for_content_types**](../../paths/response_body_post_uri_format_response_body_for_content_types/post.md) | 
 [**post_uri_reference_format_response_body_for_content_types**](../../paths/response_body_post_uri_reference_format_response_body_for_content_types/post.md) | 
 [**post_uri_template_format_response_body_for_content_types**](../../paths/response_body_post_uri_template_format_response_body_for_content_types/post.md) | 

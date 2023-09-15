@@ -33,6 +33,7 @@ tags:
 - name: $ref
 - name: required
 - name: type
+- name: uniqueItems
 paths:
   /requestBody/postAdditionalpropertiesWithSchemaRequestBody:
     post:
@@ -3778,6 +3779,150 @@ paths:
       - path.post
       - contentType_json
       - type
+  /requestBody/postUniqueitemsValidationRequestBody:
+    post:
+      operationId: postUniqueitemsValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UniqueitemsValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/UniqueitemsValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - uniqueItems
+  /responseBody/postUniqueitemsValidationResponseBodyForContentTypes:
+    post:
+      operationId: postUniqueitemsValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UniqueitemsValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/UniqueitemsValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - uniqueItems
+  /requestBody/postUniqueitemsWithAnArrayOfItemsRequestBody:
+    post:
+      operationId: postUniqueitemsWithAnArrayOfItemsRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UniqueitemsWithAnArrayOfItems'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/UniqueitemsWithAnArrayOfItems'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - uniqueItems
+  /responseBody/postUniqueitemsWithAnArrayOfItemsResponseBodyForContentTypes:
+    post:
+      operationId: postUniqueitemsWithAnArrayOfItemsResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UniqueitemsWithAnArrayOfItems'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/UniqueitemsWithAnArrayOfItems'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - uniqueItems
+  /requestBody/postUniqueitemsFalseValidationRequestBody:
+    post:
+      operationId: postUniqueitemsFalseValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UniqueitemsFalseValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/UniqueitemsFalseValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - uniqueItems
+  /responseBody/postUniqueitemsFalseValidationResponseBodyForContentTypes:
+    post:
+      operationId: postUniqueitemsFalseValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UniqueitemsFalseValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/UniqueitemsFalseValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - uniqueItems
+  /requestBody/postUniqueitemsFalseWithAnArrayOfItemsRequestBody:
+    post:
+      operationId: postUniqueitemsFalseWithAnArrayOfItemsRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UniqueitemsFalseWithAnArrayOfItems'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/UniqueitemsFalseWithAnArrayOfItems'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - uniqueItems
+  /responseBody/postUniqueitemsFalseWithAnArrayOfItemsResponseBodyForContentTypes:
+    post:
+      operationId: postUniqueitemsFalseWithAnArrayOfItemsResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UniqueitemsFalseWithAnArrayOfItems'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/UniqueitemsFalseWithAnArrayOfItems'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - uniqueItems
 components:
   schemas:
     AdditionalpropertiesWithSchema:
@@ -4292,6 +4437,24 @@ components:
       - array
       - object
       - 'null'
+    UniqueitemsValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      uniqueItems: true
+    UniqueitemsWithAnArrayOfItems:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      prefixItems:
+      - type: boolean
+      - type: boolean
+      uniqueItems: true
+    UniqueitemsFalseValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      uniqueItems: false
+    UniqueitemsFalseWithAnArrayOfItems:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      prefixItems:
+      - type: boolean
+      - type: boolean
+      uniqueItems: false
   x-schema-test-examples:
     AdditionalpropertiesWithSchema:
       NoAdditionalPropertiesIsValid:
@@ -6350,3 +6513,412 @@ components:
         description: string is invalid
         data: foo
         valid: false
+    UniqueitemsValidation:
+      UniqueArrayOfIntegersIsValid:
+        description: unique array of integers is valid
+        data:
+        - 1
+        - 2
+        valid: true
+      NonUniqueArrayOfIntegersIsInvalid:
+        description: non-unique array of integers is invalid
+        data:
+        - 1
+        - 1
+        valid: false
+      NonUniqueArrayOfMoreThanTwoIntegersIsInvalid:
+        description: non-unique array of more than two integers is invalid
+        data:
+        - 1
+        - 2
+        - 1
+        valid: false
+      NumbersAreUniqueIfMathematicallyUnequal:
+        description: numbers are unique if mathematically unequal
+        data:
+        - 1.0
+        - 1.0
+        - 1
+        valid: false
+      FalseIsNotEqualToZero:
+        description: false is not equal to zero
+        data:
+        - 0
+        - false
+        valid: true
+      TrueIsNotEqualToOne:
+        description: true is not equal to one
+        data:
+        - 1
+        - true
+        valid: true
+      UniqueArrayOfStringsIsValid:
+        description: unique array of strings is valid
+        data:
+        - foo
+        - bar
+        - baz
+        valid: true
+      NonUniqueArrayOfStringsIsInvalid:
+        description: non-unique array of strings is invalid
+        data:
+        - foo
+        - bar
+        - foo
+        valid: false
+      UniqueArrayOfObjectsIsValid:
+        description: unique array of objects is valid
+        data:
+        - foo: bar
+        - foo: baz
+        valid: true
+      NonUniqueArrayOfObjectsIsInvalid:
+        description: non-unique array of objects is invalid
+        data:
+        - foo: bar
+        - foo: bar
+        valid: false
+      PropertyOrderOfArrayOfObjectsIsIgnored:
+        description: property order of array of objects is ignored
+        data:
+        - foo: bar
+          bar: foo
+        - bar: foo
+          foo: bar
+        valid: false
+      UniqueArrayOfNestedObjectsIsValid:
+        description: unique array of nested objects is valid
+        data:
+        - foo:
+            bar:
+              baz: true
+        - foo:
+            bar:
+              baz: false
+        valid: true
+      NonUniqueArrayOfNestedObjectsIsInvalid:
+        description: non-unique array of nested objects is invalid
+        data:
+        - foo:
+            bar:
+              baz: true
+        - foo:
+            bar:
+              baz: true
+        valid: false
+      UniqueArrayOfArraysIsValid:
+        description: unique array of arrays is valid
+        data:
+        - - foo
+        - - bar
+        valid: true
+      NonUniqueArrayOfArraysIsInvalid:
+        description: non-unique array of arrays is invalid
+        data:
+        - - foo
+        - - foo
+        valid: false
+      NonUniqueArrayOfMoreThanTwoArraysIsInvalid:
+        description: non-unique array of more than two arrays is invalid
+        data:
+        - - foo
+        - - bar
+        - - foo
+        valid: false
+      1AndTrueAreUnique:
+        description: '[1] and [true] are unique'
+        data:
+        - - 1
+        - - true
+        valid: true
+      0AndFalseAreUnique:
+        description: '[0] and [false] are unique'
+        data:
+        - - 0
+        - - false
+        valid: true
+      Nested1AndTrueAreUnique:
+        description: nested [1] and [true] are unique
+        data:
+        - - - 1
+          - foo
+        - - - true
+          - foo
+        valid: true
+      Nested0AndFalseAreUnique:
+        description: nested [0] and [false] are unique
+        data:
+        - - - 0
+          - foo
+        - - - false
+          - foo
+        valid: true
+      UniqueHeterogeneousTypesAreValid:
+        description: unique heterogeneous types are valid
+        data:
+        - {}
+        - - 1
+        - true
+        - null
+        - 1
+        - '{}'
+        valid: true
+      NonUniqueHeterogeneousTypesAreInvalid:
+        description: non-unique heterogeneous types are invalid
+        data:
+        - {}
+        - - 1
+        - true
+        - null
+        - {}
+        - 1
+        valid: false
+      DifferentObjectsAreUnique:
+        description: different objects are unique
+        data:
+        - a: 1
+          b: 2
+        - a: 2
+          b: 1
+        valid: true
+      ObjectsAreNonUniqueDespiteKeyOrder:
+        description: objects are non-unique despite key order
+        data:
+        - a: 1
+          b: 2
+        - b: 2
+          a: 1
+        valid: false
+      AFalseAndA0AreUnique:
+        description: '{"a": false} and {"a": 0} are unique'
+        data:
+        - a: false
+        - a: 0
+        valid: true
+      ATrueAndA1AreUnique:
+        description: '{"a": true} and {"a": 1} are unique'
+        data:
+        - a: true
+        - a: 1
+        valid: true
+    UniqueitemsWithAnArrayOfItems:
+      FalseTrueFromItemsArrayIsValid:
+        description: '[false, true] from items array is valid'
+        data:
+        - false
+        - true
+        valid: true
+      TrueFalseFromItemsArrayIsValid:
+        description: '[true, false] from items array is valid'
+        data:
+        - true
+        - false
+        valid: true
+      FalseFalseFromItemsArrayIsNotValid:
+        description: '[false, false] from items array is not valid'
+        data:
+        - false
+        - false
+        valid: false
+      TrueTrueFromItemsArrayIsNotValid:
+        description: '[true, true] from items array is not valid'
+        data:
+        - true
+        - true
+        valid: false
+      UniqueArrayExtendedFromFalseTrueIsValid:
+        description: unique array extended from [false, true] is valid
+        data:
+        - false
+        - true
+        - foo
+        - bar
+        valid: true
+      UniqueArrayExtendedFromTrueFalseIsValid:
+        description: unique array extended from [true, false] is valid
+        data:
+        - true
+        - false
+        - foo
+        - bar
+        valid: true
+      NonUniqueArrayExtendedFromFalseTrueIsNotValid:
+        description: non-unique array extended from [false, true] is not valid
+        data:
+        - false
+        - true
+        - foo
+        - foo
+        valid: false
+      NonUniqueArrayExtendedFromTrueFalseIsNotValid:
+        description: non-unique array extended from [true, false] is not valid
+        data:
+        - true
+        - false
+        - foo
+        - foo
+        valid: false
+    UniqueitemsFalseValidation:
+      UniqueArrayOfIntegersIsValid:
+        description: unique array of integers is valid
+        data:
+        - 1
+        - 2
+        valid: true
+      NonUniqueArrayOfIntegersIsValid:
+        description: non-unique array of integers is valid
+        data:
+        - 1
+        - 1
+        valid: true
+      NumbersAreUniqueIfMathematicallyUnequal:
+        description: numbers are unique if mathematically unequal
+        data:
+        - 1.0
+        - 1.0
+        - 1
+        valid: true
+      FalseIsNotEqualToZero:
+        description: false is not equal to zero
+        data:
+        - 0
+        - false
+        valid: true
+      TrueIsNotEqualToOne:
+        description: true is not equal to one
+        data:
+        - 1
+        - true
+        valid: true
+      UniqueArrayOfObjectsIsValid:
+        description: unique array of objects is valid
+        data:
+        - foo: bar
+        - foo: baz
+        valid: true
+      NonUniqueArrayOfObjectsIsValid:
+        description: non-unique array of objects is valid
+        data:
+        - foo: bar
+        - foo: bar
+        valid: true
+      UniqueArrayOfNestedObjectsIsValid:
+        description: unique array of nested objects is valid
+        data:
+        - foo:
+            bar:
+              baz: true
+        - foo:
+            bar:
+              baz: false
+        valid: true
+      NonUniqueArrayOfNestedObjectsIsValid:
+        description: non-unique array of nested objects is valid
+        data:
+        - foo:
+            bar:
+              baz: true
+        - foo:
+            bar:
+              baz: true
+        valid: true
+      UniqueArrayOfArraysIsValid:
+        description: unique array of arrays is valid
+        data:
+        - - foo
+        - - bar
+        valid: true
+      NonUniqueArrayOfArraysIsValid:
+        description: non-unique array of arrays is valid
+        data:
+        - - foo
+        - - foo
+        valid: true
+      1AndTrueAreUnique:
+        description: 1 and true are unique
+        data:
+        - 1
+        - true
+        valid: true
+      0AndFalseAreUnique:
+        description: 0 and false are unique
+        data:
+        - 0
+        - false
+        valid: true
+      UniqueHeterogeneousTypesAreValid:
+        description: unique heterogeneous types are valid
+        data:
+        - {}
+        - - 1
+        - true
+        - null
+        - 1
+        valid: true
+      NonUniqueHeterogeneousTypesAreValid:
+        description: non-unique heterogeneous types are valid
+        data:
+        - {}
+        - - 1
+        - true
+        - null
+        - {}
+        - 1
+        valid: true
+    UniqueitemsFalseWithAnArrayOfItems:
+      FalseTrueFromItemsArrayIsValid:
+        description: '[false, true] from items array is valid'
+        data:
+        - false
+        - true
+        valid: true
+      TrueFalseFromItemsArrayIsValid:
+        description: '[true, false] from items array is valid'
+        data:
+        - true
+        - false
+        valid: true
+      FalseFalseFromItemsArrayIsValid:
+        description: '[false, false] from items array is valid'
+        data:
+        - false
+        - false
+        valid: true
+      TrueTrueFromItemsArrayIsValid:
+        description: '[true, true] from items array is valid'
+        data:
+        - true
+        - true
+        valid: true
+      UniqueArrayExtendedFromFalseTrueIsValid:
+        description: unique array extended from [false, true] is valid
+        data:
+        - false
+        - true
+        - foo
+        - bar
+        valid: true
+      UniqueArrayExtendedFromTrueFalseIsValid:
+        description: unique array extended from [true, false] is valid
+        data:
+        - true
+        - false
+        - foo
+        - bar
+        valid: true
+      NonUniqueArrayExtendedFromFalseTrueIsValid:
+        description: non-unique array extended from [false, true] is valid
+        data:
+        - false
+        - true
+        - foo
+        - foo
+        valid: true
+      NonUniqueArrayExtendedFromTrueFalseIsValid:
+        description: non-unique array extended from [true, false] is valid
+        data:
+        - true
+        - false
+        - foo
+        - foo
+        valid: true
