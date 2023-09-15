@@ -6,6 +6,7 @@ from unit_test_api.apis.tags.pattern_api import PatternApi
 from unit_test_api.apis.tags.additional_properties_api import AdditionalPropertiesApi
 from unit_test_api.apis.tags.response_content_content_type_schema_api import ResponseContentContentTypeSchemaApi
 from unit_test_api.apis.tags.min_items_api import MinItemsApi
+from unit_test_api.apis.tags.ref_api import RefApi
 from unit_test_api.apis.tags.all_of_api import AllOfApi
 from unit_test_api.apis.tags.minimum_api import MinimumApi
 from unit_test_api.apis.tags.any_of_api import AnyOfApi
@@ -33,6 +34,7 @@ TagToApi = typing.TypedDict(
         "additionalProperties": typing.Type[AdditionalPropertiesApi],
         "response.content.contentType.schema": typing.Type[ResponseContentContentTypeSchemaApi],
         "minItems": typing.Type[MinItemsApi],
+        "$ref": typing.Type[RefApi],
         "allOf": typing.Type[AllOfApi],
         "minimum": typing.Type[MinimumApi],
         "anyOf": typing.Type[AnyOfApi],
@@ -61,6 +63,7 @@ tag_to_api = TagToApi(
         "additionalProperties": AdditionalPropertiesApi,
         "response.content.contentType.schema": ResponseContentContentTypeSchemaApi,
         "minItems": MinItemsApi,
+        "$ref": RefApi,
         "allOf": AllOfApi,
         "minimum": MinimumApi,
         "anyOf": AnyOfApi,

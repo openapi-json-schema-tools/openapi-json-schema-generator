@@ -87,6 +87,7 @@ Method | Description
 [**post_properties_whose_names_are_javascript_object_property_names_response_body_for_content_types**](../../paths/response_body_post_properties_whose_names_are_javascript_object_property_names_response_body_for_content_types/post.md) | 
 [**post_properties_with_escaped_characters_response_body_for_content_types**](../../paths/response_body_post_properties_with_escaped_characters_response_body_for_content_types/post.md) | 
 [**post_properties_with_null_valued_instance_properties_response_body_for_content_types**](../../paths/response_body_post_properties_with_null_valued_instance_properties_response_body_for_content_types/post.md) | 
+[**post_property_named_ref_that_is_not_a_reference_response_body_for_content_types**](../../paths/response_body_post_property_named_ref_that_is_not_a_reference_response_body_for_content_types/post.md) | 
 [**post_regex_format_response_body_for_content_types**](../../paths/response_body_post_regex_format_response_body_for_content_types/post.md) | 
 [**post_relative_json_pointer_format_response_body_for_content_types**](../../paths/response_body_post_relative_json_pointer_format_response_body_for_content_types/post.md) | 
 [**post_simple_enum_validation_response_body_for_content_types**](../../paths/response_body_post_simple_enum_validation_response_body_for_content_types/post.md) | 

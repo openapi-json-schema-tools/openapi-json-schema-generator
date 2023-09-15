@@ -85,7 +85,7 @@ class ExclusionReason:
     v303_does_not_support_const = 'v3.0.3 does not support the const keyword'
     bug_does_not_support_boolean_schemas_in_location = 'v3.1.0 does not support boolean schemas in location, https://github.com/swagger-api/swagger-parser/issues/1770'
     v303_does_not_support_contains = 'v3.0.3 does not support the contains keyword'
-    v303_does_not_support_definitions = 'v3.0.3 does not support the definitions keyword'
+    bug_does_not_support_definitions = 'swagger-parser does not support the $defs keyword, https://github.com/swagger-api/swagger-parser/issues/1970'
     v303_does_not_support_dependencies = 'v3.0.3 does not support the dependencies keyword'
     swagger_parser_enum_type_bug = "swagger-parser has a bug where schema type is incorrectly set for an enum, https://github.com/swagger-api/swagger-parser/issues/1761"
     swagger_parser_validation_missing_bug = 'swagger-parser has a bug where validations are unset, https://github.com/swagger-api/swagger-parser/issues/1762'
@@ -101,6 +101,7 @@ class ExclusionReason:
     component_ref_component_bug = 'A component refing another component does not work, issue at https://github.com/OpenAPITools/openapi-generator/issues/12730'
     not_running_the_localhost_server = 'the openapo-generator is not running the localhost server needed to serve remoteRef files'
     v303_requires_that_the_default_value_is_an_allowed_type = 'v3.0.3 requires that the default value is an allowed type per the schema'
+    ref_not_resolved = 'ref not resolved, TODO resolve only remote refs'
 
 json_schema_test_draft = 'draft2020-12'
 path_to_json_schema_drafts = ('..', '..', 'JSON-Schema-Test-Suite', 'tests')
@@ -130,7 +131,7 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
     },
     (json_schema_test_draft, 'items.json'): {
         'an array of schemas for items': ExclusionReason.v303_does_not_support_array_of_types,
-        'items and subitems': ExclusionReason.v303_does_not_support_definitions,
+        'items and subitems': ExclusionReason.bug_does_not_support_definitions,
         'items with boolean schema (true)': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'items with boolean schemas': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'items with boolean schema (false)': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
@@ -158,28 +159,49 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
     (json_schema_test_draft, 'ref.json'): {
         'relative refs with absolute uris and defs': ExclusionReason.v303_does_not_support_id,
         '$ref prevents a sibling $id from changing the base uri': ExclusionReason.v303_does_not_support_id,
-        'property named $ref, containing an actual $ref': ExclusionReason.v303_does_not_support_definitions,
-        'naive replacement of $ref with its destination is not correct': ExclusionReason.v303_does_not_support_definitions,
+        'property named $ref, containing an actual $ref': ExclusionReason.bug_does_not_support_definitions,
+        'naive replacement of $ref with its destination is not correct': ExclusionReason.bug_does_not_support_definitions,
         'relative pointer ref to array': ExclusionReason.v303_does_not_support_items_schema_array,
-        'ref overrides any sibling keywords': ExclusionReason.v303_does_not_support_definitions,
-        'Location-independent identifier with base URI change in subschema': ExclusionReason.v303_does_not_support_definitions,
-        'escaped pointer ref': ExclusionReason.v303_does_not_support_definitions,
-        'Location-independent identifier': ExclusionReason.v303_does_not_support_definitions,
+        'ref overrides any sibling keywords': ExclusionReason.bug_does_not_support_definitions,
+        'Location-independent identifier with base URI change in subschema': ExclusionReason.bug_does_not_support_definitions,
+        'escaped pointer ref': ExclusionReason.bug_does_not_support_definitions,
+        'Location-independent identifier': ExclusionReason.bug_does_not_support_definitions,
         'refs with relative uris and defs': ExclusionReason.v303_does_not_support_id,
-        'Recursive references between schemas': ExclusionReason.v303_does_not_support_definitions,
-        'refs with quote': ExclusionReason.v303_does_not_support_definitions,
-        'refs with quote': ExclusionReason.v303_does_not_support_definitions,
-        '$ref to boolean schema true': ExclusionReason.v303_does_not_support_definitions,
+        'Recursive references between schemas': ExclusionReason.bug_does_not_support_definitions,
+        'refs with quote': ExclusionReason.bug_does_not_support_definitions,
+        'refs with quote': ExclusionReason.bug_does_not_support_definitions,
+        '$ref to boolean schema true': ExclusionReason.bug_does_not_support_definitions,
         'Recursive references between schemas': ExclusionReason.v303_does_not_support_id,
-        'nested refs': ExclusionReason.v303_does_not_support_definitions,
-        '$ref to boolean schema false': ExclusionReason.v303_does_not_support_definitions,
+        'nested refs': ExclusionReason.bug_does_not_support_definitions,
+        '$ref to boolean schema false': ExclusionReason.bug_does_not_support_definitions,
         'remote ref, containing refs itself': ExclusionReason.swagger_parser_exception,
         'relative pointer ref to object': ExclusionReason.ref_location_not_the_same_for_json_and_openapi,
         'root pointer ref': ExclusionReason.ref_location_not_the_same_for_json_and_openapi,
+        'ref applies alongside sibling keywords': ExclusionReason.bug_does_not_support_definitions,
+        'ref creates new scope when adjacent to keywords': ExclusionReason.bug_does_not_support_definitions,
+        "$id must be resolved against nearest parent, not just immediate parent": ExclusionReason.bug_does_not_support_definitions,
+        "order of evaluation: $id and $ref": ExclusionReason.bug_does_not_support_definitions,
+        "order of evaluation: $id and $anchor and $ref": ExclusionReason.bug_does_not_support_definitions,
+        'simple URN base URI with JSON pointer': ExclusionReason.bug_does_not_support_definitions,
+        'URN base URI with NSS': ExclusionReason.bug_does_not_support_definitions,
+        'URN base URI with r-component': ExclusionReason.bug_does_not_support_definitions,
+        'URN base URI with q-component': ExclusionReason.bug_does_not_support_definitions,
+        'URN base URI with f-component': ExclusionReason.ref_not_resolved,
+        'URN base URI with URN and JSON pointer ref': ExclusionReason.ref_not_resolved,
+        'ref to if': ExclusionReason.ref_not_resolved,
+        'ref to then': ExclusionReason.ref_not_resolved,
+        'ref to else': ExclusionReason.ref_not_resolved,
+        "ref with absolute-path-reference": ExclusionReason.ref_not_resolved,
+        "$id with file URI still resolves pointers - *nix": ExclusionReason.ref_not_resolved,
+        "$id with file URI still resolves pointers - windows": ExclusionReason.ref_not_resolved,
+        "empty tokens in $ref json-pointer": ExclusionReason.bug_does_not_support_definitions,
+        "simple URN base URI with $ref via the URN": ExclusionReason.ref_not_resolved,
+        'URN base URI with URN and anchor ref': ExclusionReason.ref_not_resolved,
+        "URN ref with nested pointer ref": ExclusionReason.ref_not_resolved,
     },
     (json_schema_test_draft, 'refRemote.json'): {
         'base URI change - change folder': ExclusionReason.v303_does_not_support_id,
-        'base URI change - change folder in subschema': ExclusionReason.v303_does_not_support_definitions,
+        'base URI change - change folder in subschema': ExclusionReason.bug_does_not_support_definitions,
         'remote ref with ref to definitions': ExclusionReason.v303_does_not_support_id,
         'root ref in remote ref': ExclusionReason.v303_does_not_support_id,
         'base URI change': ExclusionReason.v303_does_not_support_id,
@@ -206,14 +228,15 @@ FILEPATH_TO_EXCLUDE_REASON = {
     (json_schema_test_draft, 'const.json'): ExclusionReason.v303_does_not_support_const,
     (json_schema_test_draft, 'boolean_schema.json'): ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     (json_schema_test_draft, 'contains.json'): ExclusionReason.v303_does_not_support_contains,
-    (json_schema_test_draft, 'definitions.json'): ExclusionReason.v303_does_not_support_definitions,
+    (json_schema_test_draft, 'definitions.json'): ExclusionReason.bug_does_not_support_definitions,
     (json_schema_test_draft, 'dependencies.json'): ExclusionReason.v303_does_not_support_dependencies,
     (json_schema_test_draft, 'exclusiveMaximum.json'): ExclusionReason.swagger_parser_validation_missing_bug,
     (json_schema_test_draft, 'exclusiveMinimum.json'): ExclusionReason.swagger_parser_validation_missing_bug,
     (json_schema_test_draft, 'id.json'): ExclusionReason.v303_does_not_support_id,
     (json_schema_test_draft, 'patternProperties.json'): ExclusionReason.v303_does_not_support_patternProperties,
     (json_schema_test_draft, 'propertyNames.json'): ExclusionReason.v303_does_not_support_propertyNames,
-    (json_schema_test_draft, 'unknownKeyword.json'): ExclusionReason.v303_does_not_support_definitions,
+    (json_schema_test_draft, 'refRemote.json'): ExclusionReason.ref_not_resolved,
+    (json_schema_test_draft, 'unknownKeyword.json'): ExclusionReason.bug_does_not_support_definitions,
 }
 
 JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
@@ -249,8 +272,8 @@ JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
 #     'patternProperties.json': (json_schema_test_draft,),
     'properties.json': (json_schema_test_draft,),
 #     'propertyNames.json': (json_schema_test_draft,),
-#     'ref.json': (json_schema_test_draft,),
-#     'refRemote.json': (json_schema_test_draft,),
+    'ref.json': (json_schema_test_draft,),
+    'refRemote.json': (json_schema_test_draft,),
 #     'required.json': (json_schema_test_draft,),
 #     'type.json': (json_schema_test_draft,),
 #     'uniqueItems.json': (json_schema_test_draft,),

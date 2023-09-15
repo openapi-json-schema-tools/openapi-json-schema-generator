@@ -87,6 +87,7 @@ Method | Description
 [**post_properties_whose_names_are_javascript_object_property_names_request_body**](../../paths/request_body_post_properties_whose_names_are_javascript_object_property_names_request_body/post.md) | 
 [**post_properties_with_escaped_characters_request_body**](../../paths/request_body_post_properties_with_escaped_characters_request_body/post.md) | 
 [**post_properties_with_null_valued_instance_properties_request_body**](../../paths/request_body_post_properties_with_null_valued_instance_properties_request_body/post.md) | 
+[**post_property_named_ref_that_is_not_a_reference_request_body**](../../paths/request_body_post_property_named_ref_that_is_not_a_reference_request_body/post.md) | 
 [**post_regex_format_request_body**](../../paths/request_body_post_regex_format_request_body/post.md) | 
 [**post_relative_json_pointer_format_request_body**](../../paths/request_body_post_relative_json_pointer_format_request_body/post.md) | 
 [**post_simple_enum_validation_request_body**](../../paths/request_body_post_simple_enum_validation_request_body/post.md) | 
