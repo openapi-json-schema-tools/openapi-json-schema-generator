@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestRequiredDefaultValidation(unittest.TestCase):
     """RequiredDefaultValidation unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_not_required_by_default_passes(self):
         # not required by default

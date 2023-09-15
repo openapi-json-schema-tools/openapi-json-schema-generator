@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestBooleanTypeMatchesBooleans(unittest.TestCase):
     """BooleanTypeMatchesBooleans unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_an_empty_string_is_not_a_boolean_fails(self):
         # an empty string is not a boolean

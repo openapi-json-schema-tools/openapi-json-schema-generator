@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestEnumWithEscapedCharacters(unittest.TestCase):
     """EnumWithEscapedCharacters unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_member2_is_valid_passes(self):
         # member 2 is valid

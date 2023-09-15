@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestIdnHostnameFormat(unittest.TestCase):
     """IdnHostnameFormat unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_invalid_idn_hostname_string_is_only_an_annotation_by_default_passes(self):
         # invalid idn-hostname string is only an annotation by default

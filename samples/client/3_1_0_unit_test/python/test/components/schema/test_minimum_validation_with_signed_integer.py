@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestMinimumValidationWithSignedInteger(unittest.TestCase):
     """MinimumValidationWithSignedInteger unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_boundary_point_is_valid_passes(self):
         # boundary point is valid

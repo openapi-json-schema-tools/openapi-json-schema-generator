@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestStringTypeMatchesStrings(unittest.TestCase):
     """StringTypeMatchesStrings unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_1_is_not_a_string_fails(self):
         # 1 is not a string

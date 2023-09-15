@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestUniqueitemsFalseWithAnArrayOfItems(unittest.TestCase):
     """UniqueitemsFalseWithAnArrayOfItems unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_unique_array_extended_from_false_true_is_valid_passes(self):
         # unique array extended from [false, true] is valid

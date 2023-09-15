@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestMaxlengthValidation(unittest.TestCase):
     """MaxlengthValidation unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_too_long_is_invalid_fails(self):
         # too long is invalid

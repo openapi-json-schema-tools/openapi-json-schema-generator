@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestAllofWithTheFirstEmptySchema(unittest.TestCase):
     """AllofWithTheFirstEmptySchema unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_string_is_invalid_fails(self):
         # string is invalid

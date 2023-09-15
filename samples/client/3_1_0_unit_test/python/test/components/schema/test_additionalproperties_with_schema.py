@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestAdditionalpropertiesWithSchema(unittest.TestCase):
     """AdditionalpropertiesWithSchema unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_no_additional_properties_is_valid_passes(self):
         # no additional properties is valid

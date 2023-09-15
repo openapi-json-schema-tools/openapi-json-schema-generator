@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestPrefixitemsValidationAdjustsTheStartingIndexForItems(unittest.TestCase):
     """PrefixitemsValidationAdjustsTheStartingIndexForItems unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_wrong_type_of_second_item_fails(self):
         # wrong type of second item

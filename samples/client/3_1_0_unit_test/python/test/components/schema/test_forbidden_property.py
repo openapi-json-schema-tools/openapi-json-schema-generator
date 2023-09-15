@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestForbiddenProperty(unittest.TestCase):
     """ForbiddenProperty unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_property_present_fails(self):
         # property present

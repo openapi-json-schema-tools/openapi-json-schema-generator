@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestByInt(unittest.TestCase):
     """ByInt unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_int_by_int_fail_fails(self):
         # int by int fail

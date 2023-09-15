@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestSmallMultipleOfLargeInteger(unittest.TestCase):
     """SmallMultipleOfLargeInteger unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_any_integer_is_a_multiple_of1_e8_passes(self):
         # any integer is a multiple of 1e-8

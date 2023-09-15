@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestSimpleEnumValidation(unittest.TestCase):
     """SimpleEnumValidation unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_something_else_is_invalid_fails(self):
         # something else is invalid

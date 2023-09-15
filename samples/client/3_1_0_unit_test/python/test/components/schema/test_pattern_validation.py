@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestPatternValidation(unittest.TestCase):
     """PatternValidation unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_ignores_arrays_passes(self):
         # ignores arrays

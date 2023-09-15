@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestTypeArrayObjectOrNull(unittest.TestCase):
     """TypeArrayObjectOrNull unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_null_is_valid_passes(self):
         # null is valid

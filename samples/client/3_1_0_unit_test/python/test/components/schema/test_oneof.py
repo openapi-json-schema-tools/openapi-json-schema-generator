@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestOneof(unittest.TestCase):
     """Oneof unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_second_oneof_valid_passes(self):
         # second oneOf valid

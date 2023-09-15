@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestUniqueitemsFalseValidation(unittest.TestCase):
     """UniqueitemsFalseValidation unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_non_unique_array_of_integers_is_valid_passes(self):
         # non-unique array of integers is valid

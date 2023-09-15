@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestByNumber(unittest.TestCase):
     """ByNumber unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_45_is_multiple_of15_passes(self):
         # 4.5 is multiple of 1.5
