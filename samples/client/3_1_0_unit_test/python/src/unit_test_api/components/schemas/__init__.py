@@ -28,6 +28,8 @@ from unit_test_api.components.schema.anyof import Anyof
 from unit_test_api.components.schema.anyof_complex_types import AnyofComplexTypes
 from unit_test_api.components.schema.anyof_with_base_schema import AnyofWithBaseSchema
 from unit_test_api.components.schema.anyof_with_one_empty_schema import AnyofWithOneEmptySchema
+from unit_test_api.components.schema.array_type_matches_arrays import ArrayTypeMatchesArrays
+from unit_test_api.components.schema.boolean_type_matches_booleans import BooleanTypeMatchesBooleans
 from unit_test_api.components.schema.by_int import ByInt
 from unit_test_api.components.schema.by_number import ByNumber
 from unit_test_api.components.schema.by_small_number import BySmallNumber
@@ -46,6 +48,7 @@ from unit_test_api.components.schema.forbidden_property import ForbiddenProperty
 from unit_test_api.components.schema.hostname_format import HostnameFormat
 from unit_test_api.components.schema.idn_email_format import IdnEmailFormat
 from unit_test_api.components.schema.idn_hostname_format import IdnHostnameFormat
+from unit_test_api.components.schema.integer_type_matches_integers import IntegerTypeMatchesIntegers
 from unit_test_api.components.schema.ipv4_format import Ipv4Format
 from unit_test_api.components.schema.ipv6_format import Ipv6Format
 from unit_test_api.components.schema.iri_format import IriFormat
@@ -70,6 +73,7 @@ from unit_test_api.components.schema.minlength_validation import MinlengthValida
 from unit_test_api.components.schema.minlength_validation_with_a_decimal import MinlengthValidationWithADecimal
 from unit_test_api.components.schema.minproperties_validation import MinpropertiesValidation
 from unit_test_api.components.schema.minproperties_validation_with_a_decimal import MinpropertiesValidationWithADecimal
+from unit_test_api.components.schema.multiple_types_can_be_specified_in_an_array import MultipleTypesCanBeSpecifiedInAnArray
 from unit_test_api.components.schema.nested_allof_to_check_validation_semantics import NestedAllofToCheckValidationSemantics
 from unit_test_api.components.schema.nested_anyof_to_check_validation_semantics import NestedAnyofToCheckValidationSemantics
 from unit_test_api.components.schema.nested_items import NestedItems
@@ -77,7 +81,10 @@ from unit_test_api.components.schema.nested_oneof_to_check_validation_semantics 
 from unit_test_api.components.schema._not import _Not
 from unit_test_api.components.schema.not_more_complex_schema import NotMoreComplexSchema
 from unit_test_api.components.schema.nul_characters_in_strings import NulCharactersInStrings
+from unit_test_api.components.schema.null_type_matches_only_the_null_object import NullTypeMatchesOnlyTheNullObject
+from unit_test_api.components.schema.number_type_matches_numbers import NumberTypeMatchesNumbers
 from unit_test_api.components.schema.object_properties_validation import ObjectPropertiesValidation
+from unit_test_api.components.schema.object_type_matches_objects import ObjectTypeMatchesObjects
 from unit_test_api.components.schema.oneof import Oneof
 from unit_test_api.components.schema.oneof_complex_types import OneofComplexTypes
 from unit_test_api.components.schema.oneof_with_base_schema import OneofWithBaseSchema
@@ -99,7 +106,11 @@ from unit_test_api.components.schema.required_with_empty_array import RequiredWi
 from unit_test_api.components.schema.required_with_escaped_characters import RequiredWithEscapedCharacters
 from unit_test_api.components.schema.simple_enum_validation import SimpleEnumValidation
 from unit_test_api.components.schema.small_multiple_of_large_integer import SmallMultipleOfLargeInteger
+from unit_test_api.components.schema.string_type_matches_strings import StringTypeMatchesStrings
 from unit_test_api.components.schema.time_format import TimeFormat
+from unit_test_api.components.schema.type_array_object_or_null import TypeArrayObjectOrNull
+from unit_test_api.components.schema.type_array_or_object import TypeArrayOrObject
+from unit_test_api.components.schema.type_as_array_with_one_item import TypeAsArrayWithOneItem
 from unit_test_api.components.schema.uri_format import UriFormat
 from unit_test_api.components.schema.uri_reference_format import UriReferenceFormat
 from unit_test_api.components.schema.uri_template_format import UriTemplateFormat

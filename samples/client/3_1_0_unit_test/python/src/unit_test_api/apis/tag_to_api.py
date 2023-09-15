@@ -19,6 +19,7 @@ from unit_test_api.apis.tags.all_of_api import AllOfApi
 from unit_test_api.apis.tags.minimum_api import MinimumApi
 from unit_test_api.apis.tags.any_of_api import AnyOfApi
 from unit_test_api.apis.tags.multiple_of_api import MultipleOfApi
+from unit_test_api.apis.tags.type_api import TypeApi
 from unit_test_api.apis.tags.items_api import ItemsApi
 from unit_test_api.apis.tags.format_api import FormatApi
 from unit_test_api.apis.tags.properties_api import PropertiesApi
@@ -48,6 +49,7 @@ TagToApi = typing.TypedDict(
         "minimum": typing.Type[MinimumApi],
         "anyOf": typing.Type[AnyOfApi],
         "multipleOf": typing.Type[MultipleOfApi],
+        "type": typing.Type[TypeApi],
         "items": typing.Type[ItemsApi],
         "format": typing.Type[FormatApi],
         "properties": typing.Type[PropertiesApi],
@@ -78,6 +80,7 @@ tag_to_api = TagToApi(
         "minimum": MinimumApi,
         "anyOf": AnyOfApi,
         "multipleOf": MultipleOfApi,
+        "type": TypeApi,
         "items": ItemsApi,
         "format": FormatApi,
         "properties": PropertiesApi,

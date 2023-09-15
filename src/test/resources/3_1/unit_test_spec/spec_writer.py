@@ -209,13 +209,6 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         'fragment within remote ref': ExclusionReason.not_running_the_localhost_server,
         'ref within remote ref': ExclusionReason.not_running_the_localhost_server,
     },
-    (json_schema_test_draft, 'type.json'): {
-        'multiple types can be specified in an array': ExclusionReason.v303_does_not_support_array_of_types,
-        'type as array with one item': ExclusionReason.v303_does_not_support_array_of_types,
-        'type: array or object': ExclusionReason.v303_does_not_support_array_of_types,
-        'type: array, object or null': ExclusionReason.v303_does_not_support_array_of_types,
-        'array type matches arrays': ExclusionReason.v303_requires_array_have_items,
-    },
     (json_schema_test_draft, 'uniqueItems.json'): {
         'uniqueItems with an array of items': ExclusionReason.v303_does_not_support_items_schema_array,
         'uniqueItems=false with an array of items': ExclusionReason.v303_does_not_support_items_schema_array,
@@ -275,7 +268,7 @@ JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
     'ref.json': (json_schema_test_draft,),
     'refRemote.json': (json_schema_test_draft,),
     'required.json': (json_schema_test_draft,),
-#     'type.json': (json_schema_test_draft,),
+    'type.json': (json_schema_test_draft,),
 #     'uniqueItems.json': (json_schema_test_draft,),
 #     'unknownKeyword.json': (json_schema_test_draft,),
 }
