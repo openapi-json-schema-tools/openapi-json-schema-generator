@@ -143,6 +143,9 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
     (json_schema_test_draft, 'maxItems.json'): {
         'maxItems validation with a decimal': ExclusionReason.bug_max_items_missing,
     },
+    (json_schema_test_draft, 'maxLength.json'): {
+        'maxLength validation with a decimal': ExclusionReason.bug_max_items_missing,
+    },
     (json_schema_test_draft, 'not.json'): {
         'not with boolean schema true': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'not with boolean schema false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,

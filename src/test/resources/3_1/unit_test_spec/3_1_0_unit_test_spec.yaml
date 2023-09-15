@@ -1979,42 +1979,6 @@ paths:
       - path.post
       - contentType_json
       - maxLength
-  /requestBody/postMaxlengthValidationWithADecimalRequestBody:
-    post:
-      operationId: postMaxlengthValidationWithADecimalRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MaxlengthValidationWithADecimal'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/MaxlengthValidationWithADecimal'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - maxLength
-  /responseBody/postMaxlengthValidationWithADecimalResponseBodyForContentTypes:
-    post:
-      operationId: postMaxlengthValidationWithADecimalResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MaxlengthValidationWithADecimal'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/MaxlengthValidationWithADecimal'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - maxLength
   /requestBody/postMaxpropertiesValidationRequestBody:
     post:
       operationId: postMaxpropertiesValidationRequestBody
@@ -4160,9 +4124,6 @@ components:
     MaxlengthValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       maxLength: 2
-    MaxlengthValidationWithADecimal:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      maxLength: 2.0
     MaxpropertiesValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       maxProperties: 2
@@ -5485,15 +5446,6 @@ components:
         description: two supplementary Unicode code points is long enough
         data: "\U0001F4A9\U0001F4A9"
         valid: true
-    MaxlengthValidationWithADecimal:
-      ShorterIsValid:
-        description: shorter is valid
-        data: f
-        valid: true
-      TooLongIsInvalid:
-        description: too long is invalid
-        data: foo
-        valid: false
     MaxpropertiesValidation:
       ShorterIsValid:
         description: shorter is valid

@@ -107,8 +107,6 @@ Method | Description
 [**post_maxitems_validation_response_body_for_content_types**](../../paths/response_body_post_maxitems_validation_response_body_for_content_types/post.md) | 
 [**post_maxlength_validation_request_body**](../../paths/request_body_post_maxlength_validation_request_body/post.md) | 
 [**post_maxlength_validation_response_body_for_content_types**](../../paths/response_body_post_maxlength_validation_response_body_for_content_types/post.md) | 
-[**post_maxlength_validation_with_a_decimal_request_body**](../../paths/request_body_post_maxlength_validation_with_a_decimal_request_body/post.md) | 
-[**post_maxlength_validation_with_a_decimal_response_body_for_content_types**](../../paths/response_body_post_maxlength_validation_with_a_decimal_response_body_for_content_types/post.md) | 
 [**post_maxproperties0_means_the_object_is_empty_request_body**](../../paths/request_body_post_maxproperties0_means_the_object_is_empty_request_body/post.md) | 
 [**post_maxproperties0_means_the_object_is_empty_response_body_for_content_types**](../../paths/response_body_post_maxproperties0_means_the_object_is_empty_response_body_for_content_types/post.md) | 
 [**post_maxproperties_validation_request_body**](../../paths/request_body_post_maxproperties_validation_request_body/post.md) | 
