@@ -1618,7 +1618,7 @@ public class DefaultGenerator implements Generator {
     protected EnumValue getEnumValue(Object value, String description) {
         Object usedValue = value;
         String type = null;
-        if (value instanceof Integer){
+        if (value instanceof Integer || value instanceof Long){
             type = "integer";
         } else if (value instanceof Double || value instanceof Float || value instanceof BigDecimal){
             type = "number";

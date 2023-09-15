@@ -23,6 +23,7 @@ class TestSmallMultipleOfLargeInteger(unittest.TestCase):
     def test_any_integer_is_a_multiple_of1_e8_passes(self):
         # any integer is a multiple of 1e-8
         SmallMultipleOfLargeInteger.validate(
+            12391239123,
             configuration=self.configuration
         )
 

@@ -37,6 +37,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
         # any integer is a multiple of 1e-8
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
+                12391239123
             )
             body = post.request_body.RequestBody.content["application/json"].schema.validate(
                 payload,
