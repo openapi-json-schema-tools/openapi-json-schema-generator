@@ -31,6 +31,7 @@ tags:
 - name: pattern
 - name: properties
 - name: $ref
+- name: required
 paths:
   /requestBody/postAdditionalpropertiesWithSchemaRequestBody:
     post:
@@ -3200,6 +3201,186 @@ paths:
       - path.post
       - contentType_json
       - $ref
+  /requestBody/postRequiredValidationRequestBody:
+    post:
+      operationId: postRequiredValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequiredValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/RequiredValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - required
+  /responseBody/postRequiredValidationResponseBodyForContentTypes:
+    post:
+      operationId: postRequiredValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequiredValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/RequiredValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - required
+  /requestBody/postRequiredDefaultValidationRequestBody:
+    post:
+      operationId: postRequiredDefaultValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequiredDefaultValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/RequiredDefaultValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - required
+  /responseBody/postRequiredDefaultValidationResponseBodyForContentTypes:
+    post:
+      operationId: postRequiredDefaultValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequiredDefaultValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/RequiredDefaultValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - required
+  /requestBody/postRequiredWithEmptyArrayRequestBody:
+    post:
+      operationId: postRequiredWithEmptyArrayRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequiredWithEmptyArray'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/RequiredWithEmptyArray'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - required
+  /responseBody/postRequiredWithEmptyArrayResponseBodyForContentTypes:
+    post:
+      operationId: postRequiredWithEmptyArrayResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequiredWithEmptyArray'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/RequiredWithEmptyArray'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - required
+  /requestBody/postRequiredWithEscapedCharactersRequestBody:
+    post:
+      operationId: postRequiredWithEscapedCharactersRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequiredWithEscapedCharacters'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/RequiredWithEscapedCharacters'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - required
+  /responseBody/postRequiredWithEscapedCharactersResponseBodyForContentTypes:
+    post:
+      operationId: postRequiredWithEscapedCharactersResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequiredWithEscapedCharacters'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/RequiredWithEscapedCharacters'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - required
+  /requestBody/postRequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesRequestBody:
+    post:
+      operationId: postRequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - required
+  /responseBody/postRequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesResponseBodyForContentTypes:
+    post:
+      operationId: postRequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - required
 components:
   schemas:
     AdditionalpropertiesWithSchema:
@@ -3640,6 +3821,39 @@ components:
       properties:
         $ref:
           type: string
+    RequiredValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      properties:
+        foo: {}
+        bar: {}
+      required:
+      - foo
+    RequiredDefaultValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      properties:
+        foo: {}
+    RequiredWithEmptyArray:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      properties:
+        foo: {}
+      required: []
+    RequiredWithEscapedCharacters:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      required:
+      - 'foo
+
+        bar'
+      - foo"bar
+      - foo\bar
+      - "foo\rbar"
+      - "foo\tbar"
+      - "foo\fbar"
+    RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      required:
+      - __proto__
+      - toString
+      - constructor
   x-schema-test-examples:
     AdditionalpropertiesWithSchema:
       NoAdditionalPropertiesIsValid:
@@ -5265,3 +5479,97 @@ components:
         data:
           $ref: 2
         valid: false
+    RequiredValidation:
+      PresentRequiredPropertyIsValid:
+        description: present required property is valid
+        data:
+          foo: 1
+        valid: true
+      NonPresentRequiredPropertyIsInvalid:
+        description: non-present required property is invalid
+        data:
+          bar: 1
+        valid: false
+      IgnoresArrays:
+        description: ignores arrays
+        data: []
+        valid: true
+      IgnoresStrings:
+        description: ignores strings
+        data: ''
+        valid: true
+      IgnoresOtherNonObjects:
+        description: ignores other non-objects
+        data: 12
+        valid: true
+    RequiredDefaultValidation:
+      NotRequiredByDefault:
+        description: not required by default
+        data: {}
+        valid: true
+    RequiredWithEmptyArray:
+      PropertyNotRequired:
+        description: property not required
+        data: {}
+        valid: true
+    RequiredWithEscapedCharacters:
+      ObjectWithAllPropertiesPresentIsValid:
+        description: object with all properties present is valid
+        data:
+          ? 'foo
+
+            bar'
+          : 1
+          foo"bar: 1
+          foo\bar: 1
+          "foo\rbar": 1
+          "foo\tbar": 1
+          "foo\fbar": 1
+        valid: true
+      ObjectWithSomePropertiesMissingIsInvalid:
+        description: object with some properties missing is invalid
+        data:
+          ? 'foo
+
+            bar'
+          : '1'
+          foo"bar: '1'
+        valid: false
+    RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames:
+      IgnoresArrays:
+        description: ignores arrays
+        data: []
+        valid: true
+      IgnoresOtherNonObjects:
+        description: ignores other non-objects
+        data: 12
+        valid: true
+      NoneOfThePropertiesMentioned:
+        description: none of the properties mentioned
+        data: {}
+        valid: false
+      ProtoPresent:
+        description: __proto__ present
+        data:
+          __proto__: foo
+        valid: false
+      TostringPresent:
+        description: toString present
+        data:
+          toString:
+            length: 37
+        valid: false
+      ConstructorPresent:
+        description: constructor present
+        data:
+          constructor:
+            length: 37
+        valid: false
+      AllPresent:
+        description: all present
+        data:
+          __proto__: 12
+          toString:
+            length: foo
+          constructor: 37
+        valid: true

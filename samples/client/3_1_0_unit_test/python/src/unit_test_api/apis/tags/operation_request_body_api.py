@@ -21,6 +21,7 @@ from unit_test_api.paths.request_body_post_prefixitems_validation_adjusts_the_st
 from unit_test_api.paths.request_body_post_additionalproperties_with_schema_request_body.post.operation import PostAdditionalpropertiesWithSchemaRequestBody
 from unit_test_api.paths.request_body_post_enum_with_false_does_not_match0_request_body.post.operation import PostEnumWithFalseDoesNotMatch0RequestBody
 from unit_test_api.paths.request_body_post_not_more_complex_schema_request_body.post.operation import PostNotMoreComplexSchemaRequestBody
+from unit_test_api.paths.request_body_post_required_with_empty_array_request_body.post.operation import PostRequiredWithEmptyArrayRequestBody
 from unit_test_api.paths.request_body_post_anyof_with_one_empty_schema_request_body.post.operation import PostAnyofWithOneEmptySchemaRequestBody
 from unit_test_api.paths.request_body_post_email_format_request_body.post.operation import PostEmailFormatRequestBody
 from unit_test_api.paths.request_body_post_minimum_validation_request_body.post.operation import PostMinimumValidationRequestBody
@@ -59,6 +60,7 @@ from unit_test_api.paths.request_body_post_allof_simple_types_request_body.post.
 from unit_test_api.paths.request_body_post_items_does_not_look_in_applicators_valid_case_request_body.post.operation import PostItemsDoesNotLookInApplicatorsValidCaseRequestBody
 from unit_test_api.paths.request_body_post_idn_hostname_format_request_body.post.operation import PostIdnHostnameFormatRequestBody
 from unit_test_api.paths.request_body_post_oneof_with_empty_schema_request_body.post.operation import PostOneofWithEmptySchemaRequestBody
+from unit_test_api.paths.request_body_post_required_validation_request_body.post.operation import PostRequiredValidationRequestBody
 from unit_test_api.paths.request_body_post_maxitems_validation_with_a_decimal_request_body.post.operation import PostMaxitemsValidationWithADecimalRequestBody
 from unit_test_api.paths.request_body_post_uri_format_request_body.post.operation import PostUriFormatRequestBody
 from unit_test_api.paths.request_body_post_allof_request_body.post.operation import PostAllofRequestBody
@@ -80,7 +82,9 @@ from unit_test_api.paths.request_body_post_allof_with_one_empty_schema_request_b
 from unit_test_api.paths.request_body_post_nested_allof_to_check_validation_semantics_request_body.post.operation import PostNestedAllofToCheckValidationSemanticsRequestBody
 from unit_test_api.paths.request_body_post_object_properties_validation_request_body.post.operation import PostObjectPropertiesValidationRequestBody
 from unit_test_api.paths.request_body_post_uri_reference_format_request_body.post.operation import PostUriReferenceFormatRequestBody
+from unit_test_api.paths.request_body_post_required_default_validation_request_body.post.operation import PostRequiredDefaultValidationRequestBody
 from unit_test_api.paths.request_body_post_allof_combined_with_anyof_oneof_request_body.post.operation import PostAllofCombinedWithAnyofOneofRequestBody
+from unit_test_api.paths.request_body_post_required_properties_whose_names_are_javascript_object_property_names_request_body.post.operation import PostRequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesRequestBody
 from unit_test_api.paths.request_body_post_nested_anyof_to_check_validation_semantics_request_body.post.operation import PostNestedAnyofToCheckValidationSemanticsRequestBody
 from unit_test_api.paths.request_body_post_duration_format_request_body.post.operation import PostDurationFormatRequestBody
 from unit_test_api.paths.request_body_post_regex_format_request_body.post.operation import PostRegexFormatRequestBody
@@ -92,6 +96,7 @@ from unit_test_api.paths.request_body_post_oneof_request_body.post.operation imp
 from unit_test_api.paths.request_body_post_anyof_complex_types_request_body.post.operation import PostAnyofComplexTypesRequestBody
 from unit_test_api.paths.request_body_post_oneof_with_base_schema_request_body.post.operation import PostOneofWithBaseSchemaRequestBody
 from unit_test_api.paths.request_body_post_forbidden_property_request_body.post.operation import PostForbiddenPropertyRequestBody
+from unit_test_api.paths.request_body_post_required_with_escaped_characters_request_body.post.operation import PostRequiredWithEscapedCharactersRequestBody
 
 
 class OperationRequestBodyApi(
@@ -112,6 +117,7 @@ class OperationRequestBodyApi(
     PostAdditionalpropertiesWithSchemaRequestBody,
     PostEnumWithFalseDoesNotMatch0RequestBody,
     PostNotMoreComplexSchemaRequestBody,
+    PostRequiredWithEmptyArrayRequestBody,
     PostAnyofWithOneEmptySchemaRequestBody,
     PostEmailFormatRequestBody,
     PostMinimumValidationRequestBody,
@@ -150,6 +156,7 @@ class OperationRequestBodyApi(
     PostItemsDoesNotLookInApplicatorsValidCaseRequestBody,
     PostIdnHostnameFormatRequestBody,
     PostOneofWithEmptySchemaRequestBody,
+    PostRequiredValidationRequestBody,
     PostMaxitemsValidationWithADecimalRequestBody,
     PostUriFormatRequestBody,
     PostAllofRequestBody,
@@ -171,7 +178,9 @@ class OperationRequestBodyApi(
     PostNestedAllofToCheckValidationSemanticsRequestBody,
     PostObjectPropertiesValidationRequestBody,
     PostUriReferenceFormatRequestBody,
+    PostRequiredDefaultValidationRequestBody,
     PostAllofCombinedWithAnyofOneofRequestBody,
+    PostRequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesRequestBody,
     PostNestedAnyofToCheckValidationSemanticsRequestBody,
     PostDurationFormatRequestBody,
     PostRegexFormatRequestBody,
@@ -183,6 +192,7 @@ class OperationRequestBodyApi(
     PostAnyofComplexTypesRequestBody,
     PostOneofWithBaseSchemaRequestBody,
     PostForbiddenPropertyRequestBody,
+    PostRequiredWithEscapedCharactersRequestBody,
 ):
     """NOTE: This class is auto generated by OpenAPI JSON Schema Generator
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator

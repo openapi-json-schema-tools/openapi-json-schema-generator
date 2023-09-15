@@ -274,7 +274,7 @@ JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
 #     'propertyNames.json': (json_schema_test_draft,),
     'ref.json': (json_schema_test_draft,),
     'refRemote.json': (json_schema_test_draft,),
-#     'required.json': (json_schema_test_draft,),
+    'required.json': (json_schema_test_draft,),
 #     'type.json': (json_schema_test_draft,),
 #     'uniqueItems.json': (json_schema_test_draft,),
 #     'unknownKeyword.json': (json_schema_test_draft,),
