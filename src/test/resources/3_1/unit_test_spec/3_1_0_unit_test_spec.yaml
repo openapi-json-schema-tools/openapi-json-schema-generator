@@ -1943,42 +1943,6 @@ paths:
       - path.post
       - contentType_json
       - maxItems
-  /requestBody/postMaxitemsValidationWithADecimalRequestBody:
-    post:
-      operationId: postMaxitemsValidationWithADecimalRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MaxitemsValidationWithADecimal'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/MaxitemsValidationWithADecimal'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - maxItems
-  /responseBody/postMaxitemsValidationWithADecimalResponseBodyForContentTypes:
-    post:
-      operationId: postMaxitemsValidationWithADecimalResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MaxitemsValidationWithADecimal'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/MaxitemsValidationWithADecimal'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - maxItems
   /requestBody/postMaxlengthValidationRequestBody:
     post:
       operationId: postMaxlengthValidationRequestBody
@@ -4193,9 +4157,6 @@ components:
     MaxitemsValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       maxItems: 2
-    MaxitemsValidationWithADecimal:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      maxItems: 2.0
     MaxlengthValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       maxLength: 2
@@ -5503,19 +5464,6 @@ components:
         description: ignores non-arrays
         data: foobar
         valid: true
-    MaxitemsValidationWithADecimal:
-      ShorterIsValid:
-        description: shorter is valid
-        data:
-        - 1
-        valid: true
-      TooLongIsInvalid:
-        description: too long is invalid
-        data:
-        - 1
-        - 2
-        - 3
-        valid: false
     MaxlengthValidation:
       ShorterIsValid:
         description: shorter is valid

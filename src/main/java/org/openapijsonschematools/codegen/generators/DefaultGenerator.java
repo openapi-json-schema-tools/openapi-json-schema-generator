@@ -2309,6 +2309,8 @@ public class DefaultGenerator implements Generator {
         property.externalDocumentation = p.getExternalDocs();
         property.maxContains = p.getMaxContains();
         property.minContains = p.getMinContains();
+        property.maxItems = p.getMaxItems();
+        property.minItems = p.getMinItems();
         property.dependentRequired = (LinkedHashMap<String, List<String>>) p.getDependentRequired();
 
         /*

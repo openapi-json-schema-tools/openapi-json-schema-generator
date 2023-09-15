@@ -102,6 +102,7 @@ class ExclusionReason:
     not_running_the_localhost_server = 'the openapo-generator is not running the localhost server needed to serve remoteRef files'
     v303_requires_that_the_default_value_is_an_allowed_type = 'v3.0.3 requires that the default value is an allowed type per the schema'
     ref_not_resolved = 'ref not resolved, TODO resolve only remote refs'
+    bug_max_items_missing = 'swagger-parser has a bug where maxItems is omitted: https://github.com/swagger-api/swagger-parser/issues/1974'
 
 json_schema_test_draft = 'draft2020-12'
 path_to_json_schema_drafts = ('..', '..', 'JSON-Schema-Test-Suite', 'tests')
@@ -138,6 +139,9 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         'items with boolean schema (false)': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'a schema given for items': ExclusionReason.swagger_parser_items_type_bug,
         'prefixItems with no additional items allowed': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+    },
+    (json_schema_test_draft, 'maxItems.json'): {
+        'maxItems validation with a decimal': ExclusionReason.bug_max_items_missing,
     },
     (json_schema_test_draft, 'not.json'): {
         'not with boolean schema true': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
