@@ -1295,7 +1295,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
             example = objExample.toString();
         }
         if (null != schema.get$ref()) {
-            Map<String, Schema> allDefinitions = ModelUtils.getSchemas(this.openAPI);
+            Map<String, Schema> allDefinitions = this.openAPI.getComponents().getSchemas();
             String refValue = schema.get$ref();
             String ref = ModelUtils.getSimpleRef(refValue);
             Schema refSchema = allDefinitions.get(ref);

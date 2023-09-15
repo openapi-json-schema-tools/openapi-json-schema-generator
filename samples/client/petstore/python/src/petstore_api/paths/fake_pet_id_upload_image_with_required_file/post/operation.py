@@ -112,7 +112,10 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        path_params = PathParameters.validate(path_params)
+        path_params = PathParameters.validate(
+            path_params,
+            configuration=self.api_client.schema_configuration
+        )
         used_path, query_params_suffix = self._get_used_path(
             path,
             path_parameters=path_parameter_classes,

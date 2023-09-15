@@ -21,6 +21,7 @@ elif [ "$JOB_ID" = "testPythonClientSamples" ]; then
   echo "Running job $JOB_ID ..."
   (cd samples/client/petstore/python && make test)
   (cd samples/client/3_0_3_unit_test/python && make test)
+  (cd samples/client/3_1_0_unit_test/python && make test)
   (cd samples/client/openapi_features/nonCompliantUseDiscriminatorIfCompositionFails/python && make test)
   (cd samples/client/openapi_features/security/python && make test)
   (cd samples/client/3_1_0_json_schema/python && make test)

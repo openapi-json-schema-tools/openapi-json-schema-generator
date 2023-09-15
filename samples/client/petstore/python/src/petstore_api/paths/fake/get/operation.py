@@ -146,9 +146,15 @@ class BaseApi(api_client.Api):
             class instances
         """
         if query_params is not None:
-            query_params = QueryParameters.validate(query_params)
+            query_params = QueryParameters.validate(
+                query_params,
+                configuration=self.api_client.schema_configuration
+            )
         if header_params is not None:
-            header_params = HeaderParameters.validate(header_params)
+            header_params = HeaderParameters.validate(
+                header_params,
+                configuration=self.api_client.schema_configuration
+            )
         used_path, query_params_suffix = self._get_used_path(
             path,
             query_parameters=query_parameter_classes,
