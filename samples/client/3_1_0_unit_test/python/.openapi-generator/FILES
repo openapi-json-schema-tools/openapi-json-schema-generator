@@ -2651,7 +2651,6 @@ test-requirements.txt
 test/__init__.py
 test/components/__init__.py
 test/components/schema/__init__.py
-test/components/schema/test_small_multiple_of_large_integer.py
 test/test_paths/__init__.py
 test/test_paths/__init__.py
 test/test_paths/__init__.py
