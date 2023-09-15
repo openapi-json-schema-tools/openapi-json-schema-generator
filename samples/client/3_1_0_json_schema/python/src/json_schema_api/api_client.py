@@ -1357,7 +1357,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
 
     @classmethod
     def serialize(
-        cls, in_data: schemas.INPUT_TYPES_ALL, content_type: str, configuration: schema_configuration_.SchemaConfiguration
+        cls, in_data: schemas.INPUT_TYPES_ALL, content_type: str, configuration: typing.Optional[schema_configuration_.SchemaConfiguration] = None
     ) -> SerializedRequestBody:
         """
         If a str is returned then the result will be assigned to data when making the request
@@ -1371,7 +1371,8 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         media_type = cls.content[content_type]
         assert media_type.schema is not None
         schema = schemas.get_class(media_type.schema)
-        cast_in_data = schema.validate_base(in_data, configuration=configuration)
+        used_configuration = configuration if configuration is not None else schema_configuration_.SchemaConfiguration()
+        cast_in_data = schema.validate_base(in_data, configuration=used_configuration)
         # TODO check for and use encoding if it exists
         # and content_type is multipart or application/x-www-form-urlencoded
         if cls._content_type_is_json(content_type):
