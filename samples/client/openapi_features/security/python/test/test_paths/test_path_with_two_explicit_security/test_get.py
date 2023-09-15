@@ -24,7 +24,9 @@ class TestGet(ApiTestMixin, unittest.TestCase):
         path with two explicit security  # noqa: E501
     """
     api_config = api_configuration.ApiConfiguration()
-    schema_config = schema_configuration.SchemaConfiguration()
+    schema_config = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
     used_api_client = api_client.ApiClient(configuration=api_config, schema_configuration=schema_config)
     api = get.ApiForGet(api_client=used_api_client)  # noqa: E501
 

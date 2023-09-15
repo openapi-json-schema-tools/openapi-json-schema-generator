@@ -1213,8 +1213,8 @@ class Api:
                 headers.add('Accept', accept_content_type)
         return headers
 
-    @staticmethod
     def _get_fields_and_body(
+        self,
         request_body: typing.Type[RequestBody],
         body: typing.Union[schemas.INPUT_TYPES_ALL, schemas.Unset],
         content_type: str,
@@ -1229,7 +1229,7 @@ class Api:
 
         serialized_fields = None
         serialized_body = None
-        serialized_data = request_body.serialize(body, content_type)
+        serialized_data = request_body.serialize(body, content_type, configuration=self.api_client.schema_configuration)
         headers.add('Content-Type', content_type)
         if 'fields' in serialized_data:
             serialized_fields = serialized_data['fields']
@@ -1357,7 +1357,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
 
     @classmethod
     def serialize(
-        cls, in_data: schemas.INPUT_TYPES_ALL, content_type: str
+        cls, in_data: schemas.INPUT_TYPES_ALL, content_type: str, configuration: schema_configuration_.SchemaConfiguration
     ) -> SerializedRequestBody:
         """
         If a str is returned then the result will be assigned to data when making the request
@@ -1371,7 +1371,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
         media_type = cls.content[content_type]
         assert media_type.schema is not None
         schema = schemas.get_class(media_type.schema)
-        cast_in_data = schema.validate_base(in_data)
+        cast_in_data = schema.validate_base(in_data, configuration=configuration)
         # TODO check for and use encoding if it exists
         # and content_type is multipart or application/x-www-form-urlencoded
         if cls._content_type_is_json(content_type):
