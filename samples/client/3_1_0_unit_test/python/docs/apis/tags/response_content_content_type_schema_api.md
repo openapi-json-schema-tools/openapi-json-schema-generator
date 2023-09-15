@@ -26,6 +26,9 @@ Method | Description
 [**post_anyof_response_body_for_content_types**](../../paths/response_body_post_anyof_response_body_for_content_types/post.md) | 
 [**post_anyof_with_base_schema_response_body_for_content_types**](../../paths/response_body_post_anyof_with_base_schema_response_body_for_content_types/post.md) | 
 [**post_anyof_with_one_empty_schema_response_body_for_content_types**](../../paths/response_body_post_anyof_with_one_empty_schema_response_body_for_content_types/post.md) | 
+[**post_by_int_response_body_for_content_types**](../../paths/response_body_post_by_int_response_body_for_content_types/post.md) | 
+[**post_by_number_response_body_for_content_types**](../../paths/response_body_post_by_number_response_body_for_content_types/post.md) | 
+[**post_by_small_number_response_body_for_content_types**](../../paths/response_body_post_by_small_number_response_body_for_content_types/post.md) | 
 [**post_date_format_response_body_for_content_types**](../../paths/response_body_post_date_format_response_body_for_content_types/post.md) | 
 [**post_date_time_format_response_body_for_content_types**](../../paths/response_body_post_date_time_format_response_body_for_content_types/post.md) | 
 [**post_duration_format_response_body_for_content_types**](../../paths/response_body_post_duration_format_response_body_for_content_types/post.md) | 
@@ -36,6 +39,8 @@ Method | Description
 [**post_enum_with_false_does_not_match0_response_body_for_content_types**](../../paths/response_body_post_enum_with_false_does_not_match0_response_body_for_content_types/post.md) | 
 [**post_enum_with_true_does_not_match1_response_body_for_content_types**](../../paths/response_body_post_enum_with_true_does_not_match1_response_body_for_content_types/post.md) | 
 [**post_enums_in_properties_response_body_for_content_types**](../../paths/response_body_post_enums_in_properties_response_body_for_content_types/post.md) | 
+[**post_float_division_inf_response_body_for_content_types**](../../paths/response_body_post_float_division_inf_response_body_for_content_types/post.md) | 
+[**post_forbidden_property_response_body_for_content_types**](../../paths/response_body_post_forbidden_property_response_body_for_content_types/post.md) | 
 [**post_hostname_format_response_body_for_content_types**](../../paths/response_body_post_hostname_format_response_body_for_content_types/post.md) | 
 [**post_idn_email_format_response_body_for_content_types**](../../paths/response_body_post_idn_email_format_response_body_for_content_types/post.md) | 
 [**post_idn_hostname_format_response_body_for_content_types**](../../paths/response_body_post_idn_hostname_format_response_body_for_content_types/post.md) | 
@@ -67,6 +72,8 @@ Method | Description
 [**post_nested_anyof_to_check_validation_semantics_response_body_for_content_types**](../../paths/response_body_post_nested_anyof_to_check_validation_semantics_response_body_for_content_types/post.md) | 
 [**post_nested_items_response_body_for_content_types**](../../paths/response_body_post_nested_items_response_body_for_content_types/post.md) | 
 [**post_nested_oneof_to_check_validation_semantics_response_body_for_content_types**](../../paths/response_body_post_nested_oneof_to_check_validation_semantics_response_body_for_content_types/post.md) | 
+[**post_not_more_complex_schema_response_body_for_content_types**](../../paths/response_body_post_not_more_complex_schema_response_body_for_content_types/post.md) | 
+[**post_not_response_body_for_content_types**](../../paths/response_body_post_not_response_body_for_content_types/post.md) | 
 [**post_nul_characters_in_strings_response_body_for_content_types**](../../paths/response_body_post_nul_characters_in_strings_response_body_for_content_types/post.md) | 
 [**post_oneof_complex_types_response_body_for_content_types**](../../paths/response_body_post_oneof_complex_types_response_body_for_content_types/post.md) | 
 [**post_oneof_response_body_for_content_types**](../../paths/response_body_post_oneof_response_body_for_content_types/post.md) | 
@@ -77,6 +84,7 @@ Method | Description
 [**post_regex_format_response_body_for_content_types**](../../paths/response_body_post_regex_format_response_body_for_content_types/post.md) | 
 [**post_relative_json_pointer_format_response_body_for_content_types**](../../paths/response_body_post_relative_json_pointer_format_response_body_for_content_types/post.md) | 
 [**post_simple_enum_validation_response_body_for_content_types**](../../paths/response_body_post_simple_enum_validation_response_body_for_content_types/post.md) | 
+[**post_small_multiple_of_large_integer_response_body_for_content_types**](../../paths/response_body_post_small_multiple_of_large_integer_response_body_for_content_types/post.md) | 
 [**post_time_format_response_body_for_content_types**](../../paths/response_body_post_time_format_response_body_for_content_types/post.md) | 
 [**post_uri_format_response_body_for_content_types**](../../paths/response_body_post_uri_format_response_body_for_content_types/post.md) | 
 [**post_uri_reference_format_response_body_for_content_types**](../../paths/response_body_post_uri_reference_format_response_body_for_content_types/post.md) | 

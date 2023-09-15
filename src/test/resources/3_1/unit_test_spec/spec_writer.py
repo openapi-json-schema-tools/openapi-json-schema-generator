@@ -142,6 +142,7 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         'not with boolean schema true': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'not with boolean schema false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'not multiple types': ExclusionReason.v303_does_not_support_array_of_types,
+        "collect annotations inside a 'not', even if collection is disabled": ExclusionReason.bug_does_not_support_boolean_schemas_in_location
     },
     (json_schema_test_draft, 'oneOf.json'): {
         'oneOf with missing optional property': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
@@ -246,8 +247,8 @@ JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
     'minItems.json': (json_schema_test_draft,),
     'minLength.json': (json_schema_test_draft,),
     'minProperties.json': (json_schema_test_draft,),
-#     'multipleOf.json': (json_schema_test_draft,),
-#     'not.json': (json_schema_test_draft,),
+    'multipleOf.json': (json_schema_test_draft,),
+    'not.json': (json_schema_test_draft,),
     'oneOf.json': (json_schema_test_draft,),
 #     'pattern.json': (json_schema_test_draft,),
 #     'patternProperties.json': (json_schema_test_draft,),

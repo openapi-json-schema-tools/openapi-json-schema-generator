@@ -25,6 +25,8 @@ tags:
 - name: minItems
 - name: minLength
 - name: minProperties
+- name: multipleOf
+- name: not
 - name: oneOf
 paths:
   /requestBody/postAdditionalpropertiesWithSchemaRequestBody:
@@ -2439,6 +2441,294 @@ paths:
       - path.post
       - contentType_json
       - minProperties
+  /requestBody/postByIntRequestBody:
+    post:
+      operationId: postByIntRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ByInt'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ByInt'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - multipleOf
+  /responseBody/postByIntResponseBodyForContentTypes:
+    post:
+      operationId: postByIntResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ByInt'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ByInt'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - multipleOf
+  /requestBody/postByNumberRequestBody:
+    post:
+      operationId: postByNumberRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ByNumber'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ByNumber'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - multipleOf
+  /responseBody/postByNumberResponseBodyForContentTypes:
+    post:
+      operationId: postByNumberResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ByNumber'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ByNumber'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - multipleOf
+  /requestBody/postBySmallNumberRequestBody:
+    post:
+      operationId: postBySmallNumberRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BySmallNumber'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/BySmallNumber'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - multipleOf
+  /responseBody/postBySmallNumberResponseBodyForContentTypes:
+    post:
+      operationId: postBySmallNumberResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BySmallNumber'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/BySmallNumber'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - multipleOf
+  /requestBody/postFloatDivisionInfRequestBody:
+    post:
+      operationId: postFloatDivisionInfRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FloatDivisionInf'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/FloatDivisionInf'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - multipleOf
+  /responseBody/postFloatDivisionInfResponseBodyForContentTypes:
+    post:
+      operationId: postFloatDivisionInfResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FloatDivisionInf'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/FloatDivisionInf'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - multipleOf
+  /requestBody/postSmallMultipleOfLargeIntegerRequestBody:
+    post:
+      operationId: postSmallMultipleOfLargeIntegerRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SmallMultipleOfLargeInteger'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/SmallMultipleOfLargeInteger'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - multipleOf
+  /responseBody/postSmallMultipleOfLargeIntegerResponseBodyForContentTypes:
+    post:
+      operationId: postSmallMultipleOfLargeIntegerResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SmallMultipleOfLargeInteger'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/SmallMultipleOfLargeInteger'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - multipleOf
+  /requestBody/postNotRequestBody:
+    post:
+      operationId: postNotRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Not'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/Not'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - not
+  /responseBody/postNotResponseBodyForContentTypes:
+    post:
+      operationId: postNotResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Not'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/Not'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - not
+  /requestBody/postNotMoreComplexSchemaRequestBody:
+    post:
+      operationId: postNotMoreComplexSchemaRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotMoreComplexSchema'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/NotMoreComplexSchema'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - not
+  /responseBody/postNotMoreComplexSchemaResponseBodyForContentTypes:
+    post:
+      operationId: postNotMoreComplexSchemaResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotMoreComplexSchema'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/NotMoreComplexSchema'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - not
+  /requestBody/postForbiddenPropertyRequestBody:
+    post:
+      operationId: postForbiddenPropertyRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForbiddenProperty'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ForbiddenProperty'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - not
+  /responseBody/postForbiddenPropertyResponseBodyForContentTypes:
+    post:
+      operationId: postForbiddenPropertyResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenProperty'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ForbiddenProperty'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - not
   /requestBody/postOneofRequestBody:
     post:
       operationId: postOneofRequestBody
@@ -2967,6 +3257,39 @@ components:
     MinpropertiesValidationWithADecimal:
       $schema: https://json-schema.org/draft/2020-12/schema
       minProperties: 1.0
+    ByInt:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      multipleOf: 2
+    ByNumber:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      multipleOf: 1.5
+    BySmallNumber:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      multipleOf: 0.0001
+    FloatDivisionInf:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      type: integer
+      multipleOf: 0.123456789
+    SmallMultipleOfLargeInteger:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      type: integer
+      multipleOf: 1.0e-08
+    Not:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      not:
+        type: integer
+    NotMoreComplexSchema:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      not:
+        type: object
+        properties:
+          foo:
+            type: string
+    ForbiddenProperty:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      properties:
+        foo:
+          not: {}
     Oneof:
       $schema: https://json-schema.org/draft/2020-12/schema
       oneOf:
@@ -4305,6 +4628,89 @@ components:
         description: too short is invalid
         data: {}
         valid: false
+    ByInt:
+      IntByInt:
+        description: int by int
+        data: 10
+        valid: true
+      IntByIntFail:
+        description: int by int fail
+        data: 7
+        valid: false
+      IgnoresNonNumbers:
+        description: ignores non-numbers
+        data: foo
+        valid: true
+    ByNumber:
+      ZeroIsMultipleOfAnything:
+        description: zero is multiple of anything
+        data: 0
+        valid: true
+      45IsMultipleOf15:
+        description: 4.5 is multiple of 1.5
+        data: 4.5
+        valid: true
+      35IsNotMultipleOf15:
+        description: 35 is not multiple of 1.5
+        data: 35
+        valid: false
+    BySmallNumber:
+      00075IsMultipleOf00001:
+        description: 0.0075 is multiple of 0.0001
+        data: 0.0075
+        valid: true
+      000751IsNotMultipleOf00001:
+        description: 0.00751 is not multiple of 0.0001
+        data: 0.00751
+        valid: false
+    FloatDivisionInf:
+      AlwaysInvalidButNaiveImplementationsMayRaiseAnOverflowError:
+        description: always invalid, but naive implementations may raise an overflow
+          error
+        data: 1.0e+308
+        valid: false
+    SmallMultipleOfLargeInteger:
+      AnyIntegerIsAMultipleOf1E8:
+        description: any integer is a multiple of 1e-8
+        data: 12391239123
+        valid: true
+    Not:
+      Allowed:
+        description: allowed
+        data: foo
+        valid: true
+      Disallowed:
+        description: disallowed
+        data: 1
+        valid: false
+    NotMoreComplexSchema:
+      Match:
+        description: match
+        data: 1
+        valid: true
+      OtherMatch:
+        description: other match
+        data:
+          foo: 1
+        valid: true
+      Mismatch:
+        description: mismatch
+        data:
+          foo: bar
+        valid: false
+    ForbiddenProperty:
+      PropertyPresent:
+        description: property present
+        data:
+          foo: 1
+          bar: 2
+        valid: false
+      PropertyAbsent:
+        description: property absent
+        data:
+          bar: 1
+          baz: 2
+        valid: true
     Oneof:
       FirstOneofValid:
         description: first oneOf valid

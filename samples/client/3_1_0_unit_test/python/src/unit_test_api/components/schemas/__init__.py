@@ -28,6 +28,9 @@ from unit_test_api.components.schema.anyof import Anyof
 from unit_test_api.components.schema.anyof_complex_types import AnyofComplexTypes
 from unit_test_api.components.schema.anyof_with_base_schema import AnyofWithBaseSchema
 from unit_test_api.components.schema.anyof_with_one_empty_schema import AnyofWithOneEmptySchema
+from unit_test_api.components.schema.by_int import ByInt
+from unit_test_api.components.schema.by_number import ByNumber
+from unit_test_api.components.schema.by_small_number import BySmallNumber
 from unit_test_api.components.schema.date_format import DateFormat
 from unit_test_api.components.schema.date_time_format import DateTimeFormat
 from unit_test_api.components.schema.duration_format import DurationFormat
@@ -38,6 +41,8 @@ from unit_test_api.components.schema.enum_with_escaped_characters import EnumWit
 from unit_test_api.components.schema.enum_with_false_does_not_match0 import EnumWithFalseDoesNotMatch0
 from unit_test_api.components.schema.enum_with_true_does_not_match1 import EnumWithTrueDoesNotMatch1
 from unit_test_api.components.schema.enums_in_properties import EnumsInProperties
+from unit_test_api.components.schema.float_division_inf import FloatDivisionInf
+from unit_test_api.components.schema.forbidden_property import ForbiddenProperty
 from unit_test_api.components.schema.hostname_format import HostnameFormat
 from unit_test_api.components.schema.idn_email_format import IdnEmailFormat
 from unit_test_api.components.schema.idn_hostname_format import IdnHostnameFormat
@@ -69,6 +74,8 @@ from unit_test_api.components.schema.nested_allof_to_check_validation_semantics 
 from unit_test_api.components.schema.nested_anyof_to_check_validation_semantics import NestedAnyofToCheckValidationSemantics
 from unit_test_api.components.schema.nested_items import NestedItems
 from unit_test_api.components.schema.nested_oneof_to_check_validation_semantics import NestedOneofToCheckValidationSemantics
+from unit_test_api.components.schema._not import _Not
+from unit_test_api.components.schema.not_more_complex_schema import NotMoreComplexSchema
 from unit_test_api.components.schema.nul_characters_in_strings import NulCharactersInStrings
 from unit_test_api.components.schema.oneof import Oneof
 from unit_test_api.components.schema.oneof_complex_types import OneofComplexTypes
@@ -79,6 +86,7 @@ from unit_test_api.components.schema.prefixitems_validation_adjusts_the_starting
 from unit_test_api.components.schema.regex_format import RegexFormat
 from unit_test_api.components.schema.relative_json_pointer_format import RelativeJsonPointerFormat
 from unit_test_api.components.schema.simple_enum_validation import SimpleEnumValidation
+from unit_test_api.components.schema.small_multiple_of_large_integer import SmallMultipleOfLargeInteger
 from unit_test_api.components.schema.time_format import TimeFormat
 from unit_test_api.components.schema.uri_format import UriFormat
 from unit_test_api.components.schema.uri_reference_format import UriReferenceFormat

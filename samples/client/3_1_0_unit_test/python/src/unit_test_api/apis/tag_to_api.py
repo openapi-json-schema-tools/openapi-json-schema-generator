@@ -8,10 +8,12 @@ from unit_test_api.apis.tags.min_items_api import MinItemsApi
 from unit_test_api.apis.tags.all_of_api import AllOfApi
 from unit_test_api.apis.tags.minimum_api import MinimumApi
 from unit_test_api.apis.tags.any_of_api import AnyOfApi
+from unit_test_api.apis.tags.multiple_of_api import MultipleOfApi
 from unit_test_api.apis.tags.items_api import ItemsApi
 from unit_test_api.apis.tags.min_length_api import MinLengthApi
 from unit_test_api.apis.tags.format_api import FormatApi
 from unit_test_api.apis.tags.max_length_api import MaxLengthApi
+from unit_test_api.apis.tags._not_api import _NotApi
 from unit_test_api.apis.tags.path_post_api import PathPostApi
 from unit_test_api.apis.tags.content_type_json_api import ContentTypeJsonApi
 from unit_test_api.apis.tags.max_properties_api import MaxPropertiesApi
@@ -31,10 +33,12 @@ TagToApi = typing.TypedDict(
         "allOf": typing.Type[AllOfApi],
         "minimum": typing.Type[MinimumApi],
         "anyOf": typing.Type[AnyOfApi],
+        "multipleOf": typing.Type[MultipleOfApi],
         "items": typing.Type[ItemsApi],
         "minLength": typing.Type[MinLengthApi],
         "format": typing.Type[FormatApi],
         "maxLength": typing.Type[MaxLengthApi],
+        "not": typing.Type[_NotApi],
         "path.post": typing.Type[PathPostApi],
         "contentType_json": typing.Type[ContentTypeJsonApi],
         "maxProperties": typing.Type[MaxPropertiesApi],
@@ -55,10 +59,12 @@ tag_to_api = TagToApi(
         "allOf": AllOfApi,
         "minimum": MinimumApi,
         "anyOf": AnyOfApi,
+        "multipleOf": MultipleOfApi,
         "items": ItemsApi,
         "minLength": MinLengthApi,
         "format": FormatApi,
         "maxLength": MaxLengthApi,
+        "not": _NotApi,
         "path.post": PathPostApi,
         "contentType_json": ContentTypeJsonApi,
         "maxProperties": MaxPropertiesApi,

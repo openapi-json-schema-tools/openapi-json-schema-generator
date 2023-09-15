@@ -18,6 +18,9 @@ from unit_test_api.apis.paths.request_body_post_anyof_complex_types_request_body
 from unit_test_api.apis.paths.request_body_post_anyof_request_body import RequestBodyPostAnyofRequestBody
 from unit_test_api.apis.paths.request_body_post_anyof_with_base_schema_request_body import RequestBodyPostAnyofWithBaseSchemaRequestBody
 from unit_test_api.apis.paths.request_body_post_anyof_with_one_empty_schema_request_body import RequestBodyPostAnyofWithOneEmptySchemaRequestBody
+from unit_test_api.apis.paths.request_body_post_by_int_request_body import RequestBodyPostByIntRequestBody
+from unit_test_api.apis.paths.request_body_post_by_number_request_body import RequestBodyPostByNumberRequestBody
+from unit_test_api.apis.paths.request_body_post_by_small_number_request_body import RequestBodyPostBySmallNumberRequestBody
 from unit_test_api.apis.paths.request_body_post_date_format_request_body import RequestBodyPostDateFormatRequestBody
 from unit_test_api.apis.paths.request_body_post_date_time_format_request_body import RequestBodyPostDateTimeFormatRequestBody
 from unit_test_api.apis.paths.request_body_post_duration_format_request_body import RequestBodyPostDurationFormatRequestBody
@@ -28,6 +31,8 @@ from unit_test_api.apis.paths.request_body_post_enum_with_escaped_characters_req
 from unit_test_api.apis.paths.request_body_post_enum_with_false_does_not_match0_request_body import RequestBodyPostEnumWithFalseDoesNotMatch0RequestBody
 from unit_test_api.apis.paths.request_body_post_enum_with_true_does_not_match1_request_body import RequestBodyPostEnumWithTrueDoesNotMatch1RequestBody
 from unit_test_api.apis.paths.request_body_post_enums_in_properties_request_body import RequestBodyPostEnumsInPropertiesRequestBody
+from unit_test_api.apis.paths.request_body_post_float_division_inf_request_body import RequestBodyPostFloatDivisionInfRequestBody
+from unit_test_api.apis.paths.request_body_post_forbidden_property_request_body import RequestBodyPostForbiddenPropertyRequestBody
 from unit_test_api.apis.paths.request_body_post_hostname_format_request_body import RequestBodyPostHostnameFormatRequestBody
 from unit_test_api.apis.paths.request_body_post_idn_email_format_request_body import RequestBodyPostIdnEmailFormatRequestBody
 from unit_test_api.apis.paths.request_body_post_idn_hostname_format_request_body import RequestBodyPostIdnHostnameFormatRequestBody
@@ -59,6 +64,8 @@ from unit_test_api.apis.paths.request_body_post_nested_allof_to_check_validation
 from unit_test_api.apis.paths.request_body_post_nested_anyof_to_check_validation_semantics_request_body import RequestBodyPostNestedAnyofToCheckValidationSemanticsRequestBody
 from unit_test_api.apis.paths.request_body_post_nested_items_request_body import RequestBodyPostNestedItemsRequestBody
 from unit_test_api.apis.paths.request_body_post_nested_oneof_to_check_validation_semantics_request_body import RequestBodyPostNestedOneofToCheckValidationSemanticsRequestBody
+from unit_test_api.apis.paths.request_body_post_not_more_complex_schema_request_body import RequestBodyPostNotMoreComplexSchemaRequestBody
+from unit_test_api.apis.paths.request_body_post_not_request_body import RequestBodyPostNotRequestBody
 from unit_test_api.apis.paths.request_body_post_nul_characters_in_strings_request_body import RequestBodyPostNulCharactersInStringsRequestBody
 from unit_test_api.apis.paths.request_body_post_oneof_complex_types_request_body import RequestBodyPostOneofComplexTypesRequestBody
 from unit_test_api.apis.paths.request_body_post_oneof_request_body import RequestBodyPostOneofRequestBody
@@ -69,6 +76,7 @@ from unit_test_api.apis.paths.request_body_post_prefixitems_validation_adjusts_t
 from unit_test_api.apis.paths.request_body_post_regex_format_request_body import RequestBodyPostRegexFormatRequestBody
 from unit_test_api.apis.paths.request_body_post_relative_json_pointer_format_request_body import RequestBodyPostRelativeJsonPointerFormatRequestBody
 from unit_test_api.apis.paths.request_body_post_simple_enum_validation_request_body import RequestBodyPostSimpleEnumValidationRequestBody
+from unit_test_api.apis.paths.request_body_post_small_multiple_of_large_integer_request_body import RequestBodyPostSmallMultipleOfLargeIntegerRequestBody
 from unit_test_api.apis.paths.request_body_post_time_format_request_body import RequestBodyPostTimeFormatRequestBody
 from unit_test_api.apis.paths.request_body_post_uri_format_request_body import RequestBodyPostUriFormatRequestBody
 from unit_test_api.apis.paths.request_body_post_uri_reference_format_request_body import RequestBodyPostUriReferenceFormatRequestBody
@@ -91,6 +99,9 @@ from unit_test_api.apis.paths.response_body_post_anyof_complex_types_response_bo
 from unit_test_api.apis.paths.response_body_post_anyof_response_body_for_content_types import ResponseBodyPostAnyofResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_anyof_with_base_schema_response_body_for_content_types import ResponseBodyPostAnyofWithBaseSchemaResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_anyof_with_one_empty_schema_response_body_for_content_types import ResponseBodyPostAnyofWithOneEmptySchemaResponseBodyForContentTypes
+from unit_test_api.apis.paths.response_body_post_by_int_response_body_for_content_types import ResponseBodyPostByIntResponseBodyForContentTypes
+from unit_test_api.apis.paths.response_body_post_by_number_response_body_for_content_types import ResponseBodyPostByNumberResponseBodyForContentTypes
+from unit_test_api.apis.paths.response_body_post_by_small_number_response_body_for_content_types import ResponseBodyPostBySmallNumberResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_date_format_response_body_for_content_types import ResponseBodyPostDateFormatResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_date_time_format_response_body_for_content_types import ResponseBodyPostDateTimeFormatResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_duration_format_response_body_for_content_types import ResponseBodyPostDurationFormatResponseBodyForContentTypes
@@ -101,6 +112,8 @@ from unit_test_api.apis.paths.response_body_post_enum_with_escaped_characters_re
 from unit_test_api.apis.paths.response_body_post_enum_with_false_does_not_match0_response_body_for_content_types import ResponseBodyPostEnumWithFalseDoesNotMatch0ResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_enum_with_true_does_not_match1_response_body_for_content_types import ResponseBodyPostEnumWithTrueDoesNotMatch1ResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_enums_in_properties_response_body_for_content_types import ResponseBodyPostEnumsInPropertiesResponseBodyForContentTypes
+from unit_test_api.apis.paths.response_body_post_float_division_inf_response_body_for_content_types import ResponseBodyPostFloatDivisionInfResponseBodyForContentTypes
+from unit_test_api.apis.paths.response_body_post_forbidden_property_response_body_for_content_types import ResponseBodyPostForbiddenPropertyResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_hostname_format_response_body_for_content_types import ResponseBodyPostHostnameFormatResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_idn_email_format_response_body_for_content_types import ResponseBodyPostIdnEmailFormatResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_idn_hostname_format_response_body_for_content_types import ResponseBodyPostIdnHostnameFormatResponseBodyForContentTypes
@@ -132,6 +145,8 @@ from unit_test_api.apis.paths.response_body_post_nested_allof_to_check_validatio
 from unit_test_api.apis.paths.response_body_post_nested_anyof_to_check_validation_semantics_response_body_for_content_types import ResponseBodyPostNestedAnyofToCheckValidationSemanticsResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_nested_items_response_body_for_content_types import ResponseBodyPostNestedItemsResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_nested_oneof_to_check_validation_semantics_response_body_for_content_types import ResponseBodyPostNestedOneofToCheckValidationSemanticsResponseBodyForContentTypes
+from unit_test_api.apis.paths.response_body_post_not_more_complex_schema_response_body_for_content_types import ResponseBodyPostNotMoreComplexSchemaResponseBodyForContentTypes
+from unit_test_api.apis.paths.response_body_post_not_response_body_for_content_types import ResponseBodyPostNotResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_nul_characters_in_strings_response_body_for_content_types import ResponseBodyPostNulCharactersInStringsResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_oneof_complex_types_response_body_for_content_types import ResponseBodyPostOneofComplexTypesResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_oneof_response_body_for_content_types import ResponseBodyPostOneofResponseBodyForContentTypes
@@ -142,6 +157,7 @@ from unit_test_api.apis.paths.response_body_post_prefixitems_validation_adjusts_
 from unit_test_api.apis.paths.response_body_post_regex_format_response_body_for_content_types import ResponseBodyPostRegexFormatResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_relative_json_pointer_format_response_body_for_content_types import ResponseBodyPostRelativeJsonPointerFormatResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_simple_enum_validation_response_body_for_content_types import ResponseBodyPostSimpleEnumValidationResponseBodyForContentTypes
+from unit_test_api.apis.paths.response_body_post_small_multiple_of_large_integer_response_body_for_content_types import ResponseBodyPostSmallMultipleOfLargeIntegerResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_time_format_response_body_for_content_types import ResponseBodyPostTimeFormatResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_uri_format_response_body_for_content_types import ResponseBodyPostUriFormatResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_uri_reference_format_response_body_for_content_types import ResponseBodyPostUriReferenceFormatResponseBodyForContentTypes
@@ -168,6 +184,9 @@ PathToApi = typing.TypedDict(
     "/requestBody/postAnyofRequestBody": typing.Type[RequestBodyPostAnyofRequestBody],
     "/requestBody/postAnyofWithBaseSchemaRequestBody": typing.Type[RequestBodyPostAnyofWithBaseSchemaRequestBody],
     "/requestBody/postAnyofWithOneEmptySchemaRequestBody": typing.Type[RequestBodyPostAnyofWithOneEmptySchemaRequestBody],
+    "/requestBody/postByIntRequestBody": typing.Type[RequestBodyPostByIntRequestBody],
+    "/requestBody/postByNumberRequestBody": typing.Type[RequestBodyPostByNumberRequestBody],
+    "/requestBody/postBySmallNumberRequestBody": typing.Type[RequestBodyPostBySmallNumberRequestBody],
     "/requestBody/postDateFormatRequestBody": typing.Type[RequestBodyPostDateFormatRequestBody],
     "/requestBody/postDateTimeFormatRequestBody": typing.Type[RequestBodyPostDateTimeFormatRequestBody],
     "/requestBody/postDurationFormatRequestBody": typing.Type[RequestBodyPostDurationFormatRequestBody],
@@ -178,6 +197,8 @@ PathToApi = typing.TypedDict(
     "/requestBody/postEnumWithFalseDoesNotMatch0RequestBody": typing.Type[RequestBodyPostEnumWithFalseDoesNotMatch0RequestBody],
     "/requestBody/postEnumWithTrueDoesNotMatch1RequestBody": typing.Type[RequestBodyPostEnumWithTrueDoesNotMatch1RequestBody],
     "/requestBody/postEnumsInPropertiesRequestBody": typing.Type[RequestBodyPostEnumsInPropertiesRequestBody],
+    "/requestBody/postFloatDivisionInfRequestBody": typing.Type[RequestBodyPostFloatDivisionInfRequestBody],
+    "/requestBody/postForbiddenPropertyRequestBody": typing.Type[RequestBodyPostForbiddenPropertyRequestBody],
     "/requestBody/postHostnameFormatRequestBody": typing.Type[RequestBodyPostHostnameFormatRequestBody],
     "/requestBody/postIdnEmailFormatRequestBody": typing.Type[RequestBodyPostIdnEmailFormatRequestBody],
     "/requestBody/postIdnHostnameFormatRequestBody": typing.Type[RequestBodyPostIdnHostnameFormatRequestBody],
@@ -209,6 +230,8 @@ PathToApi = typing.TypedDict(
     "/requestBody/postNestedAnyofToCheckValidationSemanticsRequestBody": typing.Type[RequestBodyPostNestedAnyofToCheckValidationSemanticsRequestBody],
     "/requestBody/postNestedItemsRequestBody": typing.Type[RequestBodyPostNestedItemsRequestBody],
     "/requestBody/postNestedOneofToCheckValidationSemanticsRequestBody": typing.Type[RequestBodyPostNestedOneofToCheckValidationSemanticsRequestBody],
+    "/requestBody/postNotMoreComplexSchemaRequestBody": typing.Type[RequestBodyPostNotMoreComplexSchemaRequestBody],
+    "/requestBody/postNotRequestBody": typing.Type[RequestBodyPostNotRequestBody],
     "/requestBody/postNulCharactersInStringsRequestBody": typing.Type[RequestBodyPostNulCharactersInStringsRequestBody],
     "/requestBody/postOneofComplexTypesRequestBody": typing.Type[RequestBodyPostOneofComplexTypesRequestBody],
     "/requestBody/postOneofRequestBody": typing.Type[RequestBodyPostOneofRequestBody],
@@ -219,6 +242,7 @@ PathToApi = typing.TypedDict(
     "/requestBody/postRegexFormatRequestBody": typing.Type[RequestBodyPostRegexFormatRequestBody],
     "/requestBody/postRelativeJsonPointerFormatRequestBody": typing.Type[RequestBodyPostRelativeJsonPointerFormatRequestBody],
     "/requestBody/postSimpleEnumValidationRequestBody": typing.Type[RequestBodyPostSimpleEnumValidationRequestBody],
+    "/requestBody/postSmallMultipleOfLargeIntegerRequestBody": typing.Type[RequestBodyPostSmallMultipleOfLargeIntegerRequestBody],
     "/requestBody/postTimeFormatRequestBody": typing.Type[RequestBodyPostTimeFormatRequestBody],
     "/requestBody/postUriFormatRequestBody": typing.Type[RequestBodyPostUriFormatRequestBody],
     "/requestBody/postUriReferenceFormatRequestBody": typing.Type[RequestBodyPostUriReferenceFormatRequestBody],
@@ -241,6 +265,9 @@ PathToApi = typing.TypedDict(
     "/responseBody/postAnyofResponseBodyForContentTypes": typing.Type[ResponseBodyPostAnyofResponseBodyForContentTypes],
     "/responseBody/postAnyofWithBaseSchemaResponseBodyForContentTypes": typing.Type[ResponseBodyPostAnyofWithBaseSchemaResponseBodyForContentTypes],
     "/responseBody/postAnyofWithOneEmptySchemaResponseBodyForContentTypes": typing.Type[ResponseBodyPostAnyofWithOneEmptySchemaResponseBodyForContentTypes],
+    "/responseBody/postByIntResponseBodyForContentTypes": typing.Type[ResponseBodyPostByIntResponseBodyForContentTypes],
+    "/responseBody/postByNumberResponseBodyForContentTypes": typing.Type[ResponseBodyPostByNumberResponseBodyForContentTypes],
+    "/responseBody/postBySmallNumberResponseBodyForContentTypes": typing.Type[ResponseBodyPostBySmallNumberResponseBodyForContentTypes],
     "/responseBody/postDateFormatResponseBodyForContentTypes": typing.Type[ResponseBodyPostDateFormatResponseBodyForContentTypes],
     "/responseBody/postDateTimeFormatResponseBodyForContentTypes": typing.Type[ResponseBodyPostDateTimeFormatResponseBodyForContentTypes],
     "/responseBody/postDurationFormatResponseBodyForContentTypes": typing.Type[ResponseBodyPostDurationFormatResponseBodyForContentTypes],
@@ -251,6 +278,8 @@ PathToApi = typing.TypedDict(
     "/responseBody/postEnumWithFalseDoesNotMatch0ResponseBodyForContentTypes": typing.Type[ResponseBodyPostEnumWithFalseDoesNotMatch0ResponseBodyForContentTypes],
     "/responseBody/postEnumWithTrueDoesNotMatch1ResponseBodyForContentTypes": typing.Type[ResponseBodyPostEnumWithTrueDoesNotMatch1ResponseBodyForContentTypes],
     "/responseBody/postEnumsInPropertiesResponseBodyForContentTypes": typing.Type[ResponseBodyPostEnumsInPropertiesResponseBodyForContentTypes],
+    "/responseBody/postFloatDivisionInfResponseBodyForContentTypes": typing.Type[ResponseBodyPostFloatDivisionInfResponseBodyForContentTypes],
+    "/responseBody/postForbiddenPropertyResponseBodyForContentTypes": typing.Type[ResponseBodyPostForbiddenPropertyResponseBodyForContentTypes],
     "/responseBody/postHostnameFormatResponseBodyForContentTypes": typing.Type[ResponseBodyPostHostnameFormatResponseBodyForContentTypes],
     "/responseBody/postIdnEmailFormatResponseBodyForContentTypes": typing.Type[ResponseBodyPostIdnEmailFormatResponseBodyForContentTypes],
     "/responseBody/postIdnHostnameFormatResponseBodyForContentTypes": typing.Type[ResponseBodyPostIdnHostnameFormatResponseBodyForContentTypes],
@@ -282,6 +311,8 @@ PathToApi = typing.TypedDict(
     "/responseBody/postNestedAnyofToCheckValidationSemanticsResponseBodyForContentTypes": typing.Type[ResponseBodyPostNestedAnyofToCheckValidationSemanticsResponseBodyForContentTypes],
     "/responseBody/postNestedItemsResponseBodyForContentTypes": typing.Type[ResponseBodyPostNestedItemsResponseBodyForContentTypes],
     "/responseBody/postNestedOneofToCheckValidationSemanticsResponseBodyForContentTypes": typing.Type[ResponseBodyPostNestedOneofToCheckValidationSemanticsResponseBodyForContentTypes],
+    "/responseBody/postNotMoreComplexSchemaResponseBodyForContentTypes": typing.Type[ResponseBodyPostNotMoreComplexSchemaResponseBodyForContentTypes],
+    "/responseBody/postNotResponseBodyForContentTypes": typing.Type[ResponseBodyPostNotResponseBodyForContentTypes],
     "/responseBody/postNulCharactersInStringsResponseBodyForContentTypes": typing.Type[ResponseBodyPostNulCharactersInStringsResponseBodyForContentTypes],
     "/responseBody/postOneofComplexTypesResponseBodyForContentTypes": typing.Type[ResponseBodyPostOneofComplexTypesResponseBodyForContentTypes],
     "/responseBody/postOneofResponseBodyForContentTypes": typing.Type[ResponseBodyPostOneofResponseBodyForContentTypes],
@@ -292,6 +323,7 @@ PathToApi = typing.TypedDict(
     "/responseBody/postRegexFormatResponseBodyForContentTypes": typing.Type[ResponseBodyPostRegexFormatResponseBodyForContentTypes],
     "/responseBody/postRelativeJsonPointerFormatResponseBodyForContentTypes": typing.Type[ResponseBodyPostRelativeJsonPointerFormatResponseBodyForContentTypes],
     "/responseBody/postSimpleEnumValidationResponseBodyForContentTypes": typing.Type[ResponseBodyPostSimpleEnumValidationResponseBodyForContentTypes],
+    "/responseBody/postSmallMultipleOfLargeIntegerResponseBodyForContentTypes": typing.Type[ResponseBodyPostSmallMultipleOfLargeIntegerResponseBodyForContentTypes],
     "/responseBody/postTimeFormatResponseBodyForContentTypes": typing.Type[ResponseBodyPostTimeFormatResponseBodyForContentTypes],
     "/responseBody/postUriFormatResponseBodyForContentTypes": typing.Type[ResponseBodyPostUriFormatResponseBodyForContentTypes],
     "/responseBody/postUriReferenceFormatResponseBodyForContentTypes": typing.Type[ResponseBodyPostUriReferenceFormatResponseBodyForContentTypes],
@@ -319,6 +351,9 @@ path_to_api = PathToApi(
     "/requestBody/postAnyofRequestBody": RequestBodyPostAnyofRequestBody,
     "/requestBody/postAnyofWithBaseSchemaRequestBody": RequestBodyPostAnyofWithBaseSchemaRequestBody,
     "/requestBody/postAnyofWithOneEmptySchemaRequestBody": RequestBodyPostAnyofWithOneEmptySchemaRequestBody,
+    "/requestBody/postByIntRequestBody": RequestBodyPostByIntRequestBody,
+    "/requestBody/postByNumberRequestBody": RequestBodyPostByNumberRequestBody,
+    "/requestBody/postBySmallNumberRequestBody": RequestBodyPostBySmallNumberRequestBody,
     "/requestBody/postDateFormatRequestBody": RequestBodyPostDateFormatRequestBody,
     "/requestBody/postDateTimeFormatRequestBody": RequestBodyPostDateTimeFormatRequestBody,
     "/requestBody/postDurationFormatRequestBody": RequestBodyPostDurationFormatRequestBody,
@@ -329,6 +364,8 @@ path_to_api = PathToApi(
     "/requestBody/postEnumWithFalseDoesNotMatch0RequestBody": RequestBodyPostEnumWithFalseDoesNotMatch0RequestBody,
     "/requestBody/postEnumWithTrueDoesNotMatch1RequestBody": RequestBodyPostEnumWithTrueDoesNotMatch1RequestBody,
     "/requestBody/postEnumsInPropertiesRequestBody": RequestBodyPostEnumsInPropertiesRequestBody,
+    "/requestBody/postFloatDivisionInfRequestBody": RequestBodyPostFloatDivisionInfRequestBody,
+    "/requestBody/postForbiddenPropertyRequestBody": RequestBodyPostForbiddenPropertyRequestBody,
     "/requestBody/postHostnameFormatRequestBody": RequestBodyPostHostnameFormatRequestBody,
     "/requestBody/postIdnEmailFormatRequestBody": RequestBodyPostIdnEmailFormatRequestBody,
     "/requestBody/postIdnHostnameFormatRequestBody": RequestBodyPostIdnHostnameFormatRequestBody,
@@ -360,6 +397,8 @@ path_to_api = PathToApi(
     "/requestBody/postNestedAnyofToCheckValidationSemanticsRequestBody": RequestBodyPostNestedAnyofToCheckValidationSemanticsRequestBody,
     "/requestBody/postNestedItemsRequestBody": RequestBodyPostNestedItemsRequestBody,
     "/requestBody/postNestedOneofToCheckValidationSemanticsRequestBody": RequestBodyPostNestedOneofToCheckValidationSemanticsRequestBody,
+    "/requestBody/postNotMoreComplexSchemaRequestBody": RequestBodyPostNotMoreComplexSchemaRequestBody,
+    "/requestBody/postNotRequestBody": RequestBodyPostNotRequestBody,
     "/requestBody/postNulCharactersInStringsRequestBody": RequestBodyPostNulCharactersInStringsRequestBody,
     "/requestBody/postOneofComplexTypesRequestBody": RequestBodyPostOneofComplexTypesRequestBody,
     "/requestBody/postOneofRequestBody": RequestBodyPostOneofRequestBody,
@@ -370,6 +409,7 @@ path_to_api = PathToApi(
     "/requestBody/postRegexFormatRequestBody": RequestBodyPostRegexFormatRequestBody,
     "/requestBody/postRelativeJsonPointerFormatRequestBody": RequestBodyPostRelativeJsonPointerFormatRequestBody,
     "/requestBody/postSimpleEnumValidationRequestBody": RequestBodyPostSimpleEnumValidationRequestBody,
+    "/requestBody/postSmallMultipleOfLargeIntegerRequestBody": RequestBodyPostSmallMultipleOfLargeIntegerRequestBody,
     "/requestBody/postTimeFormatRequestBody": RequestBodyPostTimeFormatRequestBody,
     "/requestBody/postUriFormatRequestBody": RequestBodyPostUriFormatRequestBody,
     "/requestBody/postUriReferenceFormatRequestBody": RequestBodyPostUriReferenceFormatRequestBody,
@@ -392,6 +432,9 @@ path_to_api = PathToApi(
     "/responseBody/postAnyofResponseBodyForContentTypes": ResponseBodyPostAnyofResponseBodyForContentTypes,
     "/responseBody/postAnyofWithBaseSchemaResponseBodyForContentTypes": ResponseBodyPostAnyofWithBaseSchemaResponseBodyForContentTypes,
     "/responseBody/postAnyofWithOneEmptySchemaResponseBodyForContentTypes": ResponseBodyPostAnyofWithOneEmptySchemaResponseBodyForContentTypes,
+    "/responseBody/postByIntResponseBodyForContentTypes": ResponseBodyPostByIntResponseBodyForContentTypes,
+    "/responseBody/postByNumberResponseBodyForContentTypes": ResponseBodyPostByNumberResponseBodyForContentTypes,
+    "/responseBody/postBySmallNumberResponseBodyForContentTypes": ResponseBodyPostBySmallNumberResponseBodyForContentTypes,
     "/responseBody/postDateFormatResponseBodyForContentTypes": ResponseBodyPostDateFormatResponseBodyForContentTypes,
     "/responseBody/postDateTimeFormatResponseBodyForContentTypes": ResponseBodyPostDateTimeFormatResponseBodyForContentTypes,
     "/responseBody/postDurationFormatResponseBodyForContentTypes": ResponseBodyPostDurationFormatResponseBodyForContentTypes,
@@ -402,6 +445,8 @@ path_to_api = PathToApi(
     "/responseBody/postEnumWithFalseDoesNotMatch0ResponseBodyForContentTypes": ResponseBodyPostEnumWithFalseDoesNotMatch0ResponseBodyForContentTypes,
     "/responseBody/postEnumWithTrueDoesNotMatch1ResponseBodyForContentTypes": ResponseBodyPostEnumWithTrueDoesNotMatch1ResponseBodyForContentTypes,
     "/responseBody/postEnumsInPropertiesResponseBodyForContentTypes": ResponseBodyPostEnumsInPropertiesResponseBodyForContentTypes,
+    "/responseBody/postFloatDivisionInfResponseBodyForContentTypes": ResponseBodyPostFloatDivisionInfResponseBodyForContentTypes,
+    "/responseBody/postForbiddenPropertyResponseBodyForContentTypes": ResponseBodyPostForbiddenPropertyResponseBodyForContentTypes,
     "/responseBody/postHostnameFormatResponseBodyForContentTypes": ResponseBodyPostHostnameFormatResponseBodyForContentTypes,
     "/responseBody/postIdnEmailFormatResponseBodyForContentTypes": ResponseBodyPostIdnEmailFormatResponseBodyForContentTypes,
     "/responseBody/postIdnHostnameFormatResponseBodyForContentTypes": ResponseBodyPostIdnHostnameFormatResponseBodyForContentTypes,
@@ -433,6 +478,8 @@ path_to_api = PathToApi(
     "/responseBody/postNestedAnyofToCheckValidationSemanticsResponseBodyForContentTypes": ResponseBodyPostNestedAnyofToCheckValidationSemanticsResponseBodyForContentTypes,
     "/responseBody/postNestedItemsResponseBodyForContentTypes": ResponseBodyPostNestedItemsResponseBodyForContentTypes,
     "/responseBody/postNestedOneofToCheckValidationSemanticsResponseBodyForContentTypes": ResponseBodyPostNestedOneofToCheckValidationSemanticsResponseBodyForContentTypes,
+    "/responseBody/postNotMoreComplexSchemaResponseBodyForContentTypes": ResponseBodyPostNotMoreComplexSchemaResponseBodyForContentTypes,
+    "/responseBody/postNotResponseBodyForContentTypes": ResponseBodyPostNotResponseBodyForContentTypes,
     "/responseBody/postNulCharactersInStringsResponseBodyForContentTypes": ResponseBodyPostNulCharactersInStringsResponseBodyForContentTypes,
     "/responseBody/postOneofComplexTypesResponseBodyForContentTypes": ResponseBodyPostOneofComplexTypesResponseBodyForContentTypes,
     "/responseBody/postOneofResponseBodyForContentTypes": ResponseBodyPostOneofResponseBodyForContentTypes,
@@ -443,6 +490,7 @@ path_to_api = PathToApi(
     "/responseBody/postRegexFormatResponseBodyForContentTypes": ResponseBodyPostRegexFormatResponseBodyForContentTypes,
     "/responseBody/postRelativeJsonPointerFormatResponseBodyForContentTypes": ResponseBodyPostRelativeJsonPointerFormatResponseBodyForContentTypes,
     "/responseBody/postSimpleEnumValidationResponseBodyForContentTypes": ResponseBodyPostSimpleEnumValidationResponseBodyForContentTypes,
+    "/responseBody/postSmallMultipleOfLargeIntegerResponseBodyForContentTypes": ResponseBodyPostSmallMultipleOfLargeIntegerResponseBodyForContentTypes,
     "/responseBody/postTimeFormatResponseBodyForContentTypes": ResponseBodyPostTimeFormatResponseBodyForContentTypes,
     "/responseBody/postUriFormatResponseBodyForContentTypes": ResponseBodyPostUriFormatResponseBodyForContentTypes,
     "/responseBody/postUriReferenceFormatResponseBodyForContentTypes": ResponseBodyPostUriReferenceFormatResponseBodyForContentTypes,
