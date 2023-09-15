@@ -1,0 +1,5 @@
+generatorName: python
+outputDir: samples/client/3_1_0_unit_test/python
+inputSpec: src/test/resources/3_1/unit_test_spec/3_1_0_unit_test_spec.yaml
+additionalProperties:
+  packageName: unit_test_api
