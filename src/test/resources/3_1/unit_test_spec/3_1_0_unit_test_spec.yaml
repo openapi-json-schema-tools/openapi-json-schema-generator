@@ -17,6 +17,10 @@ tags:
 - name: enum
 - name: format
 - name: items
+- name: maximum
+- name: maxItems
+- name: maxLength
+- name: maxProperties
 - name: oneOf
 paths:
   /requestBody/postAdditionalpropertiesWithSchemaRequestBody:
@@ -1819,6 +1823,330 @@ paths:
       - path.post
       - contentType_json
       - items
+  /requestBody/postMaximumValidationRequestBody:
+    post:
+      operationId: postMaximumValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaximumValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MaximumValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - maximum
+  /responseBody/postMaximumValidationResponseBodyForContentTypes:
+    post:
+      operationId: postMaximumValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaximumValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MaximumValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - maximum
+  /requestBody/postMaximumValidationWithUnsignedIntegerRequestBody:
+    post:
+      operationId: postMaximumValidationWithUnsignedIntegerRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaximumValidationWithUnsignedInteger'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MaximumValidationWithUnsignedInteger'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - maximum
+  /responseBody/postMaximumValidationWithUnsignedIntegerResponseBodyForContentTypes:
+    post:
+      operationId: postMaximumValidationWithUnsignedIntegerResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaximumValidationWithUnsignedInteger'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MaximumValidationWithUnsignedInteger'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - maximum
+  /requestBody/postMaxitemsValidationRequestBody:
+    post:
+      operationId: postMaxitemsValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaxitemsValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MaxitemsValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - maxItems
+  /responseBody/postMaxitemsValidationResponseBodyForContentTypes:
+    post:
+      operationId: postMaxitemsValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaxitemsValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MaxitemsValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - maxItems
+  /requestBody/postMaxitemsValidationWithADecimalRequestBody:
+    post:
+      operationId: postMaxitemsValidationWithADecimalRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaxitemsValidationWithADecimal'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MaxitemsValidationWithADecimal'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - maxItems
+  /responseBody/postMaxitemsValidationWithADecimalResponseBodyForContentTypes:
+    post:
+      operationId: postMaxitemsValidationWithADecimalResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaxitemsValidationWithADecimal'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MaxitemsValidationWithADecimal'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - maxItems
+  /requestBody/postMaxlengthValidationRequestBody:
+    post:
+      operationId: postMaxlengthValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaxlengthValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MaxlengthValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - maxLength
+  /responseBody/postMaxlengthValidationResponseBodyForContentTypes:
+    post:
+      operationId: postMaxlengthValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaxlengthValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MaxlengthValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - maxLength
+  /requestBody/postMaxlengthValidationWithADecimalRequestBody:
+    post:
+      operationId: postMaxlengthValidationWithADecimalRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaxlengthValidationWithADecimal'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MaxlengthValidationWithADecimal'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - maxLength
+  /responseBody/postMaxlengthValidationWithADecimalResponseBodyForContentTypes:
+    post:
+      operationId: postMaxlengthValidationWithADecimalResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaxlengthValidationWithADecimal'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MaxlengthValidationWithADecimal'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - maxLength
+  /requestBody/postMaxpropertiesValidationRequestBody:
+    post:
+      operationId: postMaxpropertiesValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaxpropertiesValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MaxpropertiesValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - maxProperties
+  /responseBody/postMaxpropertiesValidationResponseBodyForContentTypes:
+    post:
+      operationId: postMaxpropertiesValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaxpropertiesValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MaxpropertiesValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - maxProperties
+  /requestBody/postMaxpropertiesValidationWithADecimalRequestBody:
+    post:
+      operationId: postMaxpropertiesValidationWithADecimalRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaxpropertiesValidationWithADecimal'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MaxpropertiesValidationWithADecimal'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - maxProperties
+  /responseBody/postMaxpropertiesValidationWithADecimalResponseBodyForContentTypes:
+    post:
+      operationId: postMaxpropertiesValidationWithADecimalResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaxpropertiesValidationWithADecimal'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MaxpropertiesValidationWithADecimal'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - maxProperties
+  /requestBody/postMaxproperties0MeansTheObjectIsEmptyRequestBody:
+    post:
+      operationId: postMaxproperties0MeansTheObjectIsEmptyRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Maxproperties0MeansTheObjectIsEmpty'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/Maxproperties0MeansTheObjectIsEmpty'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - maxProperties
+  /responseBody/postMaxproperties0MeansTheObjectIsEmptyResponseBodyForContentTypes:
+    post:
+      operationId: postMaxproperties0MeansTheObjectIsEmptyResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Maxproperties0MeansTheObjectIsEmpty'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/Maxproperties0MeansTheObjectIsEmpty'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - maxProperties
   /requestBody/postOneofRequestBody:
     post:
       operationId: postOneofRequestBody
@@ -2296,6 +2624,33 @@ components:
       $schema: https://json-schema.org/draft/2020-12/schema
       items:
         type: 'null'
+    MaximumValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      maximum: 3.0
+    MaximumValidationWithUnsignedInteger:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      maximum: 300
+    MaxitemsValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      maxItems: 2
+    MaxitemsValidationWithADecimal:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      maxItems: 2.0
+    MaxlengthValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      maxLength: 2
+    MaxlengthValidationWithADecimal:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      maxLength: 2.0
+    MaxpropertiesValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      maxProperties: 2
+    MaxpropertiesValidationWithADecimal:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      maxProperties: 2.0
+    Maxproperties0MeansTheObjectIsEmpty:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      maxProperties: 0
     Oneof:
       $schema: https://json-schema.org/draft/2020-12/schema
       oneOf:
@@ -3331,6 +3686,163 @@ components:
         data:
         - null
         valid: true
+    MaximumValidation:
+      BelowTheMaximumIsValid:
+        description: below the maximum is valid
+        data: 2.6
+        valid: true
+      BoundaryPointIsValid:
+        description: boundary point is valid
+        data: 3.0
+        valid: true
+      AboveTheMaximumIsInvalid:
+        description: above the maximum is invalid
+        data: 3.5
+        valid: false
+      IgnoresNonNumbers:
+        description: ignores non-numbers
+        data: x
+        valid: true
+    MaximumValidationWithUnsignedInteger:
+      BelowTheMaximumIsInvalid:
+        description: below the maximum is invalid
+        data: 299.97
+        valid: true
+      BoundaryPointIntegerIsValid:
+        description: boundary point integer is valid
+        data: 300
+        valid: true
+      BoundaryPointFloatIsValid:
+        description: boundary point float is valid
+        data: 300.0
+        valid: true
+      AboveTheMaximumIsInvalid:
+        description: above the maximum is invalid
+        data: 300.5
+        valid: false
+    MaxitemsValidation:
+      ShorterIsValid:
+        description: shorter is valid
+        data:
+        - 1
+        valid: true
+      ExactLengthIsValid:
+        description: exact length is valid
+        data:
+        - 1
+        - 2
+        valid: true
+      TooLongIsInvalid:
+        description: too long is invalid
+        data:
+        - 1
+        - 2
+        - 3
+        valid: false
+      IgnoresNonArrays:
+        description: ignores non-arrays
+        data: foobar
+        valid: true
+    MaxitemsValidationWithADecimal:
+      ShorterIsValid:
+        description: shorter is valid
+        data:
+        - 1
+        valid: true
+      TooLongIsInvalid:
+        description: too long is invalid
+        data:
+        - 1
+        - 2
+        - 3
+        valid: false
+    MaxlengthValidation:
+      ShorterIsValid:
+        description: shorter is valid
+        data: f
+        valid: true
+      ExactLengthIsValid:
+        description: exact length is valid
+        data: fo
+        valid: true
+      TooLongIsInvalid:
+        description: too long is invalid
+        data: foo
+        valid: false
+      IgnoresNonStrings:
+        description: ignores non-strings
+        data: 100
+        valid: true
+      TwoSupplementaryUnicodeCodePointsIsLongEnough:
+        description: two supplementary Unicode code points is long enough
+        data: "\U0001F4A9\U0001F4A9"
+        valid: true
+    MaxlengthValidationWithADecimal:
+      ShorterIsValid:
+        description: shorter is valid
+        data: f
+        valid: true
+      TooLongIsInvalid:
+        description: too long is invalid
+        data: foo
+        valid: false
+    MaxpropertiesValidation:
+      ShorterIsValid:
+        description: shorter is valid
+        data:
+          foo: 1
+        valid: true
+      ExactLengthIsValid:
+        description: exact length is valid
+        data:
+          foo: 1
+          bar: 2
+        valid: true
+      TooLongIsInvalid:
+        description: too long is invalid
+        data:
+          foo: 1
+          bar: 2
+          baz: 3
+        valid: false
+      IgnoresArrays:
+        description: ignores arrays
+        data:
+        - 1
+        - 2
+        - 3
+        valid: true
+      IgnoresStrings:
+        description: ignores strings
+        data: foobar
+        valid: true
+      IgnoresOtherNonObjects:
+        description: ignores other non-objects
+        data: 12
+        valid: true
+    MaxpropertiesValidationWithADecimal:
+      ShorterIsValid:
+        description: shorter is valid
+        data:
+          foo: 1
+        valid: true
+      TooLongIsInvalid:
+        description: too long is invalid
+        data:
+          foo: 1
+          bar: 2
+          baz: 3
+        valid: false
+    Maxproperties0MeansTheObjectIsEmpty:
+      NoPropertiesIsValid:
+        description: no properties is valid
+        data: {}
+        valid: true
+      OnePropertyIsInvalid:
+        description: one property is invalid
+        data:
+          foo: 1
+        valid: false
     Oneof:
       FirstOneofValid:
         description: first oneOf valid
