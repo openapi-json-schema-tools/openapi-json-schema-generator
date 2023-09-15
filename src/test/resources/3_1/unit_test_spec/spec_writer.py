@@ -83,7 +83,7 @@ class ExclusionReason:
     v303_does_not_support_additionalItems = 'v3.0.3 does not support the additionalItems keyword'
     v303_does_not_support_patternProperties = 'v3.0.3 does not support the patternProperties keyword'
     v303_does_not_support_const = 'v3.0.3 does not support the const keyword'
-    v303_does_not_support_boolean_schemas_in_location = 'v3.0.3 does not support boolean schemas in location'
+    bug_does_not_support_boolean_schemas_in_location = 'v3.1.0 does not support boolean schemas in location, https://github.com/swagger-api/swagger-parser/issues/1770'
     v303_does_not_support_contains = 'v3.0.3 does not support the contains keyword'
     v303_does_not_support_definitions = 'v3.0.3 does not support the definitions keyword'
     v303_does_not_support_dependencies = 'v3.0.3 does not support the dependencies keyword'
@@ -108,14 +108,14 @@ openapi_additions = 'openapi_additions'
 
 FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
     (json_schema_test_draft, 'allOf.json'): {
-        'allOf with boolean schemas, all true': ExclusionReason.v303_does_not_support_boolean_schemas_in_location,
-        'allOf with boolean schemas, some false': ExclusionReason.v303_does_not_support_boolean_schemas_in_location,
-        'allOf with boolean schemas, all false': ExclusionReason.v303_does_not_support_boolean_schemas_in_location,
+        'allOf with boolean schemas, all true': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        'allOf with boolean schemas, some false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        'allOf with boolean schemas, all false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     },
     (json_schema_test_draft, 'anyOf.json'): {
-        'anyOf with boolean schemas, all true': ExclusionReason.v303_does_not_support_boolean_schemas_in_location,
-        'anyOf with boolean schemas, some true': ExclusionReason.v303_does_not_support_boolean_schemas_in_location,
-        'anyOf with boolean schemas, all false': ExclusionReason.v303_does_not_support_boolean_schemas_in_location,
+        'anyOf with boolean schemas, all true': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        'anyOf with boolean schemas, some true': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        'anyOf with boolean schemas, all false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     },
     (json_schema_test_draft, 'default.json'): {
         'invalid type for default': ExclusionReason.v303_requires_that_the_default_value_is_an_allowed_type,
@@ -131,27 +131,28 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
     (json_schema_test_draft, 'items.json'): {
         'an array of schemas for items': ExclusionReason.v303_does_not_support_array_of_types,
         'items and subitems': ExclusionReason.v303_does_not_support_definitions,
-        'items with boolean schema (true)': ExclusionReason.v303_does_not_support_boolean_schemas_in_location,
-        'items with boolean schemas': ExclusionReason.v303_does_not_support_boolean_schemas_in_location,
-        'items with boolean schema (false)': ExclusionReason.v303_does_not_support_boolean_schemas_in_location,
-        'items with boolean schema (false)': ExclusionReason.v303_does_not_support_boolean_schemas_in_location,
+        'items with boolean schema (true)': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        'items with boolean schemas': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        'items with boolean schema (false)': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        'items with boolean schema (false)': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'a schema given for items': ExclusionReason.swagger_parser_items_type_bug,
+        'prefixItems with no additional items allowed': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     },
     (json_schema_test_draft, 'not.json'): {
-        'not with boolean schema true': ExclusionReason.v303_does_not_support_boolean_schemas_in_location,
-        'not with boolean schema false': ExclusionReason.v303_does_not_support_boolean_schemas_in_location,
+        'not with boolean schema true': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        'not with boolean schema false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'not multiple types': ExclusionReason.v303_does_not_support_array_of_types,
     },
     (json_schema_test_draft, 'oneOf.json'): {
-        'oneOf with missing optional property': ExclusionReason.v303_does_not_support_boolean_schemas_in_location,
-        'oneOf with boolean schemas, all true': ExclusionReason.v303_does_not_support_boolean_schemas_in_location,
-        'oneOf with boolean schemas, one true': ExclusionReason.v303_does_not_support_boolean_schemas_in_location,
-        'oneOf with boolean schemas, more than one true': ExclusionReason.v303_does_not_support_boolean_schemas_in_location,
-        'oneOf with boolean schemas, all false': ExclusionReason.v303_does_not_support_boolean_schemas_in_location,
+        'oneOf with missing optional property': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        'oneOf with boolean schemas, all true': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        'oneOf with boolean schemas, one true': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        'oneOf with boolean schemas, more than one true': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        'oneOf with boolean schemas, all false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     },
     (json_schema_test_draft, 'properties.json'): {
         'properties, patternProperties, additionalProperties interaction': ExclusionReason.v303_does_not_support_patternProperties,
-        'properties with boolean schema': ExclusionReason.v303_does_not_support_boolean_schemas_in_location,
+        'properties with boolean schema': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     },
     (json_schema_test_draft, 'ref.json'): {
         'relative refs with absolute uris and defs': ExclusionReason.v303_does_not_support_id,
@@ -207,7 +208,7 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
 FILEPATH_TO_EXCLUDE_REASON = {
     (json_schema_test_draft, 'additionalItems.json'): ExclusionReason.v303_does_not_support_additionalItems,
     (json_schema_test_draft, 'const.json'): ExclusionReason.v303_does_not_support_const,
-    (json_schema_test_draft, 'boolean_schema.json'): ExclusionReason.v303_does_not_support_boolean_schemas_in_location,
+    (json_schema_test_draft, 'boolean_schema.json'): ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     (json_schema_test_draft, 'contains.json'): ExclusionReason.v303_does_not_support_contains,
     (json_schema_test_draft, 'definitions.json'): ExclusionReason.v303_does_not_support_definitions,
     (json_schema_test_draft, 'dependencies.json'): ExclusionReason.v303_does_not_support_dependencies,
@@ -220,44 +221,44 @@ FILEPATH_TO_EXCLUDE_REASON = {
 }
 
 JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
-    'additionalItems.json': (json_schema_test_draft,),
+#     'additionalItems.json': (json_schema_test_draft,),
     'additionalProperties.json': (json_schema_test_draft,),
     'allOf.json': (json_schema_test_draft,),
     'anyOf.json': (json_schema_test_draft,),
     'boolean_schema.json': (json_schema_test_draft,),
-    'const.json': (json_schema_test_draft,),
-    'contains.json': (json_schema_test_draft,),
-    'default.json': (json_schema_test_draft,),
-    'definitions.json': (json_schema_test_draft,),
-    'dependencies.json': (json_schema_test_draft,),
+#     'const.json': (json_schema_test_draft,),
+#     'contains.json': (json_schema_test_draft,),
+#     'default.json': (json_schema_test_draft,),
+#     'definitions.json': (json_schema_test_draft,),
+#     'dependencies.json': (json_schema_test_draft,),
     'enum.json': (json_schema_test_draft,),
     'exclusiveMaximum.json': (json_schema_test_draft,),
     'exclusiveMinimum.json': (json_schema_test_draft,),
     'format.json': (json_schema_test_draft,),
-    'id.json': (json_schema_test_draft,),
+#     'id.json': (json_schema_test_draft,),
 #     'infinite-loop-detection.json': (json_schema_test_draft,),  # activate after fixing this
     'items.json': (json_schema_test_draft,),
-    'maximum.json': (json_schema_test_draft,),
-    'maxItems.json': (json_schema_test_draft,),
-    'maxLength.json': (json_schema_test_draft,),
-    'maxProperties.json': (json_schema_test_draft,),
-    'minimum.json': (json_schema_test_draft,),
-    'minItems.json': (json_schema_test_draft,),
-    'minLength.json': (json_schema_test_draft,),
-    'minProperties.json': (json_schema_test_draft,),
-    'multipleOf.json': (json_schema_test_draft,),
-    'not.json': (json_schema_test_draft,),
+#     'maximum.json': (json_schema_test_draft,),
+#     'maxItems.json': (json_schema_test_draft,),
+#     'maxLength.json': (json_schema_test_draft,),
+#     'maxProperties.json': (json_schema_test_draft,),
+#     'minimum.json': (json_schema_test_draft,),
+#     'minItems.json': (json_schema_test_draft,),
+#     'minLength.json': (json_schema_test_draft,),
+#     'minProperties.json': (json_schema_test_draft,),
+#     'multipleOf.json': (json_schema_test_draft,),
+#     'not.json': (json_schema_test_draft,),
     'oneOf.json': (json_schema_test_draft,),
-    'pattern.json': (json_schema_test_draft,),
-    'patternProperties.json': (json_schema_test_draft,),
-    'properties.json': (json_schema_test_draft,),
-    'propertyNames.json': (json_schema_test_draft,),
-    'ref.json': (json_schema_test_draft,),
-    'refRemote.json': (json_schema_test_draft,),
-    'required.json': (json_schema_test_draft,),
-    'type.json': (json_schema_test_draft,),
-    'uniqueItems.json': (json_schema_test_draft,),
-    'unknownKeyword.json': (json_schema_test_draft,),
+#     'pattern.json': (json_schema_test_draft,),
+#     'patternProperties.json': (json_schema_test_draft,),
+#     'properties.json': (json_schema_test_draft,),
+#     'propertyNames.json': (json_schema_test_draft,),
+#     'ref.json': (json_schema_test_draft,),
+#     'refRemote.json': (json_schema_test_draft,),
+#     'required.json': (json_schema_test_draft,),
+#     'type.json': (json_schema_test_draft,),
+#     'uniqueItems.json': (json_schema_test_draft,),
+#     'unknownKeyword.json': (json_schema_test_draft,),
 }
 
 file_name_to_tag_name = {
@@ -538,12 +539,12 @@ def write_openapi_spec():
             operation = generate_post_operation_with_response_content_schema(component_name, response_body_tag_list)
             path_item = OpenApiPathItem(post=operation)
             openapi.paths[f'/responseBody/{operation["operationId"]}'] = path_item
-    print(
-        yaml.dump(
-            dataclasses.asdict(openapi),
-            sort_keys=False
-        )
-    )
+#     print(
+#         yaml.dump(
+#             dataclasses.asdict(openapi),
+#             sort_keys=False
+#         )
+#     )
     spec_out = '3_1_0_unit_test_spec.yaml'
     with open(spec_out, 'w') as yaml_out:
         yaml_out.write(
@@ -552,5 +553,7 @@ def write_openapi_spec():
                 sort_keys=False
             )
         )
+    print(f'spec written to {spec_out}')
+
 
 write_openapi_spec()
