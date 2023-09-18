@@ -1,4 +1,4 @@
-geometry_collection.GeometryCollection({
+geometry_collection.GeometryCollection.validate({
         "type": "GeometryCollection",
         "geometries": [],
     })

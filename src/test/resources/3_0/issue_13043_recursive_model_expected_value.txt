@@ -1,4 +1,4 @@
-geo_json_geometry.GeoJsonGeometry({
+geo_json_geometry.GeoJsonGeometry.validate({
         "type": "GeometryCollection",
         "geometries": [],
     })
