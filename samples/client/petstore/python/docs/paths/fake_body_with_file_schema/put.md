@@ -86,12 +86,12 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = file_schema_test_class.FileSchemaTestClass({
-        "file": file.File({
+    body = file_schema_test_class.FileSchemaTestClass.validate({
+        "file": file.File.validate({
             "source_uri": "source_uri_example",
         }),
         "files": [
-            file.File({})
+            file.File.validate({})
         ],
     })
     try:

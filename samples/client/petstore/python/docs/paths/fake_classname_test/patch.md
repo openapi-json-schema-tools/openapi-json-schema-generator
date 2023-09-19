@@ -126,7 +126,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = fake_classname_tags123_api.FakeClassnameTags123Api(api_client)
 
     # example passing only required values which don't have defaults set
-    body = client.Client({
+    body = client.Client.validate({
         "client": "client_example",
     })
     try:

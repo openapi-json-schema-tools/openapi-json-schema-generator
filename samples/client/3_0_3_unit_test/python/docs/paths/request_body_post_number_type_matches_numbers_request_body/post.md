@@ -98,7 +98,7 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = number_type_matches_numbers.NumberTypeMatchesNumbers(3.14)
+    body = number_type_matches_numbers.NumberTypeMatchesNumbers.validate(3.14)
     try:
         api_response = api_instance.post_number_type_matches_numbers_request_body(
             body=body,

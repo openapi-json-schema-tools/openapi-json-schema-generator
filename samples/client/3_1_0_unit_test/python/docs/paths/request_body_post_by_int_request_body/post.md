@@ -98,7 +98,7 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
     api_instance = multiple_of_api.MultipleOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = by_int.ByInt(None)
+    body = by_int.ByInt.validate(None)
     try:
         api_response = api_instance.post_by_int_request_body(
             body=body,

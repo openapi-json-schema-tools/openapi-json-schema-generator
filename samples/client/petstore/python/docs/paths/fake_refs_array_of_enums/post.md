@@ -119,8 +119,8 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = array_of_enums.ArrayOfEnums([
-        string_enum.StringEnum("string_example")
+    body = array_of_enums.ArrayOfEnums.validate([
+        string_enum.StringEnum.validate("string_example")
     ])
     try:
         # Array of Enums

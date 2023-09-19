@@ -98,7 +98,7 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = properties_with_escaped_characters.PropertiesWithEscapedCharacters(None)
+    body = properties_with_escaped_characters.PropertiesWithEscapedCharacters.validate(None)
     try:
         api_response = api_instance.post_properties_with_escaped_characters_request_body(
             body=body,

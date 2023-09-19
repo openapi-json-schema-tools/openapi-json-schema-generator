@@ -107,8 +107,8 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example passing only optional values
     query_params: operation.QueryParametersDictInput = {
-        'mapBean': foo.Foo({
-        "bar": bar.Bar("bar"),
+        'mapBean': foo.Foo.validate({
+        "bar": bar.Bar.validate("bar"),
     }),
     }
     try:

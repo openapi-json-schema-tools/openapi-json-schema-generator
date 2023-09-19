@@ -98,7 +98,7 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = items_with_null_instance_elements.ItemsWithNullInstanceElements([
+    body = items_with_null_instance_elements.ItemsWithNullInstanceElements.validate([
         None
     ])
     try:

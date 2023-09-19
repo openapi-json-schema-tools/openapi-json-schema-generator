@@ -98,7 +98,7 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
     api_instance = multiple_of_api.MultipleOfApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = small_multiple_of_large_integer.SmallMultipleOfLargeInteger(None)
+    body = small_multiple_of_large_integer.SmallMultipleOfLargeInteger.validate(None)
     try:
         api_response = api_instance.post_small_multiple_of_large_integer_request_body(
             body=body,

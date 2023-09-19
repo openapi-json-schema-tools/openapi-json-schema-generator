@@ -81,7 +81,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     body = [
-        user.User({
+        user.User.validate({
             "id": 1,
             "username": "username_example",
             "first_name": "first_name_example",

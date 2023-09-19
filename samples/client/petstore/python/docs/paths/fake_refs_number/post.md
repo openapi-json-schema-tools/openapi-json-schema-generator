@@ -119,7 +119,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = number_with_validations.NumberWithValidations(10)
+    body = number_with_validations.NumberWithValidations.validate(10)
     try:
         api_response = api_instance.number_with_validations(
             body=body,

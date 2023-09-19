@@ -98,7 +98,7 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = additionalproperties_with_schema.AdditionalpropertiesWithSchema({
+    body = additionalproperties_with_schema.AdditionalpropertiesWithSchema.validate({
         "foo": None,
         "bar": None,
     })

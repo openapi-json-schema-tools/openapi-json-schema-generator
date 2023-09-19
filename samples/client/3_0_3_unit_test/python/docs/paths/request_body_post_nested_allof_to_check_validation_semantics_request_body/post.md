@@ -98,7 +98,7 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = nested_allof_to_check_validation_semantics.NestedAllofToCheckValidationSemantics(None)
+    body = nested_allof_to_check_validation_semantics.NestedAllofToCheckValidationSemantics.validate(None)
     try:
         api_response = api_instance.post_nested_allof_to_check_validation_semantics_request_body(
             body=body,
