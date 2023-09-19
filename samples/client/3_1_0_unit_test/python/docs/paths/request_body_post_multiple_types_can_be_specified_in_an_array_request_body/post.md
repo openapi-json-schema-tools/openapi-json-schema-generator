@@ -98,7 +98,7 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = multiple_types_can_be_specified_in_an_array.MultipleTypesCanBeSpecifiedInAnArray(None)
+    body = multiple_types_can_be_specified_in_an_array.MultipleTypesCanBeSpecifiedInAnArray.validate(None)
     try:
         api_response = api_instance.post_multiple_types_can_be_specified_in_an_array_request_body(
             body=body,

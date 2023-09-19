@@ -1280,7 +1280,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         String openChars = "";
         String closeChars = "";
         if (modelName != null) {
-            openChars = modelName + "(";
+            openChars = modelName + ".validate(";
             closeChars = ")";
             if (ModelUtils.isTypeObjectSchema(schema)) {
                 openChars = openChars + "{";

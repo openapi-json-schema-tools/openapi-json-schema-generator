@@ -128,7 +128,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     query_params: operation.QueryParametersDictInput = {
         'query': "query_example",
     }
-    body = user.User({
+    body = user.User.validate({
         "id": 1,
         "username": "username_example",
         "first_name": "first_name_example",

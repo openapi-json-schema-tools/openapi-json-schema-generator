@@ -98,7 +98,7 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference(None)
+    body = property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference.validate(None)
     try:
         api_response = api_instance.post_property_named_ref_that_is_not_a_reference_request_body(
             body=body,

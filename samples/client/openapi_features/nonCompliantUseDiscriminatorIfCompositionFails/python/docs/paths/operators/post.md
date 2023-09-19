@@ -95,7 +95,7 @@ with this_package.ApiClient(used_configuration) as api_client:
     api_instance = default_api.DefaultApi(api_client)
 
     # example passing only optional values
-    body = operator.Operator(
+    body = operator.Operator.validate(
         "a": 3.14,
         "b": 3.14,
         "operator_id": "ADD",

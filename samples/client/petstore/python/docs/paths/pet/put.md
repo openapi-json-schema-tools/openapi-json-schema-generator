@@ -166,9 +166,9 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = pet_api.PetApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = pet.Pet({
+    body = pet.Pet.validate({
         "id": 1,
-        "category": category.Category({
+        "category": category.Category.validate({
             "id": 1,
             "name": "default-name",
         }),
@@ -177,7 +177,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
             "photo_urls_example"
         ],
         "tags": [
-            tag.Tag({
+            tag.Tag.validate({
                 "id": 1,
                 "name": "name_example",
             })

@@ -119,9 +119,9 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
-    body = additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums({
+    body = additional_properties_with_array_of_enums.AdditionalPropertiesWithArrayOfEnums.validate({
         "key": [
-            enum_class.EnumClass("-efg")
+            enum_class.EnumClass.validate("-efg")
         ],
     })
     try:

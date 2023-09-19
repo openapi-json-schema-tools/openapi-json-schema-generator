@@ -158,7 +158,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     path_params: operation.PathParametersDictInput = {
         'username': "username_example",
     }
-    body = user.User({
+    body = user.User.validate({
         "id": 1,
         "username": "username_example",
         "first_name": "first_name_example",

@@ -98,7 +98,7 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty(None)
+    body = maxproperties0_means_the_object_is_empty.Maxproperties0MeansTheObjectIsEmpty.validate(None)
     try:
         api_response = api_instance.post_maxproperties0_means_the_object_is_empty_request_body(
             body=body,

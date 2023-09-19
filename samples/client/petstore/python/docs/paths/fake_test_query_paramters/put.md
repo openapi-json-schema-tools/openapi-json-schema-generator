@@ -136,7 +136,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'context': [
         "context_example"
     ],
-        'refParam': string_with_validation.StringWithValidation("refParam_example"),
+        'refParam': string_with_validation.StringWithValidation.validate("refParam_example"),
     }
     try:
         api_response = api_instance.query_parameter_collection_format(

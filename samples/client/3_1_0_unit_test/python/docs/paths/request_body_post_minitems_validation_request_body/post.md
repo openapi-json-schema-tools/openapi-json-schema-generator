@@ -98,7 +98,7 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
     api_instance = min_items_api.MinItemsApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = minitems_validation.MinitemsValidation(None)
+    body = minitems_validation.MinitemsValidation.validate(None)
     try:
         api_response = api_instance.post_minitems_validation_request_body(
             body=body,
