@@ -111,8 +111,6 @@ jobs:
     steps:
       - command_build_and_test:
           jobId: "ensureSamplesAndGeneratorDocsUpToDate"
-      - run:
-          command: zip -r /tmp/circleci-artifacts/samples.zip samples
   mvnCleanInstall:
     machine:
       image: ubuntu-2004:202201-02

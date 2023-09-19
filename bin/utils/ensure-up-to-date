@@ -57,6 +57,7 @@ if [ -n "$(git status --porcelain)" ]; then
     echo "When you see unexpected files here, it likely means that there are newer commits in master that you need to "
     echo -e "rebase or merge into your branch.\n"
     echo "Please run 'bin/utils/ensure-up-to-date' locally and commit changes (UNCOMMITTED CHANGES ERROR)"
+    zip -r /tmp/circleci-artifacts/samples.zip samples
     exit 1
 else
     echo "Git working tree is clean"
