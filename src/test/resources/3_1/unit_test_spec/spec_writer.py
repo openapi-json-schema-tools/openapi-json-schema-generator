@@ -40,6 +40,7 @@ JsonSchemaDict = typing.TypedDict(
         'additionalProperties': 'JsonSchema',
         'allOf': typing.List['JsonSchema'],
         'anyOf': typing.List['JsonSchema'],
+        'const': typing.Any,
         'default': typing.Any,
         'enum': typing.List[typing.Any],
         'exclusiveMaximum': typing.Union[int, float],
@@ -82,7 +83,6 @@ class ExclusionReason:
     v303_requires_array_have_items = 'v3.0.3 requires that items MUST be present if the type is array'
     v303_does_not_support_additionalItems = 'v3.0.3 does not support the additionalItems keyword'
     v303_does_not_support_patternProperties = 'v3.0.3 does not support the patternProperties keyword'
-    v303_does_not_support_const = 'v3.0.3 does not support the const keyword'
     bug_does_not_support_boolean_schemas_in_location = 'v3.1.0 does not support boolean schemas in location, https://github.com/swagger-api/swagger-parser/issues/1770'
     v303_does_not_support_contains = 'v3.0.3 does not support the contains keyword'
     bug_does_not_support_definitions = 'swagger-parser does not support the $defs keyword, https://github.com/swagger-api/swagger-parser/issues/1970'
@@ -235,7 +235,6 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
 }
 FILEPATH_TO_EXCLUDE_REASON = {
     (json_schema_test_draft, 'additionalItems.json'): ExclusionReason.v303_does_not_support_additionalItems,
-    (json_schema_test_draft, 'const.json'): ExclusionReason.v303_does_not_support_const,
     (json_schema_test_draft, 'boolean_schema.json'): ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     (json_schema_test_draft, 'contains.json'): ExclusionReason.v303_does_not_support_contains,
     (json_schema_test_draft, 'definitions.json'): ExclusionReason.bug_does_not_support_definitions,
@@ -255,7 +254,7 @@ JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
     'allOf.json': (json_schema_test_draft,),
     'anyOf.json': (json_schema_test_draft,),
     'boolean_schema.json': (json_schema_test_draft,),
-#     'const.json': (json_schema_test_draft,),
+    'const.json': (json_schema_test_draft,),
 #     'contains.json': (json_schema_test_draft,),
 #     'default.json': (json_schema_test_draft,),
 #     'definitions.json': (json_schema_test_draft,),
@@ -452,6 +451,10 @@ def get_component_schemas_and_test_examples(
             continue
         for test_schema in test_schemas:
             component_name = description_to_component_name(test_schema.description)
+            json_schema_keyword = json_schema_test_file[:-5]
+            if json_schema_keyword == "const" and not component_name.lower().startswith("const"):
+                # prefix added to prevent collision with other components
+                component_name = "Const" + component_name
             if isinstance(test_schema.schema, bool):
                 component_schemas[component_name] = test_schema.schema
             else:

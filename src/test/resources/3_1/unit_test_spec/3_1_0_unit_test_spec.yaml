@@ -14,6 +14,7 @@ tags:
 - name: additionalProperties
 - name: allOf
 - name: anyOf
+- name: const
 - name: enum
 - name: format
 - name: items
@@ -719,6 +720,474 @@ paths:
       - path.post
       - contentType_json
       - anyOf
+  /requestBody/postConstValidationRequestBody:
+    post:
+      operationId: postConstValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConstValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ConstValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - const
+  /responseBody/postConstValidationResponseBodyForContentTypes:
+    post:
+      operationId: postConstValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConstValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ConstValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - const
+  /requestBody/postConstWithObjectRequestBody:
+    post:
+      operationId: postConstWithObjectRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConstWithObject'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ConstWithObject'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - const
+  /responseBody/postConstWithObjectResponseBodyForContentTypes:
+    post:
+      operationId: postConstWithObjectResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConstWithObject'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ConstWithObject'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - const
+  /requestBody/postConstWithArrayRequestBody:
+    post:
+      operationId: postConstWithArrayRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConstWithArray'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ConstWithArray'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - const
+  /responseBody/postConstWithArrayResponseBodyForContentTypes:
+    post:
+      operationId: postConstWithArrayResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConstWithArray'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ConstWithArray'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - const
+  /requestBody/postConstWithNullRequestBody:
+    post:
+      operationId: postConstWithNullRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConstWithNull'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ConstWithNull'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - const
+  /responseBody/postConstWithNullResponseBodyForContentTypes:
+    post:
+      operationId: postConstWithNullResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConstWithNull'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ConstWithNull'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - const
+  /requestBody/postConstWithFalseDoesNotMatch0RequestBody:
+    post:
+      operationId: postConstWithFalseDoesNotMatch0RequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConstWithFalseDoesNotMatch0'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ConstWithFalseDoesNotMatch0'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - const
+  /responseBody/postConstWithFalseDoesNotMatch0ResponseBodyForContentTypes:
+    post:
+      operationId: postConstWithFalseDoesNotMatch0ResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConstWithFalseDoesNotMatch0'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ConstWithFalseDoesNotMatch0'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - const
+  /requestBody/postConstWithTrueDoesNotMatch1RequestBody:
+    post:
+      operationId: postConstWithTrueDoesNotMatch1RequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConstWithTrueDoesNotMatch1'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ConstWithTrueDoesNotMatch1'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - const
+  /responseBody/postConstWithTrueDoesNotMatch1ResponseBodyForContentTypes:
+    post:
+      operationId: postConstWithTrueDoesNotMatch1ResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConstWithTrueDoesNotMatch1'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ConstWithTrueDoesNotMatch1'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - const
+  /requestBody/postConstWithAFalseDoesNotMatchA0RequestBody:
+    post:
+      operationId: postConstWithAFalseDoesNotMatchA0RequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConstWithAFalseDoesNotMatchA0'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ConstWithAFalseDoesNotMatchA0'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - const
+  /responseBody/postConstWithAFalseDoesNotMatchA0ResponseBodyForContentTypes:
+    post:
+      operationId: postConstWithAFalseDoesNotMatchA0ResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConstWithAFalseDoesNotMatchA0'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ConstWithAFalseDoesNotMatchA0'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - const
+  /requestBody/postConstWithATrueDoesNotMatchA1RequestBody:
+    post:
+      operationId: postConstWithATrueDoesNotMatchA1RequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConstWithATrueDoesNotMatchA1'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ConstWithATrueDoesNotMatchA1'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - const
+  /responseBody/postConstWithATrueDoesNotMatchA1ResponseBodyForContentTypes:
+    post:
+      operationId: postConstWithATrueDoesNotMatchA1ResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConstWithATrueDoesNotMatchA1'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ConstWithATrueDoesNotMatchA1'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - const
+  /requestBody/postConstWith0DoesNotMatchOtherZeroLikeTypesRequestBody:
+    post:
+      operationId: postConstWith0DoesNotMatchOtherZeroLikeTypesRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConstWith0DoesNotMatchOtherZeroLikeTypes'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ConstWith0DoesNotMatchOtherZeroLikeTypes'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - const
+  /responseBody/postConstWith0DoesNotMatchOtherZeroLikeTypesResponseBodyForContentTypes:
+    post:
+      operationId: postConstWith0DoesNotMatchOtherZeroLikeTypesResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConstWith0DoesNotMatchOtherZeroLikeTypes'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ConstWith0DoesNotMatchOtherZeroLikeTypes'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - const
+  /requestBody/postConstWith1DoesNotMatchTrueRequestBody:
+    post:
+      operationId: postConstWith1DoesNotMatchTrueRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConstWith1DoesNotMatchTrue'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ConstWith1DoesNotMatchTrue'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - const
+  /responseBody/postConstWith1DoesNotMatchTrueResponseBodyForContentTypes:
+    post:
+      operationId: postConstWith1DoesNotMatchTrueResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConstWith1DoesNotMatchTrue'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ConstWith1DoesNotMatchTrue'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - const
+  /requestBody/postConstWith20MatchesIntegerAndFloatTypesRequestBody:
+    post:
+      operationId: postConstWith20MatchesIntegerAndFloatTypesRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConstWith20MatchesIntegerAndFloatTypes'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ConstWith20MatchesIntegerAndFloatTypes'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - const
+  /responseBody/postConstWith20MatchesIntegerAndFloatTypesResponseBodyForContentTypes:
+    post:
+      operationId: postConstWith20MatchesIntegerAndFloatTypesResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConstWith20MatchesIntegerAndFloatTypes'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ConstWith20MatchesIntegerAndFloatTypes'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - const
+  /requestBody/postConstFloatAndIntegersAreEqualUpTo64BitRepresentationLimitsRequestBody:
+    post:
+      operationId: postConstFloatAndIntegersAreEqualUpTo64BitRepresentationLimitsRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConstFloatAndIntegersAreEqualUpTo64BitRepresentationLimits'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ConstFloatAndIntegersAreEqualUpTo64BitRepresentationLimits'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - const
+  /responseBody/postConstFloatAndIntegersAreEqualUpTo64BitRepresentationLimitsResponseBodyForContentTypes:
+    post:
+      operationId: postConstFloatAndIntegersAreEqualUpTo64BitRepresentationLimitsResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConstFloatAndIntegersAreEqualUpTo64BitRepresentationLimits'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ConstFloatAndIntegersAreEqualUpTo64BitRepresentationLimits'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - const
+  /requestBody/postConstNulCharactersInStringsRequestBody:
+    post:
+      operationId: postConstNulCharactersInStringsRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConstNulCharactersInStrings'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ConstNulCharactersInStrings'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - const
+  /responseBody/postConstNulCharactersInStringsResponseBodyForContentTypes:
+    post:
+      operationId: postConstNulCharactersInStringsResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConstNulCharactersInStrings'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ConstNulCharactersInStrings'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - const
   /requestBody/postSimpleEnumValidationRequestBody:
     post:
       operationId: postSimpleEnumValidationRequestBody
@@ -3838,6 +4307,52 @@ components:
       anyOf:
       - anyOf:
         - type: 'null'
+    ConstValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      const: 2
+    ConstWithObject:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      const:
+        foo: bar
+        baz: bax
+    ConstWithArray:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      const:
+      - foo: bar
+    ConstWithNull:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      const: null
+    ConstWithFalseDoesNotMatch0:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      const:
+      - false
+    ConstWithTrueDoesNotMatch1:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      const:
+      - true
+    ConstWithAFalseDoesNotMatchA0:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      const:
+        a: false
+    ConstWithATrueDoesNotMatchA1:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      const:
+        a: true
+    ConstWith0DoesNotMatchOtherZeroLikeTypes:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      const: 0
+    ConstWith1DoesNotMatchTrue:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      const: 1
+    ConstWith20MatchesIntegerAndFloatTypes:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      const: -2.0
+    ConstFloatAndIntegersAreEqualUpTo64BitRepresentationLimits:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      const: 9007199254740992
+    ConstNulCharactersInStrings:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      const: "hello\0there"
     SimpleEnumValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       enum:
@@ -4478,6 +4993,235 @@ components:
         description: anything non-null is invalid
         data: 123
         valid: false
+    ConstValidation:
+      SameValueIsValid:
+        description: same value is valid
+        data: 2
+        valid: true
+      AnotherValueIsInvalid:
+        description: another value is invalid
+        data: 5
+        valid: false
+      AnotherTypeIsInvalid:
+        description: another type is invalid
+        data: a
+        valid: false
+    ConstWithObject:
+      SameObjectIsValid:
+        description: same object is valid
+        data:
+          foo: bar
+          baz: bax
+        valid: true
+      SameObjectWithDifferentPropertyOrderIsValid:
+        description: same object with different property order is valid
+        data:
+          baz: bax
+          foo: bar
+        valid: true
+      AnotherObjectIsInvalid:
+        description: another object is invalid
+        data:
+          foo: bar
+        valid: false
+      AnotherTypeIsInvalid:
+        description: another type is invalid
+        data:
+        - 1
+        - 2
+        valid: false
+    ConstWithArray:
+      SameArrayIsValid:
+        description: same array is valid
+        data:
+        - foo: bar
+        valid: true
+      AnotherArrayItemIsInvalid:
+        description: another array item is invalid
+        data:
+        - 2
+        valid: false
+      ArrayWithAdditionalItemsIsInvalid:
+        description: array with additional items is invalid
+        data:
+        - 1
+        - 2
+        - 3
+        valid: false
+    ConstWithNull:
+      NullIsValid:
+        description: null is valid
+        data: null
+        valid: true
+      NotNullIsInvalid:
+        description: not null is invalid
+        data: 0
+        valid: false
+    ConstWithFalseDoesNotMatch0:
+      FalseIsValid:
+        description: '[false] is valid'
+        data:
+        - false
+        valid: true
+      IntegerZeroIsInvalid:
+        description: integer zero is invalid
+        data: 0
+        valid: false
+      FloatZeroIsInvalid:
+        description: float zero is invalid
+        data: 0.0
+        valid: false
+      0IsInvalid:
+        description: '[0] is invalid'
+        data:
+        - 0
+        valid: false
+      00IsInvalid:
+        description: '[0.0] is invalid'
+        data:
+        - 0.0
+        valid: false
+    ConstWithTrueDoesNotMatch1:
+      TrueIsValid:
+        description: '[true] is valid'
+        data:
+        - true
+        valid: true
+      IntegerOneIsInvalid:
+        description: integer one is invalid
+        data: 1
+        valid: false
+      FloatOneIsInvalid:
+        description: float one is invalid
+        data: 1.0
+        valid: false
+      1IsInvalid:
+        description: '[1] is invalid'
+        data:
+        - 1
+        valid: false
+      10IsInvalid:
+        description: '[1.0] is invalid'
+        data:
+        - 1.0
+        valid: false
+    ConstWithAFalseDoesNotMatchA0:
+      AFalseIsValid:
+        description: '{"a": false} is valid'
+        data:
+          a: false
+        valid: true
+      A0IsInvalid:
+        description: '{"a": 0} is invalid'
+        data:
+          a: 0
+        valid: false
+      A00IsInvalid:
+        description: '{"a": 0.0} is invalid'
+        data:
+          a: 0.0
+        valid: false
+    ConstWithATrueDoesNotMatchA1:
+      ATrueIsValid:
+        description: '{"a": true} is valid'
+        data:
+          a: true
+        valid: true
+      A1IsInvalid:
+        description: '{"a": 1} is invalid'
+        data:
+          a: 1
+        valid: false
+      A10IsInvalid:
+        description: '{"a": 1.0} is invalid'
+        data:
+          a: 1.0
+        valid: false
+    ConstWith0DoesNotMatchOtherZeroLikeTypes:
+      FalseIsInvalid:
+        description: false is invalid
+        data: false
+        valid: false
+      IntegerZeroIsValid:
+        description: integer zero is valid
+        data: 0
+        valid: true
+      FloatZeroIsValid:
+        description: float zero is valid
+        data: 0.0
+        valid: true
+      EmptyObjectIsInvalid:
+        description: empty object is invalid
+        data: {}
+        valid: false
+      EmptyArrayIsInvalid:
+        description: empty array is invalid
+        data: []
+        valid: false
+      EmptyStringIsInvalid:
+        description: empty string is invalid
+        data: ''
+        valid: false
+    ConstWith1DoesNotMatchTrue:
+      TrueIsInvalid:
+        description: true is invalid
+        data: true
+        valid: false
+      IntegerOneIsValid:
+        description: integer one is valid
+        data: 1
+        valid: true
+      FloatOneIsValid:
+        description: float one is valid
+        data: 1.0
+        valid: true
+    ConstWith20MatchesIntegerAndFloatTypes:
+      Integer2IsValid:
+        description: integer -2 is valid
+        data: -2
+        valid: true
+      Integer2IsInvalid:
+        description: integer 2 is invalid
+        data: 2
+        valid: false
+      Float20IsValid:
+        description: float -2.0 is valid
+        data: -2.0
+        valid: true
+      Float20IsInvalid:
+        description: float 2.0 is invalid
+        data: 2.0
+        valid: false
+      Float200001IsInvalid:
+        description: float -2.00001 is invalid
+        data: -2.00001
+        valid: false
+    ConstFloatAndIntegersAreEqualUpTo64BitRepresentationLimits:
+      IntegerIsValid:
+        description: integer is valid
+        data: 9007199254740992
+        valid: true
+      IntegerMinusOneIsInvalid:
+        description: integer minus one is invalid
+        data: 9007199254740991
+        valid: false
+      FloatIsValid:
+        description: float is valid
+        data: 9007199254740992.0
+        valid: true
+      FloatMinusOneIsInvalid:
+        description: float minus one is invalid
+        data: 9007199254740991.0
+        valid: false
+    ConstNulCharactersInStrings:
+      MatchStringWithNul:
+        description: match string with nul
+        data: "hello\0there"
+        valid: true
+      DoNotMatchStringLackingNul:
+        description: do not match string lacking nul
+        data: hellothere
+        valid: false
     SimpleEnumValidation:
       OneOfTheEnumIsValid:
         description: one of the enum is valid
@@ -4768,7 +5512,8 @@ components:
         valid: true
       InvalidIdnHostnameStringIsOnlyAnAnnotationByDefault:
         description: invalid idn-hostname string is only an annotation by default
-        data: "\u302E\uC2E4\uB840.\uD14C\uC2A4\uD2B8"
+        data: "\xE3\u20AC\xAE\xEC\u2039\xA4\xEB\xA1\u20AC.\xED\u2026\u0152\xEC\u0160\
+          \xA4\xED\u0160\xB8"
         valid: true
     HostnameFormat:
       AllStringFormatsIgnoreIntegers:
@@ -5001,7 +5746,7 @@ components:
         valid: true
       InvalidIriReferenceStringIsOnlyAnAnnotationByDefault:
         description: invalid iri-reference string is only an annotation by default
-        data: "\\\\WINDOWS\\fil\xEB\xDF\xE5r\xE9"
+        data: "\\\\WINDOWS\\fil\xC3\xAB\xC3\u0178\xC3\xA5r\xC3\xA9"
         valid: true
     UriFormat:
       AllStringFormatsIgnoreIntegers:
