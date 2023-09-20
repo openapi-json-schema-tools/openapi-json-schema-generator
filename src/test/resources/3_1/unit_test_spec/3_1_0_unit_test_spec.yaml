@@ -756,78 +756,6 @@ paths:
       - path.post
       - contentType_json
       - const
-  /requestBody/postConstWithObjectRequestBody:
-    post:
-      operationId: postConstWithObjectRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ConstWithObject'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/ConstWithObject'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - const
-  /responseBody/postConstWithObjectResponseBodyForContentTypes:
-    post:
-      operationId: postConstWithObjectResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ConstWithObject'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/ConstWithObject'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - const
-  /requestBody/postConstWithArrayRequestBody:
-    post:
-      operationId: postConstWithArrayRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ConstWithArray'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/ConstWithArray'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - const
-  /responseBody/postConstWithArrayResponseBodyForContentTypes:
-    post:
-      operationId: postConstWithArrayResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ConstWithArray'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/ConstWithArray'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - const
   /requestBody/postConstWithNullRequestBody:
     post:
       operationId: postConstWithNullRequestBody
@@ -859,78 +787,6 @@ paths:
                 $ref: '#/components/schemas/ConstWithNull'
               x-schema-test-examples:
                 $ref: '#/components/x-schema-test-examples/ConstWithNull'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - const
-  /requestBody/postConstWithFalseDoesNotMatch0RequestBody:
-    post:
-      operationId: postConstWithFalseDoesNotMatch0RequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ConstWithFalseDoesNotMatch0'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/ConstWithFalseDoesNotMatch0'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - const
-  /responseBody/postConstWithFalseDoesNotMatch0ResponseBodyForContentTypes:
-    post:
-      operationId: postConstWithFalseDoesNotMatch0ResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ConstWithFalseDoesNotMatch0'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/ConstWithFalseDoesNotMatch0'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - const
-  /requestBody/postConstWithTrueDoesNotMatch1RequestBody:
-    post:
-      operationId: postConstWithTrueDoesNotMatch1RequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ConstWithTrueDoesNotMatch1'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/ConstWithTrueDoesNotMatch1'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - const
-  /responseBody/postConstWithTrueDoesNotMatch1ResponseBodyForContentTypes:
-    post:
-      operationId: postConstWithTrueDoesNotMatch1ResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ConstWithTrueDoesNotMatch1'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/ConstWithTrueDoesNotMatch1'
       tags:
       - response.content.contentType.schema
       - path.post
@@ -4310,26 +4166,9 @@ components:
     ConstValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       const: 2
-    ConstWithObject:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      const:
-        foo: bar
-        baz: bax
-    ConstWithArray:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      const:
-      - foo: bar
     ConstWithNull:
       $schema: https://json-schema.org/draft/2020-12/schema
       const: null
-    ConstWithFalseDoesNotMatch0:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      const:
-      - false
-    ConstWithTrueDoesNotMatch1:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      const:
-      - true
     ConstWithAFalseDoesNotMatchA0:
       $schema: https://json-schema.org/draft/2020-12/schema
       const:
@@ -5006,48 +4845,6 @@ components:
         description: another type is invalid
         data: a
         valid: false
-    ConstWithObject:
-      SameObjectIsValid:
-        description: same object is valid
-        data:
-          foo: bar
-          baz: bax
-        valid: true
-      SameObjectWithDifferentPropertyOrderIsValid:
-        description: same object with different property order is valid
-        data:
-          baz: bax
-          foo: bar
-        valid: true
-      AnotherObjectIsInvalid:
-        description: another object is invalid
-        data:
-          foo: bar
-        valid: false
-      AnotherTypeIsInvalid:
-        description: another type is invalid
-        data:
-        - 1
-        - 2
-        valid: false
-    ConstWithArray:
-      SameArrayIsValid:
-        description: same array is valid
-        data:
-        - foo: bar
-        valid: true
-      AnotherArrayItemIsInvalid:
-        description: another array item is invalid
-        data:
-        - 2
-        valid: false
-      ArrayWithAdditionalItemsIsInvalid:
-        description: array with additional items is invalid
-        data:
-        - 1
-        - 2
-        - 3
-        valid: false
     ConstWithNull:
       NullIsValid:
         description: null is valid
@@ -5056,54 +4853,6 @@ components:
       NotNullIsInvalid:
         description: not null is invalid
         data: 0
-        valid: false
-    ConstWithFalseDoesNotMatch0:
-      FalseIsValid:
-        description: '[false] is valid'
-        data:
-        - false
-        valid: true
-      IntegerZeroIsInvalid:
-        description: integer zero is invalid
-        data: 0
-        valid: false
-      FloatZeroIsInvalid:
-        description: float zero is invalid
-        data: 0.0
-        valid: false
-      0IsInvalid:
-        description: '[0] is invalid'
-        data:
-        - 0
-        valid: false
-      00IsInvalid:
-        description: '[0.0] is invalid'
-        data:
-        - 0.0
-        valid: false
-    ConstWithTrueDoesNotMatch1:
-      TrueIsValid:
-        description: '[true] is valid'
-        data:
-        - true
-        valid: true
-      IntegerOneIsInvalid:
-        description: integer one is invalid
-        data: 1
-        valid: false
-      FloatOneIsInvalid:
-        description: float one is invalid
-        data: 1.0
-        valid: false
-      1IsInvalid:
-        description: '[1] is invalid'
-        data:
-        - 1
-        valid: false
-      10IsInvalid:
-        description: '[1.0] is invalid'
-        data:
-        - 1.0
         valid: false
     ConstWithAFalseDoesNotMatchA0:
       AFalseIsValid:

@@ -103,6 +103,7 @@ class ExclusionReason:
     v303_requires_that_the_default_value_is_an_allowed_type = 'v3.0.3 requires that the default value is an allowed type per the schema'
     ref_not_resolved = 'ref not resolved, TODO resolve only remote refs'
     bug_max_items_missing = 'swagger-parser has a bug where maxItems is omitted: https://github.com/swagger-api/swagger-parser/issues/1974'
+    bug_with_non_string_const_values = 'swagger-parser const bug: https://github.com/swagger-api/swagger-parser/issues/1975'
 
 json_schema_test_draft = 'draft2020-12'
 path_to_json_schema_drafts = ('..', '..', 'JSON-Schema-Test-Suite', 'tests')
@@ -118,6 +119,14 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         'anyOf with boolean schemas, all true': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'anyOf with boolean schemas, some true': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'anyOf with boolean schemas, all false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+    },
+    (json_schema_test_draft, 'const.json'): {
+        'const with array': ExclusionReason.bug_with_non_string_const_values,
+        "const with false does not match 0": ExclusionReason.bug_with_non_string_const_values,
+        'const with object': ExclusionReason.bug_with_non_string_const_values,
+        "const with true does not match 1": ExclusionReason.bug_with_non_string_const_values,
+        "const with [false] does not match [0]": ExclusionReason.bug_with_non_string_const_values,
+        "const with [true] does not match [1]": ExclusionReason.bug_with_non_string_const_values,
     },
     (json_schema_test_draft, 'default.json'): {
         'invalid type for default': ExclusionReason.v303_requires_that_the_default_value_is_an_allowed_type,
