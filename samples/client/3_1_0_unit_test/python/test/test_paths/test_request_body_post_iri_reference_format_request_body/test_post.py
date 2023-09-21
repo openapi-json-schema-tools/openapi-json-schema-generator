@@ -96,7 +96,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
         # invalid iri-reference string is only an annotation by default
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
-                "\\\\WINDOWS\\filÃ«ÃŸÃ¥rÃ©"
+                "\\\\WINDOWS\\filëßåré"
             )
             body = post.request_body.RequestBody.content["application/json"].schema.validate(
                 payload,

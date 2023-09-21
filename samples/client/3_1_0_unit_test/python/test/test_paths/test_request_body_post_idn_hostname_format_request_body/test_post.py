@@ -37,7 +37,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
         # invalid idn-hostname string is only an annotation by default
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
-                "ã€®ì‹¤ë¡€.í…ŒìŠ¤íŠ¸"
+                "〮실례.테스트"
             )
             body = post.request_body.RequestBody.content["application/json"].schema.validate(
                 payload,
