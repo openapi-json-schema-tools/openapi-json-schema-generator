@@ -792,16 +792,16 @@ paths:
       - path.post
       - contentType_json
       - const
-  /requestBody/postConstWithAFalseDoesNotMatchA0RequestBody:
+  /requestBody/postConstWithFalseDoesNotMatch0RequestBody:
     post:
-      operationId: postConstWithAFalseDoesNotMatchA0RequestBody
+      operationId: postConstWithFalseDoesNotMatch0RequestBody
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ConstWithAFalseDoesNotMatchA0'
+              $ref: '#/components/schemas/ConstWithFalseDoesNotMatch0'
             x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/ConstWithAFalseDoesNotMatchA0'
+              $ref: '#/components/x-schema-test-examples/ConstWithFalseDoesNotMatch0'
         required: true
       responses:
         '200':
@@ -811,33 +811,33 @@ paths:
       - path.post
       - contentType_json
       - const
-  /responseBody/postConstWithAFalseDoesNotMatchA0ResponseBodyForContentTypes:
+  /responseBody/postConstWithFalseDoesNotMatch0ResponseBodyForContentTypes:
     post:
-      operationId: postConstWithAFalseDoesNotMatchA0ResponseBodyForContentTypes
+      operationId: postConstWithFalseDoesNotMatch0ResponseBodyForContentTypes
       responses:
         '200':
           description: success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConstWithAFalseDoesNotMatchA0'
+                $ref: '#/components/schemas/ConstWithFalseDoesNotMatch0'
               x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/ConstWithAFalseDoesNotMatchA0'
+                $ref: '#/components/x-schema-test-examples/ConstWithFalseDoesNotMatch0'
       tags:
       - response.content.contentType.schema
       - path.post
       - contentType_json
       - const
-  /requestBody/postConstWithATrueDoesNotMatchA1RequestBody:
+  /requestBody/postConstWithTrueDoesNotMatch1RequestBody:
     post:
-      operationId: postConstWithATrueDoesNotMatchA1RequestBody
+      operationId: postConstWithTrueDoesNotMatch1RequestBody
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ConstWithATrueDoesNotMatchA1'
+              $ref: '#/components/schemas/ConstWithTrueDoesNotMatch1'
             x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/ConstWithATrueDoesNotMatchA1'
+              $ref: '#/components/x-schema-test-examples/ConstWithTrueDoesNotMatch1'
         required: true
       responses:
         '200':
@@ -847,18 +847,18 @@ paths:
       - path.post
       - contentType_json
       - const
-  /responseBody/postConstWithATrueDoesNotMatchA1ResponseBodyForContentTypes:
+  /responseBody/postConstWithTrueDoesNotMatch1ResponseBodyForContentTypes:
     post:
-      operationId: postConstWithATrueDoesNotMatchA1ResponseBodyForContentTypes
+      operationId: postConstWithTrueDoesNotMatch1ResponseBodyForContentTypes
       responses:
         '200':
           description: success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConstWithATrueDoesNotMatchA1'
+                $ref: '#/components/schemas/ConstWithTrueDoesNotMatch1'
               x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/ConstWithATrueDoesNotMatchA1'
+                $ref: '#/components/x-schema-test-examples/ConstWithTrueDoesNotMatch1'
       tags:
       - response.content.contentType.schema
       - path.post
@@ -4169,14 +4169,14 @@ components:
     ConstWithNull:
       $schema: https://json-schema.org/draft/2020-12/schema
       const: null
-    ConstWithAFalseDoesNotMatchA0:
+    ConstWithFalseDoesNotMatch0:
       $schema: https://json-schema.org/draft/2020-12/schema
       const:
-        a: false
-    ConstWithATrueDoesNotMatchA1:
+      - false
+    ConstWithTrueDoesNotMatch1:
       $schema: https://json-schema.org/draft/2020-12/schema
       const:
-        a: true
+      - true
     ConstWith0DoesNotMatchOtherZeroLikeTypes:
       $schema: https://json-schema.org/draft/2020-12/schema
       const: 0
@@ -4854,37 +4854,37 @@ components:
         description: not null is invalid
         data: 0
         valid: false
-    ConstWithAFalseDoesNotMatchA0:
-      AFalseIsValid:
-        description: '{"a": false} is valid'
+    ConstWithFalseDoesNotMatch0:
+      FalseIsValid:
+        description: '[false] is valid'
         data:
-          a: false
+        - false
         valid: true
-      A0IsInvalid:
-        description: '{"a": 0} is invalid'
+      0IsInvalid:
+        description: '[0] is invalid'
         data:
-          a: 0
+        - 0
         valid: false
-      A00IsInvalid:
-        description: '{"a": 0.0} is invalid'
+      00IsInvalid:
+        description: '[0.0] is invalid'
         data:
-          a: 0.0
+        - 0.0
         valid: false
-    ConstWithATrueDoesNotMatchA1:
-      ATrueIsValid:
-        description: '{"a": true} is valid'
+    ConstWithTrueDoesNotMatch1:
+      TrueIsValid:
+        description: '[true] is valid'
         data:
-          a: true
+        - true
         valid: true
-      A1IsInvalid:
-        description: '{"a": 1} is invalid'
+      1IsInvalid:
+        description: '[1] is invalid'
         data:
-          a: 1
+        - 1
         valid: false
-      A10IsInvalid:
-        description: '{"a": 1.0} is invalid'
+      10IsInvalid:
+        description: '[1.0] is invalid'
         data:
-          a: 1.0
+        - 1.0
         valid: false
     ConstWith0DoesNotMatchOtherZeroLikeTypes:
       FalseIsInvalid:
