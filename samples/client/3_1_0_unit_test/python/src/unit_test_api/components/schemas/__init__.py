@@ -34,6 +34,8 @@ from unit_test_api.components.schema.by_int import ByInt
 from unit_test_api.components.schema.by_number import ByNumber
 from unit_test_api.components.schema.by_small_number import BySmallNumber
 from unit_test_api.components.schema.const_nul_characters_in_strings import ConstNulCharactersInStrings
+from unit_test_api.components.schema.contains_keyword_validation import ContainsKeywordValidation
+from unit_test_api.components.schema.contains_with_null_instance_elements import ContainsWithNullInstanceElements
 from unit_test_api.components.schema.date_format import DateFormat
 from unit_test_api.components.schema.date_time_format import DateTimeFormat
 from unit_test_api.components.schema.duration_format import DurationFormat
@@ -54,6 +56,7 @@ from unit_test_api.components.schema.ipv4_format import Ipv4Format
 from unit_test_api.components.schema.ipv6_format import Ipv6Format
 from unit_test_api.components.schema.iri_format import IriFormat
 from unit_test_api.components.schema.iri_reference_format import IriReferenceFormat
+from unit_test_api.components.schema.items_contains import ItemsContains
 from unit_test_api.components.schema.items_does_not_look_in_applicators_valid_case import ItemsDoesNotLookInApplicatorsValidCase
 from unit_test_api.components.schema.items_with_null_instance_elements import ItemsWithNullInstanceElements
 from unit_test_api.components.schema.json_pointer_format import JsonPointerFormat

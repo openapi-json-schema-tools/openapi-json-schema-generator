@@ -793,114 +793,6 @@ paths:
       - path.post
       - contentType_json
       - contains
-  /requestBody/postContainsKeywordWithConstKeywordRequestBody:
-    post:
-      operationId: postContainsKeywordWithConstKeywordRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ContainsKeywordWithConstKeyword'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/ContainsKeywordWithConstKeyword'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - contains
-  /responseBody/postContainsKeywordWithConstKeywordResponseBodyForContentTypes:
-    post:
-      operationId: postContainsKeywordWithConstKeywordResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ContainsKeywordWithConstKeyword'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/ContainsKeywordWithConstKeyword'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - contains
-  /requestBody/postContainsKeywordWithBooleanSchemaTrueRequestBody:
-    post:
-      operationId: postContainsKeywordWithBooleanSchemaTrueRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ContainsKeywordWithBooleanSchemaTrue'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/ContainsKeywordWithBooleanSchemaTrue'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - contains
-  /responseBody/postContainsKeywordWithBooleanSchemaTrueResponseBodyForContentTypes:
-    post:
-      operationId: postContainsKeywordWithBooleanSchemaTrueResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ContainsKeywordWithBooleanSchemaTrue'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/ContainsKeywordWithBooleanSchemaTrue'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - contains
-  /requestBody/postContainsKeywordWithBooleanSchemaFalseRequestBody:
-    post:
-      operationId: postContainsKeywordWithBooleanSchemaFalseRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ContainsKeywordWithBooleanSchemaFalse'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/ContainsKeywordWithBooleanSchemaFalse'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - contains
-  /responseBody/postContainsKeywordWithBooleanSchemaFalseResponseBodyForContentTypes:
-    post:
-      operationId: postContainsKeywordWithBooleanSchemaFalseResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ContainsKeywordWithBooleanSchemaFalse'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/ContainsKeywordWithBooleanSchemaFalse'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - contains
   /requestBody/postItemsContainsRequestBody:
     post:
       operationId: postItemsContainsRequestBody
@@ -932,42 +824,6 @@ paths:
                 $ref: '#/components/schemas/ItemsContains'
               x-schema-test-examples:
                 $ref: '#/components/x-schema-test-examples/ItemsContains'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - contains
-  /requestBody/postContainsWithFalseIfSubschemaRequestBody:
-    post:
-      operationId: postContainsWithFalseIfSubschemaRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ContainsWithFalseIfSubschema'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/ContainsWithFalseIfSubschema'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - contains
-  /responseBody/postContainsWithFalseIfSubschemaResponseBodyForContentTypes:
-    post:
-      operationId: postContainsWithFalseIfSubschemaResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ContainsWithFalseIfSubschema'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/ContainsWithFalseIfSubschema'
       tags:
       - response.content.contentType.schema
       - path.post
@@ -4135,27 +3991,12 @@ components:
       $schema: https://json-schema.org/draft/2020-12/schema
       contains:
         minimum: 5
-    ContainsKeywordWithConstKeyword:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      contains:
-        const: 5
-    ContainsKeywordWithBooleanSchemaTrue:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      contains: true
-    ContainsKeywordWithBooleanSchemaFalse:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      contains: false
     ItemsContains:
       $schema: https://json-schema.org/draft/2020-12/schema
       items:
         multipleOf: 2
       contains:
         multipleOf: 3
-    ContainsWithFalseIfSubschema:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      contains:
-        if: false
-        else: true
     ContainsWithNullInstanceElements:
       $schema: https://json-schema.org/draft/2020-12/schema
       contains:
@@ -4847,54 +4688,6 @@ components:
         description: not array is valid
         data: {}
         valid: true
-    ContainsKeywordWithConstKeyword:
-      ArrayWithItem5IsValid:
-        description: array with item 5 is valid
-        data:
-        - 3
-        - 4
-        - 5
-        valid: true
-      ArrayWithTwoItems5IsValid:
-        description: array with two items 5 is valid
-        data:
-        - 3
-        - 4
-        - 5
-        - 5
-        valid: true
-      ArrayWithoutItem5IsInvalid:
-        description: array without item 5 is invalid
-        data:
-        - 1
-        - 2
-        - 3
-        - 4
-        valid: false
-    ContainsKeywordWithBooleanSchemaTrue:
-      AnyNonEmptyArrayIsValid:
-        description: any non-empty array is valid
-        data:
-        - foo
-        valid: true
-      EmptyArrayIsInvalid:
-        description: empty array is invalid
-        data: []
-        valid: false
-    ContainsKeywordWithBooleanSchemaFalse:
-      AnyNonEmptyArrayIsInvalid:
-        description: any non-empty array is invalid
-        data:
-        - foo
-        valid: false
-      EmptyArrayIsInvalid:
-        description: empty array is invalid
-        data: []
-        valid: false
-      NonArraysAreValid:
-        description: non-arrays are valid
-        data: contains does not apply to strings
-        valid: true
     ItemsContains:
       MatchesItemsDoesNotMatchContains:
         description: matches items, does not match contains
@@ -4921,16 +4714,6 @@ components:
         data:
         - 1
         - 5
-        valid: false
-    ContainsWithFalseIfSubschema:
-      AnyNonEmptyArrayIsValid:
-        description: any non-empty array is valid
-        data:
-        - foo
-        valid: true
-      EmptyArrayIsInvalid:
-        description: empty array is invalid
-        data: []
         valid: false
     ContainsWithNullInstanceElements:
       AllowsNullItems:

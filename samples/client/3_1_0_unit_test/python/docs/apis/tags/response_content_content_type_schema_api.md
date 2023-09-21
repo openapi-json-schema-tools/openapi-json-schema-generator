@@ -32,6 +32,8 @@ Method | Description
 [**post_by_number_response_body_for_content_types**](../../paths/response_body_post_by_number_response_body_for_content_types/post.md) | 
 [**post_by_small_number_response_body_for_content_types**](../../paths/response_body_post_by_small_number_response_body_for_content_types/post.md) | 
 [**post_const_nul_characters_in_strings_response_body_for_content_types**](../../paths/response_body_post_const_nul_characters_in_strings_response_body_for_content_types/post.md) | 
+[**post_contains_keyword_validation_response_body_for_content_types**](../../paths/response_body_post_contains_keyword_validation_response_body_for_content_types/post.md) | 
+[**post_contains_with_null_instance_elements_response_body_for_content_types**](../../paths/response_body_post_contains_with_null_instance_elements_response_body_for_content_types/post.md) | 
 [**post_date_format_response_body_for_content_types**](../../paths/response_body_post_date_format_response_body_for_content_types/post.md) | 
 [**post_date_time_format_response_body_for_content_types**](../../paths/response_body_post_date_time_format_response_body_for_content_types/post.md) | 
 [**post_duration_format_response_body_for_content_types**](../../paths/response_body_post_duration_format_response_body_for_content_types/post.md) | 
@@ -52,6 +54,7 @@ Method | Description
 [**post_ipv6_format_response_body_for_content_types**](../../paths/response_body_post_ipv6_format_response_body_for_content_types/post.md) | 
 [**post_iri_format_response_body_for_content_types**](../../paths/response_body_post_iri_format_response_body_for_content_types/post.md) | 
 [**post_iri_reference_format_response_body_for_content_types**](../../paths/response_body_post_iri_reference_format_response_body_for_content_types/post.md) | 
+[**post_items_contains_response_body_for_content_types**](../../paths/response_body_post_items_contains_response_body_for_content_types/post.md) | 
 [**post_items_does_not_look_in_applicators_valid_case_response_body_for_content_types**](../../paths/response_body_post_items_does_not_look_in_applicators_valid_case_response_body_for_content_types/post.md) | 
 [**post_items_with_null_instance_elements_response_body_for_content_types**](../../paths/response_body_post_items_with_null_instance_elements_response_body_for_content_types/post.md) | 
 [**post_json_pointer_format_response_body_for_content_types**](../../paths/response_body_post_json_pointer_format_response_body_for_content_types/post.md) | 

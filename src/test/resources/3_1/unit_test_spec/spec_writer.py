@@ -136,6 +136,12 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         "const with -2.0 matches integer and float types": ExclusionReason.bug_with_non_string_const_values,
         "const with null": ExclusionReason.bug_with_non_string_const_values,
     },
+    (json_schema_test_draft, 'contains.json'): {
+        "contains keyword with boolean schema false": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "contains with false if subschema": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "contains keyword with boolean schema true": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "contains keyword with const keyword": ExclusionReason.bug_with_non_string_const_values,
+    },
     (json_schema_test_draft, 'default.json'): {
         'invalid type for default': ExclusionReason.v303_requires_that_the_default_value_is_an_allowed_type,
     },

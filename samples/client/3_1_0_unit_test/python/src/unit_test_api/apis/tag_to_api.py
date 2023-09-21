@@ -14,6 +14,7 @@ from unit_test_api.apis.tags.path_post_api import PathPostApi
 from unit_test_api.apis.tags.min_properties_api import MinPropertiesApi
 from unit_test_api.apis.tags.unique_items_api import UniqueItemsApi
 from unit_test_api.apis.tags.operation_request_body_api import OperationRequestBodyApi
+from unit_test_api.apis.tags.contains_api import ContainsApi
 from unit_test_api.apis.tags.one_of_api import OneOfApi
 from unit_test_api.apis.tags.ref_api import RefApi
 from unit_test_api.apis.tags.all_of_api import AllOfApi
@@ -46,6 +47,7 @@ TagToApi = typing.TypedDict(
         "minProperties": typing.Type[MinPropertiesApi],
         "uniqueItems": typing.Type[UniqueItemsApi],
         "operation.requestBody": typing.Type[OperationRequestBodyApi],
+        "contains": typing.Type[ContainsApi],
         "oneOf": typing.Type[OneOfApi],
         "$ref": typing.Type[RefApi],
         "allOf": typing.Type[AllOfApi],
@@ -79,6 +81,7 @@ tag_to_api = TagToApi(
         "minProperties": MinPropertiesApi,
         "uniqueItems": UniqueItemsApi,
         "operation.requestBody": OperationRequestBodyApi,
+        "contains": ContainsApi,
         "oneOf": OneOfApi,
         "$ref": RefApi,
         "allOf": AllOfApi,

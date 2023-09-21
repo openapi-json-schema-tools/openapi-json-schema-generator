@@ -24,6 +24,8 @@ from unit_test_api.apis.paths.request_body_post_by_int_request_body import Reque
 from unit_test_api.apis.paths.request_body_post_by_number_request_body import RequestBodyPostByNumberRequestBody
 from unit_test_api.apis.paths.request_body_post_by_small_number_request_body import RequestBodyPostBySmallNumberRequestBody
 from unit_test_api.apis.paths.request_body_post_const_nul_characters_in_strings_request_body import RequestBodyPostConstNulCharactersInStringsRequestBody
+from unit_test_api.apis.paths.request_body_post_contains_keyword_validation_request_body import RequestBodyPostContainsKeywordValidationRequestBody
+from unit_test_api.apis.paths.request_body_post_contains_with_null_instance_elements_request_body import RequestBodyPostContainsWithNullInstanceElementsRequestBody
 from unit_test_api.apis.paths.request_body_post_date_format_request_body import RequestBodyPostDateFormatRequestBody
 from unit_test_api.apis.paths.request_body_post_date_time_format_request_body import RequestBodyPostDateTimeFormatRequestBody
 from unit_test_api.apis.paths.request_body_post_duration_format_request_body import RequestBodyPostDurationFormatRequestBody
@@ -44,6 +46,7 @@ from unit_test_api.apis.paths.request_body_post_ipv4_format_request_body import 
 from unit_test_api.apis.paths.request_body_post_ipv6_format_request_body import RequestBodyPostIpv6FormatRequestBody
 from unit_test_api.apis.paths.request_body_post_iri_format_request_body import RequestBodyPostIriFormatRequestBody
 from unit_test_api.apis.paths.request_body_post_iri_reference_format_request_body import RequestBodyPostIriReferenceFormatRequestBody
+from unit_test_api.apis.paths.request_body_post_items_contains_request_body import RequestBodyPostItemsContainsRequestBody
 from unit_test_api.apis.paths.request_body_post_items_does_not_look_in_applicators_valid_case_request_body import RequestBodyPostItemsDoesNotLookInApplicatorsValidCaseRequestBody
 from unit_test_api.apis.paths.request_body_post_items_with_null_instance_elements_request_body import RequestBodyPostItemsWithNullInstanceElementsRequestBody
 from unit_test_api.apis.paths.request_body_post_json_pointer_format_request_body import RequestBodyPostJsonPointerFormatRequestBody
@@ -127,6 +130,8 @@ from unit_test_api.apis.paths.response_body_post_by_int_response_body_for_conten
 from unit_test_api.apis.paths.response_body_post_by_number_response_body_for_content_types import ResponseBodyPostByNumberResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_by_small_number_response_body_for_content_types import ResponseBodyPostBySmallNumberResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_const_nul_characters_in_strings_response_body_for_content_types import ResponseBodyPostConstNulCharactersInStringsResponseBodyForContentTypes
+from unit_test_api.apis.paths.response_body_post_contains_keyword_validation_response_body_for_content_types import ResponseBodyPostContainsKeywordValidationResponseBodyForContentTypes
+from unit_test_api.apis.paths.response_body_post_contains_with_null_instance_elements_response_body_for_content_types import ResponseBodyPostContainsWithNullInstanceElementsResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_date_format_response_body_for_content_types import ResponseBodyPostDateFormatResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_date_time_format_response_body_for_content_types import ResponseBodyPostDateTimeFormatResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_duration_format_response_body_for_content_types import ResponseBodyPostDurationFormatResponseBodyForContentTypes
@@ -147,6 +152,7 @@ from unit_test_api.apis.paths.response_body_post_ipv4_format_response_body_for_c
 from unit_test_api.apis.paths.response_body_post_ipv6_format_response_body_for_content_types import ResponseBodyPostIpv6FormatResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_iri_format_response_body_for_content_types import ResponseBodyPostIriFormatResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_iri_reference_format_response_body_for_content_types import ResponseBodyPostIriReferenceFormatResponseBodyForContentTypes
+from unit_test_api.apis.paths.response_body_post_items_contains_response_body_for_content_types import ResponseBodyPostItemsContainsResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_items_does_not_look_in_applicators_valid_case_response_body_for_content_types import ResponseBodyPostItemsDoesNotLookInApplicatorsValidCaseResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_items_with_null_instance_elements_response_body_for_content_types import ResponseBodyPostItemsWithNullInstanceElementsResponseBodyForContentTypes
 from unit_test_api.apis.paths.response_body_post_json_pointer_format_response_body_for_content_types import ResponseBodyPostJsonPointerFormatResponseBodyForContentTypes
@@ -234,6 +240,8 @@ PathToApi = typing.TypedDict(
     "/requestBody/postByNumberRequestBody": typing.Type[RequestBodyPostByNumberRequestBody],
     "/requestBody/postBySmallNumberRequestBody": typing.Type[RequestBodyPostBySmallNumberRequestBody],
     "/requestBody/postConstNulCharactersInStringsRequestBody": typing.Type[RequestBodyPostConstNulCharactersInStringsRequestBody],
+    "/requestBody/postContainsKeywordValidationRequestBody": typing.Type[RequestBodyPostContainsKeywordValidationRequestBody],
+    "/requestBody/postContainsWithNullInstanceElementsRequestBody": typing.Type[RequestBodyPostContainsWithNullInstanceElementsRequestBody],
     "/requestBody/postDateFormatRequestBody": typing.Type[RequestBodyPostDateFormatRequestBody],
     "/requestBody/postDateTimeFormatRequestBody": typing.Type[RequestBodyPostDateTimeFormatRequestBody],
     "/requestBody/postDurationFormatRequestBody": typing.Type[RequestBodyPostDurationFormatRequestBody],
@@ -254,6 +262,7 @@ PathToApi = typing.TypedDict(
     "/requestBody/postIpv6FormatRequestBody": typing.Type[RequestBodyPostIpv6FormatRequestBody],
     "/requestBody/postIriFormatRequestBody": typing.Type[RequestBodyPostIriFormatRequestBody],
     "/requestBody/postIriReferenceFormatRequestBody": typing.Type[RequestBodyPostIriReferenceFormatRequestBody],
+    "/requestBody/postItemsContainsRequestBody": typing.Type[RequestBodyPostItemsContainsRequestBody],
     "/requestBody/postItemsDoesNotLookInApplicatorsValidCaseRequestBody": typing.Type[RequestBodyPostItemsDoesNotLookInApplicatorsValidCaseRequestBody],
     "/requestBody/postItemsWithNullInstanceElementsRequestBody": typing.Type[RequestBodyPostItemsWithNullInstanceElementsRequestBody],
     "/requestBody/postJsonPointerFormatRequestBody": typing.Type[RequestBodyPostJsonPointerFormatRequestBody],
@@ -337,6 +346,8 @@ PathToApi = typing.TypedDict(
     "/responseBody/postByNumberResponseBodyForContentTypes": typing.Type[ResponseBodyPostByNumberResponseBodyForContentTypes],
     "/responseBody/postBySmallNumberResponseBodyForContentTypes": typing.Type[ResponseBodyPostBySmallNumberResponseBodyForContentTypes],
     "/responseBody/postConstNulCharactersInStringsResponseBodyForContentTypes": typing.Type[ResponseBodyPostConstNulCharactersInStringsResponseBodyForContentTypes],
+    "/responseBody/postContainsKeywordValidationResponseBodyForContentTypes": typing.Type[ResponseBodyPostContainsKeywordValidationResponseBodyForContentTypes],
+    "/responseBody/postContainsWithNullInstanceElementsResponseBodyForContentTypes": typing.Type[ResponseBodyPostContainsWithNullInstanceElementsResponseBodyForContentTypes],
     "/responseBody/postDateFormatResponseBodyForContentTypes": typing.Type[ResponseBodyPostDateFormatResponseBodyForContentTypes],
     "/responseBody/postDateTimeFormatResponseBodyForContentTypes": typing.Type[ResponseBodyPostDateTimeFormatResponseBodyForContentTypes],
     "/responseBody/postDurationFormatResponseBodyForContentTypes": typing.Type[ResponseBodyPostDurationFormatResponseBodyForContentTypes],
@@ -357,6 +368,7 @@ PathToApi = typing.TypedDict(
     "/responseBody/postIpv6FormatResponseBodyForContentTypes": typing.Type[ResponseBodyPostIpv6FormatResponseBodyForContentTypes],
     "/responseBody/postIriFormatResponseBodyForContentTypes": typing.Type[ResponseBodyPostIriFormatResponseBodyForContentTypes],
     "/responseBody/postIriReferenceFormatResponseBodyForContentTypes": typing.Type[ResponseBodyPostIriReferenceFormatResponseBodyForContentTypes],
+    "/responseBody/postItemsContainsResponseBodyForContentTypes": typing.Type[ResponseBodyPostItemsContainsResponseBodyForContentTypes],
     "/responseBody/postItemsDoesNotLookInApplicatorsValidCaseResponseBodyForContentTypes": typing.Type[ResponseBodyPostItemsDoesNotLookInApplicatorsValidCaseResponseBodyForContentTypes],
     "/responseBody/postItemsWithNullInstanceElementsResponseBodyForContentTypes": typing.Type[ResponseBodyPostItemsWithNullInstanceElementsResponseBodyForContentTypes],
     "/responseBody/postJsonPointerFormatResponseBodyForContentTypes": typing.Type[ResponseBodyPostJsonPointerFormatResponseBodyForContentTypes],
@@ -445,6 +457,8 @@ path_to_api = PathToApi(
     "/requestBody/postByNumberRequestBody": RequestBodyPostByNumberRequestBody,
     "/requestBody/postBySmallNumberRequestBody": RequestBodyPostBySmallNumberRequestBody,
     "/requestBody/postConstNulCharactersInStringsRequestBody": RequestBodyPostConstNulCharactersInStringsRequestBody,
+    "/requestBody/postContainsKeywordValidationRequestBody": RequestBodyPostContainsKeywordValidationRequestBody,
+    "/requestBody/postContainsWithNullInstanceElementsRequestBody": RequestBodyPostContainsWithNullInstanceElementsRequestBody,
     "/requestBody/postDateFormatRequestBody": RequestBodyPostDateFormatRequestBody,
     "/requestBody/postDateTimeFormatRequestBody": RequestBodyPostDateTimeFormatRequestBody,
     "/requestBody/postDurationFormatRequestBody": RequestBodyPostDurationFormatRequestBody,
@@ -465,6 +479,7 @@ path_to_api = PathToApi(
     "/requestBody/postIpv6FormatRequestBody": RequestBodyPostIpv6FormatRequestBody,
     "/requestBody/postIriFormatRequestBody": RequestBodyPostIriFormatRequestBody,
     "/requestBody/postIriReferenceFormatRequestBody": RequestBodyPostIriReferenceFormatRequestBody,
+    "/requestBody/postItemsContainsRequestBody": RequestBodyPostItemsContainsRequestBody,
     "/requestBody/postItemsDoesNotLookInApplicatorsValidCaseRequestBody": RequestBodyPostItemsDoesNotLookInApplicatorsValidCaseRequestBody,
     "/requestBody/postItemsWithNullInstanceElementsRequestBody": RequestBodyPostItemsWithNullInstanceElementsRequestBody,
     "/requestBody/postJsonPointerFormatRequestBody": RequestBodyPostJsonPointerFormatRequestBody,
@@ -548,6 +563,8 @@ path_to_api = PathToApi(
     "/responseBody/postByNumberResponseBodyForContentTypes": ResponseBodyPostByNumberResponseBodyForContentTypes,
     "/responseBody/postBySmallNumberResponseBodyForContentTypes": ResponseBodyPostBySmallNumberResponseBodyForContentTypes,
     "/responseBody/postConstNulCharactersInStringsResponseBodyForContentTypes": ResponseBodyPostConstNulCharactersInStringsResponseBodyForContentTypes,
+    "/responseBody/postContainsKeywordValidationResponseBodyForContentTypes": ResponseBodyPostContainsKeywordValidationResponseBodyForContentTypes,
+    "/responseBody/postContainsWithNullInstanceElementsResponseBodyForContentTypes": ResponseBodyPostContainsWithNullInstanceElementsResponseBodyForContentTypes,
     "/responseBody/postDateFormatResponseBodyForContentTypes": ResponseBodyPostDateFormatResponseBodyForContentTypes,
     "/responseBody/postDateTimeFormatResponseBodyForContentTypes": ResponseBodyPostDateTimeFormatResponseBodyForContentTypes,
     "/responseBody/postDurationFormatResponseBodyForContentTypes": ResponseBodyPostDurationFormatResponseBodyForContentTypes,
@@ -568,6 +585,7 @@ path_to_api = PathToApi(
     "/responseBody/postIpv6FormatResponseBodyForContentTypes": ResponseBodyPostIpv6FormatResponseBodyForContentTypes,
     "/responseBody/postIriFormatResponseBodyForContentTypes": ResponseBodyPostIriFormatResponseBodyForContentTypes,
     "/responseBody/postIriReferenceFormatResponseBodyForContentTypes": ResponseBodyPostIriReferenceFormatResponseBodyForContentTypes,
+    "/responseBody/postItemsContainsResponseBodyForContentTypes": ResponseBodyPostItemsContainsResponseBodyForContentTypes,
     "/responseBody/postItemsDoesNotLookInApplicatorsValidCaseResponseBodyForContentTypes": ResponseBodyPostItemsDoesNotLookInApplicatorsValidCaseResponseBodyForContentTypes,
     "/responseBody/postItemsWithNullInstanceElementsResponseBodyForContentTypes": ResponseBodyPostItemsWithNullInstanceElementsResponseBodyForContentTypes,
     "/responseBody/postJsonPointerFormatResponseBodyForContentTypes": ResponseBodyPostJsonPointerFormatResponseBodyForContentTypes,
