@@ -98,7 +98,7 @@ class TestPost(ApiTestMixin, unittest.TestCase):
     
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
-                "\\\\WINDOWS\\filëßåré"
+                "\\\\WINDOWS\\filÃ«ÃŸÃ¥rÃ©"
             )
             mock_request.return_value = self.response(
                 self.json_bytes(payload),

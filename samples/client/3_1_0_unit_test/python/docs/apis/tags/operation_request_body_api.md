@@ -31,6 +31,13 @@ Method | Description
 [**post_by_int_request_body**](../../paths/request_body_post_by_int_request_body/post.md) | 
 [**post_by_number_request_body**](../../paths/request_body_post_by_number_request_body/post.md) | 
 [**post_by_small_number_request_body**](../../paths/request_body_post_by_small_number_request_body/post.md) | 
+[**post_const_float_and_integers_are_equal_up_to64_bit_representation_limits_request_body**](../../paths/request_body_post_const_float_and_integers_are_equal_up_to64_bit_representation_limits_request_body/post.md) | 
+[**post_const_nul_characters_in_strings_request_body**](../../paths/request_body_post_const_nul_characters_in_strings_request_body/post.md) | 
+[**post_const_validation_request_body**](../../paths/request_body_post_const_validation_request_body/post.md) | 
+[**post_const_with0_does_not_match_other_zero_like_types_request_body**](../../paths/request_body_post_const_with0_does_not_match_other_zero_like_types_request_body/post.md) | 
+[**post_const_with1_does_not_match_true_request_body**](../../paths/request_body_post_const_with1_does_not_match_true_request_body/post.md) | 
+[**post_const_with20_matches_integer_and_float_types_request_body**](../../paths/request_body_post_const_with20_matches_integer_and_float_types_request_body/post.md) | 
+[**post_const_with_null_request_body**](../../paths/request_body_post_const_with_null_request_body/post.md) | 
 [**post_date_format_request_body**](../../paths/request_body_post_date_format_request_body/post.md) | 
 [**post_date_time_format_request_body**](../../paths/request_body_post_date_time_format_request_body/post.md) | 
 [**post_duration_format_request_body**](../../paths/request_body_post_duration_format_request_body/post.md) | 
