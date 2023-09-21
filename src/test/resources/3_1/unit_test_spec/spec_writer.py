@@ -253,7 +253,6 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
 FILEPATH_TO_EXCLUDE_REASON = {
     (json_schema_test_draft, 'additionalItems.json'): ExclusionReason.v303_does_not_support_additionalItems,
     (json_schema_test_draft, 'boolean_schema.json'): ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
-    (json_schema_test_draft, 'contains.json'): ExclusionReason.v303_does_not_support_contains,
     (json_schema_test_draft, 'definitions.json'): ExclusionReason.bug_does_not_support_definitions,
     (json_schema_test_draft, 'dependencies.json'): ExclusionReason.v303_does_not_support_dependencies,
     (json_schema_test_draft, 'exclusiveMaximum.json'): ExclusionReason.swagger_parser_validation_missing_bug,
@@ -272,7 +271,7 @@ JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
     'anyOf.json': (json_schema_test_draft,),
     'boolean_schema.json': (json_schema_test_draft,),
     'const.json': (json_schema_test_draft,),
-#     'contains.json': (json_schema_test_draft,),
+    'contains.json': (json_schema_test_draft,),
 #     'default.json': (json_schema_test_draft,),
 #     'definitions.json': (json_schema_test_draft,),
 #     'dependencies.json': (json_schema_test_draft,),

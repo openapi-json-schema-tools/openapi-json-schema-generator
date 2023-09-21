@@ -15,6 +15,7 @@ tags:
 - name: allOf
 - name: anyOf
 - name: const
+- name: contains
 - name: enum
 - name: format
 - name: items
@@ -756,6 +757,258 @@ paths:
       - path.post
       - contentType_json
       - const
+  /requestBody/postContainsKeywordValidationRequestBody:
+    post:
+      operationId: postContainsKeywordValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContainsKeywordValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ContainsKeywordValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - contains
+  /responseBody/postContainsKeywordValidationResponseBodyForContentTypes:
+    post:
+      operationId: postContainsKeywordValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContainsKeywordValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ContainsKeywordValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - contains
+  /requestBody/postContainsKeywordWithConstKeywordRequestBody:
+    post:
+      operationId: postContainsKeywordWithConstKeywordRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContainsKeywordWithConstKeyword'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ContainsKeywordWithConstKeyword'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - contains
+  /responseBody/postContainsKeywordWithConstKeywordResponseBodyForContentTypes:
+    post:
+      operationId: postContainsKeywordWithConstKeywordResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContainsKeywordWithConstKeyword'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ContainsKeywordWithConstKeyword'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - contains
+  /requestBody/postContainsKeywordWithBooleanSchemaTrueRequestBody:
+    post:
+      operationId: postContainsKeywordWithBooleanSchemaTrueRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContainsKeywordWithBooleanSchemaTrue'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ContainsKeywordWithBooleanSchemaTrue'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - contains
+  /responseBody/postContainsKeywordWithBooleanSchemaTrueResponseBodyForContentTypes:
+    post:
+      operationId: postContainsKeywordWithBooleanSchemaTrueResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContainsKeywordWithBooleanSchemaTrue'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ContainsKeywordWithBooleanSchemaTrue'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - contains
+  /requestBody/postContainsKeywordWithBooleanSchemaFalseRequestBody:
+    post:
+      operationId: postContainsKeywordWithBooleanSchemaFalseRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContainsKeywordWithBooleanSchemaFalse'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ContainsKeywordWithBooleanSchemaFalse'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - contains
+  /responseBody/postContainsKeywordWithBooleanSchemaFalseResponseBodyForContentTypes:
+    post:
+      operationId: postContainsKeywordWithBooleanSchemaFalseResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContainsKeywordWithBooleanSchemaFalse'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ContainsKeywordWithBooleanSchemaFalse'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - contains
+  /requestBody/postItemsContainsRequestBody:
+    post:
+      operationId: postItemsContainsRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemsContains'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ItemsContains'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - contains
+  /responseBody/postItemsContainsResponseBodyForContentTypes:
+    post:
+      operationId: postItemsContainsResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemsContains'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ItemsContains'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - contains
+  /requestBody/postContainsWithFalseIfSubschemaRequestBody:
+    post:
+      operationId: postContainsWithFalseIfSubschemaRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContainsWithFalseIfSubschema'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ContainsWithFalseIfSubschema'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - contains
+  /responseBody/postContainsWithFalseIfSubschemaResponseBodyForContentTypes:
+    post:
+      operationId: postContainsWithFalseIfSubschemaResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContainsWithFalseIfSubschema'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ContainsWithFalseIfSubschema'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - contains
+  /requestBody/postContainsWithNullInstanceElementsRequestBody:
+    post:
+      operationId: postContainsWithNullInstanceElementsRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContainsWithNullInstanceElements'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ContainsWithNullInstanceElements'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - contains
+  /responseBody/postContainsWithNullInstanceElementsResponseBodyForContentTypes:
+    post:
+      operationId: postContainsWithNullInstanceElementsResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContainsWithNullInstanceElements'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ContainsWithNullInstanceElements'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - contains
   /requestBody/postSimpleEnumValidationRequestBody:
     post:
       operationId: postSimpleEnumValidationRequestBody
@@ -3878,6 +4131,35 @@ components:
     ConstNulCharactersInStrings:
       $schema: https://json-schema.org/draft/2020-12/schema
       const: "hello\0there"
+    ContainsKeywordValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      contains:
+        minimum: 5
+    ContainsKeywordWithConstKeyword:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      contains:
+        const: 5
+    ContainsKeywordWithBooleanSchemaTrue:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      contains: true
+    ContainsKeywordWithBooleanSchemaFalse:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      contains: false
+    ItemsContains:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      items:
+        multipleOf: 2
+      contains:
+        multipleOf: 3
+    ContainsWithFalseIfSubschema:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      contains:
+        if: false
+        else: true
+    ContainsWithNullInstanceElements:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      contains:
+        type: 'null'
     SimpleEnumValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       enum:
@@ -4527,6 +4809,135 @@ components:
         description: do not match string lacking nul
         data: hellothere
         valid: false
+    ContainsKeywordValidation:
+      ArrayWithItemMatchingSchema5IsValid:
+        description: array with item matching schema (5) is valid
+        data:
+        - 3
+        - 4
+        - 5
+        valid: true
+      ArrayWithItemMatchingSchema6IsValid:
+        description: array with item matching schema (6) is valid
+        data:
+        - 3
+        - 4
+        - 6
+        valid: true
+      ArrayWithTwoItemsMatchingSchema56IsValid:
+        description: array with two items matching schema (5, 6) is valid
+        data:
+        - 3
+        - 4
+        - 5
+        - 6
+        valid: true
+      ArrayWithoutItemsMatchingSchemaIsInvalid:
+        description: array without items matching schema is invalid
+        data:
+        - 2
+        - 3
+        - 4
+        valid: false
+      EmptyArrayIsInvalid:
+        description: empty array is invalid
+        data: []
+        valid: false
+      NotArrayIsValid:
+        description: not array is valid
+        data: {}
+        valid: true
+    ContainsKeywordWithConstKeyword:
+      ArrayWithItem5IsValid:
+        description: array with item 5 is valid
+        data:
+        - 3
+        - 4
+        - 5
+        valid: true
+      ArrayWithTwoItems5IsValid:
+        description: array with two items 5 is valid
+        data:
+        - 3
+        - 4
+        - 5
+        - 5
+        valid: true
+      ArrayWithoutItem5IsInvalid:
+        description: array without item 5 is invalid
+        data:
+        - 1
+        - 2
+        - 3
+        - 4
+        valid: false
+    ContainsKeywordWithBooleanSchemaTrue:
+      AnyNonEmptyArrayIsValid:
+        description: any non-empty array is valid
+        data:
+        - foo
+        valid: true
+      EmptyArrayIsInvalid:
+        description: empty array is invalid
+        data: []
+        valid: false
+    ContainsKeywordWithBooleanSchemaFalse:
+      AnyNonEmptyArrayIsInvalid:
+        description: any non-empty array is invalid
+        data:
+        - foo
+        valid: false
+      EmptyArrayIsInvalid:
+        description: empty array is invalid
+        data: []
+        valid: false
+      NonArraysAreValid:
+        description: non-arrays are valid
+        data: contains does not apply to strings
+        valid: true
+    ItemsContains:
+      MatchesItemsDoesNotMatchContains:
+        description: matches items, does not match contains
+        data:
+        - 2
+        - 4
+        - 8
+        valid: false
+      DoesNotMatchItemsMatchesContains:
+        description: does not match items, matches contains
+        data:
+        - 3
+        - 6
+        - 9
+        valid: false
+      MatchesBothItemsAndContains:
+        description: matches both items and contains
+        data:
+        - 6
+        - 12
+        valid: true
+      MatchesNeitherItemsNorContains:
+        description: matches neither items nor contains
+        data:
+        - 1
+        - 5
+        valid: false
+    ContainsWithFalseIfSubschema:
+      AnyNonEmptyArrayIsValid:
+        description: any non-empty array is valid
+        data:
+        - foo
+        valid: true
+      EmptyArrayIsInvalid:
+        description: empty array is invalid
+        data: []
+        valid: false
+    ContainsWithNullInstanceElements:
+      AllowsNullItems:
+        description: allows null items
+        data:
+        - null
+        valid: true
     SimpleEnumValidation:
       OneOfTheEnumIsValid:
         description: one of the enum is valid
