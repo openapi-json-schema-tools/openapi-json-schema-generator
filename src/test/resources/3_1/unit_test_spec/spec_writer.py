@@ -129,6 +129,12 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         'const with {"a": true} does not match {"a": 1}': ExclusionReason.bug_with_non_string_const_values,
         "const with [false] does not match [0]": ExclusionReason.bug_with_non_string_const_values,
         "const with [true] does not match [1]": ExclusionReason.bug_with_non_string_const_values,
+        "float and integers are equal up to 64-bit representation limits": ExclusionReason.bug_with_non_string_const_values,
+        "const validation": ExclusionReason.bug_with_non_string_const_values,
+        "const with 0 does not match other zero-like types": ExclusionReason.bug_with_non_string_const_values,
+        "const with 1 does not match true": ExclusionReason.bug_with_non_string_const_values,
+        "const with -2.0 matches integer and float types": ExclusionReason.bug_with_non_string_const_values,
+        "const with null": ExclusionReason.bug_with_non_string_const_values,
     },
     (json_schema_test_draft, 'default.json'): {
         'invalid type for default': ExclusionReason.v303_requires_that_the_default_value_is_an_allowed_type,
