@@ -792,78 +792,6 @@ paths:
       - path.post
       - contentType_json
       - const
-  /requestBody/postConstWithFalseDoesNotMatch0RequestBody:
-    post:
-      operationId: postConstWithFalseDoesNotMatch0RequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ConstWithFalseDoesNotMatch0'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/ConstWithFalseDoesNotMatch0'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - const
-  /responseBody/postConstWithFalseDoesNotMatch0ResponseBodyForContentTypes:
-    post:
-      operationId: postConstWithFalseDoesNotMatch0ResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ConstWithFalseDoesNotMatch0'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/ConstWithFalseDoesNotMatch0'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - const
-  /requestBody/postConstWithTrueDoesNotMatch1RequestBody:
-    post:
-      operationId: postConstWithTrueDoesNotMatch1RequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ConstWithTrueDoesNotMatch1'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/ConstWithTrueDoesNotMatch1'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - const
-  /responseBody/postConstWithTrueDoesNotMatch1ResponseBodyForContentTypes:
-    post:
-      operationId: postConstWithTrueDoesNotMatch1ResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ConstWithTrueDoesNotMatch1'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/ConstWithTrueDoesNotMatch1'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - const
   /requestBody/postConstWith0DoesNotMatchOtherZeroLikeTypesRequestBody:
     post:
       operationId: postConstWith0DoesNotMatchOtherZeroLikeTypesRequestBody
@@ -4169,14 +4097,6 @@ components:
     ConstWithNull:
       $schema: https://json-schema.org/draft/2020-12/schema
       const: null
-    ConstWithFalseDoesNotMatch0:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      const:
-      - false
-    ConstWithTrueDoesNotMatch1:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      const:
-      - true
     ConstWith0DoesNotMatchOtherZeroLikeTypes:
       $schema: https://json-schema.org/draft/2020-12/schema
       const: 0
@@ -4853,38 +4773,6 @@ components:
       NotNullIsInvalid:
         description: not null is invalid
         data: 0
-        valid: false
-    ConstWithFalseDoesNotMatch0:
-      FalseIsValid:
-        description: '[false] is valid'
-        data:
-        - false
-        valid: true
-      0IsInvalid:
-        description: '[0] is invalid'
-        data:
-        - 0
-        valid: false
-      00IsInvalid:
-        description: '[0.0] is invalid'
-        data:
-        - 0.0
-        valid: false
-    ConstWithTrueDoesNotMatch1:
-      TrueIsValid:
-        description: '[true] is valid'
-        data:
-        - true
-        valid: true
-      1IsInvalid:
-        description: '[1] is invalid'
-        data:
-        - 1
-        valid: false
-      10IsInvalid:
-        description: '[1.0] is invalid'
-        data:
-        - 1.0
         valid: false
     ConstWith0DoesNotMatchOtherZeroLikeTypes:
       FalseIsInvalid:

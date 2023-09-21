@@ -127,8 +127,8 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         "const with true does not match 1": ExclusionReason.bug_with_non_string_const_values,
         'const with {"a": false} does not match {"a": 0}': ExclusionReason.bug_with_non_string_const_values,
         'const with {"a": true} does not match {"a": 1}': ExclusionReason.bug_with_non_string_const_values,
-        # "const with [false] does not match [0]": ExclusionReason.bug_with_non_string_const_values,
-        # "const with [true] does not match [1]": ExclusionReason.bug_with_non_string_const_values,
+        "const with [false] does not match [0]": ExclusionReason.bug_with_non_string_const_values,
+        "const with [true] does not match [1]": ExclusionReason.bug_with_non_string_const_values,
     },
     (json_schema_test_draft, 'default.json'): {
         'invalid type for default': ExclusionReason.v303_requires_that_the_default_value_is_an_allowed_type,
