@@ -5,6 +5,7 @@ from unit_test_api.apis.tags.maximum_api import MaximumApi
 from unit_test_api.apis.tags.pattern_api import PatternApi
 from unit_test_api.apis.tags.additional_properties_api import AdditionalPropertiesApi
 from unit_test_api.apis.tags.response_content_content_type_schema_api import ResponseContentContentTypeSchemaApi
+from unit_test_api.apis.tags.dependent_required_api import DependentRequiredApi
 from unit_test_api.apis.tags.min_items_api import MinItemsApi
 from unit_test_api.apis.tags.min_length_api import MinLengthApi
 from unit_test_api.apis.tags.required_api import RequiredApi
@@ -38,6 +39,7 @@ TagToApi = typing.TypedDict(
         "pattern": typing.Type[PatternApi],
         "additionalProperties": typing.Type[AdditionalPropertiesApi],
         "response.content.contentType.schema": typing.Type[ResponseContentContentTypeSchemaApi],
+        "dependentRequired": typing.Type[DependentRequiredApi],
         "minItems": typing.Type[MinItemsApi],
         "minLength": typing.Type[MinLengthApi],
         "required": typing.Type[RequiredApi],
@@ -72,6 +74,7 @@ tag_to_api = TagToApi(
         "pattern": PatternApi,
         "additionalProperties": AdditionalPropertiesApi,
         "response.content.contentType.schema": ResponseContentContentTypeSchemaApi,
+        "dependentRequired": DependentRequiredApi,
         "minItems": MinItemsApi,
         "minLength": MinLengthApi,
         "required": RequiredApi,

@@ -16,6 +16,7 @@ tags:
 - name: anyOf
 - name: const
 - name: contains
+- name: dependentRequired
 - name: enum
 - name: format
 - name: items
@@ -865,6 +866,150 @@ paths:
       - path.post
       - contentType_json
       - contains
+  /requestBody/postSingleDependencyRequestBody:
+    post:
+      operationId: postSingleDependencyRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SingleDependency'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/SingleDependency'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - dependentRequired
+  /responseBody/postSingleDependencyResponseBodyForContentTypes:
+    post:
+      operationId: postSingleDependencyResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SingleDependency'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/SingleDependency'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - dependentRequired
+  /requestBody/postEmptyDependentsRequestBody:
+    post:
+      operationId: postEmptyDependentsRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmptyDependents'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/EmptyDependents'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - dependentRequired
+  /responseBody/postEmptyDependentsResponseBodyForContentTypes:
+    post:
+      operationId: postEmptyDependentsResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyDependents'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/EmptyDependents'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - dependentRequired
+  /requestBody/postMultipleDependentsRequiredRequestBody:
+    post:
+      operationId: postMultipleDependentsRequiredRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MultipleDependentsRequired'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MultipleDependentsRequired'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - dependentRequired
+  /responseBody/postMultipleDependentsRequiredResponseBodyForContentTypes:
+    post:
+      operationId: postMultipleDependentsRequiredResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MultipleDependentsRequired'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MultipleDependentsRequired'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - dependentRequired
+  /requestBody/postDependenciesWithEscapedCharactersRequestBody:
+    post:
+      operationId: postDependenciesWithEscapedCharactersRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DependenciesWithEscapedCharacters'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/DependenciesWithEscapedCharacters'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - dependentRequired
+  /responseBody/postDependenciesWithEscapedCharactersResponseBodyForContentTypes:
+    post:
+      operationId: postDependenciesWithEscapedCharactersResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DependenciesWithEscapedCharacters'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/DependenciesWithEscapedCharacters'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - dependentRequired
   /requestBody/postSimpleEnumValidationRequestBody:
     post:
       operationId: postSimpleEnumValidationRequestBody
@@ -4001,6 +4146,30 @@ components:
       $schema: https://json-schema.org/draft/2020-12/schema
       contains:
         type: 'null'
+    SingleDependency:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      dependentRequired:
+        bar:
+        - foo
+    EmptyDependents:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      dependentRequired:
+        bar: []
+    MultipleDependentsRequired:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      dependentRequired:
+        quux:
+        - foo
+        - bar
+    DependenciesWithEscapedCharacters:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      dependentRequired:
+        ? 'foo
+
+          bar'
+        : - "foo\rbar"
+        foo"bar:
+        - foo'bar
     SimpleEnumValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       enum:
@@ -4721,6 +4890,119 @@ components:
         data:
         - null
         valid: true
+    SingleDependency:
+      Neither:
+        description: neither
+        data: {}
+        valid: true
+      Nondependant:
+        description: nondependant
+        data:
+          foo: 1
+        valid: true
+      WithDependency:
+        description: with dependency
+        data:
+          foo: 1
+          bar: 2
+        valid: true
+      MissingDependency:
+        description: missing dependency
+        data:
+          bar: 2
+        valid: false
+      IgnoresArrays:
+        description: ignores arrays
+        data:
+        - bar
+        valid: true
+      IgnoresStrings:
+        description: ignores strings
+        data: foobar
+        valid: true
+      IgnoresOtherNonObjects:
+        description: ignores other non-objects
+        data: 12
+        valid: true
+    EmptyDependents:
+      EmptyObject:
+        description: empty object
+        data: {}
+        valid: true
+      ObjectWithOneProperty:
+        description: object with one property
+        data:
+          bar: 2
+        valid: true
+      NonObjectIsValid:
+        description: non-object is valid
+        data: 1
+        valid: true
+    MultipleDependentsRequired:
+      Neither:
+        description: neither
+        data: {}
+        valid: true
+      Nondependants:
+        description: nondependants
+        data:
+          foo: 1
+          bar: 2
+        valid: true
+      WithDependencies:
+        description: with dependencies
+        data:
+          foo: 1
+          bar: 2
+          quux: 3
+        valid: true
+      MissingDependency:
+        description: missing dependency
+        data:
+          foo: 1
+          quux: 2
+        valid: false
+      MissingOtherDependency:
+        description: missing other dependency
+        data:
+          bar: 1
+          quux: 2
+        valid: false
+      MissingBothDependencies:
+        description: missing both dependencies
+        data:
+          quux: 1
+        valid: false
+    DependenciesWithEscapedCharacters:
+      Crlf:
+        description: CRLF
+        data:
+          ? 'foo
+
+            bar'
+          : 1
+          "foo\rbar": 2
+        valid: true
+      QuotedQuotes:
+        description: quoted quotes
+        data:
+          foo'bar: 1
+          foo"bar: 2
+        valid: true
+      CrlfMissingDependent:
+        description: CRLF missing dependent
+        data:
+          ? 'foo
+
+            bar'
+          : 1
+          foo: 2
+        valid: false
+      QuotedQuotesMissingDependent:
+        description: quoted quotes missing dependent
+        data:
+          foo"bar: 2
+        valid: false
     SimpleEnumValidation:
       OneOfTheEnumIsValid:
         description: one of the enum is valid
