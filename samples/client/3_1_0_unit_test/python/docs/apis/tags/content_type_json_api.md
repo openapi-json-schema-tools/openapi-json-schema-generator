@@ -63,8 +63,6 @@ Method | Description
 [**post_date_format_response_body_for_content_types**](../../paths/response_body_post_date_format_response_body_for_content_types/post.md) | 
 [**post_date_time_format_request_body**](../../paths/request_body_post_date_time_format_request_body/post.md) | 
 [**post_date_time_format_response_body_for_content_types**](../../paths/response_body_post_date_time_format_response_body_for_content_types/post.md) | 
-[**post_dependencies_with_escaped_characters_request_body**](../../paths/request_body_post_dependencies_with_escaped_characters_request_body/post.md) | 
-[**post_dependencies_with_escaped_characters_response_body_for_content_types**](../../paths/response_body_post_dependencies_with_escaped_characters_response_body_for_content_types/post.md) | 
 [**post_duration_format_request_body**](../../paths/request_body_post_duration_format_request_body/post.md) | 
 [**post_duration_format_response_body_for_content_types**](../../paths/response_body_post_duration_format_response_body_for_content_types/post.md) | 
 [**post_email_format_request_body**](../../paths/request_body_post_email_format_request_body/post.md) | 

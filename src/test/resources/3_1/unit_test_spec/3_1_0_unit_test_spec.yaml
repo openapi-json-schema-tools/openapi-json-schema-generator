@@ -974,42 +974,6 @@ paths:
       - path.post
       - contentType_json
       - dependentRequired
-  /requestBody/postDependenciesWithEscapedCharactersRequestBody:
-    post:
-      operationId: postDependenciesWithEscapedCharactersRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DependenciesWithEscapedCharacters'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/DependenciesWithEscapedCharacters'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - dependentRequired
-  /responseBody/postDependenciesWithEscapedCharactersResponseBodyForContentTypes:
-    post:
-      operationId: postDependenciesWithEscapedCharactersResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DependenciesWithEscapedCharacters'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/DependenciesWithEscapedCharacters'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - dependentRequired
   /requestBody/postSimpleEnumValidationRequestBody:
     post:
       operationId: postSimpleEnumValidationRequestBody
@@ -4161,15 +4125,6 @@ components:
         quux:
         - foo
         - bar
-    DependenciesWithEscapedCharacters:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      dependentRequired:
-        ? 'foo
-
-          bar'
-        : - "foo\rbar"
-        foo"bar:
-        - foo'bar
     SimpleEnumValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       enum:
@@ -4972,36 +4927,6 @@ components:
         description: missing both dependencies
         data:
           quux: 1
-        valid: false
-    DependenciesWithEscapedCharacters:
-      Crlf:
-        description: CRLF
-        data:
-          ? 'foo
-
-            bar'
-          : 1
-          "foo\rbar": 2
-        valid: true
-      QuotedQuotes:
-        description: quoted quotes
-        data:
-          foo'bar: 1
-          foo"bar: 2
-        valid: true
-      CrlfMissingDependent:
-        description: CRLF missing dependent
-        data:
-          ? 'foo
-
-            bar'
-          : 1
-          foo: 2
-        valid: false
-      QuotedQuotesMissingDependent:
-        description: quoted quotes missing dependent
-        data:
-          foo"bar: 2
         valid: false
     SimpleEnumValidation:
       OneOfTheEnumIsValid:

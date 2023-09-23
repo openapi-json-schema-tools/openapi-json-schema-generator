@@ -104,6 +104,7 @@ class ExclusionReason:
     ref_not_resolved = 'ref not resolved, TODO resolve only remote refs'
     bug_max_items_missing = 'swagger-parser has a bug where maxItems is omitted: https://github.com/swagger-api/swagger-parser/issues/1974'
     bug_with_non_string_const_values = 'swagger-parser const bug: https://github.com/swagger-api/swagger-parser/issues/1975'
+    bug_dependent_required_values_incorrect = 'swagger parser bug where dependentRequired values are incorrect https://github.com/swagger-api/swagger-parser/issues/1978'
 
 json_schema_test_draft = 'draft2020-12'
 path_to_json_schema_drafts = ('..', '..', 'JSON-Schema-Test-Suite', 'tests')
@@ -144,6 +145,9 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
     },
     (json_schema_test_draft, 'default.json'): {
         'invalid type for default': ExclusionReason.v303_requires_that_the_default_value_is_an_allowed_type,
+    },
+    (json_schema_test_draft, 'dependentRequired.json'): {
+        "dependencies with escaped characters": ExclusionReason.bug_dependent_required_values_incorrect,
     },
     (json_schema_test_draft, 'enum.json'): {
         'heterogeneous enum validation': ExclusionReason.swagger_parser_enum_type_bug,

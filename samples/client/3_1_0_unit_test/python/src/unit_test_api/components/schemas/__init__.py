@@ -38,7 +38,6 @@ from unit_test_api.components.schema.contains_keyword_validation import Contains
 from unit_test_api.components.schema.contains_with_null_instance_elements import ContainsWithNullInstanceElements
 from unit_test_api.components.schema.date_format import DateFormat
 from unit_test_api.components.schema.date_time_format import DateTimeFormat
-from unit_test_api.components.schema.dependencies_with_escaped_characters import DependenciesWithEscapedCharacters
 from unit_test_api.components.schema.duration_format import DurationFormat
 from unit_test_api.components.schema.email_format import EmailFormat
 from unit_test_api.components.schema.empty_dependents import EmptyDependents
