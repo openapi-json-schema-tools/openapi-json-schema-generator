@@ -17,6 +17,7 @@ tags:
 - name: const
 - name: contains
 - name: dependentRequired
+- name: dependentSchemas
 - name: enum
 - name: format
 - name: items
@@ -974,6 +975,114 @@ paths:
       - path.post
       - contentType_json
       - dependentRequired
+  /requestBody/postDependentSchemasSingleDependencyRequestBody:
+    post:
+      operationId: postDependentSchemasSingleDependencyRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DependentSchemasSingleDependency'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/DependentSchemasSingleDependency'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - dependentSchemas
+  /responseBody/postDependentSchemasSingleDependencyResponseBodyForContentTypes:
+    post:
+      operationId: postDependentSchemasSingleDependencyResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DependentSchemasSingleDependency'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/DependentSchemasSingleDependency'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - dependentSchemas
+  /requestBody/postDependentSchemasDependenciesWithEscapedCharactersRequestBody:
+    post:
+      operationId: postDependentSchemasDependenciesWithEscapedCharactersRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DependentSchemasDependenciesWithEscapedCharacters'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/DependentSchemasDependenciesWithEscapedCharacters'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - dependentSchemas
+  /responseBody/postDependentSchemasDependenciesWithEscapedCharactersResponseBodyForContentTypes:
+    post:
+      operationId: postDependentSchemasDependenciesWithEscapedCharactersResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DependentSchemasDependenciesWithEscapedCharacters'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/DependentSchemasDependenciesWithEscapedCharacters'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - dependentSchemas
+  /requestBody/postDependentSchemasDependentSubschemaIncompatibleWithRootRequestBody:
+    post:
+      operationId: postDependentSchemasDependentSubschemaIncompatibleWithRootRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DependentSchemasDependentSubschemaIncompatibleWithRoot'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/DependentSchemasDependentSubschemaIncompatibleWithRoot'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - dependentSchemas
+  /responseBody/postDependentSchemasDependentSubschemaIncompatibleWithRootResponseBodyForContentTypes:
+    post:
+      operationId: postDependentSchemasDependentSubschemaIncompatibleWithRootResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DependentSchemasDependentSubschemaIncompatibleWithRoot'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/DependentSchemasDependentSubschemaIncompatibleWithRoot'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - dependentSchemas
   /requestBody/postSimpleEnumValidationRequestBody:
     post:
       operationId: postSimpleEnumValidationRequestBody
@@ -4125,6 +4234,31 @@ components:
         quux:
         - foo
         - bar
+    DependentSchemasSingleDependency:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      dependentSchemas:
+        bar:
+          properties:
+            foo:
+              type: integer
+            bar:
+              type: integer
+    DependentSchemasDependenciesWithEscapedCharacters:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      dependentSchemas:
+        "foo\tbar":
+          minProperties: 4
+        foo'bar:
+          required:
+          - foo"bar
+    DependentSchemasDependentSubschemaIncompatibleWithRoot:
+      properties:
+        foo: {}
+      dependentSchemas:
+        foo:
+          properties:
+            bar: {}
+          additionalProperties: false
     SimpleEnumValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       enum:
@@ -4928,6 +5062,97 @@ components:
         data:
           quux: 1
         valid: false
+    DependentSchemasSingleDependency:
+      Valid:
+        description: valid
+        data:
+          foo: 1
+          bar: 2
+        valid: true
+      NoDependency:
+        description: no dependency
+        data:
+          foo: quux
+        valid: true
+      WrongType:
+        description: wrong type
+        data:
+          foo: quux
+          bar: 2
+        valid: false
+      WrongTypeOther:
+        description: wrong type other
+        data:
+          foo: 2
+          bar: quux
+        valid: false
+      WrongTypeBoth:
+        description: wrong type both
+        data:
+          foo: quux
+          bar: quux
+        valid: false
+      IgnoresArrays:
+        description: ignores arrays
+        data:
+        - bar
+        valid: true
+      IgnoresStrings:
+        description: ignores strings
+        data: foobar
+        valid: true
+      IgnoresOtherNonObjects:
+        description: ignores other non-objects
+        data: 12
+        valid: true
+    DependentSchemasDependenciesWithEscapedCharacters:
+      QuotedTab:
+        description: quoted tab
+        data:
+          "foo\tbar": 1
+          a: 2
+          b: 3
+          c: 4
+        valid: true
+      QuotedQuote:
+        description: quoted quote
+        data:
+          foo'bar:
+            foo"bar: 1
+        valid: false
+      QuotedTabInvalidUnderDependentSchema:
+        description: quoted tab invalid under dependent schema
+        data:
+          "foo\tbar": 1
+          a: 2
+        valid: false
+      QuotedQuoteInvalidUnderDependentSchema:
+        description: quoted quote invalid under dependent schema
+        data:
+          foo'bar: 1
+        valid: false
+    DependentSchemasDependentSubschemaIncompatibleWithRoot:
+      MatchesRoot:
+        description: matches root
+        data:
+          foo: 1
+        valid: false
+      MatchesDependency:
+        description: matches dependency
+        data:
+          bar: 1
+        valid: true
+      MatchesBoth:
+        description: matches both
+        data:
+          foo: 1
+          bar: 2
+        valid: false
+      NoDependency:
+        description: no dependency
+        data:
+          baz: 1
+        valid: true
     SimpleEnumValidation:
       OneOfTheEnumIsValid:
         description: one of the enum is valid

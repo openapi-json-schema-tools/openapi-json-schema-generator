@@ -149,6 +149,9 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
     (json_schema_test_draft, 'dependentRequired.json'): {
         "dependencies with escaped characters": ExclusionReason.bug_dependent_required_values_incorrect,
     },
+    (json_schema_test_draft, 'dependentSchemas.json'): {
+        "boolean subschemas": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+    },
     (json_schema_test_draft, 'enum.json'): {
         'heterogeneous enum validation': ExclusionReason.swagger_parser_enum_type_bug,
         'heterogeneous enum-with-null validation': ExclusionReason.swagger_parser_enum_type_bug,
@@ -285,6 +288,7 @@ JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
 #     'default.json': (json_schema_test_draft,),
 #     'defs.json': (json_schema_test_draft,),
     'dependentRequired.json': (json_schema_test_draft,),
+    'dependentSchemas.json': (json_schema_test_draft,),
     'enum.json': (json_schema_test_draft,),
     'exclusiveMaximum.json': (json_schema_test_draft,),
     'exclusiveMinimum.json': (json_schema_test_draft,),
@@ -481,6 +485,9 @@ def get_component_schemas_and_test_examples(
             if json_schema_keyword == "const" and not component_name.lower().startswith("const"):
                 # prefix added to prevent collision with other components
                 component_name = "Const" + component_name
+            if json_schema_keyword == "dependentSchemas" and not component_name.lower().startswith("dependentschemas"):
+                # prefix added to prevent collision with other components
+                component_name = "DependentSchemas" + component_name
             if isinstance(test_schema.schema, bool):
                 component_schemas[component_name] = test_schema.schema
             else:
@@ -574,7 +581,7 @@ def write_openapi_spec():
             openapi.tags.append(json_schema_tag)
         for component_name, schema in component_schemas.items():
             if component_name in openapi.components['schemas']:
-                raise ValueError('A component schema with that name is already defined!')
+                raise ValueError(f'A component schema with name={component_name} is already defined!')
             openapi.components['schemas'][component_name] = schema
         for component_name, test_examples in component_name_to_test_examples.items():
             if component_name in openapi.components['x-schema-test-examples']:

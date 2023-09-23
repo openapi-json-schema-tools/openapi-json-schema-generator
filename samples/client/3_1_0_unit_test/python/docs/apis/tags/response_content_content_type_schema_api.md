@@ -36,6 +36,9 @@ Method | Description
 [**post_contains_with_null_instance_elements_response_body_for_content_types**](../../paths/response_body_post_contains_with_null_instance_elements_response_body_for_content_types/post.md) | 
 [**post_date_format_response_body_for_content_types**](../../paths/response_body_post_date_format_response_body_for_content_types/post.md) | 
 [**post_date_time_format_response_body_for_content_types**](../../paths/response_body_post_date_time_format_response_body_for_content_types/post.md) | 
+[**post_dependent_schemas_dependencies_with_escaped_characters_response_body_for_content_types**](../../paths/response_body_post_dependent_schemas_dependencies_with_escaped_characters_response_body_for_content_types/post.md) | 
+[**post_dependent_schemas_dependent_subschema_incompatible_with_root_response_body_for_content_types**](../../paths/response_body_post_dependent_schemas_dependent_subschema_incompatible_with_root_response_body_for_content_types/post.md) | 
+[**post_dependent_schemas_single_dependency_response_body_for_content_types**](../../paths/response_body_post_dependent_schemas_single_dependency_response_body_for_content_types/post.md) | 
 [**post_duration_format_response_body_for_content_types**](../../paths/response_body_post_duration_format_response_body_for_content_types/post.md) | 
 [**post_email_format_response_body_for_content_types**](../../paths/response_body_post_email_format_response_body_for_content_types/post.md) | 
 [**post_empty_dependents_response_body_for_content_types**](../../paths/response_body_post_empty_dependents_response_body_for_content_types/post.md) | 

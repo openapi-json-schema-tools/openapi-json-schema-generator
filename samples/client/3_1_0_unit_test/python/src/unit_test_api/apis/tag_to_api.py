@@ -31,6 +31,7 @@ from unit_test_api.apis.tags.max_properties_api import MaxPropertiesApi
 from unit_test_api.apis.tags.const_api import ConstApi
 from unit_test_api.apis.tags.enum_api import EnumApi
 from unit_test_api.apis.tags.max_items_api import MaxItemsApi
+from unit_test_api.apis.tags.dependent_schemas_api import DependentSchemasApi
 
 TagToApi = typing.TypedDict(
     'TagToApi',
@@ -65,6 +66,7 @@ TagToApi = typing.TypedDict(
         "const": typing.Type[ConstApi],
         "enum": typing.Type[EnumApi],
         "maxItems": typing.Type[MaxItemsApi],
+        "dependentSchemas": typing.Type[DependentSchemasApi],
     }
 )
 
@@ -100,5 +102,6 @@ tag_to_api = TagToApi(
         "const": ConstApi,
         "enum": EnumApi,
         "maxItems": MaxItemsApi,
+        "dependentSchemas": DependentSchemasApi,
     }
 )
