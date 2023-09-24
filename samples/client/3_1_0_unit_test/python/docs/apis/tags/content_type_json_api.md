@@ -115,6 +115,8 @@ Method | Description
 [**post_items_with_null_instance_elements_response_body_for_content_types**](../../paths/response_body_post_items_with_null_instance_elements_response_body_for_content_types/post.md) | 
 [**post_json_pointer_format_request_body**](../../paths/request_body_post_json_pointer_format_request_body/post.md) | 
 [**post_json_pointer_format_response_body_for_content_types**](../../paths/response_body_post_json_pointer_format_response_body_for_content_types/post.md) | 
+[**post_maxcontains_without_contains_is_ignored_request_body**](../../paths/request_body_post_maxcontains_without_contains_is_ignored_request_body/post.md) | 
+[**post_maxcontains_without_contains_is_ignored_response_body_for_content_types**](../../paths/response_body_post_maxcontains_without_contains_is_ignored_response_body_for_content_types/post.md) | 
 [**post_maximum_validation_request_body**](../../paths/request_body_post_maximum_validation_request_body/post.md) | 
 [**post_maximum_validation_response_body_for_content_types**](../../paths/response_body_post_maximum_validation_response_body_for_content_types/post.md) | 
 [**post_maximum_validation_with_unsigned_integer_request_body**](../../paths/request_body_post_maximum_validation_with_unsigned_integer_request_body/post.md) | 

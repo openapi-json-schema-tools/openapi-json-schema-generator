@@ -105,6 +105,7 @@ class ExclusionReason:
     bug_max_items_missing = 'swagger-parser has a bug where maxItems is omitted: https://github.com/swagger-api/swagger-parser/issues/1974'
     bug_with_non_string_const_values = 'swagger-parser const bug: https://github.com/swagger-api/swagger-parser/issues/1975'
     bug_dependent_required_values_incorrect = 'swagger parser bug where dependentRequired values are incorrect https://github.com/swagger-api/swagger-parser/issues/1978'
+    bug_max_contains_lacks_float_value = 'swagger-parser bug where float values for maxContains are omitted https://github.com/swagger-api/swagger-parser/issues/1979'
 
 json_schema_test_draft = 'draft2020-12'
 path_to_json_schema_drafts = ('..', '..', 'JSON-Schema-Test-Suite', 'tests')
@@ -169,6 +170,11 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         'items with boolean schema (false)': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'a schema given for items': ExclusionReason.swagger_parser_items_type_bug,
         'prefixItems with no additional items allowed': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+    },
+    (json_schema_test_draft, 'maxContains.json'): {
+        "maxContains with contains, value with a decimal": ExclusionReason.bug_max_contains_lacks_float_value,
+        "maxContains with contains": ExclusionReason.bug_with_non_string_const_values,
+        "minContains < maxContains": ExclusionReason.bug_with_non_string_const_values,
     },
     (json_schema_test_draft, 'maxItems.json'): {
         'maxItems validation with a decimal': ExclusionReason.bug_max_items_missing,
@@ -296,6 +302,7 @@ JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
 #     'id.json': (json_schema_test_draft,),
 #     'infinite-loop-detection.json': (json_schema_test_draft,),  # activate after fixing this
     'items.json': (json_schema_test_draft,),
+    'maxContains.json': (json_schema_test_draft,),
     'maximum.json': (json_schema_test_draft,),
     'maxItems.json': (json_schema_test_draft,),
     'maxLength.json': (json_schema_test_draft,),

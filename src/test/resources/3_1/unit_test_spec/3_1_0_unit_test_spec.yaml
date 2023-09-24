@@ -21,6 +21,7 @@ tags:
 - name: enum
 - name: format
 - name: items
+- name: maxContains
 - name: maximum
 - name: maxItems
 - name: maxLength
@@ -2199,6 +2200,42 @@ paths:
       - path.post
       - contentType_json
       - items
+  /requestBody/postMaxcontainsWithoutContainsIsIgnoredRequestBody:
+    post:
+      operationId: postMaxcontainsWithoutContainsIsIgnoredRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaxcontainsWithoutContainsIsIgnored'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MaxcontainsWithoutContainsIsIgnored'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - maxContains
+  /responseBody/postMaxcontainsWithoutContainsIsIgnoredResponseBodyForContentTypes:
+    post:
+      operationId: postMaxcontainsWithoutContainsIsIgnoredResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaxcontainsWithoutContainsIsIgnored'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MaxcontainsWithoutContainsIsIgnored'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - maxContains
   /requestBody/postMaximumValidationRequestBody:
     post:
       operationId: postMaximumValidationRequestBody
@@ -4389,6 +4426,9 @@ components:
       $schema: https://json-schema.org/draft/2020-12/schema
       items:
         type: 'null'
+    MaxcontainsWithoutContainsIsIgnored:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      maxContains: 1
     MaximumValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       maximum: 3.0
@@ -5886,6 +5926,18 @@ components:
         description: allows null elements
         data:
         - null
+        valid: true
+    MaxcontainsWithoutContainsIsIgnored:
+      OneItemValidAgainstLoneMaxcontains:
+        description: one item valid against lone maxContains
+        data:
+        - 1
+        valid: true
+      TwoItemsStillValidAgainstLoneMaxcontains:
+        description: two items still valid against lone maxContains
+        data:
+        - 1
+        - 2
         valid: true
     MaximumValidation:
       BelowTheMaximumIsValid:

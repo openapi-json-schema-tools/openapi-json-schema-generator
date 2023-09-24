@@ -39,6 +39,7 @@ from unit_test_api.paths.request_body_post_items_does_not_look_in_applicators_va
 from unit_test_api.paths.request_body_post_multiple_types_can_be_specified_in_an_array_request_body.post.operation import PostMultipleTypesCanBeSpecifiedInAnArrayRequestBody
 from unit_test_api.paths.request_body_post_idn_hostname_format_request_body.post.operation import PostIdnHostnameFormatRequestBody
 from unit_test_api.paths.request_body_post_oneof_with_empty_schema_request_body.post.operation import PostOneofWithEmptySchemaRequestBody
+from unit_test_api.paths.request_body_post_maxcontains_without_contains_is_ignored_request_body.post.operation import PostMaxcontainsWithoutContainsIsIgnoredRequestBody
 from unit_test_api.paths.request_body_post_uri_format_request_body.post.operation import PostUriFormatRequestBody
 from unit_test_api.paths.request_body_post_allof_request_body.post.operation import PostAllofRequestBody
 from unit_test_api.paths.request_body_post_nested_items_request_body.post.operation import PostNestedItemsRequestBody
@@ -154,6 +155,7 @@ class OperationRequestBodyApi(
     PostMultipleTypesCanBeSpecifiedInAnArrayRequestBody,
     PostIdnHostnameFormatRequestBody,
     PostOneofWithEmptySchemaRequestBody,
+    PostMaxcontainsWithoutContainsIsIgnoredRequestBody,
     PostUriFormatRequestBody,
     PostAllofRequestBody,
     PostNestedItemsRequestBody,

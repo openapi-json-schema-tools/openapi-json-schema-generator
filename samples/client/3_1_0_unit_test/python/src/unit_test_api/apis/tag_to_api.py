@@ -17,6 +17,7 @@ from unit_test_api.apis.tags.unique_items_api import UniqueItemsApi
 from unit_test_api.apis.tags.operation_request_body_api import OperationRequestBodyApi
 from unit_test_api.apis.tags.contains_api import ContainsApi
 from unit_test_api.apis.tags.one_of_api import OneOfApi
+from unit_test_api.apis.tags.max_contains_api import MaxContainsApi
 from unit_test_api.apis.tags.ref_api import RefApi
 from unit_test_api.apis.tags.all_of_api import AllOfApi
 from unit_test_api.apis.tags.minimum_api import MinimumApi
@@ -52,6 +53,7 @@ TagToApi = typing.TypedDict(
         "operation.requestBody": typing.Type[OperationRequestBodyApi],
         "contains": typing.Type[ContainsApi],
         "oneOf": typing.Type[OneOfApi],
+        "maxContains": typing.Type[MaxContainsApi],
         "$ref": typing.Type[RefApi],
         "allOf": typing.Type[AllOfApi],
         "minimum": typing.Type[MinimumApi],
@@ -88,6 +90,7 @@ tag_to_api = TagToApi(
         "operation.requestBody": OperationRequestBodyApi,
         "contains": ContainsApi,
         "oneOf": OneOfApi,
+        "maxContains": MaxContainsApi,
         "$ref": RefApi,
         "allOf": AllOfApi,
         "minimum": MinimumApi,
