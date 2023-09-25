@@ -35,12 +35,85 @@ tags:
 - name: not
 - name: oneOf
 - name: pattern
+- name: patternProperties
 - name: properties
 - name: $ref
 - name: required
 - name: type
 - name: uniqueItems
 paths:
+  /requestBody/postAdditionalpropertiesBeingFalseDoesNotAllowOtherPropertiesRequestBody:
+    post:
+      operationId: postAdditionalpropertiesBeingFalseDoesNotAllowOtherPropertiesRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdditionalpropertiesBeingFalseDoesNotAllowOtherProperties'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/AdditionalpropertiesBeingFalseDoesNotAllowOtherProperties'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - additionalProperties
+  /responseBody/postAdditionalpropertiesBeingFalseDoesNotAllowOtherPropertiesResponseBodyForContentTypes:
+    post:
+      operationId: postAdditionalpropertiesBeingFalseDoesNotAllowOtherPropertiesResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdditionalpropertiesBeingFalseDoesNotAllowOtherProperties'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/AdditionalpropertiesBeingFalseDoesNotAllowOtherProperties'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - additionalProperties
+  /requestBody/postNonAsciiPatternWithAdditionalpropertiesRequestBody:
+    post:
+      operationId: postNonAsciiPatternWithAdditionalpropertiesRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NonAsciiPatternWithAdditionalproperties'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/NonAsciiPatternWithAdditionalproperties'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - additionalProperties
+  /responseBody/postNonAsciiPatternWithAdditionalpropertiesResponseBodyForContentTypes:
+    post:
+      operationId: postNonAsciiPatternWithAdditionalpropertiesResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NonAsciiPatternWithAdditionalproperties'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/NonAsciiPatternWithAdditionalproperties'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - additionalProperties
   /requestBody/postAdditionalpropertiesWithSchemaRequestBody:
     post:
       operationId: postAdditionalpropertiesWithSchemaRequestBody
@@ -3245,6 +3318,150 @@ paths:
       - path.post
       - contentType_json
       - pattern
+  /requestBody/postPatternpropertiesValidatesPropertiesMatchingARegexRequestBody:
+    post:
+      operationId: postPatternpropertiesValidatesPropertiesMatchingARegexRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatternpropertiesValidatesPropertiesMatchingARegex'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/PatternpropertiesValidatesPropertiesMatchingARegex'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - patternProperties
+  /responseBody/postPatternpropertiesValidatesPropertiesMatchingARegexResponseBodyForContentTypes:
+    post:
+      operationId: postPatternpropertiesValidatesPropertiesMatchingARegexResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatternpropertiesValidatesPropertiesMatchingARegex'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/PatternpropertiesValidatesPropertiesMatchingARegex'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - patternProperties
+  /requestBody/postMultipleSimultaneousPatternpropertiesAreValidatedRequestBody:
+    post:
+      operationId: postMultipleSimultaneousPatternpropertiesAreValidatedRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MultipleSimultaneousPatternpropertiesAreValidated'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MultipleSimultaneousPatternpropertiesAreValidated'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - patternProperties
+  /responseBody/postMultipleSimultaneousPatternpropertiesAreValidatedResponseBodyForContentTypes:
+    post:
+      operationId: postMultipleSimultaneousPatternpropertiesAreValidatedResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MultipleSimultaneousPatternpropertiesAreValidated'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MultipleSimultaneousPatternpropertiesAreValidated'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - patternProperties
+  /requestBody/postRegexesAreNotAnchoredByDefaultAndAreCaseSensitiveRequestBody:
+    post:
+      operationId: postRegexesAreNotAnchoredByDefaultAndAreCaseSensitiveRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegexesAreNotAnchoredByDefaultAndAreCaseSensitive'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/RegexesAreNotAnchoredByDefaultAndAreCaseSensitive'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - patternProperties
+  /responseBody/postRegexesAreNotAnchoredByDefaultAndAreCaseSensitiveResponseBodyForContentTypes:
+    post:
+      operationId: postRegexesAreNotAnchoredByDefaultAndAreCaseSensitiveResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegexesAreNotAnchoredByDefaultAndAreCaseSensitive'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/RegexesAreNotAnchoredByDefaultAndAreCaseSensitive'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - patternProperties
+  /requestBody/postPatternpropertiesWithNullValuedInstancePropertiesRequestBody:
+    post:
+      operationId: postPatternpropertiesWithNullValuedInstancePropertiesRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatternpropertiesWithNullValuedInstanceProperties'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/PatternpropertiesWithNullValuedInstanceProperties'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - patternProperties
+  /responseBody/postPatternpropertiesWithNullValuedInstancePropertiesResponseBodyForContentTypes:
+    post:
+      operationId: postPatternpropertiesWithNullValuedInstancePropertiesResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatternpropertiesWithNullValuedInstanceProperties'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/PatternpropertiesWithNullValuedInstanceProperties'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - patternProperties
   /requestBody/postObjectPropertiesValidationRequestBody:
     post:
       operationId: postObjectPropertiesValidationRequestBody
@@ -3276,6 +3493,42 @@ paths:
                 $ref: '#/components/schemas/ObjectPropertiesValidation'
               x-schema-test-examples:
                 $ref: '#/components/x-schema-test-examples/ObjectPropertiesValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - properties
+  /requestBody/postPropertiesPatternpropertiesAdditionalpropertiesInteractionRequestBody:
+    post:
+      operationId: postPropertiesPatternpropertiesAdditionalpropertiesInteractionRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertiesPatternpropertiesAdditionalpropertiesInteraction'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/PropertiesPatternpropertiesAdditionalpropertiesInteraction'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - properties
+  /responseBody/postPropertiesPatternpropertiesAdditionalpropertiesInteractionResponseBodyForContentTypes:
+    post:
+      operationId: postPropertiesPatternpropertiesAdditionalpropertiesInteractionResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertiesPatternpropertiesAdditionalpropertiesInteraction'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/PropertiesPatternpropertiesAdditionalpropertiesInteraction'
       tags:
       - response.content.contentType.schema
       - path.post
@@ -4147,6 +4400,19 @@ paths:
       - uniqueItems
 components:
   schemas:
+    AdditionalpropertiesBeingFalseDoesNotAllowOtherProperties:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      properties:
+        foo: {}
+        bar: {}
+      patternProperties:
+        ^v: {}
+      additionalProperties: false
+    NonAsciiPatternWithAdditionalproperties:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      patternProperties:
+        "^\xE1": {}
+      additionalProperties: false
     AdditionalpropertiesWithSchema:
       $schema: https://json-schema.org/draft/2020-12/schema
       properties:
@@ -4585,6 +4851,30 @@ components:
     PatternIsNotAnchored:
       $schema: https://json-schema.org/draft/2020-12/schema
       pattern: a+
+    PatternpropertiesValidatesPropertiesMatchingARegex:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      patternProperties:
+        f.*o:
+          type: integer
+    MultipleSimultaneousPatternpropertiesAreValidated:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      patternProperties:
+        a*:
+          type: integer
+        aaa*:
+          maximum: 20
+    RegexesAreNotAnchoredByDefaultAndAreCaseSensitive:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      patternProperties:
+        '[0-9]{2,}':
+          type: boolean
+        X_:
+          type: string
+    PatternpropertiesWithNullValuedInstanceProperties:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      patternProperties:
+        ^.*bar$:
+          type: 'null'
     ObjectPropertiesValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       properties:
@@ -4592,6 +4882,19 @@ components:
           type: integer
         bar:
           type: string
+    PropertiesPatternpropertiesAdditionalpropertiesInteraction:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      properties:
+        foo:
+          type: array
+          maxItems: 3
+        bar:
+          type: array
+      patternProperties:
+        f.o:
+          minItems: 2
+      additionalProperties:
+        type: integer
     PropertiesWithEscapedCharacters:
       $schema: https://json-schema.org/draft/2020-12/schema
       properties:
@@ -4723,6 +5026,51 @@ components:
       - type: boolean
       uniqueItems: false
   x-schema-test-examples:
+    AdditionalpropertiesBeingFalseDoesNotAllowOtherProperties:
+      NoAdditionalPropertiesIsValid:
+        description: no additional properties is valid
+        data:
+          foo: 1
+        valid: true
+      AnAdditionalPropertyIsInvalid:
+        description: an additional property is invalid
+        data:
+          foo: 1
+          bar: 2
+          quux: boom
+        valid: false
+      IgnoresArrays:
+        description: ignores arrays
+        data:
+        - 1
+        - 2
+        - 3
+        valid: true
+      IgnoresStrings:
+        description: ignores strings
+        data: foobarbaz
+        valid: true
+      IgnoresOtherNonObjects:
+        description: ignores other non-objects
+        data: 12
+        valid: true
+      PatternpropertiesAreNotAdditionalProperties:
+        description: patternProperties are not additional properties
+        data:
+          foo: 1
+          vroom: 2
+        valid: true
+    NonAsciiPatternWithAdditionalproperties:
+      MatchingThePatternIsValid:
+        description: matching the pattern is valid
+        data:
+          "\xE1rm\xE1nyos": 2
+        valid: true
+      NotMatchingThePatternIsInvalid:
+        description: not matching the pattern is invalid
+        data:
+          "\xE9lm\xE9ny": 2
+        valid: false
     AdditionalpropertiesWithSchema:
       NoAdditionalPropertiesIsValid:
         description: no additional properties is valid
@@ -6443,6 +6791,103 @@ components:
         description: matches a substring
         data: xxaayy
         valid: true
+    PatternpropertiesValidatesPropertiesMatchingARegex:
+      ASingleValidMatchIsValid:
+        description: a single valid match is valid
+        data:
+          foo: 1
+        valid: true
+      MultipleValidMatchesIsValid:
+        description: multiple valid matches is valid
+        data:
+          foo: 1
+          foooooo: 2
+        valid: true
+      ASingleInvalidMatchIsInvalid:
+        description: a single invalid match is invalid
+        data:
+          foo: bar
+          fooooo: 2
+        valid: false
+      MultipleInvalidMatchesIsInvalid:
+        description: multiple invalid matches is invalid
+        data:
+          foo: bar
+          foooooo: baz
+        valid: false
+      IgnoresArrays:
+        description: ignores arrays
+        data:
+        - foo
+        valid: true
+      IgnoresStrings:
+        description: ignores strings
+        data: foo
+        valid: true
+      IgnoresOtherNonObjects:
+        description: ignores other non-objects
+        data: 12
+        valid: true
+    MultipleSimultaneousPatternpropertiesAreValidated:
+      ASingleValidMatchIsValid:
+        description: a single valid match is valid
+        data:
+          a: 21
+        valid: true
+      ASimultaneousMatchIsValid:
+        description: a simultaneous match is valid
+        data:
+          aaaa: 18
+        valid: true
+      MultipleMatchesIsValid:
+        description: multiple matches is valid
+        data:
+          a: 21
+          aaaa: 18
+        valid: true
+      AnInvalidDueToOneIsInvalid:
+        description: an invalid due to one is invalid
+        data:
+          a: bar
+        valid: false
+      AnInvalidDueToTheOtherIsInvalid:
+        description: an invalid due to the other is invalid
+        data:
+          aaaa: 31
+        valid: false
+      AnInvalidDueToBothIsInvalid:
+        description: an invalid due to both is invalid
+        data:
+          aaa: foo
+          aaaa: 31
+        valid: false
+    RegexesAreNotAnchoredByDefaultAndAreCaseSensitive:
+      NonRecognizedMembersAreIgnored:
+        description: non recognized members are ignored
+        data:
+          answer 1: '42'
+        valid: true
+      RecognizedMembersAreAccountedFor:
+        description: recognized members are accounted for
+        data:
+          a31b: null
+        valid: false
+      RegexesAreCaseSensitive:
+        description: regexes are case sensitive
+        data:
+          a_x_3: 3
+        valid: true
+      RegexesAreCaseSensitive2:
+        description: regexes are case sensitive, 2
+        data:
+          a_X_3: 3
+        valid: false
+    PatternpropertiesWithNullValuedInstanceProperties:
+      AllowsNullValues:
+        description: allows null values
+        data:
+          foobar: null
+        valid: true
     ObjectPropertiesValidation:
       BothPropertiesPresentAndValidIsValid:
         description: both properties present and valid is valid
@@ -6475,6 +6920,55 @@ components:
         description: ignores other non-objects
         data: 12
         valid: true
+    PropertiesPatternpropertiesAdditionalpropertiesInteraction:
+      PropertyValidatesProperty:
+        description: property validates property
+        data:
+          foo:
+          - 1
+          - 2
+        valid: true
+      PropertyInvalidatesProperty:
+        description: property invalidates property
+        data:
+          foo:
+          - 1
+          - 2
+          - 3
+          - 4
+        valid: false
+      PatternpropertyInvalidatesProperty:
+        description: patternProperty invalidates property
+        data:
+          foo: []
+        valid: false
+      PatternpropertyValidatesNonproperty:
+        description: patternProperty validates nonproperty
+        data:
+          fxo:
+          - 1
+          - 2
+        valid: true
+      PatternpropertyInvalidatesNonproperty:
+        description: patternProperty invalidates nonproperty
+        data:
+          fxo: []
+        valid: false
+      AdditionalpropertyIgnoresProperty:
+        description: additionalProperty ignores property
+        data:
+          bar: []
+        valid: true
+      AdditionalpropertyValidatesOthers:
+        description: additionalProperty validates others
+        data:
+          quux: 3
+        valid: true
+      AdditionalpropertyInvalidatesOthers:
+        description: additionalProperty invalidates others
+        data:
+          quux: foo
+        valid: false
     PropertiesWithEscapedCharacters:
       ObjectWithAllNumbersIsValid:
         description: object with all numbers is valid

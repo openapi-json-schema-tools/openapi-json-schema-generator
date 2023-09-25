@@ -82,7 +82,6 @@ class ExclusionReason:
     v303_does_not_support_array_of_types = 'v3.0.3 does not support type with array of values'
     v303_requires_array_have_items = 'v3.0.3 requires that items MUST be present if the type is array'
     v303_does_not_support_additionalItems = 'v3.0.3 does not support the additionalItems keyword'
-    v303_does_not_support_patternProperties = 'v3.0.3 does not support the patternProperties keyword'
     bug_does_not_support_boolean_schemas_in_location = 'v3.1.0 does not support boolean schemas in location, https://github.com/swagger-api/swagger-parser/issues/1770'
     v303_does_not_support_contains = 'v3.0.3 does not support the contains keyword'
     bug_does_not_support_definitions = 'swagger-parser does not support the $defs keyword, https://github.com/swagger-api/swagger-parser/issues/1970'
@@ -91,7 +90,6 @@ class ExclusionReason:
     swagger_parser_validation_missing_bug = 'swagger-parser has a bug where validations are unset, https://github.com/swagger-api/swagger-parser/issues/1762'
     swagger_parser_items_type_bug = "swagger-parser has a bug where schema type is incorrectly set with items, https://github.com/swagger-api/swagger-parser/issues/1763"
     v303_does_not_support_id = 'v3.0.3 does not support the $id keyword'
-    v303_does_not_support_patternProperties = 'v3.0.3 does not support the patternProperties keyword'
     v303_does_not_support_propertyNames = 'v3.0.3 does not support the propertyNames keyword'
     v303_does_not_support_items_schema_array = 'v3.0.3 does not support an array of schemas for items'
     swagger_parser_exception = 'swagger-parser threw and exception for this test case'
@@ -157,10 +155,6 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         'heterogeneous enum validation': ExclusionReason.swagger_parser_enum_type_bug,
         'heterogeneous enum-with-null validation': ExclusionReason.swagger_parser_enum_type_bug,
     },
-    (json_schema_test_draft, 'additionalProperties.json'): {
-        'non-ASCII pattern with additionalProperties': ExclusionReason.v303_does_not_support_patternProperties,
-        'additionalProperties being false does not allow other properties': ExclusionReason.v303_does_not_support_patternProperties,
-    },
     (json_schema_test_draft, 'items.json'): {
         'an array of schemas for items': ExclusionReason.v303_does_not_support_array_of_types,
         'items and subitems': ExclusionReason.bug_does_not_support_definitions,
@@ -216,8 +210,10 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         'oneOf with boolean schemas, more than one true': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'oneOf with boolean schemas, all false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     },
+    (json_schema_test_draft, 'patternProperties.json'): {
+        "patternProperties with boolean schemas": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+    },
     (json_schema_test_draft, 'properties.json'): {
-        'properties, patternProperties, additionalProperties interaction': ExclusionReason.v303_does_not_support_patternProperties,
         'properties with boolean schema': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     },
     (json_schema_test_draft, 'ref.json'): {
@@ -286,7 +282,6 @@ FILEPATH_TO_EXCLUDE_REASON = {
     (json_schema_test_draft, 'exclusiveMaximum.json'): ExclusionReason.swagger_parser_validation_missing_bug,
     (json_schema_test_draft, 'exclusiveMinimum.json'): ExclusionReason.swagger_parser_validation_missing_bug,
     (json_schema_test_draft, 'id.json'): ExclusionReason.v303_does_not_support_id,
-    (json_schema_test_draft, 'patternProperties.json'): ExclusionReason.v303_does_not_support_patternProperties,
     (json_schema_test_draft, 'propertyNames.json'): ExclusionReason.v303_does_not_support_propertyNames,
     (json_schema_test_draft, 'refRemote.json'): ExclusionReason.ref_not_resolved,
     (json_schema_test_draft, 'unknownKeyword.json'): ExclusionReason.bug_does_not_support_definitions,
@@ -325,7 +320,7 @@ JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
     'not.json': (json_schema_test_draft,),
     'oneOf.json': (json_schema_test_draft,),
     'pattern.json': (json_schema_test_draft,),
-#     'patternProperties.json': (json_schema_test_draft,),
+    'patternProperties.json': (json_schema_test_draft,),
     'properties.json': (json_schema_test_draft,),
 #     'propertyNames.json': (json_schema_test_draft,),
     'ref.json': (json_schema_test_draft,),

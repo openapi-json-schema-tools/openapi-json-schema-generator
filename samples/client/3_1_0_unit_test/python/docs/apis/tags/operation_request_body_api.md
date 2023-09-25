@@ -10,6 +10,7 @@ All URIs are relative to the selected server
 Method | Description
 ------ | -------------
 [**post_additionalproperties_are_allowed_by_default_request_body**](../../paths/request_body_post_additionalproperties_are_allowed_by_default_request_body/post.md) | 
+[**post_additionalproperties_being_false_does_not_allow_other_properties_request_body**](../../paths/request_body_post_additionalproperties_being_false_does_not_allow_other_properties_request_body/post.md) | 
 [**post_additionalproperties_can_exist_by_itself_request_body**](../../paths/request_body_post_additionalproperties_can_exist_by_itself_request_body/post.md) | 
 [**post_additionalproperties_does_not_look_in_applicators_request_body**](../../paths/request_body_post_additionalproperties_does_not_look_in_applicators_request_body/post.md) | 
 [**post_additionalproperties_with_null_valued_instance_properties_request_body**](../../paths/request_body_post_additionalproperties_with_null_valued_instance_properties_request_body/post.md) | 
@@ -76,11 +77,13 @@ Method | Description
 [**post_minlength_validation_request_body**](../../paths/request_body_post_minlength_validation_request_body/post.md) | 
 [**post_minproperties_validation_request_body**](../../paths/request_body_post_minproperties_validation_request_body/post.md) | 
 [**post_multiple_dependents_required_request_body**](../../paths/request_body_post_multiple_dependents_required_request_body/post.md) | 
+[**post_multiple_simultaneous_patternproperties_are_validated_request_body**](../../paths/request_body_post_multiple_simultaneous_patternproperties_are_validated_request_body/post.md) | 
 [**post_multiple_types_can_be_specified_in_an_array_request_body**](../../paths/request_body_post_multiple_types_can_be_specified_in_an_array_request_body/post.md) | 
 [**post_nested_allof_to_check_validation_semantics_request_body**](../../paths/request_body_post_nested_allof_to_check_validation_semantics_request_body/post.md) | 
 [**post_nested_anyof_to_check_validation_semantics_request_body**](../../paths/request_body_post_nested_anyof_to_check_validation_semantics_request_body/post.md) | 
 [**post_nested_items_request_body**](../../paths/request_body_post_nested_items_request_body/post.md) | 
 [**post_nested_oneof_to_check_validation_semantics_request_body**](../../paths/request_body_post_nested_oneof_to_check_validation_semantics_request_body/post.md) | 
+[**post_non_ascii_pattern_with_additionalproperties_request_body**](../../paths/request_body_post_non_ascii_pattern_with_additionalproperties_request_body/post.md) | 
 [**post_not_more_complex_schema_request_body**](../../paths/request_body_post_not_more_complex_schema_request_body/post.md) | 
 [**post_not_request_body**](../../paths/request_body_post_not_request_body/post.md) | 
 [**post_nul_characters_in_strings_request_body**](../../paths/request_body_post_nul_characters_in_strings_request_body/post.md) | 
@@ -95,12 +98,16 @@ Method | Description
 [**post_oneof_with_required_request_body**](../../paths/request_body_post_oneof_with_required_request_body/post.md) | 
 [**post_pattern_is_not_anchored_request_body**](../../paths/request_body_post_pattern_is_not_anchored_request_body/post.md) | 
 [**post_pattern_validation_request_body**](../../paths/request_body_post_pattern_validation_request_body/post.md) | 
+[**post_patternproperties_validates_properties_matching_a_regex_request_body**](../../paths/request_body_post_patternproperties_validates_properties_matching_a_regex_request_body/post.md) | 
+[**post_patternproperties_with_null_valued_instance_properties_request_body**](../../paths/request_body_post_patternproperties_with_null_valued_instance_properties_request_body/post.md) | 
 [**post_prefixitems_validation_adjusts_the_starting_index_for_items_request_body**](../../paths/request_body_post_prefixitems_validation_adjusts_the_starting_index_for_items_request_body/post.md) | 
+[**post_properties_patternproperties_additionalproperties_interaction_request_body**](../../paths/request_body_post_properties_patternproperties_additionalproperties_interaction_request_body/post.md) | 
 [**post_properties_whose_names_are_javascript_object_property_names_request_body**](../../paths/request_body_post_properties_whose_names_are_javascript_object_property_names_request_body/post.md) | 
 [**post_properties_with_escaped_characters_request_body**](../../paths/request_body_post_properties_with_escaped_characters_request_body/post.md) | 
 [**post_properties_with_null_valued_instance_properties_request_body**](../../paths/request_body_post_properties_with_null_valued_instance_properties_request_body/post.md) | 
 [**post_property_named_ref_that_is_not_a_reference_request_body**](../../paths/request_body_post_property_named_ref_that_is_not_a_reference_request_body/post.md) | 
 [**post_regex_format_request_body**](../../paths/request_body_post_regex_format_request_body/post.md) | 
+[**post_regexes_are_not_anchored_by_default_and_are_case_sensitive_request_body**](../../paths/request_body_post_regexes_are_not_anchored_by_default_and_are_case_sensitive_request_body/post.md) | 
 [**post_relative_json_pointer_format_request_body**](../../paths/request_body_post_relative_json_pointer_format_request_body/post.md) | 
 [**post_required_default_validation_request_body**](../../paths/request_body_post_required_default_validation_request_body/post.md) | 
 [**post_required_properties_whose_names_are_javascript_object_property_names_request_body**](../../paths/request_body_post_required_properties_whose_names_are_javascript_object_property_names_request_body/post.md) | 
