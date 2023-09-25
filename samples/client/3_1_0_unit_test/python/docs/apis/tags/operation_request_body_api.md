@@ -69,6 +69,7 @@ Method | Description
 [**post_maxlength_validation_request_body**](../../paths/request_body_post_maxlength_validation_request_body/post.md) | 
 [**post_maxproperties0_means_the_object_is_empty_request_body**](../../paths/request_body_post_maxproperties0_means_the_object_is_empty_request_body/post.md) | 
 [**post_maxproperties_validation_request_body**](../../paths/request_body_post_maxproperties_validation_request_body/post.md) | 
+[**post_mincontains_without_contains_is_ignored_request_body**](../../paths/request_body_post_mincontains_without_contains_is_ignored_request_body/post.md) | 
 [**post_minimum_validation_request_body**](../../paths/request_body_post_minimum_validation_request_body/post.md) | 
 [**post_minimum_validation_with_signed_integer_request_body**](../../paths/request_body_post_minimum_validation_with_signed_integer_request_body/post.md) | 
 [**post_minitems_validation_request_body**](../../paths/request_body_post_minitems_validation_request_body/post.md) | 

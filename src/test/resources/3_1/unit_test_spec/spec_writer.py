@@ -185,6 +185,15 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
     (json_schema_test_draft, 'maxProperties.json'): {
         'maxProperties validation with a decimal': ExclusionReason.bug_max_items_missing,
     },
+    (json_schema_test_draft, 'minContains.json'): {
+        "minContains=1 with contains": ExclusionReason.bug_with_non_string_const_values,
+        "minContains=2 with contains": ExclusionReason.bug_with_non_string_const_values,
+        "minContains=2 with contains with a decimal value": ExclusionReason.bug_max_contains_lacks_float_value,
+        "maxContains = minContains": ExclusionReason.bug_with_non_string_const_values,
+        "maxContains < minContains": ExclusionReason.bug_with_non_string_const_values,
+        "minContains = 0": ExclusionReason.bug_with_non_string_const_values,
+        "minContains = 0 with maxContains": ExclusionReason.bug_with_non_string_const_values,
+    },
     (json_schema_test_draft, 'minItems.json'): {
         'minItems validation with a decimal': ExclusionReason.bug_max_items_missing,
     },
@@ -308,6 +317,7 @@ JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
     'maxLength.json': (json_schema_test_draft,),
     'maxProperties.json': (json_schema_test_draft,),
     'minimum.json': (json_schema_test_draft,),
+    'minContains.json': (json_schema_test_draft,),
     'minItems.json': (json_schema_test_draft,),
     'minLength.json': (json_schema_test_draft,),
     'minProperties.json': (json_schema_test_draft,),

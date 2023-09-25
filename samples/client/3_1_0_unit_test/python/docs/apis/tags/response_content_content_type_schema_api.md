@@ -69,6 +69,7 @@ Method | Description
 [**post_maxlength_validation_response_body_for_content_types**](../../paths/response_body_post_maxlength_validation_response_body_for_content_types/post.md) | 
 [**post_maxproperties0_means_the_object_is_empty_response_body_for_content_types**](../../paths/response_body_post_maxproperties0_means_the_object_is_empty_response_body_for_content_types/post.md) | 
 [**post_maxproperties_validation_response_body_for_content_types**](../../paths/response_body_post_maxproperties_validation_response_body_for_content_types/post.md) | 
+[**post_mincontains_without_contains_is_ignored_response_body_for_content_types**](../../paths/response_body_post_mincontains_without_contains_is_ignored_response_body_for_content_types/post.md) | 
 [**post_minimum_validation_response_body_for_content_types**](../../paths/response_body_post_minimum_validation_response_body_for_content_types/post.md) | 
 [**post_minimum_validation_with_signed_integer_response_body_for_content_types**](../../paths/response_body_post_minimum_validation_with_signed_integer_response_body_for_content_types/post.md) | 
 [**post_minitems_validation_response_body_for_content_types**](../../paths/response_body_post_minitems_validation_response_body_for_content_types/post.md) | 

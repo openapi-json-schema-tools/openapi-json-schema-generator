@@ -27,6 +27,7 @@ tags:
 - name: maxLength
 - name: maxProperties
 - name: minimum
+- name: minContains
 - name: minItems
 - name: minLength
 - name: minProperties
@@ -2524,6 +2525,42 @@ paths:
       - path.post
       - contentType_json
       - minimum
+  /requestBody/postMincontainsWithoutContainsIsIgnoredRequestBody:
+    post:
+      operationId: postMincontainsWithoutContainsIsIgnoredRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MincontainsWithoutContainsIsIgnored'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MincontainsWithoutContainsIsIgnored'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - minContains
+  /responseBody/postMincontainsWithoutContainsIsIgnoredResponseBodyForContentTypes:
+    post:
+      operationId: postMincontainsWithoutContainsIsIgnoredResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MincontainsWithoutContainsIsIgnored'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MincontainsWithoutContainsIsIgnored'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - minContains
   /requestBody/postMinitemsValidationRequestBody:
     post:
       operationId: postMinitemsValidationRequestBody
@@ -4453,6 +4490,9 @@ components:
     MinimumValidationWithSignedInteger:
       $schema: https://json-schema.org/draft/2020-12/schema
       minimum: -2
+    MincontainsWithoutContainsIsIgnored:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      minContains: 1
     MinitemsValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       minItems: 1
@@ -6106,6 +6146,16 @@ components:
       IgnoresNonNumbers:
         description: ignores non-numbers
         data: x
+        valid: true
+    MincontainsWithoutContainsIsIgnored:
+      OneItemValidAgainstLoneMincontains:
+        description: one item valid against lone minContains
+        data:
+        - 1
+        valid: true
+      ZeroItemsStillValidAgainstLoneMincontains:
+        description: zero items still valid against lone minContains
+        data: []
         valid: true
     MinitemsValidation:
       LongerIsValid:
