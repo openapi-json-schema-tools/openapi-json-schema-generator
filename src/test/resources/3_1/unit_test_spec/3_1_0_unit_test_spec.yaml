@@ -38,6 +38,7 @@ tags:
 - name: patternProperties
 - name: prefixItems
 - name: properties
+- name: propertyNames
 - name: $ref
 - name: required
 - name: type
@@ -3715,6 +3716,42 @@ paths:
       - path.post
       - contentType_json
       - properties
+  /requestBody/postPropertynamesValidationRequestBody:
+    post:
+      operationId: postPropertynamesValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertynamesValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/PropertynamesValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - propertyNames
+  /responseBody/postPropertynamesValidationResponseBodyForContentTypes:
+    post:
+      operationId: postPropertynamesValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertynamesValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/PropertynamesValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - propertyNames
   /requestBody/postPropertyNamedRefThatIsNotAReferenceRequestBody:
     post:
       operationId: postPropertyNamedRefThatIsNotAReferenceRequestBody
@@ -5006,6 +5043,10 @@ components:
               type: string
         constructor:
           type: number
+    PropertynamesValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      propertyNames:
+        maxLength: 3
     PropertyNamedRefThatIsNotAReference:
       $schema: https://json-schema.org/draft/2020-12/schema
       properties:
@@ -7133,6 +7174,39 @@ components:
           toString:
             length: foo
           constructor: 37
+        valid: true
+    PropertynamesValidation:
+      AllPropertyNamesValid:
+        description: all property names valid
+        data:
+          f: {}
+          foo: {}
+        valid: true
+      SomePropertyNamesInvalid:
+        description: some property names invalid
+        data:
+          foo: {}
+          foobar: {}
+        valid: false
+      ObjectWithoutPropertiesIsValid:
+        description: object without properties is valid
+        data: {}
+        valid: true
+      IgnoresArrays:
+        description: ignores arrays
+        data:
+        - 1
+        - 2
+        - 3
+        - 4
+        valid: true
+      IgnoresStrings:
+        description: ignores strings
+        data: foobar
+        valid: true
+      IgnoresOtherNonObjects:
+        description: ignores other non-objects
+        data: 12
         valid: true
     PropertyNamedRefThatIsNotAReference:
       PropertyNamedRefValid:

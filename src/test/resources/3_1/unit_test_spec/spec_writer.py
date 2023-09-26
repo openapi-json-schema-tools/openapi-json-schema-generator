@@ -223,6 +223,10 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
     (json_schema_test_draft, 'properties.json'): {
         'properties with boolean schema': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     },
+    (json_schema_test_draft, 'propertyNames.json'): {
+        "propertyNames with boolean schema true": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "propertyNames with boolean schema false": ExclusionReason.bug_does_not_support_boolean_schemas_in_location
+    },
     (json_schema_test_draft, 'ref.json'): {
         'relative refs with absolute uris and defs': ExclusionReason.v303_does_not_support_id,
         '$ref prevents a sibling $id from changing the base uri': ExclusionReason.v303_does_not_support_id,
@@ -282,20 +286,15 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
     },
 }
 FILEPATH_TO_EXCLUDE_REASON = {
-    (json_schema_test_draft, 'additionalItems.json'): ExclusionReason.v303_does_not_support_additionalItems,
     (json_schema_test_draft, 'boolean_schema.json'): ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
-    (json_schema_test_draft, 'definitions.json'): ExclusionReason.bug_does_not_support_definitions,
-    (json_schema_test_draft, 'dependencies.json'): ExclusionReason.v303_does_not_support_dependencies,
     (json_schema_test_draft, 'exclusiveMaximum.json'): ExclusionReason.swagger_parser_validation_missing_bug,
     (json_schema_test_draft, 'exclusiveMinimum.json'): ExclusionReason.swagger_parser_validation_missing_bug,
     (json_schema_test_draft, 'id.json'): ExclusionReason.v303_does_not_support_id,
-    (json_schema_test_draft, 'propertyNames.json'): ExclusionReason.v303_does_not_support_propertyNames,
     (json_schema_test_draft, 'refRemote.json'): ExclusionReason.ref_not_resolved,
     (json_schema_test_draft, 'unknownKeyword.json'): ExclusionReason.bug_does_not_support_definitions,
 }
 
 JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
-#     'additionalItems.json': (json_schema_test_draft,),
     'additionalProperties.json': (json_schema_test_draft,),
     'allOf.json': (json_schema_test_draft,),
     'anyOf.json': (json_schema_test_draft,),
@@ -330,7 +329,7 @@ JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
     'patternProperties.json': (json_schema_test_draft,),
     'prefixItems.json': (json_schema_test_draft,),
     'properties.json': (json_schema_test_draft,),
-#     'propertyNames.json': (json_schema_test_draft,),
+    'propertyNames.json': (json_schema_test_draft,),
     'ref.json': (json_schema_test_draft,),
     'refRemote.json': (json_schema_test_draft,),
     'required.json': (json_schema_test_draft,),

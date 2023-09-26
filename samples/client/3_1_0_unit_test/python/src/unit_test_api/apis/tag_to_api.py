@@ -14,6 +14,7 @@ from unit_test_api.apis.tags.max_length_api import MaxLengthApi
 from unit_test_api.apis.tags._not_api import _NotApi
 from unit_test_api.apis.tags.path_post_api import PathPostApi
 from unit_test_api.apis.tags.min_properties_api import MinPropertiesApi
+from unit_test_api.apis.tags.property_names_api import PropertyNamesApi
 from unit_test_api.apis.tags.unique_items_api import UniqueItemsApi
 from unit_test_api.apis.tags.operation_request_body_api import OperationRequestBodyApi
 from unit_test_api.apis.tags.contains_api import ContainsApi
@@ -53,6 +54,7 @@ TagToApi = typing.TypedDict(
         "not": typing.Type[_NotApi],
         "path.post": typing.Type[PathPostApi],
         "minProperties": typing.Type[MinPropertiesApi],
+        "propertyNames": typing.Type[PropertyNamesApi],
         "uniqueItems": typing.Type[UniqueItemsApi],
         "operation.requestBody": typing.Type[OperationRequestBodyApi],
         "contains": typing.Type[ContainsApi],
@@ -93,6 +95,7 @@ tag_to_api = TagToApi(
         "not": _NotApi,
         "path.post": PathPostApi,
         "minProperties": MinPropertiesApi,
+        "propertyNames": PropertyNamesApi,
         "uniqueItems": UniqueItemsApi,
         "operation.requestBody": OperationRequestBodyApi,
         "contains": ContainsApi,

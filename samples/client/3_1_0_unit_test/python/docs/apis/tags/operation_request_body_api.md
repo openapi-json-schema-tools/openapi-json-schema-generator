@@ -108,6 +108,7 @@ Method | Description
 [**post_properties_with_escaped_characters_request_body**](../../paths/request_body_post_properties_with_escaped_characters_request_body/post.md) | 
 [**post_properties_with_null_valued_instance_properties_request_body**](../../paths/request_body_post_properties_with_null_valued_instance_properties_request_body/post.md) | 
 [**post_property_named_ref_that_is_not_a_reference_request_body**](../../paths/request_body_post_property_named_ref_that_is_not_a_reference_request_body/post.md) | 
+[**post_propertynames_validation_request_body**](../../paths/request_body_post_propertynames_validation_request_body/post.md) | 
 [**post_regex_format_request_body**](../../paths/request_body_post_regex_format_request_body/post.md) | 
 [**post_regexes_are_not_anchored_by_default_and_are_case_sensitive_request_body**](../../paths/request_body_post_regexes_are_not_anchored_by_default_and_are_case_sensitive_request_body/post.md) | 
 [**post_relative_json_pointer_format_request_body**](../../paths/request_body_post_relative_json_pointer_format_request_body/post.md) | 
