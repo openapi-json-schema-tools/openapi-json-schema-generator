@@ -33,6 +33,7 @@ class JsonSchemaTestCase:
     description: str
     data: typing.Union[str, int, float, bool, None, list, dict]
     valid: bool
+    comment: typing.Optional[str] = None
 
 JsonSchemaDict = typing.TypedDict(
     'JsonSchema',
@@ -334,6 +335,7 @@ JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
     'refRemote.json': (json_schema_test_draft,),
     'required.json': (json_schema_test_draft,),
     'type.json': (json_schema_test_draft,),
+    'unevaluatedItems.json': (json_schema_test_draft,),
     'uniqueItems.json': (json_schema_test_draft,),
 #     'unknownKeyword.json': (json_schema_test_draft,),
 }
