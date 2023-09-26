@@ -9,6 +9,8 @@ All URIs are relative to the selected server
 
 Method | Description
 ------ | -------------
+[**post_a_schema_given_for_prefixitems_request_body**](../../paths/request_body_post_a_schema_given_for_prefixitems_request_body/post.md) | 
+[**post_additional_items_are_allowed_by_default_request_body**](../../paths/request_body_post_additional_items_are_allowed_by_default_request_body/post.md) | 
 [**post_additionalproperties_are_allowed_by_default_request_body**](../../paths/request_body_post_additionalproperties_are_allowed_by_default_request_body/post.md) | 
 [**post_additionalproperties_can_exist_by_itself_request_body**](../../paths/request_body_post_additionalproperties_can_exist_by_itself_request_body/post.md) | 
 [**post_additionalproperties_does_not_look_in_applicators_request_body**](../../paths/request_body_post_additionalproperties_does_not_look_in_applicators_request_body/post.md) | 
@@ -100,6 +102,7 @@ Method | Description
 [**post_patternproperties_validates_properties_matching_a_regex_request_body**](../../paths/request_body_post_patternproperties_validates_properties_matching_a_regex_request_body/post.md) | 
 [**post_patternproperties_with_null_valued_instance_properties_request_body**](../../paths/request_body_post_patternproperties_with_null_valued_instance_properties_request_body/post.md) | 
 [**post_prefixitems_validation_adjusts_the_starting_index_for_items_request_body**](../../paths/request_body_post_prefixitems_validation_adjusts_the_starting_index_for_items_request_body/post.md) | 
+[**post_prefixitems_with_null_instance_elements_request_body**](../../paths/request_body_post_prefixitems_with_null_instance_elements_request_body/post.md) | 
 [**post_properties_patternproperties_additionalproperties_interaction_request_body**](../../paths/request_body_post_properties_patternproperties_additionalproperties_interaction_request_body/post.md) | 
 [**post_properties_whose_names_are_javascript_object_property_names_request_body**](../../paths/request_body_post_properties_whose_names_are_javascript_object_property_names_request_body/post.md) | 
 [**post_properties_with_escaped_characters_request_body**](../../paths/request_body_post_properties_with_escaped_characters_request_body/post.md) | 

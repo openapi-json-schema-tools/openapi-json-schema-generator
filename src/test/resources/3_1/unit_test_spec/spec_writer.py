@@ -201,6 +201,9 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
     (json_schema_test_draft, 'minProperties.json'): {
         'minProperties validation with a decimal': ExclusionReason.bug_max_items_missing,
     },
+    (json_schema_test_draft, 'prefixItems.json'): {
+        "prefixItems with boolean schemas": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+    },
     (json_schema_test_draft, 'not.json'): {
         'not with boolean schema true': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'not with boolean schema false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
@@ -325,6 +328,7 @@ JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
     'oneOf.json': (json_schema_test_draft,),
     'pattern.json': (json_schema_test_draft,),
     'patternProperties.json': (json_schema_test_draft,),
+    'prefixItems.json': (json_schema_test_draft,),
     'properties.json': (json_schema_test_draft,),
 #     'propertyNames.json': (json_schema_test_draft,),
     'ref.json': (json_schema_test_draft,),

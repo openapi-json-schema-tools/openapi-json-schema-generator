@@ -1,6 +1,7 @@
 import typing
 import typing_extensions
 
+from unit_test_api.apis.tags.prefix_items_api import PrefixItemsApi
 from unit_test_api.apis.tags.maximum_api import MaximumApi
 from unit_test_api.apis.tags.pattern_api import PatternApi
 from unit_test_api.apis.tags.additional_properties_api import AdditionalPropertiesApi
@@ -39,6 +40,7 @@ from unit_test_api.apis.tags.dependent_schemas_api import DependentSchemasApi
 TagToApi = typing.TypedDict(
     'TagToApi',
     {
+        "prefixItems": typing.Type[PrefixItemsApi],
         "maximum": typing.Type[MaximumApi],
         "pattern": typing.Type[PatternApi],
         "additionalProperties": typing.Type[AdditionalPropertiesApi],
@@ -78,6 +80,7 @@ TagToApi = typing.TypedDict(
 
 tag_to_api = TagToApi(
     {
+        "prefixItems": PrefixItemsApi,
         "maximum": MaximumApi,
         "pattern": PatternApi,
         "additionalProperties": AdditionalPropertiesApi,

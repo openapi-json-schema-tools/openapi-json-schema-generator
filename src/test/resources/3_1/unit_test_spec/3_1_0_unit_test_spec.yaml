@@ -36,6 +36,7 @@ tags:
 - name: oneOf
 - name: pattern
 - name: patternProperties
+- name: prefixItems
 - name: properties
 - name: $ref
 - name: required
@@ -3426,6 +3427,114 @@ paths:
       - path.post
       - contentType_json
       - patternProperties
+  /requestBody/postASchemaGivenForPrefixitemsRequestBody:
+    post:
+      operationId: postASchemaGivenForPrefixitemsRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ASchemaGivenForPrefixitems'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ASchemaGivenForPrefixitems'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - prefixItems
+  /responseBody/postASchemaGivenForPrefixitemsResponseBodyForContentTypes:
+    post:
+      operationId: postASchemaGivenForPrefixitemsResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ASchemaGivenForPrefixitems'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ASchemaGivenForPrefixitems'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - prefixItems
+  /requestBody/postAdditionalItemsAreAllowedByDefaultRequestBody:
+    post:
+      operationId: postAdditionalItemsAreAllowedByDefaultRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdditionalItemsAreAllowedByDefault'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/AdditionalItemsAreAllowedByDefault'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - prefixItems
+  /responseBody/postAdditionalItemsAreAllowedByDefaultResponseBodyForContentTypes:
+    post:
+      operationId: postAdditionalItemsAreAllowedByDefaultResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdditionalItemsAreAllowedByDefault'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/AdditionalItemsAreAllowedByDefault'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - prefixItems
+  /requestBody/postPrefixitemsWithNullInstanceElementsRequestBody:
+    post:
+      operationId: postPrefixitemsWithNullInstanceElementsRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrefixitemsWithNullInstanceElements'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/PrefixitemsWithNullInstanceElements'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - prefixItems
+  /responseBody/postPrefixitemsWithNullInstanceElementsResponseBodyForContentTypes:
+    post:
+      operationId: postPrefixitemsWithNullInstanceElementsResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrefixitemsWithNullInstanceElements'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/PrefixitemsWithNullInstanceElements'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - prefixItems
   /requestBody/postObjectPropertiesValidationRequestBody:
     post:
       operationId: postObjectPropertiesValidationRequestBody
@@ -4831,6 +4940,19 @@ components:
       patternProperties:
         ^.*bar$:
           type: 'null'
+    ASchemaGivenForPrefixitems:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      prefixItems:
+      - type: integer
+      - type: string
+    AdditionalItemsAreAllowedByDefault:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      prefixItems:
+      - type: integer
+    PrefixitemsWithNullInstanceElements:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      prefixItems:
+      - type: 'null'
     ObjectPropertiesValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       properties:
@@ -6809,6 +6931,56 @@ components:
         description: allows null values
         data:
           foobar: null
+        valid: true
+    ASchemaGivenForPrefixitems:
+      CorrectTypes:
+        description: correct types
+        data:
+        - 1
+        - foo
+        valid: true
+      WrongTypes:
+        description: wrong types
+        data:
+        - foo
+        - 1
+        valid: false
+      IncompleteArrayOfItems:
+        description: incomplete array of items
+        data:
+        - 1
+        valid: true
+      ArrayWithAdditionalItems:
+        description: array with additional items
+        data:
+        - 1
+        - foo
+        - true
+        valid: true
+      EmptyArray:
+        description: empty array
+        data: []
+        valid: true
+      JavascriptPseudoArrayIsValid:
+        description: JavaScript pseudo-array is valid
+        data:
+          '0': invalid
+          '1': valid
+          length: 2
+        valid: true
+    AdditionalItemsAreAllowedByDefault:
+      OnlyTheFirstItemIsValidated:
+        description: only the first item is validated
+        data:
+        - 1
+        - foo
+        - false
+        valid: true
+    PrefixitemsWithNullInstanceElements:
+      AllowsNullElements:
+        description: allows null elements
+        data:
+        - null
         valid: true
     ObjectPropertiesValidation:
       BothPropertiesPresentAndValidIsValid:
