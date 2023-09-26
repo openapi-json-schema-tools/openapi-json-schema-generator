@@ -114,7 +114,6 @@ class AdditionalpropertiesBeingFalseDoesNotAllowOtherProperties(
     """
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     properties: Properties = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties)) # type: ignore
-    additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     pattern_properties: typing.Mapping[
         schemas.PatternInfo,
         typing.Type[schemas.Schema]
@@ -125,6 +124,7 @@ class AdditionalpropertiesBeingFalseDoesNotAllowOtherProperties(
             ): V,
         }
     )
+    additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type

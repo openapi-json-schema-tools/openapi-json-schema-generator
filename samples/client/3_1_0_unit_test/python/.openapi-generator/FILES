@@ -3140,13 +3140,6 @@ test-requirements.txt
 test/__init__.py
 test/components/__init__.py
 test/components/schema/__init__.py
-test/components/schema/test_additionalproperties_being_false_does_not_allow_other_properties.py
-test/components/schema/test_multiple_simultaneous_patternproperties_are_validated.py
-test/components/schema/test_non_ascii_pattern_with_additionalproperties.py
-test/components/schema/test_patternproperties_validates_properties_matching_a_regex.py
-test/components/schema/test_patternproperties_with_null_valued_instance_properties.py
-test/components/schema/test_properties_patternproperties_additionalproperties_interaction.py
-test/components/schema/test_regexes_are_not_anchored_by_default_and_are_case_sensitive.py
 test/test_paths/__init__.py
 test/test_paths/__init__.py
 test/test_paths/__init__.py

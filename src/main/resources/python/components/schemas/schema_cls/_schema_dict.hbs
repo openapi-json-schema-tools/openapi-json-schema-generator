@@ -25,9 +25,6 @@ class {{jsonPathPiece.camelCase}}(
     {{#if properties}}
     {{> components/schemas/schema_cls/_properties }}
     {{/if}}
-    {{#if additionalProperties}}
-    {{> components/schemas/schema_cls/_additional_properties }}
-    {{/if}}
     {{#neq maxProperties null}}
     {{> components/schemas/schema_cls/_max_properties }}
     {{/neq}}
@@ -60,6 +57,9 @@ class {{jsonPathPiece.camelCase}}(
     {{/if}}
     {{#if unevaluatedProperties}}
     {{> components/schemas/schema_cls/_unevaluated_properties }}
+    {{/if}}
+    {{#if additionalProperties}}
+    {{> components/schemas/schema_cls/_additional_properties }}
     {{/if}}
     {{#if mapOutputJsonPathPiece}}
     type_to_output_cls: typing.Mapping[

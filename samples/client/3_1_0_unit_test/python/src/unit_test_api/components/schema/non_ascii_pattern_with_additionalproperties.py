@@ -49,7 +49,6 @@ class NonAsciiPatternWithAdditionalproperties(
     Do not edit the class manually.
     """
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
-    additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     pattern_properties: typing.Mapping[
         schemas.PatternInfo,
         typing.Type[schemas.Schema]
@@ -60,6 +59,7 @@ class NonAsciiPatternWithAdditionalproperties(
             ): CircumflexAccentLatinSmallLetterAWithAcute,
         }
     )
+    additional_properties: typing.Type[AdditionalProperties] = dataclasses.field(default_factory=lambda: AdditionalProperties) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type
