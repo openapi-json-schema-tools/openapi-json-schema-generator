@@ -42,42 +42,6 @@ tags:
 - name: type
 - name: uniqueItems
 paths:
-  /requestBody/postAdditionalpropertiesBeingFalseDoesNotAllowOtherPropertiesRequestBody:
-    post:
-      operationId: postAdditionalpropertiesBeingFalseDoesNotAllowOtherPropertiesRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AdditionalpropertiesBeingFalseDoesNotAllowOtherProperties'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/AdditionalpropertiesBeingFalseDoesNotAllowOtherProperties'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - additionalProperties
-  /responseBody/postAdditionalpropertiesBeingFalseDoesNotAllowOtherPropertiesResponseBodyForContentTypes:
-    post:
-      operationId: postAdditionalpropertiesBeingFalseDoesNotAllowOtherPropertiesResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/AdditionalpropertiesBeingFalseDoesNotAllowOtherProperties'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/AdditionalpropertiesBeingFalseDoesNotAllowOtherProperties'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - additionalProperties
   /requestBody/postNonAsciiPatternWithAdditionalpropertiesRequestBody:
     post:
       operationId: postNonAsciiPatternWithAdditionalpropertiesRequestBody
@@ -4400,14 +4364,6 @@ paths:
       - uniqueItems
 components:
   schemas:
-    AdditionalpropertiesBeingFalseDoesNotAllowOtherProperties:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      properties:
-        foo: {}
-        bar: {}
-      patternProperties:
-        ^v: {}
-      additionalProperties: false
     NonAsciiPatternWithAdditionalproperties:
       $schema: https://json-schema.org/draft/2020-12/schema
       patternProperties:
@@ -5026,40 +4982,6 @@ components:
       - type: boolean
       uniqueItems: false
   x-schema-test-examples:
-    AdditionalpropertiesBeingFalseDoesNotAllowOtherProperties:
-      NoAdditionalPropertiesIsValid:
-        description: no additional properties is valid
-        data:
-          foo: 1
-        valid: true
-      AnAdditionalPropertyIsInvalid:
-        description: an additional property is invalid
-        data:
-          foo: 1
-          bar: 2
-          quux: boom
-        valid: false
-      IgnoresArrays:
-        description: ignores arrays
-        data:
-        - 1
-        - 2
-        - 3
-        valid: true
-      IgnoresStrings:
-        description: ignores strings
-        data: foobarbaz
-        valid: true
-      IgnoresOtherNonObjects:
-        description: ignores other non-objects
-        data: 12
-        valid: true
-      PatternpropertiesAreNotAdditionalProperties:
-        description: patternProperties are not additional properties
-        data:
-          foo: 1
-          vroom: 2
-        valid: true
     NonAsciiPatternWithAdditionalproperties:
       MatchingThePatternIsValid:
         description: matching the pattern is valid

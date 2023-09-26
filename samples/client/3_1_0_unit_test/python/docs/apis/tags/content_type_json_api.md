@@ -11,8 +11,6 @@ Method | Description
 ------ | -------------
 [**post_additionalproperties_are_allowed_by_default_request_body**](../../paths/request_body_post_additionalproperties_are_allowed_by_default_request_body/post.md) | 
 [**post_additionalproperties_are_allowed_by_default_response_body_for_content_types**](../../paths/response_body_post_additionalproperties_are_allowed_by_default_response_body_for_content_types/post.md) | 
-[**post_additionalproperties_being_false_does_not_allow_other_properties_request_body**](../../paths/request_body_post_additionalproperties_being_false_does_not_allow_other_properties_request_body/post.md) | 
-[**post_additionalproperties_being_false_does_not_allow_other_properties_response_body_for_content_types**](../../paths/response_body_post_additionalproperties_being_false_does_not_allow_other_properties_response_body_for_content_types/post.md) | 
 [**post_additionalproperties_can_exist_by_itself_request_body**](../../paths/request_body_post_additionalproperties_can_exist_by_itself_request_body/post.md) | 
 [**post_additionalproperties_can_exist_by_itself_response_body_for_content_types**](../../paths/response_body_post_additionalproperties_can_exist_by_itself_response_body_for_content_types/post.md) | 
 [**post_additionalproperties_does_not_look_in_applicators_request_body**](../../paths/request_body_post_additionalproperties_does_not_look_in_applicators_request_body/post.md) | 
