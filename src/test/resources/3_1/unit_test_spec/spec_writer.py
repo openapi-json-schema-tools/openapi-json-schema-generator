@@ -308,6 +308,14 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         "unevaluatedItems with nested prefixItems and items": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         "unevaluatedItems with nested items": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     },
+    (json_schema_test_draft, 'unevaluatedProperties.json'): {
+        "cousin unevaluatedProperties, true and false, false with properties": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "nested unevaluatedProperties, outer true, inner false, properties inside": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "non-object instances are valid": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties can't see inside cousins (reverse order)": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties can't see inside cousins": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "nested unevaluatedProperties, outer false, inner true, properties inside": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+    }
 }
 FILEPATH_TO_EXCLUDE_REASON = {
     (json_schema_test_draft, 'boolean_schema.json'): ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
@@ -359,8 +367,9 @@ JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
     'required.json': (json_schema_test_draft,),
     'type.json': (json_schema_test_draft,),
     'unevaluatedItems.json': (json_schema_test_draft,),
+    'unevaluatedProperties.json': (json_schema_test_draft,),
     'uniqueItems.json': (json_schema_test_draft,),
-#     'unknownKeyword.json': (json_schema_test_draft,),
+    # 'unknownKeyword.json': (json_schema_test_draft,),
 }
 
 file_name_to_tag_name = {
