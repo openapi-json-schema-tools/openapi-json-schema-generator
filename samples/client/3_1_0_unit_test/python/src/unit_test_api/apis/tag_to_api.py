@@ -12,6 +12,7 @@ from unit_test_api.apis.tags.min_length_api import MinLengthApi
 from unit_test_api.apis.tags.required_api import RequiredApi
 from unit_test_api.apis.tags.max_length_api import MaxLengthApi
 from unit_test_api.apis.tags._not_api import _NotApi
+from unit_test_api.apis.tags.unevaluated_items_api import UnevaluatedItemsApi
 from unit_test_api.apis.tags.path_post_api import PathPostApi
 from unit_test_api.apis.tags.min_properties_api import MinPropertiesApi
 from unit_test_api.apis.tags.property_names_api import PropertyNamesApi
@@ -52,6 +53,7 @@ TagToApi = typing.TypedDict(
         "required": typing.Type[RequiredApi],
         "maxLength": typing.Type[MaxLengthApi],
         "not": typing.Type[_NotApi],
+        "unevaluatedItems": typing.Type[UnevaluatedItemsApi],
         "path.post": typing.Type[PathPostApi],
         "minProperties": typing.Type[MinPropertiesApi],
         "propertyNames": typing.Type[PropertyNamesApi],
@@ -93,6 +95,7 @@ tag_to_api = TagToApi(
         "required": RequiredApi,
         "maxLength": MaxLengthApi,
         "not": _NotApi,
+        "unevaluatedItems": UnevaluatedItemsApi,
         "path.post": PathPostApi,
         "minProperties": MinPropertiesApi,
         "propertyNames": PropertyNamesApi,

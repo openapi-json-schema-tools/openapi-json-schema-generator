@@ -298,6 +298,15 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         "unevaluatedItems with if/then/else": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         "unevaluatedItems with tuple": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         "unevaluatedItems with uniform items": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems can see annotations from if without then and else": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "non-array instances are valid": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems and contains interact to control item dependency relationship": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems can't see inside cousins": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems depends on adjacent contains": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "item is evaluated in an uncle schema to unevaluatedItems": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with nested tuple": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with nested prefixItems and items": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with nested items": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     },
 }
 FILEPATH_TO_EXCLUDE_REASON = {
