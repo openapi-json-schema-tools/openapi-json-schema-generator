@@ -285,6 +285,20 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         'uniqueItems with an array of items and additionalItems=false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'uniqueItems=false with an array of items and additionalItems=false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     },
+    (json_schema_test_draft, 'unevaluatedItems.json'): {
+        "unevaluatedItems true": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems false": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with nested unevaluatedItems": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with anyOf": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with oneOf": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with not": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with boolean schemas": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with $ref": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with items and prefixItems": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with if/then/else": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with tuple": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with uniform items": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+    },
 }
 FILEPATH_TO_EXCLUDE_REASON = {
     (json_schema_test_draft, 'boolean_schema.json'): ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
