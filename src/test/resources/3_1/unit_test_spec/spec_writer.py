@@ -315,6 +315,11 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         "unevaluatedProperties can't see inside cousins (reverse order)": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         "unevaluatedProperties can't see inside cousins": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         "nested unevaluatedProperties, outer false, inner true, properties inside": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties can see annotations from if without then and else": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with adjacent patternProperties": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with nested properties": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "in-place applicator siblings, anyOf has unevaluated": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with boolean schemas": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     }
 }
 FILEPATH_TO_EXCLUDE_REASON = {
