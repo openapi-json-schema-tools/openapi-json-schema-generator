@@ -320,6 +320,11 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         "unevaluatedProperties with nested properties": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         "in-place applicator siblings, anyOf has unevaluated": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         "unevaluatedProperties with boolean schemas": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "dynamic evalation inside nested refs": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties false": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with if/then/else, then not defined": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with $ref": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties true": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     }
 }
 FILEPATH_TO_EXCLUDE_REASON = {

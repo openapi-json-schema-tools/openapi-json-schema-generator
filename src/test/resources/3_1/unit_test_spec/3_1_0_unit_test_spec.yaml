@@ -4510,42 +4510,6 @@ paths:
       - path.post
       - contentType_json
       - unevaluatedItems
-  /requestBody/postUnevaluatedpropertiesTrueRequestBody:
-    post:
-      operationId: postUnevaluatedpropertiesTrueRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UnevaluatedpropertiesTrue'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/UnevaluatedpropertiesTrue'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - unevaluatedProperties
-  /responseBody/postUnevaluatedpropertiesTrueResponseBodyForContentTypes:
-    post:
-      operationId: postUnevaluatedpropertiesTrueResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UnevaluatedpropertiesTrue'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/UnevaluatedpropertiesTrue'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - unevaluatedProperties
   /requestBody/postUnevaluatedpropertiesSchemaRequestBody:
     post:
       operationId: postUnevaluatedpropertiesSchemaRequestBody
@@ -4577,42 +4541,6 @@ paths:
                 $ref: '#/components/schemas/UnevaluatedpropertiesSchema'
               x-schema-test-examples:
                 $ref: '#/components/x-schema-test-examples/UnevaluatedpropertiesSchema'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - unevaluatedProperties
-  /requestBody/postUnevaluatedpropertiesFalseRequestBody:
-    post:
-      operationId: postUnevaluatedpropertiesFalseRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UnevaluatedpropertiesFalse'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/UnevaluatedpropertiesFalse'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - unevaluatedProperties
-  /responseBody/postUnevaluatedpropertiesFalseResponseBodyForContentTypes:
-    post:
-      operationId: postUnevaluatedpropertiesFalseResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UnevaluatedpropertiesFalse'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/UnevaluatedpropertiesFalse'
       tags:
       - response.content.contentType.schema
       - path.post
@@ -4942,42 +4870,6 @@ paths:
       - path.post
       - contentType_json
       - unevaluatedProperties
-  /requestBody/postUnevaluatedpropertiesWithIfThenElseThenNotDefinedRequestBody:
-    post:
-      operationId: postUnevaluatedpropertiesWithIfThenElseThenNotDefinedRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UnevaluatedpropertiesWithIfThenElseThenNotDefined'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/UnevaluatedpropertiesWithIfThenElseThenNotDefined'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - unevaluatedProperties
-  /responseBody/postUnevaluatedpropertiesWithIfThenElseThenNotDefinedResponseBodyForContentTypes:
-    post:
-      operationId: postUnevaluatedpropertiesWithIfThenElseThenNotDefinedResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UnevaluatedpropertiesWithIfThenElseThenNotDefined'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/UnevaluatedpropertiesWithIfThenElseThenNotDefined'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - unevaluatedProperties
   /requestBody/postUnevaluatedpropertiesWithIfThenElseElseNotDefinedRequestBody:
     post:
       operationId: postUnevaluatedpropertiesWithIfThenElseElseNotDefinedRequestBody
@@ -5045,42 +4937,6 @@ paths:
                 $ref: '#/components/schemas/UnevaluatedpropertiesWithDependentschemas'
               x-schema-test-examples:
                 $ref: '#/components/x-schema-test-examples/UnevaluatedpropertiesWithDependentschemas'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - unevaluatedProperties
-  /requestBody/postUnevaluatedpropertiesWithRefRequestBody:
-    post:
-      operationId: postUnevaluatedpropertiesWithRefRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UnevaluatedpropertiesWithRef'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/UnevaluatedpropertiesWithRef'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - unevaluatedProperties
-  /responseBody/postUnevaluatedpropertiesWithRefResponseBodyForContentTypes:
-    post:
-      operationId: postUnevaluatedpropertiesWithRefResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UnevaluatedpropertiesWithRef'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/UnevaluatedpropertiesWithRef'
       tags:
       - response.content.contentType.schema
       - path.post
@@ -5333,42 +5189,6 @@ paths:
                 $ref: '#/components/schemas/UnevaluatedpropertiesRefInsideAllofOneof'
               x-schema-test-examples:
                 $ref: '#/components/x-schema-test-examples/UnevaluatedpropertiesRefInsideAllofOneof'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - unevaluatedProperties
-  /requestBody/postDynamicEvalationInsideNestedRefsRequestBody:
-    post:
-      operationId: postDynamicEvalationInsideNestedRefsRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DynamicEvalationInsideNestedRefs'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/DynamicEvalationInsideNestedRefs'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - unevaluatedProperties
-  /responseBody/postDynamicEvalationInsideNestedRefsResponseBodyForContentTypes:
-    post:
-      operationId: postDynamicEvalationInsideNestedRefsResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/DynamicEvalationInsideNestedRefs'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/DynamicEvalationInsideNestedRefs'
       tags:
       - response.content.contentType.schema
       - path.post
@@ -6231,20 +6051,12 @@ components:
       $schema: https://json-schema.org/draft/2020-12/schema
       unevaluatedItems:
         type: 'null'
-    UnevaluatedpropertiesTrue:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      type: object
-      unevaluatedProperties: true
     UnevaluatedpropertiesSchema:
       $schema: https://json-schema.org/draft/2020-12/schema
       type: object
       unevaluatedProperties:
         type: string
         minLength: 3
-    UnevaluatedpropertiesFalse:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      type: object
-      unevaluatedProperties: false
     UnevaluatedpropertiesWithAdjacentProperties:
       $schema: https://json-schema.org/draft/2020-12/schema
       type: object
@@ -6368,22 +6180,6 @@ components:
         required:
         - baz
       unevaluatedProperties: false
-    UnevaluatedpropertiesWithIfThenElseThenNotDefined:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      type: object
-      if:
-        properties:
-          foo:
-            const: then
-        required:
-        - foo
-      else:
-        properties:
-          baz:
-            type: string
-        required:
-        - baz
-      unevaluatedProperties: false
     UnevaluatedpropertiesWithIfThenElseElseNotDefined:
       $schema: https://json-schema.org/draft/2020-12/schema
       type: object
@@ -6414,19 +6210,6 @@ components:
           required:
           - bar
       unevaluatedProperties: false
-    UnevaluatedpropertiesWithRef:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      type: object
-      $ref: '#/$defs/bar'
-      properties:
-        foo:
-          type: string
-      unevaluatedProperties: false
-      $defs:
-        bar:
-          properties:
-            bar:
-              type: string
     NestedUnevaluatedpropertiesOuterFalseInnerTruePropertiesOutside:
       $schema: https://json-schema.org/draft/2020-12/schema
       type: object
@@ -6508,40 +6291,6 @@ components:
           - y
           properties:
             y: true
-      unevaluatedProperties: false
-    DynamicEvalationInsideNestedRefs:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      $defs:
-        one:
-          oneOf:
-          - $ref: '#/$defs/two'
-          - required:
-            - b
-            properties:
-              b: true
-          - required:
-            - xx
-            patternProperties:
-              x: true
-          - required:
-            - all
-            unevaluatedProperties: true
-        two:
-          oneOf:
-          - required:
-            - c
-            properties:
-              c: true
-          - required:
-            - d
-            properties:
-              d: true
-      oneOf:
-      - $ref: '#/$defs/one'
-      - required:
-        - a
-        properties:
-          a: true
       unevaluatedProperties: false
     UnevaluatedpropertiesWithNullValuedInstanceProperties:
       $schema: https://json-schema.org/draft/2020-12/schema
@@ -9660,18 +9409,6 @@ components:
         - null
         valid: true
         comment: null
-    UnevaluatedpropertiesTrue:
-      WithNoUnevaluatedProperties:
-        description: with no unevaluated properties
-        data: {}
-        valid: true
-        comment: null
-      WithUnevaluatedProperties:
-        description: with unevaluated properties
-        data:
-          foo: foo
-        valid: true
-        comment: null
     UnevaluatedpropertiesSchema:
       WithNoUnevaluatedProperties:
         description: with no unevaluated properties
@@ -9688,18 +9425,6 @@ components:
         description: with invalid unevaluated properties
         data:
           foo: fo
-        valid: false
-        comment: null
-    UnevaluatedpropertiesFalse:
-      WithNoUnevaluatedProperties:
-        description: with no unevaluated properties
-        data: {}
-        valid: true
-        comment: null
-      WithUnevaluatedProperties:
-        description: with unevaluated properties
-        data:
-          foo: foo
         valid: false
         comment: null
     UnevaluatedpropertiesWithAdjacentProperties:
@@ -9860,35 +9585,6 @@ components:
           baz: baz
         valid: false
         comment: null
-    UnevaluatedpropertiesWithIfThenElseThenNotDefined:
-      WhenIfIsTrueAndHasNoUnevaluatedProperties:
-        description: when if is true and has no unevaluated properties
-        data:
-          foo: then
-          bar: bar
-        valid: false
-        comment: null
-      WhenIfIsTrueAndHasUnevaluatedProperties:
-        description: when if is true and has unevaluated properties
-        data:
-          foo: then
-          bar: bar
-          baz: baz
-        valid: false
-        comment: null
-      WhenIfIsFalseAndHasNoUnevaluatedProperties:
-        description: when if is false and has no unevaluated properties
-        data:
-          baz: baz
-        valid: true
-        comment: null
-      WhenIfIsFalseAndHasUnevaluatedProperties:
-        description: when if is false and has unevaluated properties
-        data:
-          foo: else
-          baz: baz
-        valid: false
-        comment: null
     UnevaluatedpropertiesWithIfThenElseElseNotDefined:
       WhenIfIsTrueAndHasNoUnevaluatedProperties:
         description: when if is true and has no unevaluated properties
@@ -9930,22 +9626,6 @@ components:
         description: with unevaluated properties
         data:
           bar: bar
-        valid: false
-        comment: null
-    UnevaluatedpropertiesWithRef:
-      WithNoUnevaluatedProperties:
-        description: with no unevaluated properties
-        data:
-          foo: foo
-          bar: bar
-        valid: true
-        comment: null
-      WithUnevaluatedProperties:
-        description: with unevaluated properties
-        data:
-          foo: foo
-          bar: bar
-          baz: baz
         valid: false
         comment: null
     NestedUnevaluatedpropertiesOuterFalseInnerTruePropertiesOutside:
@@ -10134,146 +9814,6 @@ components:
           b: 1
           x: 1
           y: 1
-        valid: false
-        comment: null
-    DynamicEvalationInsideNestedRefs:
-      EmptyIsInvalid:
-        description: Empty is invalid
-        data: {}
-        valid: false
-        comment: null
-      AIsValid:
-        description: a is valid
-        data:
-          a: 1
-        valid: true
-        comment: null
-      BIsValid:
-        description: b is valid
-        data:
-          b: 1
-        valid: true
-        comment: null
-      CIsValid:
-        description: c is valid
-        data:
-          c: 1
-        valid: true
-        comment: null
-      DIsValid:
-        description: d is valid
-        data:
-          d: 1
-        valid: true
-        comment: null
-      ABIsInvalid:
-        description: a + b is invalid
-        data:
-          a: 1
-          b: 1
-        valid: false
-        comment: null
-      ACIsInvalid:
-        description: a + c is invalid
-        data:
-          a: 1
-          c: 1
-        valid: false
-        comment: null
-      ADIsInvalid:
-        description: a + d is invalid
-        data:
-          a: 1
-          d: 1
-        valid: false
-        comment: null
-      BCIsInvalid:
-        description: b + c is invalid
-        data:
-          b: 1
-          c: 1
-        valid: false
-        comment: null
-      BDIsInvalid:
-        description: b + d is invalid
-        data:
-          b: 1
-          d: 1
-        valid: false
-        comment: null
-      CDIsInvalid:
-        description: c + d is invalid
-        data:
-          c: 1
-          d: 1
-        valid: false
-        comment: null
-      XxIsValid:
-        description: xx is valid
-        data:
-          xx: 1
-        valid: true
-        comment: null
-      XxFooxIsValid:
-        description: xx + foox is valid
-        data:
-          xx: 1
-          foox: 1
-        valid: true
-        comment: null
-      XxFooIsInvalid:
-        description: xx + foo is invalid
-        data:
-          xx: 1
-          foo: 1
-        valid: false
-        comment: null
-      XxAIsInvalid:
-        description: xx + a is invalid
-        data:
-          xx: 1
-          a: 1
-        valid: false
-        comment: null
-      XxBIsInvalid:
-        description: xx + b is invalid
-        data:
-          xx: 1
-          b: 1
-        valid: false
-        comment: null
-      XxCIsInvalid:
-        description: xx + c is invalid
-        data:
-          xx: 1
-          c: 1
-        valid: false
-        comment: null
-      XxDIsInvalid:
-        description: xx + d is invalid
-        data:
-          xx: 1
-          d: 1
-        valid: false
-        comment: null
-      AllIsValid:
-        description: all is valid
-        data:
-          all: 1
-        valid: true
-        comment: null
-      AllFooIsValid:
-        description: all + foo is valid
-        data:
-          all: 1
-          foo: 1
-        valid: true
-        comment: null
-      AllAIsInvalid:
-        description: all + a is invalid
-        data:
-          all: 1
-          a: 1
         valid: false
         comment: null
     UnevaluatedpropertiesWithNullValuedInstanceProperties:
