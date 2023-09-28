@@ -19,5 +19,7 @@ Method | Description
 [**post_additionalproperties_with_null_valued_instance_properties_response_body_for_content_types**](../../paths/response_body_post_additionalproperties_with_null_valued_instance_properties_response_body_for_content_types/post.md) | 
 [**post_additionalproperties_with_schema_request_body**](../../paths/request_body_post_additionalproperties_with_schema_request_body/post.md) | 
 [**post_additionalproperties_with_schema_response_body_for_content_types**](../../paths/response_body_post_additionalproperties_with_schema_response_body_for_content_types/post.md) | 
+[**post_non_ascii_pattern_with_additionalproperties_request_body**](../../paths/request_body_post_non_ascii_pattern_with_additionalproperties_request_body/post.md) | 
+[**post_non_ascii_pattern_with_additionalproperties_response_body_for_content_types**](../../paths/response_body_post_non_ascii_pattern_with_additionalproperties_response_body_for_content_types/post.md) | 
 
 [[Back to top]](#top) [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

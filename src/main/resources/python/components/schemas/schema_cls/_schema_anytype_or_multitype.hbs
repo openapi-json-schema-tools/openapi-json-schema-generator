@@ -54,9 +54,6 @@ class {{jsonPathPiece.camelCase}}(
 {{#if properties}}
     {{> components/schemas/schema_cls/_properties }}
 {{/if}}
-{{#if additionalProperties}}
-    {{> components/schemas/schema_cls/_additional_properties }}
-{{/if}}
 {{#if uniqueItems}}
     {{> components/schemas/schema_cls/_unique_items }}
 {{/if}}
@@ -114,11 +111,14 @@ class {{jsonPathPiece.camelCase}}(
 {{#if patternProperties}}
     {{> components/schemas/schema_cls/_pattern_properties }}
 {{/if}}
-{{#if unevaluatedItems}}
-    {{> components/schemas/schema_cls/_unevaluated_items }}
+{{#if additionalProperties}}
+    {{> components/schemas/schema_cls/_additional_properties }}
 {{/if}}
 {{#if unevaluatedProperties}}
     {{> components/schemas/schema_cls/_unevaluated_properties }}
+{{/if}}
+{{#if unevaluatedItems}}
+    {{> components/schemas/schema_cls/_unevaluated_items }}
 {{/if}}
 {{#or mapOutputJsonPathPiece arrayOutputJsonPathPiece}}
     type_to_output_cls: typing.Mapping[

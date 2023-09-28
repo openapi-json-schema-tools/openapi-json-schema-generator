@@ -33,6 +33,7 @@ class JsonSchemaTestCase:
     description: str
     data: typing.Union[str, int, float, bool, None, list, dict]
     valid: bool
+    comment: typing.Optional[str] = None
 
 JsonSchemaDict = typing.TypedDict(
     'JsonSchema',
@@ -40,6 +41,7 @@ JsonSchemaDict = typing.TypedDict(
         'additionalProperties': 'JsonSchema',
         'allOf': typing.List['JsonSchema'],
         'anyOf': typing.List['JsonSchema'],
+        'const': typing.Any,
         'default': typing.Any,
         'enum': typing.List[typing.Any],
         'exclusiveMaximum': typing.Union[int, float],
@@ -78,37 +80,34 @@ class JsonSchemaTestSchema:
 
 
 class ExclusionReason:
-    v303_does_not_support_array_of_types = 'v3.0.3 does not support type with array of values'
-    v303_requires_array_have_items = 'v3.0.3 requires that items MUST be present if the type is array'
-    v303_does_not_support_additionalItems = 'v3.0.3 does not support the additionalItems keyword'
-    v303_does_not_support_patternProperties = 'v3.0.3 does not support the patternProperties keyword'
-    v303_does_not_support_const = 'v3.0.3 does not support the const keyword'
     bug_does_not_support_boolean_schemas_in_location = 'v3.1.0 does not support boolean schemas in location, https://github.com/swagger-api/swagger-parser/issues/1770'
-    v303_does_not_support_contains = 'v3.0.3 does not support the contains keyword'
     bug_does_not_support_definitions = 'swagger-parser does not support the $defs keyword, https://github.com/swagger-api/swagger-parser/issues/1970'
-    v303_does_not_support_dependencies = 'v3.0.3 does not support the dependencies keyword'
     swagger_parser_enum_type_bug = "swagger-parser has a bug where schema type is incorrectly set for an enum, https://github.com/swagger-api/swagger-parser/issues/1761"
     swagger_parser_validation_missing_bug = 'swagger-parser has a bug where validations are unset, https://github.com/swagger-api/swagger-parser/issues/1762'
     swagger_parser_items_type_bug = "swagger-parser has a bug where schema type is incorrectly set with items, https://github.com/swagger-api/swagger-parser/issues/1763"
     v303_does_not_support_id = 'v3.0.3 does not support the $id keyword'
-    v303_does_not_support_patternProperties = 'v3.0.3 does not support the patternProperties keyword'
-    v303_does_not_support_propertyNames = 'v3.0.3 does not support the propertyNames keyword'
     v303_does_not_support_items_schema_array = 'v3.0.3 does not support an array of schemas for items'
     swagger_parser_exception = 'swagger-parser threw and exception for this test case'
     ref_location_not_the_same_for_json_and_openapi = 'the location referenced is not the same going from json schema to openapi'
     ref_to_adjacent_property_bug = 'Refing an adjacent property does not work, issue at https://github.com/OpenAPITools/openapi-generator/issues/12729'
     swagger_parser_anytype_bug = 'Swagger parser sets type incorrectly for this anyType schema https://github.com/swagger-api/swagger-parser/issues/1603'
-    component_ref_component_bug = 'A component refing another component does not work, issue at https://github.com/OpenAPITools/openapi-generator/issues/12730'
     not_running_the_localhost_server = 'the openapo-generator is not running the localhost server needed to serve remoteRef files'
     v303_requires_that_the_default_value_is_an_allowed_type = 'v3.0.3 requires that the default value is an allowed type per the schema'
     ref_not_resolved = 'ref not resolved, TODO resolve only remote refs'
     bug_max_items_missing = 'swagger-parser has a bug where maxItems is omitted: https://github.com/swagger-api/swagger-parser/issues/1974'
+    bug_with_non_string_const_values = 'swagger-parser const bug: https://github.com/swagger-api/swagger-parser/issues/1975'
+    bug_dependent_required_values_incorrect = 'swagger parser bug where dependentRequired values are incorrect https://github.com/swagger-api/swagger-parser/issues/1978'
+    bug_max_contains_lacks_float_value = 'swagger-parser bug where float values for maxContains are omitted https://github.com/swagger-api/swagger-parser/issues/1979'
+    bug_type_set_for_any_type = 'swagger-parser bug where type is set for any type schema: https://github.com/swagger-api/swagger-parser/issues/1964'
 
 json_schema_test_draft = 'draft2020-12'
 path_to_json_schema_drafts = ('..', '..', 'JSON-Schema-Test-Suite', 'tests')
 openapi_additions = 'openapi_additions'
 
 FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
+    (json_schema_test_draft, 'additionalProperties.json'): {
+        "additionalProperties being false does not allow other properties": ExclusionReason.bug_type_set_for_any_type,
+    },
     (json_schema_test_draft, 'allOf.json'): {
         'allOf with boolean schemas, all true': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'allOf with boolean schemas, some false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
@@ -119,19 +118,48 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         'anyOf with boolean schemas, some true': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'anyOf with boolean schemas, all false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     },
+    (json_schema_test_draft, 'const.json'): {
+        'const with array': ExclusionReason.bug_with_non_string_const_values,
+        "const with false does not match 0": ExclusionReason.bug_with_non_string_const_values,
+        'const with object': ExclusionReason.bug_with_non_string_const_values,
+        "const with true does not match 1": ExclusionReason.bug_with_non_string_const_values,
+        'const with {"a": false} does not match {"a": 0}': ExclusionReason.bug_with_non_string_const_values,
+        'const with {"a": true} does not match {"a": 1}': ExclusionReason.bug_with_non_string_const_values,
+        "const with [false] does not match [0]": ExclusionReason.bug_with_non_string_const_values,
+        "const with [true] does not match [1]": ExclusionReason.bug_with_non_string_const_values,
+        "float and integers are equal up to 64-bit representation limits": ExclusionReason.bug_with_non_string_const_values,
+        "const validation": ExclusionReason.bug_with_non_string_const_values,
+        "const with 0 does not match other zero-like types": ExclusionReason.bug_with_non_string_const_values,
+        "const with 1 does not match true": ExclusionReason.bug_with_non_string_const_values,
+        "const with -2.0 matches integer and float types": ExclusionReason.bug_with_non_string_const_values,
+        "const with null": ExclusionReason.bug_with_non_string_const_values,
+    },
+    (json_schema_test_draft, 'contains.json'): {
+        "contains keyword with boolean schema false": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "contains with false if subschema": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "contains keyword with boolean schema true": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "contains keyword with const keyword": ExclusionReason.bug_with_non_string_const_values,
+    },
     (json_schema_test_draft, 'default.json'): {
         'invalid type for default': ExclusionReason.v303_requires_that_the_default_value_is_an_allowed_type,
+    },
+    (json_schema_test_draft, 'dependentRequired.json'): {
+        "dependencies with escaped characters": ExclusionReason.bug_dependent_required_values_incorrect,
+    },
+    (json_schema_test_draft, 'dependentSchemas.json'): {
+        "boolean subschemas": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     },
     (json_schema_test_draft, 'enum.json'): {
         'heterogeneous enum validation': ExclusionReason.swagger_parser_enum_type_bug,
         'heterogeneous enum-with-null validation': ExclusionReason.swagger_parser_enum_type_bug,
     },
-    (json_schema_test_draft, 'additionalProperties.json'): {
-        'non-ASCII pattern with additionalProperties': ExclusionReason.v303_does_not_support_patternProperties,
-        'additionalProperties being false does not allow other properties': ExclusionReason.v303_does_not_support_patternProperties,
+    (json_schema_test_draft, 'exclusiveMaximum.json'): {
+        "exclusiveMaximum validation": ExclusionReason.swagger_parser_validation_missing_bug,
+    },
+    (json_schema_test_draft, 'exclusiveMinimum.json'): {
+        "exclusiveMinimum validation": ExclusionReason.swagger_parser_validation_missing_bug,
     },
     (json_schema_test_draft, 'items.json'): {
-        'an array of schemas for items': ExclusionReason.v303_does_not_support_array_of_types,
         'items and subitems': ExclusionReason.bug_does_not_support_definitions,
         'items with boolean schema (true)': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'items with boolean schemas': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
@@ -139,6 +167,11 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         'items with boolean schema (false)': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'a schema given for items': ExclusionReason.swagger_parser_items_type_bug,
         'prefixItems with no additional items allowed': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+    },
+    (json_schema_test_draft, 'maxContains.json'): {
+        "maxContains with contains, value with a decimal": ExclusionReason.bug_max_contains_lacks_float_value,
+        "maxContains with contains": ExclusionReason.bug_with_non_string_const_values,
+        "minContains < maxContains": ExclusionReason.bug_with_non_string_const_values,
     },
     (json_schema_test_draft, 'maxItems.json'): {
         'maxItems validation with a decimal': ExclusionReason.bug_max_items_missing,
@@ -149,6 +182,15 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
     (json_schema_test_draft, 'maxProperties.json'): {
         'maxProperties validation with a decimal': ExclusionReason.bug_max_items_missing,
     },
+    (json_schema_test_draft, 'minContains.json'): {
+        "minContains=1 with contains": ExclusionReason.bug_with_non_string_const_values,
+        "minContains=2 with contains": ExclusionReason.bug_with_non_string_const_values,
+        "minContains=2 with contains with a decimal value": ExclusionReason.bug_max_contains_lacks_float_value,
+        "maxContains = minContains": ExclusionReason.bug_with_non_string_const_values,
+        "maxContains < minContains": ExclusionReason.bug_with_non_string_const_values,
+        "minContains = 0": ExclusionReason.bug_with_non_string_const_values,
+        "minContains = 0 with maxContains": ExclusionReason.bug_with_non_string_const_values,
+    },
     (json_schema_test_draft, 'minItems.json'): {
         'minItems validation with a decimal': ExclusionReason.bug_max_items_missing,
     },
@@ -158,10 +200,12 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
     (json_schema_test_draft, 'minProperties.json'): {
         'minProperties validation with a decimal': ExclusionReason.bug_max_items_missing,
     },
+    (json_schema_test_draft, 'prefixItems.json'): {
+        "prefixItems with boolean schemas": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+    },
     (json_schema_test_draft, 'not.json'): {
         'not with boolean schema true': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'not with boolean schema false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
-        'not multiple types': ExclusionReason.v303_does_not_support_array_of_types,
         "collect annotations inside a 'not', even if collection is disabled": ExclusionReason.bug_does_not_support_boolean_schemas_in_location
     },
     (json_schema_test_draft, 'oneOf.json'): {
@@ -171,9 +215,15 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         'oneOf with boolean schemas, more than one true': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'oneOf with boolean schemas, all false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     },
+    (json_schema_test_draft, 'patternProperties.json'): {
+        "patternProperties with boolean schemas": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+    },
     (json_schema_test_draft, 'properties.json'): {
-        'properties, patternProperties, additionalProperties interaction': ExclusionReason.v303_does_not_support_patternProperties,
         'properties with boolean schema': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+    },
+    (json_schema_test_draft, 'propertyNames.json'): {
+        "propertyNames with boolean schema true": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "propertyNames with boolean schema false": ExclusionReason.bug_does_not_support_boolean_schemas_in_location
     },
     (json_schema_test_draft, 'ref.json'): {
         'relative refs with absolute uris and defs': ExclusionReason.v303_does_not_support_id,
@@ -232,34 +282,83 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         'uniqueItems with an array of items and additionalItems=false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'uniqueItems=false with an array of items and additionalItems=false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     },
+    (json_schema_test_draft, 'unevaluatedItems.json'): {
+        "unevaluatedItems true": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems false": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with nested unevaluatedItems": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with anyOf": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with oneOf": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with not": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with boolean schemas": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with $ref": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with items and prefixItems": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with if/then/else": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with tuple": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with uniform items": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems can see annotations from if without then and else": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "non-array instances are valid": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems and contains interact to control item dependency relationship": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems can't see inside cousins": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems depends on adjacent contains": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "item is evaluated in an uncle schema to unevaluatedItems": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with nested tuple": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with nested prefixItems and items": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedItems with nested items": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+    },
+    (json_schema_test_draft, 'unevaluatedProperties.json'): {
+        "cousin unevaluatedProperties, true and false, false with properties": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "nested unevaluatedProperties, outer true, inner false, properties inside": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "non-object instances are valid": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties can't see inside cousins (reverse order)": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties can't see inside cousins": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "nested unevaluatedProperties, outer false, inner true, properties inside": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties can see annotations from if without then and else": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with adjacent patternProperties": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with nested properties": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "in-place applicator siblings, anyOf has unevaluated": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with boolean schemas": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "dynamic evalation inside nested refs": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties false": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with if/then/else, then not defined": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with $ref": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties true": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with if/then/else, else not defined": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties + ref inside allOf / oneOf": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "in-place applicator siblings, allOf has unevaluated": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with dependentSchemas": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "nested unevaluatedProperties, outer false, inner true, properties outside": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties + single cyclic ref": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "nested unevaluatedProperties, outer true, inner false, properties outside": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with anyOf": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with if/then/else": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with adjacent properties": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with nested patternProperties": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with nested unevaluatedProperties": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with not": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with nested additionalProperties": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with oneOf": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "cousin unevaluatedProperties, true and false, true with properties": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "property is evaluated in an uncle schema to unevaluatedProperties": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+    }
 }
 FILEPATH_TO_EXCLUDE_REASON = {
-    (json_schema_test_draft, 'additionalItems.json'): ExclusionReason.v303_does_not_support_additionalItems,
-    (json_schema_test_draft, 'const.json'): ExclusionReason.v303_does_not_support_const,
     (json_schema_test_draft, 'boolean_schema.json'): ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
-    (json_schema_test_draft, 'contains.json'): ExclusionReason.v303_does_not_support_contains,
-    (json_schema_test_draft, 'definitions.json'): ExclusionReason.bug_does_not_support_definitions,
-    (json_schema_test_draft, 'dependencies.json'): ExclusionReason.v303_does_not_support_dependencies,
-    (json_schema_test_draft, 'exclusiveMaximum.json'): ExclusionReason.swagger_parser_validation_missing_bug,
-    (json_schema_test_draft, 'exclusiveMinimum.json'): ExclusionReason.swagger_parser_validation_missing_bug,
     (json_schema_test_draft, 'id.json'): ExclusionReason.v303_does_not_support_id,
-    (json_schema_test_draft, 'patternProperties.json'): ExclusionReason.v303_does_not_support_patternProperties,
-    (json_schema_test_draft, 'propertyNames.json'): ExclusionReason.v303_does_not_support_propertyNames,
     (json_schema_test_draft, 'refRemote.json'): ExclusionReason.ref_not_resolved,
     (json_schema_test_draft, 'unknownKeyword.json'): ExclusionReason.bug_does_not_support_definitions,
 }
 
 JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
-#     'additionalItems.json': (json_schema_test_draft,),
     'additionalProperties.json': (json_schema_test_draft,),
     'allOf.json': (json_schema_test_draft,),
     'anyOf.json': (json_schema_test_draft,),
     'boolean_schema.json': (json_schema_test_draft,),
-#     'const.json': (json_schema_test_draft,),
-#     'contains.json': (json_schema_test_draft,),
+    'const.json': (json_schema_test_draft,),
+    'contains.json': (json_schema_test_draft,),
 #     'default.json': (json_schema_test_draft,),
-#     'definitions.json': (json_schema_test_draft,),
-#     'dependencies.json': (json_schema_test_draft,),
+#     'defs.json': (json_schema_test_draft,),
+    'dependentRequired.json': (json_schema_test_draft,),
+    'dependentSchemas.json': (json_schema_test_draft,),
     'enum.json': (json_schema_test_draft,),
     'exclusiveMaximum.json': (json_schema_test_draft,),
     'exclusiveMinimum.json': (json_schema_test_draft,),
@@ -267,11 +366,13 @@ JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
 #     'id.json': (json_schema_test_draft,),
 #     'infinite-loop-detection.json': (json_schema_test_draft,),  # activate after fixing this
     'items.json': (json_schema_test_draft,),
+    'maxContains.json': (json_schema_test_draft,),
     'maximum.json': (json_schema_test_draft,),
     'maxItems.json': (json_schema_test_draft,),
     'maxLength.json': (json_schema_test_draft,),
     'maxProperties.json': (json_schema_test_draft,),
     'minimum.json': (json_schema_test_draft,),
+    'minContains.json': (json_schema_test_draft,),
     'minItems.json': (json_schema_test_draft,),
     'minLength.json': (json_schema_test_draft,),
     'minProperties.json': (json_schema_test_draft,),
@@ -279,15 +380,18 @@ JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
     'not.json': (json_schema_test_draft,),
     'oneOf.json': (json_schema_test_draft,),
     'pattern.json': (json_schema_test_draft,),
-#     'patternProperties.json': (json_schema_test_draft,),
+    'patternProperties.json': (json_schema_test_draft,),
+    'prefixItems.json': (json_schema_test_draft,),
     'properties.json': (json_schema_test_draft,),
-#     'propertyNames.json': (json_schema_test_draft,),
+    'propertyNames.json': (json_schema_test_draft,),
     'ref.json': (json_schema_test_draft,),
     'refRemote.json': (json_schema_test_draft,),
     'required.json': (json_schema_test_draft,),
     'type.json': (json_schema_test_draft,),
+    'unevaluatedItems.json': (json_schema_test_draft,),
+    'unevaluatedProperties.json': (json_schema_test_draft,),
     'uniqueItems.json': (json_schema_test_draft,),
-#     'unknownKeyword.json': (json_schema_test_draft,),
+    # 'unknownKeyword.json': (json_schema_test_draft,),
 }
 
 file_name_to_tag_name = {
@@ -452,6 +556,13 @@ def get_component_schemas_and_test_examples(
             continue
         for test_schema in test_schemas:
             component_name = description_to_component_name(test_schema.description)
+            json_schema_keyword = json_schema_test_file[:-5]
+            if json_schema_keyword == "const" and not component_name.lower().startswith("const"):
+                # prefix added to prevent collision with other components
+                component_name = "Const" + component_name
+            if json_schema_keyword == "dependentSchemas" and not component_name.lower().startswith("dependentschemas"):
+                # prefix added to prevent collision with other components
+                component_name = "DependentSchemas" + component_name
             if isinstance(test_schema.schema, bool):
                 component_schemas[component_name] = test_schema.schema
             else:
@@ -545,7 +656,7 @@ def write_openapi_spec():
             openapi.tags.append(json_schema_tag)
         for component_name, schema in component_schemas.items():
             if component_name in openapi.components['schemas']:
-                raise ValueError('A component schema with that name is already defined!')
+                raise ValueError(f'A component schema with name={component_name} is already defined!')
             openapi.components['schemas'][component_name] = schema
         for component_name, test_examples in component_name_to_test_examples.items():
             if component_name in openapi.components['x-schema-test-examples']:

@@ -14,14 +14,20 @@ tags:
 - name: additionalProperties
 - name: allOf
 - name: anyOf
+- name: const
+- name: contains
+- name: dependentRequired
+- name: dependentSchemas
 - name: enum
 - name: format
 - name: items
+- name: maxContains
 - name: maximum
 - name: maxItems
 - name: maxLength
 - name: maxProperties
 - name: minimum
+- name: minContains
 - name: minItems
 - name: minLength
 - name: minProperties
@@ -29,12 +35,53 @@ tags:
 - name: not
 - name: oneOf
 - name: pattern
+- name: patternProperties
+- name: prefixItems
 - name: properties
+- name: propertyNames
 - name: $ref
 - name: required
 - name: type
+- name: unevaluatedItems
+- name: unevaluatedProperties
 - name: uniqueItems
 paths:
+  /requestBody/postNonAsciiPatternWithAdditionalpropertiesRequestBody:
+    post:
+      operationId: postNonAsciiPatternWithAdditionalpropertiesRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NonAsciiPatternWithAdditionalproperties'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/NonAsciiPatternWithAdditionalproperties'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - additionalProperties
+  /responseBody/postNonAsciiPatternWithAdditionalpropertiesResponseBodyForContentTypes:
+    post:
+      operationId: postNonAsciiPatternWithAdditionalpropertiesResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NonAsciiPatternWithAdditionalproperties'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/NonAsciiPatternWithAdditionalproperties'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - additionalProperties
   /requestBody/postAdditionalpropertiesWithSchemaRequestBody:
     post:
       operationId: postAdditionalpropertiesWithSchemaRequestBody
@@ -719,6 +766,366 @@ paths:
       - path.post
       - contentType_json
       - anyOf
+  /requestBody/postConstNulCharactersInStringsRequestBody:
+    post:
+      operationId: postConstNulCharactersInStringsRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConstNulCharactersInStrings'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ConstNulCharactersInStrings'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - const
+  /responseBody/postConstNulCharactersInStringsResponseBodyForContentTypes:
+    post:
+      operationId: postConstNulCharactersInStringsResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConstNulCharactersInStrings'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ConstNulCharactersInStrings'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - const
+  /requestBody/postContainsKeywordValidationRequestBody:
+    post:
+      operationId: postContainsKeywordValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContainsKeywordValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ContainsKeywordValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - contains
+  /responseBody/postContainsKeywordValidationResponseBodyForContentTypes:
+    post:
+      operationId: postContainsKeywordValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContainsKeywordValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ContainsKeywordValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - contains
+  /requestBody/postItemsContainsRequestBody:
+    post:
+      operationId: postItemsContainsRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ItemsContains'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ItemsContains'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - contains
+  /responseBody/postItemsContainsResponseBodyForContentTypes:
+    post:
+      operationId: postItemsContainsResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ItemsContains'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ItemsContains'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - contains
+  /requestBody/postContainsWithNullInstanceElementsRequestBody:
+    post:
+      operationId: postContainsWithNullInstanceElementsRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContainsWithNullInstanceElements'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ContainsWithNullInstanceElements'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - contains
+  /responseBody/postContainsWithNullInstanceElementsResponseBodyForContentTypes:
+    post:
+      operationId: postContainsWithNullInstanceElementsResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContainsWithNullInstanceElements'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ContainsWithNullInstanceElements'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - contains
+  /requestBody/postSingleDependencyRequestBody:
+    post:
+      operationId: postSingleDependencyRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SingleDependency'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/SingleDependency'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - dependentRequired
+  /responseBody/postSingleDependencyResponseBodyForContentTypes:
+    post:
+      operationId: postSingleDependencyResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SingleDependency'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/SingleDependency'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - dependentRequired
+  /requestBody/postEmptyDependentsRequestBody:
+    post:
+      operationId: postEmptyDependentsRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmptyDependents'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/EmptyDependents'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - dependentRequired
+  /responseBody/postEmptyDependentsResponseBodyForContentTypes:
+    post:
+      operationId: postEmptyDependentsResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyDependents'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/EmptyDependents'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - dependentRequired
+  /requestBody/postMultipleDependentsRequiredRequestBody:
+    post:
+      operationId: postMultipleDependentsRequiredRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MultipleDependentsRequired'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MultipleDependentsRequired'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - dependentRequired
+  /responseBody/postMultipleDependentsRequiredResponseBodyForContentTypes:
+    post:
+      operationId: postMultipleDependentsRequiredResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MultipleDependentsRequired'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MultipleDependentsRequired'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - dependentRequired
+  /requestBody/postDependentSchemasSingleDependencyRequestBody:
+    post:
+      operationId: postDependentSchemasSingleDependencyRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DependentSchemasSingleDependency'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/DependentSchemasSingleDependency'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - dependentSchemas
+  /responseBody/postDependentSchemasSingleDependencyResponseBodyForContentTypes:
+    post:
+      operationId: postDependentSchemasSingleDependencyResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DependentSchemasSingleDependency'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/DependentSchemasSingleDependency'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - dependentSchemas
+  /requestBody/postDependentSchemasDependenciesWithEscapedCharactersRequestBody:
+    post:
+      operationId: postDependentSchemasDependenciesWithEscapedCharactersRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DependentSchemasDependenciesWithEscapedCharacters'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/DependentSchemasDependenciesWithEscapedCharacters'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - dependentSchemas
+  /responseBody/postDependentSchemasDependenciesWithEscapedCharactersResponseBodyForContentTypes:
+    post:
+      operationId: postDependentSchemasDependenciesWithEscapedCharactersResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DependentSchemasDependenciesWithEscapedCharacters'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/DependentSchemasDependenciesWithEscapedCharacters'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - dependentSchemas
+  /requestBody/postDependentSchemasDependentSubschemaIncompatibleWithRootRequestBody:
+    post:
+      operationId: postDependentSchemasDependentSubschemaIncompatibleWithRootRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DependentSchemasDependentSubschemaIncompatibleWithRoot'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/DependentSchemasDependentSubschemaIncompatibleWithRoot'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - dependentSchemas
+  /responseBody/postDependentSchemasDependentSubschemaIncompatibleWithRootResponseBodyForContentTypes:
+    post:
+      operationId: postDependentSchemasDependentSubschemaIncompatibleWithRootResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DependentSchemasDependentSubschemaIncompatibleWithRoot'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/DependentSchemasDependentSubschemaIncompatibleWithRoot'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - dependentSchemas
   /requestBody/postSimpleEnumValidationRequestBody:
     post:
       operationId: postSimpleEnumValidationRequestBody
@@ -1835,6 +2242,42 @@ paths:
       - path.post
       - contentType_json
       - items
+  /requestBody/postMaxcontainsWithoutContainsIsIgnoredRequestBody:
+    post:
+      operationId: postMaxcontainsWithoutContainsIsIgnoredRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MaxcontainsWithoutContainsIsIgnored'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MaxcontainsWithoutContainsIsIgnored'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - maxContains
+  /responseBody/postMaxcontainsWithoutContainsIsIgnoredResponseBodyForContentTypes:
+    post:
+      operationId: postMaxcontainsWithoutContainsIsIgnoredResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MaxcontainsWithoutContainsIsIgnored'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MaxcontainsWithoutContainsIsIgnored'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - maxContains
   /requestBody/postMaximumValidationRequestBody:
     post:
       operationId: postMaximumValidationRequestBody
@@ -2123,6 +2566,42 @@ paths:
       - path.post
       - contentType_json
       - minimum
+  /requestBody/postMincontainsWithoutContainsIsIgnoredRequestBody:
+    post:
+      operationId: postMincontainsWithoutContainsIsIgnoredRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MincontainsWithoutContainsIsIgnored'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MincontainsWithoutContainsIsIgnored'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - minContains
+  /responseBody/postMincontainsWithoutContainsIsIgnoredResponseBodyForContentTypes:
+    post:
+      operationId: postMincontainsWithoutContainsIsIgnoredResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MincontainsWithoutContainsIsIgnored'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MincontainsWithoutContainsIsIgnored'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - minContains
   /requestBody/postMinitemsValidationRequestBody:
     post:
       operationId: postMinitemsValidationRequestBody
@@ -2442,6 +2921,42 @@ paths:
                 $ref: '#/components/schemas/Not'
               x-schema-test-examples:
                 $ref: '#/components/x-schema-test-examples/Not'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - not
+  /requestBody/postNotMultipleTypesRequestBody:
+    post:
+      operationId: postNotMultipleTypesRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotMultipleTypes'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/NotMultipleTypes'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - not
+  /responseBody/postNotMultipleTypesResponseBodyForContentTypes:
+    post:
+      operationId: postNotMultipleTypesResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotMultipleTypes'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/NotMultipleTypes'
       tags:
       - response.content.contentType.schema
       - path.post
@@ -2807,6 +3322,258 @@ paths:
       - path.post
       - contentType_json
       - pattern
+  /requestBody/postPatternpropertiesValidatesPropertiesMatchingARegexRequestBody:
+    post:
+      operationId: postPatternpropertiesValidatesPropertiesMatchingARegexRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatternpropertiesValidatesPropertiesMatchingARegex'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/PatternpropertiesValidatesPropertiesMatchingARegex'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - patternProperties
+  /responseBody/postPatternpropertiesValidatesPropertiesMatchingARegexResponseBodyForContentTypes:
+    post:
+      operationId: postPatternpropertiesValidatesPropertiesMatchingARegexResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatternpropertiesValidatesPropertiesMatchingARegex'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/PatternpropertiesValidatesPropertiesMatchingARegex'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - patternProperties
+  /requestBody/postMultipleSimultaneousPatternpropertiesAreValidatedRequestBody:
+    post:
+      operationId: postMultipleSimultaneousPatternpropertiesAreValidatedRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MultipleSimultaneousPatternpropertiesAreValidated'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/MultipleSimultaneousPatternpropertiesAreValidated'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - patternProperties
+  /responseBody/postMultipleSimultaneousPatternpropertiesAreValidatedResponseBodyForContentTypes:
+    post:
+      operationId: postMultipleSimultaneousPatternpropertiesAreValidatedResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MultipleSimultaneousPatternpropertiesAreValidated'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/MultipleSimultaneousPatternpropertiesAreValidated'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - patternProperties
+  /requestBody/postRegexesAreNotAnchoredByDefaultAndAreCaseSensitiveRequestBody:
+    post:
+      operationId: postRegexesAreNotAnchoredByDefaultAndAreCaseSensitiveRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegexesAreNotAnchoredByDefaultAndAreCaseSensitive'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/RegexesAreNotAnchoredByDefaultAndAreCaseSensitive'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - patternProperties
+  /responseBody/postRegexesAreNotAnchoredByDefaultAndAreCaseSensitiveResponseBodyForContentTypes:
+    post:
+      operationId: postRegexesAreNotAnchoredByDefaultAndAreCaseSensitiveResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegexesAreNotAnchoredByDefaultAndAreCaseSensitive'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/RegexesAreNotAnchoredByDefaultAndAreCaseSensitive'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - patternProperties
+  /requestBody/postPatternpropertiesWithNullValuedInstancePropertiesRequestBody:
+    post:
+      operationId: postPatternpropertiesWithNullValuedInstancePropertiesRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatternpropertiesWithNullValuedInstanceProperties'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/PatternpropertiesWithNullValuedInstanceProperties'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - patternProperties
+  /responseBody/postPatternpropertiesWithNullValuedInstancePropertiesResponseBodyForContentTypes:
+    post:
+      operationId: postPatternpropertiesWithNullValuedInstancePropertiesResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatternpropertiesWithNullValuedInstanceProperties'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/PatternpropertiesWithNullValuedInstanceProperties'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - patternProperties
+  /requestBody/postASchemaGivenForPrefixitemsRequestBody:
+    post:
+      operationId: postASchemaGivenForPrefixitemsRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ASchemaGivenForPrefixitems'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ASchemaGivenForPrefixitems'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - prefixItems
+  /responseBody/postASchemaGivenForPrefixitemsResponseBodyForContentTypes:
+    post:
+      operationId: postASchemaGivenForPrefixitemsResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ASchemaGivenForPrefixitems'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ASchemaGivenForPrefixitems'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - prefixItems
+  /requestBody/postAdditionalItemsAreAllowedByDefaultRequestBody:
+    post:
+      operationId: postAdditionalItemsAreAllowedByDefaultRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdditionalItemsAreAllowedByDefault'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/AdditionalItemsAreAllowedByDefault'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - prefixItems
+  /responseBody/postAdditionalItemsAreAllowedByDefaultResponseBodyForContentTypes:
+    post:
+      operationId: postAdditionalItemsAreAllowedByDefaultResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdditionalItemsAreAllowedByDefault'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/AdditionalItemsAreAllowedByDefault'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - prefixItems
+  /requestBody/postPrefixitemsWithNullInstanceElementsRequestBody:
+    post:
+      operationId: postPrefixitemsWithNullInstanceElementsRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrefixitemsWithNullInstanceElements'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/PrefixitemsWithNullInstanceElements'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - prefixItems
+  /responseBody/postPrefixitemsWithNullInstanceElementsResponseBodyForContentTypes:
+    post:
+      operationId: postPrefixitemsWithNullInstanceElementsResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrefixitemsWithNullInstanceElements'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/PrefixitemsWithNullInstanceElements'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - prefixItems
   /requestBody/postObjectPropertiesValidationRequestBody:
     post:
       operationId: postObjectPropertiesValidationRequestBody
@@ -2838,6 +3605,42 @@ paths:
                 $ref: '#/components/schemas/ObjectPropertiesValidation'
               x-schema-test-examples:
                 $ref: '#/components/x-schema-test-examples/ObjectPropertiesValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - properties
+  /requestBody/postPropertiesPatternpropertiesAdditionalpropertiesInteractionRequestBody:
+    post:
+      operationId: postPropertiesPatternpropertiesAdditionalpropertiesInteractionRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertiesPatternpropertiesAdditionalpropertiesInteraction'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/PropertiesPatternpropertiesAdditionalpropertiesInteraction'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - properties
+  /responseBody/postPropertiesPatternpropertiesAdditionalpropertiesInteractionResponseBodyForContentTypes:
+    post:
+      operationId: postPropertiesPatternpropertiesAdditionalpropertiesInteractionResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertiesPatternpropertiesAdditionalpropertiesInteraction'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/PropertiesPatternpropertiesAdditionalpropertiesInteraction'
       tags:
       - response.content.contentType.schema
       - path.post
@@ -2951,6 +3754,42 @@ paths:
       - path.post
       - contentType_json
       - properties
+  /requestBody/postPropertynamesValidationRequestBody:
+    post:
+      operationId: postPropertynamesValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertynamesValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/PropertynamesValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - propertyNames
+  /responseBody/postPropertynamesValidationResponseBodyForContentTypes:
+    post:
+      operationId: postPropertynamesValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PropertynamesValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/PropertynamesValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - propertyNames
   /requestBody/postPropertyNamedRefThatIsNotAReferenceRequestBody:
     post:
       operationId: postPropertyNamedRefThatIsNotAReferenceRequestBody
@@ -3563,6 +4402,294 @@ paths:
       - path.post
       - contentType_json
       - type
+  /requestBody/postUnevaluateditemsAsSchemaRequestBody:
+    post:
+      operationId: postUnevaluateditemsAsSchemaRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnevaluateditemsAsSchema'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/UnevaluateditemsAsSchema'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - unevaluatedItems
+  /responseBody/postUnevaluateditemsAsSchemaResponseBodyForContentTypes:
+    post:
+      operationId: postUnevaluateditemsAsSchemaResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnevaluateditemsAsSchema'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/UnevaluateditemsAsSchema'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - unevaluatedItems
+  /requestBody/postUnevaluateditemsWithItemsRequestBody:
+    post:
+      operationId: postUnevaluateditemsWithItemsRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnevaluateditemsWithItems'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/UnevaluateditemsWithItems'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - unevaluatedItems
+  /responseBody/postUnevaluateditemsWithItemsResponseBodyForContentTypes:
+    post:
+      operationId: postUnevaluateditemsWithItemsResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnevaluateditemsWithItems'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/UnevaluateditemsWithItems'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - unevaluatedItems
+  /requestBody/postUnevaluateditemsDependsOnMultipleNestedContainsRequestBody:
+    post:
+      operationId: postUnevaluateditemsDependsOnMultipleNestedContainsRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnevaluateditemsDependsOnMultipleNestedContains'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/UnevaluateditemsDependsOnMultipleNestedContains'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - unevaluatedItems
+  /responseBody/postUnevaluateditemsDependsOnMultipleNestedContainsResponseBodyForContentTypes:
+    post:
+      operationId: postUnevaluateditemsDependsOnMultipleNestedContainsResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnevaluateditemsDependsOnMultipleNestedContains'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/UnevaluateditemsDependsOnMultipleNestedContains'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - unevaluatedItems
+  /requestBody/postUnevaluateditemsWithNullInstanceElementsRequestBody:
+    post:
+      operationId: postUnevaluateditemsWithNullInstanceElementsRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnevaluateditemsWithNullInstanceElements'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/UnevaluateditemsWithNullInstanceElements'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - unevaluatedItems
+  /responseBody/postUnevaluateditemsWithNullInstanceElementsResponseBodyForContentTypes:
+    post:
+      operationId: postUnevaluateditemsWithNullInstanceElementsResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnevaluateditemsWithNullInstanceElements'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/UnevaluateditemsWithNullInstanceElements'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - unevaluatedItems
+  /requestBody/postUnevaluatedpropertiesSchemaRequestBody:
+    post:
+      operationId: postUnevaluatedpropertiesSchemaRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnevaluatedpropertiesSchema'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/UnevaluatedpropertiesSchema'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - unevaluatedProperties
+  /responseBody/postUnevaluatedpropertiesSchemaResponseBodyForContentTypes:
+    post:
+      operationId: postUnevaluatedpropertiesSchemaResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnevaluatedpropertiesSchema'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/UnevaluatedpropertiesSchema'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - unevaluatedProperties
+  /requestBody/postUnevaluatedpropertiesWithAdjacentAdditionalpropertiesRequestBody:
+    post:
+      operationId: postUnevaluatedpropertiesWithAdjacentAdditionalpropertiesRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnevaluatedpropertiesWithAdjacentAdditionalproperties'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/UnevaluatedpropertiesWithAdjacentAdditionalproperties'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - unevaluatedProperties
+  /responseBody/postUnevaluatedpropertiesWithAdjacentAdditionalpropertiesResponseBodyForContentTypes:
+    post:
+      operationId: postUnevaluatedpropertiesWithAdjacentAdditionalpropertiesResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnevaluatedpropertiesWithAdjacentAdditionalproperties'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/UnevaluatedpropertiesWithAdjacentAdditionalproperties'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - unevaluatedProperties
+  /requestBody/postUnevaluatedpropertiesWithNullValuedInstancePropertiesRequestBody:
+    post:
+      operationId: postUnevaluatedpropertiesWithNullValuedInstancePropertiesRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnevaluatedpropertiesWithNullValuedInstanceProperties'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/UnevaluatedpropertiesWithNullValuedInstanceProperties'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - unevaluatedProperties
+  /responseBody/postUnevaluatedpropertiesWithNullValuedInstancePropertiesResponseBodyForContentTypes:
+    post:
+      operationId: postUnevaluatedpropertiesWithNullValuedInstancePropertiesResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnevaluatedpropertiesWithNullValuedInstanceProperties'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/UnevaluatedpropertiesWithNullValuedInstanceProperties'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - unevaluatedProperties
+  /requestBody/postUnevaluatedpropertiesNotAffectedByPropertynamesRequestBody:
+    post:
+      operationId: postUnevaluatedpropertiesNotAffectedByPropertynamesRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UnevaluatedpropertiesNotAffectedByPropertynames'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/UnevaluatedpropertiesNotAffectedByPropertynames'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - unevaluatedProperties
+  /responseBody/postUnevaluatedpropertiesNotAffectedByPropertynamesResponseBodyForContentTypes:
+    post:
+      operationId: postUnevaluatedpropertiesNotAffectedByPropertynamesResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnevaluatedpropertiesNotAffectedByPropertynames'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/UnevaluatedpropertiesNotAffectedByPropertynames'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - unevaluatedProperties
   /requestBody/postUniqueitemsValidationRequestBody:
     post:
       operationId: postUniqueitemsValidationRequestBody
@@ -3709,6 +4836,11 @@ paths:
       - uniqueItems
 components:
   schemas:
+    NonAsciiPatternWithAdditionalproperties:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      patternProperties:
+        "^\xE1": {}
+      additionalProperties: false
     AdditionalpropertiesWithSchema:
       $schema: https://json-schema.org/draft/2020-12/schema
       properties:
@@ -3838,6 +4970,63 @@ components:
       anyOf:
       - anyOf:
         - type: 'null'
+    ConstNulCharactersInStrings:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      const: "hello\0there"
+    ContainsKeywordValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      contains:
+        minimum: 5
+    ItemsContains:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      items:
+        multipleOf: 2
+      contains:
+        multipleOf: 3
+    ContainsWithNullInstanceElements:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      contains:
+        type: 'null'
+    SingleDependency:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      dependentRequired:
+        bar:
+        - foo
+    EmptyDependents:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      dependentRequired:
+        bar: []
+    MultipleDependentsRequired:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      dependentRequired:
+        quux:
+        - foo
+        - bar
+    DependentSchemasSingleDependency:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      dependentSchemas:
+        bar:
+          properties:
+            foo:
+              type: integer
+            bar:
+              type: integer
+    DependentSchemasDependenciesWithEscapedCharacters:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      dependentSchemas:
+        "foo\tbar":
+          minProperties: 4
+        foo'bar:
+          required:
+          - foo"bar
+    DependentSchemasDependentSubschemaIncompatibleWithRoot:
+      properties:
+        foo: {}
+      dependentSchemas:
+        foo:
+          properties:
+            bar: {}
+          additionalProperties: false
     SimpleEnumValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       enum:
@@ -3968,6 +5157,9 @@ components:
       $schema: https://json-schema.org/draft/2020-12/schema
       items:
         type: 'null'
+    MaxcontainsWithoutContainsIsIgnored:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      maxContains: 1
     MaximumValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       maximum: 3.0
@@ -3992,6 +5184,9 @@ components:
     MinimumValidationWithSignedInteger:
       $schema: https://json-schema.org/draft/2020-12/schema
       minimum: -2
+    MincontainsWithoutContainsIsIgnored:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      minContains: 1
     MinitemsValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       minItems: 1
@@ -4022,6 +5217,12 @@ components:
       $schema: https://json-schema.org/draft/2020-12/schema
       not:
         type: integer
+    NotMultipleTypes:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      not:
+        type:
+        - integer
+        - boolean
     NotMoreComplexSchema:
       $schema: https://json-schema.org/draft/2020-12/schema
       not:
@@ -4084,6 +5285,43 @@ components:
     PatternIsNotAnchored:
       $schema: https://json-schema.org/draft/2020-12/schema
       pattern: a+
+    PatternpropertiesValidatesPropertiesMatchingARegex:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      patternProperties:
+        f.*o:
+          type: integer
+    MultipleSimultaneousPatternpropertiesAreValidated:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      patternProperties:
+        a*:
+          type: integer
+        aaa*:
+          maximum: 20
+    RegexesAreNotAnchoredByDefaultAndAreCaseSensitive:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      patternProperties:
+        '[0-9]{2,}':
+          type: boolean
+        X_:
+          type: string
+    PatternpropertiesWithNullValuedInstanceProperties:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      patternProperties:
+        ^.*bar$:
+          type: 'null'
+    ASchemaGivenForPrefixitems:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      prefixItems:
+      - type: integer
+      - type: string
+    AdditionalItemsAreAllowedByDefault:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      prefixItems:
+      - type: integer
+    PrefixitemsWithNullInstanceElements:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      prefixItems:
+      - type: 'null'
     ObjectPropertiesValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       properties:
@@ -4091,6 +5329,19 @@ components:
           type: integer
         bar:
           type: string
+    PropertiesPatternpropertiesAdditionalpropertiesInteraction:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      properties:
+        foo:
+          type: array
+          maxItems: 3
+        bar:
+          type: array
+      patternProperties:
+        f.o:
+          minItems: 2
+      additionalProperties:
+        type: integer
     PropertiesWithEscapedCharacters:
       $schema: https://json-schema.org/draft/2020-12/schema
       properties:
@@ -4124,6 +5375,10 @@ components:
               type: string
         constructor:
           type: number
+    PropertynamesValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      propertyNames:
+        maxLength: 3
     PropertyNamedRefThatIsNotAReference:
       $schema: https://json-schema.org/draft/2020-12/schema
       properties:
@@ -4203,6 +5458,53 @@ components:
       - array
       - object
       - 'null'
+    UnevaluateditemsAsSchema:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      unevaluatedItems:
+        type: string
+    UnevaluateditemsWithItems:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      items:
+        type: number
+      unevaluatedItems:
+        type: string
+    UnevaluateditemsDependsOnMultipleNestedContains:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      allOf:
+      - contains:
+          multipleOf: 2
+      - contains:
+          multipleOf: 3
+      unevaluatedItems:
+        multipleOf: 5
+    UnevaluateditemsWithNullInstanceElements:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      unevaluatedItems:
+        type: 'null'
+    UnevaluatedpropertiesSchema:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      type: object
+      unevaluatedProperties:
+        type: string
+        minLength: 3
+    UnevaluatedpropertiesWithAdjacentAdditionalproperties:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      type: object
+      properties:
+        foo:
+          type: string
+      additionalProperties: true
+      unevaluatedProperties: false
+    UnevaluatedpropertiesWithNullValuedInstanceProperties:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      unevaluatedProperties:
+        type: 'null'
+    UnevaluatedpropertiesNotAffectedByPropertynames:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      propertyNames:
+        maxLength: 1
+      unevaluatedProperties:
+        type: number
     UniqueitemsValidation:
       $schema: https://json-schema.org/draft/2020-12/schema
       uniqueItems: true
@@ -4222,12 +5524,26 @@ components:
       - type: boolean
       uniqueItems: false
   x-schema-test-examples:
+    NonAsciiPatternWithAdditionalproperties:
+      MatchingThePatternIsValid:
+        description: matching the pattern is valid
+        data:
+          "\xE1rm\xE1nyos": 2
+        valid: true
+        comment: null
+      NotMatchingThePatternIsInvalid:
+        description: not matching the pattern is invalid
+        data:
+          "\xE9lm\xE9ny": 2
+        valid: false
+        comment: null
     AdditionalpropertiesWithSchema:
       NoAdditionalPropertiesIsValid:
         description: no additional properties is valid
         data:
           foo: 1
         valid: true
+        comment: null
       AnAdditionalValidPropertyIsValid:
         description: an additional valid property is valid
         data:
@@ -4235,6 +5551,7 @@ components:
           bar: 2
           quux: true
         valid: true
+        comment: null
       AnAdditionalInvalidPropertyIsInvalid:
         description: an additional invalid property is invalid
         data:
@@ -4242,17 +5559,20 @@ components:
           bar: 2
           quux: 12
         valid: false
+        comment: null
     AdditionalpropertiesCanExistByItself:
       AnAdditionalValidPropertyIsValid:
         description: an additional valid property is valid
         data:
           foo: true
         valid: true
+        comment: null
       AnAdditionalInvalidPropertyIsInvalid:
         description: an additional invalid property is invalid
         data:
           foo: 1
         valid: false
+        comment: null
     AdditionalpropertiesAreAllowedByDefault:
       AdditionalPropertiesAreAllowed:
         description: additional properties are allowed
@@ -4261,6 +5581,7 @@ components:
           bar: 2
           quux: true
         valid: true
+        comment: null
     AdditionalpropertiesDoesNotLookInApplicators:
       PropertiesDefinedInAllofAreNotExamined:
         description: properties defined in allOf are not examined
@@ -4268,12 +5589,14 @@ components:
           foo: 1
           bar: true
         valid: false
+        comment: null
     AdditionalpropertiesWithNullValuedInstanceProperties:
       AllowsNullValues:
         description: allows null values
         data:
           foo: null
         valid: true
+        comment: null
     Allof:
       Allof:
         description: allOf
@@ -4281,22 +5604,26 @@ components:
           foo: baz
           bar: 2
         valid: true
+        comment: null
       MismatchSecond:
         description: mismatch second
         data:
           foo: baz
         valid: false
+        comment: null
       MismatchFirst:
         description: mismatch first
         data:
           bar: 2
         valid: false
+        comment: null
       WrongType:
         description: wrong type
         data:
           foo: baz
           bar: quux
         valid: false
+        comment: null
     AllofWithBaseSchema:
       Valid:
         description: valid
@@ -4305,188 +5632,527 @@ components:
           bar: 2
           baz: null
         valid: true
+        comment: null
       MismatchBaseSchema:
         description: mismatch base schema
         data:
           foo: quux
           baz: null
         valid: false
+        comment: null
       MismatchFirstAllof:
         description: mismatch first allOf
         data:
           bar: 2
           baz: null
         valid: false
+        comment: null
       MismatchSecondAllof:
         description: mismatch second allOf
         data:
           foo: quux
           bar: 2
         valid: false
+        comment: null
       MismatchBoth:
         description: mismatch both
         data:
           bar: 2
         valid: false
+        comment: null
     AllofSimpleTypes:
       Valid:
         description: valid
         data: 25
         valid: true
+        comment: null
       MismatchOne:
         description: mismatch one
         data: 35
         valid: false
+        comment: null
     AllofWithOneEmptySchema:
       AnyDataIsValid:
         description: any data is valid
         data: 1
         valid: true
+        comment: null
     AllofWithTwoEmptySchemas:
       AnyDataIsValid:
         description: any data is valid
         data: 1
         valid: true
+        comment: null
     AllofWithTheFirstEmptySchema:
       NumberIsValid:
         description: number is valid
         data: 1
         valid: true
+        comment: null
       StringIsInvalid:
         description: string is invalid
         data: foo
         valid: false
+        comment: null
     AllofWithTheLastEmptySchema:
       NumberIsValid:
         description: number is valid
         data: 1
         valid: true
+        comment: null
       StringIsInvalid:
         description: string is invalid
         data: foo
         valid: false
+        comment: null
     NestedAllofToCheckValidationSemantics:
       NullIsValid:
         description: null is valid
         data: null
         valid: true
+        comment: null
       AnythingNonNullIsInvalid:
         description: anything non-null is invalid
         data: 123
         valid: false
+        comment: null
     AllofCombinedWithAnyofOneof:
       AllofFalseAnyofFalseOneofFalse:
         description: 'allOf: false, anyOf: false, oneOf: false'
         data: 1
         valid: false
+        comment: null
       AllofFalseAnyofFalseOneofTrue:
         description: 'allOf: false, anyOf: false, oneOf: true'
         data: 5
         valid: false
+        comment: null
       AllofFalseAnyofTrueOneofFalse:
         description: 'allOf: false, anyOf: true, oneOf: false'
         data: 3
         valid: false
+        comment: null
       AllofFalseAnyofTrueOneofTrue:
         description: 'allOf: false, anyOf: true, oneOf: true'
         data: 15
         valid: false
+        comment: null
       AllofTrueAnyofFalseOneofFalse:
         description: 'allOf: true, anyOf: false, oneOf: false'
         data: 2
         valid: false
+        comment: null
       AllofTrueAnyofFalseOneofTrue:
         description: 'allOf: true, anyOf: false, oneOf: true'
         data: 10
         valid: false
+        comment: null
       AllofTrueAnyofTrueOneofFalse:
         description: 'allOf: true, anyOf: true, oneOf: false'
         data: 6
         valid: false
+        comment: null
       AllofTrueAnyofTrueOneofTrue:
         description: 'allOf: true, anyOf: true, oneOf: true'
         data: 30
         valid: true
+        comment: null
     Anyof:
       FirstAnyofValid:
         description: first anyOf valid
         data: 1
         valid: true
+        comment: null
       SecondAnyofValid:
         description: second anyOf valid
         data: 2.5
         valid: true
+        comment: null
       BothAnyofValid:
         description: both anyOf valid
         data: 3
         valid: true
+        comment: null
       NeitherAnyofValid:
         description: neither anyOf valid
         data: 1.5
         valid: false
+        comment: null
     AnyofWithBaseSchema:
       MismatchBaseSchema:
         description: mismatch base schema
         data: 3
         valid: false
+        comment: null
       OneAnyofValid:
         description: one anyOf valid
         data: foobar
         valid: true
+        comment: null
       BothAnyofInvalid:
         description: both anyOf invalid
         data: foo
         valid: false
+        comment: null
     AnyofComplexTypes:
       FirstAnyofValidComplex:
         description: first anyOf valid (complex)
         data:
           bar: 2
         valid: true
+        comment: null
       SecondAnyofValidComplex:
         description: second anyOf valid (complex)
         data:
           foo: baz
         valid: true
+        comment: null
       BothAnyofValidComplex:
         description: both anyOf valid (complex)
         data:
           foo: baz
           bar: 2
         valid: true
+        comment: null
       NeitherAnyofValidComplex:
         description: neither anyOf valid (complex)
         data:
           foo: 2
           bar: quux
         valid: false
+        comment: null
     AnyofWithOneEmptySchema:
       StringIsValid:
         description: string is valid
         data: foo
         valid: true
+        comment: null
       NumberIsValid:
         description: number is valid
         data: 123
         valid: true
+        comment: null
     NestedAnyofToCheckValidationSemantics:
       NullIsValid:
         description: null is valid
         data: null
         valid: true
+        comment: null
       AnythingNonNullIsInvalid:
         description: anything non-null is invalid
         data: 123
         valid: false
+        comment: null
+    ConstNulCharactersInStrings:
+      MatchStringWithNul:
+        description: match string with nul
+        data: "hello\0there"
+        valid: true
+        comment: null
+      DoNotMatchStringLackingNul:
+        description: do not match string lacking nul
+        data: hellothere
+        valid: false
+        comment: null
+    ContainsKeywordValidation:
+      ArrayWithItemMatchingSchema5IsValid:
+        description: array with item matching schema (5) is valid
+        data:
+        - 3
+        - 4
+        - 5
+        valid: true
+        comment: null
+      ArrayWithItemMatchingSchema6IsValid:
+        description: array with item matching schema (6) is valid
+        data:
+        - 3
+        - 4
+        - 6
+        valid: true
+        comment: null
+      ArrayWithTwoItemsMatchingSchema56IsValid:
+        description: array with two items matching schema (5, 6) is valid
+        data:
+        - 3
+        - 4
+        - 5
+        - 6
+        valid: true
+        comment: null
+      ArrayWithoutItemsMatchingSchemaIsInvalid:
+        description: array without items matching schema is invalid
+        data:
+        - 2
+        - 3
+        - 4
+        valid: false
+        comment: null
+      EmptyArrayIsInvalid:
+        description: empty array is invalid
+        data: []
+        valid: false
+        comment: null
+      NotArrayIsValid:
+        description: not array is valid
+        data: {}
+        valid: true
+        comment: null
+    ItemsContains:
+      MatchesItemsDoesNotMatchContains:
+        description: matches items, does not match contains
+        data:
+        - 2
+        - 4
+        - 8
+        valid: false
+        comment: null
+      DoesNotMatchItemsMatchesContains:
+        description: does not match items, matches contains
+        data:
+        - 3
+        - 6
+        - 9
+        valid: false
+        comment: null
+      MatchesBothItemsAndContains:
+        description: matches both items and contains
+        data:
+        - 6
+        - 12
+        valid: true
+        comment: null
+      MatchesNeitherItemsNorContains:
+        description: matches neither items nor contains
+        data:
+        - 1
+        - 5
+        valid: false
+        comment: null
+    ContainsWithNullInstanceElements:
+      AllowsNullItems:
+        description: allows null items
+        data:
+        - null
+        valid: true
+        comment: null
+    SingleDependency:
+      Neither:
+        description: neither
+        data: {}
+        valid: true
+        comment: null
+      Nondependant:
+        description: nondependant
+        data:
+          foo: 1
+        valid: true
+        comment: null
+      WithDependency:
+        description: with dependency
+        data:
+          foo: 1
+          bar: 2
+        valid: true
+        comment: null
+      MissingDependency:
+        description: missing dependency
+        data:
+          bar: 2
+        valid: false
+        comment: null
+      IgnoresArrays:
+        description: ignores arrays
+        data:
+        - bar
+        valid: true
+        comment: null
+      IgnoresStrings:
+        description: ignores strings
+        data: foobar
+        valid: true
+        comment: null
+      IgnoresOtherNonObjects:
+        description: ignores other non-objects
+        data: 12
+        valid: true
+        comment: null
+    EmptyDependents:
+      EmptyObject:
+        description: empty object
+        data: {}
+        valid: true
+        comment: null
+      ObjectWithOneProperty:
+        description: object with one property
+        data:
+          bar: 2
+        valid: true
+        comment: null
+      NonObjectIsValid:
+        description: non-object is valid
+        data: 1
+        valid: true
+        comment: null
+    MultipleDependentsRequired:
+      Neither:
+        description: neither
+        data: {}
+        valid: true
+        comment: null
+      Nondependants:
+        description: nondependants
+        data:
+          foo: 1
+          bar: 2
+        valid: true
+        comment: null
+      WithDependencies:
+        description: with dependencies
+        data:
+          foo: 1
+          bar: 2
+          quux: 3
+        valid: true
+        comment: null
+      MissingDependency:
+        description: missing dependency
+        data:
+          foo: 1
+          quux: 2
+        valid: false
+        comment: null
+      MissingOtherDependency:
+        description: missing other dependency
+        data:
+          bar: 1
+          quux: 2
+        valid: false
+        comment: null
+      MissingBothDependencies:
+        description: missing both dependencies
+        data:
+          quux: 1
+        valid: false
+        comment: null
+    DependentSchemasSingleDependency:
+      Valid:
+        description: valid
+        data:
+          foo: 1
+          bar: 2
+        valid: true
+        comment: null
+      NoDependency:
+        description: no dependency
+        data:
+          foo: quux
+        valid: true
+        comment: null
+      WrongType:
+        description: wrong type
+        data:
+          foo: quux
+          bar: 2
+        valid: false
+        comment: null
+      WrongTypeOther:
+        description: wrong type other
+        data:
+          foo: 2
+          bar: quux
+        valid: false
+        comment: null
+      WrongTypeBoth:
+        description: wrong type both
+        data:
+          foo: quux
+          bar: quux
+        valid: false
+        comment: null
+      IgnoresArrays:
+        description: ignores arrays
+        data:
+        - bar
+        valid: true
+        comment: null
+      IgnoresStrings:
+        description: ignores strings
+        data: foobar
+        valid: true
+        comment: null
+      IgnoresOtherNonObjects:
+        description: ignores other non-objects
+        data: 12
+        valid: true
+        comment: null
+    DependentSchemasDependenciesWithEscapedCharacters:
+      QuotedTab:
+        description: quoted tab
+        data:
+          "foo\tbar": 1
+          a: 2
+          b: 3
+          c: 4
+        valid: true
+        comment: null
+      QuotedQuote:
+        description: quoted quote
+        data:
+          foo'bar:
+            foo"bar: 1
+        valid: false
+        comment: null
+      QuotedTabInvalidUnderDependentSchema:
+        description: quoted tab invalid under dependent schema
+        data:
+          "foo\tbar": 1
+          a: 2
+        valid: false
+        comment: null
+      QuotedQuoteInvalidUnderDependentSchema:
+        description: quoted quote invalid under dependent schema
+        data:
+          foo'bar: 1
+        valid: false
+        comment: null
+    DependentSchemasDependentSubschemaIncompatibleWithRoot:
+      MatchesRoot:
+        description: matches root
+        data:
+          foo: 1
+        valid: false
+        comment: null
+      MatchesDependency:
+        description: matches dependency
+        data:
+          bar: 1
+        valid: true
+        comment: null
+      MatchesBoth:
+        description: matches both
+        data:
+          foo: 1
+          bar: 2
+        valid: false
+        comment: null
+      NoDependency:
+        description: no dependency
+        data:
+          baz: 1
+        valid: true
+        comment: null
     SimpleEnumValidation:
       OneOfTheEnumIsValid:
         description: one of the enum is valid
         data: 1
         valid: true
+        comment: null
       SomethingElseIsInvalid:
         description: something else is invalid
         data: 4
         valid: false
+        comment: null
     EnumsInProperties:
       BothPropertiesAreValid:
         description: both properties are valid
@@ -4494,32 +6160,38 @@ components:
           foo: foo
           bar: bar
         valid: true
+        comment: null
       WrongFooValue:
         description: wrong foo value
         data:
           foo: foot
           bar: bar
         valid: false
+        comment: null
       WrongBarValue:
         description: wrong bar value
         data:
           foo: foo
           bar: bart
         valid: false
+        comment: null
       MissingOptionalPropertyIsValid:
         description: missing optional property is valid
         data:
           bar: bar
         valid: true
+        comment: null
       MissingRequiredPropertyIsInvalid:
         description: missing required property is invalid
         data:
           foo: foo
         valid: false
+        comment: null
       MissingAllPropertiesIsInvalid:
         description: missing all properties is invalid
         data: {}
         valid: false
+        comment: null
     EnumWithEscapedCharacters:
       Member1IsValid:
         description: member 1 is valid
@@ -4527,627 +6199,777 @@ components:
 
           bar'
         valid: true
+        comment: null
       Member2IsValid:
         description: member 2 is valid
         data: "foo\rbar"
         valid: true
+        comment: null
       AnotherStringIsInvalid:
         description: another string is invalid
         data: abc
         valid: false
+        comment: null
     EnumWithFalseDoesNotMatch0:
       FalseIsValid:
         description: false is valid
         data: false
         valid: true
+        comment: null
       IntegerZeroIsInvalid:
         description: integer zero is invalid
         data: 0
         valid: false
+        comment: null
       FloatZeroIsInvalid:
         description: float zero is invalid
         data: 0.0
         valid: false
+        comment: null
     EnumWithTrueDoesNotMatch1:
       TrueIsValid:
         description: true is valid
         data: true
         valid: true
+        comment: null
       IntegerOneIsInvalid:
         description: integer one is invalid
         data: 1
         valid: false
+        comment: null
       FloatOneIsInvalid:
         description: float one is invalid
         data: 1.0
         valid: false
+        comment: null
     EnumWith0DoesNotMatchFalse:
       FalseIsInvalid:
         description: false is invalid
         data: false
         valid: false
+        comment: null
       IntegerZeroIsValid:
         description: integer zero is valid
         data: 0
         valid: true
+        comment: null
       FloatZeroIsValid:
         description: float zero is valid
         data: 0.0
         valid: true
+        comment: null
     EnumWith1DoesNotMatchTrue:
       TrueIsInvalid:
         description: true is invalid
         data: true
         valid: false
+        comment: null
       IntegerOneIsValid:
         description: integer one is valid
         data: 1
         valid: true
+        comment: null
       FloatOneIsValid:
         description: float one is valid
         data: 1.0
         valid: true
+        comment: null
     NulCharactersInStrings:
       MatchStringWithNul:
         description: match string with nul
         data: "hello\0there"
         valid: true
+        comment: null
       DoNotMatchStringLackingNul:
         description: do not match string lacking nul
         data: hellothere
         valid: false
+        comment: null
     EmailFormat:
       AllStringFormatsIgnoreIntegers:
         description: all string formats ignore integers
         data: 12
         valid: true
+        comment: null
       AllStringFormatsIgnoreFloats:
         description: all string formats ignore floats
         data: 13.7
         valid: true
+        comment: null
       AllStringFormatsIgnoreObjects:
         description: all string formats ignore objects
         data: {}
         valid: true
+        comment: null
       AllStringFormatsIgnoreArrays:
         description: all string formats ignore arrays
         data: []
         valid: true
+        comment: null
       AllStringFormatsIgnoreBooleans:
         description: all string formats ignore booleans
         data: false
         valid: true
+        comment: null
       AllStringFormatsIgnoreNulls:
         description: all string formats ignore nulls
         data: null
         valid: true
+        comment: null
       InvalidEmailStringIsOnlyAnAnnotationByDefault:
         description: invalid email string is only an annotation by default
         data: '2962'
         valid: true
+        comment: null
     IdnEmailFormat:
       AllStringFormatsIgnoreIntegers:
         description: all string formats ignore integers
         data: 12
         valid: true
+        comment: null
       AllStringFormatsIgnoreFloats:
         description: all string formats ignore floats
         data: 13.7
         valid: true
+        comment: null
       AllStringFormatsIgnoreObjects:
         description: all string formats ignore objects
         data: {}
         valid: true
+        comment: null
       AllStringFormatsIgnoreArrays:
         description: all string formats ignore arrays
         data: []
         valid: true
+        comment: null
       AllStringFormatsIgnoreBooleans:
         description: all string formats ignore booleans
         data: false
         valid: true
+        comment: null
       AllStringFormatsIgnoreNulls:
         description: all string formats ignore nulls
         data: null
         valid: true
+        comment: null
       InvalidIdnEmailStringIsOnlyAnAnnotationByDefault:
         description: invalid idn-email string is only an annotation by default
         data: '2962'
         valid: true
+        comment: null
     RegexFormat:
       AllStringFormatsIgnoreIntegers:
         description: all string formats ignore integers
         data: 12
         valid: true
+        comment: null
       AllStringFormatsIgnoreFloats:
         description: all string formats ignore floats
         data: 13.7
         valid: true
+        comment: null
       AllStringFormatsIgnoreObjects:
         description: all string formats ignore objects
         data: {}
         valid: true
+        comment: null
       AllStringFormatsIgnoreArrays:
         description: all string formats ignore arrays
         data: []
         valid: true
+        comment: null
       AllStringFormatsIgnoreBooleans:
         description: all string formats ignore booleans
         data: false
         valid: true
+        comment: null
       AllStringFormatsIgnoreNulls:
         description: all string formats ignore nulls
         data: null
         valid: true
+        comment: null
       InvalidRegexStringIsOnlyAnAnnotationByDefault:
         description: invalid regex string is only an annotation by default
         data: ^(abc]
         valid: true
+        comment: null
     Ipv4Format:
       AllStringFormatsIgnoreIntegers:
         description: all string formats ignore integers
         data: 12
         valid: true
+        comment: null
       AllStringFormatsIgnoreFloats:
         description: all string formats ignore floats
         data: 13.7
         valid: true
+        comment: null
       AllStringFormatsIgnoreObjects:
         description: all string formats ignore objects
         data: {}
         valid: true
+        comment: null
       AllStringFormatsIgnoreArrays:
         description: all string formats ignore arrays
         data: []
         valid: true
+        comment: null
       AllStringFormatsIgnoreBooleans:
         description: all string formats ignore booleans
         data: false
         valid: true
+        comment: null
       AllStringFormatsIgnoreNulls:
         description: all string formats ignore nulls
         data: null
         valid: true
+        comment: null
       InvalidIpv4StringIsOnlyAnAnnotationByDefault:
         description: invalid ipv4 string is only an annotation by default
         data: 127.0.0.0.1
         valid: true
+        comment: null
     Ipv6Format:
       AllStringFormatsIgnoreIntegers:
         description: all string formats ignore integers
         data: 12
         valid: true
+        comment: null
       AllStringFormatsIgnoreFloats:
         description: all string formats ignore floats
         data: 13.7
         valid: true
+        comment: null
       AllStringFormatsIgnoreObjects:
         description: all string formats ignore objects
         data: {}
         valid: true
+        comment: null
       AllStringFormatsIgnoreArrays:
         description: all string formats ignore arrays
         data: []
         valid: true
+        comment: null
       AllStringFormatsIgnoreBooleans:
         description: all string formats ignore booleans
         data: false
         valid: true
+        comment: null
       AllStringFormatsIgnoreNulls:
         description: all string formats ignore nulls
         data: null
         valid: true
+        comment: null
       InvalidIpv6StringIsOnlyAnAnnotationByDefault:
         description: invalid ipv6 string is only an annotation by default
         data: '12345::'
         valid: true
+        comment: null
     IdnHostnameFormat:
       AllStringFormatsIgnoreIntegers:
         description: all string formats ignore integers
         data: 12
         valid: true
+        comment: null
       AllStringFormatsIgnoreFloats:
         description: all string formats ignore floats
         data: 13.7
         valid: true
+        comment: null
       AllStringFormatsIgnoreObjects:
         description: all string formats ignore objects
         data: {}
         valid: true
+        comment: null
       AllStringFormatsIgnoreArrays:
         description: all string formats ignore arrays
         data: []
         valid: true
+        comment: null
       AllStringFormatsIgnoreBooleans:
         description: all string formats ignore booleans
         data: false
         valid: true
+        comment: null
       AllStringFormatsIgnoreNulls:
         description: all string formats ignore nulls
         data: null
         valid: true
+        comment: null
       InvalidIdnHostnameStringIsOnlyAnAnnotationByDefault:
         description: invalid idn-hostname string is only an annotation by default
         data: "\u302E\uC2E4\uB840.\uD14C\uC2A4\uD2B8"
         valid: true
+        comment: null
     HostnameFormat:
       AllStringFormatsIgnoreIntegers:
         description: all string formats ignore integers
         data: 12
         valid: true
+        comment: null
       AllStringFormatsIgnoreFloats:
         description: all string formats ignore floats
         data: 13.7
         valid: true
+        comment: null
       AllStringFormatsIgnoreObjects:
         description: all string formats ignore objects
         data: {}
         valid: true
+        comment: null
       AllStringFormatsIgnoreArrays:
         description: all string formats ignore arrays
         data: []
         valid: true
+        comment: null
       AllStringFormatsIgnoreBooleans:
         description: all string formats ignore booleans
         data: false
         valid: true
+        comment: null
       AllStringFormatsIgnoreNulls:
         description: all string formats ignore nulls
         data: null
         valid: true
+        comment: null
       InvalidHostnameStringIsOnlyAnAnnotationByDefault:
         description: invalid hostname string is only an annotation by default
         data: -a-host-name-that-starts-with--
         valid: true
+        comment: null
     DateFormat:
       AllStringFormatsIgnoreIntegers:
         description: all string formats ignore integers
         data: 12
         valid: true
+        comment: null
       AllStringFormatsIgnoreFloats:
         description: all string formats ignore floats
         data: 13.7
         valid: true
+        comment: null
       AllStringFormatsIgnoreObjects:
         description: all string formats ignore objects
         data: {}
         valid: true
+        comment: null
       AllStringFormatsIgnoreArrays:
         description: all string formats ignore arrays
         data: []
         valid: true
+        comment: null
       AllStringFormatsIgnoreBooleans:
         description: all string formats ignore booleans
         data: false
         valid: true
+        comment: null
       AllStringFormatsIgnoreNulls:
         description: all string formats ignore nulls
         data: null
         valid: true
+        comment: null
       InvalidDateStringIsOnlyAnAnnotationByDefault:
         description: invalid date string is only an annotation by default
         data: 06/19/1963
         valid: true
+        comment: null
     DateTimeFormat:
       AllStringFormatsIgnoreIntegers:
         description: all string formats ignore integers
         data: 12
         valid: true
+        comment: null
       AllStringFormatsIgnoreFloats:
         description: all string formats ignore floats
         data: 13.7
         valid: true
+        comment: null
       AllStringFormatsIgnoreObjects:
         description: all string formats ignore objects
         data: {}
         valid: true
+        comment: null
       AllStringFormatsIgnoreArrays:
         description: all string formats ignore arrays
         data: []
         valid: true
+        comment: null
       AllStringFormatsIgnoreBooleans:
         description: all string formats ignore booleans
         data: false
         valid: true
+        comment: null
       AllStringFormatsIgnoreNulls:
         description: all string formats ignore nulls
         data: null
         valid: true
+        comment: null
       InvalidDateTimeStringIsOnlyAnAnnotationByDefault:
         description: invalid date-time string is only an annotation by default
         data: '1990-02-31T15:59:60.123-08:00'
         valid: true
+        comment: null
     TimeFormat:
       AllStringFormatsIgnoreIntegers:
         description: all string formats ignore integers
         data: 12
         valid: true
+        comment: null
       AllStringFormatsIgnoreFloats:
         description: all string formats ignore floats
         data: 13.7
         valid: true
+        comment: null
       AllStringFormatsIgnoreObjects:
         description: all string formats ignore objects
         data: {}
         valid: true
+        comment: null
       AllStringFormatsIgnoreArrays:
         description: all string formats ignore arrays
         data: []
         valid: true
+        comment: null
       AllStringFormatsIgnoreBooleans:
         description: all string formats ignore booleans
         data: false
         valid: true
+        comment: null
       AllStringFormatsIgnoreNulls:
         description: all string formats ignore nulls
         data: null
         valid: true
+        comment: null
       InvalidTimeStringIsOnlyAnAnnotationByDefault:
         description: invalid time string is only an annotation by default
         data: 08:30:06 PST
         valid: true
+        comment: null
     JsonPointerFormat:
       AllStringFormatsIgnoreIntegers:
         description: all string formats ignore integers
         data: 12
         valid: true
+        comment: null
       AllStringFormatsIgnoreFloats:
         description: all string formats ignore floats
         data: 13.7
         valid: true
+        comment: null
       AllStringFormatsIgnoreObjects:
         description: all string formats ignore objects
         data: {}
         valid: true
+        comment: null
       AllStringFormatsIgnoreArrays:
         description: all string formats ignore arrays
         data: []
         valid: true
+        comment: null
       AllStringFormatsIgnoreBooleans:
         description: all string formats ignore booleans
         data: false
         valid: true
+        comment: null
       AllStringFormatsIgnoreNulls:
         description: all string formats ignore nulls
         data: null
         valid: true
+        comment: null
       InvalidJsonPointerStringIsOnlyAnAnnotationByDefault:
         description: invalid json-pointer string is only an annotation by default
         data: /foo/bar~
         valid: true
+        comment: null
     RelativeJsonPointerFormat:
       AllStringFormatsIgnoreIntegers:
         description: all string formats ignore integers
         data: 12
         valid: true
+        comment: null
       AllStringFormatsIgnoreFloats:
         description: all string formats ignore floats
         data: 13.7
         valid: true
+        comment: null
       AllStringFormatsIgnoreObjects:
         description: all string formats ignore objects
         data: {}
         valid: true
+        comment: null
       AllStringFormatsIgnoreArrays:
         description: all string formats ignore arrays
         data: []
         valid: true
+        comment: null
       AllStringFormatsIgnoreBooleans:
         description: all string formats ignore booleans
         data: false
         valid: true
+        comment: null
       AllStringFormatsIgnoreNulls:
         description: all string formats ignore nulls
         data: null
         valid: true
+        comment: null
       InvalidRelativeJsonPointerStringIsOnlyAnAnnotationByDefault:
         description: invalid relative-json-pointer string is only an annotation by
           default
         data: /foo/bar
         valid: true
+        comment: null
     IriFormat:
       AllStringFormatsIgnoreIntegers:
         description: all string formats ignore integers
         data: 12
         valid: true
+        comment: null
       AllStringFormatsIgnoreFloats:
         description: all string formats ignore floats
         data: 13.7
         valid: true
+        comment: null
       AllStringFormatsIgnoreObjects:
         description: all string formats ignore objects
         data: {}
         valid: true
+        comment: null
       AllStringFormatsIgnoreArrays:
         description: all string formats ignore arrays
         data: []
         valid: true
+        comment: null
       AllStringFormatsIgnoreBooleans:
         description: all string formats ignore booleans
         data: false
         valid: true
+        comment: null
       AllStringFormatsIgnoreNulls:
         description: all string formats ignore nulls
         data: null
         valid: true
+        comment: null
       InvalidIriStringIsOnlyAnAnnotationByDefault:
         description: invalid iri string is only an annotation by default
         data: http://2001:0db8:85a3:0000:0000:8a2e:0370:7334
         valid: true
+        comment: null
     IriReferenceFormat:
       AllStringFormatsIgnoreIntegers:
         description: all string formats ignore integers
         data: 12
         valid: true
+        comment: null
       AllStringFormatsIgnoreFloats:
         description: all string formats ignore floats
         data: 13.7
         valid: true
+        comment: null
       AllStringFormatsIgnoreObjects:
         description: all string formats ignore objects
         data: {}
         valid: true
+        comment: null
       AllStringFormatsIgnoreArrays:
         description: all string formats ignore arrays
         data: []
         valid: true
+        comment: null
       AllStringFormatsIgnoreBooleans:
         description: all string formats ignore booleans
         data: false
         valid: true
+        comment: null
       AllStringFormatsIgnoreNulls:
         description: all string formats ignore nulls
         data: null
         valid: true
+        comment: null
       InvalidIriReferenceStringIsOnlyAnAnnotationByDefault:
         description: invalid iri-reference string is only an annotation by default
         data: "\\\\WINDOWS\\fil\xEB\xDF\xE5r\xE9"
         valid: true
+        comment: null
     UriFormat:
       AllStringFormatsIgnoreIntegers:
         description: all string formats ignore integers
         data: 12
         valid: true
+        comment: null
       AllStringFormatsIgnoreFloats:
         description: all string formats ignore floats
         data: 13.7
         valid: true
+        comment: null
       AllStringFormatsIgnoreObjects:
         description: all string formats ignore objects
         data: {}
         valid: true
+        comment: null
       AllStringFormatsIgnoreArrays:
         description: all string formats ignore arrays
         data: []
         valid: true
+        comment: null
       AllStringFormatsIgnoreBooleans:
         description: all string formats ignore booleans
         data: false
         valid: true
+        comment: null
       AllStringFormatsIgnoreNulls:
         description: all string formats ignore nulls
         data: null
         valid: true
+        comment: null
       InvalidUriStringIsOnlyAnAnnotationByDefault:
         description: invalid uri string is only an annotation by default
         data: //foo.bar/?baz=qux#quux
         valid: true
+        comment: null
     UriReferenceFormat:
       AllStringFormatsIgnoreIntegers:
         description: all string formats ignore integers
         data: 12
         valid: true
+        comment: null
       AllStringFormatsIgnoreFloats:
         description: all string formats ignore floats
         data: 13.7
         valid: true
+        comment: null
       AllStringFormatsIgnoreObjects:
         description: all string formats ignore objects
         data: {}
         valid: true
+        comment: null
       AllStringFormatsIgnoreArrays:
         description: all string formats ignore arrays
         data: []
         valid: true
+        comment: null
       AllStringFormatsIgnoreBooleans:
         description: all string formats ignore booleans
         data: false
         valid: true
+        comment: null
       AllStringFormatsIgnoreNulls:
         description: all string formats ignore nulls
         data: null
         valid: true
+        comment: null
       InvalidUriReferenceStringIsOnlyAnAnnotationByDefault:
         description: invalid uri-reference string is only an annotation by default
         data: \\WINDOWS\fileshare
         valid: true
+        comment: null
     UriTemplateFormat:
       AllStringFormatsIgnoreIntegers:
         description: all string formats ignore integers
         data: 12
         valid: true
+        comment: null
       AllStringFormatsIgnoreFloats:
         description: all string formats ignore floats
         data: 13.7
         valid: true
+        comment: null
       AllStringFormatsIgnoreObjects:
         description: all string formats ignore objects
         data: {}
         valid: true
+        comment: null
       AllStringFormatsIgnoreArrays:
         description: all string formats ignore arrays
         data: []
         valid: true
+        comment: null
       AllStringFormatsIgnoreBooleans:
         description: all string formats ignore booleans
         data: false
         valid: true
+        comment: null
       AllStringFormatsIgnoreNulls:
         description: all string formats ignore nulls
         data: null
         valid: true
+        comment: null
       InvalidUriTemplateStringIsOnlyAnAnnotationByDefault:
         description: invalid uri-template string is only an annotation by default
         data: http://example.com/dictionary/{term:1}/{term
         valid: true
+        comment: null
     UuidFormat:
       AllStringFormatsIgnoreIntegers:
         description: all string formats ignore integers
         data: 12
         valid: true
+        comment: null
       AllStringFormatsIgnoreFloats:
         description: all string formats ignore floats
         data: 13.7
         valid: true
+        comment: null
       AllStringFormatsIgnoreObjects:
         description: all string formats ignore objects
         data: {}
         valid: true
+        comment: null
       AllStringFormatsIgnoreArrays:
         description: all string formats ignore arrays
         data: []
         valid: true
+        comment: null
       AllStringFormatsIgnoreBooleans:
         description: all string formats ignore booleans
         data: false
         valid: true
+        comment: null
       AllStringFormatsIgnoreNulls:
         description: all string formats ignore nulls
         data: null
         valid: true
+        comment: null
       InvalidUuidStringIsOnlyAnAnnotationByDefault:
         description: invalid uuid string is only an annotation by default
         data: 2eb8aa08-aa98-11ea-b4aa-73b441d1638
         valid: true
+        comment: null
     DurationFormat:
       AllStringFormatsIgnoreIntegers:
         description: all string formats ignore integers
         data: 12
         valid: true
+        comment: null
       AllStringFormatsIgnoreFloats:
         description: all string formats ignore floats
         data: 13.7
         valid: true
+        comment: null
       AllStringFormatsIgnoreObjects:
         description: all string formats ignore objects
         data: {}
         valid: true
+        comment: null
       AllStringFormatsIgnoreArrays:
         description: all string formats ignore arrays
         data: []
         valid: true
+        comment: null
       AllStringFormatsIgnoreBooleans:
         description: all string formats ignore booleans
         data: false
         valid: true
+        comment: null
       AllStringFormatsIgnoreNulls:
         description: all string formats ignore nulls
         data: null
         valid: true
+        comment: null
       InvalidDurationStringIsOnlyAnAnnotationByDefault:
         description: invalid duration string is only an annotation by default
         data: PT1D
         valid: true
+        comment: null
     NestedItems:
       ValidNestedArray:
         description: valid nested array
@@ -5159,6 +6981,7 @@ components:
             - - 5
             - - 6
         valid: true
+        comment: null
       NestedArrayWithInvalidType:
         description: nested array with invalid type
         data:
@@ -5169,6 +6992,7 @@ components:
             - - 5
             - - 6
         valid: false
+        comment: null
       NotDeepEnough:
         description: not deep enough
         data:
@@ -5179,6 +7003,7 @@ components:
           - - 5
           - - 6
         valid: false
+        comment: null
     ItemsDoesNotLookInApplicatorsValidCase:
       PrefixitemsInAllofDoesNotConstrainItemsInvalidCase:
         description: prefixItems in allOf does not constrain items, invalid case
@@ -5186,12 +7011,14 @@ components:
         - 3
         - 5
         valid: false
+        comment: null
       PrefixitemsInAllofDoesNotConstrainItemsValidCase:
         description: prefixItems in allOf does not constrain items, valid case
         data:
         - 5
         - 5
         valid: true
+        comment: null
     PrefixitemsValidationAdjustsTheStartingIndexForItems:
       ValidItems:
         description: valid items
@@ -5200,64 +7027,91 @@ components:
         - 2
         - 3
         valid: true
+        comment: null
       WrongTypeOfSecondItem:
         description: wrong type of second item
         data:
         - x
         - y
         valid: false
+        comment: null
     ItemsWithNullInstanceElements:
       AllowsNullElements:
         description: allows null elements
         data:
         - null
         valid: true
+        comment: null
+    MaxcontainsWithoutContainsIsIgnored:
+      OneItemValidAgainstLoneMaxcontains:
+        description: one item valid against lone maxContains
+        data:
+        - 1
+        valid: true
+        comment: null
+      TwoItemsStillValidAgainstLoneMaxcontains:
+        description: two items still valid against lone maxContains
+        data:
+        - 1
+        - 2
+        valid: true
+        comment: null
     MaximumValidation:
       BelowTheMaximumIsValid:
         description: below the maximum is valid
         data: 2.6
         valid: true
+        comment: null
       BoundaryPointIsValid:
         description: boundary point is valid
         data: 3.0
         valid: true
+        comment: null
       AboveTheMaximumIsInvalid:
         description: above the maximum is invalid
         data: 3.5
         valid: false
+        comment: null
       IgnoresNonNumbers:
         description: ignores non-numbers
         data: x
         valid: true
+        comment: null
     MaximumValidationWithUnsignedInteger:
       BelowTheMaximumIsInvalid:
         description: below the maximum is invalid
         data: 299.97
         valid: true
+        comment: null
       BoundaryPointIntegerIsValid:
         description: boundary point integer is valid
         data: 300
         valid: true
+        comment: null
       BoundaryPointFloatIsValid:
         description: boundary point float is valid
         data: 300.0
         valid: true
+        comment: null
       AboveTheMaximumIsInvalid:
         description: above the maximum is invalid
         data: 300.5
         valid: false
+        comment: null
     MaxitemsValidation:
       ShorterIsValid:
         description: shorter is valid
         data:
         - 1
         valid: true
+        comment: null
       ExactLengthIsValid:
         description: exact length is valid
         data:
         - 1
         - 2
         valid: true
+        comment: null
       TooLongIsInvalid:
         description: too long is invalid
         data:
@@ -5265,43 +7119,52 @@ components:
         - 2
         - 3
         valid: false
+        comment: null
       IgnoresNonArrays:
         description: ignores non-arrays
         data: foobar
         valid: true
+        comment: null
     MaxlengthValidation:
       ShorterIsValid:
         description: shorter is valid
         data: f
         valid: true
+        comment: null
       ExactLengthIsValid:
         description: exact length is valid
         data: fo
         valid: true
+        comment: null
       TooLongIsInvalid:
         description: too long is invalid
         data: foo
         valid: false
+        comment: null
       IgnoresNonStrings:
         description: ignores non-strings
         data: 100
         valid: true
+        comment: null
       TwoSupplementaryUnicodeCodePointsIsLongEnough:
         description: two supplementary Unicode code points is long enough
         data: "\U0001F4A9\U0001F4A9"
         valid: true
+        comment: null
     MaxpropertiesValidation:
       ShorterIsValid:
         description: shorter is valid
         data:
           foo: 1
         valid: true
+        comment: null
       ExactLengthIsValid:
         description: exact length is valid
         data:
           foo: 1
           bar: 2
         valid: true
+        comment: null
       TooLongIsInvalid:
         description: too long is invalid
         data:
@@ -5309,6 +7172,7 @@ components:
           bar: 2
           baz: 3
         valid: false
+        comment: null
       IgnoresArrays:
         description: ignores arrays
         data:
@@ -5316,70 +7180,98 @@ components:
         - 2
         - 3
         valid: true
+        comment: null
       IgnoresStrings:
         description: ignores strings
         data: foobar
         valid: true
+        comment: null
       IgnoresOtherNonObjects:
         description: ignores other non-objects
         data: 12
         valid: true
+        comment: null
     Maxproperties0MeansTheObjectIsEmpty:
       NoPropertiesIsValid:
         description: no properties is valid
         data: {}
         valid: true
+        comment: null
       OnePropertyIsInvalid:
         description: one property is invalid
         data:
           foo: 1
         valid: false
+        comment: null
     MinimumValidation:
       AboveTheMinimumIsValid:
         description: above the minimum is valid
         data: 2.6
         valid: true
+        comment: null
       BoundaryPointIsValid:
         description: boundary point is valid
         data: 1.1
         valid: true
+        comment: null
       BelowTheMinimumIsInvalid:
         description: below the minimum is invalid
         data: 0.6
         valid: false
+        comment: null
       IgnoresNonNumbers:
         description: ignores non-numbers
         data: x
         valid: true
+        comment: null
     MinimumValidationWithSignedInteger:
       NegativeAboveTheMinimumIsValid:
         description: negative above the minimum is valid
         data: -1
         valid: true
+        comment: null
       PositiveAboveTheMinimumIsValid:
         description: positive above the minimum is valid
         data: 0
         valid: true
+        comment: null
       BoundaryPointIsValid:
         description: boundary point is valid
         data: -2
         valid: true
+        comment: null
       BoundaryPointWithFloatIsValid:
         description: boundary point with float is valid
         data: -2.0
         valid: true
+        comment: null
       FloatBelowTheMinimumIsInvalid:
         description: float below the minimum is invalid
         data: -2.0001
         valid: false
+        comment: null
       IntBelowTheMinimumIsInvalid:
         description: int below the minimum is invalid
         data: -3
         valid: false
+        comment: null
       IgnoresNonNumbers:
         description: ignores non-numbers
         data: x
         valid: true
+        comment: null
+    MincontainsWithoutContainsIsIgnored:
+      OneItemValidAgainstLoneMincontains:
+        description: one item valid against lone minContains
+        data:
+        - 1
+        valid: true
+        comment: null
+      ZeroItemsStillValidAgainstLoneMincontains:
+        description: zero items still valid against lone minContains
+        data: []
+        valid: true
+        comment: null
     MinitemsValidation:
       LongerIsValid:
         description: longer is valid
@@ -5387,40 +7279,49 @@ components:
         - 1
         - 2
         valid: true
+        comment: null
       ExactLengthIsValid:
         description: exact length is valid
         data:
         - 1
         valid: true
+        comment: null
       TooShortIsInvalid:
         description: too short is invalid
         data: []
         valid: false
+        comment: null
       IgnoresNonArrays:
         description: ignores non-arrays
         data: ''
         valid: true
+        comment: null
     MinlengthValidation:
       LongerIsValid:
         description: longer is valid
         data: foo
         valid: true
+        comment: null
       ExactLengthIsValid:
         description: exact length is valid
         data: fo
         valid: true
+        comment: null
       TooShortIsInvalid:
         description: too short is invalid
         data: f
         valid: false
+        comment: null
       IgnoresNonStrings:
         description: ignores non-strings
         data: 1
         valid: true
+        comment: null
       OneSupplementaryUnicodeCodePointIsNotLongEnough:
         description: one supplementary Unicode code point is not long enough
         data: "\U0001F4A9"
         valid: false
+        comment: null
     MinpropertiesValidation:
       LongerIsValid:
         description: longer is valid
@@ -5428,97 +7329,134 @@ components:
           foo: 1
           bar: 2
         valid: true
+        comment: null
       ExactLengthIsValid:
         description: exact length is valid
         data:
           foo: 1
         valid: true
+        comment: null
       TooShortIsInvalid:
         description: too short is invalid
         data: {}
         valid: false
+        comment: null
       IgnoresArrays:
         description: ignores arrays
         data: []
         valid: true
+        comment: null
       IgnoresStrings:
         description: ignores strings
         data: ''
         valid: true
+        comment: null
       IgnoresOtherNonObjects:
         description: ignores other non-objects
         data: 12
         valid: true
+        comment: null
     ByInt:
       IntByInt:
         description: int by int
         data: 10
         valid: true
+        comment: null
       IntByIntFail:
         description: int by int fail
         data: 7
         valid: false
+        comment: null
       IgnoresNonNumbers:
         description: ignores non-numbers
         data: foo
         valid: true
+        comment: null
     ByNumber:
       ZeroIsMultipleOfAnything:
         description: zero is multiple of anything
         data: 0
         valid: true
+        comment: null
       45IsMultipleOf15:
         description: 4.5 is multiple of 1.5
         data: 4.5
         valid: true
+        comment: null
       35IsNotMultipleOf15:
         description: 35 is not multiple of 1.5
         data: 35
         valid: false
+        comment: null
     BySmallNumber:
       00075IsMultipleOf00001:
         description: 0.0075 is multiple of 0.0001
         data: 0.0075
         valid: true
+        comment: null
       000751IsNotMultipleOf00001:
         description: 0.00751 is not multiple of 0.0001
         data: 0.00751
         valid: false
+        comment: null
     FloatDivisionInf:
       AlwaysInvalidButNaiveImplementationsMayRaiseAnOverflowError:
         description: always invalid, but naive implementations may raise an overflow
           error
         data: 1.0e+308
         valid: false
+        comment: null
     SmallMultipleOfLargeInteger:
       AnyIntegerIsAMultipleOf1E8:
         description: any integer is a multiple of 1e-8
         data: 12391239123
         valid: true
+        comment: null
     Not:
       Allowed:
         description: allowed
         data: foo
         valid: true
+        comment: null
       Disallowed:
         description: disallowed
         data: 1
         valid: false
+        comment: null
+    NotMultipleTypes:
+      Valid:
+        description: valid
+        data: foo
+        valid: true
+        comment: null
+      Mismatch:
+        description: mismatch
+        data: 1
+        valid: false
+        comment: null
+      OtherMismatch:
+        description: other mismatch
+        data: true
+        valid: false
+        comment: null
     NotMoreComplexSchema:
       Match:
         description: match
         data: 1
         valid: true
+        comment: null
       OtherMatch:
         description: other match
         data:
           foo: 1
         valid: true
+        comment: null
       Mismatch:
         description: mismatch
         data:
           foo: bar
         valid: false
+        comment: null
     ForbiddenProperty:
       PropertyPresent:
         description: property present
@@ -5526,92 +7464,110 @@ components:
           foo: 1
           bar: 2
         valid: false
+        comment: null
       PropertyAbsent:
         description: property absent
         data:
           bar: 1
           baz: 2
         valid: true
+        comment: null
     Oneof:
       FirstOneofValid:
         description: first oneOf valid
         data: 1
         valid: true
+        comment: null
       SecondOneofValid:
         description: second oneOf valid
         data: 2.5
         valid: true
+        comment: null
       BothOneofValid:
         description: both oneOf valid
         data: 3
         valid: false
+        comment: null
       NeitherOneofValid:
         description: neither oneOf valid
         data: 1.5
         valid: false
+        comment: null
     OneofWithBaseSchema:
       MismatchBaseSchema:
         description: mismatch base schema
         data: 3
         valid: false
+        comment: null
       OneOneofValid:
         description: one oneOf valid
         data: foobar
         valid: true
+        comment: null
       BothOneofValid:
         description: both oneOf valid
         data: foo
         valid: false
+        comment: null
     OneofComplexTypes:
       FirstOneofValidComplex:
         description: first oneOf valid (complex)
         data:
           bar: 2
         valid: true
+        comment: null
       SecondOneofValidComplex:
         description: second oneOf valid (complex)
         data:
           foo: baz
         valid: true
+        comment: null
       BothOneofValidComplex:
         description: both oneOf valid (complex)
         data:
           foo: baz
           bar: 2
         valid: false
+        comment: null
       NeitherOneofValidComplex:
         description: neither oneOf valid (complex)
         data:
           foo: 2
           bar: quux
         valid: false
+        comment: null
     OneofWithEmptySchema:
       OneValidValid:
         description: one valid - valid
         data: foo
         valid: true
+        comment: null
       BothValidInvalid:
         description: both valid - invalid
         data: 123
         valid: false
+        comment: null
     OneofWithRequired:
       BothInvalidInvalid:
         description: both invalid - invalid
         data:
           bar: 2
         valid: false
+        comment: null
       FirstValidValid:
         description: first valid - valid
         data:
           foo: 1
           bar: 2
         valid: true
+        comment: null
       SecondValidValid:
         description: second valid - valid
         data:
           foo: 1
           baz: 3
         valid: true
+        comment: null
       BothValidInvalid:
         description: both valid - invalid
         data:
@@ -5619,53 +7575,238 @@ components:
           bar: 2
           baz: 3
         valid: false
+        comment: null
     NestedOneofToCheckValidationSemantics:
       NullIsValid:
         description: null is valid
         data: null
         valid: true
+        comment: null
       AnythingNonNullIsInvalid:
         description: anything non-null is invalid
         data: 123
         valid: false
+        comment: null
     PatternValidation:
       AMatchingPatternIsValid:
         description: a matching pattern is valid
         data: aaa
         valid: true
+        comment: null
       ANonMatchingPatternIsInvalid:
         description: a non-matching pattern is invalid
         data: abc
         valid: false
+        comment: null
       IgnoresBooleans:
         description: ignores booleans
         data: true
         valid: true
+        comment: null
       IgnoresIntegers:
         description: ignores integers
         data: 123
         valid: true
+        comment: null
       IgnoresFloats:
         description: ignores floats
         data: 1.0
         valid: true
+        comment: null
       IgnoresObjects:
         description: ignores objects
         data: {}
         valid: true
+        comment: null
       IgnoresArrays:
         description: ignores arrays
         data: []
         valid: true
+        comment: null
       IgnoresNull:
         description: ignores null
         data: null
         valid: true
+        comment: null
     PatternIsNotAnchored:
       MatchesASubstring:
         description: matches a substring
         data: xxaayy
         valid: true
+        comment: null
+    PatternpropertiesValidatesPropertiesMatchingARegex:
+      ASingleValidMatchIsValid:
+        description: a single valid match is valid
+        data:
+          foo: 1
+        valid: true
+        comment: null
+      MultipleValidMatchesIsValid:
+        description: multiple valid matches is valid
+        data:
+          foo: 1
+          foooooo: 2
+        valid: true
+        comment: null
+      ASingleInvalidMatchIsInvalid:
+        description: a single invalid match is invalid
+        data:
+          foo: bar
+          fooooo: 2
+        valid: false
+        comment: null
+      MultipleInvalidMatchesIsInvalid:
+        description: multiple invalid matches is invalid
+        data:
+          foo: bar
+          foooooo: baz
+        valid: false
+        comment: null
+      IgnoresArrays:
+        description: ignores arrays
+        data:
+        - foo
+        valid: true
+        comment: null
+      IgnoresStrings:
+        description: ignores strings
+        data: foo
+        valid: true
+        comment: null
+      IgnoresOtherNonObjects:
+        description: ignores other non-objects
+        data: 12
+        valid: true
+        comment: null
+    MultipleSimultaneousPatternpropertiesAreValidated:
+      ASingleValidMatchIsValid:
+        description: a single valid match is valid
+        data:
+          a: 21
+        valid: true
+        comment: null
+      ASimultaneousMatchIsValid:
+        description: a simultaneous match is valid
+        data:
+          aaaa: 18
+        valid: true
+        comment: null
+      MultipleMatchesIsValid:
+        description: multiple matches is valid
+        data:
+          a: 21
+          aaaa: 18
+        valid: true
+        comment: null
+      AnInvalidDueToOneIsInvalid:
+        description: an invalid due to one is invalid
+        data:
+          a: bar
+        valid: false
+        comment: null
+      AnInvalidDueToTheOtherIsInvalid:
+        description: an invalid due to the other is invalid
+        data:
+          aaaa: 31
+        valid: false
+        comment: null
+      AnInvalidDueToBothIsInvalid:
+        description: an invalid due to both is invalid
+        data:
+          aaa: foo
+          aaaa: 31
+        valid: false
+        comment: null
+    RegexesAreNotAnchoredByDefaultAndAreCaseSensitive:
+      NonRecognizedMembersAreIgnored:
+        description: non recognized members are ignored
+        data:
+          answer 1: '42'
+        valid: true
+        comment: null
+      RecognizedMembersAreAccountedFor:
+        description: recognized members are accounted for
+        data:
+          a31b: null
+        valid: false
+        comment: null
+      RegexesAreCaseSensitive:
+        description: regexes are case sensitive
+        data:
+          a_x_3: 3
+        valid: true
+        comment: null
+      RegexesAreCaseSensitive2:
+        description: regexes are case sensitive, 2
+        data:
+          a_X_3: 3
+        valid: false
+        comment: null
+    PatternpropertiesWithNullValuedInstanceProperties:
+      AllowsNullValues:
+        description: allows null values
+        data:
+          foobar: null
+        valid: true
+        comment: null
+    ASchemaGivenForPrefixitems:
+      CorrectTypes:
+        description: correct types
+        data:
+        - 1
+        - foo
+        valid: true
+        comment: null
+      WrongTypes:
+        description: wrong types
+        data:
+        - foo
+        - 1
+        valid: false
+        comment: null
+      IncompleteArrayOfItems:
+        description: incomplete array of items
+        data:
+        - 1
+        valid: true
+        comment: null
+      ArrayWithAdditionalItems:
+        description: array with additional items
+        data:
+        - 1
+        - foo
+        - true
+        valid: true
+        comment: null
+      EmptyArray:
+        description: empty array
+        data: []
+        valid: true
+        comment: null
+      JavascriptPseudoArrayIsValid:
+        description: JavaScript pseudo-array is valid
+        data:
+          '0': invalid
+          '1': valid
+          length: 2
+        valid: true
+        comment: null
+    AdditionalItemsAreAllowedByDefault:
+      OnlyTheFirstItemIsValidated:
+        description: only the first item is validated
+        data:
+        - 1
+        - foo
+        - false
+        valid: true
+        comment: null
+    PrefixitemsWithNullInstanceElements:
+      AllowsNullElements:
+        description: allows null elements
+        data:
+        - null
+        valid: true
+        comment: null
     ObjectPropertiesValidation:
       BothPropertiesPresentAndValidIsValid:
         description: both properties present and valid is valid
@@ -5673,31 +7814,94 @@ components:
           foo: 1
           bar: baz
         valid: true
+        comment: null
       OnePropertyInvalidIsInvalid:
         description: one property invalid is invalid
         data:
           foo: 1
           bar: {}
         valid: false
+        comment: null
       BothPropertiesInvalidIsInvalid:
         description: both properties invalid is invalid
         data:
           foo: []
           bar: {}
         valid: false
+        comment: null
       DoesnTInvalidateOtherProperties:
         description: doesn't invalidate other properties
         data:
           quux: []
         valid: true
+        comment: null
       IgnoresArrays:
         description: ignores arrays
         data: []
         valid: true
+        comment: null
       IgnoresOtherNonObjects:
         description: ignores other non-objects
         data: 12
         valid: true
+        comment: null
+    PropertiesPatternpropertiesAdditionalpropertiesInteraction:
+      PropertyValidatesProperty:
+        description: property validates property
+        data:
+          foo:
+          - 1
+          - 2
+        valid: true
+        comment: null
+      PropertyInvalidatesProperty:
+        description: property invalidates property
+        data:
+          foo:
+          - 1
+          - 2
+          - 3
+          - 4
+        valid: false
+        comment: null
+      PatternpropertyInvalidatesProperty:
+        description: patternProperty invalidates property
+        data:
+          foo: []
+        valid: false
+        comment: null
+      PatternpropertyValidatesNonproperty:
+        description: patternProperty validates nonproperty
+        data:
+          fxo:
+          - 1
+          - 2
+        valid: true
+        comment: null
+      PatternpropertyInvalidatesNonproperty:
+        description: patternProperty invalidates nonproperty
+        data:
+          fxo: []
+        valid: false
+        comment: null
+      AdditionalpropertyIgnoresProperty:
+        description: additionalProperty ignores property
+        data:
+          bar: []
+        valid: true
+        comment: null
+      AdditionalpropertyValidatesOthers:
+        description: additionalProperty validates others
+        data:
+          quux: 3
+        valid: true
+        comment: null
+      AdditionalpropertyInvalidatesOthers:
+        description: additionalProperty invalidates others
+        data:
+          quux: foo
+        valid: false
+        comment: null
     PropertiesWithEscapedCharacters:
       ObjectWithAllNumbersIsValid:
         description: object with all numbers is valid
@@ -5712,6 +7916,7 @@ components:
           "foo\tbar": 1
           "foo\fbar": 1
         valid: true
+        comment: null
       ObjectWithStringsIsInvalid:
         description: object with strings is invalid
         data:
@@ -5725,42 +7930,50 @@ components:
           "foo\tbar": '1'
           "foo\fbar": '1'
         valid: false
+        comment: null
     PropertiesWithNullValuedInstanceProperties:
       AllowsNullValues:
         description: allows null values
         data:
           foo: null
         valid: true
+        comment: null
     PropertiesWhoseNamesAreJavascriptObjectPropertyNames:
       IgnoresArrays:
         description: ignores arrays
         data: []
         valid: true
+        comment: null
       IgnoresOtherNonObjects:
         description: ignores other non-objects
         data: 12
         valid: true
+        comment: null
       NoneOfThePropertiesMentioned:
         description: none of the properties mentioned
         data: {}
         valid: true
+        comment: null
       ProtoNotValid:
         description: __proto__ not valid
         data:
           __proto__: foo
         valid: false
+        comment: null
       TostringNotValid:
         description: toString not valid
         data:
           toString:
             length: 37
         valid: false
+        comment: null
       ConstructorNotValid:
         description: constructor not valid
         data:
           constructor:
             length: 37
         valid: false
+        comment: null
       AllPresentAndValid:
         description: all present and valid
         data:
@@ -5769,50 +7982,99 @@ components:
             length: foo
           constructor: 37
         valid: true
+        comment: null
+    PropertynamesValidation:
+      AllPropertyNamesValid:
+        description: all property names valid
+        data:
+          f: {}
+          foo: {}
+        valid: true
+        comment: null
+      SomePropertyNamesInvalid:
+        description: some property names invalid
+        data:
+          foo: {}
+          foobar: {}
+        valid: false
+        comment: null
+      ObjectWithoutPropertiesIsValid:
+        description: object without properties is valid
+        data: {}
+        valid: true
+        comment: null
+      IgnoresArrays:
+        description: ignores arrays
+        data:
+        - 1
+        - 2
+        - 3
+        - 4
+        valid: true
+        comment: null
+      IgnoresStrings:
+        description: ignores strings
+        data: foobar
+        valid: true
+        comment: null
+      IgnoresOtherNonObjects:
+        description: ignores other non-objects
+        data: 12
+        valid: true
+        comment: null
     PropertyNamedRefThatIsNotAReference:
       PropertyNamedRefValid:
         description: property named $ref valid
         data:
           $ref: a
         valid: true
+        comment: null
       PropertyNamedRefInvalid:
         description: property named $ref invalid
         data:
           $ref: 2
         valid: false
+        comment: null
     RequiredValidation:
       PresentRequiredPropertyIsValid:
         description: present required property is valid
         data:
           foo: 1
         valid: true
+        comment: null
       NonPresentRequiredPropertyIsInvalid:
         description: non-present required property is invalid
         data:
           bar: 1
         valid: false
+        comment: null
       IgnoresArrays:
         description: ignores arrays
         data: []
         valid: true
+        comment: null
       IgnoresStrings:
         description: ignores strings
         data: ''
         valid: true
+        comment: null
       IgnoresOtherNonObjects:
         description: ignores other non-objects
         data: 12
         valid: true
+        comment: null
     RequiredDefaultValidation:
       NotRequiredByDefault:
         description: not required by default
         data: {}
         valid: true
+        comment: null
     RequiredWithEmptyArray:
       PropertyNotRequired:
         description: property not required
         data: {}
         valid: true
+        comment: null
     RequiredWithEscapedCharacters:
       ObjectWithAllPropertiesPresentIsValid:
         description: object with all properties present is valid
@@ -5827,6 +8089,7 @@ components:
           "foo\tbar": 1
           "foo\fbar": 1
         valid: true
+        comment: null
       ObjectWithSomePropertiesMissingIsInvalid:
         description: object with some properties missing is invalid
         data:
@@ -5836,36 +8099,43 @@ components:
           : '1'
           foo"bar: '1'
         valid: false
+        comment: null
     RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames:
       IgnoresArrays:
         description: ignores arrays
         data: []
         valid: true
+        comment: null
       IgnoresOtherNonObjects:
         description: ignores other non-objects
         data: 12
         valid: true
+        comment: null
       NoneOfThePropertiesMentioned:
         description: none of the properties mentioned
         data: {}
         valid: false
+        comment: null
       ProtoPresent:
         description: __proto__ present
         data:
           __proto__: foo
         valid: false
+        comment: null
       TostringPresent:
         description: toString present
         data:
           toString:
             length: 37
         valid: false
+        comment: null
       ConstructorPresent:
         description: constructor present
         data:
           constructor:
             length: 37
         valid: false
+        comment: null
       AllPresent:
         description: all present
         data:
@@ -5874,295 +8144,366 @@ components:
             length: foo
           constructor: 37
         valid: true
+        comment: null
     IntegerTypeMatchesIntegers:
       AnIntegerIsAnInteger:
         description: an integer is an integer
         data: 1
         valid: true
+        comment: null
       AFloatWithZeroFractionalPartIsAnInteger:
         description: a float with zero fractional part is an integer
         data: 1.0
         valid: true
+        comment: null
       AFloatIsNotAnInteger:
         description: a float is not an integer
         data: 1.1
         valid: false
+        comment: null
       AStringIsNotAnInteger:
         description: a string is not an integer
         data: foo
         valid: false
+        comment: null
       AStringIsStillNotAnIntegerEvenIfItLooksLikeOne:
         description: a string is still not an integer, even if it looks like one
         data: '1'
         valid: false
+        comment: null
       AnObjectIsNotAnInteger:
         description: an object is not an integer
         data: {}
         valid: false
+        comment: null
       AnArrayIsNotAnInteger:
         description: an array is not an integer
         data: []
         valid: false
+        comment: null
       ABooleanIsNotAnInteger:
         description: a boolean is not an integer
         data: true
         valid: false
+        comment: null
       NullIsNotAnInteger:
         description: null is not an integer
         data: null
         valid: false
+        comment: null
     NumberTypeMatchesNumbers:
       AnIntegerIsANumber:
         description: an integer is a number
         data: 1
         valid: true
+        comment: null
       AFloatWithZeroFractionalPartIsANumberAndAnInteger:
         description: a float with zero fractional part is a number (and an integer)
         data: 1.0
         valid: true
+        comment: null
       AFloatIsANumber:
         description: a float is a number
         data: 1.1
         valid: true
+        comment: null
       AStringIsNotANumber:
         description: a string is not a number
         data: foo
         valid: false
+        comment: null
       AStringIsStillNotANumberEvenIfItLooksLikeOne:
         description: a string is still not a number, even if it looks like one
         data: '1'
         valid: false
+        comment: null
       AnObjectIsNotANumber:
         description: an object is not a number
         data: {}
         valid: false
+        comment: null
       AnArrayIsNotANumber:
         description: an array is not a number
         data: []
         valid: false
+        comment: null
       ABooleanIsNotANumber:
         description: a boolean is not a number
         data: true
         valid: false
+        comment: null
       NullIsNotANumber:
         description: null is not a number
         data: null
         valid: false
+        comment: null
     StringTypeMatchesStrings:
       1IsNotAString:
         description: 1 is not a string
         data: 1
         valid: false
+        comment: null
       AFloatIsNotAString:
         description: a float is not a string
         data: 1.1
         valid: false
+        comment: null
       AStringIsAString:
         description: a string is a string
         data: foo
         valid: true
+        comment: null
       AStringIsStillAStringEvenIfItLooksLikeANumber:
         description: a string is still a string, even if it looks like a number
         data: '1'
         valid: true
+        comment: null
       AnEmptyStringIsStillAString:
         description: an empty string is still a string
         data: ''
         valid: true
+        comment: null
       AnObjectIsNotAString:
         description: an object is not a string
         data: {}
         valid: false
+        comment: null
       AnArrayIsNotAString:
         description: an array is not a string
         data: []
         valid: false
+        comment: null
       ABooleanIsNotAString:
         description: a boolean is not a string
         data: true
         valid: false
+        comment: null
       NullIsNotAString:
         description: null is not a string
         data: null
         valid: false
+        comment: null
     ObjectTypeMatchesObjects:
       AnIntegerIsNotAnObject:
         description: an integer is not an object
         data: 1
         valid: false
+        comment: null
       AFloatIsNotAnObject:
         description: a float is not an object
         data: 1.1
         valid: false
+        comment: null
       AStringIsNotAnObject:
         description: a string is not an object
         data: foo
         valid: false
+        comment: null
       AnObjectIsAnObject:
         description: an object is an object
         data: {}
         valid: true
+        comment: null
       AnArrayIsNotAnObject:
         description: an array is not an object
         data: []
         valid: false
+        comment: null
       ABooleanIsNotAnObject:
         description: a boolean is not an object
         data: true
         valid: false
+        comment: null
       NullIsNotAnObject:
         description: null is not an object
         data: null
         valid: false
+        comment: null
     ArrayTypeMatchesArrays:
       AnIntegerIsNotAnArray:
         description: an integer is not an array
         data: 1
         valid: false
+        comment: null
       AFloatIsNotAnArray:
         description: a float is not an array
         data: 1.1
         valid: false
+        comment: null
       AStringIsNotAnArray:
         description: a string is not an array
         data: foo
         valid: false
+        comment: null
       AnObjectIsNotAnArray:
         description: an object is not an array
         data: {}
         valid: false
+        comment: null
       AnArrayIsAnArray:
         description: an array is an array
         data: []
         valid: true
+        comment: null
       ABooleanIsNotAnArray:
         description: a boolean is not an array
         data: true
         valid: false
+        comment: null
       NullIsNotAnArray:
         description: null is not an array
         data: null
         valid: false
+        comment: null
     BooleanTypeMatchesBooleans:
       AnIntegerIsNotABoolean:
         description: an integer is not a boolean
         data: 1
         valid: false
+        comment: null
       ZeroIsNotABoolean:
         description: zero is not a boolean
         data: 0
         valid: false
+        comment: null
       AFloatIsNotABoolean:
         description: a float is not a boolean
         data: 1.1
         valid: false
+        comment: null
       AStringIsNotABoolean:
         description: a string is not a boolean
         data: foo
         valid: false
+        comment: null
       AnEmptyStringIsNotABoolean:
         description: an empty string is not a boolean
         data: ''
         valid: false
+        comment: null
       AnObjectIsNotABoolean:
         description: an object is not a boolean
         data: {}
         valid: false
+        comment: null
       AnArrayIsNotABoolean:
         description: an array is not a boolean
         data: []
         valid: false
+        comment: null
       TrueIsABoolean:
         description: true is a boolean
         data: true
         valid: true
+        comment: null
       FalseIsABoolean:
         description: false is a boolean
         data: false
         valid: true
+        comment: null
       NullIsNotABoolean:
         description: null is not a boolean
         data: null
         valid: false
+        comment: null
     NullTypeMatchesOnlyTheNullObject:
       AnIntegerIsNotNull:
         description: an integer is not null
         data: 1
         valid: false
+        comment: null
       AFloatIsNotNull:
         description: a float is not null
         data: 1.1
         valid: false
+        comment: null
       ZeroIsNotNull:
         description: zero is not null
         data: 0
         valid: false
+        comment: null
       AStringIsNotNull:
         description: a string is not null
         data: foo
         valid: false
+        comment: null
       AnEmptyStringIsNotNull:
         description: an empty string is not null
         data: ''
         valid: false
+        comment: null
       AnObjectIsNotNull:
         description: an object is not null
         data: {}
         valid: false
+        comment: null
       AnArrayIsNotNull:
         description: an array is not null
         data: []
         valid: false
+        comment: null
       TrueIsNotNull:
         description: true is not null
         data: true
         valid: false
+        comment: null
       FalseIsNotNull:
         description: false is not null
         data: false
         valid: false
+        comment: null
       NullIsNull:
         description: null is null
         data: null
         valid: true
+        comment: null
     MultipleTypesCanBeSpecifiedInAnArray:
       AnIntegerIsValid:
         description: an integer is valid
         data: 1
         valid: true
+        comment: null
       AStringIsValid:
         description: a string is valid
         data: foo
         valid: true
+        comment: null
       AFloatIsInvalid:
         description: a float is invalid
         data: 1.1
         valid: false
+        comment: null
       AnObjectIsInvalid:
         description: an object is invalid
         data: {}
         valid: false
+        comment: null
       AnArrayIsInvalid:
         description: an array is invalid
         data: []
         valid: false
+        comment: null
       ABooleanIsInvalid:
         description: a boolean is invalid
         data: true
         valid: false
+        comment: null
       NullIsInvalid:
         description: null is invalid
         data: null
         valid: false
+        comment: null
     TypeAsArrayWithOneItem:
       StringIsValid:
         description: string is valid
         data: foo
         valid: true
+        comment: null
       NumberIsInvalid:
         description: number is invalid
         data: 123
         valid: false
+        comment: null
     TypeArrayOrObject:
       ArrayIsValid:
         description: array is valid
@@ -6171,23 +8512,28 @@ components:
         - 2
         - 3
         valid: true
+        comment: null
       ObjectIsValid:
         description: object is valid
         data:
           foo: 123
         valid: true
+        comment: null
       NumberIsInvalid:
         description: number is invalid
         data: 123
         valid: false
+        comment: null
       StringIsInvalid:
         description: string is invalid
         data: foo
         valid: false
+        comment: null
       NullIsInvalid:
         description: null is invalid
         data: null
         valid: false
+        comment: null
     TypeArrayObjectOrNull:
       ArrayIsValid:
         description: array is valid
@@ -6196,23 +8542,144 @@ components:
         - 2
         - 3
         valid: true
+        comment: null
       ObjectIsValid:
         description: object is valid
         data:
           foo: 123
         valid: true
+        comment: null
       NullIsValid:
         description: null is valid
         data: null
         valid: true
+        comment: null
       NumberIsInvalid:
         description: number is invalid
         data: 123
         valid: false
+        comment: null
       StringIsInvalid:
         description: string is invalid
         data: foo
         valid: false
+        comment: null
+    UnevaluateditemsAsSchema:
+      WithNoUnevaluatedItems:
+        description: with no unevaluated items
+        data: []
+        valid: true
+        comment: null
+      WithValidUnevaluatedItems:
+        description: with valid unevaluated items
+        data:
+        - foo
+        valid: true
+        comment: null
+      WithInvalidUnevaluatedItems:
+        description: with invalid unevaluated items
+        data:
+        - 42
+        valid: false
+        comment: null
+    UnevaluateditemsWithItems:
+      ValidUnderItems:
+        description: valid under items
+        data:
+        - 5
+        - 6
+        - 7
+        - 8
+        valid: true
+        comment: no elements are considered by unevaluatedItems
+      InvalidUnderItems:
+        description: invalid under items
+        data:
+        - foo
+        - bar
+        - baz
+        valid: false
+        comment: null
+    UnevaluateditemsDependsOnMultipleNestedContains:
+      5NotEvaluatedPassesUnevaluateditems:
+        description: 5 not evaluated, passes unevaluatedItems
+        data:
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        valid: true
+        comment: null
+      7NotEvaluatedFailsUnevaluateditems:
+        description: 7 not evaluated, fails unevaluatedItems
+        data:
+        - 2
+        - 3
+        - 4
+        - 7
+        - 8
+        valid: false
+        comment: null
+    UnevaluateditemsWithNullInstanceElements:
+      AllowsNullElements:
+        description: allows null elements
+        data:
+        - null
+        valid: true
+        comment: null
+    UnevaluatedpropertiesSchema:
+      WithNoUnevaluatedProperties:
+        description: with no unevaluated properties
+        data: {}
+        valid: true
+        comment: null
+      WithValidUnevaluatedProperties:
+        description: with valid unevaluated properties
+        data:
+          foo: foo
+        valid: true
+        comment: null
+      WithInvalidUnevaluatedProperties:
+        description: with invalid unevaluated properties
+        data:
+          foo: fo
+        valid: false
+        comment: null
+    UnevaluatedpropertiesWithAdjacentAdditionalproperties:
+      WithNoAdditionalProperties:
+        description: with no additional properties
+        data:
+          foo: foo
+        valid: true
+        comment: null
+      WithAdditionalProperties:
+        description: with additional properties
+        data:
+          foo: foo
+          bar: bar
+        valid: true
+        comment: null
+    UnevaluatedpropertiesWithNullValuedInstanceProperties:
+      AllowsNullValuedProperties:
+        description: allows null valued properties
+        data:
+          foo: null
+        valid: true
+        comment: null
+    UnevaluatedpropertiesNotAffectedByPropertynames:
+      AllowsOnlyNumberProperties:
+        description: allows only number properties
+        data:
+          a: 1
+        valid: true
+        comment: null
+      StringPropertyIsInvalid:
+        description: string property is invalid
+        data:
+          a: b
+        valid: false
+        comment: null
     UniqueitemsValidation:
       UniqueArrayOfIntegersIsValid:
         description: unique array of integers is valid
@@ -6220,12 +8687,14 @@ components:
         - 1
         - 2
         valid: true
+        comment: null
       NonUniqueArrayOfIntegersIsInvalid:
         description: non-unique array of integers is invalid
         data:
         - 1
         - 1
         valid: false
+        comment: null
       NonUniqueArrayOfMoreThanTwoIntegersIsInvalid:
         description: non-unique array of more than two integers is invalid
         data:
@@ -6233,6 +8702,7 @@ components:
         - 2
         - 1
         valid: false
+        comment: null
       NumbersAreUniqueIfMathematicallyUnequal:
         description: numbers are unique if mathematically unequal
         data:
@@ -6240,18 +8710,21 @@ components:
         - 1.0
         - 1
         valid: false
+        comment: null
       FalseIsNotEqualToZero:
         description: false is not equal to zero
         data:
         - 0
         - false
         valid: true
+        comment: null
       TrueIsNotEqualToOne:
         description: true is not equal to one
         data:
         - 1
         - true
         valid: true
+        comment: null
       UniqueArrayOfStringsIsValid:
         description: unique array of strings is valid
         data:
@@ -6259,6 +8732,7 @@ components:
         - bar
         - baz
         valid: true
+        comment: null
       NonUniqueArrayOfStringsIsInvalid:
         description: non-unique array of strings is invalid
         data:
@@ -6266,18 +8740,21 @@ components:
         - bar
         - foo
         valid: false
+        comment: null
       UniqueArrayOfObjectsIsValid:
         description: unique array of objects is valid
         data:
         - foo: bar
         - foo: baz
         valid: true
+        comment: null
       NonUniqueArrayOfObjectsIsInvalid:
         description: non-unique array of objects is invalid
         data:
         - foo: bar
         - foo: bar
         valid: false
+        comment: null
       PropertyOrderOfArrayOfObjectsIsIgnored:
         description: property order of array of objects is ignored
         data:
@@ -6286,6 +8763,7 @@ components:
         - bar: foo
           foo: bar
         valid: false
+        comment: null
       UniqueArrayOfNestedObjectsIsValid:
         description: unique array of nested objects is valid
         data:
@@ -6296,6 +8774,7 @@ components:
             bar:
               baz: false
         valid: true
+        comment: null
       NonUniqueArrayOfNestedObjectsIsInvalid:
         description: non-unique array of nested objects is invalid
         data:
@@ -6306,18 +8785,21 @@ components:
             bar:
               baz: true
         valid: false
+        comment: null
       UniqueArrayOfArraysIsValid:
         description: unique array of arrays is valid
         data:
         - - foo
         - - bar
         valid: true
+        comment: null
       NonUniqueArrayOfArraysIsInvalid:
         description: non-unique array of arrays is invalid
         data:
         - - foo
         - - foo
         valid: false
+        comment: null
       NonUniqueArrayOfMoreThanTwoArraysIsInvalid:
         description: non-unique array of more than two arrays is invalid
         data:
@@ -6325,18 +8807,21 @@ components:
         - - bar
         - - foo
         valid: false
+        comment: null
       1AndTrueAreUnique:
         description: '[1] and [true] are unique'
         data:
         - - 1
         - - true
         valid: true
+        comment: null
       0AndFalseAreUnique:
         description: '[0] and [false] are unique'
         data:
         - - 0
         - - false
         valid: true
+        comment: null
       Nested1AndTrueAreUnique:
         description: nested [1] and [true] are unique
         data:
@@ -6345,6 +8830,7 @@ components:
         - - - true
           - foo
         valid: true
+        comment: null
       Nested0AndFalseAreUnique:
         description: nested [0] and [false] are unique
         data:
@@ -6353,6 +8839,7 @@ components:
         - - - false
           - foo
         valid: true
+        comment: null
       UniqueHeterogeneousTypesAreValid:
         description: unique heterogeneous types are valid
         data:
@@ -6363,6 +8850,7 @@ components:
         - 1
         - '{}'
         valid: true
+        comment: null
       NonUniqueHeterogeneousTypesAreInvalid:
         description: non-unique heterogeneous types are invalid
         data:
@@ -6373,6 +8861,7 @@ components:
         - {}
         - 1
         valid: false
+        comment: null
       DifferentObjectsAreUnique:
         description: different objects are unique
         data:
@@ -6381,6 +8870,7 @@ components:
         - a: 2
           b: 1
         valid: true
+        comment: null
       ObjectsAreNonUniqueDespiteKeyOrder:
         description: objects are non-unique despite key order
         data:
@@ -6389,18 +8879,21 @@ components:
         - b: 2
           a: 1
         valid: false
+        comment: null
       AFalseAndA0AreUnique:
         description: '{"a": false} and {"a": 0} are unique'
         data:
         - a: false
         - a: 0
         valid: true
+        comment: null
       ATrueAndA1AreUnique:
         description: '{"a": true} and {"a": 1} are unique'
         data:
         - a: true
         - a: 1
         valid: true
+        comment: null
     UniqueitemsWithAnArrayOfItems:
       FalseTrueFromItemsArrayIsValid:
         description: '[false, true] from items array is valid'
@@ -6408,24 +8901,28 @@ components:
         - false
         - true
         valid: true
+        comment: null
       TrueFalseFromItemsArrayIsValid:
         description: '[true, false] from items array is valid'
         data:
         - true
         - false
         valid: true
+        comment: null
       FalseFalseFromItemsArrayIsNotValid:
         description: '[false, false] from items array is not valid'
         data:
         - false
         - false
         valid: false
+        comment: null
       TrueTrueFromItemsArrayIsNotValid:
         description: '[true, true] from items array is not valid'
         data:
         - true
         - true
         valid: false
+        comment: null
       UniqueArrayExtendedFromFalseTrueIsValid:
         description: unique array extended from [false, true] is valid
         data:
@@ -6434,6 +8931,7 @@ components:
         - foo
         - bar
         valid: true
+        comment: null
       UniqueArrayExtendedFromTrueFalseIsValid:
         description: unique array extended from [true, false] is valid
         data:
@@ -6442,6 +8940,7 @@ components:
         - foo
         - bar
         valid: true
+        comment: null
       NonUniqueArrayExtendedFromFalseTrueIsNotValid:
         description: non-unique array extended from [false, true] is not valid
         data:
@@ -6450,6 +8949,7 @@ components:
         - foo
         - foo
         valid: false
+        comment: null
       NonUniqueArrayExtendedFromTrueFalseIsNotValid:
         description: non-unique array extended from [true, false] is not valid
         data:
@@ -6458,6 +8958,7 @@ components:
         - foo
         - foo
         valid: false
+        comment: null
     UniqueitemsFalseValidation:
       UniqueArrayOfIntegersIsValid:
         description: unique array of integers is valid
@@ -6465,12 +8966,14 @@ components:
         - 1
         - 2
         valid: true
+        comment: null
       NonUniqueArrayOfIntegersIsValid:
         description: non-unique array of integers is valid
         data:
         - 1
         - 1
         valid: true
+        comment: null
       NumbersAreUniqueIfMathematicallyUnequal:
         description: numbers are unique if mathematically unequal
         data:
@@ -6478,30 +8981,35 @@ components:
         - 1.0
         - 1
         valid: true
+        comment: null
       FalseIsNotEqualToZero:
         description: false is not equal to zero
         data:
         - 0
         - false
         valid: true
+        comment: null
       TrueIsNotEqualToOne:
         description: true is not equal to one
         data:
         - 1
         - true
         valid: true
+        comment: null
       UniqueArrayOfObjectsIsValid:
         description: unique array of objects is valid
         data:
         - foo: bar
         - foo: baz
         valid: true
+        comment: null
       NonUniqueArrayOfObjectsIsValid:
         description: non-unique array of objects is valid
         data:
         - foo: bar
         - foo: bar
         valid: true
+        comment: null
       UniqueArrayOfNestedObjectsIsValid:
         description: unique array of nested objects is valid
         data:
@@ -6512,6 +9020,7 @@ components:
             bar:
               baz: false
         valid: true
+        comment: null
       NonUniqueArrayOfNestedObjectsIsValid:
         description: non-unique array of nested objects is valid
         data:
@@ -6522,30 +9031,35 @@ components:
             bar:
               baz: true
         valid: true
+        comment: null
       UniqueArrayOfArraysIsValid:
         description: unique array of arrays is valid
         data:
         - - foo
         - - bar
         valid: true
+        comment: null
       NonUniqueArrayOfArraysIsValid:
         description: non-unique array of arrays is valid
         data:
         - - foo
         - - foo
         valid: true
+        comment: null
       1AndTrueAreUnique:
         description: 1 and true are unique
         data:
         - 1
         - true
         valid: true
+        comment: null
       0AndFalseAreUnique:
         description: 0 and false are unique
         data:
         - 0
         - false
         valid: true
+        comment: null
       UniqueHeterogeneousTypesAreValid:
         description: unique heterogeneous types are valid
         data:
@@ -6555,6 +9069,7 @@ components:
         - null
         - 1
         valid: true
+        comment: null
       NonUniqueHeterogeneousTypesAreValid:
         description: non-unique heterogeneous types are valid
         data:
@@ -6565,6 +9080,7 @@ components:
         - {}
         - 1
         valid: true
+        comment: null
     UniqueitemsFalseWithAnArrayOfItems:
       FalseTrueFromItemsArrayIsValid:
         description: '[false, true] from items array is valid'
@@ -6572,24 +9088,28 @@ components:
         - false
         - true
         valid: true
+        comment: null
       TrueFalseFromItemsArrayIsValid:
         description: '[true, false] from items array is valid'
         data:
         - true
         - false
         valid: true
+        comment: null
       FalseFalseFromItemsArrayIsValid:
         description: '[false, false] from items array is valid'
         data:
         - false
         - false
         valid: true
+        comment: null
       TrueTrueFromItemsArrayIsValid:
         description: '[true, true] from items array is valid'
         data:
         - true
         - true
         valid: true
+        comment: null
       UniqueArrayExtendedFromFalseTrueIsValid:
         description: unique array extended from [false, true] is valid
         data:
@@ -6598,6 +9118,7 @@ components:
         - foo
         - bar
         valid: true
+        comment: null
       UniqueArrayExtendedFromTrueFalseIsValid:
         description: unique array extended from [true, false] is valid
         data:
@@ -6606,6 +9127,7 @@ components:
         - foo
         - bar
         valid: true
+        comment: null
       NonUniqueArrayExtendedFromFalseTrueIsValid:
         description: non-unique array extended from [false, true] is valid
         data:
@@ -6614,6 +9136,7 @@ components:
         - foo
         - foo
         valid: true
+        comment: null
       NonUniqueArrayExtendedFromTrueFalseIsValid:
         description: non-unique array extended from [true, false] is valid
         data:
@@ -6622,3 +9145,4 @@ components:
         - foo
         - foo
         valid: true
+        comment: null

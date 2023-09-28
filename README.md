@@ -132,7 +132,7 @@ mvn -Pstatic-analysis clean install
 
 #### OpenAPI JSON Schema Generator CLI Docker Image
 
-The OpenAPI JSON Schema Generator image acts as a standalone executable. It can be used as an alternative to installing via homebrew, or for developers who are unable to install Java or upgrade the installed version.
+The docker image acts as a standalone executable. It can be used as an alternative to installing via homebrew, or for developers who are unable to install Java or upgrade the installed version.
 
 To generate code with this image, you'll need to mount a local location as a volume.
 

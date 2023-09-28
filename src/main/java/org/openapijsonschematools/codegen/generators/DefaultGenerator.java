@@ -2239,6 +2239,23 @@ public class DefaultGenerator implements Generator {
         return prefixItems;
     }
 
+    private LinkedHashMap<String, ArrayList<String>> getDependentRequired(LinkedHashMap<String, List<String>> schemaDepReq) {
+        if (schemaDepReq == null) {
+            return null;
+        }
+        LinkedHashMap<String, ArrayList<String>> dependenteRequired = new LinkedHashMap<>();
+        for (Entry<String, List<String>> entry: schemaDepReq.entrySet()) {
+            String key = entry.getKey();
+            List<String> values = entry.getValue();
+            String fixedKey = handleSpecialCharacters(key);
+            ArrayList<String> fixedValues = new ArrayList<>();
+            for (String value: values) {
+                fixedValues.add(handleSpecialCharacters(value));
+            }
+            dependenteRequired.put(fixedKey, fixedValues);
+        }
+        return dependenteRequired;
+    }
 
     /**
      * Convert OAS Property object to Codegen Property object.
@@ -2309,7 +2326,7 @@ public class DefaultGenerator implements Generator {
         property.externalDocumentation = p.getExternalDocs();
         property.maxContains = p.getMaxContains();
         property.minContains = p.getMinContains();
-        property.dependentRequired = (LinkedHashMap<String, List<String>>) p.getDependentRequired();
+        property.dependentRequired = getDependentRequired((LinkedHashMap<String, List<String>>) p.getDependentRequired());
 
         /*
          Order of assigning properties must reverse the order in
