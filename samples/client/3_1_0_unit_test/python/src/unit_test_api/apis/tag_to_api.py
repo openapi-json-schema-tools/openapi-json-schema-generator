@@ -33,6 +33,7 @@ from unit_test_api.apis.tags.format_api import FormatApi
 from unit_test_api.apis.tags.properties_api import PropertiesApi
 from unit_test_api.apis.tags.content_type_json_api import ContentTypeJsonApi
 from unit_test_api.apis.tags.max_properties_api import MaxPropertiesApi
+from unit_test_api.apis.tags.unevaluated_properties_api import UnevaluatedPropertiesApi
 from unit_test_api.apis.tags.const_api import ConstApi
 from unit_test_api.apis.tags.enum_api import EnumApi
 from unit_test_api.apis.tags.max_items_api import MaxItemsApi
@@ -74,6 +75,7 @@ TagToApi = typing.TypedDict(
         "properties": typing.Type[PropertiesApi],
         "contentType_json": typing.Type[ContentTypeJsonApi],
         "maxProperties": typing.Type[MaxPropertiesApi],
+        "unevaluatedProperties": typing.Type[UnevaluatedPropertiesApi],
         "const": typing.Type[ConstApi],
         "enum": typing.Type[EnumApi],
         "maxItems": typing.Type[MaxItemsApi],
@@ -116,6 +118,7 @@ tag_to_api = TagToApi(
         "properties": PropertiesApi,
         "contentType_json": ContentTypeJsonApi,
         "maxProperties": MaxPropertiesApi,
+        "unevaluatedProperties": UnevaluatedPropertiesApi,
         "const": ConstApi,
         "enum": EnumApi,
         "maxItems": MaxItemsApi,

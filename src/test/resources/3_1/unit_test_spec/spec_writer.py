@@ -339,6 +339,9 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         "unevaluatedProperties with nested unevaluatedProperties": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         "unevaluatedProperties with not": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         "unevaluatedProperties with nested additionalProperties": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with oneOf": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "cousin unevaluatedProperties, true and false, true with properties": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "property is evaluated in an uncle schema to unevaluatedProperties": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     }
 }
 FILEPATH_TO_EXCLUDE_REASON = {

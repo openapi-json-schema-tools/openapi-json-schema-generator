@@ -129,6 +129,10 @@ Method | Description
 [**post_unevaluateditems_depends_on_multiple_nested_contains_request_body**](../../paths/request_body_post_unevaluateditems_depends_on_multiple_nested_contains_request_body/post.md) | 
 [**post_unevaluateditems_with_items_request_body**](../../paths/request_body_post_unevaluateditems_with_items_request_body/post.md) | 
 [**post_unevaluateditems_with_null_instance_elements_request_body**](../../paths/request_body_post_unevaluateditems_with_null_instance_elements_request_body/post.md) | 
+[**post_unevaluatedproperties_not_affected_by_propertynames_request_body**](../../paths/request_body_post_unevaluatedproperties_not_affected_by_propertynames_request_body/post.md) | 
+[**post_unevaluatedproperties_schema_request_body**](../../paths/request_body_post_unevaluatedproperties_schema_request_body/post.md) | 
+[**post_unevaluatedproperties_with_adjacent_additionalproperties_request_body**](../../paths/request_body_post_unevaluatedproperties_with_adjacent_additionalproperties_request_body/post.md) | 
+[**post_unevaluatedproperties_with_null_valued_instance_properties_request_body**](../../paths/request_body_post_unevaluatedproperties_with_null_valued_instance_properties_request_body/post.md) | 
 [**post_uniqueitems_false_validation_request_body**](../../paths/request_body_post_uniqueitems_false_validation_request_body/post.md) | 
 [**post_uniqueitems_false_with_an_array_of_items_request_body**](../../paths/request_body_post_uniqueitems_false_with_an_array_of_items_request_body/post.md) | 
 [**post_uniqueitems_validation_request_body**](../../paths/request_body_post_uniqueitems_validation_request_body/post.md) | 
