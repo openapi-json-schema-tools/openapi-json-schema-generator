@@ -160,6 +160,12 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         'heterogeneous enum validation': ExclusionReason.swagger_parser_enum_type_bug,
         'heterogeneous enum-with-null validation': ExclusionReason.swagger_parser_enum_type_bug,
     },
+    (json_schema_test_draft, 'exclusiveMaximum.json'): {
+        "exclusiveMaximum validation": ExclusionReason.swagger_parser_validation_missing_bug,
+    },
+    (json_schema_test_draft, 'exclusiveMinimum.json'): {
+        "exclusiveMinimum validation": ExclusionReason.swagger_parser_validation_missing_bug,
+    },
     (json_schema_test_draft, 'items.json'): {
         'an array of schemas for items': ExclusionReason.v303_does_not_support_array_of_types,
         'items and subitems': ExclusionReason.bug_does_not_support_definitions,
@@ -346,8 +352,6 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
 }
 FILEPATH_TO_EXCLUDE_REASON = {
     (json_schema_test_draft, 'boolean_schema.json'): ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
-    (json_schema_test_draft, 'exclusiveMaximum.json'): ExclusionReason.swagger_parser_validation_missing_bug,
-    (json_schema_test_draft, 'exclusiveMinimum.json'): ExclusionReason.swagger_parser_validation_missing_bug,
     (json_schema_test_draft, 'id.json'): ExclusionReason.v303_does_not_support_id,
     (json_schema_test_draft, 'refRemote.json'): ExclusionReason.ref_not_resolved,
     (json_schema_test_draft, 'unknownKeyword.json'): ExclusionReason.bug_does_not_support_definitions,
