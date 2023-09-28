@@ -608,9 +608,6 @@ public class DefaultGenerator implements Generator {
         int specMajorVersion = Integer.parseInt(originalSpecVersion.substring(0, 1));
         int specMinorVersion = Integer.parseInt(originalSpecVersion.substring(2, 3));
         boolean specVersionGreaterThanOrEqualTo310 = (specMajorVersion == 3 && specMinorVersion >= 1);
-        if (specVersionGreaterThanOrEqualTo310) {
-            LOGGER.warn(CodegenConstants.UNSUPPORTED_V310_SPEC_MSG);
-        }
         this.openAPI = openAPI;
         // Set global settings such that helper functions in ModelUtils can look up the value
         // of the CLI option.
