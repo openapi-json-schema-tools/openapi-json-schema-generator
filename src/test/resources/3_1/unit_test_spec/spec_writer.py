@@ -329,6 +329,11 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         "unevaluatedProperties + ref inside allOf / oneOf": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         "in-place applicator siblings, allOf has unevaluated": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         "unevaluatedProperties with dependentSchemas": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "nested unevaluatedProperties, outer false, inner true, properties outside": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties + single cyclic ref": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "nested unevaluatedProperties, outer true, inner false, properties outside": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with anyOf": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "unevaluatedProperties with if/then/else": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
     }
 }
 FILEPATH_TO_EXCLUDE_REASON = {
