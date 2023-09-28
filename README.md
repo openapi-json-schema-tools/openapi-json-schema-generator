@@ -108,18 +108,18 @@ The OpenAPI Specification has undergone 3 revisions since initial creation in 20
 | 1.0.0                                 | 3.0.0 - 3.0.3              |
 
 [^1]: Preliminary 3.1.0 spec support including these json schema keywords:
-1. type (array of types supported in addition to one non-array value)
-2. const: only string values are working because of bugs in swagger parser
-3. contains
-4. dependentRequired
-5. dependentSchemas
-6. maxContains
-7. minContains
-8. patternProperties
-9. prefixItems
-10. propertyNames
-11. unevaluatedItems
-12. unevaluatedProperties
+  1. type (array of types supported in addition to one non-array value)
+  2. const: only string values are working because of bugs in swagger parser
+  3. contains
+  4. dependentRequired
+  5. dependentSchemas
+  6. maxContains
+  7. minContains
+  8. patternProperties
+  9. prefixItems
+  10. propertyNames
+  11. unevaluatedItems
+  12. unevaluatedProperties
 
 
 ### Build Projects
