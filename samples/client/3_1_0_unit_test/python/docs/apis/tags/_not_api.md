@@ -13,6 +13,8 @@ Method | Description
 [**post_forbidden_property_response_body_for_content_types**](../../paths/response_body_post_forbidden_property_response_body_for_content_types/post.md) | 
 [**post_not_more_complex_schema_request_body**](../../paths/request_body_post_not_more_complex_schema_request_body/post.md) | 
 [**post_not_more_complex_schema_response_body_for_content_types**](../../paths/response_body_post_not_more_complex_schema_response_body_for_content_types/post.md) | 
+[**post_not_multiple_types_request_body**](../../paths/request_body_post_not_multiple_types_request_body/post.md) | 
+[**post_not_multiple_types_response_body_for_content_types**](../../paths/response_body_post_not_multiple_types_response_body_for_content_types/post.md) | 
 [**post_not_request_body**](../../paths/request_body_post_not_request_body/post.md) | 
 [**post_not_response_body_for_content_types**](../../paths/response_body_post_not_response_body_for_content_types/post.md) | 
 

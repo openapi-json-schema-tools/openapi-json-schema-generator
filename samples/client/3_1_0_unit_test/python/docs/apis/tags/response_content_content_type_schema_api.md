@@ -86,6 +86,7 @@ Method | Description
 [**post_nested_oneof_to_check_validation_semantics_response_body_for_content_types**](../../paths/response_body_post_nested_oneof_to_check_validation_semantics_response_body_for_content_types/post.md) | 
 [**post_non_ascii_pattern_with_additionalproperties_response_body_for_content_types**](../../paths/response_body_post_non_ascii_pattern_with_additionalproperties_response_body_for_content_types/post.md) | 
 [**post_not_more_complex_schema_response_body_for_content_types**](../../paths/response_body_post_not_more_complex_schema_response_body_for_content_types/post.md) | 
+[**post_not_multiple_types_response_body_for_content_types**](../../paths/response_body_post_not_multiple_types_response_body_for_content_types/post.md) | 
 [**post_not_response_body_for_content_types**](../../paths/response_body_post_not_response_body_for_content_types/post.md) | 
 [**post_nul_characters_in_strings_response_body_for_content_types**](../../paths/response_body_post_nul_characters_in_strings_response_body_for_content_types/post.md) | 
 [**post_null_type_matches_only_the_null_object_response_body_for_content_types**](../../paths/response_body_post_null_type_matches_only_the_null_object_response_body_for_content_types/post.md) | 

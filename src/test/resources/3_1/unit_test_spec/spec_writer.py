@@ -80,24 +80,17 @@ class JsonSchemaTestSchema:
 
 
 class ExclusionReason:
-    v303_does_not_support_array_of_types = 'v3.0.3 does not support type with array of values'
-    v303_requires_array_have_items = 'v3.0.3 requires that items MUST be present if the type is array'
-    v303_does_not_support_additionalItems = 'v3.0.3 does not support the additionalItems keyword'
     bug_does_not_support_boolean_schemas_in_location = 'v3.1.0 does not support boolean schemas in location, https://github.com/swagger-api/swagger-parser/issues/1770'
-    v303_does_not_support_contains = 'v3.0.3 does not support the contains keyword'
     bug_does_not_support_definitions = 'swagger-parser does not support the $defs keyword, https://github.com/swagger-api/swagger-parser/issues/1970'
-    v303_does_not_support_dependencies = 'v3.0.3 does not support the dependencies keyword'
     swagger_parser_enum_type_bug = "swagger-parser has a bug where schema type is incorrectly set for an enum, https://github.com/swagger-api/swagger-parser/issues/1761"
     swagger_parser_validation_missing_bug = 'swagger-parser has a bug where validations are unset, https://github.com/swagger-api/swagger-parser/issues/1762'
     swagger_parser_items_type_bug = "swagger-parser has a bug where schema type is incorrectly set with items, https://github.com/swagger-api/swagger-parser/issues/1763"
     v303_does_not_support_id = 'v3.0.3 does not support the $id keyword'
-    v303_does_not_support_propertyNames = 'v3.0.3 does not support the propertyNames keyword'
     v303_does_not_support_items_schema_array = 'v3.0.3 does not support an array of schemas for items'
     swagger_parser_exception = 'swagger-parser threw and exception for this test case'
     ref_location_not_the_same_for_json_and_openapi = 'the location referenced is not the same going from json schema to openapi'
     ref_to_adjacent_property_bug = 'Refing an adjacent property does not work, issue at https://github.com/OpenAPITools/openapi-generator/issues/12729'
     swagger_parser_anytype_bug = 'Swagger parser sets type incorrectly for this anyType schema https://github.com/swagger-api/swagger-parser/issues/1603'
-    component_ref_component_bug = 'A component refing another component does not work, issue at https://github.com/OpenAPITools/openapi-generator/issues/12730'
     not_running_the_localhost_server = 'the openapo-generator is not running the localhost server needed to serve remoteRef files'
     v303_requires_that_the_default_value_is_an_allowed_type = 'v3.0.3 requires that the default value is an allowed type per the schema'
     ref_not_resolved = 'ref not resolved, TODO resolve only remote refs'
@@ -167,7 +160,6 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
         "exclusiveMinimum validation": ExclusionReason.swagger_parser_validation_missing_bug,
     },
     (json_schema_test_draft, 'items.json'): {
-        'an array of schemas for items': ExclusionReason.v303_does_not_support_array_of_types,
         'items and subitems': ExclusionReason.bug_does_not_support_definitions,
         'items with boolean schema (true)': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'items with boolean schemas': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
@@ -214,7 +206,6 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
     (json_schema_test_draft, 'not.json'): {
         'not with boolean schema true': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
         'not with boolean schema false': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
-        'not multiple types': ExclusionReason.v303_does_not_support_array_of_types,
         "collect annotations inside a 'not', even if collection is disabled": ExclusionReason.bug_does_not_support_boolean_schemas_in_location
     },
     (json_schema_test_draft, 'oneOf.json'): {

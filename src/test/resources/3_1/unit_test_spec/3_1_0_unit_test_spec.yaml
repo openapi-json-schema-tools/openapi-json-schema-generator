@@ -2926,6 +2926,42 @@ paths:
       - path.post
       - contentType_json
       - not
+  /requestBody/postNotMultipleTypesRequestBody:
+    post:
+      operationId: postNotMultipleTypesRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotMultipleTypes'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/NotMultipleTypes'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - not
+  /responseBody/postNotMultipleTypesResponseBodyForContentTypes:
+    post:
+      operationId: postNotMultipleTypesResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotMultipleTypes'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/NotMultipleTypes'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - not
   /requestBody/postNotMoreComplexSchemaRequestBody:
     post:
       operationId: postNotMoreComplexSchemaRequestBody
@@ -5181,6 +5217,12 @@ components:
       $schema: https://json-schema.org/draft/2020-12/schema
       not:
         type: integer
+    NotMultipleTypes:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      not:
+        type:
+        - integer
+        - boolean
     NotMoreComplexSchema:
       $schema: https://json-schema.org/draft/2020-12/schema
       not:
@@ -7379,6 +7421,22 @@ components:
       Disallowed:
         description: disallowed
         data: 1
+        valid: false
+        comment: null
+    NotMultipleTypes:
+      Valid:
+        description: valid
+        data: foo
+        valid: true
+        comment: null
+      Mismatch:
+        description: mismatch
+        data: 1
+        valid: false
+        comment: null
+      OtherMismatch:
+        description: other mismatch
+        data: true
         valid: false
         comment: null
     NotMoreComplexSchema:

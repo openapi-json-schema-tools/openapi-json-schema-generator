@@ -86,6 +86,7 @@ Method | Description
 [**post_nested_oneof_to_check_validation_semantics_request_body**](../../paths/request_body_post_nested_oneof_to_check_validation_semantics_request_body/post.md) | 
 [**post_non_ascii_pattern_with_additionalproperties_request_body**](../../paths/request_body_post_non_ascii_pattern_with_additionalproperties_request_body/post.md) | 
 [**post_not_more_complex_schema_request_body**](../../paths/request_body_post_not_more_complex_schema_request_body/post.md) | 
+[**post_not_multiple_types_request_body**](../../paths/request_body_post_not_multiple_types_request_body/post.md) | 
 [**post_not_request_body**](../../paths/request_body_post_not_request_body/post.md) | 
 [**post_nul_characters_in_strings_request_body**](../../paths/request_body_post_nul_characters_in_strings_request_body/post.md) | 
 [**post_null_type_matches_only_the_null_object_request_body**](../../paths/request_body_post_null_type_matches_only_the_null_object_request_body/post.md) | 

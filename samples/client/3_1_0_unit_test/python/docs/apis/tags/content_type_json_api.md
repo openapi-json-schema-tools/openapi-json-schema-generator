@@ -163,6 +163,8 @@ Method | Description
 [**post_non_ascii_pattern_with_additionalproperties_response_body_for_content_types**](../../paths/response_body_post_non_ascii_pattern_with_additionalproperties_response_body_for_content_types/post.md) | 
 [**post_not_more_complex_schema_request_body**](../../paths/request_body_post_not_more_complex_schema_request_body/post.md) | 
 [**post_not_more_complex_schema_response_body_for_content_types**](../../paths/response_body_post_not_more_complex_schema_response_body_for_content_types/post.md) | 
+[**post_not_multiple_types_request_body**](../../paths/request_body_post_not_multiple_types_request_body/post.md) | 
+[**post_not_multiple_types_response_body_for_content_types**](../../paths/response_body_post_not_multiple_types_response_body_for_content_types/post.md) | 
 [**post_not_request_body**](../../paths/request_body_post_not_request_body/post.md) | 
 [**post_not_response_body_for_content_types**](../../paths/response_body_post_not_response_body_for_content_types/post.md) | 
 [**post_nul_characters_in_strings_request_body**](../../paths/request_body_post_nul_characters_in_strings_request_body/post.md) | 
