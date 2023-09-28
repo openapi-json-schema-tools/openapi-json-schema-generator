@@ -8,7 +8,7 @@ This project is a code generator that focuses on supporting all openapi and json
 
 ## Overview
 OpenAPI JSON Schema Generator allows auto-generation of API client libraries (SDK generation) given an
-[OpenAPI Spec](https://github.com/OAI/OpenAPI-Specification) (3.0.0-3.1.0[^1] are supported).
+[OpenAPI Spec](https://github.com/OAI/OpenAPI-Specification) (3.0.0-[3.1.0*](##preliminary-310-spec-support) are supported).
 This project focuses on making the output 100% compliant with openapi + JSON schema specs.
 The goal is to fully support everything defined in openapi + the included JSON schema specs
 so developers can use all of those features.
@@ -23,6 +23,7 @@ You can join us here: https://discord.gg/mHB8WEQuYQ
 
 ## Reasons To Use the Python Generator
 
+- [3.1.0*](##preliminary-310-spec-support) - 3.0.0 spec support
 - Type hints on
   - schema payload inputs in SomeSchema.validate ![validate screen capture](docs/schema_validate.gif)
     - Note: to make input dictionaries TypedDicts like the Money.validate example, set additionalProperties to false in the schema in your openapi document
@@ -93,19 +94,19 @@ Submit a PR if you want to add a new server scaffold, client sdk, or documentati
 
 The OpenAPI Specification has undergone 3 revisions since initial creation in 2010.  The openapi-json-schema-generator project has the following compatibilities with the OpenAPI Specification:
 
-| OpenAPI JSON Schema Generator Version | OpenAPI Spec compatibility |
-|---------------------------------------|----------------------------|
-| 3.1.0                                 | 3.0.0 - 3.1.0[^1]          |
-| 3.0.0                                 | 3.0.0 - 3.0.3              |
-| 2.0.3                                 | 3.0.0 - 3.0.3              |
-| 2.0.2                                 | 3.0.0 - 3.0.3              |
-| 2.0.1                                 | 3.0.0 - 3.0.3              |
-| 2.0.0                                 | 3.0.0 - 3.0.3              |
-| 1.0.4                                 | 3.0.0 - 3.0.3              |
-| 1.0.3                                 | 3.0.0 - 3.0.3              |
-| 1.0.2                                 | 3.0.0 - 3.0.3              |
-| 1.0.1                                 | 3.0.0 - 3.0.3              |
-| 1.0.0                                 | 3.0.0 - 3.0.3              |
+| OpenAPI JSON Schema Generator Version | OpenAPI Spec compatibility                       |
+|---------------------------------------|--------------------------------------------------|
+| 3.1.0                                 | 3.0.0 - [3.1.0*](##preliminary-310-spec-support) |
+| 3.0.0                                 | 3.0.0 - 3.0.3                                    |
+| 2.0.3                                 | 3.0.0 - 3.0.3                                    |
+| 2.0.2                                 | 3.0.0 - 3.0.3                                    |
+| 2.0.1                                 | 3.0.0 - 3.0.3                                    |
+| 2.0.0                                 | 3.0.0 - 3.0.3                                    |
+| 1.0.4                                 | 3.0.0 - 3.0.3                                    |
+| 1.0.3                                 | 3.0.0 - 3.0.3                                    |
+| 1.0.2                                 | 3.0.0 - 3.0.3                                    |
+| 1.0.1                                 | 3.0.0 - 3.0.3                                    |
+| 1.0.0                                 | 3.0.0 - 3.0.3                                    |
 
 #### Preliminary 3.1.0 spec support
 Preliminary 3.1.0 spec support includes these json schema keywords:
