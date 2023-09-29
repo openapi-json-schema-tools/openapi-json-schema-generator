@@ -109,7 +109,7 @@ The OpenAPI Specification has undergone 3 revisions since initial creation in 20
 | 1.0.0                                 | 3.0.0 - 3.0.3                                    |
 
 #### Preliminary 3.1.0 spec support
-Preliminary 3.1.0 spec support includes these json schema keywords:
+Preliminary 3.1.0 spec support includes these new 2020-12 json schema keywords:
 1. type (array of types supported in addition to one non-array value)
 2. const: only string values are working because of bugs in swagger parser
 3. contains
