@@ -122,9 +122,9 @@ jobs:
     steps:
       - command_build_and_test:
           jobId: "mvnCleanInstall"
-  mvnCleanInstallJava21:
+  mvnCleanInstallJava20:
     machine:
-      image: ubuntu-2204:2023.07.2
+      image: cimg/openjdk:20.0.1
     working_directory: ~/OpenAPITools/openapi-json-schema-generator
     shell: /bin/bash --login
     environment:
@@ -163,6 +163,6 @@ workflows:
     jobs:
       - ensureSamplesAndGeneratorDocsUpToDate
       - mvnCleanInstallJava11
-      - mvnCleanInstallJava21
+      - mvnCleanInstallJava20
       - testPython38ClientSamples
       - testPython39ClientSamples
