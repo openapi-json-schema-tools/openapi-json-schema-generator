@@ -123,7 +123,7 @@ jobs:
       - command_build_and_test:
           jobId: "mvnCleanInstall"
   mvnCleanInstallJava20:
-    machine:
+    docker:
       image: cimg/openjdk:20.0.1
     working_directory: ~/OpenAPITools/openapi-json-schema-generator
     shell: /bin/bash --login
