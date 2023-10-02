@@ -63,7 +63,7 @@ public class PythonClientGeneratorTest {
 
     @Test(expectedExceptions = RuntimeException.class)
     public void testSpecWithTooLowVersionThrowsException() {
-        final OpenAPI openAPI = TestUtils.parseSpec("src/test/resources/2_0/petstore.yaml");
+        final OpenAPI openAPI = TestUtils.parseSpec("src/test/resources/2_0/sample_spec.yaml");
         final PythonClientGenerator codegen = new PythonClientGenerator();
         codegen.preprocessOpenAPI(openAPI);
     }
