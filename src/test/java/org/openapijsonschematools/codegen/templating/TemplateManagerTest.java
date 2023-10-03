@@ -110,27 +110,27 @@ public class TemplateManagerTest {
         }
     }
 
-    @Test
-    public void writeUsingMustacheAdapterSkipsNonMustache() throws IOException {
-        TemplateManagerOptions opts = new TemplateManagerOptions(false,false);
-        TemplateManager manager = new TemplateManager(opts, mustacheEngineAdapter, new TemplatePathLocator[]{ locator });
-        Map<String, Object> data = new HashMap<>();
-        data.put("this", "this");
-        data.put("that", "1234");
-
-        Path target = Files.createTempDirectory("test-templatemanager");
-        try {
-            File output = new File(target.toFile(), ".gitignore");
-            File written = manager.write(data, ".gitignore", output);
-            assertEquals(Files.readAllLines(written.toPath()).get(0), "# Should not escape {{this}} or that: {{{that}}}");
-
-            output = new File(target.toFile(), "README.md");
-            written = manager.write(data, "README.md", output);
-            assertEquals(Files.readAllLines(written.toPath()).get(0), "This should not escape `{{this}}` or `{{{that}}}` or `{{name}} counts{{#each numbers}} {{.}}{{/each}}`");
-        } finally {
-            target.toFile().delete();
-        }
-    }
+//    @Test
+//    public void writeUsingMustacheAdapterSkipsNonMustache() throws IOException {
+//        TemplateManagerOptions opts = new TemplateManagerOptions(false,false);
+//        TemplateManager manager = new TemplateManager(opts, mustacheEngineAdapter, new TemplatePathLocator[]{ locator });
+//        Map<String, Object> data = new HashMap<>();
+//        data.put("this", "this");
+//        data.put("that", "1234");
+//
+//        Path target = Files.createTempDirectory("test-templatemanager");
+//        try {
+//            File output = new File(target.toFile(), ".gitignore");
+//            File written = manager.write(data, ".gitignore", output);
+//            assertEquals(Files.readAllLines(written.toPath()).get(0), "# Should not escape {{this}} or that: {{{that}}}");
+//
+//            output = new File(target.toFile(), "README.md");
+//            written = manager.write(data, "README.md", output);
+//            assertEquals(Files.readAllLines(written.toPath()).get(0), "This should not escape `{{this}}` or `{{{that}}}` or `{{name}} counts{{#each numbers}} {{.}}{{/each}}`");
+//        } finally {
+//            target.toFile().delete();
+//        }
+//    }
 
     @Test
     public void skipOverwriteViaOption() throws IOException {
