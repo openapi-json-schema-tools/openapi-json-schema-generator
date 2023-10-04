@@ -8,11 +8,11 @@ COPY ./LICENSE ${GEN_DIR}
 # copies source code in for jar packaging
 COPY ./src ${GEN_DIR}/src
 COPY ./pom.xml ${GEN_DIR}
+# Remove symlinks
+RUN rm -rf src/test/resources/3_0/unit_test_spec/venv
+RUN rm -rf src/test/resources/JSON-Schema-Test-Suite/tests/latest
 # Pre-compile openapi-generator-cli
 RUN mvn -am -pl . package
-# # Remove src + samples dirs
-RUN rm -rf src
-RUN rm -rf samples
 
 # multi stage build, jar in smaller image
 FROM openjdk:11.0-jre-buster
