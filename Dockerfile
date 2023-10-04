@@ -10,8 +10,9 @@ COPY ./src ${GEN_DIR}/src
 COPY ./pom.xml ${GEN_DIR}
 # Pre-compile openapi-generator-cli
 RUN mvn -am -pl . package
-# # Remove src dir
+# # Remove src + samples dirs
 RUN rm -rf src
+RUN rm -rf samples
 
 # multi stage build, jar in smaller image
 FROM openjdk:11.0-jre-buster
