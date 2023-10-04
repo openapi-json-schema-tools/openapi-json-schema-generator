@@ -124,7 +124,7 @@ jobs:
           jobId: "mvnCleanInstall"
   mvnCleanInstallJava20:
     docker:
-      - image: amazoncorretto:20-alpine-jdk
+      - image: ibm-semeru-runtimes:open-20.0.2_9-jdk-jammy
     working_directory: ~/OpenAPITools/openapi-json-schema-generator
     shell: /bin/bash --login
     environment:
