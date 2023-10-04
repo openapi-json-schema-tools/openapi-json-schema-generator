@@ -111,20 +111,9 @@ jobs:
     steps:
       - command_build_and_test:
           jobId: "ensureSamplesAndGeneratorDocsUpToDate"
-  mvnCleanInstallJava11:
+  mvnCleanInstall:
     machine:
       image: ubuntu-2004:202201-02
-    working_directory: ~/OpenAPITools/openapi-json-schema-generator
-    shell: /bin/bash --login
-    environment:
-      CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
-      CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
-    steps:
-      - command_build_and_test:
-          jobId: "mvnCleanInstall"
-  mvnCleanInstallJava20:
-    docker:
-      - image: maven:3.9.4-eclipse-temurin-20
     working_directory: ~/OpenAPITools/openapi-json-schema-generator
     shell: /bin/bash --login
     environment:
@@ -162,7 +151,6 @@ workflows:
   build:
     jobs:
       - ensureSamplesAndGeneratorDocsUpToDate
-      - mvnCleanInstallJava11
-      - mvnCleanInstallJava20
+      - mvnCleanInstall
       - testPython38ClientSamples
       - testPython39ClientSamples
