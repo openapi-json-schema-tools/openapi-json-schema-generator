@@ -7,11 +7,17 @@
 from petstore_api.shared_imports.response_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
-@dataclasses.dataclass
 class ApiResponse(api_response.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: schemas.Unset = schemas.unset
-    headers: schemas.Unset = schemas.unset
+    def __init__(
+        self,
+        *,
+        response: urllib3.HTTPResponse,
+        body: schemas.Unset = schemas.unset,
+        headers: schemas.Unset = schemas.unset
+    ):
+        self.response = response
+        self.body = body
+        self.headers = headers
 
 
 class Default(api_client.OpenApiResponse[ApiResponse]):

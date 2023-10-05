@@ -123,7 +123,7 @@ class DrawingDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TY
         ],
     ):
         arg_: typing.Dict[str, typing.Any] = {}
-        for key, val in (
+        for key_, val in (
             ("mainShape", mainShape),
             ("shapeOrNull", shapeOrNull),
             ("nullableShape", nullableShape),
@@ -131,7 +131,7 @@ class DrawingDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TY
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(DrawingDictInput, arg_)
         return Drawing.validate(used_arg_, configuration=configuration_)

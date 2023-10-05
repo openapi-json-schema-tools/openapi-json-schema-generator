@@ -45,13 +45,13 @@ class SchemaDict(schemas.immutabledict[str, str]):
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
         arg_: typing.Dict[str, typing.Any] = {}
-        for key, val in (
+        for key_, val in (
             ("name", name),
             ("status", status),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(SchemaDictInput, arg_)
         return Schema.validate(used_arg_, configuration=configuration_)

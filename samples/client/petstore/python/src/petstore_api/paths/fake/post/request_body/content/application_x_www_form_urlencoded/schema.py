@@ -228,7 +228,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             "number": number,
             "pattern_without_delimiter": pattern_without_delimiter,
         }
-        for key, val in (
+        for key_, val in (
             ("integer", integer),
             ("int32", int32),
             ("int64", int64),
@@ -241,7 +241,7 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(SchemaDictInput, arg_)
         return Schema.validate(used_arg_, configuration=configuration_)

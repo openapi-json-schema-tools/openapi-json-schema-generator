@@ -50,13 +50,13 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         arg_: typing.Dict[str, typing.Any] = {}
-        for key, val in (
+        for key_, val in (
             ("enum_header_string", enum_header_string),
             ("enum_header_string_array", enum_header_string_array),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         used_arg_ = typing.cast(HeaderParametersDictInput, arg_)
         return HeaderParameters.validate(used_arg_, configuration=configuration_)
     

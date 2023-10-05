@@ -49,12 +49,12 @@ class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDict(schemas.immut
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
         arg_: typing.Dict[str, typing.Any] = {}
-        for key, val in (
+        for key_, val in (
             ("alpha", alpha),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDictInput, arg_)
         return TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.validate(used_arg_, configuration=configuration_)

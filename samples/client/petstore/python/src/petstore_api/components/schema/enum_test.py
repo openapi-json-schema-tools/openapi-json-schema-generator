@@ -397,7 +397,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_: typing.Dict[str, typing.Any] = {
             "enum_string_required": enum_string_required,
         }
-        for key, val in (
+        for key_, val in (
             ("enum_string", enum_string),
             ("enum_integer", enum_integer),
             ("enum_number", enum_number),
@@ -409,7 +409,7 @@ class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(EnumTestDictInput, arg_)
         return EnumTest.validate(used_arg_, configuration=configuration_)

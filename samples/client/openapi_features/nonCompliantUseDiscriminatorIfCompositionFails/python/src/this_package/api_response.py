@@ -14,15 +14,27 @@ import urllib3
 from this_package import schemas
 
 
-@dataclasses.dataclass
 class ApiResponse:
-    response: urllib3.HTTPResponse
-    body: typing.Union[schemas.Unset, schemas.OUTPUT_BASE_TYPES] = schemas.unset
-    headers: typing.Union[schemas.Unset, typing.Mapping[str, schemas.OUTPUT_BASE_TYPES]] = schemas.unset
+    def __init__(
+        self,
+        *,
+        response: urllib3.HTTPResponse,
+        body: typing.Union[schemas.Unset, schemas.OUTPUT_BASE_TYPES] = schemas.unset,
+        headers: typing.Union[schemas.Unset, typing.Mapping[str, schemas.OUTPUT_BASE_TYPES]] = schemas.unset
+    ):
+        self.response = response
+        self.body = body
+        self. headers = headers
 
 
-@dataclasses.dataclass
 class ApiResponseWithoutDeserialization(ApiResponse):
-    response: urllib3.HTTPResponse
-    body: schemas.Unset = schemas.unset
-    headers: schemas.Unset = schemas.unset
+    def __init__(
+        self,
+        *,
+        response: urllib3.HTTPResponse,
+        body: schemas.Unset = schemas.unset,
+        headers: schemas.Unset = schemas.unset
+    ):
+        self.response = response
+        self.body = body
+        self. headers = headers

@@ -109,6 +109,7 @@ from petstore_api.components.schema.parent_pet import ParentPet
 from petstore_api.components.schema.pet import Pet
 from petstore_api.components.schema.pig import Pig
 from petstore_api.components.schema.player import Player
+from petstore_api.components.schema.public_key import PublicKey
 from petstore_api.components.schema.quadrilateral import Quadrilateral
 from petstore_api.components.schema.quadrilateral_interface import QuadrilateralInterface
 from petstore_api.components.schema.read_only_first import ReadOnlyFirst

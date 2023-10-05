@@ -45,13 +45,13 @@ class BarDict(schemas.immutabledict[str, int]):
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
         arg_: typing.Dict[str, typing.Any] = {}
-        for key, val in (
+        for key_, val in (
             ("foo", foo),
             ("bar", bar),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(BarDictInput, arg_)
         return Bar.validate(used_arg_, configuration=configuration_)

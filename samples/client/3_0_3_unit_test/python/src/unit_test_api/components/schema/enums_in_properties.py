@@ -154,12 +154,12 @@ class EnumsInPropertiesDict(schemas.immutabledict[str, str]):
         arg_: typing.Dict[str, typing.Any] = {
             "bar": bar,
         }
-        for key, val in (
+        for key_, val in (
             ("foo", foo),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(EnumsInPropertiesDictInput, arg_)
         return EnumsInProperties.validate(used_arg_, configuration=configuration_)

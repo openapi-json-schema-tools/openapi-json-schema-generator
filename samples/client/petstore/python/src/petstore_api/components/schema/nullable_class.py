@@ -1058,7 +1058,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ],
     ):
         arg_: typing.Dict[str, typing.Any] = {}
-        for key, val in (
+        for key_, val in (
             ("integer_prop", integer_prop),
             ("number_prop", number_prop),
             ("boolean_prop", boolean_prop),
@@ -1074,7 +1074,7 @@ class NullableClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(NullableClassDictInput, arg_)
         return NullableClass.validate(used_arg_, configuration=configuration_)

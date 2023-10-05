@@ -69,12 +69,12 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         arg_: typing.Dict[str, typing.Any] = {
             "required_boolean_group": required_boolean_group,
         }
-        for key, val in (
+        for key_, val in (
             ("boolean_group", boolean_group),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         used_arg_ = typing.cast(HeaderParametersDictInput, arg_)
         return HeaderParameters.validate(used_arg_, configuration=configuration_)
     

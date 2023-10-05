@@ -185,12 +185,12 @@ class ZebraDict(schemas.immutabledict[str, str]):
         arg_: typing.Dict[str, typing.Any] = {
             "className": className,
         }
-        for key, val in (
+        for key_, val in (
             ("type", type),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(ZebraDictInput, arg_)
         return Zebra.validate(used_arg_, configuration=configuration_)

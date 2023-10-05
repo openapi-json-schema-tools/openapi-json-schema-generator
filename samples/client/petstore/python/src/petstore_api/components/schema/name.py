@@ -47,12 +47,12 @@ class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_: typing.Dict[str, typing.Any] = {
             "name": name,
         }
-        for key, val in (
+        for key_, val in (
             ("snake_case", snake_case),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(NameDictInput, arg_)
         return Name.validate(used_arg_, configuration=configuration_)

@@ -47,7 +47,7 @@ def __new__(
     arg_: typing.Dict[str, typing.Any] = {}
             {{/if}}
             {{#and optionalProperties optionalProperties.hasValidKey}}
-    for key, val in (
+    for key_, val in (
                 {{#each optionalProperties}}
                     {{#if @key.isValid}}
         ("{{@key.original}}", {{@key.original}}),
@@ -56,7 +56,7 @@ def __new__(
     ):
         if isinstance(val, schemas.Unset):
             continue
-        arg_[key] = val
+        arg_[key_] = val
             {{/and}}
             {{#if additionalProperties}}
                 {{#unless additionalProperties.isBooleanSchemaFalse}}

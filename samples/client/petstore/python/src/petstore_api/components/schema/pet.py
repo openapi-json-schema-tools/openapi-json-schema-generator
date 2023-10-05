@@ -267,7 +267,7 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             "name": name,
             "photoUrls": photoUrls,
         }
-        for key, val in (
+        for key_, val in (
             ("id", id),
             ("category", category),
             ("tags", tags),
@@ -275,7 +275,7 @@ class PetDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(PetDictInput, arg_)
         return Pet.validate(used_arg_, configuration=configuration_)
