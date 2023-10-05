@@ -3338,14 +3338,7 @@ components:
         type: string
     PublicKey:
       description: schema that contains a property named key
-      example:
-        mechanisms:
-          - RSA_Signature_PSS_SHA256
-        type: RSA
-        restrictions:
-          tags:
-            - berlin
+      type: object
+      properties:
         key:
-          modulus: FhJQl11CiY0ifRHXeAqFh4rdSl6
-          publicExponent: FhJQl11CiY0ifRHXeAqFh4rdSl6
-        operations: 242
+          type: string
