@@ -336,6 +336,7 @@ Class | Description
 [Pet](docs/components/schema/pet.md) | Pet object that needs to be added to the store
 [Pig](docs/components/schema/pig.md) |
 [Player](docs/components/schema/player.md) | a model that includes a self reference this forces properties and additionalProperties to be lazy loaded in python models because the Player class has not fully loaded when defining properties
+[PublicKey](docs/components/schema/public_key.md) | schema that contains a property named key
 [Quadrilateral](docs/components/schema/quadrilateral.md) |
 [QuadrilateralInterface](docs/components/schema/quadrilateral_interface.md) |
 [ReadOnlyFirst](docs/components/schema/read_only_first.md) |
@@ -387,6 +388,7 @@ Class | Description
 
 Class | Description
 ----- | ------------
+[HeadersWithNoBody](docs/components/responses/response_headers_with_no_body.md) | A response that contains headers but no body 
 [RefSuccessDescriptionOnly](docs/components/responses/response_ref_success_description_only.md) |
 [RefSuccessfulXmlAndJsonArrayOfPet](docs/components/responses/response_ref_successful_xml_and_json_array_of_pet.md) |
 [SuccessDescriptionOnly](docs/components/responses/response_success_description_only.md) | Success

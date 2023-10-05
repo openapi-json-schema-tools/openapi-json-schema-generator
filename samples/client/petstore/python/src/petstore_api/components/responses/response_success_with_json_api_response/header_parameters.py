@@ -71,12 +71,12 @@ class HeadersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             "int32": int32,
             "stringHeader": stringHeader,
         }
-        for key, val in (
+        for key_, val in (
             ("numberHeader", numberHeader),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         used_arg_ = typing.cast(HeadersDictInput, arg_)
         return Headers.validate(used_arg_, configuration=configuration_)
     

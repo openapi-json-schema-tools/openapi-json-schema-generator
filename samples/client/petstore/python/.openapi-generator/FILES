@@ -35,6 +35,8 @@ docs/components/request_bodies/request_body_pet/content/application_xml/schema.m
 docs/components/request_bodies/request_body_ref_user_array.md
 docs/components/request_bodies/request_body_user_array.md
 docs/components/request_bodies/request_body_user_array/content/application_json/schema.md
+docs/components/responses/response_headers_with_no_body.md
+docs/components/responses/response_headers_with_no_body/headers/header_location/schema.md
 docs/components/responses/response_ref_success_description_only.md
 docs/components/responses/response_ref_successful_xml_and_json_array_of_pet.md
 docs/components/responses/response_success_description_only.md
@@ -154,6 +156,7 @@ docs/components/schema/parent_pet.md
 docs/components/schema/pet.md
 docs/components/schema/pig.md
 docs/components/schema/player.md
+docs/components/schema/public_key.md
 docs/components/schema/quadrilateral.md
 docs/components/schema/quadrilateral_interface.md
 docs/components/schema/read_only_first.md
@@ -510,6 +513,11 @@ src/petstore_api/components/request_bodies/request_body_user_array/content/__ini
 src/petstore_api/components/request_bodies/request_body_user_array/content/application_json/__init__.py
 src/petstore_api/components/request_bodies/request_body_user_array/content/application_json/schema.py
 src/petstore_api/components/responses/__init__.py
+src/petstore_api/components/responses/response_headers_with_no_body/__init__.py
+src/petstore_api/components/responses/response_headers_with_no_body/header_parameters.py
+src/petstore_api/components/responses/response_headers_with_no_body/headers/__init__.py
+src/petstore_api/components/responses/response_headers_with_no_body/headers/header_location/__init__.py
+src/petstore_api/components/responses/response_headers_with_no_body/headers/header_location/schema.py
 src/petstore_api/components/responses/response_ref_success_description_only/__init__.py
 src/petstore_api/components/responses/response_ref_successful_xml_and_json_array_of_pet/__init__.py
 src/petstore_api/components/responses/response_success_description_only/__init__.py
@@ -647,6 +655,7 @@ src/petstore_api/components/schema/parent_pet.py
 src/petstore_api/components/schema/pet.py
 src/petstore_api/components/schema/pig.py
 src/petstore_api/components/schema/player.py
+src/petstore_api/components/schema/public_key.py
 src/petstore_api/components/schema/quadrilateral.py
 src/petstore_api/components/schema/quadrilateral_interface.py
 src/petstore_api/components/schema/read_only_first.py

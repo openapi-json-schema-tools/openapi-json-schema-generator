@@ -53,12 +53,12 @@ class CategoryDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_: typing.Dict[str, typing.Any] = {
             "name": name,
         }
-        for key, val in (
+        for key_, val in (
             ("id", id),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(CategoryDictInput, arg_)
         return Category.validate(used_arg_, configuration=configuration_)

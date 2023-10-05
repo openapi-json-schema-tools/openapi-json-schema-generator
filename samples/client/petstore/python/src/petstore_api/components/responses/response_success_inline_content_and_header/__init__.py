@@ -14,11 +14,17 @@ parameters: typing.Dict[str, typing.Type[api_client.HeaderParameterWithoutName]]
 }
 
 
-@dataclasses.dataclass
 class ApiResponse(api_response.ApiResponse):
-    response: urllib3.HTTPResponse
-    body: application_json_schema.SchemaDict
-    headers: header_parameters.HeadersDict
+    def __init__(
+        self,
+        *,
+        response: urllib3.HTTPResponse,
+        body: application_json_schema.SchemaDict,
+        headers: header_parameters.HeadersDict
+    ):
+        self.response = response
+        self.body = body
+        self.headers = headers
 
 
 class SuccessInlineContentAndHeader(api_client.OpenApiResponse[ApiResponse]):

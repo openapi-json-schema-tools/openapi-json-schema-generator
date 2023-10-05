@@ -39,12 +39,12 @@ class ToStringDict(schemas.immutabledict[str, str]):
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
         arg_: typing.Dict[str, typing.Any] = {}
-        for key, val in (
+        for key_, val in (
             ("length", length),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(ToStringDictInput, arg_)
         return ToString.validate(used_arg_, configuration=configuration_)
@@ -133,14 +133,14 @@ class PropertiesWhoseNamesAreJavascriptObjectPropertyNamesDict(schemas.immutable
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
         arg_: typing.Dict[str, typing.Any] = {}
-        for key, val in (
+        for key_, val in (
             ("__proto__", __proto__),
             ("toString", toString),
             ("constructor", constructor),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(PropertiesWhoseNamesAreJavascriptObjectPropertyNamesDictInput, arg_)
         return PropertiesWhoseNamesAreJavascriptObjectPropertyNames.validate(used_arg_, configuration=configuration_)

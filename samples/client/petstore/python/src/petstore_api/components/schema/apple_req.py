@@ -57,12 +57,12 @@ class AppleReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_: typing.Dict[str, typing.Any] = {
             "cultivar": cultivar,
         }
-        for key, val in (
+        for key_, val in (
             ("mealy", mealy),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         used_arg_ = typing.cast(AppleReqDictInput, arg_)
         return AppleReq.validate(used_arg_, configuration=configuration_)
     

@@ -67,12 +67,12 @@ class AppleDict(schemas.immutabledict[str, str]):
         arg_: typing.Dict[str, typing.Any] = {
             "cultivar": cultivar,
         }
-        for key, val in (
+        for key_, val in (
             ("origin", origin),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(AppleDictInput, arg_)
         return Apple.validate(used_arg_, configuration=configuration_)

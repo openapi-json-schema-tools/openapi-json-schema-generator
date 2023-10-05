@@ -46,13 +46,13 @@ class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         arg_: typing.Dict[str, typing.Any] = {}
-        for key, val in (
+        for key_, val in (
             ("a", a),
             ("b", b),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         used_arg_ = typing.cast(ObjectWithOnlyOptionalPropsDictInput, arg_)
         return ObjectWithOnlyOptionalProps.validate(used_arg_, configuration=configuration_)
     

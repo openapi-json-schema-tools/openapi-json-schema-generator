@@ -1780,6 +1780,14 @@ components:
           schema:
             $ref: '#/components/schemas/StringWithValidation'
   responses:
+    HeadersWithNoBody:
+      description: |
+        A response that contains headers but no body
+      headers:
+        location:
+          description: Where to find the newly added key.
+          schema:
+            type: string
     SuccessfulXmlAndJsonArrayOfPet:
       description: successful operation, multiple content types
       content:
@@ -3328,3 +3336,9 @@ components:
           type: number
       additionalProperties:
         type: string
+    PublicKey:
+      description: schema that contains a property named key
+      type: object
+      properties:
+        key:
+          type: string

@@ -504,7 +504,7 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.immutable
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
         arg_: typing.Dict[str, typing.Any] = {}
-        for key, val in (
+        for key_, val in (
             ("map_property", map_property),
             ("map_of_map_property", map_of_map_property),
             ("anytype_1", anytype_1),
@@ -516,7 +516,7 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.immutable
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(AdditionalPropertiesClassDictInput, arg_)
         return AdditionalPropertiesClass.validate(used_arg_, configuration=configuration_)

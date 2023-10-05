@@ -39,12 +39,12 @@ class FooDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         arg_: typing.Dict[str, typing.Any] = {}
-        for key, val in (
+        for key_, val in (
             ("bar", bar),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         used_arg_ = typing.cast(FooDictInput, arg_)
         return Foo2.validate(used_arg_, configuration=configuration_)
     
@@ -144,12 +144,12 @@ class DependentSchemasDependentSubschemaIncompatibleWithRootDict(schemas.immutab
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
         arg_: typing.Dict[str, typing.Any] = {}
-        for key, val in (
+        for key_, val in (
             ("foo", foo),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(DependentSchemasDependentSubschemaIncompatibleWithRootDictInput, arg_)
         return DependentSchemasDependentSubschemaIncompatibleWithRoot.validate(used_arg_, configuration=configuration_)

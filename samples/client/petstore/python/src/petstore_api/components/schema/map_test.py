@@ -422,7 +422,7 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
         arg_: typing.Dict[str, typing.Any] = {}
-        for key, val in (
+        for key_, val in (
             ("map_map_of_string", map_map_of_string),
             ("map_of_enum_string", map_of_enum_string),
             ("direct_map", direct_map),
@@ -430,7 +430,7 @@ class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(MapTestDictInput, arg_)
         return MapTest.validate(used_arg_, configuration=configuration_)

@@ -73,7 +73,7 @@ class CapitalizationDict(schemas.immutabledict[str, str]):
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
         arg_: typing.Dict[str, typing.Any] = {}
-        for key, val in (
+        for key_, val in (
             ("smallCamel", smallCamel),
             ("CapitalCamel", CapitalCamel),
             ("small_Snake", small_Snake),
@@ -83,7 +83,7 @@ class CapitalizationDict(schemas.immutabledict[str, str]):
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(CapitalizationDictInput, arg_)
         return Capitalization.validate(used_arg_, configuration=configuration_)

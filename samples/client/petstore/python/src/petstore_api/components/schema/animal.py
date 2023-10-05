@@ -53,12 +53,12 @@ class AnimalDict(schemas.immutabledict[str, str]):
         arg_: typing.Dict[str, typing.Any] = {
             "className": className,
         }
-        for key, val in (
+        for key_, val in (
             ("color", color),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(AnimalDictInput, arg_)
         return Animal.validate(used_arg_, configuration=configuration_)

@@ -63,12 +63,12 @@ class BananaReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_: typing.Dict[str, typing.Any] = {
             "lengthCm": lengthCm,
         }
-        for key, val in (
+        for key_, val in (
             ("sweet", sweet),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         used_arg_ = typing.cast(BananaReqDictInput, arg_)
         return BananaReq.validate(used_arg_, configuration=configuration_)
     

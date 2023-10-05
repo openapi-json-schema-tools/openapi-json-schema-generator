@@ -345,7 +345,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             "number": number,
             "password": password,
         }
-        for key, val in (
+        for key_, val in (
             ("integer", integer),
             ("int32", int32),
             ("int32withValidations", int32withValidations),
@@ -365,7 +365,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(FormatTestDictInput, arg_)
         return FormatTest.validate(used_arg_, configuration=configuration_)

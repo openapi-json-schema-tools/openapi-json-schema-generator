@@ -106,13 +106,13 @@ class WhaleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         arg_: typing.Dict[str, typing.Any] = {
             "className": className,
         }
-        for key, val in (
+        for key_, val in (
             ("hasBaleen", hasBaleen),
             ("hasTeeth", hasTeeth),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(WhaleDictInput, arg_)
         return Whale.validate(used_arg_, configuration=configuration_)

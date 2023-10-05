@@ -71,13 +71,13 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             "required_int64_group": required_int64_group,
             "required_string_group": required_string_group,
         }
-        for key, val in (
+        for key_, val in (
             ("int64_group", int64_group),
             ("string_group", string_group),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         used_arg_ = typing.cast(QueryParametersDictInput, arg_)
         return QueryParameters.validate(used_arg_, configuration=configuration_)
     
