@@ -74,10 +74,7 @@ class SchemaDict(schemas.immutabledict[str, str]):
         val = self.get("additionalMetadata", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            str,
-            val
-        )
+        return val
     
     @property
     def file(self) -> typing.Union[bytes, schemas.FileIO, schemas.Unset]:

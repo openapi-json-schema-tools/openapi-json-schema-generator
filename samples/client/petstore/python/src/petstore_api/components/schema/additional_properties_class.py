@@ -536,20 +536,14 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.immutable
         val = self.get("map_property", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            MapPropertyDict,
-            val
-        )
+        return val
     
     @property
     def map_of_map_property(self) -> typing.Union[MapOfMapPropertyDict, schemas.Unset]:
         val = self.get("map_of_map_property", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            MapOfMapPropertyDict,
-            val
-        )
+        return val
     
     @property
     def anytype_1(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
@@ -566,50 +560,35 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.immutable
         val = self.get("map_with_undeclared_properties_anytype_1", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-            val
-        )
+        return val
     
     @property
     def map_with_undeclared_properties_anytype_2(self) -> typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset]:
         val = self.get("map_with_undeclared_properties_anytype_2", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-            val
-        )
+        return val
     
     @property
     def map_with_undeclared_properties_anytype_3(self) -> typing.Union[MapWithUndeclaredPropertiesAnytype3Dict, schemas.Unset]:
         val = self.get("map_with_undeclared_properties_anytype_3", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            MapWithUndeclaredPropertiesAnytype3Dict,
-            val
-        )
+        return val
     
     @property
     def empty_map(self) -> typing.Union[EmptyMapDict, schemas.Unset]:
         val = self.get("empty_map", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            EmptyMapDict,
-            val
-        )
+        return val
     
     @property
     def map_with_undeclared_properties_string(self) -> typing.Union[MapWithUndeclaredPropertiesStringDict, schemas.Unset]:
         val = self.get("map_with_undeclared_properties_string", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            MapWithUndeclaredPropertiesStringDict,
-            val
-        )
+        return val
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

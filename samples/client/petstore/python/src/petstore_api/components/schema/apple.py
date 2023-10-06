@@ -89,20 +89,14 @@ class AppleDict(schemas.immutabledict[str, str]):
     
     @property
     def cultivar(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("cultivar")
-        )
+        return self.__getitem__("cultivar")
     
     @property
     def origin(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("origin", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            str,
-            val
-        )
+        return val
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

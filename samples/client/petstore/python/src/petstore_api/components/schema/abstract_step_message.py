@@ -72,10 +72,7 @@ class AbstractStepMessageDict(schemas.immutabledict[str, str]):
     
     @property
     def discriminator(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("discriminator")
-        )
+        return self.__getitem__("discriminator")
     
     @property
     def sequenceNumber(self) -> schemas.OUTPUT_BASE_TYPES:

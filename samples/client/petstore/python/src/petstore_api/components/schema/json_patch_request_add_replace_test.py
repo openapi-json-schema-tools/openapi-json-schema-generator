@@ -157,10 +157,7 @@ class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, str]):
     
     @property
     def path(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("path")
-        )
+        return self.__getitem__("path")
     
     @property
     def value(self) -> schemas.OUTPUT_BASE_TYPES:

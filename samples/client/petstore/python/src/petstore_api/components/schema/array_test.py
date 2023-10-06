@@ -351,30 +351,21 @@ class ArrayTestDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_
         val = self.get("array_of_string", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            ArrayOfStringTuple,
-            val
-        )
+        return val
     
     @property
     def array_array_of_integer(self) -> typing.Union[ArrayArrayOfIntegerTuple, schemas.Unset]:
         val = self.get("array_array_of_integer", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            ArrayArrayOfIntegerTuple,
-            val
-        )
+        return val
     
     @property
     def array_array_of_model(self) -> typing.Union[ArrayArrayOfModelTuple, schemas.Unset]:
         val = self.get("array_array_of_model", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            ArrayArrayOfModelTuple,
-            val
-        )
+        return val
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

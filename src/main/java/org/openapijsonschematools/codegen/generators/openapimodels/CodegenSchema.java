@@ -124,6 +124,17 @@ public class CodegenSchema {
         return maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || patternInfo != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null;
     }
 
+    public CodegenSchema typeSchema() {
+        CodegenSchema schema = new CodegenSchema();
+        schema.refInfo = refInfo;
+        schema.types = types;
+        schema.format = format;
+        schema.enumInfo = enumInfo;
+        schema.arrayOutputJsonPathPiece = arrayOutputJsonPathPiece;
+        schema.mapOutputJsonPathPiece = mapOutputJsonPathPiece;
+        return schema;
+    }
+
     public boolean hasDiscriminatorWithNonEmptyMapping() {
         if (discriminator == null) {
             return false;
