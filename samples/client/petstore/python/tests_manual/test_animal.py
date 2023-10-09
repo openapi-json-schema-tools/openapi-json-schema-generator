@@ -11,6 +11,7 @@
 
 
 import unittest
+from unittest import mock
 
 import petstore_api
 from petstore_api.components.schema import animal
@@ -18,12 +19,6 @@ from petstore_api.components.schema import animal
 
 class TestAnimal(unittest.TestCase):
     """Animal unit test stubs"""
-
-    def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
 
     def testAnimal(self):
         """Test Animal"""
@@ -74,6 +69,12 @@ class TestAnimal(unittest.TestCase):
         assert isinstance(inst.className, str)
         assert isinstance(inst["color"], str)
         assert isinstance(inst["breed"], str)
+
+    def test_animal_color_is_not_cast(self):
+        inst = animal.Animal.validate({'className': 'Dog', 'color': 'black'})
+        with mock.patch('petstore_api.components.schema.animal.typing.cast') as mock_cast:
+            assert inst.color == 'black'
+            mock_cast.assert_not_called()
 
 
 if __name__ == '__main__':

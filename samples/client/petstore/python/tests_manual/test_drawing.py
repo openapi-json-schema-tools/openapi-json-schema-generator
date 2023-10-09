@@ -11,6 +11,7 @@
 
 
 import unittest
+from unittest import mock
 
 import petstore_api
 from petstore_api import schemas
@@ -22,12 +23,6 @@ from petstore_api.components.schema import drawing
 class TestDrawing(unittest.TestCase):
     """Drawing unit test stubs"""
 
-    def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
     def test_create_instances(self):
         """
         Validate instance can be created
@@ -38,6 +33,28 @@ class TestDrawing(unittest.TestCase):
             'triangleType': "IsoscelesTriangle"
         })
         assert isinstance(inst, schemas.immutabledict)
+
+    @mock.patch('petstore_api.components.schema.drawing.typing.cast')
+    def test_shapes_casting(self, mock_cast):
+        def side_effect(cls, value):
+            return value
+        mock_cast.side_effect = side_effect
+        one_shape = shape.Shape.validate({
+            'shapeType': "Triangle",
+            'triangleType': "EquilateralTriangle"
+        })
+        inst = drawing.Drawing.validate({
+            'shapes': [
+                one_shape,
+            ],
+        })
+        inst.shapes
+        assert mock_cast.mock_calls[-1] == mock.call(
+            drawing.ShapesTuple,
+            (
+                one_shape,
+            ),
+        )
 
     def test_deserialize_oneof_reference(self):
         """

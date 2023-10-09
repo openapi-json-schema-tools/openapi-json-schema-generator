@@ -10,8 +10,9 @@
 """
 
 import unittest
+from unittest import mock
 
-from petstore_api.components.schema.additional_properties_class import AdditionalPropertiesClass
+from petstore_api.components.schema import additional_properties_class
 from petstore_api import schemas
 
 
@@ -19,15 +20,26 @@ class TestAdditionalPropertiesClass(unittest.TestCase):
     """AdditionalPropertiesClass unit test stubs"""
 
     def test_additional_properties_class(self):
-        inst = AdditionalPropertiesClass.validate({})
+        inst = additional_properties_class.AdditionalPropertiesClass.validate({})
         with self.assertRaises(KeyError):
             inst["map_property"]
         assert inst.get("map_property", schemas.unset) is schemas.unset
         assert inst.map_property is schemas.unset
 
-        inst = AdditionalPropertiesClass.validate({'map_property': {}})
+        inst = additional_properties_class.AdditionalPropertiesClass.validate({'map_property': {}})
         map_property = inst["map_property"]
         assert map_property == {}
+
+    @mock.patch('petstore_api.components.schema.additional_properties_class.typing.cast')
+    def test_map_property_casting(self, mock_cast):
+        def side_effect(cls, value):
+            return value
+        mock_cast.side_effect = side_effect
+        inst = additional_properties_class.AdditionalPropertiesClass.validate({'map_property': {}})
+        inst.map_property
+        assert mock_cast.mock_calls[-1] == mock.call(
+            additional_properties_class.MapPropertyDict, {}
+        )
 
 
 if __name__ == '__main__':
