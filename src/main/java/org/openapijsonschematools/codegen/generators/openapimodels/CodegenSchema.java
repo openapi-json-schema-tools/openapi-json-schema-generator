@@ -124,6 +124,17 @@ public class CodegenSchema {
         return maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || patternInfo != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null;
     }
 
+    public CodegenSchema typeSchema() {
+        CodegenSchema schema = new CodegenSchema();
+        schema.refInfo = refInfo;
+        schema.types = types;
+        schema.format = format;
+        schema.enumInfo = enumInfo;
+        schema.arrayOutputJsonPathPiece = arrayOutputJsonPathPiece;
+        schema.mapOutputJsonPathPiece = mapOutputJsonPathPiece;
+        return schema;
+    }
+
     public boolean hasDiscriminatorWithNonEmptyMapping() {
         if (discriminator == null) {
             return false;
@@ -619,6 +630,7 @@ public class CodegenSchema {
         sb.append(", testCases=").append(testCases);
         sb.append(", instanceType=").append(instanceType);
         sb.append(", jsonPath=").append(jsonPath);
+        sb.append(", arrayOutputJsonPathPiece=").append(arrayOutputJsonPathPiece);
     }
 
     @Override
@@ -678,7 +690,9 @@ public class CodegenSchema {
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
                 Objects.equals(maxItems, that.maxItems) &&
                 Objects.equals(minItems, that.minItems) &&
-                Objects.equals(multipleOf, that.multipleOf);
+                Objects.equals(multipleOf, that.multipleOf) &&
+                Objects.equals(mapOutputJsonPathPiece, that.mapOutputJsonPathPiece) &&
+                Objects.equals(arrayOutputJsonPathPiece, that.arrayInputJsonPathPiece);
     }
 
     @Override

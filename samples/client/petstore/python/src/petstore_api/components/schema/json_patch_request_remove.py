@@ -119,10 +119,7 @@ class JSONPatchRequestRemoveDict(schemas.immutabledict[str, str]):
     
     @property
     def path(self) -> str:
-        return typing.cast(
-            str,
-            self.__getitem__("path")
-        )
+        return self.__getitem__("path")
 JSONPatchRequestRemoveDictInput = typing.TypedDict(
     'JSONPatchRequestRemoveDictInput',
     {

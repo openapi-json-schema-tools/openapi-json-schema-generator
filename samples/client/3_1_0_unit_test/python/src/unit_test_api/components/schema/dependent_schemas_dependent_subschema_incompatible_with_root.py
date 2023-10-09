@@ -63,10 +63,7 @@ class FooDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         val = self.get("bar", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            val
-        )
+        return val
 FooDictInput = typing.TypedDict(
     'FooDictInput',
     {
@@ -169,10 +166,7 @@ class DependentSchemasDependentSubschemaIncompatibleWithRootDict(schemas.immutab
         val = self.get("foo", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            val
-        )
+        return val
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

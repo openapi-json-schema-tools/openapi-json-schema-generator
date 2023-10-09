@@ -566,20 +566,14 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.immutable
         val = self.get("map_with_undeclared_properties_anytype_1", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-            val
-        )
+        return val
     
     @property
     def map_with_undeclared_properties_anytype_2(self) -> typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset]:
         val = self.get("map_with_undeclared_properties_anytype_2", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-            val
-        )
+        return val
     
     @property
     def map_with_undeclared_properties_anytype_3(self) -> typing.Union[MapWithUndeclaredPropertiesAnytype3Dict, schemas.Unset]:
