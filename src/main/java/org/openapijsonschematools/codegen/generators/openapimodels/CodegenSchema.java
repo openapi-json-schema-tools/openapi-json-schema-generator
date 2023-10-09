@@ -630,6 +630,7 @@ public class CodegenSchema {
         sb.append(", testCases=").append(testCases);
         sb.append(", instanceType=").append(instanceType);
         sb.append(", jsonPath=").append(jsonPath);
+        sb.append(", arrayOutputJsonPathPiece=").append(arrayOutputJsonPathPiece);
     }
 
     @Override
@@ -689,7 +690,9 @@ public class CodegenSchema {
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
                 Objects.equals(maxItems, that.maxItems) &&
                 Objects.equals(minItems, that.minItems) &&
-                Objects.equals(multipleOf, that.multipleOf);
+                Objects.equals(multipleOf, that.multipleOf) &&
+                Objects.equals(mapOutputJsonPathPiece, that.mapOutputJsonPathPiece) &&
+                Objects.equals(arrayOutputJsonPathPiece, that.arrayInputJsonPathPiece);
     }
 
     @Override
