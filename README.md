@@ -220,10 +220,6 @@ java -jar target/openapi-json-schema-generator-cli.jar generate \
 ```
 (if you're on Windows, replace the last command with `java -jar target\openapi-json-schema-generator-cli.jar generate -i https://raw.githubusercontent.com/openapi-json-schema-tools/openapi-json-schema-generator/master/src/test/resources/3_0/petstore.yaml -g python -o c:\temp\python_api_client`)
 
-<!-- RELEASE_VERSION -->
-You can also download the JAR (latest release) directly from [maven.org](https://repo1.maven.org/maven2/org/openapijsonschematools/openapi-json-schema-generator-cli/6.1.0/openapi-json-schema-generator-cli-6.1.0.jar)
-<!-- /RELEASE_VERSION -->
-
 To get a list of **general** options available, please run `java -jar target/openapi-json-schema-generator-cli.jar help generate`
 
 To get a list of PHP specified options (which can be passed to the generator with a config file via the `-c` option), please run `java -jar target/openapi-json-schema-generator-cli.jar config-help -g php`
