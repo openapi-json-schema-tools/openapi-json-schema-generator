@@ -37,6 +37,79 @@ parameters: typing.Dict[str, typing.Type[api_client.HeaderParameterWithoutName]]
 
 
 class ApiResponse(api_response.ApiResponse):
+    {{#and headers content}}
+        {{#if hasContentSchema}}
+            {{#gt content.size 1}}
+    body: typing.Union[
+                {{#each content}}
+                    {{#if this.schema}}
+                        {{#with this.schema}}
+        {{> components/_helper_content_schema_output_type paramName=null modulePrefix=../@key.snakeCase endChar="," }}
+                        {{/with}}
+                    {{else}}
+        schemas.Unset,
+                    {{/if}}
+                {{/each}}
+    ]
+            {{else}}
+                {{#each content}}
+                    {{#if this.schema}}
+                        {{#with this.schema}}
+    {{> components/_helper_content_schema_output_type paramName="body" modulePrefix=../@key.snakeCase endChar="" }}
+                        {{/with}}
+                    {{else}}
+    body: schemas.Unset
+                    {{/if}}
+                {{/each}}
+            {{/gt}}
+        {{else}}
+    body: schemas.Unset = schemas.unset
+        {{/if}}
+    headers: header_parameters.{{headersObjectSchema.mapOutputJsonPathPiece.camelCase}}
+    {{else}}
+        {{#or headers content}}
+            {{#if headers}}
+    headers: header_parameters.{{headersObjectSchema.mapOutputJsonPathPiece.camelCase}}
+    body: schemas.Unset = schemas.unset
+            {{else}}
+                {{#if hasContentSchema}}
+                    {{#gt content.size 1}}
+    body: typing.Union[
+                        {{#each content}}
+                            {{#if this.schema}}
+                                {{#with this.schema}}
+        {{> components/_helper_content_schema_output_type paramName=null modulePrefix=../@key.snakeCase endChar="," }}
+                                {{/with}}
+                            {{else}}
+        schemas.Unset,
+                            {{/if}}
+                        {{/each}}
+    ]
+                    {{else}}
+                        {{#each content}}
+                            {{#if this.schema}}
+                                {{#with this.schema}}
+    {{> components/_helper_content_schema_output_type paramName="body" modulePrefix=../@key.snakeCase endChar="" }}
+                                {{/with}}
+                            {{else}}
+    body: schemas.Unset
+                            {{/if}}
+                        {{/each}}
+                    {{/gt}}
+                {{else}}
+    body: schemas.Unset = schemas.unset
+                {{/if}}
+    headers: schemas.Unset = schemas.unset
+            {{/if}}
+        {{/or}}
+    {{/and}}
+    {{#unless headers}}
+    {{#unless content}}
+    body: schemas.Unset = schemas.unset,
+    headers: schemas.Unset = schemas.unset
+    {{/unless}}
+    {{/unless}}
+
     def __init__(
         self,
         *,
