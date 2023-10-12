@@ -9,17 +9,10 @@ from petstore_api.shared_imports.response_imports import *  # pyright: ignore [r
 from .content.application_json import schema as application_json_schema
 
 
+@dataclasses.dataclass(frozen=True)
 class ApiResponse(api_response.ApiResponse):
-    def __init__(
-        self,
-        *,
-        response: urllib3.HTTPResponse,
-        body: typing.Union[int, float],
-        headers: schemas.Unset = schemas.unset
-    ):
-        self.response = response
-        self.body = body
-        self.headers = headers
+    body: typing.Union[int, float]
+    headers: schemas.Unset
 
 
 class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):

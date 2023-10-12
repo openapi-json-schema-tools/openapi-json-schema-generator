@@ -10,20 +10,13 @@ from .content.application_xml import schema as application_xml_schema
 from .content.application_json import schema as application_json_schema
 
 
+@dataclasses.dataclass(frozen=True)
 class ApiResponse(api_response.ApiResponse):
-    def __init__(
-        self,
-        *,
-        response: urllib3.HTTPResponse,
-        body: typing.Union[
-            application_xml_schema.SchemaTuple,
-            application_json_schema.SchemaTuple,
-        ],
-        headers: schemas.Unset = schemas.unset
-    ):
-        self.response = response
-        self.body = body
-        self.headers = headers
+    body: typing.Union[
+        application_xml_schema.SchemaTuple,
+        application_json_schema.SchemaTuple,
+    ]
+    headers: schemas.Unset
 
 
 class SuccessfulXmlAndJsonArrayOfPet(api_client.OpenApiResponse[ApiResponse]):
