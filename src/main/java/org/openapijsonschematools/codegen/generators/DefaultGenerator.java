@@ -2461,7 +2461,7 @@ public class DefaultGenerator implements Generator {
         LinkedHashMapWithContext<CodegenSchema> properties = property.properties;
         if (additionalProperties != null || properties != null) {
             CodegenSchema mapValueSchema = new CodegenSchema();
-            if (additionalProperties != null) {
+            if (additionalProperties != null && !additionalProperties.isBooleanSchemaFalse) {
                 mapValueSchema = mapValueSchema.add(additionalProperties);
             }
             if (properties != null) {
