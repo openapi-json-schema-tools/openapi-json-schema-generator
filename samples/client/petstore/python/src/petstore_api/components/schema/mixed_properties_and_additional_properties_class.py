@@ -16,7 +16,7 @@ DateTime: typing_extensions.TypeAlias = schemas.DateTimeSchema
 from petstore_api.components.schema import animal
 
 
-class MapDict(schemas.immutabledict[str, AnimalDict]):
+class MapDict(schemas.immutabledict[str, animal.AnimalDict]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })

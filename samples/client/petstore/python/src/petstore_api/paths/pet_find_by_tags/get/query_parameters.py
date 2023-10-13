@@ -21,7 +21,7 @@ Properties = typing.TypedDict(
 )
 
 
-class QueryParametersDict(schemas.immutabledict[str, SchemaTuple]):
+class QueryParametersDict(schemas.immutabledict[str, schema.SchemaTuple]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "tags",
