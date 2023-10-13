@@ -14,12 +14,6 @@ if isinstance(val, schemas.Unset):
     {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
 return val
     {{else}}
-        {{#if ../../mapValueSchema}}
-# mapValueSchema.typeSchema
-{{../../mapValueSchema.typeSchema}}
-# typeSchema
-{{typeSchema}}
-        {{/if}}
 return typing.cast(
     {{> components/schemas/types/schema_output_type fullRefModule="" mode="unprefixed" endChar="," }}
     val

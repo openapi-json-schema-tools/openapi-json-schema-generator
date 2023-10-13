@@ -2470,6 +2470,8 @@ public class DefaultGenerator implements Generator {
                 }
             }
             property.mapValueSchema = mapValueSchema;
+        } else {
+            property.mapValueSchema = new CodegenSchema();
         }
 
         if (currentJsonPath != null) {
