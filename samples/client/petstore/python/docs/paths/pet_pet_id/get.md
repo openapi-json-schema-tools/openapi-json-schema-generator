@@ -55,7 +55,7 @@ Key | Type |  Description | Notes
 
 #### PathParameters PathParametersDict
 ```
-base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+base class: schemas.immutabledict[str, int]
 
 ```
 ##### &lowbar;&lowbar;new&lowbar;&lowbar; method

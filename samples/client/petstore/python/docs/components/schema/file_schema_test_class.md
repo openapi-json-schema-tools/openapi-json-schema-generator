@@ -21,7 +21,7 @@ Key | Type |  Description | Notes
 
 ## FileSchemaTestClassDict
 ```
-base class: schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TYPES]]
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method

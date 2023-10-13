@@ -39,6 +39,7 @@ Key | Type |  Description | Notes
 ## _0Dict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
@@ -82,6 +83,7 @@ Key | Type |  Description | Notes
 ## _1Dict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes

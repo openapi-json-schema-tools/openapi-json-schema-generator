@@ -22,7 +22,10 @@ Properties = typing.TypedDict(
 )
 
 
-class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ObjectWithOnlyOptionalPropsDict(schemas.immutabledict[str, typing.Union[
+    typing.Union[int, float],
+    str,
+]]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })

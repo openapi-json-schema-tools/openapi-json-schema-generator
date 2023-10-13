@@ -38,7 +38,10 @@ BananaReqOptionalDictInput = typing.TypedDict(
 )
 
 
-class BananaReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class BananaReqDict(schemas.immutabledict[str, typing.Union[
+    bool,
+    typing.Union[int, float],
+]]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "lengthCm",

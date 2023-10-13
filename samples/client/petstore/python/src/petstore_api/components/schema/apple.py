@@ -44,7 +44,7 @@ Properties = typing.TypedDict(
 )
 
 
-class AppleDict(schemas.immutabledict[str, str]):
+class AppleDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "cultivar",
@@ -89,14 +89,20 @@ class AppleDict(schemas.immutabledict[str, str]):
     
     @property
     def cultivar(self) -> str:
-        return self.__getitem__("cultivar")
+        return typing.cast(
+            str,
+            self.__getitem__("cultivar")
+        )
     
     @property
     def origin(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("origin", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return val
+        return typing.cast(
+            str,
+            val
+        )
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

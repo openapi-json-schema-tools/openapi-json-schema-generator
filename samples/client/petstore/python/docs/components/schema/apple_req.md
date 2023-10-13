@@ -20,7 +20,10 @@ Key | Type |  Description | Notes
 
 ## AppleReqDict
 ```
-base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+base class: schemas.immutabledict[str, typing.Union[
+    bool,
+    str,
+]]
 
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method

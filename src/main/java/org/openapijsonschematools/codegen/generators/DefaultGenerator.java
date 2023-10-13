@@ -2459,19 +2459,25 @@ public class DefaultGenerator implements Generator {
         // end of properties that need to be ordered to set correct camelCase jsonPathPieces
         CodegenSchema additionalProperties = property.additionalProperties;
         LinkedHashMapWithContext<CodegenSchema> properties = property.properties;
-        if (additionalProperties != null || properties != null) {
-            CodegenSchema mapValueSchema = new CodegenSchema();
-            if (additionalProperties != null && !additionalProperties.isBooleanSchemaFalse) {
-                mapValueSchema = mapValueSchema.add(additionalProperties);
-            }
-            if (properties != null) {
-                for (CodegenSchema prop: properties.values()) {
-                    mapValueSchema = prop.add(mapValueSchema);
+        if (additionalProperties == null) {
+            property.mapValueSchema = new CodegenSchema();
+        } else {
+            CodegenSchema mapValueSchema = null;
+            if (additionalProperties.isBooleanSchemaFalse) {
+                if (properties != null && !properties.isEmpty()) {
+                    for (CodegenSchema prop: properties.values()) {
+                        mapValueSchema = prop.add(mapValueSchema);
+                    }
+                }
+            } else {
+                mapValueSchema = additionalProperties;
+                if (properties != null && !properties.isEmpty()) {
+                    for (CodegenSchema prop: properties.values()) {
+                        mapValueSchema = prop.add(mapValueSchema);
+                    }
                 }
             }
             property.mapValueSchema = mapValueSchema;
-        } else {
-            property.mapValueSchema = new CodegenSchema();
         }
 
         if (currentJsonPath != null) {

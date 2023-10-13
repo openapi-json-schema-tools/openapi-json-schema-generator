@@ -78,20 +78,14 @@ class NoAdditionalPropertiesDict(schemas.immutabledict[str, int]):
     
     @property
     def id(self) -> int:
-        return typing.cast(
-            int,
-            self.__getitem__("id")
-        )
+        return self.__getitem__("id")
     
     @property
     def petId(self) -> typing.Union[int, schemas.Unset]:
         val = self.get("petId", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            int,
-            val
-        )
+        return val
 
 
 class NoAdditionalPropertiesDictInput(NoAdditionalPropertiesRequiredDictInput, NoAdditionalPropertiesOptionalDictInput):

@@ -13,6 +13,7 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 
 
 class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "__proto__",
         "constructor",
@@ -60,24 +61,15 @@ class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesDict(schemas.i
     
     @property
     def __proto__(self) -> schemas.OUTPUT_BASE_TYPES:
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            self.__getitem__("__proto__")
-        )
+        return self.__getitem__("__proto__")
     
     @property
     def constructor(self) -> schemas.OUTPUT_BASE_TYPES:
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            self.__getitem__("constructor")
-        )
+        return self.__getitem__("constructor")
     
     @property
     def toString(self) -> schemas.OUTPUT_BASE_TYPES:
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            self.__getitem__("toString")
-        )
+        return self.__getitem__("toString")
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

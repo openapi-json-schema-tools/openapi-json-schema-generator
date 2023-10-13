@@ -54,7 +54,7 @@ Key | Type |  Description | Notes
 
 #### HeaderParameters HeaderParametersDict
 ```
-base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+base class: schemas.immutabledict[str, str]
 
 ```
 ##### &lowbar;&lowbar;new&lowbar;&lowbar; method
@@ -92,7 +92,7 @@ Key | Type |  Description | Notes
 
 #### PathParameters PathParametersDict
 ```
-base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+base class: schemas.immutabledict[str, int]
 
 ```
 ##### &lowbar;&lowbar;new&lowbar;&lowbar; method

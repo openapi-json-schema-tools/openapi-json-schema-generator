@@ -21,7 +21,7 @@ Properties = typing.TypedDict(
 )
 
 
-class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class QueryParametersDict(schemas.immutabledict[str, SchemaTuple]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "status",
@@ -56,10 +56,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     
     @property
     def status(self) -> schema.SchemaTuple:
-        return typing.cast(
-            schema.SchemaTuple,
-            self.__getitem__("status")
-        )
+        return self.__getitem__("status")
 QueryParametersDictInput = typing.TypedDict(
     'QueryParametersDictInput',
     {

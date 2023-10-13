@@ -21,7 +21,7 @@ Properties = typing.TypedDict(
 )
 
 
-class SchemaDict(schemas.immutabledict[str, str]):
+class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
@@ -71,14 +71,20 @@ class SchemaDict(schemas.immutabledict[str, str]):
         val = self.get("name", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def status(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("status", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return val
+        return typing.cast(
+            str,
+            val
+        )
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

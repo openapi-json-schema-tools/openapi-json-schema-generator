@@ -29,7 +29,7 @@ Properties = typing.TypedDict(
 )
 
 
-class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDict(schemas.immutabledict[str, typing.Union[int, float]]):
+class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
@@ -74,7 +74,10 @@ class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDict(schemas.immut
         val = self.get("alpha", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return val
+        return typing.cast(
+            typing.Union[int, float],
+            val
+        )
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

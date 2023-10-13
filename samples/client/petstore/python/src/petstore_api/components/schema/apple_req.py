@@ -35,7 +35,10 @@ AppleReqOptionalDictInput = typing.TypedDict(
 )
 
 
-class AppleReqDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class AppleReqDict(schemas.immutabledict[str, typing.Union[
+    bool,
+    str,
+]]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "cultivar",

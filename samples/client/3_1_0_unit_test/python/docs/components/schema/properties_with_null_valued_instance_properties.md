@@ -20,7 +20,7 @@ Key | Type |  Description | Notes
 
 ## PropertiesWithNullValuedInstancePropertiesDict
 ```
-base class: schemas.immutabledict[str, None]
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method

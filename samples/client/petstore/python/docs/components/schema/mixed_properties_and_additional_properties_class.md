@@ -72,7 +72,8 @@ Key | Type |  Description | Notes
 
 ## MapDict
 ```
-base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+base class: schemas.immutabledict[str, AnimalDict]
+
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes

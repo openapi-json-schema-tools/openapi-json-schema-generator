@@ -13,6 +13,7 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 
 
 class RequiredWithEscapedCharactersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "foo\tbar",
         "foo\nbar",

@@ -21,7 +21,7 @@ Properties = typing.TypedDict(
 )
 
 
-class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class QueryParametersDict(schemas.immutabledict[str, SchemaDict]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
@@ -64,10 +64,7 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
         val = self.get("mapBean", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            schema.SchemaDict,
-            val
-        )
+        return val
 QueryParametersDictInput = typing.TypedDict(
     'QueryParametersDictInput',
     {

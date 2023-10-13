@@ -21,7 +21,7 @@ Key | Type |  Description | Notes
 
 ## JSONPatchRequestAddReplaceTestDict
 ```
-base class: schemas.immutabledict[str, str]
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method

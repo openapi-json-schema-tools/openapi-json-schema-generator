@@ -27,7 +27,7 @@ Key | Type |  Description | Notes
 
 ## AdditionalPropertiesClassDict
 ```
-base class: schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]]
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
@@ -124,7 +124,7 @@ Key | Type |  Description | Notes
 
 ## MapOfMapPropertyDict
 ```
-base class: schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]]
+base class: schemas.immutabledict[str, AdditionalPropertiesDict]
 
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method

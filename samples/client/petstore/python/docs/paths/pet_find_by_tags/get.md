@@ -54,7 +54,7 @@ Key | Type |  Description | Notes
 
 #### QueryParameters QueryParametersDict
 ```
-base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+base class: schemas.immutabledict[str, SchemaTuple]
 
 ```
 ##### &lowbar;&lowbar;new&lowbar;&lowbar; method

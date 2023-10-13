@@ -20,7 +20,10 @@ Properties = typing.TypedDict(
 )
 
 
-class ObjectWithNonIntersectingValuesDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class ObjectWithNonIntersectingValuesDict(schemas.immutabledict[str, typing.Union[
+    typing.Union[int, float],
+    str,
+]]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })

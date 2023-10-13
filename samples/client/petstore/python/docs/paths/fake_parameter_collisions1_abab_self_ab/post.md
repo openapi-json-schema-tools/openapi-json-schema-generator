@@ -124,6 +124,7 @@ Key | Type |  Description | Notes
 #### HeaderParameters HeaderParametersDict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
 ```
 ##### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
@@ -139,7 +140,7 @@ Property | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | [HeaderParametersDict](#headerparameters-headerparametersdict) | a constructor
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.OUTPUT_BASE_TYPES | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], instance["self"], 
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], instance["self"], 
 ### path_params
 ### PathParameters
 ```

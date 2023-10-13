@@ -72,7 +72,7 @@ Properties = typing.TypedDict(
 )
 
 
-class DanishPigDict(schemas.immutabledict[str, str]):
+class DanishPigDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "className",

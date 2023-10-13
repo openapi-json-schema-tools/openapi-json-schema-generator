@@ -20,7 +20,7 @@ Key | Type |  Description | Notes
 
 ## NumberOnlyDict
 ```
-base class: schemas.immutabledict[str, typing.Union[int, float]]
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method

@@ -9,20 +9,13 @@ from unit_test_api.shared_imports.response_imports import *  # pyright: ignore [
 from .content.application_json import schema as application_json_schema
 
 
+@dataclasses.dataclass(frozen=True)
 class ApiResponse(api_response.ApiResponse):
-    def __init__(
-        self,
-        *,
-        response: urllib3.HTTPResponse,
-        body: typing.Union[
-            typing.Tuple[schemas.OUTPUT_BASE_TYPES],
-            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-        ],
-        headers: schemas.Unset = schemas.unset
-    ):
-        self.response = response
-        self.body = body
-        self.headers = headers
+    body: typing.Union[
+        typing.Tuple[schemas.OUTPUT_BASE_TYPES],
+        schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    ]
+    headers: schemas.Unset
 
 
 class ResponseFor200(api_client.OpenApiResponse[ApiResponse]):

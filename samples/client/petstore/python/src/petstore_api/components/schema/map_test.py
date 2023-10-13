@@ -83,7 +83,7 @@ class AdditionalProperties(
 
 
 
-class MapMapOfStringDict(schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]]):
+class MapMapOfStringDict(schemas.immutabledict[str, AdditionalPropertiesDict]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
@@ -227,7 +227,7 @@ class AdditionalProperties3(
         )
 
 
-class MapOfEnumStringDict(schemas.immutabledict[str, str]):
+class MapOfEnumStringDict(schemas.immutabledict[str, typing.Literal["UPPER", "lower"]]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
@@ -386,6 +386,7 @@ Properties = typing.TypedDict(
 
 
 class MapTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({

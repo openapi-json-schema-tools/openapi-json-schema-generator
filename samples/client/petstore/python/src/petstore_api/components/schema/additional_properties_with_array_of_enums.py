@@ -76,7 +76,7 @@ class AdditionalProperties(
         )
 
 
-class AdditionalPropertiesWithArrayOfEnumsDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TYPES]]):
+class AdditionalPropertiesWithArrayOfEnumsDict(schemas.immutabledict[str, AdditionalPropertiesTuple]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
