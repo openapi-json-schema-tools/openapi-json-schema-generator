@@ -22,17 +22,10 @@ parameters: typing.Dict[str, typing.Type[api_client.HeaderParameterWithoutName]]
 }
 
 
+@dataclasses.dataclass(frozen=True)
 class ApiResponse(api_response.ApiResponse):
-    def __init__(
-        self,
-        *,
-        response: urllib3.HTTPResponse,
-        body: application_json_schema.api_response.ApiResponseDict,
-        headers: header_parameters.HeadersDict
-    ):
-        self.response = response
-        self.body = body
-        self.headers = headers
+    body: application_json_schema.api_response.ApiResponseDict
+    headers: header_parameters.HeadersDict
 
 
 class SuccessWithJsonApiResponse(api_client.OpenApiResponse[ApiResponse]):

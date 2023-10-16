@@ -21,7 +21,7 @@ Properties = typing.TypedDict(
 )
 
 
-class SchemaDict(schemas.immutabledict[str, str]):
+class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "param",
@@ -58,11 +58,17 @@ class SchemaDict(schemas.immutabledict[str, str]):
     
     @property
     def param(self) -> str:
-        return self.__getitem__("param")
+        return typing.cast(
+            str,
+            self.__getitem__("param")
+        )
     
     @property
     def param2(self) -> str:
-        return self.__getitem__("param2")
+        return typing.cast(
+            str,
+            self.__getitem__("param2")
+        )
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

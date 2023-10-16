@@ -70,11 +70,14 @@ class TestAnimal(unittest.TestCase):
         assert isinstance(inst["color"], str)
         assert isinstance(inst["breed"], str)
 
-    def test_animal_color_is_not_cast(self):
+    def test_animal_color_is_cast(self):
         inst = animal.Animal.validate({'className': 'Dog', 'color': 'black'})
+        def mock_typing_cast(cls, val):
+            return val
         with mock.patch('petstore_api.components.schema.animal.typing.cast') as mock_cast:
+            mock_cast.side_effect = mock_typing_cast
             assert inst.color == 'black'
-            mock_cast.assert_not_called()
+            mock_cast.assert_called_with(str, 'black')
 
 
 if __name__ == '__main__':

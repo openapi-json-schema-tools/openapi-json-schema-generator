@@ -19,7 +19,7 @@ Properties = typing.TypedDict(
 )
 
 
-class ObjWithRequiredPropsBaseDict(schemas.immutabledict[str, str]):
+class ObjWithRequiredPropsBaseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "b",
@@ -53,7 +53,10 @@ class ObjWithRequiredPropsBaseDict(schemas.immutabledict[str, str]):
     
     @property
     def b(self) -> str:
-        return self.__getitem__("b")
+        return typing.cast(
+            str,
+            self.__getitem__("b")
+        )
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

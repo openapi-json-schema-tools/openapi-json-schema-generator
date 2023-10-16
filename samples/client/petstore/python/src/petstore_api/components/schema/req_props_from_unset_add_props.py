@@ -13,6 +13,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 
 class ReqPropsFromUnsetAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "invalid-name",
         "validName",
@@ -49,10 +50,7 @@ class ReqPropsFromUnsetAddPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BA
     
     @property
     def validName(self) -> schemas.OUTPUT_BASE_TYPES:
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            self.__getitem__("validName")
-        )
+        return self.__getitem__("validName")
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

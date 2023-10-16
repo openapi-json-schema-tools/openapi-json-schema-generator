@@ -28,6 +28,7 @@ Properties = typing.TypedDict(
 
 
 class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
     __optional_keys__: typing.FrozenSet[str] = frozenset({

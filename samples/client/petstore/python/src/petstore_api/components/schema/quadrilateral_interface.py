@@ -74,7 +74,7 @@ Properties = typing.TypedDict(
 )
 
 
-class QuadrilateralInterfaceDict(schemas.immutabledict[str, str]):
+class QuadrilateralInterfaceDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "quadrilateralType",
@@ -113,7 +113,10 @@ class QuadrilateralInterfaceDict(schemas.immutabledict[str, str]):
     
     @property
     def quadrilateralType(self) -> str:
-        return self.__getitem__("quadrilateralType")
+        return typing.cast(
+            str,
+            self.__getitem__("quadrilateralType")
+        )
     
     @property
     def shapeType(self) -> typing.Literal["Quadrilateral"]:

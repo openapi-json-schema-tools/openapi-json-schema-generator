@@ -13,6 +13,7 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 
 
 class _0Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "bar",
         "foo",
@@ -54,17 +55,11 @@ class _0Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def bar(self) -> schemas.OUTPUT_BASE_TYPES:
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            self.__getitem__("bar")
-        )
+        return self.__getitem__("bar")
     
     @property
     def foo(self) -> schemas.OUTPUT_BASE_TYPES:
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            self.__getitem__("foo")
-        )
+        return self.__getitem__("foo")
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -93,6 +88,7 @@ class _0(
 
 
 class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "baz",
         "foo",
@@ -134,17 +130,11 @@ class _1Dict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def baz(self) -> schemas.OUTPUT_BASE_TYPES:
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            self.__getitem__("baz")
-        )
+        return self.__getitem__("baz")
     
     @property
     def foo(self) -> schemas.OUTPUT_BASE_TYPES:
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            self.__getitem__("foo")
-        )
+        return self.__getitem__("foo")
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

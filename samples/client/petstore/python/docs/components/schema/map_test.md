@@ -24,6 +24,7 @@ Key | Type |  Description | Notes
 ## MapTestDict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
@@ -74,7 +75,7 @@ Key | Type |  Description | Notes
 
 ## MapMapOfStringDict
 ```
-base class: schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]]
+base class: schemas.immutabledict[str, AdditionalPropertiesDict]
 
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
@@ -151,7 +152,7 @@ Key | Type |  Description | Notes
 
 ## MapOfEnumStringDict
 ```
-base class: schemas.immutabledict[str, str]
+base class: schemas.immutabledict[str, typing.Literal["UPPER", "lower"]]
 
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method

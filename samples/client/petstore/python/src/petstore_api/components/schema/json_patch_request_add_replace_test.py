@@ -105,7 +105,7 @@ Properties = typing.TypedDict(
 )
 
 
-class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, str]):
+class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "op",
@@ -157,14 +157,14 @@ class JSONPatchRequestAddReplaceTestDict(schemas.immutabledict[str, str]):
     
     @property
     def path(self) -> str:
-        return self.__getitem__("path")
+        return typing.cast(
+            str,
+            self.__getitem__("path")
+        )
     
     @property
     def value(self) -> schemas.OUTPUT_BASE_TYPES:
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            self.__getitem__("value")
-        )
+        return self.__getitem__("value")
 JSONPatchRequestAddReplaceTestDictInput = typing.TypedDict(
     'JSONPatchRequestAddReplaceTestDictInput',
     {

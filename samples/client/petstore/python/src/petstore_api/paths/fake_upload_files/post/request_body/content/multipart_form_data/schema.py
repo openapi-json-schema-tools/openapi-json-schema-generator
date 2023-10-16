@@ -79,7 +79,7 @@ Properties = typing.TypedDict(
 )
 
 
-class SchemaDict(schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TYPES]]):
+class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })

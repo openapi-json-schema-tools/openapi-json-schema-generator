@@ -21,7 +21,7 @@ Properties = typing.TypedDict(
 )
 
 
-class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class PathParametersDict(schemas.immutabledict[str, int]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "petId",
@@ -53,10 +53,7 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     
     @property
     def petId(self) -> int:
-        return typing.cast(
-            int,
-            self.__getitem__("petId")
-        )
+        return self.__getitem__("petId")
 PathParametersDictInput = typing.TypedDict(
     'PathParametersDictInput',
     {

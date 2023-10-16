@@ -154,7 +154,7 @@ class AdditionalProperties2(
 
 
 
-class MapOfMapPropertyDict(schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]]):
+class MapOfMapPropertyDict(schemas.immutabledict[str, AdditionalPropertiesDict]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
@@ -442,7 +442,7 @@ Properties = typing.TypedDict(
 )
 
 
-class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]]):
+class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
@@ -556,24 +556,27 @@ class AdditionalPropertiesClassDict(schemas.immutabledict[str, schemas.immutable
         val = self.get("anytype_1", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            val
-        )
+        return val
     
     @property
     def map_with_undeclared_properties_anytype_1(self) -> typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset]:
         val = self.get("map_with_undeclared_properties_anytype_1", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return val
+        return typing.cast(
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            val
+        )
     
     @property
     def map_with_undeclared_properties_anytype_2(self) -> typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset]:
         val = self.get("map_with_undeclared_properties_anytype_2", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return val
+        return typing.cast(
+            schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+            val
+        )
     
     @property
     def map_with_undeclared_properties_anytype_3(self) -> typing.Union[MapWithUndeclaredPropertiesAnytype3Dict, schemas.Unset]:

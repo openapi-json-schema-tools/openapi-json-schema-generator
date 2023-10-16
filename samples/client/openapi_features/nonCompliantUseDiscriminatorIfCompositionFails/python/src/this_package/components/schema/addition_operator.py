@@ -33,7 +33,10 @@ Properties = typing.TypedDict(
 )
 
 
-class AdditionOperatorDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class AdditionOperatorDict(schemas.immutabledict[str, typing.Union[
+    str,
+    typing.Union[int, float],
+]]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "a",

@@ -33,7 +33,10 @@ Properties = typing.TypedDict(
 )
 
 
-class SubtractionOperatorDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class SubtractionOperatorDict(schemas.immutabledict[str, typing.Union[
+    str,
+    typing.Union[int, float],
+]]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "a",

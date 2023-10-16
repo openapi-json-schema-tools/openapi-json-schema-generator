@@ -67,7 +67,7 @@ Key | Type |  Description | Notes
 
 ##### RequestBody content ApplicationJson Schema SchemaDict
 ```
-base class: schemas.immutabledict[str, str]
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
 ```
 ###### &lowbar;&lowbar;new&lowbar;&lowbar; method
@@ -108,7 +108,7 @@ Key | Type |  Description | Notes
 
 ##### RequestBody content MultipartFormData Schema SchemaDict
 ```
-base class: schemas.immutabledict[str, str]
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
 ```
 ###### &lowbar;&lowbar;new&lowbar;&lowbar; method

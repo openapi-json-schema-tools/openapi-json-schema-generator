@@ -84,7 +84,7 @@ Properties = typing.TypedDict(
 )
 
 
-class VariablesDict(schemas.immutabledict[str, str]):
+class VariablesDict(schemas.immutabledict[str, typing.Literal["v1", "v2"]]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "version",
@@ -119,10 +119,7 @@ class VariablesDict(schemas.immutabledict[str, str]):
     
     @property
     def version(self) -> typing.Literal["v1", "v2"]:
-        return typing.cast(
-            typing.Literal["v1", "v2"],
-            self.__getitem__("version")
-        )
+        return self.__getitem__("version")
 VariablesDictInput = typing.TypedDict(
     'VariablesDictInput',
     {

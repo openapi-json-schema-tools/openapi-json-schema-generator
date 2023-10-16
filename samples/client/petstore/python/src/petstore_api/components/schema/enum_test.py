@@ -307,6 +307,7 @@ Properties = typing.TypedDict(
 
 
 class EnumTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "enum_string_required",
     })

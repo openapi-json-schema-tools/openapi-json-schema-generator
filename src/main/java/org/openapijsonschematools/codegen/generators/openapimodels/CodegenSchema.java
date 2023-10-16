@@ -128,7 +128,6 @@ public class CodegenSchema {
         CodegenSchema schema = new CodegenSchema();
         schema.refInfo = refInfo;
         schema.types = types;
-        schema.format = format;
         schema.enumInfo = enumInfo;
         schema.arrayOutputJsonPathPiece = arrayOutputJsonPathPiece;
         schema.mapOutputJsonPathPiece = mapOutputJsonPathPiece;
@@ -167,28 +166,45 @@ public class CodegenSchema {
     }
 
     public CodegenSchema add(CodegenSchema other) {
+        /*
+        must be most permissive addition so dict.get returns possible type
+        stored properties are:
+        types
+        enumInfo
+        refInfo
+         */
         CodegenSchema newSchema = new CodegenSchema();
         if (other == null) {
             newSchema.types = types;
+            newSchema.refInfo = refInfo;
+            newSchema.enumInfo = enumInfo;
             return newSchema;
         }
-        if (refInfo != null || oneOf != null || anyOf != null || allOf != null || not != null) {
-            return null;
+        if (types == null || other.types == null) {
+            newSchema.types = null;
+        } else {
+            LinkedHashSet<String> sumTypes = new LinkedHashSet<>(types);
+            sumTypes.addAll(other.types);
+            newSchema.types = sumTypes;
         }
-        if (other.refInfo != null || other.oneOf != null || other.anyOf != null || other.allOf != null || other.not != null) {
-            return null;
+        if (refInfo == null || other.refInfo == null) {
+            newSchema.refInfo = null;
+        } else {
+            if (refInfo == other.refInfo) {
+                newSchema.refInfo = refInfo;
+            } else {
+                newSchema.refInfo = null;
+            }
         }
-        if (types == null) {
-            newSchema.types = other.types;
-            return newSchema;
+        if (enumInfo == null || other.enumInfo == null) {
+            newSchema.enumInfo = null;
+        } else {
+            if (enumInfo == other.enumInfo) {
+                newSchema.enumInfo = enumInfo;
+            } else {
+                newSchema.enumInfo = null;
+            }
         }
-        if (other.types == null) {
-            newSchema.types = types;
-            return newSchema;
-        }
-        LinkedHashSet<String> interSectionTypes = new LinkedHashSet<>(types);
-        interSectionTypes.retainAll(other.types);
-        newSchema.types = interSectionTypes;
         return newSchema;
     }
 

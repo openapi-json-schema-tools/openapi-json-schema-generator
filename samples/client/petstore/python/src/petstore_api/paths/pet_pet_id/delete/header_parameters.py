@@ -21,7 +21,7 @@ Properties = typing.TypedDict(
 )
 
 
-class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+class HeaderParametersDict(schemas.immutabledict[str, str]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
@@ -63,10 +63,7 @@ class HeaderParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         val = self.get("api_key", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            str,
-            val
-        )
+        return val
 HeaderParametersDictInput = typing.TypedDict(
     'HeaderParametersDictInput',
     {

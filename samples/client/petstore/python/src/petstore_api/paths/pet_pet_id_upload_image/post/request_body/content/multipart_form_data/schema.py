@@ -21,7 +21,7 @@ Properties = typing.TypedDict(
 )
 
 
-class SchemaDict(schemas.immutabledict[str, str]):
+class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
@@ -74,7 +74,10 @@ class SchemaDict(schemas.immutabledict[str, str]):
         val = self.get("additionalMetadata", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def file(self) -> typing.Union[bytes, schemas.FileIO, schemas.Unset]:

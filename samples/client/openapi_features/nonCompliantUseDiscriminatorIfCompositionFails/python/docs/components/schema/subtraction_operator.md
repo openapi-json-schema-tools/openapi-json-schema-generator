@@ -21,7 +21,10 @@ Key | Type |  Description | Notes
 
 ## SubtractionOperatorDict
 ```
-base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+base class: schemas.immutabledict[str, typing.Union[
+    str,
+    typing.Union[int, float],
+]]
 
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method

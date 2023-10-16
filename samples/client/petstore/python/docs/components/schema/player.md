@@ -25,6 +25,7 @@ Key | Type |  Description | Notes
 ## PlayerDict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes

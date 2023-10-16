@@ -25,7 +25,7 @@ Key | Type |  Description | Notes
 
 ## AdditionalPropertiesWithArrayOfEnumsDict
 ```
-base class: schemas.immutabledict[str, typing.Tuple[schemas.OUTPUT_BASE_TYPES]]
+base class: schemas.immutabledict[str, AdditionalPropertiesTuple]
 
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method

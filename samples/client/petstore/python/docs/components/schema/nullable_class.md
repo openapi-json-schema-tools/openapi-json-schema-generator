@@ -111,7 +111,15 @@ Key | Type |  Description | Notes
 
 ## NullableClassDict
 ```
-base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+base class: schemas.immutabledict[str, typing.Union[
+    schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+    None,
+    typing.Tuple[schemas.OUTPUT_BASE_TYPES],
+    str,
+    bool,
+    typing.Union[int, float],
+    int,
+]]
 
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method

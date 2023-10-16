@@ -59,6 +59,7 @@ Key | Type |  Description | Notes
 #### QueryParameters QueryParametersDict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
 ```
 ##### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
@@ -103,6 +104,7 @@ Key | Type |  Description | Notes
 #### HeaderParameters HeaderParametersDict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
 ```
 ##### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes

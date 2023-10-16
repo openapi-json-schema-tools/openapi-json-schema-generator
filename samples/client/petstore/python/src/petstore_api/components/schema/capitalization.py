@@ -29,7 +29,7 @@ Properties = typing.TypedDict(
 )
 
 
-class CapitalizationDict(schemas.immutabledict[str, str]):
+class CapitalizationDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
@@ -103,42 +103,60 @@ class CapitalizationDict(schemas.immutabledict[str, str]):
         val = self.get("smallCamel", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def CapitalCamel(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("CapitalCamel", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def small_Snake(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("small_Snake", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def Capital_Snake(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("Capital_Snake", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def SCA_ETH_Flow_Points(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("SCA_ETH_Flow_Points", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return val
+        return typing.cast(
+            str,
+            val
+        )
     
     @property
     def ATT_NAME(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("ATT_NAME", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return val
+        return typing.cast(
+            str,
+            val
+        )
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)

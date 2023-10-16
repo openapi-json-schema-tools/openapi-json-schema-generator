@@ -95,6 +95,7 @@ Key | Type |  Description | Notes
 ##### RequestBody content MultipartFormData Schema SchemaDict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
 ```
 ###### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
@@ -161,6 +162,7 @@ Key | Type |  Description | Notes
 #### QueryParameters QueryParametersDict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
 ```
 ##### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
@@ -254,6 +256,7 @@ Key | Type |  Description | Notes
 ##### ResponseFor200 content MultipartFormData Schema SchemaDict
 ```
 base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
+
 ```
 ###### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
