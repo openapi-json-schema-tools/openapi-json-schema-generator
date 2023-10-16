@@ -44,6 +44,6 @@ Property | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [PropertiesWhoseNamesAreJavascriptObjectPropertyNamesDictInput](#propertieswhosenamesarejavascriptobjectpropertynamesdictinput), [PropertiesWhoseNamesAreJavascriptObjectPropertyNamesDict](#propertieswhosenamesarejavascriptobjectpropertynamesdict), str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [PropertiesWhoseNamesAreJavascriptObjectPropertyNamesDict](#propertieswhosenamesarejavascriptobjectpropertynamesdict), str, float, int, bool, None, tuple, bytes, io.FileIO | a constructor
-get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

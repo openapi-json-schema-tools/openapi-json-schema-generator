@@ -38,7 +38,7 @@ Property | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [AllofWithBaseSchemaDictInput](#allofwithbaseschemadictinput), [AllofWithBaseSchemaDict](#allofwithbaseschemadict), str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [AllofWithBaseSchemaDict](#allofwithbaseschemadict), str, float, int, bool, None, tuple, bytes, io.FileIO | a constructor
-get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset | provides type safety for additional properties
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf
@@ -86,7 +86,7 @@ Property | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [_0DictInput](#_0dictinput), [_0Dict](#_0dict), str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [_0Dict](#_0dict), str, float, int, bool, None, tuple, bytes, io.FileIO | a constructor
-get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset | provides type safety for additional properties
 
 # _1
 ```
@@ -127,6 +127,6 @@ Property | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [_1DictInput](#_1dictinput), [_1Dict](#_1dict), str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [_1Dict](#_1dict), str, float, int, bool, None, tuple, bytes, io.FileIO | a constructor
-get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

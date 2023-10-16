@@ -38,7 +38,7 @@ Property | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [FruitDictInput](#fruitdictinput), [FruitDict](#fruitdict), str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [FruitDict](#fruitdict), str, float, int, bool, None, tuple, bytes, io.FileIO | a constructor
-get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset | provides type safety for additional properties
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf
