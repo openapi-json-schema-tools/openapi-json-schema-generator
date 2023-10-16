@@ -1,0 +1,33 @@
+openapi: 3.0.3
+info:
+  title: Test
+  version: 1.0.0-SNAPSHOT
+paths: {}
+components:
+  schemas:
+    NoPropsNoAddProps:
+      type: object
+    NoPropsHasAddProps:
+      type: object
+      additionalProperties:
+        type: string
+    PropsAndAddProps:
+      type: object
+      properties:
+        a:
+          type: number
+      additionalProperties:
+        type: string
+    PropsNoAddProps:
+      type: object
+      properties:
+        a:
+          type: number
+    PropsFalseAddProps:
+      type: object
+      properties:
+        a:
+          type: number
+        b:
+          type: string
+      additionalProperties: false

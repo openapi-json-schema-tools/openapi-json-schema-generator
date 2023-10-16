@@ -71,6 +71,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -3860,6 +3861,48 @@ public class DefaultGeneratorTest {
         assertEquals(openAPI, codegen.openAPI);
     }
 
+    @Test
+    public void testMapValueSchemaTypes() {
+        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/246_map_values.yaml");
+        final DefaultGenerator codegen = new DefaultGenerator();
+        codegen.setOpenAPI(openAPI);
+
+        String schemaName = "NoPropsNoAddProps";
+        String schemaPrefix = "#/components/schemas/";
+        Schema sourceSchema = codegen.openAPI.getComponents().getSchemas().get(schemaName);
+        CodegenSchema schema = codegen.fromSchema(sourceSchema, schemaPrefix + schemaName, schemaPrefix + schemaName);
+        assertEquals(schema.mapValueSchema.types, null);
+
+        schemaName = "NoPropsHasAddProps";
+        sourceSchema = codegen.openAPI.getComponents().getSchemas().get(schemaName);
+        schema = codegen.fromSchema(sourceSchema, schemaPrefix + schemaName, schemaPrefix + schemaName);
+        LinkedHashSet<String> expectedTypes = new LinkedHashSet<>();
+        expectedTypes.add("string");
+        assertEquals(schema.mapValueSchema.types, expectedTypes);
+
+        schemaName = "PropsAndAddProps";
+        sourceSchema = codegen.openAPI.getComponents().getSchemas().get(schemaName);
+        schema = codegen.fromSchema(sourceSchema, schemaPrefix + schemaName, schemaPrefix + schemaName);
+        expectedTypes.clear();;
+        expectedTypes.add("string");
+        expectedTypes.add("number");
+        assertEquals(schema.mapValueSchema.types, expectedTypes);
+
+        schemaName = "PropsNoAddProps";
+        sourceSchema = codegen.openAPI.getComponents().getSchemas().get(schemaName);
+        schema = codegen.fromSchema(sourceSchema, schemaPrefix + schemaName, schemaPrefix + schemaName);
+        assertEquals(schema.mapValueSchema.types, null);
+
+        schemaName = "PropsFalseAddProps";
+        sourceSchema = codegen.openAPI.getComponents().getSchemas().get(schemaName);
+        schema = codegen.fromSchema(sourceSchema, schemaPrefix + schemaName, schemaPrefix + schemaName);
+        expectedTypes.clear();;
+        expectedTypes.add("string");
+        expectedTypes.add("number");
+        assertEquals(schema.mapValueSchema.types, expectedTypes);
+    }
+
+    
     public static class FromParameter {
         private CodegenParameter codegenParameter(String path) {
             final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/fromParameter.yaml");
