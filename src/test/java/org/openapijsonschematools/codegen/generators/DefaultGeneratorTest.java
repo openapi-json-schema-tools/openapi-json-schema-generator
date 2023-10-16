@@ -3902,7 +3902,7 @@ public class DefaultGeneratorTest {
         assertEquals(schema.mapValueSchema.types, expectedTypes);
     }
 
-    
+
     public static class FromParameter {
         private CodegenParameter codegenParameter(String path) {
             final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/fromParameter.yaml");

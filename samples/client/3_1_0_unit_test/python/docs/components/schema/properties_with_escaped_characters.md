@@ -38,6 +38,6 @@ Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [PropertiesWithEscapedCharactersDictInput](#propertieswithescapedcharactersdictinput), [PropertiesWithEscapedCharactersDict](#propertieswithescapedcharactersdict), str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [PropertiesWithEscapedCharactersDict](#propertieswithescapedcharactersdict), str, float, int, bool, None, tuple, bytes, io.FileIO | a constructor
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["foo\nbar"], instance["foo\&quot;bar"], instance["foo\\bar"], instance["foo\rbar"], instance["foo\tbar"], instance["foo\fbar"], 
-get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

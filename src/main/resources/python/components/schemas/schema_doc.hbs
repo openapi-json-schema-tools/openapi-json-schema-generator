@@ -201,7 +201,7 @@ get_additional_property_ | str | {{> components/schemas/types/docschema_output_t
                 {{/if}}
             {{/unless}}
         {{else}}
-get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset | provides type safety for additional properties
         {{/with}}
     {{/or}}
     {{#if items}}
