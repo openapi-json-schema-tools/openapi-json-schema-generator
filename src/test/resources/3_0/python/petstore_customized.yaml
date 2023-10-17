@@ -17,6 +17,57 @@ tags:
   - name: user
     description: Operations about user
 paths:
+  /commonParam/{subDir}/:
+    parameters:
+      - name: subDir
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      tags:
+        - fake
+      parameters:
+        - in: query
+          name: searchStr
+          schema:
+            type: string
+      operationId: getCommonParam
+      responses:
+        '200':
+          $ref: '#/components/responses/SuccessDescriptionOnly'
+    post:
+      tags:
+        - fake
+      parameters:
+        - in: header
+          name: someHeader
+          schema:
+            type: string
+      operationId: postCommonParam
+      responses:
+        '200':
+          $ref: '#/components/responses/SuccessDescriptionOnly'
+    delete:
+      tags:
+        - fake
+      parameters:
+        - in: header
+          name: someHeader
+          schema:
+            type: string
+        - in: path
+          name: subDir
+          schema:
+            type: string
+            enum:
+              - a
+              - b
+      operationId: deleteCommonParam
+      description: common param is overwritten
+      responses:
+        '200':
+          $ref: '#/components/responses/SuccessDescriptionOnly'
   /foo:
     get:
       servers:
