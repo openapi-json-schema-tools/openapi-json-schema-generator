@@ -457,6 +457,14 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             generateServers(files, pathItem.servers, jsonPath + "/servers");
         }
 
+        if (pathItem.parameters != null) {
+            int i = 0;
+            for (CodegenParameter param: pathItem.parameters) {
+                generateParameter(files, param, jsonPath + "/parameters/" + i);
+                i += 1;
+            }
+        }
+
         if (pathItem.operations != null) {
             String testInitFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathKey.snakeCase, "__init__.py"));
             generateFile(new HashMap<>(), "__init__.hbs", testInitFilename, files, true, CodegenConstants.API_TESTS);
