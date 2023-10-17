@@ -5016,13 +5016,23 @@ public class DefaultGenerator implements Generator {
             operations = new TreeMap<>(operations);
         List<Server> specServers = pathItem.getServers();
         List<CodegenServer> servers = fromServers(specServers, jsonPath + "/servers");
+        ArrayList<CodegenParameter> parameters = null;
+        if (pathItem.getParameters() != null && !pathItem.getParameters().isEmpty()) {
+            int i = 0;
+            parameters = new ArrayList<>();
+            for (Parameter pathParam: pathItem.getParameters()) {
+                CodegenParameter param = fromParameter(pathParam, jsonPath + "/parameters/" + i) ;
+                parameters.add(param);
+                i += 1;
+            }
+        }
 
         return new CodegenPathItem(
                 summary,
                 description,
                 operations,
                 servers,
-                null
+                parameters
         );
     }
 
