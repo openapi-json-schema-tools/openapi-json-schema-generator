@@ -10,6 +10,7 @@ from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [
 from .. import path
 from .responses import response_200
 from .parameters import parameter_0
+from .path_parameters import PathParameters, PathParametersDictInput, PathParametersDict
 from .header_parameters import HeaderParameters, HeaderParametersDictInput, HeaderParametersDict
 header_parameter_classes = (
     parameter_0.Parameter0,
@@ -34,6 +35,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_common_param(
         self,
+        path_params: typing.Union[
+            PathParametersDictInput,
+            PathParametersDict
+        ],
         header_params: typing.Union[
             HeaderParametersDictInput,
             HeaderParametersDict,
@@ -49,6 +54,10 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _post_common_param(
         self,
+        path_params: typing.Union[
+            PathParametersDictInput,
+            PathParametersDict
+        ],
         header_params: typing.Union[
             HeaderParametersDictInput,
             HeaderParametersDict,
@@ -63,6 +72,10 @@ class BaseApi(api_client.Api):
 
     def _post_common_param(
         self,
+        path_params: typing.Union[
+            PathParametersDictInput,
+            PathParametersDict
+        ],
         header_params: typing.Union[
             HeaderParametersDictInput,
             HeaderParametersDict,
@@ -79,6 +92,10 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
+        path_params = PathParameters.validate(
+            path_params,
+            configuration=self.api_client.schema_configuration
+        )
         if header_params is not None:
             header_params = HeaderParameters.validate(
                 header_params,

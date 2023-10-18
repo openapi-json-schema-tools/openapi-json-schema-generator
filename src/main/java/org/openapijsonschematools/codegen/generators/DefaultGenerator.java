@@ -2599,6 +2599,23 @@ public class DefaultGenerator implements Generator {
         );
     }
 
+    private void updateXParameters(
+            CodegenParameter derefParam,
+            CodegenParameter p,
+            List<CodegenParameter> xParams,
+            List<String> xParametersRequired,
+            HashMap<String, Schema> xParametersProperties
+            ) {
+        xParams.add(p);
+        if (Boolean.TRUE.equals(derefParam.required)) {
+            xParametersRequired.add(derefParam.name);
+        }
+        String schemaJsonPath = derefParam.getSchemaJsonPath();
+        Schema parameterSchema = new Schema();
+        parameterSchema.set$ref(schemaJsonPath);
+        xParametersProperties.put(derefParam.name, parameterSchema);
+    }
+
     /**
      * Convert OAS Operation object to Codegen Operation object
      *
@@ -2796,54 +2813,54 @@ public class DefaultGenerator implements Generator {
             for (Parameter param : parameters) {
                 String usedSourceJsonPath = jsonPath + "/parameters/" + i;
                 CodegenParameter p = fromParameter(param, usedSourceJsonPath);
-                Pair<String, String> inName = Pair.of(p.in, p.name);
-                if (pathItemParameters != null && usedPathItemParameters.containsKey(inName)) {
-                    usedPathItemParameters.remove(inName);
-                }
                 allParams.add(p);
                 i++;
 
-                CodegenParameter paramOrRef = p;
-                if (p.refInfo != null) {
-                    paramOrRef = p.getDeepestRef();
-                }
                 CodegenParameter derefParam = p.getSelfOrDeepestRef();
-                String paramName = derefParam.name;
-                String schemaJsonPath = p.getSchemaJsonPath();
-                Schema parameterSchema = new Schema();
-                parameterSchema.set$ref(schemaJsonPath);
+                Pair<String, String> inName = Pair.of(derefParam.in, derefParam.name);
+                if (pathItemParameters != null && usedPathItemParameters.containsKey(inName)) {
+                    usedPathItemParameters.remove(inName);
+                }
 
-                switch (paramOrRef.in) {
+                switch (derefParam.in) {
                     case "query":
-                        queryParams.add(p);
-                        if (Boolean.TRUE.equals(derefParam.required)) {
-                            queryParametersRequired.add(paramName);
-                        }
-                        queryParametersProperties.put(paramName, parameterSchema);
+                        updateXParameters(derefParam, p, queryParams, queryParametersRequired, queryParametersProperties);
                         break;
                     case "path":
-                        pathParams.add(p);
-                        if (Boolean.TRUE.equals(derefParam.required)) {
-                            pathParametersRequired.add(paramName);
-                        }
-                        pathParametersProperties.put(paramName, parameterSchema);
+                        updateXParameters(derefParam, p, pathParams, pathParametersRequired, pathParametersProperties);
                         break;
                     case "header":
-                        headerParams.add(p);
-                        if (Boolean.TRUE.equals(derefParam.required)) {
-                            headerParametersRequired.add(paramName);
-                        }
-                        headerParametersProperties.put(paramName, parameterSchema);
+                        updateXParameters(derefParam, p, headerParams, headerParametersRequired, headerParametersProperties);
                         break;
                     case "cookie":
-                        cookieParams.add(p);
-                        if (Boolean.TRUE.equals(derefParam.required)) {
-                            cookieParametersRequired.add(paramName);
-                        }
-                        cookieParametersProperties.put(paramName, parameterSchema);
+                        updateXParameters(derefParam, p, cookieParams, cookieParametersRequired, cookieParametersProperties);
                         break;
                     default:
-                        LOGGER.warn("Unknown parameter type for {}", p.name);
+                        LOGGER.warn("Unknown parameter type for {}", derefParam.name);
+                        break;
+                }
+            }
+            ArrayList<CodegenParameter> pathItemQueryParams = new ArrayList<>();
+            ArrayList<CodegenParameter> pathItemPathParams = new ArrayList<>();
+            ArrayList<CodegenParameter> pathItemHeaderParams = new ArrayList<>();
+            ArrayList<CodegenParameter> pathItemCookieParams = new ArrayList<>();
+            for (CodegenParameter pathItemParam: usedPathItemParameters.values()) {
+                CodegenParameter derefParam = pathItemParam.getSelfOrDeepestRef();
+                switch (derefParam.in) {
+                    case "query":
+                        updateXParameters(derefParam, pathItemParam, pathItemQueryParams, queryParametersRequired, queryParametersProperties);
+                        break;
+                    case "path":
+                        updateXParameters(derefParam, pathItemParam, pathItemPathParams, pathParametersRequired, pathParametersProperties);
+                        break;
+                    case "header":
+                        updateXParameters(derefParam, pathItemParam, pathItemHeaderParams, headerParametersRequired, headerParametersProperties);
+                        break;
+                    case "cookie":
+                        updateXParameters(derefParam, pathItemParam, pathItemCookieParams, cookieParametersRequired, cookieParametersProperties);
+                        break;
+                    default:
+                        LOGGER.warn("Unknown parameter type for {}", derefParam.name);
                         break;
                 }
             }
