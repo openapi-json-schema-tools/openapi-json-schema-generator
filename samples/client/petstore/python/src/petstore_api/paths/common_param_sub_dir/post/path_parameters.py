@@ -16,7 +16,7 @@ from petstore_api.paths.common_param_sub_dir.parameters.0 import schema
 Properties = typing.TypedDict(
     'Properties',
     {
-        "subDir": typing.Type[SubDir],
+        "subDir": typing.Type[schema.Schema],
     }
 )
 

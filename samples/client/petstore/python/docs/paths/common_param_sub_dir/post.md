@@ -85,7 +85,7 @@ type: typing.TypedDict
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subDir** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  |
+**subDir** | str |  |
 
 #### PathParameters PathParametersDict
 ```
@@ -95,12 +95,12 @@ base class: schemas.immutabledict[str, str]
 ##### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**subDir** | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader |  |
+**subDir** | str |  |
 
 ##### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**subDir** | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO |  |
+**subDir** | str |  |
 
 ##### methods
 Method | Input Type | Return Type | Notes
