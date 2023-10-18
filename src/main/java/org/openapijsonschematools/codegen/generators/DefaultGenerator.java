@@ -4970,52 +4970,6 @@ public class DefaultGenerator implements Generator {
     public CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath) {
         String summary = pathItem.getSummary();
         String description = pathItem.getDescription();
-        TreeMap<CodegenKey, CodegenOperation> operations = new TreeMap<>();
-        Operation specOperation = pathItem.getGet();
-        String httpMethod = "get";
-        if (specOperation != null) {
-            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
-        }
-        specOperation = pathItem.getPut();
-        httpMethod = "put";
-        if (specOperation != null) {
-            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
-        }
-        specOperation = pathItem.getPost();
-        httpMethod = "post";
-        if (specOperation != null) {
-            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
-        }
-        specOperation = pathItem.getDelete();
-        httpMethod = "delete";
-        if (specOperation != null) {
-            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
-        }
-        specOperation = pathItem.getOptions();
-        httpMethod = "options";
-        if (specOperation != null) {
-            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
-        }
-        specOperation = pathItem.getHead();
-        httpMethod = "head";
-        if (specOperation != null) {
-            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
-        }
-        specOperation = pathItem.getPatch();
-        httpMethod = "patch";
-        if (specOperation != null) {
-            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
-        }
-        specOperation = pathItem.getTrace();
-        httpMethod = "trace";
-        if (specOperation != null) {
-            operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
-        }
-        if (!operations.isEmpty())
-            // sort them
-            operations = new TreeMap<>(operations);
-        List<Server> specServers = pathItem.getServers();
-        List<CodegenServer> servers = fromServers(specServers, jsonPath + "/servers");
         ArrayList<CodegenParameter> parameters = null;
         if (pathItem.getParameters() != null && !pathItem.getParameters().isEmpty()) {
             int i = 0;
@@ -5026,6 +4980,28 @@ public class DefaultGenerator implements Generator {
                 i += 1;
             }
         }
+        TreeMap<CodegenKey, CodegenOperation> operations = new TreeMap<>();
+        ArrayList<Pair<String, Operation>> httpMethodOperationPairs = new ArrayList<>();
+        httpMethodOperationPairs.add(Pair.of("get", pathItem.getGet()));
+        httpMethodOperationPairs.add(Pair.of("put", pathItem.getPut()));
+        httpMethodOperationPairs.add(Pair.of("post", pathItem.getPost()));
+        httpMethodOperationPairs.add(Pair.of("delete", pathItem.getDelete()));
+        httpMethodOperationPairs.add(Pair.of("options", pathItem.getOptions()));
+        httpMethodOperationPairs.add(Pair.of("head", pathItem.getHead()));
+        httpMethodOperationPairs.add(Pair.of("patch", pathItem.getPatch()));
+        httpMethodOperationPairs.add(Pair.of("trace", pathItem.getTrace()));
+        for (Pair<String, Operation> pair: httpMethodOperationPairs) {
+            Operation specOperation = pair.getRight();
+            String httpMethod = pair.getLeft();
+            if (specOperation != null) {
+                operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+            }
+        }
+        if (!operations.isEmpty())
+            // sort them
+            operations = new TreeMap<>(operations);
+        List<Server> specServers = pathItem.getServers();
+        List<CodegenServer> servers = fromServers(specServers, jsonPath + "/servers");
 
         return new CodegenPathItem(
                 summary,
