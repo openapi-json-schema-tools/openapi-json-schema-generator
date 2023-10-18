@@ -458,6 +458,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
 
         if (pathItem.parameters != null) {
+            generateXs(files, jsonPath + "/parameters", CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, true);
             int i = 0;
             for (CodegenParameter param: pathItem.parameters) {
                 generateParameter(files, param, jsonPath + "/parameters/" + i);

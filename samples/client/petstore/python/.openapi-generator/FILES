@@ -737,6 +737,7 @@ src/petstore_api/paths/common_param_sub_dir/get/responses/__init__.py
 src/petstore_api/paths/common_param_sub_dir/get/responses/response_200/__init__.py
 src/petstore_api/paths/common_param_sub_dir/parameters/0/__init__.py
 src/petstore_api/paths/common_param_sub_dir/parameters/0/schema.py
+src/petstore_api/paths/common_param_sub_dir/parameters/__init__.py
 src/petstore_api/paths/common_param_sub_dir/post/__init__.py
 src/petstore_api/paths/common_param_sub_dir/post/header_parameters.py
 src/petstore_api/paths/common_param_sub_dir/post/operation.py
