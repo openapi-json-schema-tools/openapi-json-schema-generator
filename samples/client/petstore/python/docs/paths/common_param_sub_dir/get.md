@@ -85,22 +85,22 @@ type: typing.TypedDict
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subDir** | str |  |
+**subDir** | typing.Literal["a", "b"] |  |
 
 #### PathParameters PathParametersDict
 ```
-base class: schemas.immutabledict[str, str]
+base class: schemas.immutabledict[str, typing.Literal["a", "b"]]
 
 ```
 ##### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**subDir** | str |  |
+**subDir** | typing.Literal["a", "b"] |  |
 
 ##### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**subDir** | str |  |
+**subDir** | typing.Literal["a", "b"] |  |
 
 ##### methods
 Method | Input Type | Return Type | Notes

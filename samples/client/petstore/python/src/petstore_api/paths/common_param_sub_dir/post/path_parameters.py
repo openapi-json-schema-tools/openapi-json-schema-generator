@@ -21,7 +21,7 @@ Properties = typing.TypedDict(
 )
 
 
-class PathParametersDict(schemas.immutabledict[str, str]):
+class PathParametersDict(schemas.immutabledict[str, typing.Literal["a", "b"]]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
         "subDir",
@@ -32,7 +32,10 @@ class PathParametersDict(schemas.immutabledict[str, str]):
     def __new__(
         cls,
         *,
-        subDir: str,
+        subDir: typing.Literal[
+            "a",
+            "b"
+        ],
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         arg_: typing.Dict[str, typing.Any] = {
@@ -52,12 +55,15 @@ class PathParametersDict(schemas.immutabledict[str, str]):
         return PathParameters.validate(arg, configuration=configuration)
     
     @property
-    def subDir(self) -> str:
+    def subDir(self) -> typing.Literal["a", "b"]:
         return self.__getitem__("subDir")
 PathParametersDictInput = typing.TypedDict(
     'PathParametersDictInput',
     {
-        "subDir": str,
+        "subDir": typing.Literal[
+            "a",
+            "b"
+        ],
     }
 )
 

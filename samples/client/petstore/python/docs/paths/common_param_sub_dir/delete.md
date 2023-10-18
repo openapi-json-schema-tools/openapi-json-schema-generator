@@ -86,22 +86,22 @@ type: typing.TypedDict
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subDir** | typing.Literal["a", "b"] |  |
+**subDir** | typing.Literal["c", "d"] |  |
 
 #### PathParameters PathParametersDict
 ```
-base class: schemas.immutabledict[str, typing.Literal["a", "b"]]
+base class: schemas.immutabledict[str, typing.Literal["c", "d"]]
 
 ```
 ##### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**subDir** | typing.Literal["a", "b"] |  |
+**subDir** | typing.Literal["c", "d"] |  |
 
 ##### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**subDir** | typing.Literal["a", "b"] |  |
+**subDir** | typing.Literal["c", "d"] |  |
 
 ##### methods
 Method | Input Type | Return Type | Notes
@@ -146,7 +146,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     path_params: operation.PathParametersDictInput = {
-        'subDir': "a",
+        'subDir': "c",
     }
     header_params: operation.HeaderParametersDictInput = {
     }
@@ -161,7 +161,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example passing only optional values
     path_params = {
-        'subDir': "a",
+        'subDir': "c",
     }
     header_params: operation.HeaderParametersDictInput = {
         'someHeader': "someHeader_example",
