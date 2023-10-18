@@ -2607,7 +2607,7 @@ public class DefaultGenerator implements Generator {
      * @return Codegen Operation object
      */
     @Override
-    public CodegenOperation fromOperation(Operation operation, String jsonPath) {
+    public CodegenOperation fromOperation(Operation operation, String jsonPath, LinkedHashMap<Pair<String, String>, CodegenParameter> pathItemParameters) {
         LOGGER.debug("fromOperation => operation: {}", operation);
         if (operation == null) {
             throw new RuntimeException("operation cannot be null in fromOperation");
@@ -2792,9 +2792,14 @@ public class DefaultGenerator implements Generator {
         List<String> cookieParametersRequired = new ArrayList<>();
         if (parameters != null) {
             int i = 0;
+            LinkedHashMap<Pair<String, String>, CodegenParameter> usedPathItemParameters = new LinkedHashMap<>(pathItemParameters);
             for (Parameter param : parameters) {
                 String usedSourceJsonPath = jsonPath + "/parameters/" + i;
                 CodegenParameter p = fromParameter(param, usedSourceJsonPath);
+                Pair<String, String> inName = Pair.of(p.in, p.name);
+                if (pathItemParameters != null && usedPathItemParameters.containsKey(inName)) {
+                    usedPathItemParameters.remove(inName);
+                }
                 allParams.add(p);
                 i++;
 
@@ -4971,6 +4976,7 @@ public class DefaultGenerator implements Generator {
         String summary = pathItem.getSummary();
         String description = pathItem.getDescription();
         ArrayList<CodegenParameter> parameters = null;
+        LinkedHashMap<Pair<String, String>, CodegenParameter> pairToParameter = new LinkedHashMap<>();
         if (pathItem.getParameters() != null && !pathItem.getParameters().isEmpty()) {
             int i = 0;
             parameters = new ArrayList<>();
@@ -4978,6 +4984,7 @@ public class DefaultGenerator implements Generator {
                 CodegenParameter param = fromParameter(pathParam, jsonPath + "/parameters/" + i) ;
                 parameters.add(param);
                 i += 1;
+                pairToParameter.put(Pair.of(param.in, param.name), param);
             }
         }
         TreeMap<CodegenKey, CodegenOperation> operations = new TreeMap<>();
@@ -4994,7 +5001,7 @@ public class DefaultGenerator implements Generator {
             Operation specOperation = pair.getRight();
             String httpMethod = pair.getLeft();
             if (specOperation != null) {
-                operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod));
+                operations.put(getKey(httpMethod, "verb"), fromOperation(specOperation, jsonPath + "/" + httpMethod, pairToParameter));
             }
         }
         if (!operations.isEmpty())
