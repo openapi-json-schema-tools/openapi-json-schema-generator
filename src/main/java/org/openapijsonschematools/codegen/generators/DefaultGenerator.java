@@ -2948,7 +2948,6 @@ public class DefaultGenerator implements Generator {
                 jsonPathPiece,
                 requestBodySchema,
                 pathItemParams,
-                pathItemHeaderParams,
                 pathItemCookieParams
                 );
     }

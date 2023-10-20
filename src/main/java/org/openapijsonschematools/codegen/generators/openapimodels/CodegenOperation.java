@@ -40,7 +40,6 @@ public class CodegenOperation {
     public final CodegenSchema headerParametersSchema;
     public final CodegenSchema cookieParametersSchema;
     public final ParameterCollection pathItemParameters;
-    public final List<CodegenParameter> pathItemHeaderParams;
     public final List<CodegenParameter> pathItemCookieParams;
 
     public final boolean hasRequiredParamOrBody;
@@ -91,7 +90,6 @@ public class CodegenOperation {
             CodegenKey jsonPathPiece,
             CodegenSchema requestBodySchema,
             ParameterCollection pathItemParameters,
-            List<CodegenParameter> pathItemHeaderParams,
             List<CodegenParameter> pathItemCookieParams
 ) {
         this.deprecated = deprecated;
@@ -126,7 +124,6 @@ public class CodegenOperation {
         this.jsonPathPiece = jsonPathPiece;
         this.requestBodySchema = requestBodySchema;
         this.pathItemParameters = pathItemParameters;
-        this.pathItemHeaderParams = pathItemHeaderParams;
         this.pathItemCookieParams = pathItemCookieParams;
     }
 

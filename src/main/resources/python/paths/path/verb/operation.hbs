@@ -360,8 +360,8 @@ class BaseApi(api_client.Api):
     {{else}}
         used_path = path
     {{/or}}
-    {{#or parameters.headerParameters pathItemHeaderParams requestBody produces}}
-        {{#or parameters.headerParameters pathItemHeaderParams}}
+    {{#or parameters.headerParameters pathItemParameters.headerParameters requestBody produces}}
+        {{#or parameters.headerParameters pathItemParameters.headerParameters}}
         headers = self._get_headers(
             header_parameters=header_parameter_classes,
             header_params=header_params,
@@ -428,7 +428,7 @@ class BaseApi(api_client.Api):
     {{/if}}
             method='{{httpMethod.original}}',
             host=host,
-    {{#or parameters.headerParameters pathItemHeaderParams requestBodySchema produces}}
+    {{#or parameters.headerParameters pathItemParameters.headerParameters requestBodySchema produces}}
             headers=headers,
     {{/or}}
     {{#if requestBodySchema}}
