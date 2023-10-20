@@ -2817,7 +2817,10 @@ public class DefaultGenerator implements Generator {
         ParameterCollection pathItemParams = null;
         if (parameters != null) {
             int i = 0;
-            LinkedHashMap<Pair<String, String>, CodegenParameter> usedPathItemParameters = new LinkedHashMap<>(pathItemParameters);
+            LinkedHashMap<Pair<String, String>, CodegenParameter> usedPathItemParameters = new LinkedHashMap<>();
+            if (pathItemParameters != null) {
+                usedPathItemParameters.putAll(pathItemParameters);
+            }
             for (Parameter param : parameters) {
                 String usedSourceJsonPath = jsonPath + "/parameters/" + i;
                 CodegenParameter p = fromParameter(param, usedSourceJsonPath);
@@ -2877,7 +2880,9 @@ public class DefaultGenerator implements Generator {
                         break;
                 }
             }
-            pathItemParams = new ParameterCollection(usedPathItemParams, pathItemPathParams, pathItemQueryParams, pathItemHeaderParams, pathItemCookieParams);
+            if (!usedPathItemParameters.isEmpty()) {
+                pathItemParams = new ParameterCollection(usedPathItemParams, pathItemPathParams, pathItemQueryParams, pathItemHeaderParams, pathItemCookieParams);
+            }
         }
 
         // create optional, required parameters

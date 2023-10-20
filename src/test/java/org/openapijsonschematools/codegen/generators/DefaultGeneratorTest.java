@@ -1942,7 +1942,7 @@ public class DefaultGeneratorTest {
         final CodegenOperation operation = cg.fromOperation(
                 path.getPost(),
                 getOperationPath("/users/me", "post"), null);
-        assertEquals(operation.parameters.allParameters.size(), 0);
+        assertNull(operation.parameters);
         assertNotNull(operation.requestBody);
     }
 
