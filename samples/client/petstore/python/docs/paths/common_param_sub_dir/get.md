@@ -144,11 +144,15 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
+    path_params = {
+        'subDir': "a",
+    }
     query_params: operation.QueryParametersDictInput = {
         'searchStr': "searchStr_example",
     }
     try:
         api_response = api_instance.get_common_param(
+            path_params=path_params,
             query_params=query_params,
         )
         pprint(api_response)

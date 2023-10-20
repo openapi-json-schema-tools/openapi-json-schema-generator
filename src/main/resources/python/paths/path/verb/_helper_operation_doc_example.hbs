@@ -10,9 +10,9 @@ from {{packageName}}.{{apiPackage}}.tags import {{moduleName}}
         {{/if}}
     {{/each}}
 {{/if}}
-{{#if parameters}}
+{{#or parameters pathItemParameters}}
 from {{packageName}}.paths.{{path.snakeCase}}.{{jsonPathPiece.original}} import operation
-{{/if}}
+{{/or}}
 {{#each imports}}
 {{{.}}}
 {{/each}}
@@ -33,7 +33,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
 {{#if hasRequiredParamOrBody}}
 
     # example passing only required values which don't have defaults set
-    {{#if parameters.pathParameters}}
+    {{#if pathParametersSchema}}
     path_params: operation.PathParametersDictInput = {
         {{#each parameters.pathParameters}}
             {{#if refInfo}}
@@ -46,26 +46,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
                 {{/if}}
             {{/if}}
         {{/each}}
-    }
-    {{/if}}
-    {{#if parameters.queryParameters}}
-    query_params: operation.QueryParametersDictInput = {
-        {{#each parameters.queryParameters}}
-            {{#if refInfo}}
-                {{#if getDeepestRef.required}}
-        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
-                {{/if}}
-            {{else}}
-            {{#if required}}
-        '{{name}}': {{{example}}},
-                {{/if}}
-            {{/if}}
-        {{/each}}
-    }
-    {{/if}}
-    {{#if parameters.cookieParameters}}
-    cookie_params: operation.CookieParametersDictInput = {
-        {{#each parameters.cookieParameters}}
+        {{#each pathItemParameters.pathParameters}}
             {{#if refInfo}}
                 {{#if getDeepestRef.required}}
         '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
@@ -78,9 +59,72 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
         {{/each}}
     }
     {{/if}}
-    {{#if parameters.headerParameters}}
+    {{#if queryParametersSchema}}
+    query_params: operation.QueryParametersDictInput = {
+        {{#each parameters.queryParameters}}
+            {{#if refInfo}}
+                {{#if getDeepestRef.required}}
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
+                {{/if}}
+            {{else}}
+            {{#if required}}
+        '{{name}}': {{{example}}},
+                {{/if}}
+            {{/if}}
+        {{/each}}
+        {{#each pathItemParameters.queryParameters}}
+            {{#if refInfo}}
+                {{#if getDeepestRef.required}}
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
+                {{/if}}
+            {{else}}
+            {{#if required}}
+        '{{name}}': {{{example}}},
+                {{/if}}
+            {{/if}}
+        {{/each}}
+    }
+    {{/if}}
+    {{#if cookieParametersSchema}}
+    cookie_params: operation.CookieParametersDictInput = {
+        {{#each parameters.cookieParameters}}
+            {{#if refInfo}}
+                {{#if getDeepestRef.required}}
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
+                {{/if}}
+            {{else}}
+                {{#if required}}
+        '{{name}}': {{{example}}},
+                {{/if}}
+            {{/if}}
+        {{/each}}
+        {{#each pathItemParameters.cookieParameters}}
+            {{#if refInfo}}
+                {{#if getDeepestRef.required}}
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
+                {{/if}}
+            {{else}}
+                {{#if required}}
+        '{{name}}': {{{example}}},
+                {{/if}}
+            {{/if}}
+        {{/each}}
+    }
+    {{/if}}
+    {{#if headerParametersSchema}}
     header_params: operation.HeaderParametersDictInput = {
         {{#each parameters.headerParameters}}
+            {{#if refInfo}}
+                {{#if getDeepestRef.required}}
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
+                {{/if}}
+            {{else}}
+                {{#if required}}
+        '{{name}}': {{{example}}},
+                {{/if}}
+            {{/if}}
+        {{/each}}
+        {{#each pathItemParameters.headerParameters}}
             {{#if refInfo}}
                 {{#if getDeepestRef.required}}
         '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
@@ -121,16 +165,16 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
         # {{{summary}}}
     {{/if}}
         api_response = api_instance.{{{operationId.snakeCase}}}(
-    {{#if parameters.pathParameters}}
+    {{#if pathParametersSchema}}
             path_params=path_params,
     {{/if}}
-    {{#if parameters.queryParameters}}
+    {{#if queryParametersSchema}}
             query_params=query_params,
     {{/if}}
-    {{#if parameters.headerParameters}}
+    {{#if headerParametersSchema}}
             header_params=header_params,
     {{/if}}
-    {{#if parameters.cookieParameters}}
+    {{#if cookieParametersSchema}}
             cookie_params=cookie_params,
     {{/if}}
     {{#with requestBody}}
@@ -160,7 +204,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
 {{#if hasOptionalParamOrBody}}
 
     # example passing only optional values
-    {{#if parameters.pathParameters}}
+    {{#if pathParametersSchema}}
     path_params = {
         {{#each parameters.pathParameters}}
             {{#if refInfo}}
@@ -169,9 +213,16 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
         '{{name}}': {{{example}}},
             {{/if}}
         {{/each}}
+        {{#each pathItemParameters.pathParameters}}
+            {{#if refInfo}}
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
+            {{else}}
+        '{{name}}': {{{example}}},
+            {{/if}}
+        {{/each}}
     }
     {{/if}}
-    {{#if parameters.queryParameters}}
+    {{#if queryParametersSchema}}
     query_params: operation.QueryParametersDictInput = {
         {{#each parameters.queryParameters}}
             {{#if refInfo}}
@@ -180,11 +231,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
         '{{name}}': {{{example}}},
             {{/if}}
         {{/each}}
-    }
-    {{/if}}
-    {{#if parameters.cookieParameters}}
-    cookie_params: operation.CookieParametersDictInput = {
-        {{#each parameters.cookieParameters}}
+        {{#each pathItemParameters.queryParameters}}
             {{#if refInfo}}
         '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
             {{else}}
@@ -193,9 +240,34 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
         {{/each}}
     }
     {{/if}}
-    {{#if parameters.headerParameters}}
+    {{#if cookieParametersSchema}}
+    cookie_params: operation.CookieParametersDictInput = {
+        {{#each parameters.cookieParameters}}
+            {{#if refInfo}}
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
+            {{else}}
+        '{{name}}': {{{example}}},
+            {{/if}}
+        {{/each}}
+        {{#each pathItemParameters.cookieParameters}}
+            {{#if refInfo}}
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
+            {{else}}
+        '{{name}}': {{{example}}},
+            {{/if}}
+        {{/each}}
+    }
+    {{/if}}
+    {{#if headerParametersSchema}}
     header_params: operation.HeaderParametersDictInput = {
         {{#each parameters.headerParameters}}
+            {{#if refInfo}}
+        '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
+            {{else}}
+        '{{name}}': {{{example}}},
+            {{/if}}
+        {{/each}}
+        {{#each pathItemParameters.headerParameters}}
             {{#if refInfo}}
         '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
             {{else}}
@@ -228,16 +300,16 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
         # {{{summary}}}
     {{/if}}
         api_response = api_instance.{{{operationId.snakeCase}}}(
-    {{#if parameters.pathParameters}}
+    {{#if pathParametersSchema}}
             path_params=path_params,
     {{/if}}
-    {{#if parameters.queryParameters}}
+    {{#if queryParametersSchema}}
             query_params=query_params,
     {{/if}}
-    {{#if parameters.headerParameters}}
+    {{#if headerParametersSchema}}
             header_params=header_params,
     {{/if}}
-    {{#if parameters.cookieParameters}}
+    {{#if cookieParametersSchema}}
             cookie_params=cookie_params,
     {{/if}}
     {{#if requestBody}}

@@ -144,11 +144,15 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     api_instance = fake_api.FakeApi(api_client)
 
     # example passing only optional values
+    path_params = {
+        'subDir': "a",
+    }
     header_params: operation.HeaderParametersDictInput = {
         'someHeader': "someHeader_example",
     }
     try:
         api_response = api_instance.post_common_param(
+            path_params=path_params,
             header_params=header_params,
         )
         pprint(api_response)
