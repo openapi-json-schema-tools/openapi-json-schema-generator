@@ -312,10 +312,10 @@ public class DefaultGeneratorRunnerTest {
         CodegenKey firstPathKey = config.getKey("path1/", "paths");
         CodegenKey getKey = config.getKey("get", "verb");
         Assert.assertEquals(firstPathKey.original, "path1/");
-        Assert.assertEquals(paths.get(firstPathKey).operations.get(getKey).allParams.size(), 0);
+        Assert.assertNull(paths.get(firstPathKey).operations.get(getKey).parameters);
         CodegenKey secondPathKey = config.getKey("path2/", "paths");
         Assert.assertEquals(secondPathKey.original, "path2/");
-        Assert.assertEquals(paths.get(secondPathKey).operations.get(getKey).allParams.size(), 1);
+        Assert.assertEquals(paths.get(secondPathKey).operations.get(getKey).parameters.allParameters.size(), 1);
     }
 
     @Test

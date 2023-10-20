@@ -172,6 +172,9 @@ HTTP request | Method | Description
 ------------ | ------ | -------------
 / **get** | [FakeApi](docs/apis/tags/fake_api.md).[slash_route](docs/paths/solidus/get.md)  | slash route
 /another-fake/dummy **patch** | [AnotherFakeApi](docs/apis/tags/another_fake_api.md).[call_123_test__special_tags](docs/paths/another_fake_dummy/patch.md)  | To test special tags
+/commonParam/{subDir}/ **delete** | [FakeApi](docs/apis/tags/fake_api.md).[delete_common_param](docs/paths/common_param_sub_dir/delete.md)  | 
+/commonParam/{subDir}/ **get** | [FakeApi](docs/apis/tags/fake_api.md).[get_common_param](docs/paths/common_param_sub_dir/get.md)  | 
+/commonParam/{subDir}/ **post** | [FakeApi](docs/apis/tags/fake_api.md).[post_common_param](docs/paths/common_param_sub_dir/post.md)  | 
 /fake **delete** | [FakeApi](docs/apis/tags/fake_api.md).[group_parameters](docs/paths/fake/delete.md)  | Fake endpoint to test group parameters (optional)
 /fake **get** | [FakeApi](docs/apis/tags/fake_api.md).[enum_parameters](docs/paths/fake/get.md)  | To test enum parameters
 /fake **patch** | [FakeApi](docs/apis/tags/fake_api.md).[client_model](docs/paths/fake/patch.md)  | To test \&quot;client\&quot; model

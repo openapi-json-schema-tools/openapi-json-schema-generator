@@ -3,6 +3,7 @@ import typing_extensions
 
 from petstore_api.apis.paths.solidus import Solidus
 from petstore_api.apis.paths.another_fake_dummy import AnotherFakeDummy
+from petstore_api.apis.paths.common_param_sub_dir import CommonParamSubDir
 from petstore_api.apis.paths.fake import Fake
 from petstore_api.apis.paths.fake_additional_properties_with_array_of_enums import FakeAdditionalPropertiesWithArrayOfEnums
 from petstore_api.apis.paths.fake_body_with_file_schema import FakeBodyWithFileSchema
@@ -61,6 +62,7 @@ PathToApi = typing.TypedDict(
     {
     "/": typing.Type[Solidus],
     "/another-fake/dummy": typing.Type[AnotherFakeDummy],
+    "/commonParam/{subDir}/": typing.Type[CommonParamSubDir],
     "/fake": typing.Type[Fake],
     "/fake/additional-properties-with-array-of-enums": typing.Type[FakeAdditionalPropertiesWithArrayOfEnums],
     "/fake/body-with-file-schema": typing.Type[FakeBodyWithFileSchema],
@@ -120,6 +122,7 @@ path_to_api = PathToApi(
     {
     "/": Solidus,
     "/another-fake/dummy": AnotherFakeDummy,
+    "/commonParam/{subDir}/": CommonParamSubDir,
     "/fake": Fake,
     "/fake/additional-properties-with-array-of-enums": FakeAdditionalPropertiesWithArrayOfEnums,
     "/fake/body-with-file-schema": FakeBodyWithFileSchema,

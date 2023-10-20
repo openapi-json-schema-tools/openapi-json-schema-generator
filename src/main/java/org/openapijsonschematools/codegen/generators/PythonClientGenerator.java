@@ -1141,7 +1141,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
     public String getRefClassWithRefModule(Schema sc) {
         String ref = sc.get$ref();
         if (ref != null) {
-            return  toRefModule(ref, null, "schemas") + "." + toRefClass(ref, null, "schemas");
+            return toRefModule(ref, null, "schemas") + "." + toRefClass(ref, null, "schemas");
         }
         return null;
     }
@@ -2004,7 +2004,11 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
             }
         }
         if (ref.startsWith("#/paths/")) {
-            if (refPieces.length == 7) {
+            if (refPieces.length == 6) {
+                // #/paths/~1commonParam~1{subDir}~1/parameters/0/schema
+                String schemaName = refPieces[5];
+                return toModelName(schemaName, ref);
+            } else if (refPieces.length == 7) {
                 // #/paths/~1pet~1{petId}/get/parameters/0/schema
                 String schemaName = refPieces[6];
                 return toModelName(schemaName, ref);

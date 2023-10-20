@@ -6,6 +6,9 @@
 
 from petstore_api.paths.fake_json_with_charset.post.operation import JsonWithCharset
 from petstore_api.paths.fake_multiple_response_bodies.get.operation import MultipleResponseBodies
+from petstore_api.paths.common_param_sub_dir.delete.operation import DeleteCommonParam
+from petstore_api.paths.common_param_sub_dir.get.operation import GetCommonParam
+from petstore_api.paths.common_param_sub_dir.post.operation import PostCommonParam
 from petstore_api.paths.fake_multiple_securities.get.operation import MultipleSecurities
 from petstore_api.paths.fake_query_param_with_json_content_type.get.operation import QueryParamWithJsonContentType
 from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.operation import ParameterCollisions
@@ -48,6 +51,9 @@ from petstore_api.paths.fake_upload_download_file.post.operation import UploadDo
 class FakeApi(
     JsonWithCharset,
     MultipleResponseBodies,
+    DeleteCommonParam,
+    GetCommonParam,
+    PostCommonParam,
     MultipleSecurities,
     QueryParamWithJsonContentType,
     ParameterCollisions,

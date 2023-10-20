@@ -47,19 +47,36 @@ from .responses import (
 {{#if requestBody}}
 from . import request_body
 {{/if}}
-{{#gt allParams.size 0}}
-    {{#eq allParams.size 1}}
-        {{#each allParams}}
+{{#if parameters}}
+    {{#gt parameters.allParameters.size 0}}
+        {{#eq parameters.allParameters.size 1}}
+            {{#each parameters.allParameters}}
 from .parameters import {{jsonPathPiece.snakeCase}}
-        {{/each}}
-    {{else}}
+            {{/each}}
+        {{else}}
 from .parameters import (
-        {{#each allParams}}
+            {{#each parameters.allParameters}}
     {{jsonPathPiece.snakeCase}},
-        {{/each}}
+            {{/each}}
 )
-    {{/eq}}
-{{/gt}}
+        {{/eq}}
+    {{/gt}}
+{{/if}}
+{{#if pathItemParameters}}
+    {{#gt pathItemParameters.allParameters.size 0}}
+        {{#eq pathItemParameters.allParameters.size 1}}
+            {{#each pathItemParameters.allParameters}}
+from ..parameters import {{jsonPathPiece.snakeCase}} as path_item_{{jsonPathPiece.snakeCase}}
+            {{/each}}
+        {{else}}
+from ..parameters import (
+            {{#each pathItemParameters.allParameters}}
+    {{jsonPathPiece.snakeCase}} as path_item_{{jsonPathPiece.snakeCase}},
+            {{/each}}
+)
+        {{/eq}}
+    {{/gt}}
+{{/if}}
 {{#neq security null}}
     {{#gt security.size 0}}
         {{#eq security.size 1}}
@@ -75,47 +92,59 @@ from .security import (
         {{/eq}}
     {{/gt}}
 {{/neq}}
-{{#with pathParameters}}
+{{#with pathParametersSchema}}
 from .path_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPiece.camelCase}}, {{mapOutputJsonPathPiece.camelCase}}
 {{/with}}
-{{#with queryParameters}}
+{{#with queryParametersSchema}}
 from .query_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPiece.camelCase}}, {{mapOutputJsonPathPiece.camelCase}}
 {{/with}}
-{{#with headerParameters}}
+{{#with headerParametersSchema}}
 from .header_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPiece.camelCase}}, {{mapOutputJsonPathPiece.camelCase}}
 {{/with}}
-{{#with cookieParameters}}
+{{#with cookieParametersSchema}}
 from .cookie_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPiece.camelCase}}, {{mapOutputJsonPathPiece.camelCase}}
 {{/with}}
-{{#or queryParams headerParams pathParams cookieParams}}
-    {{#if queryParams}}
+{{#or parameters pathItemParameters}}
+    {{#or parameters.queryParameters pathItemParameters.queryParameters}}
 query_parameter_classes = (
-{{#each queryParams}}
+{{#each parameters.queryParameters}}
     {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
+{{#each pathItemParameters.queryParameters}}
+    path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+{{/each}}
 )
-    {{/if}}
-    {{#if headerParams}}
+    {{/or}}
+    {{#or parameters.headerParameters pathItemParameters.headerParameters}}
 header_parameter_classes = (
-{{#each headerParams}}
+{{#each parameters.headerParameters}}
     {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
+{{#each pathItemParameters.headerParameters}}
+    path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+{{/each}}
 )
-    {{/if}}
-    {{#if pathParams}}
+    {{/or}}
+    {{#or parameters.pathParameters pathItemParameters.pathParameters}}
 path_parameter_classes = (
-{{#each pathParams}}
+{{#each parameters.pathParameters}}
     {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
+{{#each pathItemParameters.pathParameters}}
+    path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+{{/each}}
 )
-    {{/if}}
-    {{#if cookieParams}}
+    {{/or}}
+    {{#or parameters.cookieParameters pathItemParameters.cookieParameters}}
 cookie_parameter_classes = (
-{{#each pathParams}}
+{{#each parameters.pathParameters}}
     {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
+{{#each pathItemParameters.cookieParameters}}
+    path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+{{/each}}
 )
-    {{/if}}
+    {{/or}}
 {{/or}}
 {{#neq security null}}
     {{#gt security.size 0}}
@@ -259,70 +288,70 @@ class BaseApi(api_client.Api):
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-    {{#if pathParameters}}
-        {{#if pathParameters.requiredProperties}}
-        path_params = {{pathParameters.jsonPathPiece.camelCase}}.validate(
+    {{#if pathParametersSchema}}
+        {{#if pathParametersSchema.requiredProperties}}
+        path_params = {{pathParametersSchema.jsonPathPiece.camelCase}}.validate(
             path_params,
             configuration=self.api_client.schema_configuration
         )
         {{else}}
         if path_params is not None:
-            path_params = {{pathParameters.jsonPathPiece.camelCase}}.validate(
+            path_params = {{pathParametersSchema.jsonPathPiece.camelCase}}.validate(
                 path_params,
                 configuration=self.api_client.schema_configuration
             )
         {{/if}}
     {{/if}}
-    {{#if queryParameters}}
-        {{#if queryParameters.requiredProperties}}
-        query_params = {{queryParameters.jsonPathPiece.camelCase}}.validate(
+    {{#if queryParametersSchema}}
+        {{#if queryParametersSchema.requiredProperties}}
+        query_params = {{queryParametersSchema.jsonPathPiece.camelCase}}.validate(
             query_params,
             configuration=self.api_client.schema_configuration
         )
         {{else}}
         if query_params is not None:
-            query_params = {{queryParameters.jsonPathPiece.camelCase}}.validate(
+            query_params = {{queryParametersSchema.jsonPathPiece.camelCase}}.validate(
                 query_params,
                 configuration=self.api_client.schema_configuration
             )
         {{/if}}
     {{/if}}
-    {{#if headerParameters}}
-        {{#if headerParameters.requiredProperties}}
-        header_params = {{headerParameters.jsonPathPiece.camelCase}}.validate(
+    {{#if headerParametersSchema}}
+        {{#if headerParametersSchema.requiredProperties}}
+        header_params = {{headerParametersSchema.jsonPathPiece.camelCase}}.validate(
             header_params,
             configuration=self.api_client.schema_configuration
         )
         {{else}}
         if header_params is not None:
-            header_params = {{headerParameters.jsonPathPiece.camelCase}}.validate(
+            header_params = {{headerParametersSchema.jsonPathPiece.camelCase}}.validate(
                 header_params,
                 configuration=self.api_client.schema_configuration
             )
         {{/if}}
     {{/if}}
-    {{#if cookieParameters}}
-        {{#if cookieParameters.requiredProperties}}
-        cookie_params = {{cookieParameters.jsonPathPiece.camelCase}}.validate(
+    {{#if cookieParametersSchema}}
+        {{#if cookieParametersSchema.requiredProperties}}
+        cookie_params = {{cookieParametersSchema.jsonPathPiece.camelCase}}.validate(
             cookie_params,
             configuration=self.api_client.schema_configuration
         )
         {{else}}
         if cookie_params is not None:
-            cookie_params = {{cookieParameters.jsonPathPiece.camelCase}}.validate(
+            cookie_params = {{cookieParametersSchema.jsonPathPiece.camelCase}}.validate(
                 cookie_params,
                 configuration=self.api_client.schema_configuration
             )
         {{/if}}
     {{/if}}
-    {{#or pathParams queryParams}}
+    {{#or pathParametersSchema queryParametersSchema}}
         used_path, query_params_suffix = self._get_used_path(
             path,
-        {{#if pathParams}}
+        {{#if pathParametersSchema}}
             path_parameters=path_parameter_classes,
             path_params=path_params,
         {{/if}}
-        {{#if queryParams}}
+        {{#if queryParametersSchema}}
             query_parameters=query_parameter_classes,
             query_params=query_params,
         {{/if}}
@@ -331,8 +360,8 @@ class BaseApi(api_client.Api):
     {{else}}
         used_path = path
     {{/or}}
-    {{#or headerParams requestBody produces}}
-        {{#if headerParams}}
+    {{#or headerParametersSchema requestBody produces}}
+        {{#if headerParametersSchema}}
         headers = self._get_headers(
             header_parameters=header_parameter_classes,
             header_params=header_params,
@@ -394,12 +423,12 @@ class BaseApi(api_client.Api):
 
         raw_response = self.api_client.call_api(
             resource_path=used_path,
-    {{#if queryParams}}
+    {{#if queryParametersSchema}}
             query_params_suffix=query_params_suffix,
     {{/if}}
             method='{{httpMethod.original}}',
             host=host,
-    {{#or headerParams requestBodySchema produces}}
+    {{#or headerParametersSchema requestBodySchema produces}}
             headers=headers,
     {{/or}}
     {{#if requestBodySchema}}

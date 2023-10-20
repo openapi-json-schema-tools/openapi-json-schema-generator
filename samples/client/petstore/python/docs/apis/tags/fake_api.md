@@ -19,9 +19,11 @@ Method | Description
 [**client_model**](../../paths/fake/patch.md) | To test \&quot;client\&quot; model
 [**composed_one_of_different_types**](../../paths/fake_refs_composed_one_of_number_with_validations/post.md) | 
 [**delete_coffee**](../../paths/fake_delete_coffee_id/delete.md) | Delete coffee
+[**delete_common_param**](../../paths/common_param_sub_dir/delete.md) | 
 [**endpoint_parameters**](../../paths/fake/post.md) | Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
 [**enum_parameters**](../../paths/fake/get.md) | To test enum parameters
 [**fake_health_get**](../../paths/fake_health/get.md) | Health check endpoint
+[**get_common_param**](../../paths/common_param_sub_dir/get.md) | 
 [**group_parameters**](../../paths/fake/delete.md) | Fake endpoint to test group parameters (optional)
 [**inline_additional_properties**](../../paths/fake_inline_additional_properties/post.md) | test inline additionalProperties
 [**inline_composition**](../../paths/fake_inline_composition/post.md) | testing composed schemas at inline locations
@@ -36,6 +38,7 @@ Method | Description
 [**object_in_query**](../../paths/fake_obj_in_query/get.md) | user list
 [**object_model_with_ref_props**](../../paths/fake_refs_object_model_with_ref_props/post.md) | 
 [**parameter_collisions**](../../paths/fake_parameter_collisions1_abab_self_ab/post.md) | parameter collision case
+[**post_common_param**](../../paths/common_param_sub_dir/post.md) | 
 [**query_param_with_json_content_type**](../../paths/fake_query_param_with_json_content_type/get.md) | query param with json content-type
 [**query_parameter_collection_format**](../../paths/fake_test_query_paramters/put.md) | 
 [**redirection**](../../paths/fake_redirection/get.md) | operation with redirection responses

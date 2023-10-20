@@ -457,6 +457,15 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             generateServers(files, pathItem.servers, jsonPath + "/servers");
         }
 
+        if (pathItem.parameters != null) {
+            generateXs(files, jsonPath + "/parameters", CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, true);
+            int i = 0;
+            for (CodegenParameter param: pathItem.parameters) {
+                generateParameter(files, param, jsonPath + "/parameters/" + i);
+                i += 1;
+            }
+        }
+
         if (pathItem.operations != null) {
             String testInitFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathKey.snakeCase, "__init__.py"));
             generateFile(new HashMap<>(), "__init__.hbs", testInitFilename, files, true, CodegenConstants.API_TESTS);
@@ -473,21 +482,21 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 endpointMap.put("security", security);
                 endpointMap.put("path", pathKey);
                 generateXs(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.APIS, endpointMap, true);
-                if (operation.pathParameters != null) {
+                if (operation.pathParametersSchema != null) {
                     String objectJsonPath = operationJsonPath + "/" + "PathParameters";
-                    generateSchema(files, operation.pathParameters, objectJsonPath);
+                    generateSchema(files, operation.pathParametersSchema, objectJsonPath);
                 }
-                if (operation.queryParameters != null) {
+                if (operation.queryParametersSchema != null) {
                     String objectJsonPath = operationJsonPath + "/" + "QueryParameters";
-                    generateSchema(files, operation.queryParameters, objectJsonPath);
+                    generateSchema(files, operation.queryParametersSchema, objectJsonPath);
                 }
-                if (operation.headerParameters != null) {
+                if (operation.headerParametersSchema != null) {
                     String objectJsonPath = operationJsonPath + "/" + "HeaderParameters";
-                    generateSchema(files, operation.headerParameters, objectJsonPath);
+                    generateSchema(files, operation.headerParametersSchema, objectJsonPath);
                 }
-                if (operation.cookieParameters != null) {
+                if (operation.cookieParametersSchema != null) {
                     String objectJsonPath = operationJsonPath + "/" + "CookieParameters";
-                    generateSchema(files, operation.cookieParameters, objectJsonPath);
+                    generateSchema(files, operation.cookieParametersSchema, objectJsonPath);
                 }
 
                 // operation docs
@@ -522,11 +531,11 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 }
 
                 // paths.some_path.post.parameters.parameter_0.py
-                if (operation.allParams != null && !operation.allParams.isEmpty()) {
+                if (operation.parameters != null && !operation.parameters.allParameters.isEmpty()) {
                     String parametersJsonPath = operationJsonPath + "/parameters";
                     generateXs(files, parametersJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS, CodegenConstants.PARAMETERS, null, true);
                     Integer i = 0;
-                    for (CodegenParameter cp: operation.allParams) {
+                    for (CodegenParameter cp: operation.parameters.allParameters) {
                         String parameterJsonPath = parametersJsonPath + "/" + i.toString();
                         generateParameter(files, cp, parameterJsonPath);
                         i++;

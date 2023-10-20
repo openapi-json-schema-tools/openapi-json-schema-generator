@@ -34,15 +34,13 @@ public class CodegenOperation {
     public final CodegenRequestBody requestBody;
     // properties where key is contentType, value is a ref schema, encapsulates imports
     public final CodegenSchema requestBodySchema;
-    public final List<CodegenParameter> allParams;
-    public final List<CodegenParameter> pathParams;
-    public final CodegenSchema pathParameters;
-    public final List<CodegenParameter> queryParams;
-    public final CodegenSchema queryParameters;
-    public final List<CodegenParameter> headerParams;
-    public final CodegenSchema headerParameters;
-    public final List<CodegenParameter> cookieParams;
-    public final CodegenSchema cookieParameters;
+    public final ParameterCollection parameters;
+    public final CodegenSchema pathParametersSchema;
+    public final CodegenSchema queryParametersSchema;
+    public final CodegenSchema headerParametersSchema;
+    public final CodegenSchema cookieParametersSchema;
+    public final ParameterCollection pathItemParameters;
+
     public final boolean hasRequiredParamOrBody;
     public final boolean hasOptionalParamOrBody;
     public final List<HashMap<String, CodegenSecurityRequirementValue>> security;
@@ -58,7 +56,40 @@ public class CodegenOperation {
     public final CodegenKey operationId;
     public final CodegenKey jsonPathPiece;
 
-    public CodegenOperation(Boolean deprecated, LinkedHashSet<String> nonErrorStatusCodes, LinkedHashSet<Integer> nonErrorWildcardStatusCodes, LinkedHashSet<String> errorStatusCodes, LinkedHashSet<Integer> errorWildcardStatusCodes, String summary, String unescapedDescription, String description, LinkedHashSet<String> produces, List<CodegenServer> servers, CodegenRequestBody requestBody, List<CodegenParameter> allParams, List<CodegenParameter> pathParams, CodegenSchema pathParameters, List<CodegenParameter> queryParams, CodegenSchema queryParameters, List<CodegenParameter> headerParams, CodegenSchema headerParameters, List<CodegenParameter> cookieParams, CodegenSchema cookieParameters, boolean hasRequiredParamOrBody, boolean hasOptionalParamOrBody, List<HashMap<String, CodegenSecurityRequirementValue>> security, Map<String, CodegenTag> tags, TreeMap<String, CodegenResponse> responses, TreeMap<Integer, CodegenResponse> statusCodeResponses, TreeMap<Integer, CodegenResponse> wildcardCodeResponses, TreeMap<String, CodegenResponse> nonDefaultResponses, CodegenResponse defaultResponse, List<CodegenCallback> callbacks, ExternalDocumentation externalDocs, Map<String, Object> vendorExtensions, CodegenKey operationId, CodegenKey jsonPathPiece, CodegenSchema requestBodySchema) {
+    public CodegenOperation(
+            Boolean deprecated,
+            LinkedHashSet<String> nonErrorStatusCodes,
+            LinkedHashSet<Integer> nonErrorWildcardStatusCodes,
+            LinkedHashSet<String> errorStatusCodes,
+            LinkedHashSet<Integer> errorWildcardStatusCodes,
+            String summary,
+            String unescapedDescription,
+            String description,
+            LinkedHashSet<String> produces,
+            List<CodegenServer> servers,
+            CodegenRequestBody requestBody,
+            ParameterCollection parameters,
+            CodegenSchema pathParametersSchema,
+            CodegenSchema queryParametersSchema,
+            CodegenSchema headerParametersSchema,
+            CodegenSchema cookieParametersSchema,
+            boolean hasRequiredParamOrBody,
+            boolean hasOptionalParamOrBody,
+            List<HashMap<String, CodegenSecurityRequirementValue>> security,
+            Map<String, CodegenTag> tags,
+            TreeMap<String, CodegenResponse> responses,
+            TreeMap<Integer, CodegenResponse> statusCodeResponses,
+            TreeMap<Integer, CodegenResponse> wildcardCodeResponses,
+            TreeMap<String, CodegenResponse> nonDefaultResponses,
+            CodegenResponse defaultResponse,
+            List<CodegenCallback> callbacks,
+            ExternalDocumentation externalDocs,
+            Map<String, Object> vendorExtensions,
+            CodegenKey operationId,
+            CodegenKey jsonPathPiece,
+            CodegenSchema requestBodySchema,
+            ParameterCollection pathItemParameters
+) {
         this.deprecated = deprecated;
         this.nonErrorStatusCodes = nonErrorStatusCodes;
         this.nonErrorWildcardStatusCodes = nonErrorWildcardStatusCodes;
@@ -70,15 +101,11 @@ public class CodegenOperation {
         this.produces = produces;
         this.servers = servers;
         this.requestBody = requestBody;
-        this.allParams = allParams;
-        this.pathParams = pathParams;
-        this.pathParameters = pathParameters;
-        this.queryParams = queryParams;
-        this.queryParameters = queryParameters;
-        this.headerParams = headerParams;
-        this.headerParameters = headerParameters;
-        this.cookieParams = cookieParams;
-        this.cookieParameters = cookieParameters;
+        this.parameters = parameters;
+        this.pathParametersSchema = pathParametersSchema;
+        this.queryParametersSchema = queryParametersSchema;
+        this.headerParametersSchema = headerParametersSchema;
+        this.cookieParametersSchema = cookieParametersSchema;
         this.hasRequiredParamOrBody = hasRequiredParamOrBody;
         this.hasOptionalParamOrBody = hasOptionalParamOrBody;
         this.security = security;
@@ -94,6 +121,7 @@ public class CodegenOperation {
         this.operationId = operationId;
         this.jsonPathPiece = jsonPathPiece;
         this.requestBodySchema = requestBodySchema;
+        this.pathItemParameters = pathItemParameters;
     }
 
     // used by operation templates
@@ -162,11 +190,7 @@ public class CodegenOperation {
         sb.append(", produces=").append(produces);
         sb.append(", servers=").append(servers);
         sb.append(", requestBody=").append(requestBody);
-        sb.append(", allParams=").append(allParams);
-        sb.append(", pathParams=").append(pathParams);
-        sb.append(", queryParams=").append(queryParams);
-        sb.append(", headerParams=").append(headerParams);
-        sb.append(", cookieParams=").append(cookieParams);
+        sb.append(", parameters=").append(parameters);
         sb.append(", hasRequiredParamOrBody=").append(hasRequiredParamOrBody);
         sb.append(", hasOptionalParamOrBody=").append(hasOptionalParamOrBody);
         sb.append(", security=").append(security);
@@ -197,11 +221,7 @@ public class CodegenOperation {
                 Objects.equals(produces, that.produces) &&
                 Objects.equals(servers, that.servers) &&
                 Objects.equals(requestBody, that.requestBody) &&
-                Objects.equals(allParams, that.allParams) &&
-                Objects.equals(pathParams, that.pathParams) &&
-                Objects.equals(queryParams, that.queryParams) &&
-                Objects.equals(headerParams, that.headerParams) &&
-                Objects.equals(cookieParams, that.cookieParams) &&
+                Objects.equals(parameters, that.parameters) &&
                 Objects.equals(hasRequiredParamOrBody, that.hasRequiredParamOrBody) &&
                 Objects.equals(hasOptionalParamOrBody, that.hasOptionalParamOrBody) &&
                 Objects.equals(security, that.security) &&
@@ -221,8 +241,8 @@ public class CodegenOperation {
 
         return Objects.hash(deprecated, operationId,
                 summary, unescapedDescription, description, defaultResponse,
-                produces, servers, requestBody, allParams,
-                pathParams, queryParams, headerParams, cookieParams, hasRequiredParamOrBody, hasOptionalParamOrBody,
+                produces, servers, requestBody, parameters,
+                hasRequiredParamOrBody, hasOptionalParamOrBody,
                 security, tags, responses, callbacks, externalDocs,
                 vendorExtensions, statusCodeResponses, wildcardCodeResponses,
                 nonDefaultResponses, jsonPathPiece);
