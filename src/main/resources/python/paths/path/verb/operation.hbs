@@ -115,9 +115,9 @@ query_parameter_classes = (
 {{/each}}
 )
     {{/or}}
-    {{#or headerParams pathItemHeaderParams}}
+    {{#or parameters.headerParameters pathItemHeaderParams}}
 header_parameter_classes = (
-{{#each headerParams}}
+{{#each parameters.headerParameters}}
     {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
 {{#each pathItemHeaderParams}}
@@ -360,8 +360,8 @@ class BaseApi(api_client.Api):
     {{else}}
         used_path = path
     {{/or}}
-    {{#or headerParams pathItemHeaderParams requestBody produces}}
-        {{#or headerParams pathItemHeaderParams}}
+    {{#or parameters.headerParameters pathItemHeaderParams requestBody produces}}
+        {{#or parameters.headerParameters pathItemHeaderParams}}
         headers = self._get_headers(
             header_parameters=header_parameter_classes,
             header_params=header_params,
@@ -428,7 +428,7 @@ class BaseApi(api_client.Api):
     {{/if}}
             method='{{httpMethod.original}}',
             host=host,
-    {{#or headerParams pathItemHeaderParams requestBodySchema produces}}
+    {{#or parameters.headerParameters pathItemHeaderParams requestBodySchema produces}}
             headers=headers,
     {{/or}}
     {{#if requestBodySchema}}

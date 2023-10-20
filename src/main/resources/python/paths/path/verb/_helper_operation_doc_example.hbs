@@ -78,9 +78,9 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
         {{/each}}
     }
     {{/if}}
-    {{#if headerParams}}
+    {{#if parameters.headerParameters}}
     header_params: operation.HeaderParametersDictInput = {
-        {{#each headerParams}}
+        {{#each parameters.headerParameters}}
             {{#if refInfo}}
                 {{#if getDeepestRef.required}}
         '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
@@ -127,7 +127,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     {{#if parameters.queryParameters}}
             query_params=query_params,
     {{/if}}
-    {{#if headerParams}}
+    {{#if parameters.headerParameters}}
             header_params=header_params,
     {{/if}}
     {{#if cookieParams}}
@@ -193,9 +193,9 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
         {{/each}}
     }
     {{/if}}
-    {{#if headerParams}}
+    {{#if parameters.headerParameters}}
     header_params: operation.HeaderParametersDictInput = {
-        {{#each headerParams}}
+        {{#each parameters.headerParameters}}
             {{#if refInfo}}
         '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
             {{else}}
@@ -234,7 +234,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     {{#if parameters.queryParameters}}
             query_params=query_params,
     {{/if}}
-    {{#if headerParams}}
+    {{#if parameters.headerParameters}}
             header_params=header_params,
     {{/if}}
     {{#if cookieParams}}

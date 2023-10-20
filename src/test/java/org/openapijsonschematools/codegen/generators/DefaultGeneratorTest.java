@@ -2612,7 +2612,7 @@ public class DefaultGeneratorTest {
         String path = "/headerParametersWithValidation";
         Operation operation = openAPI.getPaths().get(path).getPost();
         CodegenOperation co = codegen.fromOperation(operation, getOperationPath(path, "post"), null);
-        List<CodegenParameter> params = co.headerParams;
+        List<CodegenParameter> params = co.parameters.headerParameters;
         assertEquals(params.size(), 50);
         for (CodegenParameter param : params) {
             assertTrue(param.schema.hasValidation());

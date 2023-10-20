@@ -81,11 +81,11 @@
       </ThreadGroup>
       <hashTree>
         <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-          <collectionProp name="HeaderManager.headers">{{#headerParams}}
+          <collectionProp name="HeaderManager.headers">{{#parameters.headerParameters}}
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">{{paramName}}</stringProp>
               <stringProp name="Header.value">${__RandomString(10,qwertyuiopasdfghjklzxcvbnm)}</stringProp>
-            </elementProp>{{/headerParams}}
+            </elementProp>{{/parameters.headerParameters}}
           </collectionProp>
         </HeaderManager>
         <hashTree/>

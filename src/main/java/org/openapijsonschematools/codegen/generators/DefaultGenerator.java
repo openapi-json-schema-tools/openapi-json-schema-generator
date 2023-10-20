@@ -2928,7 +2928,6 @@ public class DefaultGenerator implements Generator {
                 operationParameters,
                 pathParametersSchema,
                 queryParametersSchema,
-                headerParams,
                 headerParametersSchema,
                 cookieParams,
                 cookieParametersSchema,
