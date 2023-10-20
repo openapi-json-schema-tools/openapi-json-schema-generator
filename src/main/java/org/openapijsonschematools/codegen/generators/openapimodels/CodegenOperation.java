@@ -40,7 +40,6 @@ public class CodegenOperation {
     public final CodegenSchema headerParametersSchema;
     public final CodegenSchema cookieParametersSchema;
     public final ParameterCollection pathItemParameters;
-    public final List<CodegenParameter> pathItemCookieParams;
 
     public final boolean hasRequiredParamOrBody;
     public final boolean hasOptionalParamOrBody;
@@ -89,8 +88,7 @@ public class CodegenOperation {
             CodegenKey operationId,
             CodegenKey jsonPathPiece,
             CodegenSchema requestBodySchema,
-            ParameterCollection pathItemParameters,
-            List<CodegenParameter> pathItemCookieParams
+            ParameterCollection pathItemParameters
 ) {
         this.deprecated = deprecated;
         this.nonErrorStatusCodes = nonErrorStatusCodes;
@@ -124,7 +122,6 @@ public class CodegenOperation {
         this.jsonPathPiece = jsonPathPiece;
         this.requestBodySchema = requestBodySchema;
         this.pathItemParameters = pathItemParameters;
-        this.pathItemCookieParams = pathItemCookieParams;
     }
 
     // used by operation templates

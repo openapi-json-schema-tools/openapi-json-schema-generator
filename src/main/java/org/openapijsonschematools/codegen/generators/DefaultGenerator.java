@@ -2947,9 +2947,7 @@ public class DefaultGenerator implements Generator {
                 operationId,
                 jsonPathPiece,
                 requestBodySchema,
-                pathItemParams,
-                pathItemCookieParams
-                );
+                pathItemParams);
     }
 
     private CodegenSchema getXParametersSchema(HashMap<String, Schema> xParametersProperties, List<String> xParametersRequired, String sourceJsonPath, String currentJsonPath) {
