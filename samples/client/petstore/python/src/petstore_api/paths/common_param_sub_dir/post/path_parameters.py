@@ -12,7 +12,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 
-from petstore_api.paths.common_param_sub_dir.parameters.0 import schema
+from petstore_api.paths.common_param_sub_dir.parameters.parameter_0 import schema
 Properties = typing.TypedDict(
     'Properties',
     {

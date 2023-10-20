@@ -3834,6 +3834,9 @@ public class DefaultGenerator implements Generator {
         if (pathPieces[3].equals("servers")) {
             // #/paths/somePath/servers/0
             pathPieces[4] = toServerFilename(pathPieces[4], null);
+        } else if (pathPieces[3].equals("parameters")) {
+            // #/paths/somePath/parameters/0
+            pathPieces[4] = toParameterFilename(pathPieces[4], null);
         } else if (pathPieces[4].equals("requestBody")) {
             // #/paths/somePath/get/requestBody
             pathPieces[4] = requestBodyIdentifier;

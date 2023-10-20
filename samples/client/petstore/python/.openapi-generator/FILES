@@ -198,7 +198,7 @@ docs/paths/common_param_sub_dir/delete/parameters/parameter_0/schema.md
 docs/paths/common_param_sub_dir/delete/parameters/parameter_1/schema.md
 docs/paths/common_param_sub_dir/get.md
 docs/paths/common_param_sub_dir/get/parameters/parameter_0/schema.md
-docs/paths/common_param_sub_dir/parameters/0/schema.md
+docs/paths/common_param_sub_dir/parameters/parameter_0/schema.md
 docs/paths/common_param_sub_dir/post.md
 docs/paths/common_param_sub_dir/post/parameters/parameter_0/schema.md
 docs/paths/fake/delete.md
@@ -736,9 +736,9 @@ src/petstore_api/paths/common_param_sub_dir/get/path_parameters.py
 src/petstore_api/paths/common_param_sub_dir/get/query_parameters.py
 src/petstore_api/paths/common_param_sub_dir/get/responses/__init__.py
 src/petstore_api/paths/common_param_sub_dir/get/responses/response_200/__init__.py
-src/petstore_api/paths/common_param_sub_dir/parameters/0/__init__.py
-src/petstore_api/paths/common_param_sub_dir/parameters/0/schema.py
 src/petstore_api/paths/common_param_sub_dir/parameters/__init__.py
+src/petstore_api/paths/common_param_sub_dir/parameters/parameter_0/__init__.py
+src/petstore_api/paths/common_param_sub_dir/parameters/parameter_0/schema.py
 src/petstore_api/paths/common_param_sub_dir/post/__init__.py
 src/petstore_api/paths/common_param_sub_dir/post/header_parameters.py
 src/petstore_api/paths/common_param_sub_dir/post/operation.py
