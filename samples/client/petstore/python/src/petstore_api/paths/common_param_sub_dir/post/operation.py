@@ -13,6 +13,9 @@ from .parameters import parameter_0
 from ..parameters import parameter_0 as path_item_parameter_0
 from .path_parameters import PathParameters, PathParametersDictInput, PathParametersDict
 from .header_parameters import HeaderParameters, HeaderParametersDictInput, HeaderParametersDict
+query_parameter_classes = (
+    path_item_parameter_0.Parameter0,
+)
 header_parameter_classes = (
     parameter_0.Parameter0,
 )

@@ -2808,6 +2808,10 @@ public class DefaultGenerator implements Generator {
         HashMap<String, Schema> cookieParametersProperties = new HashMap<>();
         List<String> cookieParametersRequired = new ArrayList<>();
         ArrayList<CodegenParameter> usedPathItemParams = null;
+        ArrayList<CodegenParameter> pathItemQueryParams = null;
+        ArrayList<CodegenParameter> pathItemPathParams = null;
+        ArrayList<CodegenParameter> pathItemHeaderParams = null;
+        ArrayList<CodegenParameter> pathItemCookieParams = null;
         if (parameters != null) {
             int i = 0;
             LinkedHashMap<Pair<String, String>, CodegenParameter> usedPathItemParameters = new LinkedHashMap<>(pathItemParameters);
@@ -2841,10 +2845,10 @@ public class DefaultGenerator implements Generator {
                         break;
                 }
             }
-            ArrayList<CodegenParameter> pathItemQueryParams = new ArrayList<>();
-            ArrayList<CodegenParameter> pathItemPathParams = new ArrayList<>();
-            ArrayList<CodegenParameter> pathItemHeaderParams = new ArrayList<>();
-            ArrayList<CodegenParameter> pathItemCookieParams = new ArrayList<>();
+            pathItemQueryParams = new ArrayList<>();
+            pathItemPathParams = new ArrayList<>();
+            pathItemHeaderParams = new ArrayList<>();
+            pathItemCookieParams = new ArrayList<>();
             if (!usedPathItemParameters.isEmpty()) {
                 usedPathItemParams = new ArrayList<>();
             }
@@ -2942,7 +2946,12 @@ public class DefaultGenerator implements Generator {
                 operationId,
                 jsonPathPiece,
                 requestBodySchema,
-                usedPathItemParams);
+                usedPathItemParams,
+                pathItemQueryParams,
+                pathItemPathParams,
+                pathItemHeaderParams,
+                pathItemCookieParams
+                );
     }
 
     private CodegenSchema getXParametersSchema(HashMap<String, Schema> xParametersProperties, List<String> xParametersRequired, String sourceJsonPath, String currentJsonPath) {

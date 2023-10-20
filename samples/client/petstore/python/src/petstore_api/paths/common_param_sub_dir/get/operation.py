@@ -15,6 +15,7 @@ from .path_parameters import PathParameters, PathParametersDictInput, PathParame
 from .query_parameters import QueryParameters, QueryParametersDictInput, QueryParametersDict
 query_parameter_classes = (
     parameter_0.Parameter0,
+    path_item_parameter_0.Parameter0,
 )
 
 

@@ -102,35 +102,47 @@ from .header_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPi
 {{#with cookieParameters}}
 from .cookie_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPiece.camelCase}}, {{mapOutputJsonPathPiece.camelCase}}
 {{/with}}
-{{#or queryParams headerParams pathParams cookieParams}}
-    {{#if queryParams}}
+{{#or allParams pathItemParameters}}
+    {{#or queryParams pathItemQueryParams}}
 query_parameter_classes = (
 {{#each queryParams}}
     {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
+{{#each pathItemQueryParams}}
+    path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+{{/each}}
 )
-    {{/if}}
-    {{#if headerParams}}
+    {{/or}}
+    {{#or headerParams pathItemHeaderParams}}
 header_parameter_classes = (
 {{#each headerParams}}
     {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
+{{#each pathItemHeaderParams}}
+    path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+{{/each}}
 )
-    {{/if}}
-    {{#if pathParams}}
+    {{/or}}
+    {{#or pathParams pathItemPathParams}}
 path_parameter_classes = (
 {{#each pathParams}}
     {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
+{{#each pathItemPathParams}}
+    path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+{{/each}}
 )
-    {{/if}}
-    {{#if cookieParams}}
+    {{/or}}
+    {{#or cookieParams pathItemCookieParams}}
 cookie_parameter_classes = (
 {{#each pathParams}}
     {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
+{{#each pathItemCookieParams}}
+    path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
+{{/each}}
 )
-    {{/if}}
+    {{/or}}
 {{/or}}
 {{#neq security null}}
     {{#gt security.size 0}}
