@@ -358,8 +358,8 @@ class BaseApi(api_client.Api):
     {{else}}
         used_path = path
     {{/or}}
-    {{#or headerParams requestBody produces}}
-        {{#if headerParams}}
+    {{#or headerParams pathItemHeaderParams requestBody produces}}
+        {{#or headerParams pathItemHeaderParams}}
         headers = self._get_headers(
             header_parameters=header_parameter_classes,
             header_params=header_params,
@@ -372,7 +372,7 @@ class BaseApi(api_client.Api):
             {{#or produces requestBody}}
         headers = self._get_headers({{#if produces}}accept_content_types=accept_content_types{{/if}})
             {{/or}}
-        {{/if}}
+        {{/or}}
     {{/or}}
         # TODO add cookie handling
     {{#if requestBodySchema}}
@@ -421,12 +421,12 @@ class BaseApi(api_client.Api):
 
         raw_response = self.api_client.call_api(
             resource_path=used_path,
-    {{#if queryParams}}
+    {{#if queryParameters}}
             query_params_suffix=query_params_suffix,
     {{/if}}
             method='{{httpMethod.original}}',
             host=host,
-    {{#or headerParams requestBodySchema produces}}
+    {{#or headerParams pathItemHeaderParams requestBodySchema produces}}
             headers=headers,
     {{/or}}
     {{#if requestBodySchema}}
