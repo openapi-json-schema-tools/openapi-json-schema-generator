@@ -91,14 +91,14 @@
         <hashTree/>
         <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="{{operationId.snakeCase}} - ${testCase}" enabled="true">
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-            <collectionProp name="Arguments.arguments">{{#queryParams}}
+            <collectionProp name="Arguments.arguments">{{#parameters.queryParameters}}
               <elementProp name="{{paramName}}" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 {{=<% %>=}}<stringProp name="Argument.value">${<% paramName %>}</stringProp><%={{ }}=%>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">{{paramName}}</stringProp>
-              </elementProp>{{/queryParams}}
+              </elementProp>{{/parameters.queryParameters}}
             </collectionProp>
           </elementProp>
           <stringProp name="HTTPSampler.domain"></stringProp>

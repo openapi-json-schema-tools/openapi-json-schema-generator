@@ -2927,7 +2927,6 @@ public class DefaultGenerator implements Generator {
                 requestBody,
                 operationParameters,
                 pathParametersSchema,
-                queryParams,
                 queryParametersSchema,
                 headerParams,
                 headerParametersSchema,

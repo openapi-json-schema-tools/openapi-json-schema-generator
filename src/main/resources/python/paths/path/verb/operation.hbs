@@ -107,7 +107,7 @@ from .cookie_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPi
 {{#or parameters pathItemParameters}}
     {{#or parameters.queryParameters pathItemQueryParams}}
 query_parameter_classes = (
-{{#each queryParams}}
+{{#each parameters.queryParameters}}
     {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
 {{#each pathItemQueryParams}}
@@ -344,14 +344,14 @@ class BaseApi(api_client.Api):
             )
         {{/if}}
     {{/if}}
-    {{#or parameters.pathParameters queryParams}}
+    {{#or parameters.pathParameters parameters.queryParameters}}
         used_path, query_params_suffix = self._get_used_path(
             path,
         {{#if parameters.pathParameters}}
             path_parameters=path_parameter_classes,
             path_params=path_params,
         {{/if}}
-        {{#if queryParams}}
+        {{#if parameters.queryParameters}}
             query_parameters=query_parameter_classes,
             query_params=query_params,
         {{/if}}

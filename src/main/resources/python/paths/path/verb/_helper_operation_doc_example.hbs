@@ -48,9 +48,9 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
         {{/each}}
     }
     {{/if}}
-    {{#if queryParams}}
+    {{#if parameters.queryParameters}}
     query_params: operation.QueryParametersDictInput = {
-        {{#each queryParams}}
+        {{#each parameters.queryParameters}}
             {{#if refInfo}}
                 {{#if getDeepestRef.required}}
         '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
@@ -124,7 +124,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     {{#if parameters.pathParameters}}
             path_params=path_params,
     {{/if}}
-    {{#if queryParams}}
+    {{#if parameters.queryParameters}}
             query_params=query_params,
     {{/if}}
     {{#if headerParams}}
@@ -171,9 +171,9 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
         {{/each}}
     }
     {{/if}}
-    {{#if queryParams}}
+    {{#if parameters.queryParameters}}
     query_params: operation.QueryParametersDictInput = {
-        {{#each queryParams}}
+        {{#each parameters.queryParameters}}
             {{#if refInfo}}
         '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
             {{else}}
@@ -231,7 +231,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     {{#if parameters.pathParameters}}
             path_params=path_params,
     {{/if}}
-    {{#if queryParams}}
+    {{#if parameters.queryParameters}}
             query_params=query_params,
     {{/if}}
     {{#if headerParams}}
