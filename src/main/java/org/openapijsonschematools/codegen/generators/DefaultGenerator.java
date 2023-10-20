@@ -2949,7 +2949,6 @@ public class DefaultGenerator implements Generator {
                 requestBodySchema,
                 pathItemParams,
                 pathItemQueryParams,
-                pathItemPathParams,
                 pathItemHeaderParams,
                 pathItemCookieParams
                 );

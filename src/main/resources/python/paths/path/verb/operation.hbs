@@ -105,42 +105,42 @@ from .header_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPi
 from .cookie_parameters import {{jsonPathPiece.camelCase}}, {{mapInputJsonPathPiece.camelCase}}, {{mapOutputJsonPathPiece.camelCase}}
 {{/with}}
 {{#or parameters pathItemParameters}}
-    {{#or parameters.queryParameters pathItemQueryParams}}
+    {{#or parameters.queryParameters pathItemParameters.queryParameters}}
 query_parameter_classes = (
 {{#each parameters.queryParameters}}
     {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
-{{#each pathItemQueryParams}}
+{{#each pathItemParameters.queryParameters}}
     path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
 )
     {{/or}}
-    {{#or parameters.headerParameters pathItemHeaderParams}}
+    {{#or parameters.headerParameters pathItemParameters.headerParameters}}
 header_parameter_classes = (
 {{#each parameters.headerParameters}}
     {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
-{{#each pathItemHeaderParams}}
+{{#each pathItemParameters.headerParameters}}
     path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
 )
     {{/or}}
-    {{#or parameters.pathParameters pathItemPathParams}}
+    {{#or parameters.pathParameters pathItemParameters.pathParameters}}
 path_parameter_classes = (
 {{#each parameters.pathParameters}}
     {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
-{{#each pathItemPathParams}}
+{{#each pathItemParameters.pathParameters}}
     path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
 )
     {{/or}}
-    {{#or parameters.cookieParameters pathItemCookieParams}}
+    {{#or parameters.cookieParameters pathItemParameters.cookieParameters}}
 cookie_parameter_classes = (
 {{#each parameters.pathParameters}}
     {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
-{{#each pathItemCookieParams}}
+{{#each pathItemParameters.cookieParameters}}
     path_item_{{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},
 {{/each}}
 )
