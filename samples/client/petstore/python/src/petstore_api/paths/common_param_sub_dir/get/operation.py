@@ -10,6 +10,7 @@ from petstore_api.shared_imports.operation_imports import *  # pyright: ignore [
 from .. import path
 from .responses import response_200
 from .parameters import parameter_0
+from ..parameters import parameter_0 as path_item_parameter_0
 from .path_parameters import PathParameters, PathParametersDictInput, PathParametersDict
 from .query_parameters import QueryParameters, QueryParametersDictInput, QueryParametersDict
 query_parameter_classes = (

@@ -60,6 +60,21 @@ from .parameters import (
 )
     {{/eq}}
 {{/gt}}
+{{#if pathItemParameters}}
+    {{#gt pathItemParameters.size 0}}
+        {{#eq pathItemParameters.size 1}}
+            {{#each pathItemParameters}}
+from ..parameters import {{jsonPathPiece.snakeCase}} as path_item_{{jsonPathPiece.snakeCase}}
+            {{/each}}
+        {{else}}
+from ..parameters import (
+            {{#each pathItemParameters}}
+    {{jsonPathPiece.snakeCase}} as path_item_{{jsonPathPiece.snakeCase}},
+            {{/each}}
+)
+        {{/eq}}
+    {{/gt}}
+{{/if}}
 {{#neq security null}}
     {{#gt security.size 0}}
         {{#eq security.size 1}}

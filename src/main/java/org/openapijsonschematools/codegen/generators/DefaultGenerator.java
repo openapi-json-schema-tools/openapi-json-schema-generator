@@ -2807,6 +2807,7 @@ public class DefaultGenerator implements Generator {
         List<String> headerParametersRequired = new ArrayList<>();
         HashMap<String, Schema> cookieParametersProperties = new HashMap<>();
         List<String> cookieParametersRequired = new ArrayList<>();
+        ArrayList<CodegenParameter> usedPathItemParams = null;
         if (parameters != null) {
             int i = 0;
             LinkedHashMap<Pair<String, String>, CodegenParameter> usedPathItemParameters = new LinkedHashMap<>(pathItemParameters);
@@ -2844,7 +2845,11 @@ public class DefaultGenerator implements Generator {
             ArrayList<CodegenParameter> pathItemPathParams = new ArrayList<>();
             ArrayList<CodegenParameter> pathItemHeaderParams = new ArrayList<>();
             ArrayList<CodegenParameter> pathItemCookieParams = new ArrayList<>();
+            if (!usedPathItemParameters.isEmpty()) {
+                usedPathItemParams = new ArrayList<>();
+            }
             for (CodegenParameter pathItemParam: usedPathItemParameters.values()) {
+                usedPathItemParams.add(pathItemParam);
                 CodegenParameter derefParam = pathItemParam.getSelfOrDeepestRef();
                 switch (derefParam.in) {
                     case "query":
@@ -2936,7 +2941,8 @@ public class DefaultGenerator implements Generator {
                 vendorExtensions,
                 operationId,
                 jsonPathPiece,
-                requestBodySchema);
+                requestBodySchema,
+                usedPathItemParams);
     }
 
     private CodegenSchema getXParametersSchema(HashMap<String, Schema> xParametersProperties, List<String> xParametersRequired, String sourceJsonPath, String currentJsonPath) {
