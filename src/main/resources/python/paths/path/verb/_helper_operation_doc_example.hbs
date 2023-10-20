@@ -63,9 +63,9 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
         {{/each}}
     }
     {{/if}}
-    {{#if cookieParams}}
+    {{#if parameters.cookieParameters}}
     cookie_params: operation.CookieParametersDictInput = {
-        {{#each cookieParams}}
+        {{#each parameters.cookieParameters}}
             {{#if refInfo}}
                 {{#if getDeepestRef.required}}
         '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
@@ -130,7 +130,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     {{#if parameters.headerParameters}}
             header_params=header_params,
     {{/if}}
-    {{#if cookieParams}}
+    {{#if parameters.cookieParameters}}
             cookie_params=cookie_params,
     {{/if}}
     {{#with requestBody}}
@@ -182,9 +182,9 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
         {{/each}}
     }
     {{/if}}
-    {{#if cookieParams}}
+    {{#if parameters.cookieParameters}}
     cookie_params: operation.CookieParametersDictInput = {
-        {{#each cookieParams}}
+        {{#each parameters.cookieParameters}}
             {{#if refInfo}}
         '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
             {{else}}
@@ -237,7 +237,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     {{#if parameters.headerParameters}}
             header_params=header_params,
     {{/if}}
-    {{#if cookieParams}}
+    {{#if parameters.cookieParameters}}
             cookie_params=cookie_params,
     {{/if}}
     {{#if requestBody}}

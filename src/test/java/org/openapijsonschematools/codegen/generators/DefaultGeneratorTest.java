@@ -2628,7 +2628,7 @@ public class DefaultGeneratorTest {
         String path = "/cookieParametersWithValidation";
         Operation operation = openAPI.getPaths().get(path).getPost();
         CodegenOperation co = codegen.fromOperation(operation, getOperationPath(path, "post"), null);
-        List<CodegenParameter> params = co.cookieParams;
+        List<CodegenParameter> params = co.parameters.cookieParameters;
         assertEquals(params.size(), 50);
         for (CodegenParameter param : params) {
             assertTrue(param.schema.hasValidation());

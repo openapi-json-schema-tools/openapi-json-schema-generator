@@ -135,7 +135,7 @@ path_parameter_classes = (
 {{/each}}
 )
     {{/or}}
-    {{#or cookieParams pathItemCookieParams}}
+    {{#or parameters.cookieParameters pathItemCookieParams}}
 cookie_parameter_classes = (
 {{#each parameters.pathParameters}}
     {{jsonPathPiece.snakeCase}}.{{jsonPathPiece.camelCase}},

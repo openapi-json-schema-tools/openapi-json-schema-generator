@@ -38,7 +38,6 @@ public class CodegenOperation {
     public final CodegenSchema pathParametersSchema;
     public final CodegenSchema queryParametersSchema;
     public final CodegenSchema headerParametersSchema;
-    public final List<CodegenParameter> cookieParams;
     public final CodegenSchema cookieParametersSchema;
     public final List<CodegenParameter> pathItemParameters;
     public final List<CodegenParameter> pathItemPathParams;
@@ -77,7 +76,6 @@ public class CodegenOperation {
             CodegenSchema pathParametersSchema,
             CodegenSchema queryParametersSchema,
             CodegenSchema headerParametersSchema,
-            List<CodegenParameter> cookieParams,
             CodegenSchema cookieParametersSchema,
             boolean hasRequiredParamOrBody,
             boolean hasOptionalParamOrBody,
@@ -115,7 +113,6 @@ public class CodegenOperation {
         this.pathParametersSchema = pathParametersSchema;
         this.queryParametersSchema = queryParametersSchema;
         this.headerParametersSchema = headerParametersSchema;
-        this.cookieParams = cookieParams;
         this.cookieParametersSchema = cookieParametersSchema;
         this.hasRequiredParamOrBody = hasRequiredParamOrBody;
         this.hasOptionalParamOrBody = hasOptionalParamOrBody;
@@ -206,7 +203,6 @@ public class CodegenOperation {
         sb.append(", servers=").append(servers);
         sb.append(", requestBody=").append(requestBody);
         sb.append(", parameters=").append(parameters);
-        sb.append(", cookieParams=").append(cookieParams);
         sb.append(", hasRequiredParamOrBody=").append(hasRequiredParamOrBody);
         sb.append(", hasOptionalParamOrBody=").append(hasOptionalParamOrBody);
         sb.append(", security=").append(security);
@@ -238,7 +234,6 @@ public class CodegenOperation {
                 Objects.equals(servers, that.servers) &&
                 Objects.equals(requestBody, that.requestBody) &&
                 Objects.equals(parameters, that.parameters) &&
-                Objects.equals(cookieParams, that.cookieParams) &&
                 Objects.equals(hasRequiredParamOrBody, that.hasRequiredParamOrBody) &&
                 Objects.equals(hasOptionalParamOrBody, that.hasOptionalParamOrBody) &&
                 Objects.equals(security, that.security) &&
@@ -259,7 +254,7 @@ public class CodegenOperation {
         return Objects.hash(deprecated, operationId,
                 summary, unescapedDescription, description, defaultResponse,
                 produces, servers, requestBody, parameters,
-                cookieParams, hasRequiredParamOrBody, hasOptionalParamOrBody,
+                hasRequiredParamOrBody, hasOptionalParamOrBody,
                 security, tags, responses, callbacks, externalDocs,
                 vendorExtensions, statusCodeResponses, wildcardCodeResponses,
                 nonDefaultResponses, jsonPathPiece);
