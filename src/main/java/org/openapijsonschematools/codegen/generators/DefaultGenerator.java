@@ -75,6 +75,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
 import org.openapijsonschematools.codegen.generators.openapimodels.LinkedHashMapWithContext;
 import org.openapijsonschematools.codegen.generators.openapimodels.PairCacheKey;
+import org.openapijsonschematools.codegen.generators.openapimodels.ParameterCollection;
 import org.openapijsonschematools.codegen.generators.openapimodels.SchemaTestCase;
 import org.openapijsonschematools.codegen.generatorrunner.ignore.CodegenIgnoreProcessor;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
@@ -2812,6 +2813,7 @@ public class DefaultGenerator implements Generator {
         ArrayList<CodegenParameter> pathItemPathParams = null;
         ArrayList<CodegenParameter> pathItemHeaderParams = null;
         ArrayList<CodegenParameter> pathItemCookieParams = null;
+        ParameterCollection operationParameters = null;
         if (parameters != null) {
             int i = 0;
             LinkedHashMap<Pair<String, String>, CodegenParameter> usedPathItemParameters = new LinkedHashMap<>(pathItemParameters);
@@ -2845,6 +2847,7 @@ public class DefaultGenerator implements Generator {
                         break;
                 }
             }
+            operationParameters = new ParameterCollection(allParams, pathParams, queryParams, headerParams, cookieParams);
             pathItemQueryParams = new ArrayList<>();
             pathItemPathParams = new ArrayList<>();
             pathItemHeaderParams = new ArrayList<>();
@@ -2905,10 +2908,10 @@ public class DefaultGenerator implements Generator {
         List<HashMap<String, CodegenSecurityRequirementValue>> security = fromSecurity(operation.getSecurity(), jsonPath + "/security");
         ExternalDocumentation externalDocs = operation.getExternalDocs();
         CodegenKey jsonPathPiece = getKey(pathPieces[pathPieces.length-1], "verb");
-        CodegenSchema pathParameters = getXParametersSchema(pathParametersProperties, pathParametersRequired, jsonPath + "/" + "PathParameters", jsonPath + "/" + "PathParameters");
-        CodegenSchema queryParameters = getXParametersSchema(queryParametersProperties, queryParametersRequired, jsonPath + "/" + "QueryParameters", jsonPath + "/" + "QueryParameters");
-        CodegenSchema headerParameters = getXParametersSchema(headerParametersProperties, headerParametersRequired, jsonPath + "/" + "HeaderParameters", jsonPath + "/" + "HeaderParameters");
-        CodegenSchema cookieParameters = getXParametersSchema(cookieParametersProperties, cookieParametersRequired, jsonPath + "/" + "CookieParameters", jsonPath + "/" + "CookieParameters");
+        CodegenSchema pathParametersSchema = getXParametersSchema(pathParametersProperties, pathParametersRequired, jsonPath + "/" + "PathParameters", jsonPath + "/" + "PathParameters");
+        CodegenSchema queryParametersSchema = getXParametersSchema(queryParametersProperties, queryParametersRequired, jsonPath + "/" + "QueryParameters", jsonPath + "/" + "QueryParameters");
+        CodegenSchema headerParametersSchema = getXParametersSchema(headerParametersProperties, headerParametersRequired, jsonPath + "/" + "HeaderParameters", jsonPath + "/" + "HeaderParameters");
+        CodegenSchema cookieParametersSchema = getXParametersSchema(cookieParametersProperties, cookieParametersRequired, jsonPath + "/" + "CookieParameters", jsonPath + "/" + "CookieParameters");
 
         return new CodegenOperation(
                 deprecated,
@@ -2922,15 +2925,14 @@ public class DefaultGenerator implements Generator {
                 produces,
                 codegenServers,
                 requestBody,
-                allParams,
-                pathParams,
-                pathParameters,
+                operationParameters,
+                pathParametersSchema,
                 queryParams,
-                queryParameters,
+                queryParametersSchema,
                 headerParams,
-                headerParameters,
+                headerParametersSchema,
                 cookieParams,
-                cookieParameters,
+                cookieParametersSchema,
                 hasRequiredParamOrBody,
                 hasOptionalParamOrBody,
                 security,

@@ -59,16 +59,16 @@ Name | Type | Description  | Notes
             {{/if}}
         {{/if}}
     {{/if}}
-    {{#if queryParameters}}
+    {{#if queryParametersSchema}}
 [query_params](#query_params) | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | |
     {{/if}}
-    {{#if headerParameters}}
+    {{#if headerParametersSchema}}
 [header_params](#header_params) | [HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | |
     {{/if}}
-    {{#if pathParameters}}
+    {{#if pathParametersSchema}}
 [path_params](#path_params) | [PathParametersDictInput](#pathparameters-pathparametersdictinput), [PathParametersDict](#pathparameters-pathparametersdict) | |
     {{/if}}
-    {{#if cookieParameters}}
+    {{#if cookieParametersSchema}}
 [cookie_params](#cookie-params) | [CookieParametersDictInput](#cookieparameters-cookieparametersdictinput), [CookieParametersDict](#cookieparameters-cookieparametersdict) | |
     {{/if}}
     {{#with requestBody}}
@@ -104,19 +104,19 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 {{> components/request_bodies/request_body_doc requestBody=requestBody headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces requestBody.jsonPathPiece) }}
         {{/unless}}
     {{/if}}
-    {{#with queryParameters}}
+    {{#with queryParametersSchema}}
 ### query_params
 {{> components/schemas/schema_doc schema=this headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
     {{/with}}
-    {{#with headerParameters}}
+    {{#with headerParametersSchema}}
 ### header_params
 {{> components/schemas/schema_doc schema=this headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
     {{/with}}
-    {{#with pathParameters}}
+    {{#with pathParametersSchema}}
 ### path_params
 {{> components/schemas/schema_doc schema=this headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
     {{/with}}
-    {{#with cookieParameters}}
+    {{#with cookieParametersSchema}}
 ### cookie_params
 {{> components/schemas/schema_doc schema=this headerSize=(join headerSize "##" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
     {{/with}}

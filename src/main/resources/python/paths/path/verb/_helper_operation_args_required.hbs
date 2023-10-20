@@ -3,27 +3,27 @@
 {{> paths/path/verb/_helper_operation_args_body fullRefModule=null bodyOptional=false }}
     {{/if}}
 {{/if}}
-{{#and pathParameters pathParameters.requiredProperties}}
+{{#and pathParametersSchema pathParametersSchema.requiredProperties}}
 path_params: typing.Union[
-    {{pathParameters.mapInputJsonPathPiece.camelCase}},
-    {{pathParameters.mapOutputJsonPathPiece.camelCase}}
+    {{pathParametersSchema.mapInputJsonPathPiece.camelCase}},
+    {{pathParametersSchema.mapOutputJsonPathPiece.camelCase}}
 ],
 {{/and}}
-{{#and queryParameters queryParameters.requiredProperties}}
+{{#and queryParametersSchema queryParametersSchema.requiredProperties}}
 query_params: typing.Union[
-    {{queryParameters.mapInputJsonPathPiece.camelCase}},
-    {{queryParameters.mapOutputJsonPathPiece.camelCase}}
+    {{queryParametersSchema.mapInputJsonPathPiece.camelCase}},
+    {{queryParametersSchema.mapOutputJsonPathPiece.camelCase}}
 ],
 {{/and}}
-{{#and headerParameters headerParameters.requiredProperties}}
+{{#and headerParametersSchema headerParametersSchema.requiredProperties}}
 header_params: typing.Union[
-    {{headerParameters.mapInputJsonPathPiece.camelCase}},
-    {{headerParameters.mapOutputJsonPathPiece.camelCase}}
+    {{headerParametersSchema.mapInputJsonPathPiece.camelCase}},
+    {{headerParametersSchema.mapOutputJsonPathPiece.camelCase}}
 ],
 {{/and}}
-{{#and cookieParameters cookieParameters.requiredProperties}}
+{{#and cookieParametersSchema cookieParametersSchema.requiredProperties}}
 cookie_params: typing.Union[
-    {{cookieParameters.mapInputJsonPathPiece.camelCase}},
-    {{cookieParameters.mapOutputJsonPathPiece.camelCase}}
+    {{cookieParametersSchema.mapInputJsonPathPiece.camelCase}},
+    {{cookieParametersSchema.mapOutputJsonPathPiece.camelCase}}
 ],
 {{/and}}

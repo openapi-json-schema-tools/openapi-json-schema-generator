@@ -10,9 +10,9 @@ from {{packageName}}.{{apiPackage}}.tags import {{moduleName}}
         {{/if}}
     {{/each}}
 {{/if}}
-{{#or pathParams queryParams headerParams cookieParams}}
+{{#if parameters}}
 from {{packageName}}.paths.{{path.snakeCase}}.{{jsonPathPiece.original}} import operation
-{{/or}}
+{{/if}}
 {{#each imports}}
 {{{.}}}
 {{/each}}
@@ -33,9 +33,9 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
 {{#if hasRequiredParamOrBody}}
 
     # example passing only required values which don't have defaults set
-    {{#if pathParams}}
+    {{#if parameters.pathParameters}}
     path_params: operation.PathParametersDictInput = {
-        {{#each pathParams}}
+        {{#each parameters.pathParameters}}
             {{#if refInfo}}
                 {{#if getDeepestRef.required}}
         '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
@@ -121,7 +121,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
         # {{{summary}}}
     {{/if}}
         api_response = api_instance.{{{operationId.snakeCase}}}(
-    {{#if pathParams}}
+    {{#if parameters.pathParameters}}
             path_params=path_params,
     {{/if}}
     {{#if queryParams}}
@@ -160,9 +160,9 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
 {{#if hasOptionalParamOrBody}}
 
     # example passing only optional values
-    {{#if pathParams}}
+    {{#if parameters.pathParameters}}
     path_params = {
-        {{#each pathParams}}
+        {{#each parameters.pathParameters}}
             {{#if refInfo}}
         '{{getDeepestRef.name}}': {{{getDeepestRef.example}}},
             {{else}}
@@ -228,7 +228,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
         # {{{summary}}}
     {{/if}}
         api_response = api_instance.{{{operationId.snakeCase}}}(
-    {{#if pathParams}}
+    {{#if parameters.pathParameters}}
             path_params=path_params,
     {{/if}}
     {{#if queryParams}}

@@ -3,38 +3,38 @@
 {{> paths/path/verb/_helper_operation_args_body fullRefModule=null bodyOptional=true }}
     {{/unless}}
 {{/if}}
-{{#if pathParameters}}
-    {{#unless pathParameters.requiredProperties}}
+{{#if pathParametersSchema}}
+    {{#unless pathParametersSchema.requiredProperties}}
 path_params: typing.Union[
-    {{pathParameters.mapInputJsonPathPiece.camelCase}},
-    {{pathParameters.mapOutputJsonPathPiece.camelCase}},
+    {{pathParametersSchema.mapInputJsonPathPiece.camelCase}},
+    {{pathParametersSchema.mapOutputJsonPathPiece.camelCase}},
     None
 ] = None,
     {{/unless}}
 {{/if}}
-{{#if queryParameters}}
-    {{#unless queryParameters.requiredProperties}}
+{{#if queryParametersSchema}}
+    {{#unless queryParametersSchema.requiredProperties}}
 query_params: typing.Union[
-    {{queryParameters.mapInputJsonPathPiece.camelCase}},
-    {{queryParameters.mapOutputJsonPathPiece.camelCase}},
+    {{queryParametersSchema.mapInputJsonPathPiece.camelCase}},
+    {{queryParametersSchema.mapOutputJsonPathPiece.camelCase}},
     None
 ] = None,
     {{/unless}}
 {{/if}}
-{{#if headerParameters}}
-    {{#unless headerParameters.requiredProperties}}
+{{#if headerParametersSchema}}
+    {{#unless headerParametersSchema.requiredProperties}}
 header_params: typing.Union[
-    {{headerParameters.mapInputJsonPathPiece.camelCase}},
-    {{headerParameters.mapOutputJsonPathPiece.camelCase}},
+    {{headerParametersSchema.mapInputJsonPathPiece.camelCase}},
+    {{headerParametersSchema.mapOutputJsonPathPiece.camelCase}},
     None
 ] = None,
     {{/unless}}
 {{/if}}
-{{#if cookieParameters}}
-    {{#unless cookieParameters.requiredProperties}}
+{{#if cookieParametersSchema}}
+    {{#unless cookieParametersSchema.requiredProperties}}
 cookie_params: typing.Union[
-    {{cookieParameters.mapInputJsonPathPiece.camelCase}},
-    {{cookieParameters.mapOutputJsonPathPiece.camelCase}},
+    {{cookieParametersSchema.mapInputJsonPathPiece.camelCase}},
+    {{cookieParametersSchema.mapOutputJsonPathPiece.camelCase}},
     None
 ] = None,
     {{/unless}}
