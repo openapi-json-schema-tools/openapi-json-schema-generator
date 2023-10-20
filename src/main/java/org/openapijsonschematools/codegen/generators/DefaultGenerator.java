@@ -2814,6 +2814,7 @@ public class DefaultGenerator implements Generator {
         ArrayList<CodegenParameter> pathItemHeaderParams = null;
         ArrayList<CodegenParameter> pathItemCookieParams = null;
         ParameterCollection operationParameters = null;
+        ParameterCollection pathItemParams = null;
         if (parameters != null) {
             int i = 0;
             LinkedHashMap<Pair<String, String>, CodegenParameter> usedPathItemParameters = new LinkedHashMap<>(pathItemParameters);
@@ -2876,6 +2877,7 @@ public class DefaultGenerator implements Generator {
                         break;
                 }
             }
+            pathItemParams = new ParameterCollection(usedPathItemParams, pathItemPathParams, pathItemQueryParams, pathItemHeaderParams, pathItemCookieParams);
         }
 
         // create optional, required parameters
@@ -2945,7 +2947,7 @@ public class DefaultGenerator implements Generator {
                 operationId,
                 jsonPathPiece,
                 requestBodySchema,
-                usedPathItemParams,
+                pathItemParams,
                 pathItemQueryParams,
                 pathItemPathParams,
                 pathItemHeaderParams,

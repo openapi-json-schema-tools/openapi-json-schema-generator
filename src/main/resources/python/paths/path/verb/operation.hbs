@@ -63,14 +63,14 @@ from .parameters import (
     {{/gt}}
 {{/if}}
 {{#if pathItemParameters}}
-    {{#gt pathItemParameters.size 0}}
-        {{#eq pathItemParameters.size 1}}
-            {{#each pathItemParameters}}
+    {{#gt pathItemParameters.allParameters.size 0}}
+        {{#eq pathItemParameters.allParameters.size 1}}
+            {{#each pathItemParameters.allParameters}}
 from ..parameters import {{jsonPathPiece.snakeCase}} as path_item_{{jsonPathPiece.snakeCase}}
             {{/each}}
         {{else}}
 from ..parameters import (
-            {{#each pathItemParameters}}
+            {{#each pathItemParameters.allParameters}}
     {{jsonPathPiece.snakeCase}} as path_item_{{jsonPathPiece.snakeCase}},
             {{/each}}
 )

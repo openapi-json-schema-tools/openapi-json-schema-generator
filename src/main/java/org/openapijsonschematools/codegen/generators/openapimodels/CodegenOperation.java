@@ -39,7 +39,7 @@ public class CodegenOperation {
     public final CodegenSchema queryParametersSchema;
     public final CodegenSchema headerParametersSchema;
     public final CodegenSchema cookieParametersSchema;
-    public final List<CodegenParameter> pathItemParameters;
+    public final ParameterCollection pathItemParameters;
     public final List<CodegenParameter> pathItemPathParams;
     public final List<CodegenParameter> pathItemQueryParams;
     public final List<CodegenParameter> pathItemHeaderParams;
@@ -92,7 +92,7 @@ public class CodegenOperation {
             CodegenKey operationId,
             CodegenKey jsonPathPiece,
             CodegenSchema requestBodySchema,
-            List<CodegenParameter> pathItemParameters,
+            ParameterCollection pathItemParameters,
             List<CodegenParameter> pathItemPathParams,
             List<CodegenParameter> pathItemQueryParams,
             List<CodegenParameter> pathItemHeaderParams,
