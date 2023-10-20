@@ -107,6 +107,8 @@ class BaseApi(api_client.Api):
             )
         used_path, query_params_suffix = self._get_used_path(
             path,
+            path_parameters=path_parameter_classes,
+            path_params=path_params,
             query_parameters=query_parameter_classes,
             query_params=query_params,
             skip_validation=True

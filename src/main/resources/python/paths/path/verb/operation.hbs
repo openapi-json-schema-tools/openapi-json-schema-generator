@@ -344,14 +344,14 @@ class BaseApi(api_client.Api):
             )
         {{/if}}
     {{/if}}
-    {{#or parameters.pathParameters parameters.queryParameters}}
+    {{#or pathParametersSchema queryParametersSchema}}
         used_path, query_params_suffix = self._get_used_path(
             path,
-        {{#if parameters.pathParameters}}
+        {{#if pathParametersSchema}}
             path_parameters=path_parameter_classes,
             path_params=path_params,
         {{/if}}
-        {{#if parameters.queryParameters}}
+        {{#if queryParametersSchema}}
             query_parameters=query_parameter_classes,
             query_params=query_params,
         {{/if}}
@@ -360,8 +360,8 @@ class BaseApi(api_client.Api):
     {{else}}
         used_path = path
     {{/or}}
-    {{#or parameters.headerParameters pathItemParameters.headerParameters requestBody produces}}
-        {{#or parameters.headerParameters pathItemParameters.headerParameters}}
+    {{#or headerParametersSchema requestBody produces}}
+        {{#if headerParametersSchema}}
         headers = self._get_headers(
             header_parameters=header_parameter_classes,
             header_params=header_params,
@@ -374,7 +374,7 @@ class BaseApi(api_client.Api):
             {{#or produces requestBody}}
         headers = self._get_headers({{#if produces}}accept_content_types=accept_content_types{{/if}})
             {{/or}}
-        {{/or}}
+        {{/if}}
     {{/or}}
         # TODO add cookie handling
     {{#if requestBodySchema}}
@@ -428,7 +428,7 @@ class BaseApi(api_client.Api):
     {{/if}}
             method='{{httpMethod.original}}',
             host=host,
-    {{#or parameters.headerParameters pathItemParameters.headerParameters requestBodySchema produces}}
+    {{#or headerParametersSchema requestBodySchema produces}}
             headers=headers,
     {{/or}}
     {{#if requestBodySchema}}

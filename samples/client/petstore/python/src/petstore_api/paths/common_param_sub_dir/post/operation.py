@@ -105,7 +105,12 @@ class BaseApi(api_client.Api):
                 header_params,
                 configuration=self.api_client.schema_configuration
             )
-        used_path = path
+        used_path, query_params_suffix = self._get_used_path(
+            path,
+            path_parameters=path_parameter_classes,
+            path_params=path_params,
+            skip_validation=True
+        )
         headers = self._get_headers(
             header_parameters=header_parameter_classes,
             header_params=header_params,
