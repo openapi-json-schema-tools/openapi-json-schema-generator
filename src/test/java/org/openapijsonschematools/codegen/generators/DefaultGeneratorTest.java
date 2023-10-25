@@ -1852,6 +1852,48 @@ public class DefaultGeneratorTest {
     }
 
     @Test
+    public void pathItemParmsCorrectlyCalculated() {
+        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue237.yaml");
+        final DefaultGenerator codegen = new DefaultGenerator();
+        codegen.setOpenAPI(openAPI);
+
+        PathItem docPathItem = openAPI.getPaths().get("/users/{UserID}");
+        CodegenPathItem pathItem = codegen.fromPathItem(docPathItem, "#/paths/~1users~1{UserID}");
+
+        CodegenOperation operation = pathItem.operations.get(codegen.getKey("get", "verb"));
+        Assert.assertEquals(operation.parameters, null);
+        Assert.assertEquals(operation.pathItemParameters.allParameters.size(), 1);
+        Assert.assertEquals(operation.pathItemParameters.pathParameters.size(), 1);
+        Assert.assertEquals(operation.pathItemParameters.queryParameters.size(), 0);
+        Assert.assertEquals(operation.pathItemParameters.headerParameters.size(), 0);
+        Assert.assertEquals(operation.pathItemParameters.cookieParameters.size(), 0);
+        Assert.assertEquals(operation.pathItemParameters.allParameters.get(0).name, "UserID");
+
+        operation = pathItem.operations.get(codegen.getKey("post", "verb"));
+        Assert.assertEquals(operation.parameters.allParameters.size(), 1);
+        Assert.assertEquals(operation.parameters.pathParameters.size(), 0);
+        Assert.assertEquals(operation.parameters.queryParameters.size(), 0);
+        Assert.assertEquals(operation.parameters.headerParameters.size(), 1);
+        Assert.assertEquals(operation.parameters.cookieParameters.size(), 0);
+        Assert.assertEquals(operation.parameters.allParameters.get(0).name, "someHeader");
+        Assert.assertEquals(operation.pathItemParameters.allParameters.size(), 1);
+        Assert.assertEquals(operation.pathItemParameters.pathParameters.size(), 1);
+        Assert.assertEquals(operation.pathItemParameters.queryParameters.size(), 0);
+        Assert.assertEquals(operation.pathItemParameters.headerParameters.size(), 0);
+        Assert.assertEquals(operation.pathItemParameters.cookieParameters.size(), 0);
+        Assert.assertEquals(operation.pathItemParameters.allParameters.get(0).name, "UserID");
+
+        operation = pathItem.operations.get(codegen.getKey("delete", "verb"));
+        Assert.assertEquals(operation.parameters.allParameters.size(), 1);
+        Assert.assertEquals(operation.parameters.pathParameters.size(), 1);
+        Assert.assertEquals(operation.parameters.queryParameters.size(), 0);
+        Assert.assertEquals(operation.parameters.headerParameters.size(), 0);
+        Assert.assertEquals(operation.parameters.cookieParameters.size(), 0);
+        Assert.assertEquals(operation.parameters.allParameters.get(0).name, "UserID");
+        Assert.assertEquals(operation.pathItemParameters, null);
+    }
+
+    @Test
     @SuppressWarnings("unchecked")
     public void commonLambdasRegistrationTest() {
 

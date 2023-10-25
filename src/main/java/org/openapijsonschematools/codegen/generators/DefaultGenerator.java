@@ -25,6 +25,7 @@ import com.samskivert.mustache.Mustache;
 import com.samskivert.mustache.Mustache.Compiler;
 import com.samskivert.mustache.Mustache.Lambda;
 
+import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.Paths;
@@ -1655,8 +1656,12 @@ public class DefaultGenerator implements Generator {
      * @param refToTestCases the component schema name that the test cases are for
      */
     private HashMap<String, SchemaTestCase> extractSchemaTestCases(String refToTestCases) {
+        Components components = openAPI.getComponents();
+        if (components ==  null) {
+            return null;
+        }
         // schemaName to a map of test case name to test case
-        HashMap<String, Object> vendorExtensions = (HashMap<String, Object>) openAPI.getComponents().getExtensions();
+        HashMap<String, Object> vendorExtensions = (HashMap<String, Object>) components.getExtensions();
         if (vendorExtensions ==  null || !vendorExtensions.containsKey(xSchemaTestExamplesKey)) {
             return null;
         }
@@ -2809,18 +2814,13 @@ public class DefaultGenerator implements Generator {
         HashMap<String, Schema> cookieParametersProperties = new HashMap<>();
         List<String> cookieParametersRequired = new ArrayList<>();
         ArrayList<CodegenParameter> usedPathItemParams = null;
-        ArrayList<CodegenParameter> pathItemQueryParams = null;
-        ArrayList<CodegenParameter> pathItemPathParams = null;
-        ArrayList<CodegenParameter> pathItemHeaderParams = null;
-        ArrayList<CodegenParameter> pathItemCookieParams = null;
+        LinkedHashMap<Pair<String, String>, CodegenParameter> usedPathItemParameters = new LinkedHashMap<>();
+        if (pathItemParameters != null) {
+            usedPathItemParameters.putAll(pathItemParameters);
+        }
         ParameterCollection operationParameters = null;
-        ParameterCollection pathItemParams = null;
         if (parameters != null) {
             int i = 0;
-            LinkedHashMap<Pair<String, String>, CodegenParameter> usedPathItemParameters = new LinkedHashMap<>();
-            if (pathItemParameters != null) {
-                usedPathItemParameters.putAll(pathItemParameters);
-            }
             for (Parameter param : parameters) {
                 String usedSourceJsonPath = jsonPath + "/parameters/" + i;
                 CodegenParameter p = fromParameter(param, usedSourceJsonPath);
@@ -2852,6 +2852,13 @@ public class DefaultGenerator implements Generator {
                 }
             }
             operationParameters = new ParameterCollection(allParams, pathParams, queryParams, headerParams, cookieParams);
+        }
+        ArrayList<CodegenParameter> pathItemQueryParams = null;
+        ArrayList<CodegenParameter> pathItemPathParams = null;
+        ArrayList<CodegenParameter> pathItemHeaderParams = null;
+        ArrayList<CodegenParameter> pathItemCookieParams = null;
+        ParameterCollection pathItemParams = null;
+        if (!usedPathItemParameters.isEmpty()) {
             pathItemQueryParams = new ArrayList<>();
             pathItemPathParams = new ArrayList<>();
             pathItemHeaderParams = new ArrayList<>();
@@ -2880,9 +2887,7 @@ public class DefaultGenerator implements Generator {
                         break;
                 }
             }
-            if (!usedPathItemParameters.isEmpty()) {
-                pathItemParams = new ParameterCollection(usedPathItemParams, pathItemPathParams, pathItemQueryParams, pathItemHeaderParams, pathItemCookieParams);
-            }
+            pathItemParams = new ParameterCollection(usedPathItemParams, pathItemPathParams, pathItemQueryParams, pathItemHeaderParams, pathItemCookieParams);
         }
 
         // create optional, required parameters

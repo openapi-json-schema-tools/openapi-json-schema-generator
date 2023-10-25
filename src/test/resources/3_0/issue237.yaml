@@ -1,0 +1,56 @@
+openapi: 3.0.0
+info:
+  title: sample that tests common path parameters
+  version: v1
+servers:
+  - url: https://{host}/api/{version}
+    variables:
+      host:
+        default: localhost:8443
+      version:
+        default: v1
+paths:
+  /users/{UserID}:
+    parameters:
+      - name: UserID
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      responses:
+        "200":
+          description: ""
+          content:
+            application/json:
+              schema:
+                type: string
+      description: "parameter from path item only, no parameters in operation"
+    post:
+      parameters:
+        - in: header
+          name: someHeader
+          schema:
+            type: string
+      description: "parameters from path item + operation"
+      responses:
+        '200':
+          application/json:
+            schema:
+              type: string
+    delete:
+      parameters:
+        - in: path
+          name: UserID
+          schema:
+            type: string
+            enum:
+              - c
+              - d
+      operationId: deleteCommonParam
+      description: "path item param is overwritten"
+      responses:
+        '200':
+          application/json:
+            schema:
+              type: string
