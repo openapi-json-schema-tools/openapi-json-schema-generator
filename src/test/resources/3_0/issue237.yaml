@@ -35,7 +35,9 @@ paths:
       description: "parameters from path item + operation"
       responses:
         '200':
-          $ref: '#/components/responses/SuccessDescriptionOnly'
+          application/json:
+            schema:
+              type: string
     delete:
       parameters:
         - in: path
@@ -49,14 +51,6 @@ paths:
       description: "path item param is overwritten"
       responses:
         '200':
-          $ref: '#/components/responses/SuccessDescriptionOnly'
-components:
-  responses:
-    SuccessDescriptionOnly:
-      description: Success
-  securitySchemes:
-    basic:
-      description: |
-        NetHSM supports Basic Authentication.
-      type: http
-      scheme: basic
+          application/json:
+            schema:
+              type: string

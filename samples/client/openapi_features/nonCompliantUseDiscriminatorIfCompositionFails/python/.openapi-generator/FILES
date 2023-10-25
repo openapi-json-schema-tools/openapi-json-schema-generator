@@ -29,7 +29,6 @@ src/this_package/components/schema/__init__.py
 src/this_package/components/schema/addition_operator.py
 src/this_package/components/schema/operator.py
 src/this_package/components/schema/subtraction_operator.py
-src/this_package/components/schemas/__init__.py
 src/this_package/configurations/__init__.py
 src/this_package/configurations/api_configuration.py
 src/this_package/configurations/schema_configuration.py

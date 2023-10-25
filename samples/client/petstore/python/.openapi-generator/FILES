@@ -692,7 +692,6 @@ src/petstore_api/components/schema/user.py
 src/petstore_api/components/schema/uuid_string.py
 src/petstore_api/components/schema/whale.py
 src/petstore_api/components/schema/zebra.py
-src/petstore_api/components/schemas/__init__.py
 src/petstore_api/components/security_schemes/__init__.py
 src/petstore_api/components/security_schemes/security_scheme_api_key.py
 src/petstore_api/components/security_schemes/security_scheme_api_key_query.py

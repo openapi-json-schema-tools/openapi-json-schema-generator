@@ -79,7 +79,6 @@ src/json_schema_api/components/schema/object_pattern_properties.py
 src/json_schema_api/components/schema/object_property_names.py
 src/json_schema_api/components/schema/object_unevaluated_properties_false_with_properties.py
 src/json_schema_api/components/schema/string_const_string.py
-src/json_schema_api/components/schemas/__init__.py
 src/json_schema_api/configurations/__init__.py
 src/json_schema_api/configurations/api_configuration.py
 src/json_schema_api/configurations/schema_configuration.py

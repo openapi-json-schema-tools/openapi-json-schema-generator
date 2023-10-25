@@ -770,7 +770,6 @@ src/unit_test_api/components/schema/uniqueitems_validation.py
 src/unit_test_api/components/schema/uri_format.py
 src/unit_test_api/components/schema/uri_reference_format.py
 src/unit_test_api/components/schema/uri_template_format.py
-src/unit_test_api/components/schemas/__init__.py
 src/unit_test_api/configurations/__init__.py
 src/unit_test_api/configurations/api_configuration.py
 src/unit_test_api/configurations/schema_configuration.py

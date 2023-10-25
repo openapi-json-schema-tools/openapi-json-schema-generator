@@ -727,7 +727,10 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         // add the models and apis folders
         String modelPackages = modelPackage + "s";
         Boolean generateModels = (Boolean) additionalProperties().get(CodegenConstants.GENERATE_MODELS);
-        Components components = openAPI.getComponents();
+        Components components = null;
+        if (openAPI != null) {
+            components = openAPI.getComponents();
+        }
         // Generate the 'signing.py' module, but only if the 'HTTP signature' security scheme is specified in the OAS.
         Map<String, SecurityScheme> securitySchemeMap = openAPI != null ?
                 (components != null ? components.getSecuritySchemes() : null) : null;
