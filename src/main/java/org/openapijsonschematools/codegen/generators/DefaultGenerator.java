@@ -25,6 +25,7 @@ import com.samskivert.mustache.Mustache;
 import com.samskivert.mustache.Mustache.Compiler;
 import com.samskivert.mustache.Mustache.Lambda;
 
+import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.ExternalDocumentation;
 import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.Paths;
@@ -1655,8 +1656,12 @@ public class DefaultGenerator implements Generator {
      * @param refToTestCases the component schema name that the test cases are for
      */
     private HashMap<String, SchemaTestCase> extractSchemaTestCases(String refToTestCases) {
+        Components components = openAPI.getComponents();
+        if (components ==  null) {
+            return null;
+        }
         // schemaName to a map of test case name to test case
-        HashMap<String, Object> vendorExtensions = (HashMap<String, Object>) openAPI.getComponents().getExtensions();
+        HashMap<String, Object> vendorExtensions = (HashMap<String, Object>) components.getExtensions();
         if (vendorExtensions ==  null || !vendorExtensions.containsKey(xSchemaTestExamplesKey)) {
             return null;
         }

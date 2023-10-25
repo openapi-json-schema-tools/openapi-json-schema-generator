@@ -18,6 +18,7 @@
 package org.openapijsonschematools.codegen.generatorrunner;
 
 import io.swagger.v3.core.util.Json;
+import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.headers.Header;
 import io.swagger.v3.oas.models.info.Contact;
@@ -691,9 +692,15 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
     }
 
     private TreeMap<String, CodegenResponse> generateResponses(List<File> files) {
-        final Map<String, ApiResponse> specResponses = this.openAPI.getComponents().getResponses();
+        String skipMsg = "Skipping generation of component responses because the specification document lacks them.";
+        Components components = this.openAPI.getComponents();
+        if (components == null) {
+            LOGGER.info(skipMsg);
+            return null;
+        }
+        final Map<String, ApiResponse> specResponses = components.getResponses();
         if (specResponses == null) {
-            LOGGER.warn("Skipping generation of component responses because the specification document lacks them.");
+            LOGGER.info(skipMsg);
             return null;
         }
         TreeMap<String, CodegenResponse> responses = new TreeMap<>();
@@ -740,9 +747,15 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
     }
 
     private TreeMap<String, CodegenSecurityScheme> generateSecuritySchemes(List<File> files) {
-        final Map<String, SecurityScheme> specSecuritySchemes = this.openAPI.getComponents().getSecuritySchemes();
+        String skipMsg = "Skipping generation of component securitySchemes because the specification document lacks them.";
+        Components components = this.openAPI.getComponents();
+        if (components == null) {
+            LOGGER.info(skipMsg);
+            return null;
+        }
+        final Map<String, SecurityScheme> specSecuritySchemes = components.getSecuritySchemes();
         if (specSecuritySchemes == null) {
-            LOGGER.warn("Skipping generation of component requestBodies because the specification document lacks them.");
+            LOGGER.info(skipMsg);
             return null;
         }
         TreeMap<String, CodegenSecurityScheme> securitySchemes = new TreeMap<>();
@@ -772,9 +785,15 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
     }
 
     private TreeMap<String, CodegenRequestBody> generateRequestBodies(List<File> files) {
-        final Map<String, RequestBody> specRequestBodies = this.openAPI.getComponents().getRequestBodies();
+        String skipMsg = "Skipping generation of component requestBodies because the specification document lacks them.";
+        Components components = this.openAPI.getComponents();
+        if (components == null) {
+            LOGGER.info(skipMsg);
+            return null;
+        }
+        final Map<String, RequestBody> specRequestBodies = components.getRequestBodies();
         if (specRequestBodies == null) {
-            LOGGER.warn("Skipping generation of component requestBodies because the specification document lacks them.");
+            LOGGER.info(skipMsg);
             return null;
         }
         TreeMap<String, CodegenRequestBody> requestBodies = new TreeMap<>();
@@ -824,9 +843,15 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
     }
 
     private TreeMap<String, CodegenParameter> generateParameters(List<File> files) {
-        final Map<String, Parameter> specParameters = this.openAPI.getComponents().getParameters();
+        String skipMsg = "Skipping generation of component parameters because the specification document lacks them.";
+        Components components = this.openAPI.getComponents();
+        if (components == null) {
+            LOGGER.info(skipMsg);
+            return null;
+        }
+        final Map<String, Parameter> specParameters = components.getParameters();
         if (specParameters == null || specParameters.isEmpty()) {
-            LOGGER.warn("Skipping generation of component parameters because the specification document lacks them.");
+            LOGGER.info(skipMsg);
             return null;
         }
         TreeMap<String, CodegenParameter> parameters = new TreeMap<>();
@@ -934,9 +959,15 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
     }
 
     private TreeMap<String, CodegenHeader> generateHeaders(List<File> files) {
-        final Map<String, Header> specHeaders = this.openAPI.getComponents().getHeaders();
+        String skipMsg = "Skipping generation of component headers because the specification document lacks them.";
+        Components components = this.openAPI.getComponents();
+        if (components == null) {
+            LOGGER.info(skipMsg);
+            return null;
+        }
+        final Map<String, Header> specHeaders = components.getHeaders();
         if (specHeaders == null || specHeaders.isEmpty()) {
-            LOGGER.warn("Skipping generation of component headers because the specification document lacks them.");
+            LOGGER.info(skipMsg);
             return null;
         }
         TreeMap<String, CodegenHeader> headers = new TreeMap<>();

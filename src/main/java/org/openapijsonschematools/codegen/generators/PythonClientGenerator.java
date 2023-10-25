@@ -20,6 +20,7 @@ import com.github.curiousoddman.rgxgen.RgxGen;
 import com.github.curiousoddman.rgxgen.config.RgxGenOption;
 import com.github.curiousoddman.rgxgen.config.RgxGenProperties;
 import com.google.common.base.CaseFormat;
+import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
 
 import org.apache.commons.io.FileUtils;
@@ -729,9 +730,10 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         if (Boolean.TRUE.equals(generateModels)) {
             supportingFiles.add(new SupportingFile("components/schemas/__init__schemas.hbs", packagePath() + File.separatorChar + modelPackages.replace('.', File.separatorChar), "__init__.py"));
         }
+        Components components = openAPI.getComponents();
         // Generate the 'signing.py' module, but only if the 'HTTP signature' security scheme is specified in the OAS.
         Map<String, SecurityScheme> securitySchemeMap = openAPI != null ?
-                (openAPI.getComponents() != null ? openAPI.getComponents().getSecuritySchemes() : null) : null;
+                (components != null ? components.getSecuritySchemes() : null) : null;
         if (securitySchemeMap != null) {
             for (SecurityScheme securityScheme: securitySchemeMap.values()) {
                 if (securityScheme.getType() == SecurityScheme.Type.HTTP && securityScheme.getScheme().equals("signature")) {
@@ -1295,7 +1297,11 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
             example = objExample.toString();
         }
         if (null != schema.get$ref()) {
-            Map<String, Schema> allDefinitions = this.openAPI.getComponents().getSchemas();
+            Map<String, Schema> allDefinitions = new HashMap<>();
+            Components components = this.openAPI.getComponents();
+            if (components != null && components.getSchemas() != null) {
+                allDefinitions = components.getSchemas();
+            }
             String refValue = schema.get$ref();
             String ref = ModelUtils.getSimpleRef(refValue);
             Schema refSchema = allDefinitions.get(ref);
