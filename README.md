@@ -339,12 +339,15 @@ in the openapi-generator repo, but core team refused to consider keeping python 
 Below is a timeline of those events and some of their reasons:
 
 #### Timeline of python generator development
-- June 28, 2019 (v4.0.3) - [old python-experimental created](https://github.com/OpenAPITools/openapi-generator/pull/3244)
-- Nov 17, 2020 (v5.0.0) [old python-experimental becomes python](https://github.com/OpenAPITools/openapi-generator/pull/7965)
-- Jan 4, 2021 (v5.4.0) [new python-experimental created](https://github.com/OpenAPITools/openapi-generator/pull/8325)
+- Jan 4, 2021 - [openapi-generator v5.4.0: python-experimental created](https://github.com/OpenAPITools/openapi-generator/pull/8325). This generator is the beginning of the current python generator in this repo.
 - Sept 19, 2022 - meeting to discuss openapi 3.1.0 + python client, removal of python client mentioned as an option, not a requirement
-- Sept 22, 2022 (v6.2.0) - [new python-experimental switched in as the primary python client](https://github.com/OpenAPITools/openapi-generator/pull/13501)
+- Sept 22, 2022 - [openapi-generator v6.2.0: new python-experimental switched in as the primary python client](https://github.com/OpenAPITools/openapi-generator/pull/13501)
 - Sept 23, 2022 - communication clarified that removal of the python generator is required
+- Sept 24, 2022 - [openapi-generator v6.2.0: removal of python generator mentioned in v6.2.0 release](https://github.com/OpenAPITools/openapi-generator/releases/tag/v6.2.0)
+- Sept 26, 2022 - [different new repo made for openapi json schema generator in OpenapiTools org](https://github.com/OpenAPITools/openapi-json-schema-generator)
+- Oct 2, 2022 - [moved project to this repo](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator) I moved the generator to the new repo because full ownership privledges were not granted on the new repo to me, which had been promised, and because I was not given privledges that allowed docker distribution from the new repo
+- May 14, 2023 - [openapi-generator v7.0.0: python generator removed, a diffferent generator becomes the only python client](https://github.com/OpenAPITools/openapi-generator/pull/15486)
+
 
 #### Removal Reasons
 - Core team and @wing328 felt adoption of the python client was reduced from 5.0.0 and onward due to python-prior + python generators
