@@ -283,6 +283,7 @@ public class CodegenSchema {
         const
         contains
         dependentSchemas
+        else
         enums
         if_
         items
@@ -359,6 +360,9 @@ public class CodegenSchema {
             } else {
                 schemasAfterImports.add(extraSchema);
             }
+        }
+        if (else_ != null) {
+            else_.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
         }
         if (enumInfo != null) {
             // write the class as a separate entity so enum values do not collide with

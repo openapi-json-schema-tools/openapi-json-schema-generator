@@ -12,6 +12,96 @@ from json_schema_api.shared_imports.schema_imports import *  # pyright: ignore [
 
 
 
+@dataclasses.dataclass(frozen=True)
+class PostalCode2(
+    schemas.StrSchema
+):
+    types: typing.FrozenSet[typing.Type] = frozenset({
+        str,
+    })
+    pattern: schemas.PatternInfo = schemas.PatternInfo(
+        pattern=r'[A-Z][0-9][A-Z] [0-9][A-Z][0-9]'  # noqa: E501
+    )
+Properties4 = typing.TypedDict(
+    'Properties4',
+    {
+        "postal_code": typing.Type[PostalCode2],
+    }
+)
+
+
+class ElseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
+
+    __required_keys__: typing.FrozenSet[str] = frozenset({
+    })
+    __optional_keys__: typing.FrozenSet[str] = frozenset({
+        "postal_code",
+    })
+    
+    def __new__(
+        cls,
+        *,
+        postal_code: typing.Union[
+            str,
+            schemas.Unset
+        ] = schemas.unset,
+        configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
+        **kwargs: schemas.INPUT_TYPES_ALL,
+    ):
+        arg_: typing.Dict[str, typing.Any] = {}
+        for key_, val in (
+            ("postal_code", postal_code),
+        ):
+            if isinstance(val, schemas.Unset):
+                continue
+            arg_[key_] = val
+        arg_.update(kwargs)
+        used_arg_ = typing.cast(ElseDictInput, arg_)
+        return _Else.validate(used_arg_, configuration=configuration_)
+    
+    @staticmethod
+    def from_dict_(
+        arg: typing.Union[
+            ElseDictInput,
+            ElseDict
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ElseDict:
+        return _Else.validate(arg, configuration=configuration)
+    
+    @property
+    def postal_code(self) -> typing.Union[str, schemas.Unset]:
+        val = self.get("postal_code", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            str,
+            val
+        )
+    
+    def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+        return self.get(name, schemas.unset)
+ElseDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+
+
+@dataclasses.dataclass(frozen=True)
+class _Else(
+    schemas.AnyTypeSchema[ElseDict, typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+):
+    # any type
+    properties: Properties4 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties4)) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            schemas.immutabledict: ElseDict,
+        }
+    )
+
+
+
 class CountryConst:
 
     @schemas.classproperty
@@ -363,6 +453,7 @@ class ObjectIfThenElse(
     properties: Properties2 = dataclasses.field(default_factory=lambda: schemas.typed_dict_to_instance(Properties2)) # type: ignore
     if_: typing.Type[_If] = dataclasses.field(default_factory=lambda: _If) # type: ignore
     then: typing.Type[Then] = dataclasses.field(default_factory=lambda: Then) # type: ignore
+    else_: typing.Type[_Else] = dataclasses.field(default_factory=lambda: _Else) # type: ignore
     type_to_output_cls: typing.Mapping[
         typing.Type,
         typing.Type

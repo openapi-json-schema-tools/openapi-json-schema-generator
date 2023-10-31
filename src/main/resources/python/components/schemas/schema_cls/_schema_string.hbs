@@ -64,7 +64,7 @@ class {{jsonPathPiece.camelCase}}(
 {{#if then}}
     {{> components/schemas/schema_cls/_then }}
 {{/if}}
-{{#if _else}}
+{{#if else_}}
     {{> components/schemas/schema_cls/_else }}
 {{/if}}
 {{#or enumInfo constInfo}}
