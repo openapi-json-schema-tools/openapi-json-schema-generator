@@ -18,6 +18,51 @@ class TestObjectIfThenElse(unittest.TestCase):
     """ObjectIfThenElse unit test stubs"""
     configuration = schema_configuration.SchemaConfiguration()
 
+    def test_us_validation_succeeds(self):
+        data = {
+            "street_address": "1600 Pennsylvania Avenue NW",
+            "country": "United States of America",
+            "postal_code": "20500"
+        }
+        inst = ObjectIfThenElse.validate(data)
+        assert inst == data
+
+    def test_canada_validation_succeeds(self):
+        data = {
+            "street_address": "24 Sussex Drive",
+            "country": "Canada",
+            "postal_code": "K1M 1M4"
+        }
+        inst = ObjectIfThenElse.validate(data)
+        assert inst == data
+
+    def test_no_country_validation_succeeds(self):
+        data = {
+            "street_address": "1600 Pennsylvania Avenue NW",
+            "postal_code": "20500"
+        }
+        inst = ObjectIfThenElse.validate(data)
+        assert inst == data
+
+    def test_us_validation_fails(self):
+        data = {
+            "street_address": "1600 Pennsylvania Avenue NW",
+            "country": "United States of America",
+            "postal_code": "K1M 1M4"
+        }
+        with self.assertRaises(json_schema_api.ApiValueError):
+            ObjectIfThenElse.validate(data)
+
+    # def test_canada_validation_fails(self):
+    #     # needs else validation
+    #     data = {
+    #         "street_address": "24 Sussex Drive",
+    #         "country": "Canada",
+    #         "postal_code": "20500"
+    #     }
+    #     with self.assertRaises(json_schema_api.ApiValueError):
+    #         ObjectIfThenElse.validate(data)
+
 
 if __name__ == '__main__':
     unittest.main()

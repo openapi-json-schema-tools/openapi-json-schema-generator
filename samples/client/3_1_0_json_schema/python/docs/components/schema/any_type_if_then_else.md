@@ -21,7 +21,7 @@ Key | Type |  Description | Notes
 
 ## AnyTypeIfThenElseDict
 ```
-base class: schemas.immutabledict[str, str]
+base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
@@ -41,6 +41,6 @@ Property | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [AnyTypeIfThenElseDictInput](#anytypeifthenelsedictinput), [AnyTypeIfThenElseDict](#anytypeifthenelsedict), str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | [AnyTypeIfThenElseDict](#anytypeifthenelsedict), str, float, int, bool, None, tuple, bytes, io.FileIO | a constructor
-get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset }} | provides type safety for additional properties
+get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

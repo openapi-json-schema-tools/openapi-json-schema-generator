@@ -59,12 +59,12 @@ class IfDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
         arg_: typing.Dict[str, typing.Any] = {}
-        for key, val in (
+        for key_, val in (
             ("country", country),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(IfDictInput, arg_)
         return _If.validate(used_arg_, configuration=configuration_)
@@ -84,10 +84,7 @@ class IfDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         val = self.get("country", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
-        return typing.cast(
-            schemas.OUTPUT_BASE_TYPES,
-            val
-        )
+        return val
     
     def get_additional_property_(self, name: str) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
@@ -189,7 +186,7 @@ Properties2 = typing.TypedDict(
 )
 
 
-class ObjectIfThenElseDict(schemas.immutabledict[str, str]):
+class ObjectIfThenElseDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
@@ -216,13 +213,13 @@ class ObjectIfThenElseDict(schemas.immutabledict[str, str]):
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
         arg_: typing.Dict[str, typing.Any] = {}
-        for key, val in (
+        for key_, val in (
             ("street_address", street_address),
             ("country", country),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(ObjectIfThenElseDictInput, arg_)
         return ObjectIfThenElse.validate(used_arg_, configuration=configuration_)
@@ -281,7 +278,7 @@ Properties = typing.TypedDict(
 )
 
 
-class ThenDict(schemas.immutabledict[str, str]):
+class ThenDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })
@@ -300,12 +297,12 @@ class ThenDict(schemas.immutabledict[str, str]):
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
         arg_: typing.Dict[str, typing.Any] = {}
-        for key, val in (
+        for key_, val in (
             ("postal_code", postal_code),
         ):
             if isinstance(val, schemas.Unset):
                 continue
-            arg_[key] = val
+            arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(ThenDictInput, arg_)
         return Then.validate(used_arg_, configuration=configuration_)
