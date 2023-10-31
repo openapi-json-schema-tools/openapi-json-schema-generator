@@ -65,6 +65,9 @@ JsonSchemaDict = typing.TypedDict(
         'required': typing.List[str],
         'type': str,
         'uniqueItems': bool,
+        'if': 'JsonSchema',
+        'then': 'JsonSchema',
+        'else': 'JsonSchema',
     },
     total=False
 )
@@ -364,6 +367,7 @@ JSON_SCHEMA_TEST_FILE_TO_FOLDERS = {
     'exclusiveMinimum.json': (json_schema_test_draft,),
     'format.json': (json_schema_test_draft,),
 #     'id.json': (json_schema_test_draft,),
+    'if-then-else.json': (json_schema_test_draft,),
 #     'infinite-loop-detection.json': (json_schema_test_draft,),  # activate after fixing this
     'items.json': (json_schema_test_draft,),
     'maxContains.json': (json_schema_test_draft,),

@@ -20,6 +20,7 @@ tags:
 - name: dependentSchemas
 - name: enum
 - name: format
+- name: if-then-else
 - name: items
 - name: maxContains
 - name: maximum
@@ -2098,6 +2099,366 @@ paths:
       - path.post
       - contentType_json
       - format
+  /requestBody/postIgnoreIfWithoutThenOrElseRequestBody:
+    post:
+      operationId: postIgnoreIfWithoutThenOrElseRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IgnoreIfWithoutThenOrElse'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/IgnoreIfWithoutThenOrElse'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - if-then-else
+  /responseBody/postIgnoreIfWithoutThenOrElseResponseBodyForContentTypes:
+    post:
+      operationId: postIgnoreIfWithoutThenOrElseResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IgnoreIfWithoutThenOrElse'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/IgnoreIfWithoutThenOrElse'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - if-then-else
+  /requestBody/postIgnoreThenWithoutIfRequestBody:
+    post:
+      operationId: postIgnoreThenWithoutIfRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IgnoreThenWithoutIf'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/IgnoreThenWithoutIf'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - if-then-else
+  /responseBody/postIgnoreThenWithoutIfResponseBodyForContentTypes:
+    post:
+      operationId: postIgnoreThenWithoutIfResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IgnoreThenWithoutIf'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/IgnoreThenWithoutIf'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - if-then-else
+  /requestBody/postIgnoreElseWithoutIfRequestBody:
+    post:
+      operationId: postIgnoreElseWithoutIfRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IgnoreElseWithoutIf'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/IgnoreElseWithoutIf'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - if-then-else
+  /responseBody/postIgnoreElseWithoutIfResponseBodyForContentTypes:
+    post:
+      operationId: postIgnoreElseWithoutIfResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IgnoreElseWithoutIf'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/IgnoreElseWithoutIf'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - if-then-else
+  /requestBody/postIfAndThenWithoutElseRequestBody:
+    post:
+      operationId: postIfAndThenWithoutElseRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IfAndThenWithoutElse'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/IfAndThenWithoutElse'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - if-then-else
+  /responseBody/postIfAndThenWithoutElseResponseBodyForContentTypes:
+    post:
+      operationId: postIfAndThenWithoutElseResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IfAndThenWithoutElse'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/IfAndThenWithoutElse'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - if-then-else
+  /requestBody/postIfAndElseWithoutThenRequestBody:
+    post:
+      operationId: postIfAndElseWithoutThenRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IfAndElseWithoutThen'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/IfAndElseWithoutThen'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - if-then-else
+  /responseBody/postIfAndElseWithoutThenResponseBodyForContentTypes:
+    post:
+      operationId: postIfAndElseWithoutThenResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IfAndElseWithoutThen'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/IfAndElseWithoutThen'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - if-then-else
+  /requestBody/postValidateAgainstCorrectBranchThenVsElseRequestBody:
+    post:
+      operationId: postValidateAgainstCorrectBranchThenVsElseRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidateAgainstCorrectBranchThenVsElse'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ValidateAgainstCorrectBranchThenVsElse'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - if-then-else
+  /responseBody/postValidateAgainstCorrectBranchThenVsElseResponseBodyForContentTypes:
+    post:
+      operationId: postValidateAgainstCorrectBranchThenVsElseResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidateAgainstCorrectBranchThenVsElse'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ValidateAgainstCorrectBranchThenVsElse'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - if-then-else
+  /requestBody/postNonInterferenceAcrossCombinedSchemasRequestBody:
+    post:
+      operationId: postNonInterferenceAcrossCombinedSchemasRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NonInterferenceAcrossCombinedSchemas'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/NonInterferenceAcrossCombinedSchemas'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - if-then-else
+  /responseBody/postNonInterferenceAcrossCombinedSchemasResponseBodyForContentTypes:
+    post:
+      operationId: postNonInterferenceAcrossCombinedSchemasResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NonInterferenceAcrossCombinedSchemas'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/NonInterferenceAcrossCombinedSchemas'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - if-then-else
+  /requestBody/postIfWithBooleanSchemaTrueRequestBody:
+    post:
+      operationId: postIfWithBooleanSchemaTrueRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IfWithBooleanSchemaTrue'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/IfWithBooleanSchemaTrue'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - if-then-else
+  /responseBody/postIfWithBooleanSchemaTrueResponseBodyForContentTypes:
+    post:
+      operationId: postIfWithBooleanSchemaTrueResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IfWithBooleanSchemaTrue'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/IfWithBooleanSchemaTrue'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - if-then-else
+  /requestBody/postIfWithBooleanSchemaFalseRequestBody:
+    post:
+      operationId: postIfWithBooleanSchemaFalseRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IfWithBooleanSchemaFalse'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/IfWithBooleanSchemaFalse'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - if-then-else
+  /responseBody/postIfWithBooleanSchemaFalseResponseBodyForContentTypes:
+    post:
+      operationId: postIfWithBooleanSchemaFalseResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IfWithBooleanSchemaFalse'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/IfWithBooleanSchemaFalse'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - if-then-else
+  /requestBody/postIfAppearsAtTheEndWhenSerializedKeywordProcessingSequenceRequestBody:
+    post:
+      operationId: postIfAppearsAtTheEndWhenSerializedKeywordProcessingSequenceRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - if-then-else
+  /responseBody/postIfAppearsAtTheEndWhenSerializedKeywordProcessingSequenceResponseBodyForContentTypes:
+    post:
+      operationId: postIfAppearsAtTheEndWhenSerializedKeywordProcessingSequenceResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - if-then-else
   /requestBody/postNestedItemsRequestBody:
     post:
       operationId: postNestedItemsRequestBody
@@ -5129,6 +5490,69 @@ components:
     DurationFormat:
       $schema: https://json-schema.org/draft/2020-12/schema
       format: duration
+    IgnoreIfWithoutThenOrElse:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      if:
+        const: 0
+    IgnoreThenWithoutIf:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      then:
+        const: 0
+    IgnoreElseWithoutIf:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      else:
+        const: 0
+    IfAndThenWithoutElse:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      if:
+        exclusiveMaximum: 0
+      then:
+        minimum: -10
+    IfAndElseWithoutThen:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      if:
+        exclusiveMaximum: 0
+      else:
+        multipleOf: 2
+    ValidateAgainstCorrectBranchThenVsElse:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      if:
+        exclusiveMaximum: 0
+      then:
+        minimum: -10
+      else:
+        multipleOf: 2
+    NonInterferenceAcrossCombinedSchemas:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      allOf:
+      - if:
+          exclusiveMaximum: 0
+      - then:
+          minimum: -10
+      - else:
+          multipleOf: 2
+    IfWithBooleanSchemaTrue:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      if: true
+      then:
+        const: then
+      else:
+        const: else
+    IfWithBooleanSchemaFalse:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      if: false
+      then:
+        const: then
+      else:
+        const: else
+    IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      then:
+        const: 'yes'
+      else:
+        const: other
+      if:
+        maxLength: 4
     NestedItems:
       $schema: https://json-schema.org/draft/2020-12/schema
       type: array
@@ -6969,6 +7393,146 @@ components:
         description: invalid duration string is only an annotation by default
         data: PT1D
         valid: true
+        comment: null
+    IgnoreIfWithoutThenOrElse:
+      ValidWhenValidAgainstLoneIf:
+        description: valid when valid against lone if
+        data: 0
+        valid: true
+        comment: null
+      ValidWhenInvalidAgainstLoneIf:
+        description: valid when invalid against lone if
+        data: hello
+        valid: true
+        comment: null
+    IgnoreThenWithoutIf:
+      ValidWhenValidAgainstLoneThen:
+        description: valid when valid against lone then
+        data: 0
+        valid: true
+        comment: null
+      ValidWhenInvalidAgainstLoneThen:
+        description: valid when invalid against lone then
+        data: hello
+        valid: true
+        comment: null
+    IgnoreElseWithoutIf:
+      ValidWhenValidAgainstLoneElse:
+        description: valid when valid against lone else
+        data: 0
+        valid: true
+        comment: null
+      ValidWhenInvalidAgainstLoneElse:
+        description: valid when invalid against lone else
+        data: hello
+        valid: true
+        comment: null
+    IfAndThenWithoutElse:
+      ValidThroughThen:
+        description: valid through then
+        data: -1
+        valid: true
+        comment: null
+      InvalidThroughThen:
+        description: invalid through then
+        data: -100
+        valid: false
+        comment: null
+      ValidWhenIfTestFails:
+        description: valid when if test fails
+        data: 3
+        valid: true
+        comment: null
+    IfAndElseWithoutThen:
+      ValidWhenIfTestPasses:
+        description: valid when if test passes
+        data: -1
+        valid: true
+        comment: null
+      ValidThroughElse:
+        description: valid through else
+        data: 4
+        valid: true
+        comment: null
+      InvalidThroughElse:
+        description: invalid through else
+        data: 3
+        valid: false
+        comment: null
+    ValidateAgainstCorrectBranchThenVsElse:
+      ValidThroughThen:
+        description: valid through then
+        data: -1
+        valid: true
+        comment: null
+      InvalidThroughThen:
+        description: invalid through then
+        data: -100
+        valid: false
+        comment: null
+      ValidThroughElse:
+        description: valid through else
+        data: 4
+        valid: true
+        comment: null
+      InvalidThroughElse:
+        description: invalid through else
+        data: 3
+        valid: false
+        comment: null
+    NonInterferenceAcrossCombinedSchemas:
+      ValidButWouldHaveBeenInvalidThroughThen:
+        description: valid, but would have been invalid through then
+        data: -100
+        valid: true
+        comment: null
+      ValidButWouldHaveBeenInvalidThroughElse:
+        description: valid, but would have been invalid through else
+        data: 3
+        valid: true
+        comment: null
+    IfWithBooleanSchemaTrue:
+      BooleanSchemaTrueInIfAlwaysChoosesTheThenPathValid:
+        description: boolean schema true in if always chooses the then path (valid)
+        data: then
+        valid: true
+        comment: null
+      BooleanSchemaTrueInIfAlwaysChoosesTheThenPathInvalid:
+        description: boolean schema true in if always chooses the then path (invalid)
+        data: else
+        valid: false
+        comment: null
+    IfWithBooleanSchemaFalse:
+      BooleanSchemaFalseInIfAlwaysChoosesTheElsePathInvalid:
+        description: boolean schema false in if always chooses the else path (invalid)
+        data: then
+        valid: false
+        comment: null
+      BooleanSchemaFalseInIfAlwaysChoosesTheElsePathValid:
+        description: boolean schema false in if always chooses the else path (valid)
+        data: else
+        valid: true
+        comment: null
+    IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence:
+      YesRedirectsToThenAndPasses:
+        description: yes redirects to then and passes
+        data: 'yes'
+        valid: true
+        comment: null
+      OtherRedirectsToElseAndPasses:
+        description: other redirects to else and passes
+        data: other
+        valid: true
+        comment: null
+      NoRedirectsToThenAndFails:
+        description: no redirects to then and fails
+        data: 'no'
+        valid: false
+        comment: null
+      InvalidRedirectsToElseAndFails:
+        description: invalid redirects to else and fails
+        data: invalid
+        valid: false
         comment: null
     NestedItems:
       ValidNestedArray:
