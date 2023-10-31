@@ -99,6 +99,13 @@ class SchemaValidator:
                 validation_metadata,
                 path_to_schemas
             )
+        if_path_to_schemas = None
+        if 'if_' in vars(cls_schema):
+            if_path_to_schemas = _get_if_path_to_schemas(
+                arg,
+                vars(cls_schema)['if_'],
+                validation_metadata,
+            )
         validated_pattern_properties: typing.Optional[PathToSchemasType] = None
         if 'pattern_properties' in vars(cls_schema):
              validated_pattern_properties = _get_validated_pattern_properties(
@@ -123,6 +130,8 @@ class SchemaValidator:
                 used_val = (val, format)
             elif keyword in {'pattern_properties', 'additional_properties'}:
                 used_val = (val, validated_pattern_properties)
+            elif keyword in {'if_', 'then', 'else_'}:
+                used_val = (val, if_path_to_schemas)
             else:
                 used_val = val
             validator = json_schema_keyword_to_validator[keyword]
@@ -1005,6 +1014,106 @@ def validate_discriminator(
     return discriminated_cls._validate(arg, validation_metadata=updated_vm)
 
 
+def _get_if_path_to_schemas(
+    arg: typing.Any,
+    if_cls: typing.Type[SchemaValidator],
+    validation_metadata: ValidationMetadata,
+) -> PathToSchemasType:
+    if_cls = _get_class(if_cls)
+    these_path_to_schemas: PathToSchemasType = {}
+    try:
+        other_path_to_schemas = if_cls._validate(
+            arg, validation_metadata=validation_metadata)
+        update(these_path_to_schemas, other_path_to_schemas)
+    except exceptions.OpenApiException:
+        pass
+    return these_path_to_schemas
+
+
+def validate_if(
+    arg: typing.Any,
+    if_cls_if_path_to_schemas: typing.Tuple[
+        typing.Type[SchemaValidator], typing.Optional[PathToSchemasType]
+    ],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+) -> typing.Optional[PathToSchemasType]:
+    if_path_to_schemas = if_cls_if_path_to_schemas[1]
+    if if_path_to_schemas is None:
+        raise exceptions.OpenApiException('Invalid type for if_path_to_schemas')
+    """
+    if is false use case
+    if_path_to_schemas == {}
+    no need to add any data to path_to_schemas
+
+    if true, then true -> true for whole schema
+    so validate_then will add if_path_to_schemas data to path_to_schemas
+    """
+    return None
+
+
+def validate_then(
+    arg: typing.Any,
+    then_cls_if_path_to_schemas: typing.Tuple[
+        typing.Type[SchemaValidator], typing.Optional[PathToSchemasType]
+    ],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+) -> typing.Optional[PathToSchemasType]:
+    if_path_to_schemas = then_cls_if_path_to_schemas[1]
+    if if_path_to_schemas is None:
+        raise exceptions.OpenApiException('Invalid type for if_path_to_schemas')
+    """
+    if is false use case
+    if_path_to_schemas == {}
+    no need to add any data to path_to_schemas
+    """
+    if not if_path_to_schemas:
+        return None
+    then_cls = _get_class(then_cls_if_path_to_schemas[0])
+    these_path_to_schemas: PathToSchemasType = {}
+    try:
+        other_path_to_schemas = then_cls._validate(
+            arg, validation_metadata=validation_metadata)
+        update(these_path_to_schemas, if_path_to_schemas)
+        update(these_path_to_schemas, other_path_to_schemas)
+        return these_path_to_schemas
+    except exceptions.OpenApiException as ex:
+        # then False case
+        raise ex
+
+
+def validate_else(
+    arg: typing.Any,
+    else_cls_if_path_to_schemas: typing.Tuple[
+        typing.Type[SchemaValidator], typing.Optional[PathToSchemasType]
+    ],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+) -> typing.Optional[PathToSchemasType]:
+    if_path_to_schemas = else_cls_if_path_to_schemas[1]
+    if if_path_to_schemas is None:
+        raise exceptions.OpenApiException('Invalid type for if_path_to_schemas')
+    if if_path_to_schemas:
+        # skip validation if if_path_to_schemas was true
+        return None
+    """
+    if is false use case
+    if_path_to_schemas == {}
+    """
+    else_cls = _get_class(else_cls_if_path_to_schemas[0])
+    these_path_to_schemas: PathToSchemasType = {}
+    try:
+        other_path_to_schemas = else_cls._validate(
+            arg, validation_metadata=validation_metadata)
+        update(these_path_to_schemas, if_path_to_schemas)
+        update(these_path_to_schemas, other_path_to_schemas)
+        return these_path_to_schemas
+    except exceptions.OpenApiException as ex:
+        # else False case
+        raise ex
+
+
 def _get_contains_qty(
     arg: typing.Any,
     contains_cls: typing.Type[SchemaValidator],
@@ -1326,5 +1435,8 @@ json_schema_keyword_to_validator: typing.Mapping[str, validator_type] = {
     'pattern_properties': validate_pattern_properties,
     'prefix_items': validate_prefix_items,
     'unevaluated_items': validate_unevaluated_items,
-    'unevaluated_properties': validate_unevaluated_properties
+    'unevaluated_properties': validate_unevaluated_properties,
+    'if_': validate_if,
+    'then': validate_then,
+    'else_': validate_else
 }

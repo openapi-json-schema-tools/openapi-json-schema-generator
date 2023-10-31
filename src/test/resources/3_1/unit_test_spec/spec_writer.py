@@ -162,6 +162,10 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
     (json_schema_test_draft, 'exclusiveMinimum.json'): {
         "exclusiveMinimum validation": ExclusionReason.swagger_parser_validation_missing_bug,
     },
+    (json_schema_test_draft, 'if-then-else.json'): {
+        "if with boolean schema true": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+        "if with boolean schema false": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,
+    },
     (json_schema_test_draft, 'items.json'): {
         'items and subitems': ExclusionReason.bug_does_not_support_definitions,
         'items with boolean schema (true)': ExclusionReason.bug_does_not_support_boolean_schemas_in_location,

@@ -14,6 +14,7 @@ from unit_test_api.apis.tags.max_length_api import MaxLengthApi
 from unit_test_api.apis.tags._not_api import _NotApi
 from unit_test_api.apis.tags.unevaluated_items_api import UnevaluatedItemsApi
 from unit_test_api.apis.tags.path_post_api import PathPostApi
+from unit_test_api.apis.tags.if_then_else_api import IfThenElseApi
 from unit_test_api.apis.tags.min_properties_api import MinPropertiesApi
 from unit_test_api.apis.tags.property_names_api import PropertyNamesApi
 from unit_test_api.apis.tags.unique_items_api import UniqueItemsApi
@@ -56,6 +57,7 @@ TagToApi = typing.TypedDict(
         "not": typing.Type[_NotApi],
         "unevaluatedItems": typing.Type[UnevaluatedItemsApi],
         "path.post": typing.Type[PathPostApi],
+        "if-then-else": typing.Type[IfThenElseApi],
         "minProperties": typing.Type[MinPropertiesApi],
         "propertyNames": typing.Type[PropertyNamesApi],
         "uniqueItems": typing.Type[UniqueItemsApi],
@@ -99,6 +101,7 @@ tag_to_api = TagToApi(
         "not": _NotApi,
         "unevaluatedItems": UnevaluatedItemsApi,
         "path.post": PathPostApi,
+        "if-then-else": IfThenElseApi,
         "minProperties": MinPropertiesApi,
         "propertyNames": PropertyNamesApi,
         "uniqueItems": UniqueItemsApi,

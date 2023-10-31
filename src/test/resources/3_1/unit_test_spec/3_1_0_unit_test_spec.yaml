@@ -2351,78 +2351,6 @@ paths:
       - path.post
       - contentType_json
       - if-then-else
-  /requestBody/postIfWithBooleanSchemaTrueRequestBody:
-    post:
-      operationId: postIfWithBooleanSchemaTrueRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/IfWithBooleanSchemaTrue'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/IfWithBooleanSchemaTrue'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - if-then-else
-  /responseBody/postIfWithBooleanSchemaTrueResponseBodyForContentTypes:
-    post:
-      operationId: postIfWithBooleanSchemaTrueResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/IfWithBooleanSchemaTrue'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/IfWithBooleanSchemaTrue'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - if-then-else
-  /requestBody/postIfWithBooleanSchemaFalseRequestBody:
-    post:
-      operationId: postIfWithBooleanSchemaFalseRequestBody
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/IfWithBooleanSchemaFalse'
-            x-schema-test-examples:
-              $ref: '#/components/x-schema-test-examples/IfWithBooleanSchemaFalse'
-        required: true
-      responses:
-        '200':
-          description: success
-      tags:
-      - operation.requestBody
-      - path.post
-      - contentType_json
-      - if-then-else
-  /responseBody/postIfWithBooleanSchemaFalseResponseBodyForContentTypes:
-    post:
-      operationId: postIfWithBooleanSchemaFalseResponseBodyForContentTypes
-      responses:
-        '200':
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/IfWithBooleanSchemaFalse'
-              x-schema-test-examples:
-                $ref: '#/components/x-schema-test-examples/IfWithBooleanSchemaFalse'
-      tags:
-      - response.content.contentType.schema
-      - path.post
-      - contentType_json
-      - if-then-else
   /requestBody/postIfAppearsAtTheEndWhenSerializedKeywordProcessingSequenceRequestBody:
     post:
       operationId: postIfAppearsAtTheEndWhenSerializedKeywordProcessingSequenceRequestBody
@@ -5531,20 +5459,6 @@ components:
           minimum: -10
       - else:
           multipleOf: 2
-    IfWithBooleanSchemaTrue:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      if: true
-      then:
-        const: then
-      else:
-        const: else
-    IfWithBooleanSchemaFalse:
-      $schema: https://json-schema.org/draft/2020-12/schema
-      if: false
-      then:
-        const: then
-      else:
-        const: else
     IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence:
       $schema: https://json-schema.org/draft/2020-12/schema
       then:
@@ -7489,28 +7403,6 @@ components:
       ValidButWouldHaveBeenInvalidThroughElse:
         description: valid, but would have been invalid through else
         data: 3
-        valid: true
-        comment: null
-    IfWithBooleanSchemaTrue:
-      BooleanSchemaTrueInIfAlwaysChoosesTheThenPathValid:
-        description: boolean schema true in if always chooses the then path (valid)
-        data: then
-        valid: true
-        comment: null
-      BooleanSchemaTrueInIfAlwaysChoosesTheThenPathInvalid:
-        description: boolean schema true in if always chooses the then path (invalid)
-        data: else
-        valid: false
-        comment: null
-    IfWithBooleanSchemaFalse:
-      BooleanSchemaFalseInIfAlwaysChoosesTheElsePathInvalid:
-        description: boolean schema false in if always chooses the else path (invalid)
-        data: then
-        valid: false
-        comment: null
-      BooleanSchemaFalseInIfAlwaysChoosesTheElsePathValid:
-        description: boolean schema false in if always chooses the else path (valid)
-        data: else
         valid: true
         comment: null
     IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence:
