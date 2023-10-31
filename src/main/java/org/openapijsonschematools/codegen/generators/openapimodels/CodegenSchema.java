@@ -90,6 +90,7 @@ public class CodegenSchema {
     public CodegenSchema unevaluatedProperties;
     public CodegenSchema if_;
     public CodegenSchema then;
+    public CodegenSchema else_;
 
     // Extra needed fields
     // stores the mapping value schema, used to provide a value type for the object output class

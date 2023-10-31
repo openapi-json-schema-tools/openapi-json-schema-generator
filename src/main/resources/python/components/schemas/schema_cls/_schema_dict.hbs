@@ -49,6 +49,9 @@ class {{jsonPathPiece.camelCase}}(
     {{#if then}}
     {{> components/schemas/schema_cls/_then }}
     {{/if}}
+    {{#if _else}}
+    {{> components/schemas/schema_cls/_else }}
+    {{/if}}
     {{#if dependentRequired}}
     {{> components/schemas/schema_cls/_dependent_required }}
     {{/if}}

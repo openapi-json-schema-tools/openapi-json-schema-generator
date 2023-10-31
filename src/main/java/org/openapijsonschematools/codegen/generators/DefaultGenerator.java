@@ -2350,6 +2350,7 @@ public class DefaultGenerator implements Generator {
         items
         if_
         enums
+        else
         dependentSchemas
         contains
         const
@@ -2398,6 +2399,9 @@ public class DefaultGenerator implements Generator {
         if (p.getEnum() != null) {
             ArrayList<Object> values = new ArrayList<>(((Schema<?>) p).getEnum());
             property.enumInfo = getEnumInfo(values, p, currentJsonPath, sourceJsonPath, property.types, "Enums");
+        }
+        if (p.getElse() != null) {
+            property.else_ = fromSchema(p.getElse(), sourceJsonPath, currentJsonPath + "/else");
         }
         property.dependentSchemas = getDependentSchemas(((Schema<?>) p).getDependentSchemas(), sourceJsonPath, currentJsonPath);
         if (p.getContains() != null) {
