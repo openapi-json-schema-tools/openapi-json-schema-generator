@@ -130,7 +130,7 @@ class SchemaValidator:
                 used_val = (val, format)
             elif keyword in {'pattern_properties', 'additional_properties'}:
                 used_val = (val, validated_pattern_properties)
-            elif keyword in {'if_', 'then'}:
+            elif keyword in {'if_', 'then', 'else_'}:
                 used_val = (val, if_path_to_schemas)
             else:
                 used_val = val
@@ -1079,6 +1079,37 @@ def validate_then(
         update(these_path_to_schemas, other_path_to_schemas)
         return these_path_to_schemas
     except exceptions.OpenApiException as ex:
+        # then False case
+        raise ex
+
+
+def validate_else(
+    arg: typing.Any,
+    else_cls_if_path_to_schemas: typing.Tuple[
+        typing.Type[SchemaValidator], typing.Optional[PathToSchemasType]
+    ],
+    cls: typing.Type,
+    validation_metadata: ValidationMetadata,
+) -> typing.Optional[PathToSchemasType]:
+    if_path_to_schemas = else_cls_if_path_to_schemas[1]
+    if if_path_to_schemas is None:
+        raise exceptions.OpenApiException('Invalid type for if_path_to_schemas')
+    if if_path_to_schemas:
+        # skip validation if if_path_to_schemas was true
+        return None
+    """
+    if is false use case
+    if_path_to_schemas == {}
+    """
+    else_cls = _get_class(else_cls_if_path_to_schemas[0])
+    these_path_to_schemas: PathToSchemasType = {}
+    try:
+        other_path_to_schemas = else_cls._validate(
+            arg, validation_metadata=validation_metadata)
+        update(these_path_to_schemas, if_path_to_schemas)
+        update(these_path_to_schemas, other_path_to_schemas)
+        return these_path_to_schemas
+    except exceptions.OpenApiException as ex:
         # else False case
         raise ex
 
@@ -1406,5 +1437,6 @@ json_schema_keyword_to_validator: typing.Mapping[str, validator_type] = {
     'unevaluated_items': validate_unevaluated_items,
     'unevaluated_properties': validate_unevaluated_properties,
     'if_': validate_if,
-    'then': validate_then
+    'then': validate_then,
+    'else_': validate_else
 }

@@ -36,7 +36,7 @@ class TestObjectIfThenElse(unittest.TestCase):
         inst = ObjectIfThenElse.validate(data)
         assert inst == data
 
-    def test_no_country_validation_succeeds(self):
+    def test_no_country_validation_succeeds_for_us_zip(self):
         data = {
             "street_address": "1600 Pennsylvania Avenue NW",
             "postal_code": "20500"
@@ -53,15 +53,22 @@ class TestObjectIfThenElse(unittest.TestCase):
         with self.assertRaises(json_schema_api.ApiValueError):
             ObjectIfThenElse.validate(data)
 
-    # def test_canada_validation_fails(self):
-    #     # needs else validation
-    #     data = {
-    #         "street_address": "24 Sussex Drive",
-    #         "country": "Canada",
-    #         "postal_code": "20500"
-    #     }
-    #     with self.assertRaises(json_schema_api.ApiValueError):
-    #         ObjectIfThenElse.validate(data)
+    def test_canada_validation_fails(self):
+        data = {
+            "street_address": "24 Sussex Drive",
+            "country": "Canada",
+            "postal_code": "20500"
+        }
+        with self.assertRaises(json_schema_api.ApiValueError):
+            ObjectIfThenElse.validate(data)
+
+    def test_no_country_validation_fails_for_canada_zip(self):
+        data = {
+            "street_address": "1600 Pennsylvania Avenue NW",
+            "postal_code": "K1M 1M4"
+        }
+        with self.assertRaises(json_schema_api.ApiValueError):
+            ObjectIfThenElse.validate(data)
 
 
 if __name__ == '__main__':
