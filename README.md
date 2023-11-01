@@ -97,7 +97,7 @@ The OpenAPI Specification has undergone 3 revisions since initial creation in 20
 | OpenAPI JSON Schema Generator Version | OpenAPI Spec compatibility                   |
 |---------------------------------------|----------------------------------------------|
 | 3.3.0                                 | 3.0.0 - [3.1.0*](#openapi-v310-support) |
-| 3.1.0 - 3.2.1                         | 3.0.0 - [3.1.0*](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/3.1.0/docs/generators/python.md#schema-feature) |
+| 3.1.0 - 3.2.1                         | 3.0.0 - [3.1.0](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/3.1.0/docs/generators/python.md#schema-feature) |
 | 1.0.0 - 3.0.0                         | 3.0.0 - 3.0.3                                |
 
 #### OpenAPI v3.1.0 support
