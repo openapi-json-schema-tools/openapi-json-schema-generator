@@ -1209,7 +1209,8 @@ def validate_then(
 ) -> typing.Optional[PathToSchemasType]:
     if_path_to_schemas = then_cls_if_path_to_schemas[1]
     if if_path_to_schemas is None:
-        raise exceptions.OpenApiException('Invalid type for if_path_to_schemas')
+        # use case: there is no if
+        return None
     """
     if is false use case
     if_path_to_schemas == {}
@@ -1243,7 +1244,8 @@ def validate_else(
 ) -> typing.Optional[PathToSchemasType]:
     if_path_to_schemas = else_cls_if_path_to_schemas[1]
     if if_path_to_schemas is None:
-        raise exceptions.OpenApiException('Invalid type for if_path_to_schemas')
+        # use case: there is no if
+        return None
     if if_path_to_schemas:
         # skip validation if if_path_to_schemas was true
         return None

@@ -3649,14 +3649,6 @@ test-requirements.txt
 test/__init__.py
 test/components/__init__.py
 test/components/schema/__init__.py
-test/components/schema/test_if_and_else_without_then.py
-test/components/schema/test_if_and_then_without_else.py
-test/components/schema/test_if_appears_at_the_end_when_serialized_keyword_processing_sequence.py
-test/components/schema/test_ignore_else_without_if.py
-test/components/schema/test_ignore_if_without_then_or_else.py
-test/components/schema/test_ignore_then_without_if.py
-test/components/schema/test_non_interference_across_combined_schemas.py
-test/components/schema/test_validate_against_correct_branch_then_vs_else.py
 test/test_paths/__init__.py
 test/test_paths/__init__.py
 test/test_paths/__init__.py
