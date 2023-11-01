@@ -8,7 +8,7 @@ This project is a code generator that focuses on supporting all openapi and json
 
 ## Overview
 OpenAPI JSON Schema Generator allows auto-generation of API client libraries (SDK generation) given an
-[OpenAPI Spec](https://github.com/OAI/OpenAPI-Specification) (3.0.0-[3.1.0*](#preliminary-310-spec-support) are supported).
+[OpenAPI Document](https://github.com/OAI/OpenAPI-Specification) (3.0.0-[3.1.0*](#openapi-v310-support) are supported).
 This project focuses on making the output 100% compliant with openapi + JSON schema specs.
 The goal is to fully support everything defined in openapi + the included JSON schema specs
 so developers can use all of those features.
@@ -23,7 +23,7 @@ You can join us here: https://discord.gg/mHB8WEQuYQ
 
 ## Reasons To Use the Python Generator
 
-- [3.1.0*](#preliminary-310-spec-support) - 3.0.0 spec support
+- v3.0.0 - [v3.1.0*](#openapi-v310-support) OpenAPI Specification support
 - Type hints on
   - schema payload inputs in SomeSchema.validate ![validate screen capture](docs/schema_validate.gif)
     - Note: to make input dictionaries TypedDicts like the Money.validate example, set additionalProperties to false in the schema in your openapi document
@@ -59,10 +59,10 @@ And many more!
 - [Docs for the python generator](docs/generators/python.md)
 - [generated client sample code](samples/client/petstore/python)
   - [Openapi v3.0.3 general petstore spec, general features](src/test/resources/3_0/python/petstore_customized.yaml)
-- [generated v3.0.3 unit test client sample code](samples/client/3_0_3_unit_test/python)
-  - [Openapi json schema v3.0.3 unit test spec](src/test/resources/3_0/unit_test_spec/3_0_3_unit_test_spec.yaml)
 - [generated v3.1.0 unit test client sample code](samples/client/3_1_0_unit_test/python)
     - [Openapi json schema v3.1.0 unit test spec](src/test/resources/3_1/unit_test_spec/3_1_0_unit_test_spec.yaml)
+- [generated v3.0.3 unit test client sample code](samples/client/3_0_3_unit_test/python)
+  - [Openapi json schema v3.0.3 unit test spec](src/test/resources/3_0/unit_test_spec/3_0_3_unit_test_spec.yaml)
 
 ### Can I build here?
 
@@ -94,35 +94,31 @@ Submit a PR if you want to add a new server scaffold, client sdk, or documentati
 
 The OpenAPI Specification has undergone 3 revisions since initial creation in 2010.  The openapi-json-schema-generator project has the following compatibilities with the OpenAPI Specification:
 
-| OpenAPI JSON Schema Generator Version | OpenAPI Spec compatibility                       |
-|---------------------------------------|--------------------------------------------------|
-| 3.1.0+                                | 3.0.0 - [3.1.0*](#preliminary-310-spec-support) |
-| 3.0.0                                 | 3.0.0 - 3.0.3                                    |
-| 2.0.3                                 | 3.0.0 - 3.0.3                                    |
-| 2.0.2                                 | 3.0.0 - 3.0.3                                    |
-| 2.0.1                                 | 3.0.0 - 3.0.3                                    |
-| 2.0.0                                 | 3.0.0 - 3.0.3                                    |
-| 1.0.4                                 | 3.0.0 - 3.0.3                                    |
-| 1.0.3                                 | 3.0.0 - 3.0.3                                    |
-| 1.0.2                                 | 3.0.0 - 3.0.3                                    |
-| 1.0.1                                 | 3.0.0 - 3.0.3                                    |
-| 1.0.0                                 | 3.0.0 - 3.0.3                                    |
+| OpenAPI JSON Schema Generator Version | OpenAPI Spec compatibility                   |
+|---------------------------------------|----------------------------------------------|
+| 3.3.0                                 | 3.0.0 - [3.1.0*](#openapi-v310-support) |
+| 3.1.0 - 3.2.1                         | 3.0.0 - [3.1.0*](https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/blob/3.1.0/docs/generators/python.md#schema-feature) |
+| 1.0.0 - 3.0.0                         | 3.0.0 - 3.0.3                                |
 
-#### Preliminary 3.1.0 spec support
-Preliminary 3.1.0 spec support includes these new 2020-12 json schema keywords:
+#### OpenAPI v3.1.0 support
+OpenAPI v3.1.0 specification support includes these new/updated 2020-12 json schema keywords:
 1. type (array of types supported in addition to one non-array value)
 2. const: only string values are working because of bugs in swagger parser
 3. contains
 4. dependentRequired
 5. dependentSchemas
-6. maxContains
-7. minContains
-8. patternProperties
-9. prefixItems
-10. propertyNames
-11. unevaluatedItems
-12. unevaluatedProperties
+6. else
+9. if
+10. maxContains
+11. minContains
+12. patternProperties
+13. prefixItems
+14. propertyNames
+15. then
+16. unevaluatedItems
+17. unevaluatedProperties
 
+Note: these features can also be seen in the generator documentation [schema features](docs/generators/python.md##schema-feature)
 
 ### Build Projects
 
