@@ -19,6 +19,8 @@ tags:
 - name: dependentRequired
 - name: dependentSchemas
 - name: enum
+- name: exclusiveMaximum
+- name: exclusiveMinimum
 - name: format
 - name: if-then-else
 - name: items
@@ -1415,6 +1417,78 @@ paths:
       - path.post
       - contentType_json
       - enum
+  /requestBody/postExclusivemaximumValidationRequestBody:
+    post:
+      operationId: postExclusivemaximumValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExclusivemaximumValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ExclusivemaximumValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - exclusiveMaximum
+  /responseBody/postExclusivemaximumValidationResponseBodyForContentTypes:
+    post:
+      operationId: postExclusivemaximumValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExclusivemaximumValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ExclusivemaximumValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - exclusiveMaximum
+  /requestBody/postExclusiveminimumValidationRequestBody:
+    post:
+      operationId: postExclusiveminimumValidationRequestBody
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExclusiveminimumValidation'
+            x-schema-test-examples:
+              $ref: '#/components/x-schema-test-examples/ExclusiveminimumValidation'
+        required: true
+      responses:
+        '200':
+          description: success
+      tags:
+      - operation.requestBody
+      - path.post
+      - contentType_json
+      - exclusiveMinimum
+  /responseBody/postExclusiveminimumValidationResponseBodyForContentTypes:
+    post:
+      operationId: postExclusiveminimumValidationResponseBodyForContentTypes
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExclusiveminimumValidation'
+              x-schema-test-examples:
+                $ref: '#/components/x-schema-test-examples/ExclusiveminimumValidation'
+      tags:
+      - response.content.contentType.schema
+      - path.post
+      - contentType_json
+      - exclusiveMinimum
   /requestBody/postEmailFormatRequestBody:
     post:
       operationId: postEmailFormatRequestBody
@@ -5361,6 +5435,12 @@ components:
       $schema: https://json-schema.org/draft/2020-12/schema
       enum:
       - "hello\0there"
+    ExclusivemaximumValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      exclusiveMaximum: 3.0
+    ExclusiveminimumValidation:
+      $schema: https://json-schema.org/draft/2020-12/schema
+      exclusiveMinimum: 1.1
     EmailFormat:
       $schema: https://json-schema.org/draft/2020-12/schema
       format: email
@@ -6622,6 +6702,48 @@ components:
         description: do not match string lacking nul
         data: hellothere
         valid: false
+        comment: null
+    ExclusivemaximumValidation:
+      BelowTheExclusivemaximumIsValid:
+        description: below the exclusiveMaximum is valid
+        data: 2.2
+        valid: true
+        comment: null
+      BoundaryPointIsInvalid:
+        description: boundary point is invalid
+        data: 3.0
+        valid: false
+        comment: null
+      AboveTheExclusivemaximumIsInvalid:
+        description: above the exclusiveMaximum is invalid
+        data: 3.5
+        valid: false
+        comment: null
+      IgnoresNonNumbers:
+        description: ignores non-numbers
+        data: x
+        valid: true
+        comment: null
+    ExclusiveminimumValidation:
+      AboveTheExclusiveminimumIsValid:
+        description: above the exclusiveMinimum is valid
+        data: 1.2
+        valid: true
+        comment: null
+      BoundaryPointIsInvalid:
+        description: boundary point is invalid
+        data: 1.1
+        valid: false
+        comment: null
+      BelowTheExclusiveminimumIsInvalid:
+        description: below the exclusiveMinimum is invalid
+        data: 0.6
+        valid: false
+        comment: null
+      IgnoresNonNumbers:
+        description: ignores non-numbers
+        data: x
+        valid: true
         comment: null
     EmailFormat:
       AllStringFormatsIgnoreIntegers:
