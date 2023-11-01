@@ -98,7 +98,7 @@ class SchemaValidator:
                 'ensure_discriminator_value_present_exc': ensure_discriminator_value_present_exc
             }
 {{/if}}
-        contains_path_to_schemas = 0
+        contains_path_to_schemas = []
         path_to_schemas: PathToSchemasType = {}
         if 'contains' in vars(cls_schema):
             contains_path_to_schemas = _get_contains_path_to_schemas(
