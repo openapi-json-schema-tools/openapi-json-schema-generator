@@ -2340,6 +2340,7 @@ public class DefaultGenerator implements Generator {
         (self)
         unevaluatedProperties
         unevaluatedItems
+        then
         propertyNames
         properties
         prefixItems
@@ -2347,7 +2348,9 @@ public class DefaultGenerator implements Generator {
         oneOf
         not
         items
+        if_
         enums
+        else
         dependentSchemas
         contains
         const
@@ -2364,6 +2367,9 @@ public class DefaultGenerator implements Generator {
         Schema unevaluatedItemsSchema = p.getUnevaluatedItems();
         if (unevaluatedItemsSchema != null) {
             property.unevaluatedItems = fromSchema(unevaluatedItemsSchema, sourceJsonPath, currentJsonPath + "/unevaluatedItems");
+        }
+        if (p.getThen() != null) {
+            property.then = fromSchema(p.getThen(), sourceJsonPath, currentJsonPath + "/then");
         }
 
         property.properties = getProperties(((Schema<?>) p).getProperties(), sourceJsonPath, currentJsonPath, requiredAndOptionalProperties);
@@ -2387,9 +2393,15 @@ public class DefaultGenerator implements Generator {
             property.items = fromSchema(
                     p.getItems(), sourceJsonPath, currentJsonPath + "/items");
         }
+        if (p.getIf() != null) {
+            property.if_ = fromSchema(p.getIf(), sourceJsonPath, currentJsonPath + "/if");
+        }
         if (p.getEnum() != null) {
             ArrayList<Object> values = new ArrayList<>(((Schema<?>) p).getEnum());
             property.enumInfo = getEnumInfo(values, p, currentJsonPath, sourceJsonPath, property.types, "Enums");
+        }
+        if (p.getElse() != null) {
+            property.else_ = fromSchema(p.getElse(), sourceJsonPath, currentJsonPath + "/else");
         }
         property.dependentSchemas = getDependentSchemas(((Schema<?>) p).getDependentSchemas(), sourceJsonPath, currentJsonPath);
         if (p.getContains() != null) {

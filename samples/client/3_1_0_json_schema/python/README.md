@@ -177,6 +177,7 @@ Class | Description
 [AnyTypeContainsValue](docs/components/schema/any_type_contains_value.md) |
 [AnyTypeDependentRequired](docs/components/schema/any_type_dependent_required.md) |
 [AnyTypeDependentSchemas](docs/components/schema/any_type_dependent_schemas.md) |
+[AnyTypeIfThenElse](docs/components/schema/any_type_if_then_else.md) |
 [AnyTypeMaxContainsValue](docs/components/schema/any_type_max_contains_value.md) |
 [AnyTypeMinContainsValue](docs/components/schema/any_type_min_contains_value.md) |
 [AnyTypePatternProperties](docs/components/schema/any_type_pattern_properties.md) |
@@ -197,6 +198,7 @@ Class | Description
 [ArrayUnevaluatedItemsFalseWithPrefixItems](docs/components/schema/array_unevaluated_items_false_with_prefix_items.md) |
 [ObjectDependentRequired](docs/components/schema/object_dependent_required.md) |
 [ObjectDependentSchemas](docs/components/schema/object_dependent_schemas.md) |
+[ObjectIfThenElse](docs/components/schema/object_if_then_else.md) |
 [ObjectPatternProperties](docs/components/schema/object_pattern_properties.md) |
 [ObjectPropertyNames](docs/components/schema/object_property_names.md) |
 [ObjectUnevaluatedPropertiesFalseWithProperties](docs/components/schema/object_unevaluated_properties_false_with_properties.md) |

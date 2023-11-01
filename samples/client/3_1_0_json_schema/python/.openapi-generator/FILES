@@ -7,6 +7,7 @@ docs/components/schema/any_type_const_string.md
 docs/components/schema/any_type_contains_value.md
 docs/components/schema/any_type_dependent_required.md
 docs/components/schema/any_type_dependent_schemas.md
+docs/components/schema/any_type_if_then_else.md
 docs/components/schema/any_type_max_contains_value.md
 docs/components/schema/any_type_min_contains_value.md
 docs/components/schema/any_type_pattern_properties.md
@@ -27,6 +28,7 @@ docs/components/schema/array_prefix_items.md
 docs/components/schema/array_unevaluated_items_false_with_prefix_items.md
 docs/components/schema/object_dependent_required.md
 docs/components/schema/object_dependent_schemas.md
+docs/components/schema/object_if_then_else.md
 docs/components/schema/object_pattern_properties.md
 docs/components/schema/object_property_names.md
 docs/components/schema/object_unevaluated_properties_false_with_properties.md
@@ -55,6 +57,7 @@ src/json_schema_api/components/schema/any_type_const_string.py
 src/json_schema_api/components/schema/any_type_contains_value.py
 src/json_schema_api/components/schema/any_type_dependent_required.py
 src/json_schema_api/components/schema/any_type_dependent_schemas.py
+src/json_schema_api/components/schema/any_type_if_then_else.py
 src/json_schema_api/components/schema/any_type_max_contains_value.py
 src/json_schema_api/components/schema/any_type_min_contains_value.py
 src/json_schema_api/components/schema/any_type_pattern_properties.py
@@ -75,6 +78,7 @@ src/json_schema_api/components/schema/array_prefix_items.py
 src/json_schema_api/components/schema/array_unevaluated_items_false_with_prefix_items.py
 src/json_schema_api/components/schema/object_dependent_required.py
 src/json_schema_api/components/schema/object_dependent_schemas.py
+src/json_schema_api/components/schema/object_if_then_else.py
 src/json_schema_api/components/schema/object_pattern_properties.py
 src/json_schema_api/components/schema/object_property_names.py
 src/json_schema_api/components/schema/object_unevaluated_properties_false_with_properties.py

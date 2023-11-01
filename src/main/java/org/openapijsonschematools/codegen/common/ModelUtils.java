@@ -1504,7 +1504,15 @@ public class ModelUtils {
             BigDecimal minimum = schema.getMinimum();
             BigDecimal maximum = schema.getMaximum();
             Boolean exclusiveMinimum = schema.getExclusiveMinimum();
+            if (minimum == null && schema.getExclusiveMinimumValue() != null) {
+                minimum = schema.getExclusiveMinimumValue();
+                exclusiveMinimum = Boolean.TRUE;
+            }
             Boolean exclusiveMaximum = schema.getExclusiveMaximum();
+            if (maximum == null && schema.getExclusiveMaximumValue() != null) {
+                maximum = schema.getExclusiveMaximumValue();
+                exclusiveMaximum = Boolean.TRUE;
+            }
 
             if (isArraySchema(schema)) {
                 setArrayValidations(minItems, maxItems, uniqueItems, target);

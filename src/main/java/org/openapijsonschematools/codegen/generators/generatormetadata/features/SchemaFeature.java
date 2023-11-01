@@ -58,6 +58,9 @@ public enum SchemaFeature {
     @OAS2 @OAS3
     Discriminator,
 
+    @OAS3
+    Else,
+
     @OAS2 @OAS3
     Enum,
 
@@ -69,6 +72,9 @@ public enum SchemaFeature {
 
     @OAS2 @OAS3
     Format,
+
+    @OAS3
+    If,
 
     @OAS2 @OAS3
     Items,
@@ -132,6 +138,9 @@ public enum SchemaFeature {
 
     @OAS2 @OAS3
     Required,
+
+    @OAS3
+    Then,
 
     @OAS2 @OAS3
     Type,

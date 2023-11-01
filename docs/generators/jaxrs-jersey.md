@@ -305,10 +305,12 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |DependentRequired|✗|OAS3
 |DependentSchemas|✗|OAS3
 |Discriminator|✓|OAS2,OAS3
+|Else|✗|OAS3
 |Enum|✓|OAS2,OAS3
 |ExclusiveMinimum|✓|OAS2,OAS3
 |ExclusiveMaximum|✓|OAS2,OAS3
 |Format|✓|OAS2,OAS3
+|If|✗|OAS3
 |Items|✓|OAS2,OAS3
 |MaxContains|✗|OAS3
 |MaxItems|✓|OAS2,OAS3
@@ -330,6 +332,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |Properties|✓|OAS2,OAS3
 |PropertyNames|✗|OAS3
 |Required|✓|OAS2,OAS3
+|Then|✗|OAS3
 |Type|✓|OAS2,OAS3
 |UnevaluatedItems|✗|OAS3
 |UnevaluatedProperties|✗|OAS3

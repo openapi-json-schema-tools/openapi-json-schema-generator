@@ -1,1 +1,1 @@
-{{#if exclusiveMaximum}}exclusive_maximum{{/if}}inclusive_maximum{{#unless exclusiveMaximum}}{{/unless}}: typing.Union[int, float] = {{maximum}}
+{{#if exclusiveMaximum}}exclusive_maximum{{else}}inclusive_maximum{{/if}}: typing.Union[int, float] = {{maximum}}

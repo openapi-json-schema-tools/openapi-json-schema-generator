@@ -88,6 +88,9 @@ public class CodegenSchema {
     public ArrayList<CodegenSchema> prefixItems;
     public CodegenSchema unevaluatedItems;
     public CodegenSchema unevaluatedProperties;
+    public CodegenSchema if_;
+    public CodegenSchema then;
+    public CodegenSchema else_;
 
     // Extra needed fields
     // stores the mapping value schema, used to provide a value type for the object output class
@@ -280,7 +283,9 @@ public class CodegenSchema {
         const
         contains
         dependentSchemas
+        else
         enums
+        if_
         items
         not
         oneOf
@@ -288,6 +293,7 @@ public class CodegenSchema {
         prefixItems
         properties
         propertyNames
+        then
         unevaluatedItems
         unevaluatedProperties
         (self)
@@ -355,6 +361,9 @@ public class CodegenSchema {
                 schemasAfterImports.add(extraSchema);
             }
         }
+        if (else_ != null) {
+            else_.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+        }
         if (enumInfo != null) {
             // write the class as a separate entity so enum values do not collide with
             // json schema keywords
@@ -365,6 +374,9 @@ public class CodegenSchema {
             schemasBeforeImports.add(extraSchema);
         }
         boolean schemaAllAreInline = true;
+        if (if_ != null) {
+            if_.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+        }
         if (items != null) {
             items.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
             CodegenSchema extraSchema = new CodegenSchema();
@@ -548,6 +560,9 @@ public class CodegenSchema {
         }
         if (propertyNames != null) {
             propertyNames.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+        }
+        if (then != null) {
+            then.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
         }
         if (unevaluatedItems != null) {
             unevaluatedItems.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
