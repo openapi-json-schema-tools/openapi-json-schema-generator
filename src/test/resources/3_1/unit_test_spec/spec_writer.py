@@ -86,7 +86,6 @@ class ExclusionReason:
     bug_does_not_support_boolean_schemas_in_location = 'v3.1.0 does not support boolean schemas in location, https://github.com/swagger-api/swagger-parser/issues/1770'
     bug_does_not_support_definitions = 'swagger-parser does not support the $defs keyword, https://github.com/swagger-api/swagger-parser/issues/1970'
     swagger_parser_enum_type_bug = "swagger-parser has a bug where schema type is incorrectly set for an enum, https://github.com/swagger-api/swagger-parser/issues/1761"
-    swagger_parser_validation_missing_bug = 'swagger-parser has a bug where validations are unset, https://github.com/swagger-api/swagger-parser/issues/1762'
     swagger_parser_items_type_bug = "swagger-parser has a bug where schema type is incorrectly set with items, https://github.com/swagger-api/swagger-parser/issues/1763"
     v303_does_not_support_id = 'v3.0.3 does not support the $id keyword'
     v303_does_not_support_items_schema_array = 'v3.0.3 does not support an array of schemas for items'
@@ -155,12 +154,6 @@ FILEPATH_TO_EXCLUDED_CASE_AND_REASON = {
     (json_schema_test_draft, 'enum.json'): {
         'heterogeneous enum validation': ExclusionReason.swagger_parser_enum_type_bug,
         'heterogeneous enum-with-null validation': ExclusionReason.swagger_parser_enum_type_bug,
-    },
-    (json_schema_test_draft, 'exclusiveMaximum.json'): {
-        "exclusiveMaximum validation": ExclusionReason.swagger_parser_validation_missing_bug,
-    },
-    (json_schema_test_draft, 'exclusiveMinimum.json'): {
-        "exclusiveMinimum validation": ExclusionReason.swagger_parser_validation_missing_bug,
     },
     (json_schema_test_draft, 'if-then-else.json'): {
         "if with boolean schema true": ExclusionReason.bug_does_not_support_boolean_schemas_in_location,

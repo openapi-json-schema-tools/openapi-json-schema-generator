@@ -1,1 +1,1 @@
-{{#if exclusiveMinimum}}exclusive_minimum{{/if}}inclusive_minimum{{#unless exclusiveMinimum}}{{/unless}}: typing.Union[int, float] = {{minimum}}
+{{#if exclusiveMinimum}}exclusive_minimum{{else}}inclusive_minimum{{/if}}: typing.Union[int, float] = {{minimum}}

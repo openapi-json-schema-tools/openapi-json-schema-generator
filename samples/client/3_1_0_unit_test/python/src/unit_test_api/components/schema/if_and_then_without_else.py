@@ -10,7 +10,15 @@
 from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
-_If: typing_extensions.TypeAlias = schemas.AnyTypeSchema
+
+
+@dataclasses.dataclass(frozen=True)
+class _If(
+    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+):
+    # any type
+    exclusive_maximum: typing.Union[int, float] = 0
+
 
 
 @dataclasses.dataclass(frozen=True)
