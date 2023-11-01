@@ -98,10 +98,10 @@ class SchemaValidator:
                 'ensure_discriminator_value_present_exc': ensure_discriminator_value_present_exc
             }
 {{/if}}
-        contains_qty = 0
+        contains_path_to_schemas = []
         path_to_schemas: PathToSchemasType = {}
         if 'contains' in vars(cls_schema):
-            contains_qty = _get_contains_qty(
+            contains_path_to_schemas = _get_contains_path_to_schemas(
                 arg,
                 vars(cls_schema)['contains'],
                 validation_metadata,
@@ -128,7 +128,7 @@ class SchemaValidator:
         for keyword, val in json_schema_data.items():
             used_val: typing.Any
             if keyword in {'contains', 'min_contains', 'max_contains'}:
-                used_val = (val, contains_qty)
+                used_val = (val, contains_path_to_schemas)
             elif keyword == 'items':
                 used_val = (val, prefix_items_length)
             elif keyword in {'unevaluated_items', 'unevaluated_properties'}:
@@ -1266,42 +1266,39 @@ def validate_else(
         raise ex
 
 
-def _get_contains_qty(
+def _get_contains_path_to_schemas(
     arg: typing.Any,
     contains_cls: typing.Type[SchemaValidator],
     validation_metadata: ValidationMetadata,
     path_to_schemas: PathToSchemasType
-) -> int:
+) -> typing.List[PathToSchemasType]:
     if not isinstance(arg, tuple):
-        return 0
+        return []
     contains_cls = _get_class(contains_cls)
-    these_path_to_schemas: PathToSchemasType = {}
-    contains_qty = 0
+    contains_path_to_schemas = []
     for i, value in enumerate(arg):
+        these_path_to_schemas: PathToSchemasType = {}
         item_validation_metadata = ValidationMetadata(
             path_to_item=validation_metadata.path_to_item+(i,),
             configuration=validation_metadata.configuration,
             validated_path_to_schemas=validation_metadata.validated_path_to_schemas
         )
         if item_validation_metadata.validation_ran_earlier(contains_cls):
-            add_deeper_validated_schemas(item_validation_metadata, path_to_schemas)
-            contains_qty += 1
+            add_deeper_validated_schemas(item_validation_metadata, these_path_to_schemas)
+            contains_path_to_schemas.append(these_path_to_schemas)
             continue
         try:
             other_path_to_schemas = contains_cls._validate(
                 value, validation_metadata=item_validation_metadata)
-            update(these_path_to_schemas, other_path_to_schemas)
-            contains_qty += 1
+            contains_path_to_schemas.append(other_path_to_schemas)
         except exceptions.OpenApiException:
             pass
-    if contains_qty:
-        update(path_to_schemas, these_path_to_schemas)
-    return contains_qty
+    return contains_path_to_schemas
 
 
 def validate_contains(
     arg: typing.Any,
-    contains_qty: typing.Tuple[typing.Type[SchemaValidator], int],
+    contains_cls_path_to_schemas: typing.Tuple[typing.Type[SchemaValidator], typing.List[PathToSchemasType]],
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
@@ -1310,17 +1307,21 @@ def validate_contains(
 ) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, tuple):
         return None
-    if not contains_qty[1]:
+    many_path_to_schemas = contains_cls_path_to_schemas[1]
+    if not many_path_to_schemas:
         raise exceptions.ApiValueError(
             "Validation failed for contains keyword in class={} at path_to_item={}. No "
             "items validated to the contains schema.".format(cls, validation_metadata.path_to_item)
         )
-    return None
+    these_path_to_schemas: PathToSchemasType = {}
+    for other_path_to_schema in many_path_to_schemas:
+        update(these_path_to_schemas, other_path_to_schema)
+    return these_path_to_schemas
 
 
 def validate_min_contains(
     arg: typing.Any,
-    min_contains_and_qty: typing.Tuple[int, int],
+    min_contains_and_contains_path_to_schemas: typing.Tuple[int, typing.List[PathToSchemasType]],
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
@@ -1329,9 +1330,9 @@ def validate_min_contains(
 ) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, tuple):
         return None
-    min_contains = min_contains_and_qty[0]
-    contains_qty = min_contains_and_qty[1]
-    if not contains_qty or contains_qty < min_contains:
+    min_contains = min_contains_and_contains_path_to_schemas[0]
+    contains_path_to_schemas = min_contains_and_contains_path_to_schemas[1]
+    if len(contains_path_to_schemas) < min_contains:
         raise exceptions.ApiValueError(
             "Validation failed for minContains keyword in class={} at path_to_item={}. No "
             "items validated to the contains schema.".format(cls, validation_metadata.path_to_item)
@@ -1341,7 +1342,7 @@ def validate_min_contains(
 
 def validate_max_contains(
     arg: typing.Any,
-    max_contains_and_qty: typing.Tuple[int, int],
+    max_contains_and_contains_path_to_schemas: typing.Tuple[int, typing.List[PathToSchemasType]],
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
 {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
@@ -1350,9 +1351,9 @@ def validate_max_contains(
 ) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, tuple):
         return None
-    max_contains = max_contains_and_qty[0]
-    contains_qty = max_contains_and_qty[1]
-    if not contains_qty or contains_qty > max_contains:
+    max_contains = max_contains_and_contains_path_to_schemas[0]
+    contains_path_to_schemas = max_contains_and_contains_path_to_schemas[1]
+    if len(contains_path_to_schemas) > max_contains:
         raise exceptions.ApiValueError(
             "Validation failed for maxContains keyword in class={} at path_to_item={}. Too "
             "many items validated to the contains schema.".format(cls, validation_metadata.path_to_item)
