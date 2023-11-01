@@ -8,7 +8,7 @@ This project is a code generator that focuses on supporting all openapi and json
 
 ## Overview
 OpenAPI JSON Schema Generator allows auto-generation of API client libraries (SDK generation) given an
-[OpenAPI Document](https://github.com/OAI/OpenAPI-Specification) (3.0.0-[3.1.0*](#openapi-v310-support) are supported).
+[OpenAPI document](https://github.com/OAI/OpenAPI-Specification) (3.0.0-[3.1.0*](#openapi-v310-support) are supported).
 This project focuses on making the output 100% compliant with openapi + JSON schema specs.
 The goal is to fully support everything defined in openapi + the included JSON schema specs
 so developers can use all of those features.
