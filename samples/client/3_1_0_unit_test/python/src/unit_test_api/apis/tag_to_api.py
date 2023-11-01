@@ -14,6 +14,7 @@ from unit_test_api.apis.tags.max_length_api import MaxLengthApi
 from unit_test_api.apis.tags._not_api import _NotApi
 from unit_test_api.apis.tags.unevaluated_items_api import UnevaluatedItemsApi
 from unit_test_api.apis.tags.path_post_api import PathPostApi
+from unit_test_api.apis.tags.exclusive_minimum_api import ExclusiveMinimumApi
 from unit_test_api.apis.tags.if_then_else_api import IfThenElseApi
 from unit_test_api.apis.tags.min_properties_api import MinPropertiesApi
 from unit_test_api.apis.tags.property_names_api import PropertyNamesApi
@@ -25,6 +26,7 @@ from unit_test_api.apis.tags.min_contains_api import MinContainsApi
 from unit_test_api.apis.tags.max_contains_api import MaxContainsApi
 from unit_test_api.apis.tags.ref_api import RefApi
 from unit_test_api.apis.tags.all_of_api import AllOfApi
+from unit_test_api.apis.tags.exclusive_maximum_api import ExclusiveMaximumApi
 from unit_test_api.apis.tags.minimum_api import MinimumApi
 from unit_test_api.apis.tags.any_of_api import AnyOfApi
 from unit_test_api.apis.tags.multiple_of_api import MultipleOfApi
@@ -57,6 +59,7 @@ TagToApi = typing.TypedDict(
         "not": typing.Type[_NotApi],
         "unevaluatedItems": typing.Type[UnevaluatedItemsApi],
         "path.post": typing.Type[PathPostApi],
+        "exclusiveMinimum": typing.Type[ExclusiveMinimumApi],
         "if-then-else": typing.Type[IfThenElseApi],
         "minProperties": typing.Type[MinPropertiesApi],
         "propertyNames": typing.Type[PropertyNamesApi],
@@ -68,6 +71,7 @@ TagToApi = typing.TypedDict(
         "maxContains": typing.Type[MaxContainsApi],
         "$ref": typing.Type[RefApi],
         "allOf": typing.Type[AllOfApi],
+        "exclusiveMaximum": typing.Type[ExclusiveMaximumApi],
         "minimum": typing.Type[MinimumApi],
         "anyOf": typing.Type[AnyOfApi],
         "multipleOf": typing.Type[MultipleOfApi],
@@ -101,6 +105,7 @@ tag_to_api = TagToApi(
         "not": _NotApi,
         "unevaluatedItems": UnevaluatedItemsApi,
         "path.post": PathPostApi,
+        "exclusiveMinimum": ExclusiveMinimumApi,
         "if-then-else": IfThenElseApi,
         "minProperties": MinPropertiesApi,
         "propertyNames": PropertyNamesApi,
@@ -112,6 +117,7 @@ tag_to_api = TagToApi(
         "maxContains": MaxContainsApi,
         "$ref": RefApi,
         "allOf": AllOfApi,
+        "exclusiveMaximum": ExclusiveMaximumApi,
         "minimum": MinimumApi,
         "anyOf": AnyOfApi,
         "multipleOf": MultipleOfApi,

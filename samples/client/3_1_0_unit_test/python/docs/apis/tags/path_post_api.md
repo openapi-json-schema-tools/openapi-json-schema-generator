@@ -91,6 +91,10 @@ Method | Description
 [**post_enum_with_true_does_not_match1_response_body_for_content_types**](../../paths/response_body_post_enum_with_true_does_not_match1_response_body_for_content_types/post.md) | 
 [**post_enums_in_properties_request_body**](../../paths/request_body_post_enums_in_properties_request_body/post.md) | 
 [**post_enums_in_properties_response_body_for_content_types**](../../paths/response_body_post_enums_in_properties_response_body_for_content_types/post.md) | 
+[**post_exclusivemaximum_validation_request_body**](../../paths/request_body_post_exclusivemaximum_validation_request_body/post.md) | 
+[**post_exclusivemaximum_validation_response_body_for_content_types**](../../paths/response_body_post_exclusivemaximum_validation_response_body_for_content_types/post.md) | 
+[**post_exclusiveminimum_validation_request_body**](../../paths/request_body_post_exclusiveminimum_validation_request_body/post.md) | 
+[**post_exclusiveminimum_validation_response_body_for_content_types**](../../paths/response_body_post_exclusiveminimum_validation_response_body_for_content_types/post.md) | 
 [**post_float_division_inf_request_body**](../../paths/request_body_post_float_division_inf_request_body/post.md) | 
 [**post_float_division_inf_response_body_for_content_types**](../../paths/response_body_post_float_division_inf_response_body_for_content_types/post.md) | 
 [**post_forbidden_property_request_body**](../../paths/request_body_post_forbidden_property_request_body/post.md) | 

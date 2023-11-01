@@ -50,6 +50,8 @@ Method | Description
 [**post_enum_with_false_does_not_match0_response_body_for_content_types**](../../paths/response_body_post_enum_with_false_does_not_match0_response_body_for_content_types/post.md) | 
 [**post_enum_with_true_does_not_match1_response_body_for_content_types**](../../paths/response_body_post_enum_with_true_does_not_match1_response_body_for_content_types/post.md) | 
 [**post_enums_in_properties_response_body_for_content_types**](../../paths/response_body_post_enums_in_properties_response_body_for_content_types/post.md) | 
+[**post_exclusivemaximum_validation_response_body_for_content_types**](../../paths/response_body_post_exclusivemaximum_validation_response_body_for_content_types/post.md) | 
+[**post_exclusiveminimum_validation_response_body_for_content_types**](../../paths/response_body_post_exclusiveminimum_validation_response_body_for_content_types/post.md) | 
 [**post_float_division_inf_response_body_for_content_types**](../../paths/response_body_post_float_division_inf_response_body_for_content_types/post.md) | 
 [**post_forbidden_property_response_body_for_content_types**](../../paths/response_body_post_forbidden_property_response_body_for_content_types/post.md) | 
 [**post_hostname_format_response_body_for_content_types**](../../paths/response_body_post_hostname_format_response_body_for_content_types/post.md) | 

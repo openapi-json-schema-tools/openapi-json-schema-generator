@@ -22,6 +22,7 @@ PYTHON_KEYWORD_TO_JSON_SCHEMA_KEYWORD = {
     'dependent_schemas': 'dependentSchemas',
     'discriminator': 'discriminator',
     # default omitted because it has no validation impact
+    'else_': 'else',
     'enum_value_to_name': 'enum',
     'exclusive_maximum': 'exclusiveMaximum',
     'exclusive_minimum': 'exclusiveMinimum',
