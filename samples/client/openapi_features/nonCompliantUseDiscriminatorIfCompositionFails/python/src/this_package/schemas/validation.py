@@ -1232,9 +1232,9 @@ def validate_contains(
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
     **kwargs
-) -> typing.List[PathToSchemasType]:
+) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, tuple):
-        return []
+        return None
     many_path_to_schemas = contains_cls_path_to_schemas[1]
     if not many_path_to_schemas:
         raise exceptions.ApiValueError(

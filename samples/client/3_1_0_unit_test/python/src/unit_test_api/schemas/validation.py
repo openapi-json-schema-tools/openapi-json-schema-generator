@@ -1151,9 +1151,9 @@ def validate_contains(
     contains_cls_path_to_schemas: typing.Tuple[typing.Type[SchemaValidator], typing.List[PathToSchemasType]],
     cls: typing.Type,
     validation_metadata: ValidationMetadata,
-) -> typing.List[PathToSchemasType]:
+) -> typing.Optional[PathToSchemasType]:
     if not isinstance(arg, tuple):
-        return []
+        return None
     many_path_to_schemas = contains_cls_path_to_schemas[1]
     if not many_path_to_schemas:
         raise exceptions.ApiValueError(
