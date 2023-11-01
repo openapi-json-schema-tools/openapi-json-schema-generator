@@ -102,23 +102,23 @@ The OpenAPI Specification has undergone 3 revisions since initial creation in 20
 
 #### OpenAPI v3.1.0 support
 OpenAPI v3.1.0 specification support includes these new/updated 2020-12 json schema keywords:
-1. type (array of types supported in addition to one non-array value)
-2. const: only string values are working because of bugs in swagger parser
-3. contains
-4. dependentRequired
-5. dependentSchemas
-6. else
-9. if
-10. maxContains
-11. minContains
-12. patternProperties
-13. prefixItems
-14. propertyNames
-15. then
-16. unevaluatedItems
-17. unevaluatedProperties
+1. const: only string values are working because of bugs in swagger parser
+2. contains
+3. dependentRequired
+4. dependentSchemas
+5. else
+6. if
+7. maxContains
+8. minContains
+9. patternProperties
+10. prefixItems
+11. propertyNames
+12. then
+13. type (array of types supported in addition to one non-array value)
+14. unevaluatedItems
+15. unevaluatedProperties
 
-Note: these features can also be seen in the generator documentation [schema features](docs/generators/python.md##schema-feature)
+Note: these features can also be seen in the generator documentation [schema features](docs/generators/python.md#schema-feature)
 
 ### Build Projects
 
