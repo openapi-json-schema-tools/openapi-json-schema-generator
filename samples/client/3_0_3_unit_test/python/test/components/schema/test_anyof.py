@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestAnyof(unittest.TestCase):
     """Anyof unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_second_anyof_valid_passes(self):
         # second anyOf valid

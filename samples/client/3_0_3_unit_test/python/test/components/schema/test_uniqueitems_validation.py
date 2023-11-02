@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestUniqueitemsValidation(unittest.TestCase):
     """UniqueitemsValidation unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_unique_array_of_objects_is_valid_passes(self):
         # unique array of objects is valid

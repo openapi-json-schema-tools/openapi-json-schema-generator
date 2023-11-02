@@ -349,34 +349,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
     }
 
-    private void generateSchemaTests(List<File> files, Map<String, Object> modelData, String modelName) throws IOException {
-        // to generate model test files
-        for (Map.Entry<String, String> configModelTestTemplateFilesEntry : generator.modelTestTemplateFiles().entrySet()) {
-            String templateName = configModelTestTemplateFilesEntry.getKey();
-            String suffix = configModelTestTemplateFilesEntry.getValue();
-            String filename = generator.modelTestFileFolder() + File.separator + generator.toModelTestFilename(modelName) + suffix;
-
-            if (generateModelTests) {
-                // do not overwrite test file that already exists (regardless of config's skipOverwrite setting)
-                File modelTestFile = new File(filename);
-                if (modelTestFile.exists()) {
-                    this.templateProcessor.skip(modelTestFile.toPath(), "Test files never overwrite an existing file of the same name.");
-                } else {
-                    File written = processTemplateToFile(modelData, templateName, filename, generateModelTests, CodegenConstants.MODEL_TESTS, generator.modelTestFileFolder());
-                    if (written != null) {
-                        files.add(written);
-                        if (generator.isEnablePostProcessFile() && !dryRun) {
-                            generator.postProcessFile(written, "model-test");
-                        }
-                    }
-                }
-            } else if (dryRun) {
-                Path skippedPath = java.nio.file.Paths.get(filename);
-                this.templateProcessor.skip(skippedPath, "Skipped by modelTests option supplied by user.");
-            }
-        }
-    }
-
     private void generateSchemaDocumentation(List<File> files, CodegenSchema schema, String jsonPath, String docRoot) {
         Map<String, Object> schemaData = new HashMap<>();
         schemaData.put("packageName", generator.packageName());
@@ -468,8 +440,8 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
 
         if (pathItem.operations != null) {
-            String testInitFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathKey.snakeCase, "__init__.py"));
-            generateFile(new HashMap<>(), "__init__.hbs", testInitFilename, files, true, CodegenConstants.API_TESTS);
+            // tests/test_paths/test_some_path/__init__.py
+            generateXTests(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PATH, CodegenConstants.API_TESTS, new HashMap<>(), true);
 
             for (Map.Entry<CodegenKey, CodegenOperation> entry: pathItem.operations.entrySet()) {
                 CodegenKey httpMethod = entry.getKey();
@@ -557,21 +529,12 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     }
                 }
 
-                Set<String> endpointTestTemplateFiles = generator.pathEndpointTestTemplateFiles();
-                if (endpointTestTemplateFiles != null && !endpointTestTemplateFiles.isEmpty()) {
-                    String outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "__init__.py"));
-                    generateFile(new HashMap<>(), "__init__test_paths.hbs", outputFilename, files, true, CodegenConstants.API_TESTS);
-
-                    for (String templateFile: generator.pathEndpointTestTemplateFiles()) {
-                        Map<String, Object> endpointTestMap = new HashMap<>();
-                        endpointTestMap.put("operation", operation);
-                        endpointTestMap.put("httpMethod", httpMethod);
-                        endpointTestMap.put("path", pathKey);
-                        endpointTestMap.put("packageName", generator.packageName());
-                        outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathKey.snakeCase, "test_" + httpMethod.original + ".py"));
-                        generateFile(endpointTestMap, templateFile, outputFilename, files, true, CodegenConstants.API_TESTS);
-                    }
-                }
+                Map<String, Object> endpointTestMap = new HashMap<>();
+                endpointTestMap.put("operation", operation);
+                endpointTestMap.put("httpMethod", httpMethod);
+                endpointTestMap.put("path", pathKey);
+                // tests/test_paths/test_some_path/test_post.py
+                generateXTests(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.API_TESTS, endpointTestMap, true);
             }
         }
     }
@@ -588,6 +551,12 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
 
         String pathsJsonPath = "#/paths";
         generateXs(files, pathsJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS, CodegenConstants.APIS, null, true);
+
+        // tests/test_paths/__init__.py
+        generateXTests(files, pathsJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS, CodegenConstants.API_TESTS, new HashMap<>(), true);
+
+        // tests/__init__.py
+        generateXTests(files, "#", CodegenConstants.JSON_PATH_LOCATION_TYPE.TEST_ROOT, CodegenConstants.APIS, null, true);
 
         for (Map.Entry<CodegenKey, CodegenPathItem> entry: paths.entrySet()) {
             CodegenKey pathKey = entry.getKey();
@@ -928,6 +897,41 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
     }
 
+    private void generateXTests(List<File> files, String jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE type, String skippedByOption, Map<String, Object> templateInfo, boolean shouldGenerate) {
+        Map<String, String> templateFileToOutputFile = generator.jsonPathTestTemplateFiles().get(type);
+        if (templateFileToOutputFile == null || templateFileToOutputFile.isEmpty()) {
+            return;
+        }
+        for (Map.Entry<String, String> entry : templateFileToOutputFile.entrySet()) {
+            String templateFile = entry.getKey();
+            String suffix = entry.getValue();
+            String filename = generator.getTestFilepath(jsonPath) + suffix;
+
+            HashMap<String, Object> templateData = new HashMap<>();
+            templateData.put("packageName", generator.packageName());
+            templateData.put("modelPackage", generator.modelPackage());
+            if (templateInfo != null && !templateInfo.isEmpty()) {
+                templateData.putAll(templateInfo);
+            }
+            try {
+                File testFile = new File(filename);
+                if (testFile.exists()) {
+                    this.templateProcessor.skip(testFile.toPath(), "Test files never overwrite an existing file of the same name.");
+                } else {
+                    File written = processTemplateToFile(templateData, templateFile, filename, shouldGenerate, skippedByOption);
+                    if (written != null) {
+                        files.add(written);
+                        if (generator.isEnablePostProcessFile() && !dryRun) {
+                            generator.postProcessFile(written, skippedByOption);
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Could not generate file '" + filename + "'", e);
+            }
+        }
+    }
+
     private void generateXs(List<File> files, String jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE type, String skippedByOption, Map<String, Object> templateInfo, boolean shouldGenerate) {
         Map<String, String> templateFileToOutputFile = generator.jsonPathTemplateFiles().get(type);
         if (templateFileToOutputFile == null || templateFileToOutputFile.isEmpty()) {
@@ -1042,8 +1046,10 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             }
         }
 
+        generateXTests(files, "#/components", CodegenConstants.JSON_PATH_LOCATION_TYPE.COMPONENTS, CodegenConstants.MODELS, null, true);
         String schemasJsonPath = "#/components/schemas";
         generateXs(files, schemasJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS, CodegenConstants.MODELS, null, true);
+        generateXTests(files, schemasJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS, CodegenConstants.MODELS, null, true);
         // generate files based on processed models
         for (Map.Entry<String, CodegenSchema> entry: schemas.entrySet()) {
             String componentName = entry.getKey();
@@ -1059,7 +1065,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 schemaData.put("schema", schema);
                 schemaData.putAll(generator.additionalProperties());
                 if (generateModelTests) {
-                    generateSchemaTests(files, schemaData, componentName);
+                    generateXTests(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA, CodegenConstants.MODELS, schemaData, true);
                 }
 
                 // to generate model documentation files
@@ -1634,10 +1640,12 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                                 schemaDocTemplateToSuffix.put(templateFile, templateExt);
                                 break;
                             case APITests:
-                                generator.apiTestTemplateFiles().put(templateFile, templateExt);
+                                Map<String, String> apiTestTemplateToSuffix = generator.jsonPathTestTemplateFiles().getOrDefault(CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, new HashMap<>());
+                                apiTestTemplateToSuffix.put(templateFile, templateExt);
                                 break;
                             case ModelTests:
-                                generator.modelTestTemplateFiles().put(templateFile, templateExt);
+                                Map<String, String> modelTestTemplateToSuffix = generator.jsonPathTestTemplateFiles().getOrDefault(CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA, new HashMap<>());
+                                modelTestTemplateToSuffix.put(templateFile, templateExt);
                                 break;
                             case SupportingFiles:
                                 // excluded by filter

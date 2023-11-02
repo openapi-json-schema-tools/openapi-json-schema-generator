@@ -91,16 +91,4 @@ test-requirements.txt
 test/__init__.py
 test/components/__init__.py
 test/components/schema/__init__.py
-test/test_paths/__init__.py
-test/test_paths/__init__.py
-test/test_paths/__init__.py
-test/test_paths/__init__.py
-test/test_paths/test_path_with_no_explicit_security/__init__.py
-test/test_paths/test_path_with_no_explicit_security/test_get.py
-test/test_paths/test_path_with_one_explicit_security/__init__.py
-test/test_paths/test_path_with_one_explicit_security/test_get.py
-test/test_paths/test_path_with_security_from_root/__init__.py
-test/test_paths/test_path_with_security_from_root/test_get.py
-test/test_paths/test_path_with_two_explicit_security/__init__.py
-test/test_paths/test_path_with_two_explicit_security/test_get.py
 tox.ini

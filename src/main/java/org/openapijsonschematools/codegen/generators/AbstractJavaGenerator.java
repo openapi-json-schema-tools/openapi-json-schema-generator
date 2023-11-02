@@ -668,21 +668,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     }
 
     @Override
-    public String toApiDocFilename(String name) {
-        return toApiName(name);
-    }
-
-    @Override
-    public String toApiTestFilename(String name) {
-        return toApiName(name) + "Test";
-    }
-
-    @Override
-    public String toModelTestFilename(String name) {
-        return toModelName(name, null) + "Test";
-    }
-
-    @Override
     public String toApiFilename(String name) {
         return toApiName(name);
     }

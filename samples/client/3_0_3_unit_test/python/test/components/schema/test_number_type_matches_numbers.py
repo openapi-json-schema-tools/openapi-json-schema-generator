@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestNumberTypeMatchesNumbers(unittest.TestCase):
     """NumberTypeMatchesNumbers unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_an_array_is_not_a_number_fails(self):
         # an array is not a number

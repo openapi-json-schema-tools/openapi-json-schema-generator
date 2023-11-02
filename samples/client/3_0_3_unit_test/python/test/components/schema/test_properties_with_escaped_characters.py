@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestPropertiesWithEscapedCharacters(unittest.TestCase):
     """PropertiesWithEscapedCharacters unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_object_with_all_numbers_is_valid_passes(self):
         # object with all numbers is valid

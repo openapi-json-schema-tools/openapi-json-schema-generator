@@ -58,7 +58,7 @@ public class JavaJerseyServerGenerator extends AbstractJavaJAXRSServerGenerator 
         HashMap<String, String> temp = (HashMap<String, String>) jsonPathDocTemplateFiles.get(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG
         );
-        temp.remove("api_doc.mustache");
+//        temp.remove("api_doc.mustache");
         embeddedTemplateDir = templateDir = JAXRS_TEMPLATE_DIRECTORY_NAME;
 
         CliOption library = new CliOption(CodegenConstants.LIBRARY, CodegenConstants.LIBRARY_DESC).defaultValue(DEFAULT_JERSEY_LIBRARY);

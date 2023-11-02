@@ -364,7 +364,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         dict_instance["someProp"] is of type SomeClass.properties.someProp
         See https://youtrack.jetbrains.com/issue/PY-42137/PyCharm-type-hinting-doesnt-work-well-with-overload-decorator
          */
-        pathEndpointTestTemplateFiles.add("paths/path/verb/operation_test.hbs");
         modelTestTemplateFiles.put("components/schemas/schema_test.hbs", ".py");
 
         jsonPathDocTemplateFiles.put(
@@ -569,6 +568,54 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
                 new HashMap<String, String>() {{
                     put("paths/path/__init__path.hbs", File.separatorChar + "__init__.py");
                 }}
+        );
+        jsonPathTestTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS,
+                new HashMap<String, String>() {{
+                    put("paths/__init__test.hbs", File.separatorChar + "__init__.py");
+                }}
+        );
+        jsonPathTestTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.PATH,
+                new HashMap<String, String>() {{
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                }}
+
+        );
+        jsonPathTestTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.TEST_ROOT,
+                new HashMap<String, String>() {{
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                }}
+
+        );
+        jsonPathTestTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION,
+                new HashMap<String, String>() {{
+                    put("paths/path/verb/operation_test.hbs", ".py");
+                }}
+
+        );
+        jsonPathTestTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.COMPONENTS,
+                new HashMap<String, String>() {{
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                }}
+
+        );
+        jsonPathTestTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS,
+                new HashMap<String, String>() {{
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                }}
+
+        );
+        jsonPathTestTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
+                new HashMap<String, String>() {{
+                    put("components/schemas/schema_test.hbs", ".py");
+                }}
+
         );
         HashMap<String, String> operationTemplates = new HashMap<>();
         operationTemplates.put("__init__.hbs", File.separatorChar + "__init__.py");
@@ -1767,11 +1814,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
     @Override
     public String apiDocFileFolder() {
         return (outputFolder + File.separator + apiDocPath);
-    }
-
-    @Override
-    public String toApiDocFilename(String name) {
-        return toApiName(name);
     }
 
     @Override

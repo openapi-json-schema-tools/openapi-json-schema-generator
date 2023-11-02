@@ -180,11 +180,7 @@ public interface Generator {
 
     HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathDocTemplateFiles();
 
-    Set<String> pathEndpointTestTemplateFiles();
-
-    Map<String, String> apiTestTemplateFiles();
-
-    Map<String, String> modelTestTemplateFiles();
+    HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTestTemplateFiles();
 
     Set<String> languageSpecificPrimitives();
 
@@ -203,12 +199,6 @@ public interface Generator {
     String toModelFilename(String name, String jsonPath);
 
     String toModuleFilename(String name, String jsonPath);
-
-    String toApiTestFilename(String name);
-
-    String toModelTestFilename(String name);
-
-    String toApiDocFilename(String name);
 
     String toRequestBodyFilename(String componentName);
 
@@ -251,7 +241,7 @@ public interface Generator {
 
     String getDocsFilepath(String jsonPath);
 
-    String apiTestFilename(String templateName, String tag);
+    String getTestFilepath(String jsonPath);
 
     boolean isSkipOverwrite();
 

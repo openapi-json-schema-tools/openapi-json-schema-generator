@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestBySmallNumber(unittest.TestCase):
     """BySmallNumber unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_000751_is_not_multiple_of00001_fails(self):
         # 0.00751 is not multiple of 0.0001

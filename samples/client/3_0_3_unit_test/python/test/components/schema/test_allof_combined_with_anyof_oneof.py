@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestAllofCombinedWithAnyofOneof(unittest.TestCase):
     """AllofCombinedWithAnyofOneof unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_allof_true_anyof_false_oneof_false_fails(self):
         # allOf: true, anyOf: false, oneOf: false

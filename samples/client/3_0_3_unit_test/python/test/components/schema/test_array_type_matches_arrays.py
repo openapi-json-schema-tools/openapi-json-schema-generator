@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestArrayTypeMatchesArrays(unittest.TestCase):
     """ArrayTypeMatchesArrays unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_a_float_is_not_an_array_fails(self):
         # a float is not an array

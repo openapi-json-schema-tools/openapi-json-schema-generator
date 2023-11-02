@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestIntegerTypeMatchesIntegers(unittest.TestCase):
     """IntegerTypeMatchesIntegers unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_an_object_is_not_an_integer_fails(self):
         # an object is not an integer
