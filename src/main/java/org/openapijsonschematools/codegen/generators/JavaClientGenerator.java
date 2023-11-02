@@ -134,6 +134,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     public JavaClientGenerator() {
         super();
 
+        packageName = "org.openapijsonschematools";
+
         // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
@@ -237,10 +239,16 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         return "Generates a Java client library (HTTP lib: Jersey (1.x, 2.x), Retrofit (2.x), OpenFeign (10.x) and more.";
     }
 
+    public String packagePath() {
+        return "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar + packageName.replace('.', File.separatorChar);
+    }
+
     @Override
     public void processOpts() {
         HashMap<String, String> schemaDocs = new HashMap<>();
-        schemaDocs.put("model_doc.mustache", ".md");
+        additionalProperties.put(CodegenConstants.PACKAGE_NAME, packageName);
+        supportingFiles.add(new SupportingFile("src/main/java/org/openapitools/schemas/CustomIsoparser.hbs", packagePath() + File.separatorChar + "schemas", "CustomIsoparser.java"));
+
 //        jsonPathDocTemplateFiles.put(
 //                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
 //                schemaDocs

@@ -1,3 +1,3 @@
-.openapi-generator-ignore
 README.md
 pom.xml
+src/main/java/org/openapijsonschematools/schemas/CustomIsoparser.java
