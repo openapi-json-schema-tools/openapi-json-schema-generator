@@ -469,11 +469,6 @@ public abstract class AbstractPythonGenerator extends DefaultGenerator implement
     }
 
     @Override
-    public String toApiTestFilename(String name) {
-        return "test_" + toApiFilename(name);
-    }
-
-    @Override
     public String toApiName(String name) {
         return super.toApiName(name);
     }

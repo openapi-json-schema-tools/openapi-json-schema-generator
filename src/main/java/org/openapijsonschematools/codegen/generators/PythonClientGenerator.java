@@ -583,6 +583,13 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
 
         );
         jsonPathTestTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.TEST_ROOT,
+                new HashMap<String, String>() {{
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                }}
+
+        );
+        jsonPathTestTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION,
                 new HashMap<String, String>() {{
                     put("paths/path/verb/operation_test.hbs", ".py");

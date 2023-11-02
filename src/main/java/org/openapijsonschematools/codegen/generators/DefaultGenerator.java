@@ -852,7 +852,7 @@ public class DefaultGenerator implements Generator {
 
     @Override
     public HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTestTemplateFiles() {
-        return jsonPathDocTemplateFiles;
+        return jsonPathTestTemplateFiles;
     }
 
     public String toResponseModuleName(String componentName, String jsonPath) { return toModuleFilename(componentName, jsonPath); }
@@ -1046,7 +1046,7 @@ public class DefaultGenerator implements Generator {
     public String toApiDocFilename(String name) {
         return toApiName(name);
     }
-    
+
 
     /**
      * Return the variable name in the Api
@@ -3968,6 +3968,11 @@ public class DefaultGenerator implements Generator {
             updateComponentsFilepath(pathPieces);
         } else if (jsonPath.startsWith("#/paths")) {
             updatePathsFilepath(pathPieces);
+            // #/paths/somePath/get
+            if (pathPieces.length == 4) {
+                int lastIndex = pathPieces.length - 1;
+                pathPieces[lastIndex] = "test_" + pathPieces[lastIndex];
+            }
         }
         List<String> finalPathPieces = Arrays.stream(pathPieces)
                 .filter(Objects::nonNull)

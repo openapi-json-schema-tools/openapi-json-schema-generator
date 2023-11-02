@@ -557,18 +557,12 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     }
                 }
 
-                HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTestTemplateFiles = generator.jsonPathTestTemplateFiles();
-                if (jsonPathTestTemplateFiles.containsKey(CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS)) {
-                    // tests/test_paths/__init__.py
-                    generateXTests(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS, CodegenConstants.API_TESTS, new HashMap<>(), true);
-
-                    Map<String, Object> endpointTestMap = new HashMap<>();
-                    endpointTestMap.put("operation", operation);
-                    endpointTestMap.put("httpMethod", httpMethod);
-                    endpointTestMap.put("path", pathKey);
-                    // tests/test_paths/test_some_path/test_post.py
-                    generateXTests(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.API_TESTS, endpointTestMap, true);
-                }
+                Map<String, Object> endpointTestMap = new HashMap<>();
+                endpointTestMap.put("operation", operation);
+                endpointTestMap.put("httpMethod", httpMethod);
+                endpointTestMap.put("path", pathKey);
+                // tests/test_paths/test_some_path/test_post.py
+                generateXTests(files, operationJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.API_TESTS, endpointTestMap, true);
             }
         }
     }
@@ -585,6 +579,12 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
 
         String pathsJsonPath = "#/paths";
         generateXs(files, pathsJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS, CodegenConstants.APIS, null, true);
+
+        // tests/test_paths/__init__.py
+        generateXTests(files, pathsJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS, CodegenConstants.API_TESTS, new HashMap<>(), true);
+
+        // tests/__init__.py
+        generateXTests(files, "#", CodegenConstants.JSON_PATH_LOCATION_TYPE.TEST_ROOT, CodegenConstants.APIS, null, true);
 
         for (Map.Entry<CodegenKey, CodegenPathItem> entry: paths.entrySet()) {
             CodegenKey pathKey = entry.getKey();
