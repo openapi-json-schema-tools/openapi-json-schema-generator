@@ -140,7 +140,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         );
 
         outputFolder = "generated-code" + File.separator + "java";
-        embeddedTemplateDir = templateDir = "Java";
+        embeddedTemplateDir = templateDir = "java";
         invokerPackage = "org.openapijsonschematools.client";
         artifactId = "openapi-java-client";
         apiPackage = "org.openapijsonschematools.client.api";
@@ -908,5 +908,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         List<VendorExtension> extensions = super.getSupportedVendorExtensions();
         extensions.add(VendorExtension.X_WEBCLIENT_BLOCKING);
         return extensions;
+    }
+
+    @Override
+    public String defaultTemplatingEngine() {
+        return "handlebars";
     }
 }
