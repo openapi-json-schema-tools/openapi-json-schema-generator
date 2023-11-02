@@ -140,7 +140,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         );
 
         outputFolder = "generated-code" + File.separator + "java";
-        embeddedTemplateDir = templateDir = "Java";
+        embeddedTemplateDir = templateDir = "java";
         invokerPackage = "org.openapijsonschematools.client";
         artifactId = "openapi-java-client";
         apiPackage = "org.openapijsonschematools.client.api";
