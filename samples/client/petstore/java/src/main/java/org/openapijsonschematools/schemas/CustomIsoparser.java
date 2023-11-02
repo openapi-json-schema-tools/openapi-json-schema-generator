@@ -1,16 +1,16 @@
-import java.time.ZonedDateTime
-import java.time.LocalDate
+package org.openapijsonschematools.schemas;
 
-package org.org.openapijsonschematools.schemas;
+import java.time.ZonedDateTime;
+import java.time.LocalDate;
 
 public final class CustomIsoparser {
 
-    public ZonedDateTime parseIsodatetime(self, dateTime: String) {
-        return ZonedDateTime.parse(dateTime)
+    public ZonedDateTime parseIsodatetime(String dateTime) {
+        return ZonedDateTime.parse(dateTime);
     }
 
-    public LocalDate parseIsodate(self, date: String) {
-        return LocalDate.parse(dateTime)
+    public LocalDate parseIsodate(String date) {
+        return LocalDate.parse(date);
     }
 
 }
