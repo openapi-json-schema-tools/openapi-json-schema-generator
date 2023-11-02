@@ -234,6 +234,9 @@ public class DefaultGenerator implements Generator {
     protected HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTemplateFiles = new HashMap<>();
     // for writing doc files
     protected HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathDocTemplateFiles = new HashMap<>();
+    // for writing test files
+    protected HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTestTemplateFiles = new HashMap<>();
+
     protected Set<String> pathEndpointTestTemplateFiles = new HashSet<>();
     protected Map<String, String> apiTestTemplateFiles = new HashMap<>();
     protected Map<String, String> modelTestTemplateFiles = new HashMap<>();
@@ -833,11 +836,6 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public Map<String, String> apiTestTemplateFiles() {
-        return apiTestTemplateFiles;
-    }
-
-    @Override
     public Map<String, String> modelTestTemplateFiles() {
         return modelTestTemplateFiles;
     }
@@ -853,7 +851,9 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public Set<String> pathEndpointTestTemplateFiles() { return pathEndpointTestTemplateFiles; }
+    public HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTestTemplateFiles() {
+        return jsonPathDocTemplateFiles;
+    }
 
     public String toResponseModuleName(String componentName, String jsonPath) { return toModuleFilename(componentName, jsonPath); }
 
@@ -1046,17 +1046,7 @@ public class DefaultGenerator implements Generator {
     public String toApiDocFilename(String name) {
         return toApiName(name);
     }
-
-    /**
-     * Return the file name of the Api Test
-     *
-     * @param name the file name of the Api
-     * @return the file name of the Api
-     */
-    @Override
-    public String toApiTestFilename(String name) {
-        return toApiName(name) + "Test";
-    }
+    
 
     /**
      * Return the variable name in the Api
@@ -3971,6 +3961,22 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
+    public String getTestFilepath(String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        pathPieces[0] = outputFolder + File.separatorChar + "tests";
+        if (jsonPath.startsWith("#/components")) {
+            updateComponentsFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/paths")) {
+            updatePathsFilepath(pathPieces);
+        }
+        List<String> finalPathPieces = Arrays.stream(pathPieces)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        return String.join(File.separator, finalPathPieces);
+    }
+
+
+    @Override
     public String getDocsFilepath(String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         pathPieces[0] = outputFolder + File.separatorChar + docsFolder;
@@ -3988,19 +3994,6 @@ public class DefaultGenerator implements Generator {
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
         return String.join(File.separator, finalPathPieces);
-    }
-
-    /**
-     * Return the full path and API test file
-     *
-     * @param templateName template name
-     * @param tag          tag
-     * @return the API test file name with full path
-     */
-    @Override
-    public String apiTestFilename(String templateName, String tag) {
-        String suffix = apiTestTemplateFiles().get(templateName);
-        return apiTestFileFolder() + File.separator + toApiTestFilename(tag) + suffix;
     }
 
     @Override

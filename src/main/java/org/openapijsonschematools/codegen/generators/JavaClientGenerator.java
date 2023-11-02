@@ -18,6 +18,8 @@
 package org.openapijsonschematools.codegen.generators;
 
 import org.apache.commons.lang3.StringUtils;
+import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorMetadata;
+import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
@@ -134,6 +136,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     public JavaClientGenerator() {
         super();
 
+        generatorMetadata = GeneratorMetadata.newBuilder(generatorMetadata)
+                .stability(Stability.EXPERIMENTAL)
+                .build();
         // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
@@ -153,7 +158,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         updateOption(CodegenConstants.API_PACKAGE, apiPackage);
         updateOption(CodegenConstants.MODEL_PACKAGE, modelPackage);
 
-        modelTestTemplateFiles.put("model_test.mustache", ".java");
+//        modelTestTemplateFiles.put("model_test.mustache", ".java");
 
         cliOptions.add(CliOption.newBoolean(USE_RX_JAVA2, "Whether to use the RxJava2 adapter with the retrofit2 library. IMPORTANT: This option has been deprecated."));
         cliOptions.add(CliOption.newBoolean(USE_RX_JAVA3, "Whether to use the RxJava3 adapter with the retrofit2 library. IMPORTANT: This option has been deprecated."));
@@ -240,7 +245,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     @Override
     public void processOpts() {
         // add schema base class and validation tooling
-        supportingFiles.add(new SupportingFile("schemas/__init__.hbs", packagePath() + File.separator + "schemas", "__init__.py"));
+//        supportingFiles.add(new SupportingFile("schemas/__init__.hbs", packagePath() + File.separator + "schemas", "__init__.py"));
         supportingFiles.add(new SupportingFile("schemas/validation.hbs", packagePath() + File.separator + "schemas", "validation.py"));
         supportingFiles.add(new SupportingFile("schemas/schema.hbs", packagePath() + File.separator + "schemas", "schema.py"));
         supportingFiles.add(new SupportingFile("schemas/schemas.hbs", packagePath() + File.separator + "schemas", "schemas.py"));

@@ -468,8 +468,8 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
 
         if (pathItem.operations != null) {
-            String testInitFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathKey.snakeCase, "__init__.py"));
-            generateFile(new HashMap<>(), "__init__.hbs", testInitFilename, files, true, CodegenConstants.API_TESTS);
+            // tests/test_paths/test_some_path/__init__.py
+            generateXTests(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PATH, CodegenConstants.API_TESTS, new HashMap<>(), true);
 
             for (Map.Entry<CodegenKey, CodegenOperation> entry: pathItem.operations.entrySet()) {
                 CodegenKey httpMethod = entry.getKey();
@@ -557,20 +557,17 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     }
                 }
 
-                Set<String> endpointTestTemplateFiles = generator.pathEndpointTestTemplateFiles();
-                if (endpointTestTemplateFiles != null && !endpointTestTemplateFiles.isEmpty()) {
-                    String outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "__init__.py"));
-                    generateFile(new HashMap<>(), "__init__test_paths.hbs", outputFilename, files, true, CodegenConstants.API_TESTS);
+                HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTestTemplateFiles = generator.jsonPathTestTemplateFiles();
+                if (jsonPathTestTemplateFiles.containsKey(CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS)) {
+                    // tests/test_paths/__init__.py
+                    generateXTests(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS, CodegenConstants.API_TESTS, new HashMap<>(), true);
 
-                    for (String templateFile: generator.pathEndpointTestTemplateFiles()) {
-                        Map<String, Object> endpointTestMap = new HashMap<>();
-                        endpointTestMap.put("operation", operation);
-                        endpointTestMap.put("httpMethod", httpMethod);
-                        endpointTestMap.put("path", pathKey);
-                        endpointTestMap.put("packageName", generator.packageName());
-                        outputFilename = filenameFromRoot(Arrays.asList("test", "test_paths", "test_" + pathKey.snakeCase, "test_" + httpMethod.original + ".py"));
-                        generateFile(endpointTestMap, templateFile, outputFilename, files, true, CodegenConstants.API_TESTS);
-                    }
+                    Map<String, Object> endpointTestMap = new HashMap<>();
+                    endpointTestMap.put("operation", operation);
+                    endpointTestMap.put("httpMethod", httpMethod);
+                    endpointTestMap.put("path", pathKey);
+                    // tests/test_paths/test_some_path/test_post.py
+                    generateXTests(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, CodegenConstants.API_TESTS, endpointTestMap, true);
                 }
             }
         }
@@ -907,6 +904,36 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             String templateFile = entry.getKey();
             String suffix = entry.getValue();
             String filename = generator.getDocsFilepath(jsonPath) + suffix;
+
+            HashMap<String, Object> templateData = new HashMap<>();
+            templateData.put("packageName", generator.packageName());
+            templateData.put("modelPackage", generator.modelPackage());
+            if (templateInfo != null && !templateInfo.isEmpty()) {
+                templateData.putAll(templateInfo);
+            }
+            try {
+                File written = processTemplateToFile(templateData, templateFile, filename, shouldGenerate, skippedByOption);
+                if (written != null) {
+                    files.add(written);
+                    if (generator.isEnablePostProcessFile() && !dryRun) {
+                        generator.postProcessFile(written, skippedByOption);
+                    }
+                }
+            } catch (Exception e) {
+                throw new RuntimeException("Could not generate file '" + filename + "'", e);
+            }
+        }
+    }
+
+    private void generateXTests(List<File> files, String jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE type, String skippedByOption, Map<String, Object> templateInfo, boolean shouldGenerate) {
+        Map<String, String> templateFileToOutputFile = generator.jsonPathTestTemplateFiles().get(type);
+        if (templateFileToOutputFile == null || templateFileToOutputFile.isEmpty()) {
+            return;
+        }
+        for (Map.Entry<String, String> entry : templateFileToOutputFile.entrySet()) {
+            String templateFile = entry.getKey();
+            String suffix = entry.getValue();
+            String filename = generator.getTestFilepath(jsonPath) + suffix;
 
             HashMap<String, Object> templateData = new HashMap<>();
             templateData.put("packageName", generator.packageName());
@@ -1634,7 +1661,8 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                                 schemaDocTemplateToSuffix.put(templateFile, templateExt);
                                 break;
                             case APITests:
-                                generator.apiTestTemplateFiles().put(templateFile, templateExt);
+                                Map<String, String> apiTestTemplateToSuffix = generator.jsonPathTestTemplateFiles().getOrDefault(CodegenConstants.JSON_PATH_LOCATION_TYPE.OPERATION, new HashMap<>());
+                                apiTestTemplateToSuffix.put(templateFile, templateExt);
                                 break;
                             case ModelTests:
                                 generator.modelTestTemplateFiles().put(templateFile, templateExt);
