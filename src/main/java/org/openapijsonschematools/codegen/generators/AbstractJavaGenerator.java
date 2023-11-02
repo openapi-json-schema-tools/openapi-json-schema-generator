@@ -142,31 +142,31 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         );
 
         supportsInheritance = true;
-//        jsonPathTemplateFiles.put(
-//                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
-//                new HashMap<String, String>() {{
-//                    put("model.mustache", ".java");
-//                }}
-//        );
-//        jsonPathTemplateFiles.put(
-//                CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG,
-//                new HashMap<String, String>() {{
-//                    put("api.mustache", ".java");
-//                }}
-//        );
-//        apiTestTemplateFiles.put("api_test.mustache", ".java");
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
+                new HashMap<String, String>() {{
+                    put("model.mustache", ".java");
+                }}
+        );
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG,
+                new HashMap<String, String>() {{
+                    put("api.mustache", ".java");
+                }}
+        );
+        apiTestTemplateFiles.put("api_test.mustache", ".java");
         HashMap<String, String> schemaDocs = new HashMap<>();
-//        schemaDocs.put("model_doc.mustache", ".md");
+        schemaDocs.put("model_doc.mustache", ".md");
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
                 schemaDocs
         );
-//        jsonPathDocTemplateFiles.put(
-//                CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG,
-//                new HashMap<String, String>() {{
-//                    put("api_doc.mustache", ".java");
-//                }}
-//        );
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG,
+                new HashMap<String, String>() {{
+                    put("api_doc.mustache", ".java");
+                }}
+        );
 
         hideGenerationTimestamp = false;
 
@@ -668,6 +668,21 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     }
 
     @Override
+    public String toApiDocFilename(String name) {
+        return toApiName(name);
+    }
+
+    @Override
+    public String toApiTestFilename(String name) {
+        return toApiName(name) + "Test";
+    }
+
+    @Override
+    public String toModelTestFilename(String name) {
+        return toModelName(name, null) + "Test";
+    }
+
+    @Override
     public String toApiFilename(String name) {
         return toApiName(name);
     }
@@ -820,14 +835,11 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
 
         Schema schema = parameter.getSchema();
 
-        if (schema == null && parameter.getContent() != null) {
+        if (schema == null) {
             String contentType = (String) parameter.getContent().keySet().toArray()[0];
             schema = parameter.getContent().get(contentType).getSchema();
         }
 
-        if (schema == null) {
-            return null;
-        }
         if (schema.getExample() != null) {
             example = schema.getExample().toString();
         } else if (schema.getExamples() != null && !schema.getExamples().isEmpty()) {

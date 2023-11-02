@@ -18,8 +18,6 @@
 package org.openapijsonschematools.codegen.generators;
 
 import org.apache.commons.lang3.StringUtils;
-import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorMetadata;
-import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
@@ -136,16 +134,13 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     public JavaClientGenerator() {
         super();
 
-        generatorMetadata = GeneratorMetadata.newBuilder(generatorMetadata)
-                .stability(Stability.EXPERIMENTAL)
-                .build();
         // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
         );
 
         outputFolder = "generated-code" + File.separator + "java";
-        embeddedTemplateDir = templateDir = "java";
+        embeddedTemplateDir = templateDir = "Java";
         invokerPackage = "org.openapijsonschematools.client";
         artifactId = "openapi-java-client";
         apiPackage = "org.openapijsonschematools.client.api";
@@ -158,7 +153,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         updateOption(CodegenConstants.API_PACKAGE, apiPackage);
         updateOption(CodegenConstants.MODEL_PACKAGE, modelPackage);
 
-//        modelTestTemplateFiles.put("model_test.mustache", ".java");
+        modelTestTemplateFiles.put("model_test.mustache", ".java");
 
         cliOptions.add(CliOption.newBoolean(USE_RX_JAVA2, "Whether to use the RxJava2 adapter with the retrofit2 library. IMPORTANT: This option has been deprecated."));
         cliOptions.add(CliOption.newBoolean(USE_RX_JAVA3, "Whether to use the RxJava3 adapter with the retrofit2 library. IMPORTANT: This option has been deprecated."));
@@ -244,14 +239,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
     @Override
     public void processOpts() {
-        // add schema base class and validation tooling
-//        supportingFiles.add(new SupportingFile("schemas/__init__.hbs", packagePath() + File.separator + "schemas", "__init__.py"));
-        supportingFiles.add(new SupportingFile("schemas/validation.hbs", packagePath() + File.separator + "schemas", "validation.py"));
-        supportingFiles.add(new SupportingFile("schemas/schema.hbs", packagePath() + File.separator + "schemas", "schema.py"));
-        supportingFiles.add(new SupportingFile("schemas/schemas.hbs", packagePath() + File.separator + "schemas", "schemas.py"));
-        supportingFiles.add(new SupportingFile("schemas/format.hbs", packagePath() + File.separator + "schemas", "format.py"));
-        supportingFiles.add(new SupportingFile("schemas/original_immutabledict.hbs", packagePath() + File.separator + "schemas", "original_immutabledict.py"));
-
         if (WEBCLIENT.equals(getLibrary()) || NATIVE.equals(getLibrary())) {
             dateLibrary = "java8";
         } else if (MICROPROFILE.equals(getLibrary())) {
@@ -397,54 +384,54 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         authFolder = (sourceFolder + '/' + invokerPackage + ".auth").replace(".", "/");
 
         //Common files
-        supportingFiles.add(new SupportingFile("pom.hbs", "", "pom.xml").doNotOverwrite());
-        supportingFiles.add(new SupportingFile("README.hbs", "", "README.md").doNotOverwrite());
-//        supportingFiles.add(new SupportingFile("build.gradle.mustache", "", "build.gradle").doNotOverwrite());
-//        supportingFiles.add(new SupportingFile("build.sbt.mustache", "", "build.sbt").doNotOverwrite());
-//        supportingFiles.add(new SupportingFile("settings.gradle.mustache", "", "settings.gradle").doNotOverwrite());
-//        supportingFiles.add(new SupportingFile("gradle.properties.mustache", "", "gradle.properties").doNotOverwrite());
-//        supportingFiles.add(new SupportingFile("manifest.mustache", projectFolder, "AndroidManifest.xml").doNotOverwrite());
-//        supportingFiles.add(new SupportingFile("travis.mustache", "", ".travis.yml"));
-//        supportingFiles.add(new SupportingFile("ApiClient.mustache", invokerFolder, "ApiClient.java"));
-//        supportingFiles.add(new SupportingFile("ServerConfiguration.mustache", invokerFolder, "ServerConfiguration.java"));
-//        supportingFiles.add(new SupportingFile("ServerVariable.mustache", invokerFolder, "ServerVariable.java"));
-//        supportingFiles.add(new SupportingFile("maven.yml.mustache", ".github/workflows", "maven.yml"));
-//        if (dynamicOperations) {
-//            supportingFiles.add(new SupportingFile("openapi.mustache", projectFolder + "/resources/openapi", "openapi.yaml"));
-//            supportingFiles.add(new SupportingFile("apiOperation.mustache", invokerFolder, "ApiOperation.java"));
-//        } else {
-//            supportingFiles.add(new SupportingFile("openapi.mustache", "api", "openapi.yaml"));
-//        }
-//
-//        // helper for client library that allow to parse/format java.time.OffsetDateTime or org.threeten.bp.OffsetDateTime
-//        if (additionalProperties.containsKey("jsr310") && (isLibrary(WEBCLIENT) || isLibrary(VERTX) || isLibrary(RESTTEMPLATE) || isLibrary(RESTEASY) || isLibrary(MICROPROFILE) || isLibrary(JERSEY1) || isLibrary(JERSEY2) || isLibrary(JERSEY3) || isLibrary(APACHE))) {
-//            supportingFiles.add(new SupportingFile("JavaTimeFormatter.mustache", invokerFolder, "JavaTimeFormatter.java"));
-//        }
-//
-//        if (!(RESTTEMPLATE.equals(getLibrary()) || isLibrary(REST_ASSURED) || isLibrary(NATIVE) || isLibrary(MICROPROFILE))) {
-//            supportingFiles.add(new SupportingFile("StringUtil.mustache", invokerFolder, "StringUtil.java"));
-//        }
-//
-//        // google-api-client doesn't use the OpenAPI auth, because it uses Google Credential directly (HttpRequestInitializer)
-//        if (!(isLibrary(GOOGLE_API_CLIENT) || isLibrary(REST_ASSURED) || isLibrary(NATIVE) || isLibrary(MICROPROFILE))) {
-//            supportingFiles.add(new SupportingFile("auth/HttpBasicAuth.mustache", authFolder, "HttpBasicAuth.java"));
-//            supportingFiles.add(new SupportingFile("auth/HttpBearerAuth.mustache", authFolder, "HttpBearerAuth.java"));
-//            supportingFiles.add(new SupportingFile("auth/ApiKeyAuth.mustache", authFolder, "ApiKeyAuth.java"));
-//        }
-//
-//        supportingFiles.add(new SupportingFile("gradlew.mustache", "", "gradlew"));
-//        supportingFiles.add(new SupportingFile("gradlew.bat.mustache", "", "gradlew.bat"));
-//        supportingFiles.add(new SupportingFile("gradle-wrapper.properties.mustache",
-//                gradleWrapperPackage.replace(".", File.separator), "gradle-wrapper.properties"));
-//        supportingFiles.add(new SupportingFile("gradle-wrapper.jar",
-//                gradleWrapperPackage.replace(".", File.separator), "gradle-wrapper.jar"));
-//        supportingFiles.add(new SupportingFile("git_push.sh.mustache", "", "git_push.sh"));
-//        supportingFiles.add(new SupportingFile("gitignore.mustache", "", ".gitignore"));
-//
-//        if (performBeanValidation) {
-//            supportingFiles.add(new SupportingFile("BeanValidationException.mustache", invokerFolder,
-//                    "BeanValidationException.java"));
-//        }
+        supportingFiles.add(new SupportingFile("pom.mustache", "", "pom.xml").doNotOverwrite());
+        supportingFiles.add(new SupportingFile("README.mustache", "", "README.md").doNotOverwrite());
+        supportingFiles.add(new SupportingFile("build.gradle.mustache", "", "build.gradle").doNotOverwrite());
+        supportingFiles.add(new SupportingFile("build.sbt.mustache", "", "build.sbt").doNotOverwrite());
+        supportingFiles.add(new SupportingFile("settings.gradle.mustache", "", "settings.gradle").doNotOverwrite());
+        supportingFiles.add(new SupportingFile("gradle.properties.mustache", "", "gradle.properties").doNotOverwrite());
+        supportingFiles.add(new SupportingFile("manifest.mustache", projectFolder, "AndroidManifest.xml").doNotOverwrite());
+        supportingFiles.add(new SupportingFile("travis.mustache", "", ".travis.yml"));
+        supportingFiles.add(new SupportingFile("ApiClient.mustache", invokerFolder, "ApiClient.java"));
+        supportingFiles.add(new SupportingFile("ServerConfiguration.mustache", invokerFolder, "ServerConfiguration.java"));
+        supportingFiles.add(new SupportingFile("ServerVariable.mustache", invokerFolder, "ServerVariable.java"));
+        supportingFiles.add(new SupportingFile("maven.yml.mustache", ".github/workflows", "maven.yml"));
+        if (dynamicOperations) {
+            supportingFiles.add(new SupportingFile("openapi.mustache", projectFolder + "/resources/openapi", "openapi.yaml"));
+            supportingFiles.add(new SupportingFile("apiOperation.mustache", invokerFolder, "ApiOperation.java"));
+        } else {
+            supportingFiles.add(new SupportingFile("openapi.mustache", "api", "openapi.yaml"));
+        }
+
+        // helper for client library that allow to parse/format java.time.OffsetDateTime or org.threeten.bp.OffsetDateTime
+        if (additionalProperties.containsKey("jsr310") && (isLibrary(WEBCLIENT) || isLibrary(VERTX) || isLibrary(RESTTEMPLATE) || isLibrary(RESTEASY) || isLibrary(MICROPROFILE) || isLibrary(JERSEY1) || isLibrary(JERSEY2) || isLibrary(JERSEY3) || isLibrary(APACHE))) {
+            supportingFiles.add(new SupportingFile("JavaTimeFormatter.mustache", invokerFolder, "JavaTimeFormatter.java"));
+        }
+
+        if (!(RESTTEMPLATE.equals(getLibrary()) || isLibrary(REST_ASSURED) || isLibrary(NATIVE) || isLibrary(MICROPROFILE))) {
+            supportingFiles.add(new SupportingFile("StringUtil.mustache", invokerFolder, "StringUtil.java"));
+        }
+
+        // google-api-client doesn't use the OpenAPI auth, because it uses Google Credential directly (HttpRequestInitializer)
+        if (!(isLibrary(GOOGLE_API_CLIENT) || isLibrary(REST_ASSURED) || isLibrary(NATIVE) || isLibrary(MICROPROFILE))) {
+            supportingFiles.add(new SupportingFile("auth/HttpBasicAuth.mustache", authFolder, "HttpBasicAuth.java"));
+            supportingFiles.add(new SupportingFile("auth/HttpBearerAuth.mustache", authFolder, "HttpBearerAuth.java"));
+            supportingFiles.add(new SupportingFile("auth/ApiKeyAuth.mustache", authFolder, "ApiKeyAuth.java"));
+        }
+
+        supportingFiles.add(new SupportingFile("gradlew.mustache", "", "gradlew"));
+        supportingFiles.add(new SupportingFile("gradlew.bat.mustache", "", "gradlew.bat"));
+        supportingFiles.add(new SupportingFile("gradle-wrapper.properties.mustache",
+                gradleWrapperPackage.replace(".", File.separator), "gradle-wrapper.properties"));
+        supportingFiles.add(new SupportingFile("gradle-wrapper.jar",
+                gradleWrapperPackage.replace(".", File.separator), "gradle-wrapper.jar"));
+        supportingFiles.add(new SupportingFile("git_push.sh.mustache", "", "git_push.sh"));
+        supportingFiles.add(new SupportingFile("gitignore.mustache", "", ".gitignore"));
+
+        if (performBeanValidation) {
+            supportingFiles.add(new SupportingFile("BeanValidationException.mustache", invokerFolder,
+                    "BeanValidationException.java"));
+        }
 
         if (additionalProperties.containsKey(CodegenConstants.SERIALIZATION_LIBRARY)) {
             setSerializationLibrary(additionalProperties.get(CodegenConstants.SERIALIZATION_LIBRARY).toString());
@@ -452,242 +439,242 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
         //TODO: add auto-generated doc to feign
         if (FEIGN.equals(getLibrary())) {
-//            jsonPathDocTemplateFiles.get(
-//                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA
-//            ).remove("model_doc.mustache");
-//            jsonPathDocTemplateFiles.get(
-//                    CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG
-//            ).remove("api_doc.mustache");
-//            //Templates to decode response headers
-//            supportingFiles.add(new SupportingFile("model/ApiResponse.mustache", modelsFolder, "ApiResponse.java"));
-//            supportingFiles.add(new SupportingFile("ApiResponseDecoder.mustache", invokerFolder, "ApiResponseDecoder.java"));
+            jsonPathDocTemplateFiles.get(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA
+            ).remove("model_doc.mustache");
+            jsonPathDocTemplateFiles.get(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG
+            ).remove("api_doc.mustache");
+            //Templates to decode response headers
+            supportingFiles.add(new SupportingFile("model/ApiResponse.mustache", modelsFolder, "ApiResponse.java"));
+            supportingFiles.add(new SupportingFile("ApiResponseDecoder.mustache", invokerFolder, "ApiResponseDecoder.java"));
 
             // TODO remove "file" from reserved word list as feign client doesn't support using `baseName`
             // as the parameter name yet
             reservedWords.remove("file");
         }
 
-//        if (!(FEIGN.equals(getLibrary()) || RESTTEMPLATE.equals(getLibrary()) || RETROFIT_2.equals(getLibrary()) || GOOGLE_API_CLIENT.equals(getLibrary()) || REST_ASSURED.equals(getLibrary()) || WEBCLIENT.equals(getLibrary()) || MICROPROFILE.equals(getLibrary()))) {
-//            supportingFiles.add(new SupportingFile("apiException.mustache", invokerFolder, "ApiException.java"));
-//            supportingFiles.add(new SupportingFile("Configuration.mustache", invokerFolder, "Configuration.java"));
-//            supportingFiles.add(new SupportingFile("Pair.mustache", invokerFolder, "Pair.java"));
-//        }
-//
-//        if (!(FEIGN.equals(getLibrary()) || RESTTEMPLATE.equals(getLibrary()) || RETROFIT_2.equals(getLibrary()) || GOOGLE_API_CLIENT.equals(getLibrary()) || REST_ASSURED.equals(getLibrary()) || NATIVE.equals(getLibrary()) || MICROPROFILE.equals(getLibrary()))) {
-//            supportingFiles.add(new SupportingFile("auth/Authentication.mustache", authFolder, "Authentication.java"));
-//        }
-//
-//        if (FEIGN.equals(getLibrary())) {
-//            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
-//            supportingFiles.add(new SupportingFile("ParamExpander.mustache", invokerFolder, "ParamExpander.java"));
-//            supportingFiles.add(new SupportingFile("EncodingUtils.mustache", invokerFolder, "EncodingUtils.java"));
-//            supportingFiles.add(new SupportingFile("auth/DefaultApi20Impl.mustache", authFolder, "DefaultApi20Impl.java"));
-//        } else if (OKHTTP_GSON.equals(getLibrary()) || StringUtils.isEmpty(getLibrary())) {
-//            // the "okhttp-gson" library template requires "ApiCallback.mustache" for async call
-//            supportingFiles.add(new SupportingFile("ApiCallback.mustache", invokerFolder, "ApiCallback.java"));
-//            supportingFiles.add(new SupportingFile("ApiResponse.mustache", invokerFolder, "ApiResponse.java"));
-//            supportingFiles.add(new SupportingFile("JSON.mustache", invokerFolder, "JSON.java"));
-//            supportingFiles.add(new SupportingFile("ProgressRequestBody.mustache", invokerFolder, "ProgressRequestBody.java"));
-//            supportingFiles.add(new SupportingFile("ProgressResponseBody.mustache", invokerFolder, "ProgressResponseBody.java"));
-//            supportingFiles.add(new SupportingFile("GzipRequestInterceptor.mustache", invokerFolder, "GzipRequestInterceptor.java"));
-//            if (OKHTTP_GSON.equals(getLibrary())) {
-//                supportingFiles.add(new SupportingFile("AbstractOpenApiSchema.mustache", modelsFolder, "AbstractOpenApiSchema.java"));
-//            }
-//
-//            // NOTE: below moved to postProcessOperationsWithModels
-//            //supportingFiles.add(new SupportingFile("auth/OAuthOkHttpClient.mustache", authFolder, "OAuthOkHttpClient.java"));
-//            //supportingFiles.add(new SupportingFile("auth/RetryingOAuth.mustache", authFolder, "RetryingOAuth.java"));
-//            forceSerializationLibrary(SERIALIZATION_LIBRARY_GSON);
-//
-//            // Composed schemas can have the 'additionalProperties' keyword, as specified in JSON schema.
-//            // In principle, this should be enabled by default for all code generators. However due to limitations
-//            // in other code generators, support needs to be enabled on a case-by-case basis.
-//            // The flag below should be set for all Java libraries, but the templates need to be ported
-//            // one by one for each library.
-//            supportsAdditionalPropertiesWithComposedSchema = true;
-//
-//        } else if (RETROFIT_2.equals(getLibrary())) {
-//            supportingFiles.add(new SupportingFile("auth/OAuthOkHttpClient.mustache", authFolder, "OAuthOkHttpClient.java"));
-//            supportingFiles.add(new SupportingFile("CollectionFormats.mustache", invokerFolder, "CollectionFormats.java"));
-//            forceSerializationLibrary(SERIALIZATION_LIBRARY_GSON);
-//            if (RETROFIT_2.equals(getLibrary()) && !usePlayWS) {
-//                supportingFiles.add(new SupportingFile("JSON.mustache", invokerFolder, "JSON.java"));
-//            }
-//        } else if (JERSEY2.equals(getLibrary())) {
-//            additionalProperties.put("jersey2", true);
-//            supportingFiles.add(new SupportingFile("JSON.mustache", invokerFolder, "JSON.java"));
-//            supportingFiles.add(new SupportingFile("ApiResponse.mustache", invokerFolder, "ApiResponse.java"));
-//            if (ProcessUtils.hasHttpSignatureMethods(openAPI)) {
-//                supportingFiles.add(new SupportingFile("auth/HttpSignatureAuth.mustache", authFolder, "HttpSignatureAuth.java"));
-//            }
-//            supportingFiles.add(new SupportingFile("AbstractOpenApiSchema.mustache", modelsFolder, "AbstractOpenApiSchema.java"));
-//            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
-//
-//            // Composed schemas can have the 'additionalProperties' keyword, as specified in JSON schema.
-//            // In principle, this should be enabled by default for all code generators. However due to limitations
-//            // in other code generators, support needs to be enabled on a case-by-case basis.
-//            // The flag below should be set for all Java libraries, but the templates need to be ported
-//            // one by one for each library.
-//            supportsAdditionalPropertiesWithComposedSchema = true;
-//
-//        } else if (JERSEY3.equals(getLibrary())) {
-//            additionalProperties.put("jersey3", true);
-//            supportingFiles.add(new SupportingFile("JSON.mustache", invokerFolder, "JSON.java"));
-//            supportingFiles.add(new SupportingFile("ApiResponse.mustache", invokerFolder, "ApiResponse.java"));
-//            if (ProcessUtils.hasHttpSignatureMethods(openAPI)) {
-//                supportingFiles.add(new SupportingFile("auth/HttpSignatureAuth.mustache", authFolder, "HttpSignatureAuth.java"));
-//            }
-//            supportingFiles.add(new SupportingFile("AbstractOpenApiSchema.mustache", modelsFolder, "AbstractOpenApiSchema.java"));
-//            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
-//
-//            // Composed schemas can have the 'additionalProperties' keyword, as specified in JSON schema.
-//            // In principle, this should be enabled by default for all code generators. However due to limitations
-//            // in other code generators, support needs to be enabled on a case-by-case basis.
-//            // The flag below should be set for all Java libraries, but the templates need to be ported
-//            // one by one for each library.
-//            supportsAdditionalPropertiesWithComposedSchema = true;
-//
-//        } else if (NATIVE.equals(getLibrary())) {
-//            supportingFiles.add(new SupportingFile("ApiResponse.mustache", invokerFolder, "ApiResponse.java"));
-//            supportingFiles.add(new SupportingFile("JSON.mustache", invokerFolder, "JSON.java"));
-//            supportingFiles.add(new SupportingFile("AbstractOpenApiSchema.mustache", modelsFolder, "AbstractOpenApiSchema.java"));
-//            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
-//        } else if (RESTEASY.equals(getLibrary())) {
-//            supportingFiles.add(new SupportingFile("JSON.mustache", invokerFolder, "JSON.java"));
-//            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
-//        } else if (JERSEY1.equals(getLibrary())) {
-//            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
-//        } else if (RESTTEMPLATE.equals(getLibrary())) {
-//            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
-//            supportingFiles.add(new SupportingFile("auth/Authentication.mustache", authFolder, "Authentication.java"));
-//        } else if (WEBCLIENT.equals(getLibrary())) {
-//            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
-//        } else if (VERTX.equals(getLibrary())) {
-//            typeMapping.put("file", "AsyncFile");
-//            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
-//            supportingFiles.remove(new SupportingFile("manifest.mustache", projectFolder, "AndroidManifest.xml"));
-//        } else if (GOOGLE_API_CLIENT.equals(getLibrary())) {
-//            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
-//
-//        } else if (REST_ASSURED.equals(getLibrary())) {
-//            if (getSerializationLibrary() == null) {
-//                LOGGER.info("No serializationLibrary configured, using '{}' as fallback", SERIALIZATION_LIBRARY_GSON);
-//                setSerializationLibrary(SERIALIZATION_LIBRARY_GSON);
-//            }
-//            if (SERIALIZATION_LIBRARY_JACKSON.equals(getSerializationLibrary())) {
-//                supportingFiles.add(new SupportingFile("JacksonObjectMapper.mustache", invokerFolder, "JacksonObjectMapper.java"));
-//            } else if (SERIALIZATION_LIBRARY_GSON.equals(getSerializationLibrary())) {
-//                supportingFiles.add(new SupportingFile("JSON.mustache", invokerFolder, "JSON.java"));
-//                supportingFiles.add(new SupportingFile("GsonObjectMapper.mustache", invokerFolder, "GsonObjectMapper.java"));
-//            }
-//            supportingFiles.add(new SupportingFile("Oper.mustache", apiFolder, "Oper.java"));
-//            additionalProperties.put("convert", new CaseFormatLambda(LOWER_CAMEL, UPPER_UNDERSCORE));
-//            jsonPathTemplateFiles.put(
-//                    CodegenConstants.JSON_PATH_LOCATION_TYPE.API_ROOT_FOLDER,
-//                    new HashMap<String, String>() {{
-//                        put("api.mustache", ".java");
-//                    }}
-//            );
-//            supportingFiles.add(new SupportingFile("ResponseSpecBuilders.mustache", invokerFolder, "ResponseSpecBuilders.java"));
-//        } else if (MICROPROFILE.equals(getLibrary())) {
-//            supportingFiles.clear(); // Don't need extra files provided by Java Codegen
-//            String apiExceptionFolder = (sourceFolder + File.separator + apiPackage().replace('.', File.separatorChar)).replace('/', File.separatorChar);
-//            String mpRestClientVersion = (String) additionalProperties.get(MICROPROFILE_REST_CLIENT_VERSION);
-//            String pomTemplate = mpRestClientVersions.get(mpRestClientVersion).pomTemplate;
-//            supportingFiles.add(new SupportingFile(pomTemplate, "", "pom.xml"));
-//            supportingFiles.add(new SupportingFile("README.mustache", "", "README.md"));
-//            supportingFiles.add(new SupportingFile("api_exception.mustache", apiExceptionFolder, "ApiException.java"));
-//            supportingFiles.add(new SupportingFile("api_exception_mapper.mustache", apiExceptionFolder, "ApiExceptionMapper.java"));
-//            serializationLibrary = "none";
-//
-//            if (microprofileFramework.equals(MICROPROFILE_KUMULUZEE)) {
-//                supportingFiles.add(new SupportingFile("kumuluzee.pom.mustache", "", "pom.xml"));
-//                supportingFiles.add(new SupportingFile("kumuluzee.config.yaml.mustache", "src/main/resources", "config.yaml"));
-//                supportingFiles.add(new SupportingFile("kumuluzee.beans.xml.mustache", "src/main/resources/META-INF", "beans.xml"));
-//            }
-//
-//            if ("3.0".equals(mpRestClientVersion)) {
-//                additionalProperties.put("microprofile3", true);
-//            }
-//        } else if (APACHE.equals(getLibrary())) {
-//            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
-//        } else {
-//            LOGGER.error("Unknown library option (-l/--library): {}", getLibrary());
-//        }
+        if (!(FEIGN.equals(getLibrary()) || RESTTEMPLATE.equals(getLibrary()) || RETROFIT_2.equals(getLibrary()) || GOOGLE_API_CLIENT.equals(getLibrary()) || REST_ASSURED.equals(getLibrary()) || WEBCLIENT.equals(getLibrary()) || MICROPROFILE.equals(getLibrary()))) {
+            supportingFiles.add(new SupportingFile("apiException.mustache", invokerFolder, "ApiException.java"));
+            supportingFiles.add(new SupportingFile("Configuration.mustache", invokerFolder, "Configuration.java"));
+            supportingFiles.add(new SupportingFile("Pair.mustache", invokerFolder, "Pair.java"));
+        }
 
-//        if (usePlayWS) {
-//            // remove unsupported auth
-//            Iterator<SupportingFile> iter = supportingFiles.iterator();
-//            while (iter.hasNext()) {
-//                SupportingFile sf = iter.next();
-//                if (sf.getTemplateFile().startsWith("auth/")) {
-//                    iter.remove();
-//                }
-//            }
-//
-//            supportingFiles.add(new SupportingFile("play26/ApiClient.mustache", invokerFolder, "ApiClient.java"));
-//            supportingFiles.add(new SupportingFile("play26/Play26CallFactory.mustache", invokerFolder, "Play26CallFactory.java"));
-//            supportingFiles.add(new SupportingFile("play26/Play26CallAdapterFactory.mustache", invokerFolder,
-//                    "Play26CallAdapterFactory.java"));
-//
-//            supportingFiles.add(new SupportingFile("play-common/auth/ApiKeyAuth.mustache", authFolder, "ApiKeyAuth.java"));
-//            supportingFiles.add(new SupportingFile("auth/Authentication.mustache", authFolder, "Authentication.java"));
-//            supportingFiles.add(new SupportingFile("Pair.mustache", invokerFolder, "Pair.java"));
-//
-//            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
-//        }
-//
-//        if (getSerializationLibrary() == null) {
-//            LOGGER.info("No serializationLibrary configured, using '{}' as fallback", SERIALIZATION_LIBRARY_GSON);
-//            setSerializationLibrary(SERIALIZATION_LIBRARY_GSON);
-//        }
-//        switch (getSerializationLibrary()) {
-//            case SERIALIZATION_LIBRARY_JACKSON:
-//                additionalProperties.put(SERIALIZATION_LIBRARY_JACKSON, "true");
-//                additionalProperties.remove(SERIALIZATION_LIBRARY_GSON);
-//                additionalProperties.remove(SERIALIZATION_LIBRARY_JSONB);
-//                supportingFiles.add(new SupportingFile("RFC3339DateFormat.mustache", invokerFolder, "RFC3339DateFormat.java"));
-//                break;
-//            case SERIALIZATION_LIBRARY_GSON:
-//                additionalProperties.put(SERIALIZATION_LIBRARY_GSON, "true");
-//                additionalProperties.remove(SERIALIZATION_LIBRARY_JACKSON);
-//                additionalProperties.remove(SERIALIZATION_LIBRARY_JSONB);
-//                break;
-//            case SERIALIZATION_LIBRARY_JSONB:
-//                additionalProperties.put(SERIALIZATION_LIBRARY_JSONB, "true");
-//                additionalProperties.remove(SERIALIZATION_LIBRARY_JACKSON);
-//                additionalProperties.remove(SERIALIZATION_LIBRARY_GSON);
-//                break;
-//            default:
-//                additionalProperties.remove(SERIALIZATION_LIBRARY_JACKSON);
-//                additionalProperties.remove(SERIALIZATION_LIBRARY_GSON);
-//                additionalProperties.remove(SERIALIZATION_LIBRARY_JSONB);
-//                break;
-//        }
+        if (!(FEIGN.equals(getLibrary()) || RESTTEMPLATE.equals(getLibrary()) || RETROFIT_2.equals(getLibrary()) || GOOGLE_API_CLIENT.equals(getLibrary()) || REST_ASSURED.equals(getLibrary()) || NATIVE.equals(getLibrary()) || MICROPROFILE.equals(getLibrary()))) {
+            supportingFiles.add(new SupportingFile("auth/Authentication.mustache", authFolder, "Authentication.java"));
+        }
+
+        if (FEIGN.equals(getLibrary())) {
+            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
+            supportingFiles.add(new SupportingFile("ParamExpander.mustache", invokerFolder, "ParamExpander.java"));
+            supportingFiles.add(new SupportingFile("EncodingUtils.mustache", invokerFolder, "EncodingUtils.java"));
+            supportingFiles.add(new SupportingFile("auth/DefaultApi20Impl.mustache", authFolder, "DefaultApi20Impl.java"));
+        } else if (OKHTTP_GSON.equals(getLibrary()) || StringUtils.isEmpty(getLibrary())) {
+            // the "okhttp-gson" library template requires "ApiCallback.mustache" for async call
+            supportingFiles.add(new SupportingFile("ApiCallback.mustache", invokerFolder, "ApiCallback.java"));
+            supportingFiles.add(new SupportingFile("ApiResponse.mustache", invokerFolder, "ApiResponse.java"));
+            supportingFiles.add(new SupportingFile("JSON.mustache", invokerFolder, "JSON.java"));
+            supportingFiles.add(new SupportingFile("ProgressRequestBody.mustache", invokerFolder, "ProgressRequestBody.java"));
+            supportingFiles.add(new SupportingFile("ProgressResponseBody.mustache", invokerFolder, "ProgressResponseBody.java"));
+            supportingFiles.add(new SupportingFile("GzipRequestInterceptor.mustache", invokerFolder, "GzipRequestInterceptor.java"));
+            if (OKHTTP_GSON.equals(getLibrary())) {
+                supportingFiles.add(new SupportingFile("AbstractOpenApiSchema.mustache", modelsFolder, "AbstractOpenApiSchema.java"));
+            }
+
+            // NOTE: below moved to postProcessOperationsWithModels
+            //supportingFiles.add(new SupportingFile("auth/OAuthOkHttpClient.mustache", authFolder, "OAuthOkHttpClient.java"));
+            //supportingFiles.add(new SupportingFile("auth/RetryingOAuth.mustache", authFolder, "RetryingOAuth.java"));
+            forceSerializationLibrary(SERIALIZATION_LIBRARY_GSON);
+
+            // Composed schemas can have the 'additionalProperties' keyword, as specified in JSON schema.
+            // In principle, this should be enabled by default for all code generators. However due to limitations
+            // in other code generators, support needs to be enabled on a case-by-case basis.
+            // The flag below should be set for all Java libraries, but the templates need to be ported
+            // one by one for each library.
+            supportsAdditionalPropertiesWithComposedSchema = true;
+
+        } else if (RETROFIT_2.equals(getLibrary())) {
+            supportingFiles.add(new SupportingFile("auth/OAuthOkHttpClient.mustache", authFolder, "OAuthOkHttpClient.java"));
+            supportingFiles.add(new SupportingFile("CollectionFormats.mustache", invokerFolder, "CollectionFormats.java"));
+            forceSerializationLibrary(SERIALIZATION_LIBRARY_GSON);
+            if (RETROFIT_2.equals(getLibrary()) && !usePlayWS) {
+                supportingFiles.add(new SupportingFile("JSON.mustache", invokerFolder, "JSON.java"));
+            }
+        } else if (JERSEY2.equals(getLibrary())) {
+            additionalProperties.put("jersey2", true);
+            supportingFiles.add(new SupportingFile("JSON.mustache", invokerFolder, "JSON.java"));
+            supportingFiles.add(new SupportingFile("ApiResponse.mustache", invokerFolder, "ApiResponse.java"));
+            if (ProcessUtils.hasHttpSignatureMethods(openAPI)) {
+                supportingFiles.add(new SupportingFile("auth/HttpSignatureAuth.mustache", authFolder, "HttpSignatureAuth.java"));
+            }
+            supportingFiles.add(new SupportingFile("AbstractOpenApiSchema.mustache", modelsFolder, "AbstractOpenApiSchema.java"));
+            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
+
+            // Composed schemas can have the 'additionalProperties' keyword, as specified in JSON schema.
+            // In principle, this should be enabled by default for all code generators. However due to limitations
+            // in other code generators, support needs to be enabled on a case-by-case basis.
+            // The flag below should be set for all Java libraries, but the templates need to be ported
+            // one by one for each library.
+            supportsAdditionalPropertiesWithComposedSchema = true;
+
+        } else if (JERSEY3.equals(getLibrary())) {
+            additionalProperties.put("jersey3", true);
+            supportingFiles.add(new SupportingFile("JSON.mustache", invokerFolder, "JSON.java"));
+            supportingFiles.add(new SupportingFile("ApiResponse.mustache", invokerFolder, "ApiResponse.java"));
+            if (ProcessUtils.hasHttpSignatureMethods(openAPI)) {
+                supportingFiles.add(new SupportingFile("auth/HttpSignatureAuth.mustache", authFolder, "HttpSignatureAuth.java"));
+            }
+            supportingFiles.add(new SupportingFile("AbstractOpenApiSchema.mustache", modelsFolder, "AbstractOpenApiSchema.java"));
+            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
+
+            // Composed schemas can have the 'additionalProperties' keyword, as specified in JSON schema.
+            // In principle, this should be enabled by default for all code generators. However due to limitations
+            // in other code generators, support needs to be enabled on a case-by-case basis.
+            // The flag below should be set for all Java libraries, but the templates need to be ported
+            // one by one for each library.
+            supportsAdditionalPropertiesWithComposedSchema = true;
+
+        } else if (NATIVE.equals(getLibrary())) {
+            supportingFiles.add(new SupportingFile("ApiResponse.mustache", invokerFolder, "ApiResponse.java"));
+            supportingFiles.add(new SupportingFile("JSON.mustache", invokerFolder, "JSON.java"));
+            supportingFiles.add(new SupportingFile("AbstractOpenApiSchema.mustache", modelsFolder, "AbstractOpenApiSchema.java"));
+            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
+        } else if (RESTEASY.equals(getLibrary())) {
+            supportingFiles.add(new SupportingFile("JSON.mustache", invokerFolder, "JSON.java"));
+            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
+        } else if (JERSEY1.equals(getLibrary())) {
+            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
+        } else if (RESTTEMPLATE.equals(getLibrary())) {
+            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
+            supportingFiles.add(new SupportingFile("auth/Authentication.mustache", authFolder, "Authentication.java"));
+        } else if (WEBCLIENT.equals(getLibrary())) {
+            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
+        } else if (VERTX.equals(getLibrary())) {
+            typeMapping.put("file", "AsyncFile");
+            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
+            supportingFiles.remove(new SupportingFile("manifest.mustache", projectFolder, "AndroidManifest.xml"));
+        } else if (GOOGLE_API_CLIENT.equals(getLibrary())) {
+            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
+
+        } else if (REST_ASSURED.equals(getLibrary())) {
+            if (getSerializationLibrary() == null) {
+                LOGGER.info("No serializationLibrary configured, using '{}' as fallback", SERIALIZATION_LIBRARY_GSON);
+                setSerializationLibrary(SERIALIZATION_LIBRARY_GSON);
+            }
+            if (SERIALIZATION_LIBRARY_JACKSON.equals(getSerializationLibrary())) {
+                supportingFiles.add(new SupportingFile("JacksonObjectMapper.mustache", invokerFolder, "JacksonObjectMapper.java"));
+            } else if (SERIALIZATION_LIBRARY_GSON.equals(getSerializationLibrary())) {
+                supportingFiles.add(new SupportingFile("JSON.mustache", invokerFolder, "JSON.java"));
+                supportingFiles.add(new SupportingFile("GsonObjectMapper.mustache", invokerFolder, "GsonObjectMapper.java"));
+            }
+            supportingFiles.add(new SupportingFile("Oper.mustache", apiFolder, "Oper.java"));
+            additionalProperties.put("convert", new CaseFormatLambda(LOWER_CAMEL, UPPER_UNDERSCORE));
+            jsonPathTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.API_ROOT_FOLDER,
+                    new HashMap<String, String>() {{
+                        put("api.mustache", ".java");
+                    }}
+            );
+            supportingFiles.add(new SupportingFile("ResponseSpecBuilders.mustache", invokerFolder, "ResponseSpecBuilders.java"));
+        } else if (MICROPROFILE.equals(getLibrary())) {
+            supportingFiles.clear(); // Don't need extra files provided by Java Codegen
+            String apiExceptionFolder = (sourceFolder + File.separator + apiPackage().replace('.', File.separatorChar)).replace('/', File.separatorChar);
+            String mpRestClientVersion = (String) additionalProperties.get(MICROPROFILE_REST_CLIENT_VERSION);
+            String pomTemplate = mpRestClientVersions.get(mpRestClientVersion).pomTemplate;
+            supportingFiles.add(new SupportingFile(pomTemplate, "", "pom.xml"));
+            supportingFiles.add(new SupportingFile("README.mustache", "", "README.md"));
+            supportingFiles.add(new SupportingFile("api_exception.mustache", apiExceptionFolder, "ApiException.java"));
+            supportingFiles.add(new SupportingFile("api_exception_mapper.mustache", apiExceptionFolder, "ApiExceptionMapper.java"));
+            serializationLibrary = "none";
+
+            if (microprofileFramework.equals(MICROPROFILE_KUMULUZEE)) {
+                supportingFiles.add(new SupportingFile("kumuluzee.pom.mustache", "", "pom.xml"));
+                supportingFiles.add(new SupportingFile("kumuluzee.config.yaml.mustache", "src/main/resources", "config.yaml"));
+                supportingFiles.add(new SupportingFile("kumuluzee.beans.xml.mustache", "src/main/resources/META-INF", "beans.xml"));
+            }
+
+            if ("3.0".equals(mpRestClientVersion)) {
+                additionalProperties.put("microprofile3", true);
+            }
+        } else if (APACHE.equals(getLibrary())) {
+            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
+        } else {
+            LOGGER.error("Unknown library option (-l/--library): {}", getLibrary());
+        }
+
+        if (usePlayWS) {
+            // remove unsupported auth
+            Iterator<SupportingFile> iter = supportingFiles.iterator();
+            while (iter.hasNext()) {
+                SupportingFile sf = iter.next();
+                if (sf.getTemplateFile().startsWith("auth/")) {
+                    iter.remove();
+                }
+            }
+
+            supportingFiles.add(new SupportingFile("play26/ApiClient.mustache", invokerFolder, "ApiClient.java"));
+            supportingFiles.add(new SupportingFile("play26/Play26CallFactory.mustache", invokerFolder, "Play26CallFactory.java"));
+            supportingFiles.add(new SupportingFile("play26/Play26CallAdapterFactory.mustache", invokerFolder,
+                    "Play26CallAdapterFactory.java"));
+
+            supportingFiles.add(new SupportingFile("play-common/auth/ApiKeyAuth.mustache", authFolder, "ApiKeyAuth.java"));
+            supportingFiles.add(new SupportingFile("auth/Authentication.mustache", authFolder, "Authentication.java"));
+            supportingFiles.add(new SupportingFile("Pair.mustache", invokerFolder, "Pair.java"));
+
+            forceSerializationLibrary(SERIALIZATION_LIBRARY_JACKSON);
+        }
+
+        if (getSerializationLibrary() == null) {
+            LOGGER.info("No serializationLibrary configured, using '{}' as fallback", SERIALIZATION_LIBRARY_GSON);
+            setSerializationLibrary(SERIALIZATION_LIBRARY_GSON);
+        }
+        switch (getSerializationLibrary()) {
+            case SERIALIZATION_LIBRARY_JACKSON:
+                additionalProperties.put(SERIALIZATION_LIBRARY_JACKSON, "true");
+                additionalProperties.remove(SERIALIZATION_LIBRARY_GSON);
+                additionalProperties.remove(SERIALIZATION_LIBRARY_JSONB);
+                supportingFiles.add(new SupportingFile("RFC3339DateFormat.mustache", invokerFolder, "RFC3339DateFormat.java"));
+                break;
+            case SERIALIZATION_LIBRARY_GSON:
+                additionalProperties.put(SERIALIZATION_LIBRARY_GSON, "true");
+                additionalProperties.remove(SERIALIZATION_LIBRARY_JACKSON);
+                additionalProperties.remove(SERIALIZATION_LIBRARY_JSONB);
+                break;
+            case SERIALIZATION_LIBRARY_JSONB:
+                additionalProperties.put(SERIALIZATION_LIBRARY_JSONB, "true");
+                additionalProperties.remove(SERIALIZATION_LIBRARY_JACKSON);
+                additionalProperties.remove(SERIALIZATION_LIBRARY_GSON);
+                break;
+            default:
+                additionalProperties.remove(SERIALIZATION_LIBRARY_JACKSON);
+                additionalProperties.remove(SERIALIZATION_LIBRARY_GSON);
+                additionalProperties.remove(SERIALIZATION_LIBRARY_JSONB);
+                break;
+        }
 
         // authentication related files
         // has OAuth defined
-//        if (true) {
-//            // for okhttp-gson (default), check to see if OAuth is defined and included OAuth-related files accordingly
-//            if ((OKHTTP_GSON.equals(getLibrary()) || StringUtils.isEmpty(getLibrary()))) {
-//                supportingFiles.add(new SupportingFile("auth/OAuthOkHttpClient.mustache", authFolder, "OAuthOkHttpClient.java"));
-//                supportingFiles.add(new SupportingFile("auth/RetryingOAuth.mustache", authFolder, "RetryingOAuth.java"));
-//            }
-//
-//            // google-api-client doesn't use the OpenAPI auth, because it uses Google Credential directly (HttpRequestInitializer)
-//            if (!(GOOGLE_API_CLIENT.equals(getLibrary()) || REST_ASSURED.equals(getLibrary()) || usePlayWS
-//                    || NATIVE.equals(getLibrary()) || MICROPROFILE.equals(getLibrary()))) {
-//                supportingFiles.add(new SupportingFile("auth/OAuth.mustache", authFolder, "OAuth.java"));
-//                supportingFiles.add(new SupportingFile("auth/OAuthFlow.mustache", authFolder, "OAuthFlow.java"));
-//            }
-//
-//            // Add OauthPasswordGrant.java and OauthClientCredentialsGrant.java for feign library
-//            if (FEIGN.equals(getLibrary())) {
-//                supportingFiles.add(new SupportingFile("auth/OauthPasswordGrant.mustache", authFolder, "OauthPasswordGrant.java"));
-//                supportingFiles.add(new SupportingFile("auth/OauthClientCredentialsGrant.mustache", authFolder, "OauthClientCredentialsGrant.java"));
-//                supportingFiles.add(new SupportingFile("auth/ApiErrorDecoder.mustache", authFolder, "ApiErrorDecoder.java"));
-//            }
-//        }
+        if (true) {
+            // for okhttp-gson (default), check to see if OAuth is defined and included OAuth-related files accordingly
+            if ((OKHTTP_GSON.equals(getLibrary()) || StringUtils.isEmpty(getLibrary()))) {
+                supportingFiles.add(new SupportingFile("auth/OAuthOkHttpClient.mustache", authFolder, "OAuthOkHttpClient.java"));
+                supportingFiles.add(new SupportingFile("auth/RetryingOAuth.mustache", authFolder, "RetryingOAuth.java"));
+            }
+
+            // google-api-client doesn't use the OpenAPI auth, because it uses Google Credential directly (HttpRequestInitializer)
+            if (!(GOOGLE_API_CLIENT.equals(getLibrary()) || REST_ASSURED.equals(getLibrary()) || usePlayWS
+                    || NATIVE.equals(getLibrary()) || MICROPROFILE.equals(getLibrary()))) {
+                supportingFiles.add(new SupportingFile("auth/OAuth.mustache", authFolder, "OAuth.java"));
+                supportingFiles.add(new SupportingFile("auth/OAuthFlow.mustache", authFolder, "OAuthFlow.java"));
+            }
+
+            // Add OauthPasswordGrant.java and OauthClientCredentialsGrant.java for feign library
+            if (FEIGN.equals(getLibrary())) {
+                supportingFiles.add(new SupportingFile("auth/OauthPasswordGrant.mustache", authFolder, "OauthPasswordGrant.java"));
+                supportingFiles.add(new SupportingFile("auth/OauthClientCredentialsGrant.mustache", authFolder, "OauthClientCredentialsGrant.java"));
+                supportingFiles.add(new SupportingFile("auth/ApiErrorDecoder.mustache", authFolder, "ApiErrorDecoder.java"));
+            }
+        }
     }
 
     /**
@@ -921,10 +908,5 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         List<VendorExtension> extensions = super.getSupportedVendorExtensions();
         extensions.add(VendorExtension.X_WEBCLIENT_BLOCKING);
         return extensions;
-    }
-
-    @Override
-    public String defaultTemplatingEngine() {
-        return "handlebars";
     }
 }
