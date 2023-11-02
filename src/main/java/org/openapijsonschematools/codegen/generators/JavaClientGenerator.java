@@ -636,29 +636,29 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 //            LOGGER.info("No serializationLibrary configured, using '{}' as fallback", SERIALIZATION_LIBRARY_GSON);
 //            setSerializationLibrary(SERIALIZATION_LIBRARY_GSON);
 //        }
-        switch (getSerializationLibrary()) {
-            case SERIALIZATION_LIBRARY_JACKSON:
-                additionalProperties.put(SERIALIZATION_LIBRARY_JACKSON, "true");
-                additionalProperties.remove(SERIALIZATION_LIBRARY_GSON);
-                additionalProperties.remove(SERIALIZATION_LIBRARY_JSONB);
+//        switch (getSerializationLibrary()) {
+//            case SERIALIZATION_LIBRARY_JACKSON:
+//                additionalProperties.put(SERIALIZATION_LIBRARY_JACKSON, "true");
+//                additionalProperties.remove(SERIALIZATION_LIBRARY_GSON);
+//                additionalProperties.remove(SERIALIZATION_LIBRARY_JSONB);
 //                supportingFiles.add(new SupportingFile("RFC3339DateFormat.mustache", invokerFolder, "RFC3339DateFormat.java"));
-                break;
-            case SERIALIZATION_LIBRARY_GSON:
-                additionalProperties.put(SERIALIZATION_LIBRARY_GSON, "true");
-                additionalProperties.remove(SERIALIZATION_LIBRARY_JACKSON);
-                additionalProperties.remove(SERIALIZATION_LIBRARY_JSONB);
-                break;
-            case SERIALIZATION_LIBRARY_JSONB:
-                additionalProperties.put(SERIALIZATION_LIBRARY_JSONB, "true");
-                additionalProperties.remove(SERIALIZATION_LIBRARY_JACKSON);
-                additionalProperties.remove(SERIALIZATION_LIBRARY_GSON);
-                break;
-            default:
-                additionalProperties.remove(SERIALIZATION_LIBRARY_JACKSON);
-                additionalProperties.remove(SERIALIZATION_LIBRARY_GSON);
-                additionalProperties.remove(SERIALIZATION_LIBRARY_JSONB);
-                break;
-        }
+//                break;
+//            case SERIALIZATION_LIBRARY_GSON:
+//                additionalProperties.put(SERIALIZATION_LIBRARY_GSON, "true");
+//                additionalProperties.remove(SERIALIZATION_LIBRARY_JACKSON);
+//                additionalProperties.remove(SERIALIZATION_LIBRARY_JSONB);
+//                break;
+//            case SERIALIZATION_LIBRARY_JSONB:
+//                additionalProperties.put(SERIALIZATION_LIBRARY_JSONB, "true");
+//                additionalProperties.remove(SERIALIZATION_LIBRARY_JACKSON);
+//                additionalProperties.remove(SERIALIZATION_LIBRARY_GSON);
+//                break;
+//            default:
+//                additionalProperties.remove(SERIALIZATION_LIBRARY_JACKSON);
+//                additionalProperties.remove(SERIALIZATION_LIBRARY_GSON);
+//                additionalProperties.remove(SERIALIZATION_LIBRARY_JSONB);
+//                break;
+//        }
 
         // authentication related files
         // has OAuth defined
