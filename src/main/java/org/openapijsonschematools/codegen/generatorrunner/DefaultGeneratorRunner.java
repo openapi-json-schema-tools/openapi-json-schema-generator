@@ -914,11 +914,16 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 templateData.putAll(templateInfo);
             }
             try {
-                File written = processTemplateToFile(templateData, templateFile, filename, shouldGenerate, skippedByOption);
-                if (written != null) {
-                    files.add(written);
-                    if (generator.isEnablePostProcessFile() && !dryRun) {
-                        generator.postProcessFile(written, skippedByOption);
+                File testFile = new File(filename);
+                if (testFile.exists()) {
+                    this.templateProcessor.skip(testFile.toPath(), "Test files never overwrite an existing file of the same name.");
+                } else {
+                    File written = processTemplateToFile(templateData, templateFile, filename, shouldGenerate, skippedByOption);
+                    if (written != null) {
+                        files.add(written);
+                        if (generator.isEnablePostProcessFile() && !dryRun) {
+                            generator.postProcessFile(written, skippedByOption);
+                        }
                     }
                 }
             } catch (Exception e) {
