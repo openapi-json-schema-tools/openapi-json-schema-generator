@@ -596,6 +596,27 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
                 }}
 
         );
+        jsonPathTestTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.COMPONENTS,
+                new HashMap<String, String>() {{
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                }}
+
+        );
+        jsonPathTestTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS,
+                new HashMap<String, String>() {{
+                    put("__init__.hbs", File.separatorChar + "__init__.py");
+                }}
+
+        );
+        jsonPathTestTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
+                new HashMap<String, String>() {{
+                    put("components/schemas/schema_test.hbs", ".py");
+                }}
+
+        );
         HashMap<String, String> operationTemplates = new HashMap<>();
         operationTemplates.put("__init__.hbs", File.separatorChar + "__init__.py");
         operationTemplates.put("paths/path/verb/operation.hbs", File.separatorChar + "operation.py");
@@ -1793,11 +1814,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
     @Override
     public String apiDocFileFolder() {
         return (outputFolder + File.separator + apiDocPath);
-    }
-
-    @Override
-    public String toApiDocFilename(String name) {
-        return toApiName(name);
     }
 
     @Override

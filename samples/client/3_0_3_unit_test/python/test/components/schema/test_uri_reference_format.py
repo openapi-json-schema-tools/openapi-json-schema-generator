@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestUriReferenceFormat(unittest.TestCase):
     """UriReferenceFormat unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_all_string_formats_ignore_objects_passes(self):
         # all string formats ignore objects

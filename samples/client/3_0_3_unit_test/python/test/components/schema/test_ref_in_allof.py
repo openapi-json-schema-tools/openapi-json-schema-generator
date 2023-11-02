@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestRefInAllof(unittest.TestCase):
     """RefInAllof unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_property_named_ref_valid_passes(self):
         # property named $ref valid

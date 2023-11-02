@@ -456,12 +456,6 @@ public abstract class AbstractPythonGenerator extends DefaultGenerator implement
         return toModuleFilename(name, jsonPath);
     }
 
-
-    @Override
-    public String toModelTestFilename(String name) {
-        return "test_" + toModelFilename(name, null);
-    }
-
     @Override
     public String toApiFilename(String name) {
         // e.g. PhoneNumberApi.py => phone_number_api.py

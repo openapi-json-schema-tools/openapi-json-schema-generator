@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestOneofWithBaseSchema(unittest.TestCase):
     """OneofWithBaseSchema unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_both_oneof_valid_fails(self):
         # both oneOf valid

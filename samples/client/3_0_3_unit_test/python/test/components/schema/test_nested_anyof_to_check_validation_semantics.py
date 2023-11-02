@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestNestedAnyofToCheckValidationSemantics(unittest.TestCase):
     """NestedAnyofToCheckValidationSemantics unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_anything_non_null_is_invalid_fails(self):
         # anything non-null is invalid

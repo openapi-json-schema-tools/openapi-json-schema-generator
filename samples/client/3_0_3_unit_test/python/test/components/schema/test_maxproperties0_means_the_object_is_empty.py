@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestMaxproperties0MeansTheObjectIsEmpty(unittest.TestCase):
     """Maxproperties0MeansTheObjectIsEmpty unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_no_properties_is_valid_passes(self):
         # no properties is valid

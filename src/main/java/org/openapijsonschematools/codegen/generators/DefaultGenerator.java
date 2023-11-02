@@ -836,11 +836,6 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public Map<String, String> modelTestTemplateFiles() {
-        return modelTestTemplateFiles;
-    }
-
-    @Override
     public HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTemplateFiles() {
         return jsonPathTemplateFiles;
     }
@@ -1037,18 +1032,6 @@ public class DefaultGenerator implements Generator {
     }
 
     /**
-     * Return the file name of the Api Documentation
-     *
-     * @param name the file name of the Api
-     * @return the file name of the Api
-     */
-    @Override
-    public String toApiDocFilename(String name) {
-        return toApiName(name);
-    }
-
-
-    /**
      * Return the variable name in the Api
      *
      * @param name the variable name of the Api
@@ -1106,17 +1089,6 @@ public class DefaultGenerator implements Generator {
 
     public String getCamelCaseParameter(String basename) {
         return toModelName(basename, null);
-    }
-
-    /**
-     * Return the capitalized file name of the model test
-     *
-     * @param name the model name
-     * @return the file name of the model
-     */
-    @Override
-    public String toModelTestFilename(String name) {
-        return org.openapijsonschematools.codegen.common.StringUtils.camelize(name) + "Test";
     }
 
     /**
@@ -3963,9 +3935,14 @@ public class DefaultGenerator implements Generator {
     @Override
     public String getTestFilepath(String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
-        pathPieces[0] = outputFolder + File.separatorChar + "tests";
+        pathPieces[0] = outputFolder + File.separatorChar + "test";
         if (jsonPath.startsWith("#/components")) {
+            // #/components/schemas/someSchema
             updateComponentsFilepath(pathPieces);
+            if (pathPieces.length == 4) {
+                int lastIndex = pathPieces.length - 1;
+                pathPieces[lastIndex] = "test_" + pathPieces[lastIndex];
+            }
         } else if (jsonPath.startsWith("#/paths")) {
             updatePathsFilepath(pathPieces);
             // #/paths/somePath/get

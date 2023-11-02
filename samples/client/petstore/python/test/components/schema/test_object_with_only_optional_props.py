@@ -16,7 +16,9 @@ from petstore_api.configurations import schema_configuration
 
 class TestObjectWithOnlyOptionalProps(unittest.TestCase):
     """ObjectWithOnlyOptionalProps unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
 
 if __name__ == '__main__':

@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestEnumWithFalseDoesNotMatch0(unittest.TestCase):
     """EnumWithFalseDoesNotMatch0 unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_false_is_valid_passes(self):
         # false is valid

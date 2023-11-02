@@ -349,34 +349,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
     }
 
-    private void generateSchemaTests(List<File> files, Map<String, Object> modelData, String modelName) throws IOException {
-        // to generate model test files
-        for (Map.Entry<String, String> configModelTestTemplateFilesEntry : generator.modelTestTemplateFiles().entrySet()) {
-            String templateName = configModelTestTemplateFilesEntry.getKey();
-            String suffix = configModelTestTemplateFilesEntry.getValue();
-            String filename = generator.modelTestFileFolder() + File.separator + generator.toModelTestFilename(modelName) + suffix;
-
-            if (generateModelTests) {
-                // do not overwrite test file that already exists (regardless of config's skipOverwrite setting)
-                File modelTestFile = new File(filename);
-                if (modelTestFile.exists()) {
-                    this.templateProcessor.skip(modelTestFile.toPath(), "Test files never overwrite an existing file of the same name.");
-                } else {
-                    File written = processTemplateToFile(modelData, templateName, filename, generateModelTests, CodegenConstants.MODEL_TESTS, generator.modelTestFileFolder());
-                    if (written != null) {
-                        files.add(written);
-                        if (generator.isEnablePostProcessFile() && !dryRun) {
-                            generator.postProcessFile(written, "model-test");
-                        }
-                    }
-                }
-            } else if (dryRun) {
-                Path skippedPath = java.nio.file.Paths.get(filename);
-                this.templateProcessor.skip(skippedPath, "Skipped by modelTests option supplied by user.");
-            }
-        }
-    }
-
     private void generateSchemaDocumentation(List<File> files, CodegenSchema schema, String jsonPath, String docRoot) {
         Map<String, Object> schemaData = new HashMap<>();
         schemaData.put("packageName", generator.packageName());
@@ -1069,8 +1041,10 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             }
         }
 
+        generateXTests(files, "#/components", CodegenConstants.JSON_PATH_LOCATION_TYPE.COMPONENTS, CodegenConstants.MODELS, null, true);
         String schemasJsonPath = "#/components/schemas";
         generateXs(files, schemasJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS, CodegenConstants.MODELS, null, true);
+        generateXTests(files, schemasJsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMAS, CodegenConstants.MODELS, null, true);
         // generate files based on processed models
         for (Map.Entry<String, CodegenSchema> entry: schemas.entrySet()) {
             String componentName = entry.getKey();
@@ -1086,7 +1060,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 schemaData.put("schema", schema);
                 schemaData.putAll(generator.additionalProperties());
                 if (generateModelTests) {
-                    generateSchemaTests(files, schemaData, componentName);
+                    generateXTests(files, jsonPath, CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA, CodegenConstants.MODELS, schemaData, true);
                 }
 
                 // to generate model documentation files
@@ -1665,7 +1639,8 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                                 apiTestTemplateToSuffix.put(templateFile, templateExt);
                                 break;
                             case ModelTests:
-                                generator.modelTestTemplateFiles().put(templateFile, templateExt);
+                                Map<String, String> modelTestTemplateToSuffix = generator.jsonPathTestTemplateFiles().getOrDefault(CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA, new HashMap<>());
+                                modelTestTemplateToSuffix.put(templateFile, templateExt);
                                 break;
                             case SupportingFiles:
                                 // excluded by filter

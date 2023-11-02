@@ -182,8 +182,6 @@ public interface Generator {
 
     HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTestTemplateFiles();
 
-    Map<String, String> modelTestTemplateFiles();
-
     Set<String> languageSpecificPrimitives();
 
     Map<String, String> reservedWordsMappings();
@@ -201,10 +199,6 @@ public interface Generator {
     String toModelFilename(String name, String jsonPath);
 
     String toModuleFilename(String name, String jsonPath);
-
-    String toModelTestFilename(String name);
-
-    String toApiDocFilename(String name);
 
     String toRequestBodyFilename(String componentName);
 

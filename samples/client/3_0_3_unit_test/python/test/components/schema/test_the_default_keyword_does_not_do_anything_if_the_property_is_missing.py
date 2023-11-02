@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestTheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing(unittest.TestCase):
     """TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_missing_properties_are_not_filled_in_with_the_default_passes(self):
         # missing properties are not filled in with the default

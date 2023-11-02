@@ -16,7 +16,9 @@ from unit_test_api.configurations import schema_configuration
 
 class TestAdditionalpropertiesAreAllowedByDefault(unittest.TestCase):
     """AdditionalpropertiesAreAllowedByDefault unit test stubs"""
-    configuration = schema_configuration.SchemaConfiguration()
+    configuration = schema_configuration.SchemaConfiguration(
+        disabled_json_schema_keywords={'format'}
+    )
 
     def test_additional_properties_are_allowed_passes(self):
         # additional properties are allowed
