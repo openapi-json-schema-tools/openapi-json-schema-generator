@@ -254,7 +254,7 @@ public class DefaultGeneratorRunnerTest {
         File output = target.toFile();
         try {
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("java")
+                    .setGeneratorName("python")
                     .setInputSpec("src/test/resources/3_0/pingSomeObj.yaml")
                     .setOutputDir(target.toAbsolutePath().toString());
 
@@ -280,9 +280,8 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 5);
+            Assert.assertEquals(files.size(), 7);
 
-            TestUtils.ensureContainsFile(files, output, "pom.xml");
             TestUtils.ensureContainsFile(files, output, ".travis.yml");
             TestUtils.ensureContainsFile(files, output, ".gitignore");
             TestUtils.ensureContainsFile(files, output, "git_push.sh");
