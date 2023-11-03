@@ -126,14 +126,14 @@ public class DefaultGeneratorRunnerTest {
         File output = target.toFile();
         try {
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("java")
-                    .setInputSpec("src/test/resources/3_0/petstore.yaml")
+                    .setGeneratorName("python")
+                    .setInputSpec("src/test/resources/3_0/python/petstore_customized.yaml")
                     .setSkipOverwrite(false)
                     .setOutputDir(target.toAbsolutePath().toString());
 
             // Create "existing" files
-            String apiTestRelativePath = "src/test/java/org/openapijsonschematools/client/api/tags/PetApiTest.java";
-            String modelTestRelativePath = "src/test/java/org/openapijsonschematools/client/model/CategoryTest.java";
+            String apiTestRelativePath = "test/paths/pet_find_by_status/test_get.py";
+            String modelTestRelativePath = "test/components/schema/test_animal.py";
 
             File apiTestFile = new File(output, apiTestRelativePath);
             new File(apiTestFile.getParent()).mkdirs();
@@ -160,11 +160,12 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 68);
+            Assert.assertEquals(files.size(), 1507);
 
             // Check API is written and Test is not
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/tags/PetApi.java");
-            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/api/tags/PetApi.java").exists());
+            String apiFile = "src/openapi_client/paths/pet_find_by_status/get/operation.py";
+            TestUtils.ensureContainsFile(files, output, apiFile);
+            Assert.assertTrue(new File(output, apiTestRelativePath).exists());
 
             TestUtils.ensureDoesNotContainsFile(files, output, apiTestRelativePath);
             Assert.assertTrue(apiTestFile.exists());
@@ -172,8 +173,9 @@ public class DefaultGeneratorRunnerTest {
             Assert.assertEquals(apiTestContents, "empty", "Expected test file to retain original contents.");
 
             // Check Model is written and Test is not
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/model/Category.java");
-            Assert.assertTrue(new File(output, "src/test/java/org/openapijsonschematools/client/model/CategoryTest.java").exists());
+            String modelFile = "src/openapi_client/components/schema/animal.py";
+            TestUtils.ensureContainsFile(files, output, modelFile);
+            Assert.assertTrue(new File(output, modelTestRelativePath).exists());
 
             TestUtils.ensureDoesNotContainsFile(files, output, modelTestRelativePath);
             Assert.assertTrue(modelTestFile.exists());
