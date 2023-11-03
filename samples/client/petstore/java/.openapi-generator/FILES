@@ -2,4 +2,5 @@ README.md
 pom.xml
 src/main/java/org/openapijsonschematools/configurations/JsonSchemaKeywordFlags.java
 src/main/java/org/openapijsonschematools/schemas/CustomIsoparser.java
+src/test/java/org/openapijsonschematools/configurations/JsonSchemaKeywordFlagsTest.java
 src/test/java/org/openapijsonschematools/schemas/CustomIsoparserTest.java
