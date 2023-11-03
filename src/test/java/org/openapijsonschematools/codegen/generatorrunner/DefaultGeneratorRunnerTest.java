@@ -45,11 +45,7 @@ public class DefaultGeneratorRunnerTest {
         try {
             List<String> ignoreFile = Arrays.asList(
                     ".travis.yml",
-                    "build.sbt",
-                    "src/main/AndroidManifest.xml",
-                    "pom.xml",
-                    "src/test/**",
-                    "src/main/java/org/openapijsonschematools/client/api/tags/UserApi.java"
+                    "build.sbt"
             );
             File ignorePath = new File(output, ".openapi-generator-ignore");
             Files.write(ignorePath.toPath(),
@@ -57,7 +53,7 @@ public class DefaultGeneratorRunnerTest {
                     StandardOpenOption.CREATE);
 
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("java")
+                    .setGeneratorName("python")
                     .setInputSpec("src/test/resources/3_0/petstore.yaml")
                     .setOutputDir(target.toAbsolutePath().toString());
 
@@ -75,45 +71,27 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 103);
+            Assert.assertEquals(files.size(), 432);
 
             // Check expected generated files
             // api sanity check
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/tags/PetApi.java");
-            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/api/tags/PetApi.java").exists());
+            String checkedFilepath = "src/openapi_client/paths/pet_find_by_status/get/operation.py";
+            TestUtils.ensureContainsFile(files, output, checkedFilepath);
+            Assert.assertTrue(new File(output, checkedFilepath).exists());
 
             // model sanity check
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/model/Category.java");
-            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/model/Category.java").exists());
-
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/model/ModelApiResponse.java");
-            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/model/ModelApiResponse.java").exists());
+            checkedFilepath = "src/openapi_client/components/schema/pet.py";
+            TestUtils.ensureContainsFile(files, output, checkedFilepath);
+            Assert.assertTrue(new File(output, checkedFilepath).exists());
 
             // supporting files sanity check
-            TestUtils.ensureContainsFile(files, output, "build.gradle");
-            Assert.assertTrue(new File(output, "build.gradle").exists());
-
-            TestUtils.ensureContainsFile(files, output, "api/openapi.yaml");
-            Assert.assertTrue(new File(output, "build.gradle").exists());
+            TestUtils.ensureContainsFile(files, output, "pyproject.toml");
+            Assert.assertTrue(new File(output, "pyproject.toml").exists());
 
             // Check excluded files
             TestUtils.ensureDoesNotContainsFile(files, output, ".travis.yml");
             Assert.assertFalse(new File(output, ".travis.yml").exists());
 
-            TestUtils.ensureDoesNotContainsFile(files, output, "build.sbt");
-            Assert.assertFalse(new File(output, "build.sbt").exists());
-
-            TestUtils.ensureDoesNotContainsFile(files, output, "src/main/AndroidManifest.xml");
-            Assert.assertFalse(new File(output, "src/main/AndroidManifest.xml").exists());
-
-            TestUtils.ensureDoesNotContainsFile(files, output, "pom.xml");
-            Assert.assertFalse(new File(output, "pom.xml").exists());
-
-            TestUtils.ensureDoesNotContainsFile(files, output, "src/test/java/org/openapijsonschematools/client/model/CategoryTest.java");
-            Assert.assertFalse(new File(output, "src/test/java/org/openapijsonschematools/client/model/CategoryTest.java").exists());
-
-            TestUtils.ensureDoesNotContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/tags/UserApi.java");
-            Assert.assertFalse(new File(output, "src/main/java/org/openapijsonschematools/client/api/tags/UserApi.java").exists());
         } finally {
             output.delete();
         }
@@ -126,14 +104,14 @@ public class DefaultGeneratorRunnerTest {
         File output = target.toFile();
         try {
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("java")
+                    .setGeneratorName("python")
                     .setInputSpec("src/test/resources/3_0/petstore.yaml")
                     .setSkipOverwrite(false)
                     .setOutputDir(target.toAbsolutePath().toString());
 
             // Create "existing" files
-            String apiTestRelativePath = "src/test/java/org/openapijsonschematools/client/api/tags/PetApiTest.java";
-            String modelTestRelativePath = "src/test/java/org/openapijsonschematools/client/model/CategoryTest.java";
+            String apiTestRelativePath = "test/paths/pet_find_by_status/test_get.py";
+            String modelTestRelativePath = "test/components/schema/test_pet.py";
 
             File apiTestFile = new File(output, apiTestRelativePath);
             new File(apiTestFile.getParent()).mkdirs();
@@ -160,11 +138,12 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 68);
+            Assert.assertEquals(files.size(), 391);
 
             // Check API is written and Test is not
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/tags/PetApi.java");
-            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/api/tags/PetApi.java").exists());
+            String apiFile = "src/openapi_client/paths/pet_find_by_status/get/operation.py";
+            TestUtils.ensureContainsFile(files, output, apiFile);
+            Assert.assertTrue(new File(output, apiTestRelativePath).exists());
 
             TestUtils.ensureDoesNotContainsFile(files, output, apiTestRelativePath);
             Assert.assertTrue(apiTestFile.exists());
@@ -172,8 +151,9 @@ public class DefaultGeneratorRunnerTest {
             Assert.assertEquals(apiTestContents, "empty", "Expected test file to retain original contents.");
 
             // Check Model is written and Test is not
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/model/Category.java");
-            Assert.assertTrue(new File(output, "src/test/java/org/openapijsonschematools/client/model/CategoryTest.java").exists());
+            String modelFile = "src/openapi_client/components/schema/pet.py";
+            TestUtils.ensureContainsFile(files, output, modelFile);
+            Assert.assertTrue(new File(output, modelTestRelativePath).exists());
 
             TestUtils.ensureDoesNotContainsFile(files, output, modelTestRelativePath);
             Assert.assertTrue(modelTestFile.exists());
@@ -190,7 +170,7 @@ public class DefaultGeneratorRunnerTest {
         File output = target.toFile();
         try {
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("java")
+                    .setGeneratorName("python")
                     .setInputSpec("src/test/resources/3_0/pingSomeObj.yaml")
                     .setOutputDir(target.toAbsolutePath().toString());
 
@@ -208,8 +188,8 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 1);
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/tags/PingApi.java");
+            Assert.assertEquals(files.size(), 26);
+            TestUtils.ensureContainsFile(files, output, "src/openapi_client/paths/ping/post/operation.py");
         } finally {
             output.delete();
         }
@@ -221,7 +201,7 @@ public class DefaultGeneratorRunnerTest {
         File output = target.toFile();
         try {
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("java")
+                    .setGeneratorName("python")
                     .setInputSpec("src/test/resources/3_0/pingSomeObj.yaml")
                     .setOutputDir(target.toAbsolutePath().toString());
 
@@ -239,8 +219,8 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 1);
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/model/SomeObj.java");
+            Assert.assertEquals(files.size(), 8);
+            TestUtils.ensureContainsFile(files, output, "src/openapi_client/components/schema/some_obj.py");
         } finally {
             output.delete();
         }
@@ -252,7 +232,7 @@ public class DefaultGeneratorRunnerTest {
         File output = target.toFile();
         try {
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("java")
+                    .setGeneratorName("python")
                     .setInputSpec("src/test/resources/3_0/pingSomeObj.yaml")
                     .setOutputDir(target.toAbsolutePath().toString());
 
@@ -278,9 +258,8 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 5);
+            Assert.assertEquals(files.size(), 7);
 
-            TestUtils.ensureContainsFile(files, output, "pom.xml");
             TestUtils.ensureContainsFile(files, output, ".travis.yml");
             TestUtils.ensureContainsFile(files, output, ".gitignore");
             TestUtils.ensureContainsFile(files, output, "git_push.sh");

@@ -37,26 +37,9 @@ public class AuthorTemplateTest {
         builder.build().parse(arguments).run();
 
         // spot check root files
-        Assert.assertTrue(Files.exists(outputDirectory.resolve("ApiClient.mustache")));
-        Assert.assertTrue(Files.exists(outputDirectory.resolve("api_doc.mustache")));
-        Assert.assertTrue(Files.exists(outputDirectory.resolve("pom.mustache")));
+        Assert.assertTrue(Files.exists(outputDirectory.resolve("README.hbs")));
+        Assert.assertTrue(Files.exists(outputDirectory.resolve("pom.hbs")));
 
-        Assert.assertTrue(Files.exists(outputDirectory.resolve("auth/OAuth.mustache")));
-
-        // check libraries files and subdirectories
-        Assert.assertTrue(Files.exists(outputDirectory.resolve("libraries/webclient/ApiClient.mustache")));
-        Assert.assertTrue(Files.exists(outputDirectory.resolve("libraries/webclient/pom.mustache")));
-        Assert.assertTrue(Files.exists(outputDirectory.resolve("libraries/webclient/auth/OAuth.mustache")));
-
-        // check non-existence of unselected libraries
-        Assert.assertFalse(Files.exists(outputDirectory.resolve("libraries/feign/build.gradle.mustache")));
-        Assert.assertFalse(Files.exists(outputDirectory.resolve("libraries/feign/auth/OAuth.mustache")));
-
-        Assert.assertFalse(Files.exists(outputDirectory.resolve("libraries/jersey2/api_doc.mustache")));
-        Assert.assertFalse(Files.exists(outputDirectory.resolve("libraries/jersey2/auth/HttpBasicAuth.mustache")));
-
-        Assert.assertFalse(Files.exists(outputDirectory.resolve("libraries/okhttp-gson/api.mustache")));
-        Assert.assertFalse(Files.exists(outputDirectory.resolve("libraries/okhttp-gson/auth/RetryingOAuth.mustache")));
     }
 
     private Cli.CliBuilder<Runnable> createBuilder(){
