@@ -192,7 +192,7 @@ public class DefaultGeneratorRunnerTest {
         File output = target.toFile();
         try {
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("java")
+                    .setGeneratorName("python")
                     .setInputSpec("src/test/resources/3_0/pingSomeObj.yaml")
                     .setOutputDir(target.toAbsolutePath().toString());
 
@@ -210,8 +210,8 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 1);
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/tags/PingApi.java");
+            Assert.assertEquals(files.size(), 26);
+            TestUtils.ensureContainsFile(files, output, "src/openapi_client/paths/ping/post/operation.py");
         } finally {
             output.delete();
         }
