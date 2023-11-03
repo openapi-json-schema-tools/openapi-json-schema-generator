@@ -243,11 +243,22 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         return "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar + packageName.replace('.', File.separatorChar);
     }
 
+    protected String testPackagePath() {
+        return "src" + File.separatorChar + "test" + File.separatorChar + "java" + File.separatorChar + packageName.replace('.', File.separatorChar);
+    }
+
     @Override
     public void processOpts() {
         HashMap<String, String> schemaDocs = new HashMap<>();
         additionalProperties.put(CodegenConstants.PACKAGE_NAME, packageName);
-        supportingFiles.add(new SupportingFile("src/main/java/org/openapitools/schemas/CustomIsoparser.hbs", packagePath() + File.separatorChar + "schemas", "CustomIsoparser.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/CustomIsoparser.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "CustomIsoparser.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/org/openapitools/schemas/CustomIsoparserTest.hbs",
+                testPackagePath() + File.separatorChar + "schemas",
+                "CustomIsoparserTest.java"));
 
 //        jsonPathDocTemplateFiles.put(
 //                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
