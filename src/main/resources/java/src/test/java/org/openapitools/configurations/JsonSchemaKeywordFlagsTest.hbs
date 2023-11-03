@@ -93,4 +93,51 @@ public final class JsonSchemaKeywordFlagsTest {
         Assert.assertEquals(enabledKeywords, expectedEnabledKeywords);
     }
 
+    @Test
+    public void testGetNoEnabledKeywords() {
+        final JsonSchemaKeywordFlags jsonSchemaKeywordFlags = new JsonSchemaKeywordFlags(
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+        );
+        LinkedHashSet<String> enabledKeywords = jsonSchemaKeywordFlags.getEnabledKeywords();
+        LinkedHashSet<String> expectedEnabledKeywords = new LinkedHashSet<>();
+        Assert.assertEquals(enabledKeywords, expectedEnabledKeywords);
+    }
 }

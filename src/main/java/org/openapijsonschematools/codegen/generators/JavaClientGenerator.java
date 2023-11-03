@@ -278,6 +278,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 "src/test/java/org/openapitools/configurations/JsonSchemaKeywordFlagsTest.hbs",
                 testPackagePath() + File.separatorChar + "configurations",
                 "JsonSchemaKeywordFlagsTest.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/configurations/SchemaConfiguration.hbs",
+                packagePath() + File.separatorChar + "configurations",
+                "SchemaConfiguration.java"));
 
 //        jsonPathDocTemplateFiles.put(
 //                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
