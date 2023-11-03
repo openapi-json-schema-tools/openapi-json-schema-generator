@@ -136,6 +136,11 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         return Stability.EXPERIMENTAL;
     }
 
+    @Override
+    public String generatorLanguageVersion() {
+        return "17";
+    }
+
     public JavaClientGenerator() {
         super();
 
@@ -264,6 +269,11 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 "src/test/java/org/openapitools/schemas/CustomIsoparserTest.hbs",
                 testPackagePath() + File.separatorChar + "schemas",
                 "CustomIsoparserTest.java"));
+
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/configurations/JsonSchemaKeywordFlags.hbs",
+                packagePath() + File.separatorChar + "configurations",
+                "JsonSchemaKeywordFlags.java"));
 
 //        jsonPathDocTemplateFiles.put(
 //                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
