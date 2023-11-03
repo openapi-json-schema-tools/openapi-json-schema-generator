@@ -1188,6 +1188,10 @@ public class DefaultGenerator implements Generator {
         return apiPackage() + "." + name;
     }
 
+    protected Stability getStability() {
+        return Stability.STABLE;
+    }
+
     /**
      * Default constructor.
      * This method will map between OAS type and language-specified type, as well as mapping
@@ -1202,7 +1206,7 @@ public class DefaultGenerator implements Generator {
         }
 
         generatorMetadata = GeneratorMetadata.newBuilder()
-                .stability(Stability.STABLE)
+                .stability(getStability())
                 .featureSet(DefaultFeatureSet)
                 .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", getName(), generatorType.toValue()))
                 .build();

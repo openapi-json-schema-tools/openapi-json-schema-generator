@@ -45,11 +45,7 @@ public class DefaultGeneratorRunnerTest {
         try {
             List<String> ignoreFile = Arrays.asList(
                     ".travis.yml",
-                    "build.sbt",
-                    "src/main/AndroidManifest.xml",
-                    "pom.xml",
-                    "src/test/**",
-                    "src/main/java/org/openapijsonschematools/client/api/tags/UserApi.java"
+                    "build.sbt"
             );
             File ignorePath = new File(output, ".openapi-generator-ignore");
             Files.write(ignorePath.toPath(),
@@ -57,7 +53,7 @@ public class DefaultGeneratorRunnerTest {
                     StandardOpenOption.CREATE);
 
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("java")
+                    .setGeneratorName("python")
                     .setInputSpec("src/test/resources/3_0/petstore.yaml")
                     .setOutputDir(target.toAbsolutePath().toString());
 
@@ -75,45 +71,27 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 103);
+            Assert.assertEquals(files.size(), 432);
 
             // Check expected generated files
             // api sanity check
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/tags/PetApi.java");
-            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/api/tags/PetApi.java").exists());
+            String checkedFilepath = "src/openapi_client/paths/pet_find_by_status/get/operation.py";
+            TestUtils.ensureContainsFile(files, output, checkedFilepath);
+            Assert.assertTrue(new File(output, checkedFilepath).exists());
 
             // model sanity check
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/model/Category.java");
-            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/model/Category.java").exists());
-
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/model/ModelApiResponse.java");
-            Assert.assertTrue(new File(output, "src/main/java/org/openapijsonschematools/client/model/ModelApiResponse.java").exists());
+            checkedFilepath = "src/openapi_client/components/schema/pet.py";
+            TestUtils.ensureContainsFile(files, output, checkedFilepath);
+            Assert.assertTrue(new File(output, checkedFilepath).exists());
 
             // supporting files sanity check
-            TestUtils.ensureContainsFile(files, output, "build.gradle");
-            Assert.assertTrue(new File(output, "build.gradle").exists());
-
-            TestUtils.ensureContainsFile(files, output, "api/openapi.yaml");
-            Assert.assertTrue(new File(output, "build.gradle").exists());
+            TestUtils.ensureContainsFile(files, output, "pyproject.toml");
+            Assert.assertTrue(new File(output, "pyproject.toml").exists());
 
             // Check excluded files
             TestUtils.ensureDoesNotContainsFile(files, output, ".travis.yml");
             Assert.assertFalse(new File(output, ".travis.yml").exists());
 
-            TestUtils.ensureDoesNotContainsFile(files, output, "build.sbt");
-            Assert.assertFalse(new File(output, "build.sbt").exists());
-
-            TestUtils.ensureDoesNotContainsFile(files, output, "src/main/AndroidManifest.xml");
-            Assert.assertFalse(new File(output, "src/main/AndroidManifest.xml").exists());
-
-            TestUtils.ensureDoesNotContainsFile(files, output, "pom.xml");
-            Assert.assertFalse(new File(output, "pom.xml").exists());
-
-            TestUtils.ensureDoesNotContainsFile(files, output, "src/test/java/org/openapijsonschematools/client/model/CategoryTest.java");
-            Assert.assertFalse(new File(output, "src/test/java/org/openapijsonschematools/client/model/CategoryTest.java").exists());
-
-            TestUtils.ensureDoesNotContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/api/tags/UserApi.java");
-            Assert.assertFalse(new File(output, "src/main/java/org/openapijsonschematools/client/api/tags/UserApi.java").exists());
         } finally {
             output.delete();
         }
