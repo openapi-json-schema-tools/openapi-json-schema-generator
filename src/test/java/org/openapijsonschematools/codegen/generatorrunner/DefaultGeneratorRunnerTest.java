@@ -127,13 +127,13 @@ public class DefaultGeneratorRunnerTest {
         try {
             final CodegenConfigurator configurator = new CodegenConfigurator()
                     .setGeneratorName("python")
-                    .setInputSpec("src/test/resources/3_0/python/petstore_customized.yaml")
+                    .setInputSpec("src/test/resources/3_0/petstore.yaml")
                     .setSkipOverwrite(false)
                     .setOutputDir(target.toAbsolutePath().toString());
 
             // Create "existing" files
             String apiTestRelativePath = "test/paths/pet_find_by_status/test_get.py";
-            String modelTestRelativePath = "test/components/schema/test_animal.py";
+            String modelTestRelativePath = "test/components/schema/test_pet.py";
 
             File apiTestFile = new File(output, apiTestRelativePath);
             new File(apiTestFile.getParent()).mkdirs();
@@ -160,7 +160,7 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 1507);
+            Assert.assertEquals(files.size(), 391);
 
             // Check API is written and Test is not
             String apiFile = "src/openapi_client/paths/pet_find_by_status/get/operation.py";
@@ -173,7 +173,7 @@ public class DefaultGeneratorRunnerTest {
             Assert.assertEquals(apiTestContents, "empty", "Expected test file to retain original contents.");
 
             // Check Model is written and Test is not
-            String modelFile = "src/openapi_client/components/schema/animal.py";
+            String modelFile = "src/openapi_client/components/schema/pet.py";
             TestUtils.ensureContainsFile(files, output, modelFile);
             Assert.assertTrue(new File(output, modelTestRelativePath).exists());
 
@@ -223,7 +223,7 @@ public class DefaultGeneratorRunnerTest {
         File output = target.toFile();
         try {
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("java")
+                    .setGeneratorName("python")
                     .setInputSpec("src/test/resources/3_0/pingSomeObj.yaml")
                     .setOutputDir(target.toAbsolutePath().toString());
 
@@ -241,8 +241,8 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 1);
-            TestUtils.ensureContainsFile(files, output, "src/main/java/org/openapijsonschematools/client/model/SomeObj.java");
+            Assert.assertEquals(files.size(), 8);
+            TestUtils.ensureContainsFile(files, output, "src/openapi_client/components/schema/some_obj.py");
         } finally {
             output.delete();
         }
