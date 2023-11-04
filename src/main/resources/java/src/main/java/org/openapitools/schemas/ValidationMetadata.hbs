@@ -11,4 +11,16 @@ public record ValidationMetadata(
         Map<List<Object>, Map<Class<?>, Void>> validatedPathToSchemas,
         Set<Class<?>> seenClasses
 ) {
+
+    protected boolean validationRanEarlier(Class<?> cls) {
+        Map<Class<?>, Void> validatedSchemas = validatedPathToSchemas.getOrDefault(pathToItem, null);
+        if (validatedSchemas != null && validatedSchemas.containsKey(cls)) {
+            return true;
+        }
+        if (seenClasses.contains(cls)) {
+            return true;
+        }
+        return false;
+    }
+
 }
