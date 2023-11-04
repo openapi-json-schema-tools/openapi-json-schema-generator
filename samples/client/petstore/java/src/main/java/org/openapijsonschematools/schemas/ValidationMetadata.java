@@ -8,7 +8,7 @@ import java.util.Set;
 public record ValidationMetadata(
         List<Object> pathToItem,
         SchemaConfiguration configuration,
-        Map<List<Object>, Map<Class<?>, Void>> validatedPathToSchemas,
+        PathToSchemasMap validatedPathToSchemas,
         Set<Class<?>> seenClasses
 ) {
 

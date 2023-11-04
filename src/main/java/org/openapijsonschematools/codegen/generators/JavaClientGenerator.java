@@ -273,6 +273,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 "src/main/java/org/openapitools/schemas/ValidationMetadata.hbs",
                 packagePath() + File.separatorChar + "schemas",
                 "ValidationMetadata.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/PathToSchemasMap.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "PathToSchemasMap.java"));
 
         supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/configurations/JsonSchemaKeywordFlags.hbs",

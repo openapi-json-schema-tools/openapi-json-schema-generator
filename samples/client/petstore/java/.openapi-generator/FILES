@@ -3,6 +3,7 @@ pom.xml
 src/main/java/org/openapijsonschematools/configurations/JsonSchemaKeywordFlags.java
 src/main/java/org/openapijsonschematools/configurations/SchemaConfiguration.java
 src/main/java/org/openapijsonschematools/schemas/CustomIsoparser.java
+src/main/java/org/openapijsonschematools/schemas/PathToSchemasMap.java
 src/main/java/org/openapijsonschematools/schemas/ValidationMetadata.java
 src/test/java/org/openapijsonschematools/configurations/JsonSchemaKeywordFlagsTest.java
 src/test/java/org/openapijsonschematools/schemas/CustomIsoparserTest.java
