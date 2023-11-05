@@ -49,7 +49,7 @@ public final class JsonSchemaKeywordFlagsTest {
             true,
             true
         );
-        LinkedHashSet<String> enabledKeywords = jsonSchemaKeywordFlags.getEnabledKeywords();
+        LinkedHashSet<String> enabledKeywords = jsonSchemaKeywordFlags.getKeywords();
         LinkedHashSet<String> expectedEnabledKeywords = new LinkedHashSet<>();
         expectedEnabledKeywords.add("additionalProperties");
         expectedEnabledKeywords.add("allOf");
@@ -136,7 +136,7 @@ public final class JsonSchemaKeywordFlagsTest {
                 false,
                 false
         );
-        LinkedHashSet<String> enabledKeywords = jsonSchemaKeywordFlags.getEnabledKeywords();
+        LinkedHashSet<String> enabledKeywords = jsonSchemaKeywordFlags.getKeywords();
         LinkedHashSet<String> expectedEnabledKeywords = new LinkedHashSet<>();
         Assert.assertEquals(enabledKeywords, expectedEnabledKeywords);
     }

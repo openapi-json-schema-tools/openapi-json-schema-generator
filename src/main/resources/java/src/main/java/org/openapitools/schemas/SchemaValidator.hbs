@@ -9,7 +9,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 
 public class SchemaValidator {
-    static final HashMap<String, KeywordValidator> keywordToValidator = new HashMap(){{
+    static final HashMap<String, KeywordValidator> keywordToValidator = new HashMap()\{{
         put("type", new TypeValidator());
     }};
     static PathToSchemasMap _validate(
@@ -116,7 +116,9 @@ public class SchemaValidator {
  *                 used_val,
  *                 cls,
  *                 validation_metadata,
- * 
+ * {{#if nonCompliantUseDiscriminatorIfCompositionFails}}
+ *                 **kwargs
+ * {{/if}}
  *             )
  *             if other_path_to_schemas:
  *                 update(path_to_schemas, other_path_to_schemas)

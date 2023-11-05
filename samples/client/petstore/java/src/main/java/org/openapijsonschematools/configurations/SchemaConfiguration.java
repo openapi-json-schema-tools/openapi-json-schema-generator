@@ -1,4 +1,4 @@
 package org.openapijsonschematools.configurations;
 
-public record SchemaConfiguration(JsonSchemaKeywordFlags enabledKeywordFlags) {
+public record SchemaConfiguration(JsonSchemaKeywordFlags disabledKeywordFlags) {
 }

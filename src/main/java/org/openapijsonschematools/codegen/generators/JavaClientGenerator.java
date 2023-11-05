@@ -277,7 +277,27 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 "src/main/java/org/openapitools/schemas/PathToSchemasMap.hbs",
                 packagePath() + File.separatorChar + "schemas",
                 "PathToSchemasMap.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/SchemaValidator.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "SchemaValidator.java"));
 
+        // keyword validators
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/validators/KeywordValidator.hbs",
+                packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
+                "KeywordValidator.java"));
+        // type
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/validators/TypeValidator.hbs",
+                packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
+                "TypeValidator.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/org/openapitools/schemas/validators/TypeValidatorTest.hbs",
+                testPackagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
+                "TypeValidatorTest.java"));
+
+        // configuration
         supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/configurations/JsonSchemaKeywordFlags.hbs",
                 packagePath() + File.separatorChar + "configurations",

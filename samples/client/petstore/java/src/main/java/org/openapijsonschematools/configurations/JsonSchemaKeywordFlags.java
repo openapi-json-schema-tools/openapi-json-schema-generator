@@ -44,7 +44,51 @@ public record JsonSchemaKeywordFlags(
         boolean unevaluatedProperties
     ) {
 
-    public LinkedHashSet<String> getEnabledKeywords() {
+    public static JsonSchemaKeywordFlags ofNone() {
+        return new JsonSchemaKeywordFlags(
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false,
+                false
+        );
+    }
+
+    public LinkedHashSet<String> getKeywords() {
         LinkedHashSet<String> enabledKeywords = new LinkedHashSet<>();
         if (additionalProperties) { enabledKeywords.add("additionalProperties"); }
         if (allOf) { enabledKeywords.add("allOf"); }
