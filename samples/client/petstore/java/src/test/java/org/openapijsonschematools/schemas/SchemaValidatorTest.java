@@ -18,26 +18,12 @@ record SomeSchema(LinkedHashSet<Class<?>> type) implements SchemaValidator {
         type.add(String.class);
         return new SomeSchema(type);
     }
-
-//    static PathToSchemasMap _validate(
-//            Object arg,
-//            ValidationMetadata validationMetadata
-//    ) throws InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-//        return SchemaValidator._validate(
-//                SomeSchema.class,
-//                arg,
-//                validationMetadata
-//        );
-//    }
 }
 
 public class SchemaValidatorTest {
 
     @Test
     public void testValidateSucceeds() throws InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-        Class<?> cls = SomeSchema.class;
-        Method method = cls.getMethod("withDefaults");
-        SomeSchema schema = (SomeSchema) method.invoke(null);
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0");
         ValidationMetadata validationMetadata = new ValidationMetadata(

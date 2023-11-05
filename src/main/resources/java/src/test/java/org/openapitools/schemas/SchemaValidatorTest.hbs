@@ -17,19 +17,6 @@ record SomeSchema(LinkedHashSet<Class<?>> type) implements SchemaValidator {
         type.add(String.class);
         return new SomeSchema(type);
     }
-
-    static PathToSchemasMap _validate(
-            Object arg,
-            ValidationMetadata validationMetadata
-    ) throws InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
-        return SchemaValidator._validate(
-                SomeSchema.withDefaults(),
-                arg,
-                validationMetadata
-        );
-    }
-
-
 }
 
 public class SchemaValidatorTest {
@@ -44,7 +31,8 @@ public class SchemaValidatorTest {
                 new PathToSchemasMap(),
                 new LinkedHashSet<>()
         );
-        PathToSchemasMap pathToSchemas = SomeSchema._validate(
+        PathToSchemasMap pathToSchemas = SchemaValidator._validate(
+                SomeSchema.class,
                 "hi",
                 validationMetadata
         );
