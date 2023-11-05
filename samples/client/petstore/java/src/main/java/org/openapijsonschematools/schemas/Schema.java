@@ -13,7 +13,6 @@ import java.util.Map;
 
 public interface Schema extends SchemaValidator {
    static Object castToAllowedTypes(Object arg, List<Object> pathToItem, PathToTypeMap pathToType) {
-      RuntimeException strTypeError = new RuntimeException("Invalid type. Required value type is str and passed type was {type(arg)} at {path_to_item}");
       if (arg == null) {
          pathToType.put(pathToItem, Void.class);
          return null;
