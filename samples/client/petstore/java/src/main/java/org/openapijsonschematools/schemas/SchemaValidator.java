@@ -3,8 +3,6 @@ package org.openapijsonschematools.schemas;
 import org.openapijsonschematools.schemas.validators.KeywordValidator;
 import org.openapijsonschematools.schemas.validators.TypeValidator;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.RecordComponent;
 import java.util.HashMap;
@@ -15,19 +13,14 @@ public interface SchemaValidator {
     static final HashMap<String, KeywordValidator> keywordToValidator = new HashMap(){{
         put("type", new TypeValidator());
     }};
-
-    static SchemaValidator withDefaults() {
-        return null;
-    }
-
     static PathToSchemasMap _validate(
             SchemaValidator schema,
             Object arg,
             ValidationMetadata validationMetadata
-    ) throws InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
-        Class<SchemaValidator> schemaCls = (Class<SchemaValidator>) schema.getClass();
+    ) throws InvocationTargetException, IllegalAccessException {
         HashMap<String, Object> fieldsToValues = new HashMap<>();
         LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
+        Class<SchemaValidator> schemaCls = (Class<SchemaValidator>) schema.getClass();
         RecordComponent[] recordComponents = schemaCls.getRecordComponents();
         for (RecordComponent recordComponent : recordComponents) {
             String fieldName = recordComponent.getName();
