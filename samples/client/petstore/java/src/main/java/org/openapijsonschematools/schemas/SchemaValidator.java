@@ -14,14 +14,20 @@ public interface SchemaValidator {
     static final HashMap<String, KeywordValidator> keywordToValidator = new HashMap(){{
         put("type", new TypeValidator());
     }};
+
     static PathToSchemasMap _validate(
-            SchemaValidator schema,
+            Class<?> schemaCls,
             Object arg,
             ValidationMetadata validationMetadata
     ) throws InvocationTargetException, IllegalAccessException {
         HashMap<String, Object> fieldsToValues = new HashMap<>();
+        SchemaValidator schema = null;
+        try {
+            schema = (SchemaValidator) schemaCls.getMethod("withDefaults").invoke(null);
+        } catch (NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        }
         LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
-        Class<SchemaValidator> schemaCls = (Class<SchemaValidator>) schema.getClass();
         RecordComponent[] recordComponents = schemaCls.getRecordComponents();
         for (RecordComponent recordComponent : recordComponents) {
             String fieldName = recordComponent.getName();
@@ -32,6 +38,7 @@ public interface SchemaValidator {
             fieldsToValues.put(fieldName, value);
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
+        Class<SchemaValidator> castSchemaCls = (Class<SchemaValidator>) schemaCls;
         for (Map.Entry<String, Object> entry: fieldsToValues.entrySet()) {
             String jsonKeyword = entry.getKey();
             Object value = entry.getValue();
@@ -40,7 +47,7 @@ public interface SchemaValidator {
                     arg,
                     value,
                     null,
-                    schemaCls,
+                    castSchemaCls,
                     validationMetadata
             );
         }

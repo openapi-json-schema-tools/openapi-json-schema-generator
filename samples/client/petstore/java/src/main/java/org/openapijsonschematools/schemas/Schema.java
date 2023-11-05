@@ -1,13 +1,15 @@
 package org.openapijsonschematools.schemas;
 
+import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 
+import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
-import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -72,46 +74,76 @@ public interface Schema extends SchemaValidator {
       }
    }
 
+   static PathToSchemasMap getPathToSchemas(Class<Schema> cls, Object arg, ValidationMetadata validationMetadata, PathToTypeMap pathToType) {
+      PathToSchemasMap pathToSchemasMap = new PathToSchemasMap();
+      if (validationMetadata.validationRanEarlier(cls)) {
+         // todo add deeper validated schemas
+      } else {
+         try {
+            PathToSchemasMap otherPathToSchemas = SchemaValidator._validate(cls, arg, validationMetadata);
+         } catch (InvocationTargetException e) {
+            throw new RuntimeException(e);
+         } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+         }
+         // todo add remainder
+      }
+      return pathToSchemasMap;
+      /**
+       *         _path_to_schemas: validation.PathToSchemasType = {}
+       *         if validation_metadata.validation_ran_earlier(cls):
+       *             validation.add_deeper_validated_schemas(validation_metadata, _path_to_schemas)
+       *         else:
+       *             other_path_to_schemas = cls._validate(arg, validation_metadata=validation_metadata)
+       *             validation.update(_path_to_schemas, other_path_to_schemas)
+       *         # loop through it make a new class for each entry
+       *         # do not modify the returned result because it is cached and we would be modifying the cached value
+       *         path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type[Schema]] = {}
+       *         for path, schema_classes in _path_to_schemas.items():
+       *             schema = typing.cast(typing.Type[Schema], tuple(schema_classes)[-1])
+       *             path_to_schemas[path] = schema
+       *         """
+       *         For locations that validation did not check
+       *         the code still needs to store type + schema information for instantiation
+       *         All of those schemas will be UnsetAnyTypeSchema
+       *         """
+       *         missing_paths = path_to_type.keys() - path_to_schemas.keys()
+       *         for missing_path in missing_paths:
+       *             path_to_schemas[missing_path] = UnsetAnyTypeSchema
+       *
+       *         return path_to_schemas
+       */
+   }
+
+   static Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+      return null;
+   }
+
+
    static Object validateBase(Class<Schema> cls, Object arg, SchemaConfiguration configuration) {
       if (arg instanceof Map || arg instanceof List) {
          // todo
       }
-      // todo cast to allowed types
       PathToTypeMap pathToType = new PathToTypeMap();
       List<Object> pathToItem = new ArrayList<>();
       pathToItem.add("args[0]");
       Object castArg = castToAllowedTypes(arg, pathToItem, pathToType);
-      return null;
+      SchemaConfiguration usedConfiguration;
+      if (configuration != null) {
+         usedConfiguration = configuration;
+      } else {
+         usedConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+      }
+      PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
+      ValidationMetadata validationMetadata = new ValidationMetadata(
+              pathToItem,
+              usedConfiguration,
+              validatedPathToSchemas,
+              new LinkedHashSet<>()
+      );
+      PathToSchemasMap pathToSchemasMap = getPathToSchemas(cls, castArg, validationMetadata, pathToType);
+      return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
    }
-   /**
-    *         if isinstance(arg, (tuple, validation.immutabledict)):
-    *             type_to_output_cls = cls.__get_type_to_output_cls()
-    *             if type_to_output_cls is not None:
-    *                 for output_cls in type_to_output_cls.values():
-    *                     if isinstance(arg, output_cls):
-    *                         # U + T use case, don't run validations twice
-    *                         return arg
-    *
-    *         from_server = False
-    *         validated_path_to_schemas: typing.Dict[
-    *             typing.Tuple[typing.Union[str, int], ...],
-    *             typing.Set[typing.Union[str, int, float, bool, None, validation.immutabledict, tuple]]
-    *         ] = {}
-    *         path_to_type: typing.Dict[typing.Tuple[typing.Union[str, int], ...], type] = {}
-    *         cast_arg = cast_to_allowed_types(
-    *             arg, from_server, validated_path_to_schemas, ('args[0]',), path_to_type)
-    *         validation_metadata = validation.ValidationMetadata(
-    *             path_to_item=('args[0]',),
-    *             configuration=configuration or schema_configuration.SchemaConfiguration(),
-    *             validated_path_to_schemas=validation.immutabledict(validated_path_to_schemas)
-    *         )
-    *         path_to_schemas = cls.__get_path_to_schemas(cast_arg, validation_metadata, path_to_type)
-    *         return cls._get_new_instance_without_conversion(
-    *             cast_arg,
-    *             validation_metadata.path_to_item,
-    *             path_to_schemas,
-    *         )
-    */
 
 }
 /**
