@@ -3,30 +3,38 @@ package org.openapijsonschematools.schemas;
 import org.openapijsonschematools.schemas.validators.KeywordValidator;
 import org.openapijsonschematools.schemas.validators.TypeValidator;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.RecordComponent;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 
-public class SchemaValidator {
+public interface SchemaValidator {
     static final HashMap<String, KeywordValidator> keywordToValidator = new HashMap(){{
         put("type", new TypeValidator());
     }};
+
+    static SchemaValidator withDefaults() {
+        return null;
+    }
+
     static PathToSchemasMap _validate(
-            Class<SchemaValidator> cls,
+            SchemaValidator schema,
             Object arg,
             ValidationMetadata validationMetadata
-    ) throws InstantiationException, IllegalAccessException {
-        SchemaValidator clsSchema = cls.newInstance();
-        Field[] fields = cls.getDeclaredFields();
+    ) throws InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
+        Class<SchemaValidator> schemaCls = (Class<SchemaValidator>) schema.getClass();
         HashMap<String, Object> fieldsToValues = new HashMap<>();
         LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
-        for (Field field : fields) {
-            String fieldName = field.getName();
+        RecordComponent[] recordComponents = schemaCls.getRecordComponents();
+        for (RecordComponent recordComponent : recordComponents) {
+            String fieldName = recordComponent.getName();
             if (disabledKeywords.contains(fieldName)) {
                 continue;
             }
-            Object value = field.get(clsSchema);
+            Object value = recordComponent.getAccessor().invoke(schema);
             fieldsToValues.put(fieldName, value);
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
@@ -38,7 +46,7 @@ public class SchemaValidator {
                     arg,
                     value,
                     null,
-                    cls,
+                    schemaCls,
                     validationMetadata
             );
         }
