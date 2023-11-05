@@ -1,4 +1,13 @@
 README.md
 pom.xml
+src/main/java/org/openapijsonschematools/configurations/JsonSchemaKeywordFlags.java
+src/main/java/org/openapijsonschematools/configurations/SchemaConfiguration.java
 src/main/java/org/openapijsonschematools/schemas/CustomIsoparser.java
+src/main/java/org/openapijsonschematools/schemas/PathToSchemasMap.java
+src/main/java/org/openapijsonschematools/schemas/SchemaValidator.java
+src/main/java/org/openapijsonschematools/schemas/ValidationMetadata.java
+src/main/java/org/openapijsonschematools/schemas/validators/KeywordValidator.java
+src/main/java/org/openapijsonschematools/schemas/validators/TypeValidator.java
+src/test/java/org/openapijsonschematools/configurations/JsonSchemaKeywordFlagsTest.java
 src/test/java/org/openapijsonschematools/schemas/CustomIsoparserTest.java
+src/test/java/org/openapijsonschematools/schemas/validators/TypeValidatorTest.java

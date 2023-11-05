@@ -136,6 +136,11 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         return Stability.EXPERIMENTAL;
     }
 
+    @Override
+    public String generatorLanguageVersion() {
+        return "17";
+    }
+
     public JavaClientGenerator() {
         super();
 
@@ -264,6 +269,47 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 "src/test/java/org/openapitools/schemas/CustomIsoparserTest.hbs",
                 testPackagePath() + File.separatorChar + "schemas",
                 "CustomIsoparserTest.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/ValidationMetadata.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "ValidationMetadata.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/PathToSchemasMap.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "PathToSchemasMap.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/SchemaValidator.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "SchemaValidator.java"));
+
+        // keyword validators
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/validators/KeywordValidator.hbs",
+                packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
+                "KeywordValidator.java"));
+        // type
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/validators/TypeValidator.hbs",
+                packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
+                "TypeValidator.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/org/openapitools/schemas/validators/TypeValidatorTest.hbs",
+                testPackagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
+                "TypeValidatorTest.java"));
+
+        // configuration
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/configurations/JsonSchemaKeywordFlags.hbs",
+                packagePath() + File.separatorChar + "configurations",
+                "JsonSchemaKeywordFlags.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/org/openapitools/configurations/JsonSchemaKeywordFlagsTest.hbs",
+                testPackagePath() + File.separatorChar + "configurations",
+                "JsonSchemaKeywordFlagsTest.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/configurations/SchemaConfiguration.hbs",
+                packagePath() + File.separatorChar + "configurations",
+                "SchemaConfiguration.java"));
 
 //        jsonPathDocTemplateFiles.put(
 //                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,

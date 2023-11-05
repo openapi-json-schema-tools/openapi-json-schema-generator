@@ -1,0 +1,14 @@
+package {{{packageName}}}.schemas.validators;
+
+import {{{packageName}}}.schemas.PathToSchemasMap;
+import {{{packageName}}}.schemas.SchemaValidator;
+import {{{packageName}}}.schemas.ValidationMetadata;
+
+public interface KeywordValidator {
+    PathToSchemasMap validate(
+            Object arg,
+            Object value,
+            Object extra,
+            Class<SchemaValidator> cls,
+            ValidationMetadata validationMetadata);
+}
