@@ -10,4 +10,5 @@ src/main/java/org/openapijsonschematools/schemas/validators/KeywordValidator.jav
 src/main/java/org/openapijsonschematools/schemas/validators/TypeValidator.java
 src/test/java/org/openapijsonschematools/configurations/JsonSchemaKeywordFlagsTest.java
 src/test/java/org/openapijsonschematools/schemas/CustomIsoparserTest.java
+src/test/java/org/openapijsonschematools/schemas/SchemaValidatorTest.java
 src/test/java/org/openapijsonschematools/schemas/validators/TypeValidatorTest.java

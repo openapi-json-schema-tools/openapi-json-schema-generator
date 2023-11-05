@@ -281,6 +281,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 "src/main/java/org/openapitools/schemas/SchemaValidator.hbs",
                 packagePath() + File.separatorChar + "schemas",
                 "SchemaValidator.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/org/openapitools/schemas/SchemaValidatorTest.hbs",
+                testPackagePath() + File.separatorChar + "schemas",
+                "SchemaValidatorTest.java"));
 
         // keyword validators
         supportingFiles.add(new SupportingFile(
