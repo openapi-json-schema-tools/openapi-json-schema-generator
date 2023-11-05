@@ -10,6 +10,7 @@ title: Documentation for the java generator
 | generator stability | EXPERIMENTAL | |
 | generator type | CLIENT | |
 | generator language | Java | |
+| generator language version | 17 | |
 | generator default templating engine | handlebars | |
 | helpTxt | Generates a Java client library (HTTP lib: Jersey (1.x, 2.x), Retrofit (2.x), OpenFeign (10.x) and more. | |
 
