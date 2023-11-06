@@ -6,9 +6,8 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 
@@ -38,7 +37,7 @@ public class SchemaValidatorTest {
                 validationMetadata
         );
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
-        HashMap<Class<?>, Void> validatedClasses = new HashMap<>();
+        LinkedHashMap<Class<?>, Void> validatedClasses = new LinkedHashMap<>();
         validatedClasses.put(SomeSchema.class, null);
         validatedClasses.put(String.class, null);
         expectedPathToSchemas.put(pathToItem, validatedClasses);

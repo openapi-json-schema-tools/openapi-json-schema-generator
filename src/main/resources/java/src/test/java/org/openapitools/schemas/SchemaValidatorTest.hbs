@@ -7,12 +7,12 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 
 record SomeSchema(LinkedHashSet<Class<?>> type) implements SchemaValidator {
-    static SomeSchema withDefaults() {
+    public static SomeSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         type.add(String.class);
         return new SomeSchema(type);
@@ -37,7 +37,7 @@ public class SchemaValidatorTest {
                 validationMetadata
         );
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
-        HashMap<Class<?>, Void> validatedClasses = new HashMap<>();
+        LinkedHashMap<Class<?>, Void> validatedClasses = new LinkedHashMap<>();
         validatedClasses.put(SomeSchema.class, null);
         validatedClasses.put(String.class, null);
         expectedPathToSchemas.put(pathToItem, validatedClasses);

@@ -1,7 +1,7 @@
-package org.openapijsonschematools.schemas;
+package {{{packageName}}}.schemas;
 
-import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
+import {{{packageName}}}.configurations.SchemaConfiguration;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -87,7 +87,7 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
             throw new RuntimeException(e);
          }
          for (LinkedHashMap<Class<?>, Void> schemas: pathToSchemasMap.values()) {
-            Class<?> firstSchema = schemas.entrySet().iterator().next().getKey();
+            Class<?> firstSchema = schemas.firstEntry().getKey();
             schemas.clear();
             schemas.put(firstSchema, null);
          }
@@ -111,7 +111,7 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
          String propertyName = entry.getKey();
          List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
          propertyPathToItem.add(propertyName);
-         Class<Schema> propertyClass = (Class<Schema>) pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
+         Class<Schema> propertyClass = (Class<Schema>) pathToSchemas.get(propertyPathToItem).firstEntry().getKey();
          Object value = entry.getValue();
          Object castValue = getNewInstance(propertyClass, value, propertyPathToItem, pathToSchemas);
          properties.put(propertyName, castValue);
@@ -126,7 +126,7 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
       for (Object item: items) {
          List<Object> itemPathToItem = new ArrayList<>(pathToItem);
          itemPathToItem.add(i);
-         Class<Schema> itemClass = (Class<Schema>) pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
+         Class<Schema> itemClass = (Class<Schema>) pathToSchemas.get(itemPathToItem).firstEntry().getKey();
          Object castItem = getNewInstance(itemClass, item, itemPathToItem, pathToSchemas);
          items.add(castItem);
          i += 1;

@@ -7,6 +7,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.RecordComponent;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -54,7 +55,7 @@ public interface SchemaValidator {
         Class<?> baseClass = arg.getClass();
         List<Object> pathToItem = validationMetadata.pathToItem();
         if (!pathToSchemas.containsKey(pathToItem)) {
-            pathToSchemas.put(validationMetadata.pathToItem(), new HashMap<>());
+            pathToSchemas.put(validationMetadata.pathToItem(), new LinkedHashMap<>());
         }
         pathToSchemas.get(pathToItem).put(baseClass, null);
         pathToSchemas.get(pathToItem).put(schemaCls, null);
