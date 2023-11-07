@@ -41,17 +41,17 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
          pathToType.put(pathToItem, Boolean.class);
          return arg;
       } else if (arg instanceof Integer) {
-         pathToType.put(pathToItem, Integer.class);
-         return arg;
+         pathToType.put(pathToItem, BigDecimal.class);
+         return BigDecimal.valueOf((Integer) arg);
       } else if (arg instanceof Long) {
-         pathToType.put(pathToItem, Long.class);
-         return arg;
+         pathToType.put(pathToItem, BigDecimal.class);
+         return BigDecimal.valueOf((Long) arg);
       } else if (arg instanceof Float) {
-         pathToType.put(pathToItem, Float.class);
-         return arg;
+         pathToType.put(pathToItem, BigDecimal.class);
+         return BigDecimal.valueOf((Float) arg);
       } else if (arg instanceof Double) {
-         pathToType.put(pathToItem, Double.class);
-         return arg;
+         pathToType.put(pathToItem, BigDecimal.class);
+         return BigDecimal.valueOf((Double) arg);
       } else if (arg instanceof List) {
          pathToType.put(pathToItem, List.class);
          List<Object> argFixed = new ArrayList<>();
@@ -171,19 +171,23 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
    }
 
    static Integer validate(Class<?> cls, Integer arg, SchemaConfiguration configuration) {
-      return (Integer) validateObject(cls, arg, configuration);
+      BigDecimal val = (BigDecimal) validateObject(cls, arg, configuration);
+      return val.intValue();
    }
 
    static Long validate(Class<?> cls, Long arg, SchemaConfiguration configuration) {
-      return (Long) validateObject(cls, arg, configuration);
+      BigDecimal val = (BigDecimal) validateObject(cls, arg, configuration);
+      return val.longValue();
    }
 
    static Float validate(Class<?> cls, Float arg, SchemaConfiguration configuration) {
-      return (Float) validateObject(cls, arg, configuration);
+      BigDecimal val = (BigDecimal) validateObject(cls, arg, configuration);
+      return val.floatValue();
    }
 
    static Double validate(Class<?> cls, Double arg, SchemaConfiguration configuration) {
-      return (Double) validateObject(cls, arg, configuration);
+      BigDecimal val = (BigDecimal) validateObject(cls, arg, configuration);
+      return val.doubleValue();
    }
 
    static String validate(Class<?> cls, String arg, SchemaConfiguration configuration) {
