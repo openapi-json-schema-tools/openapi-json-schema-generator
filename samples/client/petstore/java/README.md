@@ -810,6 +810,10 @@ Class | Description
     
 
     
+[MyObjectDto](docs/MyObjectDto.md) |
+    
+
+    
 [Name](docs/Name.md) | Model for testing model name same as property name
     
 
@@ -903,6 +907,10 @@ Class | Description
 
     
 [Order](docs/Order.md) |
+    
+
+    
+[PaginatedResultMyObjectDto](docs/PaginatedResultMyObjectDto.md) |
     
 
     

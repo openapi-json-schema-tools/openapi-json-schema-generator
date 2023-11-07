@@ -888,8 +888,9 @@ def validate_any_of(
 ) -> PathToSchemasType:
     anyof_classes = []
     path_to_schemas: PathToSchemasType = collections.defaultdict(dict)
+    module_namespace = vars(sys.modules[cls.__module__])
     for schema in classes:
-        schema = _get_class(schema)
+        schema = _get_class(schema, module_namespace)
         if schema is cls:
             """
             optimistically assume that cls schema will pass validation
