@@ -274,6 +274,14 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 packagePath() + File.separatorChar + "schemas",
                 "CustomIsoparser.java"));
         supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/DoubleSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "DoubleSchema.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/FloatSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "FloatSchema.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/schemas/Int32Schema.hbs",
                 packagePath() + File.separatorChar + "schemas",
                 "Int32Schema.java"));
