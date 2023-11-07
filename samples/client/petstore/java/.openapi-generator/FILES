@@ -3,6 +3,7 @@ pom.xml
 src/main/java/org/openapijsonschematools/configurations/JsonSchemaKeywordFlags.java
 src/main/java/org/openapijsonschematools/configurations/SchemaConfiguration.java
 src/main/java/org/openapijsonschematools/schemas/AnyTypeSchema.java
+src/main/java/org/openapijsonschematools/schemas/BooleanSchema.java
 src/main/java/org/openapijsonschematools/schemas/CustomIsoparser.java
 src/main/java/org/openapijsonschematools/schemas/NullSchema.java
 src/main/java/org/openapijsonschematools/schemas/PathToSchemasMap.java
@@ -15,6 +16,7 @@ src/main/java/org/openapijsonschematools/schemas/validators/KeywordValidator.jav
 src/main/java/org/openapijsonschematools/schemas/validators/TypeValidator.java
 src/test/java/org/openapijsonschematools/configurations/JsonSchemaKeywordFlagsTest.java
 src/test/java/org/openapijsonschematools/schemas/AnyTypeSchemaTest.java
+src/test/java/org/openapijsonschematools/schemas/BooleanSchemaTest.java
 src/test/java/org/openapijsonschematools/schemas/CustomIsoparserTest.java
 src/test/java/org/openapijsonschematools/schemas/NullSchemaTest.java
 src/test/java/org/openapijsonschematools/schemas/SchemaValidatorTest.java

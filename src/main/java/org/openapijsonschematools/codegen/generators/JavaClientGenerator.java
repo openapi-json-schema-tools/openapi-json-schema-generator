@@ -266,6 +266,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 packagePath() + File.separatorChar + "schemas",
                 "AnyTypeSchema.java"));
         supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/BooleanSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "BooleanSchema.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/schemas/CustomIsoparser.hbs",
                 packagePath() + File.separatorChar + "schemas",
                 "CustomIsoparser.java"));
@@ -302,6 +306,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 "src/test/java/org/openapitools/schemas/AnyTypeSchemaTest.hbs",
                 testPackagePath() + File.separatorChar + "schemas",
                 "AnyTypeSchemaTest.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/org/openapitools/schemas/BooleanSchemaTest.hbs",
+                testPackagePath() + File.separatorChar + "schemas",
+                "BooleanSchemaTest.java"));
         supportingFiles.add(new SupportingFile(
                 "src/test/java/org/openapitools/schemas/CustomIsoparserTest.hbs",
                 testPackagePath() + File.separatorChar + "schemas",
