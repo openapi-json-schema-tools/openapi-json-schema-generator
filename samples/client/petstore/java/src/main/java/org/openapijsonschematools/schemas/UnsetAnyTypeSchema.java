@@ -8,47 +8,47 @@ import java.util.List;
 import java.util.Map;
 
 record UnsetAnyTypeSchema() implements Schema {
-    public static UnsetAnyTypeSchema withDefaults() {
+    static UnsetAnyTypeSchema withDefaults() {
         return new UnsetAnyTypeSchema();
     }
 
-    public static Void validate(Void arg, SchemaConfiguration configuration) {
+    static Void validate(Void arg, SchemaConfiguration configuration) {
         return Schema.validateBase(UnsetAnyTypeSchema.class, arg, configuration);
     }
 
-    public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+    static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
         return Schema.validateBase(UnsetAnyTypeSchema.class, arg, configuration);
     }
 
-    public static Integer validate(Integer arg, SchemaConfiguration configuration) {
+    static Integer validate(Integer arg, SchemaConfiguration configuration) {
         return Schema.validateBase(UnsetAnyTypeSchema.class, arg, configuration);
     }
 
-    public static Float validate(Float arg, SchemaConfiguration configuration) {
+    static Float validate(Float arg, SchemaConfiguration configuration) {
         return Schema.validateBase(UnsetAnyTypeSchema.class, arg, configuration);
     }
 
-    public static Double validate(Double arg, SchemaConfiguration configuration) {
+    static Double validate(Double arg, SchemaConfiguration configuration) {
         return Schema.validateBase(UnsetAnyTypeSchema.class, arg, configuration);
     }
 
-    public static String validate(String arg, SchemaConfiguration configuration) {
+    static String validate(String arg, SchemaConfiguration configuration) {
         return Schema.validateBase(UnsetAnyTypeSchema.class, arg, configuration);
     }
 
-    public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
+    static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
         return Schema.validateBase(UnsetAnyTypeSchema.class, arg, configuration);
     }
 
-    public static String validate(LocalDate arg, SchemaConfiguration configuration) {
+    static String validate(LocalDate arg, SchemaConfiguration configuration) {
         return Schema.validateBase(UnsetAnyTypeSchema.class, arg, configuration);
     }
 
-    public static <T extends Map> T validate(T arg, SchemaConfiguration configuration) {
+    static <T extends Map> T validate(T arg, SchemaConfiguration configuration) {
         return Schema.validateBase(UnsetAnyTypeSchema.class, arg, configuration);
     }
 
-    public static <U extends List> U validate(U arg, SchemaConfiguration configuration) {
+    static <U extends List> U validate(U arg, SchemaConfiguration configuration) {
         return Schema.validateBase(UnsetAnyTypeSchema.class, arg, configuration);
     }
 }
