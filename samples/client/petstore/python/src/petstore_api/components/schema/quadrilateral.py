@@ -11,6 +11,13 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
+from petstore_api.components.schema import complex_quadrilateral
+from petstore_api.components.schema import simple_quadrilateral
+OneOf = typing.Tuple[
+    typing.Type[simple_quadrilateral.SimpleQuadrilateral],
+    typing.Type[complex_quadrilateral.ComplexQuadrilateral],
+]
+
 
 @dataclasses.dataclass(frozen=True)
 class Quadrilateral(
@@ -32,10 +39,3 @@ class Quadrilateral(
     )
     one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
-
-from petstore_api.components.schema import complex_quadrilateral
-from petstore_api.components.schema import simple_quadrilateral
-OneOf = typing.Tuple[
-    typing.Type[simple_quadrilateral.SimpleQuadrilateral],
-    typing.Type[complex_quadrilateral.ComplexQuadrilateral],
-]

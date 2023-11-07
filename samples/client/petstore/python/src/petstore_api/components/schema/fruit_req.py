@@ -12,6 +12,14 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 _0: typing_extensions.TypeAlias = schemas.NoneSchema
 
+from petstore_api.components.schema import apple_req
+from petstore_api.components.schema import banana_req
+OneOf = typing.Tuple[
+    typing.Type[_0],
+    typing.Type[apple_req.AppleReq],
+    typing.Type[banana_req.BananaReq],
+]
+
 
 @dataclasses.dataclass(frozen=True)
 class FruitReq(
@@ -25,11 +33,3 @@ class FruitReq(
     # any type
     one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
-
-from petstore_api.components.schema import apple_req
-from petstore_api.components.schema import banana_req
-OneOf = typing.Tuple[
-    typing.Type[_0],
-    typing.Type[apple_req.AppleReq],
-    typing.Type[banana_req.BananaReq],
-]

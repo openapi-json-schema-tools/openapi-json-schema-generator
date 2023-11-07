@@ -128,6 +128,7 @@ docs/components/schema/mammal.md
 docs/components/schema/map_test.md
 docs/components/schema/mixed_properties_and_additional_properties_class.md
 docs/components/schema/money.md
+docs/components/schema/my_object_dto.md
 docs/components/schema/name.md
 docs/components/schema/no_additional_properties.md
 docs/components/schema/nullable_class.md
@@ -152,6 +153,7 @@ docs/components/schema/object_with_only_optional_props.md
 docs/components/schema/object_with_optional_test_prop.md
 docs/components/schema/object_with_validations.md
 docs/components/schema/order.md
+docs/components/schema/paginated_result_my_object_dto.md
 docs/components/schema/parent_pet.md
 docs/components/schema/pet.md
 docs/components/schema/pig.md
@@ -636,6 +638,7 @@ src/petstore_api/components/schema/mammal.py
 src/petstore_api/components/schema/map_test.py
 src/petstore_api/components/schema/mixed_properties_and_additional_properties_class.py
 src/petstore_api/components/schema/money.py
+src/petstore_api/components/schema/my_object_dto.py
 src/petstore_api/components/schema/name.py
 src/petstore_api/components/schema/no_additional_properties.py
 src/petstore_api/components/schema/nullable_class.py
@@ -660,6 +663,7 @@ src/petstore_api/components/schema/object_with_only_optional_props.py
 src/petstore_api/components/schema/object_with_optional_test_prop.py
 src/petstore_api/components/schema/object_with_validations.py
 src/petstore_api/components/schema/order.py
+src/petstore_api/components/schema/paginated_result_my_object_dto.py
 src/petstore_api/components/schema/parent_pet.py
 src/petstore_api/components/schema/pet.py
 src/petstore_api/components/schema/pig.py

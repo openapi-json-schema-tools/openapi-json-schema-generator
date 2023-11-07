@@ -63,6 +63,11 @@ class ObjWithRequiredPropsDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TY
         return self.get(name, schemas.unset)
 ObjWithRequiredPropsDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
+from petstore_api.components.schema import obj_with_required_props_base
+AllOf = typing.Tuple[
+    typing.Type[obj_with_required_props_base.ObjWithRequiredPropsBase],
+]
+
 
 @dataclasses.dataclass(frozen=True)
 class ObjWithRequiredProps(
@@ -102,8 +107,3 @@ class ObjWithRequiredProps(
             configuration=configuration,
         )
 
-
-from petstore_api.components.schema import obj_with_required_props_base
-AllOf = typing.Tuple[
-    typing.Type[obj_with_required_props_base.ObjWithRequiredPropsBase],
-]

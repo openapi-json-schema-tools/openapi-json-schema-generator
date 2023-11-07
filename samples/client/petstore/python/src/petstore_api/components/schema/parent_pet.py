@@ -11,6 +11,12 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
+from petstore_api.components.schema import child_cat
+from petstore_api.components.schema import grandparent_animal
+AllOf = typing.Tuple[
+    typing.Type[grandparent_animal.GrandparentAnimal],
+]
+
 
 @dataclasses.dataclass(frozen=True)
 class ParentPet(
@@ -42,9 +48,3 @@ class ParentPet(
             configuration=configuration,
         )
 
-
-from petstore_api.components.schema import child_cat
-from petstore_api.components.schema import grandparent_animal
-AllOf = typing.Tuple[
-    typing.Type[grandparent_animal.GrandparentAnimal],
-]

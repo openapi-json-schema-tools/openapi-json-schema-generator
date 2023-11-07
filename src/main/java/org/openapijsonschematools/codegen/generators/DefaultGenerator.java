@@ -4896,7 +4896,7 @@ public class DefaultGenerator implements Generator {
                     requiredProperties.put(key, prop);
                     reqPropsWithDef++;
                     propReqProps++;
-                    if (prop.refInfo != null) {
+                    if (prop.hasAnyRefs()) {
                         allAreInline = false;
                     }
                 } else {
@@ -4925,7 +4925,7 @@ public class DefaultGenerator implements Generator {
                     } else {
                         // additionalProperties is schema
                         prop = additionalProperties;
-                        if (prop.refInfo != null) {
+                        if (prop.hasAnyRefs()) {
                             allAreInline = false;
                         }
                     }

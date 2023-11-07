@@ -3396,3 +3396,28 @@ components:
       properties:
         key:
           type: string
+    PaginatedResult_MyObjectDto_:
+      properties:
+        count:
+          type: integer
+          title: Count
+        results:
+          items:
+            $ref: '#/components/schemas/MyObjectDto'
+          type: array
+          title: Results
+      additionalProperties: false
+      type: object
+      required:
+        - count
+        - results
+      title: PaginatedResult[MyObjectDto]
+    MyObjectDto:
+      properties:
+        id:
+          type: string
+          format: uuid
+          title: id
+      additionalProperties: false
+      type: object
+      title: MyObjectDto

@@ -73,6 +73,13 @@ class FruitDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return self.get(name, schemas.unset)
 FruitDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
+from petstore_api.components.schema import apple
+from petstore_api.components.schema import banana
+OneOf = typing.Tuple[
+    typing.Type[apple.Apple],
+    typing.Type[banana.Banana],
+]
+
 
 @dataclasses.dataclass(frozen=True)
 class Fruit(
@@ -95,10 +102,3 @@ class Fruit(
         }
     )
 
-
-from petstore_api.components.schema import apple
-from petstore_api.components.schema import banana
-OneOf = typing.Tuple[
-    typing.Type[apple.Apple],
-    typing.Type[banana.Banana],
-]

@@ -11,6 +11,13 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
+from petstore_api.components.schema import basque_pig
+from petstore_api.components.schema import danish_pig
+OneOf = typing.Tuple[
+    typing.Type[basque_pig.BasquePig],
+    typing.Type[danish_pig.DanishPig],
+]
+
 
 @dataclasses.dataclass(frozen=True)
 class Pig(
@@ -32,10 +39,3 @@ class Pig(
     )
     one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
-
-from petstore_api.components.schema import basque_pig
-from petstore_api.components.schema import danish_pig
-OneOf = typing.Tuple[
-    typing.Type[basque_pig.BasquePig],
-    typing.Type[danish_pig.DanishPig],
-]

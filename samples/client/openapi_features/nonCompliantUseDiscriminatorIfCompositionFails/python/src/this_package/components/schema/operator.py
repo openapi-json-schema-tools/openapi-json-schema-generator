@@ -11,6 +11,13 @@ from __future__ import annotations
 from this_package.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
+from this_package.components.schema import addition_operator
+from this_package.components.schema import subtraction_operator
+OneOf = typing.Tuple[
+    typing.Type[addition_operator.AdditionOperator],
+    typing.Type[subtraction_operator.SubtractionOperator],
+]
+
 
 @dataclasses.dataclass(frozen=True)
 class Operator(
@@ -34,10 +41,3 @@ class Operator(
     )
     one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
-
-from this_package.components.schema import addition_operator
-from this_package.components.schema import subtraction_operator
-OneOf = typing.Tuple[
-    typing.Type[addition_operator.AdditionOperator],
-    typing.Type[subtraction_operator.SubtractionOperator],
-]
