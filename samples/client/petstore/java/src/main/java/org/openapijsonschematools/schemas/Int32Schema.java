@@ -14,10 +14,10 @@ record Int32Schema(LinkedHashSet<Class<?>> type, String format) implements Schem
     }
 
     public static Integer validate(Integer arg, SchemaConfiguration configuration) {
-        return Schema.validate(NumberSchema.class, arg, configuration);
+        return Schema.validate(Int32Schema.class, arg, configuration);
     }
 
     public static Integer validate(Float arg, SchemaConfiguration configuration) {
-        return Schema.validate(NumberSchema.class, Integer.parseInt(arg.toString()), configuration);
+        return Schema.validate(Int32Schema.class, Integer.parseInt(arg.toString()), configuration);
     }
 }
