@@ -307,6 +307,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 testPackagePath() + File.separatorChar + "schemas",
                 "CustomIsoparserTest.java"));
         supportingFiles.add(new SupportingFile(
+                "src/test/java/org/openapitools/schemas/NullSchemaTest.hbs",
+                testPackagePath() + File.separatorChar + "schemas",
+                "NullSchemaTest.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/test/java/org/openapitools/schemas/SchemaValidatorTest.hbs",
                 testPackagePath() + File.separatorChar + "schemas",
                 "SchemaValidatorTest.java"));
