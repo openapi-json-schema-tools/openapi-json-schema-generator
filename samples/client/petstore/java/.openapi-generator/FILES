@@ -6,6 +6,7 @@ src/main/java/org/openapijsonschematools/schemas/AnyTypeSchema.java
 src/main/java/org/openapijsonschematools/schemas/BooleanSchema.java
 src/main/java/org/openapijsonschematools/schemas/CustomIsoparser.java
 src/main/java/org/openapijsonschematools/schemas/DateSchema.java
+src/main/java/org/openapijsonschematools/schemas/DateTimeSchema.java
 src/main/java/org/openapijsonschematools/schemas/DoubleSchema.java
 src/main/java/org/openapijsonschematools/schemas/FloatSchema.java
 src/main/java/org/openapijsonschematools/schemas/Int32Schema.java
