@@ -262,25 +262,46 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         HashMap<String, String> schemaDocs = new HashMap<>();
         additionalProperties.put(CodegenConstants.PACKAGE_NAME, packageName);
         supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/AnyTypeSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "AnyTypeSchema.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/schemas/CustomIsoparser.hbs",
                 packagePath() + File.separatorChar + "schemas",
                 "CustomIsoparser.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/java/org/openapitools/schemas/CustomIsoparserTest.hbs",
-                testPackagePath() + File.separatorChar + "schemas",
-                "CustomIsoparserTest.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/ValidationMetadata.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "ValidationMetadata.java"));
         supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/schemas/PathToSchemasMap.hbs",
                 packagePath() + File.separatorChar + "schemas",
                 "PathToSchemasMap.java"));
         supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/PathToTypeMap.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "PathToTypeMap.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/Schema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "Schema.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/schemas/SchemaValidator.hbs",
                 packagePath() + File.separatorChar + "schemas",
                 "SchemaValidator.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/UnsetAnyTypeSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "UnsetAnyTypeSchema.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/ValidationMetadata.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "ValidationMetadata.java"));
+        // tests
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/org/openapitools/schemas/AnyTypeSchemaTest.hbs",
+                testPackagePath() + File.separatorChar + "schemas",
+                "AnyTypeSchemaTest.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/org/openapitools/schemas/CustomIsoparserTest.hbs",
+                testPackagePath() + File.separatorChar + "schemas",
+                "CustomIsoparserTest.java"));
         supportingFiles.add(new SupportingFile(
                 "src/test/java/org/openapitools/schemas/SchemaValidatorTest.hbs",
                 testPackagePath() + File.separatorChar + "schemas",
@@ -291,11 +312,11 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 "src/main/java/org/openapitools/schemas/validators/KeywordValidator.hbs",
                 packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
                 "KeywordValidator.java"));
-        // type
         supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/schemas/validators/TypeValidator.hbs",
                 packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
                 "TypeValidator.java"));
+        // tests
         supportingFiles.add(new SupportingFile(
                 "src/test/java/org/openapitools/schemas/validators/TypeValidatorTest.hbs",
                 testPackagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",

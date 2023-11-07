@@ -1,36 +1,49 @@
-package org.openapijsonschematools.schemas;
+package {{{packageName}}}.schemas;
 
-import org.openapijsonschematools.schemas.validators.KeywordValidator;
-import org.openapijsonschematools.schemas.validators.TypeValidator;
+import {{{packageName}}}.schemas.validators.KeywordValidator;
+import {{{packageName}}}.schemas.validators.TypeValidator;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.RecordComponent;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public interface SchemaValidator {
-    static final HashMap<String, KeywordValidator> keywordToValidator = new HashMap()\{{
+    HashMap<String, KeywordValidator> keywordToValidator = new HashMap()\{{
         put("type", new TypeValidator());
     }};
-    static PathToSchemasMap _validate(
-            SchemaValidator schema,
+
+    static PathToSchemasMap validate(
+            Class<?> schemaCls,
             Object arg,
             ValidationMetadata validationMetadata
-    ) throws InvocationTargetException, IllegalAccessException {
+    ) {
         HashMap<String, Object> fieldsToValues = new HashMap<>();
+        SchemaValidator schema;
+        try {
+            schema = (SchemaValidator) schemaCls.getMethod("withDefaults").invoke(null);
+        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+            throw new RuntimeException(e);
+        }
         LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
-        Class<SchemaValidator> schemaCls = (Class<SchemaValidator>) schema.getClass();
         RecordComponent[] recordComponents = schemaCls.getRecordComponents();
         for (RecordComponent recordComponent : recordComponents) {
             String fieldName = recordComponent.getName();
             if (disabledKeywords.contains(fieldName)) {
                 continue;
             }
-            Object value = recordComponent.getAccessor().invoke(schema);
-            fieldsToValues.put(fieldName, value);
+            try {
+                Object value = recordComponent.getAccessor().invoke(schema);
+                fieldsToValues.put(fieldName, value);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw new RuntimeException(e);
+            }
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
+        Class<SchemaValidator> castSchemaCls = (Class<SchemaValidator>) schemaCls;
         for (Map.Entry<String, Object> entry: fieldsToValues.entrySet()) {
             String jsonKeyword = entry.getKey();
             Object value = entry.getValue();
@@ -39,10 +52,27 @@ public interface SchemaValidator {
                     arg,
                     value,
                     null,
-                    schemaCls,
+                    castSchemaCls,
                     validationMetadata
             );
+            if (otherPathToSchemas == null) {
+                continue;
+            }
+            pathToSchemas.update(otherPathToSchemas);
         }
+        Class<?> baseClass;
+        if (arg == null) {
+            baseClass = Void.class;
+        } else {
+            baseClass = arg.getClass();
+        }
+        List<Object> pathToItem = validationMetadata.pathToItem();
+        if (!pathToSchemas.containsKey(pathToItem)) {
+            pathToSchemas.put(validationMetadata.pathToItem(), new LinkedHashMap<>());
+        }
+        pathToSchemas.get(pathToItem).put(baseClass, null);
+        pathToSchemas.get(pathToItem).put(schemaCls, null);
+
         return pathToSchemas;
     }
 }
