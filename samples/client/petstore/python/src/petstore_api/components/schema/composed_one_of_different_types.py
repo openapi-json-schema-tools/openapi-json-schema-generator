@@ -106,6 +106,18 @@ class _6(
         pattern=r'^2020.*'  # noqa: E501
     )
 
+from petstore_api.components.schema import animal
+from petstore_api.components.schema import number_with_validations
+OneOf = typing.Tuple[
+    typing.Type[number_with_validations.NumberWithValidations],
+    typing.Type[animal.Animal],
+    typing.Type[_2],
+    typing.Type[_3],
+    typing.Type[_4],
+    typing.Type[_5],
+    typing.Type[_6],
+]
+
 
 @dataclasses.dataclass(frozen=True)
 class ComposedOneOfDifferentTypes(
@@ -121,15 +133,3 @@ class ComposedOneOfDifferentTypes(
     # any type
     one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
-
-from petstore_api.components.schema import animal
-from petstore_api.components.schema import number_with_validations
-OneOf = typing.Tuple[
-    typing.Type[number_with_validations.NumberWithValidations],
-    typing.Type[animal.Animal],
-    typing.Type[_2],
-    typing.Type[_3],
-    typing.Type[_4],
-    typing.Type[_5],
-    typing.Type[_6],
-]

@@ -11,15 +11,6 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
-
-@dataclasses.dataclass(frozen=True)
-class Items(
-    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
-):
-    # any type
-    one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
-
-
 from petstore_api.components.schema import json_patch_request_add_replace_test
 from petstore_api.components.schema import json_patch_request_move_copy
 from petstore_api.components.schema import json_patch_request_remove
@@ -28,6 +19,15 @@ OneOf = typing.Tuple[
     typing.Type[json_patch_request_remove.JSONPatchRequestRemove],
     typing.Type[json_patch_request_move_copy.JSONPatchRequestMoveCopy],
 ]
+
+
+@dataclasses.dataclass(frozen=True)
+class Items(
+    schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
+):
+    # any type
+    one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
+
 
 
 class JSONPatchRequestTuple(

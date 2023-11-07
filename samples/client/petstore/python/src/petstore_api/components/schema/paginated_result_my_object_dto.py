@@ -13,6 +13,71 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
 Count: typing_extensions.TypeAlias = schemas.IntSchema
 
+from petstore_api.components.schema import my_object_dto
+
+
+class ResultsTuple(
+    typing.Tuple[
+        my_object_dto.MyObjectDtoDict,
+        ...
+    ]
+):
+
+    def __new__(cls, arg: typing.Union[ResultsTupleInput, ResultsTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
+        return Results.validate(arg, configuration=configuration)
+ResultsTupleInput = typing.Union[
+    typing.List[
+        typing.Union[
+            my_object_dto.MyObjectDtoDictInput,
+            my_object_dto.MyObjectDtoDict,
+        ],
+    ],
+    typing.Tuple[
+        typing.Union[
+            my_object_dto.MyObjectDtoDictInput,
+            my_object_dto.MyObjectDtoDict,
+        ],
+        ...
+    ]
+]
+
+
+@dataclasses.dataclass(frozen=True)
+class Results(
+    schemas.Schema[schemas.immutabledict, ResultsTuple]
+):
+    types: typing.FrozenSet[typing.Type] = frozenset({tuple})
+    items: typing.Type[my_object_dto.MyObjectDto] = dataclasses.field(default_factory=lambda: my_object_dto.MyObjectDto) # type: ignore
+    type_to_output_cls: typing.Mapping[
+        typing.Type,
+        typing.Type
+    ] = dataclasses.field(
+        default_factory=lambda: {
+            tuple: ResultsTuple
+        }
+    )
+
+    @classmethod
+    def validate(
+        cls,
+        arg: typing.Union[
+            ResultsTupleInput,
+            ResultsTuple,
+        ],
+        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
+    ) -> ResultsTuple:
+        return super().validate_base(
+            arg,
+            configuration=configuration,
+        )
+Properties = typing.TypedDict(
+    'Properties',
+    {
+        "count": typing.Type[Count],
+        "results": typing.Type[Results],
+    }
+)
+
 
 class PaginatedResultMyObjectDtoDict(schemas.immutabledict[str, typing.Union[
     typing.Tuple[schemas.OUTPUT_BASE_TYPES],
@@ -117,68 +182,3 @@ class PaginatedResultMyObjectDto(
             configuration=configuration,
         )
 
-
-from petstore_api.components.schema import my_object_dto
-
-
-class ResultsTuple(
-    typing.Tuple[
-        my_object_dto.MyObjectDtoDict,
-        ...
-    ]
-):
-
-    def __new__(cls, arg: typing.Union[ResultsTupleInput, ResultsTuple], configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None):
-        return Results.validate(arg, configuration=configuration)
-ResultsTupleInput = typing.Union[
-    typing.List[
-        typing.Union[
-            my_object_dto.MyObjectDtoDictInput,
-            my_object_dto.MyObjectDtoDict,
-        ],
-    ],
-    typing.Tuple[
-        typing.Union[
-            my_object_dto.MyObjectDtoDictInput,
-            my_object_dto.MyObjectDtoDict,
-        ],
-        ...
-    ]
-]
-
-
-@dataclasses.dataclass(frozen=True)
-class Results(
-    schemas.Schema[schemas.immutabledict, ResultsTuple]
-):
-    types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-    items: typing.Type[my_object_dto.MyObjectDto] = dataclasses.field(default_factory=lambda: my_object_dto.MyObjectDto) # type: ignore
-    type_to_output_cls: typing.Mapping[
-        typing.Type,
-        typing.Type
-    ] = dataclasses.field(
-        default_factory=lambda: {
-            tuple: ResultsTuple
-        }
-    )
-
-    @classmethod
-    def validate(
-        cls,
-        arg: typing.Union[
-            ResultsTupleInput,
-            ResultsTuple,
-        ],
-        configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-    ) -> ResultsTuple:
-        return super().validate_base(
-            arg,
-            configuration=configuration,
-        )
-Properties = typing.TypedDict(
-    'Properties',
-    {
-        "count": typing.Type[Count],
-        "results": typing.Type[Results],
-    }
-)

@@ -159,6 +159,12 @@ class _1(
         )
 
 
+from petstore_api.components.schema import triangle_interface
+AllOf = typing.Tuple[
+    typing.Type[triangle_interface.TriangleInterface],
+    typing.Type[_1],
+]
+
 
 @dataclasses.dataclass(frozen=True)
 class ScaleneTriangle(
@@ -172,9 +178,3 @@ class ScaleneTriangle(
     # any type
     all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
-
-from petstore_api.components.schema import triangle_interface
-AllOf = typing.Tuple[
-    typing.Type[triangle_interface.TriangleInterface],
-    typing.Type[_1],
-]

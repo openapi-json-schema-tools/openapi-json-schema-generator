@@ -1592,6 +1592,4 @@ test-requirements.txt
 test/__init__.py
 test/components/__init__.py
 test/components/schema/__init__.py
-test/components/schema/test_my_object_dto.py
-test/components/schema/test_paginated_result_my_object_dto.py
 tox.ini

@@ -11,6 +11,15 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
+from petstore_api.components.schema import equilateral_triangle
+from petstore_api.components.schema import isosceles_triangle
+from petstore_api.components.schema import scalene_triangle
+OneOf = typing.Tuple[
+    typing.Type[equilateral_triangle.EquilateralTriangle],
+    typing.Type[isosceles_triangle.IsoscelesTriangle],
+    typing.Type[scalene_triangle.ScaleneTriangle],
+]
+
 
 @dataclasses.dataclass(frozen=True)
 class Triangle(
@@ -33,12 +42,3 @@ class Triangle(
     )
     one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
-
-from petstore_api.components.schema import equilateral_triangle
-from petstore_api.components.schema import isosceles_triangle
-from petstore_api.components.schema import scalene_triangle
-OneOf = typing.Tuple[
-    typing.Type[equilateral_triangle.EquilateralTriangle],
-    typing.Type[isosceles_triangle.IsoscelesTriangle],
-    typing.Type[scalene_triangle.ScaleneTriangle],
-]

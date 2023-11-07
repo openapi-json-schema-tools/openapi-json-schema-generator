@@ -118,6 +118,12 @@ class _1(
         )
 
 
+from petstore_api.components.schema import object_with_optional_test_prop
+AllOf = typing.Tuple[
+    typing.Type[object_with_optional_test_prop.ObjectWithOptionalTestProp],
+    typing.Type[_1],
+]
+
 
 @dataclasses.dataclass(frozen=True)
 class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
@@ -131,9 +137,3 @@ class ObjectWithAllOfWithReqTestPropFromUnsetAddProp(
     # any type
     all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
-
-from petstore_api.components.schema import object_with_optional_test_prop
-AllOf = typing.Tuple[
-    typing.Type[object_with_optional_test_prop.ObjectWithOptionalTestProp],
-    typing.Type[_1],
-]

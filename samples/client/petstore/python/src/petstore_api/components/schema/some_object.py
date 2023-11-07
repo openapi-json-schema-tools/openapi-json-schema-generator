@@ -11,6 +11,11 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 
+from petstore_api.components.schema import object_interface
+AllOf = typing.Tuple[
+    typing.Type[object_interface.ObjectInterface],
+]
+
 
 @dataclasses.dataclass(frozen=True)
 class SomeObject(
@@ -24,8 +29,3 @@ class SomeObject(
     # any type
     all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
-
-from petstore_api.components.schema import object_interface
-AllOf = typing.Tuple[
-    typing.Type[object_interface.ObjectInterface],
-]

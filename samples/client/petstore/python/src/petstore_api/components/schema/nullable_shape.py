@@ -12,6 +12,14 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 _2: typing_extensions.TypeAlias = schemas.NoneSchema
 
+from petstore_api.components.schema import quadrilateral
+from petstore_api.components.schema import triangle
+OneOf = typing.Tuple[
+    typing.Type[triangle.Triangle],
+    typing.Type[quadrilateral.Quadrilateral],
+    typing.Type[_2],
+]
+
 
 @dataclasses.dataclass(frozen=True)
 class NullableShape(
@@ -27,11 +35,3 @@ class NullableShape(
     # any type
     one_of: OneOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(OneOf)) # type: ignore
 
-
-from petstore_api.components.schema import quadrilateral
-from petstore_api.components.schema import triangle
-OneOf = typing.Tuple[
-    typing.Type[triangle.Triangle],
-    typing.Type[quadrilateral.Quadrilateral],
-    typing.Type[_2],
-]

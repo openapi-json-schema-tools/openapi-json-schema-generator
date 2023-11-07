@@ -159,6 +159,12 @@ class _1(
         )
 
 
+from petstore_api.components.schema import quadrilateral_interface
+AllOf = typing.Tuple[
+    typing.Type[quadrilateral_interface.QuadrilateralInterface],
+    typing.Type[_1],
+]
+
 
 @dataclasses.dataclass(frozen=True)
 class SimpleQuadrilateral(
@@ -172,9 +178,3 @@ class SimpleQuadrilateral(
     # any type
     all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
-
-from petstore_api.components.schema import quadrilateral_interface
-AllOf = typing.Tuple[
-    typing.Type[quadrilateral_interface.QuadrilateralInterface],
-    typing.Type[_1],
-]

@@ -104,6 +104,12 @@ class _1(
         )
 
 
+from petstore_api.components.schema import parent_pet
+AllOf = typing.Tuple[
+    typing.Type[parent_pet.ParentPet],
+    typing.Type[_1],
+]
+
 
 @dataclasses.dataclass(frozen=True)
 class ChildCat(
@@ -117,9 +123,3 @@ class ChildCat(
     # any type
     all_of: AllOf = dataclasses.field(default_factory=lambda: schemas.tuple_to_instance(AllOf)) # type: ignore
 
-
-from petstore_api.components.schema import parent_pet
-AllOf = typing.Tuple[
-    typing.Type[parent_pet.ParentPet],
-    typing.Type[_1],
-]

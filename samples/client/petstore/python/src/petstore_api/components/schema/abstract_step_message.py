@@ -82,6 +82,9 @@ class AbstractStepMessageDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYP
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 AbstractStepMessageDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+AnyOf = typing.Tuple[
+    typing.Type[AbstractStepMessage],
+]
 
 
 @dataclasses.dataclass(frozen=True)
@@ -133,6 +136,3 @@ class AbstractStepMessage(
             configuration=configuration,
         )
 
-AnyOf = typing.Tuple[
-    typing.Type[AbstractStepMessage],
-]
