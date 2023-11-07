@@ -16,16 +16,16 @@ public interface SchemaValidator {
         put("type", new TypeValidator());
     }};
 
-    static PathToSchemasMap _validate(
+    static PathToSchemasMap validate(
             Class<?> schemaCls,
             Object arg,
             ValidationMetadata validationMetadata
-    ) throws InvocationTargetException, IllegalAccessException {
+    ) {
         HashMap<String, Object> fieldsToValues = new HashMap<>();
         SchemaValidator schema;
         try {
             schema = (SchemaValidator) schemaCls.getMethod("withDefaults").invoke(null);
-        } catch (NoSuchMethodException e) {
+        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             throw new RuntimeException(e);
         }
         LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
@@ -35,8 +35,12 @@ public interface SchemaValidator {
             if (disabledKeywords.contains(fieldName)) {
                 continue;
             }
-            Object value = recordComponent.getAccessor().invoke(schema);
-            fieldsToValues.put(fieldName, value);
+            try {
+                Object value = recordComponent.getAccessor().invoke(schema);
+                fieldsToValues.put(fieldName, value);
+            } catch (IllegalAccessException | InvocationTargetException e) {
+                throw new RuntimeException(e);
+            }
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         Class<SchemaValidator> castSchemaCls = (Class<SchemaValidator>) schemaCls;

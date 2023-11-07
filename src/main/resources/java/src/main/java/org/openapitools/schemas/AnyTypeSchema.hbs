@@ -13,42 +13,42 @@ record AnyTypeSchema() implements Schema {
     }
 
     public static Void validate(Void arg, SchemaConfiguration configuration) {
-        return Schema.validateBase(AnyTypeSchema.class, arg, configuration);
+        return Schema.validate(AnyTypeSchema.class, arg, configuration);
     }
 
     public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-        return Schema.validateBase(AnyTypeSchema.class, arg, configuration);
+        return Schema.validate(AnyTypeSchema.class, arg, configuration);
     }
 
     public static Integer validate(Integer arg, SchemaConfiguration configuration) {
-        return Schema.validateBase(AnyTypeSchema.class, arg, configuration);
+        return Schema.validate(AnyTypeSchema.class, arg, configuration);
     }
 
     public static Float validate(Float arg, SchemaConfiguration configuration) {
-        return Schema.validateBase(AnyTypeSchema.class, arg, configuration);
+        return Schema.validate(AnyTypeSchema.class, arg, configuration);
     }
 
     public static Double validate(Double arg, SchemaConfiguration configuration) {
-        return Schema.validateBase(AnyTypeSchema.class, arg, configuration);
+        return Schema.validate(AnyTypeSchema.class, arg, configuration);
     }
 
     public static String validate(String arg, SchemaConfiguration configuration) {
-        return Schema.validateBase(AnyTypeSchema.class, arg, configuration);
+        return Schema.validate(AnyTypeSchema.class, arg, configuration);
     }
 
     public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
-        return Schema.validateBase(AnyTypeSchema.class, arg, configuration);
+        return Schema.validate(AnyTypeSchema.class, arg, configuration);
     }
 
     public static String validate(LocalDate arg, SchemaConfiguration configuration) {
-        return Schema.validateBase(AnyTypeSchema.class, arg, configuration);
+        return Schema.validate(AnyTypeSchema.class, arg, configuration);
     }
 
     public static <T extends Map> T validate(T arg, SchemaConfiguration configuration) {
-        return Schema.validateBase(AnyTypeSchema.class, arg, configuration);
+        return Schema.validate(AnyTypeSchema.class, arg, configuration);
     }
 
     public static <U extends List> U validate(U arg, SchemaConfiguration configuration) {
-        return Schema.validateBase(AnyTypeSchema.class, arg, configuration);
+        return Schema.validate(AnyTypeSchema.class, arg, configuration);
     }
 }

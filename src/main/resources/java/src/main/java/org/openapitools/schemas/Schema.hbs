@@ -81,12 +81,8 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
       if (validationMetadata.validationRanEarlier(cls)) {
          // todo add deeper validated schemas
       } else {
-         try {
-            PathToSchemasMap otherPathToSchemas = SchemaValidator._validate(cls, arg, validationMetadata);
-            pathToSchemasMap.update(otherPathToSchemas);
-         } catch (InvocationTargetException | IllegalAccessException e) {
-            throw new RuntimeException(e);
-         }
+         PathToSchemasMap otherPathToSchemas = SchemaValidator.validate(cls, arg, validationMetadata);
+         pathToSchemasMap.update(otherPathToSchemas);
          for (LinkedHashMap<Class<?>, Void> schemas: pathToSchemasMap.values()) {
             Class<?> firstSchema = schemas.entrySet().iterator().next().getKey();
             schemas.clear();
@@ -166,49 +162,49 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
       return null;
    }
 
-   static Void validateBase(Class<?> cls, Void arg, SchemaConfiguration configuration) {
-      return (Void) validateObjectBase(cls, arg, configuration);
+   static Void validate(Class<?> cls, Void arg, SchemaConfiguration configuration) {
+      return (Void) validateObject(cls, arg, configuration);
    }
 
-   static Boolean validateBase(Class<?> cls, Boolean arg, SchemaConfiguration configuration) {
-      return (Boolean) validateObjectBase(cls, arg, configuration);
+   static Boolean validate(Class<?> cls, Boolean arg, SchemaConfiguration configuration) {
+      return (Boolean) validateObject(cls, arg, configuration);
    }
 
-   static Integer validateBase(Class<?> cls, Integer arg, SchemaConfiguration configuration) {
-      return (Integer) validateObjectBase(cls, arg, configuration);
+   static Integer validate(Class<?> cls, Integer arg, SchemaConfiguration configuration) {
+      return (Integer) validateObject(cls, arg, configuration);
    }
 
-   static Float validateBase(Class<?> cls, Float arg, SchemaConfiguration configuration) {
-      return (Float) validateObjectBase(cls, arg, configuration);
+   static Float validate(Class<?> cls, Float arg, SchemaConfiguration configuration) {
+      return (Float) validateObject(cls, arg, configuration);
    }
 
-   static Double validateBase(Class<?> cls, Double arg, SchemaConfiguration configuration) {
-      return (Double) validateObjectBase(cls, arg, configuration);
+   static Double validate(Class<?> cls, Double arg, SchemaConfiguration configuration) {
+      return (Double) validateObject(cls, arg, configuration);
    }
 
-   static String validateBase(Class<?> cls, String arg, SchemaConfiguration configuration) {
-      return (String) validateObjectBase(cls, arg, configuration);
+   static String validate(Class<?> cls, String arg, SchemaConfiguration configuration) {
+      return (String) validateObject(cls, arg, configuration);
    }
 
-   static String validateBase(Class<?> cls, ZonedDateTime arg, SchemaConfiguration configuration) {
-      return (String) validateObjectBase(cls, arg, configuration);
+   static String validate(Class<?> cls, ZonedDateTime arg, SchemaConfiguration configuration) {
+      return (String) validateObject(cls, arg, configuration);
    }
 
-   static String validateBase(Class<?> cls, LocalDate arg, SchemaConfiguration configuration) {
-      return (String) validateObjectBase(cls, arg, configuration);
+   static String validate(Class<?> cls, LocalDate arg, SchemaConfiguration configuration) {
+      return (String) validateObject(cls, arg, configuration);
    }
 
-   static <T extends Map> T validateBase(Class<?> cls, T arg, SchemaConfiguration configuration) {
-      return (T) validateObjectBase(cls, arg, configuration);
+   static <T extends Map> T validate(Class<?> cls, T arg, SchemaConfiguration configuration) {
+      return (T) validateObject(cls, arg, configuration);
    }
 
-   static <U extends List> U validateBase(Class<?> cls, U arg, SchemaConfiguration configuration) {
-      return (U) validateObjectBase(cls, arg, configuration);
+   static <U extends List> U validate(Class<?> cls, U arg, SchemaConfiguration configuration) {
+      return (U) validateObject(cls, arg, configuration);
    }
 
    // todo add bytes and FileIO
 
-   private static Object validateObjectBase(Class<?> cls, Object arg, SchemaConfiguration configuration) {
+   private static Object validateObject(Class<?> cls, Object arg, SchemaConfiguration configuration) {
       Class<Schema> castCls = (Class<Schema>) cls;
       if (arg instanceof Map || arg instanceof List) {
          // todo don't run validation if the instance is one of the class generic types

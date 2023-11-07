@@ -22,7 +22,7 @@ record SomeSchema(LinkedHashSet<Class<?>> type) implements SchemaValidator {
 public class SchemaValidatorTest {
 
     @Test
-    public void testValidateSucceeds() throws InstantiationException, IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+    public void testValidateSucceeds() {
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0");
         ValidationMetadata validationMetadata = new ValidationMetadata(
@@ -31,7 +31,7 @@ public class SchemaValidatorTest {
                 new PathToSchemasMap(),
                 new LinkedHashSet<>()
         );
-        PathToSchemasMap pathToSchemas = SchemaValidator._validate(
+        PathToSchemasMap pathToSchemas = SchemaValidator.validate(
                 SomeSchema.class,
                 "hi",
                 validationMetadata
