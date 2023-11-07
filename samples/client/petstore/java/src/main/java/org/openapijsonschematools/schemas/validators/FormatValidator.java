@@ -21,7 +21,7 @@ public class FormatValidator implements KeywordValidator {
     private Void validateNumericFormat(BigDecimal arg, String format, ValidationMetadata validationMetadata) {
         if (format.startsWith("int")) {
             // there is a json schema test where 1.0 validates as an integer
-            if (arg.longValue() != Long.valueOf(arg.toString())) {
+            if (arg.stripTrailingZeros().scale() > 0) {
                 throw new RuntimeException(
                         "Invalid non-integer value " + arg + " for format " + format + " at " + validationMetadata.pathToItem()
                 );
