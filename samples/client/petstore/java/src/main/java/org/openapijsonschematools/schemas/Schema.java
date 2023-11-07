@@ -18,7 +18,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public interface Schema<T extends Map, U extends List> extends SchemaValidator {
-   static Object castToAllowedTypes(Object arg, List<Object> pathToItem, PathToTypeMap pathToType) {
+   private static Object castToAllowedTypes(Object arg, List<Object> pathToItem, PathToTypeMap pathToType) {
       if (arg == null) {
          pathToType.put(pathToItem, Void.class);
          return null;
@@ -76,7 +76,7 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
       }
    }
 
-   static PathToSchemasMap getPathToSchemas(Class<Schema> cls, Object arg, ValidationMetadata validationMetadata, PathToTypeMap pathToType) {
+   private static PathToSchemasMap getPathToSchemas(Class<Schema> cls, Object arg, ValidationMetadata validationMetadata, PathToTypeMap pathToType) {
       PathToSchemasMap pathToSchemasMap = new PathToSchemasMap();
       if (validationMetadata.validationRanEarlier(cls)) {
          // todo add deeper validated schemas
@@ -105,7 +105,7 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
       return pathToSchemasMap;
    }
 
-   static LinkedHashMap<String, Object> getProperties(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+   private static LinkedHashMap<String, Object> getProperties(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
       LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
       Map<String, Object> castArg = (Map<String, Object>) arg;
       for(Map.Entry<String, Object> entry: castArg.entrySet()) {
@@ -120,7 +120,7 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
       return properties;
    }
 
-   static List<Object> getItems(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+   private static List<Object> getItems(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
       ArrayList<Object> items = new ArrayList<>();
       List<Object> castItems = (List<Object>) arg;
       int i = 0;
@@ -135,7 +135,7 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
       return items;
    }
 
-   static Map<Class<?>, Class<?>> getTypeToOutputClass(Class<?> cls) {
+   private static Map<Class<?>, Class<?>> getTypeToOutputClass(Class<?> cls) {
       try {
          // This must be implemented in Schemas that are generics as a static method
          Method method = cls.getMethod("typeToOutputClass");
@@ -146,7 +146,7 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
       }
    }
 
-   static Object getNewInstance(Class<Schema> cls, Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+   private static Object getNewInstance(Class<Schema> cls, Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
       Object usedArg;
       if (arg instanceof Map) {
          usedArg = getProperties(arg, pathToItem, pathToSchemas);
