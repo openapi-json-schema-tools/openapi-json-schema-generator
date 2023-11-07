@@ -4,6 +4,7 @@ src/main/java/org/openapijsonschematools/configurations/JsonSchemaKeywordFlags.j
 src/main/java/org/openapijsonschematools/configurations/SchemaConfiguration.java
 src/main/java/org/openapijsonschematools/schemas/AnyTypeSchema.java
 src/main/java/org/openapijsonschematools/schemas/CustomIsoparser.java
+src/main/java/org/openapijsonschematools/schemas/NullSchema.java
 src/main/java/org/openapijsonschematools/schemas/PathToSchemasMap.java
 src/main/java/org/openapijsonschematools/schemas/PathToTypeMap.java
 src/main/java/org/openapijsonschematools/schemas/Schema.java
