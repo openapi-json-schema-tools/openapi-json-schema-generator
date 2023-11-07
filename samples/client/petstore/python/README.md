@@ -311,6 +311,7 @@ Class | Description
 [MapTest](docs/components/schema/map_test.md) |
 [MixedPropertiesAndAdditionalPropertiesClass](docs/components/schema/mixed_properties_and_additional_properties_class.md) |
 [Money](docs/components/schema/money.md) |
+[MyObjectDto](docs/components/schema/my_object_dto.md) |
 [Name](docs/components/schema/name.md) | Model for testing model name same as property name
 [NoAdditionalProperties](docs/components/schema/no_additional_properties.md) |
 [NullableClass](docs/components/schema/nullable_class.md) |
@@ -335,6 +336,7 @@ Class | Description
 [ObjectWithOptionalTestProp](docs/components/schema/object_with_optional_test_prop.md) |
 [ObjectWithValidations](docs/components/schema/object_with_validations.md) |
 [Order](docs/components/schema/order.md) |
+[PaginatedResultMyObjectDto](docs/components/schema/paginated_result_my_object_dto.md) |
 [ParentPet](docs/components/schema/parent_pet.md) |
 [Pet](docs/components/schema/pet.md) | Pet object that needs to be added to the store
 [Pig](docs/components/schema/pig.md) |

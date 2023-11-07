@@ -302,6 +302,7 @@ public class CodegenSchema {
         discriminator (not actually applicable because all values would be refs and do not need to be defined)
         $ref (because it is an import)
          */
+        boolean schemaAllAreInline = true;
         if (isBooleanSchemaFalse) {
             // return early for isBooleanSchemaFalse so not_ will not be written
             schemasBeforeImports.add(this);
@@ -321,6 +322,7 @@ public class CodegenSchema {
                 schemasBeforeImports.add(extraSchema);
             } else {
                 schemasAfterImports.add(extraSchema);
+                schemaAllAreInline = false;
             }
         }
         if (anyOf != null) {
@@ -334,6 +336,7 @@ public class CodegenSchema {
                 schemasBeforeImports.add(extraSchema);
             } else {
                 schemasAfterImports.add(extraSchema);
+                schemaAllAreInline = false;
             }
         }
         if (constInfo != null) {
@@ -359,6 +362,7 @@ public class CodegenSchema {
                 schemasBeforeImports.add(extraSchema);
             } else {
                 schemasAfterImports.add(extraSchema);
+                schemaAllAreInline = false;
             }
         }
         if (else_ != null) {
@@ -373,7 +377,6 @@ public class CodegenSchema {
             extraSchema.enumInfo = enumInfo;
             schemasBeforeImports.add(extraSchema);
         }
-        boolean schemaAllAreInline = true;
         if (if_ != null) {
             if_.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
         }
@@ -419,6 +422,7 @@ public class CodegenSchema {
                 schemasBeforeImports.add(extraSchema);
             } else {
                 schemasAfterImports.add(extraSchema);
+                schemaAllAreInline = false;
             }
         }
         if (patternProperties != null) {
@@ -442,6 +446,7 @@ public class CodegenSchema {
                 schemasBeforeImports.add(extraSchema);
             } else {
                 schemasAfterImports.add(extraSchema);
+                schemaAllAreInline = false;
             }
         }
         boolean additionalPropertiesIsBooleanSchemaFalse = (additionalProperties != null && additionalProperties.isBooleanSchemaFalse);
