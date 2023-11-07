@@ -8,6 +8,10 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class AnyTypeSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
@@ -61,5 +65,25 @@ public class AnyTypeSchemaTest {
     public void testValidateLocalDate() {
         String validatedValue = AnyTypeSchema.validate(LocalDate.of(2017, 7, 21), configuration);
         Assert.assertEquals(validatedValue, "2017-07-21");
+    }
+
+    @Test
+    public void testValidateMap() {
+        LinkedHashMap<String, LocalDate> inMap = new LinkedHashMap<>();
+        inMap.put("today", LocalDate.of(2017, 7, 21));
+        LinkedHashMap validatedValue = AnyTypeSchema.validate(inMap, configuration);
+        LinkedHashMap<String, String> outMap = new LinkedHashMap<>();
+        outMap.put("today", "2017-07-21");
+        Assert.assertEquals(validatedValue, outMap);
+    }
+
+    @Test
+    public void testValidateList() {
+        ArrayList<LocalDate> inList = new ArrayList<>();
+        inList.add(LocalDate.of(2017, 7, 21));
+        ArrayList validatedValue = AnyTypeSchema.validate(inList, configuration);
+        ArrayList<String> outList = new ArrayList<>();
+        outList.add( "2017-07-21");
+        Assert.assertEquals(validatedValue, outList);
     }
 }
