@@ -24,6 +24,10 @@ record AnyTypeSchema() implements Schema {
         return Schema.validate(AnyTypeSchema.class, arg, configuration);
     }
 
+    public static Long validate(Long arg, SchemaConfiguration configuration) {
+        return Schema.validate(AnyTypeSchema.class, arg, configuration);
+    }
+
     public static Float validate(Float arg, SchemaConfiguration configuration) {
         return Schema.validate(AnyTypeSchema.class, arg, configuration);
     }

@@ -30,9 +30,15 @@ public class AnyTypeSchemaTest {
     }
 
     @Test
-    public void testValidateInt() {
+    public void testValidateInteger() {
         Integer validatedValue = AnyTypeSchema.validate(1, configuration);
         Assert.assertEquals(validatedValue, Integer.valueOf(1));
+    }
+
+    @Test
+    public void testValidateLong() {
+        Long validatedValue = AnyTypeSchema.validate(1L, configuration);
+        Assert.assertEquals(validatedValue, Long.valueOf(1));
     }
 
     @Test

@@ -43,14 +43,14 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
       } else if (arg instanceof Integer) {
          pathToType.put(pathToItem, Integer.class);
          return arg;
+      } else if (arg instanceof Long) {
+         pathToType.put(pathToItem, Long.class);
+         return arg;
       } else if (arg instanceof Float) {
          pathToType.put(pathToItem, Float.class);
          return arg;
       } else if (arg instanceof Double) {
          pathToType.put(pathToItem, Double.class);
-         return arg;
-      } else if (arg instanceof BigDecimal) {
-         pathToType.put(pathToItem, BigDecimal.class);
          return arg;
       } else if (arg instanceof List) {
          pathToType.put(pathToItem, List.class);
@@ -172,6 +172,10 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
 
    static Integer validate(Class<?> cls, Integer arg, SchemaConfiguration configuration) {
       return (Integer) validateObject(cls, arg, configuration);
+   }
+
+   static Long validate(Class<?> cls, Long arg, SchemaConfiguration configuration) {
+      return (Long) validateObject(cls, arg, configuration);
    }
 
    static Float validate(Class<?> cls, Float arg, SchemaConfiguration configuration) {
