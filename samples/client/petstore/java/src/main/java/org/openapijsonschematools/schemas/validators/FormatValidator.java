@@ -27,14 +27,14 @@ public class FormatValidator implements KeywordValidator {
                 );
             }
             if (format.equals("int32")) {
-                if (arg.compareTo(int32InclusiveMinimum) < 0  || arg.compareTo(int32InclusiveMaximum) > 1 ){
+                if (arg.compareTo(int32InclusiveMinimum) < 0  || arg.compareTo(int32InclusiveMaximum) > 0 ){
                     throw new RuntimeException(
                         "Invalid value "+arg+" for format int32 at "+validationMetadata.pathToItem()
                     );
                 }
                 return null;
             } else if (format.equals("int64")) {
-                if (arg.compareTo(int64InclusiveMinimum) < 0  || arg.compareTo(int64InclusiveMaximum) > 1 ){
+                if (arg.compareTo(int64InclusiveMinimum) < 0  || arg.compareTo(int64InclusiveMaximum) > 0 ){
                     throw new RuntimeException(
                         "Invalid value "+arg+" for format int64 at "+validationMetadata.pathToItem()
                     );
@@ -43,14 +43,14 @@ public class FormatValidator implements KeywordValidator {
             }
             return null;
         } else if (format.equals("float")) {
-            if (arg.compareTo(floatInclusiveMinimum) < 0  || arg.compareTo(floatInclusiveMaximum) > 1 ){
+            if (arg.compareTo(floatInclusiveMinimum) < 0  || arg.compareTo(floatInclusiveMaximum) > 0 ){
                 throw new RuntimeException(
                     "Invalid value "+arg+" for format float at "+validationMetadata.pathToItem()
                 );
             }
             return null;
         } else if (format.equals("double")) {
-            if (arg.compareTo(doubleInclusiveMinimum) < 0  || arg.compareTo(doubleInclusiveMaximum) > 1 ){
+            if (arg.compareTo(doubleInclusiveMinimum) < 0  || arg.compareTo(doubleInclusiveMaximum) > 0 ){
                 throw new RuntimeException(
                     "Invalid value "+arg+" for format double at "+validationMetadata.pathToItem()
                 );
