@@ -282,6 +282,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 packagePath() + File.separatorChar + "schemas",
                 "DateTimeSchema.java"));
         supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/DecimalSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "DecimalSchema.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/schemas/DoubleSchema.hbs",
                 packagePath() + File.separatorChar + "schemas",
                 "DoubleSchema.java"));
