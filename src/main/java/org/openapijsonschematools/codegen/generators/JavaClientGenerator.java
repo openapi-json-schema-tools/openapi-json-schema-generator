@@ -349,6 +349,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 "src/test/java/org/openapitools/schemas/validators/TypeValidatorTest.hbs",
                 testPackagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
                 "TypeValidatorTest.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/org/openapitools/schemas/validators/FormatValidatorTest.hbs",
+                testPackagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
+                "FormatValidatorTest.java"));
 
         // configuration
         supportingFiles.add(new SupportingFile(

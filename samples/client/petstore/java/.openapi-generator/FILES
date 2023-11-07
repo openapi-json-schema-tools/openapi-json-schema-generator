@@ -23,4 +23,5 @@ src/test/java/org/openapijsonschematools/schemas/CustomIsoparserTest.java
 src/test/java/org/openapijsonschematools/schemas/NullSchemaTest.java
 src/test/java/org/openapijsonschematools/schemas/NumberSchemaTest.java
 src/test/java/org/openapijsonschematools/schemas/SchemaValidatorTest.java
+src/test/java/org/openapijsonschematools/schemas/validators/FormatValidatorTest.java
 src/test/java/org/openapijsonschematools/schemas/validators/TypeValidatorTest.java

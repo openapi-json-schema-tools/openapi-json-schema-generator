@@ -9,14 +9,14 @@ import java.math.BigDecimal;
 import java.time.format.DateTimeParseException;
 
 public class FormatValidator implements KeywordValidator {
-    private static BigDecimal int32InclusiveMinimum = BigDecimal.valueOf(-2147483648);
-    private static BigDecimal int32InclusiveMaximum = BigDecimal.valueOf(2147483647);
-    private static BigDecimal int64InclusiveMinimum = BigDecimal.valueOf(-9223372036854775808L);
-    private static BigDecimal int64InclusiveMaximum = BigDecimal.valueOf(9223372036854775807L);
-    private static BigDecimal floatInclusiveMinimum = BigDecimal.valueOf(-3.4028234663852886e+38);
-    private static BigDecimal floatInclusiveMaximum = BigDecimal.valueOf(3.4028234663852886e+38);
-    private static BigDecimal doubleInclusiveMinimum = BigDecimal.valueOf(-1.7976931348623157E+308d);
-    private static BigDecimal doubleInclusiveMaximum = BigDecimal.valueOf(1.7976931348623157E+308d);
+    private final static BigDecimal int32InclusiveMinimum = BigDecimal.valueOf(-2147483648);
+    private final static BigDecimal int32InclusiveMaximum = BigDecimal.valueOf(2147483647);
+    private final static BigDecimal int64InclusiveMinimum = BigDecimal.valueOf(-9223372036854775808L);
+    private final static BigDecimal int64InclusiveMaximum = BigDecimal.valueOf(9223372036854775807L);
+    private final static BigDecimal floatInclusiveMinimum = BigDecimal.valueOf(-3.4028234663852886e+38);
+    private final static BigDecimal floatInclusiveMaximum = BigDecimal.valueOf(3.4028234663852886e+38);
+    private final static BigDecimal doubleInclusiveMinimum = BigDecimal.valueOf(-1.7976931348623157E+308d);
+    private final static BigDecimal doubleInclusiveMaximum = BigDecimal.valueOf(1.7976931348623157E+308d);
 
     private Void validateNumericFormat(BigDecimal arg, String format, ValidationMetadata validationMetadata) {
         if (format.startsWith("int")) {
