@@ -40,6 +40,9 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
       } else if (arg instanceof Boolean) {
          pathToType.put(pathToItem, Boolean.class);
          return arg;
+      } else if (arg instanceof BigDecimal) {
+         pathToType.put(pathToItem, BigDecimal.class);
+         return arg;
       } else if (arg instanceof Integer) {
          pathToType.put(pathToItem, BigDecimal.class);
          return BigDecimal.valueOf((Integer) arg);
