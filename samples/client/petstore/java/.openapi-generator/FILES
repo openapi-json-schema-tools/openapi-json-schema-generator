@@ -5,6 +5,7 @@ src/main/java/org/openapijsonschematools/configurations/SchemaConfiguration.java
 src/main/java/org/openapijsonschematools/schemas/AnyTypeSchema.java
 src/main/java/org/openapijsonschematools/schemas/BooleanSchema.java
 src/main/java/org/openapijsonschematools/schemas/CustomIsoparser.java
+src/main/java/org/openapijsonschematools/schemas/Int32Schema.java
 src/main/java/org/openapijsonschematools/schemas/NullSchema.java
 src/main/java/org/openapijsonschematools/schemas/NumberSchema.java
 src/main/java/org/openapijsonschematools/schemas/PathToSchemasMap.java
