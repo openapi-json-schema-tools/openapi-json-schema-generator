@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface SchemaValidator {
-    static final HashMap<String, KeywordValidator> keywordToValidator = new HashMap()\{{
+    HashMap<String, KeywordValidator> keywordToValidator = new HashMap()\{{
         put("type", new TypeValidator());
     }};
 
@@ -22,7 +22,7 @@ public interface SchemaValidator {
             ValidationMetadata validationMetadata
     ) throws InvocationTargetException, IllegalAccessException {
         HashMap<String, Object> fieldsToValues = new HashMap<>();
-        SchemaValidator schema = null;
+        SchemaValidator schema;
         try {
             schema = (SchemaValidator) schemaCls.getMethod("withDefaults").invoke(null);
         } catch (NoSuchMethodException e) {
@@ -51,8 +51,17 @@ public interface SchemaValidator {
                     castSchemaCls,
                     validationMetadata
             );
+            if (otherPathToSchemas == null) {
+                continue;
+            }
+            pathToSchemas.update(otherPathToSchemas);
         }
-        Class<?> baseClass = arg.getClass();
+        Class<?> baseClass;
+        if (arg == null) {
+            baseClass = Void.class;
+        } else {
+            baseClass = arg.getClass();
+        }
         List<Object> pathToItem = validationMetadata.pathToItem();
         if (!pathToSchemas.containsKey(pathToItem)) {
             pathToSchemas.put(validationMetadata.pathToItem(), new LinkedHashMap<>());

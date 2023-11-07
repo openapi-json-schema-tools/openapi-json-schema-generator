@@ -14,6 +14,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 public interface Schema<T extends Map, U extends List> extends SchemaValidator {
@@ -23,7 +24,7 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
          return null;
       } else if (arg instanceof String) {
          pathToType.put(pathToItem, String.class);
-         return (String) arg;
+         return arg;
       } else if (arg instanceof Map) {
          pathToType.put(pathToItem, Map.class);
          LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
@@ -38,19 +39,19 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
          return argFixed;
       } else if (arg instanceof Boolean) {
          pathToType.put(pathToItem, Boolean.class);
-         return (Boolean) arg;
+         return arg;
       } else if (arg instanceof Integer) {
          pathToType.put(pathToItem, Integer.class);
-         return (Integer) arg;
+         return arg;
       } else if (arg instanceof Float) {
          pathToType.put(pathToItem, Float.class);
-         return (Float) arg;
+         return arg;
       } else if (arg instanceof Double) {
          pathToType.put(pathToItem, Double.class);
-         return (Double) arg;
+         return arg;
       } else if (arg instanceof BigDecimal) {
          pathToType.put(pathToItem, BigDecimal.class);
-         return (BigDecimal) arg;
+         return arg;
       } else if (arg instanceof List) {
          pathToType.put(pathToItem, List.class);
          List<Object> argFixed = new ArrayList<>();
@@ -123,7 +124,7 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
       ArrayList<Object> items = new ArrayList<>();
       List<Object> castItems = (List<Object>) arg;
       int i = 0;
-      for (Object item: items) {
+      for (Object item: castItems) {
          List<Object> itemPathToItem = new ArrayList<>(pathToItem);
          itemPathToItem.add(i);
          Class<Schema> itemClass = (Class<Schema>) pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
@@ -151,10 +152,8 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
          usedArg = getProperties(arg, pathToItem, pathToSchemas);
       } else if (arg instanceof List) {
          usedArg = getItems(arg, pathToItem, pathToSchemas);
-      } else if (arg instanceof Boolean) {
-         return (Boolean) arg;
       } else {
-         // str, int, float, FileIO, bytes
+         // str, int, float, boolean, null, FileIO, bytes
          return arg;
       }
       Class<?> argType = arg.getClass();
@@ -167,43 +166,43 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
       return null;
    }
 
-   public static Void validateBase(Class<?> cls, Void arg, SchemaConfiguration configuration) {
+   static Void validateBase(Class<?> cls, Void arg, SchemaConfiguration configuration) {
       return (Void) validateObjectBase(cls, arg, configuration);
    }
 
-   public static Boolean validateBase(Class<?> cls, Boolean arg, SchemaConfiguration configuration) {
+   static Boolean validateBase(Class<?> cls, Boolean arg, SchemaConfiguration configuration) {
       return (Boolean) validateObjectBase(cls, arg, configuration);
    }
 
-   public static Integer validateBase(Class<?> cls, Integer arg, SchemaConfiguration configuration) {
+   static Integer validateBase(Class<?> cls, Integer arg, SchemaConfiguration configuration) {
       return (Integer) validateObjectBase(cls, arg, configuration);
    }
 
-   public static Float validateBase(Class<?> cls, Float arg, SchemaConfiguration configuration) {
+   static Float validateBase(Class<?> cls, Float arg, SchemaConfiguration configuration) {
       return (Float) validateObjectBase(cls, arg, configuration);
    }
 
-   public static Double validateBase(Class<?> cls, Double arg, SchemaConfiguration configuration) {
+   static Double validateBase(Class<?> cls, Double arg, SchemaConfiguration configuration) {
       return (Double) validateObjectBase(cls, arg, configuration);
    }
 
-   public static String validateBase(Class<?> cls, String arg, SchemaConfiguration configuration) {
+   static String validateBase(Class<?> cls, String arg, SchemaConfiguration configuration) {
       return (String) validateObjectBase(cls, arg, configuration);
    }
 
-   public static String validateBase(Class<?> cls, ZonedDateTime arg, SchemaConfiguration configuration) {
+   static String validateBase(Class<?> cls, ZonedDateTime arg, SchemaConfiguration configuration) {
       return (String) validateObjectBase(cls, arg, configuration);
    }
 
-   public static String validateBase(Class<?> cls, LocalDate arg, SchemaConfiguration configuration) {
+   static String validateBase(Class<?> cls, LocalDate arg, SchemaConfiguration configuration) {
       return (String) validateObjectBase(cls, arg, configuration);
    }
 
-   public static <T extends Map> T validateBase(Class<?> cls, T arg, SchemaConfiguration configuration) {
+   static <T extends Map> T validateBase(Class<?> cls, T arg, SchemaConfiguration configuration) {
       return (T) validateObjectBase(cls, arg, configuration);
    }
 
-   public static <U extends List> U validateBase(Class<?> cls, U arg, SchemaConfiguration configuration) {
+   static <U extends List> U validateBase(Class<?> cls, U arg, SchemaConfiguration configuration) {
       return (U) validateObjectBase(cls, arg, configuration);
    }
 
@@ -218,12 +217,7 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
       List<Object> pathToItem = new ArrayList<>();
       pathToItem.add("args[0]");
       Object castArg = castToAllowedTypes(arg, pathToItem, pathToType);
-      SchemaConfiguration usedConfiguration;
-      if (configuration != null) {
-         usedConfiguration = configuration;
-      } else {
-         usedConfiguration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-      }
+      SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
       PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
       ValidationMetadata validationMetadata = new ValidationMetadata(
               pathToItem,
