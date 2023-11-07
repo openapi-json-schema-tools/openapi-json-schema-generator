@@ -274,6 +274,18 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 packagePath() + File.separatorChar + "schemas",
                 "CustomIsoparser.java"));
         supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/DateSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "DateSchema.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/DateTimeSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "DateTimeSchema.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/DecimalSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "DecimalSchema.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/schemas/DoubleSchema.hbs",
                 packagePath() + File.separatorChar + "schemas",
                 "DoubleSchema.java"));
@@ -317,6 +329,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 "src/main/java/org/openapitools/schemas/SchemaValidator.hbs",
                 packagePath() + File.separatorChar + "schemas",
                 "SchemaValidator.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/StringSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "StringSchema.java"));
         supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/schemas/UnsetAnyTypeSchema.hbs",
                 packagePath() + File.separatorChar + "schemas",
