@@ -282,6 +282,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 packagePath() + File.separatorChar + "schemas",
                 "Int64Schema.java"));
         supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/IntSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "IntSchema.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/schemas/NullSchema.hbs",
                 packagePath() + File.separatorChar + "schemas",
                 "NullSchema.java"));
