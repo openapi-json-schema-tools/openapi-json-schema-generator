@@ -318,6 +318,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 packagePath() + File.separatorChar + "schemas",
                 "SchemaValidator.java"));
         supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/StringSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "StringSchema.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/schemas/UnsetAnyTypeSchema.hbs",
                 packagePath() + File.separatorChar + "schemas",
                 "UnsetAnyTypeSchema.java"));
