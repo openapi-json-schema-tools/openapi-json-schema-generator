@@ -1,0 +1,31 @@
+package {{{packageName}}}.schemas;
+
+import {{{packageName}}}.configurations.SchemaConfiguration;
+
+import java.util.LinkedHashSet;
+import java.math.BigDecimal;
+
+record IntSchema(LinkedHashSet<Class<?>> type, String format) implements Schema {
+    public static IntSchema withDefaults() {
+        LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+        type.add(BigDecimal.class);
+        String format = "int";
+        return new IntSchema(type, format);
+    }
+
+    public static Long validate(Integer arg, SchemaConfiguration configuration) {
+        return Schema.validate(IntSchema.class, Long.valueOf(arg), configuration);
+    }
+
+    public static Long validate(Float arg, SchemaConfiguration configuration) {
+        return Schema.validate(IntSchema.class, Long.parseLong(arg.toString()), configuration);
+    }
+
+    public static Long validate(Long arg, SchemaConfiguration configuration) {
+        return Schema.validate(IntSchema.class, arg, configuration);
+    }
+
+    public static Long validate(Double arg, SchemaConfiguration configuration) {
+        return Schema.validate(IntSchema.class, Long.parseLong(arg.toString()), configuration);
+    }
+}

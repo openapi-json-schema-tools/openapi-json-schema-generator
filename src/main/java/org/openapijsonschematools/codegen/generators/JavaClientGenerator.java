@@ -266,9 +266,41 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 packagePath() + File.separatorChar + "schemas",
                 "AnyTypeSchema.java"));
         supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/BooleanSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "BooleanSchema.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/schemas/CustomIsoparser.hbs",
                 packagePath() + File.separatorChar + "schemas",
                 "CustomIsoparser.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/DoubleSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "DoubleSchema.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/FloatSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "FloatSchema.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/Int32Schema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "Int32Schema.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/Int64Schema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "Int64Schema.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/IntSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "IntSchema.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/NullSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "NullSchema.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/NumberSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "NumberSchema.java"));
         supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/schemas/PathToSchemasMap.hbs",
                 packagePath() + File.separatorChar + "schemas",
@@ -299,9 +331,21 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 testPackagePath() + File.separatorChar + "schemas",
                 "AnyTypeSchemaTest.java"));
         supportingFiles.add(new SupportingFile(
+                "src/test/java/org/openapitools/schemas/BooleanSchemaTest.hbs",
+                testPackagePath() + File.separatorChar + "schemas",
+                "BooleanSchemaTest.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/test/java/org/openapitools/schemas/CustomIsoparserTest.hbs",
                 testPackagePath() + File.separatorChar + "schemas",
                 "CustomIsoparserTest.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/org/openapitools/schemas/NullSchemaTest.hbs",
+                testPackagePath() + File.separatorChar + "schemas",
+                "NullSchemaTest.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/org/openapitools/schemas/NumberSchemaTest.hbs",
+                testPackagePath() + File.separatorChar + "schemas",
+                "NumberSchemaTest.java"));
         supportingFiles.add(new SupportingFile(
                 "src/test/java/org/openapitools/schemas/SchemaValidatorTest.hbs",
                 testPackagePath() + File.separatorChar + "schemas",
@@ -316,11 +360,19 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 "src/main/java/org/openapitools/schemas/validators/TypeValidator.hbs",
                 packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
                 "TypeValidator.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/validators/FormatValidator.hbs",
+                packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
+                "FormatValidator.java"));
         // tests
         supportingFiles.add(new SupportingFile(
                 "src/test/java/org/openapitools/schemas/validators/TypeValidatorTest.hbs",
                 testPackagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
                 "TypeValidatorTest.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/org/openapitools/schemas/validators/FormatValidatorTest.hbs",
+                testPackagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
+                "FormatValidatorTest.java"));
 
         // configuration
         supportingFiles.add(new SupportingFile(

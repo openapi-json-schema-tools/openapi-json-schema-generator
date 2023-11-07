@@ -24,6 +24,10 @@ record UnsetAnyTypeSchema() implements Schema {
         return Schema.validate(UnsetAnyTypeSchema.class, arg, configuration);
     }
 
+    public static Long validate(Long arg, SchemaConfiguration configuration) {
+        return Schema.validate(UnsetAnyTypeSchema.class, arg, configuration);
+    }
+
     static Float validate(Float arg, SchemaConfiguration configuration) {
         return Schema.validate(UnsetAnyTypeSchema.class, arg, configuration);
     }
