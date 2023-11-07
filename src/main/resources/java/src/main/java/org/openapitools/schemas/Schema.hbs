@@ -173,6 +173,10 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
       return (Boolean) validateObject(cls, arg, configuration);
    }
 
+   static BigDecimal validate(Class<?> cls, BigDecimal arg, SchemaConfiguration configuration) {
+      return (BigDecimal) validateObject(cls, arg, configuration);
+   }
+
    static Integer validate(Class<?> cls, Integer arg, SchemaConfiguration configuration) {
       BigDecimal val = (BigDecimal) validateObject(cls, arg, configuration);
       return val.intValue();

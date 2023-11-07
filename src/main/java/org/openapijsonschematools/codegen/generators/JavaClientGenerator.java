@@ -278,6 +278,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 packagePath() + File.separatorChar + "schemas",
                 "NullSchema.java"));
         supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/NumberSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "NumberSchema.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/schemas/PathToSchemasMap.hbs",
                 packagePath() + File.separatorChar + "schemas",
                 "PathToSchemasMap.java"));
@@ -318,6 +322,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 "src/test/java/org/openapitools/schemas/NullSchemaTest.hbs",
                 testPackagePath() + File.separatorChar + "schemas",
                 "NullSchemaTest.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/test/java/org/openapitools/schemas/NumberSchemaTest.hbs",
+                testPackagePath() + File.separatorChar + "schemas",
+                "NumberSchemaTest.java"));
         supportingFiles.add(new SupportingFile(
                 "src/test/java/org/openapitools/schemas/SchemaValidatorTest.hbs",
                 testPackagePath() + File.separatorChar + "schemas",
