@@ -3,6 +3,7 @@ package org.openapijsonschematools.schemas;
 import org.openapijsonschematools.schemas.validators.KeywordValidator;
 import org.openapijsonschematools.schemas.validators.TypeValidator;
 import org.openapijsonschematools.schemas.validators.FormatValidator;
+import org.openapijsonschematools.schemas.validators.PropertiesValidator;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.RecordComponent;
@@ -16,6 +17,7 @@ public interface SchemaValidator {
     HashMap<String, KeywordValidator> keywordToValidator = new HashMap(){{
         put("type", new TypeValidator());
         put("format", new FormatValidator());
+        put("properties", new PropertiesValidator());
     }};
 
     static PathToSchemasMap validate(

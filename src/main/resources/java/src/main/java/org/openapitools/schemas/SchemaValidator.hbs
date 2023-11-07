@@ -3,6 +3,7 @@ package {{{packageName}}}.schemas;
 import {{{packageName}}}.schemas.validators.KeywordValidator;
 import {{{packageName}}}.schemas.validators.TypeValidator;
 import {{{packageName}}}.schemas.validators.FormatValidator;
+import {{{packageName}}}.schemas.validators.PropertiesValidator;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.RecordComponent;
@@ -16,6 +17,7 @@ public interface SchemaValidator {
     HashMap<String, KeywordValidator> keywordToValidator = new HashMap()\{{
         put("type", new TypeValidator());
         put("format", new FormatValidator());
+        put("properties", new PropertiesValidator());
     }};
 
     static PathToSchemasMap validate(

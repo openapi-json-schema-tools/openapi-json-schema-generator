@@ -369,17 +369,21 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
         // keyword validators
         supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/validators/FormatValidator.hbs",
+                packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
+                "FormatValidator.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/schemas/validators/KeywordValidator.hbs",
                 packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
                 "KeywordValidator.java"));
         supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/validators/PropertiesValidator.hbs",
+                packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
+                "PropertiesValidator.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/schemas/validators/TypeValidator.hbs",
                 packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
                 "TypeValidator.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/validators/FormatValidator.hbs",
-                packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
-                "FormatValidator.java"));
         // tests
         supportingFiles.add(new SupportingFile(
                 "src/test/java/org/openapitools/schemas/validators/TypeValidatorTest.hbs",
