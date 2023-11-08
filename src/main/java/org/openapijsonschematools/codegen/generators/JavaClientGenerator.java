@@ -294,6 +294,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 packagePath() + File.separatorChar + "schemas",
                 "FloatSchema.java"));
         supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/FrozenMap.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "FrozenMap.java"));
+        supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/schemas/Int32Schema.hbs",
                 packagePath() + File.separatorChar + "schemas",
                 "Int32Schema.java"));
@@ -305,6 +309,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 "src/main/java/org/openapitools/schemas/IntSchema.hbs",
                 packagePath() + File.separatorChar + "schemas",
                 "IntSchema.java"));
+        supportingFiles.add(new SupportingFile(
+                "src/main/java/org/openapitools/schemas/MapSchema.hbs",
+                packagePath() + File.separatorChar + "schemas",
+                "MapSchema.java"));
         supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/schemas/NullSchema.hbs",
                 packagePath() + File.separatorChar + "schemas",

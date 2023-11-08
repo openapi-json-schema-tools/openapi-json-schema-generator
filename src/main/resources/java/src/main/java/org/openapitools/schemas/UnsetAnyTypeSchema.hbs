@@ -48,11 +48,11 @@ record UnsetAnyTypeSchema() implements Schema {
         return Schema.validate(UnsetAnyTypeSchema.class, arg, configuration);
     }
 
-    static <T extends Map> T validate(T arg, SchemaConfiguration configuration) {
+    static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
         return Schema.validate(UnsetAnyTypeSchema.class, arg, configuration);
     }
 
-    static <U extends List> U validate(U arg, SchemaConfiguration configuration) {
+    static <U extends List> U validate(List<Object> arg, SchemaConfiguration configuration) {
         return Schema.validate(UnsetAnyTypeSchema.class, arg, configuration);
     }
 }
