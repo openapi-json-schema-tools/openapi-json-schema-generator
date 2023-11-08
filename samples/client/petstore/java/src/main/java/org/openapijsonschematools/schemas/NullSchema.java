@@ -4,7 +4,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 
 import java.util.LinkedHashSet;
 
-record NullSchema(LinkedHashSet<Class<?>> type) implements Schema {
+public record NullSchema(LinkedHashSet<Class<?>> type) implements Schema {
     public static NullSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         type.add(Void.class);

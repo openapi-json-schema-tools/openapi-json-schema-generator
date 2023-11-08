@@ -6,7 +6,7 @@ import java.util.LinkedHashSet;
 import java.time.ZonedDateTime;
 import java.time.LocalDate;
 
-record StringSchema(LinkedHashSet<Class<?>> type) implements Schema {
+public record StringSchema(LinkedHashSet<Class<?>> type) implements Schema {
     public static StringSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         type.add(String.class);

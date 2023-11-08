@@ -5,7 +5,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import java.util.LinkedHashSet;
 import java.time.LocalDate;
 
-record DateSchema(LinkedHashSet<Class<?>> type, String format) implements Schema {
+public record DateSchema(LinkedHashSet<Class<?>> type, String format) implements Schema {
     public static DateSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         type.add(String.class);

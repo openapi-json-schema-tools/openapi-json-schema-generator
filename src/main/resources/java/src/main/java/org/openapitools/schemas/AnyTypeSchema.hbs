@@ -7,7 +7,7 @@ import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Map;
 
-record AnyTypeSchema() implements Schema {
+public record AnyTypeSchema() implements Schema {
     public static AnyTypeSchema withDefaults() {
         return new AnyTypeSchema();
     }

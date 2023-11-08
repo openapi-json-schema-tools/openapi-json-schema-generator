@@ -36,7 +36,7 @@ public class PropertiesValidator implements KeywordValidator {
                 // todo add_deeper_validated_schemas
                 continue;
             }
-            PathToSchemasMap otherPathToSchemas = SchemaValidator.validate(propSchema, propValue, validationMetadata);
+            PathToSchemasMap otherPathToSchemas = SchemaValidator.validate(propSchema, propValue, propValidationMetadata);
             pathToSchemas.update(otherPathToSchemas);
         }
         return pathToSchemas;

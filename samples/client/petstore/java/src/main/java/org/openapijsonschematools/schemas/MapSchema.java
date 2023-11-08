@@ -14,7 +14,7 @@ record MapSchema(LinkedHashSet<Class<?>> type) implements Schema {
         return new MapSchema(type);
     }
 
-    public static Map<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+    public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
         return Schema.validate(MapSchema.class, arg, configuration);
     }
 }

@@ -5,7 +5,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import java.util.LinkedHashSet;
 import java.math.BigDecimal;
 
-record DoubleSchema(LinkedHashSet<Class<?>> type, String format) implements Schema {
+public record DoubleSchema(LinkedHashSet<Class<?>> type, String format) implements Schema {
     public static DoubleSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         type.add(BigDecimal.class);

@@ -32,8 +32,10 @@ src/test/java/org/openapijsonschematools/configurations/JsonSchemaKeywordFlagsTe
 src/test/java/org/openapijsonschematools/schemas/AnyTypeSchemaTest.java
 src/test/java/org/openapijsonschematools/schemas/BooleanSchemaTest.java
 src/test/java/org/openapijsonschematools/schemas/CustomIsoparserTest.java
+src/test/java/org/openapijsonschematools/schemas/MapSchemaTest.java
 src/test/java/org/openapijsonschematools/schemas/NullSchemaTest.java
 src/test/java/org/openapijsonschematools/schemas/NumberSchemaTest.java
 src/test/java/org/openapijsonschematools/schemas/SchemaValidatorTest.java
 src/test/java/org/openapijsonschematools/schemas/validators/FormatValidatorTest.java
+src/test/java/org/openapijsonschematools/schemas/validators/PropertiesValidatorTest.java
 src/test/java/org/openapijsonschematools/schemas/validators/TypeValidatorTest.java
