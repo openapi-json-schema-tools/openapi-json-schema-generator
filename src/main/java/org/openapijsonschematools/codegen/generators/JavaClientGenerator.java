@@ -308,6 +308,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
         // keyword validators
         List<String> keywordValidatorFiles = new ArrayList<>();
+        keywordValidatorFiles.add("AdditionalPropertiesValidator");
         keywordValidatorFiles.add("FormatValidator");
         keywordValidatorFiles.add("KeywordValidator");
         keywordValidatorFiles.add("PropertiesValidator");
@@ -321,10 +322,11 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         }
         // tests
         List<String> keywordValidatorTestFiles = new ArrayList<>();
-        keywordValidatorTestFiles.add("TypeValidatorTest");
+        keywordValidatorTestFiles.add("AdditionalPropertiesValidatorTest");
+        keywordValidatorTestFiles.add("FormatValidatorTest");
         keywordValidatorTestFiles.add("PropertiesValidatorTest");
         keywordValidatorTestFiles.add("RequiredValidatorTest");
-        keywordValidatorTestFiles.add("FormatValidatorTest");
+        keywordValidatorTestFiles.add("TypeValidatorTest");
         for (String keywordValidatorTestFile: keywordValidatorTestFiles) {
             supportingFiles.add(new SupportingFile(
                     "src/test/java/org/openapitools/schemas/validators/"+keywordValidatorTestFile+".hbs",
