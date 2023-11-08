@@ -6,6 +6,7 @@ import {{{packageName}}}.schemas.validators.TypeValidator;
 import {{{packageName}}}.schemas.validators.FormatValidator;
 import {{{packageName}}}.schemas.validators.PropertiesValidator;
 import {{{packageName}}}.schemas.validators.RequiredValidator;
+import {{{packageName}}}.schemas.validators.ItemsValidator;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.RecordComponent;
@@ -22,6 +23,7 @@ public interface SchemaValidator {
         put("format", new FormatValidator());
         put("properties", new PropertiesValidator());
         put("required", new RequiredValidator());
+        put("items", new ItemsValidator());
     }};
 
     static PathToSchemasMap validate(
