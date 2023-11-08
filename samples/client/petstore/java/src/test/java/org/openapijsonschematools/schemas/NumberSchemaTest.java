@@ -12,26 +12,26 @@ public class NumberSchemaTest {
 
     @Test
     public void testValidateInteger() {
-        BigDecimal validatedValue = NumberSchema.validate(1, configuration);
-        Assert.assertEquals(validatedValue, BigDecimal.valueOf(1));
+        Number validatedValue = NumberSchema.validate(1, configuration);
+        Assert.assertEquals(validatedValue, 1);
     }
 
     @Test
     public void testValidateLong() {
-        BigDecimal validatedValue = NumberSchema.validate(1L, configuration);
-        Assert.assertEquals(validatedValue, BigDecimal.valueOf(1L));
+        Number validatedValue = NumberSchema.validate(1L, configuration);
+        Assert.assertEquals(validatedValue, 1L);
     }
 
     @Test
     public void testValidateFloat() {
-        BigDecimal validatedValue = NumberSchema.validate(3.14f, configuration);
-        Assert.assertEquals(validatedValue, BigDecimal.valueOf(3.14f));
+        Number validatedValue = NumberSchema.validate(3.14f, configuration);
+        Assert.assertEquals(validatedValue, 3.14f);
     }
 
     @Test
     public void testValidateDouble() {
-        BigDecimal validatedValue = NumberSchema.validate(3.14d, configuration);
-        Assert.assertEquals(validatedValue, BigDecimal.valueOf(3.14d));
+        Number validatedValue = NumberSchema.validate(3.14d, configuration);
+        Assert.assertEquals(validatedValue, 3.14d);
     }
 
     @Test

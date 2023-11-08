@@ -3,12 +3,11 @@ package org.openapijsonschematools.schemas;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 
 import java.util.LinkedHashSet;
-import java.math.BigDecimal;
 
 public record IntSchema(LinkedHashSet<Class<?>> type, String format) implements Schema {
     public static IntSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-        type.add(BigDecimal.class);
+        type.add(Number.class);
         String format = "int";
         return new IntSchema(type, format);
     }
