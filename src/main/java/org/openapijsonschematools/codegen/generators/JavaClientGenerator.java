@@ -311,6 +311,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("FormatValidator");
         keywordValidatorFiles.add("KeywordValidator");
         keywordValidatorFiles.add("PropertiesValidator");
+        keywordValidatorFiles.add("RequiredValidator");
         keywordValidatorFiles.add("TypeValidator");
         for (String keywordValidatorFile: keywordValidatorFiles) {
             supportingFiles.add(new SupportingFile(
@@ -322,6 +323,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         List<String> keywordValidatorTestFiles = new ArrayList<>();
         keywordValidatorTestFiles.add("TypeValidatorTest");
         keywordValidatorTestFiles.add("PropertiesValidatorTest");
+        keywordValidatorTestFiles.add("RequiredValidatorTest");
         keywordValidatorTestFiles.add("FormatValidatorTest");
         for (String keywordValidatorTestFile: keywordValidatorTestFiles) {
             supportingFiles.add(new SupportingFile(
