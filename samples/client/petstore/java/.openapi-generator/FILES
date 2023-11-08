@@ -45,6 +45,7 @@ src/test/java/org/openapijsonschematools/schemas/ObjectTypeSchemaTest.java
 src/test/java/org/openapijsonschematools/schemas/SchemaValidatorTest.java
 src/test/java/org/openapijsonschematools/schemas/validators/AdditionalPropertiesValidatorTest.java
 src/test/java/org/openapijsonschematools/schemas/validators/FormatValidatorTest.java
+src/test/java/org/openapijsonschematools/schemas/validators/ItemsValidatorTest.java
 src/test/java/org/openapijsonschematools/schemas/validators/PropertiesValidatorTest.java
 src/test/java/org/openapijsonschematools/schemas/validators/RequiredValidatorTest.java
 src/test/java/org/openapijsonschematools/schemas/validators/TypeValidatorTest.java
