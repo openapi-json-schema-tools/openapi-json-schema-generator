@@ -1,5 +1,6 @@
 package org.openapijsonschematools.schemas;
 
+import org.openapijsonschematools.schemas.validators.AdditionalPropertiesValidator;
 import org.openapijsonschematools.schemas.validators.KeywordValidator;
 import org.openapijsonschematools.schemas.validators.TypeValidator;
 import org.openapijsonschematools.schemas.validators.FormatValidator;
@@ -16,6 +17,7 @@ import java.util.Map;
 
 public interface SchemaValidator {
     HashMap<String, KeywordValidator> keywordToValidator = new HashMap(){{
+        put("additionalProperties", new AdditionalPropertiesValidator());
         put("type", new TypeValidator());
         put("format", new FormatValidator());
         put("properties", new PropertiesValidator());
@@ -48,6 +50,10 @@ public interface SchemaValidator {
                 throw new RuntimeException(e);
             }
         }
+        Object extra = null;
+        if (fieldsToValues.containsKey("additionalProperties") && fieldsToValues.containsKey("properties")) {
+            extra = fieldsToValues.get("properties");
+        }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         Class<SchemaValidator> castSchemaCls = (Class<SchemaValidator>) schemaCls;
         for (Map.Entry<String, Object> entry: fieldsToValues.entrySet()) {
@@ -57,7 +63,7 @@ public interface SchemaValidator {
             PathToSchemasMap otherPathToSchemas = validatorClass.validate(
                     arg,
                     value,
-                    null,
+                    extra,
                     castSchemaCls,
                     validationMetadata
             );
