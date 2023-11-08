@@ -6,6 +6,7 @@ import org.openapijsonschematools.schemas.SchemaValidator;
 import org.openapijsonschematools.schemas.ValidationMetadata;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -19,7 +20,7 @@ public class PropertiesValidator implements KeywordValidator {
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         Map<String, Object> castArg = (Map<String, Object>) arg;
         Map<String, Class<Schema>> properties = (Map<String, Class<Schema>>) value;
-        Set<String> presentProperties = castArg.keySet();
+        Set<String> presentProperties = new LinkedHashSet<>(castArg.keySet());
         presentProperties.retainAll(properties.keySet());
         for(String propName: presentProperties) {
             Object propValue = castArg.get(propName);

@@ -51,14 +51,14 @@ public interface SchemaValidator {
             }
         }
         Object extra = null;
-        if (fieldsToValues.containsKey("additionalProperties") && fieldsToValues.containsKey("properties")) {
-            extra = fieldsToValues.get("properties");
-        }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         Class<SchemaValidator> castSchemaCls = (Class<SchemaValidator>) schemaCls;
         for (Map.Entry<String, Object> entry: fieldsToValues.entrySet()) {
             String jsonKeyword = entry.getKey();
             Object value = entry.getValue();
+            if (jsonKeyword.equals("additionalProperties") && fieldsToValues.containsKey("properties")) {
+                extra = fieldsToValues.get("properties");
+            }
             KeywordValidator validatorClass = keywordToValidator.get(jsonKeyword);
             PathToSchemasMap otherPathToSchemas = validatorClass.validate(
                     arg,
