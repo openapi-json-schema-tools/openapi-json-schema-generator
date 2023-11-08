@@ -5,7 +5,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import java.util.LinkedHashSet;
 import java.math.BigDecimal;
 
-record Int64Schema(LinkedHashSet<Class<?>> type, String format) implements Schema {
+public record Int64Schema(LinkedHashSet<Class<?>> type, String format) implements Schema {
     public static Int64Schema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         type.add(BigDecimal.class);

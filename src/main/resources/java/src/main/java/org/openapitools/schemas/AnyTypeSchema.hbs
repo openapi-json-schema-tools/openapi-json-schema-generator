@@ -7,7 +7,7 @@ import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Map;
 
-record AnyTypeSchema() implements Schema {
+public record AnyTypeSchema() implements Schema {
     public static AnyTypeSchema withDefaults() {
         return new AnyTypeSchema();
     }
@@ -48,11 +48,11 @@ record AnyTypeSchema() implements Schema {
         return Schema.validate(AnyTypeSchema.class, arg, configuration);
     }
 
-    public static <T extends Map> T validate(T arg, SchemaConfiguration configuration) {
+    public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
         return Schema.validate(AnyTypeSchema.class, arg, configuration);
     }
 
-    public static <U extends List> U validate(U arg, SchemaConfiguration configuration) {
+    public static <U extends List> U validate(List<Object> arg, SchemaConfiguration configuration) {
         return Schema.validate(AnyTypeSchema.class, arg, configuration);
     }
 }

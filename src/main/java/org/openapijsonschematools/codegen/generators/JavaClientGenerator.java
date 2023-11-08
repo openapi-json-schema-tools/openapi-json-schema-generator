@@ -261,134 +261,79 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     public void processOpts() {
         HashMap<String, String> schemaDocs = new HashMap<>();
         additionalProperties.put(CodegenConstants.PACKAGE_NAME, packageName);
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/AnyTypeSchema.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "AnyTypeSchema.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/BooleanSchema.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "BooleanSchema.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/CustomIsoparser.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "CustomIsoparser.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/DateSchema.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "DateSchema.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/DateTimeSchema.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "DateTimeSchema.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/DecimalSchema.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "DecimalSchema.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/DoubleSchema.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "DoubleSchema.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/FloatSchema.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "FloatSchema.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/Int32Schema.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "Int32Schema.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/Int64Schema.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "Int64Schema.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/IntSchema.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "IntSchema.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/NullSchema.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "NullSchema.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/NumberSchema.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "NumberSchema.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/PathToSchemasMap.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "PathToSchemasMap.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/PathToTypeMap.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "PathToTypeMap.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/Schema.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "Schema.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/SchemaValidator.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "SchemaValidator.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/StringSchema.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "StringSchema.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/UnsetAnyTypeSchema.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "UnsetAnyTypeSchema.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/ValidationMetadata.hbs",
-                packagePath() + File.separatorChar + "schemas",
-                "ValidationMetadata.java"));
+        List<String> schemaSupportingFiles = new ArrayList<>();
+        schemaSupportingFiles.add("AnyTypeSchema");
+        schemaSupportingFiles.add("BooleanSchema");
+        schemaSupportingFiles.add("CustomIsoparser");
+        schemaSupportingFiles.add("DateSchema");
+        schemaSupportingFiles.add("DateTimeSchema");
+        schemaSupportingFiles.add("DecimalSchema");
+        schemaSupportingFiles.add("DoubleSchema");
+        schemaSupportingFiles.add("FloatSchema");
+        schemaSupportingFiles.add("FrozenMap");
+        schemaSupportingFiles.add("Int32Schema");
+        schemaSupportingFiles.add("Int64Schema");
+        schemaSupportingFiles.add("IntSchema");
+        schemaSupportingFiles.add("MapSchema");
+        schemaSupportingFiles.add("NullSchema");
+        schemaSupportingFiles.add("NumberSchema");
+        schemaSupportingFiles.add("PathToSchemasMap");
+        schemaSupportingFiles.add("PathToTypeMap");
+        schemaSupportingFiles.add("Schema");
+        schemaSupportingFiles.add("SchemaValidator");
+        schemaSupportingFiles.add("StringSchema");
+        schemaSupportingFiles.add("UnsetAnyTypeSchema");
+        schemaSupportingFiles.add("ValidationMetadata");
+        for (String schemaSupportingFile: schemaSupportingFiles) {
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/org/openapitools/schemas/"+schemaSupportingFile+".hbs",
+                    packagePath() + File.separatorChar + "schemas",
+                    schemaSupportingFile + ".java"));
+        }
         // tests
-        supportingFiles.add(new SupportingFile(
-                "src/test/java/org/openapitools/schemas/AnyTypeSchemaTest.hbs",
-                testPackagePath() + File.separatorChar + "schemas",
-                "AnyTypeSchemaTest.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/java/org/openapitools/schemas/BooleanSchemaTest.hbs",
-                testPackagePath() + File.separatorChar + "schemas",
-                "BooleanSchemaTest.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/java/org/openapitools/schemas/CustomIsoparserTest.hbs",
-                testPackagePath() + File.separatorChar + "schemas",
-                "CustomIsoparserTest.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/java/org/openapitools/schemas/NullSchemaTest.hbs",
-                testPackagePath() + File.separatorChar + "schemas",
-                "NullSchemaTest.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/java/org/openapitools/schemas/NumberSchemaTest.hbs",
-                testPackagePath() + File.separatorChar + "schemas",
-                "NumberSchemaTest.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/java/org/openapitools/schemas/SchemaValidatorTest.hbs",
-                testPackagePath() + File.separatorChar + "schemas",
-                "SchemaValidatorTest.java"));
+        List<String> schemaTestSupportingFiles = new ArrayList<>();
+        schemaTestSupportingFiles.add("AnyTypeSchemaTest");
+        schemaTestSupportingFiles.add("BooleanSchemaTest");
+        schemaTestSupportingFiles.add("CustomIsoparserTest");
+        schemaTestSupportingFiles.add("MapSchemaTest");
+        schemaTestSupportingFiles.add("NullSchemaTest");
+        schemaTestSupportingFiles.add("NumberSchemaTest");
+        schemaTestSupportingFiles.add("ObjectTypeSchemaTest");
+        schemaTestSupportingFiles.add("SchemaValidatorTest");
+        for (String schemaTestSupportingFile: schemaTestSupportingFiles) {
+            supportingFiles.add(new SupportingFile(
+                    "src/test/java/org/openapitools/schemas/"+schemaTestSupportingFile+".hbs",
+                    testPackagePath() + File.separatorChar + "schemas",
+                    schemaTestSupportingFile + ".java"));
+        }
 
         // keyword validators
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/validators/KeywordValidator.hbs",
-                packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
-                "KeywordValidator.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/validators/TypeValidator.hbs",
-                packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
-                "TypeValidator.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/schemas/validators/FormatValidator.hbs",
-                packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
-                "FormatValidator.java"));
+        List<String> keywordValidatorFiles = new ArrayList<>();
+        keywordValidatorFiles.add("AdditionalPropertiesValidator");
+        keywordValidatorFiles.add("FormatValidator");
+        keywordValidatorFiles.add("KeywordValidator");
+        keywordValidatorFiles.add("PropertiesValidator");
+        keywordValidatorFiles.add("RequiredValidator");
+        keywordValidatorFiles.add("TypeValidator");
+        for (String keywordValidatorFile: keywordValidatorFiles) {
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/org/openapitools/schemas/validators/"+keywordValidatorFile+".hbs",
+                    packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
+                    keywordValidatorFile + ".java"));
+        }
         // tests
-        supportingFiles.add(new SupportingFile(
-                "src/test/java/org/openapitools/schemas/validators/TypeValidatorTest.hbs",
-                testPackagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
-                "TypeValidatorTest.java"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/java/org/openapitools/schemas/validators/FormatValidatorTest.hbs",
-                testPackagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
-                "FormatValidatorTest.java"));
+        List<String> keywordValidatorTestFiles = new ArrayList<>();
+        keywordValidatorTestFiles.add("AdditionalPropertiesValidatorTest");
+        keywordValidatorTestFiles.add("FormatValidatorTest");
+        keywordValidatorTestFiles.add("PropertiesValidatorTest");
+        keywordValidatorTestFiles.add("RequiredValidatorTest");
+        keywordValidatorTestFiles.add("TypeValidatorTest");
+        for (String keywordValidatorTestFile: keywordValidatorTestFiles) {
+            supportingFiles.add(new SupportingFile(
+                    "src/test/java/org/openapitools/schemas/validators/"+keywordValidatorTestFile+".hbs",
+                    testPackagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
+                    keywordValidatorTestFile + ".java"));
+        }
 
         // configuration
         supportingFiles.add(new SupportingFile(

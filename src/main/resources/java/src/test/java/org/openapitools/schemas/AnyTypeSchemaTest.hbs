@@ -73,9 +73,9 @@ public class AnyTypeSchemaTest {
 
     @Test
     public void testValidateMap() {
-        LinkedHashMap<String, LocalDate> inMap = new LinkedHashMap<>();
+        LinkedHashMap<String, Object> inMap = new LinkedHashMap<>();
         inMap.put("today", LocalDate.of(2017, 7, 21));
-        LinkedHashMap validatedValue = AnyTypeSchema.validate(inMap, configuration);
+        FrozenMap<String, String> validatedValue = AnyTypeSchema.validate(inMap, configuration);
         LinkedHashMap<String, String> outMap = new LinkedHashMap<>();
         outMap.put("today", "2017-07-21");
         Assert.assertEquals(validatedValue, outMap);
@@ -83,9 +83,9 @@ public class AnyTypeSchemaTest {
 
     @Test
     public void testValidateList() {
-        ArrayList<LocalDate> inList = new ArrayList<>();
+        ArrayList<Object> inList = new ArrayList<>();
         inList.add(LocalDate.of(2017, 7, 21));
-        ArrayList validatedValue = AnyTypeSchema.validate(inList, configuration);
+        ArrayList<String> validatedValue = AnyTypeSchema.validate(inList, configuration);
         ArrayList<String> outList = new ArrayList<>();
         outList.add( "2017-07-21");
         Assert.assertEquals(validatedValue, outList);

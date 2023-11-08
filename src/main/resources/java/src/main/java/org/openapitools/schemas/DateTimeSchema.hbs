@@ -5,7 +5,7 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 import java.util.LinkedHashSet;
 import java.time.ZonedDateTime;
 
-record DateTimeSchema(LinkedHashSet<Class<?>> type, String format) implements Schema {
+public record DateTimeSchema(LinkedHashSet<Class<?>> type, String format) implements Schema {
     public static DateTimeSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         type.add(String.class);

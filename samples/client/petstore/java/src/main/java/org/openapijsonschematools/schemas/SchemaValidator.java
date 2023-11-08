@@ -1,8 +1,11 @@
 package org.openapijsonschematools.schemas;
 
+import org.openapijsonschematools.schemas.validators.AdditionalPropertiesValidator;
 import org.openapijsonschematools.schemas.validators.KeywordValidator;
 import org.openapijsonschematools.schemas.validators.TypeValidator;
 import org.openapijsonschematools.schemas.validators.FormatValidator;
+import org.openapijsonschematools.schemas.validators.PropertiesValidator;
+import org.openapijsonschematools.schemas.validators.RequiredValidator;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.RecordComponent;
@@ -14,8 +17,11 @@ import java.util.Map;
 
 public interface SchemaValidator {
     HashMap<String, KeywordValidator> keywordToValidator = new HashMap(){{
+        put("additionalProperties", new AdditionalPropertiesValidator());
         put("type", new TypeValidator());
         put("format", new FormatValidator());
+        put("properties", new PropertiesValidator());
+        put("required", new RequiredValidator());
     }};
 
     static PathToSchemasMap validate(
@@ -44,16 +50,20 @@ public interface SchemaValidator {
                 throw new RuntimeException(e);
             }
         }
+        Object extra = null;
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         Class<SchemaValidator> castSchemaCls = (Class<SchemaValidator>) schemaCls;
         for (Map.Entry<String, Object> entry: fieldsToValues.entrySet()) {
             String jsonKeyword = entry.getKey();
             Object value = entry.getValue();
+            if (jsonKeyword.equals("additionalProperties") && fieldsToValues.containsKey("properties")) {
+                extra = fieldsToValues.get("properties");
+            }
             KeywordValidator validatorClass = keywordToValidator.get(jsonKeyword);
             PathToSchemasMap otherPathToSchemas = validatorClass.validate(
                     arg,
                     value,
-                    null,
+                    extra,
                     castSchemaCls,
                     validationMetadata
             );

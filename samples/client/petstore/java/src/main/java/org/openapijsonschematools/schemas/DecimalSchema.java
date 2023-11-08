@@ -4,7 +4,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 
 import java.util.LinkedHashSet;
 
-record DecimalSchema(LinkedHashSet<Class<?>> type, String format) implements Schema {
+public record DecimalSchema(LinkedHashSet<Class<?>> type, String format) implements Schema {
     public static DecimalSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         type.add(String.class);

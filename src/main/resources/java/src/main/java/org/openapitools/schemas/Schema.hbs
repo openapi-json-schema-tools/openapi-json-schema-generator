@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -17,7 +18,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-public interface Schema<T extends Map, U extends List> extends SchemaValidator {
+public interface Schema extends SchemaValidator {
    private static Object castToAllowedTypes(Object arg, List<Object> pathToItem, PathToTypeMap pathToType) {
       if (arg == null) {
          pathToType.put(pathToItem, Void.class);
@@ -36,7 +37,7 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
             Object fixedVal = castToAllowedTypes(val, newPathToItem, pathToType);
             argFixed.put(key, fixedVal);
          }
-         return argFixed;
+         return new FrozenMap(argFixed);
       } else if (arg instanceof Boolean) {
          pathToType.put(pathToItem, Boolean.class);
          return arg;
@@ -116,7 +117,7 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
          Object castValue = getNewInstance(propertyClass, value, propertyPathToItem, pathToSchemas);
          properties.put(propertyName, castValue);
       }
-      return properties;
+      return new FrozenMap(properties);
    }
 
    private static List<Object> getItems(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -209,11 +210,11 @@ public interface Schema<T extends Map, U extends List> extends SchemaValidator {
       return (String) validateObject(cls, arg, configuration);
    }
 
-   static <T extends Map> T validate(Class<?> cls, T arg, SchemaConfiguration configuration) {
+   static <T extends FrozenMap> T validate(Class<?> cls, Map<String, Object> arg, SchemaConfiguration configuration) {
       return (T) validateObject(cls, arg, configuration);
    }
 
-   static <U extends List> U validate(Class<?> cls, U arg, SchemaConfiguration configuration) {
+   static <U extends List> U validate(Class<?> cls, List<Object> arg, SchemaConfiguration configuration) {
       return (U) validateObject(cls, arg, configuration);
    }
 

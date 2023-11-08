@@ -5,7 +5,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import java.util.LinkedHashSet;
 import java.math.BigDecimal;
 
-record FloatSchema(LinkedHashSet<Class<?>> type, String format) implements Schema {
+public record FloatSchema(LinkedHashSet<Class<?>> type, String format) implements Schema {
     public static FloatSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         type.add(BigDecimal.class);
