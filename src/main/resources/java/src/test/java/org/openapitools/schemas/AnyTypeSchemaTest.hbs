@@ -85,7 +85,7 @@ public class AnyTypeSchemaTest {
     public void testValidateList() {
         ArrayList<Object> inList = new ArrayList<>();
         inList.add(LocalDate.of(2017, 7, 21));
-        ArrayList<String> validatedValue = AnyTypeSchema.validate(inList, configuration);
+        FrozenList<String> validatedValue = AnyTypeSchema.validate(inList, configuration);
         ArrayList<String> outList = new ArrayList<>();
         outList.add( "2017-07-21");
         Assert.assertEquals(validatedValue, outList);

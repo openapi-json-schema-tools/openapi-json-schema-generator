@@ -52,7 +52,7 @@ public interface Schema extends SchemaValidator {
          pathToType.put(pathToItem, Double.class);
          return arg;
       } else if (arg instanceof List) {
-         pathToType.put(pathToItem, List.class);
+         pathToType.put(pathToItem, FrozenList.class);
          List<Object> argFixed = new ArrayList<>();
          int i =0;
          for (Object item: ((List<?>) arg).toArray()) {
@@ -62,7 +62,7 @@ public interface Schema extends SchemaValidator {
             argFixed.add(fixedVal);
             i += 1;
          }
-         return argFixed;
+         return new FrozenList(argFixed);
       } else if (arg instanceof ZonedDateTime) {
          pathToType.put(pathToItem, String.class);
          return arg.toString();
@@ -115,7 +115,7 @@ public interface Schema extends SchemaValidator {
       return new FrozenMap(properties);
    }
 
-   private static List<Object> getItems(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+   private static FrozenList<Object> getItems(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
       ArrayList<Object> items = new ArrayList<>();
       List<Object> castItems = (List<Object>) arg;
       int i = 0;
@@ -127,7 +127,7 @@ public interface Schema extends SchemaValidator {
          items.add(castItem);
          i += 1;
       }
-      return items;
+      return new FrozenList(items);
    }
 
    private static Map<Class<?>, Class<?>> getTypeToOutputClass(Class<?> cls) {
@@ -201,7 +201,7 @@ public interface Schema extends SchemaValidator {
       return (T) validateObject(cls, arg, configuration);
    }
 
-   static <U extends List> U validate(Class<?> cls, List<Object> arg, SchemaConfiguration configuration) {
+   static <U extends FrozenList> U validate(Class<?> cls, List<Object> arg, SchemaConfiguration configuration) {
       return (U) validateObject(cls, arg, configuration);
    }
 

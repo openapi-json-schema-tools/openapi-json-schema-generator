@@ -10,10 +10,12 @@ src/main/java/org/openapijsonschematools/schemas/DateTimeSchema.java
 src/main/java/org/openapijsonschematools/schemas/DecimalSchema.java
 src/main/java/org/openapijsonschematools/schemas/DoubleSchema.java
 src/main/java/org/openapijsonschematools/schemas/FloatSchema.java
+src/main/java/org/openapijsonschematools/schemas/FrozenList.java
 src/main/java/org/openapijsonschematools/schemas/FrozenMap.java
 src/main/java/org/openapijsonschematools/schemas/Int32Schema.java
 src/main/java/org/openapijsonschematools/schemas/Int64Schema.java
 src/main/java/org/openapijsonschematools/schemas/IntSchema.java
+src/main/java/org/openapijsonschematools/schemas/ListSchema.java
 src/main/java/org/openapijsonschematools/schemas/MapSchema.java
 src/main/java/org/openapijsonschematools/schemas/NullSchema.java
 src/main/java/org/openapijsonschematools/schemas/NumberSchema.java

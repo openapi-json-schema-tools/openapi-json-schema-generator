@@ -270,10 +270,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         schemaSupportingFiles.add("DecimalSchema");
         schemaSupportingFiles.add("DoubleSchema");
         schemaSupportingFiles.add("FloatSchema");
+        schemaSupportingFiles.add("FrozenList");
         schemaSupportingFiles.add("FrozenMap");
         schemaSupportingFiles.add("Int32Schema");
         schemaSupportingFiles.add("Int64Schema");
         schemaSupportingFiles.add("IntSchema");
+        schemaSupportingFiles.add("ListSchema");
         schemaSupportingFiles.add("MapSchema");
         schemaSupportingFiles.add("NullSchema");
         schemaSupportingFiles.add("NumberSchema");

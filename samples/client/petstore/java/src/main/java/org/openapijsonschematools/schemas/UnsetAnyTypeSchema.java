@@ -52,7 +52,7 @@ public record UnsetAnyTypeSchema() implements Schema {
         return Schema.validate(UnsetAnyTypeSchema.class, arg, configuration);
     }
 
-    static <U extends List> U validate(List<Object> arg, SchemaConfiguration configuration) {
+    static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
         return Schema.validate(UnsetAnyTypeSchema.class, arg, configuration);
     }
 }
