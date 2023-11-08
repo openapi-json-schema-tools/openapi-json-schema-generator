@@ -1,0 +1,30 @@
+package {{{packageName}}}.schemas;
+
+import org.junit.Assert;
+import org.junit.Test;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
+import {{{packageName}}}.configurations.SchemaConfiguration;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ListSchemaTest {
+    static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+    @Test
+    public void testExceptionThrownForInvalidType() {
+        Assert.assertThrows(RuntimeException.class, () -> Schema.validate(
+                ListSchema.class, (Void) null, configuration
+        ));
+    }
+
+    @Test
+    public void testValidateList() {
+        List<Object> inList = new ArrayList<>();
+        inList.add("today");
+        FrozenList<Object> validatedValue = ListSchema.validate(inList, configuration);
+        ArrayList<String> outList = new ArrayList<>();
+        outList.add("today");
+        Assert.assertEquals(validatedValue, outList);
+    }
+}
