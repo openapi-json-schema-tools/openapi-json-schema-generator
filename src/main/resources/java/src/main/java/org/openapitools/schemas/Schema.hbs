@@ -172,14 +172,10 @@ public interface Schema extends SchemaValidator {
          if (typeToOutputClass == null) {
             return usedArg;
          }
-         Class<?> outputClass = typeToOutputClass.get(argType);
-         if (outputClass == null) {
-            return usedArg;
-         }
          try {
-             return outputClass.getConstructor(Collection.class).newInstance(usedArg);
-         } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
-             throw new RuntimeException(e);
+             return cls.getMethod("getListOutputInstance", FrozenList.class).invoke(usedArg);
+         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+             return usedArg;
          }
       }
       return null;

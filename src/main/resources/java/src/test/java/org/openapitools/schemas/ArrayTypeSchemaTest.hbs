@@ -28,8 +28,12 @@ record ArrayWithItemsSchema(LinkedHashSet<Class<?>> type, Class<?> items) implem
 }
 
 class ArrayWithOutputClsSchemaList extends FrozenList<String> {
-    public ArrayWithOutputClsSchemaList(Collection<? extends String> m) {
-            super(m);
+    ArrayWithOutputClsSchemaList(FrozenList<? extends String> m) {
+        super(m);
+    }
+
+    public static ArrayWithOutputClsSchemaList of(List<Object> arg, SchemaConfiguration configuration) {
+        return ArrayWithOutputClsSchema.validate(arg, configuration);
     }
 }
 
@@ -43,10 +47,8 @@ record ArrayWithOutputClsSchema(LinkedHashSet<Class<?>> type, Class<?> items) im
         return new ArrayWithOutputClsSchema(type, items);
     }
 
-    public static Map<Class<?>, Class<?>> typeToOutputClass() {
-        Map<Class<?>, Class<?>> typeToOutputClsMap = new HashMap<>();
-        typeToOutputClsMap.put(FrozenList.class, ArrayWithOutputClsSchemaList.class);
-        return typeToOutputClsMap;
+    public static ArrayWithOutputClsSchemaList getListOutputInstance(FrozenList<? extends String> arg) {
+        return new ArrayWithOutputClsSchemaList(arg);
     }
 
     public static ArrayWithOutputClsSchemaList validate(List<Object> arg, SchemaConfiguration configuration) {

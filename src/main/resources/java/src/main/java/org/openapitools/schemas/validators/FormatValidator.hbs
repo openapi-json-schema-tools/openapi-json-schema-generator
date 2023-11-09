@@ -25,8 +25,13 @@ public class FormatValidator implements KeywordValidator {
             // there is a json schema test where 1.0 validates as an integer
             BigInteger intArg;
             if (arg instanceof Float || arg instanceof Double) {
-                Double doubleArg = (Double) arg;
-                if (Math.floor((Double) arg) != doubleArg) {
+                Double doubleArg;
+                if (arg instanceof Float) {
+                    doubleArg = arg.doubleValue();
+                } else {
+                    doubleArg = (Double) arg;
+                }
+                if (Math.floor(doubleArg) != doubleArg) {
                     throw new RuntimeException(
                             "Invalid non-integer value " + arg + " for format " + format + " at " + validationMetadata.pathToItem()
                     );
