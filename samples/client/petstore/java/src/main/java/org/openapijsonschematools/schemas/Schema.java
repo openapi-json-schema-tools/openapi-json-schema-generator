@@ -8,6 +8,7 @@ import java.lang.reflect.Method;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -104,7 +105,7 @@ public interface Schema extends SchemaValidator {
       return pathToSchemasMap;
    }
 
-   private static LinkedHashMap<String, Object> getProperties(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+   private static FrozenMap<String, Object> getProperties(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
       LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
       Map<String, Object> castArg = (Map<String, Object>) arg;
       for(Map.Entry<String, Object> entry: castArg.entrySet()) {
@@ -146,22 +147,41 @@ public interface Schema extends SchemaValidator {
    }
 
    private static Object getNewInstance(Class<Schema> cls, Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-      Object usedArg;
-      if (arg instanceof Map) {
-         usedArg = getProperties(arg, pathToItem, pathToSchemas);
-      } else if (arg instanceof List) {
-         usedArg = getItems(arg, pathToItem, pathToSchemas);
-      } else {
-         // str, int, float, boolean, null, FileIO, bytes
-         return arg;
+      if (!(arg instanceof Map || arg instanceof List)) {
+          // str, int, float, boolean, null, FileIO, bytes
+          return arg;
       }
       Class<?> argType = arg.getClass();
       Map<Class<?>, Class<?>> typeToOutputClass = getTypeToOutputClass(cls);
-      if (typeToOutputClass == null) {
-         return usedArg;
+      if (arg instanceof Map) {
+         FrozenMap<String, Object> usedArg = getProperties(arg, pathToItem, pathToSchemas);
+         if (typeToOutputClass == null) {
+            return usedArg;
+         }
+         Class<?> outputClass = typeToOutputClass.get(argType);
+         if (outputClass == null) {
+            return usedArg;
+         }
+         try {
+             return outputClass.getConstructor(Map.class).newInstance(usedArg);
+         } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
+             throw new RuntimeException(e);
+         }
+      } else if (arg instanceof List) {
+         FrozenList<Object> usedArg = getItems(arg, pathToItem, pathToSchemas);
+         if (typeToOutputClass == null) {
+            return usedArg;
+         }
+         Class<?> outputClass = typeToOutputClass.get(argType);
+         if (outputClass == null) {
+            return usedArg;
+         }
+         try {
+             return outputClass.getConstructor(Collection.class).newInstance(usedArg);
+         } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
+             throw new RuntimeException(e);
+         }
       }
-      Class<?> outputClass = typeToOutputClass.get(argType);
-      // TODO add class instantiation here
       return null;
    }
 
