@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.UUID;
 
 public interface Schema extends SchemaValidator {
    private static Object castToAllowedTypes(Object arg, List<Object> pathToItem, PathToTypeMap pathToType) {
@@ -67,6 +68,9 @@ public interface Schema extends SchemaValidator {
          pathToType.put(pathToItem, String.class);
          return arg.toString();
       } else if (arg instanceof LocalDate) {
+         pathToType.put(pathToItem, String.class);
+         return arg.toString();
+      } else if (arg instanceof UUID) {
          pathToType.put(pathToItem, String.class);
          return arg.toString();
       } else {
@@ -194,6 +198,10 @@ public interface Schema extends SchemaValidator {
    }
 
    static String validate(Class<?> cls, LocalDate arg, SchemaConfiguration configuration) {
+      return (String) validateObject(cls, arg, configuration);
+   }
+
+   static String validate(Class<?> cls, UUID arg, SchemaConfiguration configuration) {
       return (String) validateObject(cls, arg, configuration);
    }
 
