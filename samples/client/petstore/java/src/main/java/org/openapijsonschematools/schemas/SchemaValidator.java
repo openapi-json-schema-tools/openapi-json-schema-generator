@@ -6,6 +6,7 @@ import org.openapijsonschematools.schemas.validators.TypeValidator;
 import org.openapijsonschematools.schemas.validators.FormatValidator;
 import org.openapijsonschematools.schemas.validators.PropertiesValidator;
 import org.openapijsonschematools.schemas.validators.RequiredValidator;
+import org.openapijsonschematools.schemas.validators.ItemsValidator;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.RecordComponent;
@@ -22,6 +23,7 @@ public interface SchemaValidator {
         put("format", new FormatValidator());
         put("properties", new PropertiesValidator());
         put("required", new RequiredValidator());
+        put("items", new ItemsValidator());
     }};
 
     static PathToSchemasMap validate(

@@ -1,0 +1,95 @@
+package {{{packageName}}}.schemas.validators;
+
+import org.junit.Assert;
+import org.junit.Test;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
+import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.schemas.FrozenList;
+import {{{packageName}}}.schemas.PathToSchemasMap;
+import {{{packageName}}}.schemas.SchemaValidator;
+import {{{packageName}}}.schemas.StringSchema;
+import {{{packageName}}}.schemas.ValidationMetadata;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+
+public class ItemsValidatorTest {
+
+    @Test
+    public void testCorrectItemsSucceeds() {
+        List<Object> pathToItem = new ArrayList<>();
+        pathToItem.add("args[0]");
+        ValidationMetadata validationMetadata = new ValidationMetadata(
+                pathToItem,
+                new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()),
+                new PathToSchemasMap(),
+                new LinkedHashSet<>()
+        );
+        List<Object> mutableList = new ArrayList<>();
+        mutableList.add("a");
+        FrozenList<Object> arg = new FrozenList<>(mutableList);
+        final ItemsValidator validator = new ItemsValidator();
+        PathToSchemasMap pathToSchemas = validator.validate(
+                arg,
+                StringSchema.class,
+                null,
+                SchemaValidator.class,
+                validationMetadata
+        );
+        List<Object> expectedPathToItem = new ArrayList<>();
+        expectedPathToItem.add("args[0]");
+        expectedPathToItem.add(0);
+        LinkedHashMap<Class<?>, Void> expectedClasses = new LinkedHashMap<>();
+        expectedClasses.put(String.class, null);
+        expectedClasses.put(StringSchema.class, null);
+        PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
+        expectedPathToSchemas.put(expectedPathToItem, expectedClasses);
+        Assert.assertEquals(pathToSchemas, expectedPathToSchemas);
+    }
+
+    @Test
+    public void testNotApplicableTypeReturnsNull() {
+        List<Object> pathToItem = new ArrayList<>();
+        pathToItem.add("args[0]");
+        ValidationMetadata validationMetadata = new ValidationMetadata(
+                pathToItem,
+                new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()),
+                new PathToSchemasMap(),
+                new LinkedHashSet<>()
+        );
+        final ItemsValidator validator = new ItemsValidator();
+        PathToSchemasMap pathToSchemas = validator.validate(
+                1,
+                StringSchema.class,
+                null,
+                SchemaValidator.class,
+                validationMetadata
+        );
+        Assert.assertNull(pathToSchemas);
+    }
+
+    @Test
+    public void testIncorrectItemFails() {
+        List<Object> pathToItem = new ArrayList<>();
+        pathToItem.add("args[0]");
+        ValidationMetadata validationMetadata = new ValidationMetadata(
+                pathToItem,
+                new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()),
+                new PathToSchemasMap(),
+                new LinkedHashSet<>()
+        );
+        List<Object> mutableList = new ArrayList<>();
+        mutableList.add(1);
+        FrozenList<Object> arg = new FrozenList<>(mutableList);
+        final ItemsValidator validator = new ItemsValidator();
+        Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+                arg,
+                StringSchema.class,
+                null,
+                SchemaValidator.class,
+                validationMetadata
+        ));
+    }
+}

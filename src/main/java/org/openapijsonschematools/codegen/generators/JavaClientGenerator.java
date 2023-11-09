@@ -270,10 +270,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         schemaSupportingFiles.add("DecimalSchema");
         schemaSupportingFiles.add("DoubleSchema");
         schemaSupportingFiles.add("FloatSchema");
+        schemaSupportingFiles.add("FrozenList");
         schemaSupportingFiles.add("FrozenMap");
         schemaSupportingFiles.add("Int32Schema");
         schemaSupportingFiles.add("Int64Schema");
         schemaSupportingFiles.add("IntSchema");
+        schemaSupportingFiles.add("ListSchema");
         schemaSupportingFiles.add("MapSchema");
         schemaSupportingFiles.add("NullSchema");
         schemaSupportingFiles.add("NumberSchema");
@@ -293,8 +295,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         // tests
         List<String> schemaTestSupportingFiles = new ArrayList<>();
         schemaTestSupportingFiles.add("AnyTypeSchemaTest");
+        schemaTestSupportingFiles.add("ArrayTypeSchemaTest");
         schemaTestSupportingFiles.add("BooleanSchemaTest");
         schemaTestSupportingFiles.add("CustomIsoparserTest");
+        schemaTestSupportingFiles.add("ListSchemaTest");
         schemaTestSupportingFiles.add("MapSchemaTest");
         schemaTestSupportingFiles.add("NullSchemaTest");
         schemaTestSupportingFiles.add("NumberSchemaTest");
@@ -311,6 +315,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         List<String> keywordValidatorFiles = new ArrayList<>();
         keywordValidatorFiles.add("AdditionalPropertiesValidator");
         keywordValidatorFiles.add("FormatValidator");
+        keywordValidatorFiles.add("ItemsValidator");
         keywordValidatorFiles.add("KeywordValidator");
         keywordValidatorFiles.add("PropertiesValidator");
         keywordValidatorFiles.add("RequiredValidator");
@@ -325,6 +330,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         List<String> keywordValidatorTestFiles = new ArrayList<>();
         keywordValidatorTestFiles.add("AdditionalPropertiesValidatorTest");
         keywordValidatorTestFiles.add("FormatValidatorTest");
+        keywordValidatorTestFiles.add("ItemsValidatorTest");
         keywordValidatorTestFiles.add("PropertiesValidatorTest");
         keywordValidatorTestFiles.add("RequiredValidatorTest");
         keywordValidatorTestFiles.add("TypeValidatorTest");

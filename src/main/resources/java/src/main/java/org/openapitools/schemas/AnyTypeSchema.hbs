@@ -52,7 +52,7 @@ public record AnyTypeSchema() implements Schema {
         return Schema.validate(AnyTypeSchema.class, arg, configuration);
     }
 
-    public static <U extends List> U validate(List<Object> arg, SchemaConfiguration configuration) {
+    public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
         return Schema.validate(AnyTypeSchema.class, arg, configuration);
     }
 }
