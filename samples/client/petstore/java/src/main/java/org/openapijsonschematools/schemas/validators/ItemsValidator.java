@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ItemsValidator implements KeywordValidator {
     @Override
-    public PathToSchemasMap validate(Object arg, Object constraint, Class<SchemaValidator> cls, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(Class<SchemaValidator> cls, Object arg, Object constraint, ValidationMetadata validationMetadata, Object extra) {
         if (!(arg instanceof List)) {
             return null;
         }

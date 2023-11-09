@@ -8,7 +8,7 @@ import java.util.HashSet;
 
 public class TypeValidator implements KeywordValidator {
     @Override
-    public PathToSchemasMap validate(Object arg, Object constraint, Class<SchemaValidator> cls, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(Class<SchemaValidator> cls, Object arg, Object constraint, ValidationMetadata validationMetadata, Object extra) {
         HashSet<Class<?>> types = (HashSet<Class<?>>) constraint;
         Class<?> argClass;
         if (arg == null) {

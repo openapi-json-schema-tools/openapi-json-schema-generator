@@ -63,9 +63,9 @@ public interface SchemaValidator {
             }
             KeywordValidator validatorClass = keywordToValidator.get(jsonKeyword);
             PathToSchemasMap otherPathToSchemas = validatorClass.validate(
+                    castSchemaCls,
                     arg,
                     constraint,
-                    castSchemaCls,
                     validationMetadata,
                     extra
             );

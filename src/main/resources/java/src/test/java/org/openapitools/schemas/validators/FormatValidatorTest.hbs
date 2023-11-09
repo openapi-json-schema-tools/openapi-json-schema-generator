@@ -25,9 +25,9 @@ public class FormatValidatorTest {
     public void testIntFormatSucceedsWithFloat() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
-                new BigDecimal("1.0"),
-                "int",
                 SchemaValidator.class,
+                1.0f,
+                "int",
                 validationMetadata,
                 null
         );
@@ -38,9 +38,9 @@ public class FormatValidatorTest {
     public void testIntFormatFailsWithFloat() {
         final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
-                new BigDecimal("3.14"),
-                "int",
                 SchemaValidator.class,
+                3.14f,
+                "int",
                 validationMetadata,
                 null
         ));
@@ -50,9 +50,9 @@ public class FormatValidatorTest {
     public void testIntFormatSucceedsWithInt() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
-                new BigDecimal("1"),
-                "int",
                 SchemaValidator.class,
+                1,
+                "int",
                 validationMetadata,
                 null
         );
@@ -63,9 +63,9 @@ public class FormatValidatorTest {
     public void testInt32UnderMinFails() {
         final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
-                new BigDecimal(-2147483649L),
-                "int32",
                 SchemaValidator.class,
+                -2147483649L,
+                "int32",
                 validationMetadata,
                 null
         ));
@@ -75,9 +75,9 @@ public class FormatValidatorTest {
     public void testInt32InclusiveMinSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
-                new BigDecimal(-2147483648),
-                "int32",
                 SchemaValidator.class,
+                -2147483648,
+                "int32",
                 validationMetadata,
                 null
         );
@@ -88,9 +88,9 @@ public class FormatValidatorTest {
     public void testInt32InclusiveMaxSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
-                new BigDecimal(2147483647),
-                "int32",
                 SchemaValidator.class,
+                2147483647,
+                "int32",
                 validationMetadata,
                 null
         );
@@ -101,9 +101,9 @@ public class FormatValidatorTest {
     public void testInt32OverMaxFails() {
         final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
-                BigDecimal.valueOf(2147483648L),
-                "int32",
                 SchemaValidator.class,
+                2147483648L,
+                "int32",
                 validationMetadata,
                 null
         ));
@@ -114,9 +114,9 @@ public class FormatValidatorTest {
         final FormatValidator validator = new FormatValidator();
 
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
-                new BigDecimal(new BigInteger("-9223372036854775809")),
-                "int64",
                 SchemaValidator.class,
+                new BigInteger("-9223372036854775809"),
+                "int64",
                 validationMetadata,
                 null
         ));
@@ -126,9 +126,9 @@ public class FormatValidatorTest {
     public void testInt64InclusiveMinSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
-                new BigDecimal(-9223372036854775808L),
-                "int64",
                 SchemaValidator.class,
+                -9223372036854775808L,
+                "int64",
                 validationMetadata,
                 null
         );
@@ -139,9 +139,9 @@ public class FormatValidatorTest {
     public void testInt64InclusiveMaxSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
-                new BigDecimal(9223372036854775807L),
-                "int64",
                 SchemaValidator.class,
+                9223372036854775807L,
+                "int64",
                 validationMetadata,
                 null
         );
@@ -153,9 +153,9 @@ public class FormatValidatorTest {
         final FormatValidator validator = new FormatValidator();
 
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
-                new BigDecimal(new BigInteger("9223372036854775808")),
-                "int64",
                 SchemaValidator.class,
+                new BigInteger("9223372036854775808"),
+                "int64",
                 validationMetadata,
                 null
         ));
@@ -165,9 +165,9 @@ public class FormatValidatorTest {
     public void testFloatUnderMinFails() {
         final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
-                BigDecimal.valueOf(-3.402823466385289e+38),
-                "float",
                 SchemaValidator.class,
+                -3.402823466385289e+38d,
+                "float",
                 validationMetadata,
                 null
         ));
@@ -177,9 +177,9 @@ public class FormatValidatorTest {
     public void testFloatInclusiveMinSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
-                BigDecimal.valueOf(-3.4028234663852886e+38),
-                "float",
                 SchemaValidator.class,
+                -3.4028234663852886e+38f,
+                "float",
                 validationMetadata,
                 null
         );
@@ -190,9 +190,9 @@ public class FormatValidatorTest {
     public void testFloatInclusiveMaxSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
-                new BigDecimal("3.4028234663852886e+38"),
-                "float",
                 SchemaValidator.class,
+                3.4028234663852886e+38f,
+                "float",
                 validationMetadata,
                 null
         );
@@ -203,9 +203,9 @@ public class FormatValidatorTest {
     public void testFloatOverMaxFails() {
         final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
-                BigDecimal.valueOf(3.402823466385289e+38),
-                "float",
                 SchemaValidator.class,
+                3.402823466385289e+38d,
+                "float",
                 validationMetadata,
                 null
         ));
@@ -215,9 +215,9 @@ public class FormatValidatorTest {
     public void testDoubleUnderMinFails() {
         final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+                SchemaValidator.class,
                 new BigDecimal("-1.7976931348623157082e+308"),
                 "double",
-                SchemaValidator.class,
                 validationMetadata,
                 null
         ));
@@ -227,9 +227,9 @@ public class FormatValidatorTest {
     public void testDoubleInclusiveMinSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
-                BigDecimal.valueOf(-1.7976931348623157E+308d),
-                "double",
                 SchemaValidator.class,
+                -1.7976931348623157E+308d,
+                "double",
                 validationMetadata,
                 null
         );
@@ -240,9 +240,9 @@ public class FormatValidatorTest {
     public void testDoubleInclusiveMaxSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
-                BigDecimal.valueOf(1.7976931348623157E+308d),
-                "double",
                 SchemaValidator.class,
+                1.7976931348623157E+308d,
+                "double",
                 validationMetadata,
                 null
         );
@@ -253,9 +253,9 @@ public class FormatValidatorTest {
     public void testDoubleOverMaxFails() {
         final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+                SchemaValidator.class,
                 new BigDecimal("1.7976931348623157082e+308"),
                 "double",
-                SchemaValidator.class,
                 validationMetadata,
                 null
         ));
@@ -265,9 +265,9 @@ public class FormatValidatorTest {
     public void testInvalidNumberStringFails() {
         final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+                SchemaValidator.class,
                 "abc",
                 "number",
-                SchemaValidator.class,
                 validationMetadata,
                 null
         ));
@@ -277,9 +277,9 @@ public class FormatValidatorTest {
     public void testValidFloatNumberStringSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
+                SchemaValidator.class,
                 "3.14",
                 "number",
-                SchemaValidator.class,
                 validationMetadata,
                 null
         );
@@ -290,9 +290,9 @@ public class FormatValidatorTest {
     public void testValidIntNumberStringSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
+                SchemaValidator.class,
                 "1",
                 "number",
-                SchemaValidator.class,
                 validationMetadata,
                 null
         );
@@ -303,9 +303,9 @@ public class FormatValidatorTest {
     public void testInvalidDateStringFails() {
         final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+                SchemaValidator.class,
                 "abc",
                 "date",
-                SchemaValidator.class,
                 validationMetadata,
                 null
         ));
@@ -315,9 +315,9 @@ public class FormatValidatorTest {
     public void testValidDateStringSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
+                SchemaValidator.class,
                 "2017-01-20",
                 "date",
-                SchemaValidator.class,
                 validationMetadata,
                 null
         );
@@ -328,9 +328,9 @@ public class FormatValidatorTest {
     public void testInvalidDateTimeStringFails() {
         final FormatValidator validator = new FormatValidator();
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+                SchemaValidator.class,
                 "abc",
                 "date-time",
-                SchemaValidator.class,
                 validationMetadata,
                 null
         ));
@@ -340,9 +340,9 @@ public class FormatValidatorTest {
     public void testValidDateTimeStringSucceeds() {
         final FormatValidator validator = new FormatValidator();
         PathToSchemasMap pathToSchemasMap = validator.validate(
+                SchemaValidator.class,
                 "2017-07-21T17:32:28Z",
                 "date-time",
-                SchemaValidator.class,
                 validationMetadata,
                 null
         );

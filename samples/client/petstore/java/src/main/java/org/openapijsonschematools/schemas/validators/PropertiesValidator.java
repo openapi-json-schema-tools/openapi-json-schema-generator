@@ -13,7 +13,7 @@ import java.util.Set;
 
 public class PropertiesValidator implements KeywordValidator {
     @Override
-    public PathToSchemasMap validate(Object arg, Object constraint, Class<SchemaValidator> cls, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(Class<SchemaValidator> cls, Object arg, Object constraint, ValidationMetadata validationMetadata, Object extra) {
         if (!(arg instanceof Map)) {
             return null;
         }

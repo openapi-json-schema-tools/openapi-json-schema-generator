@@ -6,52 +6,78 @@ import org.openapijsonschematools.schemas.SchemaValidator;
 import org.openapijsonschematools.schemas.ValidationMetadata;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.time.format.DateTimeParseException;
 import java.util.UUID;
 
 public class FormatValidator implements KeywordValidator {
-    private final static BigDecimal int32InclusiveMinimum = BigDecimal.valueOf(-2147483648);
-    private final static BigDecimal int32InclusiveMaximum = BigDecimal.valueOf(2147483647);
-    private final static BigDecimal int64InclusiveMinimum = BigDecimal.valueOf(-9223372036854775808L);
-    private final static BigDecimal int64InclusiveMaximum = BigDecimal.valueOf(9223372036854775807L);
+    private final static BigInteger int32InclusiveMinimum = BigInteger.valueOf(-2147483648L);
+    private final static BigInteger int32InclusiveMaximum = BigInteger.valueOf(2147483647L);
+    private final static BigInteger int64InclusiveMinimum = BigInteger.valueOf(-9223372036854775808L);
+    private final static BigInteger int64InclusiveMaximum = BigInteger.valueOf(9223372036854775807L);
     private final static BigDecimal floatInclusiveMinimum = BigDecimal.valueOf(-3.4028234663852886e+38);
     private final static BigDecimal floatInclusiveMaximum = BigDecimal.valueOf(3.4028234663852886e+38);
     private final static BigDecimal doubleInclusiveMinimum = BigDecimal.valueOf(-1.7976931348623157E+308d);
     private final static BigDecimal doubleInclusiveMaximum = BigDecimal.valueOf(1.7976931348623157E+308d);
 
-    private Void validateNumericFormat(BigDecimal arg, String format, ValidationMetadata validationMetadata) {
+    private Void validateNumericFormat(Number arg, String format, ValidationMetadata validationMetadata) {
         if (format.startsWith("int")) {
             // there is a json schema test where 1.0 validates as an integer
-            if (arg.stripTrailingZeros().scale() > 0) {
-                throw new RuntimeException(
-                        "Invalid non-integer value " + arg + " for format " + format + " at " + validationMetadata.pathToItem()
-                );
+            BigInteger intArg;
+            if (arg instanceof Float || arg instanceof Double) {
+                Double doubleArg = (Double) arg;
+                if (Math.floor((Double) arg) != doubleArg) {
+                    throw new RuntimeException(
+                            "Invalid non-integer value " + arg + " for format " + format + " at " + validationMetadata.pathToItem()
+                    );
+                }
+                if (arg instanceof Float) {
+                    Integer smallInt = Math.round((Float) arg);
+                    intArg = BigInteger.valueOf(smallInt.longValue());
+                } else {
+                    intArg = BigInteger.valueOf(Math.round((Double) arg));
+                }
+            } else if (arg instanceof Integer) {
+                intArg = BigInteger.valueOf(arg.longValue());
+            } else if (arg instanceof Long) {
+                intArg = BigInteger.valueOf((Long) arg);
+            } else {
+                intArg = (BigInteger) arg;
             }
             if (format.equals("int32")) {
-                if (arg.compareTo(int32InclusiveMinimum) < 0  || arg.compareTo(int32InclusiveMaximum) > 0 ){
+                if (intArg.compareTo(int32InclusiveMinimum) < 0 || intArg.compareTo(int32InclusiveMaximum) > 0) {
                     throw new RuntimeException(
-                        "Invalid value "+arg+" for format int32 at "+validationMetadata.pathToItem()
+                            "Invalid value " + arg + " for format int32 at " + validationMetadata.pathToItem()
                     );
                 }
                 return null;
             } else if (format.equals("int64")) {
-                if (arg.compareTo(int64InclusiveMinimum) < 0  || arg.compareTo(int64InclusiveMaximum) > 0 ){
+                if (intArg.compareTo(int64InclusiveMinimum) < 0 || intArg.compareTo(int64InclusiveMaximum) > 0) {
                     throw new RuntimeException(
-                        "Invalid value "+arg+" for format int64 at "+validationMetadata.pathToItem()
+                            "Invalid value " + arg + " for format int64 at " + validationMetadata.pathToItem()
                     );
                 }
                 return null;
             }
             return null;
-        } else if (format.equals("float")) {
-            if (arg.compareTo(floatInclusiveMinimum) < 0  || arg.compareTo(floatInclusiveMaximum) > 0 ){
+        }
+        BigDecimal decimalArg;
+        if (arg instanceof Float) {
+            decimalArg = new BigDecimal((Float) arg);
+        } else if (arg instanceof Double) {
+            decimalArg = BigDecimal.valueOf((Double) arg);
+        } else {
+            decimalArg = (BigDecimal) arg;
+        }
+        if (format.equals("float")) {
+            if (decimalArg.compareTo(floatInclusiveMinimum) < 0  || decimalArg.compareTo(floatInclusiveMaximum) > 0 ){
                 throw new RuntimeException(
                     "Invalid value "+arg+" for format float at "+validationMetadata.pathToItem()
                 );
             }
             return null;
         } else if (format.equals("double")) {
-            if (arg.compareTo(doubleInclusiveMinimum) < 0  || arg.compareTo(doubleInclusiveMaximum) > 0 ){
+            if (decimalArg.compareTo(doubleInclusiveMinimum) < 0  || decimalArg.compareTo(doubleInclusiveMaximum) > 0 ){
                 throw new RuntimeException(
                     "Invalid value "+arg+" for format double at "+validationMetadata.pathToItem()
                 );
@@ -107,11 +133,11 @@ public class FormatValidator implements KeywordValidator {
     }
 
     @Override
-    public PathToSchemasMap validate(Object arg, Object constraint, Class<SchemaValidator> cls, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(Class<SchemaValidator> cls, Object arg, Object constraint, ValidationMetadata validationMetadata, Object extra) {
         String format = (String) constraint;
-        if (arg instanceof BigDecimal) {
+        if (arg instanceof Number) {
             validateNumericFormat(
-                (BigDecimal) arg,
+                (Number) arg,
                 format,
                 validationMetadata
             );
