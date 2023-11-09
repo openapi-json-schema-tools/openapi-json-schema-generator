@@ -8,7 +8,6 @@ import java.lang.reflect.Method;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -37,7 +36,7 @@ public interface Schema extends SchemaValidator {
             Object fixedVal = castToAllowedTypes(val, newPathToItem, pathToType);
             argFixed.put(key, fixedVal);
          }
-         return new FrozenMap(argFixed);
+         return new FrozenMap<>(argFixed);
       } else if (arg instanceof Boolean) {
          pathToType.put(pathToItem, Boolean.class);
          return arg;
@@ -64,7 +63,7 @@ public interface Schema extends SchemaValidator {
             argFixed.add(fixedVal);
             i += 1;
          }
-         return new FrozenList(argFixed);
+         return new FrozenList<>(argFixed);
       } else if (arg instanceof ZonedDateTime) {
          pathToType.put(pathToItem, String.class);
          return arg.toString();
@@ -117,7 +116,7 @@ public interface Schema extends SchemaValidator {
          Object castValue = getNewInstance(propertyClass, value, propertyPathToItem, pathToSchemas);
          properties.put(propertyName, castValue);
       }
-      return new FrozenMap(properties);
+      return new FrozenMap<>(properties);
    }
 
    private static FrozenList<Object> getItems(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -132,7 +131,7 @@ public interface Schema extends SchemaValidator {
          items.add(castItem);
          i += 1;
       }
-      return new FrozenList(items);
+      return new FrozenList<>(items);
    }
 
    private static Map<Class<?>, Class<?>> getTypeToOutputClass(Class<?> cls) {
@@ -169,13 +168,13 @@ public interface Schema extends SchemaValidator {
          }
       } else if (arg instanceof List) {
          FrozenList<Object> usedArg = getItems(arg, pathToItem, pathToSchemas);
-         if (typeToOutputClass == null) {
-            return usedArg;
-         }
          try {
-             return cls.getMethod("getListOutputInstance", FrozenList.class).invoke(usedArg);
-         } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-             return usedArg;
+            Method method = cls.getMethod("getListOutputInstance", FrozenList.class);
+            return method.invoke(null, usedArg);
+         } catch (NoSuchMethodException e) {
+            return usedArg;
+         } catch (InvocationTargetException | IllegalAccessException e) {
+            throw new RuntimeException(e);
          }
       }
       return null;

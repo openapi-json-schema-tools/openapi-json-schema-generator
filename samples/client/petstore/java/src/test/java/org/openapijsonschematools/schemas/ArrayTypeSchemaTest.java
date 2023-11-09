@@ -6,11 +6,8 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.LinkedHashSet;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 record ArrayWithItemsSchema(LinkedHashSet<Class<?>> type, Class<?> items) implements Schema {
     public static ArrayWithItemsSchema withDefaults() {
