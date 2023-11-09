@@ -7,6 +7,7 @@ import {{{packageName}}}.schemas.ValidationMetadata;
 
 import java.math.BigDecimal;
 import java.time.format.DateTimeParseException;
+import java.util.UUID;
 
 public class FormatValidator implements KeywordValidator {
     private final static BigDecimal int32InclusiveMinimum = BigDecimal.valueOf(-2147483648);
@@ -62,7 +63,14 @@ public class FormatValidator implements KeywordValidator {
 
     private Void validateStringFormat(String arg, String format, ValidationMetadata validationMetadata) {
         if (format.equals("uuid")) {
-            // todo
+            try {
+                UUID.fromString(arg);
+            } catch (IllegalArgumentException  e) {
+                throw new RuntimeException(
+                    "Value cannot be converted to a UUID. Invalid value "+
+                            arg+" for format uuid at "+validationMetadata.pathToItem()
+                );
+            }
             return null;
         } else if (format.equals("number")) {
             try {

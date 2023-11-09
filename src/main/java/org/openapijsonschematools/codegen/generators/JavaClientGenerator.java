@@ -285,6 +285,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         schemaSupportingFiles.add("SchemaValidator");
         schemaSupportingFiles.add("StringSchema");
         schemaSupportingFiles.add("UnsetAnyTypeSchema");
+        schemaSupportingFiles.add("UuidSchema");
         schemaSupportingFiles.add("ValidationMetadata");
         for (String schemaSupportingFile: schemaSupportingFiles) {
             supportingFiles.add(new SupportingFile(
