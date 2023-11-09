@@ -36,11 +36,11 @@ public class PropertiesValidatorTest {
         mutableMap.put("someString", "abc");
         FrozenMap<String, Object> arg = new FrozenMap<>(mutableMap);
         PathToSchemasMap pathToSchemas = validator.validate(
+                SchemaValidator.class,
                 arg,
                 properties,
-                null,
-                SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         );
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
@@ -68,11 +68,11 @@ public class PropertiesValidatorTest {
                 new LinkedHashSet<>()
         );
         PathToSchemasMap pathToSchemas = validator.validate(
+                SchemaValidator.class,
                 1,
                 properties,
-                null,
-                SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         );
         Assert.assertNull(pathToSchemas);
     }
@@ -95,11 +95,11 @@ public class PropertiesValidatorTest {
         mutableMap.put("someString", 1);
         FrozenMap<String, Object> arg = new FrozenMap<>(mutableMap);
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+                SchemaValidator.class,
                 arg,
                 properties,
-                null,
-                SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         ));
     }
 }

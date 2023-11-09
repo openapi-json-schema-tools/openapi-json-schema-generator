@@ -37,11 +37,11 @@ public class AdditionalPropertiesValidatorTest {
         FrozenMap<String, Object> arg = new FrozenMap<>(mutableMap);
         final AdditionalPropertiesValidator validator = new AdditionalPropertiesValidator();
         PathToSchemasMap pathToSchemas = validator.validate(
+                SchemaValidator.class,
                 arg,
                 StringSchema.class,
-                properties,
-                SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                properties
         );
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
@@ -66,11 +66,11 @@ public class AdditionalPropertiesValidatorTest {
         );
         final AdditionalPropertiesValidator validator = new AdditionalPropertiesValidator();
         PathToSchemasMap pathToSchemas = validator.validate(
+                SchemaValidator.class,
                 1,
                 StringSchema.class,
-                null,
-                SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         );
         Assert.assertNull(pathToSchemas);
     }
@@ -94,11 +94,11 @@ public class AdditionalPropertiesValidatorTest {
         FrozenMap<String, Object> arg = new FrozenMap<>(mutableMap);
         final AdditionalPropertiesValidator validator = new AdditionalPropertiesValidator();
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+                SchemaValidator.class,
                 arg,
                 StringSchema.class,
-                properties,
-                SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                properties
         ));
     }
 }

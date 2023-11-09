@@ -37,11 +37,11 @@ public class RequiredValidatorTest {
         FrozenMap<String, Object> arg = new FrozenMap<>(mutableMap);
         final RequiredValidator validator = new RequiredValidator();
         PathToSchemasMap pathToSchemas = validator.validate(
+                SchemaValidator.class,
                 arg,
                 requiredProperties,
-                null,
-                SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         );
         Assert.assertNull(pathToSchemas);
     }
@@ -61,11 +61,11 @@ public class RequiredValidatorTest {
         );
         final RequiredValidator validator = new RequiredValidator();
         PathToSchemasMap pathToSchemas = validator.validate(
+                SchemaValidator.class,
                 1,
                 properties,
-                null,
-                SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         );
         Assert.assertNull(pathToSchemas);
     }
@@ -88,11 +88,11 @@ public class RequiredValidatorTest {
         FrozenMap<String, Object> arg = new FrozenMap<>(mutableMap);
         final RequiredValidator validator = new RequiredValidator();
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+                SchemaValidator.class,
                 arg,
                 requiredProperties,
-                null,
-                SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         ));
     }
 }

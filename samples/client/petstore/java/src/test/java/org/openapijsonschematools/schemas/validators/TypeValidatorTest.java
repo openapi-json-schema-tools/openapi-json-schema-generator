@@ -25,11 +25,11 @@ public class TypeValidatorTest {
                 new LinkedHashSet<>()
         );
         PathToSchemasMap pathToSchemasMap = validator.validate(
+                SchemaValidator.class,
                 "hi",
                 value,
-                null,
-                SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         );
         Assert.assertNull(pathToSchemasMap);
     }
@@ -46,11 +46,11 @@ public class TypeValidatorTest {
                 new LinkedHashSet<>()
         );
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+                SchemaValidator.class,
                 1,
                 value,
-                null,
-                SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         ));
     }
 }

@@ -6,9 +6,9 @@ import {{{packageName}}}.schemas.ValidationMetadata;
 
 public interface KeywordValidator {
     PathToSchemasMap validate(
-            Object arg,
-            Object value,
-            Object extra,
             Class<SchemaValidator> cls,
-            ValidationMetadata validationMetadata);
+            Object arg,
+            Object constraint,
+            ValidationMetadata validationMetadata,
+            Object extra);
 }

@@ -32,11 +32,11 @@ public class ItemsValidatorTest {
         FrozenList<Object> arg = new FrozenList<>(mutableList);
         final ItemsValidator validator = new ItemsValidator();
         PathToSchemasMap pathToSchemas = validator.validate(
+                SchemaValidator.class,
                 arg,
                 StringSchema.class,
-                null,
-                SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         );
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
@@ -61,11 +61,11 @@ public class ItemsValidatorTest {
         );
         final ItemsValidator validator = new ItemsValidator();
         PathToSchemasMap pathToSchemas = validator.validate(
+                SchemaValidator.class,
                 1,
                 StringSchema.class,
-                null,
-                SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         );
         Assert.assertNull(pathToSchemas);
     }
@@ -85,11 +85,11 @@ public class ItemsValidatorTest {
         FrozenList<Object> arg = new FrozenList<>(mutableList);
         final ItemsValidator validator = new ItemsValidator();
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+                SchemaValidator.class,
                 arg,
                 StringSchema.class,
-                null,
-                SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         ));
     }
 }
