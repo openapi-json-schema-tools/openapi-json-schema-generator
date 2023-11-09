@@ -10,12 +10,12 @@ import java.util.List;
 
 public class ItemsValidator implements KeywordValidator {
     @Override
-    public PathToSchemasMap validate(Object arg, Object value, Object extra, Class<SchemaValidator> cls, ValidationMetadata validationMetadata) {
+    public PathToSchemasMap validate(Object arg, Object constraint, Class<SchemaValidator> cls, ValidationMetadata validationMetadata, Object extra) {
         if (!(arg instanceof List)) {
             return null;
         }
         List<Object> castArg = (List<Object>) arg;
-        Class<Schema> itemsSchema = (Class<Schema>) value;
+        Class<Schema> itemsSchema = (Class<Schema>) constraint;
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         // todo add handling for prefixItems
         int i = 0;

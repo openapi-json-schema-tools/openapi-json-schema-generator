@@ -14,12 +14,12 @@ import java.util.Set;
 
 public class AdditionalPropertiesValidator implements KeywordValidator {
     @Override
-    public PathToSchemasMap validate(Object arg, Object value, Object extra, Class<SchemaValidator> cls, ValidationMetadata validationMetadata) {
+    public PathToSchemasMap validate(Object arg, Object constraint, Class<SchemaValidator> cls, ValidationMetadata validationMetadata, Object extra) {
         if (!(arg instanceof Map)) {
             return null;
         }
         Map<String, Object> castArg = (Map<String, Object>) arg;
-        Class<Schema> addPropSchema = (Class<Schema>) value;
+        Class<Schema> addPropSchema = (Class<Schema>) constraint;
         Map<String, Class<Schema>> properties = (Map<String, Class<Schema>>) extra;
         if (properties == null) {
             properties = new LinkedHashMap<>();

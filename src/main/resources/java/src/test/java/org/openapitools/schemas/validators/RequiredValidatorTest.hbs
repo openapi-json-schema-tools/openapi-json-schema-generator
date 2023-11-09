@@ -39,9 +39,9 @@ public class RequiredValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 arg,
                 requiredProperties,
-                null,
                 SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         );
         Assert.assertNull(pathToSchemas);
     }
@@ -63,9 +63,9 @@ public class RequiredValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 1,
                 properties,
-                null,
                 SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         );
         Assert.assertNull(pathToSchemas);
     }
@@ -90,9 +90,9 @@ public class RequiredValidatorTest {
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
                 arg,
                 requiredProperties,
-                null,
                 SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         ));
     }
 }

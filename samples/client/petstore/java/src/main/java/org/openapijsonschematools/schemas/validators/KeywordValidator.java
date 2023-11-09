@@ -7,8 +7,8 @@ import org.openapijsonschematools.schemas.ValidationMetadata;
 public interface KeywordValidator {
     PathToSchemasMap validate(
             Object arg,
-            Object value,
-            Object extra,
+            Object constraint,
             Class<SchemaValidator> cls,
-            ValidationMetadata validationMetadata);
+            ValidationMetadata validationMetadata,
+            Object extra);
 }

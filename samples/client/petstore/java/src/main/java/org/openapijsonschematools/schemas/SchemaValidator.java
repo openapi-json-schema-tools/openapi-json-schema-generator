@@ -57,17 +57,17 @@ public interface SchemaValidator {
         Class<SchemaValidator> castSchemaCls = (Class<SchemaValidator>) schemaCls;
         for (Map.Entry<String, Object> entry: fieldsToValues.entrySet()) {
             String jsonKeyword = entry.getKey();
-            Object value = entry.getValue();
+            Object constraint = entry.getValue();
             if (jsonKeyword.equals("additionalProperties") && fieldsToValues.containsKey("properties")) {
                 extra = fieldsToValues.get("properties");
             }
             KeywordValidator validatorClass = keywordToValidator.get(jsonKeyword);
             PathToSchemasMap otherPathToSchemas = validatorClass.validate(
                     arg,
-                    value,
-                    extra,
+                    constraint,
                     castSchemaCls,
-                    validationMetadata
+                    validationMetadata,
+                    extra
             );
             if (otherPathToSchemas == null) {
                 continue;

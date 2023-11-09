@@ -107,8 +107,8 @@ public class FormatValidator implements KeywordValidator {
     }
 
     @Override
-    public PathToSchemasMap validate(Object arg, Object value, Object extra, Class<SchemaValidator> cls, ValidationMetadata validationMetadata) {
-        String format = (String) value;
+    public PathToSchemasMap validate(Object arg, Object constraint, Class<SchemaValidator> cls, ValidationMetadata validationMetadata, Object extra) {
+        String format = (String) constraint;
         if (arg instanceof BigDecimal) {
             validateNumericFormat(
                 (BigDecimal) arg,

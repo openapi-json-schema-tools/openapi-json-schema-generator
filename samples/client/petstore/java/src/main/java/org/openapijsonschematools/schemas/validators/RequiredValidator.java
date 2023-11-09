@@ -11,12 +11,12 @@ import java.util.Set;
 
 public class RequiredValidator implements KeywordValidator {
     @Override
-    public PathToSchemasMap validate(Object arg, Object value, Object extra, Class<SchemaValidator> cls, ValidationMetadata validationMetadata) {
+    public PathToSchemasMap validate(Object arg, Object constraint, Class<SchemaValidator> cls, ValidationMetadata validationMetadata, Object extra) {
         if (!(arg instanceof Map)) {
             return null;
         }
         Map<String, Object> castArg = (Map<String, Object>) arg;
-        Set<String> requiredProperties = (Set<String>) value;
+        Set<String> requiredProperties = (Set<String>) constraint;
         Set<String> missingRequiredProperties = new HashSet<>(requiredProperties);
         missingRequiredProperties.removeAll(castArg.keySet());
         if (!missingRequiredProperties.isEmpty()) {

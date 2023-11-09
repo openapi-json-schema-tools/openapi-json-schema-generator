@@ -27,9 +27,9 @@ public class TypeValidatorTest {
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 "hi",
                 value,
-                null,
                 SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         );
         Assert.assertNull(pathToSchemasMap);
     }
@@ -48,9 +48,9 @@ public class TypeValidatorTest {
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
                 1,
                 value,
-                null,
                 SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         ));
     }
 }

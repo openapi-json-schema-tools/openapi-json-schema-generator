@@ -39,9 +39,9 @@ public class AdditionalPropertiesValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 arg,
                 StringSchema.class,
-                properties,
                 SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                properties
         );
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
@@ -68,9 +68,9 @@ public class AdditionalPropertiesValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 1,
                 StringSchema.class,
-                null,
                 SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         );
         Assert.assertNull(pathToSchemas);
     }
@@ -96,9 +96,9 @@ public class AdditionalPropertiesValidatorTest {
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
                 arg,
                 StringSchema.class,
-                properties,
                 SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                properties
         ));
     }
 }

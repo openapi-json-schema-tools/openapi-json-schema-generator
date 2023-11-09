@@ -34,9 +34,9 @@ public class ItemsValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 arg,
                 StringSchema.class,
-                null,
                 SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         );
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
@@ -63,9 +63,9 @@ public class ItemsValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 1,
                 StringSchema.class,
-                null,
                 SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         );
         Assert.assertNull(pathToSchemas);
     }
@@ -87,9 +87,9 @@ public class ItemsValidatorTest {
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
                 arg,
                 StringSchema.class,
-                null,
                 SchemaValidator.class,
-                validationMetadata
+                validationMetadata,
+                null
         ));
     }
 }
