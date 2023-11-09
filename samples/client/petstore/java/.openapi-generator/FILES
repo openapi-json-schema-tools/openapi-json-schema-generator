@@ -35,6 +35,7 @@ src/main/java/org/openapijsonschematools/schemas/validators/RequiredValidator.ja
 src/main/java/org/openapijsonschematools/schemas/validators/TypeValidator.java
 src/test/java/org/openapijsonschematools/configurations/JsonSchemaKeywordFlagsTest.java
 src/test/java/org/openapijsonschematools/schemas/AnyTypeSchemaTest.java
+src/test/java/org/openapijsonschematools/schemas/ArrayTypeSchemaTest.java
 src/test/java/org/openapijsonschematools/schemas/BooleanSchemaTest.java
 src/test/java/org/openapijsonschematools/schemas/CustomIsoparserTest.java
 src/test/java/org/openapijsonschematools/schemas/ListSchemaTest.java
