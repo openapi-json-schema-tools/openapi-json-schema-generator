@@ -150,10 +150,10 @@ Please follow the [installation procedure](#installation) and then run the follo
 {{#if servers}}
 
 ## Servers
-server_index | Class | Description
------------- | ----- | ------------
+| server_index | Class | Description |
+| ------------ | ----- | ----------- |
 {{#each servers}}
-{{@key}} | [{{jsonPathPiece.camelCase}}](docs/servers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+| {{@key}} | [{{jsonPathPiece.camelCase}}](docs/servers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}} |
 {{/each}}
 {{/if}}
 {{#if security}}
@@ -179,11 +179,11 @@ All URIs are relative to the selected server
 - Code samples in endpoints documents show how to do this
 - server_index can also be passed in to endpoint calls, see endpoint documentation
 
-HTTP request | Method | Description
------------- | ------ | -------------
+| HTTP request | Method | Description |
+| ------------ | ------ | ----------- |
 {{#each paths}}
 {{#each operations}}
-{{../@key.original}} **{{@key.original}}** | {{#each tags}}[{{className}}]({{apiDocPath}}{{moduleName}}.md).[{{operationId.snakeCase}}](docs/paths/{{../../@key.snakeCase}}/{{../@key.original}}.md) {{/each}} | {{#if summary}}{{summary}}{{/if}}
+| {{../@key.original}} **{{@key.original}}** | {{#each tags}}[{{className}}]({{apiDocPath}}{{moduleName}}.md).[{{operationId.snakeCase}}](docs/paths/{{../../@key.snakeCase}}/{{../@key.original}}.md) {{/each}} |{{#if summary}} {{summary}}{{/if}} |
 {{/each}}
 {{/each}}
 {{/if}}
@@ -191,11 +191,11 @@ HTTP request | Method | Description
 
 ## Component Schemas
 
-Class | Description
------ | ------------
+| Class | Description |
+| ----- | ----------- |
 {{#each schemas}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}]({{modelDocPath}}{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+| [{{jsonPathPiece.camelCase}}]({{modelDocPath}}{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}} |
     {{/with}}
 {{/each}}
 {{/if}}
@@ -203,11 +203,11 @@ Class | Description
 
 ## Component RequestBodies
 
-Class | Description
------ | ------------
+| Class | Description |
+| ----- | ----------- |
 {{#each requestBodies}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/request_bodies/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+| [{{jsonPathPiece.camelCase}}](docs/components/request_bodies/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}} |
     {{/with}}
 {{/each}}
 {{/if}}
@@ -215,11 +215,11 @@ Class | Description
 
 ## Component Responses
 
-Class | Description
------ | ------------
+| Class | Description |
+| ----- | ----------- |
 {{#each responses}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/responses/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+| [{{jsonPathPiece.camelCase}}](docs/components/responses/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}} |
     {{/with}}
 {{/each}}
 {{/if}}
@@ -227,11 +227,11 @@ Class | Description
 
 ## Component Headers
 
-Class | Description
------ | ------------
+| Class | Description |
+| ----- | ----------- |
 {{#each headers}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/headers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+| [{{jsonPathPiece.camelCase}}](docs/components/headers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}} |
     {{/with}}
 {{/each}}
 {{/if}}
@@ -239,11 +239,11 @@ Class | Description
 
 ## Component Parameters
 
-Class | Description
------ | ------------
+| Class | Description |
+| ----- | ----------- |
 {{#each parameters}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/parameters/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+| [{{jsonPathPiece.camelCase}}](docs/components/parameters/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}} |
     {{/with}}
 {{/each}}
 {{/if}}
@@ -251,11 +251,11 @@ Class | Description
 
 ## Component SecuritySchemes
 
-Class | Description
------ | ------------
+| Class | Description |
+| ----- | ----------- |
     {{#each securitySchemes}}
         {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/security_schemes/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+| [{{jsonPathPiece.camelCase}}](docs/components/security_schemes/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}} |
         {{/with}}
     {{/each}}
 
