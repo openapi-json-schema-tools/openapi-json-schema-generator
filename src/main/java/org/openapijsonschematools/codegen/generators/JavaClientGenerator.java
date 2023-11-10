@@ -157,8 +157,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         embeddedTemplateDir = templateDir = "java";
         invokerPackage = "org.openapijsonschematools.client";
         artifactId = "openapi-java-client";
-        apiPackage = "org.openapijsonschematools.client.api";
-        modelPackage = "org.openapijsonschematools.client.model";
+        apiPackage = "apis";
+        modelPackage = "components.schemas";
         rootJavaEEPackage = MICROPROFILE_REST_CLIENT_DEFAULT_ROOT_PACKAGE;
 
         // cliOptions default redefinition need to be updated
@@ -358,16 +358,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 packagePath() + File.separatorChar + "configurations",
                 "SchemaConfiguration.java"));
 
-//        jsonPathDocTemplateFiles.put(
-//                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
-//                schemaDocs
-//        );
-//        jsonPathDocTemplateFiles.put(
-//                CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG,
-//                new HashMap<String, String>() {{
-//                    put("api_doc.mustache", ".java");
-//                }}
-//        );
+        HashMap<String, String> schemaTemplates = new HashMap<>();
+        schemaTemplates.put("src/main/java/org/openapitools/components/schemas/Schema.hbs", ".java");
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
+                schemaTemplates
+        );
 
         if (WEBCLIENT.equals(getLibrary()) || NATIVE.equals(getLibrary())) {
             dateLibrary = "java8";

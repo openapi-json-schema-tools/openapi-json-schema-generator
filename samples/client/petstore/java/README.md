@@ -416,15 +416,15 @@ All URIs are relative to the selected server
 
 
 ## Notes for Large OpenAPI documents
-If the OpenAPI document is large, imports in org.openapijsonschematools.org.openapijsonschematools.client.api.tags.tag_to_api and org.openapijsonschematools.org.openapijsonschematools.client.models may fail with a
+If the OpenAPI document is large, imports in org.openapijsonschematools.apis.tags.tag_to_api and org.openapijsonschematools.components.schemass may fail with a
 RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
 
 Solution 1:
 Use specific imports for apis and models like:
-- tagged api: `from org.openapijsonschematools.org.openapijsonschematools.client.api.tags.default_api import DefaultApi`
-- api for one path: `from org.openapijsonschematools.org.openapijsonschematools.client.api.paths.some_path import SomePath`
+- tagged api: `from org.openapijsonschematools.apis.tags.default_api import DefaultApi`
+- api for one path: `from org.openapijsonschematools.apis.paths.some_path import SomePath`
 - api for one operation (path + verb): `from org.openapijsonschematools.paths.some_path.get import ApiForget`
-- single model import: `from org.openapijsonschematools.org.openapijsonschematools.client.model.pet import Pet`
+- single model import: `from org.openapijsonschematools.components.schemas.pet import Pet`
 
 Solution 2:
 Before importing the package, adjust the maximum recursion limit as shown below:
@@ -432,6 +432,6 @@ Before importing the package, adjust the maximum recursion limit as shown below:
 import sys
 sys.setrecursionlimit(1500)
 import org.openapijsonschematools
-from org.openapijsonschematools.org.openapijsonschematools.client.api.tags.tag_to_api import *
-from org.openapijsonschematools.org.openapijsonschematools.client.models import *
+from org.openapijsonschematools.apis.tags.tag_to_api import *
+from org.openapijsonschematools.components.schemass import *
 ```

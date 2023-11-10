@@ -1,0 +1,1 @@
+package org.openapijsonschematools.paths.FakeRefsObjectModelWithRefProps.post.request_body.content.ApplicationJson;

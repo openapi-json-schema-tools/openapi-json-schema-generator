@@ -1,0 +1,1 @@
+package org.openapijsonschematools.paths.FakeBodyWithFileSchema.put.request_body.content.ApplicationJson;

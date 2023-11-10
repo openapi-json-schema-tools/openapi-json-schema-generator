@@ -117,6 +117,7 @@ public class CodegenSchema {
     // stores the location of the documentation file
     public String pathFromDocRoot = null;
     public boolean isInline = false;
+    public String subpackage;  // the current schema's subpackage, needed by java
 
     /*
     Remove this in the 4.0.0 release because it is unused

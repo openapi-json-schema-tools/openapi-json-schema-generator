@@ -1,0 +1,1 @@
+package org.openapijsonschematools.paths.FakeJsonPatch.patch.request_body.content.ApplicationJsonPatchjson;

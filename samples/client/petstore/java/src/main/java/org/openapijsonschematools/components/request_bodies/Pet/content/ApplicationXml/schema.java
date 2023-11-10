@@ -1,0 +1,1 @@
+package org.openapijsonschematools.components.request_bodies.Pet.content.ApplicationXml;

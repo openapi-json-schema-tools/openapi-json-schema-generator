@@ -239,6 +239,8 @@ public interface Generator {
     // handles almost all files to be written
     String getFilepath(String jsonPath);
 
+    String getSubpackage(String jsonPath);
+
     String getDocsFilepath(String jsonPath);
 
     String getTestFilepath(String jsonPath);

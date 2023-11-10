@@ -2251,6 +2251,9 @@ public class DefaultGenerator implements Generator {
         CodegenSchema property = codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
         property.instanceType = "schema";
         property.jsonPath = currentJsonPath;
+        if (currentJsonPath != null && sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
+            property.subpackage = getSubpackage(sourceJsonPath);
+        }
         if (currentJsonPath != null) {
             property.moduleLocation = getModuleLocation(sourceJsonPath);
             property.pathFromDocRoot = schemaPathFromDocRoot(property.moduleLocation);
@@ -3724,8 +3727,10 @@ public class DefaultGenerator implements Generator {
         switch (pathPieces[2]) {
             case "schemas":
                 // modelPackage replaces pathPieces[1] + pathPieces[2]
-                pathPieces[1] = modelPackagePathFragment();
-                pathPieces[2] = null;
+                String fragment = modelPackagePathFragment();
+                String[] fragments = fragment.split("/");
+                pathPieces[1] = fragments[0];
+                pathPieces[2] = fragments[1];
                 if (pathPieces.length == 4) {
                     // #/components/schemas/SomeSchema
                     pathPieces[3] = getKey(pathPieces[3], "schemas").snakeCase;
@@ -3936,6 +3941,29 @@ public class DefaultGenerator implements Generator {
         return String.join(File.separator, finalPathPieces);
     }
 
+    @Override
+    public String getSubpackage(String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        pathPieces[0] = "";
+        if (jsonPath.startsWith("#/components")) {
+            updateComponentsFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/paths")) {
+            updatePathsFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/servers")) {
+            updateServersFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/security")) {
+            updateSecurityFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/apis")) {
+            // this is a fake json path that the code generates and uses to generate apis
+            updateApisFilepath(pathPieces);
+        }
+        List<String> finalPathPieces = Arrays.stream(pathPieces)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        String subpackage = String.join(".", finalPathPieces);
+        int lastPeriodIndex = subpackage.lastIndexOf(".");
+        return subpackage.substring(1,lastPeriodIndex);
+    }
     @Override
     public String getTestFilepath(String jsonPath) {
         String[] pathPieces = jsonPath.split("/");

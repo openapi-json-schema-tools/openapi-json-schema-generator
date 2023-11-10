@@ -1,0 +1,1 @@
+package org.openapijsonschematools.paths.FakeAdditionalPropertiesWithArrayOfEnums.get.request_body.content.ApplicationJson;
