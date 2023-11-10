@@ -57,6 +57,35 @@ record ObjectWithPropsAndAddpropsSchema(LinkedHashSet<Class<?>> type, LinkedHash
     }
 }
 
+class ObjectWithOutputTypeSchemaMap extends FrozenMap<String, Object> {
+    ObjectWithOutputTypeSchemaMap(FrozenMap<? extends String, ?> m) {
+        super(m);
+    }
+
+    public static ObjectWithOutputTypeSchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        return ObjectWithOutputTypeSchema.validate(arg, configuration);
+    }
+}
+
+
+record ObjectWithOutputTypeSchema(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements Schema {
+    public static ObjectWithOutputTypeSchema withDefaults() {
+        LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+        type.add(FrozenMap.class);
+        LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
+        properties.put("someString", StringSchema.class);
+        return new ObjectWithOutputTypeSchema(type, properties);
+    }
+
+    public static ObjectWithOutputTypeSchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        return new ObjectWithOutputTypeSchemaMap(arg);
+    }
+
+    public static ObjectWithOutputTypeSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        return Schema.validate(ObjectWithOutputTypeSchema.class, arg, configuration);
+    }
+}
+
 public class ObjectTypeSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
@@ -159,6 +188,35 @@ public class ObjectTypeSchemaTest {
         Map<String, Object> invalidAddpropMap = inMap;
         Assert.assertThrows(RuntimeException.class, () -> ObjectWithPropsAndAddpropsSchema.validate(
                 invalidAddpropMap, configuration
+        ));
+    }
+
+    @Test
+    public void testValidateObjectWithOutputTypeSchema() {
+        // map with only property works
+        Map<String, Object> inMap = new LinkedHashMap<>();
+        inMap.put("someString", "abc");
+        ObjectWithOutputTypeSchemaMap validatedValue = ObjectWithOutputTypeSchema.validate(inMap, configuration);
+        LinkedHashMap<String, String> outMap = new LinkedHashMap<>();
+        outMap.put("someString", "abc");
+        Assert.assertEquals(validatedValue, outMap);
+
+        // map with additional unvalidated property works
+        inMap = new LinkedHashMap<>();
+        inMap.put("someString", "abc");
+        inMap.put("someOtherString", "def");
+        validatedValue = ObjectWithOutputTypeSchema.validate(inMap, configuration);
+        outMap = new LinkedHashMap<>();
+        outMap.put("someString", "abc");
+        outMap.put("someOtherString", "def");
+        Assert.assertEquals(validatedValue, outMap);
+
+        // invalid prop type fails
+        inMap = new LinkedHashMap<>();
+        inMap.put("someString", 1);
+        Map<String, Object> finalInMap = inMap;
+        Assert.assertThrows(RuntimeException.class, () -> ObjectWithOutputTypeSchema.validate(
+                finalInMap, configuration
         ));
     }
 }

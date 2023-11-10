@@ -36,7 +36,7 @@ public interface Schema extends SchemaValidator {
             Object fixedVal = castToAllowedTypes(val, newPathToItem, pathToType);
             argFixed.put(key, fixedVal);
          }
-         return new FrozenMap(argFixed);
+         return new FrozenMap<>(argFixed);
       } else if (arg instanceof Boolean) {
          pathToType.put(pathToItem, Boolean.class);
          return arg;
@@ -63,7 +63,7 @@ public interface Schema extends SchemaValidator {
             argFixed.add(fixedVal);
             i += 1;
          }
-         return new FrozenList(argFixed);
+         return new FrozenList<>(argFixed);
       } else if (arg instanceof ZonedDateTime) {
          pathToType.put(pathToItem, String.class);
          return arg.toString();
@@ -104,7 +104,7 @@ public interface Schema extends SchemaValidator {
       return pathToSchemasMap;
    }
 
-   private static LinkedHashMap<String, Object> getProperties(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+   private static FrozenMap<String, Object> getProperties(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
       LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
       Map<String, Object> castArg = (Map<String, Object>) arg;
       for(Map.Entry<String, Object> entry: castArg.entrySet()) {
@@ -116,7 +116,7 @@ public interface Schema extends SchemaValidator {
          Object castValue = getNewInstance(propertyClass, value, propertyPathToItem, pathToSchemas);
          properties.put(propertyName, castValue);
       }
-      return new FrozenMap(properties);
+      return new FrozenMap<>(properties);
    }
 
    private static FrozenList<Object> getItems(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -131,37 +131,35 @@ public interface Schema extends SchemaValidator {
          items.add(castItem);
          i += 1;
       }
-      return new FrozenList(items);
-   }
-
-   private static Map<Class<?>, Class<?>> getTypeToOutputClass(Class<?> cls) {
-      try {
-         // This must be implemented in Schemas that are generics as a static method
-         Method method = cls.getMethod("typeToOutputClass");
-         Map<Class<?>, Class<?>> typeToOutputClass = (Map<Class<?>, Class<?>>) method.invoke(null);
-         return typeToOutputClass;
-      } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
-         return null;
-      }
+      return new FrozenList<>(items);
    }
 
    private static Object getNewInstance(Class<Schema> cls, Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-      Object usedArg;
+      if (!(arg instanceof Map || arg instanceof List)) {
+          // str, int, float, boolean, null, FileIO, bytes
+          return arg;
+      }
       if (arg instanceof Map) {
-         usedArg = getProperties(arg, pathToItem, pathToSchemas);
+         FrozenMap<String, Object> usedArg = getProperties(arg, pathToItem, pathToSchemas);
+         try {
+            Method method = cls.getMethod("getMapOutputInstance", FrozenMap.class);
+            return method.invoke(null, usedArg);
+         } catch (NoSuchMethodException e) {
+            return usedArg;
+         } catch (InvocationTargetException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+         }
       } else if (arg instanceof List) {
-         usedArg = getItems(arg, pathToItem, pathToSchemas);
-      } else {
-         // str, int, float, boolean, null, FileIO, bytes
-         return arg;
+         FrozenList<Object> usedArg = getItems(arg, pathToItem, pathToSchemas);
+         try {
+            Method method = cls.getMethod("getListOutputInstance", FrozenList.class);
+            return method.invoke(null, usedArg);
+         } catch (NoSuchMethodException e) {
+            return usedArg;
+         } catch (InvocationTargetException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+         }
       }
-      Class<?> argType = arg.getClass();
-      Map<Class<?>, Class<?>> typeToOutputClass = getTypeToOutputClass(cls);
-      if (typeToOutputClass == null) {
-         return usedArg;
-      }
-      Class<?> outputClass = typeToOutputClass.get(argType);
-      // TODO add class instantiation here
       return null;
    }
 
