@@ -134,37 +134,20 @@ public interface Schema extends SchemaValidator {
       return new FrozenList<>(items);
    }
 
-   private static Map<Class<?>, Class<?>> getTypeToOutputClass(Class<?> cls) {
-      try {
-         // This must be implemented in Schemas that are generics as a static method
-         Method method = cls.getMethod("typeToOutputClass");
-         Map<Class<?>, Class<?>> typeToOutputClass = (Map<Class<?>, Class<?>>) method.invoke(null);
-         return typeToOutputClass;
-      } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
-         return null;
-      }
-   }
-
    private static Object getNewInstance(Class<Schema> cls, Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
       if (!(arg instanceof Map || arg instanceof List)) {
           // str, int, float, boolean, null, FileIO, bytes
           return arg;
       }
-      Class<?> argType = arg.getClass();
-      Map<Class<?>, Class<?>> typeToOutputClass = getTypeToOutputClass(cls);
       if (arg instanceof Map) {
          FrozenMap<String, Object> usedArg = getProperties(arg, pathToItem, pathToSchemas);
-         if (typeToOutputClass == null) {
-            return usedArg;
-         }
-         Class<?> outputClass = typeToOutputClass.get(argType);
-         if (outputClass == null) {
-            return usedArg;
-         }
          try {
-             return outputClass.getConstructor(Map.class).newInstance(usedArg);
-         } catch (NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException e) {
-             throw new RuntimeException(e);
+            Method method = cls.getMethod("getMapOutputInstance", FrozenMap.class);
+            return method.invoke(null, usedArg);
+         } catch (NoSuchMethodException e) {
+            return usedArg;
+         } catch (InvocationTargetException | IllegalAccessException e) {
+            throw new RuntimeException(e);
          }
       } else if (arg instanceof List) {
          FrozenList<Object> usedArg = getItems(arg, pathToItem, pathToSchemas);
