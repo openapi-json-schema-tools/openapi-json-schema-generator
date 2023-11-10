@@ -24,10 +24,12 @@ import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
 import org.openapijsonschematools.codegen.generators.models.VendorExtension;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
+import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.features.BeanValidationFeatures;
 import org.openapijsonschematools.codegen.generators.features.GzipFeatures;
 import org.openapijsonschematools.codegen.generators.features.PerformBeanValidationFeatures;
+import org.openapijsonschematools.codegen.templating.TemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.templating.mustache.CaseFormatLambda;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DocumentationFeature;
 import org.openapijsonschematools.codegen.common.ProcessUtils;
@@ -803,5 +805,14 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     @Override
     public String defaultTemplatingEngine() {
         return "handlebars";
+    }
+
+    @Override
+    public TemplatingEngineAdapter getTemplatingEngine() {
+        TemplatingEngineAdapter te = super.getTemplatingEngine();
+        HandlebarsEngineAdapter hea = (HandlebarsEngineAdapter) te;
+        hea.infiniteLoops(true);
+        hea.setPrettyPrint(true);
+        return hea;
     }
 }
