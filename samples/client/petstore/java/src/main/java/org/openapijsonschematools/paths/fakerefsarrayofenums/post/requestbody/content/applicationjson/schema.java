@@ -1,0 +1,1 @@
+package org.openapijsonschematools.paths.fakerefsarrayofenums.post.requestbody.content.applicationjson;

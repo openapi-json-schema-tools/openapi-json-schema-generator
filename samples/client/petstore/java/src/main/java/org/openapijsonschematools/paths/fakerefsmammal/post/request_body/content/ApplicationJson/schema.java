@@ -1,1 +1,0 @@
-package org.openapijsonschematools.paths.fakerefsmammal.post.request_body.content.ApplicationJson;

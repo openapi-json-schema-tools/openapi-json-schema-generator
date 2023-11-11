@@ -153,6 +153,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
         requestBodiesIdentifier = "requestbodies";
         securitySchemesIdentifier = "securityschemes";
+        requestBodyIdentifier = "requestbody";
         packageName = "org.openapijsonschematools";
 
         // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata
