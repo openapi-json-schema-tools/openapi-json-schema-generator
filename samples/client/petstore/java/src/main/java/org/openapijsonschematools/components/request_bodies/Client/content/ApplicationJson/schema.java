@@ -1,1 +1,0 @@
-package org.openapijsonschematools.components.request_bodies.Client.content.ApplicationJson;

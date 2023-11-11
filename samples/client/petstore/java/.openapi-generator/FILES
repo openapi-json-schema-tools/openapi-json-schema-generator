@@ -8,10 +8,10 @@ src/main/java/org/openapijsonschematools/components/headers/StringHeader/schema.
 src/main/java/org/openapijsonschematools/components/parameters/ComponentRefSchemaStringWithValidation/content/ApplicationJson/schema.java
 src/main/java/org/openapijsonschematools/components/parameters/PathUserName/schema.java
 src/main/java/org/openapijsonschematools/components/parameters/RefSchemaStringWithValidation/schema.java
-src/main/java/org/openapijsonschematools/components/request_bodies/Client/content/ApplicationJson/schema.java
-src/main/java/org/openapijsonschematools/components/request_bodies/Pet/content/ApplicationJson/schema.java
-src/main/java/org/openapijsonschematools/components/request_bodies/Pet/content/ApplicationXml/schema.java
-src/main/java/org/openapijsonschematools/components/request_bodies/UserArray/content/ApplicationJson/schema.java
+src/main/java/org/openapijsonschematools/components/requestbodies/Client/content/ApplicationJson/schema.java
+src/main/java/org/openapijsonschematools/components/requestbodies/Pet/content/ApplicationJson/schema.java
+src/main/java/org/openapijsonschematools/components/requestbodies/Pet/content/ApplicationXml/schema.java
+src/main/java/org/openapijsonschematools/components/requestbodies/UserArray/content/ApplicationJson/schema.java
 src/main/java/org/openapijsonschematools/components/responses/HeadersWithNoBody/HeaderParameters.java
 src/main/java/org/openapijsonschematools/components/responses/HeadersWithNoBody/headers/Location/schema.java
 src/main/java/org/openapijsonschematools/components/responses/SuccessInlineContentAndHeader/HeaderParameters.java

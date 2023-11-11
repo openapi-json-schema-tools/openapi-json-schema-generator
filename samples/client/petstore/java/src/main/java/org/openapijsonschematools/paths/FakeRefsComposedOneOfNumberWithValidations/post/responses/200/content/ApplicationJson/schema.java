@@ -1,1 +1,0 @@
-package org.openapijsonschematools.paths.FakeRefsComposedOneOfNumberWithValidations.post.responses.200.content.ApplicationJson;

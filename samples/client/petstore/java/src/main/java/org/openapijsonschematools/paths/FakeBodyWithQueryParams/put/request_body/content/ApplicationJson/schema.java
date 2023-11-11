@@ -1,1 +1,0 @@
-package org.openapijsonschematools.paths.FakeBodyWithQueryParams.put.request_body.content.ApplicationJson;

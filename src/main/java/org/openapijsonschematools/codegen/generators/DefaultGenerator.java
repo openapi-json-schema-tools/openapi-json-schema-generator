@@ -138,6 +138,9 @@ public class DefaultGenerator implements Generator {
     protected static Schema trueSchema = new Schema();
 
     protected CodegenIgnoreProcessor ignoreProcessor;
+    protected String requestBodiesIdentifier = "request_bodies";
+    protected String securitySchemesIdentifier = "security_schemes";
+
 
     protected String templateEngineName;
 
@@ -3721,8 +3724,6 @@ public class DefaultGenerator implements Generator {
         if (pathPieces.length < 3) {
             return;
         }
-        String requestBodiesIdentifier = "request_bodies";
-        String securitySchemesIdentifier = "security_schemes";
         // rename schemas + requestBodies
         switch (pathPieces[2]) {
             case "schemas":

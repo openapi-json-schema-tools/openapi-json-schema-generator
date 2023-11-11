@@ -1,1 +1,0 @@
-package org.openapijsonschematools.paths.FakeRefsArrayOfEnums.post.request_body.content.ApplicationJson;
