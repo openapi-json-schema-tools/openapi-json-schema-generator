@@ -1,0 +1,1 @@
+package org.openapijsonschematools.paths.fakerefsarraymodel.post.request_body.content.ApplicationJson;

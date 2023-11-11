@@ -814,6 +814,11 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         return underscore(dropDots(toModelName(name, jsonPath)));
     }
 
+    @Override
+    public String toContentTypeFilename(String name) {
+        return toModuleFilename(name, null);
+    }
+
     /*
     This method requires jsonPath to be passed in
     It handles responses and schemas

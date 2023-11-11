@@ -139,6 +139,11 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     @Override
+    public String toModuleFilename(String name, String jsonPath) {
+        return camelize(name).toLowerCase(Locale.ROOT);
+    }
+
+    @Override
     public String generatorLanguageVersion() {
         return "17";
     }
@@ -812,5 +817,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         hea.infiniteLoops(true);
         hea.setPrettyPrint(true);
         return hea;
+    }
+
+    @Override
+    public String toContentTypeFilename(String name) {
+        return toModuleFilename(name, null);
     }
 }

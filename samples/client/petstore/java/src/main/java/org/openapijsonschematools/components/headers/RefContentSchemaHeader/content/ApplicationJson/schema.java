@@ -1,1 +1,0 @@
-package org.openapijsonschematools.components.headers.RefContentSchemaHeader.content.ApplicationJson;

@@ -1,1 +1,0 @@
-package org.openapijsonschematools.components.responses.SuccessWithJsonApiResponse.content.ApplicationJson;

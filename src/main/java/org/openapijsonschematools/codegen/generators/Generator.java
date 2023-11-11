@@ -112,6 +112,8 @@ public interface Generator {
 
     String toModelName(String name, String jsonPath);
 
+    String toContentTypeFilename(String name);
+
     String toParamName(String name);
 
     String escapeText(String text);

@@ -365,54 +365,54 @@ All URIs are relative to the selected server
 
 | Class | Description |
 | ----- | ----------- |
-| [Client](docs/components/request_bodies/Client.md) | client model |
-| [Pet](docs/components/request_bodies/Pet.md) | Pet object that needs to be added to the store, multiple content types |
-| [RefUserArray](docs/components/request_bodies/RefUserArray.md) | |
-| [UserArray](docs/components/request_bodies/UserArray.md) | List of user object |
+| [Client](docs/components/request_bodies/client.md) | client model |
+| [Pet](docs/components/request_bodies/pet.md) | Pet object that needs to be added to the store, multiple content types |
+| [RefUserArray](docs/components/request_bodies/refuserarray.md) | |
+| [UserArray](docs/components/request_bodies/userarray.md) | List of user object |
 
 ## Component Responses
 
 | Class | Description |
 | ----- | ----------- |
-| [HeadersWithNoBody](docs/components/responses/HeadersWithNoBody.md) | A response that contains headers but no body  |
-| [RefSuccessDescriptionOnly](docs/components/responses/RefSuccessDescriptionOnly.md) | |
-| [RefSuccessfulXmlAndJsonArrayOfPet](docs/components/responses/RefSuccessfulXmlAndJsonArrayOfPet.md) | |
-| [SuccessDescriptionOnly](docs/components/responses/SuccessDescriptionOnly.md) | Success |
-| [SuccessInlineContentAndHeader](docs/components/responses/SuccessInlineContentAndHeader.md) | successful operation |
-| [SuccessWithJsonApiResponse](docs/components/responses/SuccessWithJsonApiResponse.md) | successful operation |
-| [SuccessfulXmlAndJsonArrayOfPet](docs/components/responses/SuccessfulXmlAndJsonArrayOfPet.md) | successful operation, multiple content types |
+| [HeadersWithNoBody](docs/components/responses/headerswithnobody.md) | A response that contains headers but no body  |
+| [RefSuccessDescriptionOnly](docs/components/responses/refsuccessdescriptiononly.md) | |
+| [RefSuccessfulXmlAndJsonArrayOfPet](docs/components/responses/refsuccessfulxmlandjsonarrayofpet.md) | |
+| [SuccessDescriptionOnly](docs/components/responses/successdescriptiononly.md) | Success |
+| [SuccessInlineContentAndHeader](docs/components/responses/successinlinecontentandheader.md) | successful operation |
+| [SuccessWithJsonApiResponse](docs/components/responses/successwithjsonapiresponse.md) | successful operation |
+| [SuccessfulXmlAndJsonArrayOfPet](docs/components/responses/successfulxmlandjsonarrayofpet.md) | successful operation, multiple content types |
 
 ## Component Headers
 
 | Class | Description |
 | ----- | ----------- |
-| [Int32JsonContentTypeHeader](docs/components/headers/Int32JsonContentTypeHeader.md) | int32 JSON content-type header |
-| [NumberHeader](docs/components/headers/NumberHeader.md) | number header description |
-| [RefContentSchemaHeader](docs/components/headers/RefContentSchemaHeader.md) | int32 JSON content-type header |
-| [RefSchemaHeader](docs/components/headers/RefSchemaHeader.md) | header that has a ref in the schema |
-| [RefStringHeader](docs/components/headers/RefStringHeader.md) | |
-| [StringHeader](docs/components/headers/StringHeader.md) | string header description |
+| [Int32JsonContentTypeHeader](docs/components/headers/int32jsoncontenttypeheader.md) | int32 JSON content-type header |
+| [NumberHeader](docs/components/headers/numberheader.md) | number header description |
+| [RefContentSchemaHeader](docs/components/headers/refcontentschemaheader.md) | int32 JSON content-type header |
+| [RefSchemaHeader](docs/components/headers/refschemaheader.md) | header that has a ref in the schema |
+| [RefStringHeader](docs/components/headers/refstringheader.md) | |
+| [StringHeader](docs/components/headers/stringheader.md) | string header description |
 
 ## Component Parameters
 
 | Class | Description |
 | ----- | ----------- |
-| [ComponentRefSchemaStringWithValidation](docs/components/parameters/ComponentRefSchemaStringWithValidation.md) | a path string with validation |
-| [PathUserName](docs/components/parameters/PathUserName.md) | the use name to use |
-| [RefPathUserName](docs/components/parameters/RefPathUserName.md) | |
-| [RefSchemaStringWithValidation](docs/components/parameters/RefSchemaStringWithValidation.md) | a path string with validation |
+| [ComponentRefSchemaStringWithValidation](docs/components/parameters/componentrefschemastringwithvalidation.md) | a path string with validation |
+| [PathUserName](docs/components/parameters/pathusername.md) | the use name to use |
+| [RefPathUserName](docs/components/parameters/refpathusername.md) | |
+| [RefSchemaStringWithValidation](docs/components/parameters/refschemastringwithvalidation.md) | a path string with validation |
 
 ## Component SecuritySchemes
 
 | Class | Description |
 | ----- | ----------- |
-| [ApiKey](docs/components/security_schemes/ApiKey.md) | apiKey in header |
-| [ApiKeyQuery](docs/components/security_schemes/ApiKeyQuery.md) | apiKey in query |
-| [BearerTest](docs/components/security_schemes/BearerTest.md) | http bearer with JWT bearer format |
-| [HttpBasicTest](docs/components/security_schemes/HttpBasicTest.md) | http basic |
-| [HttpSignatureTest](docs/components/security_schemes/HttpSignatureTest.md) | http + signature |
-| [OpenIdConnectTest](docs/components/security_schemes/OpenIdConnectTest.md) | openIdConnect |
-| [PetstoreAuth](docs/components/security_schemes/PetstoreAuth.md) | oauth2 implicit flow with two scopes |
+| [ApiKey](docs/components/security_schemes/apikey.md) | apiKey in header |
+| [ApiKeyQuery](docs/components/security_schemes/apikeyquery.md) | apiKey in query |
+| [BearerTest](docs/components/security_schemes/bearertest.md) | http bearer with JWT bearer format |
+| [HttpBasicTest](docs/components/security_schemes/httpbasictest.md) | http basic |
+| [HttpSignatureTest](docs/components/security_schemes/httpsignaturetest.md) | http + signature |
+| [OpenIdConnectTest](docs/components/security_schemes/openidconnecttest.md) | openIdConnect |
+| [PetstoreAuth](docs/components/security_schemes/petstoreauth.md) | oauth2 implicit flow with two scopes |
 
 
 ## Notes for Large OpenAPI documents

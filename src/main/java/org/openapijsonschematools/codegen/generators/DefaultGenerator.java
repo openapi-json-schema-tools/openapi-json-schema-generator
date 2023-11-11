@@ -1057,6 +1057,11 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
+    public String toContentTypeFilename(String name) {
+        return name;
+    }
+
+    @Override
     public String toModuleFilename(String name, String jsonPath) {
         return org.openapijsonschematools.codegen.common.StringUtils.camelize(name);
     }
@@ -3752,21 +3757,21 @@ public class DefaultGenerator implements Generator {
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/headers/someHeader/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = toModelFilename(contentType, null);
+                pathPieces[5] = toContentTypeFilename(contentType);
             }
         } else if (pathPieces[2].equals("parameters")) {
             pathPieces[3] = toParameterFilename(pathPieces[3], null);
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/parameters/someParam/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = toModelFilename(contentType, null);
+                pathPieces[5] = toContentTypeFilename(contentType);
             }
         } else if (pathPieces[2].equals(requestBodiesIdentifier)) {
             pathPieces[3] = toRequestBodyFilename(pathPieces[3]);
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/requestBodies/someBody/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = toModelFilename(contentType, null);
+                pathPieces[5] = toContentTypeFilename(contentType);
             }
         } else if (pathPieces[2].equals("responses")) {
             // #/components/responses/SuccessWithJsonApiResponse/headers
@@ -3789,12 +3794,12 @@ public class DefaultGenerator implements Generator {
                 if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
                     // #/components/responses/someResponse/headers/SomeHeader/content/application-json -> length 8
                     String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                    pathPieces[7] = toModelFilename(contentType, null);
+                    pathPieces[7] = toContentTypeFilename(contentType);
                 }
             } else if (pathPieces[4].equals("content")) {
                 // #/components/responses/someResponse/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = toModelFilename(contentType, null);
+                pathPieces[5] = toContentTypeFilename(contentType);
             }
         } else if (pathPieces[2].equals(securitySchemesIdentifier)) {
             pathPieces[3] = toSecuritySchemeFilename(pathPieces[3], null);
