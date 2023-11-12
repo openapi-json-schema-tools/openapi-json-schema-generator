@@ -3763,6 +3763,8 @@ public class DefaultGenerator implements Generator {
                 if (pathPieces.length == 7) {
                     pathPieces[6] = toModelFilename(pathPieces[6], null);
                 }
+            } else if (pathPieces.length == 5 && pathPieces[4].equals("schema")) {
+                pathPieces[4] = toModelFilename(pathPieces[4], null);
             }
         } else if (pathPieces[2].equals("parameters")) {
             pathPieces[3] = toParameterFilename(pathPieces[3], null);
@@ -3773,6 +3775,8 @@ public class DefaultGenerator implements Generator {
                 if (pathPieces.length == 7) {
                     pathPieces[6] = toModelFilename(pathPieces[6], null);
                 }
+            } else if (pathPieces.length == 5 && pathPieces[4].equals("schema")) {
+                pathPieces[4] = toModelFilename(pathPieces[4], null);
             }
         } else if (pathPieces[2].equals(requestBodiesIdentifier)) {
             pathPieces[3] = toRequestBodyFilename(pathPieces[3]);
@@ -3809,6 +3813,8 @@ public class DefaultGenerator implements Generator {
                     if (pathPieces.length == 9) {
                         pathPieces[6] = toModelFilename(pathPieces[8], null);
                     }
+                } else if (pathPieces.length == 7 && pathPieces[6].equals("schema")) {
+                    pathPieces[6] = toModelFilename(pathPieces[6], null);
                 }
             } else if (pathPieces[4].equals("content")) {
                 // #/components/responses/someResponse/content/application-json -> length 6
