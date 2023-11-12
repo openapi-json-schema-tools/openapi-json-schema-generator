@@ -1,6 +1,6 @@
 package org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.2;
-from org.openapijsonschematools.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
-
+import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.schemas.Schema;
 public class Schema {
     // nest classes so all schemas and input/output classes can be public
 }

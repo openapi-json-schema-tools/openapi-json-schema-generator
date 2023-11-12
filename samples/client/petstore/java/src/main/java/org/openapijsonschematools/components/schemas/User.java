@@ -1,6 +1,6 @@
 package org.openapijsonschematools.components.schemas;
-from org.openapijsonschematools.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
-
+import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.schemas.Schema;
 public class User {
     // nest classes so all schemas and input/output classes can be public
 }

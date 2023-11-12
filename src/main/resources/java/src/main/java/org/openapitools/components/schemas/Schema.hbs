@@ -3,12 +3,12 @@ package {{packageName}}.{{subpackage}};
     {{#if refInfo}}
         {{#if imports}}
 
-from {{packageName}}.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
+{{> src/main/java/org/openapitools/components/schemas/_SchemaSharedImports }}
         {{/if}}
 {{> _helper_imports }}
 {{!> components/schemas/schema_cls/schema_cls identifierPieces=(append identifierPieces jsonPathPiece) }}
     {{else}}
-from {{packageName}}.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
+{{> src/main/java/org/openapitools/components/schemas/_SchemaSharedImports }}
 
 public class {{jsonPathPiece.camelCase}} {
     // nest classes so all schemas and input/output classes can be public
