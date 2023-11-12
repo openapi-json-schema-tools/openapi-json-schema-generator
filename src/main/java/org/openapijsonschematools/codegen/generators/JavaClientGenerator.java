@@ -824,4 +824,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     public String toContentTypeFilename(String name) {
         return toModuleFilename(name, null);
     }
+
+    @Override
+    public String toModelFilename(String name, String jsonPath) {
+        return toModelName(name, jsonPath);
+    }
 }
