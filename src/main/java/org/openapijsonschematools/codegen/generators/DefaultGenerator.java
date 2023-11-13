@@ -3888,6 +3888,9 @@ public class DefaultGenerator implements Generator {
                 // #/paths/somePath/get/responses/200/content/application-json -> length 8
                 String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
                 pathPieces[7] = toContentTypeFilename(contentType);
+                if (pathPieces.length == 9) {
+                    pathPieces[8] = toModelFilename(pathPieces[8], null);
+                }
             } else if (pathPieces[6].equals("headers")) {
                 // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
                 pathPieces[7] = toHeaderFilename(pathPieces[7], null);
@@ -3896,6 +3899,11 @@ public class DefaultGenerator implements Generator {
                     // #/paths/somePath/get/responses/200/headers/someHeader/content/application-json -> length 10
                     String contentType = ModelUtils.decodeSlashes(pathPieces[9]);
                     pathPieces[9] = toContentTypeFilename(contentType);
+                    if (pathPieces.length == 11) {
+                        pathPieces[10] = toModelFilename(pathPieces[10], null);
+                    }
+                } else if (pathPieces.length == 9 && pathPieces[8].equals("schema")) {
+                    pathPieces[8] = toModelFilename(pathPieces[8], null);
                 }
             }
         } else if (pathPieces[4].equals("parameters")) {
@@ -3906,12 +3914,20 @@ public class DefaultGenerator implements Generator {
                 // #/paths/somePath/get/parameters/1/content/application-json -> length 8
                 String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
                 pathPieces[7] = toContentTypeFilename(contentType);
+                if (pathPieces.length == 9) {
+                    pathPieces[8] = toModelFilename(pathPieces[8], null);
+                }
+            } else if (pathPieces.length == 7 && pathPieces[6].equals("schema")) {
+                pathPieces[6] = toModelFilename(pathPieces[6], null);
             }
         } else if (pathPieces[4].equals(requestBodyIdentifier)) {
             if (pathPieces.length >= 7 && pathPieces[5].equals("content")) {
                 // #/paths/somePath/get/requestBody/content/application-json -> length 7
                 String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
                 pathPieces[6] = toContentTypeFilename(contentType);
+                if (pathPieces.length == 8) {
+                    pathPieces[7] = toModelFilename(pathPieces[7], null);
+                }
             }
         }
     }
