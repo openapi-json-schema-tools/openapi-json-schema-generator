@@ -12,7 +12,7 @@ package {{packageName}}.{{subpackage}};
 
 public class {{jsonPathPiece.camelCase}} {
     // nest classes so all schemas and input/output classes can be public
-    {{!> components/schemas/schema_getschemas }}
+    {{> src/main/java/org/openapitools/components/schemas/Schema_getSchemas }}
 }
     {{/if}}
 {{/with}}
