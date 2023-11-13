@@ -1,0 +1,37 @@
+{{#if types}}
+LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+{{#each types}}
+{{#eq this "null"}}
+    type(None),
+{{/eq}}
+{{#eq this "object"}}
+type.add(FrozenMap.class);
+{{/eq}}
+{{#eq this "array"}}
+type.add(FrozenList.class);
+{{/eq}}
+{{#eq this "string" }}
+    {{#eq ../format "binary"}}
+// FileIO,
+// bytes,
+    {{else}}
+type.add(String.class);
+    {{/eq}}
+{{/eq}}
+{{#eq this "integer"}}
+type.add(Integer.class);
+type.add(Long.class);
+type.add(Float.class);
+type.add(Double.class);
+{{/eq}}
+{{#eq this "number"}}
+type.add(Integer.class);
+type.add(Long.class);
+type.add(Float.class);
+type.add(Double.class);
+{{/eq}}
+{{#eq this "boolean"}}
+type.add(Boolean.class);
+{{/eq}}
+{{/each}}
+{{/if}}

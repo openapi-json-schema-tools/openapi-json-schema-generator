@@ -27,7 +27,15 @@ public class ObjectWithDifficultlyNamedProps {
             return Schema.validate(Int64Schema.class, Long.parseLong(arg.toString()), configuration);
         }
     }
-    public record class Model123Number implements Schema {
+    
+    
+    public record Model123List(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Model123List withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Model123List(type);
+        }
+    }    public record class Model123Number implements Schema {
         public static IntSchema withDefaults() {
             return IntSchema.withDefaults();
         }

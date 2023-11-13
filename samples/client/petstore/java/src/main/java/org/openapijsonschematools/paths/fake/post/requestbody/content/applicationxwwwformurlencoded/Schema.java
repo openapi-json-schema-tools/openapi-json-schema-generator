@@ -27,4 +27,69 @@ public class Schema {
             return Schema.validate(Int64Schema.class, Long.parseLong(arg.toString()), configuration);
         }
     }
-}
+    
+    
+    public record String(LinkedHashSet<Class<?>> type) implements Schema {
+        public static String withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new String(type);
+        }
+    }    
+    
+    public record PatternWithoutDelimiter(LinkedHashSet<Class<?>> type) implements Schema {
+        public static PatternWithoutDelimiter withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new PatternWithoutDelimiter(type);
+        }
+    }    
+    
+    public record ModelByte(LinkedHashSet<Class<?>> type) implements Schema {
+        public static ModelByte withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new ModelByte(type);
+        }
+    }    
+    
+    public record Binary(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Binary withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            // FileIO,
+            // bytes,
+            return new Binary(type);
+        }
+    }    
+    
+    public record Date(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Date withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Date(type);
+        }
+    }    
+    
+    public record DateTime(LinkedHashSet<Class<?>> type) implements Schema {
+        public static DateTime withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new DateTime(type);
+        }
+    }    
+    
+    public record Password(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Password withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Password(type);
+        }
+    }    
+    
+    public record Callback(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Callback withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Callback(type);
+        }
+    }}

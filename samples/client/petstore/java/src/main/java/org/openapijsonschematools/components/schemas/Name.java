@@ -32,4 +32,12 @@ public class Name {
             return Schema.validate(Int32Schema.class, Integer.parseInt(arg.toString()), configuration);
         }
     }
-}
+    
+    
+    public record Property(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Property withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Property(type);
+        }
+    }}

@@ -55,4 +55,22 @@ public class Zebra {
             return Schema.validate(AnyTypeSchema.class, arg, configuration);
         }
     }
-}
+    
+    
+    public record Type(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Type withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Type(type);
+        }
+    
+    }    
+    
+    public record ClassName(LinkedHashSet<Class<?>> type) implements Schema {
+        public static ClassName withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new ClassName(type);
+        }
+    
+    }}

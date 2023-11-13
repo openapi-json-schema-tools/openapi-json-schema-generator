@@ -79,4 +79,93 @@ public class FormatTest {
             return Schema.validate(NumberSchema.class, arg, configuration);
         }
     }
-}
+    
+    
+    public record String(LinkedHashSet<Class<?>> type) implements Schema {
+        public static String withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new String(type);
+        }
+    }    
+    
+    public record ModelByte(LinkedHashSet<Class<?>> type) implements Schema {
+        public static ModelByte withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new ModelByte(type);
+        }
+    }    
+    
+    public record Binary(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Binary withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            // FileIO,
+            // bytes,
+            return new Binary(type);
+        }
+    }    
+    
+    public record Date(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Date withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Date(type);
+        }
+    }    
+    
+    public record DateTime(LinkedHashSet<Class<?>> type) implements Schema {
+        public static DateTime withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new DateTime(type);
+        }
+    }    
+    
+    public record Uuid(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Uuid withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Uuid(type);
+        }
+    }    
+    
+    public record UuidNoExample(LinkedHashSet<Class<?>> type) implements Schema {
+        public static UuidNoExample withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new UuidNoExample(type);
+        }
+    }    
+    
+    public record Password(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Password withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Password(type);
+        }
+    }    
+    
+    public record PatternWithDigits(LinkedHashSet<Class<?>> type) implements Schema {
+        public static PatternWithDigits withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new PatternWithDigits(type);
+        }
+    }    
+    
+    public record PatternWithDigitsAndDelimiter(LinkedHashSet<Class<?>> type) implements Schema {
+        public static PatternWithDigitsAndDelimiter withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new PatternWithDigitsAndDelimiter(type);
+        }
+    }    
+    
+    public record NoneProp(LinkedHashSet<Class<?>> type) implements Schema {
+        public static NoneProp withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+                type(None),
+            return new NoneProp(type);
+        }
+    }}

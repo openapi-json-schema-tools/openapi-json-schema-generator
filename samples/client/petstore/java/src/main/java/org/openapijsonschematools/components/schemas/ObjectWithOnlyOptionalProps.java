@@ -13,7 +13,15 @@ public class ObjectWithOnlyOptionalProps {
     
         // NotAnyTypeSchema
     }
-    public record class B implements Schema {
+    
+    
+    public record A(LinkedHashSet<Class<?>> type) implements Schema {
+        public static A withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new A(type);
+        }
+    }    public record class B implements Schema {
         public static NumberSchema withDefaults() {
             return NumberSchema.withDefaults();
         }

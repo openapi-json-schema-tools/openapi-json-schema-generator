@@ -24,4 +24,13 @@ public class Whale {
             return Schema.validate(BooleanSchema.class, arg, configuration);
         }
     }
-}
+    
+    
+    public record ClassName(LinkedHashSet<Class<?>> type) implements Schema {
+        public static ClassName withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new ClassName(type);
+        }
+    
+    }}

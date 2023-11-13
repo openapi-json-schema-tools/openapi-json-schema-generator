@@ -15,7 +15,48 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             return Schema.validate(MapSchema.class, arg, configuration);
         }
     }
-    public record class Model6 implements Schema {
+    
+    
+    public record Model1(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Model1 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Model1(type);
+        }
+    }    
+    
+    public record Model2(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Model2 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Model2(type);
+        }
+    }    
+    
+    public record Model3(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Model3 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            // FileIO,
+            // bytes,
+            return new Model3(type);
+        }
+    }    
+    
+    public record Model4(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Model4 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Model4(type);
+        }
+    }    
+    
+    public record Model5(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Model5 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Model5(type);
+        }
+    }    public record class Model6 implements Schema {
         public static MapSchema withDefaults() {
             return MapSchema.withDefaults();
         }
@@ -33,7 +74,15 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             return Schema.validate(BooleanSchema.class, arg, configuration);
         }
     }
-    public record class Items implements Schema {
+    
+    
+    public record Model8(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Model8 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+                type(None),
+            return new Model8(type);
+        }
+    }    public record class Items implements Schema {
         public static AnyTypeSchema withDefaults() {
             return AnyTypeSchema.withDefaults();
         }

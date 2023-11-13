@@ -61,7 +61,24 @@ public class Order {
             return Schema.validate(Int32Schema.class, Integer.parseInt(arg.toString()), configuration);
         }
     }
-    public record class Complete implements Schema {
+    
+    
+    public record ShipDate(LinkedHashSet<Class<?>> type) implements Schema {
+        public static ShipDate withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new ShipDate(type);
+        }
+    }    
+    
+    public record Status(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Status withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Status(type);
+        }
+    
+    }    public record class Complete implements Schema {
         public static BooleanSchema withDefaults() {
             return BooleanSchema.withDefaults();
         }

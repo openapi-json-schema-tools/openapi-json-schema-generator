@@ -13,4 +13,12 @@ public class MyObjectDto {
     
         // NotAnyTypeSchema
     }
-}
+    
+    
+    public record Id(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Id withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Id(type);
+        }
+    }}

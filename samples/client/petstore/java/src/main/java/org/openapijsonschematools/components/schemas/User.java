@@ -27,7 +27,55 @@ public class User {
             return Schema.validate(Int64Schema.class, Long.parseLong(arg.toString()), configuration);
         }
     }
-    public record class UserStatus implements Schema {
+    
+    
+    public record Username(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Username withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Username(type);
+        }
+    }    
+    
+    public record FirstName(LinkedHashSet<Class<?>> type) implements Schema {
+        public static FirstName withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new FirstName(type);
+        }
+    }    
+    
+    public record LastName(LinkedHashSet<Class<?>> type) implements Schema {
+        public static LastName withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new LastName(type);
+        }
+    }    
+    
+    public record Email(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Email withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Email(type);
+        }
+    }    
+    
+    public record Password(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Password withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Password(type);
+        }
+    }    
+    
+    public record Phone(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Phone withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Phone(type);
+        }
+    }    public record class UserStatus implements Schema {
         public static Int32Schema withDefaults() {
             return Int32Schema.withDefaults();
         }
@@ -49,4 +97,12 @@ public class User {
             return Schema.validate(MapSchema.class, arg, configuration);
         }
     }
-}
+    
+    
+    public record Not(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Not withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+                type(None),
+            return new Not(type);
+        }
+    }}

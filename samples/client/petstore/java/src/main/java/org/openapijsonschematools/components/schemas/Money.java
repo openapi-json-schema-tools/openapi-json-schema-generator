@@ -13,4 +13,12 @@ public class Money {
     
         // NotAnyTypeSchema
     }
-}
+    
+    
+    public record Amount(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Amount withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Amount(type);
+        }
+    }}

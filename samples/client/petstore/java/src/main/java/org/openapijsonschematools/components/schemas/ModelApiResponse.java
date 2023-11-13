@@ -19,4 +19,20 @@ public class ModelApiResponse {
             return Schema.validate(Int32Schema.class, Integer.parseInt(arg.toString()), configuration);
         }
     }
-}
+    
+    
+    public record Type(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Type withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Type(type);
+        }
+    }    
+    
+    public record Message(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Message withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Message(type);
+        }
+    }}

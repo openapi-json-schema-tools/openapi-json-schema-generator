@@ -13,4 +13,21 @@ public class JSONPatchRequestRemove {
     
         // NotAnyTypeSchema
     }
-}
+    
+    
+    public record Path(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Path withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Path(type);
+        }
+    }    
+    
+    public record Op(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Op withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Op(type);
+        }
+    
+    }}

@@ -27,4 +27,12 @@ public class Category {
             return Schema.validate(Int64Schema.class, Long.parseLong(arg.toString()), configuration);
         }
     }
-}
+    
+    
+    public record Name(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Name withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Name(type);
+        }
+    }}

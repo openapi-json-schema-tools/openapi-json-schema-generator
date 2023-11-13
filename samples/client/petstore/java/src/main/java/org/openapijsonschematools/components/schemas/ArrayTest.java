@@ -6,7 +6,15 @@ import org.openapijsonschematools.schemas.AnyTypeSchema;
 import java.util.LinkedHashSet;
 public class ArrayTest {
     // nest classes so all schemas and input/output classes can be public
-    public record class Items3 implements Schema {
+    
+    
+    public record Items(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Items withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Items(type);
+        }
+    }    public record class Items3 implements Schema {
         public static Int64Schema withDefaults() {
             return Int64Schema.withDefaults();
         }

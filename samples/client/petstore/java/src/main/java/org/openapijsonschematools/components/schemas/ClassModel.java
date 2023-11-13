@@ -6,4 +6,12 @@ import org.openapijsonschematools.schemas.AnyTypeSchema;
 import java.util.LinkedHashSet;
 public class ClassModel {
     // nest classes so all schemas and input/output classes can be public
-}
+    
+    
+    public record ModelClass(LinkedHashSet<Class<?>> type) implements Schema {
+        public static ModelClass withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new ModelClass(type);
+        }
+    }}

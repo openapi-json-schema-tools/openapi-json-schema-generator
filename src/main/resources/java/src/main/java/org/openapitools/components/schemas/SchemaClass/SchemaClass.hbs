@@ -41,7 +41,7 @@
                                 {{/or}}
                             {{else}}
                                 {{#or allOf anyOf oneOf not if_ then else_ enumInfo constInfo defaultValue (neq maxLength null) (neq minLength null) patternInfo }}
-{{!> components/schemas/schema_cls/_schema_string }}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_string }}
                                 {{else}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
                                 {{/or}}

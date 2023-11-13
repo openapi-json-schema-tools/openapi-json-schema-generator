@@ -6,7 +6,15 @@ import org.openapijsonschematools.schemas.AnyTypeSchema;
 import java.util.LinkedHashSet;
 public class ObjectWithNonIntersectingValues {
     // nest classes so all schemas and input/output classes can be public
-    public record class A implements Schema {
+    
+    
+    public record AdditionalProperties(LinkedHashSet<Class<?>> type) implements Schema {
+        public static AdditionalProperties withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new AdditionalProperties(type);
+        }
+    }    public record class A implements Schema {
         public static NumberSchema withDefaults() {
             return NumberSchema.withDefaults();
         }

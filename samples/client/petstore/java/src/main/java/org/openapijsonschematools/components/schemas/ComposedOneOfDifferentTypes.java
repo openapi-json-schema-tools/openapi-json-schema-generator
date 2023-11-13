@@ -6,7 +6,23 @@ import org.openapijsonschematools.schemas.AnyTypeSchema;
 import java.util.LinkedHashSet;
 public class ComposedOneOfDifferentTypes {
     // nest classes so all schemas and input/output classes can be public
-    public record class Items implements Schema {
+    
+    
+    public record Model2(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Model2 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+                type(None),
+            return new Model2(type);
+        }
+    }    
+    
+    public record Model3(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Model3 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Model3(type);
+        }
+    }    public record class Items implements Schema {
         public static AnyTypeSchema withDefaults() {
             return AnyTypeSchema.withDefaults();
         }
@@ -55,4 +71,12 @@ public class ComposedOneOfDifferentTypes {
             return Schema.validate(AnyTypeSchema.class, arg, configuration);
         }
     }
-}
+    
+    
+    public record Model6(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Model6 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Model6(type);
+        }
+    }}

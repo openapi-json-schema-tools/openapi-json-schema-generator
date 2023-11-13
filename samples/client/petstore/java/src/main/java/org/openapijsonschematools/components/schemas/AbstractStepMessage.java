@@ -6,4 +6,12 @@ import org.openapijsonschematools.schemas.AnyTypeSchema;
 import java.util.LinkedHashSet;
 public class AbstractStepMessage {
     // nest classes so all schemas and input/output classes can be public
-}
+    
+    
+    public record Discriminator(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Discriminator withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Discriminator(type);
+        }
+    }}

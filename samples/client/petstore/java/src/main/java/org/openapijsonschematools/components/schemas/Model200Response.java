@@ -19,4 +19,12 @@ public class Model200Response {
             return Schema.validate(Int32Schema.class, Integer.parseInt(arg.toString()), configuration);
         }
     }
-}
+    
+    
+    public record ModelClass(LinkedHashSet<Class<?>> type) implements Schema {
+        public static ModelClass withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new ModelClass(type);
+        }
+    }}

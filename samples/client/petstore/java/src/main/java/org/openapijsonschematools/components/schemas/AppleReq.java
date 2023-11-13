@@ -13,7 +13,15 @@ public class AppleReq {
     
         // NotAnyTypeSchema
     }
-    public record class Mealy implements Schema {
+    
+    
+    public record Cultivar(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Cultivar withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Cultivar(type);
+        }
+    }    public record class Mealy implements Schema {
         public static BooleanSchema withDefaults() {
             return BooleanSchema.withDefaults();
         }

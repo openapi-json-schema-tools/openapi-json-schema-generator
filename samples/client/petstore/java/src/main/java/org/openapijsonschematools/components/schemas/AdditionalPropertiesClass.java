@@ -6,7 +6,23 @@ import org.openapijsonschematools.schemas.AnyTypeSchema;
 import java.util.LinkedHashSet;
 public class AdditionalPropertiesClass {
     // nest classes so all schemas and input/output classes can be public
-    public record class Anytype1 implements Schema {
+    
+    
+    public record AdditionalProperties(LinkedHashSet<Class<?>> type) implements Schema {
+        public static AdditionalProperties withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new AdditionalProperties(type);
+        }
+    }    
+    
+    public record AdditionalProperties3(LinkedHashSet<Class<?>> type) implements Schema {
+        public static AdditionalProperties3 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new AdditionalProperties3(type);
+        }
+    }    public record class Anytype1 implements Schema {
         public static AnyTypeSchema withDefaults() {
             return AnyTypeSchema.withDefaults();
         }
@@ -129,4 +145,12 @@ public class AdditionalPropertiesClass {
     
         // NotAnyTypeSchema
     }
-}
+    
+    
+    public record AdditionalProperties6(LinkedHashSet<Class<?>> type) implements Schema {
+        public static AdditionalProperties6 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new AdditionalProperties6(type);
+        }
+    }}

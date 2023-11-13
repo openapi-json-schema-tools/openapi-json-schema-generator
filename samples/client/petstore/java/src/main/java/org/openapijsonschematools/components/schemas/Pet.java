@@ -27,4 +27,29 @@ public class Pet {
             return Schema.validate(Int64Schema.class, Long.parseLong(arg.toString()), configuration);
         }
     }
-}
+    
+    
+    public record Name(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Name withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Name(type);
+        }
+    }    
+    
+    public record Items(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Items withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Items(type);
+        }
+    }    
+    
+    public record Status(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Status withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Status(type);
+        }
+    
+    }}
