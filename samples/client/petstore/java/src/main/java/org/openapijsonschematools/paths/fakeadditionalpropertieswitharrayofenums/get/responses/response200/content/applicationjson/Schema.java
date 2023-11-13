@@ -1,0 +1,1 @@
+package org.openapijsonschematools.paths.fakeadditionalpropertieswitharrayofenums.get.responses.response200.content.applicationjson;

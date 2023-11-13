@@ -829,4 +829,13 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     public String toModelFilename(String name, String jsonPath) {
         return toModelName(name, jsonPath);
     }
+
+    @Override
+    public String toResponseModuleName(String componentName, String jsonPath) {
+        if (jsonPath.startsWith("#/components/responses/")) {
+            return toModuleFilename(componentName, jsonPath);
+        }
+        return toModuleFilename("response"+componentName, jsonPath);
+    }
+
 }
