@@ -28,7 +28,7 @@
                     {{else}}
                         {{#eq this "boolean"}}
                             {{#or allOf anyOf oneOf not if_ then else_ enumInfo constInfo }}
-{{!> components/schemas/schema_cls/_schema_boolean }}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_boolean }}
                             {{else}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
                             {{/or}}
