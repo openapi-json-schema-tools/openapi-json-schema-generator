@@ -1,0 +1,1 @@
+package org.openapijsonschematools.paths.fakerefscomposedoneofnumberwithvalidations.post.requestbody.content.applicationjson;

@@ -1,0 +1,1 @@
+package org.openapijsonschematools.paths.fakerefsboolean.post.requestbody.content.applicationjson;
