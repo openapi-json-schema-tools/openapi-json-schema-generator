@@ -14,6 +14,9 @@ public class ReadOnlyFirst {
             type.add(String.class);
             return new Bar(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Bar.class, arg, configuration);
+        }
     }    
     
     public record Baz(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -21,5 +24,8 @@ public class ReadOnlyFirst {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new Baz(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Baz.class, arg, configuration);
         }
     }}

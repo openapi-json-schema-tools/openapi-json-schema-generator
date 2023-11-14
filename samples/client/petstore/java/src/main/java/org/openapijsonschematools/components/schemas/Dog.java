@@ -14,4 +14,7 @@ public class Dog {
             type.add(String.class);
             return new Breed(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Breed.class, arg, configuration);
+        }
     }}

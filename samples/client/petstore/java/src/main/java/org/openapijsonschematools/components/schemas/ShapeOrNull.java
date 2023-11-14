@@ -14,4 +14,7 @@ public class ShapeOrNull {
                 type(None),
             return new Schema0(type);
         }
+        public static Void validate(Void arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Schema0.class, arg, configuration);
+        }
     }}

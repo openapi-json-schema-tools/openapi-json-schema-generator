@@ -14,6 +14,9 @@ public class Apple {
             type.add(String.class);
             return new Cultivar(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Cultivar.class, arg, configuration);
+        }
     }    
     
     public record Origin(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -21,5 +24,8 @@ public class Apple {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new Origin(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Origin.class, arg, configuration);
         }
     }}

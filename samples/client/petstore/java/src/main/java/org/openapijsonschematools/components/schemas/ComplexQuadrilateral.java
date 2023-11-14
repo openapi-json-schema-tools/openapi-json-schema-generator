@@ -14,5 +14,7 @@ public class ComplexQuadrilateral {
             type.add(String.class);
             return new QuadrilateralType(type);
         }
-    
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(QuadrilateralType.class, arg, configuration);
+        }
     }}

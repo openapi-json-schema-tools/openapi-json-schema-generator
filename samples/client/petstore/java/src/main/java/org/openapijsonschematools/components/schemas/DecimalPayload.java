@@ -20,4 +20,7 @@ public class DecimalPayload {
             type.add(String.class);
             return new DecimalPayload2(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(DecimalPayload2.class, arg, configuration);
+        }
     }}

@@ -37,6 +37,9 @@ public class Schema {
             type.add(String.class);
             return new StringSchema(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(StringSchema.class, arg, configuration);
+        }
     }    
     
     public record PatternWithoutDelimiter(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -45,6 +48,9 @@ public class Schema {
             type.add(String.class);
             return new PatternWithoutDelimiter(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(PatternWithoutDelimiter.class, arg, configuration);
+        }
     }    
     
     public record ByteSchema(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -52,6 +58,9 @@ public class Schema {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new ByteSchema(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ByteSchema.class, arg, configuration);
         }
     }    
     
@@ -62,6 +71,8 @@ public class Schema {
             // bytes,
             return new Binary(type);
         }
+        // FileIO,
+        // bytes,
     }    
     
     public record Date(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -69,6 +80,9 @@ public class Schema {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new Date(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Date.class, arg, configuration);
         }
     }    
     
@@ -78,6 +92,9 @@ public class Schema {
             type.add(String.class);
             return new DateTime(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(DateTime.class, arg, configuration);
+        }
     }    
     
     public record Password(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -86,6 +103,9 @@ public class Schema {
             type.add(String.class);
             return new Password(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Password.class, arg, configuration);
+        }
     }    
     
     public record Callback(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -93,5 +113,8 @@ public class Schema {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new Callback(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Callback.class, arg, configuration);
         }
     }}

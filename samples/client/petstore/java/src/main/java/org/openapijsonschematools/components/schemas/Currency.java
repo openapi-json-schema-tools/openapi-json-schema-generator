@@ -20,5 +20,7 @@ public class Currency {
             type.add(String.class);
             return new Currency2(type);
         }
-    
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Currency2.class, arg, configuration);
+        }
     }}

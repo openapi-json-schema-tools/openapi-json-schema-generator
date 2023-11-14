@@ -14,4 +14,7 @@ public class ChildCat {
             type.add(String.class);
             return new Name(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Name.class, arg, configuration);
+        }
     }}

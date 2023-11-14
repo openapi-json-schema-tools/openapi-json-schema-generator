@@ -20,4 +20,7 @@ public class UUIDString {
             type.add(String.class);
             return new UUIDString2(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(UUIDString2.class, arg, configuration);
+        }
     }}

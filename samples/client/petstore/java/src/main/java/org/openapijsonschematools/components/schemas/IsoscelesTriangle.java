@@ -14,5 +14,7 @@ public class IsoscelesTriangle {
             type.add(String.class);
             return new TriangleType(type);
         }
-    
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(TriangleType.class, arg, configuration);
+        }
     }}

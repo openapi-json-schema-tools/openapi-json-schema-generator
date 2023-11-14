@@ -14,4 +14,7 @@ public class GrandparentAnimal {
             type.add(String.class);
             return new PetType(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(PetType.class, arg, configuration);
+        }
     }}

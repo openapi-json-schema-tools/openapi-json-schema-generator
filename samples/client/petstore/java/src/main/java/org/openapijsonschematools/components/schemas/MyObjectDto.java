@@ -23,4 +23,7 @@ public class MyObjectDto {
             type.add(String.class);
             return new Id(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Id.class, arg, configuration);
+        }
     }}

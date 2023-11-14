@@ -14,4 +14,7 @@ public class NullableShape {
                 type(None),
             return new Schema2(type);
         }
+        public static Void validate(Void arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Schema2.class, arg, configuration);
+        }
     }}

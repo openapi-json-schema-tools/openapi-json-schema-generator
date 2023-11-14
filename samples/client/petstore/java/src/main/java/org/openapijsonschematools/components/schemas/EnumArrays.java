@@ -14,7 +14,9 @@ public class EnumArrays {
             type.add(String.class);
             return new JustSymbol(type);
         }
-    
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(JustSymbol.class, arg, configuration);
+        }
     }    
     
     public record Items(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -23,5 +25,7 @@ public class EnumArrays {
             type.add(String.class);
             return new Items(type);
         }
-    
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Items.class, arg, configuration);
+        }
     }}

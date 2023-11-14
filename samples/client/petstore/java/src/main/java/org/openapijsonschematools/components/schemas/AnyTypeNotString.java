@@ -14,4 +14,7 @@ public class AnyTypeNotString {
             type.add(String.class);
             return new Not(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Not.class, arg, configuration);
+        }
     }}

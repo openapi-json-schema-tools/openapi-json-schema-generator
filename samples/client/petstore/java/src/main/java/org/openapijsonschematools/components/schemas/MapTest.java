@@ -14,6 +14,9 @@ public class MapTest {
             type.add(String.class);
             return new AdditionalProperties2(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+        }
     }    
     
     public record AdditionalProperties3(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -22,7 +25,9 @@ public class MapTest {
             type.add(String.class);
             return new AdditionalProperties3(type);
         }
-    
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties3.class, arg, configuration);
+        }
     }    
     
     public record AdditionalProperties4 implements JsonSchema {

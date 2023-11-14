@@ -20,4 +20,7 @@ public class DateTimeWithValidations {
             type.add(String.class);
             return new DateTimeWithValidations2(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(DateTimeWithValidations2.class, arg, configuration);
+        }
     }}

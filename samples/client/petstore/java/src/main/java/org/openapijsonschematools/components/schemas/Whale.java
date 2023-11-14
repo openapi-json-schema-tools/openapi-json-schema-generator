@@ -36,5 +36,7 @@ public class Whale {
             type.add(String.class);
             return new ClassName(type);
         }
-    
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ClassName.class, arg, configuration);
+        }
     }}

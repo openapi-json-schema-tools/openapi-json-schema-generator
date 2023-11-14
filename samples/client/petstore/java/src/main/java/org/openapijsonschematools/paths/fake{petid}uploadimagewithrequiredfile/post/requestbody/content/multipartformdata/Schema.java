@@ -14,6 +14,9 @@ public class Schema {
             type.add(String.class);
             return new AdditionalMetadata(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalMetadata.class, arg, configuration);
+        }
     }    
     
     public record RequiredFile(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -23,4 +26,6 @@ public class Schema {
             // bytes,
             return new RequiredFile(type);
         }
+        // FileIO,
+        // bytes,
     }}

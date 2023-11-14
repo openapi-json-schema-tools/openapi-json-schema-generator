@@ -14,4 +14,7 @@ public class File {
             type.add(String.class);
             return new SourceURI(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(SourceURI.class, arg, configuration);
+        }
     }}

@@ -44,4 +44,7 @@ public class Name {
             type.add(String.class);
             return new Property(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Property.class, arg, configuration);
+        }
     }}

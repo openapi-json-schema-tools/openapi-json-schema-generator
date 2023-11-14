@@ -20,4 +20,7 @@ public class DateTimeTest {
             type.add(String.class);
             return new DateTimeTest2(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(DateTimeTest2.class, arg, configuration);
+        }
     }}

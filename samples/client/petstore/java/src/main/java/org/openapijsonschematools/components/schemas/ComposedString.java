@@ -71,4 +71,7 @@ public class ComposedString {
             type.add(String.class);
             return new ComposedString2(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ComposedString2.class, arg, configuration);
+        }
     }}

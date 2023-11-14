@@ -14,4 +14,7 @@ public class ObjectWithInlineCompositionProperty {
             type.add(String.class);
             return new Schema0(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Schema0.class, arg, configuration);
+        }
     }}

@@ -14,4 +14,7 @@ public class ObjWithRequiredPropsBase {
             type.add(String.class);
             return new B(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(B.class, arg, configuration);
+        }
     }}

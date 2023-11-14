@@ -14,6 +14,9 @@ public class AdditionalPropertiesClass {
             type.add(String.class);
             return new AdditionalProperties(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties.class, arg, configuration);
+        }
     }    
     
     public record AdditionalProperties3(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -21,6 +24,9 @@ public class AdditionalPropertiesClass {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new AdditionalProperties3(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties3.class, arg, configuration);
         }
     }    
     
@@ -162,5 +168,8 @@ public class AdditionalPropertiesClass {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new AdditionalProperties6(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties6.class, arg, configuration);
         }
     }}

@@ -14,7 +14,9 @@ public class QuadrilateralInterface {
             type.add(String.class);
             return new ShapeType(type);
         }
-    
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ShapeType.class, arg, configuration);
+        }
     }    
     
     public record QuadrilateralType(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -22,5 +24,8 @@ public class QuadrilateralInterface {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new QuadrilateralType(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(QuadrilateralType.class, arg, configuration);
         }
     }}

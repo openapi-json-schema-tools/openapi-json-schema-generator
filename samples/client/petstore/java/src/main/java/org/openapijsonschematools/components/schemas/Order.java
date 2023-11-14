@@ -75,6 +75,9 @@ public class Order {
             type.add(String.class);
             return new ShipDate(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ShipDate.class, arg, configuration);
+        }
     }    
     
     public record Status(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -83,7 +86,9 @@ public class Order {
             type.add(String.class);
             return new Status(type);
         }
-    
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Status.class, arg, configuration);
+        }
     }    
     
     public record Complete implements JsonSchema {

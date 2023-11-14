@@ -37,6 +37,9 @@ public class User {
             type.add(String.class);
             return new Username(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Username.class, arg, configuration);
+        }
     }    
     
     public record FirstName(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -44,6 +47,9 @@ public class User {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new FirstName(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(FirstName.class, arg, configuration);
         }
     }    
     
@@ -53,6 +59,9 @@ public class User {
             type.add(String.class);
             return new LastName(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(LastName.class, arg, configuration);
+        }
     }    
     
     public record Email(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -60,6 +69,9 @@ public class User {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new Email(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Email.class, arg, configuration);
         }
     }    
     
@@ -69,6 +81,9 @@ public class User {
             type.add(String.class);
             return new Password(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Password.class, arg, configuration);
+        }
     }    
     
     public record Phone(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -76,6 +91,9 @@ public class User {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new Phone(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Phone.class, arg, configuration);
         }
     }    
     
@@ -110,5 +128,8 @@ public class User {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
                 type(None),
             return new Not(type);
+        }
+        public static Void validate(Void arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Not.class, arg, configuration);
         }
     }}

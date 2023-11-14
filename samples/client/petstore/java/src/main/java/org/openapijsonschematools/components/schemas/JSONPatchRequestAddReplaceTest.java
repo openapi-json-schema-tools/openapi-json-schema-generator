@@ -23,6 +23,9 @@ public class JSONPatchRequestAddReplaceTest {
             type.add(String.class);
             return new Path(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Path.class, arg, configuration);
+        }
     }    
     
     public record Op(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -31,5 +34,7 @@ public class JSONPatchRequestAddReplaceTest {
             type.add(String.class);
             return new Op(type);
         }
-    
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Op.class, arg, configuration);
+        }
     }}

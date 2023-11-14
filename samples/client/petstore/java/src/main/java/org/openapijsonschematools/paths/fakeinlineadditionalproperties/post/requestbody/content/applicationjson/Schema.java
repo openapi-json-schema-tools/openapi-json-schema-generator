@@ -14,4 +14,7 @@ public class Schema {
             type.add(String.class);
             return new AdditionalProperties(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties.class, arg, configuration);
+        }
     }}

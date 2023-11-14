@@ -37,6 +37,9 @@ public class Pet {
             type.add(String.class);
             return new Name(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Name.class, arg, configuration);
+        }
     }    
     
     public record Items(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -44,6 +47,9 @@ public class Pet {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new Items(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Items.class, arg, configuration);
         }
     }    
     
@@ -53,5 +59,7 @@ public class Pet {
             type.add(String.class);
             return new Status(type);
         }
-    
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Status.class, arg, configuration);
+        }
     }}

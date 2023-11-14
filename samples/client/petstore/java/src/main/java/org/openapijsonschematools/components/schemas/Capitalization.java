@@ -14,6 +14,9 @@ public class Capitalization {
             type.add(String.class);
             return new SmallCamel(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(SmallCamel.class, arg, configuration);
+        }
     }    
     
     public record CapitalCamel(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -21,6 +24,9 @@ public class Capitalization {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new CapitalCamel(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(CapitalCamel.class, arg, configuration);
         }
     }    
     
@@ -30,6 +36,9 @@ public class Capitalization {
             type.add(String.class);
             return new SmallSnake(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(SmallSnake.class, arg, configuration);
+        }
     }    
     
     public record CapitalSnake(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -37,6 +46,9 @@ public class Capitalization {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new CapitalSnake(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(CapitalSnake.class, arg, configuration);
         }
     }    
     
@@ -46,6 +58,9 @@ public class Capitalization {
             type.add(String.class);
             return new SCAETHFlowPoints(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(SCAETHFlowPoints.class, arg, configuration);
+        }
     }    
     
     public record ATTNAME(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -53,5 +68,8 @@ public class Capitalization {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new ATTNAME(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ATTNAME.class, arg, configuration);
         }
     }}

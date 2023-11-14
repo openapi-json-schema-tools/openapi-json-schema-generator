@@ -25,6 +25,9 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             type.add(String.class);
             return new Schema1(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Schema1.class, arg, configuration);
+        }
     }    
     
     public record Schema2(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -32,6 +35,9 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new Schema2(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Schema2.class, arg, configuration);
         }
     }    
     
@@ -42,6 +48,8 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             // bytes,
             return new Schema3(type);
         }
+        // FileIO,
+        // bytes,
     }    
     
     public record Schema4(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -50,6 +58,9 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             type.add(String.class);
             return new Schema4(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Schema4.class, arg, configuration);
+        }
     }    
     
     public record Schema5(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -57,6 +68,9 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new Schema5(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Schema5.class, arg, configuration);
         }
     }    
     
@@ -87,6 +101,9 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
                 type(None),
             return new Schema8(type);
+        }
+        public static Void validate(Void arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Schema8.class, arg, configuration);
         }
     }    
     

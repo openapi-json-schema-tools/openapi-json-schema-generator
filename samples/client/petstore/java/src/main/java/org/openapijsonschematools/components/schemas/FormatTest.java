@@ -97,6 +97,9 @@ public class FormatTest {
             type.add(String.class);
             return new StringSchema(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(StringSchema.class, arg, configuration);
+        }
     }    
     
     public record ByteSchema(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -104,6 +107,9 @@ public class FormatTest {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new ByteSchema(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ByteSchema.class, arg, configuration);
         }
     }    
     
@@ -114,6 +120,8 @@ public class FormatTest {
             // bytes,
             return new Binary(type);
         }
+        // FileIO,
+        // bytes,
     }    
     
     public record Date(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -121,6 +129,9 @@ public class FormatTest {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new Date(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Date.class, arg, configuration);
         }
     }    
     
@@ -130,6 +141,9 @@ public class FormatTest {
             type.add(String.class);
             return new DateTime(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(DateTime.class, arg, configuration);
+        }
     }    
     
     public record UuidSchema(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -137,6 +151,9 @@ public class FormatTest {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new UuidSchema(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(UuidSchema.class, arg, configuration);
         }
     }    
     
@@ -146,6 +163,9 @@ public class FormatTest {
             type.add(String.class);
             return new UuidNoExample(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(UuidNoExample.class, arg, configuration);
+        }
     }    
     
     public record Password(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -153,6 +173,9 @@ public class FormatTest {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new Password(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Password.class, arg, configuration);
         }
     }    
     
@@ -162,6 +185,9 @@ public class FormatTest {
             type.add(String.class);
             return new PatternWithDigits(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(PatternWithDigits.class, arg, configuration);
+        }
     }    
     
     public record PatternWithDigitsAndDelimiter(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -170,6 +196,9 @@ public class FormatTest {
             type.add(String.class);
             return new PatternWithDigitsAndDelimiter(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(PatternWithDigitsAndDelimiter.class, arg, configuration);
+        }
     }    
     
     public record NoneProp(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -177,5 +206,8 @@ public class FormatTest {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
                 type(None),
             return new NoneProp(type);
+        }
+        public static Void validate(Void arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(NoneProp.class, arg, configuration);
         }
     }}

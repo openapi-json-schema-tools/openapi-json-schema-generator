@@ -23,6 +23,9 @@ public class JSONPatchRequestMoveCopy {
             type.add(String.class);
             return new From(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(From.class, arg, configuration);
+        }
     }    
     
     public record Path(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -30,6 +33,9 @@ public class JSONPatchRequestMoveCopy {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new Path(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Path.class, arg, configuration);
         }
     }    
     
@@ -39,5 +45,7 @@ public class JSONPatchRequestMoveCopy {
             type.add(String.class);
             return new Op(type);
         }
-    
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Op.class, arg, configuration);
+        }
     }}

@@ -14,6 +14,9 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             type.add(String.class);
             return new UuidSchema(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(UuidSchema.class, arg, configuration);
+        }
     }    
     
     public record DateTime(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -21,5 +24,8 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new DateTime(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(DateTime.class, arg, configuration);
         }
     }}

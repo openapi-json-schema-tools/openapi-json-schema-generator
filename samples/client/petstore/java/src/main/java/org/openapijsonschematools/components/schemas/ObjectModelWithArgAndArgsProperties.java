@@ -14,6 +14,9 @@ public class ObjectModelWithArgAndArgsProperties {
             type.add(String.class);
             return new Arg(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Arg.class, arg, configuration);
+        }
     }    
     
     public record Args(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -21,5 +24,8 @@ public class ObjectModelWithArgAndArgsProperties {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new Args(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Args.class, arg, configuration);
         }
     }}

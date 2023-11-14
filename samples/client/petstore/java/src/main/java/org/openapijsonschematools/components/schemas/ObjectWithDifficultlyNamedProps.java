@@ -37,6 +37,9 @@ public class ObjectWithDifficultlyNamedProps {
             type.add(String.class);
             return new Schema123List(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Schema123List.class, arg, configuration);
+        }
     }    
     
     public record Schema123Number implements JsonSchema {

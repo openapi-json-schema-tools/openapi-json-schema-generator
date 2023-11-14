@@ -14,4 +14,7 @@ public class ObjectWithDecimalProperties {
             type.add(String.class);
             return new Width(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Width.class, arg, configuration);
+        }
     }}

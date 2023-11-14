@@ -14,7 +14,9 @@ public class EnumTest {
             type.add(String.class);
             return new EnumString(type);
         }
-    
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(EnumString.class, arg, configuration);
+        }
     }    
     
     public record EnumStringRequired(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -23,5 +25,7 @@ public class EnumTest {
             type.add(String.class);
             return new EnumStringRequired(type);
         }
-    
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(EnumStringRequired.class, arg, configuration);
+        }
     }}

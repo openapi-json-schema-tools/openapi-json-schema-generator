@@ -14,4 +14,7 @@ public class PublicKey {
             type.add(String.class);
             return new Key(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Key.class, arg, configuration);
+        }
     }}

@@ -14,7 +14,9 @@ public class TriangleInterface {
             type.add(String.class);
             return new ShapeType(type);
         }
-    
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ShapeType.class, arg, configuration);
+        }
     }    
     
     public record TriangleType(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -22,5 +24,8 @@ public class TriangleInterface {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new TriangleType(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(TriangleType.class, arg, configuration);
         }
     }}

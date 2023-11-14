@@ -20,4 +20,7 @@ public class StringWithValidation {
             type.add(String.class);
             return new StringWithValidation2(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(StringWithValidation2.class, arg, configuration);
+        }
     }}

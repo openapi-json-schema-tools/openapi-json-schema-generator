@@ -14,4 +14,7 @@ public class Fruit {
             type.add(String.class);
             return new Color(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Color.class, arg, configuration);
+        }
     }}

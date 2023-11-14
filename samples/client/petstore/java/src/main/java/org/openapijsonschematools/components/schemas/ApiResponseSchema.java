@@ -29,6 +29,9 @@ public class ApiResponseSchema {
             type.add(String.class);
             return new Type(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Type.class, arg, configuration);
+        }
     }    
     
     public record Message(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -36,5 +39,8 @@ public class ApiResponseSchema {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new Message(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Message.class, arg, configuration);
         }
     }}

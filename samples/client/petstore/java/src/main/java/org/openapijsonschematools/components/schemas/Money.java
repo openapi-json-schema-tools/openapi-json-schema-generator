@@ -23,4 +23,7 @@ public class Money {
             type.add(String.class);
             return new Amount(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Amount.class, arg, configuration);
+        }
     }}

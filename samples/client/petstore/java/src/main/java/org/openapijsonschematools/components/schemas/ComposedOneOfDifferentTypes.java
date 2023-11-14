@@ -14,6 +14,9 @@ public class ComposedOneOfDifferentTypes {
                 type(None),
             return new Schema2(type);
         }
+        public static Void validate(Void arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Schema2.class, arg, configuration);
+        }
     }    
     
     public record Schema3(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -21,6 +24,9 @@ public class ComposedOneOfDifferentTypes {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new Schema3(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Schema3.class, arg, configuration);
         }
     }    
     
@@ -80,5 +86,8 @@ public class ComposedOneOfDifferentTypes {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new Schema6(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Schema6.class, arg, configuration);
         }
     }}

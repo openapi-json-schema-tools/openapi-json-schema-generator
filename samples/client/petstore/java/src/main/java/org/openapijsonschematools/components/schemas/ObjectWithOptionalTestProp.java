@@ -14,4 +14,7 @@ public class ObjectWithOptionalTestProp {
             type.add(String.class);
             return new Test(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Test.class, arg, configuration);
+        }
     }}

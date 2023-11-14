@@ -14,6 +14,9 @@ public class FromSchema {
             type.add(String.class);
             return new Data(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Data.class, arg, configuration);
+        }
     }    
     
     public record Id implements JsonSchema {

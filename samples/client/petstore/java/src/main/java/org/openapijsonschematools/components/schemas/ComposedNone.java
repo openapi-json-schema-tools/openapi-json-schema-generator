@@ -71,4 +71,7 @@ public class ComposedNone {
                 type(None),
             return new ComposedNone2(type);
         }
+        public static Void validate(Void arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ComposedNone2.class, arg, configuration);
+        }
     }}

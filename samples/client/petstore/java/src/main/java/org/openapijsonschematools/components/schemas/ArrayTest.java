@@ -14,6 +14,9 @@ public class ArrayTest {
             type.add(String.class);
             return new Items(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Items.class, arg, configuration);
+        }
     }    
     
     public record Items3 implements JsonSchema {

@@ -14,6 +14,9 @@ public class Animal {
             type.add(String.class);
             return new ClassName(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ClassName.class, arg, configuration);
+        }
     }    
     
     public record Color(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -21,5 +24,8 @@ public class Animal {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new Color(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Color.class, arg, configuration);
         }
     }}

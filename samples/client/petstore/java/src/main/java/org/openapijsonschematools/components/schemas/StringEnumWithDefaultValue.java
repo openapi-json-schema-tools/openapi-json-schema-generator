@@ -20,5 +20,7 @@ public class StringEnumWithDefaultValue {
             type.add(String.class);
             return new StringEnumWithDefaultValue2(type);
         }
-    
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(StringEnumWithDefaultValue2.class, arg, configuration);
+        }
     }}

@@ -14,4 +14,7 @@ public class AbstractStepMessage {
             type.add(String.class);
             return new Discriminator(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Discriminator.class, arg, configuration);
+        }
     }}

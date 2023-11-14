@@ -14,7 +14,9 @@ public class Schema {
             type.add(String.class);
             return new Items(type);
         }
-    
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Items.class, arg, configuration);
+        }
     }    
     
     public record EnumFormString(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -23,5 +25,7 @@ public class Schema {
             type.add(String.class);
             return new EnumFormString(type);
         }
-    
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(EnumFormString.class, arg, configuration);
+        }
     }}

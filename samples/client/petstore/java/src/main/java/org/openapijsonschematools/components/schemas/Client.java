@@ -14,4 +14,7 @@ public class Client {
             type.add(String.class);
             return new Client3(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Client3.class, arg, configuration);
+        }
     }}

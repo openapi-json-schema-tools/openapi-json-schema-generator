@@ -29,4 +29,7 @@ public class Schema200Response {
             type.add(String.class);
             return new ClassSchema(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ClassSchema.class, arg, configuration);
+        }
     }}

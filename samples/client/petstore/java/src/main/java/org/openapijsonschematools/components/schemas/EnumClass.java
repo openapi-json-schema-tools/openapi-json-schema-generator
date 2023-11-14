@@ -20,5 +20,7 @@ public class EnumClass {
             type.add(String.class);
             return new EnumClass2(type);
         }
-    
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(EnumClass2.class, arg, configuration);
+        }
     }}

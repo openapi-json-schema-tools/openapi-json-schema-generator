@@ -20,4 +20,7 @@ public class StringSchema {
             type.add(String.class);
             return new StringSchema2(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(StringSchema2.class, arg, configuration);
+        }
     }}

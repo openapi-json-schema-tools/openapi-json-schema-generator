@@ -14,6 +14,9 @@ public class HasOnlyReadOnly {
             type.add(String.class);
             return new Bar(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Bar.class, arg, configuration);
+        }
     }    
     
     public record Foo(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -21,5 +24,8 @@ public class HasOnlyReadOnly {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new Foo(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Foo.class, arg, configuration);
         }
     }}

@@ -59,8 +59,5 @@ public record {{jsonPathPiece.camelCase}}(LinkedHashSet<Class<?>> type) implemen
 {{#if else_}}
     {{!> components/schemas/schema_cls/_else }}
 {{/if}}
-{{#or enumInfo constInfo}}
-
-    {{!> components/schemas/schema_cls/validate/validate }}
-{{/or}}
+    {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_validate }}
 }

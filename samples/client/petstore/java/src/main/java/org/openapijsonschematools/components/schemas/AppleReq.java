@@ -23,6 +23,9 @@ public class AppleReq {
             type.add(String.class);
             return new Cultivar(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Cultivar.class, arg, configuration);
+        }
     }    
     
     public record Mealy implements JsonSchema {

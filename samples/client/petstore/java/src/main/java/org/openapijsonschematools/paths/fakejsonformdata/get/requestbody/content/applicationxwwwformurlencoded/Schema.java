@@ -14,6 +14,9 @@ public class Schema {
             type.add(String.class);
             return new Param(type);
         }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Param.class, arg, configuration);
+        }
     }    
     
     public record Param2(LinkedHashSet<Class<?>> type) implements JsonSchema {
@@ -21,5 +24,8 @@ public class Schema {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             return new Param2(type);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Param2.class, arg, configuration);
         }
     }}
