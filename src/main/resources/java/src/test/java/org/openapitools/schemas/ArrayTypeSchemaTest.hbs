@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 
-record ArrayWithItemsSchema(LinkedHashSet<Class<?>> type, Class<?> items) implements Schema {
+record ArrayWithItemsSchema(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
     public static ArrayWithItemsSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         // can't use ImmutableList because it does not allow null values in entries
@@ -20,7 +20,7 @@ record ArrayWithItemsSchema(LinkedHashSet<Class<?>> type, Class<?> items) implem
     }
 
     public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
-        return Schema.validate(ArrayWithItemsSchema.class, arg, configuration);
+        return JsonSchema.validate(ArrayWithItemsSchema.class, arg, configuration);
     }
 }
 
@@ -34,7 +34,7 @@ class ArrayWithOutputClsSchemaList extends FrozenList<String> {
     }
 }
 
-record ArrayWithOutputClsSchema(LinkedHashSet<Class<?>> type, Class<?> items) implements Schema {
+record ArrayWithOutputClsSchema(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
     public static ArrayWithOutputClsSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         // can't use ImmutableList because it does not allow null values in entries
@@ -49,7 +49,7 @@ record ArrayWithOutputClsSchema(LinkedHashSet<Class<?>> type, Class<?> items) im
     }
 
     public static ArrayWithOutputClsSchemaList validate(List<Object> arg, SchemaConfiguration configuration) {
-        return Schema.validate(ArrayWithOutputClsSchema.class, arg, configuration);
+        return JsonSchema.validate(ArrayWithOutputClsSchema.class, arg, configuration);
     }
 }
 
@@ -58,7 +58,7 @@ public class ArrayTypeSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(RuntimeException.class, () -> Schema.validate(
+        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validate(
                 ArrayWithItemsSchema.class, (Void) null, configuration
         ));
     }

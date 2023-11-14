@@ -36,7 +36,7 @@ public class NumberSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(RuntimeException.class, () -> Schema.validate(
+        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validate(
                 NumberSchema.class, (Void) null, configuration
         ));
     }

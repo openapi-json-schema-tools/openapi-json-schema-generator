@@ -14,7 +14,7 @@ public class MapSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(RuntimeException.class, () -> Schema.validate(
+        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validate(
                 MapSchema.class, (Void) null, configuration
         ));
     }

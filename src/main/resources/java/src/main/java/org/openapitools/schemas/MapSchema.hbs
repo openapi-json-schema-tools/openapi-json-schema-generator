@@ -5,7 +5,7 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 import java.util.LinkedHashSet;
 import java.util.Map;
 
-public record MapSchema(LinkedHashSet<Class<?>> type) implements Schema {
+public record MapSchema(LinkedHashSet<Class<?>> type) implements JsonSchema {
     public static MapSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         // can't use ImmutableMap because it does not allow null values in entries
@@ -15,6 +15,6 @@ public record MapSchema(LinkedHashSet<Class<?>> type) implements Schema {
     }
 
     public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-        return Schema.validate(MapSchema.class, arg, configuration);
+        return JsonSchema.validate(MapSchema.class, arg, configuration);
     }
 }

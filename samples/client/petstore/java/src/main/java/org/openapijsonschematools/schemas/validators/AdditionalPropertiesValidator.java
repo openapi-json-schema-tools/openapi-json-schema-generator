@@ -1,7 +1,7 @@
 package org.openapijsonschematools.schemas.validators;
 
 import org.openapijsonschematools.schemas.PathToSchemasMap;
-import org.openapijsonschematools.schemas.Schema;
+import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.SchemaValidator;
 import org.openapijsonschematools.schemas.ValidationMetadata;
 
@@ -19,8 +19,8 @@ public class AdditionalPropertiesValidator implements KeywordValidator {
             return null;
         }
         Map<String, Object> castArg = (Map<String, Object>) arg;
-        Class<Schema> addPropSchema = (Class<Schema>) constraint;
-        Map<String, Class<Schema>> properties = (Map<String, Class<Schema>>) extra;
+        Class<JsonSchema> addPropSchema = (Class<JsonSchema>) constraint;
+        Map<String, Class<JsonSchema>> properties = (Map<String, Class<JsonSchema>>) extra;
         if (properties == null) {
             properties = new LinkedHashMap<>();
         }

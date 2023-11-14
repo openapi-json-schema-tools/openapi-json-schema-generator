@@ -4,7 +4,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 
 import java.util.LinkedHashSet;
 
-public record NullSchema(LinkedHashSet<Class<?>> type) implements Schema {
+public record NullSchema(LinkedHashSet<Class<?>> type) implements JsonSchema {
     public static NullSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         type.add(Void.class);
@@ -12,6 +12,6 @@ public record NullSchema(LinkedHashSet<Class<?>> type) implements Schema {
     }
 
     public static Void validate(Void arg, SchemaConfiguration configuration) {
-        return Schema.validate(NullSchema.class, arg, configuration);
+        return JsonSchema.validate(NullSchema.class, arg, configuration);
     }
 }

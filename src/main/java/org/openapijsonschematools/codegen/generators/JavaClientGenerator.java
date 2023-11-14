@@ -293,7 +293,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         schemaSupportingFiles.add("NumberSchema");
         schemaSupportingFiles.add("PathToSchemasMap");
         schemaSupportingFiles.add("PathToTypeMap");
-        schemaSupportingFiles.add("Schema");
+        schemaSupportingFiles.add("JsonSchema");
         schemaSupportingFiles.add("SchemaValidator");
         schemaSupportingFiles.add("StringSchema");
         schemaSupportingFiles.add("UnsetAnyTypeSchema");

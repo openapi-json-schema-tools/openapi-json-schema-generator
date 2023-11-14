@@ -1,7 +1,7 @@
 package org.openapijsonschematools.schemas.validators;
 
 import org.openapijsonschematools.schemas.PathToSchemasMap;
-import org.openapijsonschematools.schemas.Schema;
+import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.SchemaValidator;
 import org.openapijsonschematools.schemas.ValidationMetadata;
 
@@ -19,14 +19,14 @@ public class PropertiesValidator implements KeywordValidator {
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         Map<String, Object> castArg = (Map<String, Object>) arg;
-        Map<String, Class<Schema>> properties = (Map<String, Class<Schema>>) constraint;
+        Map<String, Class<JsonSchema>> properties = (Map<String, Class<JsonSchema>>) constraint;
         Set<String> presentProperties = new LinkedHashSet<>(castArg.keySet());
         presentProperties.retainAll(properties.keySet());
         for(String propName: presentProperties) {
             Object propValue = castArg.get(propName);
             List<Object> propPathToItem = new ArrayList<>(validationMetadata.pathToItem());
             propPathToItem.add(propName);
-            Class<Schema> propSchema = properties.get(propName);
+            Class<JsonSchema> propSchema = properties.get(propName);
             ValidationMetadata propValidationMetadata = new ValidationMetadata(
                     propPathToItem,
                     validationMetadata.configuration(),

@@ -1,7 +1,7 @@
 package org.openapijsonschematools.schemas.validators;
 
 import org.openapijsonschematools.schemas.PathToSchemasMap;
-import org.openapijsonschematools.schemas.Schema;
+import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.SchemaValidator;
 import org.openapijsonschematools.schemas.ValidationMetadata;
 
@@ -15,7 +15,7 @@ public class ItemsValidator implements KeywordValidator {
             return null;
         }
         List<Object> castArg = (List<Object>) arg;
-        Class<Schema> itemsSchema = (Class<Schema>) constraint;
+        Class<JsonSchema> itemsSchema = (Class<JsonSchema>) constraint;
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         // todo add handling for prefixItems
         int i = 0;

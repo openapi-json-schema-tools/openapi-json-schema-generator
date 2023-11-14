@@ -5,7 +5,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import java.util.LinkedHashSet;
 import java.time.LocalDate;
 
-public record DateSchema(LinkedHashSet<Class<?>> type, String format) implements Schema {
+public record DateSchema(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
     public static DateSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         type.add(String.class);
@@ -14,10 +14,10 @@ public record DateSchema(LinkedHashSet<Class<?>> type, String format) implements
     }
 
     public static String validate(String arg, SchemaConfiguration configuration) {
-        return Schema.validate(DateSchema.class, arg, configuration);
+        return JsonSchema.validate(DateSchema.class, arg, configuration);
     }
 
     public static String validate(LocalDate arg, SchemaConfiguration configuration) {
-        return Schema.validate(DateSchema.class, arg, configuration);
+        return JsonSchema.validate(DateSchema.class, arg, configuration);
     }
 }

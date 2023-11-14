@@ -9,7 +9,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 
-record ObjectWithPropsSchema(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements Schema {
+record ObjectWithPropsSchema(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements JsonSchema {
     public static ObjectWithPropsSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         // can't use ImmutableMap because it does not allow null values in entries
@@ -21,11 +21,11 @@ record ObjectWithPropsSchema(LinkedHashSet<Class<?>> type, LinkedHashMap<String,
     }
 
     public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-        return Schema.validate(ObjectWithPropsSchema.class, arg, configuration);
+        return JsonSchema.validate(ObjectWithPropsSchema.class, arg, configuration);
     }
 }
 
-record ObjectWithAddpropsSchema(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements Schema {
+record ObjectWithAddpropsSchema(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
     public static ObjectWithAddpropsSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         // can't use ImmutableMap because it does not allow null values in entries
@@ -36,11 +36,11 @@ record ObjectWithAddpropsSchema(LinkedHashSet<Class<?>> type, Class<?> additiona
     }
 
     public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-        return Schema.validate(ObjectWithAddpropsSchema.class, arg, configuration);
+        return JsonSchema.validate(ObjectWithAddpropsSchema.class, arg, configuration);
     }
 }
 
-record ObjectWithPropsAndAddpropsSchema(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Class<?> additionalProperties) implements Schema {
+record ObjectWithPropsAndAddpropsSchema(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Class<?> additionalProperties) implements JsonSchema {
     public static ObjectWithPropsAndAddpropsSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         // can't use ImmutableMap because it does not allow null values in entries
@@ -53,7 +53,7 @@ record ObjectWithPropsAndAddpropsSchema(LinkedHashSet<Class<?>> type, LinkedHash
     }
 
     public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-        return Schema.validate(ObjectWithPropsAndAddpropsSchema.class, arg, configuration);
+        return JsonSchema.validate(ObjectWithPropsAndAddpropsSchema.class, arg, configuration);
     }
 }
 
@@ -68,7 +68,7 @@ class ObjectWithOutputTypeSchemaMap extends FrozenMap<String, Object> {
 }
 
 
-record ObjectWithOutputTypeSchema(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements Schema {
+record ObjectWithOutputTypeSchema(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements JsonSchema {
     public static ObjectWithOutputTypeSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         type.add(FrozenMap.class);
@@ -82,7 +82,7 @@ record ObjectWithOutputTypeSchema(LinkedHashSet<Class<?>> type, LinkedHashMap<St
     }
 
     public static ObjectWithOutputTypeSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-        return Schema.validate(ObjectWithOutputTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(ObjectWithOutputTypeSchema.class, arg, configuration);
     }
 }
 
@@ -91,7 +91,7 @@ public class ObjectTypeSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(RuntimeException.class, () -> Schema.validate(
+        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validate(
                 ObjectWithPropsSchema.class, (Void) null, configuration
         ));
     }

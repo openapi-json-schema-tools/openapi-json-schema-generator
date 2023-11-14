@@ -4,7 +4,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 
 import java.util.LinkedHashSet;
 
-public record DecimalSchema(LinkedHashSet<Class<?>> type, String format) implements Schema {
+public record DecimalSchema(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
     public static DecimalSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         type.add(String.class);
@@ -13,6 +13,6 @@ public record DecimalSchema(LinkedHashSet<Class<?>> type, String format) impleme
     }
 
     public static String validate(String arg, SchemaConfiguration configuration) {
-        return Schema.validate(DecimalSchema.class, arg, configuration);
+        return JsonSchema.validate(DecimalSchema.class, arg, configuration);
     }
 }

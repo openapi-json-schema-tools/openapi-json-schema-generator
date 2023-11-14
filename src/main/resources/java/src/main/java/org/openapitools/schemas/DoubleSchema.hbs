@@ -4,7 +4,7 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 
 import java.util.LinkedHashSet;
 
-public record DoubleSchema(LinkedHashSet<Class<?>> type, String format) implements Schema {
+public record DoubleSchema(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
     public static DoubleSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         type.add(Double.class);
@@ -13,6 +13,6 @@ public record DoubleSchema(LinkedHashSet<Class<?>> type, String format) implemen
     }
 
     public static Double validate(Double arg, SchemaConfiguration configuration) {
-        return Schema.validate(DoubleSchema.class, arg, configuration);
+        return JsonSchema.validate(DoubleSchema.class, arg, configuration);
     }
 }

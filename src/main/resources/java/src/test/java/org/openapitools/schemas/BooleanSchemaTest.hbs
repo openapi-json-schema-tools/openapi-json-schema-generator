@@ -22,7 +22,7 @@ public class BooleanSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(RuntimeException.class, () -> Schema.validate(
+        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validate(
                 BooleanSchema.class, (Void) null, configuration
         ));
     }

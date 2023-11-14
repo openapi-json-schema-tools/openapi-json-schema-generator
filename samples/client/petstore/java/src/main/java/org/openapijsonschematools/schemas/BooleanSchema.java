@@ -4,7 +4,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 
 import java.util.LinkedHashSet;
 
-public record BooleanSchema(LinkedHashSet<Class<?>> type) implements Schema {
+public record BooleanSchema(LinkedHashSet<Class<?>> type) implements JsonSchema {
     public static BooleanSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         type.add(Boolean.class);
@@ -12,6 +12,6 @@ public record BooleanSchema(LinkedHashSet<Class<?>> type) implements Schema {
     }
 
     public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-        return Schema.validate(BooleanSchema.class, arg, configuration);
+        return JsonSchema.validate(BooleanSchema.class, arg, configuration);
     }
 }

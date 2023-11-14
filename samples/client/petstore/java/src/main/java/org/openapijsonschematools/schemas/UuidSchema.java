@@ -5,7 +5,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import java.util.LinkedHashSet;
 import java.util.UUID;
 
-public record UuidSchema(LinkedHashSet<Class<?>> type, String format) implements Schema {
+public record UuidSchema(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
     public static UuidSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         type.add(String.class);
@@ -14,10 +14,10 @@ public record UuidSchema(LinkedHashSet<Class<?>> type, String format) implements
     }
 
     public static String validate(String arg, SchemaConfiguration configuration) {
-        return Schema.validate(UuidSchema.class, arg, configuration);
+        return JsonSchema.validate(UuidSchema.class, arg, configuration);
     }
 
     public static String validate(UUID arg, SchemaConfiguration configuration) {
-        return Schema.validate(UuidSchema.class, arg, configuration);
+        return JsonSchema.validate(UuidSchema.class, arg, configuration);
     }
 }
