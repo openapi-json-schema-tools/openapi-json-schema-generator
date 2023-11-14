@@ -2,13 +2,27 @@ package org.openapijsonschematools.components.schemas;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.AnyTypeSchema;
+import org.openapijsonschematools.schemas.BooleanSchema;
+import org.openapijsonschematools.schemas.DateSchema;
+import org.openapijsonschematools.schemas.DateTimeSchema;
+import org.openapijsonschematools.schemas.DecimalSchema;
+import org.openapijsonschematools.schemas.DoubleSchema;
+import org.openapijsonschematools.schemas.FloatSchema;
+import org.openapijsonschematools.schemas.Int32Schema;
+import org.openapijsonschematools.schemas.Int64Schema;
+import org.openapijsonschematools.schemas.IntSchema;
+import org.openapijsonschematools.schemas.ListSchema;
+import org.openapijsonschematools.schemas.MapSchema;
+import org.openapijsonschematools.schemas.NullSchema;
+import org.openapijsonschematools.schemas.NumberSchema;
+import org.openapijsonschematools.schemas.StringSchema;
 
 import java.util.LinkedHashSet;
 public class ComposedAnyOfDifferentTypesNoValidations {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Schema0 implements JsonSchema {
+    public record Schema0() implements JsonSchema {
         public static MapSchema withDefaults() {
             return MapSchema.withDefaults();
         }
@@ -74,7 +88,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         }
     }    
     
-    public record Schema6 implements JsonSchema {
+    public record Schema6() implements JsonSchema {
         public static MapSchema withDefaults() {
             return MapSchema.withDefaults();
         }
@@ -85,7 +99,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record Schema7 implements JsonSchema {
+    public record Schema7() implements JsonSchema {
         public static BooleanSchema withDefaults() {
             return BooleanSchema.withDefaults();
         }
@@ -107,7 +121,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         }
     }    
     
-    public record Items implements JsonSchema {
+    public record Items() implements JsonSchema {
         public static AnyTypeSchema withDefaults() {
             return AnyTypeSchema.withDefaults();
         }
@@ -158,7 +172,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record Schema10 implements JsonSchema {
+    public record Schema10() implements JsonSchema {
         public static NumberSchema withDefaults() {
             return NumberSchema.withDefaults();
         }
@@ -181,7 +195,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record Schema11 implements JsonSchema {
+    public record Schema11() implements JsonSchema {
         public static FloatSchema withDefaults() {
             return FloatSchema.withDefaults();
         }
@@ -192,7 +206,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record Schema12 implements JsonSchema {
+    public record Schema12() implements JsonSchema {
         public static DoubleSchema withDefaults() {
             return DoubleSchema.withDefaults();
         }
@@ -203,7 +217,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record Schema13 implements JsonSchema {
+    public record Schema13() implements JsonSchema {
         public static IntSchema withDefaults() {
             return IntSchema.withDefaults();
         }
@@ -226,7 +240,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record Schema14 implements JsonSchema {
+    public record Schema14() implements JsonSchema {
         public static Int32Schema withDefaults() {
             return Int32Schema.withDefaults();
         }
@@ -241,7 +255,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record Schema15 implements JsonSchema {
+    public record Schema15() implements JsonSchema {
         public static Int64Schema withDefaults() {
             return Int64Schema.withDefaults();
         }

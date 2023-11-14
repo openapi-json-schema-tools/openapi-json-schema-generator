@@ -2,13 +2,27 @@ package org.openapijsonschematools.components.schemas;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.AnyTypeSchema;
+import org.openapijsonschematools.schemas.BooleanSchema;
+import org.openapijsonschematools.schemas.DateSchema;
+import org.openapijsonschematools.schemas.DateTimeSchema;
+import org.openapijsonschematools.schemas.DecimalSchema;
+import org.openapijsonschematools.schemas.DoubleSchema;
+import org.openapijsonschematools.schemas.FloatSchema;
+import org.openapijsonschematools.schemas.Int32Schema;
+import org.openapijsonschematools.schemas.Int64Schema;
+import org.openapijsonschematools.schemas.IntSchema;
+import org.openapijsonschematools.schemas.ListSchema;
+import org.openapijsonschematools.schemas.MapSchema;
+import org.openapijsonschematools.schemas.NullSchema;
+import org.openapijsonschematools.schemas.NumberSchema;
+import org.openapijsonschematools.schemas.StringSchema;
 
 import java.util.LinkedHashSet;
 public class FormatTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Int32 implements JsonSchema {
+    public record Int32() implements JsonSchema {
         public static Int32Schema withDefaults() {
             return Int32Schema.withDefaults();
         }
@@ -23,7 +37,7 @@ public class FormatTest {
     }
     
     
-    public record Int64 implements JsonSchema {
+    public record Int64() implements JsonSchema {
         public static Int64Schema withDefaults() {
             return Int64Schema.withDefaults();
         }
@@ -46,7 +60,7 @@ public class FormatTest {
     }
     
     
-    public record Float32 implements JsonSchema {
+    public record Float32() implements JsonSchema {
         public static FloatSchema withDefaults() {
             return FloatSchema.withDefaults();
         }
@@ -57,7 +71,7 @@ public class FormatTest {
     }
     
     
-    public record Float64 implements JsonSchema {
+    public record Float64() implements JsonSchema {
         public static DoubleSchema withDefaults() {
             return DoubleSchema.withDefaults();
         }
@@ -68,7 +82,7 @@ public class FormatTest {
     }
     
     
-    public record Items implements JsonSchema {
+    public record Items() implements JsonSchema {
         public static NumberSchema withDefaults() {
             return NumberSchema.withDefaults();
         }

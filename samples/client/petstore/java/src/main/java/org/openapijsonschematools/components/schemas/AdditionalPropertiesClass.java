@@ -2,6 +2,20 @@ package org.openapijsonschematools.components.schemas;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.AnyTypeSchema;
+import org.openapijsonschematools.schemas.BooleanSchema;
+import org.openapijsonschematools.schemas.DateSchema;
+import org.openapijsonschematools.schemas.DateTimeSchema;
+import org.openapijsonschematools.schemas.DecimalSchema;
+import org.openapijsonschematools.schemas.DoubleSchema;
+import org.openapijsonschematools.schemas.FloatSchema;
+import org.openapijsonschematools.schemas.Int32Schema;
+import org.openapijsonschematools.schemas.Int64Schema;
+import org.openapijsonschematools.schemas.IntSchema;
+import org.openapijsonschematools.schemas.ListSchema;
+import org.openapijsonschematools.schemas.MapSchema;
+import org.openapijsonschematools.schemas.NullSchema;
+import org.openapijsonschematools.schemas.NumberSchema;
+import org.openapijsonschematools.schemas.StringSchema;
 
 import java.util.LinkedHashSet;
 public class AdditionalPropertiesClass {
@@ -30,7 +44,7 @@ public class AdditionalPropertiesClass {
         }
     }    
     
-    public record Anytype1 implements JsonSchema {
+    public record Anytype1() implements JsonSchema {
         public static AnyTypeSchema withDefaults() {
             return AnyTypeSchema.withDefaults();
         }
@@ -81,7 +95,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public record MapWithUndeclaredPropertiesAnytype1 implements JsonSchema {
+    public record MapWithUndeclaredPropertiesAnytype1() implements JsonSchema {
         public static MapSchema withDefaults() {
             return MapSchema.withDefaults();
         }
@@ -92,7 +106,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public record MapWithUndeclaredPropertiesAnytype2 implements JsonSchema {
+    public record MapWithUndeclaredPropertiesAnytype2() implements JsonSchema {
         public static MapSchema withDefaults() {
             return MapSchema.withDefaults();
         }
@@ -103,7 +117,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public record AdditionalProperties4 implements JsonSchema {
+    public record AdditionalProperties4() implements JsonSchema {
         public static AnyTypeSchema withDefaults() {
             return AnyTypeSchema.withDefaults();
         }
@@ -154,7 +168,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public record AdditionalProperties5 implements JsonSchema {
+    public record AdditionalProperties5() implements JsonSchema {
         public static NotAnyTypeSchema withDefaults() {
             return NotAnyTypeSchema.withDefaults();
         }
