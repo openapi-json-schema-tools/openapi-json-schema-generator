@@ -8,7 +8,7 @@ public class ObjectWithCollidingProperties {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class SomeProp implements JsonSchema {
+    public record SomeProp implements JsonSchema {
         public static MapSchema withDefaults() {
             return MapSchema.withDefaults();
         }
@@ -19,7 +19,7 @@ public class ObjectWithCollidingProperties {
     }
     
     
-    public record class Someprop implements JsonSchema {
+    public record Someprop implements JsonSchema {
         public static MapSchema withDefaults() {
             return MapSchema.withDefaults();
         }

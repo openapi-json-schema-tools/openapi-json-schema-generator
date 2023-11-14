@@ -8,7 +8,7 @@ public class ObjectWithOnlyOptionalProps {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class AdditionalProperties implements JsonSchema {
+    public record AdditionalProperties implements JsonSchema {
         public static NotAnyTypeSchema withDefaults() {
             return NotAnyTypeSchema.withDefaults();
         }
@@ -25,7 +25,7 @@ public class ObjectWithOnlyOptionalProps {
         }
     }    
     
-    public record class B implements JsonSchema {
+    public record B implements JsonSchema {
         public static NumberSchema withDefaults() {
             return NumberSchema.withDefaults();
         }

@@ -8,7 +8,7 @@ public class Pet {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class Id implements JsonSchema {
+    public record Id implements JsonSchema {
         public static Int64Schema withDefaults() {
             return Int64Schema.withDefaults();
         }

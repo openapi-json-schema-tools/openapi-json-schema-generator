@@ -8,7 +8,7 @@ public class ArrayOfArrayOfNumberOnly {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class Items2 implements JsonSchema {
+    public record Items2 implements JsonSchema {
         public static NumberSchema withDefaults() {
             return NumberSchema.withDefaults();
         }

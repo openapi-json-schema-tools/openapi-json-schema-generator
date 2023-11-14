@@ -8,7 +8,7 @@ public class ComposedString {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class Schema0 implements JsonSchema {
+    public record Schema0 implements JsonSchema {
         public static AnyTypeSchema withDefaults() {
             return AnyTypeSchema.withDefaults();
         }

@@ -16,7 +16,7 @@ public class FromSchema {
         }
     }    
     
-    public record class Id implements JsonSchema {
+    public record Id implements JsonSchema {
         public static IntSchema withDefaults() {
             return IntSchema.withDefaults();
         }

@@ -8,7 +8,7 @@ public class Order {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class Id implements JsonSchema {
+    public record Id implements JsonSchema {
         public static Int64Schema withDefaults() {
             return Int64Schema.withDefaults();
         }
@@ -31,7 +31,7 @@ public class Order {
     }
     
     
-    public record class PetId implements JsonSchema {
+    public record PetId implements JsonSchema {
         public static Int64Schema withDefaults() {
             return Int64Schema.withDefaults();
         }
@@ -54,7 +54,7 @@ public class Order {
     }
     
     
-    public record class Quantity implements JsonSchema {
+    public record Quantity implements JsonSchema {
         public static Int32Schema withDefaults() {
             return Int32Schema.withDefaults();
         }
@@ -86,7 +86,7 @@ public class Order {
     
     }    
     
-    public record class Complete implements JsonSchema {
+    public record Complete implements JsonSchema {
         public static BooleanSchema withDefaults() {
             return BooleanSchema.withDefaults();
         }

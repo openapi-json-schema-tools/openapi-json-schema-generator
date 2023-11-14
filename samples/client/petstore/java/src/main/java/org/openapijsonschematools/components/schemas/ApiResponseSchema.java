@@ -8,7 +8,7 @@ public class ApiResponseSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class Code implements JsonSchema {
+    public record Code implements JsonSchema {
         public static Int32Schema withDefaults() {
             return Int32Schema.withDefaults();
         }

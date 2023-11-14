@@ -8,7 +8,7 @@ public class Cat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class Declawed implements JsonSchema {
+    public record Declawed implements JsonSchema {
         public static BooleanSchema withDefaults() {
             return BooleanSchema.withDefaults();
         }

@@ -8,7 +8,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class Schema0 implements JsonSchema {
+    public record Schema0 implements JsonSchema {
         public static MapSchema withDefaults() {
             return MapSchema.withDefaults();
         }
@@ -60,7 +60,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         }
     }    
     
-    public record class Schema6 implements JsonSchema {
+    public record Schema6 implements JsonSchema {
         public static MapSchema withDefaults() {
             return MapSchema.withDefaults();
         }
@@ -71,7 +71,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record class Schema7 implements JsonSchema {
+    public record Schema7 implements JsonSchema {
         public static BooleanSchema withDefaults() {
             return BooleanSchema.withDefaults();
         }
@@ -90,7 +90,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         }
     }    
     
-    public record class Items implements JsonSchema {
+    public record Items implements JsonSchema {
         public static AnyTypeSchema withDefaults() {
             return AnyTypeSchema.withDefaults();
         }
@@ -141,7 +141,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record class Schema10 implements JsonSchema {
+    public record Schema10 implements JsonSchema {
         public static NumberSchema withDefaults() {
             return NumberSchema.withDefaults();
         }
@@ -164,7 +164,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record class Schema11 implements JsonSchema {
+    public record Schema11 implements JsonSchema {
         public static FloatSchema withDefaults() {
             return FloatSchema.withDefaults();
         }
@@ -175,7 +175,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record class Schema12 implements JsonSchema {
+    public record Schema12 implements JsonSchema {
         public static DoubleSchema withDefaults() {
             return DoubleSchema.withDefaults();
         }
@@ -186,7 +186,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record class Schema13 implements JsonSchema {
+    public record Schema13 implements JsonSchema {
         public static IntSchema withDefaults() {
             return IntSchema.withDefaults();
         }
@@ -209,7 +209,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record class Schema14 implements JsonSchema {
+    public record Schema14 implements JsonSchema {
         public static Int32Schema withDefaults() {
             return Int32Schema.withDefaults();
         }
@@ -224,7 +224,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record class Schema15 implements JsonSchema {
+    public record Schema15 implements JsonSchema {
         public static Int64Schema withDefaults() {
             return Int64Schema.withDefaults();
         }

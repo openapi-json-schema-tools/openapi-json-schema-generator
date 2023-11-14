@@ -8,7 +8,7 @@ public class Number {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class Number2 implements JsonSchema {
+    public record Number2 implements JsonSchema {
         public static NumberSchema withDefaults() {
             return NumberSchema.withDefaults();
         }

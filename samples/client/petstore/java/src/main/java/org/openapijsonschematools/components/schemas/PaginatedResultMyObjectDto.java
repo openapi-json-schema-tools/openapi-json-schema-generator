@@ -8,7 +8,7 @@ public class PaginatedResultMyObjectDto {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class AdditionalProperties implements JsonSchema {
+    public record AdditionalProperties implements JsonSchema {
         public static NotAnyTypeSchema withDefaults() {
             return NotAnyTypeSchema.withDefaults();
         }
@@ -17,7 +17,7 @@ public class PaginatedResultMyObjectDto {
     }
     
     
-    public record class Count implements JsonSchema {
+    public record Count implements JsonSchema {
         public static IntSchema withDefaults() {
             return IntSchema.withDefaults();
         }

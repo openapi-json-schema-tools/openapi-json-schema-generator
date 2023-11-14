@@ -8,7 +8,7 @@ public class Schema200Response {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class Name implements JsonSchema {
+    public record Name implements JsonSchema {
         public static Int32Schema withDefaults() {
             return Int32Schema.withDefaults();
         }

@@ -8,7 +8,7 @@ public class Whale {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class HasBaleen implements JsonSchema {
+    public record HasBaleen implements JsonSchema {
         public static BooleanSchema withDefaults() {
             return BooleanSchema.withDefaults();
         }
@@ -19,7 +19,7 @@ public class Whale {
     }
     
     
-    public record class HasTeeth implements JsonSchema {
+    public record HasTeeth implements JsonSchema {
         public static BooleanSchema withDefaults() {
             return BooleanSchema.withDefaults();
         }

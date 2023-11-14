@@ -25,7 +25,7 @@ public class MapTest {
     
     }    
     
-    public record class AdditionalProperties4 implements JsonSchema {
+    public record AdditionalProperties4 implements JsonSchema {
         public static BooleanSchema withDefaults() {
             return BooleanSchema.withDefaults();
         }

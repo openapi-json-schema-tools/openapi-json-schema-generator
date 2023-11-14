@@ -8,7 +8,7 @@ public class NullableClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class Items implements JsonSchema {
+    public record Items implements JsonSchema {
         public static MapSchema withDefaults() {
             return MapSchema.withDefaults();
         }
@@ -19,7 +19,7 @@ public class NullableClass {
     }
     
     
-    public record class AdditionalProperties implements JsonSchema {
+    public record AdditionalProperties implements JsonSchema {
         public static MapSchema withDefaults() {
             return MapSchema.withDefaults();
         }

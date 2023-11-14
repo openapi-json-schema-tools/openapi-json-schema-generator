@@ -8,7 +8,7 @@ public class FormatTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class Int32 implements JsonSchema {
+    public record Int32 implements JsonSchema {
         public static Int32Schema withDefaults() {
             return Int32Schema.withDefaults();
         }
@@ -23,7 +23,7 @@ public class FormatTest {
     }
     
     
-    public record class Int64 implements JsonSchema {
+    public record Int64 implements JsonSchema {
         public static Int64Schema withDefaults() {
             return Int64Schema.withDefaults();
         }
@@ -46,7 +46,7 @@ public class FormatTest {
     }
     
     
-    public record class Float32 implements JsonSchema {
+    public record Float32 implements JsonSchema {
         public static FloatSchema withDefaults() {
             return FloatSchema.withDefaults();
         }
@@ -57,7 +57,7 @@ public class FormatTest {
     }
     
     
-    public record class Float64 implements JsonSchema {
+    public record Float64 implements JsonSchema {
         public static DoubleSchema withDefaults() {
             return DoubleSchema.withDefaults();
         }
@@ -68,7 +68,7 @@ public class FormatTest {
     }
     
     
-    public record class Items implements JsonSchema {
+    public record Items implements JsonSchema {
         public static NumberSchema withDefaults() {
             return NumberSchema.withDefaults();
         }

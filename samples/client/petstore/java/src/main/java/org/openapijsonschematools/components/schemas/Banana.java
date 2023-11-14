@@ -8,7 +8,7 @@ public class Banana {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class LengthCm implements JsonSchema {
+    public record LengthCm implements JsonSchema {
         public static NumberSchema withDefaults() {
             return NumberSchema.withDefaults();
         }

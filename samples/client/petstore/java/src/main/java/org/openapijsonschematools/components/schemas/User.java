@@ -8,7 +8,7 @@ public class User {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class Id implements JsonSchema {
+    public record Id implements JsonSchema {
         public static Int64Schema withDefaults() {
             return Int64Schema.withDefaults();
         }
@@ -79,7 +79,7 @@ public class User {
         }
     }    
     
-    public record class UserStatus implements JsonSchema {
+    public record UserStatus implements JsonSchema {
         public static Int32Schema withDefaults() {
             return Int32Schema.withDefaults();
         }
@@ -94,7 +94,7 @@ public class User {
     }
     
     
-    public record class ObjectWithNoDeclaredProps implements JsonSchema {
+    public record ObjectWithNoDeclaredProps implements JsonSchema {
         public static MapSchema withDefaults() {
             return MapSchema.withDefaults();
         }

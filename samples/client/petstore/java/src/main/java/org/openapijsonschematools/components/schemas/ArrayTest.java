@@ -16,7 +16,7 @@ public class ArrayTest {
         }
     }    
     
-    public record class Items3 implements JsonSchema {
+    public record Items3 implements JsonSchema {
         public static Int64Schema withDefaults() {
             return Int64Schema.withDefaults();
         }

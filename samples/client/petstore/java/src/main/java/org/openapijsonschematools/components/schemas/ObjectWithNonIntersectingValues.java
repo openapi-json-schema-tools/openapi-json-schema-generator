@@ -16,7 +16,7 @@ public class ObjectWithNonIntersectingValues {
         }
     }    
     
-    public record class A implements JsonSchema {
+    public record A implements JsonSchema {
         public static NumberSchema withDefaults() {
             return NumberSchema.withDefaults();
         }

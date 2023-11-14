@@ -8,7 +8,7 @@ public class BananaReq {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class AdditionalProperties implements JsonSchema {
+    public record AdditionalProperties implements JsonSchema {
         public static NotAnyTypeSchema withDefaults() {
             return NotAnyTypeSchema.withDefaults();
         }
@@ -17,7 +17,7 @@ public class BananaReq {
     }
     
     
-    public record class LengthCm implements JsonSchema {
+    public record LengthCm implements JsonSchema {
         public static NumberSchema withDefaults() {
             return NumberSchema.withDefaults();
         }
@@ -40,7 +40,7 @@ public class BananaReq {
     }
     
     
-    public record class Sweet implements JsonSchema {
+    public record Sweet implements JsonSchema {
         public static BooleanSchema withDefaults() {
             return BooleanSchema.withDefaults();
         }

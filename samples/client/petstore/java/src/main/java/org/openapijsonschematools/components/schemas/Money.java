@@ -8,7 +8,7 @@ public class Money {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class AdditionalProperties implements JsonSchema {
+    public record AdditionalProperties implements JsonSchema {
         public static NotAnyTypeSchema withDefaults() {
             return NotAnyTypeSchema.withDefaults();
         }

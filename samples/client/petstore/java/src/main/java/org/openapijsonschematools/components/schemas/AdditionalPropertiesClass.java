@@ -24,7 +24,7 @@ public class AdditionalPropertiesClass {
         }
     }    
     
-    public record class Anytype1 implements JsonSchema {
+    public record Anytype1 implements JsonSchema {
         public static AnyTypeSchema withDefaults() {
             return AnyTypeSchema.withDefaults();
         }
@@ -75,7 +75,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public record class MapWithUndeclaredPropertiesAnytype1 implements JsonSchema {
+    public record MapWithUndeclaredPropertiesAnytype1 implements JsonSchema {
         public static MapSchema withDefaults() {
             return MapSchema.withDefaults();
         }
@@ -86,7 +86,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public record class MapWithUndeclaredPropertiesAnytype2 implements JsonSchema {
+    public record MapWithUndeclaredPropertiesAnytype2 implements JsonSchema {
         public static MapSchema withDefaults() {
             return MapSchema.withDefaults();
         }
@@ -97,7 +97,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public record class AdditionalProperties4 implements JsonSchema {
+    public record AdditionalProperties4 implements JsonSchema {
         public static AnyTypeSchema withDefaults() {
             return AnyTypeSchema.withDefaults();
         }
@@ -148,7 +148,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public record class AdditionalProperties5 implements JsonSchema {
+    public record AdditionalProperties5 implements JsonSchema {
         public static NotAnyTypeSchema withDefaults() {
             return NotAnyTypeSchema.withDefaults();
         }

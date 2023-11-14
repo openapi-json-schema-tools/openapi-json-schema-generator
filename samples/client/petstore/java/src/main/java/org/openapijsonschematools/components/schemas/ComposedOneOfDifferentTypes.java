@@ -24,7 +24,7 @@ public class ComposedOneOfDifferentTypes {
         }
     }    
     
-    public record class Items implements JsonSchema {
+    public record Items implements JsonSchema {
         public static AnyTypeSchema withDefaults() {
             return AnyTypeSchema.withDefaults();
         }
