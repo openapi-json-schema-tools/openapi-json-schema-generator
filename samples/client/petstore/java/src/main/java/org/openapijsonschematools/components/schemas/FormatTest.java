@@ -81,19 +81,19 @@ public class FormatTest {
     }
     
     
-    public record String(LinkedHashSet<Class<?>> type) implements Schema {
-        public static String withDefaults() {
+    public record StringSchema(LinkedHashSet<Class<?>> type) implements Schema {
+        public static StringSchema withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new String(type);
+            return new StringSchema(type);
         }
     }    
     
-    public record ModelByte(LinkedHashSet<Class<?>> type) implements Schema {
-        public static ModelByte withDefaults() {
+    public record ByteSchema(LinkedHashSet<Class<?>> type) implements Schema {
+        public static ByteSchema withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new ModelByte(type);
+            return new ByteSchema(type);
         }
     }    
     
@@ -122,11 +122,11 @@ public class FormatTest {
         }
     }    
     
-    public record Uuid(LinkedHashSet<Class<?>> type) implements Schema {
-        public static Uuid withDefaults() {
+    public record UuidSchema(LinkedHashSet<Class<?>> type) implements Schema {
+        public static UuidSchema withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Uuid(type);
+            return new UuidSchema(type);
         }
     }    
     

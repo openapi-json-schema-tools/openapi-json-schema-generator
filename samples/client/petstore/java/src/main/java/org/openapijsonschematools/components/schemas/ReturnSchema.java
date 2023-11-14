@@ -4,9 +4,9 @@ import org.openapijsonschematools.schemas.Schema;
 import org.openapijsonschematools.schemas.AnyTypeSchema;
 
 import java.util.LinkedHashSet;
-public class ModelReturn {
+public class ReturnSchema {
     // nest classes so all schemas and input/output classes can be public
-    public record class Return2 implements Schema {
+    public record class ReturnSchema2 implements Schema {
         public static Int32Schema withDefaults() {
             return Int32Schema.withDefaults();
         }

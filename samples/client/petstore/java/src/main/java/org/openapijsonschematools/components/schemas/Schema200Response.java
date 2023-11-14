@@ -4,7 +4,7 @@ import org.openapijsonschematools.schemas.Schema;
 import org.openapijsonschematools.schemas.AnyTypeSchema;
 
 import java.util.LinkedHashSet;
-public class Model200Response {
+public class Schema200Response {
     // nest classes so all schemas and input/output classes can be public
     public record class Name implements Schema {
         public static Int32Schema withDefaults() {
@@ -21,10 +21,10 @@ public class Model200Response {
     }
     
     
-    public record ModelClass(LinkedHashSet<Class<?>> type) implements Schema {
-        public static ModelClass withDefaults() {
+    public record ClassSchema(LinkedHashSet<Class<?>> type) implements Schema {
+        public static ClassSchema withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new ModelClass(type);
+            return new ClassSchema(type);
         }
     }}

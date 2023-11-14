@@ -6,7 +6,7 @@ import org.openapijsonschematools.schemas.AnyTypeSchema;
 import java.util.LinkedHashSet;
 public class ComposedString {
     // nest classes so all schemas and input/output classes can be public
-    public record class Model0 implements Schema {
+    public record class Schema0 implements Schema {
         public static AnyTypeSchema withDefaults() {
             return AnyTypeSchema.withDefaults();
         }

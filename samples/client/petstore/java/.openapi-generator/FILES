@@ -30,6 +30,7 @@ src/main/java/org/openapijsonschematools/components/schemas/Animal.java
 src/main/java/org/openapijsonschematools/components/schemas/AnimalFarm.java
 src/main/java/org/openapijsonschematools/components/schemas/AnyTypeAndFormat.java
 src/main/java/org/openapijsonschematools/components/schemas/AnyTypeNotString.java
+src/main/java/org/openapijsonschematools/components/schemas/ApiResponseSchema.java
 src/main/java/org/openapijsonschematools/components/schemas/Apple.java
 src/main/java/org/openapijsonschematools/components/schemas/AppleReq.java
 src/main/java/org/openapijsonschematools/components/schemas/ArrayHoldingAnyType.java
@@ -43,6 +44,7 @@ src/main/java/org/openapijsonschematools/components/schemas/BananaReq.java
 src/main/java/org/openapijsonschematools/components/schemas/Bar.java
 src/main/java/org/openapijsonschematools/components/schemas/BasquePig.java
 src/main/java/org/openapijsonschematools/components/schemas/BooleanEnum.java
+src/main/java/org/openapijsonschematools/components/schemas/BooleanSchema.java
 src/main/java/org/openapijsonschematools/components/schemas/Capitalization.java
 src/main/java/org/openapijsonschematools/components/schemas/Cat.java
 src/main/java/org/openapijsonschematools/components/schemas/Category.java
@@ -70,6 +72,7 @@ src/main/java/org/openapijsonschematools/components/schemas/EnumArrays.java
 src/main/java/org/openapijsonschematools/components/schemas/EnumClass.java
 src/main/java/org/openapijsonschematools/components/schemas/EnumTest.java
 src/main/java/org/openapijsonschematools/components/schemas/EquilateralTriangle.java
+src/main/java/org/openapijsonschematools/components/schemas/File.java
 src/main/java/org/openapijsonschematools/components/schemas/FileSchemaTestClass.java
 src/main/java/org/openapijsonschematools/components/schemas/Foo.java
 src/main/java/org/openapijsonschematools/components/schemas/FormatTest.java
@@ -95,11 +98,6 @@ src/main/java/org/openapijsonschematools/components/schemas/JSONPatchRequestRemo
 src/main/java/org/openapijsonschematools/components/schemas/Mammal.java
 src/main/java/org/openapijsonschematools/components/schemas/MapTest.java
 src/main/java/org/openapijsonschematools/components/schemas/MixedPropertiesAndAdditionalPropertiesClass.java
-src/main/java/org/openapijsonschematools/components/schemas/Model200Response.java
-src/main/java/org/openapijsonschematools/components/schemas/ModelApiResponse.java
-src/main/java/org/openapijsonschematools/components/schemas/ModelBoolean.java
-src/main/java/org/openapijsonschematools/components/schemas/ModelFile.java
-src/main/java/org/openapijsonschematools/components/schemas/ModelReturn.java
 src/main/java/org/openapijsonschematools/components/schemas/Money.java
 src/main/java/org/openapijsonschematools/components/schemas/MyObjectDto.java
 src/main/java/org/openapijsonschematools/components/schemas/Name.java
@@ -139,7 +137,9 @@ src/main/java/org/openapijsonschematools/components/schemas/RefPet.java
 src/main/java/org/openapijsonschematools/components/schemas/ReqPropsFromExplicitAddProps.java
 src/main/java/org/openapijsonschematools/components/schemas/ReqPropsFromTrueAddProps.java
 src/main/java/org/openapijsonschematools/components/schemas/ReqPropsFromUnsetAddProps.java
+src/main/java/org/openapijsonschematools/components/schemas/ReturnSchema.java
 src/main/java/org/openapijsonschematools/components/schemas/ScaleneTriangle.java
+src/main/java/org/openapijsonschematools/components/schemas/Schema200Response.java
 src/main/java/org/openapijsonschematools/components/schemas/SelfReferencingArrayModel.java
 src/main/java/org/openapijsonschematools/components/schemas/SelfReferencingObjectModel.java
 src/main/java/org/openapijsonschematools/components/schemas/Shape.java
@@ -147,10 +147,10 @@ src/main/java/org/openapijsonschematools/components/schemas/ShapeOrNull.java
 src/main/java/org/openapijsonschematools/components/schemas/SimpleQuadrilateral.java
 src/main/java/org/openapijsonschematools/components/schemas/SomeObject.java
 src/main/java/org/openapijsonschematools/components/schemas/SpecialModelName.java
-src/main/java/org/openapijsonschematools/components/schemas/String.java
 src/main/java/org/openapijsonschematools/components/schemas/StringBooleanMap.java
 src/main/java/org/openapijsonschematools/components/schemas/StringEnum.java
 src/main/java/org/openapijsonschematools/components/schemas/StringEnumWithDefaultValue.java
+src/main/java/org/openapijsonschematools/components/schemas/StringSchema.java
 src/main/java/org/openapijsonschematools/components/schemas/StringWithValidation.java
 src/main/java/org/openapijsonschematools/components/schemas/Tag.java
 src/main/java/org/openapijsonschematools/components/schemas/Triangle.java

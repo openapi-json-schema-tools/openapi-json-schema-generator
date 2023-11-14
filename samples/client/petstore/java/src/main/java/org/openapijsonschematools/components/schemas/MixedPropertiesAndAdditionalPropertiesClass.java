@@ -8,11 +8,11 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Uuid(LinkedHashSet<Class<?>> type) implements Schema {
-        public static Uuid withDefaults() {
+    public record UuidSchema(LinkedHashSet<Class<?>> type) implements Schema {
+        public static UuidSchema withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Uuid(type);
+            return new UuidSchema(type);
         }
     }    
     

@@ -36,6 +36,7 @@ import org.openapijsonschematools.codegen.common.ProcessUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.util.*;
 
@@ -123,6 +124,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     protected String rootJavaEEPackage;
     protected Map<String, MpRestClientVersion> mpRestClientVersions = new HashMap<>();
     protected boolean useSingleRequestParameter = false;
+    protected HashMap<String, String> schemaJsonPathToModelName = new HashMap<>();
 
     private static class MpRestClientVersion {
         public final String rootPackage;
@@ -836,6 +838,51 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             return toModuleFilename(componentName, jsonPath);
         }
         return toModuleFilename("response"+componentName, jsonPath);
+    }
+
+    @Override
+    public String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath) {
+        String usedKey = handleSpecialCharacters(name);
+        HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
+        if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
+            sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);
+        }
+        // starts with number
+        if (usedKey.matches("^\\d.*")) {
+            LOGGER.warn("{} (component name starts with number) cannot be used as name. Renamed to Schema{}", usedKey, usedKey);
+            usedKey = "Schema" + usedKey; // 200 -> Schema200
+        }
+
+        usedKey = camelize(usedKey);
+
+        // handle case where usedKey is empty
+        if (usedKey.isEmpty()) {
+            // happens with a name like "/"
+            usedKey = camelize(toEnumVarName(name, null).toLowerCase(Locale.ROOT));
+        }
+
+        if (isReservedWord(usedKey)) {
+            usedKey = usedKey + "Schema"; // e.g. return => ReturnSchema
+            LOGGER.warn("{} (reserved word) cannot be used as name. Renamed to {}", name, usedKey);
+        }
+
+        Integer qty = keyToQty.getOrDefault(usedKey, 0);
+        qty += 1;
+        keyToQty.put(usedKey, qty);
+        String suffix = "";
+        if (qty > 1) {
+            suffix = qty.toString();
+        }
+        if (qty == 1 && sourceJsonPath.endsWith("/" + name)) {
+            schemaJsonPathToModelName.put(sourceJsonPath, usedKey);
+        }
+        usedKey = usedKey + suffix;
+        return usedKey;
+    }
+
+    @Override
+    public String getSchemaFilename(String jsonPath) {
+        return schemaJsonPathToModelName.get(jsonPath);
     }
 
 }

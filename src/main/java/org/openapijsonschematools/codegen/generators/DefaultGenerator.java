@@ -123,6 +123,10 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.servers.ServerVariable;
 
+import javax.validation.constraints.NotNull;
+
+import static org.openapijsonschematools.codegen.common.StringUtils.camelize;
+
 @SuppressWarnings("rawtypes")
 public class DefaultGenerator implements Generator {
     private final Logger LOGGER = LoggerFactory.getLogger(DefaultGenerator.class);
@@ -2261,16 +2265,6 @@ public class DefaultGenerator implements Generator {
         CodegenSchema property = codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
         property.instanceType = "schema";
         property.jsonPath = currentJsonPath;
-        if (currentJsonPath != null && sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
-            property.subpackage = getSubpackage(sourceJsonPath);
-        }
-        if (currentJsonPath != null) {
-            property.moduleLocation = getModuleLocation(sourceJsonPath);
-            property.pathFromDocRoot = schemaPathFromDocRoot(property.moduleLocation);
-            if (currentJsonPath != sourceJsonPath) {
-                property.isInline = true;
-            }
-        }
 
         String ref = p.get$ref();
         // put toExampleValue in a try-catch block to log the error as example values are not critical
@@ -3727,10 +3721,20 @@ public class DefaultGenerator implements Generator {
         return modelPackage.replace('.', File.separatorChar);
     }
 
+    @Override
+    public String getSchemaFilename(String jsonPath) {
+        String[] pieces = jsonPath.split("/");
+        return pieces[pieces.length-1];
+    }
+
     private void updateComponentsFilepath(String[] pathPieces) {
         if (pathPieces.length < 3) {
             return;
         }
+        String[] originalPieces = pathPieces.clone();
+        originalPieces[0] = "#";
+        String jsonPath = String.join("/", originalPieces);
+
         // rename schemas + requestBodies
         switch (pathPieces[2]) {
             case "schemas":
@@ -3741,7 +3745,7 @@ public class DefaultGenerator implements Generator {
                 pathPieces[2] = fragments[1];
                 if (pathPieces.length == 4) {
                     // #/components/schemas/SomeSchema
-                    pathPieces[3] = toModelFilename(pathPieces[3], "#/components/schemas/"+pathPieces[3]);
+                    pathPieces[3] = getSchemaFilename(jsonPath);
                 }
                 return;
             case "requestBodies":
@@ -3761,10 +3765,10 @@ public class DefaultGenerator implements Generator {
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
                 pathPieces[5] = toContentTypeFilename(contentType);
                 if (pathPieces.length == 7) {
-                    pathPieces[6] = toModelFilename(pathPieces[6], null);
+                    pathPieces[6] = getSchemaFilename(jsonPath);
                 }
             } else if (pathPieces.length == 5 && pathPieces[4].equals("schema")) {
-                pathPieces[4] = toModelFilename(pathPieces[4], null);
+                pathPieces[4] = getSchemaFilename(jsonPath);
             }
         } else if (pathPieces[2].equals("parameters")) {
             pathPieces[3] = toParameterFilename(pathPieces[3], null);
@@ -3773,10 +3777,10 @@ public class DefaultGenerator implements Generator {
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
                 pathPieces[5] = toContentTypeFilename(contentType);
                 if (pathPieces.length == 7) {
-                    pathPieces[6] = toModelFilename(pathPieces[6], null);
+                    pathPieces[6] = getSchemaFilename(jsonPath);
                 }
             } else if (pathPieces.length == 5 && pathPieces[4].equals("schema")) {
-                pathPieces[4] = toModelFilename(pathPieces[4], null);
+                pathPieces[4] = getSchemaFilename(jsonPath);
             }
         } else if (pathPieces[2].equals(requestBodiesIdentifier)) {
             pathPieces[3] = toRequestBodyFilename(pathPieces[3]);
@@ -3785,7 +3789,7 @@ public class DefaultGenerator implements Generator {
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
                 pathPieces[5] = toContentTypeFilename(contentType);
                 if (pathPieces.length == 7) {
-                    pathPieces[6] = toModelFilename(pathPieces[6], null);
+                    pathPieces[6] = getSchemaFilename(jsonPath);
                 }
             }
         } else if (pathPieces[2].equals("responses")) {
@@ -3811,17 +3815,17 @@ public class DefaultGenerator implements Generator {
                     String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
                     pathPieces[7] = toContentTypeFilename(contentType);
                     if (pathPieces.length == 9) {
-                        pathPieces[6] = toModelFilename(pathPieces[8], null);
+                        pathPieces[6] = getSchemaFilename(jsonPath);
                     }
                 } else if (pathPieces.length == 7 && pathPieces[6].equals("schema")) {
-                    pathPieces[6] = toModelFilename(pathPieces[6], null);
+                    pathPieces[6] = getSchemaFilename(jsonPath);
                 }
             } else if (pathPieces[4].equals("content")) {
                 // #/components/responses/someResponse/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
                 pathPieces[5] = toContentTypeFilename(contentType);
                 if (pathPieces.length == 7) {
-                    pathPieces[6] = toModelFilename(pathPieces[6], null);
+                    pathPieces[6] = getSchemaFilename(jsonPath);
                 }
             }
         } else if (pathPieces[2].equals(securitySchemesIdentifier)) {
@@ -4731,6 +4735,16 @@ public class DefaultGenerator implements Generator {
         if (pathPieces.length == 4 && currentJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
             instance.componentModule = true;
         }
+        if (currentJsonPath != null && sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
+            instance.subpackage = getSubpackage(sourceJsonPath);
+        }
+        if (currentJsonPath != null) {
+            instance.moduleLocation = getModuleLocation(sourceJsonPath);
+            instance.pathFromDocRoot = schemaPathFromDocRoot(instance.moduleLocation);
+            if (currentJsonPath != sourceJsonPath) {
+                instance.isInline = true;
+            }
+        }
     }
 
     private String getModuleLocation(String ref) {
@@ -4859,62 +4873,98 @@ public class DefaultGenerator implements Generator {
         return getKey(key, keyType, null);
     }
 
+    @Override
+    public String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath) {
+        String usedKey = handleSpecialCharacters(name);
+        HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
+        if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
+            sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);
+        }
+        // starts with number
+        if (usedKey.matches("^\\d.*")) {
+            LOGGER.warn("{} (component name starts with number) cannot be used as name. Renamed to Schema{}", usedKey, usedKey);
+            usedKey = "Schema" + usedKey; // 200 -> Schema200
+        }
+
+        usedKey = camelize(usedKey);
+
+        // handle case where usedKey is empty
+        if (usedKey.isEmpty()) {
+            // happens with a name like "/"
+            usedKey = camelize(toEnumVarName(name, null).toLowerCase(Locale.ROOT));
+        }
+
+        if (isReservedWord(usedKey)) {
+            usedKey = usedKey + "Schema"; // e.g. return => ReturnSchema
+            LOGGER.warn("{} (reserved word) cannot be used as name. Renamed to {}", name, usedKey);
+        }
+
+        Integer qty = keyToQty.getOrDefault(usedKey, 0);
+        qty += 1;
+        keyToQty.put(usedKey, qty);
+        String suffix = "";
+        if (qty > 1) {
+            suffix = qty.toString();
+        }
+        usedKey = usedKey + suffix;
+        return usedKey;
+    }
+
     public CodegenKey getKey(String key, String keyType, String sourceJsonPath) {
-        String usedKey = handleSpecialCharacters(key);
-        boolean isValid = isValid(usedKey);
         String snakeCaseName = null;
         String camelCaseName = null;
         String anchorPiece = null;
+        String usedKey = null;
+        boolean isValid = true;
         switch (keyType) {
             case "schemaProperty":
             case "schemas":
-                String suffix = "";
-                if (sourceJsonPath != null) {
-                    HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
-                    if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
-                        sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);
-                    }
-                    /*
-                    saw use case with component named Client and nested property named client
-                    lowercase to ensure they increment the same key
-                     */
-                    Integer qty = keyToQty.getOrDefault(usedKey.toLowerCase(Locale.ROOT), 0);
-                    qty += 1;
-                    keyToQty.put(usedKey.toLowerCase(Locale.ROOT), qty);
-                    if (qty > 1) {
-                        suffix = qty.toString();
-                    }
-                }
+                usedKey = handleSpecialCharacters(key);
+                isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
-                camelCaseName = toModelName(usedKey + suffix, sourceJsonPath);
+                camelCaseName = getSchemaCamelCaseName(key, sourceJsonPath);
                 break;
             case "misc":
             case "paths":
             case "verb":
+                usedKey = handleSpecialCharacters(key);
+                isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
                 camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "parameters":
+                usedKey = handleSpecialCharacters(key);
+                isValid = isValid(usedKey);
                 snakeCaseName = toParameterFilename(usedKey, sourceJsonPath);
                 camelCaseName = getCamelCaseParameter(usedKey);
                 break;
             case "requestBodies":
+                usedKey = handleSpecialCharacters(key);
+                isValid = isValid(usedKey);
                 snakeCaseName = toRequestBodyFilename(usedKey);
                 camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "headers":
+                usedKey = handleSpecialCharacters(key);
+                isValid = isValid(usedKey);
                 snakeCaseName = toHeaderFilename(usedKey, sourceJsonPath);
                 camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "responses":
+                usedKey = handleSpecialCharacters(key);
+                isValid = isValid(usedKey);
                 snakeCaseName = toResponseModuleName(usedKey, sourceJsonPath);
                 camelCaseName = getCamelCaseResponse(usedKey);
                 break;
             case "securitySchemes":
+                usedKey = handleSpecialCharacters(key);
+                isValid = isValid(usedKey);
                 snakeCaseName = toSecuritySchemeFilename(usedKey, sourceJsonPath);
                 camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "servers":
+                usedKey = handleSpecialCharacters(key);
+                isValid = isValid(usedKey);
                 snakeCaseName = toServerFilename(usedKey, sourceJsonPath);
                 camelCaseName = getCamelCaseServer(usedKey);
                 break;
@@ -4976,10 +5026,8 @@ public class DefaultGenerator implements Generator {
                 }
             } else if (addPropsIsFalse) {
                 // required property is not defined in properties, and additionalProperties is false, value is null
-                // no schema definition: error use case?
-                CodegenKey key = getKey(requiredPropertyName, "schemas", null);
-                requiredProperties.put(key, null);
-                requiredAndOptionalProperties.put(requiredPropertyName, key);
+                // no schema definition so this is an error use case
+                throw new RuntimeException("Required property defined with name="+requiredPropertyName+" but property is missing from properties. Add it there.");
             } else {
                 // required property is not defined in properties
                 if (supportsAdditionalPropertiesWithComposedSchema && !disallowAdditionalPropertiesIfNotPresent) {

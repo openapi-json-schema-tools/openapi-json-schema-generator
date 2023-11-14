@@ -4,7 +4,7 @@ import org.openapijsonschematools.schemas.Schema;
 import org.openapijsonschematools.schemas.AnyTypeSchema;
 
 import java.util.LinkedHashSet;
-public class ModelApiResponse {
+public class ApiResponseSchema {
     // nest classes so all schemas and input/output classes can be public
     public record class Code implements Schema {
         public static Int32Schema withDefaults() {

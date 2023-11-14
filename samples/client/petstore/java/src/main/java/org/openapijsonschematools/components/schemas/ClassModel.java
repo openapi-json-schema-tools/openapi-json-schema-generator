@@ -8,10 +8,10 @@ public class ClassModel {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record ModelClass(LinkedHashSet<Class<?>> type) implements Schema {
-        public static ModelClass withDefaults() {
+    public record ClassSchema(LinkedHashSet<Class<?>> type) implements Schema {
+        public static ClassSchema withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new ModelClass(type);
+            return new ClassSchema(type);
         }
     }}

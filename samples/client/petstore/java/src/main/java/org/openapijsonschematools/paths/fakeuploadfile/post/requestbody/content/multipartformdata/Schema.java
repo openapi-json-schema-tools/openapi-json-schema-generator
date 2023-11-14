@@ -16,11 +16,11 @@ public class Schema {
         }
     }    
     
-    public record ModelFile(LinkedHashSet<Class<?>> type) implements Schema {
-        public static ModelFile withDefaults() {
+    public record File(LinkedHashSet<Class<?>> type) implements Schema {
+        public static File withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             // FileIO,
             // bytes,
-            return new ModelFile(type);
+            return new File(type);
         }
     }}

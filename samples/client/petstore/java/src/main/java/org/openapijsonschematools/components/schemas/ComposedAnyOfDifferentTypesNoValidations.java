@@ -6,7 +6,7 @@ import org.openapijsonschematools.schemas.AnyTypeSchema;
 import java.util.LinkedHashSet;
 public class ComposedAnyOfDifferentTypesNoValidations {
     // nest classes so all schemas and input/output classes can be public
-    public record class Model0 implements Schema {
+    public record class Schema0 implements Schema {
         public static MapSchema withDefaults() {
             return MapSchema.withDefaults();
         }
@@ -17,46 +17,46 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record Model1(LinkedHashSet<Class<?>> type) implements Schema {
-        public static Model1 withDefaults() {
+    public record Schema1(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Schema1 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Model1(type);
+            return new Schema1(type);
         }
     }    
     
-    public record Model2(LinkedHashSet<Class<?>> type) implements Schema {
-        public static Model2 withDefaults() {
+    public record Schema2(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Schema2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Model2(type);
+            return new Schema2(type);
         }
     }    
     
-    public record Model3(LinkedHashSet<Class<?>> type) implements Schema {
-        public static Model3 withDefaults() {
+    public record Schema3(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Schema3 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             // FileIO,
             // bytes,
-            return new Model3(type);
+            return new Schema3(type);
         }
     }    
     
-    public record Model4(LinkedHashSet<Class<?>> type) implements Schema {
-        public static Model4 withDefaults() {
+    public record Schema4(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Schema4 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Model4(type);
+            return new Schema4(type);
         }
     }    
     
-    public record Model5(LinkedHashSet<Class<?>> type) implements Schema {
-        public static Model5 withDefaults() {
+    public record Schema5(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Schema5 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Model5(type);
+            return new Schema5(type);
         }
-    }    public record class Model6 implements Schema {
+    }    public record class Schema6 implements Schema {
         public static MapSchema withDefaults() {
             return MapSchema.withDefaults();
         }
@@ -65,7 +65,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             return Schema.validate(MapSchema.class, arg, configuration);
         }
     }
-    public record class Model7 implements Schema {
+    public record class Schema7 implements Schema {
         public static BooleanSchema withDefaults() {
             return BooleanSchema.withDefaults();
         }
@@ -76,11 +76,11 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record Model8(LinkedHashSet<Class<?>> type) implements Schema {
-        public static Model8 withDefaults() {
+    public record Schema8(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Schema8 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
                 type(None),
-            return new Model8(type);
+            return new Schema8(type);
         }
     }    public record class Items implements Schema {
         public static AnyTypeSchema withDefaults() {
@@ -131,7 +131,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             return Schema.validate(AnyTypeSchema.class, arg, configuration);
         }
     }
-    public record class Model10 implements Schema {
+    public record class Schema10 implements Schema {
         public static NumberSchema withDefaults() {
             return NumberSchema.withDefaults();
         }
@@ -152,7 +152,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             return Schema.validate(NumberSchema.class, arg, configuration);
         }
     }
-    public record class Model11 implements Schema {
+    public record class Schema11 implements Schema {
         public static FloatSchema withDefaults() {
             return FloatSchema.withDefaults();
         }
@@ -161,7 +161,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             return Schema.validate(FloatSchema.class, arg, configuration);
         }
     }
-    public record class Model12 implements Schema {
+    public record class Schema12 implements Schema {
         public static DoubleSchema withDefaults() {
             return DoubleSchema.withDefaults();
         }
@@ -170,7 +170,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             return Schema.validate(DoubleSchema.class, arg, configuration);
         }
     }
-    public record class Model13 implements Schema {
+    public record class Schema13 implements Schema {
         public static IntSchema withDefaults() {
             return IntSchema.withDefaults();
         }
@@ -191,7 +191,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             return Schema.validate(IntSchema.class, Long.parseLong(arg.toString()), configuration);
         }
     }
-    public record class Model14 implements Schema {
+    public record class Schema14 implements Schema {
         public static Int32Schema withDefaults() {
             return Int32Schema.withDefaults();
         }
@@ -204,7 +204,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             return Schema.validate(Int32Schema.class, Integer.parseInt(arg.toString()), configuration);
         }
     }
-    public record class Model15 implements Schema {
+    public record class Schema15 implements Schema {
         public static Int64Schema withDefaults() {
             return Int64Schema.withDefaults();
         }

@@ -4,9 +4,9 @@ import org.openapijsonschematools.schemas.Schema;
 import org.openapijsonschematools.schemas.AnyTypeSchema;
 
 import java.util.LinkedHashSet;
-public class ModelBoolean {
+public class BooleanSchema {
     // nest classes so all schemas and input/output classes can be public
-    public record class ModelBoolean implements Schema {
+    public record class BooleanSchema implements Schema {
         public static BooleanSchema withDefaults() {
             return BooleanSchema.withDefaults();
         }

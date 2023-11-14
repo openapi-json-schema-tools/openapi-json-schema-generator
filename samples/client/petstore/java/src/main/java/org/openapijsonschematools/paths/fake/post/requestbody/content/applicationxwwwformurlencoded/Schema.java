@@ -29,11 +29,11 @@ public class Schema {
     }
     
     
-    public record String(LinkedHashSet<Class<?>> type) implements Schema {
-        public static String withDefaults() {
+    public record StringSchema(LinkedHashSet<Class<?>> type) implements Schema {
+        public static StringSchema withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new String(type);
+            return new StringSchema(type);
         }
     }    
     
@@ -45,11 +45,11 @@ public class Schema {
         }
     }    
     
-    public record ModelByte(LinkedHashSet<Class<?>> type) implements Schema {
-        public static ModelByte withDefaults() {
+    public record ByteSchema(LinkedHashSet<Class<?>> type) implements Schema {
+        public static ByteSchema withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new ModelByte(type);
+            return new ByteSchema(type);
         }
     }    
     

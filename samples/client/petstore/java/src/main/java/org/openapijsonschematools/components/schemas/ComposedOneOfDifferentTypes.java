@@ -8,19 +8,19 @@ public class ComposedOneOfDifferentTypes {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Model2(LinkedHashSet<Class<?>> type) implements Schema {
-        public static Model2 withDefaults() {
+    public record Schema2(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Schema2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
                 type(None),
-            return new Model2(type);
+            return new Schema2(type);
         }
     }    
     
-    public record Model3(LinkedHashSet<Class<?>> type) implements Schema {
-        public static Model3 withDefaults() {
+    public record Schema3(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Schema3 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Model3(type);
+            return new Schema3(type);
         }
     }    public record class Items implements Schema {
         public static AnyTypeSchema withDefaults() {
@@ -73,10 +73,10 @@ public class ComposedOneOfDifferentTypes {
     }
     
     
-    public record Model6(LinkedHashSet<Class<?>> type) implements Schema {
-        public static Model6 withDefaults() {
+    public record Schema6(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Schema6 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Model6(type);
+            return new Schema6(type);
         }
     }}

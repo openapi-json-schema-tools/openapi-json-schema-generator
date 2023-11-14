@@ -222,7 +222,7 @@ All URIs are relative to the selected server
 
 | Class | Description |
 | ----- | ----------- |
-| [Model200Response](docs/Model200Response.md) | model with an invalid class name for python, starts with a number |
+| [Schema200Response](docs/Model200Response.md) | model with an invalid class name for python, starts with a number |
 | [AbstractStepMessage](docs/AbstractStepMessage.md) | Abstract Step |
 | [AdditionalPropertiesClass](docs/AdditionalPropertiesClass.md) | |
 | [AdditionalPropertiesValidator](docs/AdditionalPropertiesValidator.md) | |
@@ -232,7 +232,7 @@ All URIs are relative to the selected server
 | [AnimalFarm](docs/AnimalFarm.md) | |
 | [AnyTypeAndFormat](docs/AnyTypeAndFormat.md) | |
 | [AnyTypeNotString](docs/AnyTypeNotString.md) | |
-| [ModelApiResponse](docs/ModelApiResponse.md) | |
+| [ApiResponseSchema](docs/ModelApiResponse.md) | |
 | [ArrayHoldingAnyType](docs/ArrayHoldingAnyType.md) | |
 | [ArrayOfArrayOfNumberOnly](docs/ArrayOfArrayOfNumberOnly.md) | |
 | [ArrayOfEnums](docs/ArrayOfEnums.md) | |
@@ -241,7 +241,7 @@ All URIs are relative to the selected server
 | [ArrayWithValidationsInItems](docs/ArrayWithValidationsInItems.md) | |
 | [Bar](docs/Bar.md) | |
 | [BasquePig](docs/BasquePig.md) | |
-| [ModelBoolean](docs/ModelBoolean.md) | |
+| [BooleanSchema](docs/ModelBoolean.md) | |
 | [BooleanEnum](docs/BooleanEnum.md) | |
 | [Capitalization](docs/Capitalization.md) | |
 | [Cat](docs/Cat.md) | |
@@ -270,7 +270,7 @@ All URIs are relative to the selected server
 | [EnumClass](docs/EnumClass.md) | |
 | [EnumTest](docs/EnumTest.md) | |
 | [EquilateralTriangle](docs/EquilateralTriangle.md) | |
-| [ModelFile](docs/ModelFile.md) | Must be named &#x60;File&#x60; for test. |
+| [File](docs/File.md) | Must be named &#x60;File&#x60; for test. |
 | [FileSchemaTestClass](docs/FileSchemaTestClass.md) | |
 | [Foo](docs/Foo.md) | |
 | [FormatTest](docs/FormatTest.md) | |
@@ -330,7 +330,7 @@ All URIs are relative to the selected server
 | [ReqPropsFromExplicitAddProps](docs/ReqPropsFromExplicitAddProps.md) | |
 | [ReqPropsFromTrueAddProps](docs/ReqPropsFromTrueAddProps.md) | |
 | [ReqPropsFromUnsetAddProps](docs/ReqPropsFromUnsetAddProps.md) | |
-| [ModelReturn](docs/ModelReturn.md) | Model for testing reserved words |
+| [ReturnSchema](docs/ModelReturn.md) | Model for testing reserved words |
 | [ScaleneTriangle](docs/ScaleneTriangle.md) | |
 | [SelfReferencingArrayModel](docs/SelfReferencingArrayModel.md) | |
 | [SelfReferencingObjectModel](docs/SelfReferencingObjectModel.md) | |
@@ -338,7 +338,7 @@ All URIs are relative to the selected server
 | [ShapeOrNull](docs/ShapeOrNull.md) | The value may be a shape or the &#x27;null&#x27; value. This is introduced in OAS schema &gt;&#x3D; 3.1. |
 | [SimpleQuadrilateral](docs/SimpleQuadrilateral.md) | |
 | [SomeObject](docs/SomeObject.md) | |
-| [String](docs/String.md) | |
+| [StringSchema](docs/ModelString.md) | |
 | [StringBooleanMap](docs/StringBooleanMap.md) | |
 | [StringEnum](docs/StringEnum.md) | |
 | [StringEnumWithDefaultValue](docs/StringEnumWithDefaultValue.md) | |

@@ -8,10 +8,10 @@ public class ObjectWithInlineCompositionProperty {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Model0(LinkedHashSet<Class<?>> type) implements Schema {
-        public static Model0 withDefaults() {
+    public record Schema0(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Schema0 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Model0(type);
+            return new Schema0(type);
         }
     }}

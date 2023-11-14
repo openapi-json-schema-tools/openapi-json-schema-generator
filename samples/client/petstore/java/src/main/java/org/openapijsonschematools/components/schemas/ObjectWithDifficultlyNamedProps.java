@@ -6,7 +6,7 @@ import org.openapijsonschematools.schemas.AnyTypeSchema;
 import java.util.LinkedHashSet;
 public class ObjectWithDifficultlyNamedProps {
     // nest classes so all schemas and input/output classes can be public
-    public record class SpecialPropertyName implements Schema {
+    public record class $Special[propertyName] implements Schema {
         public static Int64Schema withDefaults() {
             return Int64Schema.withDefaults();
         }
@@ -29,13 +29,13 @@ public class ObjectWithDifficultlyNamedProps {
     }
     
     
-    public record Model123List(LinkedHashSet<Class<?>> type) implements Schema {
-        public static Model123List withDefaults() {
+    public record Schema123List(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Schema123List withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Model123List(type);
+            return new Schema123List(type);
         }
-    }    public record class Model123Number implements Schema {
+    }    public record class Schema123Number implements Schema {
         public static IntSchema withDefaults() {
             return IntSchema.withDefaults();
         }

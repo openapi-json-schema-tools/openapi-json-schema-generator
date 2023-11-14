@@ -8,10 +8,10 @@ public class NullableShape {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Model2(LinkedHashSet<Class<?>> type) implements Schema {
-        public static Model2 withDefaults() {
+    public record Schema2(LinkedHashSet<Class<?>> type) implements Schema {
+        public static Schema2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
                 type(None),
-            return new Model2(type);
+            return new Schema2(type);
         }
     }}

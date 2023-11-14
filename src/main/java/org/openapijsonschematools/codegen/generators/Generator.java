@@ -55,6 +55,7 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSe
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorMetadata;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenTag;
 
+import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -112,6 +113,9 @@ public interface Generator {
 
     String toModelName(String name, String jsonPath);
 
+    String getSchemaFilename(String jsonPath);
+
+    String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath);
     String toContentTypeFilename(String name);
 
     String toParamName(String name);

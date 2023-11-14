@@ -4,7 +4,7 @@ import org.openapijsonschematools.schemas.Schema;
 import org.openapijsonschematools.schemas.AnyTypeSchema;
 
 import java.util.LinkedHashSet;
-public class ModelFile {
+public class File {
     // nest classes so all schemas and input/output classes can be public
     
     

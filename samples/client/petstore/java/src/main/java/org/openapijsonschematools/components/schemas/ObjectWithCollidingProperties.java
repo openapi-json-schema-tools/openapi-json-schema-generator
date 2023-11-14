@@ -15,7 +15,7 @@ public class ObjectWithCollidingProperties {
             return Schema.validate(MapSchema.class, arg, configuration);
         }
     }
-    public record class Someprop2 implements Schema {
+    public record class Someprop implements Schema {
         public static MapSchema withDefaults() {
             return MapSchema.withDefaults();
         }

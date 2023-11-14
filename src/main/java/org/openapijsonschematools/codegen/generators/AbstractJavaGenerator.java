@@ -148,8 +148,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
 
         setReservedWordsLowerCase(
                 Arrays.asList(
-                        // special words
-                        "object", "list", "file",
                         // used as internal variables, can collide with parameter names
                         "localVarPath", "localVarQueryParams", "localVarCollectionQueryParams",
                         "localVarHeaderParams", "localVarCookieParams", "localVarFormParams", "localVarPostBody",
@@ -164,7 +162,10 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
                         "import", "public", "throws", "case", "enum", "instanceof", "return", "transient",
                         "catch", "extends", "int", "short", "try", "char", "final", "interface", "static",
                         "void", "class", "finally", "long", "strictfp", "volatile", "const", "float",
-                        "native", "super", "while", "null")
+                        "native", "super", "while", "null",
+                        // additional types
+                        "localdate", "zoneddatetime", "list", "map", "linkedhashset", "void", "string", "uuid"
+                        )
         );
 
         languageSpecificPrimitives = Sets.newHashSet("String",
