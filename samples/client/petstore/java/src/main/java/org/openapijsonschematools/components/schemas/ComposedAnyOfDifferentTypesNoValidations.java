@@ -33,44 +33,48 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record Schema1(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Schema1(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
         public static Schema1 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Schema1(type);
+            String format = "date";
+            return new Schema1(type, format);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }    
     
-    public record Schema2(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Schema2(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
         public static Schema2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Schema2(type);
+            String format = "date-time";
+            return new Schema2(type, format);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema2.class, arg, configuration);
         }
     }    
     
-    public record Schema3(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Schema3(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
         public static Schema3 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             // FileIO,
             // bytes,
-            return new Schema3(type);
+            String format = "binary";
+            return new Schema3(type, format);
         }
         // FileIO,
         // bytes,
     }    
     
-    public record Schema4(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Schema4(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
         public static Schema4 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Schema4(type);
+            String format = "byte";
+            return new Schema4(type, format);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema4.class, arg, configuration);

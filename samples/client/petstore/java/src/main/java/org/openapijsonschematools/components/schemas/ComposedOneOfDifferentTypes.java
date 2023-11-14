@@ -33,11 +33,12 @@ public class ComposedOneOfDifferentTypes {
         }
     }    
     
-    public record Schema3(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Schema3(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
         public static Schema3 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Schema3(type);
+            String format = "date";
+            return new Schema3(type, format);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema3.class, arg, configuration);
@@ -95,11 +96,12 @@ public class ComposedOneOfDifferentTypes {
     }
     
     
-    public record Schema6(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Schema6(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
         public static Schema6 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Schema6(type);
+            String format = "date-time";
+            return new Schema6(type, format);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema6.class, arg, configuration);

@@ -22,12 +22,13 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Items(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Items(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
         public static Items withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             // FileIO,
             // bytes,
-            return new Items(type);
+            String format = "binary";
+            return new Items(type, format);
         }
         // FileIO,
         // bytes,

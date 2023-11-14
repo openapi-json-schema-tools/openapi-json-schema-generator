@@ -33,12 +33,13 @@ public class Schema {
         }
     }    
     
-    public record File(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record File(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
         public static File withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             // FileIO,
             // bytes,
-            return new File(type);
+            String format = "binary";
+            return new File(type, format);
         }
         // FileIO,
         // bytes,

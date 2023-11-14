@@ -31,11 +31,12 @@ public class Money {
     }
     
     
-    public record Amount(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Amount(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
         public static Amount withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Amount(type);
+            String format = "number";
+            return new Amount(type, format);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Amount.class, arg, configuration);

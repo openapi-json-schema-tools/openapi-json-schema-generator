@@ -31,11 +31,12 @@ public class MyObjectDto {
     }
     
     
-    public record Id(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Id(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
         public static Id withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Id(type);
+            String format = "uuid";
+            return new Id(type, format);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Id.class, arg, configuration);

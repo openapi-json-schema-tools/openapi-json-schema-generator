@@ -67,55 +67,60 @@ public class Schema {
         }
     }    
     
-    public record ByteSchema(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record ByteSchema(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
         public static ByteSchema withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new ByteSchema(type);
+            String format = "byte";
+            return new ByteSchema(type, format);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ByteSchema.class, arg, configuration);
         }
     }    
     
-    public record Binary(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Binary(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
         public static Binary withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             // FileIO,
             // bytes,
-            return new Binary(type);
+            String format = "binary";
+            return new Binary(type, format);
         }
         // FileIO,
         // bytes,
     }    
     
-    public record Date(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Date(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
         public static Date withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Date(type);
+            String format = "date";
+            return new Date(type, format);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Date.class, arg, configuration);
         }
     }    
     
-    public record DateTime(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record DateTime(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
         public static DateTime withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new DateTime(type);
+            String format = "date-time";
+            return new DateTime(type, format);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DateTime.class, arg, configuration);
         }
     }    
     
-    public record Password(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Password(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
         public static Password withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Password(type);
+            String format = "password";
+            return new Password(type, format);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Password.class, arg, configuration);

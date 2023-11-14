@@ -83,11 +83,12 @@ public class Order {
     }
     
     
-    public record ShipDate(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record ShipDate(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
         public static ShipDate withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new ShipDate(type);
+            String format = "date-time";
+            return new ShipDate(type, format);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ShipDate.class, arg, configuration);
