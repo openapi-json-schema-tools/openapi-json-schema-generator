@@ -118,6 +118,7 @@ public class CodegenSchema {
     public String pathFromDocRoot = null;
     public boolean isInline = false;
     public String subpackage;  // the current schema's subpackage, needed by java
+    public CodegenKey containerJsonPathPiece; // needed by java, outer classs that has inner nested schema classes
 
     /*
     Remove this in the 4.0.0 release because it is unused

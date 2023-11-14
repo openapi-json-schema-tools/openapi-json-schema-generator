@@ -8,7 +8,7 @@ public class ObjectInterface {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class ObjectInterface implements JsonSchema {
+    public record class ObjectInterface2 implements JsonSchema {
         public static MapSchema withDefaults() {
             return MapSchema.withDefaults();
         }

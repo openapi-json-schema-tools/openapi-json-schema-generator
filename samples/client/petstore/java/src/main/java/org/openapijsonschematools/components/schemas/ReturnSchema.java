@@ -8,7 +8,7 @@ public class ReturnSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record class ReturnSchema2 implements JsonSchema {
+    public record class ReturnSchema3 implements JsonSchema {
         public static Int32Schema withDefaults() {
             return Int32Schema.withDefaults();
         }

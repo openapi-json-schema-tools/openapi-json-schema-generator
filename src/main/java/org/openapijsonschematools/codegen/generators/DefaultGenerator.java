@@ -4729,6 +4729,9 @@ public class DefaultGenerator implements Generator {
         if (currentJsonPath == null) {
             return;
         }
+        if (currentJsonPath.equals(sourceJsonPath)) {
+            instance.containerJsonPathPiece = getJsonPathPiece(expectedComponentType, currentJsonPath, sourceJsonPath);
+        }
         instance.jsonPathPiece = getJsonPathPiece(expectedComponentType, currentJsonPath, sourceJsonPath);
         String[] pathPieces = currentJsonPath.split("/");
         // #/components/schemas/A

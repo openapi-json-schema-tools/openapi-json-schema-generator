@@ -10,7 +10,7 @@ package {{packageName}}.{{subpackage}};
     {{else}}
 {{> src/main/java/org/openapitools/components/schemas/_SchemaSharedImports }}
 
-public class {{jsonPathPiece.camelCase}} {
+public class {{containerJsonPathPiece.camelCase}} {
     // nest classes so all schemas and input/output classes can be public
     {{> src/main/java/org/openapitools/components/schemas/Schema_getSchemas }}
 }

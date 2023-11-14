@@ -8,11 +8,11 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Schema(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static Schema withDefaults() {
+    public record Schema2(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static Schema2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             // FileIO,
             // bytes,
-            return new Schema(type);
+            return new Schema2(type);
         }
     }}
