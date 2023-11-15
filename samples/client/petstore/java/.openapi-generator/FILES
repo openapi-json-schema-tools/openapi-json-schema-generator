@@ -169,7 +169,7 @@ src/main/java/org/openapijsonschematools/paths/commonparamsubdir/delete/paramete
 src/main/java/org/openapijsonschematools/paths/commonparamsubdir/get/PathParameters.java
 src/main/java/org/openapijsonschematools/paths/commonparamsubdir/get/QueryParameters.java
 src/main/java/org/openapijsonschematools/paths/commonparamsubdir/get/parameters/parameter0/Schema.java
-src/main/java/org/openapijsonschematools/paths/commonparamsubdir/parameters/parameter0/schema.java
+src/main/java/org/openapijsonschematools/paths/commonparamsubdir/parameters/parameter0/Schema.java
 src/main/java/org/openapijsonschematools/paths/commonparamsubdir/post/HeaderParameters.java
 src/main/java/org/openapijsonschematools/paths/commonparamsubdir/post/PathParameters.java
 src/main/java/org/openapijsonschematools/paths/commonparamsubdir/post/parameters/parameter0/Schema.java

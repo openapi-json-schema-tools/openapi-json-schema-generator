@@ -3834,6 +3834,9 @@ public class DefaultGenerator implements Generator {
     }
 
     private void updatePathsFilepath(String[] pathPieces) {
+        String[] originalPieces = pathPieces.clone();
+        originalPieces[0] = "#";
+        String jsonPath = String.join("/", originalPieces);
         if (pathPieces.length < 3) {
             return;
         }
@@ -3857,13 +3860,26 @@ public class DefaultGenerator implements Generator {
         } else if (pathPieces[3].equals("parameters")) {
             // #/paths/somePath/parameters/0
             pathPieces[4] = toParameterFilename(pathPieces[4], null);
+            if (pathPieces.length >= 7 && pathPieces[5].equals("content")) {
+                // #/paths/somePath/parameters/0/content/application-json -> length 7
+                String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
+                pathPieces[6] = toContentTypeFilename(contentType);
+                if (pathPieces.length == 8) {
+                    pathPieces[7] = getSchemaFilename(jsonPath);
+                    return;
+                }
+            } else if (pathPieces.length == 6 && pathPieces[5].equals("schema")) {
+                // #/paths/somePath/parameters/0/schema -> length 7
+                pathPieces[5] = getSchemaFilename(jsonPath);
+                return;
+            }
         } else if (pathPieces[4].equals("requestBody")) {
             // #/paths/somePath/get/requestBody
             pathPieces[4] = requestBodyIdentifier;
         } else if (xParameters.contains(pathPieces[4])) {
             // #/paths/somePath/get/PathParameters
             // synthetic jsonPath
-            pathPieces[4] = toModelFilename(pathPieces[4], "#/paths/somePath/verb/" + pathPieces[4]);
+            pathPieces[4] = getSchemaFilename(jsonPath);
         }
         if (pathPieces.length < 6) {
             return;
@@ -3878,10 +3894,10 @@ public class DefaultGenerator implements Generator {
             // #/paths/user_login/get/responses/200 -> 200 -> response_200 -> length 6
             String responseJsonPath = "#/paths/" + path + "/" + pathPieces[3] + "/responses/" +  pathPieces[5];
             pathPieces[5] = toResponseModuleName(pathPieces[5], responseJsonPath);
-            if (pathPieces.length == 7 && pathPieces[6].equals("HeaderParameters")) {
+            if (pathPieces.length == 7 && pathPieces[6].equals("Headers")) {
                 // synthetic json path
-                // #/paths/user_login/get/responses/200/HeaderParameters
-                pathPieces[6] = toModelFilename(pathPieces[6], "#/paths/somePath/verb/responses/200/" + pathPieces[6]);
+                // #/paths/user_login/get/responses/200/Headers
+                pathPieces[6] = getSchemaFilename(jsonPath);
                 return;
             }
 
@@ -3893,7 +3909,7 @@ public class DefaultGenerator implements Generator {
                 String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
                 pathPieces[7] = toContentTypeFilename(contentType);
                 if (pathPieces.length == 9) {
-                    pathPieces[8] = toModelFilename(pathPieces[8], null);
+                    pathPieces[8] = getSchemaFilename(jsonPath);
                 }
             } else if (pathPieces[6].equals("headers")) {
                 // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
@@ -3904,10 +3920,10 @@ public class DefaultGenerator implements Generator {
                     String contentType = ModelUtils.decodeSlashes(pathPieces[9]);
                     pathPieces[9] = toContentTypeFilename(contentType);
                     if (pathPieces.length == 11) {
-                        pathPieces[10] = toModelFilename(pathPieces[10], null);
+                        pathPieces[10] = getSchemaFilename(jsonPath);
                     }
                 } else if (pathPieces.length == 9 && pathPieces[8].equals("schema")) {
-                    pathPieces[8] = toModelFilename(pathPieces[8], null);
+                    pathPieces[8] = getSchemaFilename(jsonPath);
                 }
             }
         } else if (pathPieces[4].equals("parameters")) {
@@ -3919,10 +3935,11 @@ public class DefaultGenerator implements Generator {
                 String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
                 pathPieces[7] = toContentTypeFilename(contentType);
                 if (pathPieces.length == 9) {
-                    pathPieces[8] = toModelFilename(pathPieces[8], null);
+                    pathPieces[8] = getSchemaFilename(jsonPath);
                 }
             } else if (pathPieces.length == 7 && pathPieces[6].equals("schema")) {
-                pathPieces[6] = toModelFilename(pathPieces[6], null);
+                // #/paths/somePath/get/parameters/0/schema -> length 7
+                pathPieces[6] = getSchemaFilename(jsonPath);
             }
         } else if (pathPieces[4].equals(requestBodyIdentifier)) {
             if (pathPieces.length >= 7 && pathPieces[5].equals("content")) {
@@ -3930,7 +3947,7 @@ public class DefaultGenerator implements Generator {
                 String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
                 pathPieces[6] = toContentTypeFilename(contentType);
                 if (pathPieces.length == 8) {
-                    pathPieces[7] = toModelFilename(pathPieces[7], null);
+                    pathPieces[7] = getSchemaFilename(jsonPath);
                 }
             }
         }
