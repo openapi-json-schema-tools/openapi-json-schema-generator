@@ -1,0 +1,12 @@
+LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
+{{#each properties}}
+    {{#if refInfo.refClass}}
+        {{#if refInfo.refModule}}
+properties.put("{{{@key.original}}}", {{refInfo.refModule}}.{{refInfo.refClass}}.class);
+        {{else}}
+properties.put("{{{@key.original}}}", {{refInfo.refClass}}.class);
+        {{/if}}
+    {{else}}
+properties.put("{{{@key.original}}}", {{jsonPathPiece.camelCase}}.class);
+    {{/if}}
+{{/each}}

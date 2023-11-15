@@ -7,6 +7,7 @@ import org.openapijsonschematools.schemas.FrozenMap;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -23,11 +24,17 @@ public class CookieParameters {
     }
     
     
-    public record CookieParameters2(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record CookieParameters2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements JsonSchema {
         public static CookieParameters2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
-            return new CookieParameters2(type);
+            LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
+            properties.put("1", Schema.Schema2.class);
+            properties.put("aB", Schema.Schema2.class);
+            properties.put("Ab", Schema.Schema2.class);
+            properties.put("A-B", Schema.Schema2.class);
+            properties.put("self", Schema.Schema2.class);
+            return new CookieParameters2(type, properties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(CookieParameters2.class, arg, configuration);
