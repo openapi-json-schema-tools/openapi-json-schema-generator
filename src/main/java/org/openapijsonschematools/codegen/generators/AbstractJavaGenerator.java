@@ -164,7 +164,7 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
                         "void", "class", "finally", "long", "strictfp", "volatile", "const", "float",
                         "native", "super", "while", "null",
                         // additional types
-                        "localdate", "zoneddatetime", "list", "map", "linkedhashset", "void", "string", "uuid", "number"
+                        "localdate", "zoneddatetime", "list", "map", "linkedhashset", "void", "string", "uuid", "number", "integer"
                         )
         );
 

@@ -14,29 +14,29 @@ public class FormatTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Integer(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static Integer withDefaults() {
+    public record IntegerSchema(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static IntegerSchema withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Integer.class);
             type.add(Long.class);
             type.add(Float.class);
             type.add(Double.class);
-            return new Integer(type);
+            return new IntegerSchema(type);
         }
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Integer.class, Long.valueOf(arg), configuration);
+            return JsonSchema.validate(IntegerSchema.class, Long.valueOf(arg), configuration);
         }
         
         public static Long validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Integer.class, Long.parseLong(arg.toString()), configuration);
+            return JsonSchema.validate(IntegerSchema.class, Long.parseLong(arg.toString()), configuration);
         }
         
         public static Long validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Integer.class, arg, configuration);
+            return JsonSchema.validate(IntegerSchema.class, arg, configuration);
         }
         
         public static Long validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Integer.class, Long.parseLong(arg.toString()), configuration);
+            return JsonSchema.validate(IntegerSchema.class, Long.parseLong(arg.toString()), configuration);
         }
     }    
     
