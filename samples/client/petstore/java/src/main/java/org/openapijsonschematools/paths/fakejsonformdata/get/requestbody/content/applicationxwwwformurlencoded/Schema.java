@@ -11,6 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
@@ -37,14 +38,17 @@ public class Schema {
         }
     }    
     
-    public record Schema2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements JsonSchema {
+    public record Schema2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Set<String> required) implements JsonSchema {
         public static Schema2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
             properties.put("param", Param.class);
             properties.put("param2", Param2.class);
-            return new Schema2(type, properties);
+            Set<String> required = new LinkedHashSet<>();
+            required.add("param");
+            required.add("param2");
+            return new Schema2(type, properties, required);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema2.class, arg, configuration);

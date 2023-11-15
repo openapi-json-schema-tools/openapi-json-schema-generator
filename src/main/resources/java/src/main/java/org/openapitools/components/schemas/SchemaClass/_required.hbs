@@ -1,0 +1,4 @@
+Set<String> required = new LinkedHashSet<>();
+{{#each requiredProperties}}
+required.add("{{{@key.original}}}");
+{{/each}}

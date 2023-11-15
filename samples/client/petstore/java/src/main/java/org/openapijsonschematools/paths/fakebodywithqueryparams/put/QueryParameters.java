@@ -11,6 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
@@ -24,13 +25,15 @@ public class QueryParameters {
     }
     
     
-    public record QueryParameters2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements JsonSchema {
+    public record QueryParameters2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Set<String> required) implements JsonSchema {
         public static QueryParameters2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
             properties.put("query", Schema.Schema2.class);
-            return new QueryParameters2(type, properties);
+            Set<String> required = new LinkedHashSet<>();
+            required.add("query");
+            return new QueryParameters2(type, properties, required);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(QueryParameters2.class, arg, configuration);

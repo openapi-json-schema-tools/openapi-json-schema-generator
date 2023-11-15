@@ -11,6 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 public class Headers {
     // nest classes so all schemas and input/output classes can be public
     
@@ -24,7 +25,7 @@ public class Headers {
     }
     
     
-    public record Headers2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements JsonSchema {
+    public record Headers2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Set<String> required) implements JsonSchema {
         public static Headers2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
@@ -34,7 +35,11 @@ public class Headers {
             properties.put("X-Expires-After", Schema.Schema2.class);
             properties.put("ref-content-schema-header", StringWithValidation.StringWithValidation2.class);
             properties.put("numberHeader", Schema.Schema2.class);
-            return new Headers2(type, properties);
+            Set<String> required = new LinkedHashSet<>();
+            required.add("X-Rate-Limit");
+            required.add("int32");
+            required.add("ref-content-schema-header");
+            return new Headers2(type, properties, required);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Headers2.class, arg, configuration);

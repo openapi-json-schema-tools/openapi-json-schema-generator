@@ -11,6 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 public class PathParameters {
     // nest classes so all schemas and input/output classes can be public
     
@@ -24,7 +25,7 @@ public class PathParameters {
     }
     
     
-    public record PathParameters2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements JsonSchema {
+    public record PathParameters2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Set<String> required) implements JsonSchema {
         public static PathParameters2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
@@ -34,7 +35,13 @@ public class PathParameters {
             properties.put("Ab", Schema.Schema2.class);
             properties.put("A-B", Schema.Schema2.class);
             properties.put("self", Schema.Schema2.class);
-            return new PathParameters2(type, properties);
+            Set<String> required = new LinkedHashSet<>();
+            required.add("1");
+            required.add("A-B");
+            required.add("Ab");
+            required.add("aB");
+            required.add("self");
+            return new PathParameters2(type, properties, required);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(PathParameters2.class, arg, configuration);
