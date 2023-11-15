@@ -88,6 +88,17 @@ public class ComposedOneOfDifferentTypes {
     }
     
     
+    public record Schema5(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static Schema5 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenList.class);
+            return new Schema5(type);
+        }
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Schema5.class, arg, configuration);
+        }
+    }    
+    
     public record Schema6(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
         public static Schema6 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();

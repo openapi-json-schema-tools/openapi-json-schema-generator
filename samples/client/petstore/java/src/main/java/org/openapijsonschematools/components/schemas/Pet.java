@@ -59,6 +59,17 @@ public class Pet {
         }
     }    
     
+    public record PhotoUrls(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static PhotoUrls withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenList.class);
+            return new PhotoUrls(type);
+        }
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(PhotoUrls.class, arg, configuration);
+        }
+    }    
+    
     public record Status(LinkedHashSet<Class<?>> type) implements JsonSchema {
         public static Status withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
@@ -67,5 +78,16 @@ public class Pet {
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Status.class, arg, configuration);
+        }
+    }    
+    
+    public record Tags(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static Tags withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenList.class);
+            return new Tags(type);
+        }
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Tags.class, arg, configuration);
         }
     }}

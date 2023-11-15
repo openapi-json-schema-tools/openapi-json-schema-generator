@@ -35,4 +35,15 @@ public class ArrayOfNumberOnly {
             return JsonSchema.validate(JsonSchemas.NumberSchema.class, arg, configuration);
         }
     }
-}
+    
+    
+    public record ArrayNumber(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static ArrayNumber withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenList.class);
+            return new ArrayNumber(type);
+        }
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ArrayNumber.class, arg, configuration);
+        }
+    }}

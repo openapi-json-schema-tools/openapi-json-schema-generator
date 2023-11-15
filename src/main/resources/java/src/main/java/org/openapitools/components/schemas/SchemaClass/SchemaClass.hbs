@@ -21,7 +21,7 @@
                 {{else}}
                     {{#eq this "array"}}
                         {{#or allOf anyOf oneOf not if_ then else_ items uniqueItems contains (neq maxContains null) (neq minContains null) (neq maxItems null) (neq minItems null) prefixItems unevaluatedItems }}
-{{!> components/schemas/schema_cls/_schema_list }}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_list }}
                         {{else}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
                         {{/or}}

@@ -206,6 +206,17 @@ public class FormatTest {
     }
     
     
+    public record ArrayWithUniqueItems(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static ArrayWithUniqueItems withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenList.class);
+            return new ArrayWithUniqueItems(type);
+        }
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ArrayWithUniqueItems.class, arg, configuration);
+        }
+    }    
+    
     public record StringSchema(LinkedHashSet<Class<?>> type) implements JsonSchema {
         public static StringSchema withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();

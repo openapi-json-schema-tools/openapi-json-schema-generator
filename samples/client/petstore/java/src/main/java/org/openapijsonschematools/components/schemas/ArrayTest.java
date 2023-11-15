@@ -25,6 +25,17 @@ public class ArrayTest {
         }
     }    
     
+    public record ArrayOfString(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static ArrayOfString withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenList.class);
+            return new ArrayOfString(type);
+        }
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ArrayOfString.class, arg, configuration);
+        }
+    }    
+    
     public record Items3() implements JsonSchema {
         public static JsonSchemas.Int64Schema withDefaults() {
             return JsonSchemas.Int64Schema.withDefaults();
@@ -46,4 +57,48 @@ public class ArrayTest {
             return JsonSchema.validate(JsonSchemas.Int64Schema.class, Long.parseLong(arg.toString()), configuration);
         }
     }
-}
+    
+    
+    public record Items2(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static Items2 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenList.class);
+            return new Items2(type);
+        }
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Items2.class, arg, configuration);
+        }
+    }    
+    
+    public record ArrayArrayOfInteger(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static ArrayArrayOfInteger withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenList.class);
+            return new ArrayArrayOfInteger(type);
+        }
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ArrayArrayOfInteger.class, arg, configuration);
+        }
+    }    
+    
+    public record Items4(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static Items4 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenList.class);
+            return new Items4(type);
+        }
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Items4.class, arg, configuration);
+        }
+    }    
+    
+    public record ArrayArrayOfModel(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static ArrayArrayOfModel withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenList.class);
+            return new ArrayArrayOfModel(type);
+        }
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ArrayArrayOfModel.class, arg, configuration);
+        }
+    }}

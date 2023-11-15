@@ -35,4 +35,26 @@ public class ArrayOfArrayOfNumberOnly {
             return JsonSchema.validate(JsonSchemas.NumberSchema.class, arg, configuration);
         }
     }
-}
+    
+    
+    public record Items(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static Items withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenList.class);
+            return new Items(type);
+        }
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Items.class, arg, configuration);
+        }
+    }    
+    
+    public record ArrayArrayNumber(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static ArrayArrayNumber withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenList.class);
+            return new ArrayArrayNumber(type);
+        }
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ArrayArrayNumber.class, arg, configuration);
+        }
+    }}

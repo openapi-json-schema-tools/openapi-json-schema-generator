@@ -34,4 +34,15 @@ public class EnumArrays {
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items.class, arg, configuration);
         }
+    }    
+    
+    public record ArrayEnum(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static ArrayEnum withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenList.class);
+            return new ArrayEnum(type);
+        }
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ArrayEnum.class, arg, configuration);
+        }
     }}

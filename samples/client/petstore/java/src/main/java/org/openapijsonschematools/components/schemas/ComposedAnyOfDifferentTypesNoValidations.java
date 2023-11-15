@@ -168,6 +168,17 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
+    public record Schema9(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static Schema9 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenList.class);
+            return new Schema9(type);
+        }
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Schema9.class, arg, configuration);
+        }
+    }    
+    
     public record Schema10() implements JsonSchema {
         public static JsonSchemas.NumberSchema withDefaults() {
             return JsonSchemas.NumberSchema.withDefaults();
