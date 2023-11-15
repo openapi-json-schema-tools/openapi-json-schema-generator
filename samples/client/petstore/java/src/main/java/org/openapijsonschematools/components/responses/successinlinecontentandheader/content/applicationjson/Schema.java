@@ -31,11 +31,12 @@ public class Schema {
     }
     
     
-    public record Schema2(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Schema2(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
         public static Schema2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
-            return new Schema2(type);
+            Class<?> additionalProperties = AdditionalProperties.class;
+            return new Schema2(type, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema2.class, arg, configuration);

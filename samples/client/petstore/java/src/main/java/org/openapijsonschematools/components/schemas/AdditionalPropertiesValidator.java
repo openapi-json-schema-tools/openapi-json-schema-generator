@@ -67,11 +67,12 @@ public class AdditionalPropertiesValidator {
     }
     
     
-    public record Schema0(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Schema0(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
         public static Schema0 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
-            return new Schema0(type);
+            Class<?> additionalProperties = AdditionalProperties.class;
+            return new Schema0(type, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema0.class, arg, configuration);
@@ -79,11 +80,12 @@ public class AdditionalPropertiesValidator {
     }
     
     
-    public record Schema1(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Schema1(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
         public static Schema1 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
-            return new Schema1(type);
+            Class<?> additionalProperties = AdditionalProperties2.class;
+            return new Schema1(type, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema1.class, arg, configuration);
@@ -91,11 +93,12 @@ public class AdditionalPropertiesValidator {
     }
     
     
-    public record Schema2(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Schema2(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
         public static Schema2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
-            return new Schema2(type);
+            Class<?> additionalProperties = AdditionalProperties3.class;
+            return new Schema2(type, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema2.class, arg, configuration);

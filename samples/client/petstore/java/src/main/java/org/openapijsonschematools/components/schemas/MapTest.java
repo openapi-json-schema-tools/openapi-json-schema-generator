@@ -27,11 +27,12 @@ public class MapTest {
         }
     }    
     
-    public record AdditionalProperties(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record AdditionalProperties(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
         public static AdditionalProperties withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
-            return new AdditionalProperties(type);
+            Class<?> additionalProperties = AdditionalProperties2.class;
+            return new AdditionalProperties(type, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties.class, arg, configuration);
@@ -39,11 +40,12 @@ public class MapTest {
     }
     
     
-    public record MapMapOfString(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record MapMapOfString(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
         public static MapMapOfString withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
-            return new MapMapOfString(type);
+            Class<?> additionalProperties = AdditionalProperties.class;
+            return new MapMapOfString(type, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(MapMapOfString.class, arg, configuration);
@@ -62,11 +64,12 @@ public class MapTest {
         }
     }    
     
-    public record MapOfEnumString(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record MapOfEnumString(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
         public static MapOfEnumString withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
-            return new MapOfEnumString(type);
+            Class<?> additionalProperties = AdditionalProperties3.class;
+            return new MapOfEnumString(type, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(MapOfEnumString.class, arg, configuration);
@@ -85,11 +88,12 @@ public class MapTest {
     }
     
     
-    public record DirectMap(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record DirectMap(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
         public static DirectMap withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
-            return new DirectMap(type);
+            Class<?> additionalProperties = AdditionalProperties4.class;
+            return new DirectMap(type, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DirectMap.class, arg, configuration);

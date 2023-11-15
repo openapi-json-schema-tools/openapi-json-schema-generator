@@ -25,7 +25,7 @@ public class QueryParameters {
     }
     
     
-    public record QueryParameters2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements JsonSchema {
+    public record QueryParameters2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Class<?> additionalProperties) implements JsonSchema {
         public static QueryParameters2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
@@ -34,7 +34,8 @@ public class QueryParameters {
             properties.put("enum_query_string", Schema.Schema2.class);
             properties.put("enum_query_integer", Schema.Schema2.class);
             properties.put("enum_query_string_array", Schema.Schema2.class);
-            return new QueryParameters2(type, properties);
+            Class<?> additionalProperties = AdditionalProperties.class;
+            return new QueryParameters2(type, properties, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(QueryParameters2.class, arg, configuration);

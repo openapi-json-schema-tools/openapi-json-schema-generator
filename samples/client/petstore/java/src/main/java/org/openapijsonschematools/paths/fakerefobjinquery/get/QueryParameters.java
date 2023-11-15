@@ -25,13 +25,14 @@ public class QueryParameters {
     }
     
     
-    public record QueryParameters2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements JsonSchema {
+    public record QueryParameters2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Class<?> additionalProperties) implements JsonSchema {
         public static QueryParameters2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
             properties.put("mapBean", Foo.Foo2.class);
-            return new QueryParameters2(type, properties);
+            Class<?> additionalProperties = AdditionalProperties.class;
+            return new QueryParameters2(type, properties, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(QueryParameters2.class, arg, configuration);

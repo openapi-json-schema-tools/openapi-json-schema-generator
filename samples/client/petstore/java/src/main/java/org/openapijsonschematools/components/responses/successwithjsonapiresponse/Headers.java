@@ -25,7 +25,7 @@ public class Headers {
     }
     
     
-    public record Headers2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Set<String> required) implements JsonSchema {
+    public record Headers2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Set<String> required, Class<?> additionalProperties) implements JsonSchema {
         public static Headers2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
@@ -40,7 +40,8 @@ public class Headers {
             required.add("ref-content-schema-header");
             required.add("ref-schema-header");
             required.add("stringHeader");
-            return new Headers2(type, properties, required);
+            Class<?> additionalProperties = AdditionalProperties.class;
+            return new Headers2(type, properties, required, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Headers2.class, arg, configuration);

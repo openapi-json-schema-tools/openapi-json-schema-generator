@@ -40,11 +40,12 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         }
     }    
     
-    public record MapSchema(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record MapSchema(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
         public static MapSchema withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
-            return new MapSchema(type);
+            Class<?> additionalProperties = Animal.Animal2.class;
+            return new MapSchema(type, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(MapSchema.class, arg, configuration);

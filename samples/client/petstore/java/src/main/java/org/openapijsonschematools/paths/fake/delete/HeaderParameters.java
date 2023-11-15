@@ -25,7 +25,7 @@ public class HeaderParameters {
     }
     
     
-    public record HeaderParameters2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Set<String> required) implements JsonSchema {
+    public record HeaderParameters2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Set<String> required, Class<?> additionalProperties) implements JsonSchema {
         public static HeaderParameters2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
@@ -34,7 +34,8 @@ public class HeaderParameters {
             properties.put("boolean_group", Schema.Schema2.class);
             Set<String> required = new LinkedHashSet<>();
             required.add("required_boolean_group");
-            return new HeaderParameters2(type, properties, required);
+            Class<?> additionalProperties = AdditionalProperties.class;
+            return new HeaderParameters2(type, properties, required, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(HeaderParameters2.class, arg, configuration);

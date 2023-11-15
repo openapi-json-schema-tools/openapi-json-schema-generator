@@ -25,7 +25,7 @@ public class HeaderParameters {
     }
     
     
-    public record HeaderParameters2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements JsonSchema {
+    public record HeaderParameters2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Class<?> additionalProperties) implements JsonSchema {
         public static HeaderParameters2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
@@ -34,7 +34,8 @@ public class HeaderParameters {
             properties.put("aB", Schema.Schema2.class);
             properties.put("A-B", Schema.Schema2.class);
             properties.put("self", Schema.Schema2.class);
-            return new HeaderParameters2(type, properties);
+            Class<?> additionalProperties = AdditionalProperties.class;
+            return new HeaderParameters2(type, properties, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(HeaderParameters2.class, arg, configuration);

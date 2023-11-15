@@ -25,7 +25,7 @@ public class QueryParameters {
     }
     
     
-    public record QueryParameters2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Set<String> required) implements JsonSchema {
+    public record QueryParameters2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Set<String> required, Class<?> additionalProperties) implements JsonSchema {
         public static QueryParameters2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
@@ -37,7 +37,8 @@ public class QueryParameters {
             Set<String> required = new LinkedHashSet<>();
             required.add("required_int64_group");
             required.add("required_string_group");
-            return new QueryParameters2(type, properties, required);
+            Class<?> additionalProperties = AdditionalProperties.class;
+            return new QueryParameters2(type, properties, required, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(QueryParameters2.class, arg, configuration);
