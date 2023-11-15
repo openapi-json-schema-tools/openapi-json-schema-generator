@@ -50,7 +50,7 @@ public class PaginatedResultMyObjectDto {
         public static Results withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            Class<?> items = MyObjectDto.MyObjectDto.class;
+            Class<?> items = MyObjectDto.MyObjectDto2.class;
             return new Results(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {

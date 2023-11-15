@@ -18,6 +18,7 @@
 package org.openapijsonschematools.codegen.generators;
 
 import org.apache.commons.lang3.StringUtils;
+import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
@@ -902,5 +903,173 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             // for header parameters in responses
             return toModuleFilename(name, null);
         }
+    }
+
+    private String toSchemaRefClass(String ref, String sourceJsonPath) {
+        int refClassSuffix = 2;
+        String[] refPieces = ref.split("/");
+        if (ref.equals(sourceJsonPath)) {
+            // self reference, no import needed
+            if (ref.startsWith("#/components/schemas/") && refPieces.length == 4) {
+                return toModelName(refPieces[3], ref)+refClassSuffix;
+            }
+            Set<String> httpMethods = new HashSet<>(Arrays.asList("post", "put", "patch", "get", "delete", "trace", "options"));
+            boolean requestBodyCase = (
+                    refPieces.length == 8 &&
+                            refPieces[1].equals("paths") &&
+                            httpMethods.contains(refPieces[3]) &&
+                            refPieces[4].equals("requestBody") &&
+                            refPieces[5].equals("content") &&
+                            refPieces[7].equals("schema")
+            );
+            if (requestBodyCase) {
+                String contentType = ModelUtils.decodeSlashes(refPieces[6]);
+                // the code knows that content-type are never valid python names
+                return toVarName(contentType);
+            }
+            return null;
+        }
+        if (sourceJsonPath != null && ref.startsWith(sourceJsonPath + "/")) {
+            // internal in-schema reference, no import needed
+            // TODO handle this in the future
+            if (getFilepath(sourceJsonPath).equals(getFilepath(ref))) {
+                // TODO ensure that getFilepath returns the same file for somePath/get/QueryParameters
+                // TODO ensure that getFilepath returns the same file for schemas/SomeSchema...
+                return null;
+            }
+        }
+        // reference is external, import needed
+        // module info is stored in refModule
+        if (ref.startsWith("#/components/schemas/") && refPieces.length == 4) {
+            String schemaName = refPieces[3];
+            return toModelName(schemaName, ref)+refClassSuffix;
+        }
+        if (ref.startsWith("#/components/parameters/")) {
+            if (refPieces.length == 5) {
+                // #/components/parameters/PathUserName/schema
+                String schemaName = refPieces[4];
+                return toModelName(schemaName, ref)+refClassSuffix;
+            }
+            if (refPieces.length == 7) {
+                // #/components/parameters/PathUserName/content/mediaType/schema
+                String schemaName = refPieces[6];
+                return toModelName(schemaName, ref)+refClassSuffix;
+            }
+        }
+        if (ref.startsWith("#/components/headers/")) {
+            if (refPieces.length == 5) {
+                // #/components/headers/Int32JsonContentTypeHeader/schema
+                String schemaName = refPieces[4];
+                return toModelName(schemaName, ref)+refClassSuffix;
+            }
+            if (refPieces.length == 7) {
+                // #/components/headers/Int32JsonContentTypeHeader/content/application~1json/schema
+                String schemaName = refPieces[6];
+                return toModelName(schemaName, ref)+refClassSuffix;
+            }
+        }
+        if (ref.startsWith("#/components/responses/")) {
+            if (refPieces.length == 7) {
+                // #/components/responses/SuccessInlineContentAndHeader/headers/someHeader/schema
+                String schemaName = refPieces[6];
+                return toModelName(schemaName, ref)+refClassSuffix;
+            }
+            if (refPieces.length == 9) {
+                // #/components/responses/SuccessInlineContentAndHeader/headers/someHeader/content/application~1json/schema
+                String schemaName = refPieces[8];
+                return toModelName(schemaName, ref)+refClassSuffix;
+            }
+        }
+        if (ref.startsWith("#/paths/")) {
+            if (refPieces.length == 6) {
+                // #/paths/~1commonParam~1{subDir}~1/parameters/0/schema
+                String schemaName = refPieces[5];
+                return toModelName(schemaName, ref)+refClassSuffix;
+            } else if (refPieces.length == 7) {
+                // #/paths/~1pet~1{petId}/get/parameters/0/schema
+                String schemaName = refPieces[6];
+                return toModelName(schemaName, ref)+refClassSuffix;
+            } else if (refPieces.length == 8) {
+                // #/paths/~1user~1login/get/responses/200/headers/X-Rate-Limit/schema
+                String schemaName = refPieces[7];
+                return toModelName(schemaName, ref)+refClassSuffix;
+            } else if (refPieces.length == 9) {
+                // #/paths/~1pet~1{petId}/get/parameters/0/content/mediaType/schema
+                // #/paths/~1user~1login/get/responses/200/headers/X-Rate-Limit/schema
+                String schemaName = refPieces[8];
+                return toModelName(schemaName, ref)+refClassSuffix;
+            } else if (refPieces.length == 10) {
+                // #/paths/~1user~1login/get/responses/200/headers/X-Rate-Limit/content/application~1json/schema
+                String schemaName = refPieces[9];
+                return toModelName(schemaName, ref)+refClassSuffix;
+            } else if (refPieces.length == 11) {
+                // #/paths/~1user~1login/get/responses/200/headers/X-Rate-Limit/content/application~1json/schema
+                String schemaName = refPieces[10];
+                return toModelName(schemaName, ref)+refClassSuffix;
+            }
+        }
+        return null;
+    }
+
+    private String toRequestBodyRefClass(String ref) {
+        String[] refPieces = ref.split("/");
+        if (ref.startsWith("#/components/requestBodies/") && refPieces.length == 4) {
+            return toModelName(refPieces[3], ref);
+        }
+        return null;
+    }
+
+    private String toResponseRefClass(String ref) {
+        String[] refPieces = ref.split("/");
+        if (ref.startsWith("#/components/responses/") && refPieces.length == 4) {
+            return toModelName(refPieces[3], ref);
+        }
+        return null;
+    }
+
+    private String toHeaderRefClass(String ref) {
+        String[] refPieces = ref.split("/");
+        if (ref.startsWith("#/components/headers/") && refPieces.length == 4) {
+            return toModelName(refPieces[3], ref);
+        }
+        return null;
+    }
+
+    private String toParameterRefClass(String ref) {
+        String[] refPieces = ref.split("/");
+        if (ref.startsWith("#/components/parameters/") && refPieces.length == 4) {
+            return toModelName(refPieces[3], ref);
+        }
+        return null;
+    }
+
+    private String toSecuritySchemesRefClass(String ref) {
+        String[] refPieces = ref.split("/");
+        if (ref.startsWith("#/components/securitySchemes/") && refPieces.length == 4) {
+            return toModelName(refPieces[3], ref);
+        }
+        return null;
+    }
+
+    @Override
+    public String toRefClass(String ref, String sourceJsonPath, String expectedComponentType) {
+        if (ref == null) {
+            return null;
+        }
+        switch (expectedComponentType) {
+            case "schemas":
+                return toSchemaRefClass(ref, sourceJsonPath);
+            case "requestBodies":
+                return toRequestBodyRefClass(ref);
+            case "responses":
+                return toResponseRefClass(ref);
+            case "headers":
+                return toHeaderRefClass(ref);
+            case "parameters":
+                return toParameterRefClass(ref);
+            case "securitySchemes":
+                return toSecuritySchemesRefClass(ref);
+        }
+        return null;
     }
 }

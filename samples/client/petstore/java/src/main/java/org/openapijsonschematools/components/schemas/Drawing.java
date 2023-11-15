@@ -18,7 +18,7 @@ public class Drawing {
         public static Shapes withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            Class<?> items = Shape.Shape.class;
+            Class<?> items = Shape.Shape2.class;
             return new Shapes(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {

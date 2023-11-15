@@ -18,7 +18,7 @@ public class Schema {
         public static Schema2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            Class<?> items = Pet.Pet.class;
+            Class<?> items = Pet.Pet2.class;
             return new Schema2(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {

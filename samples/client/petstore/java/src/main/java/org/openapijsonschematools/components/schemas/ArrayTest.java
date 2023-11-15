@@ -88,7 +88,7 @@ public class ArrayTest {
         public static Items4 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            Class<?> items = ReadOnlyFirst.ReadOnlyFirst.class;
+            Class<?> items = ReadOnlyFirst.ReadOnlyFirst2.class;
             return new Items4(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {

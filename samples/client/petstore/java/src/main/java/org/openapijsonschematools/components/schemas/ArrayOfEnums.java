@@ -24,7 +24,7 @@ public class ArrayOfEnums {
         public static ArrayOfEnums2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            Class<?> items = StringEnum.StringEnum.class;
+            Class<?> items = StringEnum.StringEnum2.class;
             return new ArrayOfEnums2(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {

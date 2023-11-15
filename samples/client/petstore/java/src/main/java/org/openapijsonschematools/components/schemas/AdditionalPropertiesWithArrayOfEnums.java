@@ -18,7 +18,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
         public static AdditionalProperties withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            Class<?> items = EnumClass.EnumClass.class;
+            Class<?> items = EnumClass.EnumClass2.class;
             return new AdditionalProperties(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {

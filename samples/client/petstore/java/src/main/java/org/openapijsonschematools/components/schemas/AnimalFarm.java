@@ -24,7 +24,7 @@ public class AnimalFarm {
         public static AnimalFarm2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            Class<?> items = Animal.Animal.class;
+            Class<?> items = Animal.Animal2.class;
             return new AnimalFarm2(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {

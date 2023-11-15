@@ -86,7 +86,7 @@ public class Pet {
         public static Tags withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            Class<?> items = Tag.Tag.class;
+            Class<?> items = Tag.Tag2.class;
             return new Tags(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {

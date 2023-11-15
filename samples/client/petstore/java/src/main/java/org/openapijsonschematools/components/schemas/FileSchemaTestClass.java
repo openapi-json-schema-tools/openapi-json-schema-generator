@@ -18,7 +18,7 @@ public class FileSchemaTestClass {
         public static Files withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            Class<?> items = File.File.class;
+            Class<?> items = File.File2.class;
             return new Files(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {

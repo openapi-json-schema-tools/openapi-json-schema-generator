@@ -24,7 +24,7 @@ public class SelfReferencingArrayModel {
         public static SelfReferencingArrayModel2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            Class<?> items = SelfReferencingArrayModel.class;
+            Class<?> items = SelfReferencingArrayModel2.class;
             return new SelfReferencingArrayModel2(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
