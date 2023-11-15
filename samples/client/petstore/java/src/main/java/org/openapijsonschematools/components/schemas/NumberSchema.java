@@ -8,6 +8,8 @@ import org.openapijsonschematools.schemas.DateTimeSchema;
 import org.openapijsonschematools.schemas.DecimalSchema;
 import org.openapijsonschematools.schemas.DoubleSchema;
 import org.openapijsonschematools.schemas.FloatSchema;
+import org.openapijsonschematools.schemas.FrozenList;
+import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.Int32Schema;
 import org.openapijsonschematools.schemas.Int64Schema;
 import org.openapijsonschematools.schemas.IntSchema;
@@ -17,12 +19,16 @@ import org.openapijsonschematools.schemas.NullSchema;
 import org.openapijsonschematools.schemas.NumberSchema;
 import org.openapijsonschematools.schemas.StringSchema;
 
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.LinkedHashSet;
-public class Number {
+import java.util.List;
+import java.util.Map;
+public class NumberSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Number2() implements JsonSchema {
+    public record NumberSchema2() implements JsonSchema {
         public static NumberSchema withDefaults() {
             return NumberSchema.withDefaults();
         }

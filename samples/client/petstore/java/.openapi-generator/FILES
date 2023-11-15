@@ -105,8 +105,8 @@ src/main/java/org/openapijsonschematools/components/schemas/NoAdditionalProperti
 src/main/java/org/openapijsonschematools/components/schemas/NullableClass.java
 src/main/java/org/openapijsonschematools/components/schemas/NullableShape.java
 src/main/java/org/openapijsonschematools/components/schemas/NullableString.java
-src/main/java/org/openapijsonschematools/components/schemas/Number.java
 src/main/java/org/openapijsonschematools/components/schemas/NumberOnly.java
+src/main/java/org/openapijsonschematools/components/schemas/NumberSchema.java
 src/main/java/org/openapijsonschematools/components/schemas/NumberWithValidations.java
 src/main/java/org/openapijsonschematools/components/schemas/ObjWithRequiredProps.java
 src/main/java/org/openapijsonschematools/components/schemas/ObjWithRequiredPropsBase.java

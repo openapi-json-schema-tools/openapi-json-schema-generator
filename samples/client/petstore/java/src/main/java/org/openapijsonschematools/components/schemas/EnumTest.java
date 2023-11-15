@@ -8,6 +8,8 @@ import org.openapijsonschematools.schemas.DateTimeSchema;
 import org.openapijsonschematools.schemas.DecimalSchema;
 import org.openapijsonschematools.schemas.DoubleSchema;
 import org.openapijsonschematools.schemas.FloatSchema;
+import org.openapijsonschematools.schemas.FrozenList;
+import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.Int32Schema;
 import org.openapijsonschematools.schemas.Int64Schema;
 import org.openapijsonschematools.schemas.IntSchema;
@@ -17,7 +19,11 @@ import org.openapijsonschematools.schemas.NullSchema;
 import org.openapijsonschematools.schemas.NumberSchema;
 import org.openapijsonschematools.schemas.StringSchema;
 
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
 public class EnumTest {
     // nest classes so all schemas and input/output classes can be public
     
@@ -41,5 +47,47 @@ public class EnumTest {
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(EnumStringRequired.class, arg, configuration);
+        }
+    }    
+    
+    public record EnumInteger(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
+        public static EnumInteger withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(Integer.class);
+            type.add(Long.class);
+            type.add(Float.class);
+            type.add(Double.class);
+            String format = "int32";
+            return new EnumInteger(type, format);
+        }
+        public static Long validate(Integer arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(EnumInteger.class, Long.valueOf(arg), configuration);
+        }
+        
+        public static Long validate(Float arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(EnumInteger.class, Long.parseLong(arg.toString()), configuration);
+        }
+        
+        public static Long validate(Long arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(EnumInteger.class, arg, configuration);
+        }
+        
+        public static Long validate(Double arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(EnumInteger.class, Long.parseLong(arg.toString()), configuration);
+        }
+    }    
+    
+    public record EnumNumber(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
+        public static EnumNumber withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(Integer.class);
+            type.add(Long.class);
+            type.add(Float.class);
+            type.add(Double.class);
+            String format = "double";
+            return new EnumNumber(type, format);
+        }
+        public static Double validate(Double arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(EnumNumber.class, arg, configuration);
         }
     }}

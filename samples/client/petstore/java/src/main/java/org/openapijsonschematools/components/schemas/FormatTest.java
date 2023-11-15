@@ -8,6 +8,8 @@ import org.openapijsonschematools.schemas.DateTimeSchema;
 import org.openapijsonschematools.schemas.DecimalSchema;
 import org.openapijsonschematools.schemas.DoubleSchema;
 import org.openapijsonschematools.schemas.FloatSchema;
+import org.openapijsonschematools.schemas.FrozenList;
+import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.Int32Schema;
 import org.openapijsonschematools.schemas.Int64Schema;
 import org.openapijsonschematools.schemas.IntSchema;
@@ -17,10 +19,40 @@ import org.openapijsonschematools.schemas.NullSchema;
 import org.openapijsonschematools.schemas.NumberSchema;
 import org.openapijsonschematools.schemas.StringSchema;
 
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
 public class FormatTest {
     // nest classes so all schemas and input/output classes can be public
     
+    
+    public record Integer(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static Integer withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(Integer.class);
+            type.add(Long.class);
+            type.add(Float.class);
+            type.add(Double.class);
+            return new Integer(type);
+        }
+        public static Long validate(Integer arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Integer.class, Long.valueOf(arg), configuration);
+        }
+        
+        public static Long validate(Float arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Integer.class, Long.parseLong(arg.toString()), configuration);
+        }
+        
+        public static Long validate(Long arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Integer.class, arg, configuration);
+        }
+        
+        public static Long validate(Double arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Integer.class, Long.parseLong(arg.toString()), configuration);
+        }
+    }    
     
     public record Int32() implements JsonSchema {
         public static Int32Schema withDefaults() {
@@ -36,6 +68,33 @@ public class FormatTest {
         }
     }
     
+    
+    public record Int32withValidations(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
+        public static Int32withValidations withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(Integer.class);
+            type.add(Long.class);
+            type.add(Float.class);
+            type.add(Double.class);
+            String format = "int32";
+            return new Int32withValidations(type, format);
+        }
+        public static Long validate(Integer arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Int32withValidations.class, Long.valueOf(arg), configuration);
+        }
+        
+        public static Long validate(Float arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Int32withValidations.class, Long.parseLong(arg.toString()), configuration);
+        }
+        
+        public static Long validate(Long arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Int32withValidations.class, arg, configuration);
+        }
+        
+        public static Long validate(Double arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Int32withValidations.class, Long.parseLong(arg.toString()), configuration);
+        }
+    }    
     
     public record Int64() implements JsonSchema {
         public static Int64Schema withDefaults() {
@@ -60,6 +119,47 @@ public class FormatTest {
     }
     
     
+    public record NumberSchema(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static NumberSchema withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(Integer.class);
+            type.add(Long.class);
+            type.add(Float.class);
+            type.add(Double.class);
+            return new NumberSchema(type);
+        }
+        public static Number validate(Integer arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+        }
+        
+        public static Number validate(Long arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+        }
+        
+        public static Number validate(Float arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+        }
+        
+        public static Number validate(Double arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+        }
+    }    
+    
+    public record FloatSchema(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
+        public static FloatSchema withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(Integer.class);
+            type.add(Long.class);
+            type.add(Float.class);
+            type.add(Double.class);
+            String format = "float";
+            return new FloatSchema(type, format);
+        }
+        public static Float validate(Float arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(FloatSchema.class, arg, configuration);
+        }
+    }    
+    
     public record Float32() implements JsonSchema {
         public static FloatSchema withDefaults() {
             return FloatSchema.withDefaults();
@@ -70,6 +170,21 @@ public class FormatTest {
         }
     }
     
+    
+    public record DoubleSchema(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
+        public static DoubleSchema withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(Integer.class);
+            type.add(Long.class);
+            type.add(Float.class);
+            type.add(Double.class);
+            String format = "double";
+            return new DoubleSchema(type, format);
+        }
+        public static Double validate(Double arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(DoubleSchema.class, arg, configuration);
+        }
+    }    
     
     public record Float64() implements JsonSchema {
         public static DoubleSchema withDefaults() {

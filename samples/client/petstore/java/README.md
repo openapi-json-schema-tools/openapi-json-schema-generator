@@ -298,7 +298,7 @@ All URIs are relative to the selected server
 | [NullableClass2](docs/NullableClass.md) | |
 | [NullableShape2](docs/NullableShape.md) | The value may be a shape or the &#x27;null&#x27; value. For a composed schema to validate a null payload, one of its chosen oneOf schemas must be type null or nullable (introduced in OAS schema &gt;&#x3D; 3.0) |
 | [NullableString2](docs/NullableString.md) | |
-| [Number2](docs/Number.md) | |
+| [NumberSchema2](docs/ModelNumber.md) | |
 | [NumberOnly2](docs/NumberOnly.md) | |
 | [NumberWithValidations2](docs/NumberWithValidations.md) | |
 | [ObjWithRequiredProps2](docs/ObjWithRequiredProps.md) | |
