@@ -14,66 +14,66 @@ public class EnumTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record EnumString(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static EnumString withDefaults() {
+    public record Enumstring(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static Enumstring withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new EnumString(type);
+            return new Enumstring(type);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(EnumString.class, arg, configuration);
+            return JsonSchema.validate(Enumstring.class, arg, configuration);
         }
     }    
     
-    public record EnumStringRequired(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static EnumStringRequired withDefaults() {
+    public record Enumstringrequired(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static Enumstringrequired withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new EnumStringRequired(type);
+            return new Enumstringrequired(type);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(EnumStringRequired.class, arg, configuration);
+            return JsonSchema.validate(Enumstringrequired.class, arg, configuration);
         }
     }    
     
-    public record EnumInteger(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
-        public static EnumInteger withDefaults() {
+    public record Enuminteger(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
+        public static Enuminteger withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Integer.class);
             type.add(Long.class);
             type.add(Float.class);
             type.add(Double.class);
             String format = "int32";
-            return new EnumInteger(type, format);
+            return new Enuminteger(type, format);
         }
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(EnumInteger.class, Long.valueOf(arg), configuration);
+            return JsonSchema.validate(Enuminteger.class, Long.valueOf(arg), configuration);
         }
         
         public static Long validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(EnumInteger.class, Long.parseLong(arg.toString()), configuration);
+            return JsonSchema.validate(Enuminteger.class, Long.parseLong(arg.toString()), configuration);
         }
         
         public static Long validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(EnumInteger.class, arg, configuration);
+            return JsonSchema.validate(Enuminteger.class, arg, configuration);
         }
         
         public static Long validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(EnumInteger.class, Long.parseLong(arg.toString()), configuration);
+            return JsonSchema.validate(Enuminteger.class, Long.parseLong(arg.toString()), configuration);
         }
     }    
     
-    public record EnumNumber(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
-        public static EnumNumber withDefaults() {
+    public record Enumnumber(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
+        public static Enumnumber withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Integer.class);
             type.add(Long.class);
             type.add(Float.class);
             type.add(Double.class);
             String format = "double";
-            return new EnumNumber(type, format);
+            return new Enumnumber(type, format);
         }
         public static Double validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(EnumNumber.class, arg, configuration);
+            return JsonSchema.validate(Enumnumber.class, arg, configuration);
         }
     }}

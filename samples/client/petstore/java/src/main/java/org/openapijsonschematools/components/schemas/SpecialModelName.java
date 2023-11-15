@@ -10,7 +10,7 @@ import java.time.ZonedDateTime;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-public class SpecialModelname {
+public class Specialmodelname {
     // nest classes so all schemas and input/output classes can be public
     
     

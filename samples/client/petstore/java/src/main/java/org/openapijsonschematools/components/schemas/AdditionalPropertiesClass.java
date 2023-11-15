@@ -87,7 +87,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public record MapWithUndeclaredPropertiesAnytype1() implements JsonSchema {
+    public record Mapwithundeclaredpropertiesanytype1() implements JsonSchema {
         public static JsonSchemas.MapSchema withDefaults() {
             return JsonSchemas.MapSchema.withDefaults();
         }
@@ -98,7 +98,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public record MapWithUndeclaredPropertiesAnytype2() implements JsonSchema {
+    public record Mapwithundeclaredpropertiesanytype2() implements JsonSchema {
         public static JsonSchemas.MapSchema withDefaults() {
             return JsonSchemas.MapSchema.withDefaults();
         }

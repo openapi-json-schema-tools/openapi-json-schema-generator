@@ -4931,8 +4931,13 @@ public class DefaultGenerator implements Generator {
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
                 camelCaseName = getSchemaCamelCaseName(key, sourceJsonPath);
                 break;
-            case "misc":
             case "paths":
+                usedKey = handleSpecialCharacters(key);
+                isValid = isValid(usedKey);
+                snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
+                camelCaseName = camelize(toPathFilename(usedKey, null));;
+                break;
+            case "misc":
             case "verb":
                 usedKey = handleSpecialCharacters(key);
                 isValid = isValid(usedKey);

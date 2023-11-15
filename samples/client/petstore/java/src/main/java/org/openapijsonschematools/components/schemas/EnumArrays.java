@@ -14,14 +14,14 @@ public class EnumArrays {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record JustSymbol(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static JustSymbol withDefaults() {
+    public record Justsymbol(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static Justsymbol withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new JustSymbol(type);
+            return new Justsymbol(type);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(JustSymbol.class, arg, configuration);
+            return JsonSchema.validate(Justsymbol.class, arg, configuration);
         }
     }    
     

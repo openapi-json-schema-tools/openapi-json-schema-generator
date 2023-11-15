@@ -1,0 +1,1 @@
+package org.openapijsonschematools.paths.storeorderorderid.get.responses.response200.content.applicationxml;

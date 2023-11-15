@@ -14,13 +14,13 @@ public class GrandparentAnimal {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record PetType(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static PetType withDefaults() {
+    public record Pettype(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static Pettype withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new PetType(type);
+            return new Pettype(type);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(PetType.class, arg, configuration);
+            return JsonSchema.validate(Pettype.class, arg, configuration);
         }
     }}

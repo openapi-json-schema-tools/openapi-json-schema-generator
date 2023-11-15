@@ -29,7 +29,7 @@ public class Name {
     }
     
     
-    public record SnakeCase() implements JsonSchema {
+    public record Snakecase() implements JsonSchema {
         public static JsonSchemas.Int32Schema withDefaults() {
             return JsonSchemas.Int32Schema.withDefaults();
         }

@@ -143,7 +143,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
     @Override
     public String toModuleFilename(String name, String jsonPath) {
-        return camelize(name).toLowerCase(Locale.ROOT);
+        String usedName = sanitizeName(name);
+        // todo check if empty and if so them use enum name
+        return usedName.toLowerCase(Locale.ROOT);
     }
 
     @Override
@@ -828,8 +830,16 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     @Override
     @SuppressWarnings("static-method")
     public String sanitizeName(String name) {
-        String inputRegex = "[^_a-zA-Z0-9]+";
+        String inputRegex = "[^a-zA-Z0-9]+";
         return name.replaceAll(inputRegex, "");
+    }
+
+    protected boolean isValid(String name) {
+        boolean isValid = super.isValid(name);
+        if (!isValid) {
+            return false;
+        }
+        return name.matches("^[a-zA-Z]\\w*$");
     }
 
     @Override
