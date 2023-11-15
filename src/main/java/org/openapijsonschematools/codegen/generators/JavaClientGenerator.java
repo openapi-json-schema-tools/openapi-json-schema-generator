@@ -890,4 +890,17 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     protected CodegenKey getContainerJsonPathPiece(String expectedComponentType, String currentJsonPath, String sourceJsonPath) {
         return getJsonPathPiece(expectedComponentType, currentJsonPath, sourceJsonPath);
     }
+
+    @Override
+    public String toParameterFilename(String name, String jsonPath) {
+        // adds prefix parameter_ onto the result so modules do not start with _
+        try {
+            Integer.parseInt(name);
+            // for parameters in path, or an endpoint
+            return "parameter" + name;
+        } catch (NumberFormatException nfe) {
+            // for header parameters in responses
+            return toModuleFilename(name, null);
+        }
+    }
 }

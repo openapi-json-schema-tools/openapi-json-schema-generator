@@ -3797,10 +3797,10 @@ public class DefaultGenerator implements Generator {
             String responseJsonPath = "#/components/responses/" + pathPieces[3];
             pathPieces[3] = toResponseModuleName(pathPieces[3], responseJsonPath);
 
-            if (pathPieces.length == 5 && pathPieces[4].equals("HeaderParameters")) {
+            if (pathPieces.length == 5 && pathPieces[4].equals("Headers")) {
                 // synthetic json path
-                // #/components/responses/someResponse/HeaderParameters
-                pathPieces[4] = toModelFilename(pathPieces[4], "#/components/responses/someResponse/" + pathPieces[4]);
+                // #/components/responses/someResponse/Headers
+                pathPieces[4] = getSchemaFilename(jsonPath);
                 return;
             }
 
