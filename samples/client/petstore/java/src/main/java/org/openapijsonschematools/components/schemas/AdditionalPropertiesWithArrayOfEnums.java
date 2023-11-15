@@ -14,11 +14,12 @@ public class AdditionalPropertiesWithArrayOfEnums {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record AdditionalProperties(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record AdditionalProperties(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
         public static AdditionalProperties withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            return new AdditionalProperties(type);
+            Class<?> items = EnumClass.EnumClass.class;
+            return new AdditionalProperties(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties.class, arg, configuration);

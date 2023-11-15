@@ -14,11 +14,12 @@ public class Drawing {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Shapes(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Shapes(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
         public static Shapes withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            return new Shapes(type);
+            Class<?> items = Shape.Shape.class;
+            return new Shapes(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Shapes.class, arg, configuration);

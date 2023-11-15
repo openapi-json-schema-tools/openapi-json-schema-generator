@@ -25,11 +25,12 @@ public class NullableClass {
     }
     
     
-    public record ArrayItemsNullable(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record ArrayItemsNullable(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
         public static ArrayItemsNullable withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            return new ArrayItemsNullable(type);
+            Class<?> items = Items3.class;
+            return new ArrayItemsNullable(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayItemsNullable.class, arg, configuration);

@@ -25,11 +25,12 @@ public class ArrayTest {
         }
     }    
     
-    public record ArrayOfString(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record ArrayOfString(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
         public static ArrayOfString withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            return new ArrayOfString(type);
+            Class<?> items = Items.class;
+            return new ArrayOfString(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayOfString.class, arg, configuration);
@@ -59,44 +60,48 @@ public class ArrayTest {
     }
     
     
-    public record Items2(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Items2(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
         public static Items2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            return new Items2(type);
+            Class<?> items = Items3.class;
+            return new Items2(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items2.class, arg, configuration);
         }
     }    
     
-    public record ArrayArrayOfInteger(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record ArrayArrayOfInteger(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
         public static ArrayArrayOfInteger withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            return new ArrayArrayOfInteger(type);
+            Class<?> items = Items2.class;
+            return new ArrayArrayOfInteger(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayArrayOfInteger.class, arg, configuration);
         }
     }    
     
-    public record Items4(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Items4(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
         public static Items4 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            return new Items4(type);
+            Class<?> items = ReadOnlyFirst.ReadOnlyFirst.class;
+            return new Items4(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items4.class, arg, configuration);
         }
     }    
     
-    public record ArrayArrayOfModel(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record ArrayArrayOfModel(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
         public static ArrayArrayOfModel withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            return new ArrayArrayOfModel(type);
+            Class<?> items = Items4.class;
+            return new ArrayArrayOfModel(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayArrayOfModel.class, arg, configuration);

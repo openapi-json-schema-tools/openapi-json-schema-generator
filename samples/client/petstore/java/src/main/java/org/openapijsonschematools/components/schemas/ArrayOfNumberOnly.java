@@ -37,11 +37,12 @@ public class ArrayOfNumberOnly {
     }
     
     
-    public record ArrayNumber(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record ArrayNumber(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
         public static ArrayNumber withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            return new ArrayNumber(type);
+            Class<?> items = Items.class;
+            return new ArrayNumber(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayNumber.class, arg, configuration);

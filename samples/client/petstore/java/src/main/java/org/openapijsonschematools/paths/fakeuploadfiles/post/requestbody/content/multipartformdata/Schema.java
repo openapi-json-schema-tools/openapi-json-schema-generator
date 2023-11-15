@@ -26,11 +26,12 @@ public class Schema {
         // bytes,
     }    
     
-    public record Files(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Files(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
         public static Files withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            return new Files(type);
+            Class<?> items = Items.class;
+            return new Files(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Files.class, arg, configuration);

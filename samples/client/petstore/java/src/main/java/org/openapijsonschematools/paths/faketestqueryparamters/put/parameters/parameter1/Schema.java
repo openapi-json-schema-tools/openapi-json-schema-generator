@@ -25,11 +25,12 @@ public class Schema {
         }
     }    
     
-    public record Schema2(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record Schema2(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
         public static Schema2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            return new Schema2(type);
+            Class<?> items = Items.class;
+            return new Schema2(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema2.class, arg, configuration);

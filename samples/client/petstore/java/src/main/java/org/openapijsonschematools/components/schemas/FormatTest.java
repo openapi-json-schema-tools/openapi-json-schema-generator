@@ -206,11 +206,12 @@ public class FormatTest {
     }
     
     
-    public record ArrayWithUniqueItems(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public record ArrayWithUniqueItems(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
         public static ArrayWithUniqueItems withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
-            return new ArrayWithUniqueItems(type);
+            Class<?> items = Items.class;
+            return new ArrayWithUniqueItems(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayWithUniqueItems.class, arg, configuration);
