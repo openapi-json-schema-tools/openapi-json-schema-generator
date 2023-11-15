@@ -14,7 +14,7 @@ public class ObjectWithDifficultlyNamedProps {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record $Special[propertyName]() implements JsonSchema {
+    public record Specialpropertyname() implements JsonSchema {
         public static JsonSchemas.Int64Schema withDefaults() {
             return JsonSchemas.Int64Schema.withDefaults();
         }
@@ -37,14 +37,14 @@ public class ObjectWithDifficultlyNamedProps {
     }
     
     
-    public record Schema123List(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static Schema123List withDefaults() {
+    public record Schema123list(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static Schema123list withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Schema123List(type);
+            return new Schema123list(type);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Schema123List.class, arg, configuration);
+            return JsonSchema.validate(Schema123list.class, arg, configuration);
         }
     }    
     

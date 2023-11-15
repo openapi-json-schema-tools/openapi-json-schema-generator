@@ -146,7 +146,7 @@ src/main/java/org/openapijsonschematools/components/schemas/Shape.java
 src/main/java/org/openapijsonschematools/components/schemas/ShapeOrNull.java
 src/main/java/org/openapijsonschematools/components/schemas/SimpleQuadrilateral.java
 src/main/java/org/openapijsonschematools/components/schemas/SomeObject.java
-src/main/java/org/openapijsonschematools/components/schemas/SpecialModelName.java
+src/main/java/org/openapijsonschematools/components/schemas/SpecialModelname.java
 src/main/java/org/openapijsonschematools/components/schemas/StringBooleanMap.java
 src/main/java/org/openapijsonschematools/components/schemas/StringEnum.java
 src/main/java/org/openapijsonschematools/components/schemas/StringEnumWithDefaultValue.java

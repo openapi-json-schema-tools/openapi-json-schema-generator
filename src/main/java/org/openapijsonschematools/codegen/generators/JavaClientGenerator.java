@@ -826,8 +826,16 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     @Override
+    @SuppressWarnings("static-method")
+    public String sanitizeName(String name) {
+        String inputRegex = "[^_a-zA-Z0-9]+";
+        return name.replaceAll(inputRegex, "");
+    }
+
+    @Override
     public String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath) {
         String usedKey = handleSpecialCharacters(name);
+        usedKey = sanitizeName(usedKey);
         HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
         if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
             sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);

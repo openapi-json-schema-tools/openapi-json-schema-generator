@@ -152,71 +152,71 @@ All URIs are relative to the selected server
 | HTTP request | Method | Description |
 | ------------ | ------ | ----------- |
 | / **get** | [FakeApi](docs/FakeApi.md).[slash_route](docs/paths//get.md)  | slash route |
-| /another-fake/dummy **patch** | [$anotherFake?Api](docs/$anotherFake?Api.md).[123_test_@#__%_special_tags](docs/paths/AnotherFakeDummy/patch.md)  | To test special tags |
-| /commonParam/{subDir}/ **delete** | [FakeApi](docs/FakeApi.md).[delete_common_param](docs/paths/CommonParamSubDir/delete.md)  | |
-| /commonParam/{subDir}/ **get** | [FakeApi](docs/FakeApi.md).[get_common_param](docs/paths/CommonParamSubDir/get.md)  | |
-| /commonParam/{subDir}/ **post** | [FakeApi](docs/FakeApi.md).[post_common_param](docs/paths/CommonParamSubDir/post.md)  | |
+| /another-fake/dummy **patch** | [$anotherFake?Api](docs/$anotherFake?Api.md).[123_test_@#__%_special_tags](docs/paths/Anotherfakedummy/patch.md)  | To test special tags |
+| /commonParam/{subDir}/ **delete** | [FakeApi](docs/FakeApi.md).[delete_common_param](docs/paths/CommonParamsubDir/delete.md)  | |
+| /commonParam/{subDir}/ **get** | [FakeApi](docs/FakeApi.md).[get_common_param](docs/paths/CommonParamsubDir/get.md)  | |
+| /commonParam/{subDir}/ **post** | [FakeApi](docs/FakeApi.md).[post_common_param](docs/paths/CommonParamsubDir/post.md)  | |
 | /fake **delete** | [FakeApi](docs/FakeApi.md).[group_parameters](docs/paths/Fake/delete.md)  | Fake endpoint to test group parameters (optional) |
 | /fake **get** | [FakeApi](docs/FakeApi.md).[enum_parameters](docs/paths/Fake/get.md)  | To test enum parameters |
 | /fake **patch** | [FakeApi](docs/FakeApi.md).[client_model](docs/paths/Fake/patch.md)  | To test \&quot;client\&quot; model |
 | /fake **post** | [FakeApi](docs/FakeApi.md).[endpoint_parameters](docs/paths/Fake/post.md)  | Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트  |
-| /fake/additional-properties-with-array-of-enums **get** | [FakeApi](docs/FakeApi.md).[additional_properties_with_array_of_enums](docs/paths/FakeAdditionalPropertiesWithArrayOfEnums/get.md)  | Additional Properties with Array of Enums |
-| /fake/body-with-file-schema **put** | [FakeApi](docs/FakeApi.md).[body_with_file_schema](docs/paths/FakeBodyWithFileSchema/put.md)  | |
-| /fake/body-with-query-params **put** | [FakeApi](docs/FakeApi.md).[body_with_query_params](docs/paths/FakeBodyWithQueryParams/put.md)  | |
-| /fake/case-sensitive-params **put** | [FakeApi](docs/FakeApi.md).[case_sensitive_params](docs/paths/FakeCaseSensitiveParams/put.md)  | |
-| /fake/deleteCoffee/{id} **delete** | [FakeApi](docs/FakeApi.md).[delete_coffee](docs/paths/FakeDeleteCoffeeId/delete.md)  | Delete coffee |
-| /fake/health **get** | [FakeApi](docs/FakeApi.md).[fake_health_get](docs/paths/FakeHealth/get.md)  | Health check endpoint |
-| /fake/inline-additionalProperties **post** | [FakeApi](docs/FakeApi.md).[inline_additional_properties](docs/paths/FakeInlineAdditionalProperties/post.md)  | test inline additionalProperties |
-| /fake/inlineComposition/ **post** | [FakeApi](docs/FakeApi.md).[inline_composition](docs/paths/FakeInlineComposition/post.md)  | testing composed schemas at inline locations |
-| /fake/jsonFormData **get** | [FakeApi](docs/FakeApi.md).[json_form_data](docs/paths/FakeJsonFormData/get.md)  | test json serialization of form data |
-| /fake/jsonPatch **patch** | [FakeApi](docs/FakeApi.md).[json_patch](docs/paths/FakeJsonPatch/patch.md)  | json patch |
-| /fake/jsonWithCharset **post** | [FakeApi](docs/FakeApi.md).[json_with_charset](docs/paths/FakeJsonWithCharset/post.md)  | json with charset tx and rx |
-| /fake/multipleRequestBodyContentTypes/ **post** | [FakeApi](docs/FakeApi.md).[multiple_request_body_content_types](docs/paths/FakeMultipleRequestBodyContentTypes/post.md)  | testing composed schemas at inline locations |
-| /fake/multipleResponseBodies **get** | [FakeApi](docs/FakeApi.md).[multiple_response_bodies](docs/paths/FakeMultipleResponseBodies/get.md)  | multiple responses have response bodies |
-| /fake/multipleSecurities **get** | [FakeApi](docs/FakeApi.md).[multiple_securities](docs/paths/FakeMultipleSecurities/get.md)  | multiple security requirements |
-| /fake/objInQuery **get** | [FakeApi](docs/FakeApi.md).[object_in_query](docs/paths/FakeObjInQuery/get.md)  | user list |
-| /fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/ **post** | [FakeApi](docs/FakeApi.md).[parameter_collisions](docs/paths/FakeParameterCollisions1ABAbSelfAB/post.md)  | parameter collision case |
-| /fake/queryParamWithJsonContentType **get** | [FakeApi](docs/FakeApi.md).[query_param_with_json_content_type](docs/paths/FakeQueryParamWithJsonContentType/get.md)  | query param with json content-type |
-| /fake/redirection **get** | [FakeApi](docs/FakeApi.md).[redirection](docs/paths/FakeRedirection/get.md)  | operation with redirection responses |
-| /fake/refObjInQuery **get** | [FakeApi](docs/FakeApi.md).[ref_object_in_query](docs/paths/FakeRefObjInQuery/get.md)  | user list |
-| /fake/refs/array-of-enums **post** | [FakeApi](docs/FakeApi.md).[array_of_enums](docs/paths/FakeRefsArrayOfEnums/post.md)  | Array of Enums |
-| /fake/refs/arraymodel **post** | [FakeApi](docs/FakeApi.md).[array_model](docs/paths/FakeRefsArraymodel/post.md)  | |
-| /fake/refs/boolean **post** | [FakeApi](docs/FakeApi.md).[boolean](docs/paths/FakeRefsBoolean/post.md)  | |
-| /fake/refs/composed_one_of_number_with_validations **post** | [FakeApi](docs/FakeApi.md).[composed_one_of_different_types](docs/paths/FakeRefsComposedOneOfNumberWithValidations/post.md)  | |
-| /fake/refs/enum **post** | [FakeApi](docs/FakeApi.md).[string_enum](docs/paths/FakeRefsEnum/post.md)  | |
-| /fake/refs/mammal **post** | [FakeApi](docs/FakeApi.md).[mammal](docs/paths/FakeRefsMammal/post.md)  | |
-| /fake/refs/number **post** | [FakeApi](docs/FakeApi.md).[number_with_validations](docs/paths/FakeRefsNumber/post.md)  | |
-| /fake/refs/object_model_with_ref_props **post** | [FakeApi](docs/FakeApi.md).[object_model_with_ref_props](docs/paths/FakeRefsObjectModelWithRefProps/post.md)  | |
-| /fake/refs/string **post** | [FakeApi](docs/FakeApi.md).[string](docs/paths/FakeRefsString/post.md)  | |
-| /fake/responseWithoutSchema **get** | [FakeApi](docs/FakeApi.md).[response_without_schema](docs/paths/FakeResponseWithoutSchema/get.md)  | receives a response without schema |
-| /fake/test-query-paramters **put** | [FakeApi](docs/FakeApi.md).[query_parameter_collection_format](docs/paths/FakeTestQueryParamters/put.md)  | |
-| /fake/uploadDownloadFile **post** | [FakeApi](docs/FakeApi.md).[upload_download_file](docs/paths/FakeUploadDownloadFile/post.md)  | uploads a file and downloads a file using application/octet-stream |
-| /fake/uploadFile **post** | [FakeApi](docs/FakeApi.md).[upload_file](docs/paths/FakeUploadFile/post.md)  | uploads a file using multipart/form-data |
-| /fake/uploadFiles **post** | [FakeApi](docs/FakeApi.md).[upload_files](docs/paths/FakeUploadFiles/post.md)  | uploads files using multipart/form-data |
-| /fake/wildCardResponses **get** | [FakeApi](docs/FakeApi.md).[wild_card_responses](docs/paths/FakeWildCardResponses/get.md)  | operation with wildcard responses |
-| /fake/{petId}/uploadImageWithRequiredFile **post** | [PetApi](docs/PetApi.md).[upload_file_with_required_file](docs/paths/FakePetIdUploadImageWithRequiredFile/post.md)  | uploads an image (required) |
+| /fake/additional-properties-with-array-of-enums **get** | [FakeApi](docs/FakeApi.md).[additional_properties_with_array_of_enums](docs/paths/Fakeadditionalpropertieswitharrayofenums/get.md)  | Additional Properties with Array of Enums |
+| /fake/body-with-file-schema **put** | [FakeApi](docs/FakeApi.md).[body_with_file_schema](docs/paths/Fakebodywithfileschema/put.md)  | |
+| /fake/body-with-query-params **put** | [FakeApi](docs/FakeApi.md).[body_with_query_params](docs/paths/Fakebodywithqueryparams/put.md)  | |
+| /fake/case-sensitive-params **put** | [FakeApi](docs/FakeApi.md).[case_sensitive_params](docs/paths/Fakecasesensitiveparams/put.md)  | |
+| /fake/deleteCoffee/{id} **delete** | [FakeApi](docs/FakeApi.md).[delete_coffee](docs/paths/FakedeleteCoffeeid/delete.md)  | Delete coffee |
+| /fake/health **get** | [FakeApi](docs/FakeApi.md).[fake_health_get](docs/paths/Fakehealth/get.md)  | Health check endpoint |
+| /fake/inline-additionalProperties **post** | [FakeApi](docs/FakeApi.md).[inline_additional_properties](docs/paths/FakeinlineadditionalProperties/post.md)  | test inline additionalProperties |
+| /fake/inlineComposition/ **post** | [FakeApi](docs/FakeApi.md).[inline_composition](docs/paths/FakeinlineComposition/post.md)  | testing composed schemas at inline locations |
+| /fake/jsonFormData **get** | [FakeApi](docs/FakeApi.md).[json_form_data](docs/paths/FakejsonFormData/get.md)  | test json serialization of form data |
+| /fake/jsonPatch **patch** | [FakeApi](docs/FakeApi.md).[json_patch](docs/paths/FakejsonPatch/patch.md)  | json patch |
+| /fake/jsonWithCharset **post** | [FakeApi](docs/FakeApi.md).[json_with_charset](docs/paths/FakejsonWithCharset/post.md)  | json with charset tx and rx |
+| /fake/multipleRequestBodyContentTypes/ **post** | [FakeApi](docs/FakeApi.md).[multiple_request_body_content_types](docs/paths/FakemultipleRequestBodyContentTypes/post.md)  | testing composed schemas at inline locations |
+| /fake/multipleResponseBodies **get** | [FakeApi](docs/FakeApi.md).[multiple_response_bodies](docs/paths/FakemultipleResponseBodies/get.md)  | multiple responses have response bodies |
+| /fake/multipleSecurities **get** | [FakeApi](docs/FakeApi.md).[multiple_securities](docs/paths/FakemultipleSecurities/get.md)  | multiple security requirements |
+| /fake/objInQuery **get** | [FakeApi](docs/FakeApi.md).[object_in_query](docs/paths/FakeobjInQuery/get.md)  | user list |
+| /fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/ **post** | [FakeApi](docs/FakeApi.md).[parameter_collisions](docs/paths/FakeparameterCollisions1aBAbselfAB/post.md)  | parameter collision case |
+| /fake/queryParamWithJsonContentType **get** | [FakeApi](docs/FakeApi.md).[query_param_with_json_content_type](docs/paths/FakequeryParamWithJsonContentType/get.md)  | query param with json content-type |
+| /fake/redirection **get** | [FakeApi](docs/FakeApi.md).[redirection](docs/paths/Fakeredirection/get.md)  | operation with redirection responses |
+| /fake/refObjInQuery **get** | [FakeApi](docs/FakeApi.md).[ref_object_in_query](docs/paths/FakerefObjInQuery/get.md)  | user list |
+| /fake/refs/array-of-enums **post** | [FakeApi](docs/FakeApi.md).[array_of_enums](docs/paths/Fakerefsarrayofenums/post.md)  | Array of Enums |
+| /fake/refs/arraymodel **post** | [FakeApi](docs/FakeApi.md).[array_model](docs/paths/Fakerefsarraymodel/post.md)  | |
+| /fake/refs/boolean **post** | [FakeApi](docs/FakeApi.md).[boolean](docs/paths/Fakerefsboolean/post.md)  | |
+| /fake/refs/composed_one_of_number_with_validations **post** | [FakeApi](docs/FakeApi.md).[composed_one_of_different_types](docs/paths/FakerefscomposedOneOfNumberWithValidations/post.md)  | |
+| /fake/refs/enum **post** | [FakeApi](docs/FakeApi.md).[string_enum](docs/paths/Fakerefsenum/post.md)  | |
+| /fake/refs/mammal **post** | [FakeApi](docs/FakeApi.md).[mammal](docs/paths/Fakerefsmammal/post.md)  | |
+| /fake/refs/number **post** | [FakeApi](docs/FakeApi.md).[number_with_validations](docs/paths/Fakerefsnumber/post.md)  | |
+| /fake/refs/object_model_with_ref_props **post** | [FakeApi](docs/FakeApi.md).[object_model_with_ref_props](docs/paths/FakerefsobjectModelWithRefProps/post.md)  | |
+| /fake/refs/string **post** | [FakeApi](docs/FakeApi.md).[string](docs/paths/Fakerefsstring/post.md)  | |
+| /fake/responseWithoutSchema **get** | [FakeApi](docs/FakeApi.md).[response_without_schema](docs/paths/FakeresponseWithoutSchema/get.md)  | receives a response without schema |
+| /fake/test-query-paramters **put** | [FakeApi](docs/FakeApi.md).[query_parameter_collection_format](docs/paths/Faketestqueryparamters/put.md)  | |
+| /fake/uploadDownloadFile **post** | [FakeApi](docs/FakeApi.md).[upload_download_file](docs/paths/FakeuploadDownloadFile/post.md)  | uploads a file and downloads a file using application/octet-stream |
+| /fake/uploadFile **post** | [FakeApi](docs/FakeApi.md).[upload_file](docs/paths/FakeuploadFile/post.md)  | uploads a file using multipart/form-data |
+| /fake/uploadFiles **post** | [FakeApi](docs/FakeApi.md).[upload_files](docs/paths/FakeuploadFiles/post.md)  | uploads files using multipart/form-data |
+| /fake/wildCardResponses **get** | [FakeApi](docs/FakeApi.md).[wild_card_responses](docs/paths/FakewildCardResponses/get.md)  | operation with wildcard responses |
+| /fake/{petId}/uploadImageWithRequiredFile **post** | [PetApi](docs/PetApi.md).[upload_file_with_required_file](docs/paths/FakepetIduploadImageWithRequiredFile/post.md)  | uploads an image (required) |
 | /fake_classname_test **patch** | [FakeClassnameTags 123#$%^Api](docs/FakeClassnameTags 123#$%^Api.md).[classname](docs/paths/FakeClassnameTest/patch.md)  | To test class name in snake case |
 | /foo **get** | [DefaultApi](docs/DefaultApi.md).[foo_get](docs/paths/Foo/get.md)  | |
 | /pet **post** | [PetApi](docs/PetApi.md).[add_pet](docs/paths/Pet/post.md)  | Add a new pet to the store |
 | /pet **put** | [PetApi](docs/PetApi.md).[update_pet](docs/paths/Pet/put.md)  | Update an existing pet |
-| /pet/findByStatus **get** | [PetApi](docs/PetApi.md).[find_pets_by_status](docs/paths/PetFindByStatus/get.md)  | Finds Pets by status |
-| /pet/findByTags **get** | [PetApi](docs/PetApi.md).[find_pets_by_tags](docs/paths/PetFindByTags/get.md)  | Finds Pets by tags |
-| /pet/{petId} **delete** | [PetApi](docs/PetApi.md).[delete_pet](docs/paths/PetPetId/delete.md)  | Deletes a pet |
-| /pet/{petId} **get** | [PetApi](docs/PetApi.md).[get_pet_by_id](docs/paths/PetPetId/get.md)  | Find pet by ID |
-| /pet/{petId} **post** | [PetApi](docs/PetApi.md).[update_pet_with_form](docs/paths/PetPetId/post.md)  | Updates a pet in the store with form data |
-| /pet/{petId}/uploadImage **post** | [PetApi](docs/PetApi.md).[upload_image](docs/paths/PetPetIdUploadImage/post.md)  | uploads an image |
-| /store/inventory **get** | [StoreApi](docs/StoreApi.md).[get_inventory](docs/paths/StoreInventory/get.md)  | Returns pet inventories by status |
-| /store/order **post** | [StoreApi](docs/StoreApi.md).[place_order](docs/paths/StoreOrder/post.md)  | Place an order for a pet |
-| /store/order/{order_id} **delete** | [StoreApi](docs/StoreApi.md).[delete_order](docs/paths/StoreOrderOrderId/delete.md)  | Delete purchase order by ID |
-| /store/order/{order_id} **get** | [StoreApi](docs/StoreApi.md).[get_order_by_id](docs/paths/StoreOrderOrderId/get.md)  | Find purchase order by ID |
+| /pet/findByStatus **get** | [PetApi](docs/PetApi.md).[find_pets_by_status](docs/paths/PetfindByStatus/get.md)  | Finds Pets by status |
+| /pet/findByTags **get** | [PetApi](docs/PetApi.md).[find_pets_by_tags](docs/paths/PetfindByTags/get.md)  | Finds Pets by tags |
+| /pet/{petId} **delete** | [PetApi](docs/PetApi.md).[delete_pet](docs/paths/PetpetId/delete.md)  | Deletes a pet |
+| /pet/{petId} **get** | [PetApi](docs/PetApi.md).[get_pet_by_id](docs/paths/PetpetId/get.md)  | Find pet by ID |
+| /pet/{petId} **post** | [PetApi](docs/PetApi.md).[update_pet_with_form](docs/paths/PetpetId/post.md)  | Updates a pet in the store with form data |
+| /pet/{petId}/uploadImage **post** | [PetApi](docs/PetApi.md).[upload_image](docs/paths/PetpetIduploadImage/post.md)  | uploads an image |
+| /store/inventory **get** | [StoreApi](docs/StoreApi.md).[get_inventory](docs/paths/Storeinventory/get.md)  | Returns pet inventories by status |
+| /store/order **post** | [StoreApi](docs/StoreApi.md).[place_order](docs/paths/Storeorder/post.md)  | Place an order for a pet |
+| /store/order/{order_id} **delete** | [StoreApi](docs/StoreApi.md).[delete_order](docs/paths/StoreorderorderId/delete.md)  | Delete purchase order by ID |
+| /store/order/{order_id} **get** | [StoreApi](docs/StoreApi.md).[get_order_by_id](docs/paths/StoreorderorderId/get.md)  | Find purchase order by ID |
 | /user **post** | [UserApi](docs/UserApi.md).[create_user](docs/paths/User/post.md)  | Create user |
-| /user/createWithArray **post** | [UserApi](docs/UserApi.md).[create_users_with_array_input](docs/paths/UserCreateWithArray/post.md)  | Creates list of users with given input array |
-| /user/createWithList **post** | [UserApi](docs/UserApi.md).[create_users_with_list_input](docs/paths/UserCreateWithList/post.md)  | Creates list of users with given input array |
-| /user/login **get** | [UserApi](docs/UserApi.md).[login_user](docs/paths/UserLogin/get.md)  | Logs user into the system |
-| /user/logout **get** | [UserApi](docs/UserApi.md).[logout_user](docs/paths/UserLogout/get.md)  | Logs out current logged in user session |
-| /user/{username} **delete** | [UserApi](docs/UserApi.md).[delete_user](docs/paths/UserUsername/delete.md)  | Delete user |
-| /user/{username} **get** | [UserApi](docs/UserApi.md).[get_user_by_name](docs/paths/UserUsername/get.md)  | Get user by user name |
-| /user/{username} **put** | [UserApi](docs/UserApi.md).[update_user](docs/paths/UserUsername/put.md)  | Updated user |
+| /user/createWithArray **post** | [UserApi](docs/UserApi.md).[create_users_with_array_input](docs/paths/UsercreateWithArray/post.md)  | Creates list of users with given input array |
+| /user/createWithList **post** | [UserApi](docs/UserApi.md).[create_users_with_list_input](docs/paths/UsercreateWithList/post.md)  | Creates list of users with given input array |
+| /user/login **get** | [UserApi](docs/UserApi.md).[login_user](docs/paths/Userlogin/get.md)  | Logs user into the system |
+| /user/logout **get** | [UserApi](docs/UserApi.md).[logout_user](docs/paths/Userlogout/get.md)  | Logs out current logged in user session |
+| /user/{username} **delete** | [UserApi](docs/UserApi.md).[delete_user](docs/paths/Userusername/delete.md)  | Delete user |
+| /user/{username} **get** | [UserApi](docs/UserApi.md).[get_user_by_name](docs/paths/Userusername/get.md)  | Get user by user name |
+| /user/{username} **put** | [UserApi](docs/UserApi.md).[update_user](docs/paths/Userusername/put.md)  | Updated user |
 
 ## Component Schemas
 
@@ -348,7 +348,7 @@ All URIs are relative to the selected server
 | [TriangleInterface2](docs/TriangleInterface.md) | |
 | [UUIDString2](docs/UUIDString.md) | |
 | [User2](docs/User.md) | |
-| [SpecialModelName2](docs/SpecialModelName.md) | model with an invalid class name for python |
+| [SpecialModelname2](docs/SpecialModelname.md) | model with an invalid class name for python |
 | [Apple2](docs/Apple.md) | |
 | [AppleReq2](docs/AppleReq.md) | |
 | [Banana2](docs/Banana.md) | |
