@@ -37,6 +37,18 @@ public class ComposedOneOfDifferentTypes {
         }
     }    
     
+    public record Schema4(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static Schema4 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenMap.class);
+            return new Schema4(type);
+        }
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Schema4.class, arg, configuration);
+        }
+    }
+    
+    
     public record Items() implements JsonSchema {
         public static JsonSchemas.AnyTypeSchema withDefaults() {
             return JsonSchemas.AnyTypeSchema.withDefaults();

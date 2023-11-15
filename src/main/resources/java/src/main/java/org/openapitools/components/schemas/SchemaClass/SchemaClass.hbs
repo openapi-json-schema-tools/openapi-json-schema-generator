@@ -14,7 +14,7 @@
             {{#each types}}
                 {{#eq this "object"}}
                     {{#or allOf anyOf oneOf not if_ then else_ properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties dependentRequired dependentSchemas propertyNames (neq maxProperties null) (neq minProperties null) patternProperties unevaluatedProperties }}
-{{!> components/schemas/schema_cls/_schema_dict }}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_map }}
                     {{else}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
                     {{/or}}

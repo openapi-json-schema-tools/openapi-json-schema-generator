@@ -21,4 +21,16 @@ public class PathParameters {
     
         // NotAnyTypeSchema
     }
+    
+    
+    public record PathParameters2(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static PathParameters2 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenMap.class);
+            return new PathParameters2(type);
+        }
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(PathParameters2.class, arg, configuration);
+        }
+    }
 }

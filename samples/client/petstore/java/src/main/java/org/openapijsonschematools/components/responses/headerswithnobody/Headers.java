@@ -21,4 +21,16 @@ public class Headers {
     
         // NotAnyTypeSchema
     }
+    
+    
+    public record Headers2(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static Headers2 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenMap.class);
+            return new Headers2(type);
+        }
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Headers2.class, arg, configuration);
+        }
+    }
 }

@@ -237,4 +237,16 @@ public class Schema {
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Callback.class, arg, configuration);
         }
-    }}
+    }    
+    
+    public record Schema2(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static Schema2 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenMap.class);
+            return new Schema2(type);
+        }
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Schema2.class, arg, configuration);
+        }
+    }
+}

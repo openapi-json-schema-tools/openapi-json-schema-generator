@@ -21,4 +21,16 @@ public class QueryParameters {
     
         // NotAnyTypeSchema
     }
+    
+    
+    public record QueryParameters2(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static QueryParameters2 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenMap.class);
+            return new QueryParameters2(type);
+        }
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(QueryParameters2.class, arg, configuration);
+        }
+    }
 }

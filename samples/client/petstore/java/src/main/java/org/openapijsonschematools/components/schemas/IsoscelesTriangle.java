@@ -23,4 +23,16 @@ public class IsoscelesTriangle {
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(TriangleType.class, arg, configuration);
         }
-    }}
+    }    
+    
+    public record Schema1(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static Schema1 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(FrozenMap.class);
+            return new Schema1(type);
+        }
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Schema1.class, arg, configuration);
+        }
+    }
+}
