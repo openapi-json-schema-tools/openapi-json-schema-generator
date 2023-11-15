@@ -4702,7 +4702,7 @@ public class DefaultGenerator implements Generator {
         return null;
     }
 
-    private CodegenKey getJsonPathPiece(String expectedComponentType, String currentJsonPath, String sourceJsonPathPiece) {
+    protected CodegenKey getJsonPathPiece(String expectedComponentType, String currentJsonPath, String sourceJsonPathPiece) {
         // last fragment info
         // requestBody -> requestBody
         // headers -> headerName
@@ -4713,6 +4713,10 @@ public class DefaultGenerator implements Generator {
         String usedName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
         usedName = ModelUtils.decodeSlashes(usedName);
         return getKey(usedName, expectedComponentType, sourceJsonPathPiece);
+    }
+
+    protected CodegenKey getContainerJsonPathPiece(String expectedComponentType, String currentJsonPath, String sourceJsonPath) {
+        return null;
     }
 
     private void setSchemaLocationInfo(String ref, String sourceJsonPath, String currentJsonPath, CodegenSchema instance) {
@@ -4730,7 +4734,7 @@ public class DefaultGenerator implements Generator {
             return;
         }
         if (currentJsonPath.equals(sourceJsonPath)) {
-            instance.containerJsonPathPiece = getJsonPathPiece(expectedComponentType, currentJsonPath, sourceJsonPath);
+            instance.containerJsonPathPiece = getContainerJsonPathPiece(expectedComponentType, currentJsonPath, sourceJsonPath);
         }
         instance.jsonPathPiece = getJsonPathPiece(expectedComponentType, currentJsonPath, sourceJsonPath);
         String[] pathPieces = currentJsonPath.split("/");

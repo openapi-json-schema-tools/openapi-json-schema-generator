@@ -57,6 +57,7 @@ import org.openapijsonschematools.codegen.templating.TemplatingEngineLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -2185,5 +2186,22 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         LOGGER.info("# This generator was written by Justin Black (https://github.com/spacether)    #");
         LOGGER.info("# Please support his work directly via https://github.com/sponsors/spacether \uD83D\uDE4F#");
         LOGGER.info("################################################################################");
+    }
+
+    @Override
+    public String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath) {
+        String usedKey = handleSpecialCharacters(name);
+        HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
+        if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
+            sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);
+        }
+        Integer qty = keyToQty.getOrDefault(usedKey.toLowerCase(Locale.ROOT), 0);
+        qty += 1;
+        keyToQty.put(usedKey.toLowerCase(Locale.ROOT), qty);
+        String suffix = "";
+        if (qty > 1) {
+            suffix = qty.toString();
+        }
+        return toModelName(usedKey + suffix, sourceJsonPath);
     }
 }

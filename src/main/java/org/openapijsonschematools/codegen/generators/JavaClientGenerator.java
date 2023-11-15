@@ -23,6 +23,7 @@ import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
 import org.openapijsonschematools.codegen.generators.models.VendorExtension;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
@@ -885,4 +886,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         return schemaJsonPathToModelName.get(jsonPath);
     }
 
+    protected CodegenKey getContainerJsonPathPiece(String expectedComponentType, String currentJsonPath, String sourceJsonPath) {
+        return getJsonPathPiece(expectedComponentType, currentJsonPath, sourceJsonPath);
+    }
 }
