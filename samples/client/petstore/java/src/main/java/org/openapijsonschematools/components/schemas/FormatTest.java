@@ -301,25 +301,25 @@ public class FormatTest {
         }
     }    
     
-    public record Patternwithdigits(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static Patternwithdigits withDefaults() {
+    public record PatternWithDigits(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static PatternWithDigits withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Patternwithdigits(type);
+            return new PatternWithDigits(type);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Patternwithdigits.class, arg, configuration);
+            return JsonSchema.validate(PatternWithDigits.class, arg, configuration);
         }
     }    
     
-    public record Patternwithdigitsanddelimiter(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static Patternwithdigitsanddelimiter withDefaults() {
+    public record PatternWithDigitsAndDelimiter(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static PatternWithDigitsAndDelimiter withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Patternwithdigitsanddelimiter(type);
+            return new PatternWithDigitsAndDelimiter(type);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Patternwithdigitsanddelimiter.class, arg, configuration);
+            return JsonSchema.validate(PatternWithDigitsAndDelimiter.class, arg, configuration);
         }
     }    
     

@@ -182,11 +182,11 @@ All URIs are relative to the selected server
 | /fake/refs/array-of-enums **post** | [FakeApi](docs/FakeApi.md).[array_of_enums](docs/paths/Fakerefsarrayofenums/post.md)  | Array of Enums |
 | /fake/refs/arraymodel **post** | [FakeApi](docs/FakeApi.md).[array_model](docs/paths/Fakerefsarraymodel/post.md)  | |
 | /fake/refs/boolean **post** | [FakeApi](docs/FakeApi.md).[boolean](docs/paths/Fakerefsboolean/post.md)  | |
-| /fake/refs/composed_one_of_number_with_validations **post** | [FakeApi](docs/FakeApi.md).[composed_one_of_different_types](docs/paths/Fakerefscomposedoneofnumberwithvalidations/post.md)  | |
+| /fake/refs/composed_one_of_number_with_validations **post** | [FakeApi](docs/FakeApi.md).[composed_one_of_different_types](docs/paths/FakerefscomposedOneOfNumberWithValidations/post.md)  | |
 | /fake/refs/enum **post** | [FakeApi](docs/FakeApi.md).[string_enum](docs/paths/Fakerefsenum/post.md)  | |
 | /fake/refs/mammal **post** | [FakeApi](docs/FakeApi.md).[mammal](docs/paths/Fakerefsmammal/post.md)  | |
 | /fake/refs/number **post** | [FakeApi](docs/FakeApi.md).[number_with_validations](docs/paths/Fakerefsnumber/post.md)  | |
-| /fake/refs/object_model_with_ref_props **post** | [FakeApi](docs/FakeApi.md).[object_model_with_ref_props](docs/paths/Fakerefsobjectmodelwithrefprops/post.md)  | |
+| /fake/refs/object_model_with_ref_props **post** | [FakeApi](docs/FakeApi.md).[object_model_with_ref_props](docs/paths/FakerefsobjectModelWithRefProps/post.md)  | |
 | /fake/refs/string **post** | [FakeApi](docs/FakeApi.md).[string](docs/paths/Fakerefsstring/post.md)  | |
 | /fake/responseWithoutSchema **get** | [FakeApi](docs/FakeApi.md).[response_without_schema](docs/paths/FakeresponseWithoutSchema/get.md)  | receives a response without schema |
 | /fake/test-query-paramters **put** | [FakeApi](docs/FakeApi.md).[query_parameter_collection_format](docs/paths/Faketestqueryparamters/put.md)  | |
@@ -195,7 +195,7 @@ All URIs are relative to the selected server
 | /fake/uploadFiles **post** | [FakeApi](docs/FakeApi.md).[upload_files](docs/paths/FakeuploadFiles/post.md)  | uploads files using multipart/form-data |
 | /fake/wildCardResponses **get** | [FakeApi](docs/FakeApi.md).[wild_card_responses](docs/paths/FakewildCardResponses/get.md)  | operation with wildcard responses |
 | /fake/{petId}/uploadImageWithRequiredFile **post** | [PetApi](docs/PetApi.md).[upload_file_with_required_file](docs/paths/FakepetIduploadImageWithRequiredFile/post.md)  | uploads an image (required) |
-| /fake_classname_test **patch** | [FakeClassnameTags 123#$%^Api](docs/FakeClassnameTags 123#$%^Api.md).[classname](docs/paths/Fakeclassnametest/patch.md)  | To test class name in snake case |
+| /fake_classname_test **patch** | [FakeClassnameTags 123#$%^Api](docs/FakeClassnameTags 123#$%^Api.md).[classname](docs/paths/FakeClassnameTest/patch.md)  | To test class name in snake case |
 | /foo **get** | [DefaultApi](docs/DefaultApi.md).[foo_get](docs/paths/Foo/get.md)  | |
 | /pet **post** | [PetApi](docs/PetApi.md).[add_pet](docs/paths/Pet/post.md)  | Add a new pet to the store |
 | /pet **put** | [PetApi](docs/PetApi.md).[update_pet](docs/paths/Pet/put.md)  | Update an existing pet |
@@ -207,8 +207,8 @@ All URIs are relative to the selected server
 | /pet/{petId}/uploadImage **post** | [PetApi](docs/PetApi.md).[upload_image](docs/paths/PetpetIduploadImage/post.md)  | uploads an image |
 | /store/inventory **get** | [StoreApi](docs/StoreApi.md).[get_inventory](docs/paths/Storeinventory/get.md)  | Returns pet inventories by status |
 | /store/order **post** | [StoreApi](docs/StoreApi.md).[place_order](docs/paths/Storeorder/post.md)  | Place an order for a pet |
-| /store/order/{order_id} **delete** | [StoreApi](docs/StoreApi.md).[delete_order](docs/paths/Storeorderorderid/delete.md)  | Delete purchase order by ID |
-| /store/order/{order_id} **get** | [StoreApi](docs/StoreApi.md).[get_order_by_id](docs/paths/Storeorderorderid/get.md)  | Find purchase order by ID |
+| /store/order/{order_id} **delete** | [StoreApi](docs/StoreApi.md).[delete_order](docs/paths/StoreorderorderId/delete.md)  | Delete purchase order by ID |
+| /store/order/{order_id} **get** | [StoreApi](docs/StoreApi.md).[get_order_by_id](docs/paths/StoreorderorderId/get.md)  | Find purchase order by ID |
 | /user **post** | [UserApi](docs/UserApi.md).[create_user](docs/paths/User/post.md)  | Create user |
 | /user/createWithArray **post** | [UserApi](docs/UserApi.md).[create_users_with_array_input](docs/paths/UsercreateWithArray/post.md)  | Creates list of users with given input array |
 | /user/createWithList **post** | [UserApi](docs/UserApi.md).[create_users_with_list_input](docs/paths/UsercreateWithList/post.md)  | Creates list of users with given input array |
@@ -222,7 +222,7 @@ All URIs are relative to the selected server
 
 | Class | Description |
 | ----- | ----------- |
-| [Schema200response2](docs/Model200response.md) | model with an invalid class name for python, starts with a number |
+| [Schema200Response2](docs/Model200Response.md) | model with an invalid class name for python, starts with a number |
 | [AbstractStepMessage2](docs/AbstractStepMessage.md) | Abstract Step |
 | [AdditionalPropertiesClass2](docs/AdditionalPropertiesClass.md) | |
 | [AdditionalPropertiesValidator2](docs/AdditionalPropertiesValidator.md) | |
@@ -348,7 +348,7 @@ All URIs are relative to the selected server
 | [TriangleInterface2](docs/TriangleInterface.md) | |
 | [UUIDString2](docs/UUIDString.md) | |
 | [User2](docs/User.md) | |
-| [Specialmodelname2](docs/Specialmodelname.md) | model with an invalid class name for python |
+| [SpecialModelname2](docs/SpecialModelname.md) | model with an invalid class name for python |
 | [Apple2](docs/Apple.md) | |
 | [AppleReq2](docs/AppleReq.md) | |
 | [Banana2](docs/Banana.md) | |
@@ -406,13 +406,13 @@ All URIs are relative to the selected server
 
 | Class | Description |
 | ----- | ----------- |
-| [Apikey](docs/components/security_schemes/apikey.md) | apiKey in header |
-| [Apikeyquery](docs/components/security_schemes/apikeyquery.md) | apiKey in query |
-| [Bearertest](docs/components/security_schemes/bearertest.md) | http bearer with JWT bearer format |
-| [Httpbasictest](docs/components/security_schemes/httpbasictest.md) | http basic |
-| [Httpsignaturetest](docs/components/security_schemes/httpsignaturetest.md) | http + signature |
-| [OpenIdConnecttest](docs/components/security_schemes/openidconnecttest.md) | openIdConnect |
-| [Petstoreauth](docs/components/security_schemes/petstoreauth.md) | oauth2 implicit flow with two scopes |
+| [ApiKey](docs/components/security_schemes/apikey.md) | apiKey in header |
+| [ApiKeyQuery](docs/components/security_schemes/apikeyquery.md) | apiKey in query |
+| [BearerTest](docs/components/security_schemes/bearertest.md) | http bearer with JWT bearer format |
+| [HttpBasicTest](docs/components/security_schemes/httpbasictest.md) | http basic |
+| [HttpSignatureTest](docs/components/security_schemes/httpsignaturetest.md) | http + signature |
+| [OpenIdConnectTest](docs/components/security_schemes/openidconnecttest.md) | openIdConnect |
+| [PetstoreAuth](docs/components/security_schemes/petstoreauth.md) | oauth2 implicit flow with two scopes |
 
 
 ## Notes for Large OpenAPI documents

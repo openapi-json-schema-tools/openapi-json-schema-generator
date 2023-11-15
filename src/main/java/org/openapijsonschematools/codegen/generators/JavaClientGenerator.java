@@ -143,7 +143,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
     @Override
     public String toModuleFilename(String name, String jsonPath) {
-        String usedName = sanitizeName(name);
+        String usedName = sanitizeName(name, "[^a-zA-Z0-9]+");
         // todo check if empty and if so them use enum name
         return usedName.toLowerCase(Locale.ROOT);
     }
@@ -829,9 +829,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
     @Override
     @SuppressWarnings("static-method")
-    public String sanitizeName(String name) {
-        String inputRegex = "[^a-zA-Z0-9]+";
-        return name.replaceAll(inputRegex, "");
+    public String sanitizeName(String name, String filterOutRegex) {
+        return name.replaceAll(filterOutRegex, "");
     }
 
     protected boolean isValid(String name) {
@@ -845,7 +844,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     @Override
     public String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath) {
         String usedKey = handleSpecialCharacters(name);
-        usedKey = sanitizeName(usedKey);
+        usedKey = sanitizeName(usedKey, "[^a-zA-Z0-9_]+");
         HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
         if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
             sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);

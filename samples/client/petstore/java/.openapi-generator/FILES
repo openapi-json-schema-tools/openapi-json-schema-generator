@@ -139,14 +139,14 @@ src/main/java/org/openapijsonschematools/components/schemas/ReqPropsFromTrueAddP
 src/main/java/org/openapijsonschematools/components/schemas/ReqPropsFromUnsetAddProps.java
 src/main/java/org/openapijsonschematools/components/schemas/ReturnSchema.java
 src/main/java/org/openapijsonschematools/components/schemas/ScaleneTriangle.java
-src/main/java/org/openapijsonschematools/components/schemas/Schema200response.java
+src/main/java/org/openapijsonschematools/components/schemas/Schema200Response.java
 src/main/java/org/openapijsonschematools/components/schemas/SelfReferencingArrayModel.java
 src/main/java/org/openapijsonschematools/components/schemas/SelfReferencingObjectModel.java
 src/main/java/org/openapijsonschematools/components/schemas/Shape.java
 src/main/java/org/openapijsonschematools/components/schemas/ShapeOrNull.java
 src/main/java/org/openapijsonschematools/components/schemas/SimpleQuadrilateral.java
 src/main/java/org/openapijsonschematools/components/schemas/SomeObject.java
-src/main/java/org/openapijsonschematools/components/schemas/Specialmodelname.java
+src/main/java/org/openapijsonschematools/components/schemas/SpecialModelname.java
 src/main/java/org/openapijsonschematools/components/schemas/StringBooleanMap.java
 src/main/java/org/openapijsonschematools/components/schemas/StringEnum.java
 src/main/java/org/openapijsonschematools/components/schemas/StringEnumWithDefaultValue.java

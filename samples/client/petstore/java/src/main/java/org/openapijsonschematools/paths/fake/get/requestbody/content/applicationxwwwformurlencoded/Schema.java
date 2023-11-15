@@ -25,13 +25,13 @@ public class Schema {
         }
     }    
     
-    public record Enumformstring(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static Enumformstring withDefaults() {
+    public record EnumFormString(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static EnumFormString withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Enumformstring(type);
+            return new EnumFormString(type);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Enumformstring.class, arg, configuration);
+            return JsonSchema.validate(EnumFormString.class, arg, configuration);
         }
     }}

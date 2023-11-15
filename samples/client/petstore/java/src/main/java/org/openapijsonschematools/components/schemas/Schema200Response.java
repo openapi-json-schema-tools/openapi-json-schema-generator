@@ -10,7 +10,7 @@ import java.time.ZonedDateTime;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-public class Schema200response {
+public class Schema200Response {
     // nest classes so all schemas and input/output classes can be public
     
     

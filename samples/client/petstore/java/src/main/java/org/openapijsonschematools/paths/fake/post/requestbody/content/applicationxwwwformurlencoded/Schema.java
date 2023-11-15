@@ -157,14 +157,14 @@ public class Schema {
         }
     }    
     
-    public record Patternwithoutdelimiter(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static Patternwithoutdelimiter withDefaults() {
+    public record PatternWithoutDelimiter(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static PatternWithoutDelimiter withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Patternwithoutdelimiter(type);
+            return new PatternWithoutDelimiter(type);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Patternwithoutdelimiter.class, arg, configuration);
+            return JsonSchema.validate(PatternWithoutDelimiter.class, arg, configuration);
         }
     }    
     
