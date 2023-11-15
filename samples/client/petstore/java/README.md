@@ -222,144 +222,144 @@ All URIs are relative to the selected server
 
 | Class | Description |
 | ----- | ----------- |
-| [Schema200Response2](docs/Model200Response.md) | model with an invalid class name for python, starts with a number |
-| [AbstractStepMessage2](docs/AbstractStepMessage.md) | Abstract Step |
-| [AdditionalPropertiesClass2](docs/AdditionalPropertiesClass.md) | |
-| [AdditionalPropertiesValidator2](docs/AdditionalPropertiesValidator.md) | |
-| [AdditionalPropertiesWithArrayOfEnums2](docs/AdditionalPropertiesWithArrayOfEnums.md) | |
-| [Address2](docs/Address.md) | |
-| [Animal2](docs/Animal.md) | |
-| [AnimalFarm2](docs/AnimalFarm.md) | |
-| [AnyTypeAndFormat2](docs/AnyTypeAndFormat.md) | |
-| [AnyTypeNotString2](docs/AnyTypeNotString.md) | |
-| [ApiResponseSchema2](docs/ModelApiResponse.md) | |
-| [ArrayHoldingAnyType2](docs/ArrayHoldingAnyType.md) | |
-| [ArrayOfArrayOfNumberOnly2](docs/ArrayOfArrayOfNumberOnly.md) | |
-| [ArrayOfEnums2](docs/ArrayOfEnums.md) | |
-| [ArrayOfNumberOnly2](docs/ArrayOfNumberOnly.md) | |
-| [ArrayTest2](docs/ArrayTest.md) | |
-| [ArrayWithValidationsInItems2](docs/ArrayWithValidationsInItems.md) | |
-| [Bar2](docs/Bar.md) | |
-| [BasquePig2](docs/BasquePig.md) | |
-| [BooleanSchema2](docs/ModelBoolean.md) | |
-| [BooleanEnum2](docs/BooleanEnum.md) | |
-| [Capitalization2](docs/Capitalization.md) | |
-| [Cat2](docs/Cat.md) | |
-| [Category2](docs/Category.md) | |
-| [ChildCat2](docs/ChildCat.md) | |
-| [ClassModel2](docs/ClassModel.md) | Model for testing model with \&quot;_class\&quot; property |
-| [Client2](docs/Client.md) | |
-| [ComplexQuadrilateral2](docs/ComplexQuadrilateral.md) | |
-| [ComposedAnyOfDifferentTypesNoValidations2](docs/ComposedAnyOfDifferentTypesNoValidations.md) | |
-| [ComposedArray2](docs/ComposedArray.md) | |
-| [ComposedBool2](docs/ComposedBool.md) | |
-| [ComposedNone2](docs/ComposedNone.md) | |
-| [ComposedNumber2](docs/ComposedNumber.md) | |
-| [ComposedObject2](docs/ComposedObject.md) | |
-| [ComposedOneOfDifferentTypes2](docs/ComposedOneOfDifferentTypes.md) | this is a model that allows payloads of type object or number |
-| [ComposedString2](docs/ComposedString.md) | |
-| [Currency2](docs/Currency.md) | |
-| [DanishPig2](docs/DanishPig.md) | |
-| [DateTimeTest2](docs/DateTimeTest.md) | |
-| [DateTimeWithValidations2](docs/DateTimeWithValidations.md) | |
-| [DateWithValidations2](docs/DateWithValidations.md) | |
-| [DecimalPayload2](docs/DecimalPayload.md) | |
-| [Dog2](docs/Dog.md) | |
-| [Drawing2](docs/Drawing.md) | |
-| [EnumArrays2](docs/EnumArrays.md) | |
-| [EnumClass2](docs/EnumClass.md) | |
-| [EnumTest2](docs/EnumTest.md) | |
-| [EquilateralTriangle2](docs/EquilateralTriangle.md) | |
-| [File2](docs/File.md) | Must be named &#x60;File&#x60; for test. |
-| [FileSchemaTestClass2](docs/FileSchemaTestClass.md) | |
-| [Foo2](docs/Foo.md) | |
-| [FormatTest2](docs/FormatTest.md) | |
-| [FromSchema2](docs/FromSchema.md) | |
-| [GrandparentAnimal2](docs/GrandparentAnimal.md) | |
-| [HealthCheckResult2](docs/HealthCheckResult.md) | Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model. |
-| [IntegerEnum2](docs/IntegerEnum.md) | |
-| [IntegerEnumBig2](docs/IntegerEnumBig.md) | |
-| [IntegerEnumOneValue2](docs/IntegerEnumOneValue.md) | |
-| [IntegerEnumWithDefaultValue2](docs/IntegerEnumWithDefaultValue.md) | |
-| [IntegerMax102](docs/IntegerMax10.md) | |
-| [IntegerMin152](docs/IntegerMin15.md) | |
-| [IsoscelesTriangle2](docs/IsoscelesTriangle.md) | |
-| [Items2](docs/Items.md) | component&#x27;s name collides with the inner schema name |
-| [JSONPatchRequest2](docs/JSONPatchRequest.md) | |
-| [JSONPatchRequestAddReplaceTest2](docs/JSONPatchRequestAddReplaceTest.md) | |
-| [JSONPatchRequestMoveCopy2](docs/JSONPatchRequestMoveCopy.md) | |
-| [JSONPatchRequestRemove2](docs/JSONPatchRequestRemove.md) | |
-| [MapTest2](docs/MapTest.md) | |
-| [MixedPropertiesAndAdditionalPropertiesClass2](docs/MixedPropertiesAndAdditionalPropertiesClass.md) | |
-| [Money2](docs/Money.md) | |
-| [MyObjectDto2](docs/MyObjectDto.md) | |
-| [Name2](docs/Name.md) | Model for testing model name same as property name |
-| [NoAdditionalProperties2](docs/NoAdditionalProperties.md) | |
-| [NullableClass2](docs/NullableClass.md) | |
-| [NullableShape2](docs/NullableShape.md) | The value may be a shape or the &#x27;null&#x27; value. For a composed schema to validate a null payload, one of its chosen oneOf schemas must be type null or nullable (introduced in OAS schema &gt;&#x3D; 3.0) |
-| [NullableString2](docs/NullableString.md) | |
-| [NumberSchema2](docs/ModelNumber.md) | |
-| [NumberOnly2](docs/NumberOnly.md) | |
-| [NumberWithValidations2](docs/NumberWithValidations.md) | |
-| [ObjWithRequiredProps2](docs/ObjWithRequiredProps.md) | |
-| [ObjWithRequiredPropsBase2](docs/ObjWithRequiredPropsBase.md) | |
-| [ObjectInterface2](docs/ObjectInterface.md) | |
-| [ObjectModelWithArgAndArgsProperties2](docs/ObjectModelWithArgAndArgsProperties.md) | |
-| [ObjectModelWithRefProps2](docs/ObjectModelWithRefProps.md) | a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations |
-| [ObjectWithAllOfWithReqTestPropFromUnsetAddProp2](docs/ObjectWithAllOfWithReqTestPropFromUnsetAddProp.md) | |
-| [ObjectWithCollidingProperties2](docs/ObjectWithCollidingProperties.md) | component with properties that have name collisions |
-| [ObjectWithDecimalProperties2](docs/ObjectWithDecimalProperties.md) | |
-| [ObjectWithDifficultlyNamedProps2](docs/ObjectWithDifficultlyNamedProps.md) | model with properties that have invalid names for python |
-| [ObjectWithInlineCompositionProperty2](docs/ObjectWithInlineCompositionProperty.md) | |
-| [ObjectWithInvalidNamedRefedProperties2](docs/ObjectWithInvalidNamedRefedProperties.md) | |
-| [ObjectWithNonIntersectingValues2](docs/ObjectWithNonIntersectingValues.md) | |
-| [ObjectWithOnlyOptionalProps2](docs/ObjectWithOnlyOptionalProps.md) | |
-| [ObjectWithOptionalTestProp2](docs/ObjectWithOptionalTestProp.md) | |
-| [ObjectWithValidations2](docs/ObjectWithValidations.md) | |
-| [Order2](docs/Order.md) | |
-| [PaginatedResultMyObjectDto2](docs/PaginatedResultMyObjectDto.md) | |
-| [ParentPet2](docs/ParentPet.md) | |
-| [Pet2](docs/Pet.md) | Pet object that needs to be added to the store |
-| [Pig2](docs/Pig.md) | |
-| [Player2](docs/Player.md) | a model that includes a self reference this forces properties and additionalProperties to be lazy loaded in python models because the Player class has not fully loaded when defining properties |
-| [PublicKey2](docs/PublicKey.md) | schema that contains a property named key |
-| [Quadrilateral2](docs/Quadrilateral.md) | |
-| [QuadrilateralInterface2](docs/QuadrilateralInterface.md) | |
-| [ReadOnlyFirst2](docs/ReadOnlyFirst.md) | |
-| [RefPet2](docs/RefPet.md) | |
-| [ReqPropsFromExplicitAddProps2](docs/ReqPropsFromExplicitAddProps.md) | |
-| [ReqPropsFromTrueAddProps2](docs/ReqPropsFromTrueAddProps.md) | |
-| [ReqPropsFromUnsetAddProps2](docs/ReqPropsFromUnsetAddProps.md) | |
-| [ReturnSchema2](docs/ModelReturn.md) | Model for testing reserved words |
-| [ScaleneTriangle2](docs/ScaleneTriangle.md) | |
-| [SelfReferencingArrayModel2](docs/SelfReferencingArrayModel.md) | |
-| [SelfReferencingObjectModel2](docs/SelfReferencingObjectModel.md) | |
-| [Shape2](docs/Shape.md) | |
-| [ShapeOrNull2](docs/ShapeOrNull.md) | The value may be a shape or the &#x27;null&#x27; value. This is introduced in OAS schema &gt;&#x3D; 3.1. |
-| [SimpleQuadrilateral2](docs/SimpleQuadrilateral.md) | |
-| [SomeObject2](docs/SomeObject.md) | |
-| [StringSchema2](docs/ModelString.md) | |
-| [StringBooleanMap2](docs/StringBooleanMap.md) | |
-| [StringEnum2](docs/StringEnum.md) | |
-| [StringEnumWithDefaultValue2](docs/StringEnumWithDefaultValue.md) | |
-| [StringWithValidation2](docs/StringWithValidation.md) | |
-| [Tag2](docs/Tag.md) | |
-| [Triangle2](docs/Triangle.md) | |
-| [TriangleInterface2](docs/TriangleInterface.md) | |
-| [UUIDString2](docs/UUIDString.md) | |
-| [User2](docs/User.md) | |
-| [SpecialModelname2](docs/SpecialModelname.md) | model with an invalid class name for python |
-| [Apple2](docs/Apple.md) | |
-| [AppleReq2](docs/AppleReq.md) | |
-| [Banana2](docs/Banana.md) | |
-| [BananaReq2](docs/BananaReq.md) | |
-| [Fruit2](docs/Fruit.md) | |
-| [FruitReq2](docs/FruitReq.md) | |
-| [GmFruit2](docs/GmFruit.md) | |
-| [HasOnlyReadOnly2](docs/HasOnlyReadOnly.md) | |
-| [Mammal2](docs/Mammal.md) | |
-| [Whale2](docs/Whale.md) | |
-| [Zebra2](docs/Zebra.md) | |
+| [Schema200Response1](docs/Model200Response.md) | model with an invalid class name for python, starts with a number |
+| [AbstractStepMessage1](docs/AbstractStepMessage.md) | Abstract Step |
+| [AdditionalPropertiesClass1](docs/AdditionalPropertiesClass.md) | |
+| [AdditionalPropertiesValidator1](docs/AdditionalPropertiesValidator.md) | |
+| [AdditionalPropertiesWithArrayOfEnums1](docs/AdditionalPropertiesWithArrayOfEnums.md) | |
+| [Address1](docs/Address.md) | |
+| [Animal1](docs/Animal.md) | |
+| [AnimalFarm1](docs/AnimalFarm.md) | |
+| [AnyTypeAndFormat1](docs/AnyTypeAndFormat.md) | |
+| [AnyTypeNotString1](docs/AnyTypeNotString.md) | |
+| [ApiResponseSchema1](docs/ModelApiResponse.md) | |
+| [ArrayHoldingAnyType1](docs/ArrayHoldingAnyType.md) | |
+| [ArrayOfArrayOfNumberOnly1](docs/ArrayOfArrayOfNumberOnly.md) | |
+| [ArrayOfEnums1](docs/ArrayOfEnums.md) | |
+| [ArrayOfNumberOnly1](docs/ArrayOfNumberOnly.md) | |
+| [ArrayTest1](docs/ArrayTest.md) | |
+| [ArrayWithValidationsInItems1](docs/ArrayWithValidationsInItems.md) | |
+| [Bar1](docs/Bar.md) | |
+| [BasquePig1](docs/BasquePig.md) | |
+| [BooleanSchema1](docs/ModelBoolean.md) | |
+| [BooleanEnum1](docs/BooleanEnum.md) | |
+| [Capitalization1](docs/Capitalization.md) | |
+| [Cat1](docs/Cat.md) | |
+| [Category1](docs/Category.md) | |
+| [ChildCat1](docs/ChildCat.md) | |
+| [ClassModel1](docs/ClassModel.md) | Model for testing model with \&quot;_class\&quot; property |
+| [Client1](docs/Client.md) | |
+| [ComplexQuadrilateral1](docs/ComplexQuadrilateral.md) | |
+| [ComposedAnyOfDifferentTypesNoValidations1](docs/ComposedAnyOfDifferentTypesNoValidations.md) | |
+| [ComposedArray1](docs/ComposedArray.md) | |
+| [ComposedBool1](docs/ComposedBool.md) | |
+| [ComposedNone1](docs/ComposedNone.md) | |
+| [ComposedNumber1](docs/ComposedNumber.md) | |
+| [ComposedObject1](docs/ComposedObject.md) | |
+| [ComposedOneOfDifferentTypes1](docs/ComposedOneOfDifferentTypes.md) | this is a model that allows payloads of type object or number |
+| [ComposedString1](docs/ComposedString.md) | |
+| [Currency1](docs/Currency.md) | |
+| [DanishPig1](docs/DanishPig.md) | |
+| [DateTimeTest1](docs/DateTimeTest.md) | |
+| [DateTimeWithValidations1](docs/DateTimeWithValidations.md) | |
+| [DateWithValidations1](docs/DateWithValidations.md) | |
+| [DecimalPayload1](docs/DecimalPayload.md) | |
+| [Dog1](docs/Dog.md) | |
+| [Drawing1](docs/Drawing.md) | |
+| [EnumArrays1](docs/EnumArrays.md) | |
+| [EnumClass1](docs/EnumClass.md) | |
+| [EnumTest1](docs/EnumTest.md) | |
+| [EquilateralTriangle1](docs/EquilateralTriangle.md) | |
+| [File1](docs/File.md) | Must be named &#x60;File&#x60; for test. |
+| [FileSchemaTestClass1](docs/FileSchemaTestClass.md) | |
+| [Foo1](docs/Foo.md) | |
+| [FormatTest1](docs/FormatTest.md) | |
+| [FromSchema1](docs/FromSchema.md) | |
+| [GrandparentAnimal1](docs/GrandparentAnimal.md) | |
+| [HealthCheckResult1](docs/HealthCheckResult.md) | Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model. |
+| [IntegerEnum1](docs/IntegerEnum.md) | |
+| [IntegerEnumBig1](docs/IntegerEnumBig.md) | |
+| [IntegerEnumOneValue1](docs/IntegerEnumOneValue.md) | |
+| [IntegerEnumWithDefaultValue1](docs/IntegerEnumWithDefaultValue.md) | |
+| [IntegerMax101](docs/IntegerMax10.md) | |
+| [IntegerMin151](docs/IntegerMin15.md) | |
+| [IsoscelesTriangle1](docs/IsoscelesTriangle.md) | |
+| [Items1](docs/Items.md) | component&#x27;s name collides with the inner schema name |
+| [JSONPatchRequest1](docs/JSONPatchRequest.md) | |
+| [JSONPatchRequestAddReplaceTest1](docs/JSONPatchRequestAddReplaceTest.md) | |
+| [JSONPatchRequestMoveCopy1](docs/JSONPatchRequestMoveCopy.md) | |
+| [JSONPatchRequestRemove1](docs/JSONPatchRequestRemove.md) | |
+| [MapTest1](docs/MapTest.md) | |
+| [MixedPropertiesAndAdditionalPropertiesClass1](docs/MixedPropertiesAndAdditionalPropertiesClass.md) | |
+| [Money1](docs/Money.md) | |
+| [MyObjectDto1](docs/MyObjectDto.md) | |
+| [Name1](docs/Name.md) | Model for testing model name same as property name |
+| [NoAdditionalProperties1](docs/NoAdditionalProperties.md) | |
+| [NullableClass1](docs/NullableClass.md) | |
+| [NullableShape1](docs/NullableShape.md) | The value may be a shape or the &#x27;null&#x27; value. For a composed schema to validate a null payload, one of its chosen oneOf schemas must be type null or nullable (introduced in OAS schema &gt;&#x3D; 3.0) |
+| [NullableString1](docs/NullableString.md) | |
+| [NumberSchema1](docs/ModelNumber.md) | |
+| [NumberOnly1](docs/NumberOnly.md) | |
+| [NumberWithValidations1](docs/NumberWithValidations.md) | |
+| [ObjWithRequiredProps1](docs/ObjWithRequiredProps.md) | |
+| [ObjWithRequiredPropsBase1](docs/ObjWithRequiredPropsBase.md) | |
+| [ObjectInterface1](docs/ObjectInterface.md) | |
+| [ObjectModelWithArgAndArgsProperties1](docs/ObjectModelWithArgAndArgsProperties.md) | |
+| [ObjectModelWithRefProps1](docs/ObjectModelWithRefProps.md) | a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations |
+| [ObjectWithAllOfWithReqTestPropFromUnsetAddProp1](docs/ObjectWithAllOfWithReqTestPropFromUnsetAddProp.md) | |
+| [ObjectWithCollidingProperties1](docs/ObjectWithCollidingProperties.md) | component with properties that have name collisions |
+| [ObjectWithDecimalProperties1](docs/ObjectWithDecimalProperties.md) | |
+| [ObjectWithDifficultlyNamedProps1](docs/ObjectWithDifficultlyNamedProps.md) | model with properties that have invalid names for python |
+| [ObjectWithInlineCompositionProperty1](docs/ObjectWithInlineCompositionProperty.md) | |
+| [ObjectWithInvalidNamedRefedProperties1](docs/ObjectWithInvalidNamedRefedProperties.md) | |
+| [ObjectWithNonIntersectingValues1](docs/ObjectWithNonIntersectingValues.md) | |
+| [ObjectWithOnlyOptionalProps1](docs/ObjectWithOnlyOptionalProps.md) | |
+| [ObjectWithOptionalTestProp1](docs/ObjectWithOptionalTestProp.md) | |
+| [ObjectWithValidations1](docs/ObjectWithValidations.md) | |
+| [Order1](docs/Order.md) | |
+| [PaginatedResultMyObjectDto1](docs/PaginatedResultMyObjectDto.md) | |
+| [ParentPet1](docs/ParentPet.md) | |
+| [Pet1](docs/Pet.md) | Pet object that needs to be added to the store |
+| [Pig1](docs/Pig.md) | |
+| [Player1](docs/Player.md) | a model that includes a self reference this forces properties and additionalProperties to be lazy loaded in python models because the Player class has not fully loaded when defining properties |
+| [PublicKey1](docs/PublicKey.md) | schema that contains a property named key |
+| [Quadrilateral1](docs/Quadrilateral.md) | |
+| [QuadrilateralInterface1](docs/QuadrilateralInterface.md) | |
+| [ReadOnlyFirst1](docs/ReadOnlyFirst.md) | |
+| [RefPet1](docs/RefPet.md) | |
+| [ReqPropsFromExplicitAddProps1](docs/ReqPropsFromExplicitAddProps.md) | |
+| [ReqPropsFromTrueAddProps1](docs/ReqPropsFromTrueAddProps.md) | |
+| [ReqPropsFromUnsetAddProps1](docs/ReqPropsFromUnsetAddProps.md) | |
+| [ReturnSchema1](docs/ModelReturn.md) | Model for testing reserved words |
+| [ScaleneTriangle1](docs/ScaleneTriangle.md) | |
+| [SelfReferencingArrayModel1](docs/SelfReferencingArrayModel.md) | |
+| [SelfReferencingObjectModel1](docs/SelfReferencingObjectModel.md) | |
+| [Shape1](docs/Shape.md) | |
+| [ShapeOrNull1](docs/ShapeOrNull.md) | The value may be a shape or the &#x27;null&#x27; value. This is introduced in OAS schema &gt;&#x3D; 3.1. |
+| [SimpleQuadrilateral1](docs/SimpleQuadrilateral.md) | |
+| [SomeObject1](docs/SomeObject.md) | |
+| [StringSchema1](docs/ModelString.md) | |
+| [StringBooleanMap1](docs/StringBooleanMap.md) | |
+| [StringEnum1](docs/StringEnum.md) | |
+| [StringEnumWithDefaultValue1](docs/StringEnumWithDefaultValue.md) | |
+| [StringWithValidation1](docs/StringWithValidation.md) | |
+| [Tag1](docs/Tag.md) | |
+| [Triangle1](docs/Triangle.md) | |
+| [TriangleInterface1](docs/TriangleInterface.md) | |
+| [UUIDString1](docs/UUIDString.md) | |
+| [User1](docs/User.md) | |
+| [SpecialModelname1](docs/SpecialModelname.md) | model with an invalid class name for python |
+| [Apple1](docs/Apple.md) | |
+| [AppleReq1](docs/AppleReq.md) | |
+| [Banana1](docs/Banana.md) | |
+| [BananaReq1](docs/BananaReq.md) | |
+| [Fruit1](docs/Fruit.md) | |
+| [FruitReq1](docs/FruitReq.md) | |
+| [GmFruit1](docs/GmFruit.md) | |
+| [HasOnlyReadOnly1](docs/HasOnlyReadOnly.md) | |
+| [Mammal1](docs/Mammal.md) | |
+| [Whale1](docs/Whale.md) | |
+| [Zebra1](docs/Zebra.md) | |
 
 ## Component RequestBodies
 

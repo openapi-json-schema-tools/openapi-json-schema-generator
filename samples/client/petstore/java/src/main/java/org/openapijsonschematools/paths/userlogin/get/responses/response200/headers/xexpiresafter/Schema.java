@@ -16,14 +16,14 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Schema2(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
-        public static Schema2 withDefaults() {
+    public record Schema1(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
+        public static Schema1 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
             String format = "date-time";
-            return new Schema2(type, format);
+            return new Schema1(type, format);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Schema2.class, arg, configuration);
+            return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }}

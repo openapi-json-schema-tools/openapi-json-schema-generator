@@ -16,29 +16,29 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Schema2(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
-        public static Schema2 withDefaults() {
+    public record Schema1(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
+        public static Schema1 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Integer.class);
             type.add(Long.class);
             type.add(Float.class);
             type.add(Double.class);
             String format = "int32";
-            return new Schema2(type, format);
+            return new Schema1(type, format);
         }
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Schema2.class, Long.valueOf(arg), configuration);
+            return JsonSchema.validate(Schema1.class, Long.valueOf(arg), configuration);
         }
         
         public static Long validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Schema2.class, Long.parseLong(arg.toString()), configuration);
+            return JsonSchema.validate(Schema1.class, Long.parseLong(arg.toString()), configuration);
         }
         
         public static Long validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Schema2.class, arg, configuration);
+            return JsonSchema.validate(Schema1.class, arg, configuration);
         }
         
         public static Long validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Schema2.class, Long.parseLong(arg.toString()), configuration);
+            return JsonSchema.validate(Schema1.class, Long.parseLong(arg.toString()), configuration);
         }
     }}

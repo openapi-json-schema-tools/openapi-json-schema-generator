@@ -27,14 +27,14 @@ public class Schema {
         }
     }    
     
-    public record Schema2(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
-        public static Schema2 withDefaults() {
+    public record Schema1(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
+        public static Schema1 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenList.class);
             Class<?> items = Items.class;
-            return new Schema2(type, items);
+            return new Schema1(type, items);
         }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Schema2.class, arg, configuration);
+            return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }}

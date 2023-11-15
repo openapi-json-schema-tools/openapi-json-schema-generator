@@ -16,13 +16,13 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Schema2(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
-        public static Schema2 withDefaults() {
+    public record Schema1(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
+        public static Schema1 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             // FileIO,
             // bytes,
             String format = "binary";
-            return new Schema2(type, format);
+            return new Schema1(type, format);
         }
         // FileIO,
         // bytes,

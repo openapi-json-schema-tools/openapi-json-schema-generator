@@ -16,7 +16,7 @@ public class BooleanSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record BooleanSchema2() implements JsonSchema {
+    public record BooleanSchema1() implements JsonSchema {
         public static JsonSchemas.BooleanSchema withDefaults() {
             return JsonSchemas.BooleanSchema.withDefaults();
         }

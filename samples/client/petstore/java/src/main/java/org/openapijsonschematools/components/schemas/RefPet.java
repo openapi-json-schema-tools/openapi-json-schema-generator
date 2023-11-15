@@ -16,13 +16,13 @@ public class RefPet {
     // $refed class
     
     
-    public record RefPet2() implements JsonSchema {
-        public static Pet.Pet2 withDefaults() {
-            return Pet.Pet2.withDefaults();
+    public record RefPet1() implements JsonSchema {
+        public static Pet.Pet1 withDefaults() {
+            return Pet.Pet1.withDefaults();
         }
     
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Pet.Pet2.class, arg, configuration);
+            return JsonSchema.validate(Pet.Pet1.class, arg, configuration);
         }
     }
 }

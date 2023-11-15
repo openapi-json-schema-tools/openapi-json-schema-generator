@@ -241,8 +241,8 @@ public class Schema {
         }
     }    
     
-    public record Schema2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Set<String> required) implements JsonSchema {
-        public static Schema2 withDefaults() {
+    public record Schema1(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Set<String> required) implements JsonSchema {
+        public static Schema1 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
@@ -265,10 +265,10 @@ public class Schema {
             required.add("double");
             required.add("number");
             required.add("pattern_without_delimiter");
-            return new Schema2(type, properties, required);
+            return new Schema1(type, properties, required);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Schema2.class, arg, configuration);
+            return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }
 }

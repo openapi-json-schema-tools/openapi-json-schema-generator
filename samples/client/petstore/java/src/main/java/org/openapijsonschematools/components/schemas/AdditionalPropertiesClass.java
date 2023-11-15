@@ -40,26 +40,26 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public record AdditionalProperties3(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static AdditionalProperties3 withDefaults() {
+    public record AdditionalProperties2(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static AdditionalProperties2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new AdditionalProperties3(type);
+            return new AdditionalProperties2(type);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AdditionalProperties3.class, arg, configuration);
+            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
         }
     }    
     
-    public record AdditionalProperties2(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
-        public static AdditionalProperties2 withDefaults() {
+    public record AdditionalProperties1(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
+        public static AdditionalProperties1 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
-            Class<?> additionalProperties = AdditionalProperties3.class;
-            return new AdditionalProperties2(type, additionalProperties);
+            Class<?> additionalProperties = AdditionalProperties2.class;
+            return new AdditionalProperties1(type, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
         }
     }
     
@@ -68,7 +68,7 @@ public class AdditionalPropertiesClass {
         public static MapOfMapProperty withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
-            Class<?> additionalProperties = AdditionalProperties2.class;
+            Class<?> additionalProperties = AdditionalProperties1.class;
             return new MapOfMapProperty(type, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -150,7 +150,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public record AdditionalProperties4() implements JsonSchema {
+    public record AdditionalProperties3() implements JsonSchema {
         public static JsonSchemas.AnyTypeSchema withDefaults() {
             return JsonSchemas.AnyTypeSchema.withDefaults();
         }
@@ -205,7 +205,7 @@ public class AdditionalPropertiesClass {
         public static MapWithUndeclaredPropertiesAnytype3 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
-            Class<?> additionalProperties = AdditionalProperties4.class;
+            Class<?> additionalProperties = AdditionalProperties3.class;
             return new MapWithUndeclaredPropertiesAnytype3(type, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -214,7 +214,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public record AdditionalProperties5() implements JsonSchema {
+    public record AdditionalProperties4() implements JsonSchema {
         public static JsonSchemas.NotAnyTypeSchema withDefaults() {
             return JsonSchemas.NotAnyTypeSchema.withDefaults();
         }
@@ -227,7 +227,7 @@ public class AdditionalPropertiesClass {
         public static EmptyMap withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
-            Class<?> additionalProperties = AdditionalProperties5.class;
+            Class<?> additionalProperties = AdditionalProperties4.class;
             return new EmptyMap(type, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -236,14 +236,14 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public record AdditionalProperties6(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static AdditionalProperties6 withDefaults() {
+    public record AdditionalProperties5(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static AdditionalProperties5 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new AdditionalProperties6(type);
+            return new AdditionalProperties5(type);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AdditionalProperties6.class, arg, configuration);
+            return JsonSchema.validate(AdditionalProperties5.class, arg, configuration);
         }
     }    
     
@@ -251,7 +251,7 @@ public class AdditionalPropertiesClass {
         public static MapWithUndeclaredPropertiesString withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
-            Class<?> additionalProperties = AdditionalProperties6.class;
+            Class<?> additionalProperties = AdditionalProperties5.class;
             return new MapWithUndeclaredPropertiesString(type, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -260,14 +260,14 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public record AdditionalPropertiesClass2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements JsonSchema {
+    public record AdditionalPropertiesClass1(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements JsonSchema {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        public static AdditionalPropertiesClass2 withDefaults() {
+        public static AdditionalPropertiesClass1 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
@@ -279,10 +279,10 @@ public class AdditionalPropertiesClass {
             properties.put("map_with_undeclared_properties_anytype_3", MapWithUndeclaredPropertiesAnytype3.class);
             properties.put("empty_map", EmptyMap.class);
             properties.put("map_with_undeclared_properties_string", MapWithUndeclaredPropertiesString.class);
-            return new AdditionalPropertiesClass2(type, properties);
+            return new AdditionalPropertiesClass1(type, properties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AdditionalPropertiesClass2.class, arg, configuration);
+            return JsonSchema.validate(AdditionalPropertiesClass1.class, arg, configuration);
         }
     }
 }

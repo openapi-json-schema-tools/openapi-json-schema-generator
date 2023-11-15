@@ -16,16 +16,16 @@ public class Schema {
     // $refed class
     
     
-    public record Schema2() implements JsonSchema {
-        public static StringEnum.StringEnum2 withDefaults() {
-            return StringEnum.StringEnum2.withDefaults();
+    public record Schema1() implements JsonSchema {
+        public static StringEnum.StringEnum1 withDefaults() {
+            return StringEnum.StringEnum1.withDefaults();
         }
     
         public static Void validate(Void arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(StringEnum.StringEnum2.class, arg, configuration);
+            return JsonSchema.validate(StringEnum.StringEnum1.class, arg, configuration);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(StringEnum.StringEnum2.class, arg, configuration);
+            return JsonSchema.validate(StringEnum.StringEnum1.class, arg, configuration);
         }
     }
 }

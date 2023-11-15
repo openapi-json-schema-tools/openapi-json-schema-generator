@@ -25,18 +25,18 @@ public class QueryParameters {
     }
     
     
-    public record QueryParameters2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Class<?> additionalProperties) implements JsonSchema {
-        public static QueryParameters2 withDefaults() {
+    public record QueryParameters1(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Class<?> additionalProperties) implements JsonSchema {
+        public static QueryParameters1 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("compositionAtRoot", Schema.Schema2.class);
-            properties.put("compositionInProperty", Schema.Schema2.class);
+            properties.put("compositionAtRoot", Schema.Schema1.class);
+            properties.put("compositionInProperty", Schema.Schema1.class);
             Class<?> additionalProperties = AdditionalProperties.class;
-            return new QueryParameters2(type, properties, additionalProperties);
+            return new QueryParameters1(type, properties, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(QueryParameters2.class, arg, configuration);
+            return JsonSchema.validate(QueryParameters1.class, arg, configuration);
         }
     }
 }

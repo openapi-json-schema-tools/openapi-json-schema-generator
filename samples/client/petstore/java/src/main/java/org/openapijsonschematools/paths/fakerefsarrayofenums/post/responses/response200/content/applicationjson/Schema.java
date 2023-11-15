@@ -16,13 +16,13 @@ public class Schema {
     // $refed class
     
     
-    public record Schema2() implements JsonSchema {
-        public static ArrayOfEnums.ArrayOfEnums2 withDefaults() {
-            return ArrayOfEnums.ArrayOfEnums2.withDefaults();
+    public record Schema1() implements JsonSchema {
+        public static ArrayOfEnums.ArrayOfEnums1 withDefaults() {
+            return ArrayOfEnums.ArrayOfEnums1.withDefaults();
         }
     
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(ArrayOfEnums.ArrayOfEnums2.class, arg, configuration);
+            return JsonSchema.validate(ArrayOfEnums.ArrayOfEnums1.class, arg, configuration);
         }
     }
 }

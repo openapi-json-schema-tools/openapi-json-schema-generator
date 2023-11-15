@@ -16,7 +16,7 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Schema2() implements JsonSchema {
+    public record Schema1() implements JsonSchema {
         public static JsonSchemas.AnyTypeSchema withDefaults() {
             return JsonSchemas.AnyTypeSchema.withDefaults();
         }

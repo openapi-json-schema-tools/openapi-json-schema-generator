@@ -16,13 +16,13 @@ public class Schema {
     // $refed class
     
     
-    public record Schema2() implements JsonSchema {
-        public static JSONPatchRequest.JSONPatchRequest2 withDefaults() {
-            return JSONPatchRequest.JSONPatchRequest2.withDefaults();
+    public record Schema1() implements JsonSchema {
+        public static JSONPatchRequest.JSONPatchRequest1 withDefaults() {
+            return JSONPatchRequest.JSONPatchRequest1.withDefaults();
         }
     
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(JSONPatchRequest.JSONPatchRequest2.class, arg, configuration);
+            return JsonSchema.validate(JSONPatchRequest.JSONPatchRequest1.class, arg, configuration);
         }
     }
 }

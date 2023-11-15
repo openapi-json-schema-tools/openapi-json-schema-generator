@@ -16,13 +16,13 @@ public class Schema {
     // $refed class
     
     
-    public record Schema2() implements JsonSchema {
-        public static ApiResponseSchema.ApiResponseSchema2 withDefaults() {
-            return ModelApiResponse.ModelApiResponse2.withDefaults();
+    public record Schema1() implements JsonSchema {
+        public static ApiResponseSchema.ApiResponseSchema1 withDefaults() {
+            return ModelApiResponse.ModelApiResponse1.withDefaults();
         }
     
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(ApiResponseSchema.ApiResponseSchema2.class, arg, configuration);
+            return JsonSchema.validate(ApiResponseSchema.ApiResponseSchema1.class, arg, configuration);
         }
     }
 }

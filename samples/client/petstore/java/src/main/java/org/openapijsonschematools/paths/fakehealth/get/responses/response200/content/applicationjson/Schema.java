@@ -16,13 +16,13 @@ public class Schema {
     // $refed class
     
     
-    public record Schema2() implements JsonSchema {
-        public static HealthCheckResult.HealthCheckResult2 withDefaults() {
-            return HealthCheckResult.HealthCheckResult2.withDefaults();
+    public record Schema1() implements JsonSchema {
+        public static HealthCheckResult.HealthCheckResult1 withDefaults() {
+            return HealthCheckResult.HealthCheckResult1.withDefaults();
         }
     
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(HealthCheckResult.HealthCheckResult2.class, arg, configuration);
+            return JsonSchema.validate(HealthCheckResult.HealthCheckResult1.class, arg, configuration);
         }
     }
 }

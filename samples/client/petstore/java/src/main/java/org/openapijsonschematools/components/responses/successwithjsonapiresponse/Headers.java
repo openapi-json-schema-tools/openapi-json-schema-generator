@@ -25,26 +25,26 @@ public class Headers {
     }
     
     
-    public record Headers2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Set<String> required, Class<?> additionalProperties) implements JsonSchema {
-        public static Headers2 withDefaults() {
+    public record Headers1(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Set<String> required, Class<?> additionalProperties) implements JsonSchema {
+        public static Headers1 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("ref-schema-header", StringWithValidation.StringWithValidation2.class);
-            properties.put("int32", Schema.Schema2.class);
-            properties.put("ref-content-schema-header", StringWithValidation.StringWithValidation2.class);
-            properties.put("stringHeader", Schema.Schema2.class);
-            properties.put("numberHeader", Schema.Schema2.class);
+            properties.put("ref-schema-header", StringWithValidation.StringWithValidation1.class);
+            properties.put("int32", Schema.Schema1.class);
+            properties.put("ref-content-schema-header", StringWithValidation.StringWithValidation1.class);
+            properties.put("stringHeader", Schema.Schema1.class);
+            properties.put("numberHeader", Schema.Schema1.class);
             Set<String> required = new LinkedHashSet<>();
             required.add("int32");
             required.add("ref-content-schema-header");
             required.add("ref-schema-header");
             required.add("stringHeader");
             Class<?> additionalProperties = AdditionalProperties.class;
-            return new Headers2(type, properties, required, additionalProperties);
+            return new Headers1(type, properties, required, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Headers2.class, arg, configuration);
+            return JsonSchema.validate(Headers1.class, arg, configuration);
         }
     }
 }

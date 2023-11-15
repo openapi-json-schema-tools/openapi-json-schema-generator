@@ -874,7 +874,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keyToQty.put(usedKey, qty);
         String suffix = "";
         if (qty > 1) {
-            suffix = qty.toString();
+            Integer schemaNumber = qty-1;
+            suffix = schemaNumber.toString();
         }
         if (qty == 1 && sourceJsonPath.endsWith("/" + name)) {
             schemaJsonPathToModelName.put(sourceJsonPath, usedKey);
@@ -906,7 +907,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     private String toSchemaRefClass(String ref, String sourceJsonPath) {
-        int refClassSuffix = 2;
+        int refClassSuffix = 1;
         String[] refPieces = ref.split("/");
         if (ref.equals(sourceJsonPath)) {
             // self reference, no import needed

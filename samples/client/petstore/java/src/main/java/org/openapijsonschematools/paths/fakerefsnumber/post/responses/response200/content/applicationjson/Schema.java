@@ -16,25 +16,25 @@ public class Schema {
     // $refed class
     
     
-    public record Schema2() implements JsonSchema {
-        public static NumberWithValidations.NumberWithValidations2 withDefaults() {
-            return NumberWithValidations.NumberWithValidations2.withDefaults();
+    public record Schema1() implements JsonSchema {
+        public static NumberWithValidations.NumberWithValidations1 withDefaults() {
+            return NumberWithValidations.NumberWithValidations1.withDefaults();
         }
     
         public static Number validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberWithValidations.NumberWithValidations2.class, arg, configuration);
+            return JsonSchema.validate(NumberWithValidations.NumberWithValidations1.class, arg, configuration);
         }
         
         public static Number validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberWithValidations.NumberWithValidations2.class, arg, configuration);
+            return JsonSchema.validate(NumberWithValidations.NumberWithValidations1.class, arg, configuration);
         }
         
         public static Number validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberWithValidations.NumberWithValidations2.class, arg, configuration);
+            return JsonSchema.validate(NumberWithValidations.NumberWithValidations1.class, arg, configuration);
         }
         
         public static Number validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberWithValidations.NumberWithValidations2.class, arg, configuration);
+            return JsonSchema.validate(NumberWithValidations.NumberWithValidations1.class, arg, configuration);
         }
     }
 }

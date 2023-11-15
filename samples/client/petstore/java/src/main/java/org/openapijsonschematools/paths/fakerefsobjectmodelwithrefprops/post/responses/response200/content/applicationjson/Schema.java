@@ -16,13 +16,13 @@ public class Schema {
     // $refed class
     
     
-    public record Schema2() implements JsonSchema {
-        public static ObjectModelWithRefProps.ObjectModelWithRefProps2 withDefaults() {
-            return ObjectModelWithRefProps.ObjectModelWithRefProps2.withDefaults();
+    public record Schema1() implements JsonSchema {
+        public static ObjectModelWithRefProps.ObjectModelWithRefProps1 withDefaults() {
+            return ObjectModelWithRefProps.ObjectModelWithRefProps1.withDefaults();
         }
     
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(ObjectModelWithRefProps.ObjectModelWithRefProps2.class, arg, configuration);
+            return JsonSchema.validate(ObjectModelWithRefProps.ObjectModelWithRefProps1.class, arg, configuration);
         }
     }
 }

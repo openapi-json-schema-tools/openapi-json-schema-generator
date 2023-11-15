@@ -25,19 +25,19 @@ public class PathParameters {
     }
     
     
-    public record PathParameters2(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Set<String> required, Class<?> additionalProperties) implements JsonSchema {
-        public static PathParameters2 withDefaults() {
+    public record PathParameters1(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Set<String> required, Class<?> additionalProperties) implements JsonSchema {
+        public static PathParameters1 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("order_id", Schema.Schema2.class);
+            properties.put("order_id", Schema.Schema1.class);
             Set<String> required = new LinkedHashSet<>();
             required.add("order_id");
             Class<?> additionalProperties = AdditionalProperties.class;
-            return new PathParameters2(type, properties, required, additionalProperties);
+            return new PathParameters1(type, properties, required, additionalProperties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(PathParameters2.class, arg, configuration);
+            return JsonSchema.validate(PathParameters1.class, arg, configuration);
         }
     }
 }

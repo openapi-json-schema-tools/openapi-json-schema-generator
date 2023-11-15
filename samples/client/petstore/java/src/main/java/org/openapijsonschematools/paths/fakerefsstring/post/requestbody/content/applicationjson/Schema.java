@@ -16,13 +16,13 @@ public class Schema {
     // $refed class
     
     
-    public record Schema2() implements JsonSchema {
-        public static StringSchema.StringSchema2 withDefaults() {
-            return ModelString.ModelString2.withDefaults();
+    public record Schema1() implements JsonSchema {
+        public static StringSchema.StringSchema1 withDefaults() {
+            return ModelString.ModelString1.withDefaults();
         }
     
         public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(StringSchema.StringSchema2.class, arg, configuration);
+            return JsonSchema.validate(StringSchema.StringSchema1.class, arg, configuration);
         }
     }
 }
