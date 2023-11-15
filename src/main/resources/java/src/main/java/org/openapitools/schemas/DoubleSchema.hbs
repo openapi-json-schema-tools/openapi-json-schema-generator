@@ -1,9 +1,3 @@
-package {{{packageName}}}.schemas;
-
-import {{{packageName}}}.configurations.SchemaConfiguration;
-
-import java.util.LinkedHashSet;
-
 public record DoubleSchema(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
     public static DoubleSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();

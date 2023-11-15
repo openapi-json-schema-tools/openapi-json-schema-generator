@@ -1,23 +1,9 @@
 package org.openapijsonschematools.components.schemas;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
-import org.openapijsonschematools.schemas.AnyTypeSchema;
-import org.openapijsonschematools.schemas.BooleanSchema;
-import org.openapijsonschematools.schemas.DateSchema;
-import org.openapijsonschematools.schemas.DateTimeSchema;
-import org.openapijsonschematools.schemas.DecimalSchema;
-import org.openapijsonschematools.schemas.DoubleSchema;
-import org.openapijsonschematools.schemas.FloatSchema;
+import org.openapijsonschematools.schemas.JsonSchemas;
 import org.openapijsonschematools.schemas.FrozenList;
 import org.openapijsonschematools.schemas.FrozenMap;
-import org.openapijsonschematools.schemas.Int32Schema;
-import org.openapijsonschematools.schemas.Int64Schema;
-import org.openapijsonschematools.schemas.IntSchema;
-import org.openapijsonschematools.schemas.ListSchema;
-import org.openapijsonschematools.schemas.MapSchema;
-import org.openapijsonschematools.schemas.NullSchema;
-import org.openapijsonschematools.schemas.NumberSchema;
-import org.openapijsonschematools.schemas.StringSchema;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
@@ -29,24 +15,24 @@ public class User {
     
     
     public record Id() implements JsonSchema {
-        public static Int64Schema withDefaults() {
-            return Int64Schema.withDefaults();
+        public static JsonSchemas.Int64Schema withDefaults() {
+            return JsonSchemas.Int64Schema.withDefaults();
         }
     
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64Schema.class, Long.valueOf(arg), configuration);
+            return JsonSchema.validate(JsonSchemas.Int64Schema.class, Long.valueOf(arg), configuration);
         }
     
         public static Long validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64Schema.class, Long.parseLong(arg.toString()), configuration);
+            return JsonSchema.validate(JsonSchemas.Int64Schema.class, Long.parseLong(arg.toString()), configuration);
         }
     
         public static Long validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64Schema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.Int64Schema.class, arg, configuration);
         }
     
         public static Long validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64Schema.class, Long.parseLong(arg.toString()), configuration);
+            return JsonSchema.validate(JsonSchemas.Int64Schema.class, Long.parseLong(arg.toString()), configuration);
         }
     }
     
@@ -118,27 +104,27 @@ public class User {
     }    
     
     public record UserStatus() implements JsonSchema {
-        public static Int32Schema withDefaults() {
-            return Int32Schema.withDefaults();
+        public static JsonSchemas.Int32Schema withDefaults() {
+            return JsonSchemas.Int32Schema.withDefaults();
         }
     
         public static Integer validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int32Schema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.Int32Schema.class, arg, configuration);
         }
     
         public static Integer validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int32Schema.class, Integer.parseInt(arg.toString()), configuration);
+            return JsonSchema.validate(JsonSchemas.Int32Schema.class, Integer.parseInt(arg.toString()), configuration);
         }
     }
     
     
     public record ObjectWithNoDeclaredProps() implements JsonSchema {
-        public static MapSchema withDefaults() {
-            return MapSchema.withDefaults();
+        public static JsonSchemas.MapSchema withDefaults() {
+            return JsonSchemas.MapSchema.withDefaults();
         }
     
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(MapSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.MapSchema.class, arg, configuration);
         }
     }
     

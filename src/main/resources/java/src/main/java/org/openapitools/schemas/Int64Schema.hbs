@@ -1,9 +1,3 @@
-package {{{packageName}}}.schemas;
-
-import {{{packageName}}}.configurations.SchemaConfiguration;
-
-import java.util.LinkedHashSet;
-
 public record Int64Schema(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
     public static Int64Schema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();

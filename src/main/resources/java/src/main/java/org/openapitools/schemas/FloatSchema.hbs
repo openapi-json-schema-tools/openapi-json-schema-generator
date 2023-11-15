@@ -1,9 +1,3 @@
-package {{{packageName}}}.schemas;
-
-import {{{packageName}}}.configurations.SchemaConfiguration;
-
-import java.util.LinkedHashSet;
-
 public record FloatSchema(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
     public static FloatSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();

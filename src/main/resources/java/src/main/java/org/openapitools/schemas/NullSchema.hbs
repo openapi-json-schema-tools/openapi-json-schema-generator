@@ -1,9 +1,3 @@
-package {{{packageName}}}.schemas;
-
-import {{{packageName}}}.configurations.SchemaConfiguration;
-
-import java.util.LinkedHashSet;
-
 public record NullSchema(LinkedHashSet<Class<?>> type) implements JsonSchema {
     public static NullSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();

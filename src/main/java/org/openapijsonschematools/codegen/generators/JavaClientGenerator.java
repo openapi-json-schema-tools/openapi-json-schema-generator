@@ -275,30 +275,14 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         HashMap<String, String> schemaDocs = new HashMap<>();
         additionalProperties.put(CodegenConstants.PACKAGE_NAME, packageName);
         List<String> schemaSupportingFiles = new ArrayList<>();
-        schemaSupportingFiles.add("AnyTypeSchema");
-        schemaSupportingFiles.add("BooleanSchema");
         schemaSupportingFiles.add("CustomIsoparser");
-        schemaSupportingFiles.add("DateSchema");
-        schemaSupportingFiles.add("DateTimeSchema");
-        schemaSupportingFiles.add("DecimalSchema");
-        schemaSupportingFiles.add("DoubleSchema");
-        schemaSupportingFiles.add("FloatSchema");
         schemaSupportingFiles.add("FrozenList");
         schemaSupportingFiles.add("FrozenMap");
-        schemaSupportingFiles.add("Int32Schema");
-        schemaSupportingFiles.add("Int64Schema");
-        schemaSupportingFiles.add("IntSchema");
-        schemaSupportingFiles.add("ListSchema");
-        schemaSupportingFiles.add("MapSchema");
-        schemaSupportingFiles.add("NullSchema");
-        schemaSupportingFiles.add("NumberSchema");
         schemaSupportingFiles.add("PathToSchemasMap");
         schemaSupportingFiles.add("PathToTypeMap");
         schemaSupportingFiles.add("JsonSchema");
+        schemaSupportingFiles.add("JsonSchemas");
         schemaSupportingFiles.add("SchemaValidator");
-        schemaSupportingFiles.add("StringSchema");
-        schemaSupportingFiles.add("UnsetAnyTypeSchema");
-        schemaSupportingFiles.add("UuidSchema");
         schemaSupportingFiles.add("ValidationMetadata");
         for (String schemaSupportingFile: schemaSupportingFiles) {
             supportingFiles.add(new SupportingFile(

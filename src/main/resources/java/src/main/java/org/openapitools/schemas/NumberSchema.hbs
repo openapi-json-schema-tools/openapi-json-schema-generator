@@ -1,9 +1,3 @@
-package {{{packageName}}}.schemas;
-
-import {{{packageName}}}.configurations.SchemaConfiguration;
-
-import java.util.LinkedHashSet;
-
 public record NumberSchema(LinkedHashSet<Class<?>> type) implements JsonSchema {
     public static NumberSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();

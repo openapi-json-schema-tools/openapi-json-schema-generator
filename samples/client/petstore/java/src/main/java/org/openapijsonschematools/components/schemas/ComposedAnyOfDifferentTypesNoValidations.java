@@ -1,23 +1,9 @@
 package org.openapijsonschematools.components.schemas;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
-import org.openapijsonschematools.schemas.AnyTypeSchema;
-import org.openapijsonschematools.schemas.BooleanSchema;
-import org.openapijsonschematools.schemas.DateSchema;
-import org.openapijsonschematools.schemas.DateTimeSchema;
-import org.openapijsonschematools.schemas.DecimalSchema;
-import org.openapijsonschematools.schemas.DoubleSchema;
-import org.openapijsonschematools.schemas.FloatSchema;
+import org.openapijsonschematools.schemas.JsonSchemas;
 import org.openapijsonschematools.schemas.FrozenList;
 import org.openapijsonschematools.schemas.FrozenMap;
-import org.openapijsonschematools.schemas.Int32Schema;
-import org.openapijsonschematools.schemas.Int64Schema;
-import org.openapijsonschematools.schemas.IntSchema;
-import org.openapijsonschematools.schemas.ListSchema;
-import org.openapijsonschematools.schemas.MapSchema;
-import org.openapijsonschematools.schemas.NullSchema;
-import org.openapijsonschematools.schemas.NumberSchema;
-import org.openapijsonschematools.schemas.StringSchema;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
@@ -29,12 +15,12 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     
     
     public record Schema0() implements JsonSchema {
-        public static MapSchema withDefaults() {
-            return MapSchema.withDefaults();
+        public static JsonSchemas.MapSchema withDefaults() {
+            return JsonSchemas.MapSchema.withDefaults();
         }
     
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(MapSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.MapSchema.class, arg, configuration);
         }
     }
     
@@ -99,23 +85,23 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }    
     
     public record Schema6() implements JsonSchema {
-        public static MapSchema withDefaults() {
-            return MapSchema.withDefaults();
+        public static JsonSchemas.MapSchema withDefaults() {
+            return JsonSchemas.MapSchema.withDefaults();
         }
     
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(MapSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.MapSchema.class, arg, configuration);
         }
     }
     
     
     public record Schema7() implements JsonSchema {
-        public static BooleanSchema withDefaults() {
-            return BooleanSchema.withDefaults();
+        public static JsonSchemas.BooleanSchema withDefaults() {
+            return JsonSchemas.BooleanSchema.withDefaults();
         }
     
         public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(BooleanSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.BooleanSchema.class, arg, configuration);
         }
     }
     
@@ -132,158 +118,158 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }    
     
     public record Items() implements JsonSchema {
-        public static AnyTypeSchema withDefaults() {
-            return AnyTypeSchema.withDefaults();
+        public static JsonSchemas.AnyTypeSchema withDefaults() {
+            return JsonSchemas.AnyTypeSchema.withDefaults();
         }
     
         public static Void validate(Void arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
         }
     
         public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
         }
     
         public static Integer validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
         }
     
         public static Long validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
         }
     
         public static Float validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
         }
     
         public static Double validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
         }
     
         public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
         }
     
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
         }
     
         public static String validate(LocalDate arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
         }
     
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
         }
     
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
         }
     }
     
     
     public record Schema10() implements JsonSchema {
-        public static NumberSchema withDefaults() {
-            return NumberSchema.withDefaults();
+        public static JsonSchemas.NumberSchema withDefaults() {
+            return JsonSchemas.NumberSchema.withDefaults();
         }
     
         public static Number validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.NumberSchema.class, arg, configuration);
         }
     
         public static Number validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.NumberSchema.class, arg, configuration);
         }
     
         public static Number validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.NumberSchema.class, arg, configuration);
         }
     
         public static Number validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.NumberSchema.class, arg, configuration);
         }
     }
     
     
     public record Schema11() implements JsonSchema {
-        public static FloatSchema withDefaults() {
-            return FloatSchema.withDefaults();
+        public static JsonSchemas.FloatSchema withDefaults() {
+            return JsonSchemas.FloatSchema.withDefaults();
         }
     
         public static Float validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(FloatSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.FloatSchema.class, arg, configuration);
         }
     }
     
     
     public record Schema12() implements JsonSchema {
-        public static DoubleSchema withDefaults() {
-            return DoubleSchema.withDefaults();
+        public static JsonSchemas.DoubleSchema withDefaults() {
+            return JsonSchemas.DoubleSchema.withDefaults();
         }
     
         public static Double validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(DoubleSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.DoubleSchema.class, arg, configuration);
         }
     }
     
     
     public record Schema13() implements JsonSchema {
-        public static IntSchema withDefaults() {
-            return IntSchema.withDefaults();
+        public static JsonSchemas.IntSchema withDefaults() {
+            return JsonSchemas.IntSchema.withDefaults();
         }
     
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(IntSchema.class, Long.valueOf(arg), configuration);
+            return JsonSchema.validate(JsonSchemas.IntSchema.class, Long.valueOf(arg), configuration);
         }
     
         public static Long validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(IntSchema.class, Long.parseLong(arg.toString()), configuration);
+            return JsonSchema.validate(JsonSchemas.IntSchema.class, Long.parseLong(arg.toString()), configuration);
         }
     
         public static Long validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(IntSchema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.IntSchema.class, arg, configuration);
         }
     
         public static Long validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(IntSchema.class, Long.parseLong(arg.toString()), configuration);
+            return JsonSchema.validate(JsonSchemas.IntSchema.class, Long.parseLong(arg.toString()), configuration);
         }
     }
     
     
     public record Schema14() implements JsonSchema {
-        public static Int32Schema withDefaults() {
-            return Int32Schema.withDefaults();
+        public static JsonSchemas.Int32Schema withDefaults() {
+            return JsonSchemas.Int32Schema.withDefaults();
         }
     
         public static Integer validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int32Schema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.Int32Schema.class, arg, configuration);
         }
     
         public static Integer validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int32Schema.class, Integer.parseInt(arg.toString()), configuration);
+            return JsonSchema.validate(JsonSchemas.Int32Schema.class, Integer.parseInt(arg.toString()), configuration);
         }
     }
     
     
     public record Schema15() implements JsonSchema {
-        public static Int64Schema withDefaults() {
-            return Int64Schema.withDefaults();
+        public static JsonSchemas.Int64Schema withDefaults() {
+            return JsonSchemas.Int64Schema.withDefaults();
         }
     
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64Schema.class, Long.valueOf(arg), configuration);
+            return JsonSchema.validate(JsonSchemas.Int64Schema.class, Long.valueOf(arg), configuration);
         }
     
         public static Long validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64Schema.class, Long.parseLong(arg.toString()), configuration);
+            return JsonSchema.validate(JsonSchemas.Int64Schema.class, Long.parseLong(arg.toString()), configuration);
         }
     
         public static Long validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64Schema.class, arg, configuration);
+            return JsonSchema.validate(JsonSchemas.Int64Schema.class, arg, configuration);
         }
     
         public static Long validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64Schema.class, Long.parseLong(arg.toString()), configuration);
+            return JsonSchema.validate(JsonSchemas.Int64Schema.class, Long.parseLong(arg.toString()), configuration);
         }
     }
 }

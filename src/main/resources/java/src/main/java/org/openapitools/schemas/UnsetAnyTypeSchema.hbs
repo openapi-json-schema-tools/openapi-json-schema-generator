@@ -1,12 +1,3 @@
-package {{{packageName}}}.schemas;
-
-import {{{packageName}}}.configurations.SchemaConfiguration;
-
-import java.time.LocalDate;
-import java.time.ZonedDateTime;
-import java.util.List;
-import java.util.Map;
-
 public record UnsetAnyTypeSchema() implements JsonSchema {
     static UnsetAnyTypeSchema withDefaults() {
         return new UnsetAnyTypeSchema();

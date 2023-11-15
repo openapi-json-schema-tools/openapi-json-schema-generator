@@ -1,11 +1,3 @@
-package {{{packageName}}}.schemas;
-
-import {{{packageName}}}.configurations.SchemaConfiguration;
-
-import java.util.LinkedHashSet;
-import java.time.ZonedDateTime;
-import java.time.LocalDate;
-
 public record StringSchema(LinkedHashSet<Class<?>> type) implements JsonSchema {
     public static StringSchema withDefaults() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
