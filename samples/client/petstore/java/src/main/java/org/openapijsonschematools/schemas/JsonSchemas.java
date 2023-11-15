@@ -232,6 +232,12 @@ public class JsonSchemas {
             return JsonSchema.validate(MapSchema.class, arg, configuration);
         }
     }
+    public record NotAnyTypeSchema() implements JsonSchema {
+        public static NotAnyTypeSchema withDefaults() {
+            // todo add not definition here when that validator is added
+            return new NotAnyTypeSchema();
+        }
+    }
     public record NullSchema(LinkedHashSet<Class<?>> type) implements JsonSchema {
         public static NullSchema withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();

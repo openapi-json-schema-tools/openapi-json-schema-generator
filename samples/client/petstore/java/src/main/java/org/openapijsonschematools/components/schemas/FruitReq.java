@@ -17,7 +17,7 @@ public class FruitReq {
     public record Schema0(LinkedHashSet<Class<?>> type) implements JsonSchema {
         public static Schema0 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-                type(None),
+            type.add(Void.class);
             return new Schema0(type);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {

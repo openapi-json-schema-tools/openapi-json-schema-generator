@@ -17,7 +17,7 @@ public class ComposedOneOfDifferentTypes {
     public record Schema2(LinkedHashSet<Class<?>> type) implements JsonSchema {
         public static Schema2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-                type(None),
+            type.add(Void.class);
             return new Schema2(type);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {

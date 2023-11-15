@@ -2,7 +2,7 @@
 LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
 {{#each types}}
 {{#eq this "null"}}
-    type(None),
+type.add(Void.class);
 {{/eq}}
 {{#eq this "object"}}
 type.add(FrozenMap.class);

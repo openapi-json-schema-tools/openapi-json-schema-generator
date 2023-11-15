@@ -14,7 +14,7 @@ public class ListSchemaTest {
     @Test
     public void testExceptionThrownForInvalidType() {
         Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validate(
-                ListSchema.class, (Void) null, configuration
+                JsonSchemas.ListSchema.class, (Void) null, configuration
         ));
     }
 
@@ -22,7 +22,7 @@ public class ListSchemaTest {
     public void testValidateList() {
         List<Object> inList = new ArrayList<>();
         inList.add("today");
-        FrozenList<Object> validatedValue = ListSchema.validate(inList, configuration);
+        FrozenList<Object> validatedValue = JsonSchemas.ListSchema.validate(inList, configuration);
         ArrayList<String> outList = new ArrayList<>();
         outList.add("today");
         Assert.assertEquals(validatedValue, outList);

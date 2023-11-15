@@ -109,7 +109,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     public record Schema8(LinkedHashSet<Class<?>> type) implements JsonSchema {
         public static Schema8 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-                type(None),
+            type.add(Void.class);
             return new Schema8(type);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {

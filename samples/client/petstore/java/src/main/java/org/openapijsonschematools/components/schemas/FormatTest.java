@@ -326,7 +326,7 @@ public class FormatTest {
     public record NoneProp(LinkedHashSet<Class<?>> type) implements JsonSchema {
         public static NoneProp withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-                type(None),
+            type.add(Void.class);
             return new NoneProp(type);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {

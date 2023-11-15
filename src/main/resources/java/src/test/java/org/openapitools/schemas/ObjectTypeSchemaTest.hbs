@@ -16,7 +16,7 @@ record ObjectWithPropsSchema(LinkedHashSet<Class<?>> type, LinkedHashMap<String,
         // can't use Collections.unmodifiableMap because Collections.UnmodifiableMap is not public + extensible
         type.add(FrozenMap.class);
         LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-        properties.put("someString", StringSchema.class);
+        properties.put("someString", JsonSchemas.StringSchema.class);
         return new ObjectWithPropsSchema(type, properties);
     }
 
@@ -31,7 +31,7 @@ record ObjectWithAddpropsSchema(LinkedHashSet<Class<?>> type, Class<?> additiona
         // can't use ImmutableMap because it does not allow null values in entries
         // can't use Collections.unmodifiableMap because Collections.UnmodifiableMap is not public + extensible
         type.add(FrozenMap.class);
-        Class<?> additionalProperties = StringSchema.class;
+        Class<?> additionalProperties = JsonSchemas.StringSchema.class;
         return new ObjectWithAddpropsSchema(type, additionalProperties);
     }
 
@@ -47,8 +47,8 @@ record ObjectWithPropsAndAddpropsSchema(LinkedHashSet<Class<?>> type, LinkedHash
         // can't use Collections.unmodifiableMap because Collections.UnmodifiableMap is not public + extensible
         type.add(FrozenMap.class);
         LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-        properties.put("someString", StringSchema.class);
-        Class<?> additionalProperties = BooleanSchema.class;
+        properties.put("someString", JsonSchemas.StringSchema.class);
+        Class<?> additionalProperties = JsonSchemas.BooleanSchema.class;
         return new ObjectWithPropsAndAddpropsSchema(type, properties, additionalProperties);
     }
 
@@ -73,7 +73,7 @@ record ObjectWithOutputTypeSchema(LinkedHashSet<Class<?>> type, LinkedHashMap<St
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         type.add(FrozenMap.class);
         LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-        properties.put("someString", StringSchema.class);
+        properties.put("someString", JsonSchemas.StringSchema.class);
         return new ObjectWithOutputTypeSchema(type, properties);
     }
 

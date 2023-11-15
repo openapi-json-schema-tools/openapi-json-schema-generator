@@ -15,7 +15,7 @@ record ArrayWithItemsSchema(LinkedHashSet<Class<?>> type, Class<?> items) implem
         // can't use ImmutableList because it does not allow null values in entries
         // can't use Collections.unmodifiableList because Collections.UnmodifiableList is not public + extensible
         type.add(FrozenList.class);
-        Class<?> items = StringSchema.class;
+        Class<?> items = JsonSchemas.StringSchema.class;
         return new ArrayWithItemsSchema(type, items);
     }
 
@@ -40,7 +40,7 @@ record ArrayWithOutputClsSchema(LinkedHashSet<Class<?>> type, Class<?> items) im
         // can't use ImmutableList because it does not allow null values in entries
         // can't use Collections.unmodifiableList because Collections.UnmodifiableList is not public + extensible
         type.add(FrozenList.class);
-        Class<?> items = StringSchema.class;
+        Class<?> items = JsonSchemas.StringSchema.class;
         return new ArrayWithOutputClsSchema(type, items);
     }
 

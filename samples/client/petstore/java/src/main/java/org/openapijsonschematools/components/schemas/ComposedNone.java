@@ -74,7 +74,7 @@ public class ComposedNone {
         */
         public static ComposedNone2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-                type(None),
+            type.add(Void.class);
             return new ComposedNone2(type);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {

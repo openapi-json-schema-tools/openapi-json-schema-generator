@@ -132,7 +132,7 @@ public class User {
     public record Not(LinkedHashSet<Class<?>> type) implements JsonSchema {
         public static Not withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-                type(None),
+            type.add(Void.class);
             return new Not(type);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
