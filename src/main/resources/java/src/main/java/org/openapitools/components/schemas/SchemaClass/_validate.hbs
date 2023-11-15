@@ -2,17 +2,17 @@
     {{#each types}}
         {{#eq this "null"}}
 public static Void validate(Void arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
         {{/eq}}
         {{#eq this "object"}}
 public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
         {{/eq}}
         {{#eq this "array"}}
 public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
         {{/eq}}
         {{#eq this "string" }}
@@ -21,79 +21,79 @@ public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfigur
 // bytes,
             {{else}}
 public static String validate(String arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
             {{/eq}}
         {{/eq}}
         {{#eq this "integer"}}
 public static Long validate(Integer arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, Long.valueOf(arg), configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, Long.valueOf(arg), configuration);
 }
 
 public static Long validate(Float arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, Long.parseLong(arg.toString()), configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, Long.parseLong(arg.toString()), configuration);
 }
 
 public static Long validate(Long arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static Long validate(Double arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, Long.parseLong(arg.toString()), configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, Long.parseLong(arg.toString()), configuration);
 }
         {{/eq}}
         {{#eq this "number"}}
             {{#eq ../format null}}
 public static Number validate(Integer arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static Number validate(Long arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static Number validate(Float arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static Number validate(Double arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
             {{else}}
                 {{#eq ../format "int32"}}
 public static Integer validate(Integer arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static Integer validate(Float arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, Integer.parseInt(arg.toString()), configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, Integer.parseInt(arg.toString()), configuration);
 }
                 {{else}}
                     {{#eq ../format "int64"}}
 public static Long validate(Integer arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, Long.valueOf(arg), configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, Long.valueOf(arg), configuration);
 }
 
 public static Long validate(Float arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, Long.parseLong(arg.toString()), configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, Long.parseLong(arg.toString()), configuration);
 }
 
 public static Long validate(Long arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static Long validate(Double arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, Long.parseLong(arg.toString()), configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, Long.parseLong(arg.toString()), configuration);
 }
                     {{else}}
                         {{#eq ../format "float"}}
 public static Float validate(Float arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
                         {{else}}
                             {{#eq ../format "double"}}
 public static Double validate(Double arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
                             {{/eq}}
                         {{/eq}}
@@ -103,52 +103,52 @@ public static Double validate(Double arg, SchemaConfiguration configuration) {
         {{/eq}}
         {{#eq this "boolean"}}
 public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
         {{/eq}}
     {{/each}}
 {{else}}
 public static Void validate(Void arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static Integer validate(Integer arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static Long validate(Long arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static Float validate(Float arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static Double validate(Double arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static String validate(String arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static String validate(LocalDate arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
-    return JsonSchema.validate({{jsonPathPiece.camelCase}}.class, arg, configuration);
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 {{/if}}

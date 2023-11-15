@@ -9,6 +9,9 @@ public class Schema {
             return AnimalFarm.AnimalFarm2.withDefaults();
         }
     
-        // AnimalFarm.AnimalFarm2
+        // container included
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnimalFarm.AnimalFarm2.class, arg, configuration);
+        }
     }
 }

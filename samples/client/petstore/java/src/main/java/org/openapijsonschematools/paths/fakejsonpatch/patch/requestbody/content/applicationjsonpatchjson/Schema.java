@@ -9,6 +9,9 @@ public class Schema {
             return JSONPatchRequest.JSONPatchRequest2.withDefaults();
         }
     
-        // JSONPatchRequest.JSONPatchRequest2
+        // container included
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(JSONPatchRequest.JSONPatchRequest2.class, arg, configuration);
+        }
     }
 }

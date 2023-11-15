@@ -9,6 +9,9 @@ public class Schema {
             return ObjectModelWithRefProps.ObjectModelWithRefProps2.withDefaults();
         }
     
-        // ObjectModelWithRefProps.ObjectModelWithRefProps2
+        // container included
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ObjectModelWithRefProps.ObjectModelWithRefProps2.class, arg, configuration);
+        }
     }
 }

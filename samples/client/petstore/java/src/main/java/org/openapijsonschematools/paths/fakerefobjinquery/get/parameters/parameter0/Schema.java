@@ -9,6 +9,9 @@ public class Schema {
             return Foo.Foo2.withDefaults();
         }
     
-        // Foo.Foo2
+        // container included
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Foo.Foo2.class, arg, configuration);
+        }
     }
 }

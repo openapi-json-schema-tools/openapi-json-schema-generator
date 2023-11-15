@@ -9,6 +9,9 @@ public class Schema {
             return ModelBoolean.ModelBoolean2.withDefaults();
         }
     
-        // ModelBoolean.ModelBoolean2
+        // container included
+        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(BooleanSchema.BooleanSchema2.class, arg, configuration);
+        }
     }
 }

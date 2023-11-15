@@ -55,7 +55,16 @@ public record {{jsonPathPiece.camelCase}}() implements JsonSchema {
     {{/if}}
 {{else}}
     {{#if refInfo.refClass}}
-    // {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}
+        {{#if refInfo.refModule}}
+            {{#with getDeepestRef}}
+    // container included
+    {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_validate includeContainer=true }}
+            {{/with}}
+        {{else}}
+            {{#with refInfo.ref}}
+    {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_validate }}
+            {{/with}}
+        {{/if}}
     {{else}}
         {{#eq types null}}
     public static Void validate(Void arg, SchemaConfiguration configuration) {

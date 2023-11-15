@@ -9,6 +9,21 @@ public class Schema {
             return NumberWithValidations.NumberWithValidations2.withDefaults();
         }
     
-        // NumberWithValidations.NumberWithValidations2
+        // container included
+        public static Number validate(Integer arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(NumberWithValidations.NumberWithValidations2.class, arg, configuration);
+        }
+        
+        public static Number validate(Long arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(NumberWithValidations.NumberWithValidations2.class, arg, configuration);
+        }
+        
+        public static Number validate(Float arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(NumberWithValidations.NumberWithValidations2.class, arg, configuration);
+        }
+        
+        public static Number validate(Double arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(NumberWithValidations.NumberWithValidations2.class, arg, configuration);
+        }
     }
 }

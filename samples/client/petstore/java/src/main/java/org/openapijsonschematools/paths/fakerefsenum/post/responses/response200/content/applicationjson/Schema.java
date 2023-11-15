@@ -9,6 +9,12 @@ public class Schema {
             return StringEnum.StringEnum2.withDefaults();
         }
     
-        // StringEnum.StringEnum2
+        // container included
+        public static Void validate(Void arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(StringEnum.StringEnum2.class, arg, configuration);
+        }
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(StringEnum.StringEnum2.class, arg, configuration);
+        }
     }
 }

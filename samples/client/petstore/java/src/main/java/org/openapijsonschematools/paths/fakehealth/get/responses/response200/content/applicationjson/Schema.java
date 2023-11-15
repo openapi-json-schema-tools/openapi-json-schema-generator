@@ -9,6 +9,9 @@ public class Schema {
             return HealthCheckResult.HealthCheckResult2.withDefaults();
         }
     
-        // HealthCheckResult.HealthCheckResult2
+        // container included
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(HealthCheckResult.HealthCheckResult2.class, arg, configuration);
+        }
     }
 }

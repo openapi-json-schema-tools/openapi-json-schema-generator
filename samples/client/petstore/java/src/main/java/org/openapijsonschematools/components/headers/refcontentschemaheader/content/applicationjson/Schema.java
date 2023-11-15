@@ -9,6 +9,9 @@ public class Schema {
             return StringWithValidation.StringWithValidation2.withDefaults();
         }
     
-        // StringWithValidation.StringWithValidation2
+        // container included
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(StringWithValidation.StringWithValidation2.class, arg, configuration);
+        }
     }
 }
