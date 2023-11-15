@@ -80,6 +80,55 @@ public class AdditionalPropertiesValidator {
     }
     
     
+    public record AdditionalProperties1() implements JsonSchema {
+        public static AdditionalProperties1 withDefaults() {
+            return new AdditionalProperties1();
+        }
+        public static Void validate(Void arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+        }
+        
+        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+        }
+        
+        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+        }
+        
+        public static Long validate(Long arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+        }
+        
+        public static Float validate(Float arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+        }
+        
+        public static Double validate(Double arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+        }
+        
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+        }
+        
+        public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+        }
+        
+        public static String validate(LocalDate arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+        }
+        
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+        }
+        
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+        }
+    }    
+    
     public record Schema1(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
         public static Schema1 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
@@ -92,6 +141,55 @@ public class AdditionalPropertiesValidator {
         }
     }
     
+    
+    public record AdditionalProperties2() implements JsonSchema {
+        public static AdditionalProperties2 withDefaults() {
+            return new AdditionalProperties2();
+        }
+        public static Void validate(Void arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+        }
+        
+        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+        }
+        
+        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+        }
+        
+        public static Long validate(Long arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+        }
+        
+        public static Float validate(Float arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+        }
+        
+        public static Double validate(Double arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+        }
+        
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+        }
+        
+        public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+        }
+        
+        public static String validate(LocalDate arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+        }
+        
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+        }
+        
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+        }
+    }    
     
     public record Schema2(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
         public static Schema2 withDefaults() {

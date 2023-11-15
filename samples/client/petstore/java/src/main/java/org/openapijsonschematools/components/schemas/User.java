@@ -131,6 +131,70 @@ public class User {
     }
     
     
+    public record ObjectWithNoDeclaredPropsNullable(LinkedHashSet<Class<?>> type, ) implements JsonSchema {
+        public static ObjectWithNoDeclaredPropsNullable withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(Void.class);
+            type.add(FrozenMap.class);
+            return new ObjectWithNoDeclaredPropsNullable(type, );
+        }
+        public static Void validate(Void arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ObjectWithNoDeclaredPropsNullable.class, arg, configuration);
+        }
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ObjectWithNoDeclaredPropsNullable.class, arg, configuration);
+        }
+    }    
+    
+    public record AnyTypeProp() implements JsonSchema {
+        public static AnyTypeProp withDefaults() {
+            return new AnyTypeProp();
+        }
+        public static Void validate(Void arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
+        }
+        
+        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
+        }
+        
+        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
+        }
+        
+        public static Long validate(Long arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
+        }
+        
+        public static Float validate(Float arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
+        }
+        
+        public static Double validate(Double arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
+        }
+        
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
+        }
+        
+        public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
+        }
+        
+        public static String validate(LocalDate arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
+        }
+        
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
+        }
+        
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
+        }
+    }    
+    
     public record Not(LinkedHashSet<Class<?>> type) implements JsonSchema {
         public static Not withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
@@ -139,6 +203,104 @@ public class User {
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Not.class, arg, configuration);
+        }
+    }    
+    
+    public record AnyTypeExceptNullProp() implements JsonSchema {
+        public static AnyTypeExceptNullProp withDefaults() {
+            return new AnyTypeExceptNullProp();
+        }
+        public static Void validate(Void arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+        }
+        
+        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+        }
+        
+        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+        }
+        
+        public static Long validate(Long arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+        }
+        
+        public static Float validate(Float arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+        }
+        
+        public static Double validate(Double arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+        }
+        
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+        }
+        
+        public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+        }
+        
+        public static String validate(LocalDate arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+        }
+        
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+        }
+        
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+        }
+    }    
+    
+    public record AnyTypePropNullable() implements JsonSchema {
+        public static AnyTypePropNullable withDefaults() {
+            return new AnyTypePropNullable();
+        }
+        public static Void validate(Void arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
+        }
+        
+        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
+        }
+        
+        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
+        }
+        
+        public static Long validate(Long arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
+        }
+        
+        public static Float validate(Float arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
+        }
+        
+        public static Double validate(Double arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
+        }
+        
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
+        }
+        
+        public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
+        }
+        
+        public static String validate(LocalDate arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
+        }
+        
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
+        }
+        
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
         }
     }    
     

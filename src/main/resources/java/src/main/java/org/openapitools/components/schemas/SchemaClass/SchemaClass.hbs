@@ -3,7 +3,7 @@
 {{else}}
     {{#eq types null }}
         {{#or allOf anyOf oneOf not if_ then else_ enumInfo constInfo properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties dependentRequired dependentSchemas propertyNames (neq maxProperties null) (neq minProperties null) patternProperties unevaluatedProperties items uniqueItems (neq maxItems null) (neq minItems null) contains (neq maxContains null) (neq minContains null) prefixItems unevaluatedItems format (neq maxLength null) (neq minLength null) maximum minimum multipleOf patternInfo }}
-{{!> components/schemas/schema_cls/_schema_anytype_or_multitype }}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_anytypeOrMultitype }}
         {{else}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
         {{/or}}
@@ -52,7 +52,7 @@
             {{/each}}
         {{else}}
             {{! multiple types }}
-{{!> components/schemas/schema_cls/_schema_anytype_or_multitype }}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_anytypeOrMultitype }}
         {{/eq}}
     {{/eq}}
 {{/or}}
