@@ -9,7 +9,6 @@ public class Schema {
             return Order.Order2.withDefaults();
         }
     
-        // container included
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Order.Order2.class, arg, configuration);
         }

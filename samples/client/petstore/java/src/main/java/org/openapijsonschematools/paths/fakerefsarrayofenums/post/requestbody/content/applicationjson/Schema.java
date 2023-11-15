@@ -9,7 +9,6 @@ public class Schema {
             return ArrayOfEnums.ArrayOfEnums2.withDefaults();
         }
     
-        // container included
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayOfEnums.ArrayOfEnums2.class, arg, configuration);
         }

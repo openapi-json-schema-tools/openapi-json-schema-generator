@@ -9,7 +9,6 @@ public class Schema {
             return FileSchemaTestClass.FileSchemaTestClass2.withDefaults();
         }
     
-        // container included
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(FileSchemaTestClass.FileSchemaTestClass2.class, arg, configuration);
         }

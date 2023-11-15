@@ -57,7 +57,6 @@ public record {{jsonPathPiece.camelCase}}() implements JsonSchema {
     {{#if refInfo.refClass}}
         {{#if refInfo.refModule}}
             {{#with getDeepestRef}}
-    // container included
     {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_validate includeContainer=true }}
             {{/with}}
         {{else}}

@@ -9,7 +9,6 @@ public class Schema {
             return Mammal.Mammal2.withDefaults();
         }
     
-        // container included
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Mammal.Mammal2.class, arg, configuration);
         }

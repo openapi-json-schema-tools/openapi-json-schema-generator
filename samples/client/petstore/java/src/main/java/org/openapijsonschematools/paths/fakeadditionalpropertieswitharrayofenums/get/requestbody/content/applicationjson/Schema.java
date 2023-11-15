@@ -9,7 +9,6 @@ public class Schema {
             return AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums2.withDefaults();
         }
     
-        // container included
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums2.class, arg, configuration);
         }

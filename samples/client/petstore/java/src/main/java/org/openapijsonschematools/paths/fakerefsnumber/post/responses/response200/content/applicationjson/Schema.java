@@ -9,7 +9,6 @@ public class Schema {
             return NumberWithValidations.NumberWithValidations2.withDefaults();
         }
     
-        // container included
         public static Number validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberWithValidations.NumberWithValidations2.class, arg, configuration);
         }

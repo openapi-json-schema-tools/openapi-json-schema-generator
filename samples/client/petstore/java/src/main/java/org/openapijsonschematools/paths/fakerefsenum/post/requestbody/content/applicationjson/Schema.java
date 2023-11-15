@@ -9,7 +9,6 @@ public class Schema {
             return StringEnum.StringEnum2.withDefaults();
         }
     
-        // container included
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(StringEnum.StringEnum2.class, arg, configuration);
         }

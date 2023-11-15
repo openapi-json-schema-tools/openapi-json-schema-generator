@@ -9,7 +9,6 @@ public class Schema {
             return ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes2.withDefaults();
         }
     
-        // container included
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes2.class, arg, configuration);
         }
