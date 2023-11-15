@@ -1,8 +1,8 @@
 
 
 public record {{jsonPathPiece.camelCase}}() implements JsonSchema {
-    public static {{> src/main/java/org/openapitools/components/schemas/SchemaClass/__varEqualsClassSchemaName }} withDefaults() {
-        return {{> src/main/java/org/openapitools/components/schemas/SchemaClass/__varEqualsClassSchemaName }}.withDefaults();
+    public static {{> src/main/java/org/openapitools/components/schemas/SchemaClass/__varEqualsClassSchemaNameDeepest }} withDefaults() {
+        return {{> src/main/java/org/openapitools/components/schemas/SchemaClass/__varEqualsClassSchemaNameRef }}.withDefaults();
     }
 
 {{#or isBooleanSchemaTrue isBooleanSchemaFalse}}
