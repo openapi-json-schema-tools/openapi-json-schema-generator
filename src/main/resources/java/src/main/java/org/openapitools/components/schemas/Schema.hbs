@@ -1,10 +1,7 @@
 {{#with schema}}
 package {{packageName}}.{{subpackage}};
     {{#if refInfo}}
-        {{#if imports}}
-
 {{> src/main/java/org/openapitools/components/schemas/_SchemaSharedImports }}
-        {{/if}}
 {{> _helper_imports }}
 
 public class {{containerJsonPathPiece.camelCase}} {
