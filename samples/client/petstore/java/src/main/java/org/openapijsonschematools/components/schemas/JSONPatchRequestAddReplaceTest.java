@@ -36,9 +36,12 @@ public class JSONPatchRequestAddReplaceTest {
         }
     }    
     
-    public record Value() implements JsonSchema {
+    public record Value(
+        Void pattern
+    ) implements JsonSchema {
         public static Value withDefaults() {
-            return new Value();
+            Void pattern = null;
+            return new Value(pattern);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Value.class, arg, configuration);

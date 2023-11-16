@@ -16,9 +16,14 @@ public class JSONPatchRequest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Items() implements JsonSchema {
+    public record Items(
+        Void oneOf,
+        Void pattern
+    ) implements JsonSchema {
         public static Items withDefaults() {
-            return new Items();
+            Void oneOf = null;
+            Void pattern = null;
+            return new Items(oneOf, pattern);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items.class, arg, configuration);

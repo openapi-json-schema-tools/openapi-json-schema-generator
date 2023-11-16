@@ -80,9 +80,14 @@ public class AdditionalPropertiesValidator {
     }
     
     
-    public record AdditionalProperties1() implements JsonSchema {
+    public record AdditionalProperties1(
+        Void minLength,
+        Void pattern
+    ) implements JsonSchema {
         public static AdditionalProperties1 withDefaults() {
-            return new AdditionalProperties1();
+            Void minLength = null;
+            Void pattern = null;
+            return new AdditionalProperties1(minLength, pattern);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
@@ -142,9 +147,14 @@ public class AdditionalPropertiesValidator {
     }
     
     
-    public record AdditionalProperties2() implements JsonSchema {
+    public record AdditionalProperties2(
+        Void maxLength,
+        Void pattern
+    ) implements JsonSchema {
         public static AdditionalProperties2 withDefaults() {
-            return new AdditionalProperties2();
+            Void maxLength = null;
+            Void pattern = null;
+            return new AdditionalProperties2(maxLength, pattern);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);

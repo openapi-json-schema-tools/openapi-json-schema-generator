@@ -16,12 +16,16 @@ public class HealthCheckResult {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record NullableMessage(LinkedHashSet<Class<?>> type, ) implements JsonSchema {
+    public record NullableMessage(
+        Void pattern,
+        LinkedHashSet<Class<?>> type
+    ) implements JsonSchema {
         public static NullableMessage withDefaults() {
+            Void pattern = null;
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Void.class);
             type.add(String.class);
-            return new NullableMessage(type, );
+            return new NullableMessage(pattern, type);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NullableMessage.class, arg, configuration);

@@ -16,12 +16,14 @@ public class NullableClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record AdditionalProperties3(LinkedHashSet<Class<?>> type, ) implements JsonSchema {
+    public record AdditionalProperties3(
+        LinkedHashSet<Class<?>> type
+    ) implements JsonSchema {
         public static AdditionalProperties3 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Void.class);
             type.add(FrozenMap.class);
-            return new AdditionalProperties3(type, );
+            return new AdditionalProperties3(type);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties3.class, arg, configuration);
@@ -31,7 +33,9 @@ public class NullableClass {
         }
     }    
     
-    public record IntegerProp(LinkedHashSet<Class<?>> type, ) implements JsonSchema {
+    public record IntegerProp(
+        LinkedHashSet<Class<?>> type
+    ) implements JsonSchema {
         public static IntegerProp withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Void.class);
@@ -39,7 +43,7 @@ public class NullableClass {
             type.add(Long.class);
             type.add(Float.class);
             type.add(Double.class);
-            return new IntegerProp(type, );
+            return new IntegerProp(type);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(IntegerProp.class, arg, configuration);
@@ -61,7 +65,9 @@ public class NullableClass {
         }
     }    
     
-    public record NumberProp(LinkedHashSet<Class<?>> type, ) implements JsonSchema {
+    public record NumberProp(
+        LinkedHashSet<Class<?>> type
+    ) implements JsonSchema {
         public static NumberProp withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Void.class);
@@ -69,7 +75,7 @@ public class NullableClass {
             type.add(Long.class);
             type.add(Float.class);
             type.add(Double.class);
-            return new NumberProp(type, );
+            return new NumberProp(type);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberProp.class, arg, configuration);
@@ -91,12 +97,14 @@ public class NullableClass {
         }
     }    
     
-    public record BooleanProp(LinkedHashSet<Class<?>> type, ) implements JsonSchema {
+    public record BooleanProp(
+        LinkedHashSet<Class<?>> type
+    ) implements JsonSchema {
         public static BooleanProp withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Void.class);
             type.add(Boolean.class);
-            return new BooleanProp(type, );
+            return new BooleanProp(type);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(BooleanProp.class, arg, configuration);
@@ -106,12 +114,16 @@ public class NullableClass {
         }
     }    
     
-    public record StringProp(LinkedHashSet<Class<?>> type, ) implements JsonSchema {
+    public record StringProp(
+        Void pattern,
+        LinkedHashSet<Class<?>> type
+    ) implements JsonSchema {
         public static StringProp withDefaults() {
+            Void pattern = null;
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Void.class);
             type.add(String.class);
-            return new StringProp(type, );
+            return new StringProp(pattern, type);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(StringProp.class, arg, configuration);
@@ -121,13 +133,16 @@ public class NullableClass {
         }
     }    
     
-    public record DateProp(LinkedHashSet<Class<?>> type, String format, ) implements JsonSchema {
+    public record DateProp(
+        Void pattern,
+        LinkedHashSet<Class<?>> type
+    ) implements JsonSchema {
         public static DateProp withDefaults() {
+            Void pattern = null;
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Void.class);
             type.add(String.class);
-            String format = "date";
-            return new DateProp(type, format, );
+            return new DateProp(pattern, type);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DateProp.class, arg, configuration);
@@ -137,13 +152,16 @@ public class NullableClass {
         }
     }    
     
-    public record DatetimeProp(LinkedHashSet<Class<?>> type, String format, ) implements JsonSchema {
+    public record DatetimeProp(
+        Void pattern,
+        LinkedHashSet<Class<?>> type
+    ) implements JsonSchema {
         public static DatetimeProp withDefaults() {
+            Void pattern = null;
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Void.class);
             type.add(String.class);
-            String format = "date-time";
-            return new DatetimeProp(type, format, );
+            return new DatetimeProp(pattern, type);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DatetimeProp.class, arg, configuration);
@@ -164,13 +182,16 @@ public class NullableClass {
     }
     
     
-    public record ArrayNullableProp(LinkedHashSet<Class<?>> type, Class<?> items, ) implements JsonSchema {
+    public record ArrayNullableProp(
+        LinkedHashSet<Class<?>> type,
+        Class<?> items
+    ) implements JsonSchema {
         public static ArrayNullableProp withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Void.class);
             type.add(FrozenList.class);
             Class<?> items = Items.class;
-            return new ArrayNullableProp(type, items, );
+            return new ArrayNullableProp(type, items);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayNullableProp.class, arg, configuration);
@@ -180,12 +201,14 @@ public class NullableClass {
         }
     }    
     
-    public record Items1(LinkedHashSet<Class<?>> type, ) implements JsonSchema {
+    public record Items1(
+        LinkedHashSet<Class<?>> type
+    ) implements JsonSchema {
         public static Items1 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Void.class);
             type.add(FrozenMap.class);
-            return new Items1(type, );
+            return new Items1(type);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items1.class, arg, configuration);
@@ -195,13 +218,16 @@ public class NullableClass {
         }
     }    
     
-    public record ArrayAndItemsNullableProp(LinkedHashSet<Class<?>> type, Class<?> items, ) implements JsonSchema {
+    public record ArrayAndItemsNullableProp(
+        LinkedHashSet<Class<?>> type,
+        Class<?> items
+    ) implements JsonSchema {
         public static ArrayAndItemsNullableProp withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Void.class);
             type.add(FrozenList.class);
             Class<?> items = Items1.class;
-            return new ArrayAndItemsNullableProp(type, items, );
+            return new ArrayAndItemsNullableProp(type, items);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayAndItemsNullableProp.class, arg, configuration);
@@ -211,12 +237,14 @@ public class NullableClass {
         }
     }    
     
-    public record Items2(LinkedHashSet<Class<?>> type, ) implements JsonSchema {
+    public record Items2(
+        LinkedHashSet<Class<?>> type
+    ) implements JsonSchema {
         public static Items2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Void.class);
             type.add(FrozenMap.class);
-            return new Items2(type, );
+            return new Items2(type);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items2.class, arg, configuration);
@@ -249,7 +277,10 @@ public class NullableClass {
     }
     
     
-    public record ObjectNullableProp(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
+    public record ObjectNullableProp(
+        LinkedHashSet<Class<?>> type,
+        Class<?> additionalProperties
+    ) implements JsonSchema {
         public static ObjectNullableProp withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Void.class);
@@ -265,12 +296,14 @@ public class NullableClass {
         }
     }    
     
-    public record AdditionalProperties1(LinkedHashSet<Class<?>> type, ) implements JsonSchema {
+    public record AdditionalProperties1(
+        LinkedHashSet<Class<?>> type
+    ) implements JsonSchema {
         public static AdditionalProperties1 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Void.class);
             type.add(FrozenMap.class);
-            return new AdditionalProperties1(type, );
+            return new AdditionalProperties1(type);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
@@ -280,7 +313,10 @@ public class NullableClass {
         }
     }    
     
-    public record ObjectAndItemsNullableProp(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
+    public record ObjectAndItemsNullableProp(
+        LinkedHashSet<Class<?>> type,
+        Class<?> additionalProperties
+    ) implements JsonSchema {
         public static ObjectAndItemsNullableProp withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Void.class);
@@ -296,12 +332,14 @@ public class NullableClass {
         }
     }    
     
-    public record AdditionalProperties2(LinkedHashSet<Class<?>> type, ) implements JsonSchema {
+    public record AdditionalProperties2(
+        LinkedHashSet<Class<?>> type
+    ) implements JsonSchema {
         public static AdditionalProperties2 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Void.class);
             type.add(FrozenMap.class);
-            return new AdditionalProperties2(type, );
+            return new AdditionalProperties2(type);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);

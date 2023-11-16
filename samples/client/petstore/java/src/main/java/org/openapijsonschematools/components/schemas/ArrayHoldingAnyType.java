@@ -16,9 +16,12 @@ public class ArrayHoldingAnyType {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Items() implements JsonSchema {
+    public record Items(
+        Void pattern
+    ) implements JsonSchema {
         public static Items withDefaults() {
-            return new Items();
+            Void pattern = null;
+            return new Items(pattern);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items.class, arg, configuration);

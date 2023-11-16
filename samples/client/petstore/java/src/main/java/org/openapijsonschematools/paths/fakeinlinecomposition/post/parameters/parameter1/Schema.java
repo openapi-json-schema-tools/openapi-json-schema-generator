@@ -27,9 +27,14 @@ public class Schema {
         }
     }    
     
-    public record SomeProp() implements JsonSchema {
+    public record SomeProp(
+        Void allOf,
+        Void pattern
+    ) implements JsonSchema {
         public static SomeProp withDefaults() {
-            return new SomeProp();
+            Void allOf = null;
+            Void pattern = null;
+            return new SomeProp(allOf, pattern);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(SomeProp.class, arg, configuration);

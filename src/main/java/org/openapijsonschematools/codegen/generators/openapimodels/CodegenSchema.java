@@ -129,7 +129,7 @@ public class CodegenSchema {
         return maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || patternInfo != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null;
     }
 
-    public List<String> getSchemaKeywords() {
+    public List<String> schemaKeywords() {
         List<String> keywords = new ArrayList<>();
         if (allOf != null) {
             keywords.add("allOf");

@@ -1,0 +1,27 @@
+{{#each schemaKeywords}}
+    {{#eq this "type"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_types }}
+    {{else}}
+        {{#eq this "format"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_format }}
+        {{else}}
+            {{#eq this "items"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_items }}
+            {{else}}
+                {{#eq this "properties"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_properties }}
+                {{else}}
+                    {{#eq this "required"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_required }}
+                    {{else}}
+                        {{#eq this "additionalProperties"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_additionalProperties }}
+                        {{else}}
+Void {{this}} = null;
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{/each}}

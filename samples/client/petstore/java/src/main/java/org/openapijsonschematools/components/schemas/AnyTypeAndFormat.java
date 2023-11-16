@@ -16,10 +16,14 @@ public class AnyTypeAndFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record UuidSchema(String format, ) implements JsonSchema {
+    public record UuidSchema(
+        String format,
+        Void pattern
+    ) implements JsonSchema {
         public static UuidSchema withDefaults() {
             String format = "uuid";
-            return new UuidSchema(format, );
+            Void pattern = null;
+            return new UuidSchema(format, pattern);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(UuidSchema.class, arg, configuration);
@@ -66,10 +70,14 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public record Date(String format, ) implements JsonSchema {
+    public record Date(
+        String format,
+        Void pattern
+    ) implements JsonSchema {
         public static Date withDefaults() {
             String format = "date";
-            return new Date(format, );
+            Void pattern = null;
+            return new Date(format, pattern);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Date.class, arg, configuration);
@@ -116,10 +124,14 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public record Datetime(String format, ) implements JsonSchema {
+    public record Datetime(
+        String format,
+        Void pattern
+    ) implements JsonSchema {
         public static Datetime withDefaults() {
             String format = "date-time";
-            return new Datetime(format, );
+            Void pattern = null;
+            return new Datetime(format, pattern);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Datetime.class, arg, configuration);
@@ -166,10 +178,14 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public record NumberSchema(String format, ) implements JsonSchema {
+    public record NumberSchema(
+        String format,
+        Void pattern
+    ) implements JsonSchema {
         public static NumberSchema withDefaults() {
             String format = "number";
-            return new NumberSchema(format, );
+            Void pattern = null;
+            return new NumberSchema(format, pattern);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberSchema.class, arg, configuration);
@@ -216,10 +232,14 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public record Binary(String format, ) implements JsonSchema {
+    public record Binary(
+        String format,
+        Void pattern
+    ) implements JsonSchema {
         public static Binary withDefaults() {
             String format = "binary";
-            return new Binary(format, );
+            Void pattern = null;
+            return new Binary(format, pattern);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Binary.class, arg, configuration);
@@ -266,10 +286,14 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public record Int32(String format, ) implements JsonSchema {
+    public record Int32(
+        String format,
+        Void pattern
+    ) implements JsonSchema {
         public static Int32 withDefaults() {
             String format = "int32";
-            return new Int32(format, );
+            Void pattern = null;
+            return new Int32(format, pattern);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int32.class, arg, configuration);
@@ -316,10 +340,14 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public record Int64(String format, ) implements JsonSchema {
+    public record Int64(
+        String format,
+        Void pattern
+    ) implements JsonSchema {
         public static Int64 withDefaults() {
             String format = "int64";
-            return new Int64(format, );
+            Void pattern = null;
+            return new Int64(format, pattern);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int64.class, arg, configuration);
@@ -366,10 +394,14 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public record DoubleSchema(String format, ) implements JsonSchema {
+    public record DoubleSchema(
+        String format,
+        Void pattern
+    ) implements JsonSchema {
         public static DoubleSchema withDefaults() {
             String format = "double";
-            return new DoubleSchema(format, );
+            Void pattern = null;
+            return new DoubleSchema(format, pattern);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DoubleSchema.class, arg, configuration);
@@ -416,10 +448,14 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public record FloatSchema(String format, ) implements JsonSchema {
+    public record FloatSchema(
+        String format,
+        Void pattern
+    ) implements JsonSchema {
         public static FloatSchema withDefaults() {
             String format = "float";
-            return new FloatSchema(format, );
+            Void pattern = null;
+            return new FloatSchema(format, pattern);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(FloatSchema.class, arg, configuration);

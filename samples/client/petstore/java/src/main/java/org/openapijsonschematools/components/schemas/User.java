@@ -131,12 +131,14 @@ public class User {
     }
     
     
-    public record ObjectWithNoDeclaredPropsNullable(LinkedHashSet<Class<?>> type, ) implements JsonSchema {
+    public record ObjectWithNoDeclaredPropsNullable(
+        LinkedHashSet<Class<?>> type
+    ) implements JsonSchema {
         public static ObjectWithNoDeclaredPropsNullable withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(Void.class);
             type.add(FrozenMap.class);
-            return new ObjectWithNoDeclaredPropsNullable(type, );
+            return new ObjectWithNoDeclaredPropsNullable(type);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithNoDeclaredPropsNullable.class, arg, configuration);
@@ -146,9 +148,12 @@ public class User {
         }
     }    
     
-    public record AnyTypeProp() implements JsonSchema {
+    public record AnyTypeProp(
+        Void pattern
+    ) implements JsonSchema {
         public static AnyTypeProp withDefaults() {
-            return new AnyTypeProp();
+            Void pattern = null;
+            return new AnyTypeProp(pattern);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
@@ -206,9 +211,14 @@ public class User {
         }
     }    
     
-    public record AnyTypeExceptNullProp() implements JsonSchema {
+    public record AnyTypeExceptNullProp(
+        Void not,
+        Void pattern
+    ) implements JsonSchema {
         public static AnyTypeExceptNullProp withDefaults() {
-            return new AnyTypeExceptNullProp();
+            Void not = null;
+            Void pattern = null;
+            return new AnyTypeExceptNullProp(not, pattern);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
@@ -255,9 +265,12 @@ public class User {
         }
     }    
     
-    public record AnyTypePropNullable() implements JsonSchema {
+    public record AnyTypePropNullable(
+        Void pattern
+    ) implements JsonSchema {
         public static AnyTypePropNullable withDefaults() {
-            return new AnyTypePropNullable();
+            Void pattern = null;
+            return new AnyTypePropNullable(pattern);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
