@@ -36,6 +36,7 @@ import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorLanguage;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
 import org.openapijsonschematools.codegen.generators.models.VendorExtension;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRefInfo;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
@@ -245,6 +246,8 @@ public interface Generator {
     // handles almost all files to be written
     String getFilepath(String jsonPath);
 
+    String getImport(CodegenRefInfo refInfo);
+    String getRefModuleLocation(String ref);
     String getSubpackage(String jsonPath);
 
     String getDocsFilepath(String jsonPath);

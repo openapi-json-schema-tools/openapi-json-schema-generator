@@ -24,8 +24,14 @@ import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
 import org.openapijsonschematools.codegen.generators.models.VendorExtension;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParameter;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRefInfo;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRequestBody;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenResponse;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.features.BeanValidationFeatures;
@@ -161,6 +167,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         securitySchemesIdentifier = "securityschemes";
         requestBodyIdentifier = "requestbody";
         packageName = "org.openapijsonschematools";
+        addSchemaImportsFromV3SpecLocations = true;
 
         // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata
         modifyFeatureSet(features -> features
@@ -887,7 +894,11 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
     @Override
     public String getSchemaFilename(String jsonPath) {
-        return schemaJsonPathToModelName.get(jsonPath);
+        String modelName = schemaJsonPathToModelName.get(jsonPath);
+        if (modelName == null) {
+            throw new RuntimeException("schemaFilename should always exist");
+        }
+        return modelName;
     }
 
     protected CodegenKey getContainerJsonPathPiece(String expectedComponentType, String currentJsonPath, String sourceJsonPath) {
@@ -1071,6 +1082,39 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 return toParameterRefClass(ref);
             case "securitySchemes":
                 return toSecuritySchemesRefClass(ref);
+        }
+        return null;
+    }
+
+    @Override
+    public String getRefModuleLocation(String ref) {
+        // modules are always in a package one above them, so strip off the last jsonPath fragment
+        String smallerRef = ref.substring(0, ref.lastIndexOf("/"));
+        String filePath = getFilepath(smallerRef);
+        String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar;
+        String localFilepath = filePath.substring(prefix.length(), filePath.length());
+        return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
+    }
+
+    @Override
+    public String getImport(CodegenRefInfo refInfo) {
+        String prefix = "import " + packageName + ".components.";
+        if (refInfo.ref instanceof CodegenSchema) {
+            if (refInfo.refModuleAlias == null) {
+                return "import " + refInfo.refModuleLocation + "." + refInfo.refModule;
+            } else {
+                return "import " + refInfo.refModuleLocation + " import " + refInfo.refModule + " as " + refInfo.refModuleAlias;
+            }
+        } else if (refInfo.ref instanceof CodegenRequestBody) {
+            return prefix + "requestbodies." + refInfo.refModule;
+        } else if (refInfo.ref instanceof CodegenHeader) {
+            return prefix + "headers." + refInfo.refModule;
+        } else if (refInfo.ref instanceof CodegenResponse) {
+            return prefix + "responses." + refInfo.refModule;
+        } else if (refInfo.ref instanceof CodegenParameter) {
+            return prefix + "parameters." + refInfo.refModule;
+        } else if (refInfo.ref instanceof CodegenSecurityScheme) {
+            return prefix + "securityschemes." + refInfo.refModule;
         }
         return null;
     }

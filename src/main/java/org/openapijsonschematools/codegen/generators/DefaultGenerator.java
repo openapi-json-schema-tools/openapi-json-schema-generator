@@ -2065,7 +2065,8 @@ public class DefaultGenerator implements Generator {
         return !isReservedWord(name);
     }
 
-    protected String getImport(CodegenRefInfo refInfo) {
+    @Override
+    public String getImport(CodegenRefInfo refInfo) {
         String prefix = "from " + packageName + ".components.";
         if (refInfo.ref instanceof CodegenSchema) {
             if (refInfo.refModuleAlias == null) {
@@ -4778,7 +4779,8 @@ public class DefaultGenerator implements Generator {
         return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
     }
 
-    private String getRefModuleLocation(String ref) {
+    @Override
+    public String getRefModuleLocation(String ref) {
         String filePath = getFilepath(ref);
         String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar;
         int endIndex = filePath.lastIndexOf(File.separatorChar);
