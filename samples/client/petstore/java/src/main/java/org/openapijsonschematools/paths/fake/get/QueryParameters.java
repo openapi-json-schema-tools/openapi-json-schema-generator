@@ -12,6 +12,11 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.paths.fake.get.parameters.parameter2.Schema2;
+import org.openapijsonschematools.paths.fake.get.parameters.parameter3.Schema3;
+import org.openapijsonschematools.paths.fake.get.parameters.parameter4.Schema4;
+import org.openapijsonschematools.paths.fake.get.parameters.parameter5.Schema5;
+
 public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
@@ -30,10 +35,10 @@ public class QueryParameters {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("enum_query_double", Schema.Schema1.class);
-            properties.put("enum_query_string", Schema.Schema1.class);
-            properties.put("enum_query_integer", Schema.Schema1.class);
-            properties.put("enum_query_string_array", Schema.Schema1.class);
+            properties.put("enum_query_double", Schema5.Schema51.class);
+            properties.put("enum_query_string", Schema3.Schema31.class);
+            properties.put("enum_query_integer", Schema4.Schema41.class);
+            properties.put("enum_query_string_array", Schema2.Schema21.class);
             Class<?> additionalProperties = AdditionalProperties.class;
             return new QueryParameters1(type, properties, additionalProperties);
         }

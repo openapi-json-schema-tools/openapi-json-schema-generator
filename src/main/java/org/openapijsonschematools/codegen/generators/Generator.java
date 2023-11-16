@@ -117,6 +117,7 @@ public interface Generator {
     String getSchemaFilename(String jsonPath);
 
     String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath);
+    Set<String> getImports(CodegenSchema schema, FeatureSet featureSet);
     String toContentTypeFilename(String name);
 
     String toParamName(String name);

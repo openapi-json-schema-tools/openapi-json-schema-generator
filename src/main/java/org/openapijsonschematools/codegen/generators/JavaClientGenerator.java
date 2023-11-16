@@ -19,6 +19,7 @@ package org.openapijsonschematools.codegen.generators;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.common.ModelUtils;
+import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
@@ -168,6 +169,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         requestBodyIdentifier = "requestbody";
         packageName = "org.openapijsonschematools";
         addSchemaImportsFromV3SpecLocations = true;
+        deepestRefSchemaImportNeeded = true;
 
         // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata
         modifyFeatureSet(features -> features
@@ -852,11 +854,60 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
     @Override
     public String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath) {
+        return getSchemaCamelCaseName(name, sourceJsonPath, true);
+    }
+
+    private String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath, boolean useCache) {
         String usedKey = handleSpecialCharacters(name);
         usedKey = sanitizeName(usedKey, "[^a-zA-Z0-9_]+");
+        /*
+        schemas named Schema can collide in:
+        response headers
+        operation:
+        HeaderParameters
+        PathParameters
+        QueryParameters
+        CookieParameter
+        To prevent that, those schemas are renamed
+        - component responses contain headers
+        - those headers are collected into a json object schema
+        - header schemas could also be refed
+        - so all header schemas must be named by their header name to prevent collisions
+         */
+        if (sourceJsonPath.endsWith("/schema")) {
+            if (sourceJsonPath.startsWith("#/paths") && sourceJsonPath.contains("/parameters/")) {
+                String[] pathPieces = sourceJsonPath.split("/");
+                if (pathPieces[3].equals("parameters")) {
+                    // #/paths/path/parameters/0/Schema -> PathParamSchema0
+                    usedKey = "PathParam" + camelize(usedKey) + pathPieces[4]; // PathParamSchema0
+                } else {
+                    // #/paths/path/get/parameters/0/Schema -> Schema0
+                    usedKey = camelize(usedKey) + pathPieces[5]; // Schema0
+                }
+            } else if (
+                    (sourceJsonPath.startsWith("#/paths") && sourceJsonPath.contains("/headers/")) ||
+                    sourceJsonPath.startsWith("#/components/headers/") ||
+                    (sourceJsonPath.startsWith("#/components/responses/") && sourceJsonPath.contains("/headers/"))
+                ) {
+                String[] pathPieces = sourceJsonPath.split("/");
+                if (pathPieces[2].equals("headers")) {
+                    // #/components/headers/someHeader/schema -> SomeHeaderSchema
+                    usedKey =  camelize(pathPieces[3])+ camelize(usedKey);
+                } else if (sourceJsonPath.startsWith("#/components/responses/") && sourceJsonPath.contains("/headers/")) {
+                    // #/components/response/SomeResponse/headers/someHeader/schema
+                    usedKey =  camelize(pathPieces[5])+ camelize(usedKey);
+                } else {
+                    // #/paths/path/verb/responses/SomeResponse/headers/someHeader/schema
+                    usedKey =  camelize(pathPieces[7])+ camelize(usedKey);
+                }
+            }
+        }
+
         HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
-        if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
-            sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);
+        if (useCache) {
+            if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
+                sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);
+            }
         }
         // starts with number
         if (usedKey.matches("^\\d.*")) {
@@ -877,18 +928,21 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             LOGGER.warn("{} (reserved word) cannot be used as name. Renamed to {}", name, usedKey);
         }
 
-        Integer qty = keyToQty.getOrDefault(usedKey, 0);
-        qty += 1;
-        keyToQty.put(usedKey, qty);
-        String suffix = "";
-        if (qty > 1) {
-            Integer schemaNumber = qty-1;
-            suffix = schemaNumber.toString();
+        if (useCache) {
+            Integer qty = keyToQty.getOrDefault(usedKey, 0);
+            qty += 1;
+            keyToQty.put(usedKey, qty);
+            String suffix = "";
+            if (qty > 1) {
+                Integer schemaNumber = qty-1;
+                suffix = schemaNumber.toString();
+            }
+            if (qty == 1 && sourceJsonPath.endsWith("/" + name)) {
+                schemaJsonPathToModelName.put(sourceJsonPath, usedKey);
+            }
+            usedKey = usedKey + suffix;
+            return usedKey;
         }
-        if (qty == 1 && sourceJsonPath.endsWith("/" + name)) {
-            schemaJsonPathToModelName.put(sourceJsonPath, usedKey);
-        }
-        usedKey = usedKey + suffix;
         return usedKey;
     }
 
@@ -896,7 +950,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     public String getSchemaFilename(String jsonPath) {
         String modelName = schemaJsonPathToModelName.get(jsonPath);
         if (modelName == null) {
-            throw new RuntimeException("schemaFilename should always exist");
+            String[] pathPieces = jsonPath.split("/");
+            return getSchemaCamelCaseName(pathPieces[pathPieces.length-1], jsonPath, false);
         }
         return modelName;
     }
@@ -919,12 +974,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     private String toSchemaRefClass(String ref, String sourceJsonPath) {
-        int refClassSuffix = 1;
+        int schemaSuffix = 1;
         String[] refPieces = ref.split("/");
         if (ref.equals(sourceJsonPath)) {
             // self reference, no import needed
             if (ref.startsWith("#/components/schemas/") && refPieces.length == 4) {
-                return toModelName(refPieces[3], ref)+refClassSuffix;
+                return getSchemaFilename(ref)+schemaSuffix;
             }
             Set<String> httpMethods = new HashSet<>(Arrays.asList("post", "put", "patch", "get", "delete", "trace", "options"));
             boolean requestBodyCase = (
@@ -954,71 +1009,58 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         // reference is external, import needed
         // module info is stored in refModule
         if (ref.startsWith("#/components/schemas/") && refPieces.length == 4) {
-            String schemaName = refPieces[3];
-            return toModelName(schemaName, ref)+refClassSuffix;
+            return getSchemaFilename(ref)+schemaSuffix;
         }
         if (ref.startsWith("#/components/parameters/")) {
             if (refPieces.length == 5) {
                 // #/components/parameters/PathUserName/schema
-                String schemaName = refPieces[4];
-                return toModelName(schemaName, ref)+refClassSuffix;
+                return getSchemaFilename(ref)+schemaSuffix;
             }
             if (refPieces.length == 7) {
                 // #/components/parameters/PathUserName/content/mediaType/schema
-                String schemaName = refPieces[6];
-                return toModelName(schemaName, ref)+refClassSuffix;
+                return getSchemaFilename(ref)+schemaSuffix;
             }
         }
         if (ref.startsWith("#/components/headers/")) {
             if (refPieces.length == 5) {
                 // #/components/headers/Int32JsonContentTypeHeader/schema
-                String schemaName = refPieces[4];
-                return toModelName(schemaName, ref)+refClassSuffix;
+                return getSchemaFilename(ref)+schemaSuffix;
             }
             if (refPieces.length == 7) {
                 // #/components/headers/Int32JsonContentTypeHeader/content/application~1json/schema
-                String schemaName = refPieces[6];
-                return toModelName(schemaName, ref)+refClassSuffix;
+                return getSchemaFilename(ref)+schemaSuffix;
             }
         }
         if (ref.startsWith("#/components/responses/")) {
             if (refPieces.length == 7) {
                 // #/components/responses/SuccessInlineContentAndHeader/headers/someHeader/schema
-                String schemaName = refPieces[6];
-                return toModelName(schemaName, ref)+refClassSuffix;
+                return getSchemaFilename(ref)+schemaSuffix;
             }
             if (refPieces.length == 9) {
                 // #/components/responses/SuccessInlineContentAndHeader/headers/someHeader/content/application~1json/schema
-                String schemaName = refPieces[8];
-                return toModelName(schemaName, ref)+refClassSuffix;
+                return getSchemaFilename(ref)+schemaSuffix;
             }
         }
         if (ref.startsWith("#/paths/")) {
             if (refPieces.length == 6) {
                 // #/paths/~1commonParam~1{subDir}~1/parameters/0/schema
-                String schemaName = refPieces[5];
-                return toModelName(schemaName, ref)+refClassSuffix;
+                return getSchemaFilename(ref)+schemaSuffix;
             } else if (refPieces.length == 7) {
                 // #/paths/~1pet~1{petId}/get/parameters/0/schema
-                String schemaName = refPieces[6];
-                return toModelName(schemaName, ref)+refClassSuffix;
+                return getSchemaFilename(ref)+schemaSuffix;
             } else if (refPieces.length == 8) {
                 // #/paths/~1user~1login/get/responses/200/headers/X-Rate-Limit/schema
-                String schemaName = refPieces[7];
-                return toModelName(schemaName, ref)+refClassSuffix;
+                return getSchemaFilename(ref)+schemaSuffix;
             } else if (refPieces.length == 9) {
                 // #/paths/~1pet~1{petId}/get/parameters/0/content/mediaType/schema
                 // #/paths/~1user~1login/get/responses/200/headers/X-Rate-Limit/schema
-                String schemaName = refPieces[8];
-                return toModelName(schemaName, ref)+refClassSuffix;
+                return getSchemaFilename(ref)+schemaSuffix;
             } else if (refPieces.length == 10) {
                 // #/paths/~1user~1login/get/responses/200/headers/X-Rate-Limit/content/application~1json/schema
-                String schemaName = refPieces[9];
-                return toModelName(schemaName, ref)+refClassSuffix;
+                return getSchemaFilename(ref)+schemaSuffix;
             } else if (refPieces.length == 11) {
                 // #/paths/~1user~1login/get/responses/200/headers/X-Rate-Limit/content/application~1json/schema
-                String schemaName = refPieces[10];
-                return toModelName(schemaName, ref)+refClassSuffix;
+                return getSchemaFilename(ref)+schemaSuffix;
             }
         }
         return null;
@@ -1097,24 +1139,39 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     @Override
+    protected boolean needToImport(String type) {
+        return true;
+    }
+
+    @Override
+    public Set<String> getImports(CodegenSchema schema, FeatureSet featureSet) {
+        if (schema.jsonPath.startsWith("#/components/schemas/")) {
+            // all of those components are in the same package, so they don't need to import each other
+            return new HashSet<>();
+        }
+        return super.getImports(schema, featureSet);
+    }
+
+
+    @Override
     public String getImport(CodegenRefInfo refInfo) {
         String prefix = "import " + packageName + ".components.";
         if (refInfo.ref instanceof CodegenSchema) {
             if (refInfo.refModuleAlias == null) {
-                return "import " + refInfo.refModuleLocation + "." + refInfo.refModule;
+                return "import " + refInfo.refModuleLocation + "." + refInfo.refModule + ";";
             } else {
-                return "import " + refInfo.refModuleLocation + " import " + refInfo.refModule + " as " + refInfo.refModuleAlias;
+                return "import " + refInfo.refModuleLocation + " import " + refInfo.refModule + " as " + refInfo.refModuleAlias + ";";
             }
         } else if (refInfo.ref instanceof CodegenRequestBody) {
-            return prefix + "requestbodies." + refInfo.refModule;
+            return prefix + "requestbodies." + refInfo.refModule + ";";
         } else if (refInfo.ref instanceof CodegenHeader) {
-            return prefix + "headers." + refInfo.refModule;
+            return prefix + "headers." + refInfo.refModule + ";";
         } else if (refInfo.ref instanceof CodegenResponse) {
-            return prefix + "responses." + refInfo.refModule;
+            return prefix + "responses." + refInfo.refModule + ";";
         } else if (refInfo.ref instanceof CodegenParameter) {
-            return prefix + "parameters." + refInfo.refModule;
+            return prefix + "parameters." + refInfo.refModule + ";";
         } else if (refInfo.ref instanceof CodegenSecurityScheme) {
-            return prefix + "securityschemes." + refInfo.refModule;
+            return prefix + "securityschemes." + refInfo.refModule + ";";
         }
         return null;
     }

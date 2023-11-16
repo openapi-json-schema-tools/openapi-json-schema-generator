@@ -347,6 +347,7 @@ public class DefaultGenerator implements Generator {
     // if True codegenParameter and codegenResponse imports will come
     // from deeper schema defined locations
     protected boolean addSchemaImportsFromV3SpecLocations = false;
+    protected boolean deepestRefSchemaImportNeeded = false;
 
     @Override
     public List<CliOption> cliOptions() {
@@ -2094,7 +2095,8 @@ public class DefaultGenerator implements Generator {
      * @param featureSet the generator feature set, used to determine if composed schemas should be added
      * @return all the imports
      */
-    private Set<String> getImports(CodegenSchema schema, FeatureSet featureSet) {
+    @Override
+    public Set<String> getImports(CodegenSchema schema, FeatureSet featureSet) {
         Set<String> imports = new HashSet<>();
         if (schema.discriminator != null && schema.discriminator.mappedModels != null) {
             CodegenDiscriminator disc = schema.discriminator;
@@ -2151,6 +2153,14 @@ public class DefaultGenerator implements Generator {
         if (schema.refInfo != null && schema.refInfo.refModule != null) {
             // self reference classes do not contain refModule
             imports.add(getImport(schema.refInfo));
+            CodegenSchema ref = schema.refInfo.ref;
+            if (ref.refInfo != null && schema.refInfo.refModule != null && deepestRefSchemaImportNeeded) {
+                CodegenRefInfo<CodegenSchema> deepestRefInfo = schema.refInfo;
+                while (deepestRefInfo.ref.refInfo != null) {
+                    deepestRefInfo = deepestRefInfo.ref.refInfo;
+                }
+                imports.add(getImport(deepestRefInfo));
+            }
         }
         return imports;
     }
@@ -4712,8 +4722,7 @@ public class DefaultGenerator implements Generator {
                 // Two use cases
                 // 1. #/components/schemas/SomeSchema (component schemas)
                 // 2. #/paths/~1pet~1{petId}/get/parameters/0/schema (other schemas: parameters, response headers etc)
-                String usedKey = handleSpecialCharacters(refPieces[refPieces.length-1]);
-                return toModelFilename(usedKey, ref);
+                return getSchemaFilename(ref);
             case "securitySchemes":
                 return toSecuritySchemeFilename(refPieces[3], ref);
         }

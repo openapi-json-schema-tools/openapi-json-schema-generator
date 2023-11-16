@@ -12,6 +12,11 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter5.Schema5;
+import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter6.Schema6;
+import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter7.Schema7;
+import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter8.Schema8;
+
 public class HeaderParameters {
     // nest classes so all schemas and input/output classes can be public
     
@@ -30,10 +35,10 @@ public class HeaderParameters {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("1", Schema.Schema1.class);
-            properties.put("aB", Schema.Schema1.class);
-            properties.put("A-B", Schema.Schema1.class);
-            properties.put("self", Schema.Schema1.class);
+            properties.put("1", Schema5.Schema51.class);
+            properties.put("aB", Schema6.Schema61.class);
+            properties.put("A-B", Schema8.Schema81.class);
+            properties.put("self", Schema7.Schema71.class);
             Class<?> additionalProperties = AdditionalProperties.class;
             return new HeaderParameters1(type, properties, additionalProperties);
         }

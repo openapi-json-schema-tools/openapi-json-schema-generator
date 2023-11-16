@@ -12,6 +12,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.components.schemas.Pet;
+import org.openapijsonschematools.components.schemas.RefPet;
+
 public class Schema {
     // $refed class
     

@@ -12,13 +12,15 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.components.schemas.StringSchema;
+
 public class Schema {
     // $refed class
     
     
     public record Schema1() implements JsonSchema {
         public static StringSchema.StringSchema1 withDefaults() {
-            return ModelString.ModelString1.withDefaults();
+            return StringSchema.StringSchema1.withDefaults();
         }
     
         public static String validate(String arg, SchemaConfiguration configuration) {

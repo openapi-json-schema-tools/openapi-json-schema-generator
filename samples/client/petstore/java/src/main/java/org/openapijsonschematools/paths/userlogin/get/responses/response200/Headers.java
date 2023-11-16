@@ -12,6 +12,12 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.components.headers.int32jsoncontenttypeheader.content.applicationjson.Int32JsonContentTypeHeaderSchema;
+import org.openapijsonschematools.components.headers.numberheader.NumberHeaderSchema;
+import org.openapijsonschematools.components.schemas.StringWithValidation;
+import org.openapijsonschematools.paths.userlogin.get.responses.response200.headers.xexpiresafter.XExpiresAfterSchema;
+import org.openapijsonschematools.paths.userlogin.get.responses.response200.headers.xratelimit.content.applicationjson.XRateLimitSchema;
+
 public class Headers {
     // nest classes so all schemas and input/output classes can be public
     
@@ -30,11 +36,11 @@ public class Headers {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("X-Rate-Limit", Schema.Schema1.class);
-            properties.put("int32", Schema.Schema1.class);
-            properties.put("X-Expires-After", Schema.Schema1.class);
+            properties.put("X-Rate-Limit", XRateLimitSchema.XRateLimitSchema1.class);
+            properties.put("int32", Int32JsonContentTypeHeaderSchema.Int32JsonContentTypeHeaderSchema1.class);
+            properties.put("X-Expires-After", XExpiresAfterSchema.XExpiresAfterSchema1.class);
             properties.put("ref-content-schema-header", StringWithValidation.StringWithValidation1.class);
-            properties.put("numberHeader", Schema.Schema1.class);
+            properties.put("numberHeader", NumberHeaderSchema.NumberHeaderSchema1.class);
             Set<String> required = new LinkedHashSet<>();
             required.add("X-Rate-Limit");
             required.add("int32");

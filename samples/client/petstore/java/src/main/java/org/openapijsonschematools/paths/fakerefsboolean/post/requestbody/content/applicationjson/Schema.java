@@ -12,13 +12,15 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.components.schemas.BooleanSchema;
+
 public class Schema {
     // $refed class
     
     
     public record Schema1() implements JsonSchema {
         public static BooleanSchema.BooleanSchema1 withDefaults() {
-            return ModelBoolean.ModelBoolean1.withDefaults();
+            return BooleanSchema.BooleanSchema1.withDefaults();
         }
     
         public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {

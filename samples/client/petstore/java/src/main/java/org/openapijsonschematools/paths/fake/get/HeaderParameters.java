@@ -12,6 +12,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.paths.fake.get.parameters.parameter0.Schema0;
+import org.openapijsonschematools.paths.fake.get.parameters.parameter1.Schema1;
+
 public class HeaderParameters {
     // nest classes so all schemas and input/output classes can be public
     
@@ -30,8 +33,8 @@ public class HeaderParameters {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("enum_header_string", Schema.Schema1.class);
-            properties.put("enum_header_string_array", Schema.Schema1.class);
+            properties.put("enum_header_string", Schema1.Schema11.class);
+            properties.put("enum_header_string_array", Schema0.Schema01.class);
             Class<?> additionalProperties = AdditionalProperties.class;
             return new HeaderParameters1(type, properties, additionalProperties);
         }

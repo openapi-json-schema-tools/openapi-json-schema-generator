@@ -12,6 +12,13 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.components.schemas.StringWithValidation;
+import org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter0.Schema0;
+import org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter1.Schema1;
+import org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter2.Schema2;
+import org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter3.Schema3;
+import org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter4.Schema4;
+
 public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
@@ -31,11 +38,11 @@ public class QueryParameters {
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
             properties.put("refParam", StringWithValidation.StringWithValidation1.class);
-            properties.put("ioutil", Schema.Schema1.class);
-            properties.put("context", Schema.Schema1.class);
-            properties.put("http", Schema.Schema1.class);
-            properties.put("pipe", Schema.Schema1.class);
-            properties.put("url", Schema.Schema1.class);
+            properties.put("ioutil", Schema1.Schema11.class);
+            properties.put("context", Schema4.Schema41.class);
+            properties.put("http", Schema2.Schema21.class);
+            properties.put("pipe", Schema0.Schema01.class);
+            properties.put("url", Schema3.Schema31.class);
             Set<String> required = new LinkedHashSet<>();
             required.add("context");
             required.add("http");

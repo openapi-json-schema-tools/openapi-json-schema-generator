@@ -12,6 +12,11 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.paths.fake.delete.parameters.parameter0.Schema0;
+import org.openapijsonschematools.paths.fake.delete.parameters.parameter2.Schema2;
+import org.openapijsonschematools.paths.fake.delete.parameters.parameter3.Schema3;
+import org.openapijsonschematools.paths.fake.delete.parameters.parameter5.Schema5;
+
 public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
@@ -30,10 +35,10 @@ public class QueryParameters {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("required_string_group", Schema.Schema1.class);
-            properties.put("int64_group", Schema.Schema1.class);
-            properties.put("string_group", Schema.Schema1.class);
-            properties.put("required_int64_group", Schema.Schema1.class);
+            properties.put("required_string_group", Schema0.Schema01.class);
+            properties.put("int64_group", Schema5.Schema51.class);
+            properties.put("string_group", Schema3.Schema31.class);
+            properties.put("required_int64_group", Schema2.Schema21.class);
             Set<String> required = new LinkedHashSet<>();
             required.add("required_int64_group");
             required.add("required_string_group");

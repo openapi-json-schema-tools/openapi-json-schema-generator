@@ -12,6 +12,8 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.components.responses.headerswithnobody.headers.location.LocationSchema;
+
 public class Headers {
     // nest classes so all schemas and input/output classes can be public
     
@@ -30,7 +32,7 @@ public class Headers {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("location", Schema.Schema1.class);
+            properties.put("location", LocationSchema.LocationSchema1.class);
             Class<?> additionalProperties = AdditionalProperties.class;
             return new Headers1(type, properties, additionalProperties);
         }

@@ -12,6 +12,8 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.paths.fakequeryparamwithjsoncontenttype.get.parameters.parameter0.content.applicationjson.Schema0;
+
 public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
@@ -30,7 +32,7 @@ public class QueryParameters {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("someParam", Schema.Schema1.class);
+            properties.put("someParam", Schema0.Schema01.class);
             Set<String> required = new LinkedHashSet<>();
             required.add("someParam");
             Class<?> additionalProperties = AdditionalProperties.class;

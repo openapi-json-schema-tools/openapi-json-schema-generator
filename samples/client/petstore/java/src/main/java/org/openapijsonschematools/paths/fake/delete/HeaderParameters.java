@@ -12,6 +12,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.paths.fake.delete.parameters.parameter1.Schema1;
+import org.openapijsonschematools.paths.fake.delete.parameters.parameter4.Schema4;
+
 public class HeaderParameters {
     // nest classes so all schemas and input/output classes can be public
     
@@ -30,8 +33,8 @@ public class HeaderParameters {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("required_boolean_group", Schema.Schema1.class);
-            properties.put("boolean_group", Schema.Schema1.class);
+            properties.put("required_boolean_group", Schema1.Schema11.class);
+            properties.put("boolean_group", Schema4.Schema41.class);
             Set<String> required = new LinkedHashSet<>();
             required.add("required_boolean_group");
             Class<?> additionalProperties = AdditionalProperties.class;

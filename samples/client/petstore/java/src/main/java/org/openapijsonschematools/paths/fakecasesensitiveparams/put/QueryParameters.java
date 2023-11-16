@@ -12,6 +12,10 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.parameter0.Schema0;
+import org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.parameter1.Schema1;
+import org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.parameter2.Schema2;
+
 public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
@@ -30,9 +34,9 @@ public class QueryParameters {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("someVar", Schema.Schema1.class);
-            properties.put("some_var", Schema.Schema1.class);
-            properties.put("SomeVar", Schema.Schema1.class);
+            properties.put("someVar", Schema0.Schema01.class);
+            properties.put("some_var", Schema2.Schema21.class);
+            properties.put("SomeVar", Schema1.Schema11.class);
             Set<String> required = new LinkedHashSet<>();
             required.add("SomeVar");
             required.add("someVar");

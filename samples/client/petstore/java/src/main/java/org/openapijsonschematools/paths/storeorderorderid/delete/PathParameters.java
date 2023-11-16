@@ -12,6 +12,8 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.paths.storeorderorderid.delete.parameters.parameter0.Schema0;
+
 public class PathParameters {
     // nest classes so all schemas and input/output classes can be public
     
@@ -30,7 +32,7 @@ public class PathParameters {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("order_id", Schema.Schema1.class);
+            properties.put("order_id", Schema0.Schema01.class);
             Set<String> required = new LinkedHashSet<>();
             required.add("order_id");
             Class<?> additionalProperties = AdditionalProperties.class;

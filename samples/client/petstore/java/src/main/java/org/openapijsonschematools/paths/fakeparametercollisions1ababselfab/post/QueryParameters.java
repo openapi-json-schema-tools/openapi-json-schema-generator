@@ -12,6 +12,12 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter0.Schema0;
+import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter1.Schema1;
+import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter2.Schema2;
+import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter3.Schema3;
+import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter4.Schema4;
+
 public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
@@ -30,11 +36,11 @@ public class QueryParameters {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("1", Schema.Schema1.class);
-            properties.put("aB", Schema.Schema1.class);
-            properties.put("Ab", Schema.Schema1.class);
-            properties.put("A-B", Schema.Schema1.class);
-            properties.put("self", Schema.Schema1.class);
+            properties.put("1", Schema0.Schema01.class);
+            properties.put("aB", Schema1.Schema11.class);
+            properties.put("Ab", Schema2.Schema21.class);
+            properties.put("A-B", Schema4.Schema41.class);
+            properties.put("self", Schema3.Schema31.class);
             Class<?> additionalProperties = AdditionalProperties.class;
             return new QueryParameters1(type, properties, additionalProperties);
         }

@@ -12,6 +12,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.paths.fakeinlinecomposition.post.parameters.parameter0.Schema0;
+import org.openapijsonschematools.paths.fakeinlinecomposition.post.parameters.parameter1.Schema1;
+
 public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
@@ -30,8 +33,8 @@ public class QueryParameters {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("compositionAtRoot", Schema.Schema1.class);
-            properties.put("compositionInProperty", Schema.Schema1.class);
+            properties.put("compositionAtRoot", Schema0.Schema01.class);
+            properties.put("compositionInProperty", Schema1.Schema11.class);
             Class<?> additionalProperties = AdditionalProperties.class;
             return new QueryParameters1(type, properties, additionalProperties);
         }

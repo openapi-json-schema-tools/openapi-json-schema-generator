@@ -12,6 +12,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.paths.userlogin.get.parameters.parameter0.Schema0;
+import org.openapijsonschematools.paths.userlogin.get.parameters.parameter1.Schema1;
+
 public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
@@ -30,8 +33,8 @@ public class QueryParameters {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("password", Schema.Schema1.class);
-            properties.put("username", Schema.Schema1.class);
+            properties.put("password", Schema1.Schema11.class);
+            properties.put("username", Schema0.Schema01.class);
             Set<String> required = new LinkedHashSet<>();
             required.add("password");
             required.add("username");

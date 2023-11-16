@@ -12,6 +12,8 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.components.parameters.pathusername.Schema;
+
 public class PathParameters {
     // nest classes so all schemas and input/output classes can be public
     

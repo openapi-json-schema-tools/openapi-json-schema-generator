@@ -12,6 +12,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
 public class ObjectModelWithRefProps {
     // nest classes so all schemas and input/output classes can be public
     
@@ -30,8 +31,8 @@ public class ObjectModelWithRefProps {
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
             properties.put("myNumber", NumberWithValidations.NumberWithValidations1.class);
-            properties.put("myString", ModelString.ModelString1.class);
-            properties.put("myBoolean", ModelBoolean.ModelBoolean1.class);
+            properties.put("myString", StringSchema.StringSchema1.class);
+            properties.put("myBoolean", BooleanSchema.BooleanSchema1.class);
             return new ObjectModelWithRefProps1(type, properties);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

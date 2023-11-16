@@ -12,6 +12,11 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.components.headers.int32jsoncontenttypeheader.content.applicationjson.Int32JsonContentTypeHeaderSchema;
+import org.openapijsonschematools.components.headers.numberheader.NumberHeaderSchema;
+import org.openapijsonschematools.components.headers.stringheader.StringHeaderSchema;
+import org.openapijsonschematools.components.schemas.StringWithValidation;
+
 public class Headers {
     // nest classes so all schemas and input/output classes can be public
     
@@ -31,10 +36,10 @@ public class Headers {
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
             properties.put("ref-schema-header", StringWithValidation.StringWithValidation1.class);
-            properties.put("int32", Schema.Schema1.class);
+            properties.put("int32", Int32JsonContentTypeHeaderSchema.Int32JsonContentTypeHeaderSchema1.class);
             properties.put("ref-content-schema-header", StringWithValidation.StringWithValidation1.class);
-            properties.put("stringHeader", Schema.Schema1.class);
-            properties.put("numberHeader", Schema.Schema1.class);
+            properties.put("stringHeader", StringHeaderSchema.StringHeaderSchema1.class);
+            properties.put("numberHeader", NumberHeaderSchema.NumberHeaderSchema1.class);
             Set<String> required = new LinkedHashSet<>();
             required.add("int32");
             required.add("ref-content-schema-header");

@@ -12,6 +12,12 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter14.Schema14;
+import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter15.Schema15;
+import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter16.Schema16;
+import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter17.Schema17;
+import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter18.Schema18;
+
 public class CookieParameters {
     // nest classes so all schemas and input/output classes can be public
     
@@ -30,11 +36,11 @@ public class CookieParameters {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(FrozenMap.class);
             LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("1", Schema.Schema1.class);
-            properties.put("aB", Schema.Schema1.class);
-            properties.put("Ab", Schema.Schema1.class);
-            properties.put("A-B", Schema.Schema1.class);
-            properties.put("self", Schema.Schema1.class);
+            properties.put("1", Schema14.Schema141.class);
+            properties.put("aB", Schema15.Schema151.class);
+            properties.put("Ab", Schema16.Schema161.class);
+            properties.put("A-B", Schema18.Schema181.class);
+            properties.put("self", Schema17.Schema171.class);
             Class<?> additionalProperties = AdditionalProperties.class;
             return new CookieParameters1(type, properties, additionalProperties);
         }
