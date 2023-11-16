@@ -156,7 +156,7 @@ public class CodegenSchema {
             keywords.add("discriminator");
         }
         if (enumInfo != null) {
-            keywords.add("enum");
+            keywords.add("enumInfo");
         }
         if ((types == null || types.contains("integer") || types.contains("number")) && exclusiveMinimum != null) {
             keywords.add("exclusiveMinimum");

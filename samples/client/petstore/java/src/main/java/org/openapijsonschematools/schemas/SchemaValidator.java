@@ -1,12 +1,13 @@
 package org.openapijsonschematools.schemas;
 
 import org.openapijsonschematools.schemas.validators.AdditionalPropertiesValidator;
-import org.openapijsonschematools.schemas.validators.KeywordValidator;
-import org.openapijsonschematools.schemas.validators.TypeValidator;
+import org.openapijsonschematools.schemas.validators.FakeValidator;
 import org.openapijsonschematools.schemas.validators.FormatValidator;
+import org.openapijsonschematools.schemas.validators.ItemsValidator;
+import org.openapijsonschematools.schemas.validators.KeywordValidator;
 import org.openapijsonschematools.schemas.validators.PropertiesValidator;
 import org.openapijsonschematools.schemas.validators.RequiredValidator;
-import org.openapijsonschematools.schemas.validators.ItemsValidator;
+import org.openapijsonschematools.schemas.validators.TypeValidator;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.RecordComponent;
@@ -18,12 +19,46 @@ import java.util.Map;
 
 public interface SchemaValidator {
     HashMap<String, KeywordValidator> keywordToValidator = new HashMap(){{
-        put("additionalProperties", new AdditionalPropertiesValidator());
-        put("type", new TypeValidator());
+        put("allOf", new FakeValidator());
+        put("anyOf", new FakeValidator());
+        put("const", new FakeValidator());
+        put("contains", new FakeValidator());
+        put("default", new FakeValidator());
+        put("dependentRequired", new FakeValidator());
+        put("dependentSchemas", new FakeValidator());
+        put("discriminator", new FakeValidator());
+        put("enumInfo", new FakeValidator());
+        put("exclusiveMinimum", new FakeValidator());
+        put("exclusiveMinimum", new FakeValidator());
         put("format", new FormatValidator());
-        put("properties", new PropertiesValidator());
+        put("if_", new FakeValidator());
+        put("then", new FakeValidator());
+        put("else_", new FakeValidator());
+        put("maxContains", new FakeValidator());
+        put("maxItems", new FakeValidator());
+        put("maxLength", new FakeValidator());
+        put("maxProperties", new FakeValidator());
+        put("maximum", new FakeValidator());
+        put("minContains", new FakeValidator());
+        put("minItems", new FakeValidator());
+        put("minLength", new FakeValidator());
+        put("minProperties", new FakeValidator());
+        put("minimum", new FakeValidator());
+        put("multipleOf", new FakeValidator());
+        put("not", new FakeValidator());
+        put("oneOf", new FakeValidator());
+        put("pattern", new FakeValidator());
+        put("patternProperties", new FakeValidator());
+        put("prefixItems", new FakeValidator());
         put("required", new RequiredValidator());
+        put("type", new TypeValidator());
+        put("uniqueItems", new FakeValidator());
         put("items", new ItemsValidator());
+        put("unevaluatedItems", new FakeValidator());
+        put("properties", new PropertiesValidator());
+        put("propertyNames", new FakeValidator());
+        put("additionalProperties", new AdditionalPropertiesValidator());
+        put("unevaluatedProperties", new FakeValidator());
     }};
 
     static PathToSchemasMap validate(

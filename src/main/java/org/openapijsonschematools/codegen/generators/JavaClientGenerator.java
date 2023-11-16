@@ -315,6 +315,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         // keyword validators
         List<String> keywordValidatorFiles = new ArrayList<>();
         keywordValidatorFiles.add("AdditionalPropertiesValidator");
+        keywordValidatorFiles.add("FakeValidator");
         keywordValidatorFiles.add("FormatValidator");
         keywordValidatorFiles.add("ItemsValidator");
         keywordValidatorFiles.add("KeywordValidator");
