@@ -170,6 +170,11 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         packageName = "org.openapijsonschematools";
         addSchemaImportsFromV3SpecLocations = true;
         deepestRefSchemaImportNeeded = true;
+        // this must be false for parameter numbers to stay the same as the ones in the spec
+        // if another schema $refs a schema in a parameter, the json path
+        // and generated module must have the same parameter index as the spec
+        sortParamsByRequiredFlag = Boolean.FALSE;
+
 
         // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata
         modifyFeatureSet(features -> features
@@ -1006,64 +1011,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 return null;
             }
         }
-        // reference is external, import needed
-        // module info is stored in refModule
-        if (ref.startsWith("#/components/schemas/") && refPieces.length == 4) {
-            return getSchemaFilename(ref)+schemaSuffix;
-        }
-        if (ref.startsWith("#/components/parameters/")) {
-            if (refPieces.length == 5) {
-                // #/components/parameters/PathUserName/schema
-                return getSchemaFilename(ref)+schemaSuffix;
-            }
-            if (refPieces.length == 7) {
-                // #/components/parameters/PathUserName/content/mediaType/schema
-                return getSchemaFilename(ref)+schemaSuffix;
-            }
-        }
-        if (ref.startsWith("#/components/headers/")) {
-            if (refPieces.length == 5) {
-                // #/components/headers/Int32JsonContentTypeHeader/schema
-                return getSchemaFilename(ref)+schemaSuffix;
-            }
-            if (refPieces.length == 7) {
-                // #/components/headers/Int32JsonContentTypeHeader/content/application~1json/schema
-                return getSchemaFilename(ref)+schemaSuffix;
-            }
-        }
-        if (ref.startsWith("#/components/responses/")) {
-            if (refPieces.length == 7) {
-                // #/components/responses/SuccessInlineContentAndHeader/headers/someHeader/schema
-                return getSchemaFilename(ref)+schemaSuffix;
-            }
-            if (refPieces.length == 9) {
-                // #/components/responses/SuccessInlineContentAndHeader/headers/someHeader/content/application~1json/schema
-                return getSchemaFilename(ref)+schemaSuffix;
-            }
-        }
-        if (ref.startsWith("#/paths/")) {
-            if (refPieces.length == 6) {
-                // #/paths/~1commonParam~1{subDir}~1/parameters/0/schema
-                return getSchemaFilename(ref)+schemaSuffix;
-            } else if (refPieces.length == 7) {
-                // #/paths/~1pet~1{petId}/get/parameters/0/schema
-                return getSchemaFilename(ref)+schemaSuffix;
-            } else if (refPieces.length == 8) {
-                // #/paths/~1user~1login/get/responses/200/headers/X-Rate-Limit/schema
-                return getSchemaFilename(ref)+schemaSuffix;
-            } else if (refPieces.length == 9) {
-                // #/paths/~1pet~1{petId}/get/parameters/0/content/mediaType/schema
-                // #/paths/~1user~1login/get/responses/200/headers/X-Rate-Limit/schema
-                return getSchemaFilename(ref)+schemaSuffix;
-            } else if (refPieces.length == 10) {
-                // #/paths/~1user~1login/get/responses/200/headers/X-Rate-Limit/content/application~1json/schema
-                return getSchemaFilename(ref)+schemaSuffix;
-            } else if (refPieces.length == 11) {
-                // #/paths/~1user~1login/get/responses/200/headers/X-Rate-Limit/content/application~1json/schema
-                return getSchemaFilename(ref)+schemaSuffix;
-            }
-        }
-        return null;
+        return getSchemaFilename(ref)+schemaSuffix;
     }
 
     private String toRequestBodyRefClass(String ref) {

@@ -1,4 +1,4 @@
-package org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter13;
+package org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter4;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.JsonSchemas;
@@ -13,17 +13,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class Schema13 {
+public class Schema4 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Schema131(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static Schema131 withDefaults() {
+    public record Schema41(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static Schema41 withDefaults() {
             LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
             type.add(String.class);
-            return new Schema131(type);
+            return new Schema41(type);
         }
         public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Schema131.class, arg, configuration);
+            return JsonSchema.validate(Schema41.class, arg, configuration);
         }
     }}

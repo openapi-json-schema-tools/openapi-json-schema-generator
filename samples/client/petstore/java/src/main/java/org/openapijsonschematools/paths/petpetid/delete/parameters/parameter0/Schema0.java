@@ -1,4 +1,4 @@
-package org.openapijsonschematools.paths.petpetid.delete.parameters.parameter1;
+package org.openapijsonschematools.paths.petpetid.delete.parameters.parameter0;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.JsonSchemas;
@@ -13,29 +13,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class Schema1 {
+public class Schema0 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Schema11() implements JsonSchema {
-        public static JsonSchemas.Int64Schema withDefaults() {
-            return JsonSchemas.Int64Schema.withDefaults();
+    public record Schema01(LinkedHashSet<Class<?>> type) implements JsonSchema {
+        public static Schema01 withDefaults() {
+            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+            type.add(String.class);
+            return new Schema01(type);
         }
-    
-        public static Long validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(JsonSchemas.Int64Schema.class, Long.valueOf(arg), configuration);
+        public static String validate(String arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Schema01.class, arg, configuration);
         }
-    
-        public static Long validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(JsonSchemas.Int64Schema.class, Long.parseLong(arg.toString()), configuration);
-        }
-    
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(JsonSchemas.Int64Schema.class, arg, configuration);
-        }
-    
-        public static Long validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(JsonSchemas.Int64Schema.class, Long.parseLong(arg.toString()), configuration);
-        }
-    }
-}
+    }}
