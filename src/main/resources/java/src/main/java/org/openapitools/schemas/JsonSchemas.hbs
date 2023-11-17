@@ -1,0 +1,34 @@
+package {{{packageName}}}.schemas;
+
+import {{{packageName}}}.configurations.SchemaConfiguration;
+
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
+
+public class JsonSchemas {
+    // holds all standard json schema types
+
+    {{> src/main/java/org/openapitools/schemas/AnyTypeSchema }}
+    {{> src/main/java/org/openapitools/schemas/BooleanSchema }}
+    {{> src/main/java/org/openapitools/schemas/DateSchema }}
+    {{> src/main/java/org/openapitools/schemas/DateTimeSchema }}
+    {{> src/main/java/org/openapitools/schemas/DecimalSchema }}
+    {{> src/main/java/org/openapitools/schemas/DoubleSchema }}
+    {{> src/main/java/org/openapitools/schemas/FloatSchema }}
+    {{> src/main/java/org/openapitools/schemas/Int32Schema }}
+    {{> src/main/java/org/openapitools/schemas/Int64Schema }}
+    {{> src/main/java/org/openapitools/schemas/IntSchema }}
+    {{> src/main/java/org/openapitools/schemas/ListSchema }}
+    {{> src/main/java/org/openapitools/schemas/MapSchema }}
+    {{> src/main/java/org/openapitools/schemas/NotAnyTypeSchema }}
+    {{> src/main/java/org/openapitools/schemas/NullSchema }}
+    {{> src/main/java/org/openapitools/schemas/NumberSchema }}
+    {{> src/main/java/org/openapitools/schemas/StringSchema }}
+    {{> src/main/java/org/openapitools/schemas/UnsetAnyTypeSchema }}
+    {{> src/main/java/org/openapitools/schemas/UuidSchema }}
+}

@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.TreeSet;
@@ -117,6 +118,8 @@ public class CodegenSchema {
     // stores the location of the documentation file
     public String pathFromDocRoot = null;
     public boolean isInline = false;
+    public String subpackage;  // the current schema's subpackage, needed by java
+    public CodegenKey containerJsonPathPiece; // needed by java, outer classs that has inner nested schema classes
 
     /*
     Remove this in the 4.0.0 release because it is unused

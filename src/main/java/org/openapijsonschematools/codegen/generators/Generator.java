@@ -36,6 +36,7 @@ import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorLanguage;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
 import org.openapijsonschematools.codegen.generators.models.VendorExtension;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRefInfo;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
@@ -55,6 +56,7 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSe
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorMetadata;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenTag;
 
+import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -111,6 +113,12 @@ public interface Generator {
     String toApiVarName(String name);
 
     String toModelName(String name, String jsonPath);
+
+    String getSchemaFilename(String jsonPath);
+
+    String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath);
+    Set<String> getImports(CodegenSchema schema, FeatureSet featureSet);
+    String toContentTypeFilename(String name);
 
     String toParamName(String name);
 
@@ -238,6 +246,10 @@ public interface Generator {
 
     // handles almost all files to be written
     String getFilepath(String jsonPath);
+
+    String getImport(CodegenRefInfo refInfo);
+    String getRefModuleLocation(String ref);
+    String getSubpackage(String jsonPath);
 
     String getDocsFilepath(String jsonPath);
 

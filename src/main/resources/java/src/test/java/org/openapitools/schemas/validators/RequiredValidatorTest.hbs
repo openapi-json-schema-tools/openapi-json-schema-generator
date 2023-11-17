@@ -7,7 +7,7 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.FrozenMap;
 import {{{packageName}}}.schemas.PathToSchemasMap;
 import {{{packageName}}}.schemas.SchemaValidator;
-import {{{packageName}}}.schemas.StringSchema;
+import {{{packageName}}}.schemas.JsonSchemas;
 import {{{packageName}}}.schemas.ValidationMetadata;
 
 import java.util.ArrayList;
@@ -49,7 +49,7 @@ public class RequiredValidatorTest {
     @Test
     public void testNotApplicableTypeReturnsNull() {
         Map<String, Class<?>> properties = new LinkedHashMap<>();
-        properties.put("someString", StringSchema.class);
+        properties.put("someString", JsonSchemas.StringSchema.class);
 
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");

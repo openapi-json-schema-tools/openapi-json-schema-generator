@@ -18,22 +18,34 @@
 package org.openapijsonschematools.codegen.generators;
 
 import org.apache.commons.lang3.StringUtils;
+import org.openapijsonschematools.codegen.common.ModelUtils;
+import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
 import org.openapijsonschematools.codegen.generators.models.VendorExtension;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParameter;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRefInfo;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRequestBody;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenResponse;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
+import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.features.BeanValidationFeatures;
 import org.openapijsonschematools.codegen.generators.features.GzipFeatures;
 import org.openapijsonschematools.codegen.generators.features.PerformBeanValidationFeatures;
+import org.openapijsonschematools.codegen.templating.TemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.templating.mustache.CaseFormatLambda;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DocumentationFeature;
 import org.openapijsonschematools.codegen.common.ProcessUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.util.*;
 
@@ -121,6 +133,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     protected String rootJavaEEPackage;
     protected Map<String, MpRestClientVersion> mpRestClientVersions = new HashMap<>();
     protected boolean useSingleRequestParameter = false;
+    protected HashMap<String, String> schemaJsonPathToModelName = new HashMap<>();
 
     private static class MpRestClientVersion {
         public final String rootPackage;
@@ -137,6 +150,13 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     @Override
+    public String toModuleFilename(String name, String jsonPath) {
+        String usedName = sanitizeName(name, "[^a-zA-Z0-9]+");
+        // todo check if empty and if so them use enum name
+        return usedName.toLowerCase(Locale.ROOT);
+    }
+
+    @Override
     public String generatorLanguageVersion() {
         return "17";
     }
@@ -144,7 +164,17 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     public JavaClientGenerator() {
         super();
 
+        requestBodiesIdentifier = "requestbodies";
+        securitySchemesIdentifier = "securityschemes";
+        requestBodyIdentifier = "requestbody";
         packageName = "org.openapijsonschematools";
+        addSchemaImportsFromV3SpecLocations = true;
+        deepestRefSchemaImportNeeded = true;
+        // this must be false for parameter numbers to stay the same as the ones in the spec
+        // if another schema $refs a schema in a parameter, the json path
+        // and generated module must have the same parameter index as the spec
+        sortParamsByRequiredFlag = Boolean.FALSE;
+
 
         // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata
         modifyFeatureSet(features -> features
@@ -155,8 +185,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         embeddedTemplateDir = templateDir = "java";
         invokerPackage = "org.openapijsonschematools.client";
         artifactId = "openapi-java-client";
-        apiPackage = "org.openapijsonschematools.client.api";
-        modelPackage = "org.openapijsonschematools.client.model";
+        apiPackage = "apis";
+        modelPackage = "components.schemas";
         rootJavaEEPackage = MICROPROFILE_REST_CLIENT_DEFAULT_ROOT_PACKAGE;
 
         // cliOptions default redefinition need to be updated
@@ -262,30 +292,14 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         HashMap<String, String> schemaDocs = new HashMap<>();
         additionalProperties.put(CodegenConstants.PACKAGE_NAME, packageName);
         List<String> schemaSupportingFiles = new ArrayList<>();
-        schemaSupportingFiles.add("AnyTypeSchema");
-        schemaSupportingFiles.add("BooleanSchema");
         schemaSupportingFiles.add("CustomIsoparser");
-        schemaSupportingFiles.add("DateSchema");
-        schemaSupportingFiles.add("DateTimeSchema");
-        schemaSupportingFiles.add("DecimalSchema");
-        schemaSupportingFiles.add("DoubleSchema");
-        schemaSupportingFiles.add("FloatSchema");
         schemaSupportingFiles.add("FrozenList");
         schemaSupportingFiles.add("FrozenMap");
-        schemaSupportingFiles.add("Int32Schema");
-        schemaSupportingFiles.add("Int64Schema");
-        schemaSupportingFiles.add("IntSchema");
-        schemaSupportingFiles.add("ListSchema");
-        schemaSupportingFiles.add("MapSchema");
-        schemaSupportingFiles.add("NullSchema");
-        schemaSupportingFiles.add("NumberSchema");
         schemaSupportingFiles.add("PathToSchemasMap");
         schemaSupportingFiles.add("PathToTypeMap");
-        schemaSupportingFiles.add("Schema");
+        schemaSupportingFiles.add("JsonSchema");
+        schemaSupportingFiles.add("JsonSchemas");
         schemaSupportingFiles.add("SchemaValidator");
-        schemaSupportingFiles.add("StringSchema");
-        schemaSupportingFiles.add("UnsetAnyTypeSchema");
-        schemaSupportingFiles.add("UuidSchema");
         schemaSupportingFiles.add("ValidationMetadata");
         for (String schemaSupportingFile: schemaSupportingFiles) {
             supportingFiles.add(new SupportingFile(
@@ -315,6 +329,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         // keyword validators
         List<String> keywordValidatorFiles = new ArrayList<>();
         keywordValidatorFiles.add("AdditionalPropertiesValidator");
+        keywordValidatorFiles.add("FakeValidator");
         keywordValidatorFiles.add("FormatValidator");
         keywordValidatorFiles.add("ItemsValidator");
         keywordValidatorFiles.add("KeywordValidator");
@@ -356,16 +371,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 packagePath() + File.separatorChar + "configurations",
                 "SchemaConfiguration.java"));
 
-//        jsonPathDocTemplateFiles.put(
-//                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
-//                schemaDocs
-//        );
-//        jsonPathDocTemplateFiles.put(
-//                CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG,
-//                new HashMap<String, String>() {{
-//                    put("api_doc.mustache", ".java");
-//                }}
-//        );
+        HashMap<String, String> schemaTemplates = new HashMap<>();
+        schemaTemplates.put("src/main/java/org/openapitools/components/schemas/Schema.hbs", ".java");
+        jsonPathTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
+                schemaTemplates
+        );
 
         if (WEBCLIENT.equals(getLibrary()) || NATIVE.equals(getLibrary())) {
             dateLibrary = "java8";
@@ -803,5 +814,313 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     @Override
     public String defaultTemplatingEngine() {
         return "handlebars";
+    }
+
+    @Override
+    public TemplatingEngineAdapter getTemplatingEngine() {
+        TemplatingEngineAdapter te = super.getTemplatingEngine();
+        HandlebarsEngineAdapter hea = (HandlebarsEngineAdapter) te;
+        hea.infiniteLoops(true);
+        hea.setPrettyPrint(true);
+        return hea;
+    }
+
+    @Override
+    public String toContentTypeFilename(String name) {
+        return toModuleFilename(name, null);
+    }
+
+    @Override
+    public String toModelFilename(String name, String jsonPath) {
+        return toModelName(name, jsonPath);
+    }
+
+    @Override
+    public String toResponseModuleName(String componentName, String jsonPath) {
+        if (jsonPath.startsWith("#/components/responses/")) {
+            return toModuleFilename(componentName, jsonPath);
+        }
+        return toModuleFilename("response"+componentName, jsonPath);
+    }
+
+    @Override
+    @SuppressWarnings("static-method")
+    public String sanitizeName(String name, String filterOutRegex) {
+        return name.replaceAll(filterOutRegex, "");
+    }
+
+    protected boolean isValid(String name) {
+        boolean isValid = super.isValid(name);
+        if (!isValid) {
+            return false;
+        }
+        return name.matches("^[a-zA-Z]\\w*$");
+    }
+
+    @Override
+    public String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath) {
+        return getSchemaCamelCaseName(name, sourceJsonPath, true);
+    }
+
+    private String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath, boolean useCache) {
+        String usedKey = handleSpecialCharacters(name);
+        usedKey = sanitizeName(usedKey, "[^a-zA-Z0-9_]+");
+        /*
+        schemas named Schema can collide in:
+        response headers
+        operation:
+        HeaderParameters
+        PathParameters
+        QueryParameters
+        CookieParameter
+        To prevent that, those schemas are renamed
+        - component responses contain headers
+        - those headers are collected into a json object schema
+        - header schemas could also be refed
+        - so all header schemas must be named by their header name to prevent collisions
+         */
+        if (sourceJsonPath.endsWith("/schema")) {
+            if (sourceJsonPath.startsWith("#/paths") && sourceJsonPath.contains("/parameters/")) {
+                String[] pathPieces = sourceJsonPath.split("/");
+                if (pathPieces[3].equals("parameters")) {
+                    // #/paths/path/parameters/0/Schema -> PathParamSchema0
+                    usedKey = "PathParam" + camelize(usedKey) + pathPieces[4]; // PathParamSchema0
+                } else {
+                    // #/paths/path/get/parameters/0/Schema -> Schema0
+                    usedKey = camelize(usedKey) + pathPieces[5]; // Schema0
+                }
+            } else if (
+                    (sourceJsonPath.startsWith("#/paths") && sourceJsonPath.contains("/headers/")) ||
+                    sourceJsonPath.startsWith("#/components/headers/") ||
+                    (sourceJsonPath.startsWith("#/components/responses/") && sourceJsonPath.contains("/headers/"))
+                ) {
+                String[] pathPieces = sourceJsonPath.split("/");
+                if (pathPieces[2].equals("headers")) {
+                    // #/components/headers/someHeader/schema -> SomeHeaderSchema
+                    usedKey =  camelize(pathPieces[3])+ camelize(usedKey);
+                } else if (sourceJsonPath.startsWith("#/components/responses/") && sourceJsonPath.contains("/headers/")) {
+                    // #/components/response/SomeResponse/headers/someHeader/schema
+                    usedKey =  camelize(pathPieces[5])+ camelize(usedKey);
+                } else {
+                    // #/paths/path/verb/responses/SomeResponse/headers/someHeader/schema
+                    usedKey =  camelize(pathPieces[7])+ camelize(usedKey);
+                }
+            }
+        }
+
+        HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
+        if (useCache) {
+            if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
+                sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);
+            }
+        }
+        // starts with number
+        if (usedKey.matches("^\\d.*")) {
+            LOGGER.warn("{} (component name starts with number) cannot be used as name. Renamed to Schema{}", usedKey, usedKey);
+            usedKey = "Schema" + usedKey; // 200 -> Schema200
+        }
+
+        usedKey = camelize(usedKey);
+
+        // handle case where usedKey is empty
+        if (usedKey.isEmpty()) {
+            // happens with a name like "/"
+            usedKey = camelize(toEnumVarName(name, null).toLowerCase(Locale.ROOT));
+        }
+
+        if (isReservedWord(usedKey)) {
+            usedKey = usedKey + "Schema"; // e.g. return => ReturnSchema
+            LOGGER.warn("{} (reserved word) cannot be used as name. Renamed to {}", name, usedKey);
+        }
+
+        if (useCache) {
+            Integer qty = keyToQty.getOrDefault(usedKey, 0);
+            qty += 1;
+            keyToQty.put(usedKey, qty);
+            String suffix = "";
+            if (qty > 1) {
+                Integer schemaNumber = qty-1;
+                suffix = schemaNumber.toString();
+            }
+            if (qty == 1 && sourceJsonPath.endsWith("/" + name)) {
+                schemaJsonPathToModelName.put(sourceJsonPath, usedKey);
+            }
+            usedKey = usedKey + suffix;
+            return usedKey;
+        }
+        return usedKey;
+    }
+
+    @Override
+    public String getSchemaFilename(String jsonPath) {
+        String modelName = schemaJsonPathToModelName.get(jsonPath);
+        if (modelName == null) {
+            String[] pathPieces = jsonPath.split("/");
+            return getSchemaCamelCaseName(pathPieces[pathPieces.length-1], jsonPath, false);
+        }
+        return modelName;
+    }
+
+    protected CodegenKey getContainerJsonPathPiece(String expectedComponentType, String currentJsonPath, String sourceJsonPath) {
+        return getJsonPathPiece(expectedComponentType, currentJsonPath, sourceJsonPath);
+    }
+
+    @Override
+    public String toParameterFilename(String name, String jsonPath) {
+        // adds prefix parameter_ onto the result so modules do not start with _
+        try {
+            Integer.parseInt(name);
+            // for parameters in path, or an endpoint
+            return "parameter" + name;
+        } catch (NumberFormatException nfe) {
+            // for header parameters in responses
+            return toModuleFilename(name, null);
+        }
+    }
+
+    private String toSchemaRefClass(String ref, String sourceJsonPath) {
+        int schemaSuffix = 1;
+        String[] refPieces = ref.split("/");
+        if (ref.equals(sourceJsonPath)) {
+            // self reference, no import needed
+            if (ref.startsWith("#/components/schemas/") && refPieces.length == 4) {
+                return getSchemaFilename(ref)+schemaSuffix;
+            }
+            Set<String> httpMethods = new HashSet<>(Arrays.asList("post", "put", "patch", "get", "delete", "trace", "options"));
+            boolean requestBodyCase = (
+                    refPieces.length == 8 &&
+                            refPieces[1].equals("paths") &&
+                            httpMethods.contains(refPieces[3]) &&
+                            refPieces[4].equals("requestBody") &&
+                            refPieces[5].equals("content") &&
+                            refPieces[7].equals("schema")
+            );
+            if (requestBodyCase) {
+                String contentType = ModelUtils.decodeSlashes(refPieces[6]);
+                // the code knows that content-type are never valid python names
+                return toVarName(contentType);
+            }
+            return null;
+        }
+        if (sourceJsonPath != null && ref.startsWith(sourceJsonPath + "/")) {
+            // internal in-schema reference, no import needed
+            // TODO handle this in the future
+            if (getFilepath(sourceJsonPath).equals(getFilepath(ref))) {
+                // TODO ensure that getFilepath returns the same file for somePath/get/QueryParameters
+                // TODO ensure that getFilepath returns the same file for schemas/SomeSchema...
+                return null;
+            }
+        }
+        return getSchemaFilename(ref)+schemaSuffix;
+    }
+
+    private String toRequestBodyRefClass(String ref) {
+        String[] refPieces = ref.split("/");
+        if (ref.startsWith("#/components/requestBodies/") && refPieces.length == 4) {
+            return toModelName(refPieces[3], ref);
+        }
+        return null;
+    }
+
+    private String toResponseRefClass(String ref) {
+        String[] refPieces = ref.split("/");
+        if (ref.startsWith("#/components/responses/") && refPieces.length == 4) {
+            return toModelName(refPieces[3], ref);
+        }
+        return null;
+    }
+
+    private String toHeaderRefClass(String ref) {
+        String[] refPieces = ref.split("/");
+        if (ref.startsWith("#/components/headers/") && refPieces.length == 4) {
+            return toModelName(refPieces[3], ref);
+        }
+        return null;
+    }
+
+    private String toParameterRefClass(String ref) {
+        String[] refPieces = ref.split("/");
+        if (ref.startsWith("#/components/parameters/") && refPieces.length == 4) {
+            return toModelName(refPieces[3], ref);
+        }
+        return null;
+    }
+
+    private String toSecuritySchemesRefClass(String ref) {
+        String[] refPieces = ref.split("/");
+        if (ref.startsWith("#/components/securitySchemes/") && refPieces.length == 4) {
+            return toModelName(refPieces[3], ref);
+        }
+        return null;
+    }
+
+    @Override
+    public String toRefClass(String ref, String sourceJsonPath, String expectedComponentType) {
+        if (ref == null) {
+            return null;
+        }
+        switch (expectedComponentType) {
+            case "schemas":
+                return toSchemaRefClass(ref, sourceJsonPath);
+            case "requestBodies":
+                return toRequestBodyRefClass(ref);
+            case "responses":
+                return toResponseRefClass(ref);
+            case "headers":
+                return toHeaderRefClass(ref);
+            case "parameters":
+                return toParameterRefClass(ref);
+            case "securitySchemes":
+                return toSecuritySchemesRefClass(ref);
+        }
+        return null;
+    }
+
+    @Override
+    public String getRefModuleLocation(String ref) {
+        // modules are always in a package one above them, so strip off the last jsonPath fragment
+        String smallerRef = ref.substring(0, ref.lastIndexOf("/"));
+        String filePath = getFilepath(smallerRef);
+        String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar;
+        String localFilepath = filePath.substring(prefix.length(), filePath.length());
+        return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
+    }
+
+    @Override
+    protected boolean needToImport(String type) {
+        return true;
+    }
+
+    @Override
+    public Set<String> getImports(CodegenSchema schema, FeatureSet featureSet) {
+        if (schema.jsonPath.startsWith("#/components/schemas/")) {
+            // all of those components are in the same package, so they don't need to import each other
+            return new HashSet<>();
+        }
+        return super.getImports(schema, featureSet);
+    }
+
+
+    @Override
+    public String getImport(CodegenRefInfo refInfo) {
+        String prefix = "import " + packageName + ".components.";
+        if (refInfo.ref instanceof CodegenSchema) {
+            if (refInfo.refModuleAlias == null) {
+                return "import " + refInfo.refModuleLocation + "." + refInfo.refModule + ";";
+            } else {
+                return "import " + refInfo.refModuleLocation + " import " + refInfo.refModule + " as " + refInfo.refModuleAlias + ";";
+            }
+        } else if (refInfo.ref instanceof CodegenRequestBody) {
+            return prefix + "requestbodies." + refInfo.refModule + ";";
+        } else if (refInfo.ref instanceof CodegenHeader) {
+            return prefix + "headers." + refInfo.refModule + ";";
+        } else if (refInfo.ref instanceof CodegenResponse) {
+            return prefix + "responses." + refInfo.refModule + ";";
+        } else if (refInfo.ref instanceof CodegenParameter) {
+            return prefix + "parameters." + refInfo.refModule + ";";
+        } else if (refInfo.ref instanceof CodegenSecurityScheme) {
+            return prefix + "securityschemes." + refInfo.refModule + ";";
+        }
+        return null;
     }
 }

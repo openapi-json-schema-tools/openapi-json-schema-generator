@@ -5,7 +5,7 @@ petstore_api.paths.fake_parameter_collisions1_abab_self_ab.operation
 | ----------- | --------- | ----- |
 | parameter_collisions | [FakeApi](../../apis/tags/fake_api.md) | This api is only for tag=fake |
 | post | ApiForPost | This api is only for this endpoint |
-| post | FakeParameterCollisions1ABAbSelfAB | This api is only for path=/fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/ |
+| post | FakeParameterCollisions1AbabSelfAb | This api is only for path=/fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/ |
 
 ## Table of Contents
 - [General Info](#general-info)

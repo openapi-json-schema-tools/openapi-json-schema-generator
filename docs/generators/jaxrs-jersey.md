@@ -133,7 +133,6 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 <li>else</li>
 <li>enum</li>
 <li>extends</li>
-<li>file</li>
 <li>final</li>
 <li>finally</li>
 <li>float</li>
@@ -144,8 +143,11 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 <li>import</li>
 <li>instanceof</li>
 <li>int</li>
+<li>integer</li>
 <li>interface</li>
+<li>linkedhashset</li>
 <li>list</li>
+<li>localdate</li>
 <li>localreturntype</li>
 <li>localvaraccept</li>
 <li>localvaraccepts</li>
@@ -160,10 +162,11 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 <li>localvarpostbody</li>
 <li>localvarqueryparams</li>
 <li>long</li>
+<li>map</li>
 <li>native</li>
 <li>new</li>
 <li>null</li>
-<li>object</li>
+<li>number</li>
 <li>package</li>
 <li>private</li>
 <li>protected</li>
@@ -172,6 +175,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 <li>short</li>
 <li>static</li>
 <li>strictfp</li>
+<li>string</li>
 <li>stringutil</li>
 <li>super</li>
 <li>switch</li>
@@ -181,9 +185,11 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 <li>throws</li>
 <li>transient</li>
 <li>try</li>
+<li>uuid</li>
 <li>void</li>
 <li>volatile</li>
 <li>while</li>
+<li>zoneddatetime</li>
 </ul>
 
 ## FEATURE SET

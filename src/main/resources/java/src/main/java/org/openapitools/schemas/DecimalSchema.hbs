@@ -1,18 +1,10 @@
-package {{{packageName}}}.schemas;
-
-import {{{packageName}}}.configurations.SchemaConfiguration;
-
-import java.util.LinkedHashSet;
-
-public record DecimalSchema(LinkedHashSet<Class<?>> type, String format) implements Schema {
-    public static DecimalSchema withDefaults() {
-        LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-        type.add(String.class);
-        String format = "number";
-        return new DecimalSchema(type, format);
-    }
+public class DecimalSchema implements JsonSchema {
+    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+        String.class
+    ));
+    static final String format = "number";
 
     public static String validate(String arg, SchemaConfiguration configuration) {
-        return Schema.validate(DecimalSchema.class, arg, configuration);
+        return JsonSchema.validate(DecimalSchema.class, arg, configuration);
     }
 }

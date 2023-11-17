@@ -1,18 +1,9 @@
-package {{{packageName}}}.schemas;
-
-import {{{packageName}}}.configurations.SchemaConfiguration;
-
-import java.util.LinkedHashSet;
-import java.util.List;
-
-public record ListSchema(LinkedHashSet<Class<?>> type) implements Schema {
-    public static ListSchema withDefaults() {
-        LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-        type.add(FrozenList.class);
-        return new ListSchema(type);
-    }
+public class ListSchema implements JsonSchema {
+    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+        FrozenList.class
+    ));
 
     public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
-        return Schema.validate(ListSchema.class, arg, configuration);
+        return JsonSchema.validate(ListSchema.class, arg, configuration);
     }
 }

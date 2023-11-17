@@ -1,0 +1,58 @@
+{{#or isBooleanSchemaFalse isBooleanSchemaTrue}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
+{{else}}
+    {{#eq types null }}
+        {{#or allOf anyOf oneOf not if_ then else_ enumInfo constInfo properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties dependentRequired dependentSchemas propertyNames (neq maxProperties null) (neq minProperties null) patternProperties unevaluatedProperties items uniqueItems (neq maxItems null) (neq minItems null) contains (neq maxContains null) (neq minContains null) prefixItems unevaluatedItems format (neq maxLength null) (neq minLength null) maximum minimum multipleOf patternInfo }}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_anytypeOrMultitype }}
+        {{else}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
+        {{/or}}
+    {{else}}
+        {{! types exist }}
+        {{#eq types.size 1}}
+            {{! one type }}
+            {{#each types}}
+                {{#eq this "object"}}
+                    {{#or allOf anyOf oneOf not if_ then else_ properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties dependentRequired dependentSchemas propertyNames (neq maxProperties null) (neq minProperties null) patternProperties unevaluatedProperties }}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_map }}
+                    {{else}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
+                    {{/or}}
+                {{else}}
+                    {{#eq this "array"}}
+                        {{#or allOf anyOf oneOf not if_ then else_ items uniqueItems contains (neq maxContains null) (neq minContains null) (neq maxItems null) (neq minItems null) prefixItems unevaluatedItems }}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_list }}
+                        {{else}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
+                        {{/or}}
+                    {{else}}
+                        {{#eq this "boolean"}}
+                            {{#or allOf anyOf oneOf not if_ then else_ enumInfo constInfo }}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_boolean }}
+                            {{else}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
+                            {{/or}}
+                        {{else}}
+                            {{#or (eq this "number") (eq this "integer") }}
+                                {{#or allOf anyOf oneOf not if_ then else_ enumInfo constInfo maximum minimum multipleOf }}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_number }}
+                                {{else}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
+                                {{/or}}
+                            {{else}}
+                                {{#or allOf anyOf oneOf not if_ then else_ enumInfo constInfo defaultValue (neq maxLength null) (neq minLength null) patternInfo }}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_string }}
+                                {{else}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
+                                {{/or}}
+                            {{/or}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/each}}
+        {{else}}
+            {{! multiple types }}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_anytypeOrMultitype }}
+        {{/eq}}
+    {{/eq}}
+{{/or}}

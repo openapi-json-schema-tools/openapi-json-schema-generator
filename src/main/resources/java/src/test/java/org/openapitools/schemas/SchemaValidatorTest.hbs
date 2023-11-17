@@ -9,13 +9,12 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
-record SomeSchema(LinkedHashSet<Class<?>> type) implements SchemaValidator {
-    public static SomeSchema withDefaults() {
-        LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-        type.add(String.class);
-        return new SomeSchema(type);
-    }
+class SomeSchema implements SchemaValidator {
+    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+        String.class
+    ));
 }
 
 public class SchemaValidatorTest {

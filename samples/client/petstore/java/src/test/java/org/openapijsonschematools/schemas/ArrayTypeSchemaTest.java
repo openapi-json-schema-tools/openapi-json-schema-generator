@@ -8,19 +8,16 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
-record ArrayWithItemsSchema(LinkedHashSet<Class<?>> type, Class<?> items) implements Schema {
-    public static ArrayWithItemsSchema withDefaults() {
-        LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-        // can't use ImmutableList because it does not allow null values in entries
-        // can't use Collections.unmodifiableList because Collections.UnmodifiableList is not public + extensible
-        type.add(FrozenList.class);
-        Class<?> items = StringSchema.class;
-        return new ArrayWithItemsSchema(type, items);
-    }
+class ArrayWithItemsSchema implements JsonSchema {
+    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+        FrozenList.class
+    ));
+    static final Class<?> items = JsonSchemas.StringSchema.class;
 
     public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
-        return Schema.validate(ArrayWithItemsSchema.class, arg, configuration);
+        return JsonSchema.validate(ArrayWithItemsSchema.class, arg, configuration);
     }
 }
 
@@ -34,22 +31,18 @@ class ArrayWithOutputClsSchemaList extends FrozenList<String> {
     }
 }
 
-record ArrayWithOutputClsSchema(LinkedHashSet<Class<?>> type, Class<?> items) implements Schema {
-    public static ArrayWithOutputClsSchema withDefaults() {
-        LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-        // can't use ImmutableList because it does not allow null values in entries
-        // can't use Collections.unmodifiableList because Collections.UnmodifiableList is not public + extensible
-        type.add(FrozenList.class);
-        Class<?> items = StringSchema.class;
-        return new ArrayWithOutputClsSchema(type, items);
-    }
+class ArrayWithOutputClsSchema implements JsonSchema {
+    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+        FrozenList.class
+    ));
+    static final Class<?> items = JsonSchemas.StringSchema.class;
 
     public static ArrayWithOutputClsSchemaList getListOutputInstance(FrozenList<? extends String> arg) {
         return new ArrayWithOutputClsSchemaList(arg);
     }
 
     public static ArrayWithOutputClsSchemaList validate(List<Object> arg, SchemaConfiguration configuration) {
-        return Schema.validate(ArrayWithOutputClsSchema.class, arg, configuration);
+        return JsonSchema.validate(ArrayWithOutputClsSchema.class, arg, configuration);
     }
 }
 
@@ -58,7 +51,7 @@ public class ArrayTypeSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(RuntimeException.class, () -> Schema.validate(
+        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validate(
                 ArrayWithItemsSchema.class, (Void) null, configuration
         ));
     }

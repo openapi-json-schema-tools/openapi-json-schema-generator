@@ -1,23 +1,14 @@
-package {{{packageName}}}.schemas;
-
-import {{{packageName}}}.configurations.SchemaConfiguration;
-
-import java.util.LinkedHashSet;
-import java.time.ZonedDateTime;
-
-public record DateTimeSchema(LinkedHashSet<Class<?>> type, String format) implements Schema {
-    public static DateTimeSchema withDefaults() {
-        LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-        type.add(String.class);
-        String format = "date-time";
-        return new DateTimeSchema(type, format);
-    }
+public class DateTimeSchema implements JsonSchema {
+    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+        String.class
+    ));
+    static final String format = "date-time";
 
     public static String validate(String arg, SchemaConfiguration configuration) {
-        return Schema.validate(DateTimeSchema.class, arg, configuration);
+        return JsonSchema.validate(DateTimeSchema.class, arg, configuration);
     }
 
     public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
-        return Schema.validate(DateTimeSchema.class, arg, configuration);
+        return JsonSchema.validate(DateTimeSchema.class, arg, configuration);
     }
 }

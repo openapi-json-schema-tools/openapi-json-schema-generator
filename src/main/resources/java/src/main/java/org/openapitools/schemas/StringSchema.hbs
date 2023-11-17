@@ -1,27 +1,17 @@
-package {{{packageName}}}.schemas;
-
-import {{{packageName}}}.configurations.SchemaConfiguration;
-
-import java.util.LinkedHashSet;
-import java.time.ZonedDateTime;
-import java.time.LocalDate;
-
-public record StringSchema(LinkedHashSet<Class<?>> type) implements Schema {
-    public static StringSchema withDefaults() {
-        LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-        type.add(String.class);
-        return new StringSchema(type);
-    }
+public class StringSchema implements JsonSchema {
+    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+        String.class
+    ));
 
     public static String validate(String arg, SchemaConfiguration configuration) {
-        return Schema.validate(StringSchema.class, arg, configuration);
+        return JsonSchema.validate(StringSchema.class, arg, configuration);
     }
 
     public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
-        return Schema.validate(StringSchema.class, arg, configuration);
+        return JsonSchema.validate(StringSchema.class, arg, configuration);
     }
 
     public static String validate(LocalDate arg, SchemaConfiguration configuration) {
-        return Schema.validate(StringSchema.class, arg, configuration);
+        return JsonSchema.validate(StringSchema.class, arg, configuration);
     }
 }

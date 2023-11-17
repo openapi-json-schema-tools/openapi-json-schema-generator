@@ -1,7 +1,7 @@
 package {{{packageName}}}.schemas.validators;
 
 import {{{packageName}}}.schemas.PathToSchemasMap;
-import {{{packageName}}}.schemas.Schema;
+import {{{packageName}}}.schemas.JsonSchema;
 import {{{packageName}}}.schemas.SchemaValidator;
 import {{{packageName}}}.schemas.ValidationMetadata;
 
@@ -15,7 +15,7 @@ public class ItemsValidator implements KeywordValidator {
             return null;
         }
         List<Object> castArg = (List<Object>) arg;
-        Class<Schema> itemsSchema = (Class<Schema>) constraint;
+        Class<JsonSchema> itemsSchema = (Class<JsonSchema>) constraint;
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         // todo add handling for prefixItems
         int i = 0;

@@ -7,7 +7,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.FrozenList;
 import org.openapijsonschematools.schemas.PathToSchemasMap;
 import org.openapijsonschematools.schemas.SchemaValidator;
-import org.openapijsonschematools.schemas.StringSchema;
+import org.openapijsonschematools.schemas.JsonSchemas;
 import org.openapijsonschematools.schemas.ValidationMetadata;
 
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ public class ItemsValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 SchemaValidator.class,
                 arg,
-                StringSchema.class,
+                JsonSchemas.StringSchema.class,
                 validationMetadata,
                 null
         );
@@ -43,7 +43,7 @@ public class ItemsValidatorTest {
         expectedPathToItem.add(0);
         LinkedHashMap<Class<?>, Void> expectedClasses = new LinkedHashMap<>();
         expectedClasses.put(String.class, null);
-        expectedClasses.put(StringSchema.class, null);
+        expectedClasses.put(JsonSchemas.StringSchema.class, null);
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
         expectedPathToSchemas.put(expectedPathToItem, expectedClasses);
         Assert.assertEquals(pathToSchemas, expectedPathToSchemas);
@@ -63,7 +63,7 @@ public class ItemsValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 SchemaValidator.class,
                 1,
-                StringSchema.class,
+                JsonSchemas.StringSchema.class,
                 validationMetadata,
                 null
         );
@@ -87,7 +87,7 @@ public class ItemsValidatorTest {
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
                 SchemaValidator.class,
                 arg,
-                StringSchema.class,
+                JsonSchemas.StringSchema.class,
                 validationMetadata,
                 null
         ));

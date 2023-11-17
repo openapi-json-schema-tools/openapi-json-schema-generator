@@ -20,7 +20,7 @@ from petstore_api.apis.paths.fake_multiple_request_body_content_types import Fak
 from petstore_api.apis.paths.fake_multiple_response_bodies import FakeMultipleResponseBodies
 from petstore_api.apis.paths.fake_multiple_securities import FakeMultipleSecurities
 from petstore_api.apis.paths.fake_obj_in_query import FakeObjInQuery
-from petstore_api.apis.paths.fake_parameter_collisions1_abab_self_ab import FakeParameterCollisions1ABAbSelfAB
+from petstore_api.apis.paths.fake_parameter_collisions1_abab_self_ab import FakeParameterCollisions1AbabSelfAb
 from petstore_api.apis.paths.fake_query_param_with_json_content_type import FakeQueryParamWithJsonContentType
 from petstore_api.apis.paths.fake_redirection import FakeRedirection
 from petstore_api.apis.paths.fake_ref_obj_in_query import FakeRefObjInQuery
@@ -79,7 +79,7 @@ PathToApi = typing.TypedDict(
     "/fake/multipleResponseBodies": typing.Type[FakeMultipleResponseBodies],
     "/fake/multipleSecurities": typing.Type[FakeMultipleSecurities],
     "/fake/objInQuery": typing.Type[FakeObjInQuery],
-    "/fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/": typing.Type[FakeParameterCollisions1ABAbSelfAB],
+    "/fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/": typing.Type[FakeParameterCollisions1AbabSelfAb],
     "/fake/queryParamWithJsonContentType": typing.Type[FakeQueryParamWithJsonContentType],
     "/fake/redirection": typing.Type[FakeRedirection],
     "/fake/refObjInQuery": typing.Type[FakeRefObjInQuery],
@@ -139,7 +139,7 @@ path_to_api = PathToApi(
     "/fake/multipleResponseBodies": FakeMultipleResponseBodies,
     "/fake/multipleSecurities": FakeMultipleSecurities,
     "/fake/objInQuery": FakeObjInQuery,
-    "/fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/": FakeParameterCollisions1ABAbSelfAB,
+    "/fake/parameterCollisions/{1}/{aB}/{Ab}/{self}/{A-B}/": FakeParameterCollisions1AbabSelfAb,
     "/fake/queryParamWithJsonContentType": FakeQueryParamWithJsonContentType,
     "/fake/redirection": FakeRedirection,
     "/fake/refObjInQuery": FakeRefObjInQuery,

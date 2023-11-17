@@ -333,7 +333,7 @@ public class DefaultGeneratorRunnerTest {
         ClientOptInput opts = new ClientOptInput();
         opts.openAPI(openAPI);
         DefaultGenerator config = new DefaultGenerator();
-        config.setModelPackage("components");
+        config.setModelPackage("components.schema");
         config.setStrictSpecBehavior(false);
         opts.config(config);
 

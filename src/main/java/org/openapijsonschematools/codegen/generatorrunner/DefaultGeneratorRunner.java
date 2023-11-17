@@ -651,7 +651,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 generateHeader(files, header, headerJsonPath, docRoot + "../../");
             }
             // synthetic json path
-            String headersObjectJsonPath = jsonPath + "/" + "HeaderParameters";
+            String headersObjectJsonPath = jsonPath + "/Headers";
             generateSchema(files, response.headersObjectSchema, headersObjectJsonPath);
         }
         LinkedHashMap<CodegenKey, CodegenMediaType> content = response.content;

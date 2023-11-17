@@ -1,0 +1,3 @@
+{{#with items}}
+static final Class<?> items = {{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.camelCase}}{{/if}}.class;
+{{/with}}

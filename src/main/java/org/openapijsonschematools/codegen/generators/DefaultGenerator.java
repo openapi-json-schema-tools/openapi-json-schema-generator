@@ -123,6 +123,10 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.servers.ServerVariable;
 
+import javax.validation.constraints.NotNull;
+
+import static org.openapijsonschematools.codegen.common.StringUtils.camelize;
+
 @SuppressWarnings("rawtypes")
 public class DefaultGenerator implements Generator {
     private final Logger LOGGER = LoggerFactory.getLogger(DefaultGenerator.class);
@@ -138,6 +142,11 @@ public class DefaultGenerator implements Generator {
     protected static Schema trueSchema = new Schema();
 
     protected CodegenIgnoreProcessor ignoreProcessor;
+    protected String requestBodiesIdentifier = "request_bodies";
+    protected String securitySchemesIdentifier = "security_schemes";
+    protected String requestBodyIdentifier = "request_body";
+
+
 
     protected String templateEngineName;
 
@@ -220,7 +229,7 @@ public class DefaultGenerator implements Generator {
     protected Map<String, String> inlineSchemaNameMapping = new HashMap<>();
     // a map to store the inline schema naming conventions
     protected Map<String, String> inlineSchemaNameDefault = new HashMap<>();
-    protected String modelPackage = "", apiPackage = "";
+    protected String modelPackage = "components.schema", apiPackage = "";
     protected String modelNamePrefix = "", modelNameSuffix = "";
     protected String apiNamePrefix = "", apiNameSuffix = "Api";
     protected String testPackage = "";
@@ -338,6 +347,7 @@ public class DefaultGenerator implements Generator {
     // if True codegenParameter and codegenResponse imports will come
     // from deeper schema defined locations
     protected boolean addSchemaImportsFromV3SpecLocations = false;
+    protected boolean deepestRefSchemaImportNeeded = false;
 
     @Override
     public List<CliOption> cliOptions() {
@@ -1051,6 +1061,11 @@ public class DefaultGenerator implements Generator {
     @Override
     public String toModelFilename(String name, String jsonPath) {
         return toModuleFilename(name, jsonPath);
+    }
+
+    @Override
+    public String toContentTypeFilename(String name) {
+        return name;
     }
 
     @Override
@@ -2051,7 +2066,8 @@ public class DefaultGenerator implements Generator {
         return !isReservedWord(name);
     }
 
-    protected String getImport(CodegenRefInfo refInfo) {
+    @Override
+    public String getImport(CodegenRefInfo refInfo) {
         String prefix = "from " + packageName + ".components.";
         if (refInfo.ref instanceof CodegenSchema) {
             if (refInfo.refModuleAlias == null) {
@@ -2079,7 +2095,8 @@ public class DefaultGenerator implements Generator {
      * @param featureSet the generator feature set, used to determine if composed schemas should be added
      * @return all the imports
      */
-    private Set<String> getImports(CodegenSchema schema, FeatureSet featureSet) {
+    @Override
+    public Set<String> getImports(CodegenSchema schema, FeatureSet featureSet) {
         Set<String> imports = new HashSet<>();
         if (schema.discriminator != null && schema.discriminator.mappedModels != null) {
             CodegenDiscriminator disc = schema.discriminator;
@@ -2136,6 +2153,14 @@ public class DefaultGenerator implements Generator {
         if (schema.refInfo != null && schema.refInfo.refModule != null) {
             // self reference classes do not contain refModule
             imports.add(getImport(schema.refInfo));
+            CodegenSchema ref = schema.refInfo.ref;
+            if (ref.refInfo != null && schema.refInfo.refModule != null && deepestRefSchemaImportNeeded) {
+                CodegenRefInfo<CodegenSchema> deepestRefInfo = schema.refInfo;
+                while (deepestRefInfo.ref.refInfo != null) {
+                    deepestRefInfo = deepestRefInfo.ref.refInfo;
+                }
+                imports.add(getImport(deepestRefInfo));
+            }
         }
         return imports;
     }
@@ -2251,13 +2276,6 @@ public class DefaultGenerator implements Generator {
         CodegenSchema property = codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
         property.instanceType = "schema";
         property.jsonPath = currentJsonPath;
-        if (currentJsonPath != null) {
-            property.moduleLocation = getModuleLocation(sourceJsonPath);
-            property.pathFromDocRoot = schemaPathFromDocRoot(property.moduleLocation);
-            if (currentJsonPath != sourceJsonPath) {
-                property.isInline = true;
-            }
-        }
 
         String ref = p.get$ref();
         // put toExampleValue in a try-catch block to log the error as example values are not critical
@@ -3714,21 +3732,31 @@ public class DefaultGenerator implements Generator {
         return modelPackage.replace('.', File.separatorChar);
     }
 
+    @Override
+    public String getSchemaFilename(String jsonPath) {
+        String[] pieces = jsonPath.split("/");
+        return pieces[pieces.length-1];
+    }
+
     private void updateComponentsFilepath(String[] pathPieces) {
         if (pathPieces.length < 3) {
             return;
         }
-        String requestBodiesIdentifier = "request_bodies";
-        String securitySchemesIdentifier = "security_schemes";
+        String[] originalPieces = pathPieces.clone();
+        originalPieces[0] = "#";
+        String jsonPath = String.join("/", originalPieces);
+
         // rename schemas + requestBodies
         switch (pathPieces[2]) {
             case "schemas":
                 // modelPackage replaces pathPieces[1] + pathPieces[2]
-                pathPieces[1] = modelPackagePathFragment();
-                pathPieces[2] = null;
+                String fragment = modelPackagePathFragment();
+                String[] fragments = fragment.split("/");
+                pathPieces[1] = fragments[0];
+                pathPieces[2] = fragments[1];
                 if (pathPieces.length == 4) {
                     // #/components/schemas/SomeSchema
-                    pathPieces[3] = getKey(pathPieces[3], "schemas").snakeCase;
+                    pathPieces[3] = getSchemaFilename(jsonPath);
                 }
                 return;
             case "requestBodies":
@@ -3746,31 +3774,44 @@ public class DefaultGenerator implements Generator {
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/headers/someHeader/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = toModelFilename(contentType, null);
+                pathPieces[5] = toContentTypeFilename(contentType);
+                if (pathPieces.length == 7) {
+                    pathPieces[6] = getSchemaFilename(jsonPath);
+                }
+            } else if (pathPieces.length == 5 && pathPieces[4].equals("schema")) {
+                pathPieces[4] = getSchemaFilename(jsonPath);
             }
         } else if (pathPieces[2].equals("parameters")) {
             pathPieces[3] = toParameterFilename(pathPieces[3], null);
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/parameters/someParam/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = toModelFilename(contentType, null);
+                pathPieces[5] = toContentTypeFilename(contentType);
+                if (pathPieces.length == 7) {
+                    pathPieces[6] = getSchemaFilename(jsonPath);
+                }
+            } else if (pathPieces.length == 5 && pathPieces[4].equals("schema")) {
+                pathPieces[4] = getSchemaFilename(jsonPath);
             }
         } else if (pathPieces[2].equals(requestBodiesIdentifier)) {
             pathPieces[3] = toRequestBodyFilename(pathPieces[3]);
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/requestBodies/someBody/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = toModelFilename(contentType, null);
+                pathPieces[5] = toContentTypeFilename(contentType);
+                if (pathPieces.length == 7) {
+                    pathPieces[6] = getSchemaFilename(jsonPath);
+                }
             }
         } else if (pathPieces[2].equals("responses")) {
             // #/components/responses/SuccessWithJsonApiResponse/headers
             String responseJsonPath = "#/components/responses/" + pathPieces[3];
             pathPieces[3] = toResponseModuleName(pathPieces[3], responseJsonPath);
 
-            if (pathPieces.length == 5 && pathPieces[4].equals("HeaderParameters")) {
+            if (pathPieces.length == 5 && pathPieces[4].equals("Headers")) {
                 // synthetic json path
-                // #/components/responses/someResponse/HeaderParameters
-                pathPieces[4] = toModelFilename(pathPieces[4], "#/components/responses/someResponse/" + pathPieces[4]);
+                // #/components/responses/someResponse/Headers
+                pathPieces[4] = getSchemaFilename(jsonPath);
                 return;
             }
 
@@ -3783,12 +3824,20 @@ public class DefaultGenerator implements Generator {
                 if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
                     // #/components/responses/someResponse/headers/SomeHeader/content/application-json -> length 8
                     String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                    pathPieces[7] = toModelFilename(contentType, null);
+                    pathPieces[7] = toContentTypeFilename(contentType);
+                    if (pathPieces.length == 9) {
+                        pathPieces[6] = getSchemaFilename(jsonPath);
+                    }
+                } else if (pathPieces.length == 7 && pathPieces[6].equals("schema")) {
+                    pathPieces[6] = getSchemaFilename(jsonPath);
                 }
             } else if (pathPieces[4].equals("content")) {
                 // #/components/responses/someResponse/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = toModelFilename(contentType, null);
+                pathPieces[5] = toContentTypeFilename(contentType);
+                if (pathPieces.length == 7) {
+                    pathPieces[6] = getSchemaFilename(jsonPath);
+                }
             }
         } else if (pathPieces[2].equals(securitySchemesIdentifier)) {
             pathPieces[3] = toSecuritySchemeFilename(pathPieces[3], null);
@@ -3796,6 +3845,9 @@ public class DefaultGenerator implements Generator {
     }
 
     private void updatePathsFilepath(String[] pathPieces) {
+        String[] originalPieces = pathPieces.clone();
+        originalPieces[0] = "#";
+        String jsonPath = String.join("/", originalPieces);
         if (pathPieces.length < 3) {
             return;
         }
@@ -3805,7 +3857,6 @@ public class DefaultGenerator implements Generator {
         if (pathPieces.length < 4) {
             return;
         }
-        String requestBodyIdentifier = "request_body";
         if (pathPieces.length < 5) {
             return;
         }
@@ -3820,13 +3871,26 @@ public class DefaultGenerator implements Generator {
         } else if (pathPieces[3].equals("parameters")) {
             // #/paths/somePath/parameters/0
             pathPieces[4] = toParameterFilename(pathPieces[4], null);
+            if (pathPieces.length >= 7 && pathPieces[5].equals("content")) {
+                // #/paths/somePath/parameters/0/content/application-json -> length 7
+                String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
+                pathPieces[6] = toContentTypeFilename(contentType);
+                if (pathPieces.length == 8) {
+                    pathPieces[7] = getSchemaFilename(jsonPath);
+                    return;
+                }
+            } else if (pathPieces.length == 6 && pathPieces[5].equals("schema")) {
+                // #/paths/somePath/parameters/0/schema -> length 7
+                pathPieces[5] = getSchemaFilename(jsonPath);
+                return;
+            }
         } else if (pathPieces[4].equals("requestBody")) {
             // #/paths/somePath/get/requestBody
             pathPieces[4] = requestBodyIdentifier;
         } else if (xParameters.contains(pathPieces[4])) {
             // #/paths/somePath/get/PathParameters
             // synthetic jsonPath
-            pathPieces[4] = toModelFilename(pathPieces[4], "#/paths/somePath/verb/" + pathPieces[4]);
+            pathPieces[4] = getSchemaFilename(jsonPath);
         }
         if (pathPieces.length < 6) {
             return;
@@ -3841,10 +3905,10 @@ public class DefaultGenerator implements Generator {
             // #/paths/user_login/get/responses/200 -> 200 -> response_200 -> length 6
             String responseJsonPath = "#/paths/" + path + "/" + pathPieces[3] + "/responses/" +  pathPieces[5];
             pathPieces[5] = toResponseModuleName(pathPieces[5], responseJsonPath);
-            if (pathPieces.length == 7 && pathPieces[6].equals("HeaderParameters")) {
+            if (pathPieces.length == 7 && pathPieces[6].equals("Headers")) {
                 // synthetic json path
-                // #/paths/user_login/get/responses/200/HeaderParameters
-                pathPieces[6] = toModelFilename(pathPieces[6], "#/paths/somePath/verb/responses/200/" + pathPieces[6]);
+                // #/paths/user_login/get/responses/200/Headers
+                pathPieces[6] = getSchemaFilename(jsonPath);
                 return;
             }
 
@@ -3854,7 +3918,10 @@ public class DefaultGenerator implements Generator {
             if (pathPieces[6].equals("content")) {
                 // #/paths/somePath/get/responses/200/content/application-json -> length 8
                 String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                pathPieces[7] = toModelFilename(contentType, null);
+                pathPieces[7] = toContentTypeFilename(contentType);
+                if (pathPieces.length == 9) {
+                    pathPieces[8] = getSchemaFilename(jsonPath);
+                }
             } else if (pathPieces[6].equals("headers")) {
                 // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
                 pathPieces[7] = toHeaderFilename(pathPieces[7], null);
@@ -3862,7 +3929,12 @@ public class DefaultGenerator implements Generator {
                 if (pathPieces.length >= 10 && pathPieces[8].equals("content")) {
                     // #/paths/somePath/get/responses/200/headers/someHeader/content/application-json -> length 10
                     String contentType = ModelUtils.decodeSlashes(pathPieces[9]);
-                    pathPieces[9] = toModelFilename(contentType, null);
+                    pathPieces[9] = toContentTypeFilename(contentType);
+                    if (pathPieces.length == 11) {
+                        pathPieces[10] = getSchemaFilename(jsonPath);
+                    }
+                } else if (pathPieces.length == 9 && pathPieces[8].equals("schema")) {
+                    pathPieces[8] = getSchemaFilename(jsonPath);
                 }
             }
         } else if (pathPieces[4].equals("parameters")) {
@@ -3872,13 +3944,22 @@ public class DefaultGenerator implements Generator {
             if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
                 // #/paths/somePath/get/parameters/1/content/application-json -> length 8
                 String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                pathPieces[7] = toModelFilename(contentType, null);
+                pathPieces[7] = toContentTypeFilename(contentType);
+                if (pathPieces.length == 9) {
+                    pathPieces[8] = getSchemaFilename(jsonPath);
+                }
+            } else if (pathPieces.length == 7 && pathPieces[6].equals("schema")) {
+                // #/paths/somePath/get/parameters/0/schema -> length 7
+                pathPieces[6] = getSchemaFilename(jsonPath);
             }
         } else if (pathPieces[4].equals(requestBodyIdentifier)) {
             if (pathPieces.length >= 7 && pathPieces[5].equals("content")) {
                 // #/paths/somePath/get/requestBody/content/application-json -> length 7
                 String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
-                pathPieces[6] = toModelFilename(contentType, null);
+                pathPieces[6] = toContentTypeFilename(contentType);
+                if (pathPieces.length == 8) {
+                    pathPieces[7] = getSchemaFilename(jsonPath);
+                }
             }
         }
     }
@@ -3936,6 +4017,29 @@ public class DefaultGenerator implements Generator {
         return String.join(File.separator, finalPathPieces);
     }
 
+    @Override
+    public String getSubpackage(String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        pathPieces[0] = "";
+        if (jsonPath.startsWith("#/components")) {
+            updateComponentsFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/paths")) {
+            updatePathsFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/servers")) {
+            updateServersFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/security")) {
+            updateSecurityFilepath(pathPieces);
+        } else if (jsonPath.startsWith("#/apis")) {
+            // this is a fake json path that the code generates and uses to generate apis
+            updateApisFilepath(pathPieces);
+        }
+        List<String> finalPathPieces = Arrays.stream(pathPieces)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        String subpackage = String.join(".", finalPathPieces);
+        int lastPeriodIndex = subpackage.lastIndexOf(".");
+        return subpackage.substring(1,lastPeriodIndex);
+    }
     @Override
     public String getTestFilepath(String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
@@ -4618,15 +4722,14 @@ public class DefaultGenerator implements Generator {
                 // Two use cases
                 // 1. #/components/schemas/SomeSchema (component schemas)
                 // 2. #/paths/~1pet~1{petId}/get/parameters/0/schema (other schemas: parameters, response headers etc)
-                String usedKey = handleSpecialCharacters(refPieces[refPieces.length-1]);
-                return toModelFilename(usedKey, ref);
+                return getSchemaFilename(ref);
             case "securitySchemes":
                 return toSecuritySchemeFilename(refPieces[3], ref);
         }
         return null;
     }
 
-    private CodegenKey getJsonPathPiece(String expectedComponentType, String currentJsonPath, String sourceJsonPathPiece) {
+    protected CodegenKey getJsonPathPiece(String expectedComponentType, String currentJsonPath, String sourceJsonPathPiece) {
         // last fragment info
         // requestBody -> requestBody
         // headers -> headerName
@@ -4637,6 +4740,10 @@ public class DefaultGenerator implements Generator {
         String usedName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
         usedName = ModelUtils.decodeSlashes(usedName);
         return getKey(usedName, expectedComponentType, sourceJsonPathPiece);
+    }
+
+    protected CodegenKey getContainerJsonPathPiece(String expectedComponentType, String currentJsonPath, String sourceJsonPath) {
+        return null;
     }
 
     private void setSchemaLocationInfo(String ref, String sourceJsonPath, String currentJsonPath, CodegenSchema instance) {
@@ -4653,11 +4760,24 @@ public class DefaultGenerator implements Generator {
         if (currentJsonPath == null) {
             return;
         }
+        if (currentJsonPath.equals(sourceJsonPath)) {
+            instance.containerJsonPathPiece = getContainerJsonPathPiece(expectedComponentType, currentJsonPath, sourceJsonPath);
+        }
         instance.jsonPathPiece = getJsonPathPiece(expectedComponentType, currentJsonPath, sourceJsonPath);
         String[] pathPieces = currentJsonPath.split("/");
         // #/components/schemas/A
         if (pathPieces.length == 4 && currentJsonPath.startsWith("#/components/"+expectedComponentType+"/")) {
             instance.componentModule = true;
+        }
+        if (currentJsonPath != null && sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
+            instance.subpackage = getSubpackage(sourceJsonPath);
+        }
+        if (currentJsonPath != null) {
+            instance.moduleLocation = getModuleLocation(sourceJsonPath);
+            instance.pathFromDocRoot = schemaPathFromDocRoot(instance.moduleLocation);
+            if (currentJsonPath != sourceJsonPath) {
+                instance.isInline = true;
+            }
         }
     }
 
@@ -4668,7 +4788,8 @@ public class DefaultGenerator implements Generator {
         return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
     }
 
-    private String getRefModuleLocation(String ref) {
+    @Override
+    public String getRefModuleLocation(String ref) {
         String filePath = getFilepath(ref);
         String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar;
         int endIndex = filePath.lastIndexOf(File.separatorChar);
@@ -4787,62 +4908,103 @@ public class DefaultGenerator implements Generator {
         return getKey(key, keyType, null);
     }
 
+    @Override
+    public String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath) {
+        String usedKey = handleSpecialCharacters(name);
+        HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
+        if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
+            sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);
+        }
+        // starts with number
+        if (usedKey.matches("^\\d.*")) {
+            LOGGER.warn("{} (component name starts with number) cannot be used as name. Renamed to Schema{}", usedKey, usedKey);
+            usedKey = "Schema" + usedKey; // 200 -> Schema200
+        }
+
+        usedKey = camelize(usedKey);
+
+        // handle case where usedKey is empty
+        if (usedKey.isEmpty()) {
+            // happens with a name like "/"
+            usedKey = camelize(toEnumVarName(name, null).toLowerCase(Locale.ROOT));
+        }
+
+        if (isReservedWord(usedKey)) {
+            usedKey = usedKey + "Schema"; // e.g. return => ReturnSchema
+            LOGGER.warn("{} (reserved word) cannot be used as name. Renamed to {}", name, usedKey);
+        }
+
+        Integer qty = keyToQty.getOrDefault(usedKey, 0);
+        qty += 1;
+        keyToQty.put(usedKey, qty);
+        String suffix = "";
+        if (qty > 1) {
+            suffix = qty.toString();
+        }
+        usedKey = usedKey + suffix;
+        return usedKey;
+    }
+
     public CodegenKey getKey(String key, String keyType, String sourceJsonPath) {
-        String usedKey = handleSpecialCharacters(key);
-        boolean isValid = isValid(usedKey);
         String snakeCaseName = null;
         String camelCaseName = null;
         String anchorPiece = null;
+        String usedKey = null;
+        boolean isValid = true;
         switch (keyType) {
             case "schemaProperty":
             case "schemas":
-                String suffix = "";
-                if (sourceJsonPath != null) {
-                    HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
-                    if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
-                        sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);
-                    }
-                    /*
-                    saw use case with component named Client and nested property named client
-                    lowercase to ensure they increment the same key
-                     */
-                    Integer qty = keyToQty.getOrDefault(usedKey.toLowerCase(Locale.ROOT), 0);
-                    qty += 1;
-                    keyToQty.put(usedKey.toLowerCase(Locale.ROOT), qty);
-                    if (qty > 1) {
-                        suffix = qty.toString();
-                    }
-                }
+                usedKey = handleSpecialCharacters(key);
+                isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
-                camelCaseName = toModelName(usedKey + suffix, sourceJsonPath);
+                camelCaseName = getSchemaCamelCaseName(key, sourceJsonPath);
+                break;
+            case "paths":
+                usedKey = handleSpecialCharacters(key);
+                isValid = isValid(usedKey);
+                snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
+                camelCaseName = camelize(toPathFilename(usedKey, null));;
                 break;
             case "misc":
-            case "paths":
             case "verb":
+                usedKey = handleSpecialCharacters(key);
+                isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
                 camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "parameters":
+                usedKey = handleSpecialCharacters(key);
+                isValid = isValid(usedKey);
                 snakeCaseName = toParameterFilename(usedKey, sourceJsonPath);
                 camelCaseName = getCamelCaseParameter(usedKey);
                 break;
             case "requestBodies":
+                usedKey = handleSpecialCharacters(key);
+                isValid = isValid(usedKey);
                 snakeCaseName = toRequestBodyFilename(usedKey);
                 camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "headers":
+                usedKey = handleSpecialCharacters(key);
+                isValid = isValid(usedKey);
                 snakeCaseName = toHeaderFilename(usedKey, sourceJsonPath);
                 camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "responses":
+                usedKey = handleSpecialCharacters(key);
+                isValid = isValid(usedKey);
                 snakeCaseName = toResponseModuleName(usedKey, sourceJsonPath);
                 camelCaseName = getCamelCaseResponse(usedKey);
                 break;
             case "securitySchemes":
+                usedKey = handleSpecialCharacters(key);
+                isValid = isValid(usedKey);
                 snakeCaseName = toSecuritySchemeFilename(usedKey, sourceJsonPath);
                 camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "servers":
+                usedKey = handleSpecialCharacters(key);
+                isValid = isValid(usedKey);
                 snakeCaseName = toServerFilename(usedKey, sourceJsonPath);
                 camelCaseName = getCamelCaseServer(usedKey);
                 break;
@@ -4904,10 +5066,8 @@ public class DefaultGenerator implements Generator {
                 }
             } else if (addPropsIsFalse) {
                 // required property is not defined in properties, and additionalProperties is false, value is null
-                // no schema definition: error use case?
-                CodegenKey key = getKey(requiredPropertyName, "schemas", null);
-                requiredProperties.put(key, null);
-                requiredAndOptionalProperties.put(requiredPropertyName, key);
+                // no schema definition so this is an error use case
+                throw new RuntimeException("Required property defined with name="+requiredPropertyName+" but property is missing from properties. Add it there.");
             } else {
                 // required property is not defined in properties
                 if (supportsAdditionalPropertiesWithComposedSchema && !disallowAdditionalPropertiesIfNotPresent) {

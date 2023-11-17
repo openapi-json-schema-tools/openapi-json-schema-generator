@@ -691,7 +691,7 @@ public class DefaultGeneratorTest {
         DefaultGenerator codegen = new DefaultGenerator();
         codegen.setOpenAPI(openAPI);
         codegen.setLegacyDiscriminatorBehavior(false);
-        codegen.setModelPackage("components");
+        codegen.setModelPackage("components.schemas");
         Schema sc;
         String modelName;
 
@@ -828,7 +828,7 @@ public class DefaultGeneratorTest {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/allOf_composition_discriminator.yaml");
         DefaultGenerator codegen = new DefaultGenerator();
         // codegen.legacyDiscriminatorBehavior remains false in the legacy use case
-        codegen.setModelPackage("components");
+        codegen.setModelPackage("components.schemas");
         codegen.setOpenAPI(openAPI);
         Schema sc;
         String modelName;
@@ -1537,7 +1537,7 @@ public class DefaultGeneratorTest {
         final Schema schema = new IntegerSchema().format("int32");
         final DefaultGenerator codegen = new DefaultGenerator();
         codegen.setOpenAPI(openAPI);
-        codegen.setModelPackage("components");
+        codegen.setModelPackage("components.schemas");
 
         //Property:
         final CodegenSchema cp = codegen.fromSchema(
@@ -1623,7 +1623,7 @@ public class DefaultGeneratorTest {
         OpenAPI openAPI = TestUtils.createOpenAPI();
         final Schema schema = new NumberSchema().format("float");
         final DefaultGenerator codegen = new DefaultGenerator();
-        codegen.setModelPackage("components");
+        codegen.setModelPackage("components.schemas");
         codegen.setOpenAPI(openAPI);
 
         //Property:
@@ -1654,7 +1654,7 @@ public class DefaultGeneratorTest {
         OpenAPI openAPI = TestUtils.createOpenAPI();
         final Schema schema = new NumberSchema().format("double");
         final DefaultGenerator codegen = new DefaultGenerator();
-        codegen.setModelPackage("components");
+        codegen.setModelPackage("components.schemas");
         codegen.setOpenAPI(openAPI);
 
         //Property:
