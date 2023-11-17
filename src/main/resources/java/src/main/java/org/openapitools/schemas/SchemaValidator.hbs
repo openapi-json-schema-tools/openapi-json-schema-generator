@@ -67,7 +67,12 @@ public interface SchemaValidator {
     ) {
         HashMap<String, Object> fieldsToValues = new HashMap<>();
         LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
-        Field[] fields = schemaCls.getDeclaredFields();
+        Class<?> usedSchemaCls = schemaCls;
+        if (schemaCls.getSuperclass() != Object.class) {
+            // only ref with no adjacent properties supported at this time
+            usedSchemaCls = schemaCls.getSuperclass();
+        }
+        Field[] fields = usedSchemaCls.getDeclaredFields();
         for (Field field : fields) {
             String fieldName = field.getName();
             if (fieldName.equals("keywordToValidator")) {
