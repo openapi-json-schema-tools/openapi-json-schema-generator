@@ -292,14 +292,31 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         HashMap<String, String> schemaDocs = new HashMap<>();
         additionalProperties.put(CodegenConstants.PACKAGE_NAME, packageName);
         List<String> schemaSupportingFiles = new ArrayList<>();
+        schemaSupportingFiles.add("AnyTypeJsonSchema");
+        schemaSupportingFiles.add("BooleanJsonSchema");
         schemaSupportingFiles.add("CustomIsoparser");
+        schemaSupportingFiles.add("DateJsonSchema");
+        schemaSupportingFiles.add("DateTimeJsonSchema");
+        schemaSupportingFiles.add("DecimalJsonSchema");
+        schemaSupportingFiles.add("DoubleJsonSchema");
+        schemaSupportingFiles.add("FloatJsonSchema");
         schemaSupportingFiles.add("FrozenList");
         schemaSupportingFiles.add("FrozenMap");
+        schemaSupportingFiles.add("Int32JsonSchema");
+        schemaSupportingFiles.add("Int64JsonSchema");
+        schemaSupportingFiles.add("IntJsonSchema");
+        schemaSupportingFiles.add("JsonSchema");
+        schemaSupportingFiles.add("ListJsonSchema");
+        schemaSupportingFiles.add("MapJsonSchema");
+        schemaSupportingFiles.add("NotAnyTypeJsonSchema");
+        schemaSupportingFiles.add("NullJsonSchema");
+        schemaSupportingFiles.add("NumberJsonSchema");
         schemaSupportingFiles.add("PathToSchemasMap");
         schemaSupportingFiles.add("PathToTypeMap");
-        schemaSupportingFiles.add("JsonSchema");
-        schemaSupportingFiles.add("JsonSchemas");
         schemaSupportingFiles.add("SchemaValidator");
+        schemaSupportingFiles.add("StringJsonSchema");
+        schemaSupportingFiles.add("UnsetAnyTypeJsonSchema");
+        schemaSupportingFiles.add("UuidJsonSchema");
         schemaSupportingFiles.add("ValidationMetadata");
         for (String schemaSupportingFile: schemaSupportingFiles) {
             supportingFiles.add(new SupportingFile(
@@ -318,6 +335,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         schemaTestSupportingFiles.add("NullSchemaTest");
         schemaTestSupportingFiles.add("NumberSchemaTest");
         schemaTestSupportingFiles.add("ObjectTypeSchemaTest");
+        schemaTestSupportingFiles.add("RefBooleanSchemaTest");
         schemaTestSupportingFiles.add("SchemaValidatorTest");
         for (String schemaTestSupportingFile: schemaTestSupportingFiles) {
             supportingFiles.add(new SupportingFile(

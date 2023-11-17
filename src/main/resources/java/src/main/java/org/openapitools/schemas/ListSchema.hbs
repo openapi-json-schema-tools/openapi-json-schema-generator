@@ -1,9 +1,0 @@
-public class ListSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-        FrozenList.class
-    ));
-
-    public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(ListSchema.class, arg, configuration);
-    }
-}

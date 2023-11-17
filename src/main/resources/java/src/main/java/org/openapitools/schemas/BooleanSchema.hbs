@@ -1,9 +1,0 @@
-public class BooleanSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-        Boolean.class
-    ));
-
-    public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(BooleanSchema.class, arg, configuration);
-    }
-}

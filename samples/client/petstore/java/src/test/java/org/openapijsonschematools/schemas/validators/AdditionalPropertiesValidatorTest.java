@@ -7,7 +7,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.PathToSchemasMap;
 import org.openapijsonschematools.schemas.SchemaValidator;
-import org.openapijsonschematools.schemas.JsonSchemas;
+import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.ValidationMetadata;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class AdditionalPropertiesValidatorTest {
     @Test
     public void testCorrectPropertySucceeds() {
         Map<String, Class<?>> properties = new LinkedHashMap<>();
-        properties.put("someString", JsonSchemas.StringSchema.class);
+        properties.put("someString", StringJsonSchema.class);
 
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");
@@ -39,7 +39,7 @@ public class AdditionalPropertiesValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 SchemaValidator.class,
                 arg,
-                JsonSchemas.StringSchema.class,
+                StringJsonSchema.class,
                 validationMetadata,
                 properties
         );
@@ -48,7 +48,7 @@ public class AdditionalPropertiesValidatorTest {
         expectedPathToItem.add("someAddProp");
         LinkedHashMap<Class<?>, Void> expectedClasses = new LinkedHashMap<>();
         expectedClasses.put(String.class, null);
-        expectedClasses.put(JsonSchemas.StringSchema.class, null);
+        expectedClasses.put(StringJsonSchema.class, null);
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
         expectedPathToSchemas.put(expectedPathToItem, expectedClasses);
         Assert.assertEquals(pathToSchemas, expectedPathToSchemas);
@@ -68,7 +68,7 @@ public class AdditionalPropertiesValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 SchemaValidator.class,
                 1,
-                JsonSchemas.StringSchema.class,
+                StringJsonSchema.class,
                 validationMetadata,
                 null
         );
@@ -78,7 +78,7 @@ public class AdditionalPropertiesValidatorTest {
     @Test
     public void testIncorrectPropertyValueFails() {
         Map<String, Class<?>> properties = new LinkedHashMap<>();
-        properties.put("someString", JsonSchemas.StringSchema.class);
+        properties.put("someString", StringJsonSchema.class);
 
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");
@@ -96,7 +96,7 @@ public class AdditionalPropertiesValidatorTest {
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
                 SchemaValidator.class,
                 arg,
-                JsonSchemas.StringSchema.class,
+                StringJsonSchema.class,
                 validationMetadata,
                 properties
         ));

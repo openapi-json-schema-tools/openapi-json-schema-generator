@@ -95,7 +95,7 @@ public interface JsonSchema extends SchemaValidator {
          missingPaths.removeAll(pathToSchemasMap.keySet());
          if (!missingPaths.isEmpty()) {
             LinkedHashMap<Class<?>, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
-            unsetAnyTypeSchema.put(JsonSchemas.UnsetAnyTypeSchema.class, null);
+            unsetAnyTypeSchema.put(UnsetAnyTypeJsonSchema.class, null);
             for (List<Object> pathToItem: missingPaths) {
                pathToSchemasMap.put(pathToItem, unsetAnyTypeSchema);
             }
