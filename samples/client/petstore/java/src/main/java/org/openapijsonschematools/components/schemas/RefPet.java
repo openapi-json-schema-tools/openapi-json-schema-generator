@@ -14,13 +14,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class RefPet {
+public class RefPet extends Pet {
     // $refed class
     
     
-    public class RefPet1 implements JsonSchema {
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Pet.Pet1.class, arg, configuration);
-        }
+    public class RefPet1 extends Pet1 {
     }
 }

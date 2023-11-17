@@ -15,13 +15,10 @@ import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.components.schemas.BooleanSchema;
 
-public class Schema {
+public class Schema extends BooleanSchema {
     // $refed class
     
     
-    public class Schema1 implements JsonSchema {
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(BooleanSchema.BooleanSchema1.class, arg, configuration);
-        }
+    public class Schema1 extends BooleanSchema1 {
     }
 }

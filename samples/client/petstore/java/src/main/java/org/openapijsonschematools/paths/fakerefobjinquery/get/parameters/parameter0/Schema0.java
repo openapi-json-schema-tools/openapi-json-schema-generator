@@ -15,13 +15,10 @@ import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.components.schemas.Foo;
 
-public class Schema0 {
+public class Schema0 extends Foo {
     // $refed class
     
     
-    public class Schema01 implements JsonSchema {
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Foo.Foo1.class, arg, configuration);
-        }
+    public class Schema01 extends Foo1 {
     }
 }

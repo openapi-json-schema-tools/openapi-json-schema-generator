@@ -15,16 +15,10 @@ import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.components.schemas.StringEnum;
 
-public class Schema {
+public class Schema extends StringEnum {
     // $refed class
     
     
-    public class Schema1 implements JsonSchema {
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(StringEnum.StringEnum1.class, arg, configuration);
-        }
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(StringEnum.StringEnum1.class, arg, configuration);
-        }
+    public class Schema1 extends StringEnum1 {
     }
 }

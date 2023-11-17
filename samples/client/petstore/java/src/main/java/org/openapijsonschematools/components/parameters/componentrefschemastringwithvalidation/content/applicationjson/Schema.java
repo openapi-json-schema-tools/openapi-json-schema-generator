@@ -15,13 +15,10 @@ import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.components.schemas.StringWithValidation;
 
-public class Schema {
+public class Schema extends StringWithValidation {
     // $refed class
     
     
-    public class Schema1 implements JsonSchema {
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(StringWithValidation.StringWithValidation1.class, arg, configuration);
-        }
+    public class Schema1 extends StringWithValidation1 {
     }
 }

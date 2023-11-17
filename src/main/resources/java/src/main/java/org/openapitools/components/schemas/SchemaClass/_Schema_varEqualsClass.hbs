@@ -1,8 +1,8 @@
 
 
-public class {{jsonPathPiece.camelCase}} implements JsonSchema {
 {{#or isBooleanSchemaTrue isBooleanSchemaFalse}}
     {{#if isBooleanSchemaTrue}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Void validate(Void arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
     }
@@ -47,21 +47,36 @@ public class {{jsonPathPiece.camelCase}} implements JsonSchema {
         return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
     }
     {{else}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     // NotAnyTypeSchema
     {{/if}}
 {{else}}
     {{#if refInfo.refClass}}
-        {{#if refInfo.refModule}}
-            {{#with getDeepestRef}}
-    {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_validate includeContainer=true }}
-            {{/with}}
+        {{#if simpleRef}}
+            {{#if refInfo.refModule}}
+                {{#with getDeepestRef}}
+public class {{../jsonPathPiece.camelCase}} extends {{jsonPathPiece.camelCase}} {
+                {{/with}}
+            {{else}}
+                {{#with refInfo.ref}}
+public class {{../jsonPathPiece.camelCase}} extends {{jsonPathPiece.camelCase}} {
+                {{/with}}
+            {{/if}}
         {{else}}
-            {{#with refInfo.ref}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
+            {{#if refInfo.refModule}}
+                {{#with getDeepestRef}}
+    {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_validate includeContainer=true }}
+                {{/with}}
+            {{else}}
+                {{#with refInfo.ref}}
     {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_validate }}
-            {{/with}}
+                {{/with}}
+            {{/if}}
         {{/if}}
     {{else}}
         {{#eq types null}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Void validate(Void arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
     }
@@ -108,27 +123,32 @@ public class {{jsonPathPiece.camelCase}} implements JsonSchema {
         {{else}}
             {{#each types}}
                 {{#eq this "null"}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Void validate(Void arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(JsonSchemas.NullSchema.class, arg, configuration);
     }
                 {{/eq}}
                 {{#eq this "object"}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(JsonSchemas.MapSchema.class, arg, configuration);
     }
                 {{/eq}}
                 {{#eq this "array"}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(JsonSchemas.ListSchema.class, arg, configuration);
     }
                 {{/eq}}
                 {{#eq this "boolean"}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(JsonSchemas.BooleanSchema.class, arg, configuration);
     }
                 {{/eq}}
                 {{#eq this "string"}}
                     {{#eq ../format "date"}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static String validate(String arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(JsonSchemas.DateSchema.class, arg, configuration);
     }
@@ -138,6 +158,7 @@ public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     }
                     {{/eq}}
                     {{#eq ../format "date-time"}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static String validate(String arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(JsonSchemas.DateTimeSchema.class, arg, configuration);
     }
@@ -147,6 +168,7 @@ public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     }
                     {{/eq}}
                     {{#eq ../format "uuid"}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static String validate(String arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(JsonSchemas.UuidSchema.class, arg, configuration);
     }
@@ -156,11 +178,13 @@ public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     }
                     {{/eq}}
                     {{#eq ../format "number"}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static String validate(String arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(JsonSchemas.DecimalSchema.class, arg, configuration);
     }
                     {{/eq}}
                     {{#eq ../format "binary"}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     // BinarySchema
                     {{/eq}}
                     {{#neq ../format "date"}}
@@ -168,6 +192,7 @@ public class {{jsonPathPiece.camelCase}} implements JsonSchema {
                             {{#neq ../format "uuid"}}
                                 {{#neq ../format "number"}}
                                     {{#neq ../format "binary"}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static String validate(String arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(JsonSchemas.StringSchema.class, arg, configuration);
     }
@@ -187,6 +212,7 @@ public class {{jsonPathPiece.camelCase}} implements JsonSchema {
                 {{/eq}}
                 {{#eq this "integer"}}
                     {{#eq ../format "int32"}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Integer validate(Integer arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(JsonSchemas.Int32Schema.class, arg, configuration);
     }
@@ -196,6 +222,7 @@ public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     }
                     {{/eq}}
                     {{#eq ../format "int64"}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Long validate(Integer arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(JsonSchemas.Int64Schema.class, Long.valueOf(arg), configuration);
     }
@@ -214,6 +241,7 @@ public class {{jsonPathPiece.camelCase}} implements JsonSchema {
                     {{/eq}}
                     {{#neq ../format "int32"}}
                         {{#neq ../format "int64"}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Long validate(Integer arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(JsonSchemas.IntSchema.class, Long.valueOf(arg), configuration);
     }
@@ -234,17 +262,20 @@ public class {{jsonPathPiece.camelCase}} implements JsonSchema {
                 {{/eq}}
                 {{#eq this "number"}}
                     {{#eq ../format "float"}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Float validate(Float arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(JsonSchemas.FloatSchema.class, arg, configuration);
     }
                     {{/eq}}
                     {{#eq ../format "double"}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Double validate(Double arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(JsonSchemas.DoubleSchema.class, arg, configuration);
     }
                     {{/eq}}
                     {{#neq ../format "float"}}
                         {{#neq ../format "double"}}
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Number validate(Integer arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(JsonSchemas.NumberSchema.class, arg, configuration);
     }

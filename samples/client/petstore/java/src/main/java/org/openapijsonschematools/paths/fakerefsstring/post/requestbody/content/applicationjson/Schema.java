@@ -15,13 +15,10 @@ import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.components.schemas.StringSchema;
 
-public class Schema {
+public class Schema extends StringSchema {
     // $refed class
     
     
-    public class Schema1 implements JsonSchema {
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(StringSchema.StringSchema1.class, arg, configuration);
-        }
+    public class Schema1 extends StringSchema1 {
     }
 }

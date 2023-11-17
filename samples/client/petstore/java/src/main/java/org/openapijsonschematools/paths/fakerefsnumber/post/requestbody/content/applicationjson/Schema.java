@@ -15,25 +15,10 @@ import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.components.schemas.NumberWithValidations;
 
-public class Schema {
+public class Schema extends NumberWithValidations {
     // $refed class
     
     
-    public class Schema1 implements JsonSchema {
-        public static Number validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberWithValidations.NumberWithValidations1.class, arg, configuration);
-        }
-        
-        public static Number validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberWithValidations.NumberWithValidations1.class, arg, configuration);
-        }
-        
-        public static Number validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberWithValidations.NumberWithValidations1.class, arg, configuration);
-        }
-        
-        public static Number validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberWithValidations.NumberWithValidations1.class, arg, configuration);
-        }
+    public class Schema1 extends NumberWithValidations1 {
     }
 }
