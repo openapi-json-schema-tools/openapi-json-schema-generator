@@ -1,9 +1,0 @@
-public class MapSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-        FrozenMap.class
-    ));
-
-    public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(MapSchema.class, arg, configuration);
-    }
-}

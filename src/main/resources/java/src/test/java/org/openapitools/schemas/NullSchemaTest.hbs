@@ -10,14 +10,14 @@ public class NullSchemaTest {
 
     @Test
     public void testValidateNull() {
-        Void validatedValue = JsonSchemas.NullSchema.validate(null, configuration);
+        Void validatedValue = NullSchema.validate(null, configuration);
         Assert.assertNull(validatedValue);
     }
 
     @Test
     public void testExceptionThrownForInvalidType() {
         Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validate(
-                JsonSchemas.NullSchema.class, Boolean.TRUE, configuration
+                NullSchema.class, Boolean.TRUE, configuration
         ));
     }
 }

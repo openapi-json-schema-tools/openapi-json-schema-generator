@@ -49,7 +49,7 @@ public class RequiredValidatorTest {
     @Test
     public void testNotApplicableTypeReturnsNull() {
         Map<String, Class<?>> properties = new LinkedHashMap<>();
-        properties.put("someString", JsonSchemas.StringSchema.class);
+        properties.put("someString", StringSchema.class);
 
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");

@@ -4,47 +4,47 @@
     {{#if isBooleanSchemaTrue}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Void validate(Void arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static Integer validate(Integer arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static Long validate(Long arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static Float validate(Float arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static Double validate(Double arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static String validate(String arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static String validate(LocalDate arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
     {{else}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {
@@ -78,109 +78,109 @@ public class {{jsonPathPiece.camelCase}} implements JsonSchema {
         {{#eq types null}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Void validate(Void arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static Integer validate(Integer arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static Long validate(Long arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static Float validate(Float arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static Double validate(Double arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static String validate(String arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static String validate(LocalDate arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
 
     public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
+        return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }
         {{else}}
             {{#each types}}
                 {{#eq this "null"}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Void validate(Void arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.NullSchema.class, arg, configuration);
+        return JsonSchema.validate(NullJsonSchema.class, arg, configuration);
     }
                 {{/eq}}
                 {{#eq this "object"}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.MapSchema.class, arg, configuration);
+        return JsonSchema.validate(MapJsonSchema.class, arg, configuration);
     }
                 {{/eq}}
                 {{#eq this "array"}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.ListSchema.class, arg, configuration);
+        return JsonSchema.validate(ListJsonSchema.class, arg, configuration);
     }
                 {{/eq}}
                 {{#eq this "boolean"}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.BooleanSchema.class, arg, configuration);
+        return JsonSchema.validate(BooleanJsonSchema.class, arg, configuration);
     }
                 {{/eq}}
                 {{#eq this "string"}}
                     {{#eq ../format "date"}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static String validate(String arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.DateSchema.class, arg, configuration);
+        return JsonSchema.validate(DateJsonSchema.class, arg, configuration);
     }
 
     public static String validate(LocalDate arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.DateSchema.class, arg, configuration);
+        return JsonSchema.validate(DateJsonSchema.class, arg, configuration);
     }
                     {{/eq}}
                     {{#eq ../format "date-time"}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static String validate(String arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.DateTimeSchema.class, arg, configuration);
+        return JsonSchema.validate(DateTimeJsonSchema.class, arg, configuration);
     }
 
     public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.DateTimeSchema.class, arg, configuration);
+        return JsonSchema.validate(DateTimeJsonSchema.class, arg, configuration);
     }
                     {{/eq}}
                     {{#eq ../format "uuid"}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static String validate(String arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.UuidSchema.class, arg, configuration);
+        return JsonSchema.validate(UuidJsonSchema.class, arg, configuration);
     }
 
     public static String validate(UUID arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.UuidSchema.class, arg, configuration);
+        return JsonSchema.validate(UuidJsonSchema.class, arg, configuration);
     }
                     {{/eq}}
                     {{#eq ../format "number"}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static String validate(String arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.DecimalSchema.class, arg, configuration);
+        return JsonSchema.validate(DecimalJsonSchema.class, arg, configuration);
     }
                     {{/eq}}
                     {{#eq ../format "binary"}}
@@ -194,15 +194,15 @@ public class {{jsonPathPiece.camelCase}} implements JsonSchema {
                                     {{#neq ../format "binary"}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static String validate(String arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.StringSchema.class, arg, configuration);
+        return JsonSchema.validate(StringJsonSchema.class, arg, configuration);
     }
 
     public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.StringSchema.class, arg, configuration);
+        return JsonSchema.validate(StringJsonSchema.class, arg, configuration);
     }
 
     public static String validate(LocalDate arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.StringSchema.class, arg, configuration);
+        return JsonSchema.validate(StringJsonSchema.class, arg, configuration);
     }
                                     {{/neq}}
                                 {{/neq}}
@@ -214,48 +214,48 @@ public class {{jsonPathPiece.camelCase}} implements JsonSchema {
                     {{#eq ../format "int32"}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Integer validate(Integer arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.Int32Schema.class, arg, configuration);
+        return JsonSchema.validate(Int32JsonSchema.class, arg, configuration);
     }
 
     public static Integer validate(Float arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.Int32Schema.class, Integer.parseInt(arg.toString()), configuration);
+        return JsonSchema.validate(Int32JsonSchema.class, Integer.parseInt(arg.toString()), configuration);
     }
                     {{/eq}}
                     {{#eq ../format "int64"}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Long validate(Integer arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.Int64Schema.class, Long.valueOf(arg), configuration);
+        return JsonSchema.validate(Int64JsonSchema.class, Long.valueOf(arg), configuration);
     }
 
     public static Long validate(Float arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.Int64Schema.class, Long.parseLong(arg.toString()), configuration);
+        return JsonSchema.validate(Int64JsonSchema.class, Long.parseLong(arg.toString()), configuration);
     }
 
     public static Long validate(Long arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.Int64Schema.class, arg, configuration);
+        return JsonSchema.validate(Int64JsonSchema.class, arg, configuration);
     }
 
     public static Long validate(Double arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.Int64Schema.class, Long.parseLong(arg.toString()), configuration);
+        return JsonSchema.validate(Int64JsonSchema.class, Long.parseLong(arg.toString()), configuration);
     }
                     {{/eq}}
                     {{#neq ../format "int32"}}
                         {{#neq ../format "int64"}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Long validate(Integer arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.IntSchema.class, Long.valueOf(arg), configuration);
+        return JsonSchema.validate(IntJsonSchema.class, Long.valueOf(arg), configuration);
     }
 
     public static Long validate(Float arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.IntSchema.class, Long.parseLong(arg.toString()), configuration);
+        return JsonSchema.validate(IntJsonSchema.class, Long.parseLong(arg.toString()), configuration);
     }
 
     public static Long validate(Long arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.IntSchema.class, arg, configuration);
+        return JsonSchema.validate(IntJsonSchema.class, arg, configuration);
     }
 
     public static Long validate(Double arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.IntSchema.class, Long.parseLong(arg.toString()), configuration);
+        return JsonSchema.validate(IntJsonSchema.class, Long.parseLong(arg.toString()), configuration);
     }
                         {{/neq}}
                     {{/neq}}
@@ -264,32 +264,32 @@ public class {{jsonPathPiece.camelCase}} implements JsonSchema {
                     {{#eq ../format "float"}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Float validate(Float arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.FloatSchema.class, arg, configuration);
+        return JsonSchema.validate(FloatJsonSchema.class, arg, configuration);
     }
                     {{/eq}}
                     {{#eq ../format "double"}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Double validate(Double arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.DoubleSchema.class, arg, configuration);
+        return JsonSchema.validate(DoubleJsonSchema.class, arg, configuration);
     }
                     {{/eq}}
                     {{#neq ../format "float"}}
                         {{#neq ../format "double"}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     public static Number validate(Integer arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.NumberSchema.class, arg, configuration);
+        return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
     }
 
     public static Number validate(Long arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.NumberSchema.class, arg, configuration);
+        return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
     }
 
     public static Number validate(Float arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.NumberSchema.class, arg, configuration);
+        return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
     }
 
     public static Number validate(Double arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(JsonSchemas.NumberSchema.class, arg, configuration);
+        return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
     }
                         {{/neq}}
                     {{/neq}}

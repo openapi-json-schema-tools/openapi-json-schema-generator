@@ -34,7 +34,7 @@ public class ItemsValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 SchemaValidator.class,
                 arg,
-                JsonSchemas.StringSchema.class,
+                StringSchema.class,
                 validationMetadata,
                 null
         );
@@ -43,7 +43,7 @@ public class ItemsValidatorTest {
         expectedPathToItem.add(0);
         LinkedHashMap<Class<?>, Void> expectedClasses = new LinkedHashMap<>();
         expectedClasses.put(String.class, null);
-        expectedClasses.put(JsonSchemas.StringSchema.class, null);
+        expectedClasses.put(StringSchema.class, null);
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
         expectedPathToSchemas.put(expectedPathToItem, expectedClasses);
         Assert.assertEquals(pathToSchemas, expectedPathToSchemas);
@@ -63,7 +63,7 @@ public class ItemsValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 SchemaValidator.class,
                 1,
-                JsonSchemas.StringSchema.class,
+                StringSchema.class,
                 validationMetadata,
                 null
         );
@@ -87,7 +87,7 @@ public class ItemsValidatorTest {
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
                 SchemaValidator.class,
                 arg,
-                JsonSchemas.StringSchema.class,
+                StringSchema.class,
                 validationMetadata,
                 null
         ));

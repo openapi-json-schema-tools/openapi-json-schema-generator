@@ -1,9 +1,26 @@
 package org.openapijsonschematools.components.schemas;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.JsonSchema;
-import org.openapijsonschematools.schemas.JsonSchemas;
+import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.schemas.BooleanJsonSchema;
+import org.openapijsonschematools.schemas.DateJsonSchema;
+import org.openapijsonschematools.schemas.DateTimeJsonSchema;
+import org.openapijsonschematools.schemas.DecimalJsonSchema;
+import org.openapijsonschematools.schemas.DoubleJsonSchema;
+import org.openapijsonschematools.schemas.FloatJsonSchema;
 import org.openapijsonschematools.schemas.FrozenList;
 import org.openapijsonschematools.schemas.FrozenMap;
+import org.openapijsonschematools.schemas.Int32JsonSchema;
+import org.openapijsonschematools.schemas.Int64JsonSchema;
+import org.openapijsonschematools.schemas.IntJsonSchema;
+import org.openapijsonschematools.schemas.JsonSchema;
+import org.openapijsonschematools.schemas.ListJsonSchema;
+import org.openapijsonschematools.schemas.MapJsonSchema;
+import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
+import org.openapijsonschematools.schemas.NullJsonSchema;
+import org.openapijsonschematools.schemas.NumberJsonSchema;
+import org.openapijsonschematools.schemas.StringJsonSchema;
+import org.openapijsonschematools.schemas.UnsetAnyTypeJsonSchema;
+import org.openapijsonschematools.schemas.UuidJsonSchema;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
@@ -20,7 +37,7 @@ public class ObjectInterface {
     
     public class ObjectInterface1 implements JsonSchema {
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(JsonSchemas.MapSchema.class, arg, configuration);
+            return JsonSchema.validate(MapJsonSchema.class, arg, configuration);
         }
     }
 }

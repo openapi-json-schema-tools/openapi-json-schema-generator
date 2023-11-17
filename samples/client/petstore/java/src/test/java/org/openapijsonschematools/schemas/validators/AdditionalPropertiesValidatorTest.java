@@ -21,7 +21,7 @@ public class AdditionalPropertiesValidatorTest {
     @Test
     public void testCorrectPropertySucceeds() {
         Map<String, Class<?>> properties = new LinkedHashMap<>();
-        properties.put("someString", JsonSchemas.StringSchema.class);
+        properties.put("someString", StringSchema.class);
 
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");
@@ -39,7 +39,7 @@ public class AdditionalPropertiesValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 SchemaValidator.class,
                 arg,
-                JsonSchemas.StringSchema.class,
+                StringSchema.class,
                 validationMetadata,
                 properties
         );
@@ -48,7 +48,7 @@ public class AdditionalPropertiesValidatorTest {
         expectedPathToItem.add("someAddProp");
         LinkedHashMap<Class<?>, Void> expectedClasses = new LinkedHashMap<>();
         expectedClasses.put(String.class, null);
-        expectedClasses.put(JsonSchemas.StringSchema.class, null);
+        expectedClasses.put(StringSchema.class, null);
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
         expectedPathToSchemas.put(expectedPathToItem, expectedClasses);
         Assert.assertEquals(pathToSchemas, expectedPathToSchemas);
@@ -68,7 +68,7 @@ public class AdditionalPropertiesValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 SchemaValidator.class,
                 1,
-                JsonSchemas.StringSchema.class,
+                StringSchema.class,
                 validationMetadata,
                 null
         );
@@ -78,7 +78,7 @@ public class AdditionalPropertiesValidatorTest {
     @Test
     public void testIncorrectPropertyValueFails() {
         Map<String, Class<?>> properties = new LinkedHashMap<>();
-        properties.put("someString", JsonSchemas.StringSchema.class);
+        properties.put("someString", StringSchema.class);
 
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");
@@ -96,7 +96,7 @@ public class AdditionalPropertiesValidatorTest {
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
                 SchemaValidator.class,
                 arg,
-                JsonSchemas.StringSchema.class,
+                StringSchema.class,
                 validationMetadata,
                 properties
         ));
