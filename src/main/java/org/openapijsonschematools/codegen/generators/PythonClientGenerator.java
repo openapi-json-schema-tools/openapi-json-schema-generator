@@ -2204,4 +2204,15 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         }
         return toModelName(usedKey + suffix, sourceJsonPath);
     }
+
+    @Override
+    public String getSchemaFilename(String jsonPath) {
+        String[] pieces = jsonPath.split("/");
+        String name = pieces[pieces.length - 1];
+        if (name.equals("Headers") && jsonPath.contains("/responses/")) {
+            // synthetic response headers jsonPath
+            return "header_parameters";
+        }
+        return toModelFilename(name, jsonPath);
+    }
 }

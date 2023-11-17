@@ -457,14 +457,6 @@ public abstract class AbstractPythonGenerator extends DefaultGenerator implement
     }
 
     @Override
-    public String getSchemaFilename(String jsonPath) {
-        String[] pieces = jsonPath.split("/");
-        String name = pieces[pieces.length-1];
-        // TODO use a cache here when the Schema jsonPathPiece snakeCase schema name is calculated
-        return toModelFilename(name, jsonPath);
-    }
-
-    @Override
     public String toApiFilename(String name) {
         // e.g. PhoneNumberApi.py => phone_number_api.py
         return underscore(toApiName(name));

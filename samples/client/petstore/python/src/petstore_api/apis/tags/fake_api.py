@@ -11,7 +11,6 @@ from petstore_api.paths.common_param_sub_dir.get.operation import GetCommonParam
 from petstore_api.paths.common_param_sub_dir.post.operation import PostCommonParam
 from petstore_api.paths.fake_multiple_securities.get.operation import MultipleSecurities
 from petstore_api.paths.fake_query_param_with_json_content_type.get.operation import QueryParamWithJsonContentType
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.operation import ParameterCollisions
 from petstore_api.paths.fake_wild_card_responses.get.operation import WildCardResponses
 from petstore_api.paths.fake_refs_array_of_enums.post.operation import ArrayOfEnums
 from petstore_api.paths.fake_additional_properties_with_array_of_enums.get.operation import AdditionalPropertiesWithArrayOfEnums
@@ -39,6 +38,7 @@ from petstore_api.paths.fake_ref_obj_in_query.get.operation import RefObjectInQu
 from petstore_api.paths.fake_test_query_paramters.put.operation import QueryParameterCollectionFormat
 from petstore_api.paths.fake_body_with_query_params.put.operation import BodyWithQueryParams
 from petstore_api.paths.fake_refs_boolean.post.operation import Boolean
+from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post.operation import ParameterCollisions
 from petstore_api.paths.fake_delete_coffee_id.delete.operation import DeleteCoffee
 from petstore_api.paths.fake_refs_enum.post.operation import StringEnum
 from petstore_api.paths.fake_refs_number.post.operation import NumberWithValidations
@@ -56,7 +56,6 @@ class FakeApi(
     PostCommonParam,
     MultipleSecurities,
     QueryParamWithJsonContentType,
-    ParameterCollisions,
     WildCardResponses,
     ArrayOfEnums,
     AdditionalPropertiesWithArrayOfEnums,
@@ -84,6 +83,7 @@ class FakeApi(
     QueryParameterCollectionFormat,
     BodyWithQueryParams,
     Boolean,
+    ParameterCollisions,
     DeleteCoffee,
     StringEnum,
     NumberWithValidations,
