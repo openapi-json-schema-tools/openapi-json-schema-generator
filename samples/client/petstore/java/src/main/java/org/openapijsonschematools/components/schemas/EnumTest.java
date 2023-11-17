@@ -84,7 +84,7 @@ public class EnumTest {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("enum_string", EnumString.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("enum_string_required", EnumStringRequired.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("enum_integer", EnumInteger.class),

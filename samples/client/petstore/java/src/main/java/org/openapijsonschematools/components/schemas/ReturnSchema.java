@@ -38,7 +38,7 @@ public class ReturnSchema {
     
         Model for testing reserved words
         */
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("return", ReturnSchema2.class)
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {

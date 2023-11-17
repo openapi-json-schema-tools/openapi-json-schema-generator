@@ -46,7 +46,7 @@ public class ReadOnlyFirst {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("bar", Bar.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("baz", Baz.class)
         ));

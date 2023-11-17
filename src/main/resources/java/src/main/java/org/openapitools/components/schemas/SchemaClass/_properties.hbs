@@ -1,4 +1,4 @@
-static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
 {{#each properties}}
     {{#if refInfo.refClass}}
         {{#if refInfo.refModule}}

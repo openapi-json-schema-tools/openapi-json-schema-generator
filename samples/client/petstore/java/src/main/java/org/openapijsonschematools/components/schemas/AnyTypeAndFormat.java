@@ -451,7 +451,7 @@ public class AnyTypeAndFormat {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("uuid", UuidSchema.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("date", Date.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("date-time", Datetime.class),

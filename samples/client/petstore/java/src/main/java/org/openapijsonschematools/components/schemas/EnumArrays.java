@@ -56,7 +56,7 @@ public class EnumArrays {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("just_symbol", JustSymbol.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("array_enum", ArrayEnum.class)
         ));

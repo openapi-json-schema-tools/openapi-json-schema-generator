@@ -33,7 +33,7 @@ public class QueryParameters {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("refParam", StringWithValidation.StringWithValidation1.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("ioutil", Schema1.Schema11.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("context", Schema4.Schema41.class),

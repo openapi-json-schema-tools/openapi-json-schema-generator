@@ -38,7 +38,7 @@ public class ObjectWithDecimalProperties {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("length", DecimalPayload.DecimalPayload1.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("width", Width.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("cost", Money.Money1.class)

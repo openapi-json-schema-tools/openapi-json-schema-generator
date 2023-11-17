@@ -97,7 +97,7 @@ public class MapTest {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("map_map_of_string", MapMapOfString.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("map_of_enum_string", MapOfEnumString.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("direct_map", DirectMap.class),

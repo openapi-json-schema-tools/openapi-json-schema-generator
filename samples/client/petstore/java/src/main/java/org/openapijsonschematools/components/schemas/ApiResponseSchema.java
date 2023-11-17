@@ -57,7 +57,7 @@ public class ApiResponseSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("code", Code.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("type", Type.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("message", Message.class)

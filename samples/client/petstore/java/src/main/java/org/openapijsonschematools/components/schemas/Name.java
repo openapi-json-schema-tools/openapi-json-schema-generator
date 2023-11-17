@@ -58,7 +58,7 @@ public class Name {
     
         Model for testing model name same as property name
         */
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("name", Name2.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("snake_case", SnakeCase.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("property", Property.class)

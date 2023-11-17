@@ -62,7 +62,7 @@ public class PaginatedResultMyObjectDto {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("count", Count.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("results", Results.class)
         ));

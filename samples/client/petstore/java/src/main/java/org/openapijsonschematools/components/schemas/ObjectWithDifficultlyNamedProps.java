@@ -77,7 +77,7 @@ public class ObjectWithDifficultlyNamedProps {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("$special[property.name]", Specialpropertyname.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("123-list", Schema123list.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("123Number", Schema123Number.class)

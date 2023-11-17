@@ -217,7 +217,7 @@ public class Schema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("integer", IntegerSchema.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("int32", Int32.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("int64", Int64.class),

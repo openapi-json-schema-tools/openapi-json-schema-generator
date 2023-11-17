@@ -32,7 +32,7 @@ public class Headers {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("X-Rate-Limit", XRateLimitSchema.XRateLimitSchema1.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("int32", Int32JsonContentTypeHeaderSchema.Int32JsonContentTypeHeaderSchema1.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("X-Expires-After", XExpiresAfterSchema.XExpiresAfterSchema1.class),

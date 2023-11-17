@@ -234,7 +234,7 @@ public class AdditionalPropertiesClass {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("map_property", MapProperty.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("map_of_map_property", MapOfMapProperty.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("anytype_1", Anytype1.class),

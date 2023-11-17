@@ -31,7 +31,7 @@ public class HeaderParameters {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("1", Schema5.Schema51.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("aB", Schema6.Schema61.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("A-B", Schema8.Schema81.class),

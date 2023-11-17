@@ -70,6 +70,12 @@ public interface SchemaValidator {
         Field[] fields = schemaCls.getDeclaredFields();
         for (Field field : fields) {
             String fieldName = field.getName();
+            if (fieldName.equals("keywordToValidator")) {
+                continue;
+            }
+            if (fieldName.equals("this$0")) {
+                continue;
+            }
             if (disabledKeywords.contains(fieldName)) {
                 continue;
             }

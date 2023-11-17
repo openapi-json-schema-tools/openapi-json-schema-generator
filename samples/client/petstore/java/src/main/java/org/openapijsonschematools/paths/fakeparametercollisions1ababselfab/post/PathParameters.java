@@ -32,7 +32,7 @@ public class PathParameters {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("1", Schema9.Schema91.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("aB", Schema10.Schema101.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("Ab", Schema11.Schema111.class),

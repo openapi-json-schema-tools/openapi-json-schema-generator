@@ -30,7 +30,7 @@ public class ObjectModelWithRefProps {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("myNumber", NumberWithValidations.NumberWithValidations1.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("myString", StringSchema.StringSchema1.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("myBoolean", BooleanSchema.BooleanSchema1.class)

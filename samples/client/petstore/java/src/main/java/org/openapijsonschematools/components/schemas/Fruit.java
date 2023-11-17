@@ -34,7 +34,7 @@ public class Fruit {
     
         Do not edit the class manually.
         */
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("color", Color.class)
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {

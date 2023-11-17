@@ -97,7 +97,7 @@ public class JSONPatchRequestAddReplaceTest {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("path", Path.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("value", Value.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("op", Op.class)

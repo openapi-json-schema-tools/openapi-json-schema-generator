@@ -38,7 +38,7 @@ public class Drawing {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("mainShape", Shape.Shape1.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("shapeOrNull", ShapeOrNull.ShapeOrNull1.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("nullableShape", NullableShape.NullableShape1.class),

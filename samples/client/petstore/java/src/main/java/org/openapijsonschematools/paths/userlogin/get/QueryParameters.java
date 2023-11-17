@@ -29,7 +29,7 @@ public class QueryParameters {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("password", Schema1.Schema11.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("username", Schema0.Schema01.class)
         ));

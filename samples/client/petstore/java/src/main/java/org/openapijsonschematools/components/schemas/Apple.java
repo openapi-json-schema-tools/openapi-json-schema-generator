@@ -47,7 +47,7 @@ public class Apple {
             Void.class,
             FrozenMap.class
         ));
-        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("cultivar", Cultivar.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("origin", Origin.class)
         ));
