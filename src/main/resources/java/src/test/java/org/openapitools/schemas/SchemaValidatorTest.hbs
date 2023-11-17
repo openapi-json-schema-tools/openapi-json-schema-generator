@@ -10,12 +10,10 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 
-record SomeSchema(LinkedHashSet<Class<?>> type) implements SchemaValidator {
-    public static SomeSchema withDefaults() {
-        LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-        type.add(String.class);
-        return new SomeSchema(type);
-    }
+class SomeSchema implements SchemaValidator {
+    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(){{
+        add(String.class);
+    }};
 }
 
 public class SchemaValidatorTest {

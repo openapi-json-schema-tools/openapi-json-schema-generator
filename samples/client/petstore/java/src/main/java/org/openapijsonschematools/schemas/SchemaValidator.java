@@ -9,8 +9,7 @@ import org.openapijsonschematools.schemas.validators.PropertiesValidator;
 import org.openapijsonschematools.schemas.validators.RequiredValidator;
 import org.openapijsonschematools.schemas.validators.TypeValidator;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.RecordComponent;
+import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedHashMap;
@@ -18,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface SchemaValidator {
-    HashMap<String, KeywordValidator> keywordToValidator = new HashMap(){{
+    static HashMap<String, KeywordValidator> keywordToValidator = new HashMap(){{
         put("allOf", new FakeValidator());
         put("anyOf", new FakeValidator());
         put("const", new FakeValidator());
@@ -67,23 +66,17 @@ public interface SchemaValidator {
             ValidationMetadata validationMetadata
     ) {
         HashMap<String, Object> fieldsToValues = new HashMap<>();
-        SchemaValidator schema;
-        try {
-            schema = (SchemaValidator) schemaCls.getMethod("withDefaults").invoke(null);
-        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-            throw new RuntimeException(e);
-        }
         LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
-        RecordComponent[] recordComponents = schemaCls.getRecordComponents();
-        for (RecordComponent recordComponent : recordComponents) {
+        Field[] recordComponents = schemaCls.getDeclaredFields();
+        for (Field recordComponent : recordComponents) {
             String fieldName = recordComponent.getName();
             if (disabledKeywords.contains(fieldName)) {
                 continue;
             }
             try {
-                Object value = recordComponent.getAccessor().invoke(schema);
+                Object value = recordComponent.get(null);
                 fieldsToValues.put(fieldName, value);
-            } catch (IllegalAccessException | InvocationTargetException e) {
+            } catch (IllegalAccessException | IllegalArgumentException e) {
                 throw new RuntimeException(e);
             }
         }

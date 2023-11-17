@@ -19,10 +19,7 @@ public class Schema {
     
     
     public record Schema1() implements JsonSchema {
-        public static BooleanSchema.BooleanSchema1 withDefaults() {
-            return BooleanSchema.BooleanSchema1.withDefaults();
-        }
-    
+
         public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(BooleanSchema.BooleanSchema1.class, arg, configuration);
         }
