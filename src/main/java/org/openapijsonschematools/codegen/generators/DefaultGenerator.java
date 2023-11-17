@@ -229,7 +229,7 @@ public class DefaultGenerator implements Generator {
     protected Map<String, String> inlineSchemaNameMapping = new HashMap<>();
     // a map to store the inline schema naming conventions
     protected Map<String, String> inlineSchemaNameDefault = new HashMap<>();
-    protected String modelPackage = "", apiPackage = "";
+    protected String modelPackage = "components.schema", apiPackage = "";
     protected String modelNamePrefix = "", modelNameSuffix = "";
     protected String apiNamePrefix = "", apiNameSuffix = "Api";
     protected String testPackage = "";
