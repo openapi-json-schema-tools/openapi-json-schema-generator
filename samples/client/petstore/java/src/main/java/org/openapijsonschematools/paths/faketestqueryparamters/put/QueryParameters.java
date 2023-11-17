@@ -7,6 +7,7 @@ import org.openapijsonschematools.schemas.FrozenMap;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -23,36 +24,31 @@ public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record AdditionalProperties() implements JsonSchema {
-        public static JsonSchemas.NotAnyTypeSchema withDefaults() {
-            return JsonSchemas.NotAnyTypeSchema.withDefaults();
-        }
-    
+    public class AdditionalProperties implements JsonSchema {
         // NotAnyTypeSchema
     }
     
     
-    public record QueryParameters1(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Set<String> required, Class<?> additionalProperties) implements JsonSchema {
-        public static QueryParameters1 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenMap.class);
-            LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("refParam", StringWithValidation.StringWithValidation1.class);
-            properties.put("ioutil", Schema1.Schema11.class);
-            properties.put("context", Schema4.Schema41.class);
-            properties.put("http", Schema2.Schema21.class);
-            properties.put("pipe", Schema0.Schema01.class);
-            properties.put("url", Schema3.Schema31.class);
-            Set<String> required = new LinkedHashSet<>();
-            required.add("context");
-            required.add("http");
-            required.add("ioutil");
-            required.add("pipe");
-            required.add("refParam");
-            required.add("url");
-            Class<?> additionalProperties = AdditionalProperties.class;
-            return new QueryParameters1(type, properties, required, additionalProperties);
-        }
+    public class QueryParameters1 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenMap.class
+        ));
+        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+            new AbstractMap.SimpleEntry<String, Class<?>>("refParam", StringWithValidation.StringWithValidation1.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("ioutil", Schema1.Schema11.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("context", Schema4.Schema41.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("http", Schema2.Schema21.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("pipe", Schema0.Schema01.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("url", Schema3.Schema31.class)
+        ));
+        static final Set<String> required = new LinkedHashSet<>(Set.of(
+            "context",
+            "http",
+            "ioutil",
+            "pipe",
+            "refParam",
+            "url"
+        ));        static final Class<?> additionalProperties = AdditionalProperties.class;
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(QueryParameters1.class, arg, configuration);
         }

@@ -7,6 +7,7 @@ import org.openapijsonschematools.schemas.FrozenMap;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -17,11 +18,7 @@ public class ObjectInterface {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record ObjectInterface1() implements JsonSchema {
-        public static JsonSchemas.MapSchema withDefaults() {
-            return JsonSchemas.MapSchema.withDefaults();
-        }
-    
+    public class ObjectInterface1 implements JsonSchema {
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JsonSchemas.MapSchema.class, arg, configuration);
         }

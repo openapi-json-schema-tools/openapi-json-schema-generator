@@ -1,8 +1,4 @@
-public record UnsetAnyTypeSchema() implements JsonSchema {
-    static UnsetAnyTypeSchema withDefaults() {
-        return new UnsetAnyTypeSchema();
-    }
-
+public class UnsetAnyTypeSchema implements JsonSchema {
     static Void validate(Void arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(UnsetAnyTypeSchema.class, arg, configuration);
     }

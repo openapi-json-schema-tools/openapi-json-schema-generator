@@ -7,6 +7,7 @@ import org.openapijsonschematools.schemas.FrozenMap;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -17,11 +18,7 @@ public class AdditionalPropertiesValidator {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record AdditionalProperties() implements JsonSchema {
-        public static JsonSchemas.AnyTypeSchema withDefaults() {
-            return JsonSchemas.AnyTypeSchema.withDefaults();
-        }
-    
+    public class AdditionalProperties implements JsonSchema {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
         }
@@ -68,28 +65,18 @@ public class AdditionalPropertiesValidator {
     }
     
     
-    public record Schema0(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
-        public static Schema0 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenMap.class);
-            Class<?> additionalProperties = AdditionalProperties.class;
-            return new Schema0(type, additionalProperties);
-        }
+    public class Schema0 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenMap.class
+        ));
+        static final Class<?> additionalProperties = AdditionalProperties.class;
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema0.class, arg, configuration);
         }
     }
     
     
-    public record AdditionalProperties1(
-        Void minLength,
-        Void pattern
-    ) implements JsonSchema {
-        public static AdditionalProperties1 withDefaults() {
-            Void minLength = null;
-            Void pattern = null;
-            return new AdditionalProperties1(minLength, pattern);
-        }
+    public class AdditionalProperties1 implements JsonSchema {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
         }
@@ -135,28 +122,18 @@ public class AdditionalPropertiesValidator {
         }
     }    
     
-    public record Schema1(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
-        public static Schema1 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenMap.class);
-            Class<?> additionalProperties = AdditionalProperties1.class;
-            return new Schema1(type, additionalProperties);
-        }
+    public class Schema1 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenMap.class
+        ));
+        static final Class<?> additionalProperties = AdditionalProperties1.class;
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }
     
     
-    public record AdditionalProperties2(
-        Void maxLength,
-        Void pattern
-    ) implements JsonSchema {
-        public static AdditionalProperties2 withDefaults() {
-            Void maxLength = null;
-            Void pattern = null;
-            return new AdditionalProperties2(maxLength, pattern);
-        }
+    public class AdditionalProperties2 implements JsonSchema {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
         }
@@ -202,31 +179,27 @@ public class AdditionalPropertiesValidator {
         }
     }    
     
-    public record Schema2(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
-        public static Schema2 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenMap.class);
-            Class<?> additionalProperties = AdditionalProperties2.class;
-            return new Schema2(type, additionalProperties);
-        }
+    public class Schema2 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenMap.class
+        ));
+        static final Class<?> additionalProperties = AdditionalProperties2.class;
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema2.class, arg, configuration);
         }
     }
     
     
-    public record AdditionalPropertiesValidator1(LinkedHashSet<Class<?>> type) implements JsonSchema {
+    public class AdditionalPropertiesValidator1 implements JsonSchema {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        public static AdditionalPropertiesValidator1 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenMap.class);
-            return new AdditionalPropertiesValidator1(type);
-        }
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenMap.class
+        ));
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalPropertiesValidator1.class, arg, configuration);
         }

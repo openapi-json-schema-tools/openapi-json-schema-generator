@@ -1,12 +1,13 @@
-LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
+static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
 {{#each properties}}
     {{#if refInfo.refClass}}
         {{#if refInfo.refModule}}
-properties.put("{{{@key.original}}}", {{refInfo.refModule}}.{{refInfo.refClass}}.class);
+    new AbstractMap.SimpleEntry<String, Class<?>>("{{{@key.original}}}", {{refInfo.refModule}}.{{refInfo.refClass}}.class){{#unless @last}},{{/unless}}
         {{else}}
-properties.put("{{{@key.original}}}", {{refInfo.refClass}}.class);
+    new AbstractMap.SimpleEntry<String, Class<?>>("{{{@key.original}}}", {{refInfo.refClass}}.class){{#unless @last}},{{/unless}}
         {{/if}}
     {{else}}
-properties.put("{{{@key.original}}}", {{jsonPathPiece.camelCase}}.class);
+    new AbstractMap.SimpleEntry<String, Class<?>>("{{{@key.original}}}", {{jsonPathPiece.camelCase}}.class){{#unless @last}},{{/unless}}
     {{/if}}
 {{/each}}
+));

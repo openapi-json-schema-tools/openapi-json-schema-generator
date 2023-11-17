@@ -7,6 +7,7 @@ import org.openapijsonschematools.schemas.FrozenMap;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -17,15 +18,8 @@ public class AnyTypeAndFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record UuidSchema(
-        String format,
-        Void pattern
-    ) implements JsonSchema {
-        public static UuidSchema withDefaults() {
-            String format = "uuid";
-            Void pattern = null;
-            return new UuidSchema(format, pattern);
-        }
+    public class UuidSchema implements JsonSchema {
+        static final String format = "uuid";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(UuidSchema.class, arg, configuration);
         }
@@ -71,15 +65,8 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public record Date(
-        String format,
-        Void pattern
-    ) implements JsonSchema {
-        public static Date withDefaults() {
-            String format = "date";
-            Void pattern = null;
-            return new Date(format, pattern);
-        }
+    public class Date implements JsonSchema {
+        static final String format = "date";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Date.class, arg, configuration);
         }
@@ -125,15 +112,8 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public record Datetime(
-        String format,
-        Void pattern
-    ) implements JsonSchema {
-        public static Datetime withDefaults() {
-            String format = "date-time";
-            Void pattern = null;
-            return new Datetime(format, pattern);
-        }
+    public class Datetime implements JsonSchema {
+        static final String format = "date-time";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Datetime.class, arg, configuration);
         }
@@ -179,15 +159,8 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public record NumberSchema(
-        String format,
-        Void pattern
-    ) implements JsonSchema {
-        public static NumberSchema withDefaults() {
-            String format = "number";
-            Void pattern = null;
-            return new NumberSchema(format, pattern);
-        }
+    public class NumberSchema implements JsonSchema {
+        static final String format = "number";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberSchema.class, arg, configuration);
         }
@@ -233,15 +206,8 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public record Binary(
-        String format,
-        Void pattern
-    ) implements JsonSchema {
-        public static Binary withDefaults() {
-            String format = "binary";
-            Void pattern = null;
-            return new Binary(format, pattern);
-        }
+    public class Binary implements JsonSchema {
+        static final String format = "binary";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Binary.class, arg, configuration);
         }
@@ -287,15 +253,8 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public record Int32(
-        String format,
-        Void pattern
-    ) implements JsonSchema {
-        public static Int32 withDefaults() {
-            String format = "int32";
-            Void pattern = null;
-            return new Int32(format, pattern);
-        }
+    public class Int32 implements JsonSchema {
+        static final String format = "int32";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int32.class, arg, configuration);
         }
@@ -341,15 +300,8 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public record Int64(
-        String format,
-        Void pattern
-    ) implements JsonSchema {
-        public static Int64 withDefaults() {
-            String format = "int64";
-            Void pattern = null;
-            return new Int64(format, pattern);
-        }
+    public class Int64 implements JsonSchema {
+        static final String format = "int64";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int64.class, arg, configuration);
         }
@@ -395,15 +347,8 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public record DoubleSchema(
-        String format,
-        Void pattern
-    ) implements JsonSchema {
-        public static DoubleSchema withDefaults() {
-            String format = "double";
-            Void pattern = null;
-            return new DoubleSchema(format, pattern);
-        }
+    public class DoubleSchema implements JsonSchema {
+        static final String format = "double";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DoubleSchema.class, arg, configuration);
         }
@@ -449,15 +394,8 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public record FloatSchema(
-        String format,
-        Void pattern
-    ) implements JsonSchema {
-        public static FloatSchema withDefaults() {
-            String format = "float";
-            Void pattern = null;
-            return new FloatSchema(format, pattern);
-        }
+    public class FloatSchema implements JsonSchema {
+        static final String format = "float";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(FloatSchema.class, arg, configuration);
         }
@@ -503,28 +441,27 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public record AnyTypeAndFormat1(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements JsonSchema {
+    public class AnyTypeAndFormat1 implements JsonSchema {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        public static AnyTypeAndFormat1 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenMap.class);
-            LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("uuid", UuidSchema.class);
-            properties.put("date", Date.class);
-            properties.put("date-time", Datetime.class);
-            properties.put("number", NumberSchema.class);
-            properties.put("binary", Binary.class);
-            properties.put("int32", Int32.class);
-            properties.put("int64", Int64.class);
-            properties.put("double", DoubleSchema.class);
-            properties.put("float", FloatSchema.class);
-            return new AnyTypeAndFormat1(type, properties);
-        }
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenMap.class
+        ));
+        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+            new AbstractMap.SimpleEntry<String, Class<?>>("uuid", UuidSchema.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("date", Date.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("date-time", Datetime.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("number", NumberSchema.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("binary", Binary.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("int32", Int32.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("int64", Int64.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("double", DoubleSchema.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("float", FloatSchema.class)
+        ));
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AnyTypeAndFormat1.class, arg, configuration);
         }

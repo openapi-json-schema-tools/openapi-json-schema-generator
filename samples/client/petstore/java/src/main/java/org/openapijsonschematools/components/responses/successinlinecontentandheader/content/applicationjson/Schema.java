@@ -7,6 +7,7 @@ import org.openapijsonschematools.schemas.FrozenMap;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -17,11 +18,7 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record AdditionalProperties() implements JsonSchema {
-        public static JsonSchemas.Int32Schema withDefaults() {
-            return JsonSchemas.Int32Schema.withDefaults();
-        }
-    
+    public class AdditionalProperties implements JsonSchema {
         public static Integer validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JsonSchemas.Int32Schema.class, arg, configuration);
         }
@@ -32,13 +29,11 @@ public class Schema {
     }
     
     
-    public record Schema1(LinkedHashSet<Class<?>> type, Class<?> additionalProperties) implements JsonSchema {
-        public static Schema1 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenMap.class);
-            Class<?> additionalProperties = AdditionalProperties.class;
-            return new Schema1(type, additionalProperties);
-        }
+    public class Schema1 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenMap.class
+        ));
+        static final Class<?> additionalProperties = AdditionalProperties.class;
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }

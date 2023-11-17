@@ -1,9 +1,7 @@
-public record NullSchema(LinkedHashSet<Class<?>> type) implements JsonSchema {
-    public static NullSchema withDefaults() {
-        LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-        type.add(Void.class);
-        return new NullSchema(type);
-    }
+public class NullSchema implements JsonSchema {
+    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+        Void.class
+    ));
 
     public static Void validate(Void arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(NullSchema.class, arg, configuration);

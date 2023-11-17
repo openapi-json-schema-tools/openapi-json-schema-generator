@@ -7,6 +7,7 @@ import org.openapijsonschematools.schemas.FrozenMap;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -17,34 +18,26 @@ public class ArrayTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Items(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static Items withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(String.class);
-            return new Items(type);
-        }
+    public class Items implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            String.class
+        ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items.class, arg, configuration);
         }
     }    
     
-    public record ArrayOfString(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
-        public static ArrayOfString withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenList.class);
-            Class<?> items = Items.class;
-            return new ArrayOfString(type, items);
-        }
+    public class ArrayOfString implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenList.class
+        ));
+        static final Class<?> items = Items.class;
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayOfString.class, arg, configuration);
         }
     }    
     
-    public record Items2() implements JsonSchema {
-        public static JsonSchemas.Int64Schema withDefaults() {
-            return JsonSchemas.Int64Schema.withDefaults();
-        }
-    
+    public class Items2 implements JsonSchema {
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JsonSchemas.Int64Schema.class, Long.valueOf(arg), configuration);
         }
@@ -63,70 +56,61 @@ public class ArrayTest {
     }
     
     
-    public record Items1(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
-        public static Items1 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenList.class);
-            Class<?> items = Items2.class;
-            return new Items1(type, items);
-        }
+    public class Items1 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenList.class
+        ));
+        static final Class<?> items = Items2.class;
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items1.class, arg, configuration);
         }
     }    
     
-    public record ArrayArrayOfInteger(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
-        public static ArrayArrayOfInteger withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenList.class);
-            Class<?> items = Items1.class;
-            return new ArrayArrayOfInteger(type, items);
-        }
+    public class ArrayArrayOfInteger implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenList.class
+        ));
+        static final Class<?> items = Items1.class;
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayArrayOfInteger.class, arg, configuration);
         }
     }    
     
-    public record Items3(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
-        public static Items3 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenList.class);
-            Class<?> items = ReadOnlyFirst.ReadOnlyFirst1.class;
-            return new Items3(type, items);
-        }
+    public class Items3 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenList.class
+        ));
+        static final Class<?> items = ReadOnlyFirst.ReadOnlyFirst1.class;
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items3.class, arg, configuration);
         }
     }    
     
-    public record ArrayArrayOfModel(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
-        public static ArrayArrayOfModel withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenList.class);
-            Class<?> items = Items3.class;
-            return new ArrayArrayOfModel(type, items);
-        }
+    public class ArrayArrayOfModel implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenList.class
+        ));
+        static final Class<?> items = Items3.class;
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayArrayOfModel.class, arg, configuration);
         }
     }    
     
-    public record ArrayTest1(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements JsonSchema {
+    public class ArrayTest1 implements JsonSchema {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        public static ArrayTest1 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenMap.class);
-            LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("array_of_string", ArrayOfString.class);
-            properties.put("array_array_of_integer", ArrayArrayOfInteger.class);
-            properties.put("array_array_of_model", ArrayArrayOfModel.class);
-            return new ArrayTest1(type, properties);
-        }
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenMap.class
+        ));
+        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+            new AbstractMap.SimpleEntry<String, Class<?>>("array_of_string", ArrayOfString.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("array_array_of_integer", ArrayArrayOfInteger.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("array_array_of_model", ArrayArrayOfModel.class)
+        ));
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayTest1.class, arg, configuration);
         }

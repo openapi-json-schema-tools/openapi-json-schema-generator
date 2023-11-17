@@ -7,6 +7,7 @@ import org.openapijsonschematools.schemas.FrozenMap;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -17,26 +18,16 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Schema0(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static Schema0 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(String.class);
-            return new Schema0(type);
-        }
+    public class Schema0 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            String.class
+        ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema0.class, arg, configuration);
         }
     }    
     
-    public record Schema1(
-        Void allOf,
-        Void pattern
-    ) implements JsonSchema {
-        public static Schema1 withDefaults() {
-            Void allOf = null;
-            Void pattern = null;
-            return new Schema1(allOf, pattern);
-        }
+    public class Schema1 implements JsonSchema {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }

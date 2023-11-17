@@ -7,6 +7,7 @@ import org.openapijsonschematools.schemas.FrozenMap;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -17,114 +18,86 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Schema0() implements JsonSchema {
-        public static JsonSchemas.MapSchema withDefaults() {
-            return JsonSchemas.MapSchema.withDefaults();
-        }
-    
+    public class Schema0 implements JsonSchema {
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JsonSchemas.MapSchema.class, arg, configuration);
         }
     }
     
     
-    public record Schema1(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
-        public static Schema1 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(String.class);
-            String format = "date";
-            return new Schema1(type, format);
-        }
+    public class Schema1 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            String.class
+        ));
+        static final String format = "date";
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }    
     
-    public record Schema2(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
-        public static Schema2 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(String.class);
-            String format = "date-time";
-            return new Schema2(type, format);
-        }
+    public class Schema2 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            String.class
+        ));
+        static final String format = "date-time";
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema2.class, arg, configuration);
         }
     }    
     
-    public record Schema3(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
-        public static Schema3 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+    public class Schema3 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             // FileIO,
             // bytes,
-            String format = "binary";
-            return new Schema3(type, format);
-        }
+        ));
+        static final String format = "binary";
         // FileIO,
         // bytes,
     }    
     
-    public record Schema4(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
-        public static Schema4 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(String.class);
-            String format = "byte";
-            return new Schema4(type, format);
-        }
+    public class Schema4 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            String.class
+        ));
+        static final String format = "byte";
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema4.class, arg, configuration);
         }
     }    
     
-    public record Schema5(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static Schema5 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(String.class);
-            return new Schema5(type);
-        }
+    public class Schema5 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            String.class
+        ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema5.class, arg, configuration);
         }
     }    
     
-    public record Schema6() implements JsonSchema {
-        public static JsonSchemas.MapSchema withDefaults() {
-            return JsonSchemas.MapSchema.withDefaults();
-        }
-    
+    public class Schema6 implements JsonSchema {
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JsonSchemas.MapSchema.class, arg, configuration);
         }
     }
     
     
-    public record Schema7() implements JsonSchema {
-        public static JsonSchemas.BooleanSchema withDefaults() {
-            return JsonSchemas.BooleanSchema.withDefaults();
-        }
-    
+    public class Schema7 implements JsonSchema {
         public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JsonSchemas.BooleanSchema.class, arg, configuration);
         }
     }
     
     
-    public record Schema8(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static Schema8 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(Void.class);
-            return new Schema8(type);
-        }
+    public class Schema8 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            Void.class
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema8.class, arg, configuration);
         }
     }    
     
-    public record Items() implements JsonSchema {
-        public static JsonSchemas.AnyTypeSchema withDefaults() {
-            return JsonSchemas.AnyTypeSchema.withDefaults();
-        }
-    
+    public class Items implements JsonSchema {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JsonSchemas.AnyTypeSchema.class, arg, configuration);
         }
@@ -171,23 +144,17 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record Schema9(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
-        public static Schema9 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenList.class);
-            Class<?> items = Items.class;
-            return new Schema9(type, items);
-        }
+    public class Schema9 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenList.class
+        ));
+        static final Class<?> items = Items.class;
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema9.class, arg, configuration);
         }
     }    
     
-    public record Schema10() implements JsonSchema {
-        public static JsonSchemas.NumberSchema withDefaults() {
-            return JsonSchemas.NumberSchema.withDefaults();
-        }
-    
+    public class Schema10 implements JsonSchema {
         public static Number validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JsonSchemas.NumberSchema.class, arg, configuration);
         }
@@ -206,33 +173,21 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record Schema11() implements JsonSchema {
-        public static JsonSchemas.FloatSchema withDefaults() {
-            return JsonSchemas.FloatSchema.withDefaults();
-        }
-    
+    public class Schema11 implements JsonSchema {
         public static Float validate(Float arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JsonSchemas.FloatSchema.class, arg, configuration);
         }
     }
     
     
-    public record Schema12() implements JsonSchema {
-        public static JsonSchemas.DoubleSchema withDefaults() {
-            return JsonSchemas.DoubleSchema.withDefaults();
-        }
-    
+    public class Schema12 implements JsonSchema {
         public static Double validate(Double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JsonSchemas.DoubleSchema.class, arg, configuration);
         }
     }
     
     
-    public record Schema13() implements JsonSchema {
-        public static JsonSchemas.IntSchema withDefaults() {
-            return JsonSchemas.IntSchema.withDefaults();
-        }
-    
+    public class Schema13 implements JsonSchema {
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JsonSchemas.IntSchema.class, Long.valueOf(arg), configuration);
         }
@@ -251,11 +206,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record Schema14() implements JsonSchema {
-        public static JsonSchemas.Int32Schema withDefaults() {
-            return JsonSchemas.Int32Schema.withDefaults();
-        }
-    
+    public class Schema14 implements JsonSchema {
         public static Integer validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JsonSchemas.Int32Schema.class, arg, configuration);
         }
@@ -266,11 +217,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record Schema15() implements JsonSchema {
-        public static JsonSchemas.Int64Schema withDefaults() {
-            return JsonSchemas.Int64Schema.withDefaults();
-        }
-    
+    public class Schema15 implements JsonSchema {
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JsonSchemas.Int64Schema.class, Long.valueOf(arg), configuration);
         }
@@ -289,21 +236,13 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public record ComposedAnyOfDifferentTypesNoValidations1(
-        Void anyOf,
-        Void pattern
-    ) implements JsonSchema {
+    public class ComposedAnyOfDifferentTypesNoValidations1 implements JsonSchema {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        public static ComposedAnyOfDifferentTypesNoValidations1 withDefaults() {
-            Void anyOf = null;
-            Void pattern = null;
-            return new ComposedAnyOfDifferentTypesNoValidations1(anyOf, pattern);
-        }
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }

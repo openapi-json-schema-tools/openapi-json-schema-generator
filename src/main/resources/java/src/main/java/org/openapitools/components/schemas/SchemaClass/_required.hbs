@@ -1,4 +1,5 @@
-Set<String> required = new LinkedHashSet<>();
+static final Set<String> required = new LinkedHashSet<>(Set.of(
 {{#each requiredProperties}}
-required.add("{{{@key.original}}}");
+    "{{{@key.original}}}"{{#unless @last}},{{/unless}}
 {{/each}}
+));

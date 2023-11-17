@@ -67,14 +67,14 @@ public interface SchemaValidator {
     ) {
         HashMap<String, Object> fieldsToValues = new HashMap<>();
         LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
-        Field[] recordComponents = schemaCls.getDeclaredFields();
-        for (RecordComponent recordComponent : recordComponents) {
-            String fieldName = recordComponent.getName();
+        Field[] fields = schemaCls.getDeclaredFields();
+        for (Field field : fields) {
+            String fieldName = field.getName();
             if (disabledKeywords.contains(fieldName)) {
                 continue;
             }
             try {
-                Object value = recordComponent.get(null);
+                Object value = field.get(null);
                 fieldsToValues.put(fieldName, value);
             } catch (IllegalAccessException | IllegalArgumentException e) {
                 throw new RuntimeException(e);

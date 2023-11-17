@@ -7,6 +7,7 @@ import org.openapijsonschematools.schemas.FrozenMap;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -17,13 +18,11 @@ public class NumberHeaderSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record NumberHeaderSchema1(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
-        public static NumberHeaderSchema1 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(String.class);
-            String format = "number";
-            return new NumberHeaderSchema1(type, format);
-        }
+    public class NumberHeaderSchema1 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            String.class
+        ));
+        static final String format = "number";
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberHeaderSchema1.class, arg, configuration);
         }

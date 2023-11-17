@@ -1,12 +1,10 @@
-public record NumberSchema(LinkedHashSet<Class<?>> type) implements JsonSchema {
-    public static NumberSchema withDefaults() {
-        LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-        type.add(Integer.class);
-        type.add(Long.class);
-        type.add(Float.class);
-        type.add(Double.class);
-        return new NumberSchema(type);
-    }
+public class NumberSchema implements JsonSchema {
+    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+        Integer.class,
+        Long.class,
+        Float.class,
+        Double.class
+    ));
 
     public static Number validate(Integer arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(NumberSchema.class, arg, configuration);

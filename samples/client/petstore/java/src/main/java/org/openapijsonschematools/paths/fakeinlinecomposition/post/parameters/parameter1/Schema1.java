@@ -7,6 +7,7 @@ import org.openapijsonschematools.schemas.FrozenMap;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -17,26 +18,16 @@ public class Schema1 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Schema01(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static Schema01 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(String.class);
-            return new Schema01(type);
-        }
+    public class Schema01 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            String.class
+        ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema01.class, arg, configuration);
         }
     }    
     
-    public record SomeProp1(
-        Void allOf,
-        Void pattern
-    ) implements JsonSchema {
-        public static SomeProp1 withDefaults() {
-            Void allOf = null;
-            Void pattern = null;
-            return new SomeProp1(allOf, pattern);
-        }
+    public class SomeProp1 implements JsonSchema {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(SomeProp1.class, arg, configuration);
         }
@@ -82,14 +73,13 @@ public class Schema1 {
         }
     }    
     
-    public record Schema11(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements JsonSchema {
-        public static Schema11 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenMap.class);
-            LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("someProp", SomeProp1.class);
-            return new Schema11(type, properties);
-        }
+    public class Schema11 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenMap.class
+        ));
+        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+            new AbstractMap.SimpleEntry<String, Class<?>>("someProp", SomeProp1.class)
+        ));
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema11.class, arg, configuration);
         }

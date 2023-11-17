@@ -1,13 +1,11 @@
-public record Int64Schema(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
-    public static Int64Schema withDefaults() {
-        LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-        type.add(Integer.class);
-        type.add(Long.class);
-        type.add(Float.class);
-        type.add(Double.class);
-        String format = "int64";
-        return new Int64Schema(type, format);
-    }
+public class Int64Schema implements JsonSchema {
+    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+        Integer.class,
+        Long.class,
+        Float.class,
+        Double.class
+    ));
+    static final String format = "int64";
 
     public static Long validate(Integer arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(Int64Schema.class, Long.valueOf(arg), configuration);

@@ -1,37 +1,38 @@
 {{#if types}}
-LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-{{#each types}}
-{{#eq this "null"}}
-type.add(Void.class);
-{{/eq}}
-{{#eq this "object"}}
-type.add(FrozenMap.class);
-{{/eq}}
-{{#eq this "array"}}
-type.add(FrozenList.class);
-{{/eq}}
-{{#eq this "string" }}
-    {{#eq ../format "binary"}}
-// FileIO,
-// bytes,
-    {{else}}
-type.add(String.class);
-    {{/eq}}
-{{/eq}}
-{{#eq this "integer"}}
-type.add(Integer.class);
-type.add(Long.class);
-type.add(Float.class);
-type.add(Double.class);
-{{/eq}}
-{{#eq this "number"}}
-type.add(Integer.class);
-type.add(Long.class);
-type.add(Float.class);
-type.add(Double.class);
-{{/eq}}
-{{#eq this "boolean"}}
-type.add(Boolean.class);
-{{/eq}}
-{{/each}}
+static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    {{#each types}}
+        {{#eq this "null"}}
+    Void.class{{#unless @last}},{{/unless}}
+        {{/eq}}
+        {{#eq this "object"}}
+    FrozenMap.class{{#unless @last}},{{/unless}}
+        {{/eq}}
+        {{#eq this "array"}}
+    FrozenList.class{{#unless @last}},{{/unless}}
+        {{/eq}}
+        {{#eq this "string" }}
+            {{#eq ../format "binary"}}
+    // FileIO,
+    // bytes,
+            {{else}}
+    String.class{{#unless @last}},{{/unless}}
+            {{/eq}}
+        {{/eq}}
+        {{#eq this "integer"}}
+    Integer.class,
+    Long.class,
+    Float.class,
+    Double.class{{#unless @last}},{{/unless}}
+        {{/eq}}
+        {{#eq this "number"}}
+    Integer.class,
+    Long.class,
+    Float.class,
+    Double.class{{#unless @last}},{{/unless}}
+        {{/eq}}
+        {{#eq this "boolean"}}
+    Boolean.class{{#unless @last}},{{/unless}}
+        {{/eq}}
+    {{/each}}
+));
 {{/if}}

@@ -7,6 +7,7 @@ import org.openapijsonschematools.schemas.FrozenMap;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -17,11 +18,7 @@ public class User {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Id() implements JsonSchema {
-        public static JsonSchemas.Int64Schema withDefaults() {
-            return JsonSchemas.Int64Schema.withDefaults();
-        }
-    
+    public class Id implements JsonSchema {
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JsonSchemas.Int64Schema.class, Long.valueOf(arg), configuration);
         }
@@ -40,77 +37,61 @@ public class User {
     }
     
     
-    public record Username(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static Username withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(String.class);
-            return new Username(type);
-        }
+    public class Username implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            String.class
+        ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Username.class, arg, configuration);
         }
     }    
     
-    public record FirstName(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static FirstName withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(String.class);
-            return new FirstName(type);
-        }
+    public class FirstName implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            String.class
+        ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(FirstName.class, arg, configuration);
         }
     }    
     
-    public record LastName(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static LastName withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(String.class);
-            return new LastName(type);
-        }
+    public class LastName implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            String.class
+        ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(LastName.class, arg, configuration);
         }
     }    
     
-    public record Email(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static Email withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(String.class);
-            return new Email(type);
-        }
+    public class Email implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            String.class
+        ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Email.class, arg, configuration);
         }
     }    
     
-    public record Password(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static Password withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(String.class);
-            return new Password(type);
-        }
+    public class Password implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            String.class
+        ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Password.class, arg, configuration);
         }
     }    
     
-    public record Phone(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static Phone withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(String.class);
-            return new Phone(type);
-        }
+    public class Phone implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            String.class
+        ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Phone.class, arg, configuration);
         }
     }    
     
-    public record UserStatus() implements JsonSchema {
-        public static JsonSchemas.Int32Schema withDefaults() {
-            return JsonSchemas.Int32Schema.withDefaults();
-        }
-    
+    public class UserStatus implements JsonSchema {
         public static Integer validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JsonSchemas.Int32Schema.class, arg, configuration);
         }
@@ -121,26 +102,18 @@ public class User {
     }
     
     
-    public record ObjectWithNoDeclaredProps() implements JsonSchema {
-        public static JsonSchemas.MapSchema withDefaults() {
-            return JsonSchemas.MapSchema.withDefaults();
-        }
-    
+    public class ObjectWithNoDeclaredProps implements JsonSchema {
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JsonSchemas.MapSchema.class, arg, configuration);
         }
     }
     
     
-    public record ObjectWithNoDeclaredPropsNullable(
-        LinkedHashSet<Class<?>> type
-    ) implements JsonSchema {
-        public static ObjectWithNoDeclaredPropsNullable withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(Void.class);
-            type.add(FrozenMap.class);
-            return new ObjectWithNoDeclaredPropsNullable(type);
-        }
+    public class ObjectWithNoDeclaredPropsNullable implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            Void.class,
+            FrozenMap.class
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithNoDeclaredPropsNullable.class, arg, configuration);
         }
@@ -149,13 +122,7 @@ public class User {
         }
     }    
     
-    public record AnyTypeProp(
-        Void pattern
-    ) implements JsonSchema {
-        public static AnyTypeProp withDefaults() {
-            Void pattern = null;
-            return new AnyTypeProp(pattern);
-        }
+    public class AnyTypeProp implements JsonSchema {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
         }
@@ -201,26 +168,16 @@ public class User {
         }
     }    
     
-    public record Not(LinkedHashSet<Class<?>> type) implements JsonSchema {
-        public static Not withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(Void.class);
-            return new Not(type);
-        }
+    public class Not implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            Void.class
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Not.class, arg, configuration);
         }
     }    
     
-    public record AnyTypeExceptNullProp(
-        Void not,
-        Void pattern
-    ) implements JsonSchema {
-        public static AnyTypeExceptNullProp withDefaults() {
-            Void not = null;
-            Void pattern = null;
-            return new AnyTypeExceptNullProp(not, pattern);
-        }
+    public class AnyTypeExceptNullProp implements JsonSchema {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
         }
@@ -266,13 +223,7 @@ public class User {
         }
     }    
     
-    public record AnyTypePropNullable(
-        Void pattern
-    ) implements JsonSchema {
-        public static AnyTypePropNullable withDefaults() {
-            Void pattern = null;
-            return new AnyTypePropNullable(pattern);
-        }
+    public class AnyTypePropNullable implements JsonSchema {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
         }
@@ -318,32 +269,31 @@ public class User {
         }
     }    
     
-    public record User1(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements JsonSchema {
+    public class User1 implements JsonSchema {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        public static User1 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenMap.class);
-            LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("id", Id.class);
-            properties.put("username", Username.class);
-            properties.put("firstName", FirstName.class);
-            properties.put("lastName", LastName.class);
-            properties.put("email", Email.class);
-            properties.put("password", Password.class);
-            properties.put("phone", Phone.class);
-            properties.put("userStatus", UserStatus.class);
-            properties.put("objectWithNoDeclaredProps", ObjectWithNoDeclaredProps.class);
-            properties.put("objectWithNoDeclaredPropsNullable", ObjectWithNoDeclaredPropsNullable.class);
-            properties.put("anyTypeProp", AnyTypeProp.class);
-            properties.put("anyTypeExceptNullProp", AnyTypeExceptNullProp.class);
-            properties.put("anyTypePropNullable", AnyTypePropNullable.class);
-            return new User1(type, properties);
-        }
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenMap.class
+        ));
+        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+            new AbstractMap.SimpleEntry<String, Class<?>>("id", Id.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("username", Username.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("firstName", FirstName.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("lastName", LastName.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("email", Email.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("password", Password.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("phone", Phone.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("userStatus", UserStatus.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("objectWithNoDeclaredProps", ObjectWithNoDeclaredProps.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("objectWithNoDeclaredPropsNullable", ObjectWithNoDeclaredPropsNullable.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("anyTypeProp", AnyTypeProp.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("anyTypeExceptNullProp", AnyTypeExceptNullProp.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("anyTypePropNullable", AnyTypePropNullable.class)
+        ));
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(User1.class, arg, configuration);
         }

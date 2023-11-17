@@ -1,7 +1,7 @@
 public class DecimalSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(){{
-        add(String.class);
-    }};
+    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+        String.class
+    ));
     static final String format = "number";
 
     public static String validate(String arg, SchemaConfiguration configuration) {

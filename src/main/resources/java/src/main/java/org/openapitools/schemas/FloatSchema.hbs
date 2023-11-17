@@ -1,10 +1,8 @@
-public record FloatSchema(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
-    public static FloatSchema withDefaults() {
-        LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-        type.add(Float.class);
-        String format = "float";
-        return new FloatSchema(type, format);
-    }
+public class FloatSchema implements JsonSchema {
+    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+        Float.class
+    ));
+    static final String format = "float";
 
     public static Float validate(Float arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(FloatSchema.class, arg, configuration);

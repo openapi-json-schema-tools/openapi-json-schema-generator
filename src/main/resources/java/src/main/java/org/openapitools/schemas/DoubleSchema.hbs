@@ -1,7 +1,7 @@
 public class DoubleSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(){{
-        add(Double.class);
-    }};
+    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+        Double.class
+    ));
     static final String format = "double";
 
     public static Double validate(Double arg, SchemaConfiguration configuration) {

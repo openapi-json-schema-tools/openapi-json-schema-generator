@@ -1,10 +1,6 @@
 
 
-public record {{jsonPathPiece.camelCase}}() implements JsonSchema {
-    public static {{> src/main/java/org/openapitools/components/schemas/SchemaClass/__varEqualsClassSchemaNameDeepest }} withDefaults() {
-        return {{> src/main/java/org/openapitools/components/schemas/SchemaClass/__varEqualsClassSchemaNameRef }}.withDefaults();
-    }
-
+public class {{jsonPathPiece.camelCase}} implements JsonSchema {
 {{#or isBooleanSchemaTrue isBooleanSchemaFalse}}
     {{#if isBooleanSchemaTrue}}
     public static Void validate(Void arg, SchemaConfiguration configuration) {

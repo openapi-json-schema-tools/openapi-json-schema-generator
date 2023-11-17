@@ -7,6 +7,7 @@ import org.openapijsonschematools.schemas.FrozenMap;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -17,38 +18,33 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record Items(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
-        public static Items withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+    public class Items implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             // FileIO,
             // bytes,
-            String format = "binary";
-            return new Items(type, format);
-        }
+        ));
+        static final String format = "binary";
         // FileIO,
         // bytes,
     }    
     
-    public record Files(LinkedHashSet<Class<?>> type, Class<?> items) implements JsonSchema {
-        public static Files withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenList.class);
-            Class<?> items = Items.class;
-            return new Files(type, items);
-        }
+    public class Files implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenList.class
+        ));
+        static final Class<?> items = Items.class;
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Files.class, arg, configuration);
         }
     }    
     
-    public record Schema1(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties) implements JsonSchema {
-        public static Schema1 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenMap.class);
-            LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("files", Files.class);
-            return new Schema1(type, properties);
-        }
+    public class Schema1 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenMap.class
+        ));
+        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+            new AbstractMap.SimpleEntry<String, Class<?>>("files", Files.class)
+        ));
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }

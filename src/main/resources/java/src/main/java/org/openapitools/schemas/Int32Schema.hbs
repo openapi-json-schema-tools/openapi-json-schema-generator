@@ -1,11 +1,9 @@
-public record Int32Schema(LinkedHashSet<Class<?>> type, String format) implements JsonSchema {
-    public static Int32Schema withDefaults() {
-        LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-        type.add(Integer.class);
-        type.add(Float.class);
-        String format = "int32";
-        return new Int32Schema(type, format);
-    }
+public class Int32Schema implements JsonSchema {
+    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+        Integer.class,
+        Float.class
+    ));
+    static final String format = "int32";
 
     public static Integer validate(Integer arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(Int32Schema.class, arg, configuration);

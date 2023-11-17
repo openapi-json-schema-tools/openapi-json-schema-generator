@@ -7,6 +7,7 @@ import org.openapijsonschematools.schemas.FrozenMap;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -22,28 +23,23 @@ public class CookieParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record AdditionalProperties() implements JsonSchema {
-        public static JsonSchemas.NotAnyTypeSchema withDefaults() {
-            return JsonSchemas.NotAnyTypeSchema.withDefaults();
-        }
-    
+    public class AdditionalProperties implements JsonSchema {
         // NotAnyTypeSchema
     }
     
     
-    public record CookieParameters1(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Class<?> additionalProperties) implements JsonSchema {
-        public static CookieParameters1 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenMap.class);
-            LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("1", Schema14.Schema141.class);
-            properties.put("aB", Schema15.Schema151.class);
-            properties.put("Ab", Schema16.Schema161.class);
-            properties.put("A-B", Schema18.Schema181.class);
-            properties.put("self", Schema17.Schema171.class);
-            Class<?> additionalProperties = AdditionalProperties.class;
-            return new CookieParameters1(type, properties, additionalProperties);
-        }
+    public class CookieParameters1 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenMap.class
+        ));
+        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+            new AbstractMap.SimpleEntry<String, Class<?>>("1", Schema14.Schema141.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("aB", Schema15.Schema151.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("Ab", Schema16.Schema161.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("A-B", Schema18.Schema181.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("self", Schema17.Schema171.class)
+        ));
+        static final Class<?> additionalProperties = AdditionalProperties.class;
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(CookieParameters1.class, arg, configuration);
         }

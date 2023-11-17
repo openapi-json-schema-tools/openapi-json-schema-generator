@@ -7,6 +7,7 @@ import org.openapijsonschematools.schemas.FrozenMap;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -22,34 +23,29 @@ public class PathParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public record AdditionalProperties() implements JsonSchema {
-        public static JsonSchemas.NotAnyTypeSchema withDefaults() {
-            return JsonSchemas.NotAnyTypeSchema.withDefaults();
-        }
-    
+    public class AdditionalProperties implements JsonSchema {
         // NotAnyTypeSchema
     }
     
     
-    public record PathParameters1(LinkedHashSet<Class<?>> type, LinkedHashMap<String, Class<?>> properties, Set<String> required, Class<?> additionalProperties) implements JsonSchema {
-        public static PathParameters1 withDefaults() {
-            LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
-            type.add(FrozenMap.class);
-            LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>();
-            properties.put("1", Schema9.Schema91.class);
-            properties.put("aB", Schema10.Schema101.class);
-            properties.put("Ab", Schema11.Schema111.class);
-            properties.put("A-B", Schema13.Schema131.class);
-            properties.put("self", Schema12.Schema121.class);
-            Set<String> required = new LinkedHashSet<>();
-            required.add("1");
-            required.add("A-B");
-            required.add("Ab");
-            required.add("aB");
-            required.add("self");
-            Class<?> additionalProperties = AdditionalProperties.class;
-            return new PathParameters1(type, properties, required, additionalProperties);
-        }
+    public class PathParameters1 implements JsonSchema {
+        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenMap.class
+        ));
+        static LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+            new AbstractMap.SimpleEntry<String, Class<?>>("1", Schema9.Schema91.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("aB", Schema10.Schema101.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("Ab", Schema11.Schema111.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("A-B", Schema13.Schema131.class),
+            new AbstractMap.SimpleEntry<String, Class<?>>("self", Schema12.Schema121.class)
+        ));
+        static final Set<String> required = new LinkedHashSet<>(Set.of(
+            "1",
+            "A-B",
+            "Ab",
+            "aB",
+            "self"
+        ));        static final Class<?> additionalProperties = AdditionalProperties.class;
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(PathParameters1.class, arg, configuration);
         }
