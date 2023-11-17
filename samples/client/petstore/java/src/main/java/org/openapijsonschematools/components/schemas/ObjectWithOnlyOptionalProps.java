@@ -49,22 +49,7 @@ public class ObjectWithOnlyOptionalProps {
         }
     }    
     
-    public class B implements JsonSchema {
-        public static Number validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
-    
-        public static Number validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
-    
-        public static Number validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
-    
-        public static Number validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
+    public class B extends DoubleJsonSchema {
     }
     
     

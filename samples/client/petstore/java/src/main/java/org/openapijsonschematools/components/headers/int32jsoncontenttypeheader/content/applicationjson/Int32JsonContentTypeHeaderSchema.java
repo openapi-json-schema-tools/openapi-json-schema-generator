@@ -35,13 +35,6 @@ public class Int32JsonContentTypeHeaderSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Int32JsonContentTypeHeaderSchema1 implements JsonSchema {
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int32JsonSchema.class, arg, configuration);
-        }
-    
-        public static Integer validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int32JsonSchema.class, Integer.parseInt(arg.toString()), configuration);
-        }
+    public class Int32JsonContentTypeHeaderSchema1 extends Int32JsonSchema {
     }
 }

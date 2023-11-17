@@ -35,52 +35,15 @@ public class Order {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Id implements JsonSchema {
-        public static Long validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, Long.valueOf(arg), configuration);
-        }
-    
-        public static Long validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, Long.parseLong(arg.toString()), configuration);
-        }
-    
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, arg, configuration);
-        }
-    
-        public static Long validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, Long.parseLong(arg.toString()), configuration);
-        }
+    public class Id extends Int64JsonSchema {
     }
     
     
-    public class PetId implements JsonSchema {
-        public static Long validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, Long.valueOf(arg), configuration);
-        }
-    
-        public static Long validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, Long.parseLong(arg.toString()), configuration);
-        }
-    
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, arg, configuration);
-        }
-    
-        public static Long validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, Long.parseLong(arg.toString()), configuration);
-        }
+    public class PetId extends Int64JsonSchema {
     }
     
     
-    public class Quantity implements JsonSchema {
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int32JsonSchema.class, arg, configuration);
-        }
-    
-        public static Integer validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int32JsonSchema.class, Integer.parseInt(arg.toString()), configuration);
-        }
+    public class Quantity extends Int32JsonSchema {
     }
     
     
@@ -103,10 +66,7 @@ public class Order {
         }
     }    
     
-    public class Complete implements JsonSchema {
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(BooleanJsonSchema.class, arg, configuration);
-        }
+    public class Complete extends BooleanJsonSchema {
     }
     
     

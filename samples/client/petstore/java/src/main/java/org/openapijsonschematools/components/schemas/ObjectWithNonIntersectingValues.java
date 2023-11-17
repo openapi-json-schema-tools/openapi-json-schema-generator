@@ -44,22 +44,7 @@ public class ObjectWithNonIntersectingValues {
         }
     }    
     
-    public class A implements JsonSchema {
-        public static Number validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
-    
-        public static Number validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
-    
-        public static Number validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
-    
-        public static Number validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
+    public class A extends DoubleJsonSchema {
     }
     
     

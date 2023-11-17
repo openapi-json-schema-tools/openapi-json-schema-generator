@@ -40,22 +40,7 @@ public class PaginatedResultMyObjectDto {
     }
     
     
-    public class Count implements JsonSchema {
-        public static Long validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(IntJsonSchema.class, Long.valueOf(arg), configuration);
-        }
-    
-        public static Long validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(IntJsonSchema.class, Long.parseLong(arg.toString()), configuration);
-        }
-    
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(IntJsonSchema.class, arg, configuration);
-        }
-    
-        public static Long validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(IntJsonSchema.class, Long.parseLong(arg.toString()), configuration);
-        }
+    public class Count extends IntJsonSchema {
     }
     
     

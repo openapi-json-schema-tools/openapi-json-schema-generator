@@ -84,22 +84,7 @@ public class Schema {
         }
     }    
     
-    public class Int64 implements JsonSchema {
-        public static Long validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, Long.valueOf(arg), configuration);
-        }
-    
-        public static Long validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, Long.parseLong(arg.toString()), configuration);
-        }
-    
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, arg, configuration);
-        }
-    
-        public static Long validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, Long.parseLong(arg.toString()), configuration);
-        }
+    public class Int64 extends Int64JsonSchema {
     }
     
     

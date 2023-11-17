@@ -158,10 +158,7 @@ public class NullableClass {
         }
     }    
     
-    public class Items implements JsonSchema {
-        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(MapJsonSchema.class, arg, configuration);
-        }
+    public class Items extends MapJsonSchema {
     }
     
     
@@ -229,10 +226,7 @@ public class NullableClass {
         }
     }    
     
-    public class AdditionalProperties implements JsonSchema {
-        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(MapJsonSchema.class, arg, configuration);
-        }
+    public class AdditionalProperties extends MapJsonSchema {
     }
     
     

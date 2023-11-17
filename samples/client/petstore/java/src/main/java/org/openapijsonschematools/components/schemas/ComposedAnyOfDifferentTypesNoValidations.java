@@ -35,10 +35,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Schema0 implements JsonSchema {
-        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(MapJsonSchema.class, arg, configuration);
-        }
+    public class Schema0 extends MapJsonSchema {
     }
     
     
@@ -91,17 +88,11 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         }
     }    
     
-    public class Schema6 implements JsonSchema {
-        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(MapJsonSchema.class, arg, configuration);
-        }
+    public class Schema6 extends MapJsonSchema {
     }
     
     
-    public class Schema7 implements JsonSchema {
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(BooleanJsonSchema.class, arg, configuration);
-        }
+    public class Schema7 extends BooleanJsonSchema {
     }
     
     
@@ -114,50 +105,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         }
     }    
     
-    public class Items implements JsonSchema {
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
-        }
-    
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
-        }
-    
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
-        }
-    
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
-        }
-    
-        public static Float validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
-        }
-    
-        public static Double validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
-        }
-    
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
-        }
-    
-        public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
-        }
-    
-        public static String validate(LocalDate arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
-        }
-    
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
-        }
-    
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
-        }
+    public class Items extends AnyTypeJsonSchema {
     }
     
     
@@ -171,85 +119,26 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         }
     }    
     
-    public class Schema10 implements JsonSchema {
-        public static Number validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
-    
-        public static Number validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
-    
-        public static Number validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
-    
-        public static Number validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
+    public class Schema10 extends DoubleJsonSchema {
     }
     
     
-    public class Schema11 implements JsonSchema {
-        public static Float validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(FloatJsonSchema.class, arg, configuration);
-        }
+    public class Schema11 extends FloatJsonSchema {
     }
     
     
-    public class Schema12 implements JsonSchema {
-        public static Double validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(DoubleJsonSchema.class, arg, configuration);
-        }
     }
     
     
-    public class Schema13 implements JsonSchema {
-        public static Long validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(IntJsonSchema.class, Long.valueOf(arg), configuration);
-        }
-    
-        public static Long validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(IntJsonSchema.class, Long.parseLong(arg.toString()), configuration);
-        }
-    
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(IntJsonSchema.class, arg, configuration);
-        }
-    
-        public static Long validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(IntJsonSchema.class, Long.parseLong(arg.toString()), configuration);
-        }
+    public class Schema13 extends IntJsonSchema {
     }
     
     
-    public class Schema14 implements JsonSchema {
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int32JsonSchema.class, arg, configuration);
-        }
-    
-        public static Integer validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int32JsonSchema.class, Integer.parseInt(arg.toString()), configuration);
-        }
+    public class Schema14 extends Int32JsonSchema {
     }
     
     
-    public class Schema15 implements JsonSchema {
-        public static Long validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, Long.valueOf(arg), configuration);
-        }
-    
-        public static Long validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, Long.parseLong(arg.toString()), configuration);
-        }
-    
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, arg, configuration);
-        }
-    
-        public static Long validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, Long.parseLong(arg.toString()), configuration);
-        }
+    public class Schema15 extends Int64JsonSchema {
     }
     
     

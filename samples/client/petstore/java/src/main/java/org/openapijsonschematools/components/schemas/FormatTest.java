@@ -59,14 +59,7 @@ public class FormatTest {
         }
     }    
     
-    public class Int32 implements JsonSchema {
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int32JsonSchema.class, arg, configuration);
-        }
-    
-        public static Integer validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int32JsonSchema.class, Integer.parseInt(arg.toString()), configuration);
-        }
+    public class Int32 extends Int32JsonSchema {
     }
     
     
@@ -95,22 +88,7 @@ public class FormatTest {
         }
     }    
     
-    public class Int64 implements JsonSchema {
-        public static Long validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, Long.valueOf(arg), configuration);
-        }
-    
-        public static Long validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, Long.parseLong(arg.toString()), configuration);
-        }
-    
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, arg, configuration);
-        }
-    
-        public static Long validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int64JsonSchema.class, Long.parseLong(arg.toString()), configuration);
-        }
+    public class Int64 extends Int64JsonSchema {
     }
     
     
@@ -151,10 +129,7 @@ public class FormatTest {
         }
     }    
     
-    public class Float32 implements JsonSchema {
-        public static Float validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(FloatJsonSchema.class, arg, configuration);
-        }
+    public class Float32 extends FloatJsonSchema {
     }
     
     
@@ -171,29 +146,10 @@ public class FormatTest {
         }
     }    
     
-    public class Float64 implements JsonSchema {
-        public static Double validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(DoubleJsonSchema.class, arg, configuration);
-        }
     }
     
     
-    public class Items implements JsonSchema {
-        public static Number validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
-    
-        public static Number validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
-    
-        public static Number validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
-    
-        public static Number validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
+    public class Items extends DoubleJsonSchema {
     }
     
     

@@ -35,10 +35,7 @@ public class Cat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Declawed implements JsonSchema {
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(BooleanJsonSchema.class, arg, configuration);
-        }
+    public class Declawed extends BooleanJsonSchema {
     }
     
     

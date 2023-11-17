@@ -35,22 +35,7 @@ public class ArrayOfArrayOfNumberOnly {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Items1 implements JsonSchema {
-        public static Number validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
-    
-        public static Number validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
-    
-        public static Number validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
-    
-        public static Number validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
-        }
+    public class Items1 extends DoubleJsonSchema {
     }
     
     

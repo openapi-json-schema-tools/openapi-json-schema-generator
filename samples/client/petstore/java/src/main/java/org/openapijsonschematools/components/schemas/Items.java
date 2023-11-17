@@ -35,10 +35,7 @@ public class Items {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Items2 implements JsonSchema {
-        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(MapJsonSchema.class, arg, configuration);
-        }
+    public class Items2 extends MapJsonSchema {
     }
     
     

@@ -35,17 +35,11 @@ public class Whale {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class HasBaleen implements JsonSchema {
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(BooleanJsonSchema.class, arg, configuration);
-        }
+    public class HasBaleen extends BooleanJsonSchema {
     }
     
     
-    public class HasTeeth implements JsonSchema {
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(BooleanJsonSchema.class, arg, configuration);
-        }
+    public class HasTeeth extends BooleanJsonSchema {
     }
     
     

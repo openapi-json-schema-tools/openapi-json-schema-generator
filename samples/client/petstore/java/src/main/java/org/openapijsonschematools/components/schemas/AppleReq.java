@@ -49,10 +49,7 @@ public class AppleReq {
         }
     }    
     
-    public class Mealy implements JsonSchema {
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(BooleanJsonSchema.class, arg, configuration);
-        }
+    public class Mealy extends BooleanJsonSchema {
     }
     
     

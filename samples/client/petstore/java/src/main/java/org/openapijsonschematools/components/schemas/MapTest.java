@@ -86,10 +86,7 @@ public class MapTest {
     }
     
     
-    public class AdditionalProperties3 implements JsonSchema {
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(BooleanJsonSchema.class, arg, configuration);
-        }
+    public class AdditionalProperties3 extends BooleanJsonSchema {
     }
     
     

@@ -35,9 +35,6 @@ public class BooleanSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class BooleanSchema1 implements JsonSchema {
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(BooleanJsonSchema.class, arg, configuration);
-        }
+    public class BooleanSchema1 extends BooleanJsonSchema {
     }
 }

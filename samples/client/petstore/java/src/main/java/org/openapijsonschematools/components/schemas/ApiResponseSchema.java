@@ -35,14 +35,7 @@ public class ApiResponseSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Code implements JsonSchema {
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int32JsonSchema.class, arg, configuration);
-        }
-    
-        public static Integer validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Int32JsonSchema.class, Integer.parseInt(arg.toString()), configuration);
-        }
+    public class Code extends Int32JsonSchema {
     }
     
     
