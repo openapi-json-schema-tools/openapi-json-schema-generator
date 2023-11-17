@@ -1,8 +1,4 @@
-public record AnyTypeSchema() implements JsonSchema {
-    public static AnyTypeSchema withDefaults() {
-        return new AnyTypeSchema();
-    }
-
+public class AnyTypeSchema implements JsonSchema {
     public static Void validate(Void arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(AnyTypeSchema.class, arg, configuration);
     }
