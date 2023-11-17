@@ -22,7 +22,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |additionalEnumTypeAnnotations|Additional annotations for enum type(class level annotations)| |null|
 |additionalModelTypeAnnotations|Additional annotations for model type(class level annotations). List separated by semicolon(;) or new line (Linux or Windows)| |null|
 |allowUnicodeIdentifiers|boolean, toggles whether unicode identifiers are allowed in names or not, default is false| |false|
-|apiPackage|package for generated api classes| |org.openapijsonschematools.client.api|
+|apiPackage|package for generated api classes| |apis|
 |artifactDescription|artifact description in generated pom.xml| |OpenAPI Java|
 |artifactId|artifactId in generated pom.xml. This also becomes part of the generated library's filename| |openapi-java-client|
 |artifactUrl|artifact URL in generated pom.xml| |https://github.com/openapi-json-schema-tools/openapi-json-schema-generator|
@@ -58,7 +58,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |licenseUrl|The URL of the license| |http://unlicense.org|
 |microprofileFramework|Framework for microprofile. Possible values "kumuluzee"| |null|
 |microprofileRestClientVersion|Version of MicroProfile Rest Client API.| |null|
-|modelPackage|package for generated models| |org.openapijsonschematools.client.model|
+|modelPackage|package for generated models| |components.schemas|
 |openApiNullable|Enable OpenAPI Jackson Nullable library| |true|
 |parcelableModel|Whether to generate models for Android that implement Parcelable with the okhttp-gson library.| |false|
 |parentArtifactId|parent artifactId in generated pom N.B. parentGroupId, parentArtifactId and parentVersion must all be specified for any of them to take effect| |null|
@@ -151,7 +151,6 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 <li>else</li>
 <li>enum</li>
 <li>extends</li>
-<li>file</li>
 <li>final</li>
 <li>finally</li>
 <li>float</li>
@@ -162,8 +161,11 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 <li>import</li>
 <li>instanceof</li>
 <li>int</li>
+<li>integer</li>
 <li>interface</li>
+<li>linkedhashset</li>
 <li>list</li>
+<li>localdate</li>
 <li>localreturntype</li>
 <li>localvaraccept</li>
 <li>localvaraccepts</li>
@@ -178,10 +180,11 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 <li>localvarpostbody</li>
 <li>localvarqueryparams</li>
 <li>long</li>
+<li>map</li>
 <li>native</li>
 <li>new</li>
 <li>null</li>
-<li>object</li>
+<li>number</li>
 <li>package</li>
 <li>private</li>
 <li>protected</li>
@@ -190,6 +193,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 <li>short</li>
 <li>static</li>
 <li>strictfp</li>
+<li>string</li>
 <li>stringutil</li>
 <li>super</li>
 <li>switch</li>
@@ -199,9 +203,11 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 <li>throws</li>
 <li>transient</li>
 <li>try</li>
+<li>uuid</li>
 <li>void</li>
 <li>volatile</li>
 <li>while</li>
+<li>zoneddatetime</li>
 </ul>
 
 ## FEATURE SET
