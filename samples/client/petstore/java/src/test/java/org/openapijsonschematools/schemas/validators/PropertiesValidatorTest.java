@@ -7,7 +7,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.PathToSchemasMap;
 import org.openapijsonschematools.schemas.SchemaValidator;
-import org.openapijsonschematools.schemas.JsonSchemas;
+import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.ValidationMetadata;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class PropertiesValidatorTest {
     @Test
     public void testCorrectPropertySucceeds() {
         Map<String, Class<?>> properties = new LinkedHashMap<>();
-        properties.put("someString", StringSchema.class);
+        properties.put("someString", StringJsonSchema.class);
 
         final PropertiesValidator validator = new PropertiesValidator();
         List<Object> pathToItem = new ArrayList<>();
@@ -47,7 +47,7 @@ public class PropertiesValidatorTest {
         expectedPathToItem.add("someString");
         LinkedHashMap<Class<?>, Void> expectedClasses = new LinkedHashMap<>();
         expectedClasses.put(String.class, null);
-        expectedClasses.put(StringSchema.class, null);
+        expectedClasses.put(StringJsonSchema.class, null);
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
         expectedPathToSchemas.put(expectedPathToItem, expectedClasses);
         Assert.assertEquals(pathToSchemas, expectedPathToSchemas);
@@ -56,7 +56,7 @@ public class PropertiesValidatorTest {
     @Test
     public void testNotApplicableTypeReturnsNull() {
         Map<String, Class<?>> properties = new LinkedHashMap<>();
-        properties.put("someString", StringSchema.class);
+        properties.put("someString", StringJsonSchema.class);
 
         final PropertiesValidator validator = new PropertiesValidator();
         List<Object> pathToItem = new ArrayList<>();
@@ -80,7 +80,7 @@ public class PropertiesValidatorTest {
     @Test
     public void testIncorrectPropertyValueFails() {
         Map<String, Class<?>> properties = new LinkedHashMap<>();
-        properties.put("someString", StringSchema.class);
+        properties.put("someString", StringJsonSchema.class);
 
         final PropertiesValidator validator = new PropertiesValidator();
         List<Object> pathToItem = new ArrayList<>();

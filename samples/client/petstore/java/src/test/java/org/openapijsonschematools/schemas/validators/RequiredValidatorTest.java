@@ -7,7 +7,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.PathToSchemasMap;
 import org.openapijsonschematools.schemas.SchemaValidator;
-import org.openapijsonschematools.schemas.JsonSchemas;
+import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.ValidationMetadata;
 
 import java.util.ArrayList;
@@ -49,7 +49,7 @@ public class RequiredValidatorTest {
     @Test
     public void testNotApplicableTypeReturnsNull() {
         Map<String, Class<?>> properties = new LinkedHashMap<>();
-        properties.put("someString", StringSchema.class);
+        properties.put("someString", StringJsonSchema.class);
 
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");

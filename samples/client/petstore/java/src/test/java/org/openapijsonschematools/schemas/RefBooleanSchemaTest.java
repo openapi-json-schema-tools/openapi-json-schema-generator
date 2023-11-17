@@ -5,8 +5,8 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 
-class RefBooleanSchema extends JsonSchemas {
-    public class RefBooleanSchema1 extends BooleanSchema{}
+class RefBooleanSchema {
+    public class RefBooleanSchema1 extends BooleanJsonSchema{}
 }
 
 public class RefBooleanSchemaTest {

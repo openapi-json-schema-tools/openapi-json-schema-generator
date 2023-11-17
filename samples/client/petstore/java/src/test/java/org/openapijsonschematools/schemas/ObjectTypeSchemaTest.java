@@ -16,7 +16,7 @@ class ObjectWithPropsSchema implements JsonSchema {
         FrozenMap.class
     ));
     static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-        new AbstractMap.SimpleEntry<String, Class<?>>("someString", StringSchema.class)
+        new AbstractMap.SimpleEntry<String, Class<?>>("someString", StringJsonSchema.class)
     ));
 
     public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -28,7 +28,7 @@ class ObjectWithAddpropsSchema implements JsonSchema {
     static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
         FrozenMap.class
     ));
-    static final Class<?> additionalProperties = StringSchema.class;
+    static final Class<?> additionalProperties = StringJsonSchema.class;
 
     public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(ObjectWithAddpropsSchema.class, arg, configuration);
@@ -40,9 +40,9 @@ class ObjectWithPropsAndAddpropsSchema implements JsonSchema {
         FrozenMap.class
     ));
     static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-        new AbstractMap.SimpleEntry<String, Class<?>>("someString", StringSchema.class)
+        new AbstractMap.SimpleEntry<String, Class<?>>("someString", StringJsonSchema.class)
     ));
-    static final Class<?> additionalProperties = BooleanSchema.class;
+    static final Class<?> additionalProperties = BooleanJsonSchema.class;
 
     public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(ObjectWithPropsAndAddpropsSchema.class, arg, configuration);
@@ -65,7 +65,7 @@ class ObjectWithOutputTypeSchema implements JsonSchema {
         FrozenMap.class
     ));
     static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-        new AbstractMap.SimpleEntry<String, Class<?>>("someString", StringSchema.class)
+        new AbstractMap.SimpleEntry<String, Class<?>>("someString", StringJsonSchema.class)
     ));
 
     public static ObjectWithOutputTypeSchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

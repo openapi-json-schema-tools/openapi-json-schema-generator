@@ -15,7 +15,7 @@ public class MapSchemaTest {
     @Test
     public void testExceptionThrownForInvalidType() {
         Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validate(
-                MapSchema.class, (Void) null, configuration
+                MapJsonSchema.class, (Void) null, configuration
         ));
     }
 
@@ -23,7 +23,7 @@ public class MapSchemaTest {
     public void testValidateMap() {
         Map<String, Object> inMap = new LinkedHashMap<>();
         inMap.put("today", LocalDate.of(2017, 7, 21));
-        FrozenMap<String, Object> validatedValue = MapSchema.validate(inMap, configuration);
+        FrozenMap<String, Object> validatedValue = MapJsonSchema.validate(inMap, configuration);
         LinkedHashMap<String, String> outMap = new LinkedHashMap<>();
         outMap.put("today", "2017-07-21");
         Assert.assertEquals(validatedValue, outMap);

@@ -14,7 +14,7 @@ class ArrayWithItemsSchema implements JsonSchema {
     static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
         FrozenList.class
     ));
-    static final Class<?> items = StringSchema.class;
+    static final Class<?> items = StringJsonSchema.class;
 
     public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(ArrayWithItemsSchema.class, arg, configuration);
@@ -35,7 +35,7 @@ class ArrayWithOutputClsSchema implements JsonSchema {
     static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
         FrozenList.class
     ));
-    static final Class<?> items = StringSchema.class;
+    static final Class<?> items = StringJsonSchema.class;
 
     public static ArrayWithOutputClsSchemaList getListOutputInstance(FrozenList<? extends String> arg) {
         return new ArrayWithOutputClsSchemaList(arg);

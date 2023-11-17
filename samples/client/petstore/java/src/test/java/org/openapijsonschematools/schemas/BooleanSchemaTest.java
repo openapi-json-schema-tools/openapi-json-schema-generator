@@ -10,20 +10,20 @@ public class BooleanSchemaTest {
 
     @Test
     public void testValidateTrue() {
-        Boolean validatedValue = BooleanSchema.validate(Boolean.TRUE, configuration);
+        Boolean validatedValue = BooleanJsonSchema.validate(Boolean.TRUE, configuration);
         Assert.assertEquals(validatedValue, Boolean.TRUE);
     }
 
     @Test
     public void testValidateFalse() {
-        Boolean validatedValue = BooleanSchema.validate(Boolean.FALSE, configuration);
+        Boolean validatedValue = BooleanJsonSchema.validate(Boolean.FALSE, configuration);
         Assert.assertEquals(validatedValue, Boolean.FALSE);
     }
 
     @Test
     public void testExceptionThrownForInvalidType() {
         Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validate(
-                BooleanSchema.class, (Void) null, configuration
+                BooleanJsonSchema.class, (Void) null, configuration
         ));
     }
 }
