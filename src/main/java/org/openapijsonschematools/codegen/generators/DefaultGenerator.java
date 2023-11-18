@@ -2096,7 +2096,7 @@ public class DefaultGenerator implements Generator {
      * @return all the imports
      */
     @Override
-    public Set<String> getImports(CodegenSchema schema, FeatureSet featureSet) {
+    public Set<String> getImports(String sourceJsonPath, CodegenSchema schema, FeatureSet featureSet) {
         Set<String> imports = new HashSet<>();
         if (schema.discriminator != null && schema.discriminator.mappedModels != null) {
             CodegenDiscriminator disc = schema.discriminator;
@@ -2132,21 +2132,21 @@ public class DefaultGenerator implements Generator {
             Stream<CodegenSchema> allSchemas = Stream.of(
                     allOfs.stream(), anyOfs.stream(), oneOfs.stream(), notSchemas.stream()).flatMap(i -> i);
             for (CodegenSchema cs: allSchemas.collect(Collectors.toList())) {
-                imports.addAll(getImports(cs, featureSet));
+                imports.addAll(getImports(sourceJsonPath, cs, featureSet));
             }
         }
         // items can exist for AnyType and type array
         if (schema.items != null && schema.types != null && schema.types.contains("array")) {
-            imports.addAll(getImports(schema.items, featureSet));
+            imports.addAll(getImports(sourceJsonPath, schema.items, featureSet));
         }
         // additionalProperties can exist for AnyType and type object
         if (schema.additionalProperties != null) {
-            imports.addAll(getImports(schema.additionalProperties, featureSet));
+            imports.addAll(getImports(sourceJsonPath, schema.additionalProperties, featureSet));
         }
         // vars can exist for AnyType and type object
         if (schema.properties != null && !schema.properties.isEmpty()) {
             for (CodegenSchema cs: schema.properties.values()) {
-                imports.addAll(getImports(cs, featureSet));
+                imports.addAll(getImports(sourceJsonPath, cs, featureSet));
             }
         }
         // referenced or inline schemas
@@ -2292,7 +2292,7 @@ public class DefaultGenerator implements Generator {
                 // import from $ref
                 property.imports = new TreeSet<>();
                 assert generatorMetadata != null;
-                addImports(property.imports, getImports(property, generatorMetadata.getFeatureSet()));
+                addImports(property.imports, getImports(sourceJsonPath, property, generatorMetadata.getFeatureSet()));
             }
             if (p.getSpecVersion().compareTo(SpecVersion.V31) < 0) {
                 //  stop processing if version is less than 3.1.0
@@ -2552,7 +2552,7 @@ public class DefaultGenerator implements Generator {
             // imports from properties/items/additionalProperties/oneOf/anyOf/allOf/not
             property.imports = new TreeSet<>();
             assert generatorMetadata != null;
-            addImports(property.imports, getImports(property, generatorMetadata.getFeatureSet()));
+            addImports(property.imports, getImports(sourceJsonPath, property, generatorMetadata.getFeatureSet()));
         }
 
         LOGGER.debug("debugging fromSchema return: {}", property);
@@ -2966,7 +2966,7 @@ public class DefaultGenerator implements Generator {
         xParametersSchema.setAdditionalProperties(Boolean.FALSE);
         CodegenSchema schema = fromSchema(xParametersSchema, sourceJsonPath, currentJsonPath);
         schema.imports = new TreeSet<>();
-        addImports(schema.imports, getImports(schema, generatorMetadata.getFeatureSet()));
+        addImports(schema.imports, getImports(sourceJsonPath, schema, generatorMetadata.getFeatureSet()));
         return schema;
     }
 

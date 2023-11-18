@@ -129,6 +129,38 @@ public class CodegenSchema {
         return maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || patternInfo != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null;
     }
 
+    public boolean isSimpleBoolean() {
+        if (types == null) {
+            return false;
+        }
+        if (types.size() != 1) {
+            return false;
+        }
+        if (!types.contains("boolean")) {
+            return false;
+        }
+        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isSimpleNull() {
+        if (types == null) {
+            return false;
+        }
+        if (types.size() != 1) {
+            return false;
+        }
+        if (!types.contains("null")) {
+            return false;
+        }
+        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null) {
+            return false;
+        }
+        return true;
+    }
+
     public CodegenSchema typeSchema() {
         CodegenSchema schema = new CodegenSchema();
         schema.refInfo = refInfo;

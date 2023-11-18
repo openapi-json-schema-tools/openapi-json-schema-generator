@@ -1,7 +1,6 @@
 package org.openapijsonschematools.components.schemas;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.schemas.DateJsonSchema;
 import org.openapijsonschematools.schemas.DateTimeJsonSchema;
 import org.openapijsonschematools.schemas.DecimalJsonSchema;
@@ -16,7 +15,6 @@ import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.ListJsonSchema;
 import org.openapijsonschematools.schemas.MapJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.NullJsonSchema;
 import org.openapijsonschematools.schemas.NumberJsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.UnsetAnyTypeJsonSchema;
@@ -35,14 +33,9 @@ public class ShapeOrNull {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Schema0 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            Void.class
-        ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
-        }
-    }    
+    public class Schema0 extends NullJsonSchema {
+    }
+    
     
     public class ShapeOrNull1 implements JsonSchema {
         /*

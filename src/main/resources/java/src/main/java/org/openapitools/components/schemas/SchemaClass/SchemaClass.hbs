@@ -40,11 +40,19 @@
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
                                 {{/or}}
                             {{else}}
-                                {{#or allOf anyOf oneOf not if_ then else_ enumInfo constInfo defaultValue (neq maxLength null) (neq minLength null) patternInfo }}
+                                {{#eq this "string"}}
+                                    {{#or allOf anyOf oneOf not if_ then else_ enumInfo constInfo defaultValue (neq maxLength null) (neq minLength null) patternInfo }}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_string }}
-                                {{else}}
+                                    {{else}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
-                                {{/or}}
+                                    {{/or}}
+                                {{else}}
+                                    {{#or allOf anyOf oneOf not if_ then else_ enumInfo constInfo }}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_null }}
+                                    {{else}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
+                                    {{/or}}
+                                {{/eq}}
                             {{/or}}
                         {{/eq}}
                     {{/eq}}

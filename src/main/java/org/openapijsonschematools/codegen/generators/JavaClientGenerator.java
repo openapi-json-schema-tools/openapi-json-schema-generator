@@ -21,10 +21,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
 import org.openapijsonschematools.codegen.generators.models.VendorExtension;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParameter;
@@ -48,6 +50,8 @@ import org.slf4j.LoggerFactory;
 import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static com.google.common.base.CaseFormat.LOWER_CAMEL;
 import static com.google.common.base.CaseFormat.UPPER_UNDERSCORE;
@@ -1110,12 +1114,69 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     @Override
-    public Set<String> getImports(CodegenSchema schema, FeatureSet featureSet) {
-        if (schema.jsonPath.startsWith("#/components/schemas/")) {
-            // all of those components are in the same package, so they don't need to import each other
-            return new HashSet<>();
+    public Set<String> getImports(String sourceJsonPath, CodegenSchema schema, FeatureSet featureSet) {
+        Set<String> imports = new HashSet<>();
+        // Note: discriminator imports do not need to be added for Java
+        // because they are in the package namespace in components.schemas
+        if (schema.allOf != null || schema.anyOf != null || schema.oneOf != null || schema.not != null) {
+            List<CodegenSchema> allOfs = Collections.emptyList();
+            List<CodegenSchema> oneOfs = Collections.emptyList();
+            List<CodegenSchema> anyOfs = Collections.emptyList();
+            List<CodegenSchema> notSchemas = Collections.emptyList();
+            if (schema.allOf != null && featureSet.getSchemaSupportFeatures().contains(SchemaFeature.AllOf)) {
+                allOfs = schema.allOf;
+            }
+            if (schema.oneOf != null && featureSet.getSchemaSupportFeatures().contains(SchemaFeature.OneOf)) {
+                oneOfs = schema.oneOf;
+            }
+            if (schema.anyOf != null && featureSet.getSchemaSupportFeatures().contains(SchemaFeature.AnyOf)) {
+                anyOfs = schema.anyOf;
+            }
+            if (schema.not != null && featureSet.getSchemaSupportFeatures().contains(SchemaFeature.Not)) {
+                notSchemas = Collections.singletonList(schema.not);
+            }
+            Stream<CodegenSchema> allSchemas = Stream.of(
+                    allOfs.stream(), anyOfs.stream(), oneOfs.stream(), notSchemas.stream()).flatMap(i -> i);
+            for (CodegenSchema cs: allSchemas.collect(Collectors.toList())) {
+                imports.addAll(getImports(sourceJsonPath, cs, featureSet));
+            }
         }
-        return super.getImports(schema, featureSet);
+        // items can exist for AnyType and type array
+        if (schema.items != null && schema.types != null && schema.types.contains("array")) {
+            imports.addAll(getImports(sourceJsonPath, schema.items, featureSet));
+        }
+        // additionalProperties can exist for AnyType and type object
+        if (schema.additionalProperties != null) {
+            imports.addAll(getImports(sourceJsonPath, schema.additionalProperties, featureSet));
+        }
+        // vars can exist for AnyType and type object
+        if (schema.properties != null && !schema.properties.isEmpty()) {
+            for (CodegenSchema cs: schema.properties.values()) {
+                imports.addAll(getImports(sourceJsonPath, cs, featureSet));
+            }
+        }
+        // referenced or inline schemas
+        if (!sourceJsonPath.startsWith("#/components/schemas/") && schema.refInfo != null && schema.refInfo.refModule != null) {
+            imports.add(getImport(schema.refInfo));
+            CodegenSchema ref = schema.refInfo.ref;
+            if (ref.refInfo != null && schema.refInfo.refModule != null && deepestRefSchemaImportNeeded) {
+                CodegenRefInfo<CodegenSchema> deepestRefInfo = schema.refInfo;
+                while (deepestRefInfo.ref.refInfo != null) {
+                    deepestRefInfo = deepestRefInfo.ref.refInfo;
+                }
+                imports.add(getImport(deepestRefInfo));
+            }
+        }
+        if (schema.types != null) {
+            if (schema.types.size() == 1) {
+                if (schema.isSimpleBoolean()) {
+                    imports.add("import "+packageName + ".schemas.BooleanJsonSchema;");
+                } else if (schema.isSimpleNull()) {
+                    imports.add("import "+packageName + ".schemas.NullJsonSchema;");
+                }
+            }
+        }
+        return imports;
     }
 
 

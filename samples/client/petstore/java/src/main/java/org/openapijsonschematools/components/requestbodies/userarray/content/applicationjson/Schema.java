@@ -1,7 +1,6 @@
 package org.openapijsonschematools.components.requestbodies.userarray.content.applicationjson;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.schemas.DateJsonSchema;
 import org.openapijsonschematools.schemas.DateTimeJsonSchema;
 import org.openapijsonschematools.schemas.DecimalJsonSchema;
@@ -16,7 +15,6 @@ import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.ListJsonSchema;
 import org.openapijsonschematools.schemas.MapJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.NullJsonSchema;
 import org.openapijsonschematools.schemas.NumberJsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.UnsetAnyTypeJsonSchema;

@@ -1,7 +1,6 @@
 package org.openapijsonschematools.components.schemas;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.schemas.DateJsonSchema;
 import org.openapijsonschematools.schemas.DateTimeJsonSchema;
 import org.openapijsonschematools.schemas.DecimalJsonSchema;
@@ -16,7 +15,6 @@ import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.ListJsonSchema;
 import org.openapijsonschematools.schemas.MapJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.NullJsonSchema;
 import org.openapijsonschematools.schemas.NumberJsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.UnsetAnyTypeJsonSchema;
@@ -160,14 +158,9 @@ public class User {
         }
     }    
     
-    public class Not implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            Void.class
-        ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Not.class, arg, configuration);
-        }
-    }    
+    public class Not extends NullJsonSchema {
+    }
+    
     
     public class AnyTypeExceptNullProp implements JsonSchema {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
