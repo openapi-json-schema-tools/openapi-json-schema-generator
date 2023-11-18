@@ -1,12 +1,11 @@
 package org.openapijsonschematools.paths.fakeinlinecomposition.post;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
-
-import java.util.LinkedHashSet;
-import java.util.Set;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Set;
 import org.openapijsonschematools.paths.fakeinlinecomposition.post.parameters.parameter0.Schema0;
 import org.openapijsonschematools.paths.fakeinlinecomposition.post.parameters.parameter1.Schema1;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;

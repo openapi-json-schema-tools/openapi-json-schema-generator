@@ -1,10 +1,9 @@
 package org.openapijsonschematools.components.responses.successinlinecontentandheader.content.applicationjson;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
-
 import java.util.LinkedHashSet;
-import java.util.Set;
 import java.util.Map;
+import java.util.Set;
 import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.Int32JsonSchema;
 

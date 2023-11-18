@@ -1,9 +1,6 @@
 package org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter9;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
-
-import java.util.LinkedHashSet;
-import java.util.Set;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class Schema9 {

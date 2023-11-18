@@ -1,9 +1,6 @@
 package org.openapijsonschematools.paths.fakejsonwithcharset.post.requestbody.content.applicationjsoncharsetutf8;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
-
-import java.util.LinkedHashSet;
-import java.util.Set;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 
 public class Schema {

@@ -1,11 +1,10 @@
 package org.openapijsonschematools.components.schemas;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
-
-import java.util.LinkedHashSet;
-import java.util.Set;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import java.util.UUID;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;

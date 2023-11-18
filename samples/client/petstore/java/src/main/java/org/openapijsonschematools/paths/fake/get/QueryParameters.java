@@ -1,12 +1,11 @@
 package org.openapijsonschematools.paths.fake.get;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
-
-import java.util.LinkedHashSet;
-import java.util.Set;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Set;
 import org.openapijsonschematools.paths.fake.get.parameters.parameter2.Schema2;
 import org.openapijsonschematools.paths.fake.get.parameters.parameter3.Schema3;
 import org.openapijsonschematools.paths.fake.get.parameters.parameter4.Schema4;

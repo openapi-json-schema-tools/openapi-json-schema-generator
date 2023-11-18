@@ -1,7 +1,6 @@
 package org.openapijsonschematools.paths.fake.get.parameters.parameter5;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
-
 import java.util.LinkedHashSet;
 import java.util.Set;
 

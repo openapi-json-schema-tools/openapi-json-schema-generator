@@ -1,12 +1,11 @@
 package org.openapijsonschematools.paths.fake.get.parameters.parameter2;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
-
-import java.util.LinkedHashSet;
-import java.util.Set;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import org.openapijsonschematools.schemas.FrozenList;
 import org.openapijsonschematools.schemas.StringJsonSchema;

@@ -1,12 +1,11 @@
 package org.openapijsonschematools.components.responses.successwithjsonapiresponse;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
-
-import java.util.LinkedHashSet;
-import java.util.Set;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Set;
 import org.openapijsonschematools.components.headers.int32jsoncontenttypeheader.content.applicationjson.Int32JsonContentTypeHeaderSchema;
 import org.openapijsonschematools.components.headers.numberheader.NumberHeaderSchema;
 import org.openapijsonschematools.components.headers.stringheader.StringHeaderSchema;

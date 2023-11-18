@@ -1174,29 +1174,49 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         }
         if (schema.types != null) {
             if (schema.types.size() == 1) {
-                if (schema.isSimpleBoolean()) {
-                    imports.add("import "+packageName + ".schemas.BooleanJsonSchema;");
-                } else if (schema.isSimpleNull()) {
-                    imports.add("import "+packageName + ".schemas.NullJsonSchema;");
-                } else if (schema.isSimpleInteger()) {
-                    if (schema.format == null) {
-                        imports.add("import "+packageName + ".schemas.IntJsonSchema;");
-                    } else if (schema.format.equals("int32")) {
-                        imports.add("import "+packageName + ".schemas.Int32JsonSchema;");
-                    } else if (schema.format.equals("int64")) {
-                        imports.add("import "+packageName + ".schemas.Int64JsonSchema;");
+                if (schema.types.contains("boolean")) {
+                    if (schema.isSimpleBoolean()) {
+                        imports.add("import "+packageName + ".schemas.BooleanJsonSchema;");
+                    } else {
+                        imports.add("import java.util.LinkedHashSet;");
+                        imports.add("import java.util.Set;");
                     }
-                } else if (schema.isSimpleNumber()) {
-                    if (schema.format == null) {
-                        imports.add("import "+packageName + ".schemas.NumberJsonSchema;");
-                    } else if (schema.format.equals("int32")) {
-                        imports.add("import "+packageName + ".schemas.Int32JsonSchema;");
-                    } else if (schema.format.equals("int64")) {
-                        imports.add("import "+packageName + ".schemas.Int64JsonSchema;");
-                    } else if (schema.format.equals("float")) {
-                        imports.add("import "+packageName + ".schemas.FloatJsonSchema;");
-                    } else if (schema.format.equals("double")) {
-                        imports.add("import "+packageName + ".schemas.DoubleJsonSchema;");
+                } else if (schema.types.contains("null")) {
+                    if (schema.isSimpleNull()) {
+                        imports.add("import "+packageName + ".schemas.NullJsonSchema;");
+                    } else {
+                        imports.add("import java.util.LinkedHashSet;");
+                        imports.add("import java.util.Set;");
+                    }
+                } else if (schema.types.contains("integer")) {
+                    if (schema.isSimpleInteger()) {
+                        if (schema.format == null) {
+                            imports.add("import "+packageName + ".schemas.IntJsonSchema;");
+                        } else if (schema.format.equals("int32")) {
+                            imports.add("import "+packageName + ".schemas.Int32JsonSchema;");
+                        } else if (schema.format.equals("int64")) {
+                            imports.add("import "+packageName + ".schemas.Int64JsonSchema;");
+                        }
+                    } else {
+                        imports.add("import java.util.LinkedHashSet;");
+                        imports.add("import java.util.Set;");
+                    }
+                } else if (schema.types.contains("number")) {
+                    if (schema.isSimpleNumber()) {
+                        if (schema.format == null) {
+                            imports.add("import "+packageName + ".schemas.NumberJsonSchema;");
+                        } else if (schema.format.equals("int32")) {
+                            imports.add("import "+packageName + ".schemas.Int32JsonSchema;");
+                        } else if (schema.format.equals("int64")) {
+                            imports.add("import "+packageName + ".schemas.Int64JsonSchema;");
+                        } else if (schema.format.equals("float")) {
+                            imports.add("import "+packageName + ".schemas.FloatJsonSchema;");
+                        } else if (schema.format.equals("double")) {
+                            imports.add("import "+packageName + ".schemas.DoubleJsonSchema;");
+                        }
+                    } else {
+                        imports.add("import java.util.LinkedHashSet;");
+                        imports.add("import java.util.Set;");
                     }
                 } else if (schema.types.contains("string")) {
                     if (schema.isSimpleString()) {
@@ -1212,6 +1232,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                             imports.add("import "+packageName + ".schemas.UuidJsonSchema;");
                         }
                     } else {
+                        imports.add("import java.util.LinkedHashSet;");
+                        imports.add("import java.util.Set;");
                         if (schema.format == null) {
                             imports.add("import "+packageName + ".schemas.StringJsonSchema;");
                             imports.add("import java.time.LocalDate;");
@@ -1229,6 +1251,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     if (schema.isSimpleObject()) {
                         imports.add("import "+packageName + ".schemas.MapJsonSchema;");
                     } else {
+                        imports.add("import java.util.LinkedHashSet;");
+                        imports.add("import java.util.Set;");
                         imports.add("import "+packageName + ".schemas.FrozenMap;");
                         imports.add("import java.util.Map;");
                         if (schema.properties != null) {
@@ -1240,10 +1264,15 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     if (schema.isSimpleArray()) {
                         imports.add("import "+packageName + ".schemas.ListJsonSchema;");
                     } else {
+                        imports.add("import java.util.LinkedHashSet;");
+                        imports.add("import java.util.Set;");
                         imports.add("import "+packageName + ".schemas.FrozenList;");
                         imports.add("import java.util.List;");
                     }
                 }
+            } else if (schema.types.size() > 1) {
+                imports.add("import java.util.LinkedHashSet;");
+                imports.add("import java.util.Set;");
             }
         } else {
             // no types

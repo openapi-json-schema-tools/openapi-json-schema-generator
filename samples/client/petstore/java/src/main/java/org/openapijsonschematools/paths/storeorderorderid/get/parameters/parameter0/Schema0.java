@@ -1,7 +1,6 @@
 package org.openapijsonschematools.paths.storeorderorderid.get.parameters.parameter0;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
-
 import java.util.LinkedHashSet;
 import java.util.Set;
 

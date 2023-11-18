@@ -1,10 +1,9 @@
 package org.openapijsonschematools.components.schemas;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
-
+import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import java.time.LocalDate;
 
 public class DateWithValidations {
     // nest classes so all schemas and input/output classes can be public

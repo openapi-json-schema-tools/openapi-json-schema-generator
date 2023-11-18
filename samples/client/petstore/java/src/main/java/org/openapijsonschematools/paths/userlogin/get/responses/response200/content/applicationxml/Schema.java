@@ -1,9 +1,6 @@
 package org.openapijsonschematools.paths.userlogin.get.responses.response200.content.applicationxml;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
-
-import java.util.LinkedHashSet;
-import java.util.Set;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class Schema {

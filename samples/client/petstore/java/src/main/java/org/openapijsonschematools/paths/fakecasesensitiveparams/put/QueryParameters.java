@@ -1,12 +1,11 @@
 package org.openapijsonschematools.paths.fakecasesensitiveparams.put;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
-
-import java.util.LinkedHashSet;
-import java.util.Set;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Set;
 import org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.parameter0.Schema0;
 import org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.parameter1.Schema1;
 import org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.parameter2.Schema2;
