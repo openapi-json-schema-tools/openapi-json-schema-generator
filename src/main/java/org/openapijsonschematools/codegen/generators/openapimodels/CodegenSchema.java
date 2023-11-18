@@ -161,6 +161,22 @@ public class CodegenSchema {
         return true;
     }
 
+    public boolean isSimpleInteger() {
+        if (types == null) {
+            return false;
+        }
+        if (types.size() != 1) {
+            return false;
+        }
+        if (!types.contains("integer")) {
+            return false;
+        }
+        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || maximum != null || minimum != null || multipleOf != null) {
+            return false;
+        }
+        return true;
+    }
+
     public CodegenSchema typeSchema() {
         CodegenSchema schema = new CodegenSchema();
         schema.refInfo = refInfo;

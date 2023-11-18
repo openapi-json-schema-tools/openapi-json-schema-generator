@@ -10,7 +10,6 @@ import org.openapijsonschematools.schemas.FrozenList;
 import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.Int32JsonSchema;
 import org.openapijsonschematools.schemas.Int64JsonSchema;
-import org.openapijsonschematools.schemas.IntJsonSchema;
 import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.ListJsonSchema;
 import org.openapijsonschematools.schemas.MapJsonSchema;
@@ -29,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.schemas.BooleanJsonSchema;
+import org.openapijsonschematools.schemas.IntJsonSchema;
 
 public class Order {
     // nest classes so all schemas and input/output classes can be public
