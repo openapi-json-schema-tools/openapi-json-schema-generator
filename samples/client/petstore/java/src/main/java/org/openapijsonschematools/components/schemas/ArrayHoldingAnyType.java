@@ -5,6 +5,7 @@ import org.openapijsonschematools.schemas.JsonSchema;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.List;
+import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.FrozenList;
 
 public class ArrayHoldingAnyType {
