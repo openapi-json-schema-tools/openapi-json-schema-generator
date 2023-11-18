@@ -1175,6 +1175,18 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     imports.add("import "+packageName + ".schemas.NullJsonSchema;");
                 } else if (schema.isSimpleInteger()) {
                     imports.add("import "+packageName + ".schemas.IntJsonSchema;");
+                } else if (schema.isSimpleNumber()) {
+                    if (schema.format == null) {
+                        imports.add("import "+packageName + ".schemas.NumberJsonSchema;");
+                    } else if (schema.format.equals("int32")) {
+                        imports.add("import "+packageName + ".schemas.Int32JsonSchema;");
+                    } else if (schema.format.equals("int64")) {
+                        imports.add("import "+packageName + ".schemas.Int64JsonSchema;");
+                    } else if (schema.format.equals("float")) {
+                        imports.add("import "+packageName + ".schemas.FloatJsonSchema;");
+                    } else if (schema.format.equals("double")) {
+                        imports.add("import "+packageName + ".schemas.DoubleJsonSchema;");
+                    }
                 }
             }
         }
