@@ -1174,7 +1174,13 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 } else if (schema.isSimpleNull()) {
                     imports.add("import "+packageName + ".schemas.NullJsonSchema;");
                 } else if (schema.isSimpleInteger()) {
-                    imports.add("import "+packageName + ".schemas.IntJsonSchema;");
+                    if (schema.format == null) {
+                        imports.add("import "+packageName + ".schemas.IntJsonSchema;");
+                    } else if (schema.format.equals("int32")) {
+                        imports.add("import "+packageName + ".schemas.Int32JsonSchema;");
+                    } else if (schema.format.equals("int64")) {
+                        imports.add("import "+packageName + ".schemas.Int64JsonSchema;");
+                    }
                 } else if (schema.isSimpleNumber()) {
                     if (schema.format == null) {
                         imports.add("import "+packageName + ".schemas.NumberJsonSchema;");
@@ -1187,17 +1193,32 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     } else if (schema.format.equals("double")) {
                         imports.add("import "+packageName + ".schemas.DoubleJsonSchema;");
                     }
-                } else if (schema.isSimpleString()) {
-                    if (schema.format == null) {
-                        imports.add("import "+packageName + ".schemas.StringJsonSchema;");
-                    } else if (schema.format.equals("date")) {
-                        imports.add("import "+packageName + ".schemas.DateJsonSchema;");
-                    } else if (schema.format.equals("date-time")) {
-                        imports.add("import "+packageName + ".schemas.DateTimeJsonSchema;");
-                    } else if (schema.format.equals("number")) {
-                        imports.add("import "+packageName + ".schemas.DecimalJsonSchema;");
-                    } else if (schema.format.equals("uuid")) {
-                        imports.add("import "+packageName + ".schemas.UuidJsonSchema;");
+                } else if (schema.types.contains("string")) {
+                    if (schema.isSimpleString()) {
+                        if (schema.format == null) {
+                            imports.add("import "+packageName + ".schemas.StringJsonSchema;");
+                        } else if (schema.format.equals("date")) {
+                            imports.add("import "+packageName + ".schemas.DateJsonSchema;");
+                        } else if (schema.format.equals("date-time")) {
+                            imports.add("import "+packageName + ".schemas.DateTimeJsonSchema;");
+                        } else if (schema.format.equals("number")) {
+                            imports.add("import "+packageName + ".schemas.DecimalJsonSchema;");
+                        } else if (schema.format.equals("uuid")) {
+                            imports.add("import "+packageName + ".schemas.UuidJsonSchema;");
+                        }
+                    } else {
+                        if (schema.format == null) {
+                            imports.add("import "+packageName + ".schemas.StringJsonSchema;");
+                            imports.add("import java.time.LocalDate;");
+                            imports.add("import java.time.ZonedDateTime;");
+                            imports.add("import java.util.UUID;");
+                        } else if (schema.format.equals("date")) {
+                            imports.add("import java.time.LocalDate;");
+                        } else if (schema.format.equals("date-time")) {
+                            imports.add("import java.time.ZonedDateTime;");
+                        } else if (schema.format.equals("uuid")) {
+                            imports.add("import java.util.UUID;");
+                        }
                     }
                 }
             }

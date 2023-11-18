@@ -9,8 +9,6 @@ import org.openapijsonschematools.schemas.MapJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.UnsetAnyTypeJsonSchema;
 
-import java.time.LocalDate;
-import java.time.ZonedDateTime;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;

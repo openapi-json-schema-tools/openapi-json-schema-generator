@@ -27,4 +27,8 @@ public class StringJsonSchema implements JsonSchema {
     public static String validate(LocalDate arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(StringJsonSchema.class, arg, configuration);
     }
+
+    public static String validate(UUID arg, SchemaConfiguration configuration) {
+        return JsonSchema.validate(StringJsonSchema.class, arg, configuration);
+    }
 }

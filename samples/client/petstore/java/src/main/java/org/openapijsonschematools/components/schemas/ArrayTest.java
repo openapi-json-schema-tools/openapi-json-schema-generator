@@ -9,15 +9,17 @@ import org.openapijsonschematools.schemas.MapJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.UnsetAnyTypeJsonSchema;
 
-import java.time.LocalDate;
-import java.time.ZonedDateTime;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import org.openapijsonschematools.schemas.IntJsonSchema;
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
+import java.util.UUID;
+import org.openapijsonschematools.schemas.Int64JsonSchema;
+import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class ArrayTest {
     // nest classes so all schemas and input/output classes can be public
