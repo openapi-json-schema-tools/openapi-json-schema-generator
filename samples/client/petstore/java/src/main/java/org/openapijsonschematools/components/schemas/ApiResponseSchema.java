@@ -15,16 +15,13 @@ public class ApiResponseSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Code extends Int32JsonSchema {
-    }
+    public class Code extends Int32JsonSchema {}
     
     
-    public class Type extends StringJsonSchema {
-    }
+    public class Type extends StringJsonSchema {}
     
     
-    public class Message extends StringJsonSchema {
-    }
+    public class Message extends StringJsonSchema {}
     
     
     public class ApiResponseSchema1 implements JsonSchema {

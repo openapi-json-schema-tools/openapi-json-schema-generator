@@ -10,6 +10,5 @@ public class BooleanSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class BooleanSchema1 extends BooleanJsonSchema {
-    }
+    public class BooleanSchema1 extends BooleanJsonSchema {}
 }

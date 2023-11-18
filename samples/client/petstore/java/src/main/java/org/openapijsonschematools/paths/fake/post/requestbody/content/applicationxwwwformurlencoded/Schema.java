@@ -68,8 +68,7 @@ public class Schema {
         }
     }    
     
-    public class Int64 extends Int64JsonSchema {
-    }
+    public class Int64 extends Int64JsonSchema {}
     
     
     public class NumberSchema implements JsonSchema {
@@ -140,8 +139,7 @@ public class Schema {
         }
     }    
     
-    public class ByteSchema extends StringJsonSchema {
-    }
+    public class ByteSchema extends StringJsonSchema {}
     
     
     public class Binary implements JsonSchema {
@@ -149,8 +147,7 @@ public class Schema {
     }
     
     
-    public class Date extends DateJsonSchema {
-    }
+    public class Date extends DateJsonSchema {}
     
     
     public class DateTime implements JsonSchema {
@@ -173,8 +170,7 @@ public class Schema {
         }
     }    
     
-    public class Callback extends StringJsonSchema {
-    }
+    public class Callback extends StringJsonSchema {}
     
     
     public class Schema1 implements JsonSchema {

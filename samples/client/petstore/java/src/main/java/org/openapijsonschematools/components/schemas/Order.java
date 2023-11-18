@@ -21,20 +21,16 @@ public class Order {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Id extends Int64JsonSchema {
-    }
+    public class Id extends Int64JsonSchema {}
     
     
-    public class PetId extends Int64JsonSchema {
-    }
+    public class PetId extends Int64JsonSchema {}
     
     
-    public class Quantity extends Int32JsonSchema {
-    }
+    public class Quantity extends Int32JsonSchema {}
     
     
-    public class ShipDate extends DateTimeJsonSchema {
-    }
+    public class ShipDate extends DateTimeJsonSchema {}
     
     
     public class Status implements JsonSchema {
@@ -46,8 +42,7 @@ public class Order {
         }
     }    
     
-    public class Complete extends BooleanJsonSchema {
-    }
+    public class Complete extends BooleanJsonSchema {}
     
     
     public class Order1 implements JsonSchema {

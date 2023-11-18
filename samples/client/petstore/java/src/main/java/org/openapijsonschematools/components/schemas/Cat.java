@@ -4,13 +4,17 @@ import org.openapijsonschematools.schemas.JsonSchema;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.AbstractMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import org.openapijsonschematools.schemas.BooleanJsonSchema;
+import org.openapijsonschematools.schemas.FrozenMap;
 
 public class Cat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Declawed extends BooleanJsonSchema {
-    }
+    public class Declawed extends BooleanJsonSchema {}
     
     
     public class Schema1 implements JsonSchema {

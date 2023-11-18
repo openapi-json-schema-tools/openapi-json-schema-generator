@@ -52,8 +52,7 @@ public class FormatTest {
         }
     }    
     
-    public class Int32 extends Int32JsonSchema {
-    }
+    public class Int32 extends Int32JsonSchema {}
     
     
     public class Int32withValidations implements JsonSchema {
@@ -81,8 +80,7 @@ public class FormatTest {
         }
     }    
     
-    public class Int64 extends Int64JsonSchema {
-    }
+    public class Int64 extends Int64JsonSchema {}
     
     
     public class NumberSchema implements JsonSchema {
@@ -122,8 +120,7 @@ public class FormatTest {
         }
     }    
     
-    public class Float32 extends FloatJsonSchema {
-    }
+    public class Float32 extends FloatJsonSchema {}
     
     
     public class DoubleSchema implements JsonSchema {
@@ -139,11 +136,10 @@ public class FormatTest {
         }
     }    
     
-    }
+    public class Float64 extends DoubleJsonSchema {}
     
     
-    public class Items extends DoubleJsonSchema {
-    }
+    public class Items extends NumberJsonSchema {}
     
     
     public class ArrayWithUniqueItems implements JsonSchema {
@@ -165,8 +161,7 @@ public class FormatTest {
         }
     }    
     
-    public class ByteSchema extends StringJsonSchema {
-    }
+    public class ByteSchema extends StringJsonSchema {}
     
     
     public class Binary implements JsonSchema {
@@ -174,20 +169,16 @@ public class FormatTest {
     }
     
     
-    public class Date extends DateJsonSchema {
-    }
+    public class Date extends DateJsonSchema {}
     
     
-    public class DateTime extends DateTimeJsonSchema {
-    }
+    public class DateTime extends DateTimeJsonSchema {}
     
     
-    public class UuidSchema extends UuidJsonSchema {
-    }
+    public class UuidSchema extends UuidJsonSchema {}
     
     
-    public class UuidNoExample extends UuidJsonSchema {
-    }
+    public class UuidNoExample extends UuidJsonSchema {}
     
     
     public class Password implements JsonSchema {
@@ -218,8 +209,7 @@ public class FormatTest {
         }
     }    
     
-    public class NoneProp extends NullJsonSchema {
-    }
+    public class NoneProp extends NullJsonSchema {}
     
     
     public class FormatTest1 implements JsonSchema {

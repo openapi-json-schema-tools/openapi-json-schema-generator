@@ -14,12 +14,10 @@ public class ReadOnlyFirst {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Bar extends StringJsonSchema {
-    }
+    public class Bar extends StringJsonSchema {}
     
     
-    public class Baz extends StringJsonSchema {
-    }
+    public class Baz extends StringJsonSchema {}
     
     
     public class ReadOnlyFirst1 implements JsonSchema {

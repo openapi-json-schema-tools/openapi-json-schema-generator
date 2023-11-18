@@ -16,8 +16,7 @@ public class ArrayOfNumberOnly {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Items extends DoubleJsonSchema {
-    }
+    public class Items extends NumberJsonSchema {}
     
     
     public class ArrayNumber implements JsonSchema {

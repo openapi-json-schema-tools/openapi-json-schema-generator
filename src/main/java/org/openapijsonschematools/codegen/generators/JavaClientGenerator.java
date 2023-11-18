@@ -183,6 +183,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
+                .includeSchemaFeatures(SchemaFeature.AllOf, SchemaFeature.AnyOf, SchemaFeature.OneOf, SchemaFeature.Not)
         );
 
         outputFolder = "generated-code" + File.separator + "java";

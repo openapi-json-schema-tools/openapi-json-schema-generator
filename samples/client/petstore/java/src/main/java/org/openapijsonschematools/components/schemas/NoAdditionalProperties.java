@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.Int64JsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
@@ -15,17 +16,14 @@ public class NoAdditionalProperties {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends NotAnyTypeJsonSchema {
+    public class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
-    }
     
     
-    public class Id extends Int64JsonSchema {
-    }
+    public class Id extends Int64JsonSchema {}
     
     
-    public class PetId extends Int64JsonSchema {
-    }
+    public class PetId extends Int64JsonSchema {}
     
     
     public class NoAdditionalProperties1 implements JsonSchema {

@@ -11,46 +11,38 @@ import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.Int32JsonSchema;
 import org.openapijsonschematools.schemas.Int64JsonSchema;
 import org.openapijsonschematools.schemas.MapJsonSchema;
+import org.openapijsonschematools.schemas.NullJsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class User {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Id extends Int64JsonSchema {
-    }
+    public class Id extends Int64JsonSchema {}
     
     
-    public class Username extends StringJsonSchema {
-    }
+    public class Username extends StringJsonSchema {}
     
     
-    public class FirstName extends StringJsonSchema {
-    }
+    public class FirstName extends StringJsonSchema {}
     
     
-    public class LastName extends StringJsonSchema {
-    }
+    public class LastName extends StringJsonSchema {}
     
     
-    public class Email extends StringJsonSchema {
-    }
+    public class Email extends StringJsonSchema {}
     
     
-    public class Password extends StringJsonSchema {
-    }
+    public class Password extends StringJsonSchema {}
     
     
-    public class Phone extends StringJsonSchema {
-    }
+    public class Phone extends StringJsonSchema {}
     
     
-    public class UserStatus extends Int32JsonSchema {
-    }
+    public class UserStatus extends Int32JsonSchema {}
     
     
-    public class ObjectWithNoDeclaredProps extends MapJsonSchema {
-    }
+    public class ObjectWithNoDeclaredProps extends MapJsonSchema {}
     
     
     public class ObjectWithNoDeclaredPropsNullable implements JsonSchema {
@@ -66,12 +58,10 @@ public class User {
         }
     }    
     
-    public class AnyTypeProp extends AnyTypeJsonSchema {
-    }
+    public class AnyTypeProp extends AnyTypeJsonSchema {}
     
     
-    public class Not extends NullJsonSchema {
-    }
+    public class Not extends NullJsonSchema {}
     
     
     public class AnyTypeExceptNullProp implements JsonSchema {
@@ -120,8 +110,7 @@ public class User {
         }
     }    
     
-    public class AnyTypePropNullable extends AnyTypeJsonSchema {
-    }
+    public class AnyTypePropNullable extends AnyTypeJsonSchema {}
     
     
     public class User1 implements JsonSchema {

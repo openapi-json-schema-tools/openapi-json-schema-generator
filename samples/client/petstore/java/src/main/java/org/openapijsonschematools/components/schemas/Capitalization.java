@@ -14,28 +14,22 @@ public class Capitalization {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class SmallCamel extends StringJsonSchema {
-    }
+    public class SmallCamel extends StringJsonSchema {}
     
     
-    public class CapitalCamel extends StringJsonSchema {
-    }
+    public class CapitalCamel extends StringJsonSchema {}
     
     
-    public class SmallSnake extends StringJsonSchema {
-    }
+    public class SmallSnake extends StringJsonSchema {}
     
     
-    public class CapitalSnake extends StringJsonSchema {
-    }
+    public class CapitalSnake extends StringJsonSchema {}
     
     
-    public class SCAETHFlowPoints extends StringJsonSchema {
-    }
+    public class SCAETHFlowPoints extends StringJsonSchema {}
     
     
-    public class ATTNAME extends StringJsonSchema {
-    }
+    public class ATTNAME extends StringJsonSchema {}
     
     
     public class Capitalization1 implements JsonSchema {

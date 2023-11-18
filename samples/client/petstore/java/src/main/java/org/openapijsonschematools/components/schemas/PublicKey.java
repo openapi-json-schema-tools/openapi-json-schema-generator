@@ -14,8 +14,7 @@ public class PublicKey {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Key extends StringJsonSchema {
-    }
+    public class Key extends StringJsonSchema {}
     
     
     public class PublicKey1 implements JsonSchema {

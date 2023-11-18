@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.UuidJsonSchema;
@@ -15,13 +16,11 @@ public class MyObjectDto {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends NotAnyTypeJsonSchema {
+    public class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
-    }
     
     
-    public class Id extends UuidJsonSchema {
-    }
+    public class Id extends UuidJsonSchema {}
     
     
     public class MyObjectDto1 implements JsonSchema {

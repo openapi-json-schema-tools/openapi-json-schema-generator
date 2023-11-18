@@ -22,8 +22,7 @@ public class QuadrilateralInterface {
         }
     }    
     
-    public class QuadrilateralType extends StringJsonSchema {
-    }
+    public class QuadrilateralType extends StringJsonSchema {}
     
     
     public class QuadrilateralInterface1 implements JsonSchema {

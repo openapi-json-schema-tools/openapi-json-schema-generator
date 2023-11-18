@@ -15,12 +15,10 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class UuidSchema extends UuidJsonSchema {
-    }
+    public class UuidSchema extends UuidJsonSchema {}
     
     
-    public class DateTime extends DateTimeJsonSchema {
-    }
+    public class DateTime extends DateTimeJsonSchema {}
     
     
     public class MapSchema implements JsonSchema {

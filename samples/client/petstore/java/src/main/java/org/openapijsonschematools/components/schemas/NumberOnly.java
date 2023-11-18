@@ -14,8 +14,7 @@ public class NumberOnly {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class JustNumber extends DoubleJsonSchema {
-    }
+    public class JustNumber extends NumberJsonSchema {}
     
     
     public class NumberOnly1 implements JsonSchema {

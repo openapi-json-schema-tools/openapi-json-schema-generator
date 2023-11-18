@@ -14,8 +14,7 @@ public class Client {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Client2 extends StringJsonSchema {
-    }
+    public class Client2 extends StringJsonSchema {}
     
     
     public class Client1 implements JsonSchema {

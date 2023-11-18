@@ -18,8 +18,7 @@ public class Zebra {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends AnyTypeJsonSchema {
-    }
+    public class AdditionalProperties extends AnyTypeJsonSchema {}
     
     
     public class Type implements JsonSchema {

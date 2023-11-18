@@ -14,12 +14,10 @@ public class ObjectModelWithArgAndArgsProperties {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Arg extends StringJsonSchema {
-    }
+    public class Arg extends StringJsonSchema {}
     
     
-    public class Args extends StringJsonSchema {
-    }
+    public class Args extends StringJsonSchema {}
     
     
     public class ObjectModelWithArgAndArgsProperties1 implements JsonSchema {

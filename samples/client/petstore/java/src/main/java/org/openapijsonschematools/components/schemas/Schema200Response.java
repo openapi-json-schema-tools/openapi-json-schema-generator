@@ -11,12 +11,10 @@ public class Schema200Response {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Name extends Int32JsonSchema {
-    }
+    public class Name extends Int32JsonSchema {}
     
     
-    public class ClassSchema extends StringJsonSchema {
-    }
+    public class ClassSchema extends StringJsonSchema {}
     
     
     public class Schema200Response1 implements JsonSchema {

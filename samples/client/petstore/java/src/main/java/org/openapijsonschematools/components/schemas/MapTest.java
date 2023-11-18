@@ -18,8 +18,7 @@ public class MapTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties1 extends StringJsonSchema {
-    }
+    public class AdditionalProperties1 extends StringJsonSchema {}
     
     
     public class AdditionalProperties implements JsonSchema {
@@ -64,8 +63,7 @@ public class MapTest {
     }
     
     
-    public class AdditionalProperties3 extends BooleanJsonSchema {
-    }
+    public class AdditionalProperties3 extends BooleanJsonSchema {}
     
     
     public class DirectMap implements JsonSchema {

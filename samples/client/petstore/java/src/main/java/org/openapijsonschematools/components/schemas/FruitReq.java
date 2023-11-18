@@ -4,13 +4,13 @@ import org.openapijsonschematools.schemas.JsonSchema;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
+import org.openapijsonschematools.schemas.NullJsonSchema;
 
 public class FruitReq {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Schema0 extends NullJsonSchema {
-    }
+    public class Schema0 extends NullJsonSchema {}
     
     
     public class FruitReq1 implements JsonSchema {

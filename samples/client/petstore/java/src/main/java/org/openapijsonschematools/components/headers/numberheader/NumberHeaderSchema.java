@@ -10,6 +10,5 @@ public class NumberHeaderSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class NumberHeaderSchema1 extends DecimalJsonSchema {
-    }
+    public class NumberHeaderSchema1 extends DecimalJsonSchema {}
 }

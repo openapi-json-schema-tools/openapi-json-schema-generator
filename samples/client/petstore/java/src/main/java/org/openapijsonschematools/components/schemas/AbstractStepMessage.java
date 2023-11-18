@@ -14,8 +14,7 @@ public class AbstractStepMessage {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Discriminator extends StringJsonSchema {
-    }
+    public class Discriminator extends StringJsonSchema {}
     
     
     public class AbstractStepMessage1 implements JsonSchema {

@@ -10,6 +10,5 @@ public class Schema11 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Schema111 extends StringJsonSchema {
-    }
+    public class Schema111 extends StringJsonSchema {}
 }

@@ -4,6 +4,14 @@ import org.openapijsonschematools.schemas.JsonSchema;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
+import java.util.AbstractMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.UUID;
+import org.openapijsonschematools.schemas.FrozenMap;
+import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class ComplexQuadrilateral {
     // nest classes so all schemas and input/output classes can be public

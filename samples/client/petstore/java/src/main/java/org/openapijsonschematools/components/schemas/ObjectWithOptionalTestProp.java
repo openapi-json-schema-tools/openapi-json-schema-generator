@@ -14,8 +14,7 @@ public class ObjectWithOptionalTestProp {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Test extends StringJsonSchema {
-    }
+    public class Test extends StringJsonSchema {}
     
     
     public class ObjectWithOptionalTestProp1 implements JsonSchema {

@@ -139,8 +139,7 @@ public class NullableClass {
         }
     }    
     
-    public class Items extends MapJsonSchema {
-    }
+    public class Items extends MapJsonSchema {}
     
     
     public class ArrayNullableProp implements JsonSchema {
@@ -207,8 +206,7 @@ public class NullableClass {
         }
     }    
     
-    public class AdditionalProperties extends MapJsonSchema {
-    }
+    public class AdditionalProperties extends MapJsonSchema {}
     
     
     public class ObjectNullableProp implements JsonSchema {

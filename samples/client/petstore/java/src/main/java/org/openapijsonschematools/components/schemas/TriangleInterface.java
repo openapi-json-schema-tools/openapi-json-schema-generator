@@ -22,8 +22,7 @@ public class TriangleInterface {
         }
     }    
     
-    public class TriangleType extends StringJsonSchema {
-    }
+    public class TriangleType extends StringJsonSchema {}
     
     
     public class TriangleInterface1 implements JsonSchema {

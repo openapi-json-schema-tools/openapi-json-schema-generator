@@ -10,8 +10,7 @@ public class Fruit {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Color extends StringJsonSchema {
-    }
+    public class Color extends StringJsonSchema {}
     
     
     public class Fruit1 implements JsonSchema {

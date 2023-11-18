@@ -11,16 +11,13 @@ public class Name {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Name2 extends Int32JsonSchema {
-    }
+    public class Name2 extends Int32JsonSchema {}
     
     
-    public class SnakeCase extends Int32JsonSchema {
-    }
+    public class SnakeCase extends Int32JsonSchema {}
     
     
-    public class Property extends StringJsonSchema {
-    }
+    public class Property extends StringJsonSchema {}
     
     
     public class Name1 implements JsonSchema {

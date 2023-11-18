@@ -14,12 +14,10 @@ public class ObjectWithCollidingProperties {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class SomeProp extends MapJsonSchema {
-    }
+    public class SomeProp extends MapJsonSchema {}
     
     
-    public class Someprop extends MapJsonSchema {
-    }
+    public class Someprop extends MapJsonSchema {}
     
     
     public class ObjectWithCollidingProperties1 implements JsonSchema {

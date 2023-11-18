@@ -12,6 +12,7 @@ import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.
 import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter16.Schema16;
 import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter17.Schema17;
 import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter18.Schema18;
+import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 
@@ -19,9 +20,8 @@ public class CookieParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends NotAnyTypeJsonSchema {
+    public class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
-    }
     
     
     public class CookieParameters1 implements JsonSchema {

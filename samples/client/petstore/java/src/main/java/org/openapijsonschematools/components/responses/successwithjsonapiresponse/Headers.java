@@ -11,6 +11,7 @@ import org.openapijsonschematools.components.headers.int32jsoncontenttypeheader.
 import org.openapijsonschematools.components.headers.numberheader.NumberHeaderSchema;
 import org.openapijsonschematools.components.headers.stringheader.StringHeaderSchema;
 import org.openapijsonschematools.components.schemas.StringWithValidation;
+import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 
@@ -18,9 +19,8 @@ public class Headers {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends NotAnyTypeJsonSchema {
+    public class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
-    }
     
     
     public class Headers1 implements JsonSchema {

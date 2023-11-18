@@ -11,8 +11,7 @@ public class ArrayHoldingAnyType {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Items extends AnyTypeJsonSchema {
-    }
+    public class Items extends AnyTypeJsonSchema {}
     
     
     public class ArrayHoldingAnyType1 implements JsonSchema {

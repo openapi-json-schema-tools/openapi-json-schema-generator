@@ -10,6 +10,7 @@ import java.util.Map;
 import org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.parameter0.Schema0;
 import org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.parameter1.Schema1;
 import org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.parameter2.Schema2;
+import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 
@@ -17,9 +18,8 @@ public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends NotAnyTypeJsonSchema {
+    public class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
-    }
     
     
     public class QueryParameters1 implements JsonSchema {

@@ -6,6 +6,5 @@ public class Schema extends StringEnum {
     // $refed class
     
     
-    public class Schema1 extends StringEnum1 {
-    }
+    public class Schema1 extends StringEnum1 {}
 }

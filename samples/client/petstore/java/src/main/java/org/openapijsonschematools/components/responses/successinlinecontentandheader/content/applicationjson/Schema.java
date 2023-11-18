@@ -14,8 +14,7 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends Int32JsonSchema {
-    }
+    public class AdditionalProperties extends Int32JsonSchema {}
     
     
     public class Schema1 implements JsonSchema {

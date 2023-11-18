@@ -16,16 +16,13 @@ public class ObjectWithDifficultlyNamedProps {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Specialpropertyname extends Int64JsonSchema {
-    }
+    public class Specialpropertyname extends Int64JsonSchema {}
     
     
-    public class Schema123list extends StringJsonSchema {
-    }
+    public class Schema123list extends StringJsonSchema {}
     
     
-    public class Schema123Number extends IntJsonSchema {
-    }
+    public class Schema123Number extends IntJsonSchema {}
     
     
     public class ObjectWithDifficultlyNamedProps1 implements JsonSchema {

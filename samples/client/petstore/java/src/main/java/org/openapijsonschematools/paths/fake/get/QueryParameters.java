@@ -11,6 +11,7 @@ import org.openapijsonschematools.paths.fake.get.parameters.parameter2.Schema2;
 import org.openapijsonschematools.paths.fake.get.parameters.parameter3.Schema3;
 import org.openapijsonschematools.paths.fake.get.parameters.parameter4.Schema4;
 import org.openapijsonschematools.paths.fake.get.parameters.parameter5.Schema5;
+import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 
@@ -18,9 +19,8 @@ public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends NotAnyTypeJsonSchema {
+    public class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
-    }
     
     
     public class QueryParameters1 implements JsonSchema {

@@ -14,8 +14,7 @@ public class ObjWithRequiredProps {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class A extends StringJsonSchema {
-    }
+    public class A extends StringJsonSchema {}
     
     
     public class ObjWithRequiredProps1 implements JsonSchema {

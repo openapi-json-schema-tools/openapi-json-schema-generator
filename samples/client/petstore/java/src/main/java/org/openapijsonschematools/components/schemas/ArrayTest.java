@@ -17,8 +17,7 @@ public class ArrayTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Items extends StringJsonSchema {
-    }
+    public class Items extends StringJsonSchema {}
     
     
     public class ArrayOfString implements JsonSchema {
@@ -31,8 +30,7 @@ public class ArrayTest {
         }
     }    
     
-    public class Items2 extends Int64JsonSchema {
-    }
+    public class Items2 extends Int64JsonSchema {}
     
     
     public class Items1 implements JsonSchema {

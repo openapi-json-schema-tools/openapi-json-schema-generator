@@ -14,8 +14,7 @@ public class ReqPropsFromTrueAddProps {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends AnyTypeJsonSchema {
-    }
+    public class AdditionalProperties extends AnyTypeJsonSchema {}
     
     
     public class ReqPropsFromTrueAddProps1 implements JsonSchema {

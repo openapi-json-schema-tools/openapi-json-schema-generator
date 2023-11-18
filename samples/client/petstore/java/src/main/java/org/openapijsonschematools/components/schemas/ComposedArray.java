@@ -12,8 +12,7 @@ public class ComposedArray {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Items extends AnyTypeJsonSchema {
-    }
+    public class Items extends AnyTypeJsonSchema {}
     
     
     public class ComposedArray1 implements JsonSchema {

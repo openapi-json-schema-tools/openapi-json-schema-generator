@@ -10,8 +10,7 @@ public class ClassModel {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class ClassSchema extends StringJsonSchema {
-    }
+    public class ClassSchema extends StringJsonSchema {}
     
     
     public class ClassModel1 implements JsonSchema {

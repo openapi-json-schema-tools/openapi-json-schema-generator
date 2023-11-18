@@ -7,14 +7,14 @@ import java.util.Set;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.FrozenMap;
 
 public class ComposedObject {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Schema0 extends AnyTypeJsonSchema {
-    }
+    public class Schema0 extends AnyTypeJsonSchema {}
     
     
     public class ComposedObject1 implements JsonSchema {

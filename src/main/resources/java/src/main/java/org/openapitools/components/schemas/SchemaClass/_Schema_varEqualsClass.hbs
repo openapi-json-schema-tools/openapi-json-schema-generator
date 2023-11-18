@@ -2,9 +2,9 @@
 
 {{#or isBooleanSchemaTrue isBooleanSchemaFalse}}
     {{#if isBooleanSchemaTrue}}
-public class {{../jsonPathPiece.camelCase}} extends AnyTypeJsonSchema {
+public class {{../jsonPathPiece.camelCase}} extends AnyTypeJsonSchema {}
     {{else}}
-public class {{jsonPathPiece.camelCase}} extends NotAnyTypeJsonSchema {
+public class {{jsonPathPiece.camelCase}} extends NotAnyTypeJsonSchema {}
     // NotAnyTypeSchema
     {{/if}}
 {{else}}
@@ -12,11 +12,11 @@ public class {{jsonPathPiece.camelCase}} extends NotAnyTypeJsonSchema {
         {{#if simpleRef}}
             {{#if refInfo.refModule}}
                 {{#with getDeepestRef}}
-public class {{../jsonPathPiece.camelCase}} extends {{jsonPathPiece.camelCase}} {
+public class {{../jsonPathPiece.camelCase}} extends {{jsonPathPiece.camelCase}} {}
                 {{/with}}
             {{else}}
                 {{#with refInfo.ref}}
-public class {{../jsonPathPiece.camelCase}} extends {{jsonPathPiece.camelCase}} {
+public class {{../jsonPathPiece.camelCase}} extends {{jsonPathPiece.camelCase}} {}
                 {{/with}}
             {{/if}}
         {{else}}
@@ -30,47 +30,49 @@ public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_validate }}
                 {{/with}}
             {{/if}}
+}
         {{/if}}
     {{else}}
         {{#eq types null}}
-public class {{../jsonPathPiece.camelCase}} extends AnyTypeJsonSchema {
+public class {{../jsonPathPiece.camelCase}} extends AnyTypeJsonSchema {}
         {{else}}
             {{#each types}}
                 {{#eq this "null"}}
-public class {{../jsonPathPiece.camelCase}} extends NullJsonSchema {
+public class {{../jsonPathPiece.camelCase}} extends NullJsonSchema {}
                 {{/eq}}
                 {{#eq this "object"}}
-public class {{../jsonPathPiece.camelCase}} extends MapJsonSchema {
+public class {{../jsonPathPiece.camelCase}} extends MapJsonSchema {}
                 {{/eq}}
                 {{#eq this "array"}}
-public class {{../jsonPathPiece.camelCase}} extends ListJsonSchema {
+public class {{../jsonPathPiece.camelCase}} extends ListJsonSchema {}
                 {{/eq}}
                 {{#eq this "boolean"}}
-public class {{../jsonPathPiece.camelCase}} extends BooleanJsonSchema {
+public class {{../jsonPathPiece.camelCase}} extends BooleanJsonSchema {}
                 {{/eq}}
                 {{#eq this "string"}}
                     {{#eq ../format "date"}}
-public class {{../jsonPathPiece.camelCase}} extends DateJsonSchema {
+public class {{../jsonPathPiece.camelCase}} extends DateJsonSchema {}
                     {{/eq}}
                     {{#eq ../format "date-time"}}
-public class {{../jsonPathPiece.camelCase}} extends DateTimeJsonSchema {
+public class {{../jsonPathPiece.camelCase}} extends DateTimeJsonSchema {}
                     {{/eq}}
                     {{#eq ../format "uuid"}}
-public class {{../jsonPathPiece.camelCase}} extends UuidJsonSchema {
+public class {{../jsonPathPiece.camelCase}} extends UuidJsonSchema {}
                     {{/eq}}
                     {{#eq ../format "number"}}
-public class {{../jsonPathPiece.camelCase}} extends DecimalJsonSchema {
+public class {{../jsonPathPiece.camelCase}} extends DecimalJsonSchema {}
                     {{/eq}}
                     {{#eq ../format "binary"}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     // BinarySchema
+}
                     {{/eq}}
                     {{#neq ../format "date"}}
                         {{#neq ../format "date-time"}}
                             {{#neq ../format "uuid"}}
                                 {{#neq ../format "number"}}
                                     {{#neq ../format "binary"}}
-public class {{../jsonPathPiece.camelCase}} extends StringJsonSchema {
+public class {{../jsonPathPiece.camelCase}} extends StringJsonSchema {}
                                     {{/neq}}
                                 {{/neq}}
                             {{/neq}}
@@ -79,29 +81,31 @@ public class {{../jsonPathPiece.camelCase}} extends StringJsonSchema {
                 {{/eq}}
                 {{#eq this "integer"}}
                     {{#eq ../format "int32"}}
-public class {{../jsonPathPiece.camelCase}} extends Int32JsonSchema {
+public class {{../jsonPathPiece.camelCase}} extends Int32JsonSchema {}
                     {{/eq}}
                     {{#eq ../format "int64"}}
-public class {{../jsonPathPiece.camelCase}} extends Int64JsonSchema {
+public class {{../jsonPathPiece.camelCase}} extends Int64JsonSchema {}
                     {{/eq}}
                     {{#neq ../format "int32"}}
                         {{#neq ../format "int64"}}
-public class {{../jsonPathPiece.camelCase}} extends IntJsonSchema {
+public class {{../jsonPathPiece.camelCase}} extends IntJsonSchema {}
                         {{/neq}}
                     {{/neq}}
                 {{/eq}}
                 {{#eq this "number"}}
-                    {{#eq ../format "float"}}
-public class {{../jsonPathPiece.camelCase}} extends FloatJsonSchema {
+                    {{#eq ../format null}}
+public class {{../jsonPathPiece.camelCase}} extends NumberJsonSchema {}
+                    {{else}}
+                        {{#eq ../format "float"}}
+public class {{../jsonPathPiece.camelCase}} extends FloatJsonSchema {}
+                        {{else}}
+                            {{#eq ../format "double"}}
+public class {{../jsonPathPiece.camelCase}} extends DoubleJsonSchema {}
+                            {{/eq}}
+                        {{/eq}}
                     {{/eq}}
-                    {{#neq ../format "float"}}
-                        {{#neq ../format "double"}}
-public class {{../jsonPathPiece.camelCase}} extends DoubleJsonSchema {
-                        {{/neq}}
-                    {{/neq}}
                 {{/eq}}
             {{/each}}
         {{/eq}}
     {{/if}}
 {{/or}}
-}

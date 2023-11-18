@@ -14,8 +14,7 @@ public class ReqPropsFromExplicitAddProps {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends StringJsonSchema {
-    }
+    public class AdditionalProperties extends StringJsonSchema {}
     
     
     public class ReqPropsFromExplicitAddProps1 implements JsonSchema {

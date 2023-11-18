@@ -4,13 +4,17 @@ import org.openapijsonschematools.schemas.JsonSchema;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.AbstractMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import org.openapijsonschematools.schemas.FrozenMap;
+import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class Dog {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Breed extends StringJsonSchema {
-    }
+    public class Breed extends StringJsonSchema {}
     
     
     public class Schema1 implements JsonSchema {

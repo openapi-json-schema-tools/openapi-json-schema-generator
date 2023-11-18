@@ -14,8 +14,7 @@ public class Player {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Name extends StringJsonSchema {
-    }
+    public class Name extends StringJsonSchema {}
     
     
     public class Player1 implements JsonSchema {

@@ -10,8 +10,7 @@ public class ReturnSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class ReturnSchema2 extends Int32JsonSchema {
-    }
+    public class ReturnSchema2 extends Int32JsonSchema {}
     
     
     public class ReturnSchema1 implements JsonSchema {

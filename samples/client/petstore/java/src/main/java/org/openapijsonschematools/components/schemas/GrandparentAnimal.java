@@ -14,8 +14,7 @@ public class GrandparentAnimal {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class PetType extends StringJsonSchema {
-    }
+    public class PetType extends StringJsonSchema {}
     
     
     public class GrandparentAnimal1 implements JsonSchema {

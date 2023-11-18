@@ -10,6 +10,7 @@ import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.UUID;
+import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
@@ -18,17 +19,14 @@ public class JSONPatchRequestAddReplaceTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends NotAnyTypeJsonSchema {
+    public class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
-    }
     
     
-    public class Path extends StringJsonSchema {
-    }
+    public class Path extends StringJsonSchema {}
     
     
-    public class Value extends AnyTypeJsonSchema {
-    }
+    public class Value extends AnyTypeJsonSchema {}
     
     
     public class Op implements JsonSchema {

@@ -15,12 +15,10 @@ public class ObjectWithNonIntersectingValues {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends StringJsonSchema {
-    }
+    public class AdditionalProperties extends StringJsonSchema {}
     
     
-    public class A extends DoubleJsonSchema {
-    }
+    public class A extends NumberJsonSchema {}
     
     
     public class ObjectWithNonIntersectingValues1 implements JsonSchema {

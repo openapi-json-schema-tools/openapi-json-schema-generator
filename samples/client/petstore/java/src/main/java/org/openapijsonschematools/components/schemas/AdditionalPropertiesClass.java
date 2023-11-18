@@ -17,8 +17,7 @@ public class AdditionalPropertiesClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends StringJsonSchema {
-    }
+    public class AdditionalProperties extends StringJsonSchema {}
     
     
     public class MapProperty implements JsonSchema {
@@ -32,8 +31,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public class AdditionalProperties2 extends StringJsonSchema {
-    }
+    public class AdditionalProperties2 extends StringJsonSchema {}
     
     
     public class AdditionalProperties1 implements JsonSchema {
@@ -58,20 +56,16 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public class Anytype1 extends AnyTypeJsonSchema {
-    }
+    public class Anytype1 extends AnyTypeJsonSchema {}
     
     
-    public class MapWithUndeclaredPropertiesAnytype1 extends MapJsonSchema {
-    }
+    public class MapWithUndeclaredPropertiesAnytype1 extends MapJsonSchema {}
     
     
-    public class MapWithUndeclaredPropertiesAnytype2 extends MapJsonSchema {
-    }
+    public class MapWithUndeclaredPropertiesAnytype2 extends MapJsonSchema {}
     
     
-    public class AdditionalProperties3 extends AnyTypeJsonSchema {
-    }
+    public class AdditionalProperties3 extends AnyTypeJsonSchema {}
     
     
     public class MapWithUndeclaredPropertiesAnytype3 implements JsonSchema {
@@ -85,9 +79,8 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public class AdditionalProperties4 extends NotAnyTypeJsonSchema {
+    public class AdditionalProperties4 extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
-    }
     
     
     public class EmptyMap implements JsonSchema {
@@ -101,8 +94,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public class AdditionalProperties5 extends StringJsonSchema {
-    }
+    public class AdditionalProperties5 extends StringJsonSchema {}
     
     
     public class MapWithUndeclaredPropertiesString implements JsonSchema {

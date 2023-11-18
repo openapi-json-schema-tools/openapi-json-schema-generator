@@ -4,6 +4,10 @@ import org.openapijsonschematools.schemas.JsonSchema;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
+import java.util.UUID;
+import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class Schema {
     // nest classes so all schemas and input/output classes can be public

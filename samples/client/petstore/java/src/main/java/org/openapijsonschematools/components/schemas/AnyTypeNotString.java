@@ -4,13 +4,13 @@ import org.openapijsonschematools.schemas.JsonSchema;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
+import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class AnyTypeNotString {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Not extends StringJsonSchema {
-    }
+    public class Not extends StringJsonSchema {}
     
     
     public class AnyTypeNotString1 implements JsonSchema {

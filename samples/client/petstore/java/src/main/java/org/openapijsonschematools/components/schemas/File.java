@@ -14,8 +14,7 @@ public class File {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class SourceURI extends StringJsonSchema {
-    }
+    public class SourceURI extends StringJsonSchema {}
     
     
     public class File1 implements JsonSchema {

@@ -6,6 +6,5 @@ public class Schema extends AdditionalPropertiesWithArrayOfEnums {
     // $refed class
     
     
-    public class Schema1 extends AdditionalPropertiesWithArrayOfEnums1 {
-    }
+    public class Schema1 extends AdditionalPropertiesWithArrayOfEnums1 {}
 }

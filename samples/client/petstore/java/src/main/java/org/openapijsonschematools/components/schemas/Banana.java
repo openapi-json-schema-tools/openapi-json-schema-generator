@@ -14,8 +14,7 @@ public class Banana {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class LengthCm extends DoubleJsonSchema {
-    }
+    public class LengthCm extends NumberJsonSchema {}
     
     
     public class Banana1 implements JsonSchema {

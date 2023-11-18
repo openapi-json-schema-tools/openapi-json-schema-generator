@@ -14,8 +14,7 @@ public class ObjectWithDecimalProperties {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Width extends DecimalJsonSchema {
-    }
+    public class Width extends DecimalJsonSchema {}
     
     
     public class ObjectWithDecimalProperties1 implements JsonSchema {

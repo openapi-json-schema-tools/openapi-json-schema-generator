@@ -6,6 +6,5 @@ public class Schema extends ArrayOfEnums {
     // $refed class
     
     
-    public class Schema1 extends ArrayOfEnums1 {
-    }
+    public class Schema1 extends ArrayOfEnums1 {}
 }

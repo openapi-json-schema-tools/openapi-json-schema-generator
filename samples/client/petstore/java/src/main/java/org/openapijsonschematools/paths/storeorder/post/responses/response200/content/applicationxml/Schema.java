@@ -6,6 +6,5 @@ public class Schema extends Order {
     // $refed class
     
     
-    public class Schema1 extends Order1 {
-    }
+    public class Schema1 extends Order1 {}
 }

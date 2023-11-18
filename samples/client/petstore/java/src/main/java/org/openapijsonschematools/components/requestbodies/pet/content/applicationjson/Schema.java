@@ -6,6 +6,5 @@ public class Schema extends Pet {
     // $refed class
     
     
-    public class Schema1 extends Pet1 {
-    }
+    public class Schema1 extends Pet1 {}
 }

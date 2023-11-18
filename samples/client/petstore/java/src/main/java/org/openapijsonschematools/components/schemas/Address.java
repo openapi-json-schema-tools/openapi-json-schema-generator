@@ -14,8 +14,7 @@ public class Address {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends IntJsonSchema {
-    }
+    public class AdditionalProperties extends IntJsonSchema {}
     
     
     public class Address1 implements JsonSchema {

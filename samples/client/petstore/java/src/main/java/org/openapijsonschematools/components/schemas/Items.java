@@ -12,8 +12,7 @@ public class Items {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Items2 extends MapJsonSchema {
-    }
+    public class Items2 extends MapJsonSchema {}
     
     
     public class Items1 implements JsonSchema {

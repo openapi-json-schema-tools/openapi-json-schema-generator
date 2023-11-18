@@ -4,17 +4,25 @@ import org.openapijsonschematools.schemas.JsonSchema;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.time.ZonedDateTime;
+import java.util.AbstractMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.schemas.DateJsonSchema;
+import org.openapijsonschematools.schemas.FrozenList;
+import org.openapijsonschematools.schemas.FrozenMap;
+import org.openapijsonschematools.schemas.NullJsonSchema;
 
 public class ComposedOneOfDifferentTypes {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Schema2 extends NullJsonSchema {
-    }
+    public class Schema2 extends NullJsonSchema {}
     
     
-    public class Schema3 extends DateJsonSchema {
-    }
+    public class Schema3 extends DateJsonSchema {}
     
     
     public class Schema4 implements JsonSchema {
@@ -27,8 +35,7 @@ public class ComposedOneOfDifferentTypes {
     }
     
     
-    public class Items extends AnyTypeJsonSchema {
-    }
+    public class Items extends AnyTypeJsonSchema {}
     
     
     public class Schema5 implements JsonSchema {

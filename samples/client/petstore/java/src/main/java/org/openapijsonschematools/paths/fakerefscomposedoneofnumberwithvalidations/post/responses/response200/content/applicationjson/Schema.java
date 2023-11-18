@@ -6,6 +6,5 @@ public class Schema extends ComposedOneOfDifferentTypes {
     // $refed class
     
     
-    public class Schema1 extends ComposedOneOfDifferentTypes1 {
-    }
+    public class Schema1 extends ComposedOneOfDifferentTypes1 {}
 }

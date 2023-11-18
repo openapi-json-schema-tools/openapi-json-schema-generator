@@ -15,12 +15,10 @@ public class FromSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Data extends StringJsonSchema {
-    }
+    public class Data extends StringJsonSchema {}
     
     
-    public class Id extends IntJsonSchema {
-    }
+    public class Id extends IntJsonSchema {}
     
     
     public class FromSchema1 implements JsonSchema {
