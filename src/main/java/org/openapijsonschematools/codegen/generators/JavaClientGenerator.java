@@ -1227,6 +1227,14 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         imports.add("import "+packageName + ".schemas.FrozenMap;");
                         imports.add("import java.util.Map;");
                         imports.add("import java.util.LinkedHashMap;");
+                        imports.add("import java.util.AbstractMap;");
+                    }
+                } else if (schema.types.contains("array")) {
+                    if (schema.isSimpleArray()) {
+                        imports.add("import "+packageName + ".schemas.ListJsonSchema;");
+                    } else {
+                        imports.add("import "+packageName + ".schemas.FrozenList;");
+                        imports.add("import java.util.List;");
                     }
                 }
             }

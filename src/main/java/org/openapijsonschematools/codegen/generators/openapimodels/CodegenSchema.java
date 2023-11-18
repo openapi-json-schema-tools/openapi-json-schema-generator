@@ -225,6 +225,22 @@ public class CodegenSchema {
         return true;
     }
 
+    public boolean isSimpleArray() {
+        if (types == null) {
+            return false;
+        }
+        if (types.size() != 1) {
+            return false;
+        }
+        if (!types.contains("array")) {
+            return false;
+        }
+        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || items != null || uniqueItems != null || contains != null || maxContains != null || minContains != null || maxItems != null || minItems != null || prefixItems != null || unevaluatedItems != null) {
+            return false;
+        }
+        return true;
+    }
+
     public CodegenSchema typeSchema() {
         CodegenSchema schema = new CodegenSchema();
         schema.refInfo = refInfo;
