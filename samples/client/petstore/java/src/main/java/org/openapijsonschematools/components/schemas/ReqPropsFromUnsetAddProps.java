@@ -26,7 +26,8 @@ public class ReqPropsFromUnsetAddProps {
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "invalid-name",
             "validName"
-        ));        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        ));
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ReqPropsFromUnsetAddProps1.class, arg, configuration);
         }
     }

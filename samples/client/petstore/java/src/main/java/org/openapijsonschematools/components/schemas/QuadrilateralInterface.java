@@ -39,7 +39,8 @@ public class QuadrilateralInterface {
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "quadrilateralType",
             "shapeType"
-        ));        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        ));
+        public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(QuadrilateralInterface1.class, arg, configuration);
         }
         

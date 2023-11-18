@@ -37,7 +37,8 @@ public class ObjectModelWithArgAndArgsProperties {
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "arg",
             "args"
-        ));        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        ));
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectModelWithArgAndArgsProperties1.class, arg, configuration);
         }
     }

@@ -32,7 +32,8 @@ public class Banana {
         ));
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "lengthCm"
-        ));        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        ));
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Banana1.class, arg, configuration);
         }
     }

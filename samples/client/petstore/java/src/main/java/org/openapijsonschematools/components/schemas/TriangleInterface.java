@@ -39,7 +39,8 @@ public class TriangleInterface {
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "shapeType",
             "triangleType"
-        ));        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        ));
+        public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(TriangleInterface1.class, arg, configuration);
         }
         

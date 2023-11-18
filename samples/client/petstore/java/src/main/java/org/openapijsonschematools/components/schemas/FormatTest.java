@@ -250,7 +250,8 @@ public class FormatTest {
             "date",
             "number",
             "password"
-        ));        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        ));
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(FormatTest1.class, arg, configuration);
         }
     }

@@ -32,7 +32,8 @@ public class Schema {
         ));
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "requiredFile"
-        ));        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        ));
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }

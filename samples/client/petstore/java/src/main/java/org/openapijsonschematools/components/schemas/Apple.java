@@ -48,7 +48,8 @@ public class Apple {
         ));
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "cultivar"
-        ));        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        ));
+        public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Apple1.class, arg, configuration);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -44,7 +44,8 @@ public class ObjectWithDifficultlyNamedProps {
         ));
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "123-list"
-        ));        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        ));
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithDifficultlyNamedProps1.class, arg, configuration);
         }
     }

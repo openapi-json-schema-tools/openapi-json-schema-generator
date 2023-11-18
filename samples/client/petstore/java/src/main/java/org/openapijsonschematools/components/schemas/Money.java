@@ -40,7 +40,8 @@ public class Money {
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "amount",
             "currency"
-        ));        static final Class<?> additionalProperties = AdditionalProperties.class;
+        ));
+        static final Class<?> additionalProperties = AdditionalProperties.class;
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Money1.class, arg, configuration);
         }

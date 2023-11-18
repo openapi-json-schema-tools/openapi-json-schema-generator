@@ -30,7 +30,8 @@ public class ObjectWithInvalidNamedRefedProperties {
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "!reference",
             "from"
-        ));        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        ));
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithInvalidNamedRefedProperties1.class, arg, configuration);
         }
     }

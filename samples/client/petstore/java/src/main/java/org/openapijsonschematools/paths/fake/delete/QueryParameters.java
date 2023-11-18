@@ -36,7 +36,8 @@ public class QueryParameters {
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "required_int64_group",
             "required_string_group"
-        ));        static final Class<?> additionalProperties = AdditionalProperties.class;
+        ));
+        static final Class<?> additionalProperties = AdditionalProperties.class;
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(QueryParameters1.class, arg, configuration);
         }

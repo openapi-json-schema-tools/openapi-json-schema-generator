@@ -36,7 +36,8 @@ public class Name {
         ));
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "name"
-        ));        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        ));
+        public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Name1.class, arg, configuration);
         }
         

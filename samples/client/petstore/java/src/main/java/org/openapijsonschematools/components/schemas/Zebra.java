@@ -55,7 +55,8 @@ public class Zebra {
         ));
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "className"
-        ));        static final Class<?> additionalProperties = AdditionalProperties.class;
+        ));
+        static final Class<?> additionalProperties = AdditionalProperties.class;
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Zebra1.class, arg, configuration);
         }

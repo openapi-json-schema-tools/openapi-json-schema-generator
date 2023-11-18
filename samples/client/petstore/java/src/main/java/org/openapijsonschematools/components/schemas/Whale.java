@@ -50,7 +50,8 @@ public class Whale {
         ));
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "className"
-        ));        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        ));
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Whale1.class, arg, configuration);
         }
     }
