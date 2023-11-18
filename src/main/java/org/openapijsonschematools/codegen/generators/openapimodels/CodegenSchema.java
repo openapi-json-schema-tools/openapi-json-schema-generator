@@ -193,6 +193,22 @@ public class CodegenSchema {
         return true;
     }
 
+    public boolean isSimpleString() {
+        if (types == null) {
+            return false;
+        }
+        if (types.size() != 1) {
+            return false;
+        }
+        if (!types.contains("string")) {
+            return false;
+        }
+        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || defaultValue != null || maxLength != null || minLength != null || patternInfo != null) {
+            return false;
+        }
+        return true;
+    }
+
     public CodegenSchema typeSchema() {
         CodegenSchema schema = new CodegenSchema();
         schema.refInfo = refInfo;
