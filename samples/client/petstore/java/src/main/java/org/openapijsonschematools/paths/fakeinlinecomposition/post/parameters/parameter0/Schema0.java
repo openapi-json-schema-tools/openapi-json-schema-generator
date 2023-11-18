@@ -6,7 +6,11 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+import org.openapijsonschematools.schemas.FrozenList;
+import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class Schema0 {
@@ -56,6 +60,10 @@ public class Schema0 {
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Schema01.class, arg, configuration);
+        }
+        
+        public static String validate(UUID arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema01.class, arg, configuration);
         }
         

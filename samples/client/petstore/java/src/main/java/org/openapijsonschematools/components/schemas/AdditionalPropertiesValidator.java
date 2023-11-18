@@ -4,10 +4,13 @@ import org.openapijsonschematools.schemas.JsonSchema;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.AbstractMap;
-import java.util.LinkedHashMap;
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
+import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.schemas.FrozenList;
 import org.openapijsonschematools.schemas.FrozenMap;
 
 public class AdditionalPropertiesValidator {
@@ -65,6 +68,10 @@ public class AdditionalPropertiesValidator {
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
         }
         
+        public static String validate(UUID arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+        }
+        
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
         }
@@ -119,6 +126,10 @@ public class AdditionalPropertiesValidator {
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+        }
+        
+        public static String validate(UUID arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
         }
         

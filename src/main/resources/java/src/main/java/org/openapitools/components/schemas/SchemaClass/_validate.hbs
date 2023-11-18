@@ -144,6 +144,10 @@ public static String validate(LocalDate arg, SchemaConfiguration configuration) 
     return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
+public static String validate(UUID arg, SchemaConfiguration configuration) {
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
+}
+
 public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
     return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }

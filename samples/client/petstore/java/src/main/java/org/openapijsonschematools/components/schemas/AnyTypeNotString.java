@@ -4,6 +4,13 @@ import org.openapijsonschematools.schemas.JsonSchema;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import org.openapijsonschematools.schemas.FrozenList;
+import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class AnyTypeNotString {
@@ -53,6 +60,10 @@ public class AnyTypeNotString {
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeNotString1.class, arg, configuration);
+        }
+        
+        public static String validate(UUID arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AnyTypeNotString1.class, arg, configuration);
         }
         

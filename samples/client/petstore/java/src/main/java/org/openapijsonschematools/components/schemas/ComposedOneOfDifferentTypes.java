@@ -4,11 +4,11 @@ import org.openapijsonschematools.schemas.JsonSchema;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.time.LocalDate;
 import java.time.ZonedDateTime;
-import java.util.AbstractMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.DateJsonSchema;
 import org.openapijsonschematools.schemas.FrozenList;
@@ -100,6 +100,10 @@ public class ComposedOneOfDifferentTypes {
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ComposedOneOfDifferentTypes1.class, arg, configuration);
+        }
+        
+        public static String validate(UUID arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ComposedOneOfDifferentTypes1.class, arg, configuration);
         }
         

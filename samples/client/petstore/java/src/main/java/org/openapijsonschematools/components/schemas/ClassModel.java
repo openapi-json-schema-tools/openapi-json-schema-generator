@@ -4,6 +4,15 @@ import org.openapijsonschematools.schemas.JsonSchema;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
+import java.util.AbstractMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import org.openapijsonschematools.schemas.FrozenList;
+import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class ClassModel {
@@ -58,6 +67,10 @@ public class ClassModel {
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ClassModel1.class, arg, configuration);
+        }
+        
+        public static String validate(UUID arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ClassModel1.class, arg, configuration);
         }
         

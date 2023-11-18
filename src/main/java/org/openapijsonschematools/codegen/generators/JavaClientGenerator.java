@@ -1168,6 +1168,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 imports.add(getImport(deepestRefInfo));
             }
         }
+        if (schema.refInfo != null) {
+            // todo remove this when ref is supported with adjacent properties
+            return imports;
+        }
         if (schema.types != null) {
             if (schema.types.size() == 1) {
                 if (schema.isSimpleBoolean()) {
@@ -1227,8 +1231,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     } else {
                         imports.add("import "+packageName + ".schemas.FrozenMap;");
                         imports.add("import java.util.Map;");
-                        imports.add("import java.util.LinkedHashMap;");
-                        imports.add("import java.util.AbstractMap;");
+                        if (schema.properties != null) {
+                            imports.add("import java.util.LinkedHashMap;");
+                            imports.add("import java.util.AbstractMap;");
+                        }
                     }
                 } else if (schema.types.contains("array")) {
                     if (schema.isSimpleArray()) {
@@ -1247,6 +1253,18 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 imports.add("import "+packageName + ".schemas.NotAnyTypeJsonSchema;");
             } else if (schema.isSimpleAnyType()) {
                 imports.add("import "+packageName + ".schemas.AnyTypeJsonSchema;");
+            } else {
+                imports.add("import java.time.LocalDate;");
+                imports.add("import java.time.ZonedDateTime;");
+                imports.add("import java.util.UUID;");
+                imports.add("import "+packageName + ".schemas.FrozenList;");
+                imports.add("import java.util.List;");
+                imports.add("import "+packageName + ".schemas.FrozenMap;");
+                imports.add("import java.util.Map;");
+                if (schema.properties != null) {
+                    imports.add("import java.util.LinkedHashMap;");
+                    imports.add("import java.util.AbstractMap;");
+                }
             }
         }
         return imports;

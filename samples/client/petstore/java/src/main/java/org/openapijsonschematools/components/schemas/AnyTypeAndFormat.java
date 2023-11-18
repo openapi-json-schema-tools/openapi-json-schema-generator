@@ -4,9 +4,14 @@ import org.openapijsonschematools.schemas.JsonSchema;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.UUID;
+import org.openapijsonschematools.schemas.FrozenList;
 import org.openapijsonschematools.schemas.FrozenMap;
 
 public class AnyTypeAndFormat {
@@ -48,6 +53,10 @@ public class AnyTypeAndFormat {
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(UuidSchema.class, arg, configuration);
+        }
+        
+        public static String validate(UUID arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(UuidSchema.class, arg, configuration);
         }
         
@@ -98,6 +107,10 @@ public class AnyTypeAndFormat {
             return JsonSchema.validate(Date.class, arg, configuration);
         }
         
+        public static String validate(UUID arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Date.class, arg, configuration);
+        }
+        
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Date.class, arg, configuration);
         }
@@ -142,6 +155,10 @@ public class AnyTypeAndFormat {
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Datetime.class, arg, configuration);
+        }
+        
+        public static String validate(UUID arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Datetime.class, arg, configuration);
         }
         
@@ -192,6 +209,10 @@ public class AnyTypeAndFormat {
             return JsonSchema.validate(NumberSchema.class, arg, configuration);
         }
         
+        public static String validate(UUID arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+        }
+        
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberSchema.class, arg, configuration);
         }
@@ -236,6 +257,10 @@ public class AnyTypeAndFormat {
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Binary.class, arg, configuration);
+        }
+        
+        public static String validate(UUID arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Binary.class, arg, configuration);
         }
         
@@ -286,6 +311,10 @@ public class AnyTypeAndFormat {
             return JsonSchema.validate(Int32.class, arg, configuration);
         }
         
+        public static String validate(UUID arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Int32.class, arg, configuration);
+        }
+        
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int32.class, arg, configuration);
         }
@@ -330,6 +359,10 @@ public class AnyTypeAndFormat {
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Int64.class, arg, configuration);
+        }
+        
+        public static String validate(UUID arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int64.class, arg, configuration);
         }
         
@@ -380,6 +413,10 @@ public class AnyTypeAndFormat {
             return JsonSchema.validate(DoubleSchema.class, arg, configuration);
         }
         
+        public static String validate(UUID arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(DoubleSchema.class, arg, configuration);
+        }
+        
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DoubleSchema.class, arg, configuration);
         }
@@ -424,6 +461,10 @@ public class AnyTypeAndFormat {
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(FloatSchema.class, arg, configuration);
+        }
+        
+        public static String validate(UUID arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(FloatSchema.class, arg, configuration);
         }
         
