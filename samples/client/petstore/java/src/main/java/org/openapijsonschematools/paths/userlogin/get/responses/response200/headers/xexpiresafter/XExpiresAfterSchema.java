@@ -15,18 +15,12 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.time.ZonedDateTime;
+import org.openapijsonschematools.schemas.DateTimeJsonSchema;
 
 public class XExpiresAfterSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class XExpiresAfterSchema1 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "date-time";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(XExpiresAfterSchema1.class, arg, configuration);
-        }
-    }}
+    public class XExpiresAfterSchema1 extends DateTimeJsonSchema {
+    }
+}

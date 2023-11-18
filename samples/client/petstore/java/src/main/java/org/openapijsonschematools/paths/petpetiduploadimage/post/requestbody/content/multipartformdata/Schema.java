@@ -15,33 +15,20 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.time.LocalDate;
-import java.time.ZonedDateTime;
-import java.util.UUID;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalMetadata implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AdditionalMetadata.class, arg, configuration);
-        }
-    }    
+    public class AdditionalMetadata extends StringJsonSchema {
+    }
+    
     
     public class File implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            // FileIO,
-            // bytes,
-        ));
-        static final String format = "binary";
-        // FileIO,
-        // bytes,
-    }    
+        // BinarySchema
+    }
+    
     
     public class Schema1 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(

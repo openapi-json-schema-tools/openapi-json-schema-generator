@@ -15,32 +15,19 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.time.LocalDate;
-import java.time.ZonedDateTime;
-import java.util.UUID;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class ReadOnlyFirst {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Bar implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Bar.class, arg, configuration);
-        }
-    }    
+    public class Bar extends StringJsonSchema {
+    }
     
-    public class Baz implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Baz.class, arg, configuration);
-        }
-    }    
+    
+    public class Baz extends StringJsonSchema {
+    }
+    
     
     public class ReadOnlyFirst1 implements JsonSchema {
         /*

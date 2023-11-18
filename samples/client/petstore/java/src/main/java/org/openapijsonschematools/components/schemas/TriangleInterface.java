@@ -33,14 +33,9 @@ public class TriangleInterface {
         }
     }    
     
-    public class TriangleType implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(TriangleType.class, arg, configuration);
-        }
-    }    
+    public class TriangleType extends StringJsonSchema {
+    }
+    
     
     public class TriangleInterface1 implements JsonSchema {
         /*

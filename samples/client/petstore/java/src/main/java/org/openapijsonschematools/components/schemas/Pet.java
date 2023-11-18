@@ -29,23 +29,13 @@ public class Pet {
     }
     
     
-    public class Name implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Name.class, arg, configuration);
-        }
-    }    
+    public class Name extends StringJsonSchema {
+    }
     
-    public class Items implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Items.class, arg, configuration);
-        }
-    }    
+    
+    public class Items extends StringJsonSchema {
+    }
+    
     
     public class PhotoUrls implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(

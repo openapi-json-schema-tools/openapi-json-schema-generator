@@ -24,15 +24,9 @@ public class ComposedOneOfDifferentTypes {
     }
     
     
-    public class Schema3 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "date";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Schema3.class, arg, configuration);
-        }
-    }    
+    public class Schema3 extends DateJsonSchema {
+    }
+    
     
     public class Schema4 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(

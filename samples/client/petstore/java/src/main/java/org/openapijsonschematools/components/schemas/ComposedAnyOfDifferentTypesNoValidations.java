@@ -24,54 +24,26 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     
-    public class Schema1 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "date";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Schema1.class, arg, configuration);
-        }
-    }    
+    public class Schema1 extends DateJsonSchema {
+    }
     
-    public class Schema2 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "date-time";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Schema2.class, arg, configuration);
-        }
-    }    
+    
+    public class Schema2 extends DateTimeJsonSchema {
+    }
+    
     
     public class Schema3 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            // FileIO,
-            // bytes,
-        ));
-        static final String format = "binary";
-        // FileIO,
-        // bytes,
-    }    
+        // BinarySchema
+    }
     
-    public class Schema4 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "byte";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Schema4.class, arg, configuration);
-        }
-    }    
     
-    public class Schema5 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Schema5.class, arg, configuration);
-        }
-    }    
+    public class Schema4 extends StringJsonSchema {
+    }
+    
+    
+    public class Schema5 extends StringJsonSchema {
+    }
+    
     
     public class Schema6 extends MapJsonSchema {
     }

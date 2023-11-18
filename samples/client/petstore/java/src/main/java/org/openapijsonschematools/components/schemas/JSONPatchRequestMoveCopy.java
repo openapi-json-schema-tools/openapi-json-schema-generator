@@ -29,23 +29,13 @@ public class JSONPatchRequestMoveCopy {
     }
     
     
-    public class From implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(From.class, arg, configuration);
-        }
-    }    
+    public class From extends StringJsonSchema {
+    }
     
-    public class Path implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Path.class, arg, configuration);
-        }
-    }    
+    
+    public class Path extends StringJsonSchema {
+    }
+    
     
     public class Op implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(

@@ -21,14 +21,9 @@ public class Schema {
     
     
     public class Items implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            // FileIO,
-            // bytes,
-        ));
-        static final String format = "binary";
-        // FileIO,
-        // bytes,
-    }    
+        // BinarySchema
+    }
+    
     
     public class Files implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(

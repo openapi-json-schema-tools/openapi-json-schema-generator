@@ -15,9 +15,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.time.LocalDate;
-import java.time.ZonedDateTime;
-import java.util.UUID;
 import org.openapijsonschematools.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 
@@ -30,14 +27,9 @@ public class AppleReq {
     }
     
     
-    public class Cultivar implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Cultivar.class, arg, configuration);
-        }
-    }    
+    public class Cultivar extends StringJsonSchema {
+    }
+    
     
     public class Mealy extends BooleanJsonSchema {
     }

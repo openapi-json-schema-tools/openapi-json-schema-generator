@@ -24,14 +24,9 @@ public class Animal {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class ClassName implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(ClassName.class, arg, configuration);
-        }
-    }    
+    public class ClassName extends StringJsonSchema {
+    }
+    
     
     public class Color implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(

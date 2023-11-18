@@ -33,14 +33,9 @@ public class QuadrilateralInterface {
         }
     }    
     
-    public class QuadrilateralType implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(QuadrilateralType.class, arg, configuration);
-        }
-    }    
+    public class QuadrilateralType extends StringJsonSchema {
+    }
+    
     
     public class QuadrilateralInterface1 implements JsonSchema {
         /*

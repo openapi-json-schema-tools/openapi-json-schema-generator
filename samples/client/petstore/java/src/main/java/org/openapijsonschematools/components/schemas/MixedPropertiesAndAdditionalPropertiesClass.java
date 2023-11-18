@@ -15,32 +15,20 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.time.ZonedDateTime;
-import java.util.UUID;
+import org.openapijsonschematools.schemas.DateTimeJsonSchema;
+import org.openapijsonschematools.schemas.UuidJsonSchema;
 
 public class MixedPropertiesAndAdditionalPropertiesClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class UuidSchema implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "uuid";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(UuidSchema.class, arg, configuration);
-        }
-    }    
+    public class UuidSchema extends UuidJsonSchema {
+    }
     
-    public class DateTime implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "date-time";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(DateTime.class, arg, configuration);
-        }
-    }    
+    
+    public class DateTime extends DateTimeJsonSchema {
+    }
+    
     
     public class MapSchema implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(

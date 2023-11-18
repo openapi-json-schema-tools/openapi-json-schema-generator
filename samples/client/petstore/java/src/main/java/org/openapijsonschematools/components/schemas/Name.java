@@ -15,9 +15,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.time.LocalDate;
-import java.time.ZonedDateTime;
-import java.util.UUID;
 import org.openapijsonschematools.schemas.Int32JsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 
@@ -33,14 +30,9 @@ public class Name {
     }
     
     
-    public class Property implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Property.class, arg, configuration);
-        }
-    }    
+    public class Property extends StringJsonSchema {
+    }
+    
     
     public class Name1 implements JsonSchema {
         /*

@@ -20,14 +20,9 @@ public class AnyTypeNotString {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Not implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Not.class, arg, configuration);
-        }
-    }    
+    public class Not extends StringJsonSchema {
+    }
+    
     
     public class AnyTypeNotString1 implements JsonSchema {
         /*

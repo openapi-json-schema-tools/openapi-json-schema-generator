@@ -15,7 +15,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.UUID;
+import org.openapijsonschematools.schemas.UuidJsonSchema;
 
 public class MyObjectDto {
     // nest classes so all schemas and input/output classes can be public
@@ -26,15 +26,9 @@ public class MyObjectDto {
     }
     
     
-    public class Id implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "uuid";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Id.class, arg, configuration);
-        }
-    }    
+    public class Id extends UuidJsonSchema {
+    }
+    
     
     public class MyObjectDto1 implements JsonSchema {
         /*

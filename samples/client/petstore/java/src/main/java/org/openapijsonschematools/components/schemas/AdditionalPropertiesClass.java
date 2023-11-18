@@ -15,23 +15,15 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.time.LocalDate;
-import java.time.ZonedDateTime;
-import java.util.UUID;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class AdditionalPropertiesClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AdditionalProperties.class, arg, configuration);
-        }
-    }    
+    public class AdditionalProperties extends StringJsonSchema {
+    }
+    
     
     public class MapProperty implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
@@ -44,14 +36,9 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public class AdditionalProperties2 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
-        }
-    }    
+    public class AdditionalProperties2 extends StringJsonSchema {
+    }
+    
     
     public class AdditionalProperties1 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
@@ -118,14 +105,9 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public class AdditionalProperties5 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AdditionalProperties5.class, arg, configuration);
-        }
-    }    
+    public class AdditionalProperties5 extends StringJsonSchema {
+    }
+    
     
     public class MapWithUndeclaredPropertiesString implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(

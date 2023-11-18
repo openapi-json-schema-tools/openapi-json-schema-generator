@@ -1418,11 +1418,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
     }
 
     @Override
-    public CodegenPatternInfo getPatternInfo(String pattern) {
-        return new CodegenPatternInfo(escapeText(pattern), null);
-    }
-
-    @Override
     public String sanitizeTag(String tag) {
         tag = camelize(underscore(sanitizeName(tag)));
 

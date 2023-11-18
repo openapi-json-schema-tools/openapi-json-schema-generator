@@ -25,14 +25,9 @@ public class MapTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties1 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
-        }
-    }    
+    public class AdditionalProperties1 extends StringJsonSchema {
+    }
+    
     
     public class AdditionalProperties implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(

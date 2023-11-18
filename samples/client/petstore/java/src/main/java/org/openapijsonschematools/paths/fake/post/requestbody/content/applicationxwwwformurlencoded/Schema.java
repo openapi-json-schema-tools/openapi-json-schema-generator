@@ -18,6 +18,7 @@ import java.util.Set;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.UUID;
+import org.openapijsonschematools.schemas.DateJsonSchema;
 import org.openapijsonschematools.schemas.Int64JsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 
@@ -146,35 +147,18 @@ public class Schema {
         }
     }    
     
-    public class ByteSchema implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "byte";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(ByteSchema.class, arg, configuration);
-        }
-    }    
+    public class ByteSchema extends StringJsonSchema {
+    }
+    
     
     public class Binary implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            // FileIO,
-            // bytes,
-        ));
-        static final String format = "binary";
-        // FileIO,
-        // bytes,
-    }    
+        // BinarySchema
+    }
     
-    public class Date implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "date";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Date.class, arg, configuration);
-        }
-    }    
+    
+    public class Date extends DateJsonSchema {
+    }
+    
     
     public class DateTime implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
@@ -196,14 +180,9 @@ public class Schema {
         }
     }    
     
-    public class Callback implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Callback.class, arg, configuration);
-        }
-    }    
+    public class Callback extends StringJsonSchema {
+    }
+    
     
     public class Schema1 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(

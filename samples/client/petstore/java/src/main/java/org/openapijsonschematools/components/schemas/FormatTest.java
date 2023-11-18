@@ -18,6 +18,8 @@ import java.util.Set;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.UUID;
+import org.openapijsonschematools.schemas.DateJsonSchema;
+import org.openapijsonschematools.schemas.DateTimeJsonSchema;
 import org.openapijsonschematools.schemas.DoubleJsonSchema;
 import org.openapijsonschematools.schemas.FloatJsonSchema;
 import org.openapijsonschematools.schemas.Int32JsonSchema;
@@ -25,6 +27,7 @@ import org.openapijsonschematools.schemas.Int64JsonSchema;
 import org.openapijsonschematools.schemas.NullJsonSchema;
 import org.openapijsonschematools.schemas.NumberJsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
+import org.openapijsonschematools.schemas.UuidJsonSchema;
 
 public class FormatTest {
     // nest classes so all schemas and input/output classes can be public
@@ -167,65 +170,30 @@ public class FormatTest {
         }
     }    
     
-    public class ByteSchema implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "byte";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(ByteSchema.class, arg, configuration);
-        }
-    }    
+    public class ByteSchema extends StringJsonSchema {
+    }
+    
     
     public class Binary implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            // FileIO,
-            // bytes,
-        ));
-        static final String format = "binary";
-        // FileIO,
-        // bytes,
-    }    
+        // BinarySchema
+    }
     
-    public class Date implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "date";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Date.class, arg, configuration);
-        }
-    }    
     
-    public class DateTime implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "date-time";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(DateTime.class, arg, configuration);
-        }
-    }    
+    public class Date extends DateJsonSchema {
+    }
     
-    public class UuidSchema implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "uuid";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(UuidSchema.class, arg, configuration);
-        }
-    }    
     
-    public class UuidNoExample implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "uuid";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(UuidNoExample.class, arg, configuration);
-        }
-    }    
+    public class DateTime extends DateTimeJsonSchema {
+    }
+    
+    
+    public class UuidSchema extends UuidJsonSchema {
+    }
+    
+    
+    public class UuidNoExample extends UuidJsonSchema {
+    }
+    
     
     public class Password implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(

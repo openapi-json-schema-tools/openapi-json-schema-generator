@@ -15,20 +15,15 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.schemas.DecimalJsonSchema;
 
 public class ObjectWithDecimalProperties {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Width implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "number";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Width.class, arg, configuration);
-        }
-    }    
+    public class Width extends NumberJsonSchema {
+    }
+    
     
     public class ObjectWithDecimalProperties1 implements JsonSchema {
         /*

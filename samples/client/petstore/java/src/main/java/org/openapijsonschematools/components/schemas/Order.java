@@ -19,6 +19,7 @@ import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 import org.openapijsonschematools.schemas.BooleanJsonSchema;
+import org.openapijsonschematools.schemas.DateTimeJsonSchema;
 import org.openapijsonschematools.schemas.Int32JsonSchema;
 import org.openapijsonschematools.schemas.Int64JsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
@@ -39,15 +40,9 @@ public class Order {
     }
     
     
-    public class ShipDate implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "date-time";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(ShipDate.class, arg, configuration);
-        }
-    }    
+    public class ShipDate extends DateTimeJsonSchema {
+    }
+    
     
     public class Status implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
