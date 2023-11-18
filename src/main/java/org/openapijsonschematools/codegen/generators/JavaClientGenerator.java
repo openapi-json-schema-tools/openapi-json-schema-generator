@@ -1220,6 +1220,14 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                             imports.add("import java.util.UUID;");
                         }
                     }
+                } else if (schema.types.contains("object")) {
+                    if (schema.isSimpleObject()) {
+                        imports.add("import "+packageName + ".schemas.MapJsonSchema;");
+                    } else {
+                        imports.add("import "+packageName + ".schemas.FrozenMap;");
+                        imports.add("import java.util.Map;");
+                        imports.add("import java.util.LinkedHashMap;");
+                    }
                 }
             }
         }

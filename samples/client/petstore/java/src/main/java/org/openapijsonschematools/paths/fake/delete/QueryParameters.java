@@ -2,23 +2,22 @@ package org.openapijsonschematools.paths.fake.delete;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.FrozenList;
-import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.ListJsonSchema;
-import org.openapijsonschematools.schemas.MapJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.UnsetAnyTypeJsonSchema;
 
 import java.util.AbstractMap;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import org.openapijsonschematools.paths.fake.delete.parameters.parameter0.Schema0;
 import org.openapijsonschematools.paths.fake.delete.parameters.parameter2.Schema2;
 import org.openapijsonschematools.paths.fake.delete.parameters.parameter3.Schema3;
 import org.openapijsonschematools.paths.fake.delete.parameters.parameter5.Schema5;
+import org.openapijsonschematools.schemas.FrozenMap;
 
 public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public

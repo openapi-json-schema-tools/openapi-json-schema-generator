@@ -2,24 +2,23 @@ package org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.FrozenList;
-import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.ListJsonSchema;
-import org.openapijsonschematools.schemas.MapJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.UnsetAnyTypeJsonSchema;
 
 import java.util.AbstractMap;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter0.Schema0;
 import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter1.Schema1;
 import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter2.Schema2;
 import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter3.Schema3;
 import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter4.Schema4;
+import org.openapijsonschematools.schemas.FrozenMap;
 
 public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public

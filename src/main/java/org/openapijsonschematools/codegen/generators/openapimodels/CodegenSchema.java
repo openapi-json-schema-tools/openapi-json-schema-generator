@@ -209,6 +209,22 @@ public class CodegenSchema {
         return true;
     }
 
+    public boolean isSimpleObject() {
+        if (types == null) {
+            return false;
+        }
+        if (types.size() != 1) {
+            return false;
+        }
+        if (!types.contains("object")) {
+            return false;
+        }
+        if (allOf != null || anyOf != null ||  oneOf != null ||  not != null ||  if_ != null ||  then != null ||  else_ != null || properties != null || requiredProperties != null || hasDiscriminatorWithNonEmptyMapping() != false || additionalProperties != null || dependentRequired != null || dependentSchemas != null || propertyNames != null || maxProperties != null || minProperties != null || patternProperties != null ||  unevaluatedProperties != null) {
+            return false;
+        }
+        return true;
+    }
+
     public CodegenSchema typeSchema() {
         CodegenSchema schema = new CodegenSchema();
         schema.refInfo = refInfo;

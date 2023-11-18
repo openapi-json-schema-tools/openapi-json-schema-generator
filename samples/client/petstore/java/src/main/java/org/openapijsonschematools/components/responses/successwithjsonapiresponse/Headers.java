@@ -2,23 +2,22 @@ package org.openapijsonschematools.components.responses.successwithjsonapirespon
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.FrozenList;
-import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.ListJsonSchema;
-import org.openapijsonschematools.schemas.MapJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.UnsetAnyTypeJsonSchema;
 
 import java.util.AbstractMap;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import org.openapijsonschematools.components.headers.int32jsoncontenttypeheader.content.applicationjson.Int32JsonContentTypeHeaderSchema;
 import org.openapijsonschematools.components.headers.numberheader.NumberHeaderSchema;
 import org.openapijsonschematools.components.headers.stringheader.StringHeaderSchema;
 import org.openapijsonschematools.components.schemas.StringWithValidation;
+import org.openapijsonschematools.schemas.FrozenMap;
 
 public class Headers {
     // nest classes so all schemas and input/output classes can be public
