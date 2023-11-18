@@ -1,9 +1,6 @@
 package org.openapijsonschematools.paths.fakerefobjinquery.get;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.JsonSchema;
-import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.UnsetAnyTypeJsonSchema;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -12,12 +9,13 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import org.openapijsonschematools.components.schemas.Foo;
 import org.openapijsonschematools.schemas.FrozenMap;
+import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 
 public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties implements JsonSchema {
+    public class AdditionalProperties extends NotAnyTypeJsonSchema {
         // NotAnyTypeSchema
     }
     

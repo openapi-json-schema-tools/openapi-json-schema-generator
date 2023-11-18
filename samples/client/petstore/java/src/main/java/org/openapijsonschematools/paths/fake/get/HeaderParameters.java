@@ -1,9 +1,6 @@
 package org.openapijsonschematools.paths.fake.get;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.JsonSchema;
-import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.UnsetAnyTypeJsonSchema;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -13,12 +10,13 @@ import java.util.Map;
 import org.openapijsonschematools.paths.fake.get.parameters.parameter0.Schema0;
 import org.openapijsonschematools.paths.fake.get.parameters.parameter1.Schema1;
 import org.openapijsonschematools.schemas.FrozenMap;
+import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 
 public class HeaderParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties implements JsonSchema {
+    public class AdditionalProperties extends NotAnyTypeJsonSchema {
         // NotAnyTypeSchema
     }
     

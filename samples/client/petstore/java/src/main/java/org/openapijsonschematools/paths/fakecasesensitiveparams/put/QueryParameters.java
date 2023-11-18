@@ -1,9 +1,6 @@
 package org.openapijsonschematools.paths.fakecasesensitiveparams.put;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.JsonSchema;
-import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.UnsetAnyTypeJsonSchema;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -14,12 +11,13 @@ import org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.p
 import org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.parameter1.Schema1;
 import org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.parameter2.Schema2;
 import org.openapijsonschematools.schemas.FrozenMap;
+import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 
 public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties implements JsonSchema {
+    public class AdditionalProperties extends NotAnyTypeJsonSchema {
         // NotAnyTypeSchema
     }
     

@@ -4,7 +4,7 @@
     {{#if isBooleanSchemaTrue}}
 public class {{../jsonPathPiece.camelCase}} extends AnyTypeJsonSchema {
     {{else}}
-public class {{jsonPathPiece.camelCase}} implements JsonSchema {
+public class {{jsonPathPiece.camelCase}} extends NotAnyTypeJsonSchema {
     // NotAnyTypeSchema
     {{/if}}
 {{else}}
@@ -59,7 +59,7 @@ public class {{../jsonPathPiece.camelCase}} extends DateTimeJsonSchema {
 public class {{../jsonPathPiece.camelCase}} extends UuidJsonSchema {
                     {{/eq}}
                     {{#eq ../format "number"}}
-public class {{../jsonPathPiece.camelCase}} extends NumberJsonSchema {
+public class {{../jsonPathPiece.camelCase}} extends DecimalJsonSchema {
                     {{/eq}}
                     {{#eq ../format "binary"}}
 public class {{jsonPathPiece.camelCase}} implements JsonSchema {

@@ -1238,6 +1238,13 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     }
                 }
             }
+        } else {
+            // no types
+            if (schema.isBooleanSchemaTrue) {
+                imports.add("import "+packageName + ".schemas.AnyTypeJsonSchema;");
+            } else if (schema.isBooleanSchemaFalse) {
+                imports.add("import "+packageName + ".schemas.NotAnyTypeJsonSchema;");
+            }
         }
         return imports;
     }
