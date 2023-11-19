@@ -38,7 +38,7 @@ public class ReqPropsFromTrueAddProps {
             "validName"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static ReqPropsFromTrueAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ReqPropsFromTrueAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ReqPropsFromTrueAddPropsMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -33,7 +33,7 @@ public class ReqPropsFromUnsetAddProps {
             "invalid-name",
             "validName"
         ));
-        static ReqPropsFromUnsetAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ReqPropsFromUnsetAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ReqPropsFromUnsetAddPropsMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

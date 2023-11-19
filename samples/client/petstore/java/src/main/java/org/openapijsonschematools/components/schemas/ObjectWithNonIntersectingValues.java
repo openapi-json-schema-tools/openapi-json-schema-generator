@@ -43,7 +43,7 @@ public class ObjectWithNonIntersectingValues {
             new AbstractMap.SimpleEntry<String, Class<?>>("a", A.class)
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static ObjectWithNonIntersectingValuesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectWithNonIntersectingValuesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithNonIntersectingValuesMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

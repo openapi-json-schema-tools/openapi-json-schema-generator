@@ -59,7 +59,7 @@ public class JSONPatchRequestRemove {
             "path"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static JSONPatchRequestRemoveMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static JSONPatchRequestRemoveMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new JSONPatchRequestRemoveMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

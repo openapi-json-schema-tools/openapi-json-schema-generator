@@ -34,7 +34,7 @@ public class Address {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static AddressMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static AddressMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AddressMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -44,7 +44,7 @@ public class ObjectWithCollidingProperties {
             new AbstractMap.SimpleEntry<String, Class<?>>("someProp", SomeProp.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("someprop", Someprop.class)
         ));
-        static ObjectWithCollidingPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectWithCollidingPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithCollidingPropertiesMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

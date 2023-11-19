@@ -55,7 +55,7 @@ public class Whale {
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "className"
         ));
-        static WhaleMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static WhaleMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new WhaleMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

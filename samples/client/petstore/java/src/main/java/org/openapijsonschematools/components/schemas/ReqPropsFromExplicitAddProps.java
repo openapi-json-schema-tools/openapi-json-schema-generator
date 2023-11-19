@@ -38,7 +38,7 @@ public class ReqPropsFromExplicitAddProps {
             "validName"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static ReqPropsFromExplicitAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ReqPropsFromExplicitAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ReqPropsFromExplicitAddPropsMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

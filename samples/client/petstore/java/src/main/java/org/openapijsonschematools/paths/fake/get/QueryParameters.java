@@ -42,7 +42,7 @@ public class QueryParameters {
             new AbstractMap.SimpleEntry<String, Class<?>>("enum_query_string_array", Schema2.Schema21.class)
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static QueryParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static QueryParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new QueryParametersMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

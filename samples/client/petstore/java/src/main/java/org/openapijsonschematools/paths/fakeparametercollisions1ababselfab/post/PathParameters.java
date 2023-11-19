@@ -51,7 +51,7 @@ public class PathParameters {
             "self"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static PathParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static PathParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new PathParametersMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

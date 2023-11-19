@@ -61,7 +61,7 @@ public class Zebra {
             "className"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static ZebraMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ZebraMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ZebraMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

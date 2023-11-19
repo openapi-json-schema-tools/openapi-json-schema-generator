@@ -32,7 +32,7 @@ public class Schema0 {
         static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("keyword", Keyword0.class)
         ));
-        static SchemaMap0 getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static SchemaMap0 getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new SchemaMap0(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

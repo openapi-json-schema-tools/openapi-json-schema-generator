@@ -96,7 +96,7 @@ public class ArrayTest {
             new AbstractMap.SimpleEntry<String, Class<?>>("array_array_of_integer", ArrayArrayOfInteger.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("array_array_of_model", ArrayArrayOfModel.class)
         ));
-        static ArrayTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ArrayTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ArrayTestMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

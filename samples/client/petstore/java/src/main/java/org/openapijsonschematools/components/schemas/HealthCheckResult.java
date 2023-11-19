@@ -49,7 +49,7 @@ public class HealthCheckResult {
         static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("NullableMessage", NullableMessage.class)
         ));
-        static HealthCheckResultMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static HealthCheckResultMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new HealthCheckResultMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

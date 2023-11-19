@@ -33,7 +33,7 @@ public class AdditionalPropertiesValidator {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static Schema0Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static Schema0Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new Schema0Map(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -106,7 +106,7 @@ public class AdditionalPropertiesValidator {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties1.class;
-        static Schema1Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static Schema1Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new Schema1Map(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -179,7 +179,7 @@ public class AdditionalPropertiesValidator {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties2.class;
-        static Schema2Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static Schema2Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new Schema2Map(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -35,7 +35,7 @@ public class SelfReferencingObjectModel {
             new AbstractMap.SimpleEntry<String, Class<?>>("selfRef", SelfReferencingObjectModel1.class)
         ));
         static final Class<?> additionalProperties = SelfReferencingObjectModel1.class;
-        static SelfReferencingObjectModelMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static SelfReferencingObjectModelMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new SelfReferencingObjectModelMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -46,7 +46,7 @@ public class ObjectModelWithArgAndArgsProperties {
             "arg",
             "args"
         ));
-        static ObjectModelWithArgAndArgsPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectModelWithArgAndArgsPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectModelWithArgAndArgsPropertiesMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

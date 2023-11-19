@@ -65,7 +65,7 @@ public class EnumArrays {
             new AbstractMap.SimpleEntry<String, Class<?>>("just_symbol", JustSymbol.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("array_enum", ArrayEnum.class)
         ));
-        static EnumArraysMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static EnumArraysMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new EnumArraysMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

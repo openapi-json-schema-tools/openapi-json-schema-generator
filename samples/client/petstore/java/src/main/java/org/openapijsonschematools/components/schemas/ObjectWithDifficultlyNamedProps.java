@@ -53,7 +53,7 @@ public class ObjectWithDifficultlyNamedProps {
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "123-list"
         ));
-        static ObjectWithDifficultlyNamedPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectWithDifficultlyNamedPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithDifficultlyNamedPropsMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -47,7 +47,7 @@ public class ApiResponseSchema {
             new AbstractMap.SimpleEntry<String, Class<?>>("type", Type.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("message", Message.class)
         ));
-        static ApiResponseMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ApiResponseMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ApiResponseMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

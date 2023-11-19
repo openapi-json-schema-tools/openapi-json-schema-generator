@@ -41,7 +41,7 @@ public class Player {
             new AbstractMap.SimpleEntry<String, Class<?>>("name", Name.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("enemyPlayer", Player1.class)
         ));
-        static PlayerMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static PlayerMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new PlayerMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -42,7 +42,7 @@ public class ReadOnlyFirst {
             new AbstractMap.SimpleEntry<String, Class<?>>("bar", Bar.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("baz", Baz.class)
         ));
-        static ReadOnlyFirstMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ReadOnlyFirstMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ReadOnlyFirstMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -44,7 +44,7 @@ public class CookieParameters {
             new AbstractMap.SimpleEntry<String, Class<?>>("self", Schema17.Schema171.class)
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static CookieParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static CookieParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new CookieParametersMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

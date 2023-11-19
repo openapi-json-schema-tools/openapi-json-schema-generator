@@ -33,7 +33,7 @@ public class AdditionalPropertiesClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static MapPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static MapPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapPropertyMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -59,7 +59,7 @@ public class AdditionalPropertiesClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties2.class;
-        static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AdditionalPropertiesMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -82,7 +82,7 @@ public class AdditionalPropertiesClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties1.class;
-        static MapOfMapPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static MapOfMapPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapOfMapPropertyMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -117,7 +117,7 @@ public class AdditionalPropertiesClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties3.class;
-        static MapWithUndeclaredPropertiesAnytype3Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static MapWithUndeclaredPropertiesAnytype3Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapWithUndeclaredPropertiesAnytype3Map(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -145,7 +145,7 @@ public class AdditionalPropertiesClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties4.class;
-        static EmptyMapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static EmptyMapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new EmptyMapMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -171,7 +171,7 @@ public class AdditionalPropertiesClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties5.class;
-        static MapWithUndeclaredPropertiesStringMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static MapWithUndeclaredPropertiesStringMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapWithUndeclaredPropertiesStringMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -209,7 +209,7 @@ public class AdditionalPropertiesClass {
             new AbstractMap.SimpleEntry<String, Class<?>>("empty_map", EmptyMap.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("map_with_undeclared_properties_string", MapWithUndeclaredPropertiesString.class)
         ));
-        static AdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static AdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AdditionalPropertiesClassMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -45,7 +45,7 @@ public class MyObjectDto {
             new AbstractMap.SimpleEntry<String, Class<?>>("id", Id.class)
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static MyObjectDtoMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static MyObjectDtoMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MyObjectDtoMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

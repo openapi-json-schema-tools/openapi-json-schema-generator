@@ -52,7 +52,7 @@ public class NoAdditionalProperties {
             "id"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static NoAdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static NoAdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new NoAdditionalPropertiesMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -47,7 +47,7 @@ public class FileSchemaTestClass {
             new AbstractMap.SimpleEntry<String, Class<?>>("file", File.File1.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("files", Files.class)
         ));
-        static FileSchemaTestClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static FileSchemaTestClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new FileSchemaTestClassMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

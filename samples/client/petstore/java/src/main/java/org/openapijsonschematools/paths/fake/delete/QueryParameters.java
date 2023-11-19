@@ -46,7 +46,7 @@ public class QueryParameters {
             "required_string_group"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static QueryParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static QueryParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new QueryParametersMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

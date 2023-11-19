@@ -87,7 +87,7 @@ public class Pet {
             "name",
             "photoUrls"
         ));
-        static PetMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static PetMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new PetMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

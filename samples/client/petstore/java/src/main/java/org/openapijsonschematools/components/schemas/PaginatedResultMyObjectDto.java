@@ -62,7 +62,7 @@ public class PaginatedResultMyObjectDto {
             "results"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static PaginatedResultMyObjectDtoMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static PaginatedResultMyObjectDtoMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new PaginatedResultMyObjectDtoMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

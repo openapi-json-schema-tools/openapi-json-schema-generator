@@ -64,7 +64,7 @@ public class JSONPatchRequestAddReplaceTest {
             "value"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static JSONPatchRequestAddReplaceTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static JSONPatchRequestAddReplaceTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new JSONPatchRequestAddReplaceTestMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

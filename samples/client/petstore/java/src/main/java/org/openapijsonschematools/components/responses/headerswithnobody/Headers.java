@@ -36,7 +36,7 @@ public class Headers {
             new AbstractMap.SimpleEntry<String, Class<?>>("location", LocationSchema.LocationSchema1.class)
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static HeadersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static HeadersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new HeadersMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

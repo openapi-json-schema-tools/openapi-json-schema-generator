@@ -43,7 +43,7 @@ public class Tag {
             new AbstractMap.SimpleEntry<String, Class<?>>("id", Id.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("name", Name.class)
         ));
-        static TagMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static TagMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new TagMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

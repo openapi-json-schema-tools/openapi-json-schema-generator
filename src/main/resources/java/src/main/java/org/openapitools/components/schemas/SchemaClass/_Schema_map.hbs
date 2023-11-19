@@ -69,7 +69,7 @@ public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     {{!> components/schemas/schema_cls/_unevaluated_properties }}
     {{/if}}
     {{#if mapOutputJsonPathPiece}}
-    static {{mapOutputJsonPathPiece.camelCase}} getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+    protected static {{mapOutputJsonPathPiece.camelCase}} getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
         return new {{mapOutputJsonPathPiece.camelCase}}(arg);
     }
     {{/if}}

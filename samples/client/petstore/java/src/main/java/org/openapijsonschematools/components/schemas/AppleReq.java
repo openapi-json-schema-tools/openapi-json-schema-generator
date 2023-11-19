@@ -53,7 +53,7 @@ public class AppleReq {
             "cultivar"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static AppleReqMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static AppleReqMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AppleReqMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

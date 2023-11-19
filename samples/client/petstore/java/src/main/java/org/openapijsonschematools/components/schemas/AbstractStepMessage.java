@@ -45,7 +45,7 @@ public class AbstractStepMessage {
             "discriminator",
             "sequenceNumber"
         ));
-        static AbstractStepMessageMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static AbstractStepMessageMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AbstractStepMessageMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

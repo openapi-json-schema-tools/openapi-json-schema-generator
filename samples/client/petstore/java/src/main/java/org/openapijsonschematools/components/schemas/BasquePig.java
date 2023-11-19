@@ -46,7 +46,7 @@ public class BasquePig {
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "className"
         ));
-        static BasquePigMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static BasquePigMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new BasquePigMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

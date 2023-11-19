@@ -41,7 +41,7 @@ public class GrandparentAnimal {
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "pet_type"
         ));
-        static GrandparentAnimalMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static GrandparentAnimalMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new GrandparentAnimalMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

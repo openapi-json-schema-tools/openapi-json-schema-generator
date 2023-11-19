@@ -38,7 +38,7 @@ public class ObjectModelWithRefProps {
             new AbstractMap.SimpleEntry<String, Class<?>>("myString", StringSchema.StringSchema1.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("myBoolean", BooleanSchema.BooleanSchema1.class)
         ));
-        static ObjectModelWithRefPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectModelWithRefPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectModelWithRefPropsMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -41,7 +41,7 @@ public class HeaderParameters {
             "required_boolean_group"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static HeaderParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static HeaderParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new HeaderParametersMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

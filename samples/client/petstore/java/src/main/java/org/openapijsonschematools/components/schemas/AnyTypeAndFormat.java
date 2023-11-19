@@ -506,7 +506,7 @@ public class AnyTypeAndFormat {
             new AbstractMap.SimpleEntry<String, Class<?>>("double", DoubleSchema.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("float", FloatSchema.class)
         ));
-        static AnyTypeAndFormatMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static AnyTypeAndFormatMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AnyTypeAndFormatMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

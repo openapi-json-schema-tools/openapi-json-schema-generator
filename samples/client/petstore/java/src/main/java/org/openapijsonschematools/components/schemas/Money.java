@@ -50,7 +50,7 @@ public class Money {
             "currency"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        static MoneyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static MoneyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MoneyMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
