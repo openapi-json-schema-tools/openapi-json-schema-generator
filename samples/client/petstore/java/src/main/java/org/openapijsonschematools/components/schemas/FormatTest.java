@@ -24,8 +24,8 @@ public class FormatTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class IntegerSchema implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class IntegerSchema extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Integer.class,
             Long.class,
             Float.class,
@@ -51,14 +51,14 @@ public class FormatTest {
     public class Int32 extends Int32JsonSchema {}
     
     
-    public class Int32withValidations implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class Int32withValidations extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Integer.class,
             Long.class,
             Float.class,
             Double.class
         ));
-        static final String format = "int32";
+        public static final String format = "int32";
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int32withValidations.class, Long.valueOf(arg), configuration);
         }
@@ -79,8 +79,8 @@ public class FormatTest {
     public class Int64 extends Int64JsonSchema {}
     
     
-    public class NumberSchema implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class NumberSchema extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Integer.class,
             Long.class,
             Float.class,
@@ -103,14 +103,14 @@ public class FormatTest {
         }
     }    
     
-    public class FloatSchema implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class FloatSchema extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Integer.class,
             Long.class,
             Float.class,
             Double.class
         ));
-        static final String format = "float";
+        public static final String format = "float";
         public static Float validate(Float arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(FloatSchema.class, arg, configuration);
         }
@@ -119,14 +119,14 @@ public class FormatTest {
     public class Float32 extends FloatJsonSchema {}
     
     
-    public class DoubleSchema implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class DoubleSchema extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Integer.class,
             Long.class,
             Float.class,
             Double.class
         ));
-        static final String format = "double";
+        public static final String format = "double";
         public static Double validate(Double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DoubleSchema.class, arg, configuration);
         }
@@ -144,11 +144,11 @@ public class FormatTest {
         }
     }    
     
-    public class ArrayWithUniqueItems implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class ArrayWithUniqueItems extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class
         ));
-        static final Class<?> items = Items.class;
+        public static final Class<?> items = Items.class;
         protected static ArrayWithUniqueItemsTuple getListOutputInstance(FrozenList<Object> arg) {
             return new ArrayWithUniqueItemsTuple(arg);
         }
@@ -157,8 +157,8 @@ public class FormatTest {
         }
     }    
     
-    public class StringSchema implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class StringSchema extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             String.class
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
@@ -169,7 +169,7 @@ public class FormatTest {
     public class ByteSchema extends StringJsonSchema {}
     
     
-    public class Binary implements JsonSchema {
+    public class Binary extends JsonSchema {
         // BinarySchema
     }
     
@@ -186,18 +186,18 @@ public class FormatTest {
     public class UuidNoExample extends UuidJsonSchema {}
     
     
-    public class Password implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class Password extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             String.class
         ));
-        static final String format = "password";
+        public static final String format = "password";
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Password.class, arg, configuration);
         }
     }    
     
-    public class PatternWithDigits implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class PatternWithDigits extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             String.class
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
@@ -205,8 +205,8 @@ public class FormatTest {
         }
     }    
     
-    public class PatternWithDigitsAndDelimiter implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class PatternWithDigitsAndDelimiter extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             String.class
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
@@ -226,17 +226,17 @@ public class FormatTest {
         }
     }    
     
-    public class FormatTest1 implements JsonSchema {
+    public class FormatTest1 extends JsonSchema {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("integer", IntegerSchema.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("int32", Int32.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("int32withValidations", Int32withValidations.class),
@@ -259,7 +259,7 @@ public class FormatTest {
             new AbstractMap.SimpleEntry<String, Class<?>>("pattern_with_digits_and_delimiter", PatternWithDigitsAndDelimiter.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("noneProp", NoneProp.class)
         ));
-        static final Set<String> required = new LinkedHashSet<>(Set.of(
+        public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "byte",
             "date",
             "number",

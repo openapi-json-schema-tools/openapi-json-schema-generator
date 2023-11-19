@@ -32,11 +32,11 @@ public class QueryParameters {
         }
     }    
     
-    public class QueryParameters1 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class QueryParameters1 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("1", Schema0.Schema01.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("aB", Schema1.Schema11.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("Ab", Schema2.Schema21.class),

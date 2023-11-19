@@ -11,8 +11,8 @@ import java.util.Set;
 import java.util.UUID;
 
 
-public class DecimalJsonSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+public class DecimalJsonSchema extends JsonSchema {
+    public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
         String.class
     ));
     static final String format = "number";

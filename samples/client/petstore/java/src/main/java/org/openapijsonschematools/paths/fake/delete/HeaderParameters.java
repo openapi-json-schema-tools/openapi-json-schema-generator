@@ -29,15 +29,15 @@ public class HeaderParameters {
         }
     }    
     
-    public class HeaderParameters1 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class HeaderParameters1 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("required_boolean_group", Schema1.Schema11.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("boolean_group", Schema4.Schema41.class)
         ));
-        static final Set<String> required = new LinkedHashSet<>(Set.of(
+        public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "required_boolean_group"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;

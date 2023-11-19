@@ -32,11 +32,11 @@ public class CookieParameters {
         }
     }    
     
-    public class CookieParameters1 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class CookieParameters1 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("1", Schema14.Schema141.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("aB", Schema15.Schema151.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("Ab", Schema16.Schema161.class),

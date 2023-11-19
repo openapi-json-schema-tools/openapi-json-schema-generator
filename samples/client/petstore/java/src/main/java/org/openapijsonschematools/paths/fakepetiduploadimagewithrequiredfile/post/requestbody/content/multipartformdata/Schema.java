@@ -16,7 +16,7 @@ public class Schema {
     public class AdditionalMetadata extends StringJsonSchema {}
     
     
-    public class RequiredFile implements JsonSchema {
+    public class RequiredFile extends JsonSchema {
         // BinarySchema
     }
     
@@ -30,15 +30,15 @@ public class Schema {
         }
     }    
     
-    public class Schema1 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class Schema1 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("additionalMetadata", AdditionalMetadata.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("requiredFile", RequiredFile.class)
         ));
-        static final Set<String> required = new LinkedHashSet<>(Set.of(
+        public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "requiredFile"
         ));
         protected static SchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

@@ -2,6 +2,9 @@ package org.openapijsonschematools.schemas;
 
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.schemas.validation.SchemaValidator;
+import org.openapijsonschematools.schemas.validation.PathToSchemasMap;
+import org.openapijsonschematools.schemas.validation.ValidationMetadata;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -17,7 +20,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-public interface JsonSchema extends SchemaValidator {
+public abstract class JsonSchema extends SchemaValidator {
    private static Object castToAllowedTypes(Object arg, List<Object> pathToItem, PathToTypeMap pathToType) {
       if (arg == null) {
          pathToType.put(pathToItem, Void.class);
@@ -84,7 +87,7 @@ public interface JsonSchema extends SchemaValidator {
       if (validationMetadata.validationRanEarlier(cls)) {
          // todo add deeper validated schemas
       } else {
-         PathToSchemasMap otherPathToSchemas = SchemaValidator.validate(cls, arg, validationMetadata);
+         PathToSchemasMap otherPathToSchemas = validate(cls, arg, validationMetadata);
          pathToSchemasMap.update(otherPathToSchemas);
          for (LinkedHashMap<Class<?>, Void> schemas: pathToSchemasMap.values()) {
             Class<?> firstSchema = schemas.entrySet().iterator().next().getKey();
@@ -163,51 +166,51 @@ public interface JsonSchema extends SchemaValidator {
       return null;
    }
 
-   static Void validate(Class<?> cls, Void arg, SchemaConfiguration configuration) {
+   protected static Void validate(Class<?> cls, Void arg, SchemaConfiguration configuration) {
       return (Void) validateObject(cls, arg, configuration);
    }
 
-   static Boolean validate(Class<?> cls, Boolean arg, SchemaConfiguration configuration) {
+   protected static Boolean validate(Class<?> cls, Boolean arg, SchemaConfiguration configuration) {
       return (Boolean) validateObject(cls, arg, configuration);
    }
 
-   static Integer validate(Class<?> cls, Integer arg, SchemaConfiguration configuration) {
+   protected static Integer validate(Class<?> cls, Integer arg, SchemaConfiguration configuration) {
       return (Integer) validateObject(cls, arg, configuration);
    }
 
-   static Long validate(Class<?> cls, Long arg, SchemaConfiguration configuration) {
+   protected static Long validate(Class<?> cls, Long arg, SchemaConfiguration configuration) {
       return (Long) validateObject(cls, arg, configuration);
    }
 
-   static Float validate(Class<?> cls, Float arg, SchemaConfiguration configuration) {
+   protected static Float validate(Class<?> cls, Float arg, SchemaConfiguration configuration) {
       return (Float) validateObject(cls, arg, configuration);
    }
 
-   static Double validate(Class<?> cls, Double arg, SchemaConfiguration configuration) {
+   protected static Double validate(Class<?> cls, Double arg, SchemaConfiguration configuration) {
       return (Double) validateObject(cls, arg, configuration);
    }
 
-   static String validate(Class<?> cls, String arg, SchemaConfiguration configuration) {
+   protected static String validate(Class<?> cls, String arg, SchemaConfiguration configuration) {
       return (String) validateObject(cls, arg, configuration);
    }
 
-   static String validate(Class<?> cls, ZonedDateTime arg, SchemaConfiguration configuration) {
+   protected static String validate(Class<?> cls, ZonedDateTime arg, SchemaConfiguration configuration) {
       return (String) validateObject(cls, arg, configuration);
    }
 
-   static String validate(Class<?> cls, LocalDate arg, SchemaConfiguration configuration) {
+   protected static String validate(Class<?> cls, LocalDate arg, SchemaConfiguration configuration) {
       return (String) validateObject(cls, arg, configuration);
    }
 
-   static String validate(Class<?> cls, UUID arg, SchemaConfiguration configuration) {
+   protected static String validate(Class<?> cls, UUID arg, SchemaConfiguration configuration) {
       return (String) validateObject(cls, arg, configuration);
    }
 
-   static <T extends FrozenMap> T validate(Class<?> cls, Map<String, Object> arg, SchemaConfiguration configuration) {
+   protected static <T extends FrozenMap> T validate(Class<?> cls, Map<String, Object> arg, SchemaConfiguration configuration) {
       return (T) validateObject(cls, arg, configuration);
    }
 
-   static <U extends FrozenList> U validate(Class<?> cls, List<Object> arg, SchemaConfiguration configuration) {
+   protected static <U extends FrozenList> U validate(Class<?> cls, List<Object> arg, SchemaConfiguration configuration) {
       return (U) validateObject(cls, arg, configuration);
    }
 

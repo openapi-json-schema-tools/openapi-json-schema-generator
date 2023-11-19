@@ -17,8 +17,8 @@ public class Schema1 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Schema01 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class Schema01 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             String.class
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
@@ -26,7 +26,7 @@ public class Schema1 {
         }
     }    
     
-    public class SomeProp1 implements JsonSchema {
+    public class SomeProp1 extends JsonSchema {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(SomeProp1.class, arg, configuration);
         }
@@ -85,11 +85,11 @@ public class Schema1 {
         }
     }    
     
-    public class Schema11 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class Schema11 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("someProp", SomeProp1.class)
         ));
         protected static SchemaMap1 getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

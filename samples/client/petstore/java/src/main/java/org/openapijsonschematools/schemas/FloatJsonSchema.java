@@ -11,8 +11,8 @@ import java.util.Set;
 import java.util.UUID;
 
 
-public class FloatJsonSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+public class FloatJsonSchema extends JsonSchema {
+    public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
         Float.class
     ));
     static final String format = "float";

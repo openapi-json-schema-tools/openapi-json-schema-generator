@@ -28,11 +28,11 @@ public class Headers {
         }
     }    
     
-    public class Headers1 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class Headers1 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("someHeader", SomeHeaderSchema.SomeHeaderSchema1.class)
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;

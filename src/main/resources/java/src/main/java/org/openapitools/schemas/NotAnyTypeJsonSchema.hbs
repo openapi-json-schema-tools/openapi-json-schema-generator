@@ -11,6 +11,6 @@ import java.util.Set;
 import java.util.UUID;
 
 
-public class NotAnyTypeJsonSchema implements JsonSchema {
+public class NotAnyTypeJsonSchema extends JsonSchema {
     // todo add not definition here when that validator is added
 }

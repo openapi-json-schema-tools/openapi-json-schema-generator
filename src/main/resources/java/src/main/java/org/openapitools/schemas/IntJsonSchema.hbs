@@ -11,8 +11,8 @@ import java.util.Set;
 import java.util.UUID;
 
 
-public class IntJsonSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+public class IntJsonSchema extends JsonSchema {
+    public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
         Long.class
     ));
     static final String format = "int";

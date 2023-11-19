@@ -17,8 +17,8 @@ public class NullableClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties3 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class AdditionalProperties3 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Void.class,
             FrozenMap.class
         ));
@@ -30,8 +30,8 @@ public class NullableClass {
         }
     }    
     
-    public class IntegerProp implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class IntegerProp extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Void.class,
             Integer.class,
             Long.class,
@@ -58,8 +58,8 @@ public class NullableClass {
         }
     }    
     
-    public class NumberProp implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class NumberProp extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Void.class,
             Integer.class,
             Long.class,
@@ -86,8 +86,8 @@ public class NullableClass {
         }
     }    
     
-    public class BooleanProp implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class BooleanProp extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Void.class,
             Boolean.class
         ));
@@ -99,8 +99,8 @@ public class NullableClass {
         }
     }    
     
-    public class StringProp implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class StringProp extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Void.class,
             String.class
         ));
@@ -112,12 +112,12 @@ public class NullableClass {
         }
     }    
     
-    public class DateProp implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class DateProp extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Void.class,
             String.class
         ));
-        static final String format = "date";
+        public static final String format = "date";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DateProp.class, arg, configuration);
         }
@@ -126,12 +126,12 @@ public class NullableClass {
         }
     }    
     
-    public class DatetimeProp implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class DatetimeProp extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Void.class,
             String.class
         ));
-        static final String format = "date-time";
+        public static final String format = "date-time";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DatetimeProp.class, arg, configuration);
         }
@@ -149,12 +149,12 @@ public class NullableClass {
         }
     }    
     
-    public class ArrayNullableProp implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class ArrayNullableProp extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Void.class,
             FrozenList.class
         ));
-        static final Class<?> items = Items.class;
+        public static final Class<?> items = Items.class;
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayNullableProp.class, arg, configuration);
         }
@@ -163,8 +163,8 @@ public class NullableClass {
         }
     }    
     
-    public class Items1 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class Items1 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Void.class,
             FrozenMap.class
         ));
@@ -182,12 +182,12 @@ public class NullableClass {
         }
     }    
     
-    public class ArrayAndItemsNullableProp implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class ArrayAndItemsNullableProp extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Void.class,
             FrozenList.class
         ));
-        static final Class<?> items = Items1.class;
+        public static final Class<?> items = Items1.class;
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayAndItemsNullableProp.class, arg, configuration);
         }
@@ -196,8 +196,8 @@ public class NullableClass {
         }
     }    
     
-    public class Items2 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class Items2 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Void.class,
             FrozenMap.class
         ));
@@ -215,11 +215,11 @@ public class NullableClass {
         }
     }    
     
-    public class ArrayItemsNullable implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class ArrayItemsNullable extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class
         ));
-        static final Class<?> items = Items2.class;
+        public static final Class<?> items = Items2.class;
         protected static ArrayItemsNullableTuple getListOutputInstance(FrozenList<Object> arg) {
             return new ArrayItemsNullableTuple(arg);
         }
@@ -240,8 +240,8 @@ public class NullableClass {
         }
     }    
     
-    public class ObjectNullableProp implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class ObjectNullableProp extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Void.class,
             FrozenMap.class
         ));
@@ -254,8 +254,8 @@ public class NullableClass {
         }
     }    
     
-    public class AdditionalProperties1 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class AdditionalProperties1 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Void.class,
             FrozenMap.class
         ));
@@ -276,8 +276,8 @@ public class NullableClass {
         }
     }    
     
-    public class ObjectAndItemsNullableProp implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class ObjectAndItemsNullableProp extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Void.class,
             FrozenMap.class
         ));
@@ -290,8 +290,8 @@ public class NullableClass {
         }
     }    
     
-    public class AdditionalProperties2 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class AdditionalProperties2 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Void.class,
             FrozenMap.class
         ));
@@ -312,8 +312,8 @@ public class NullableClass {
         }
     }    
     
-    public class ObjectItemsNullable implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class ObjectItemsNullable extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties2.class;
@@ -335,17 +335,17 @@ public class NullableClass {
         }
     }    
     
-    public class NullableClass1 implements JsonSchema {
+    public class NullableClass1 extends JsonSchema {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("integer_prop", IntegerProp.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("number_prop", NumberProp.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("boolean_prop", BooleanProp.class),

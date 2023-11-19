@@ -11,7 +11,7 @@ import java.util.Set;
 import java.util.UUID;
 
 
-public class UnsetAnyTypeJsonSchema implements JsonSchema {
+public class UnsetAnyTypeJsonSchema extends JsonSchema {
     static Void validate(Void arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(UnsetAnyTypeJsonSchema.class, arg, configuration);
     }

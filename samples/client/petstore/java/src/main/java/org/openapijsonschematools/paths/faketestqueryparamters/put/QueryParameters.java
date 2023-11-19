@@ -33,11 +33,11 @@ public class QueryParameters {
         }
     }    
     
-    public class QueryParameters1 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class QueryParameters1 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("refParam", StringWithValidation.StringWithValidation1.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("ioutil", Schema1.Schema11.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("context", Schema4.Schema41.class),
@@ -45,7 +45,7 @@ public class QueryParameters {
             new AbstractMap.SimpleEntry<String, Class<?>>("pipe", Schema0.Schema01.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("url", Schema3.Schema31.class)
         ));
-        static final Set<String> required = new LinkedHashSet<>(Set.of(
+        public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "context",
             "http",
             "ioutil",

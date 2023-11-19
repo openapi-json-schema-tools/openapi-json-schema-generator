@@ -11,8 +11,8 @@ import java.util.Set;
 import java.util.UUID;
 
 
-public class DateJsonSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+public class DateJsonSchema extends JsonSchema {
+    public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
         String.class
     ));
     static final String format = "date";

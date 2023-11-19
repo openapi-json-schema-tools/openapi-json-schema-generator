@@ -14,7 +14,7 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Items implements JsonSchema {
+    public class Items extends JsonSchema {
         // BinarySchema
     }
     
@@ -25,11 +25,11 @@ public class Schema {
         }
     }    
     
-    public class Files implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class Files extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class
         ));
-        static final Class<?> items = Items.class;
+        public static final Class<?> items = Items.class;
         protected static FilesTuple getListOutputInstance(FrozenList<Object> arg) {
             return new FilesTuple(arg);
         }
@@ -47,11 +47,11 @@ public class Schema {
         }
     }    
     
-    public class Schema1 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class Schema1 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("files", Files.class)
         ));
         protected static SchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

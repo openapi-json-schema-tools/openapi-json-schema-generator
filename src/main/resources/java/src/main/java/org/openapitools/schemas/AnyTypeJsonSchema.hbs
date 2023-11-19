@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.UUID;
 
 
-public class AnyTypeJsonSchema implements JsonSchema {
+public class AnyTypeJsonSchema extends JsonSchema {
     public static Void validate(Void arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }

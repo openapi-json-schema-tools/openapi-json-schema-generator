@@ -8,14 +8,14 @@ public class Schema0 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Schema01 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class Schema01 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Integer.class,
             Long.class,
             Float.class,
             Double.class
         ));
-        static final String format = "int64";
+        public static final String format = "int64";
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema01.class, Long.valueOf(arg), configuration);
         }

@@ -11,8 +11,8 @@ import java.util.Set;
 import java.util.UUID;
 
 
-public class DoubleJsonSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+public class DoubleJsonSchema extends JsonSchema {
+    public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
         Double.class
     ));
     static final String format = "double";

@@ -17,11 +17,11 @@ public class Schema {
         }
     }    
     
-    public class Schema1 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class Schema1 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class
         ));
-        static final Class<?> items = Pet.Pet1.class;
+        public static final Class<?> items = Pet.Pet1.class;
         protected static SchemaTuple getListOutputInstance(FrozenList<Object> arg) {
             return new SchemaTuple(arg);
         }

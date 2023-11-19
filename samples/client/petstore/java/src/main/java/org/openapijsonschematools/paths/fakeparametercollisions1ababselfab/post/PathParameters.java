@@ -32,18 +32,18 @@ public class PathParameters {
         }
     }    
     
-    public class PathParameters1 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class PathParameters1 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("1", Schema9.Schema91.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("aB", Schema10.Schema101.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("Ab", Schema11.Schema111.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("A-B", Schema13.Schema131.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("self", Schema12.Schema121.class)
         ));
-        static final Set<String> required = new LinkedHashSet<>(Set.of(
+        public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "1",
             "A-B",
             "Ab",

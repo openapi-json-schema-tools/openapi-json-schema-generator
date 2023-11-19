@@ -31,11 +31,11 @@ public class QueryParameters {
         }
     }    
     
-    public class QueryParameters1 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class QueryParameters1 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("enum_query_double", Schema5.Schema51.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("enum_query_string", Schema3.Schema31.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("enum_query_integer", Schema4.Schema41.class),

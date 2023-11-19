@@ -20,11 +20,11 @@ public class Schema3 {
         }
     }    
     
-    public class Schema31 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class Schema31 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class
         ));
-        static final Class<?> items = Items3.class;
+        public static final Class<?> items = Items3.class;
         protected static SchemaTuple3 getListOutputInstance(FrozenList<Object> arg) {
             return new SchemaTuple3(arg);
         }

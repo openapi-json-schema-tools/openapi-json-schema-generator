@@ -15,8 +15,8 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Schema0 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class Schema0 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             String.class
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
@@ -24,7 +24,7 @@ public class Schema {
         }
     }    
     
-    public class Schema1 implements JsonSchema {
+    public class Schema1 extends JsonSchema {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }

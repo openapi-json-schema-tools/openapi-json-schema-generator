@@ -11,8 +11,8 @@ import java.util.Set;
 import java.util.UUID;
 
 
-public class MapJsonSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+public class MapJsonSchema extends JsonSchema {
+    public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
         FrozenMap.class
     ));
 

@@ -10,8 +10,8 @@ public class Schema0 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Items0 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class Items0 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             String.class
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
@@ -25,11 +25,11 @@ public class Schema0 {
         }
     }    
     
-    public class Schema01 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class Schema01 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class
         ));
-        static final Class<?> items = Items0.class;
+        public static final Class<?> items = Items0.class;
         protected static SchemaTuple0 getListOutputInstance(FrozenList<Object> arg) {
             return new SchemaTuple0(arg);
         }

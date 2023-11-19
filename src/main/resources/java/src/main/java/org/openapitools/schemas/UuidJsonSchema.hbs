@@ -11,11 +11,11 @@ import java.util.Set;
 import java.util.UUID;
 
 
-public class UuidJsonSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+public class UuidJsonSchema extends JsonSchema {
+    public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
         String.class
     ));
-    static final String format = "uuid";
+    public static final String format = "uuid";
 
     public static String validate(String arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(UuidJsonSchema.class, arg, configuration);
