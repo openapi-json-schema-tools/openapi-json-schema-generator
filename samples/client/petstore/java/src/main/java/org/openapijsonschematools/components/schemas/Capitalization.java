@@ -58,6 +58,9 @@ public class Capitalization {
             new AbstractMap.SimpleEntry<String, Class<?>>("SCA_ETH_Flow_Points", SCAETHFlowPoints.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("ATT_NAME", ATTNAME.class)
         ));
+        public static CapitalizationMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new CapitalizationMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Capitalization1.class, arg, configuration);
         }

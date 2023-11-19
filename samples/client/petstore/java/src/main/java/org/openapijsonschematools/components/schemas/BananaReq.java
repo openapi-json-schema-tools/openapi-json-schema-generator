@@ -53,6 +53,9 @@ public class BananaReq {
             "lengthCm"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
+        public static BananaReqMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new BananaReqMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(BananaReq1.class, arg, configuration);
         }

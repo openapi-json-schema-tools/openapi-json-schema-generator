@@ -296,6 +296,9 @@ public class NullableClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties2.class;
+        public static ObjectItemsNullableMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new ObjectItemsNullableMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectItemsNullable.class, arg, configuration);
         }
@@ -336,6 +339,9 @@ public class NullableClass {
             new AbstractMap.SimpleEntry<String, Class<?>>("object_items_nullable", ObjectItemsNullable.class)
         ));
         static final Class<?> additionalProperties = AdditionalProperties3.class;
+        public static NullableClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new NullableClassMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NullableClass1.class, arg, configuration);
         }

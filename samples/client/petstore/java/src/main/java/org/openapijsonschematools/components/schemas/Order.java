@@ -67,6 +67,9 @@ public class Order {
             new AbstractMap.SimpleEntry<String, Class<?>>("status", Status.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("complete", Complete.class)
         ));
+        public static OrderMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new OrderMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Order1.class, arg, configuration);
         }

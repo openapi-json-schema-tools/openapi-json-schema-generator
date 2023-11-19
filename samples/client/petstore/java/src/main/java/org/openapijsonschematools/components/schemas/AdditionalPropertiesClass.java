@@ -33,6 +33,9 @@ public class AdditionalPropertiesClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
+        public static MapPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new MapPropertyMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(MapProperty.class, arg, configuration);
         }
@@ -56,6 +59,9 @@ public class AdditionalPropertiesClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties2.class;
+        public static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new AdditionalPropertiesMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
         }
@@ -76,6 +82,9 @@ public class AdditionalPropertiesClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties1.class;
+        public static MapOfMapPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new MapOfMapPropertyMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(MapOfMapProperty.class, arg, configuration);
         }
@@ -108,6 +117,9 @@ public class AdditionalPropertiesClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties3.class;
+        public static MapWithUndeclaredPropertiesAnytype3Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new MapWithUndeclaredPropertiesAnytype3Map(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(MapWithUndeclaredPropertiesAnytype3.class, arg, configuration);
         }
@@ -133,6 +145,9 @@ public class AdditionalPropertiesClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties4.class;
+        public static EmptyMapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new EmptyMapMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(EmptyMap.class, arg, configuration);
         }
@@ -156,6 +171,9 @@ public class AdditionalPropertiesClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties5.class;
+        public static MapWithUndeclaredPropertiesStringMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new MapWithUndeclaredPropertiesStringMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(MapWithUndeclaredPropertiesString.class, arg, configuration);
         }
@@ -191,6 +209,9 @@ public class AdditionalPropertiesClass {
             new AbstractMap.SimpleEntry<String, Class<?>>("empty_map", EmptyMap.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("map_with_undeclared_properties_string", MapWithUndeclaredPropertiesString.class)
         ));
+        public static AdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new AdditionalPropertiesClassMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalPropertiesClass1.class, arg, configuration);
         }

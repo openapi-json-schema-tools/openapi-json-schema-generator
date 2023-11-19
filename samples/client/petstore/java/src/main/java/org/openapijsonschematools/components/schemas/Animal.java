@@ -51,6 +51,9 @@ public class Animal {
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "className"
         ));
+        public static AnimalMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new AnimalMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Animal1.class, arg, configuration);
         }

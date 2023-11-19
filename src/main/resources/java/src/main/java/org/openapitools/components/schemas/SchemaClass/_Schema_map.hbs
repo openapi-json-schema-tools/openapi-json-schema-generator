@@ -69,6 +69,9 @@ public class {{jsonPathPiece.camelCase}} implements JsonSchema {
     {{!> components/schemas/schema_cls/_unevaluated_properties }}
     {{/if}}
     {{#if mapOutputJsonPathPiece}}
+    public static {{mapOutputJsonPathPiece.camelCase}} getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        return new {{mapOutputJsonPathPiece.camelCase}}(arg);
+    }
     {{/if}}
     {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_validate }}
 }

@@ -50,6 +50,9 @@ public class ObjectWithOnlyOptionalProps {
             new AbstractMap.SimpleEntry<String, Class<?>>("b", B.class)
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
+        public static ObjectWithOnlyOptionalPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new ObjectWithOnlyOptionalPropsMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithOnlyOptionalProps1.class, arg, configuration);
         }

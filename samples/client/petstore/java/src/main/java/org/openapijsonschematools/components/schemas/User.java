@@ -156,6 +156,9 @@ public class User {
             new AbstractMap.SimpleEntry<String, Class<?>>("anyTypeExceptNullProp", AnyTypeExceptNullProp.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("anyTypePropNullable", AnyTypePropNullable.class)
         ));
+        public static UserMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new UserMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(User1.class, arg, configuration);
         }

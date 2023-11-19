@@ -36,6 +36,9 @@ public class QueryParameters {
             new AbstractMap.SimpleEntry<String, Class<?>>("searchStr", Schema0.Schema01.class)
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
+        public static QueryParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new QueryParametersMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(QueryParameters1.class, arg, configuration);
         }

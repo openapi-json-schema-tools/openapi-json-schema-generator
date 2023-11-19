@@ -39,6 +39,9 @@ public class ObjectWithInvalidNamedRefedProperties {
             "!reference",
             "from"
         ));
+        public static ObjectWithInvalidNamedRefedPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new ObjectWithInvalidNamedRefedPropertiesMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithInvalidNamedRefedProperties1.class, arg, configuration);
         }

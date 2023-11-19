@@ -64,6 +64,9 @@ public class JSONPatchRequestMoveCopy {
             "path"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
+        public static JSONPatchRequestMoveCopyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new JSONPatchRequestMoveCopyMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JSONPatchRequestMoveCopy1.class, arg, configuration);
         }

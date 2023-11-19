@@ -42,6 +42,9 @@ public class HasOnlyReadOnly {
             new AbstractMap.SimpleEntry<String, Class<?>>("bar", Bar.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("foo", Foo.class)
         ));
+        public static HasOnlyReadOnlyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new HasOnlyReadOnlyMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(HasOnlyReadOnly1.class, arg, configuration);
         }

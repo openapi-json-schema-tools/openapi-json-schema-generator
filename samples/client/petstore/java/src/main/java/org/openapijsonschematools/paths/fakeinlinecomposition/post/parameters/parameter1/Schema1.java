@@ -92,6 +92,9 @@ public class Schema1 {
         static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("someProp", SomeProp1.class)
         ));
+        public static SchemaMap1 getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new SchemaMap1(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema11.class, arg, configuration);
         }

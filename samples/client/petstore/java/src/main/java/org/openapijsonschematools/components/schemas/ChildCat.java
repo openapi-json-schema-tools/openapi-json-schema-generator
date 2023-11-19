@@ -37,6 +37,9 @@ public class ChildCat {
         static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("name", Name.class)
         ));
+        public static Schema1Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new Schema1Map(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }

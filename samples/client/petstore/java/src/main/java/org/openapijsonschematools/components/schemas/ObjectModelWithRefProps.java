@@ -38,6 +38,9 @@ public class ObjectModelWithRefProps {
             new AbstractMap.SimpleEntry<String, Class<?>>("myString", StringSchema.StringSchema1.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("myBoolean", BooleanSchema.BooleanSchema1.class)
         ));
+        public static ObjectModelWithRefPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new ObjectModelWithRefPropsMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectModelWithRefProps1.class, arg, configuration);
         }

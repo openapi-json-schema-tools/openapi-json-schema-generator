@@ -205,6 +205,9 @@ public class Schema {
             "number",
             "pattern_without_delimiter"
         ));
+        public static SchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new SchemaMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }

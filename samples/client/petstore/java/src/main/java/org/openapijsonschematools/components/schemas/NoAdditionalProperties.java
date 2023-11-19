@@ -52,6 +52,9 @@ public class NoAdditionalProperties {
             "id"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
+        public static NoAdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new NoAdditionalPropertiesMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NoAdditionalProperties1.class, arg, configuration);
         }

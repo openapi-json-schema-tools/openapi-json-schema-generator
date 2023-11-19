@@ -40,6 +40,9 @@ public class File {
         static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("sourceURI", SourceURI.class)
         ));
+        public static FileMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new FileMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(File1.class, arg, configuration);
         }

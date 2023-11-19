@@ -40,6 +40,9 @@ public class ObjectWithDecimalProperties {
             new AbstractMap.SimpleEntry<String, Class<?>>("width", Width.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("cost", Money.Money1.class)
         ));
+        public static ObjectWithDecimalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new ObjectWithDecimalPropertiesMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithDecimalProperties1.class, arg, configuration);
         }

@@ -40,6 +40,9 @@ public class SpecialModelname {
         static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("a", A.class)
         ));
+        public static SpecialModelnameMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new SpecialModelnameMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(SpecialModelname1.class, arg, configuration);
         }

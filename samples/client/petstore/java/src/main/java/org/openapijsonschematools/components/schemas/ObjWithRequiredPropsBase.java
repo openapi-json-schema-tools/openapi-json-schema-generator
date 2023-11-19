@@ -41,6 +41,9 @@ public class ObjWithRequiredPropsBase {
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "b"
         ));
+        public static ObjWithRequiredPropsBaseMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new ObjWithRequiredPropsBaseMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjWithRequiredPropsBase1.class, arg, configuration);
         }

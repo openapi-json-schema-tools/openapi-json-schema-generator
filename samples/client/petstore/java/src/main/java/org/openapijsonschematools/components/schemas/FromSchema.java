@@ -43,6 +43,9 @@ public class FromSchema {
             new AbstractMap.SimpleEntry<String, Class<?>>("data", Data.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("id", Id.class)
         ));
+        public static FromSchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new FromSchemaMap(arg);
+        }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(FromSchema1.class, arg, configuration);
         }
