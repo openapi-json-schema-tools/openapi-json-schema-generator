@@ -1,27 +1,4 @@
 package org.openapijsonschematools.components.schemas;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.BooleanJsonSchema;
-import org.openapijsonschematools.schemas.DateJsonSchema;
-import org.openapijsonschematools.schemas.DateTimeJsonSchema;
-import org.openapijsonschematools.schemas.DecimalJsonSchema;
-import org.openapijsonschematools.schemas.DoubleJsonSchema;
-import org.openapijsonschematools.schemas.FloatJsonSchema;
-import org.openapijsonschematools.schemas.FrozenList;
-import org.openapijsonschematools.schemas.FrozenMap;
-import org.openapijsonschematools.schemas.Int32JsonSchema;
-import org.openapijsonschematools.schemas.Int64JsonSchema;
-import org.openapijsonschematools.schemas.IntJsonSchema;
-import org.openapijsonschematools.schemas.JsonSchema;
-import org.openapijsonschematools.schemas.ListJsonSchema;
-import org.openapijsonschematools.schemas.MapJsonSchema;
-import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.NullJsonSchema;
-import org.openapijsonschematools.schemas.NumberJsonSchema;
-import org.openapijsonschematools.schemas.StringJsonSchema;
-import org.openapijsonschematools.schemas.UnsetAnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.UuidJsonSchema;
-
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.AbstractMap;
@@ -30,75 +7,47 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
+import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.schemas.FrozenList;
+import org.openapijsonschematools.schemas.FrozenMap;
+import org.openapijsonschematools.schemas.Int32JsonSchema;
+import org.openapijsonschematools.schemas.Int64JsonSchema;
+import org.openapijsonschematools.schemas.JsonSchema;
+import org.openapijsonschematools.schemas.MapJsonSchema;
+import org.openapijsonschematools.schemas.NullJsonSchema;
+import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class User {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Id extends Int64JsonSchema {
-    }
+    public class Id extends Int64JsonSchema {}
     
     
-    public class Username implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Username.class, arg, configuration);
-        }
-    }    
-    
-    public class FirstName implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(FirstName.class, arg, configuration);
-        }
-    }    
-    
-    public class LastName implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(LastName.class, arg, configuration);
-        }
-    }    
-    
-    public class Email implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Email.class, arg, configuration);
-        }
-    }    
-    
-    public class Password implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Password.class, arg, configuration);
-        }
-    }    
-    
-    public class Phone implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Phone.class, arg, configuration);
-        }
-    }    
-    
-    public class UserStatus extends Int32JsonSchema {
-    }
+    public class Username extends StringJsonSchema {}
     
     
-    public class ObjectWithNoDeclaredProps extends MapJsonSchema {
-    }
+    public class FirstName extends StringJsonSchema {}
+    
+    
+    public class LastName extends StringJsonSchema {}
+    
+    
+    public class Email extends StringJsonSchema {}
+    
+    
+    public class Password extends StringJsonSchema {}
+    
+    
+    public class Phone extends StringJsonSchema {}
+    
+    
+    public class UserStatus extends Int32JsonSchema {}
+    
+    
+    public class ObjectWithNoDeclaredProps extends MapJsonSchema {}
     
     
     public class ObjectWithNoDeclaredPropsNullable implements JsonSchema {
@@ -114,60 +63,11 @@ public class User {
         }
     }    
     
-    public class AnyTypeProp implements JsonSchema {
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
-        }
-        
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
-        }
-        
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
-        }
-        
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
-        }
-        
-        public static Float validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
-        }
-        
-        public static Double validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
-        }
-        
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
-        }
-        
-        public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
-        }
-        
-        public static String validate(LocalDate arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
-        }
-        
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
-        }
-        
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypeProp.class, arg, configuration);
-        }
-    }    
+    public class AnyTypeProp extends AnyTypeJsonSchema {}
     
-    public class Not implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            Void.class
-        ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Not.class, arg, configuration);
-        }
-    }    
+    
+    public class Not extends NullJsonSchema {}
+    
     
     public class AnyTypeExceptNullProp implements JsonSchema {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
@@ -206,6 +106,10 @@ public class User {
             return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
         }
         
+        public static String validate(UUID arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+        }
+        
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
         }
@@ -215,51 +119,8 @@ public class User {
         }
     }    
     
-    public class AnyTypePropNullable implements JsonSchema {
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
-        }
-        
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
-        }
-        
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
-        }
-        
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
-        }
-        
-        public static Float validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
-        }
-        
-        public static Double validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
-        }
-        
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
-        }
-        
-        public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
-        }
-        
-        public static String validate(LocalDate arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
-        }
-        
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
-        }
-        
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AnyTypePropNullable.class, arg, configuration);
-        }
-    }    
+    public class AnyTypePropNullable extends AnyTypeJsonSchema {}
+    
     
     public class User1 implements JsonSchema {
         /*

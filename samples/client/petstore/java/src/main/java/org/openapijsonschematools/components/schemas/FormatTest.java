@@ -1,35 +1,24 @@
 package org.openapijsonschematools.components.schemas;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.BooleanJsonSchema;
-import org.openapijsonschematools.schemas.DateJsonSchema;
-import org.openapijsonschematools.schemas.DateTimeJsonSchema;
-import org.openapijsonschematools.schemas.DecimalJsonSchema;
-import org.openapijsonschematools.schemas.DoubleJsonSchema;
-import org.openapijsonschematools.schemas.FloatJsonSchema;
-import org.openapijsonschematools.schemas.FrozenList;
-import org.openapijsonschematools.schemas.FrozenMap;
-import org.openapijsonschematools.schemas.Int32JsonSchema;
-import org.openapijsonschematools.schemas.Int64JsonSchema;
-import org.openapijsonschematools.schemas.IntJsonSchema;
-import org.openapijsonschematools.schemas.JsonSchema;
-import org.openapijsonschematools.schemas.ListJsonSchema;
-import org.openapijsonschematools.schemas.MapJsonSchema;
-import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.NullJsonSchema;
-import org.openapijsonschematools.schemas.NumberJsonSchema;
-import org.openapijsonschematools.schemas.StringJsonSchema;
-import org.openapijsonschematools.schemas.UnsetAnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.UuidJsonSchema;
-
-import java.time.LocalDate;
-import java.time.ZonedDateTime;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.schemas.DateJsonSchema;
+import org.openapijsonschematools.schemas.DateTimeJsonSchema;
+import org.openapijsonschematools.schemas.DoubleJsonSchema;
+import org.openapijsonschematools.schemas.FloatJsonSchema;
+import org.openapijsonschematools.schemas.FrozenList;
+import org.openapijsonschematools.schemas.FrozenMap;
+import org.openapijsonschematools.schemas.Int32JsonSchema;
+import org.openapijsonschematools.schemas.Int64JsonSchema;
+import org.openapijsonschematools.schemas.JsonSchema;
+import org.openapijsonschematools.schemas.NullJsonSchema;
+import org.openapijsonschematools.schemas.NumberJsonSchema;
+import org.openapijsonschematools.schemas.StringJsonSchema;
+import org.openapijsonschematools.schemas.UuidJsonSchema;
 
 public class FormatTest {
     // nest classes so all schemas and input/output classes can be public
@@ -59,8 +48,7 @@ public class FormatTest {
         }
     }    
     
-    public class Int32 extends Int32JsonSchema {
-    }
+    public class Int32 extends Int32JsonSchema {}
     
     
     public class Int32withValidations implements JsonSchema {
@@ -88,8 +76,7 @@ public class FormatTest {
         }
     }    
     
-    public class Int64 extends Int64JsonSchema {
-    }
+    public class Int64 extends Int64JsonSchema {}
     
     
     public class NumberSchema implements JsonSchema {
@@ -129,8 +116,7 @@ public class FormatTest {
         }
     }    
     
-    public class Float32 extends FloatJsonSchema {
-    }
+    public class Float32 extends FloatJsonSchema {}
     
     
     public class DoubleSchema implements JsonSchema {
@@ -146,11 +132,10 @@ public class FormatTest {
         }
     }    
     
-    }
+    public class Float64 extends DoubleJsonSchema {}
     
     
-    public class Items extends DoubleJsonSchema {
-    }
+    public class Items extends NumberJsonSchema {}
     
     
     public class ArrayWithUniqueItems implements JsonSchema {
@@ -172,65 +157,25 @@ public class FormatTest {
         }
     }    
     
-    public class ByteSchema implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "byte";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(ByteSchema.class, arg, configuration);
-        }
-    }    
+    public class ByteSchema extends StringJsonSchema {}
+    
     
     public class Binary implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            // FileIO,
-            // bytes,
-        ));
-        static final String format = "binary";
-        // FileIO,
-        // bytes,
-    }    
+        // BinarySchema
+    }
     
-    public class Date implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "date";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Date.class, arg, configuration);
-        }
-    }    
     
-    public class DateTime implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "date-time";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(DateTime.class, arg, configuration);
-        }
-    }    
+    public class Date extends DateJsonSchema {}
     
-    public class UuidSchema implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "uuid";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(UuidSchema.class, arg, configuration);
-        }
-    }    
     
-    public class UuidNoExample implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        static final String format = "uuid";
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(UuidNoExample.class, arg, configuration);
-        }
-    }    
+    public class DateTime extends DateTimeJsonSchema {}
+    
+    
+    public class UuidSchema extends UuidJsonSchema {}
+    
+    
+    public class UuidNoExample extends UuidJsonSchema {}
+    
     
     public class Password implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
@@ -260,14 +205,8 @@ public class FormatTest {
         }
     }    
     
-    public class NoneProp implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            Void.class
-        ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NoneProp.class, arg, configuration);
-        }
-    }    
+    public class NoneProp extends NullJsonSchema {}
+    
     
     public class FormatTest1 implements JsonSchema {
         /*
@@ -307,7 +246,8 @@ public class FormatTest {
             "date",
             "number",
             "password"
-        ));        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        ));
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(FormatTest1.class, arg, configuration);
         }
     }

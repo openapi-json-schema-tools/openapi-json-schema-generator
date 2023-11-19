@@ -129,6 +129,128 @@ public class CodegenSchema {
         return maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || patternInfo != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null;
     }
 
+    public boolean isSimpleBoolean() {
+        if (types == null) {
+            return false;
+        }
+        if (types.size() != 1) {
+            return false;
+        }
+        if (!types.contains("boolean")) {
+            return false;
+        }
+        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isSimpleNull() {
+        if (types == null) {
+            return false;
+        }
+        if (types.size() != 1) {
+            return false;
+        }
+        if (!types.contains("null")) {
+            return false;
+        }
+        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isSimpleInteger() {
+        if (types == null) {
+            return false;
+        }
+        if (types.size() != 1) {
+            return false;
+        }
+        if (!types.contains("integer")) {
+            return false;
+        }
+        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || maximum != null || minimum != null || multipleOf != null) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isSimpleNumber() {
+        if (types == null) {
+            return false;
+        }
+        if (types.size() != 1) {
+            return false;
+        }
+        if (!types.contains("number")) {
+            return false;
+        }
+        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || maximum != null || minimum != null || multipleOf != null) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isSimpleString() {
+        if (types == null) {
+            return false;
+        }
+        if (types.size() != 1) {
+            return false;
+        }
+        if (!types.contains("string")) {
+            return false;
+        }
+        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || defaultValue != null || maxLength != null || minLength != null || patternInfo != null) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isSimpleObject() {
+        if (types == null) {
+            return false;
+        }
+        if (types.size() != 1) {
+            return false;
+        }
+        if (!types.contains("object")) {
+            return false;
+        }
+        if (allOf != null || anyOf != null ||  oneOf != null ||  not != null ||  if_ != null ||  then != null ||  else_ != null || properties != null || requiredProperties != null || hasDiscriminatorWithNonEmptyMapping() != false || additionalProperties != null || dependentRequired != null || dependentSchemas != null || propertyNames != null || maxProperties != null || minProperties != null || patternProperties != null ||  unevaluatedProperties != null) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isSimpleArray() {
+        if (types == null) {
+            return false;
+        }
+        if (types.size() != 1) {
+            return false;
+        }
+        if (!types.contains("array")) {
+            return false;
+        }
+        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || items != null || uniqueItems != null || contains != null || maxContains != null || minContains != null || maxItems != null || minItems != null || prefixItems != null || unevaluatedItems != null) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean isSimpleAnyType() {
+        if (types != null) {
+            return false;
+        }
+        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || properties != null || requiredProperties != null || hasDiscriminatorWithNonEmptyMapping() != false || additionalProperties != null || dependentRequired != null || dependentSchemas != null || propertyNames != null || maxProperties != null || minProperties != null || patternProperties != null || unevaluatedProperties != null || items != null || uniqueItems != null || maxItems != null || minItems != null || contains != null || maxContains != null || minContains != null || prefixItems != null || unevaluatedItems != null || format != null || maxLength != null || minLength != null || maximum != null || minimum != null || multipleOf != null || patternInfo != null || refInfo != null) {
+            return false;
+        }
+        return true;
+    }
+
     public CodegenSchema typeSchema() {
         CodegenSchema schema = new CodegenSchema();
         schema.refInfo = refInfo;

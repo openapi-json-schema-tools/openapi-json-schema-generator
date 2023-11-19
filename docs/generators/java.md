@@ -321,8 +321,8 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
 |AdditionalProperties|✗|OAS2,OAS3
-|AllOf|✗|OAS2,OAS3
-|AnyOf|✗|OAS3
+|AllOf|✓|OAS2,OAS3
+|AnyOf|✓|OAS3
 |Const|✗|OAS3
 |Contains|✗|OAS3
 |Default|✗|OAS2,OAS3
@@ -347,9 +347,9 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |MinProperties|✓|OAS2,OAS3
 |Minimum|✓|OAS2,OAS3
 |MultipleOf|✓|OAS2,OAS3
-|Not|✗|OAS3
+|Not|✓|OAS3
 |Nullable|✗|OAS3
-|OneOf|✗|OAS3
+|OneOf|✓|OAS3
 |Pattern|✓|OAS2,OAS3
 |PatternProperties|✗|OAS3
 |PrefixItems|✗|OAS3

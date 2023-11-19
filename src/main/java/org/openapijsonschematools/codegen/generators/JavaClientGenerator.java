@@ -21,10 +21,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
 import org.openapijsonschematools.codegen.generators.models.VendorExtension;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParameter;
@@ -48,6 +50,8 @@ import org.slf4j.LoggerFactory;
 import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static com.google.common.base.CaseFormat.LOWER_CAMEL;
 import static com.google.common.base.CaseFormat.UPPER_UNDERSCORE;
@@ -179,6 +183,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
+                .includeSchemaFeatures(SchemaFeature.AllOf, SchemaFeature.AnyOf, SchemaFeature.OneOf, SchemaFeature.Not)
         );
 
         outputFolder = "generated-code" + File.separator + "java";
@@ -1110,12 +1115,240 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     @Override
-    public Set<String> getImports(CodegenSchema schema, FeatureSet featureSet) {
-        if (schema.jsonPath.startsWith("#/components/schemas/")) {
-            // all of those components are in the same package, so they don't need to import each other
-            return new HashSet<>();
+    public Set<String> getImports(String sourceJsonPath, CodegenSchema schema, FeatureSet featureSet) {
+        Set<String> imports = new HashSet<>();
+        // Note: discriminator imports do not need to be added for Java
+        // because they are in the package namespace in components.schemas
+        if (schema.allOf != null || schema.anyOf != null || schema.oneOf != null || schema.not != null) {
+            List<CodegenSchema> allOfs = Collections.emptyList();
+            List<CodegenSchema> oneOfs = Collections.emptyList();
+            List<CodegenSchema> anyOfs = Collections.emptyList();
+            List<CodegenSchema> notSchemas = Collections.emptyList();
+            if (schema.allOf != null && featureSet.getSchemaSupportFeatures().contains(SchemaFeature.AllOf)) {
+                allOfs = schema.allOf;
+            }
+            if (schema.oneOf != null && featureSet.getSchemaSupportFeatures().contains(SchemaFeature.OneOf)) {
+                oneOfs = schema.oneOf;
+            }
+            if (schema.anyOf != null && featureSet.getSchemaSupportFeatures().contains(SchemaFeature.AnyOf)) {
+                anyOfs = schema.anyOf;
+            }
+            if (schema.not != null && featureSet.getSchemaSupportFeatures().contains(SchemaFeature.Not)) {
+                notSchemas = Collections.singletonList(schema.not);
+            }
+            Stream<CodegenSchema> allSchemas = Stream.of(
+                    allOfs.stream(), anyOfs.stream(), oneOfs.stream(), notSchemas.stream()).flatMap(i -> i);
+            for (CodegenSchema cs: allSchemas.collect(Collectors.toList())) {
+                imports.addAll(getImports(sourceJsonPath, cs, featureSet));
+            }
         }
-        return super.getImports(schema, featureSet);
+        // items can exist for AnyType and type array
+        if (schema.items != null && schema.types != null && schema.types.contains("array")) {
+            imports.addAll(getImports(sourceJsonPath, schema.items, featureSet));
+        }
+        // additionalProperties can exist for AnyType and type object
+        if (schema.additionalProperties != null) {
+            imports.addAll(getImports(sourceJsonPath, schema.additionalProperties, featureSet));
+        }
+        // vars can exist for AnyType and type object
+        if (schema.properties != null && !schema.properties.isEmpty()) {
+            for (CodegenSchema cs: schema.properties.values()) {
+                imports.addAll(getImports(sourceJsonPath, cs, featureSet));
+            }
+        }
+        // referenced or inline schemas
+        if (!sourceJsonPath.startsWith("#/components/schemas/") && schema.refInfo != null && schema.refInfo.refModule != null) {
+            imports.add(getImport(schema.refInfo));
+            CodegenSchema ref = schema.refInfo.ref;
+            if (ref.refInfo != null && schema.refInfo.refModule != null && deepestRefSchemaImportNeeded) {
+                CodegenRefInfo<CodegenSchema> deepestRefInfo = schema.refInfo;
+                while (deepestRefInfo.ref.refInfo != null) {
+                    deepestRefInfo = deepestRefInfo.ref.refInfo;
+                }
+                imports.add(getImport(deepestRefInfo));
+            }
+        }
+        if (schema.refInfo != null) {
+            // todo remove this when ref is supported with adjacent properties
+            return imports;
+        }
+        if (schema.types != null) {
+            if (schema.types.size() == 1) {
+                if (schema.types.contains("boolean")) {
+                    if (schema.isSimpleBoolean()) {
+                        imports.add("import "+packageName + ".schemas.BooleanJsonSchema;");
+                    } else {
+                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
+                        imports.add("import "+packageName + ".schemas.JsonSchema;");
+                        imports.add("import java.util.LinkedHashSet;");
+                        imports.add("import java.util.Set;");
+                    }
+                } else if (schema.types.contains("null")) {
+                    if (schema.isSimpleNull()) {
+                        imports.add("import "+packageName + ".schemas.NullJsonSchema;");
+                    } else {
+                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
+                        imports.add("import "+packageName + ".schemas.JsonSchema;");
+                        imports.add("import java.util.LinkedHashSet;");
+                        imports.add("import java.util.Set;");
+                    }
+                } else if (schema.types.contains("integer")) {
+                    if (schema.isSimpleInteger()) {
+                        if (schema.format == null) {
+                            imports.add("import "+packageName + ".schemas.IntJsonSchema;");
+                        } else if (schema.format.equals("int32")) {
+                            imports.add("import "+packageName + ".schemas.Int32JsonSchema;");
+                        } else if (schema.format.equals("int64")) {
+                            imports.add("import "+packageName + ".schemas.Int64JsonSchema;");
+                        }
+                    } else {
+                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
+                        imports.add("import "+packageName + ".schemas.JsonSchema;");
+                        imports.add("import java.util.LinkedHashSet;");
+                        imports.add("import java.util.Set;");
+                    }
+                } else if (schema.types.contains("number")) {
+                    if (schema.isSimpleNumber()) {
+                        if (schema.format == null) {
+                            imports.add("import "+packageName + ".schemas.NumberJsonSchema;");
+                        } else if (schema.format.equals("int32")) {
+                            imports.add("import "+packageName + ".schemas.Int32JsonSchema;");
+                        } else if (schema.format.equals("int64")) {
+                            imports.add("import "+packageName + ".schemas.Int64JsonSchema;");
+                        } else if (schema.format.equals("float")) {
+                            imports.add("import "+packageName + ".schemas.FloatJsonSchema;");
+                        } else if (schema.format.equals("double")) {
+                            imports.add("import "+packageName + ".schemas.DoubleJsonSchema;");
+                        }
+                    } else {
+                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
+                        imports.add("import "+packageName + ".schemas.JsonSchema;");
+                        imports.add("import java.util.LinkedHashSet;");
+                        imports.add("import java.util.Set;");
+                    }
+                } else if (schema.types.contains("string")) {
+                    if (schema.isSimpleString()) {
+                        if (schema.format == null) {
+                            imports.add("import "+packageName + ".schemas.StringJsonSchema;");
+                        } else if (schema.format.equals("date")) {
+                            imports.add("import "+packageName + ".schemas.DateJsonSchema;");
+                        } else if (schema.format.equals("date-time")) {
+                            imports.add("import "+packageName + ".schemas.DateTimeJsonSchema;");
+                        } else if (schema.format.equals("number")) {
+                            imports.add("import "+packageName + ".schemas.DecimalJsonSchema;");
+                        } else if (schema.format.equals("uuid")) {
+                            imports.add("import "+packageName + ".schemas.UuidJsonSchema;");
+                        } else if (schema.format.equals("byte")) {
+                            // todo implement this
+                            imports.add("import "+packageName + ".schemas.StringJsonSchema;");
+                        } else if (schema.format.equals("binary")) {
+                            // todo implement this
+                            imports.add("import "+packageName + ".schemas.JsonSchema;");
+                        }
+                    } else {
+                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
+                        imports.add("import "+packageName + ".schemas.JsonSchema;");
+                        imports.add("import java.util.LinkedHashSet;");
+                        imports.add("import java.util.Set;");
+                        addStringSchemaImports(imports, schema);
+                    }
+                } else if (schema.types.contains("object")) {
+                    if (schema.isSimpleObject()) {
+                        imports.add("import "+packageName + ".schemas.MapJsonSchema;");
+                    } else {
+                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
+                        imports.add("import "+packageName + ".schemas.JsonSchema;");
+                        imports.add("import java.util.LinkedHashSet;");
+                        imports.add("import java.util.Set;");
+                        addMapSchemaImports(imports, schema);
+                    }
+                } else if (schema.types.contains("array")) {
+                    if (schema.isSimpleArray()) {
+                        imports.add("import "+packageName + ".schemas.ListJsonSchema;");
+                    } else {
+                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
+                        imports.add("import "+packageName + ".schemas.JsonSchema;");
+                        imports.add("import java.util.LinkedHashSet;");
+                        imports.add("import java.util.Set;");
+                        addListSchemaImports(imports, schema);
+                    }
+                }
+            } else if (schema.types.size() > 1) {
+                imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
+                imports.add("import "+packageName + ".schemas.JsonSchema;");
+                imports.add("import java.util.LinkedHashSet;");
+                imports.add("import java.util.Set;");
+                if (schema.types.contains("string")) {
+                    addStringSchemaImports(imports, schema);
+                }
+                if (schema.types.contains("array")) {
+                    addListSchemaImports(imports, schema);
+                }
+                if (schema.types.contains("object")) {
+                    addMapSchemaImports(imports, schema);
+                }
+            }
+        } else {
+            // no types
+            if (schema.isBooleanSchemaTrue) {
+                imports.add("import "+packageName + ".schemas.AnyTypeJsonSchema;");
+            } else if (schema.isBooleanSchemaFalse) {
+                imports.add("import "+packageName + ".schemas.NotAnyTypeJsonSchema;");
+            } else if (schema.isSimpleAnyType()) {
+                imports.add("import "+packageName + ".schemas.AnyTypeJsonSchema;");
+            } else {
+                imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
+                imports.add("import "+packageName + ".schemas.JsonSchema;");
+                imports.add("import java.time.LocalDate;");
+                imports.add("import java.time.ZonedDateTime;");
+                imports.add("import java.util.UUID;");
+                imports.add("import "+packageName + ".schemas.FrozenList;");
+                imports.add("import java.util.List;");
+                imports.add("import "+packageName + ".schemas.FrozenMap;");
+                imports.add("import java.util.Map;");
+                if (schema.properties != null) {
+                    imports.add("import java.util.Map;");
+                    imports.add("import java.util.LinkedHashMap;");
+                    imports.add("import java.util.AbstractMap;");
+                }
+                if (schema.requiredProperties != null) {
+                    imports.add("import java.util.LinkedHashSet;");
+                    imports.add("import java.util.Set;");
+                }
+            }
+        }
+        return imports;
+    }
+
+    private void addMapSchemaImports(Set<String> imports, CodegenSchema schema) {
+        imports.add("import "+packageName + ".schemas.FrozenMap;");
+        imports.add("import java.util.Map;");
+        if (schema.properties != null) {
+            imports.add("import java.util.Map;");
+            imports.add("import java.util.LinkedHashMap;");
+            imports.add("import java.util.AbstractMap;");
+        }
+        if (schema.requiredProperties != null) {
+            imports.add("import java.util.LinkedHashSet;");
+            imports.add("import java.util.Set;");
+        }
+    }
+
+    private void addListSchemaImports(Set<String> imports, CodegenSchema schema) {
+        imports.add("import "+packageName + ".schemas.FrozenList;");
+        imports.add("import java.util.List;");
+    }
+
+    private void addStringSchemaImports(Set<String> imports, CodegenSchema schema) {
+        if (schema.format != null) {
+            if (schema.format.equals("date")) {
+                imports.add("import java.time.LocalDate;");
+            } else if (schema.format.equals("date-time")) {
+                imports.add("import java.time.ZonedDateTime;");
+            } else if (schema.format.equals("uuid")) {
+                imports.add("import java.util.UUID;");
+            }
+        }
     }
 
 

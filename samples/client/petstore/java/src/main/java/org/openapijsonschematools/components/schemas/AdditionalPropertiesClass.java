@@ -1,48 +1,23 @@
 package org.openapijsonschematools.components.schemas;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.BooleanJsonSchema;
-import org.openapijsonschematools.schemas.DateJsonSchema;
-import org.openapijsonschematools.schemas.DateTimeJsonSchema;
-import org.openapijsonschematools.schemas.DecimalJsonSchema;
-import org.openapijsonschematools.schemas.DoubleJsonSchema;
-import org.openapijsonschematools.schemas.FloatJsonSchema;
-import org.openapijsonschematools.schemas.FrozenList;
-import org.openapijsonschematools.schemas.FrozenMap;
-import org.openapijsonschematools.schemas.Int32JsonSchema;
-import org.openapijsonschematools.schemas.Int64JsonSchema;
-import org.openapijsonschematools.schemas.IntJsonSchema;
-import org.openapijsonschematools.schemas.JsonSchema;
-import org.openapijsonschematools.schemas.ListJsonSchema;
-import org.openapijsonschematools.schemas.MapJsonSchema;
-import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.NullJsonSchema;
-import org.openapijsonschematools.schemas.NumberJsonSchema;
-import org.openapijsonschematools.schemas.StringJsonSchema;
-import org.openapijsonschematools.schemas.UnsetAnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.UuidJsonSchema;
-
-import java.time.LocalDate;
-import java.time.ZonedDateTime;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.schemas.FrozenMap;
+import org.openapijsonschematools.schemas.JsonSchema;
+import org.openapijsonschematools.schemas.MapJsonSchema;
+import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
+import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class AdditionalPropertiesClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AdditionalProperties.class, arg, configuration);
-        }
-    }    
+    public class AdditionalProperties extends StringJsonSchema {}
+    
     
     public class MapProperty implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
@@ -55,14 +30,8 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public class AdditionalProperties2 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
-        }
-    }    
+    public class AdditionalProperties2 extends StringJsonSchema {}
+    
     
     public class AdditionalProperties1 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
@@ -86,20 +55,16 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public class Anytype1 extends AnyTypeJsonSchema {
-    }
+    public class Anytype1 extends AnyTypeJsonSchema {}
     
     
-    public class MapWithUndeclaredPropertiesAnytype1 extends MapJsonSchema {
-    }
+    public class MapWithUndeclaredPropertiesAnytype1 extends MapJsonSchema {}
     
     
-    public class MapWithUndeclaredPropertiesAnytype2 extends MapJsonSchema {
-    }
+    public class MapWithUndeclaredPropertiesAnytype2 extends MapJsonSchema {}
     
     
-    public class AdditionalProperties3 extends AnyTypeJsonSchema {
-    }
+    public class AdditionalProperties3 extends AnyTypeJsonSchema {}
     
     
     public class MapWithUndeclaredPropertiesAnytype3 implements JsonSchema {
@@ -113,9 +78,8 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public class AdditionalProperties4 implements JsonSchema {
+    public class AdditionalProperties4 extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
-    }
     
     
     public class EmptyMap implements JsonSchema {
@@ -129,14 +93,8 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public class AdditionalProperties5 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(AdditionalProperties5.class, arg, configuration);
-        }
-    }    
+    public class AdditionalProperties5 extends StringJsonSchema {}
+    
     
     public class MapWithUndeclaredPropertiesString implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
