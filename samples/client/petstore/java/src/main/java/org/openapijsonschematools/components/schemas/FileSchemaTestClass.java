@@ -24,7 +24,7 @@ public class FileSchemaTestClass {
         }
     }    
     
-    class FileSchemaTestClassMap extends FrozenMap<String, Object> {
+    public static class FileSchemaTestClassMap extends FrozenMap<String, Object> {
         FileSchemaTestClassMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -47,7 +47,7 @@ public class FileSchemaTestClass {
             new AbstractMap.SimpleEntry<String, Class<?>>("file", File.File1.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("files", Files.class)
         ));
-        public static FileSchemaTestClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static FileSchemaTestClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new FileSchemaTestClassMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

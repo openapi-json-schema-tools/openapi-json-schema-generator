@@ -12,10 +12,10 @@ import java.util.Map;
 import java.util.Set;
 
 class ObjectWithPropsSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
         FrozenMap.class
     ));
-    static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+    public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
         new AbstractMap.SimpleEntry<String, Class<?>>("someString", StringJsonSchema.class)
     ));
 
@@ -25,10 +25,10 @@ class ObjectWithPropsSchema implements JsonSchema {
 }
 
 class ObjectWithAddpropsSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
         FrozenMap.class
     ));
-    static final Class<?> additionalProperties = StringJsonSchema.class;
+    public static final Class<?> additionalProperties = StringJsonSchema.class;
 
     public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(ObjectWithAddpropsSchema.class, arg, configuration);
@@ -36,13 +36,13 @@ class ObjectWithAddpropsSchema implements JsonSchema {
 }
 
 class ObjectWithPropsAndAddpropsSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
         FrozenMap.class
     ));
-    static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+    public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
         new AbstractMap.SimpleEntry<String, Class<?>>("someString", StringJsonSchema.class)
     ));
-    static final Class<?> additionalProperties = BooleanJsonSchema.class;
+    public static final Class<?> additionalProperties = BooleanJsonSchema.class;
 
     public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(ObjectWithPropsAndAddpropsSchema.class, arg, configuration);
@@ -61,14 +61,14 @@ class ObjectWithOutputTypeSchemaMap extends FrozenMap<String, Object> {
 
 
 class ObjectWithOutputTypeSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
         FrozenMap.class
     ));
-    static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+    public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
         new AbstractMap.SimpleEntry<String, Class<?>>("someString", StringJsonSchema.class)
     ));
 
-    public static ObjectWithOutputTypeSchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+    static ObjectWithOutputTypeSchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
         return new ObjectWithOutputTypeSchemaMap(arg);
     }
 

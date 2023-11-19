@@ -20,7 +20,7 @@ public class FromSchema {
     public class Id extends IntJsonSchema {}
     
     
-    class FromSchemaMap extends FrozenMap<String, Object> {
+    public static class FromSchemaMap extends FrozenMap<String, Object> {
         FromSchemaMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -43,7 +43,7 @@ public class FromSchema {
             new AbstractMap.SimpleEntry<String, Class<?>>("data", Data.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("id", Id.class)
         ));
-        public static FromSchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static FromSchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new FromSchemaMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

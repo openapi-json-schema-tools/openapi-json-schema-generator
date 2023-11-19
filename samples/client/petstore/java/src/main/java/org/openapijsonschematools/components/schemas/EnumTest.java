@@ -68,7 +68,7 @@ public class EnumTest {
         }
     }    
     
-    class EnumTestMap extends FrozenMap<String, Object> {
+    public static class EnumTestMap extends FrozenMap<String, Object> {
         EnumTestMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -101,7 +101,7 @@ public class EnumTest {
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "enum_string_required"
         ));
-        public static EnumTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static EnumTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new EnumTestMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

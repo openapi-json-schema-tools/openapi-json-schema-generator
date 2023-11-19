@@ -54,7 +54,7 @@ public class Pet {
         }
     }    
     
-    class PetMap extends FrozenMap<String, Object> {
+    public static class PetMap extends FrozenMap<String, Object> {
         PetMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -87,7 +87,7 @@ public class Pet {
             "name",
             "photoUrls"
         ));
-        public static PetMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static PetMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new PetMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

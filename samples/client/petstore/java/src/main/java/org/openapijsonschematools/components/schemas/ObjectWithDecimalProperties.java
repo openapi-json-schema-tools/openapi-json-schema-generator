@@ -16,7 +16,7 @@ public class ObjectWithDecimalProperties {
     public class Width extends DecimalJsonSchema {}
     
     
-    class ObjectWithDecimalPropertiesMap extends FrozenMap<String, Object> {
+    public static class ObjectWithDecimalPropertiesMap extends FrozenMap<String, Object> {
         ObjectWithDecimalPropertiesMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -40,7 +40,7 @@ public class ObjectWithDecimalProperties {
             new AbstractMap.SimpleEntry<String, Class<?>>("width", Width.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("cost", Money.Money1.class)
         ));
-        public static ObjectWithDecimalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static ObjectWithDecimalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithDecimalPropertiesMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

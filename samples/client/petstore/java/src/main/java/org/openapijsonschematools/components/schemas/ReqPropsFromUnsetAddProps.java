@@ -10,7 +10,7 @@ public class ReqPropsFromUnsetAddProps {
     // nest classes so all schemas and input/output classes can be public
     
     
-    class ReqPropsFromUnsetAddPropsMap extends FrozenMap<String, Object> {
+    public static class ReqPropsFromUnsetAddPropsMap extends FrozenMap<String, Object> {
         ReqPropsFromUnsetAddPropsMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -33,7 +33,7 @@ public class ReqPropsFromUnsetAddProps {
             "invalid-name",
             "validName"
         ));
-        public static ReqPropsFromUnsetAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static ReqPropsFromUnsetAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ReqPropsFromUnsetAddPropsMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

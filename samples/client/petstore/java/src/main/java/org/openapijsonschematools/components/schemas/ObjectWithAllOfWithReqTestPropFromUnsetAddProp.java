@@ -21,7 +21,7 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
     public class Name extends StringJsonSchema {}
     
     
-    class Schema1Map extends FrozenMap<String, Object> {
+    public static class Schema1Map extends FrozenMap<String, Object> {
         Schema1Map(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -40,7 +40,7 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "test"
         ));
-        public static Schema1Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static Schema1Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new Schema1Map(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

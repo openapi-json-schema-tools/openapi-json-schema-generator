@@ -31,7 +31,7 @@ public class Capitalization {
     public class ATTNAME extends StringJsonSchema {}
     
     
-    class CapitalizationMap extends FrozenMap<String, Object> {
+    public static class CapitalizationMap extends FrozenMap<String, Object> {
         CapitalizationMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -58,7 +58,7 @@ public class Capitalization {
             new AbstractMap.SimpleEntry<String, Class<?>>("SCA_ETH_Flow_Points", SCAETHFlowPoints.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("ATT_NAME", ATTNAME.class)
         ));
-        public static CapitalizationMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static CapitalizationMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new CapitalizationMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -14,7 +14,7 @@ public class ReqPropsFromTrueAddProps {
     public class AdditionalProperties extends AnyTypeJsonSchema {}
     
     
-    class ReqPropsFromTrueAddPropsMap extends FrozenMap<String, Object> {
+    public static class ReqPropsFromTrueAddPropsMap extends FrozenMap<String, Object> {
         ReqPropsFromTrueAddPropsMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -38,7 +38,7 @@ public class ReqPropsFromTrueAddProps {
             "validName"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        public static ReqPropsFromTrueAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static ReqPropsFromTrueAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ReqPropsFromTrueAddPropsMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

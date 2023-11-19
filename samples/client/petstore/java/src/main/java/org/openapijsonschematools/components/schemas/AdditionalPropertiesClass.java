@@ -19,7 +19,7 @@ public class AdditionalPropertiesClass {
     public class AdditionalProperties extends StringJsonSchema {}
     
     
-    class MapPropertyMap extends FrozenMap<String, Object> {
+    public static class MapPropertyMap extends FrozenMap<String, Object> {
         MapPropertyMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -33,7 +33,7 @@ public class AdditionalPropertiesClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        public static MapPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static MapPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapPropertyMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -45,7 +45,7 @@ public class AdditionalPropertiesClass {
     public class AdditionalProperties2 extends StringJsonSchema {}
     
     
-    class AdditionalPropertiesMap extends FrozenMap<String, Object> {
+    public static class AdditionalPropertiesMap extends FrozenMap<String, Object> {
         AdditionalPropertiesMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -59,7 +59,7 @@ public class AdditionalPropertiesClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties2.class;
-        public static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AdditionalPropertiesMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -68,7 +68,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    class MapOfMapPropertyMap extends FrozenMap<String, Object> {
+    public static class MapOfMapPropertyMap extends FrozenMap<String, Object> {
         MapOfMapPropertyMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -82,7 +82,7 @@ public class AdditionalPropertiesClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties1.class;
-        public static MapOfMapPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static MapOfMapPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapOfMapPropertyMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -103,7 +103,7 @@ public class AdditionalPropertiesClass {
     public class AdditionalProperties3 extends AnyTypeJsonSchema {}
     
     
-    class MapWithUndeclaredPropertiesAnytype3Map extends FrozenMap<String, Object> {
+    public static class MapWithUndeclaredPropertiesAnytype3Map extends FrozenMap<String, Object> {
         MapWithUndeclaredPropertiesAnytype3Map(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -117,7 +117,7 @@ public class AdditionalPropertiesClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties3.class;
-        public static MapWithUndeclaredPropertiesAnytype3Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static MapWithUndeclaredPropertiesAnytype3Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapWithUndeclaredPropertiesAnytype3Map(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -130,7 +130,7 @@ public class AdditionalPropertiesClass {
         // NotAnyTypeSchema
     
     
-    class EmptyMapMap extends FrozenMap<String, Object> {
+    public static class EmptyMapMap extends FrozenMap<String, Object> {
         EmptyMapMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -145,7 +145,7 @@ public class AdditionalPropertiesClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties4.class;
-        public static EmptyMapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static EmptyMapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new EmptyMapMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -157,7 +157,7 @@ public class AdditionalPropertiesClass {
     public class AdditionalProperties5 extends StringJsonSchema {}
     
     
-    class MapWithUndeclaredPropertiesStringMap extends FrozenMap<String, Object> {
+    public static class MapWithUndeclaredPropertiesStringMap extends FrozenMap<String, Object> {
         MapWithUndeclaredPropertiesStringMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -171,7 +171,7 @@ public class AdditionalPropertiesClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties5.class;
-        public static MapWithUndeclaredPropertiesStringMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static MapWithUndeclaredPropertiesStringMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapWithUndeclaredPropertiesStringMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -180,7 +180,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    class AdditionalPropertiesClassMap extends FrozenMap<String, Object> {
+    public static class AdditionalPropertiesClassMap extends FrozenMap<String, Object> {
         AdditionalPropertiesClassMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -209,7 +209,7 @@ public class AdditionalPropertiesClass {
             new AbstractMap.SimpleEntry<String, Class<?>>("empty_map", EmptyMap.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("map_with_undeclared_properties_string", MapWithUndeclaredPropertiesString.class)
         ));
-        public static AdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static AdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AdditionalPropertiesClassMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

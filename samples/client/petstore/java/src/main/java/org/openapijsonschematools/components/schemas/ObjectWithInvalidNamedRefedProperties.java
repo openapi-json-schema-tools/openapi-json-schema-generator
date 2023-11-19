@@ -12,7 +12,7 @@ public class ObjectWithInvalidNamedRefedProperties {
     // nest classes so all schemas and input/output classes can be public
     
     
-    class ObjectWithInvalidNamedRefedPropertiesMap extends FrozenMap<String, Object> {
+    public static class ObjectWithInvalidNamedRefedPropertiesMap extends FrozenMap<String, Object> {
         ObjectWithInvalidNamedRefedPropertiesMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -39,7 +39,7 @@ public class ObjectWithInvalidNamedRefedProperties {
             "!reference",
             "from"
         ));
-        public static ObjectWithInvalidNamedRefedPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static ObjectWithInvalidNamedRefedPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithInvalidNamedRefedPropertiesMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

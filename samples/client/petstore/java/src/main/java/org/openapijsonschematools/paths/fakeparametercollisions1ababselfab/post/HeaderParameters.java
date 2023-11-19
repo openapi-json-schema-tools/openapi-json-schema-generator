@@ -22,7 +22,7 @@ public class HeaderParameters {
         // NotAnyTypeSchema
     
     
-    class HeaderParametersMap extends FrozenMap<String, Object> {
+    public static class HeaderParametersMap extends FrozenMap<String, Object> {
         HeaderParametersMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -42,7 +42,7 @@ public class HeaderParameters {
             new AbstractMap.SimpleEntry<String, Class<?>>("self", Schema7.Schema71.class)
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        public static HeaderParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static HeaderParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new HeaderParametersMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

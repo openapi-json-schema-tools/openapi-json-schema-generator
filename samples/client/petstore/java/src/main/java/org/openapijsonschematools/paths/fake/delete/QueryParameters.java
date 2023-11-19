@@ -22,7 +22,7 @@ public class QueryParameters {
         // NotAnyTypeSchema
     
     
-    class QueryParametersMap extends FrozenMap<String, Object> {
+    public static class QueryParametersMap extends FrozenMap<String, Object> {
         QueryParametersMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -46,7 +46,7 @@ public class QueryParameters {
             "required_string_group"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        public static QueryParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static QueryParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new QueryParametersMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

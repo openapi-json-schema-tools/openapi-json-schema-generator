@@ -30,7 +30,7 @@ public class QuadrilateralInterface {
     public class QuadrilateralType extends StringJsonSchema {}
     
     
-    class QuadrilateralInterfaceMap extends FrozenMap<String, Object> {
+    public static class QuadrilateralInterfaceMap extends FrozenMap<String, Object> {
         QuadrilateralInterfaceMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }

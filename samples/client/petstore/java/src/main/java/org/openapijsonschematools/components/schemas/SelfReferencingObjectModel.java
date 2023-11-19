@@ -12,7 +12,7 @@ public class SelfReferencingObjectModel {
     // nest classes so all schemas and input/output classes can be public
     
     
-    class SelfReferencingObjectModelMap extends FrozenMap<String, Object> {
+    public static class SelfReferencingObjectModelMap extends FrozenMap<String, Object> {
         SelfReferencingObjectModelMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -35,7 +35,7 @@ public class SelfReferencingObjectModel {
             new AbstractMap.SimpleEntry<String, Class<?>>("selfRef", SelfReferencingObjectModel1.class)
         ));
         static final Class<?> additionalProperties = SelfReferencingObjectModel1.class;
-        public static SelfReferencingObjectModelMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static SelfReferencingObjectModelMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new SelfReferencingObjectModelMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

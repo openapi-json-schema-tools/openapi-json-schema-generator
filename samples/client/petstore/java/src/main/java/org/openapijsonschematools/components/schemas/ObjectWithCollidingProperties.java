@@ -19,7 +19,7 @@ public class ObjectWithCollidingProperties {
     public class Someprop extends MapJsonSchema {}
     
     
-    class ObjectWithCollidingPropertiesMap extends FrozenMap<String, Object> {
+    public static class ObjectWithCollidingPropertiesMap extends FrozenMap<String, Object> {
         ObjectWithCollidingPropertiesMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -44,7 +44,7 @@ public class ObjectWithCollidingProperties {
             new AbstractMap.SimpleEntry<String, Class<?>>("someProp", SomeProp.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("someprop", Someprop.class)
         ));
-        public static ObjectWithCollidingPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static ObjectWithCollidingPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithCollidingPropertiesMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

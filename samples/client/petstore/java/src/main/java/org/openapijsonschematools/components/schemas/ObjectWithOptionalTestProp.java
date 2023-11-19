@@ -16,7 +16,7 @@ public class ObjectWithOptionalTestProp {
     public class Test extends StringJsonSchema {}
     
     
-    class ObjectWithOptionalTestPropMap extends FrozenMap<String, Object> {
+    public static class ObjectWithOptionalTestPropMap extends FrozenMap<String, Object> {
         ObjectWithOptionalTestPropMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -38,7 +38,7 @@ public class ObjectWithOptionalTestProp {
         static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("test", Test.class)
         ));
-        public static ObjectWithOptionalTestPropMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static ObjectWithOptionalTestPropMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithOptionalTestPropMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

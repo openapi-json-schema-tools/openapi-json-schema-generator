@@ -19,7 +19,7 @@ public class Fruit {
     public class Color extends StringJsonSchema {}
     
     
-    class FruitMap extends FrozenMap<String, Object> {
+    public static class FruitMap extends FrozenMap<String, Object> {
         FruitMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }

@@ -16,7 +16,7 @@ public class PublicKey {
     public class Key extends StringJsonSchema {}
     
     
-    class PublicKeyMap extends FrozenMap<String, Object> {
+    public static class PublicKeyMap extends FrozenMap<String, Object> {
         PublicKeyMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -40,7 +40,7 @@ public class PublicKey {
         static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("key", Key.class)
         ));
-        public static PublicKeyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static PublicKeyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new PublicKeyMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

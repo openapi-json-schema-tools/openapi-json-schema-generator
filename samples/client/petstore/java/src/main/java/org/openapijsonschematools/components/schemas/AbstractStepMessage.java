@@ -16,7 +16,7 @@ public class AbstractStepMessage {
     public class Discriminator extends StringJsonSchema {}
     
     
-    class AbstractStepMessageMap extends FrozenMap<String, Object> {
+    public static class AbstractStepMessageMap extends FrozenMap<String, Object> {
         AbstractStepMessageMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -45,7 +45,7 @@ public class AbstractStepMessage {
             "discriminator",
             "sequenceNumber"
         ));
-        public static AbstractStepMessageMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static AbstractStepMessageMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AbstractStepMessageMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

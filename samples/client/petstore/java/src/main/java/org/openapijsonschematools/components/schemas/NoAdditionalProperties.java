@@ -25,7 +25,7 @@ public class NoAdditionalProperties {
     public class PetId extends Int64JsonSchema {}
     
     
-    class NoAdditionalPropertiesMap extends FrozenMap<String, Object> {
+    public static class NoAdditionalPropertiesMap extends FrozenMap<String, Object> {
         NoAdditionalPropertiesMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -52,7 +52,7 @@ public class NoAdditionalProperties {
             "id"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        public static NoAdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static NoAdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new NoAdditionalPropertiesMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

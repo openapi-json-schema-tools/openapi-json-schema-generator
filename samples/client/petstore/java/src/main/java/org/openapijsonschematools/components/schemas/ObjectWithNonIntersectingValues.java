@@ -20,7 +20,7 @@ public class ObjectWithNonIntersectingValues {
     public class A extends NumberJsonSchema {}
     
     
-    class ObjectWithNonIntersectingValuesMap extends FrozenMap<String, Object> {
+    public static class ObjectWithNonIntersectingValuesMap extends FrozenMap<String, Object> {
         ObjectWithNonIntersectingValuesMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -43,7 +43,7 @@ public class ObjectWithNonIntersectingValues {
             new AbstractMap.SimpleEntry<String, Class<?>>("a", A.class)
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        public static ObjectWithNonIntersectingValuesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static ObjectWithNonIntersectingValuesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithNonIntersectingValuesMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

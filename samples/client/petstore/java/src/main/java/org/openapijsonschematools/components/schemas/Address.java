@@ -14,7 +14,7 @@ public class Address {
     public class AdditionalProperties extends IntJsonSchema {}
     
     
-    class AddressMap extends FrozenMap<String, Object> {
+    public static class AddressMap extends FrozenMap<String, Object> {
         AddressMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -34,7 +34,7 @@ public class Address {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        public static AddressMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static AddressMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AddressMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

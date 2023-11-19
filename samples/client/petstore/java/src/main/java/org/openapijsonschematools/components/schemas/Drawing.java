@@ -24,7 +24,7 @@ public class Drawing {
         }
     }    
     
-    class DrawingMap extends FrozenMap<String, Object> {
+    public static class DrawingMap extends FrozenMap<String, Object> {
         DrawingMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -50,7 +50,7 @@ public class Drawing {
             new AbstractMap.SimpleEntry<String, Class<?>>("shapes", Shapes.class)
         ));
         static final Class<?> additionalProperties = Fruit.Fruit1.class;
-        public static DrawingMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static DrawingMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new DrawingMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

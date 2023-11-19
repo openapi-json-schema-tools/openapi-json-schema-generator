@@ -12,7 +12,7 @@ public class ObjectModelWithRefProps {
     // nest classes so all schemas and input/output classes can be public
     
     
-    class ObjectModelWithRefPropsMap extends FrozenMap<String, Object> {
+    public static class ObjectModelWithRefPropsMap extends FrozenMap<String, Object> {
         ObjectModelWithRefPropsMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -38,7 +38,7 @@ public class ObjectModelWithRefProps {
             new AbstractMap.SimpleEntry<String, Class<?>>("myString", StringSchema.StringSchema1.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("myBoolean", BooleanSchema.BooleanSchema1.class)
         ));
-        public static ObjectModelWithRefPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static ObjectModelWithRefPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectModelWithRefPropsMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

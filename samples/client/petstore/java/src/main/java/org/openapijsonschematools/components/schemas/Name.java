@@ -28,7 +28,7 @@ public class Name {
     public class Property extends StringJsonSchema {}
     
     
-    class NameMap extends FrozenMap<String, Object> {
+    public static class NameMap extends FrozenMap<String, Object> {
         NameMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }

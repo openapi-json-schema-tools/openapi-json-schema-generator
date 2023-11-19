@@ -28,7 +28,7 @@ public class Whale {
         }
     }    
     
-    class WhaleMap extends FrozenMap<String, Object> {
+    public static class WhaleMap extends FrozenMap<String, Object> {
         WhaleMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -55,7 +55,7 @@ public class Whale {
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "className"
         ));
-        public static WhaleMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static WhaleMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new WhaleMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

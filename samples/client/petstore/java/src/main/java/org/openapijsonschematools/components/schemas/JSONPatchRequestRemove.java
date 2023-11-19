@@ -31,7 +31,7 @@ public class JSONPatchRequestRemove {
         }
     }    
     
-    class JSONPatchRequestRemoveMap extends FrozenMap<String, Object> {
+    public static class JSONPatchRequestRemoveMap extends FrozenMap<String, Object> {
         JSONPatchRequestRemoveMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -59,7 +59,7 @@ public class JSONPatchRequestRemove {
             "path"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        public static JSONPatchRequestRemoveMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static JSONPatchRequestRemoveMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new JSONPatchRequestRemoveMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

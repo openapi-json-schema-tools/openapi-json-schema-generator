@@ -19,7 +19,7 @@ public class PathParameters {
         // NotAnyTypeSchema
     
     
-    class PathParametersMap extends FrozenMap<String, Object> {
+    public static class PathParametersMap extends FrozenMap<String, Object> {
         PathParametersMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -39,7 +39,7 @@ public class PathParameters {
             "petId"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        public static PathParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static PathParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new PathParametersMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

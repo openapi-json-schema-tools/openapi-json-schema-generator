@@ -16,7 +16,7 @@ public class File {
     public class SourceURI extends StringJsonSchema {}
     
     
-    class FileMap extends FrozenMap<String, Object> {
+    public static class FileMap extends FrozenMap<String, Object> {
         FileMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -40,7 +40,7 @@ public class File {
         static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("sourceURI", SourceURI.class)
         ));
-        public static FileMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static FileMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new FileMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -16,7 +16,7 @@ public class Banana {
     public class LengthCm extends NumberJsonSchema {}
     
     
-    class BananaMap extends FrozenMap<String, Object> {
+    public static class BananaMap extends FrozenMap<String, Object> {
         BananaMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -41,7 +41,7 @@ public class Banana {
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "lengthCm"
         ));
-        public static BananaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static BananaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new BananaMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

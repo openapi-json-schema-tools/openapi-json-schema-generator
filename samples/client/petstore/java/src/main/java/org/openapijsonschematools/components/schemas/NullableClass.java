@@ -210,7 +210,7 @@ public class NullableClass {
     public class AdditionalProperties extends MapJsonSchema {}
     
     
-    class ObjectNullablePropMap extends FrozenMap<String, Object> {
+    public static class ObjectNullablePropMap extends FrozenMap<String, Object> {
         ObjectNullablePropMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -246,7 +246,7 @@ public class NullableClass {
         }
     }    
     
-    class ObjectAndItemsNullablePropMap extends FrozenMap<String, Object> {
+    public static class ObjectAndItemsNullablePropMap extends FrozenMap<String, Object> {
         ObjectAndItemsNullablePropMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -282,7 +282,7 @@ public class NullableClass {
         }
     }    
     
-    class ObjectItemsNullableMap extends FrozenMap<String, Object> {
+    public static class ObjectItemsNullableMap extends FrozenMap<String, Object> {
         ObjectItemsNullableMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -296,7 +296,7 @@ public class NullableClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties2.class;
-        public static ObjectItemsNullableMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static ObjectItemsNullableMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectItemsNullableMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -305,7 +305,7 @@ public class NullableClass {
     }
     
     
-    class NullableClassMap extends FrozenMap<String, Object> {
+    public static class NullableClassMap extends FrozenMap<String, Object> {
         NullableClassMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -339,7 +339,7 @@ public class NullableClass {
             new AbstractMap.SimpleEntry<String, Class<?>>("object_items_nullable", ObjectItemsNullable.class)
         ));
         static final Class<?> additionalProperties = AdditionalProperties3.class;
-        public static NullableClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static NullableClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new NullableClassMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

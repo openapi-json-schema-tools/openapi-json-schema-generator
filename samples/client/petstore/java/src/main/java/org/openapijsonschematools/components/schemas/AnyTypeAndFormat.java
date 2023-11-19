@@ -476,7 +476,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    class AnyTypeAndFormatMap extends FrozenMap<String, Object> {
+    public static class AnyTypeAndFormatMap extends FrozenMap<String, Object> {
         AnyTypeAndFormatMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -506,7 +506,7 @@ public class AnyTypeAndFormat {
             new AbstractMap.SimpleEntry<String, Class<?>>("double", DoubleSchema.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("float", FloatSchema.class)
         ));
-        public static AnyTypeAndFormatMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static AnyTypeAndFormatMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AnyTypeAndFormatMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

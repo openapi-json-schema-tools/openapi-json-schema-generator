@@ -40,7 +40,7 @@ public class Order {
     public class Complete extends BooleanJsonSchema {}
     
     
-    class OrderMap extends FrozenMap<String, Object> {
+    public static class OrderMap extends FrozenMap<String, Object> {
         OrderMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -67,7 +67,7 @@ public class Order {
             new AbstractMap.SimpleEntry<String, Class<?>>("status", Status.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("complete", Complete.class)
         ));
-        public static OrderMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static OrderMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new OrderMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

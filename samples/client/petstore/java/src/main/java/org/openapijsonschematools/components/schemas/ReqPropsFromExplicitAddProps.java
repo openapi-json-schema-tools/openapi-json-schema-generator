@@ -14,7 +14,7 @@ public class ReqPropsFromExplicitAddProps {
     public class AdditionalProperties extends StringJsonSchema {}
     
     
-    class ReqPropsFromExplicitAddPropsMap extends FrozenMap<String, Object> {
+    public static class ReqPropsFromExplicitAddPropsMap extends FrozenMap<String, Object> {
         ReqPropsFromExplicitAddPropsMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -38,7 +38,7 @@ public class ReqPropsFromExplicitAddProps {
             "validName"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        public static ReqPropsFromExplicitAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static ReqPropsFromExplicitAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ReqPropsFromExplicitAddPropsMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

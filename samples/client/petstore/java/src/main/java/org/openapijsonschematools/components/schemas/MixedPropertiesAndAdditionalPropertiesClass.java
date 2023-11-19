@@ -20,7 +20,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     public class DateTime extends DateTimeJsonSchema {}
     
     
-    class MapMap extends FrozenMap<String, Object> {
+    public static class MapMap extends FrozenMap<String, Object> {
         MapMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -34,7 +34,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = Animal.Animal1.class;
-        public static MapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static MapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -43,7 +43,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     }
     
     
-    class MixedPropertiesAndAdditionalPropertiesClassMap extends FrozenMap<String, Object> {
+    public static class MixedPropertiesAndAdditionalPropertiesClassMap extends FrozenMap<String, Object> {
         MixedPropertiesAndAdditionalPropertiesClassMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -67,7 +67,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             new AbstractMap.SimpleEntry<String, Class<?>>("dateTime", DateTime.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("map", MapSchema.class)
         ));
-        public static MixedPropertiesAndAdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static MixedPropertiesAndAdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MixedPropertiesAndAdditionalPropertiesClassMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -19,7 +19,7 @@ public class ClassModel {
     public class ClassSchema extends StringJsonSchema {}
     
     
-    class ClassModelMap extends FrozenMap<String, Object> {
+    public static class ClassModelMap extends FrozenMap<String, Object> {
         ClassModelMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }

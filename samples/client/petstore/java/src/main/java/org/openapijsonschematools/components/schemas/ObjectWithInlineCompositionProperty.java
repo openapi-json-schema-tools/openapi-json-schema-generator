@@ -76,7 +76,7 @@ public class ObjectWithInlineCompositionProperty {
         }
     }    
     
-    class ObjectWithInlineCompositionPropertyMap extends FrozenMap<String, Object> {
+    public static class ObjectWithInlineCompositionPropertyMap extends FrozenMap<String, Object> {
         ObjectWithInlineCompositionPropertyMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -98,7 +98,7 @@ public class ObjectWithInlineCompositionProperty {
         static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("someProp", SomeProp.class)
         ));
-        public static ObjectWithInlineCompositionPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static ObjectWithInlineCompositionPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithInlineCompositionPropertyMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

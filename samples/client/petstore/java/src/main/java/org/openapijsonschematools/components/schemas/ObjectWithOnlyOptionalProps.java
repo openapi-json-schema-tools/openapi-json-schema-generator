@@ -26,7 +26,7 @@ public class ObjectWithOnlyOptionalProps {
     public class B extends NumberJsonSchema {}
     
     
-    class ObjectWithOnlyOptionalPropsMap extends FrozenMap<String, Object> {
+    public static class ObjectWithOnlyOptionalPropsMap extends FrozenMap<String, Object> {
         ObjectWithOnlyOptionalPropsMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -50,7 +50,7 @@ public class ObjectWithOnlyOptionalProps {
             new AbstractMap.SimpleEntry<String, Class<?>>("b", B.class)
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        public static ObjectWithOnlyOptionalPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static ObjectWithOnlyOptionalPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithOnlyOptionalPropsMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

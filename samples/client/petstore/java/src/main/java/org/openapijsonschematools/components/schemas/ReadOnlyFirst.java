@@ -19,7 +19,7 @@ public class ReadOnlyFirst {
     public class Baz extends StringJsonSchema {}
     
     
-    class ReadOnlyFirstMap extends FrozenMap<String, Object> {
+    public static class ReadOnlyFirstMap extends FrozenMap<String, Object> {
         ReadOnlyFirstMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -42,7 +42,7 @@ public class ReadOnlyFirst {
             new AbstractMap.SimpleEntry<String, Class<?>>("bar", Bar.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("baz", Baz.class)
         ));
-        public static ReadOnlyFirstMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static ReadOnlyFirstMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ReadOnlyFirstMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

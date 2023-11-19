@@ -26,7 +26,7 @@ public class BananaReq {
     public class Sweet extends BooleanJsonSchema {}
     
     
-    class BananaReqMap extends FrozenMap<String, Object> {
+    public static class BananaReqMap extends FrozenMap<String, Object> {
         BananaReqMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -53,7 +53,7 @@ public class BananaReq {
             "lengthCm"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        public static BananaReqMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static BananaReqMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new BananaReqMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

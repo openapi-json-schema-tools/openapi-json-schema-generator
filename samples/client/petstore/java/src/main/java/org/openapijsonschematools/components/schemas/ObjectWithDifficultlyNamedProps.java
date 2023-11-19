@@ -24,7 +24,7 @@ public class ObjectWithDifficultlyNamedProps {
     public class Schema123Number extends IntJsonSchema {}
     
     
-    class ObjectWithDifficultlyNamedPropsMap extends FrozenMap<String, Object> {
+    public static class ObjectWithDifficultlyNamedPropsMap extends FrozenMap<String, Object> {
         ObjectWithDifficultlyNamedPropsMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -53,7 +53,7 @@ public class ObjectWithDifficultlyNamedProps {
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "123-list"
         ));
-        public static ObjectWithDifficultlyNamedPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static ObjectWithDifficultlyNamedPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithDifficultlyNamedPropsMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -142,7 +142,7 @@ public interface JsonSchema extends SchemaValidator {
       if (arg instanceof Map) {
          FrozenMap<String, Object> usedArg = getProperties(arg, pathToItem, pathToSchemas);
          try {
-            Method method = cls.getMethod("getMapOutputInstance", FrozenMap.class);
+            Method method = cls.getDeclaredMethod("getMapOutputInstance", FrozenMap.class);
             return method.invoke(null, usedArg);
          } catch (NoSuchMethodException e) {
             return usedArg;
@@ -152,7 +152,7 @@ public interface JsonSchema extends SchemaValidator {
       } else if (arg instanceof List) {
          FrozenList<Object> usedArg = getItems(arg, pathToItem, pathToSchemas);
          try {
-            Method method = cls.getMethod("getListOutputInstance", FrozenList.class);
+            Method method = cls.getDeclaredMethod("getListOutputInstance", FrozenList.class);
             return method.invoke(null, usedArg);
          } catch (NoSuchMethodException e) {
             return usedArg;

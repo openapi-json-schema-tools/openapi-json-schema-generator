@@ -20,7 +20,7 @@ public class Tag {
     public class Name extends StringJsonSchema {}
     
     
-    class TagMap extends FrozenMap<String, Object> {
+    public static class TagMap extends FrozenMap<String, Object> {
         TagMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -43,7 +43,7 @@ public class Tag {
             new AbstractMap.SimpleEntry<String, Class<?>>("id", Id.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("name", Name.class)
         ));
-        public static TagMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static TagMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new TagMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

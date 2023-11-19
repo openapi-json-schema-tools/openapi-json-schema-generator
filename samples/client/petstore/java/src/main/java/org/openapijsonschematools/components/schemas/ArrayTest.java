@@ -72,7 +72,7 @@ public class ArrayTest {
         }
     }    
     
-    class ArrayTestMap extends FrozenMap<String, Object> {
+    public static class ArrayTestMap extends FrozenMap<String, Object> {
         ArrayTestMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -96,7 +96,7 @@ public class ArrayTest {
             new AbstractMap.SimpleEntry<String, Class<?>>("array_array_of_integer", ArrayArrayOfInteger.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("array_array_of_model", ArrayArrayOfModel.class)
         ));
-        public static ArrayTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static ArrayTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ArrayTestMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

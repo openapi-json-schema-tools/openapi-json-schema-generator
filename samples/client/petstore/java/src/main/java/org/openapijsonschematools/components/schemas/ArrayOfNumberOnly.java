@@ -28,7 +28,7 @@ public class ArrayOfNumberOnly {
         }
     }    
     
-    class ArrayOfNumberOnlyMap extends FrozenMap<String, Object> {
+    public static class ArrayOfNumberOnlyMap extends FrozenMap<String, Object> {
         ArrayOfNumberOnlyMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -50,7 +50,7 @@ public class ArrayOfNumberOnly {
         static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("ArrayNumber", ArrayNumber.class)
         ));
-        public static ArrayOfNumberOnlyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static ArrayOfNumberOnlyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ArrayOfNumberOnlyMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

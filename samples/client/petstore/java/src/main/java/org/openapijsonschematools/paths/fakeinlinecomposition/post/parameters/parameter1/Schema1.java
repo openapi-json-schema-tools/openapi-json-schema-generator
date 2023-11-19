@@ -76,7 +76,7 @@ public class Schema1 {
         }
     }    
     
-    class SchemaMap1 extends FrozenMap<String, Object> {
+    public static class SchemaMap1 extends FrozenMap<String, Object> {
         SchemaMap1(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -92,7 +92,7 @@ public class Schema1 {
         static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("someProp", SomeProp1.class)
         ));
-        public static SchemaMap1 getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static SchemaMap1 getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new SchemaMap1(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

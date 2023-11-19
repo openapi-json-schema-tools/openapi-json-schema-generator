@@ -23,7 +23,7 @@ public class Headers {
         // NotAnyTypeSchema
     
     
-    class HeadersMap extends FrozenMap<String, Object> {
+    public static class HeadersMap extends FrozenMap<String, Object> {
         HeadersMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -49,7 +49,7 @@ public class Headers {
             "ref-content-schema-header"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        public static HeadersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static HeadersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new HeadersMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

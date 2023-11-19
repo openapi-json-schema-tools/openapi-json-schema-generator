@@ -16,7 +16,7 @@ public class SpecialModelname {
     public class A extends StringJsonSchema {}
     
     
-    class SpecialModelnameMap extends FrozenMap<String, Object> {
+    public static class SpecialModelnameMap extends FrozenMap<String, Object> {
         SpecialModelnameMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -40,7 +40,7 @@ public class SpecialModelname {
         static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("a", A.class)
         ));
-        public static SpecialModelnameMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static SpecialModelnameMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new SpecialModelnameMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

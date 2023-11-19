@@ -13,7 +13,7 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    class SchemaMap extends FrozenMap<String, Object> {
+    public static class SchemaMap extends FrozenMap<String, Object> {
         SchemaMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -29,7 +29,7 @@ public class Schema {
         static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("string", Foo.Foo1.class)
         ));
-        public static SchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static SchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new SchemaMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

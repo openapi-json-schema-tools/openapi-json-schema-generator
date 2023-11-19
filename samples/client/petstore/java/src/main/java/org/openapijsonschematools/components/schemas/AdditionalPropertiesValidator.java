@@ -19,7 +19,7 @@ public class AdditionalPropertiesValidator {
     public class AdditionalProperties extends AnyTypeJsonSchema {}
     
     
-    class Schema0Map extends FrozenMap<String, Object> {
+    public static class Schema0Map extends FrozenMap<String, Object> {
         Schema0Map(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -33,7 +33,7 @@ public class AdditionalPropertiesValidator {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        public static Schema0Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static Schema0Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new Schema0Map(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -92,7 +92,7 @@ public class AdditionalPropertiesValidator {
         }
     }    
     
-    class Schema1Map extends FrozenMap<String, Object> {
+    public static class Schema1Map extends FrozenMap<String, Object> {
         Schema1Map(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -106,7 +106,7 @@ public class AdditionalPropertiesValidator {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties1.class;
-        public static Schema1Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static Schema1Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new Schema1Map(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -165,7 +165,7 @@ public class AdditionalPropertiesValidator {
         }
     }    
     
-    class Schema2Map extends FrozenMap<String, Object> {
+    public static class Schema2Map extends FrozenMap<String, Object> {
         Schema2Map(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -179,7 +179,7 @@ public class AdditionalPropertiesValidator {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties2.class;
-        public static Schema2Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static Schema2Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new Schema2Map(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

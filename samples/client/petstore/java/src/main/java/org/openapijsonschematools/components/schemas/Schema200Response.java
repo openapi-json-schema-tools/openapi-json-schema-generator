@@ -23,7 +23,7 @@ public class Schema200Response {
     public class ClassSchema extends StringJsonSchema {}
     
     
-    class Schema200ResponseMap extends FrozenMap<String, Object> {
+    public static class Schema200ResponseMap extends FrozenMap<String, Object> {
         Schema200ResponseMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }

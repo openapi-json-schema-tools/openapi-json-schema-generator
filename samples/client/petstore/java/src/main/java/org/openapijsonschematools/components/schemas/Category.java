@@ -25,7 +25,7 @@ public class Category {
         }
     }    
     
-    class CategoryMap extends FrozenMap<String, Object> {
+    public static class CategoryMap extends FrozenMap<String, Object> {
         CategoryMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -51,7 +51,7 @@ public class Category {
         static final Set<String> required = new LinkedHashSet<>(Set.of(
             "name"
         ));
-        public static CategoryMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static CategoryMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new CategoryMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

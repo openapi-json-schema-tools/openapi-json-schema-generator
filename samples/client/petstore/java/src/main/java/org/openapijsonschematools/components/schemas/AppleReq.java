@@ -26,7 +26,7 @@ public class AppleReq {
     public class Mealy extends BooleanJsonSchema {}
     
     
-    class AppleReqMap extends FrozenMap<String, Object> {
+    public static class AppleReqMap extends FrozenMap<String, Object> {
         AppleReqMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -53,7 +53,7 @@ public class AppleReq {
             "cultivar"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        public static AppleReqMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static AppleReqMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AppleReqMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

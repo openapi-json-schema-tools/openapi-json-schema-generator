@@ -122,7 +122,7 @@ public class User {
     public class AnyTypePropNullable extends AnyTypeJsonSchema {}
     
     
-    class UserMap extends FrozenMap<String, Object> {
+    public static class UserMap extends FrozenMap<String, Object> {
         UserMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -156,7 +156,7 @@ public class User {
             new AbstractMap.SimpleEntry<String, Class<?>>("anyTypeExceptNullProp", AnyTypeExceptNullProp.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("anyTypePropNullable", AnyTypePropNullable.class)
         ));
-        public static UserMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static UserMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new UserMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -30,7 +30,7 @@ public class TriangleInterface {
     public class TriangleType extends StringJsonSchema {}
     
     
-    class TriangleInterfaceMap extends FrozenMap<String, Object> {
+    public static class TriangleInterfaceMap extends FrozenMap<String, Object> {
         TriangleInterfaceMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }

@@ -208,7 +208,7 @@ public class FormatTest {
     public class NoneProp extends NullJsonSchema {}
     
     
-    class FormatTestMap extends FrozenMap<String, Object> {
+    public static class FormatTestMap extends FrozenMap<String, Object> {
         FormatTestMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -256,7 +256,7 @@ public class FormatTest {
             "number",
             "password"
         ));
-        public static FormatTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static FormatTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new FormatTestMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

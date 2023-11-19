@@ -23,7 +23,7 @@ public class ApiResponseSchema {
     public class Message extends StringJsonSchema {}
     
     
-    class ApiResponseMap extends FrozenMap<String, Object> {
+    public static class ApiResponseMap extends FrozenMap<String, Object> {
         ApiResponseMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -47,7 +47,7 @@ public class ApiResponseSchema {
             new AbstractMap.SimpleEntry<String, Class<?>>("type", Type.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("message", Message.class)
         ));
-        public static ApiResponseMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static ApiResponseMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ApiResponseMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

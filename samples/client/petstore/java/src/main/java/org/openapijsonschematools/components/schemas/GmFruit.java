@@ -19,7 +19,7 @@ public class GmFruit {
     public class Color extends StringJsonSchema {}
     
     
-    class GmFruitMap extends FrozenMap<String, Object> {
+    public static class GmFruitMap extends FrozenMap<String, Object> {
         GmFruitMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }

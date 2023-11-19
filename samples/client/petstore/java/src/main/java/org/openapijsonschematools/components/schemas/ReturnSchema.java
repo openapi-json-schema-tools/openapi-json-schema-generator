@@ -19,7 +19,7 @@ public class ReturnSchema {
     public class ReturnSchema2 extends Int32JsonSchema {}
     
     
-    class ReturnMap extends FrozenMap<String, Object> {
+    public static class ReturnMap extends FrozenMap<String, Object> {
         ReturnMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }

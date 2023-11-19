@@ -22,7 +22,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
         }
     }    
     
-    class AdditionalPropertiesWithArrayOfEnumsMap extends FrozenMap<String, Object> {
+    public static class AdditionalPropertiesWithArrayOfEnumsMap extends FrozenMap<String, Object> {
         AdditionalPropertiesWithArrayOfEnumsMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -42,7 +42,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
             FrozenMap.class
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        public static AdditionalPropertiesWithArrayOfEnumsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static AdditionalPropertiesWithArrayOfEnumsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AdditionalPropertiesWithArrayOfEnumsMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {

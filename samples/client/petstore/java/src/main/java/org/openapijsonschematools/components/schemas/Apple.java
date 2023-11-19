@@ -30,7 +30,7 @@ public class Apple {
         }
     }    
     
-    class AppleMap extends FrozenMap<String, Object> {
+    public static class AppleMap extends FrozenMap<String, Object> {
         AppleMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }

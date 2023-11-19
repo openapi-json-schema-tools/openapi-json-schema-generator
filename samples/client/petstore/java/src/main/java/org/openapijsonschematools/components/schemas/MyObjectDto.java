@@ -22,7 +22,7 @@ public class MyObjectDto {
     public class Id extends UuidJsonSchema {}
     
     
-    class MyObjectDtoMap extends FrozenMap<String, Object> {
+    public static class MyObjectDtoMap extends FrozenMap<String, Object> {
         MyObjectDtoMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
@@ -45,7 +45,7 @@ public class MyObjectDto {
             new AbstractMap.SimpleEntry<String, Class<?>>("id", Id.class)
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        public static MyObjectDtoMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        static MyObjectDtoMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MyObjectDtoMap(arg);
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
