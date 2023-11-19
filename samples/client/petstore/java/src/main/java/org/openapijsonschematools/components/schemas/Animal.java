@@ -29,6 +29,9 @@ public class Animal {
         AnimalMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static AnimalMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Animal1.validate(arg, configuration);
+        }
     }    
     
     public class Animal1 implements JsonSchema {

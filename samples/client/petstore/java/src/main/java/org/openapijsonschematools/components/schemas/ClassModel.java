@@ -23,6 +23,9 @@ public class ClassModel {
         ClassModelMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ClassModelMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ClassModel1.validate(arg, configuration);
+        }
     }    
     
     public class ClassModel1 implements JsonSchema {

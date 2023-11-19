@@ -20,6 +20,9 @@ public class GrandparentAnimal {
         GrandparentAnimalMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static GrandparentAnimalMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return GrandparentAnimal1.validate(arg, configuration);
+        }
     }    
     
     public class GrandparentAnimal1 implements JsonSchema {

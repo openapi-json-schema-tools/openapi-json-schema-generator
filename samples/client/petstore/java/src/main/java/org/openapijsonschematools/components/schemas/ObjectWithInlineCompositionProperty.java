@@ -80,6 +80,9 @@ public class ObjectWithInlineCompositionProperty {
         ObjectWithInlineCompositionPropertyMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ObjectWithInlineCompositionPropertyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ObjectWithInlineCompositionProperty1.validate(arg, configuration);
+        }
     }    
     
     public class ObjectWithInlineCompositionProperty1 implements JsonSchema {

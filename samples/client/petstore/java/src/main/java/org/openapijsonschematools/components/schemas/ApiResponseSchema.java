@@ -27,6 +27,9 @@ public class ApiResponseSchema {
         ApiResponseMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ApiResponseMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ApiResponseSchema1.validate(arg, configuration);
+        }
     }    
     
     public class ApiResponseSchema1 implements JsonSchema {

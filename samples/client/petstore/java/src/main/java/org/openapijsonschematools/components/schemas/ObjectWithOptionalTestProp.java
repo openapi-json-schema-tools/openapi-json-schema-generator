@@ -20,6 +20,9 @@ public class ObjectWithOptionalTestProp {
         ObjectWithOptionalTestPropMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ObjectWithOptionalTestPropMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ObjectWithOptionalTestProp1.validate(arg, configuration);
+        }
     }    
     
     public class ObjectWithOptionalTestProp1 implements JsonSchema {

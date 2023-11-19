@@ -18,6 +18,9 @@ public class StringBooleanMap {
         StringBooleanMapMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static StringBooleanMapMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return StringBooleanMap1.validate(arg, configuration);
+        }
     }    
     
     public class StringBooleanMap1 implements JsonSchema {

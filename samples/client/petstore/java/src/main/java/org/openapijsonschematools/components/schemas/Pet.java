@@ -58,6 +58,9 @@ public class Pet {
         PetMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static PetMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Pet1.validate(arg, configuration);
+        }
     }    
     
     public class Pet1 implements JsonSchema {

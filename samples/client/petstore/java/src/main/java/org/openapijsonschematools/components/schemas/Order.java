@@ -44,6 +44,9 @@ public class Order {
         OrderMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static OrderMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Order1.validate(arg, configuration);
+        }
     }    
     
     public class Order1 implements JsonSchema {

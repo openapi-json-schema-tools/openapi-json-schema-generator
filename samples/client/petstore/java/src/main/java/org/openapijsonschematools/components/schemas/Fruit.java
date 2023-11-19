@@ -23,6 +23,9 @@ public class Fruit {
         FruitMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static FruitMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Fruit1.validate(arg, configuration);
+        }
     }    
     
     public class Fruit1 implements JsonSchema {

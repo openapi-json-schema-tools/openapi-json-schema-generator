@@ -16,6 +16,9 @@ public class ObjectModelWithRefProps {
         ObjectModelWithRefPropsMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ObjectModelWithRefPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ObjectModelWithRefProps1.validate(arg, configuration);
+        }
     }    
     
     public class ObjectModelWithRefProps1 implements JsonSchema {

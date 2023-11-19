@@ -23,6 +23,9 @@ public class AdditionalPropertiesValidator {
         Schema0Map(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static Schema0Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Schema0.validate(arg, configuration);
+        }
     }    
     
     public class Schema0 implements JsonSchema {
@@ -90,6 +93,9 @@ public class AdditionalPropertiesValidator {
         Schema1Map(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static Schema1Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Schema1.validate(arg, configuration);
+        }
     }    
     
     public class Schema1 implements JsonSchema {
@@ -156,6 +162,9 @@ public class AdditionalPropertiesValidator {
     class Schema2Map extends FrozenMap<String, Object> {
         Schema2Map(FrozenMap<? extends String, ?> m) {
             super(m);
+        }
+        public static Schema2Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Schema2.validate(arg, configuration);
         }
     }    
     

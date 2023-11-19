@@ -27,6 +27,9 @@ public class Schema200Response {
         Schema200ResponseMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static Schema200ResponseMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Schema200Response1.validate(arg, configuration);
+        }
     }    
     
     public class Schema200Response1 implements JsonSchema {

@@ -23,6 +23,9 @@ public class ObjectWithCollidingProperties {
         ObjectWithCollidingPropertiesMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ObjectWithCollidingPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ObjectWithCollidingProperties1.validate(arg, configuration);
+        }
     }    
     
     public class ObjectWithCollidingProperties1 implements JsonSchema {

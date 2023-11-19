@@ -24,6 +24,9 @@ public class ObjectWithNonIntersectingValues {
         ObjectWithNonIntersectingValuesMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ObjectWithNonIntersectingValuesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ObjectWithNonIntersectingValues1.validate(arg, configuration);
+        }
     }    
     
     public class ObjectWithNonIntersectingValues1 implements JsonSchema {

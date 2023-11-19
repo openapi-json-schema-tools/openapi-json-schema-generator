@@ -20,6 +20,9 @@ public class AbstractStepMessage {
         AbstractStepMessageMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static AbstractStepMessageMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return AbstractStepMessage1.validate(arg, configuration);
+        }
     }    
     
     public class AbstractStepMessage1 implements JsonSchema {

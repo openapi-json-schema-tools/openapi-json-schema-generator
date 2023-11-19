@@ -26,6 +26,9 @@ public class Money {
         MoneyMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static MoneyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Money1.validate(arg, configuration);
+        }
     }    
     
     public class Money1 implements JsonSchema {

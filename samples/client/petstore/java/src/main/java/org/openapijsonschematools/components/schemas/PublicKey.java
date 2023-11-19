@@ -20,6 +20,9 @@ public class PublicKey {
         PublicKeyMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static PublicKeyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return PublicKey1.validate(arg, configuration);
+        }
     }    
     
     public class PublicKey1 implements JsonSchema {

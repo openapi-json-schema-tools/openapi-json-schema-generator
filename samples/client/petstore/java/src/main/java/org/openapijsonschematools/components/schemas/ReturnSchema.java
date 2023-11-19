@@ -23,6 +23,9 @@ public class ReturnSchema {
         ReturnMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ReturnMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ReturnSchema1.validate(arg, configuration);
+        }
     }    
     
     public class ReturnSchema1 implements JsonSchema {

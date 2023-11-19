@@ -80,6 +80,9 @@ public class Schema {
         SchemaMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Schema1.validate(arg, configuration);
+        }
     }    
     
     public class Schema1 implements JsonSchema {

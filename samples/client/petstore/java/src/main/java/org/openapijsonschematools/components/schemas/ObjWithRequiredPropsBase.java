@@ -20,6 +20,9 @@ public class ObjWithRequiredPropsBase {
         ObjWithRequiredPropsBaseMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ObjWithRequiredPropsBaseMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ObjWithRequiredPropsBase1.validate(arg, configuration);
+        }
     }    
     
     public class ObjWithRequiredPropsBase1 implements JsonSchema {

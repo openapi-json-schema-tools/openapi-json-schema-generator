@@ -212,6 +212,9 @@ public class FormatTest {
         FormatTestMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static FormatTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return FormatTest1.validate(arg, configuration);
+        }
     }    
     
     public class FormatTest1 implements JsonSchema {

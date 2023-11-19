@@ -32,6 +32,9 @@ public class Name {
         NameMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static NameMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Name1.validate(arg, configuration);
+        }
     }    
     
     public class Name1 implements JsonSchema {

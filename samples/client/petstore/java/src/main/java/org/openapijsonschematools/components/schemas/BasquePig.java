@@ -25,6 +25,9 @@ public class BasquePig {
         BasquePigMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static BasquePigMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return BasquePig1.validate(arg, configuration);
+        }
     }    
     
     public class BasquePig1 implements JsonSchema {

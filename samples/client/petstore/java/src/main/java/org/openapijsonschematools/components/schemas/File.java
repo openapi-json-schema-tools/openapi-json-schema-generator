@@ -20,6 +20,9 @@ public class File {
         FileMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static FileMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return File1.validate(arg, configuration);
+        }
     }    
     
     public class File1 implements JsonSchema {

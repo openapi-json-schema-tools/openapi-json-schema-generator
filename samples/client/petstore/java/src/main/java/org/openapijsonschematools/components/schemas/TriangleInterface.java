@@ -34,6 +34,9 @@ public class TriangleInterface {
         TriangleInterfaceMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static TriangleInterfaceMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return TriangleInterface1.validate(arg, configuration);
+        }
     }    
     
     public class TriangleInterface1 implements JsonSchema {

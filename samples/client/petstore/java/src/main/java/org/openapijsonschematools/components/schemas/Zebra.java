@@ -38,6 +38,9 @@ public class Zebra {
         ZebraMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ZebraMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Zebra1.validate(arg, configuration);
+        }
     }    
     
     public class Zebra1 implements JsonSchema {

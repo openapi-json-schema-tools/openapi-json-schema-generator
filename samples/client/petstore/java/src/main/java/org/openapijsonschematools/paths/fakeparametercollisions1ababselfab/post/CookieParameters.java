@@ -27,6 +27,9 @@ public class CookieParameters {
         CookieParametersMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static CookieParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return CookieParameters1.validate(arg, configuration);
+        }
     }    
     
     public class CookieParameters1 implements JsonSchema {

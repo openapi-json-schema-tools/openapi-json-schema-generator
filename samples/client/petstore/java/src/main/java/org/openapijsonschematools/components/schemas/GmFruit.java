@@ -23,6 +23,9 @@ public class GmFruit {
         GmFruitMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static GmFruitMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return GmFruit1.validate(arg, configuration);
+        }
     }    
     
     public class GmFruit1 implements JsonSchema {

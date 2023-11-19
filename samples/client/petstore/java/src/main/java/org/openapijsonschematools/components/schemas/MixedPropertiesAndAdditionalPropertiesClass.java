@@ -24,6 +24,9 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         MapMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static MapMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return MapSchema.validate(arg, configuration);
+        }
     }    
     
     public class MapSchema implements JsonSchema {
@@ -40,6 +43,9 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     class MixedPropertiesAndAdditionalPropertiesClassMap extends FrozenMap<String, Object> {
         MixedPropertiesAndAdditionalPropertiesClassMap(FrozenMap<? extends String, ?> m) {
             super(m);
+        }
+        public static MixedPropertiesAndAdditionalPropertiesClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return MixedPropertiesAndAdditionalPropertiesClass1.validate(arg, configuration);
         }
     }    
     

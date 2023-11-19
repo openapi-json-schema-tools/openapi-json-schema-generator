@@ -16,6 +16,9 @@ public class ObjectWithInvalidNamedRefedProperties {
         ObjectWithInvalidNamedRefedPropertiesMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ObjectWithInvalidNamedRefedPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ObjectWithInvalidNamedRefedProperties1.validate(arg, configuration);
+        }
     }    
     
     public class ObjectWithInvalidNamedRefedProperties1 implements JsonSchema {

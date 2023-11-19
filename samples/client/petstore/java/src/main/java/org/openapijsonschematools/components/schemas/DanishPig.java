@@ -25,6 +25,9 @@ public class DanishPig {
         DanishPigMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static DanishPigMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return DanishPig1.validate(arg, configuration);
+        }
     }    
     
     public class DanishPig1 implements JsonSchema {

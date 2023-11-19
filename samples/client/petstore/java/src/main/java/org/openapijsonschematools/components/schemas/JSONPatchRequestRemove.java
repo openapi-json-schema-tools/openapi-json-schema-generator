@@ -35,6 +35,9 @@ public class JSONPatchRequestRemove {
         JSONPatchRequestRemoveMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static JSONPatchRequestRemoveMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JSONPatchRequestRemove1.validate(arg, configuration);
+        }
     }    
     
     public class JSONPatchRequestRemove1 implements JsonSchema {

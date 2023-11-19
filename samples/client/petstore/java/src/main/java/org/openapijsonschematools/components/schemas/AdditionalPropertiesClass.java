@@ -23,6 +23,9 @@ public class AdditionalPropertiesClass {
         MapPropertyMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static MapPropertyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return MapProperty.validate(arg, configuration);
+        }
     }    
     
     public class MapProperty implements JsonSchema {
@@ -43,6 +46,9 @@ public class AdditionalPropertiesClass {
         AdditionalPropertiesMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static AdditionalPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return AdditionalProperties1.validate(arg, configuration);
+        }
     }    
     
     public class AdditionalProperties1 implements JsonSchema {
@@ -59,6 +65,9 @@ public class AdditionalPropertiesClass {
     class MapOfMapPropertyMap extends FrozenMap<String, Object> {
         MapOfMapPropertyMap(FrozenMap<? extends String, ?> m) {
             super(m);
+        }
+        public static MapOfMapPropertyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return MapOfMapProperty.validate(arg, configuration);
         }
     }    
     
@@ -89,6 +98,9 @@ public class AdditionalPropertiesClass {
         MapWithUndeclaredPropertiesAnytype3Map(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static MapWithUndeclaredPropertiesAnytype3Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return MapWithUndeclaredPropertiesAnytype3.validate(arg, configuration);
+        }
     }    
     
     public class MapWithUndeclaredPropertiesAnytype3 implements JsonSchema {
@@ -111,6 +123,9 @@ public class AdditionalPropertiesClass {
             super(m);
         }
         // map with no key value pairs
+        public static EmptyMapMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return EmptyMap.validate(arg, configuration);
+        }
     }    
     
     public class EmptyMap implements JsonSchema {
@@ -131,6 +146,9 @@ public class AdditionalPropertiesClass {
         MapWithUndeclaredPropertiesStringMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static MapWithUndeclaredPropertiesStringMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return MapWithUndeclaredPropertiesString.validate(arg, configuration);
+        }
     }    
     
     public class MapWithUndeclaredPropertiesString implements JsonSchema {
@@ -147,6 +165,9 @@ public class AdditionalPropertiesClass {
     class AdditionalPropertiesClassMap extends FrozenMap<String, Object> {
         AdditionalPropertiesClassMap(FrozenMap<? extends String, ?> m) {
             super(m);
+        }
+        public static AdditionalPropertiesClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return AdditionalPropertiesClass1.validate(arg, configuration);
         }
     }    
     

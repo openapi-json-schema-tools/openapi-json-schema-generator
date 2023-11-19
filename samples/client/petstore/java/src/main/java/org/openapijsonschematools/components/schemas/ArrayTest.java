@@ -76,6 +76,9 @@ public class ArrayTest {
         ArrayTestMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ArrayTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ArrayTest1.validate(arg, configuration);
+        }
     }    
     
     public class ArrayTest1 implements JsonSchema {

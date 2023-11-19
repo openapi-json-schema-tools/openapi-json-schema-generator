@@ -30,6 +30,9 @@ public class ObjectWithOnlyOptionalProps {
         ObjectWithOnlyOptionalPropsMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ObjectWithOnlyOptionalPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ObjectWithOnlyOptionalProps1.validate(arg, configuration);
+        }
     }    
     
     public class ObjectWithOnlyOptionalProps1 implements JsonSchema {

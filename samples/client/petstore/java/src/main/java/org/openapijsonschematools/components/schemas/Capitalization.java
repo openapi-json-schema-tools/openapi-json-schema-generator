@@ -35,6 +35,9 @@ public class Capitalization {
         CapitalizationMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static CapitalizationMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Capitalization1.validate(arg, configuration);
+        }
     }    
     
     public class Capitalization1 implements JsonSchema {

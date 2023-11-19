@@ -72,6 +72,9 @@ public class EnumTest {
         EnumTestMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static EnumTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return EnumTest1.validate(arg, configuration);
+        }
     }    
     
     public class EnumTest1 implements JsonSchema {

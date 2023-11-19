@@ -32,6 +32,9 @@ public class Whale {
         WhaleMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static WhaleMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Whale1.validate(arg, configuration);
+        }
     }    
     
     public class Whale1 implements JsonSchema {

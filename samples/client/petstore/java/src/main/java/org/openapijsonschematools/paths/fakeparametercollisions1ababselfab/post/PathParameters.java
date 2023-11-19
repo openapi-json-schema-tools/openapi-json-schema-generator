@@ -27,6 +27,9 @@ public class PathParameters {
         PathParametersMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static PathParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return PathParameters1.validate(arg, configuration);
+        }
     }    
     
     public class PathParameters1 implements JsonSchema {

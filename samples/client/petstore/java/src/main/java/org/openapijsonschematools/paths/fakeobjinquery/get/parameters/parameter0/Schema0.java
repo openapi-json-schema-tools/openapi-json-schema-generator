@@ -20,6 +20,9 @@ public class Schema0 {
         SchemaMap0(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static SchemaMap0 of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Schema01.validate(arg, configuration);
+        }
     }    
     
     public class Schema01 implements JsonSchema {

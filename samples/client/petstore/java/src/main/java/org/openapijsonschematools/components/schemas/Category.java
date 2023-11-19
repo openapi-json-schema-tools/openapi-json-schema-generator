@@ -29,6 +29,9 @@ public class Category {
         CategoryMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static CategoryMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Category1.validate(arg, configuration);
+        }
     }    
     
     public class Category1 implements JsonSchema {

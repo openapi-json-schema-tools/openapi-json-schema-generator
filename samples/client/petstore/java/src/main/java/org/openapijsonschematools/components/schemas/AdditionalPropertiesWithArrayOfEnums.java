@@ -26,6 +26,9 @@ public class AdditionalPropertiesWithArrayOfEnums {
         AdditionalPropertiesWithArrayOfEnumsMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static AdditionalPropertiesWithArrayOfEnumsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return AdditionalPropertiesWithArrayOfEnums1.validate(arg, configuration);
+        }
     }    
     
     public class AdditionalPropertiesWithArrayOfEnums1 implements JsonSchema {

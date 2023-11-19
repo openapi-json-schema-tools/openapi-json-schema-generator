@@ -28,6 +28,9 @@ public class FileSchemaTestClass {
         FileSchemaTestClassMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static FileSchemaTestClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return FileSchemaTestClass1.validate(arg, configuration);
+        }
     }    
     
     public class FileSchemaTestClass1 implements JsonSchema {

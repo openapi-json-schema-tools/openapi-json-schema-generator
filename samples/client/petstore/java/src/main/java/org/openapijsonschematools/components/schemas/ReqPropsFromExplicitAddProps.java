@@ -18,6 +18,9 @@ public class ReqPropsFromExplicitAddProps {
         ReqPropsFromExplicitAddPropsMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ReqPropsFromExplicitAddPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ReqPropsFromExplicitAddProps1.validate(arg, configuration);
+        }
     }    
     
     public class ReqPropsFromExplicitAddProps1 implements JsonSchema {

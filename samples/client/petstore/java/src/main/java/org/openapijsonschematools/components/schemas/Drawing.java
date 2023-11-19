@@ -28,6 +28,9 @@ public class Drawing {
         DrawingMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static DrawingMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Drawing1.validate(arg, configuration);
+        }
     }    
     
     public class Drawing1 implements JsonSchema {

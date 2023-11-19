@@ -20,6 +20,9 @@ public class ObjectWithDecimalProperties {
         ObjectWithDecimalPropertiesMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ObjectWithDecimalPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ObjectWithDecimalProperties1.validate(arg, configuration);
+        }
     }    
     
     public class ObjectWithDecimalProperties1 implements JsonSchema {

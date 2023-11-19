@@ -30,6 +30,9 @@ public class BananaReq {
         BananaReqMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static BananaReqMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return BananaReq1.validate(arg, configuration);
+        }
     }    
     
     public class BananaReq1 implements JsonSchema {

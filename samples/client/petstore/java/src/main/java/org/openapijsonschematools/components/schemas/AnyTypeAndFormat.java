@@ -480,6 +480,9 @@ public class AnyTypeAndFormat {
         AnyTypeAndFormatMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static AnyTypeAndFormatMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return AnyTypeAndFormat1.validate(arg, configuration);
+        }
     }    
     
     public class AnyTypeAndFormat1 implements JsonSchema {

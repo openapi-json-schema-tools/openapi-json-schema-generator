@@ -24,6 +24,9 @@ public class FromSchema {
         FromSchemaMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static FromSchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return FromSchema1.validate(arg, configuration);
+        }
     }    
     
     public class FromSchema1 implements JsonSchema {

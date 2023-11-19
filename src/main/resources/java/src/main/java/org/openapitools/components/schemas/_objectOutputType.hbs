@@ -27,6 +27,9 @@ class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<String, Object> {
             {{/if}}
         {{/eq}}
     {{/eq}}
+    public static {{mapOutputJsonPathPiece.camelCase}} of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        return {{jsonPathPiece.camelCase}}.validate(arg, configuration);
+    }
     {{!> components/schemas/__new__ }}
     {{!> components/schemas/_object_output_properties }}
 }

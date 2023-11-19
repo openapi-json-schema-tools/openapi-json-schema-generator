@@ -38,6 +38,9 @@ public class PaginatedResultMyObjectDto {
         PaginatedResultMyObjectDtoMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static PaginatedResultMyObjectDtoMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return PaginatedResultMyObjectDto1.validate(arg, configuration);
+        }
     }    
     
     public class PaginatedResultMyObjectDto1 implements JsonSchema {

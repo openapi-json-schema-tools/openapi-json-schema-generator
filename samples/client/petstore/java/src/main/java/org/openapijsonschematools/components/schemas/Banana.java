@@ -20,6 +20,9 @@ public class Banana {
         BananaMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static BananaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Banana1.validate(arg, configuration);
+        }
     }    
     
     public class Banana1 implements JsonSchema {

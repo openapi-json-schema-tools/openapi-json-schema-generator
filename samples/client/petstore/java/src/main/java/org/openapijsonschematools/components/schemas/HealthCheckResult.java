@@ -29,6 +29,9 @@ public class HealthCheckResult {
         HealthCheckResultMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static HealthCheckResultMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return HealthCheckResult1.validate(arg, configuration);
+        }
     }    
     
     public class HealthCheckResult1 implements JsonSchema {

@@ -42,6 +42,9 @@ public class ArrayOfArrayOfNumberOnly {
         ArrayOfArrayOfNumberOnlyMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ArrayOfArrayOfNumberOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ArrayOfArrayOfNumberOnly1.validate(arg, configuration);
+        }
     }    
     
     public class ArrayOfArrayOfNumberOnly1 implements JsonSchema {

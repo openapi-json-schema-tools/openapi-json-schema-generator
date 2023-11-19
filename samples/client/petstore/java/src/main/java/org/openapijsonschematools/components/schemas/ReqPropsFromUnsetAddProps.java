@@ -14,6 +14,9 @@ public class ReqPropsFromUnsetAddProps {
         ReqPropsFromUnsetAddPropsMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ReqPropsFromUnsetAddPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ReqPropsFromUnsetAddProps1.validate(arg, configuration);
+        }
     }    
     
     public class ReqPropsFromUnsetAddProps1 implements JsonSchema {

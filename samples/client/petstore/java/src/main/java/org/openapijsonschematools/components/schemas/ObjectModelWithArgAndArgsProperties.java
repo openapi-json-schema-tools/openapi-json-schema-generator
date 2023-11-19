@@ -23,6 +23,9 @@ public class ObjectModelWithArgAndArgsProperties {
         ObjectModelWithArgAndArgsPropertiesMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ObjectModelWithArgAndArgsPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ObjectModelWithArgAndArgsProperties1.validate(arg, configuration);
+        }
     }    
     
     public class ObjectModelWithArgAndArgsProperties1 implements JsonSchema {

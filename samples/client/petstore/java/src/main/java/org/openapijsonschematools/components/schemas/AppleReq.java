@@ -30,6 +30,9 @@ public class AppleReq {
         AppleReqMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static AppleReqMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return AppleReq1.validate(arg, configuration);
+        }
     }    
     
     public class AppleReq1 implements JsonSchema {

@@ -24,6 +24,9 @@ public class Tag {
         TagMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static TagMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Tag1.validate(arg, configuration);
+        }
     }    
     
     public class Tag1 implements JsonSchema {

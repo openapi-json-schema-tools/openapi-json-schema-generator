@@ -214,6 +214,9 @@ public class NullableClass {
         ObjectNullablePropMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ObjectNullablePropMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ObjectNullableProp.validate(arg, configuration);
+        }
     }    
     
     public class ObjectNullableProp implements JsonSchema {
@@ -246,6 +249,9 @@ public class NullableClass {
     class ObjectAndItemsNullablePropMap extends FrozenMap<String, Object> {
         ObjectAndItemsNullablePropMap(FrozenMap<? extends String, ?> m) {
             super(m);
+        }
+        public static ObjectAndItemsNullablePropMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ObjectAndItemsNullableProp.validate(arg, configuration);
         }
     }    
     
@@ -280,6 +286,9 @@ public class NullableClass {
         ObjectItemsNullableMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ObjectItemsNullableMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ObjectItemsNullable.validate(arg, configuration);
+        }
     }    
     
     public class ObjectItemsNullable implements JsonSchema {
@@ -296,6 +305,9 @@ public class NullableClass {
     class NullableClassMap extends FrozenMap<String, Object> {
         NullableClassMap(FrozenMap<? extends String, ?> m) {
             super(m);
+        }
+        public static NullableClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return NullableClass1.validate(arg, configuration);
         }
     }    
     

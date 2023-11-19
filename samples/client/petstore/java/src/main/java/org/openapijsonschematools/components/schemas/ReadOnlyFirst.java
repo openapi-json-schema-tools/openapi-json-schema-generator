@@ -23,6 +23,9 @@ public class ReadOnlyFirst {
         ReadOnlyFirstMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ReadOnlyFirstMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ReadOnlyFirst1.validate(arg, configuration);
+        }
     }    
     
     public class ReadOnlyFirst1 implements JsonSchema {

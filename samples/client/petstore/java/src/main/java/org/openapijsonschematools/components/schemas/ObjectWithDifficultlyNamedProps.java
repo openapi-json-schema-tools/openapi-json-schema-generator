@@ -28,6 +28,9 @@ public class ObjectWithDifficultlyNamedProps {
         ObjectWithDifficultlyNamedPropsMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ObjectWithDifficultlyNamedPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ObjectWithDifficultlyNamedProps1.validate(arg, configuration);
+        }
     }    
     
     public class ObjectWithDifficultlyNamedProps1 implements JsonSchema {

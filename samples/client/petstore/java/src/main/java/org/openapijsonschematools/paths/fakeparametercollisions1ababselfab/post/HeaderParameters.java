@@ -26,6 +26,9 @@ public class HeaderParameters {
         HeaderParametersMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static HeaderParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return HeaderParameters1.validate(arg, configuration);
+        }
     }    
     
     public class HeaderParameters1 implements JsonSchema {

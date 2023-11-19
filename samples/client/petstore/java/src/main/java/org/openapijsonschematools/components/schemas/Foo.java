@@ -16,6 +16,9 @@ public class Foo {
         FooMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static FooMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Foo1.validate(arg, configuration);
+        }
     }    
     
     public class Foo1 implements JsonSchema {

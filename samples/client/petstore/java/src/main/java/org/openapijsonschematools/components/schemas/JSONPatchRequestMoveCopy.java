@@ -38,6 +38,9 @@ public class JSONPatchRequestMoveCopy {
         JSONPatchRequestMoveCopyMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static JSONPatchRequestMoveCopyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JSONPatchRequestMoveCopy1.validate(arg, configuration);
+        }
     }    
     
     public class JSONPatchRequestMoveCopy1 implements JsonSchema {

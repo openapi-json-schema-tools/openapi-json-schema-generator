@@ -34,6 +34,9 @@ public class QuadrilateralInterface {
         QuadrilateralInterfaceMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static QuadrilateralInterfaceMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return QuadrilateralInterface1.validate(arg, configuration);
+        }
     }    
     
     public class QuadrilateralInterface1 implements JsonSchema {

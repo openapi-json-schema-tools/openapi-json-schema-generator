@@ -38,6 +38,9 @@ public class JSONPatchRequestAddReplaceTest {
         JSONPatchRequestAddReplaceTestMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static JSONPatchRequestAddReplaceTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JSONPatchRequestAddReplaceTest1.validate(arg, configuration);
+        }
     }    
     
     public class JSONPatchRequestAddReplaceTest1 implements JsonSchema {

@@ -25,6 +25,9 @@ public class Cat {
         Schema1Map(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static Schema1Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Schema1.validate(arg, configuration);
+        }
     }    
     
     public class Schema1 implements JsonSchema {

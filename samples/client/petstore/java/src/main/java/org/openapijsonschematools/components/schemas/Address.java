@@ -18,6 +18,9 @@ public class Address {
         AddressMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static AddressMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Address1.validate(arg, configuration);
+        }
     }    
     
     public class Address1 implements JsonSchema {

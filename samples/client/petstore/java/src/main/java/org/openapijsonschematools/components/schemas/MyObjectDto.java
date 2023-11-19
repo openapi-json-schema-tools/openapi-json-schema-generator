@@ -26,6 +26,9 @@ public class MyObjectDto {
         MyObjectDtoMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static MyObjectDtoMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return MyObjectDto1.validate(arg, configuration);
+        }
     }    
     
     public class MyObjectDto1 implements JsonSchema {

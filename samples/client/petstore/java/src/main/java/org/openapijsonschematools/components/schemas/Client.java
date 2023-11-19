@@ -20,6 +20,9 @@ public class Client {
         ClientMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ClientMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Client1.validate(arg, configuration);
+        }
     }    
     
     public class Client1 implements JsonSchema {

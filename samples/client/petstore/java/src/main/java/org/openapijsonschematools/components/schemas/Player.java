@@ -20,6 +20,9 @@ public class Player {
         PlayerMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static PlayerMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Player1.validate(arg, configuration);
+        }
     }    
     
     public class Player1 implements JsonSchema {

@@ -34,6 +34,9 @@ public class Apple {
         AppleMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static AppleMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Apple1.validate(arg, configuration);
+        }
     }    
     
     public class Apple1 implements JsonSchema {

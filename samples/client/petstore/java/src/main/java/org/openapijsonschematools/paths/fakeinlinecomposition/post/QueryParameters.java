@@ -24,6 +24,9 @@ public class QueryParameters {
         QueryParametersMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static QueryParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return QueryParameters1.validate(arg, configuration);
+        }
     }    
     
     public class QueryParameters1 implements JsonSchema {

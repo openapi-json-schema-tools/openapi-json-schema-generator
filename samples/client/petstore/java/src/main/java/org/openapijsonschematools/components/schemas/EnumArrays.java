@@ -46,6 +46,9 @@ public class EnumArrays {
         EnumArraysMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static EnumArraysMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return EnumArrays1.validate(arg, configuration);
+        }
     }    
     
     public class EnumArrays1 implements JsonSchema {

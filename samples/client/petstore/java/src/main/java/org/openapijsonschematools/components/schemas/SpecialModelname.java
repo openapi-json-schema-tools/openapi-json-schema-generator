@@ -20,6 +20,9 @@ public class SpecialModelname {
         SpecialModelnameMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static SpecialModelnameMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return SpecialModelname1.validate(arg, configuration);
+        }
     }    
     
     public class SpecialModelname1 implements JsonSchema {

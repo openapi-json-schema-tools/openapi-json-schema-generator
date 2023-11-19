@@ -23,6 +23,9 @@ public class HasOnlyReadOnly {
         HasOnlyReadOnlyMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static HasOnlyReadOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return HasOnlyReadOnly1.validate(arg, configuration);
+        }
     }    
     
     public class HasOnlyReadOnly1 implements JsonSchema {

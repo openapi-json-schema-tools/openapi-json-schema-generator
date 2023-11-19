@@ -18,6 +18,9 @@ public class ReqPropsFromTrueAddProps {
         ReqPropsFromTrueAddPropsMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static ReqPropsFromTrueAddPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ReqPropsFromTrueAddProps1.validate(arg, configuration);
+        }
     }    
     
     public class ReqPropsFromTrueAddProps1 implements JsonSchema {

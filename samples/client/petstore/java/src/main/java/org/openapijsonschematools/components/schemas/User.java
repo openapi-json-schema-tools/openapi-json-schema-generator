@@ -126,6 +126,9 @@ public class User {
         UserMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static UserMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return User1.validate(arg, configuration);
+        }
     }    
     
     public class User1 implements JsonSchema {

@@ -29,6 +29,9 @@ public class NoAdditionalProperties {
         NoAdditionalPropertiesMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static NoAdditionalPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return NoAdditionalProperties1.validate(arg, configuration);
+        }
     }    
     
     public class NoAdditionalProperties1 implements JsonSchema {

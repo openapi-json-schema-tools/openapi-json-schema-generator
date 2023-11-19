@@ -21,6 +21,9 @@ public class MapTest {
         AdditionalPropertiesMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static AdditionalPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return AdditionalProperties.validate(arg, configuration);
+        }
     }    
     
     public class AdditionalProperties implements JsonSchema {
@@ -37,6 +40,9 @@ public class MapTest {
     class MapMapOfStringMap extends FrozenMap<String, Object> {
         MapMapOfStringMap(FrozenMap<? extends String, ?> m) {
             super(m);
+        }
+        public static MapMapOfStringMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return MapMapOfString.validate(arg, configuration);
         }
     }    
     
@@ -64,6 +70,9 @@ public class MapTest {
         MapOfEnumStringMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static MapOfEnumStringMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return MapOfEnumString.validate(arg, configuration);
+        }
     }    
     
     public class MapOfEnumString implements JsonSchema {
@@ -84,6 +93,9 @@ public class MapTest {
         DirectMapMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static DirectMapMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return DirectMap.validate(arg, configuration);
+        }
     }    
     
     public class DirectMap implements JsonSchema {
@@ -100,6 +112,9 @@ public class MapTest {
     class MapTestMap extends FrozenMap<String, Object> {
         MapTestMap(FrozenMap<? extends String, ?> m) {
             super(m);
+        }
+        public static MapTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return MapTest1.validate(arg, configuration);
         }
     }    
     
