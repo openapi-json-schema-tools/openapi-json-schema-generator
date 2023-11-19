@@ -23,6 +23,9 @@ public class AdditionalPropertiesWithArrayOfEnums {
             FrozenList.class
         ));
         static final Class<?> items = EnumClass.EnumClass1.class;
+        protected static AdditionalPropertiesTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new AdditionalPropertiesTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties.class, arg, configuration);
         }

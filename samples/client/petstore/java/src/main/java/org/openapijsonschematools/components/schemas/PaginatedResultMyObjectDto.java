@@ -35,6 +35,9 @@ public class PaginatedResultMyObjectDto {
             FrozenList.class
         ));
         static final Class<?> items = MyObjectDto.MyObjectDto1.class;
+        protected static ResultsTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new ResultsTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Results.class, arg, configuration);
         }

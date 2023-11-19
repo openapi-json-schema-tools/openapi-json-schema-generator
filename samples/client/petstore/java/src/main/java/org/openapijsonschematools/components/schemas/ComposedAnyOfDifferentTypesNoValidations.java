@@ -71,6 +71,9 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             FrozenList.class
         ));
         static final Class<?> items = Items.class;
+        protected static Schema9Tuple getListOutputInstance(FrozenList<Object> arg) {
+            return new Schema9Tuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema9.class, arg, configuration);
         }

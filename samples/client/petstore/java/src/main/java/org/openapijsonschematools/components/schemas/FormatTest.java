@@ -149,6 +149,9 @@ public class FormatTest {
             FrozenList.class
         ));
         static final Class<?> items = Items.class;
+        protected static ArrayWithUniqueItemsTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayWithUniqueItemsTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayWithUniqueItems.class, arg, configuration);
         }

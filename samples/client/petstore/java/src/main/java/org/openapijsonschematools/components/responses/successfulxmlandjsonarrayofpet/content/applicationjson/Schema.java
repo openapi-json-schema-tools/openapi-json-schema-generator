@@ -23,6 +23,9 @@ public class Schema {
             FrozenList.class
         ));
         static final Class<?> items = RefPet.RefPet1.class;
+        protected static SchemaTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new SchemaTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }

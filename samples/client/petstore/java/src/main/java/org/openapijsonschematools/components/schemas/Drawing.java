@@ -25,6 +25,9 @@ public class Drawing {
             FrozenList.class
         ));
         static final Class<?> items = Shape.Shape1.class;
+        protected static ShapesTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new ShapesTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Shapes.class, arg, configuration);
         }

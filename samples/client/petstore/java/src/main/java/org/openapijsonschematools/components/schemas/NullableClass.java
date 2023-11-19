@@ -220,6 +220,9 @@ public class NullableClass {
             FrozenList.class
         ));
         static final Class<?> items = Items2.class;
+        protected static ArrayItemsNullableTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayItemsNullableTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayItemsNullable.class, arg, configuration);
         }

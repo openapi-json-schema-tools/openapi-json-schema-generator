@@ -37,7 +37,7 @@ class ArrayWithOutputClsSchema implements JsonSchema {
     ));
     static final Class<?> items = StringJsonSchema.class;
 
-    public static ArrayWithOutputClsSchemaList getListOutputInstance(FrozenList<? extends String> arg) {
+    protected static ArrayWithOutputClsSchemaList getListOutputInstance(FrozenList<? extends String> arg) {
         return new ArrayWithOutputClsSchemaList(arg);
     }
 

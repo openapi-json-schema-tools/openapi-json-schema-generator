@@ -52,6 +52,9 @@ public class ArrayWithValidationsInItems {
             FrozenList.class
         ));
         static final Class<?> items = Items.class;
+        protected static ArrayWithValidationsInItemsTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayWithValidationsInItemsTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayWithValidationsInItems1.class, arg, configuration);
         }

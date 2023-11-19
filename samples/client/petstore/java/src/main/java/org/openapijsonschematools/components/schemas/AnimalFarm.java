@@ -27,6 +27,9 @@ public class AnimalFarm {
             FrozenList.class
         ));
         static final Class<?> items = Animal.Animal1.class;
+        protected static AnimalFarmTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new AnimalFarmTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AnimalFarm1.class, arg, configuration);
         }

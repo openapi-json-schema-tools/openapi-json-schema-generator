@@ -30,6 +30,9 @@ public class ArrayTest {
             FrozenList.class
         ));
         static final Class<?> items = Items.class;
+        protected static ArrayOfStringTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayOfStringTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayOfString.class, arg, configuration);
         }
@@ -49,6 +52,9 @@ public class ArrayTest {
             FrozenList.class
         ));
         static final Class<?> items = Items2.class;
+        protected static ItemsTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new ItemsTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items1.class, arg, configuration);
         }
@@ -65,6 +71,9 @@ public class ArrayTest {
             FrozenList.class
         ));
         static final Class<?> items = Items1.class;
+        protected static ArrayArrayOfIntegerTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayArrayOfIntegerTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayArrayOfInteger.class, arg, configuration);
         }
@@ -81,6 +90,9 @@ public class ArrayTest {
             FrozenList.class
         ));
         static final Class<?> items = ReadOnlyFirst.ReadOnlyFirst1.class;
+        protected static ItemsTuple1 getListOutputInstance(FrozenList<Object> arg) {
+            return new ItemsTuple1(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items3.class, arg, configuration);
         }
@@ -97,6 +109,9 @@ public class ArrayTest {
             FrozenList.class
         ));
         static final Class<?> items = Items3.class;
+        protected static ArrayArrayOfModelTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayArrayOfModelTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayArrayOfModel.class, arg, configuration);
         }

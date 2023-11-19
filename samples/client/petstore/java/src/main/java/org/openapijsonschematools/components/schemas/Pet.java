@@ -36,6 +36,9 @@ public class Pet {
             FrozenList.class
         ));
         static final Class<?> items = Items.class;
+        protected static PhotoUrlsTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new PhotoUrlsTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(PhotoUrls.class, arg, configuration);
         }
@@ -61,6 +64,9 @@ public class Pet {
             FrozenList.class
         ));
         static final Class<?> items = Tag.Tag1.class;
+        protected static TagsTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new TagsTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Tags.class, arg, configuration);
         }

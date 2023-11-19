@@ -27,6 +27,9 @@ public class ArrayOfEnums {
             FrozenList.class
         ));
         static final Class<?> items = StringEnum.StringEnum1.class;
+        protected static ArrayOfEnumsTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayOfEnumsTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayOfEnums1.class, arg, configuration);
         }

@@ -29,6 +29,9 @@ public class ArrayOfNumberOnly {
             FrozenList.class
         ));
         static final Class<?> items = Items.class;
+        protected static ArrayNumberTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayNumberTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayNumber.class, arg, configuration);
         }

@@ -34,6 +34,9 @@ public class Schema {
             FrozenList.class
         ));
         static final Class<?> items = Items.class;
+        protected static EnumFormStringArrayTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new EnumFormStringArrayTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(EnumFormStringArray.class, arg, configuration);
         }

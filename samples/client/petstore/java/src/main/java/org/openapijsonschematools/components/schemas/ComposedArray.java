@@ -31,6 +31,9 @@ public class ComposedArray {
             FrozenList.class
         ));
         static final Class<?> items = Items.class;
+        protected static ComposedArrayTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new ComposedArrayTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ComposedArray1.class, arg, configuration);
         }

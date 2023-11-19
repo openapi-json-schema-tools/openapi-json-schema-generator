@@ -31,6 +31,9 @@ public class ArrayHoldingAnyType {
             FrozenList.class
         ));
         static final Class<?> items = Items.class;
+        protected static ArrayHoldingAnyTypeTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayHoldingAnyTypeTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayHoldingAnyType1.class, arg, configuration);
         }

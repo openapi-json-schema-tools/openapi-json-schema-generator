@@ -48,6 +48,9 @@ public class ComposedOneOfDifferentTypes {
             FrozenList.class
         ));
         static final Class<?> items = Items.class;
+        protected static Schema5Tuple getListOutputInstance(FrozenList<Object> arg) {
+            return new Schema5Tuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema5.class, arg, configuration);
         }

@@ -29,6 +29,9 @@ public class ArrayOfArrayOfNumberOnly {
             FrozenList.class
         ));
         static final Class<?> items = Items1.class;
+        protected static ItemsTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new ItemsTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items.class, arg, configuration);
         }
@@ -45,6 +48,9 @@ public class ArrayOfArrayOfNumberOnly {
             FrozenList.class
         ));
         static final Class<?> items = Items.class;
+        protected static ArrayArrayNumberTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayArrayNumberTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayArrayNumber.class, arg, configuration);
         }

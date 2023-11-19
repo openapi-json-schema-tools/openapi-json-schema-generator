@@ -33,6 +33,9 @@ public class Items {
             FrozenList.class
         ));
         static final Class<?> items = Items2.class;
+        protected static ItemsTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new ItemsTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items1.class, arg, configuration);
         }

@@ -25,6 +25,9 @@ public class FileSchemaTestClass {
             FrozenList.class
         ));
         static final Class<?> items = File.File1.class;
+        protected static FilesTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new FilesTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Files.class, arg, configuration);
         }

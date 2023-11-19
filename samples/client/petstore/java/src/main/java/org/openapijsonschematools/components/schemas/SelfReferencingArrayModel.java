@@ -27,6 +27,9 @@ public class SelfReferencingArrayModel {
             FrozenList.class
         ));
         static final Class<?> items = SelfReferencingArrayModel1.class;
+        protected static SelfReferencingArrayModelTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new SelfReferencingArrayModelTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(SelfReferencingArrayModel1.class, arg, configuration);
         }

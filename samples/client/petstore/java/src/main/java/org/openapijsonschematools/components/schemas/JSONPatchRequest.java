@@ -82,6 +82,9 @@ public class JSONPatchRequest {
             FrozenList.class
         ));
         static final Class<?> items = Items.class;
+        protected static JSONPatchRequestTuple getListOutputInstance(FrozenList<Object> arg) {
+            return new JSONPatchRequestTuple(arg);
+        }
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JSONPatchRequest1.class, arg, configuration);
         }
