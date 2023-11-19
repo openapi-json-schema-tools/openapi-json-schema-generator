@@ -19,6 +19,12 @@ public class Schema {
     }
     
     
+    public static class FilesTuple extends FrozenList<Object> {
+        FilesTuple(FrozenList<Object> m) {
+            super(m);
+        }
+    }    
+    
     public class Files implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class

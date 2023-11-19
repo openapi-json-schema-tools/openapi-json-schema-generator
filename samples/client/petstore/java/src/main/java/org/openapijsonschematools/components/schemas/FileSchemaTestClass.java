@@ -14,6 +14,12 @@ public class FileSchemaTestClass {
     // nest classes so all schemas and input/output classes can be public
     
     
+    public static class FilesTuple extends FrozenList<Object> {
+        FilesTuple(FrozenList<Object> m) {
+            super(m);
+        }
+    }    
+    
     public class Files implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class

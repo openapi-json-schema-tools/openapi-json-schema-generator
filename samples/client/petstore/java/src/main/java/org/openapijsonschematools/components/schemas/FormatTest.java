@@ -138,6 +138,12 @@ public class FormatTest {
     public class Items extends NumberJsonSchema {}
     
     
+    public static class ArrayWithUniqueItemsTuple extends FrozenList<Object> {
+        ArrayWithUniqueItemsTuple(FrozenList<Object> m) {
+            super(m);
+        }
+    }    
+    
     public class ArrayWithUniqueItems implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class

@@ -60,6 +60,12 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     public class Items extends AnyTypeJsonSchema {}
     
     
+    public static class Schema9Tuple extends FrozenList<Object> {
+        Schema9Tuple(FrozenList<Object> m) {
+            super(m);
+        }
+    }    
+    
     public class Schema9 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class

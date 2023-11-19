@@ -19,6 +19,12 @@ public class ArrayTest {
     public class Items extends StringJsonSchema {}
     
     
+    public static class ArrayOfStringTuple extends FrozenList<Object> {
+        ArrayOfStringTuple(FrozenList<Object> m) {
+            super(m);
+        }
+    }    
+    
     public class ArrayOfString implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class
@@ -32,6 +38,12 @@ public class ArrayTest {
     public class Items2 extends Int64JsonSchema {}
     
     
+    public static class ItemsTuple extends FrozenList<Object> {
+        ItemsTuple(FrozenList<Object> m) {
+            super(m);
+        }
+    }    
+    
     public class Items1 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class
@@ -39,6 +51,12 @@ public class ArrayTest {
         static final Class<?> items = Items2.class;
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items1.class, arg, configuration);
+        }
+    }    
+    
+    public static class ArrayArrayOfIntegerTuple extends FrozenList<Object> {
+        ArrayArrayOfIntegerTuple(FrozenList<Object> m) {
+            super(m);
         }
     }    
     
@@ -52,6 +70,12 @@ public class ArrayTest {
         }
     }    
     
+    public static class ItemsTuple1 extends FrozenList<Object> {
+        ItemsTuple1(FrozenList<Object> m) {
+            super(m);
+        }
+    }    
+    
     public class Items3 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class
@@ -59,6 +83,12 @@ public class ArrayTest {
         static final Class<?> items = ReadOnlyFirst.ReadOnlyFirst1.class;
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items3.class, arg, configuration);
+        }
+    }    
+    
+    public static class ArrayArrayOfModelTuple extends FrozenList<Object> {
+        ArrayArrayOfModelTuple(FrozenList<Object> m) {
+            super(m);
         }
     }    
     

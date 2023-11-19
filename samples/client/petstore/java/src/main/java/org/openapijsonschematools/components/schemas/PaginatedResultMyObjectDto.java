@@ -24,6 +24,12 @@ public class PaginatedResultMyObjectDto {
     public class Count extends IntJsonSchema {}
     
     
+    public static class ResultsTuple extends FrozenList<Object> {
+        ResultsTuple(FrozenList<Object> m) {
+            super(m);
+        }
+    }    
+    
     public class Results implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class

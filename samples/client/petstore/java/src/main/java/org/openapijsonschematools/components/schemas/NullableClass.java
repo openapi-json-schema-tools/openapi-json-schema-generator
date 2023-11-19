@@ -143,6 +143,12 @@ public class NullableClass {
     public class Items extends MapJsonSchema {}
     
     
+    public static class ArrayNullablePropTuple extends FrozenList<Object> {
+        ArrayNullablePropTuple(FrozenList<Object> m) {
+            super(m);
+        }
+    }    
+    
     public class ArrayNullableProp implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Void.class,
@@ -170,6 +176,12 @@ public class NullableClass {
         }
     }    
     
+    public static class ArrayAndItemsNullablePropTuple extends FrozenList<Object> {
+        ArrayAndItemsNullablePropTuple(FrozenList<Object> m) {
+            super(m);
+        }
+    }    
+    
     public class ArrayAndItemsNullableProp implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Void.class,
@@ -194,6 +206,12 @@ public class NullableClass {
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items2.class, arg, configuration);
+        }
+    }    
+    
+    public static class ArrayItemsNullableTuple extends FrozenList<Object> {
+        ArrayItemsNullableTuple(FrozenList<Object> m) {
+            super(m);
         }
     }    
     

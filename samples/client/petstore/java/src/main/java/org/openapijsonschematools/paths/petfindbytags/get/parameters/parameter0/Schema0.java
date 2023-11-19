@@ -14,6 +14,12 @@ public class Schema0 {
     public class Items0 extends StringJsonSchema {}
     
     
+    public static class SchemaTuple0 extends FrozenList<Object> {
+        SchemaTuple0(FrozenList<Object> m) {
+            super(m);
+        }
+    }    
+    
     public class Schema01 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class

@@ -37,6 +37,12 @@ public class ComposedOneOfDifferentTypes {
     public class Items extends AnyTypeJsonSchema {}
     
     
+    public static class Schema5Tuple extends FrozenList<Object> {
+        Schema5Tuple(FrozenList<Object> m) {
+            super(m);
+        }
+    }    
+    
     public class Schema5 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class

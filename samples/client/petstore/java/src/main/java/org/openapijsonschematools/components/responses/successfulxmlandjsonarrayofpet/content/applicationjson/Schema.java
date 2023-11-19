@@ -12,6 +12,12 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
+    public static class SchemaTuple extends FrozenList<Object> {
+        SchemaTuple(FrozenList<Object> m) {
+            super(m);
+        }
+    }    
+    
     public class Schema1 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class

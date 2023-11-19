@@ -25,6 +25,12 @@ public class Pet {
     public class Items extends StringJsonSchema {}
     
     
+    public static class PhotoUrlsTuple extends FrozenList<Object> {
+        PhotoUrlsTuple(FrozenList<Object> m) {
+            super(m);
+        }
+    }    
+    
     public class PhotoUrls implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class
@@ -41,6 +47,12 @@ public class Pet {
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Status.class, arg, configuration);
+        }
+    }    
+    
+    public static class TagsTuple extends FrozenList<Object> {
+        TagsTuple(FrozenList<Object> m) {
+            super(m);
         }
     }    
     

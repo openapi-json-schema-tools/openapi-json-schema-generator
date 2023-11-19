@@ -18,6 +18,12 @@ public class ArrayOfNumberOnly {
     public class Items extends NumberJsonSchema {}
     
     
+    public static class ArrayNumberTuple extends FrozenList<Object> {
+        ArrayNumberTuple(FrozenList<Object> m) {
+            super(m);
+        }
+    }    
+    
     public class ArrayNumber implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class

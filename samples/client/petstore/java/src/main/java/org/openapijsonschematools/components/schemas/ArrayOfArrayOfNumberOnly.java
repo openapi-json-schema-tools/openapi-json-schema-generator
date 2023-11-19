@@ -18,6 +18,12 @@ public class ArrayOfArrayOfNumberOnly {
     public class Items1 extends NumberJsonSchema {}
     
     
+    public static class ItemsTuple extends FrozenList<Object> {
+        ItemsTuple(FrozenList<Object> m) {
+            super(m);
+        }
+    }    
+    
     public class Items implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class
@@ -25,6 +31,12 @@ public class ArrayOfArrayOfNumberOnly {
         static final Class<?> items = Items1.class;
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items.class, arg, configuration);
+        }
+    }    
+    
+    public static class ArrayArrayNumberTuple extends FrozenList<Object> {
+        ArrayArrayNumberTuple(FrozenList<Object> m) {
+            super(m);
         }
     }    
     

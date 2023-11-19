@@ -32,6 +32,12 @@ public class EnumArrays {
         }
     }    
     
+    public static class ArrayEnumTuple extends FrozenList<Object> {
+        ArrayEnumTuple(FrozenList<Object> m) {
+            super(m);
+        }
+    }    
+    
     public class ArrayEnum implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class

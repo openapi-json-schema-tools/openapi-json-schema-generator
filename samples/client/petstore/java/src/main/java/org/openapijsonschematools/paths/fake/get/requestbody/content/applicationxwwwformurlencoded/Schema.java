@@ -23,6 +23,12 @@ public class Schema {
         }
     }    
     
+    public static class EnumFormStringArrayTuple extends FrozenList<Object> {
+        EnumFormStringArrayTuple(FrozenList<Object> m) {
+            super(m);
+        }
+    }    
+    
     public class EnumFormStringArray implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class

@@ -14,6 +14,12 @@ public class Drawing {
     // nest classes so all schemas and input/output classes can be public
     
     
+    public static class ShapesTuple extends FrozenList<Object> {
+        ShapesTuple(FrozenList<Object> m) {
+            super(m);
+        }
+    }    
+    
     public class Shapes implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenList.class
