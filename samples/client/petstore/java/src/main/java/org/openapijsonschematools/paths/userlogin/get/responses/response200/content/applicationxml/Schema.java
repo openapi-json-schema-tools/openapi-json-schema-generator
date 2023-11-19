@@ -1,6 +1,4 @@
 package org.openapijsonschematools.paths.userlogin.get.responses.response200.content.applicationxml;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class Schema {

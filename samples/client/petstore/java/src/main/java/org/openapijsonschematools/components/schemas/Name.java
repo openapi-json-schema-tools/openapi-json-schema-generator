@@ -1,6 +1,4 @@
 package org.openapijsonschematools.components.schemas;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.JsonSchema;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.AbstractMap;
@@ -10,9 +8,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
+import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.FrozenList;
 import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.Int32JsonSchema;
+import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class Name {

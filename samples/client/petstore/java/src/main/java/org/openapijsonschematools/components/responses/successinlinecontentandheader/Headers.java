@@ -1,14 +1,14 @@
 package org.openapijsonschematools.components.responses.successinlinecontentandheader;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.JsonSchema;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.components.responses.successinlinecontentandheader.headers.someheader.SomeHeaderSchema;
+import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.FrozenMap;
+import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 
 public class Headers {

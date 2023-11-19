@@ -1,13 +1,13 @@
 package org.openapijsonschematools.components.schemas;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.JsonSchema;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.DateTimeJsonSchema;
 import org.openapijsonschematools.schemas.FrozenMap;
+import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.UuidJsonSchema;
 
 public class MixedPropertiesAndAdditionalPropertiesClass {

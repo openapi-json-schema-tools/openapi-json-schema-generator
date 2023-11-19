@@ -1,11 +1,11 @@
 package org.openapijsonschematools.components.schemas;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.JsonSchema;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.IntJsonSchema;
+import org.openapijsonschematools.schemas.JsonSchema;
 
 public class Address {
     // nest classes so all schemas and input/output classes can be public

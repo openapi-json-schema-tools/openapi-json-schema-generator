@@ -1,6 +1,4 @@
 package org.openapijsonschematools.paths.userlogin.get.responses.response200;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.JsonSchema;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -9,10 +7,12 @@ import java.util.Set;
 import org.openapijsonschematools.components.headers.int32jsoncontenttypeheader.content.applicationjson.Int32JsonContentTypeHeaderSchema;
 import org.openapijsonschematools.components.headers.numberheader.NumberHeaderSchema;
 import org.openapijsonschematools.components.schemas.StringWithValidation;
+import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.paths.userlogin.get.responses.response200.headers.xexpiresafter.XExpiresAfterSchema;
 import org.openapijsonschematools.paths.userlogin.get.responses.response200.headers.xratelimit.content.applicationjson.XRateLimitSchema;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.FrozenMap;
+import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 
 public class Headers {

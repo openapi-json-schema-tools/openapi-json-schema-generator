@@ -1,6 +1,4 @@
 package org.openapijsonschematools.paths.fakequeryparamwithjsoncontenttype.get.responses.response200.content.applicationjson;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 
 public class Schema {

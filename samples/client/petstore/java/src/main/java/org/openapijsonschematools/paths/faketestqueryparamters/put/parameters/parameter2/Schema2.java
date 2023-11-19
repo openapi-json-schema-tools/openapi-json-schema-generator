@@ -1,10 +1,10 @@
 package org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter2;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.JsonSchema;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.FrozenList;
+import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class Schema2 {

@@ -1,6 +1,4 @@
 package org.openapijsonschematools.paths.commonparamsubdir.post.parameters.parameter0;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class Schema0 {

@@ -1,6 +1,4 @@
 package org.openapijsonschematools.paths.fakewildcardresponses.get.responses.response3xx.content.applicationjson;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 
 public class Schema {

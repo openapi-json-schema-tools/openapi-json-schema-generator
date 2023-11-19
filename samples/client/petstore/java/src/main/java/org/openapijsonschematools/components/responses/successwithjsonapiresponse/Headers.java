@@ -1,6 +1,4 @@
 package org.openapijsonschematools.components.responses.successwithjsonapiresponse;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.JsonSchema;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -10,8 +8,10 @@ import org.openapijsonschematools.components.headers.int32jsoncontenttypeheader.
 import org.openapijsonschematools.components.headers.numberheader.NumberHeaderSchema;
 import org.openapijsonschematools.components.headers.stringheader.StringHeaderSchema;
 import org.openapijsonschematools.components.schemas.StringWithValidation;
+import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.FrozenMap;
+import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 
 public class Headers {

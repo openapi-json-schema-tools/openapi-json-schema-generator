@@ -1,12 +1,11 @@
 package org.openapijsonschematools.paths.faketestqueryparamters.put;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.JsonSchema;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.components.schemas.StringWithValidation;
+import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter0.Schema0;
 import org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter1.Schema1;
 import org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter2.Schema2;
@@ -14,6 +13,7 @@ import org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.pa
 import org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter4.Schema4;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.FrozenMap;
+import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 
 public class QueryParameters {

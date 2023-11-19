@@ -1,17 +1,17 @@
 package org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.JsonSchema;
 import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
+import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter5.Schema5;
 import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter6.Schema6;
 import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter7.Schema7;
 import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter8.Schema8;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.FrozenMap;
+import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 
 public class HeaderParameters {

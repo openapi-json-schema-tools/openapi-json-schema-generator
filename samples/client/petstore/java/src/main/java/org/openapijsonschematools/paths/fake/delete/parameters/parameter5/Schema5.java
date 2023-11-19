@@ -1,6 +1,4 @@
 package org.openapijsonschematools.paths.fake.delete.parameters.parameter5;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.Int64JsonSchema;
 
 public class Schema5 {

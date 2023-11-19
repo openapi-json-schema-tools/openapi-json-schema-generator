@@ -9,7 +9,6 @@ public class {{containerJsonPathPiece.camelCase}} extends {{refInfo.refModule}} 
     {{> src/main/java/org/openapitools/components/schemas/SchemaClass/SchemaClass identifierPieces=(append identifierPieces jsonPathPiece) simpleRef=true }}
 }
     {{else}}
-{{> src/main/java/org/openapitools/components/schemas/_SchemaSharedImports }}
 {{> _helper_imports }}
 
 public class {{containerJsonPathPiece.camelCase}} {

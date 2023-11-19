@@ -1,6 +1,4 @@
 package org.openapijsonschematools.components.schemas;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.DecimalJsonSchema;
 
 public class DecimalPayload {

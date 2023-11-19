@@ -1178,6 +1178,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     if (schema.isSimpleBoolean()) {
                         imports.add("import "+packageName + ".schemas.BooleanJsonSchema;");
                     } else {
+                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
+                        imports.add("import "+packageName + ".schemas.JsonSchema;");
                         imports.add("import java.util.LinkedHashSet;");
                         imports.add("import java.util.Set;");
                     }
@@ -1185,6 +1187,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     if (schema.isSimpleNull()) {
                         imports.add("import "+packageName + ".schemas.NullJsonSchema;");
                     } else {
+                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
+                        imports.add("import "+packageName + ".schemas.JsonSchema;");
                         imports.add("import java.util.LinkedHashSet;");
                         imports.add("import java.util.Set;");
                     }
@@ -1198,6 +1202,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                             imports.add("import "+packageName + ".schemas.Int64JsonSchema;");
                         }
                     } else {
+                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
+                        imports.add("import "+packageName + ".schemas.JsonSchema;");
                         imports.add("import java.util.LinkedHashSet;");
                         imports.add("import java.util.Set;");
                     }
@@ -1215,6 +1221,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                             imports.add("import "+packageName + ".schemas.DoubleJsonSchema;");
                         }
                     } else {
+                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
+                        imports.add("import "+packageName + ".schemas.JsonSchema;");
                         imports.add("import java.util.LinkedHashSet;");
                         imports.add("import java.util.Set;");
                     }
@@ -1235,6 +1243,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                             imports.add("import "+packageName + ".schemas.StringJsonSchema;");
                         }
                     } else {
+                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
+                        imports.add("import "+packageName + ".schemas.JsonSchema;");
                         imports.add("import java.util.LinkedHashSet;");
                         imports.add("import java.util.Set;");
                         addStringSchemaImports(imports, schema);
@@ -1243,6 +1253,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     if (schema.isSimpleObject()) {
                         imports.add("import "+packageName + ".schemas.MapJsonSchema;");
                     } else {
+                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
+                        imports.add("import "+packageName + ".schemas.JsonSchema;");
                         imports.add("import java.util.LinkedHashSet;");
                         imports.add("import java.util.Set;");
                         addMapSchemaImports(imports, schema);
@@ -1251,12 +1263,16 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     if (schema.isSimpleArray()) {
                         imports.add("import "+packageName + ".schemas.ListJsonSchema;");
                     } else {
+                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
+                        imports.add("import "+packageName + ".schemas.JsonSchema;");
                         imports.add("import java.util.LinkedHashSet;");
                         imports.add("import java.util.Set;");
                         addListSchemaImports(imports, schema);
                     }
                 }
             } else if (schema.types.size() > 1) {
+                imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
+                imports.add("import "+packageName + ".schemas.JsonSchema;");
                 imports.add("import java.util.LinkedHashSet;");
                 imports.add("import java.util.Set;");
                 if (schema.types.contains("string")) {
@@ -1278,6 +1294,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             } else if (schema.isSimpleAnyType()) {
                 imports.add("import "+packageName + ".schemas.AnyTypeJsonSchema;");
             } else {
+                imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
+                imports.add("import "+packageName + ".schemas.JsonSchema;");
                 imports.add("import java.time.LocalDate;");
                 imports.add("import java.time.ZonedDateTime;");
                 imports.add("import java.util.UUID;");

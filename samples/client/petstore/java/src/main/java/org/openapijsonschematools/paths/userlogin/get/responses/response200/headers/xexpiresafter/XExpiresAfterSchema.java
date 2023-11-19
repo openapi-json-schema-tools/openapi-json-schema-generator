@@ -1,6 +1,4 @@
 package org.openapijsonschematools.paths.userlogin.get.responses.response200.headers.xexpiresafter;
-import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.DateTimeJsonSchema;
 
 public class XExpiresAfterSchema {
