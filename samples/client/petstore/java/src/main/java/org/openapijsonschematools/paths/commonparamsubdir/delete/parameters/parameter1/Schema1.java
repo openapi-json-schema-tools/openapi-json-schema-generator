@@ -1,12 +1,8 @@
 package org.openapijsonschematools.paths.commonparamsubdir.delete.parameters.parameter1;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.JsonSchema;
-import java.time.LocalDate;
-import java.time.ZonedDateTime;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.UUID;
-import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class Schema1 {
     // nest classes so all schemas and input/output classes can be public

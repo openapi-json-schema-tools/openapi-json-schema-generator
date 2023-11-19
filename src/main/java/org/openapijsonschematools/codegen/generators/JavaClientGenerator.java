@@ -1230,22 +1230,14 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                             imports.add("import "+packageName + ".schemas.DecimalJsonSchema;");
                         } else if (schema.format.equals("uuid")) {
                             imports.add("import "+packageName + ".schemas.UuidJsonSchema;");
+                        } else if (schema.format.equals("byte")) {
+                            // todo implement this
+                            imports.add("import "+packageName + ".schemas.StringJsonSchema;");
                         }
                     } else {
                         imports.add("import java.util.LinkedHashSet;");
                         imports.add("import java.util.Set;");
-                        if (schema.format == null) {
-                            imports.add("import "+packageName + ".schemas.StringJsonSchema;");
-                            imports.add("import java.time.LocalDate;");
-                            imports.add("import java.time.ZonedDateTime;");
-                            imports.add("import java.util.UUID;");
-                        } else if (schema.format.equals("date")) {
-                            imports.add("import java.time.LocalDate;");
-                        } else if (schema.format.equals("date-time")) {
-                            imports.add("import java.time.ZonedDateTime;");
-                        } else if (schema.format.equals("uuid")) {
-                            imports.add("import java.util.UUID;");
-                        }
+                        addStringSchemaImports(imports, schema);
                     }
                 } else if (schema.types.contains("object")) {
                     if (schema.isSimpleObject()) {
@@ -1253,12 +1245,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     } else {
                         imports.add("import java.util.LinkedHashSet;");
                         imports.add("import java.util.Set;");
-                        imports.add("import "+packageName + ".schemas.FrozenMap;");
-                        imports.add("import java.util.Map;");
-                        if (schema.properties != null) {
-                            imports.add("import java.util.LinkedHashMap;");
-                            imports.add("import java.util.AbstractMap;");
-                        }
+                        addMapSchemaImports(imports, schema);
                     }
                 } else if (schema.types.contains("array")) {
                     if (schema.isSimpleArray()) {
@@ -1266,13 +1253,21 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     } else {
                         imports.add("import java.util.LinkedHashSet;");
                         imports.add("import java.util.Set;");
-                        imports.add("import "+packageName + ".schemas.FrozenList;");
-                        imports.add("import java.util.List;");
+                        addListSchemaImports(imports, schema);
                     }
                 }
             } else if (schema.types.size() > 1) {
                 imports.add("import java.util.LinkedHashSet;");
                 imports.add("import java.util.Set;");
+                if (schema.types.contains("string")) {
+                    addStringSchemaImports(imports, schema);
+                }
+                if (schema.types.contains("array")) {
+                    addListSchemaImports(imports, schema);
+                }
+                if (schema.types.contains("object")) {
+                    addMapSchemaImports(imports, schema);
+                }
             }
         } else {
             // no types
@@ -1291,12 +1286,48 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 imports.add("import "+packageName + ".schemas.FrozenMap;");
                 imports.add("import java.util.Map;");
                 if (schema.properties != null) {
+                    imports.add("import java.util.Map;");
                     imports.add("import java.util.LinkedHashMap;");
                     imports.add("import java.util.AbstractMap;");
+                }
+                if (schema.requiredProperties != null) {
+                    imports.add("import java.util.LinkedHashSet;");
+                    imports.add("import java.util.Set;");
                 }
             }
         }
         return imports;
+    }
+
+    private void addMapSchemaImports(Set<String> imports, CodegenSchema schema) {
+        imports.add("import "+packageName + ".schemas.FrozenMap;");
+        imports.add("import java.util.Map;");
+        if (schema.properties != null) {
+            imports.add("import java.util.Map;");
+            imports.add("import java.util.LinkedHashMap;");
+            imports.add("import java.util.AbstractMap;");
+        }
+        if (schema.requiredProperties != null) {
+            imports.add("import java.util.LinkedHashSet;");
+            imports.add("import java.util.Set;");
+        }
+    }
+
+    private void addListSchemaImports(Set<String> imports, CodegenSchema schema) {
+        imports.add("import "+packageName + ".schemas.FrozenList;");
+        imports.add("import java.util.List;");
+    }
+
+    private void addStringSchemaImports(Set<String> imports, CodegenSchema schema) {
+        if (schema.format != null) {
+            if (schema.format.equals("date")) {
+                imports.add("import java.time.LocalDate;");
+            } else if (schema.format.equals("date-time")) {
+                imports.add("import java.time.ZonedDateTime;");
+            } else if (schema.format.equals("uuid")) {
+                imports.add("import java.util.UUID;");
+            }
+        }
     }
 
 

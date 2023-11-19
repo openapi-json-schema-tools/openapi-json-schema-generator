@@ -10,7 +10,6 @@ import java.util.Set;
 import java.util.UUID;
 import org.openapijsonschematools.schemas.FrozenList;
 import org.openapijsonschematools.schemas.FrozenMap;
-import org.openapijsonschematools.schemas.StringJsonSchema;
 
 public class Schema0 {
     // nest classes so all schemas and input/output classes can be public
