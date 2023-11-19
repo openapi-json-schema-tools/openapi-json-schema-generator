@@ -20,6 +20,12 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     public class DateTime extends DateTimeJsonSchema {}
     
     
+    class MapMap extends FrozenMap<String, Object> {
+        MapMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class MapSchema implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
@@ -30,6 +36,12 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         }
     }
     
+    
+    class MixedPropertiesAndAdditionalPropertiesClassMap extends FrozenMap<String, Object> {
+        MixedPropertiesAndAdditionalPropertiesClassMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
     
     public class MixedPropertiesAndAdditionalPropertiesClass1 implements JsonSchema {
         /*

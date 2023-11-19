@@ -19,6 +19,12 @@ public class AdditionalPropertiesClass {
     public class AdditionalProperties extends StringJsonSchema {}
     
     
+    class MapPropertyMap extends FrozenMap<String, Object> {
+        MapPropertyMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class MapProperty implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
@@ -33,6 +39,12 @@ public class AdditionalPropertiesClass {
     public class AdditionalProperties2 extends StringJsonSchema {}
     
     
+    class AdditionalPropertiesMap extends FrozenMap<String, Object> {
+        AdditionalPropertiesMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class AdditionalProperties1 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
@@ -43,6 +55,12 @@ public class AdditionalPropertiesClass {
         }
     }
     
+    
+    class MapOfMapPropertyMap extends FrozenMap<String, Object> {
+        MapOfMapPropertyMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
     
     public class MapOfMapProperty implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
@@ -67,6 +85,12 @@ public class AdditionalPropertiesClass {
     public class AdditionalProperties3 extends AnyTypeJsonSchema {}
     
     
+    class MapWithUndeclaredPropertiesAnytype3Map extends FrozenMap<String, Object> {
+        MapWithUndeclaredPropertiesAnytype3Map(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class MapWithUndeclaredPropertiesAnytype3 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
@@ -82,6 +106,13 @@ public class AdditionalPropertiesClass {
         // NotAnyTypeSchema
     
     
+    class EmptyMapMap extends FrozenMap<String, Object> {
+        EmptyMapMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+        // map with no key value pairs
+    }    
+    
     public class EmptyMap implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
@@ -96,6 +127,12 @@ public class AdditionalPropertiesClass {
     public class AdditionalProperties5 extends StringJsonSchema {}
     
     
+    class MapWithUndeclaredPropertiesStringMap extends FrozenMap<String, Object> {
+        MapWithUndeclaredPropertiesStringMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class MapWithUndeclaredPropertiesString implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
@@ -106,6 +143,12 @@ public class AdditionalPropertiesClass {
         }
     }
     
+    
+    class AdditionalPropertiesClassMap extends FrozenMap<String, Object> {
+        AdditionalPropertiesClassMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
     
     public class AdditionalPropertiesClass1 implements JsonSchema {
         /*

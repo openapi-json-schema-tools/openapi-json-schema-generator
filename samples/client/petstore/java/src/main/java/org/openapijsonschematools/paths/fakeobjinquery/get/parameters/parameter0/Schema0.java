@@ -16,6 +16,12 @@ public class Schema0 {
     public class Keyword0 extends StringJsonSchema {}
     
     
+    class SchemaMap0 extends FrozenMap<String, Object> {
+        SchemaMap0(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class Schema01 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class

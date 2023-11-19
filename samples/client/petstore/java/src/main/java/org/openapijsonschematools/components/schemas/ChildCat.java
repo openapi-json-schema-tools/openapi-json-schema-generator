@@ -21,6 +21,12 @@ public class ChildCat {
     public class Name extends StringJsonSchema {}
     
     
+    class Schema1Map extends FrozenMap<String, Object> {
+        Schema1Map(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class Schema1 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class

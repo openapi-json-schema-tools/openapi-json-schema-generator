@@ -20,6 +20,12 @@ public class HeaderParameters {
         // NotAnyTypeSchema
     
     
+    class HeaderParametersMap extends FrozenMap<String, Object> {
+        HeaderParametersMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class HeaderParameters1 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class

@@ -76,6 +76,12 @@ public class Schema1 {
         }
     }    
     
+    class SchemaMap1 extends FrozenMap<String, Object> {
+        SchemaMap1(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class Schema11 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class

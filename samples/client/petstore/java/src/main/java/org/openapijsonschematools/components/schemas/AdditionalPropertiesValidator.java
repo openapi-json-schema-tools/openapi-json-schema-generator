@@ -19,6 +19,12 @@ public class AdditionalPropertiesValidator {
     public class AdditionalProperties extends AnyTypeJsonSchema {}
     
     
+    class Schema0Map extends FrozenMap<String, Object> {
+        Schema0Map(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class Schema0 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
@@ -80,6 +86,12 @@ public class AdditionalPropertiesValidator {
         }
     }    
     
+    class Schema1Map extends FrozenMap<String, Object> {
+        Schema1Map(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class Schema1 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
@@ -138,6 +150,12 @@ public class AdditionalPropertiesValidator {
         
         public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+        }
+    }    
+    
+    class Schema2Map extends FrozenMap<String, Object> {
+        Schema2Map(FrozenMap<? extends String, ?> m) {
+            super(m);
         }
     }    
     

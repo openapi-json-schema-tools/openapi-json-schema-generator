@@ -23,6 +23,12 @@ public class PathParameters {
         // NotAnyTypeSchema
     
     
+    class PathParametersMap extends FrozenMap<String, Object> {
+        PathParametersMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class PathParameters1 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class

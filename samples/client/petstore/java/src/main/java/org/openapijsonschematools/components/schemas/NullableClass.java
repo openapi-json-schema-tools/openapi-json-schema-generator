@@ -210,6 +210,12 @@ public class NullableClass {
     public class AdditionalProperties extends MapJsonSchema {}
     
     
+    class ObjectNullablePropMap extends FrozenMap<String, Object> {
+        ObjectNullablePropMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class ObjectNullableProp implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             Void.class,
@@ -234,6 +240,12 @@ public class NullableClass {
         }
         public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+        }
+    }    
+    
+    class ObjectAndItemsNullablePropMap extends FrozenMap<String, Object> {
+        ObjectAndItemsNullablePropMap(FrozenMap<? extends String, ?> m) {
+            super(m);
         }
     }    
     
@@ -264,6 +276,12 @@ public class NullableClass {
         }
     }    
     
+    class ObjectItemsNullableMap extends FrozenMap<String, Object> {
+        ObjectItemsNullableMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class ObjectItemsNullable implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
@@ -274,6 +292,12 @@ public class NullableClass {
         }
     }
     
+    
+    class NullableClassMap extends FrozenMap<String, Object> {
+        NullableClassMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
     
     public class NullableClass1 implements JsonSchema {
         /*

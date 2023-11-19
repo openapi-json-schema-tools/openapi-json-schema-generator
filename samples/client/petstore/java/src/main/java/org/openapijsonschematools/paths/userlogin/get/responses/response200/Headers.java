@@ -23,6 +23,12 @@ public class Headers {
         // NotAnyTypeSchema
     
     
+    class HeadersMap extends FrozenMap<String, Object> {
+        HeadersMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class Headers1 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class

@@ -20,6 +20,12 @@ public class QueryParameters {
         // NotAnyTypeSchema
     
     
+    class QueryParametersMap extends FrozenMap<String, Object> {
+        QueryParametersMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class QueryParameters1 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class

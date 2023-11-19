@@ -170,6 +170,12 @@ public class Schema {
     public class Callback extends StringJsonSchema {}
     
     
+    class SchemaMap extends FrozenMap<String, Object> {
+        SchemaMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class Schema1 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class

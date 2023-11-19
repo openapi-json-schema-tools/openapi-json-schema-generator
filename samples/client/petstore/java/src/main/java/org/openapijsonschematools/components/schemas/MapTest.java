@@ -17,6 +17,12 @@ public class MapTest {
     public class AdditionalProperties1 extends StringJsonSchema {}
     
     
+    class AdditionalPropertiesMap extends FrozenMap<String, Object> {
+        AdditionalPropertiesMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class AdditionalProperties implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
@@ -27,6 +33,12 @@ public class MapTest {
         }
     }
     
+    
+    class MapMapOfStringMap extends FrozenMap<String, Object> {
+        MapMapOfStringMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
     
     public class MapMapOfString implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
@@ -48,6 +60,12 @@ public class MapTest {
         }
     }    
     
+    class MapOfEnumStringMap extends FrozenMap<String, Object> {
+        MapOfEnumStringMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class MapOfEnumString implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
@@ -62,6 +80,12 @@ public class MapTest {
     public class AdditionalProperties3 extends BooleanJsonSchema {}
     
     
+    class DirectMapMap extends FrozenMap<String, Object> {
+        DirectMapMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class DirectMap implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
@@ -72,6 +96,12 @@ public class MapTest {
         }
     }
     
+    
+    class MapTestMap extends FrozenMap<String, Object> {
+        MapTestMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
     
     public class MapTest1 implements JsonSchema {
         /*

@@ -23,6 +23,12 @@ public class CookieParameters {
         // NotAnyTypeSchema
     
     
+    class CookieParametersMap extends FrozenMap<String, Object> {
+        CookieParametersMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+    }    
+    
     public class CookieParameters1 implements JsonSchema {
         static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class

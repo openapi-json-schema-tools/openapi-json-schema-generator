@@ -348,6 +348,7 @@ public class DefaultGenerator implements Generator {
     // from deeper schema defined locations
     protected boolean addSchemaImportsFromV3SpecLocations = false;
     protected boolean deepestRefSchemaImportNeeded = false;
+    protected String objectIOClassNamePiece = "Dict";
 
     @Override
     public List<CliOption> cliOptions() {
@@ -2424,23 +2425,23 @@ public class DefaultGenerator implements Generator {
                             property.mapInputJsonPathPiece = getKey(currentName + "DictInput", "schemaProperty", sourceJsonPath);
                             // even though the definition is the same, mapOutputJsonPathPiece needs to be different
                             // so an implementing class can be written
-                            property.mapOutputJsonPathPiece = getKey(currentName + "Dict", "schemaProperty", sourceJsonPath);
+                            property.mapOutputJsonPathPiece = getKey(currentName + objectIOClassNamePiece, "schemaProperty", sourceJsonPath);
                         }
                         break;
                     case "11":
                         // optional + required
                         property.mapInputJsonPathPiece = getKey(currentName + "DictInput", "schemaProperty", sourceJsonPath);
-                        property.mapOutputJsonPathPiece = getKey(currentName + "Dict", "schemaProperty", sourceJsonPath);
+                        property.mapOutputJsonPathPiece = getKey(currentName + objectIOClassNamePiece, "schemaProperty", sourceJsonPath);
                         break;
                     case "10":
                         // only required
                         property.mapInputJsonPathPiece = property.requiredProperties.jsonPathPiece();
-                        property.mapOutputJsonPathPiece = getKey(currentName + "Dict", "schemaProperty", sourceJsonPath);
+                        property.mapOutputJsonPathPiece = getKey(currentName + objectIOClassNamePiece, "schemaProperty", sourceJsonPath);
                         break;
                     case "01":
                         // only optional
                         property.mapInputJsonPathPiece = property.optionalProperties.jsonPathPiece();
-                        property.mapOutputJsonPathPiece = getKey(currentName + "Dict", "schemaProperty", sourceJsonPath);
+                        property.mapOutputJsonPathPiece = getKey(currentName + objectIOClassNamePiece, "schemaProperty", sourceJsonPath);
                         break;
                 }
             }
