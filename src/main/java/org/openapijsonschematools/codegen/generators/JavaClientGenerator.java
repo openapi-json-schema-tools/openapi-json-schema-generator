@@ -1241,6 +1241,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         } else if (schema.format.equals("byte")) {
                             // todo implement this
                             imports.add("import "+packageName + ".schemas.StringJsonSchema;");
+                        } else if (schema.format.equals("binary")) {
+                            // todo implement this
+                            imports.add("import "+packageName + ".schemas.JsonSchema;");
                         }
                     } else {
                         imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
