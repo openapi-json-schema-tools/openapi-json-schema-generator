@@ -199,12 +199,11 @@ public abstract class JsonSchema {
             schemas.clear();
             schemas.put(firstSchema, null);
          }
-         Set<List<Object>> missingPaths = pathSet;
-         missingPaths.removeAll(pathToSchemasMap.keySet());
-         if (!missingPaths.isEmpty()) {
+         pathSet.removeAll(pathToSchemasMap.keySet());
+         if (!pathSet.isEmpty()) {
             LinkedHashMap<Class<? extends JsonSchema>, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
             unsetAnyTypeSchema.put(UnsetAnyTypeJsonSchema.class, null);
-            for (List<Object> pathToItem: missingPaths) {
+            for (List<Object> pathToItem: pathSet) {
                pathToSchemasMap.put(pathToItem, unsetAnyTypeSchema);
             }
          }
@@ -324,7 +323,7 @@ public abstract class JsonSchema {
       if (arg instanceof Map || arg instanceof List) {
          // todo don't run validation if the instance is one of the class generic types
       }
-      Set<List<Object>> pathSet = new HashSet();
+      Set<List<Object>> pathSet = new HashSet<>();
       List<Object> pathToItem = new ArrayList<>();
       pathToItem.add("args[0]");
       Object castArg = castToAllowedTypes(arg, pathToItem, pathSet);
