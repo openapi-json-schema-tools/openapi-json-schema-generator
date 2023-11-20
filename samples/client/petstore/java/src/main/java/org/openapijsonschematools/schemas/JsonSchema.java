@@ -113,7 +113,7 @@ public abstract class JsonSchema extends SchemaValidator {
          String propertyName = (String) entry.getKey();
          List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
          propertyPathToItem.add(propertyName);
-         Class<JsonSchema> propertyClass = (Class<JsonSchema>) pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
+         Class<? extends JsonSchema> propertyClass = (Class<? extends JsonSchema>) pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
          Object value = entry.getValue();
          Object castValue = getNewInstance(propertyClass, value, propertyPathToItem, pathToSchemas);
          properties.put(propertyName, castValue);
