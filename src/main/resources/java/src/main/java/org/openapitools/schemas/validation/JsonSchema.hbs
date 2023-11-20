@@ -126,60 +126,60 @@ public abstract class JsonSchema {
         return pathToSchemas;
     }
 
-   private static Object castToAllowedTypes(Object arg, List<Object> pathToItem, PathToTypeMap pathToType) {
+   private static Object castToAllowedTypes(Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
       if (arg == null) {
-         pathToType.put(pathToItem, Void.class);
+         pathSet.add(pathToItem);
          return null;
       } else if (arg instanceof String) {
-         pathToType.put(pathToItem, String.class);
+         pathSet.add(pathToItem);
          return arg;
       } else if (arg instanceof Map) {
-         pathToType.put(pathToItem, Map.class);
+         pathSet.add(pathToItem);
          LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
          for (Map.Entry<?, ?> entry: ((Map<?, ?>) arg).entrySet()) {
             String key = (String) entry.getKey();
             Object val = entry.getValue();
             List<Object> newPathToItem = new ArrayList<>(pathToItem);
             newPathToItem.add(key);
-            Object fixedVal = castToAllowedTypes(val, newPathToItem, pathToType);
+            Object fixedVal = castToAllowedTypes(val, newPathToItem, pathSet);
             argFixed.put(key, fixedVal);
          }
          return new FrozenMap<>(argFixed);
       } else if (arg instanceof Boolean) {
-         pathToType.put(pathToItem, Boolean.class);
+         pathSet.add(pathToItem);
          return arg;
       } else if (arg instanceof Integer) {
-         pathToType.put(pathToItem, Integer.class);
+         pathSet.add(pathToItem);
          return arg;
       } else if (arg instanceof Long) {
-         pathToType.put(pathToItem, Long.class);
+         pathSet.add(pathToItem);
          return arg;
       } else if (arg instanceof Float) {
-         pathToType.put(pathToItem, Float.class);
+         pathSet.add(pathToItem);
          return arg;
       } else if (arg instanceof Double) {
-         pathToType.put(pathToItem, Double.class);
+         pathSet.add(pathToItem);
          return arg;
       } else if (arg instanceof List) {
-         pathToType.put(pathToItem, FrozenList.class);
+         pathSet.add(pathToItem);
          List<Object> argFixed = new ArrayList<>();
          int i =0;
          for (Object item: ((List<?>) arg).toArray()) {
             List<Object> newPathToItem = new ArrayList<>(pathToItem);
             newPathToItem.add(i);
-            Object fixedVal = castToAllowedTypes(item, newPathToItem, pathToType);
+            Object fixedVal = castToAllowedTypes(item, newPathToItem, pathSet);
             argFixed.add(fixedVal);
             i += 1;
          }
          return new FrozenList<>(argFixed);
       } else if (arg instanceof ZonedDateTime) {
-         pathToType.put(pathToItem, String.class);
+         pathSet.add(pathToItem);
          return arg.toString();
       } else if (arg instanceof LocalDate) {
-         pathToType.put(pathToItem, String.class);
+         pathSet.add(pathToItem);
          return arg.toString();
       } else if (arg instanceof UUID) {
-         pathToType.put(pathToItem, String.class);
+         pathSet.add(pathToItem);
          return arg.toString();
       } else {
          Class<?> argClass = arg.getClass();
@@ -187,7 +187,7 @@ public abstract class JsonSchema {
       }
    }
 
-   private static PathToSchemasMap getPathToSchemas(Class<? extends JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, PathToTypeMap pathToType) {
+   private static PathToSchemasMap getPathToSchemas(Class<? extends JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, Set<List<Object>> pathSet) {
       PathToSchemasMap pathToSchemasMap = new PathToSchemasMap();
       if (validationMetadata.validationRanEarlier(cls)) {
          // todo add deeper validated schemas
@@ -199,7 +199,7 @@ public abstract class JsonSchema {
             schemas.clear();
             schemas.put(firstSchema, null);
          }
-         Set<List<Object>> missingPaths = new HashSet<>(pathToType.keySet());
+         Set<List<Object>> missingPaths = pathSet;
          missingPaths.removeAll(pathToSchemasMap.keySet());
          if (!missingPaths.isEmpty()) {
             LinkedHashMap<Class<? extends JsonSchema>, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
@@ -324,10 +324,10 @@ public abstract class JsonSchema {
       if (arg instanceof Map || arg instanceof List) {
          // todo don't run validation if the instance is one of the class generic types
       }
-      PathToTypeMap pathToType = new PathToTypeMap();
+      Set<List<Object>> pathSet = new HashSet();
       List<Object> pathToItem = new ArrayList<>();
       pathToItem.add("args[0]");
-      Object castArg = castToAllowedTypes(arg, pathToItem, pathToType);
+      Object castArg = castToAllowedTypes(arg, pathToItem, pathSet);
       SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
       PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
       ValidationMetadata validationMetadata = new ValidationMetadata(
@@ -336,7 +336,7 @@ public abstract class JsonSchema {
               validatedPathToSchemas,
               new LinkedHashSet<>()
       );
-      PathToSchemasMap pathToSchemasMap = getPathToSchemas(cls, castArg, validationMetadata, pathToType);
+      PathToSchemasMap pathToSchemasMap = getPathToSchemas(cls, castArg, validationMetadata, pathSet);
       return getNewInstance(cls, castArg, validationMetadata.pathToItem(), pathToSchemasMap);
    }
 
