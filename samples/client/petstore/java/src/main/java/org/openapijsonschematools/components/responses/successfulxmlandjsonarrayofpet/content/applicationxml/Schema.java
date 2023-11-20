@@ -11,8 +11,8 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class SchemaTuple extends FrozenList<Object> {
-        SchemaTuple(FrozenList<Object> m) {
+    public static class SchemaList extends FrozenList<Object> {
+        SchemaList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -22,10 +22,10 @@ public class Schema {
             FrozenList.class
         ));
         public static final Class<?> items = Pet.Pet1.class;
-        protected static SchemaTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new SchemaTuple(arg);
+        protected static SchemaList getListOutputInstance(FrozenList<Object> arg) {
+            return new SchemaList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static SchemaList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }}

@@ -25,8 +25,8 @@ public class Pet {
     public class Items extends StringJsonSchema {}
     
     
-    public static class PhotoUrlsTuple extends FrozenList<Object> {
-        PhotoUrlsTuple(FrozenList<Object> m) {
+    public static class PhotoUrlsList extends FrozenList<Object> {
+        PhotoUrlsList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -36,10 +36,10 @@ public class Pet {
             FrozenList.class
         ));
         public static final Class<?> items = Items.class;
-        protected static PhotoUrlsTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new PhotoUrlsTuple(arg);
+        protected static PhotoUrlsList getListOutputInstance(FrozenList<Object> arg) {
+            return new PhotoUrlsList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static PhotoUrlsList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(PhotoUrls.class, arg, configuration);
         }
     }    
@@ -53,8 +53,8 @@ public class Pet {
         }
     }    
     
-    public static class TagsTuple extends FrozenList<Object> {
-        TagsTuple(FrozenList<Object> m) {
+    public static class TagsList extends FrozenList<Object> {
+        TagsList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -64,10 +64,10 @@ public class Pet {
             FrozenList.class
         ));
         public static final Class<?> items = Tag.Tag1.class;
-        protected static TagsTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new TagsTuple(arg);
+        protected static TagsList getListOutputInstance(FrozenList<Object> arg) {
+            return new TagsList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static TagsList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Tags.class, arg, configuration);
         }
     }    

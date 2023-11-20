@@ -65,8 +65,8 @@ public class JSONPatchRequest {
         }
     }    
     
-    public static class JSONPatchRequestTuple extends FrozenList<Object> {
-        JSONPatchRequestTuple(FrozenList<Object> m) {
+    public static class JSONPatchRequestList extends FrozenList<Object> {
+        JSONPatchRequestList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -82,10 +82,10 @@ public class JSONPatchRequest {
             FrozenList.class
         ));
         public static final Class<?> items = Items.class;
-        protected static JSONPatchRequestTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new JSONPatchRequestTuple(arg);
+        protected static JSONPatchRequestList getListOutputInstance(FrozenList<Object> arg) {
+            return new JSONPatchRequestList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static JSONPatchRequestList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JSONPatchRequest1.class, arg, configuration);
         }
     }}

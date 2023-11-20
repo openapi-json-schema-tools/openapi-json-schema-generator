@@ -10,8 +10,8 @@ public class AnimalFarm {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AnimalFarmTuple extends FrozenList<Object> {
-        AnimalFarmTuple(FrozenList<Object> m) {
+    public static class AnimalFarmList extends FrozenList<Object> {
+        AnimalFarmList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -27,10 +27,10 @@ public class AnimalFarm {
             FrozenList.class
         ));
         public static final Class<?> items = Animal.Animal1.class;
-        protected static AnimalFarmTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new AnimalFarmTuple(arg);
+        protected static AnimalFarmList getListOutputInstance(FrozenList<Object> arg) {
+            return new AnimalFarmList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static AnimalFarmList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AnimalFarm1.class, arg, configuration);
         }
     }}

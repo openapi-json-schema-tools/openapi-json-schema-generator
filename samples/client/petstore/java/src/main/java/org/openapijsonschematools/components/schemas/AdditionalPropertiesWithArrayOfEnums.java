@@ -12,8 +12,8 @@ public class AdditionalPropertiesWithArrayOfEnums {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalPropertiesTuple extends FrozenList<Object> {
-        AdditionalPropertiesTuple(FrozenList<Object> m) {
+    public static class AdditionalPropertiesList extends FrozenList<Object> {
+        AdditionalPropertiesList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -23,10 +23,10 @@ public class AdditionalPropertiesWithArrayOfEnums {
             FrozenList.class
         ));
         public static final Class<?> items = EnumClass.EnumClass1.class;
-        protected static AdditionalPropertiesTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new AdditionalPropertiesTuple(arg);
+        protected static AdditionalPropertiesList getListOutputInstance(FrozenList<Object> arg) {
+            return new AdditionalPropertiesList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static AdditionalPropertiesList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties.class, arg, configuration);
         }
     }    

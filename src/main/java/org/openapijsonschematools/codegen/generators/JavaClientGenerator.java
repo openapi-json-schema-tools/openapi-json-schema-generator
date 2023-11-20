@@ -179,6 +179,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         // and generated module must have the same parameter index as the spec
         sortParamsByRequiredFlag = Boolean.FALSE;
         objectIOClassNamePiece = "Map";
+        arrayIOClassNamePiece = "List";
 
 
         // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata

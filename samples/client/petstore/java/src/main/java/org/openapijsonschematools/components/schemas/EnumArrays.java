@@ -32,8 +32,8 @@ public class EnumArrays {
         }
     }    
     
-    public static class ArrayEnumTuple extends FrozenList<Object> {
-        ArrayEnumTuple(FrozenList<Object> m) {
+    public static class ArrayEnumList extends FrozenList<Object> {
+        ArrayEnumList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -43,10 +43,10 @@ public class EnumArrays {
             FrozenList.class
         ));
         public static final Class<?> items = Items.class;
-        protected static ArrayEnumTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new ArrayEnumTuple(arg);
+        protected static ArrayEnumList getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayEnumList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayEnumList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayEnum.class, arg, configuration);
         }
     }    

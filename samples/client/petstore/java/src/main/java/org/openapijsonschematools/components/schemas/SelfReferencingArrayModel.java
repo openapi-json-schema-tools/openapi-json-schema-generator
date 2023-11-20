@@ -10,8 +10,8 @@ public class SelfReferencingArrayModel {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class SelfReferencingArrayModelTuple extends FrozenList<Object> {
-        SelfReferencingArrayModelTuple(FrozenList<Object> m) {
+    public static class SelfReferencingArrayModelList extends FrozenList<Object> {
+        SelfReferencingArrayModelList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -27,10 +27,10 @@ public class SelfReferencingArrayModel {
             FrozenList.class
         ));
         public static final Class<?> items = SelfReferencingArrayModel1.class;
-        protected static SelfReferencingArrayModelTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new SelfReferencingArrayModelTuple(arg);
+        protected static SelfReferencingArrayModelList getListOutputInstance(FrozenList<Object> arg) {
+            return new SelfReferencingArrayModelList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static SelfReferencingArrayModelList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(SelfReferencingArrayModel1.class, arg, configuration);
         }
     }}

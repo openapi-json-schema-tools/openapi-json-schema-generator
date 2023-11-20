@@ -17,9 +17,15 @@ public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaCo
             {{/if}}
         {{/eq}}
         {{#eq this "array"}}
+            {{#if ../arrayOutputJsonPathPiece}}
+public static {{../arrayOutputJsonPathPiece.camelCase}} validate(List<Object> arg, SchemaConfiguration configuration) {
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
+}
+            {{else}}
 public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
     return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
+            {{/if}}
         {{/eq}}
         {{#eq this "string" }}
             {{#eq ../format "binary"}}

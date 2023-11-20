@@ -143,8 +143,8 @@ public class NullableClass {
     public class Items extends MapJsonSchema {}
     
     
-    public static class ArrayNullablePropTuple extends FrozenList<Object> {
-        ArrayNullablePropTuple(FrozenList<Object> m) {
+    public static class ArrayNullablePropList extends FrozenList<Object> {
+        ArrayNullablePropList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -158,7 +158,7 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayNullableProp.class, arg, configuration);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayNullablePropList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayNullableProp.class, arg, configuration);
         }
     }    
@@ -176,8 +176,8 @@ public class NullableClass {
         }
     }    
     
-    public static class ArrayAndItemsNullablePropTuple extends FrozenList<Object> {
-        ArrayAndItemsNullablePropTuple(FrozenList<Object> m) {
+    public static class ArrayAndItemsNullablePropList extends FrozenList<Object> {
+        ArrayAndItemsNullablePropList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -191,7 +191,7 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayAndItemsNullableProp.class, arg, configuration);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayAndItemsNullablePropList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayAndItemsNullableProp.class, arg, configuration);
         }
     }    
@@ -209,8 +209,8 @@ public class NullableClass {
         }
     }    
     
-    public static class ArrayItemsNullableTuple extends FrozenList<Object> {
-        ArrayItemsNullableTuple(FrozenList<Object> m) {
+    public static class ArrayItemsNullableList extends FrozenList<Object> {
+        ArrayItemsNullableList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -220,10 +220,10 @@ public class NullableClass {
             FrozenList.class
         ));
         public static final Class<?> items = Items2.class;
-        protected static ArrayItemsNullableTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new ArrayItemsNullableTuple(arg);
+        protected static ArrayItemsNullableList getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayItemsNullableList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayItemsNullableList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayItemsNullable.class, arg, configuration);
         }
     }    

@@ -60,8 +60,8 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     public class Items extends AnyTypeJsonSchema {}
     
     
-    public static class Schema9Tuple extends FrozenList<Object> {
-        Schema9Tuple(FrozenList<Object> m) {
+    public static class Schema9List extends FrozenList<Object> {
+        Schema9List(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -71,10 +71,10 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             FrozenList.class
         ));
         public static final Class<?> items = Items.class;
-        protected static Schema9Tuple getListOutputInstance(FrozenList<Object> arg) {
-            return new Schema9Tuple(arg);
+        protected static Schema9List getListOutputInstance(FrozenList<Object> arg) {
+            return new Schema9List(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static Schema9List validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema9.class, arg, configuration);
         }
     }    

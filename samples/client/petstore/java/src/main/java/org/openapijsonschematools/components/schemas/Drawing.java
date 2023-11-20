@@ -14,8 +14,8 @@ public class Drawing {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class ShapesTuple extends FrozenList<Object> {
-        ShapesTuple(FrozenList<Object> m) {
+    public static class ShapesList extends FrozenList<Object> {
+        ShapesList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -25,10 +25,10 @@ public class Drawing {
             FrozenList.class
         ));
         public static final Class<?> items = Shape.Shape1.class;
-        protected static ShapesTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new ShapesTuple(arg);
+        protected static ShapesList getListOutputInstance(FrozenList<Object> arg) {
+            return new ShapesList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ShapesList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Shapes.class, arg, configuration);
         }
     }    

@@ -14,8 +14,8 @@ public class ArrayHoldingAnyType {
     public class Items extends AnyTypeJsonSchema {}
     
     
-    public static class ArrayHoldingAnyTypeTuple extends FrozenList<Object> {
-        ArrayHoldingAnyTypeTuple(FrozenList<Object> m) {
+    public static class ArrayHoldingAnyTypeList extends FrozenList<Object> {
+        ArrayHoldingAnyTypeList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -31,10 +31,10 @@ public class ArrayHoldingAnyType {
             FrozenList.class
         ));
         public static final Class<?> items = Items.class;
-        protected static ArrayHoldingAnyTypeTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new ArrayHoldingAnyTypeTuple(arg);
+        protected static ArrayHoldingAnyTypeList getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayHoldingAnyTypeList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayHoldingAnyTypeList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayHoldingAnyType1.class, arg, configuration);
         }
     }}

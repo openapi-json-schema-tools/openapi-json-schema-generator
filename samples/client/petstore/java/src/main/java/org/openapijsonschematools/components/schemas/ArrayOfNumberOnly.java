@@ -18,8 +18,8 @@ public class ArrayOfNumberOnly {
     public class Items extends NumberJsonSchema {}
     
     
-    public static class ArrayNumberTuple extends FrozenList<Object> {
-        ArrayNumberTuple(FrozenList<Object> m) {
+    public static class ArrayNumberList extends FrozenList<Object> {
+        ArrayNumberList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -29,10 +29,10 @@ public class ArrayOfNumberOnly {
             FrozenList.class
         ));
         public static final Class<?> items = Items.class;
-        protected static ArrayNumberTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new ArrayNumberTuple(arg);
+        protected static ArrayNumberList getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayNumberList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayNumberList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayNumber.class, arg, configuration);
         }
     }    

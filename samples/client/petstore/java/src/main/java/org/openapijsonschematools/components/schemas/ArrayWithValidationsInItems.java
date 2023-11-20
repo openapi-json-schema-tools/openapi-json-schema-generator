@@ -35,8 +35,8 @@ public class ArrayWithValidationsInItems {
         }
     }    
     
-    public static class ArrayWithValidationsInItemsTuple extends FrozenList<Object> {
-        ArrayWithValidationsInItemsTuple(FrozenList<Object> m) {
+    public static class ArrayWithValidationsInItemsList extends FrozenList<Object> {
+        ArrayWithValidationsInItemsList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -52,10 +52,10 @@ public class ArrayWithValidationsInItems {
             FrozenList.class
         ));
         public static final Class<?> items = Items.class;
-        protected static ArrayWithValidationsInItemsTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new ArrayWithValidationsInItemsTuple(arg);
+        protected static ArrayWithValidationsInItemsList getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayWithValidationsInItemsList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayWithValidationsInItemsList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayWithValidationsInItems1.class, arg, configuration);
         }
     }}

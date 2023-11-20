@@ -18,8 +18,8 @@ public class ArrayOfArrayOfNumberOnly {
     public class Items1 extends NumberJsonSchema {}
     
     
-    public static class ItemsTuple extends FrozenList<Object> {
-        ItemsTuple(FrozenList<Object> m) {
+    public static class ItemsList extends FrozenList<Object> {
+        ItemsList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -29,16 +29,16 @@ public class ArrayOfArrayOfNumberOnly {
             FrozenList.class
         ));
         public static final Class<?> items = Items1.class;
-        protected static ItemsTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new ItemsTuple(arg);
+        protected static ItemsList getListOutputInstance(FrozenList<Object> arg) {
+            return new ItemsList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ItemsList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items.class, arg, configuration);
         }
     }    
     
-    public static class ArrayArrayNumberTuple extends FrozenList<Object> {
-        ArrayArrayNumberTuple(FrozenList<Object> m) {
+    public static class ArrayArrayNumberList extends FrozenList<Object> {
+        ArrayArrayNumberList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -48,10 +48,10 @@ public class ArrayOfArrayOfNumberOnly {
             FrozenList.class
         ));
         public static final Class<?> items = Items.class;
-        protected static ArrayArrayNumberTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new ArrayArrayNumberTuple(arg);
+        protected static ArrayArrayNumberList getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayArrayNumberList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayNumberList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayArrayNumber.class, arg, configuration);
         }
     }    

@@ -14,8 +14,8 @@ public class ComposedArray {
     public class Items extends AnyTypeJsonSchema {}
     
     
-    public static class ComposedArrayTuple extends FrozenList<Object> {
-        ComposedArrayTuple(FrozenList<Object> m) {
+    public static class ComposedArrayList extends FrozenList<Object> {
+        ComposedArrayList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -31,10 +31,10 @@ public class ComposedArray {
             FrozenList.class
         ));
         public static final Class<?> items = Items.class;
-        protected static ComposedArrayTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new ComposedArrayTuple(arg);
+        protected static ComposedArrayList getListOutputInstance(FrozenList<Object> arg) {
+            return new ComposedArrayList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ComposedArrayList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ComposedArray1.class, arg, configuration);
         }
     }}

@@ -19,8 +19,8 @@ public class Schema {
     }
     
     
-    public static class FilesTuple extends FrozenList<Object> {
-        FilesTuple(FrozenList<Object> m) {
+    public static class FilesList extends FrozenList<Object> {
+        FilesList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -30,10 +30,10 @@ public class Schema {
             FrozenList.class
         ));
         public static final Class<?> items = Items.class;
-        protected static FilesTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new FilesTuple(arg);
+        protected static FilesList getListOutputInstance(FrozenList<Object> arg) {
+            return new FilesList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static FilesList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Files.class, arg, configuration);
         }
     }    

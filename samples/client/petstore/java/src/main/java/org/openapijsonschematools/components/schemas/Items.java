@@ -14,8 +14,8 @@ public class Items {
     public class Items2 extends MapJsonSchema {}
     
     
-    public static class ItemsTuple extends FrozenList<Object> {
-        ItemsTuple(FrozenList<Object> m) {
+    public static class ItemsList extends FrozenList<Object> {
+        ItemsList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -33,10 +33,10 @@ public class Items {
             FrozenList.class
         ));
         public static final Class<?> items = Items2.class;
-        protected static ItemsTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new ItemsTuple(arg);
+        protected static ItemsList getListOutputInstance(FrozenList<Object> arg) {
+            return new ItemsList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ItemsList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items1.class, arg, configuration);
         }
     }}

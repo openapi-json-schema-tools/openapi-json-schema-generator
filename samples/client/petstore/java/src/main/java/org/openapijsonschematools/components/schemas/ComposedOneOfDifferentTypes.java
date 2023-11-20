@@ -37,8 +37,8 @@ public class ComposedOneOfDifferentTypes {
     public class Items extends AnyTypeJsonSchema {}
     
     
-    public static class Schema5Tuple extends FrozenList<Object> {
-        Schema5Tuple(FrozenList<Object> m) {
+    public static class Schema5List extends FrozenList<Object> {
+        Schema5List(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -48,10 +48,10 @@ public class ComposedOneOfDifferentTypes {
             FrozenList.class
         ));
         public static final Class<?> items = Items.class;
-        protected static Schema5Tuple getListOutputInstance(FrozenList<Object> arg) {
-            return new Schema5Tuple(arg);
+        protected static Schema5List getListOutputInstance(FrozenList<Object> arg) {
+            return new Schema5List(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static Schema5List validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema5.class, arg, configuration);
         }
     }    

@@ -138,8 +138,8 @@ public class FormatTest {
     public class Items extends NumberJsonSchema {}
     
     
-    public static class ArrayWithUniqueItemsTuple extends FrozenList<Object> {
-        ArrayWithUniqueItemsTuple(FrozenList<Object> m) {
+    public static class ArrayWithUniqueItemsList extends FrozenList<Object> {
+        ArrayWithUniqueItemsList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -149,10 +149,10 @@ public class FormatTest {
             FrozenList.class
         ));
         public static final Class<?> items = Items.class;
-        protected static ArrayWithUniqueItemsTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new ArrayWithUniqueItemsTuple(arg);
+        protected static ArrayWithUniqueItemsList getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayWithUniqueItemsList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayWithUniqueItemsList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayWithUniqueItems.class, arg, configuration);
         }
     }    

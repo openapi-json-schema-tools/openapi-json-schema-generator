@@ -349,6 +349,7 @@ public class DefaultGenerator implements Generator {
     protected boolean addSchemaImportsFromV3SpecLocations = false;
     protected boolean deepestRefSchemaImportNeeded = false;
     protected String objectIOClassNamePiece = "Dict";
+    protected String arrayIOClassNamePiece = "Tuple";
 
     @Override
     public List<CliOption> cliOptions() {
@@ -2446,7 +2447,7 @@ public class DefaultGenerator implements Generator {
                 }
             }
             if ((property.types == null || property.types.contains("array")) && sourceJsonPath != null && property.items != null) {
-                property.arrayOutputJsonPathPiece = getKey(currentName + "Tuple", "schemaProperty", sourceJsonPath);
+                property.arrayOutputJsonPathPiece = getKey(currentName + arrayIOClassNamePiece, "schemaProperty", sourceJsonPath);
                 property.arrayInputJsonPathPiece = getKey(currentName + "TupleInput", "schemaProperty", sourceJsonPath);
             }
         }

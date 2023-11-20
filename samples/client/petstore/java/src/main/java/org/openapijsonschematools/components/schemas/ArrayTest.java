@@ -19,8 +19,8 @@ public class ArrayTest {
     public class Items extends StringJsonSchema {}
     
     
-    public static class ArrayOfStringTuple extends FrozenList<Object> {
-        ArrayOfStringTuple(FrozenList<Object> m) {
+    public static class ArrayOfStringList extends FrozenList<Object> {
+        ArrayOfStringList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -30,10 +30,10 @@ public class ArrayTest {
             FrozenList.class
         ));
         public static final Class<?> items = Items.class;
-        protected static ArrayOfStringTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new ArrayOfStringTuple(arg);
+        protected static ArrayOfStringList getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayOfStringList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayOfStringList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayOfString.class, arg, configuration);
         }
     }    
@@ -41,8 +41,8 @@ public class ArrayTest {
     public class Items2 extends Int64JsonSchema {}
     
     
-    public static class ItemsTuple extends FrozenList<Object> {
-        ItemsTuple(FrozenList<Object> m) {
+    public static class ItemsList extends FrozenList<Object> {
+        ItemsList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -52,16 +52,16 @@ public class ArrayTest {
             FrozenList.class
         ));
         public static final Class<?> items = Items2.class;
-        protected static ItemsTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new ItemsTuple(arg);
+        protected static ItemsList getListOutputInstance(FrozenList<Object> arg) {
+            return new ItemsList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ItemsList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items1.class, arg, configuration);
         }
     }    
     
-    public static class ArrayArrayOfIntegerTuple extends FrozenList<Object> {
-        ArrayArrayOfIntegerTuple(FrozenList<Object> m) {
+    public static class ArrayArrayOfIntegerList extends FrozenList<Object> {
+        ArrayArrayOfIntegerList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -71,16 +71,16 @@ public class ArrayTest {
             FrozenList.class
         ));
         public static final Class<?> items = Items1.class;
-        protected static ArrayArrayOfIntegerTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new ArrayArrayOfIntegerTuple(arg);
+        protected static ArrayArrayOfIntegerList getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayArrayOfIntegerList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfIntegerList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayArrayOfInteger.class, arg, configuration);
         }
     }    
     
-    public static class ItemsTuple1 extends FrozenList<Object> {
-        ItemsTuple1(FrozenList<Object> m) {
+    public static class ItemsList1 extends FrozenList<Object> {
+        ItemsList1(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -90,16 +90,16 @@ public class ArrayTest {
             FrozenList.class
         ));
         public static final Class<?> items = ReadOnlyFirst.ReadOnlyFirst1.class;
-        protected static ItemsTuple1 getListOutputInstance(FrozenList<Object> arg) {
-            return new ItemsTuple1(arg);
+        protected static ItemsList1 getListOutputInstance(FrozenList<Object> arg) {
+            return new ItemsList1(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ItemsList1 validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items3.class, arg, configuration);
         }
     }    
     
-    public static class ArrayArrayOfModelTuple extends FrozenList<Object> {
-        ArrayArrayOfModelTuple(FrozenList<Object> m) {
+    public static class ArrayArrayOfModelList extends FrozenList<Object> {
+        ArrayArrayOfModelList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -109,10 +109,10 @@ public class ArrayTest {
             FrozenList.class
         ));
         public static final Class<?> items = Items3.class;
-        protected static ArrayArrayOfModelTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new ArrayArrayOfModelTuple(arg);
+        protected static ArrayArrayOfModelList getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayArrayOfModelList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfModelList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayArrayOfModel.class, arg, configuration);
         }
     }    

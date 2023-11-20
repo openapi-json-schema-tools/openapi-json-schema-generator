@@ -14,8 +14,8 @@ public class Schema3 {
     public class Items3 extends StringJsonSchema {}
     
     
-    public static class SchemaTuple3 extends FrozenList<Object> {
-        SchemaTuple3(FrozenList<Object> m) {
+    public static class SchemaList3 extends FrozenList<Object> {
+        SchemaList3(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -25,10 +25,10 @@ public class Schema3 {
             FrozenList.class
         ));
         public static final Class<?> items = Items3.class;
-        protected static SchemaTuple3 getListOutputInstance(FrozenList<Object> arg) {
-            return new SchemaTuple3(arg);
+        protected static SchemaList3 getListOutputInstance(FrozenList<Object> arg) {
+            return new SchemaList3(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static SchemaList3 validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema31.class, arg, configuration);
         }
     }}

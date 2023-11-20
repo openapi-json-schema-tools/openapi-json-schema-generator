@@ -24,8 +24,8 @@ public class PaginatedResultMyObjectDto {
     public class Count extends IntJsonSchema {}
     
     
-    public static class ResultsTuple extends FrozenList<Object> {
-        ResultsTuple(FrozenList<Object> m) {
+    public static class ResultsList extends FrozenList<Object> {
+        ResultsList(FrozenList<Object> m) {
             super(m);
         }
     }    
@@ -35,10 +35,10 @@ public class PaginatedResultMyObjectDto {
             FrozenList.class
         ));
         public static final Class<?> items = MyObjectDto.MyObjectDto1.class;
-        protected static ResultsTuple getListOutputInstance(FrozenList<Object> arg) {
-            return new ResultsTuple(arg);
+        protected static ResultsList getListOutputInstance(FrozenList<Object> arg) {
+            return new ResultsList(arg);
         }
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ResultsList validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Results.class, arg, configuration);
         }
     }    
