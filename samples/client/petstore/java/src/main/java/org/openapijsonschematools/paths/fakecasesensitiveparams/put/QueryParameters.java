@@ -9,9 +9,9 @@ import org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.p
 import org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.parameter1.Schema1;
 import org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.parameter2.Schema2;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.FrozenMap;
-import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
+import org.openapijsonschematools.schemas.validation.FrozenMap;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public

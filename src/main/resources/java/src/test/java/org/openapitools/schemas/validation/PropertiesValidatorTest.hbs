@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.schemas.FrozenMap;
 import {{{packageName}}}.schemas.StringJsonSchema;
 
 import java.util.ArrayList;
@@ -33,7 +32,7 @@ public class PropertiesValidatorTest {
         mutableMap.put("someString", "abc");
         FrozenMap<String, Object> arg = new FrozenMap<>(mutableMap);
         PathToSchemasMap pathToSchemas = validator.validate(
-                SchemaValidator.class,
+                JsonSchema.class,
                 arg,
                 properties,
                 validationMetadata,
@@ -42,8 +41,7 @@ public class PropertiesValidatorTest {
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
         expectedPathToItem.add("someString");
-        LinkedHashMap<Class<?>, Void> expectedClasses = new LinkedHashMap<>();
-        expectedClasses.put(String.class, null);
+        LinkedHashMap<Class<? extends JsonSchema>, Void> expectedClasses = new LinkedHashMap<>();
         expectedClasses.put(StringJsonSchema.class, null);
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
         expectedPathToSchemas.put(expectedPathToItem, expectedClasses);
@@ -65,7 +63,7 @@ public class PropertiesValidatorTest {
                 new LinkedHashSet<>()
         );
         PathToSchemasMap pathToSchemas = validator.validate(
-                SchemaValidator.class,
+                JsonSchema.class,
                 1,
                 properties,
                 validationMetadata,
@@ -92,7 +90,7 @@ public class PropertiesValidatorTest {
         mutableMap.put("someString", 1);
         FrozenMap<String, Object> arg = new FrozenMap<>(mutableMap);
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
-                SchemaValidator.class,
+                JsonSchema.class,
                 arg,
                 properties,
                 validationMetadata,

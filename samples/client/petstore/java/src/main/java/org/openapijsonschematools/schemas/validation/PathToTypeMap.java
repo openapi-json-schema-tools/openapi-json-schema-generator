@@ -1,4 +1,4 @@
-package {{{packageName}}}.schemas;
+package org.openapijsonschematools.schemas.validation;
 
 import java.util.HashMap;
 import java.util.List;

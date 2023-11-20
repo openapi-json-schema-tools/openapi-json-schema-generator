@@ -1,6 +1,6 @@
-package {{{packageName}}}.schemas;
+package org.openapijsonschematools.schemas.validation;
 
-import {{{packageName}}}.configurations.SchemaConfiguration;
+import org.openapijsonschematools.configurations.SchemaConfiguration;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;

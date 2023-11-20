@@ -1,13 +1,11 @@
 package org.openapijsonschematools.schemas.validation;
 
-import org.openapijsonschematools.schemas.JsonSchema;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class ItemsValidator implements KeywordValidator {
     @Override
-    public PathToSchemasMap validate(Class<? extends SchemaValidator> cls, Object arg, Object constraint, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, Object constraint, ValidationMetadata validationMetadata, Object extra) {
         if (!(arg instanceof List)) {
             return null;
         }
@@ -30,7 +28,7 @@ public class ItemsValidator implements KeywordValidator {
                 i +=1;
                 continue;
             }
-            PathToSchemasMap otherPathToSchemas = SchemaValidator.validate(itemsSchema, itemValue, itemValidationMetadata);
+            PathToSchemasMap otherPathToSchemas = JsonSchema.validate(itemsSchema, itemValue, itemValidationMetadata);
             pathToSchemas.update(otherPathToSchemas);
             i += 1;
         }

@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.validation.FrozenMap;
 
 import java.time.LocalDate;
 import java.util.LinkedHashMap;
@@ -14,7 +16,7 @@ public class MapSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validate(
+        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validateObject(
                 MapJsonSchema.class, (Void) null, configuration
         ));
     }

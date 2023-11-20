@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.FrozenMap;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -83,7 +85,7 @@ public class ObjectTypeSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validate(
+        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validateObject(
                 ObjectWithPropsSchema.class, (Void) null, configuration
         ));
     }

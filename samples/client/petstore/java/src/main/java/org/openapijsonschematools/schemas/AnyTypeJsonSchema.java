@@ -1,5 +1,8 @@
 package org.openapijsonschematools.schemas;
 
+import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.validation.FrozenMap;
+import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 
 import java.time.LocalDate;

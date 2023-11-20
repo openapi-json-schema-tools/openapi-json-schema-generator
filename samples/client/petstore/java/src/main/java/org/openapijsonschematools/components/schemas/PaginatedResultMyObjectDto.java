@@ -7,11 +7,11 @@ import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.FrozenList;
-import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.IntJsonSchema;
-import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
+import org.openapijsonschematools.schemas.validation.FrozenList;
+import org.openapijsonschematools.schemas.validation.FrozenMap;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 public class PaginatedResultMyObjectDto {
     // nest classes so all schemas and input/output classes can be public

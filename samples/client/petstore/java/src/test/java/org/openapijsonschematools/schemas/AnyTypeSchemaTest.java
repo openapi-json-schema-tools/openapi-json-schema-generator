@@ -4,6 +4,9 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.schemas.validation.FrozenList;
+import org.openapijsonschematools.schemas.validation.FrozenMap;
+
 
 import java.time.LocalDate;
 import java.time.ZoneId;

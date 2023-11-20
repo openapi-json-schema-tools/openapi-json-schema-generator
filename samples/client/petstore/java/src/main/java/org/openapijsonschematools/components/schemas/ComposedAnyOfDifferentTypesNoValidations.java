@@ -13,16 +13,16 @@ import org.openapijsonschematools.schemas.DateJsonSchema;
 import org.openapijsonschematools.schemas.DateTimeJsonSchema;
 import org.openapijsonschematools.schemas.DoubleJsonSchema;
 import org.openapijsonschematools.schemas.FloatJsonSchema;
-import org.openapijsonschematools.schemas.FrozenList;
-import org.openapijsonschematools.schemas.FrozenMap;
 import org.openapijsonschematools.schemas.Int32JsonSchema;
 import org.openapijsonschematools.schemas.Int64JsonSchema;
 import org.openapijsonschematools.schemas.IntJsonSchema;
-import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.MapJsonSchema;
 import org.openapijsonschematools.schemas.NullJsonSchema;
 import org.openapijsonschematools.schemas.NumberJsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
+import org.openapijsonschematools.schemas.validation.FrozenList;
+import org.openapijsonschematools.schemas.validation.FrozenMap;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 public class ComposedAnyOfDifferentTypesNoValidations {
     // nest classes so all schemas and input/output classes can be public

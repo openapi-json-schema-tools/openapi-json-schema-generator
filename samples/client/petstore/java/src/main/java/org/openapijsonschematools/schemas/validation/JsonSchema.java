@@ -1,16 +1,16 @@
-package org.openapijsonschematools.schemas;
+package org.openapijsonschematools.schemas.validation;
 
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.validation.SchemaValidator;
-import org.openapijsonschematools.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.schemas.validation.ValidationMetadata;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Field;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.AbstractMap;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -20,7 +20,112 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-public abstract class JsonSchema extends SchemaValidator {
+public abstract class JsonSchema {
+    static HashMap<String, KeywordValidator> keywordToValidator = new HashMap<>(Map.ofEntries(
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("allOf", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("anyOf", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("const", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("contains", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("default", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("dependentRequired", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("dependentSchemas", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("discriminator", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("enumInfo", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("exclusiveMaximum", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("exclusiveMinimum", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("format", new FormatValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("if_", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("then", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("else_", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("maxContains", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("maxItems", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("maxLength", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("maxProperties", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("maximum", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("minContains", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("minItems", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("minLength", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("minProperties", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("minimum", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("multipleOf", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("not", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("oneOf", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("pattern", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("patternProperties", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("prefixItems", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("required", new RequiredValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("type", new TypeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("uniqueItems", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("items", new ItemsValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("unevaluatedItems", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("properties", new PropertiesValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("propertyNames", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("additionalProperties", new AdditionalPropertiesValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("unevaluatedProperties", new FakeValidator())
+    ));
+
+    protected static PathToSchemasMap validate(
+            Class<? extends JsonSchema> schemaCls,
+            Object arg,
+            ValidationMetadata validationMetadata
+    ) {
+        HashMap<String, Object> fieldsToValues = new HashMap<>();
+        LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
+        Class<? extends JsonSchema> usedSchemaCls = schemaCls;
+        Class<?> superclass = schemaCls.getSuperclass();
+        if (superclass != JsonSchema.class) {
+            // only ref with no adjacent properties supported at this time
+            usedSchemaCls = (Class<? extends JsonSchema>) superclass;
+        }
+        Field[] fields = usedSchemaCls.getDeclaredFields();
+        for (Field field : fields) {
+            String fieldName = field.getName();
+            if (fieldName.equals("keywordToValidator")) {
+                continue;
+            }
+            if (fieldName.equals("this$0")) {
+                continue;
+            }
+            if (disabledKeywords.contains(fieldName)) {
+                continue;
+            }
+            try {
+                Object value = field.get(null);
+                fieldsToValues.put(fieldName, value);
+            } catch (IllegalAccessException | IllegalArgumentException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        Object extra = null;
+        PathToSchemasMap pathToSchemas = new PathToSchemasMap();
+        for (Map.Entry<String, Object> entry: fieldsToValues.entrySet()) {
+            String jsonKeyword = entry.getKey();
+            Object constraint = entry.getValue();
+            if (jsonKeyword.equals("additionalProperties") && fieldsToValues.containsKey("properties")) {
+                extra = fieldsToValues.get("properties");
+            }
+            KeywordValidator validatorClass = keywordToValidator.get(jsonKeyword);
+            PathToSchemasMap otherPathToSchemas = validatorClass.validate(
+                    schemaCls,
+                    arg,
+                    constraint,
+                    validationMetadata,
+                    extra
+            );
+            if (otherPathToSchemas == null) {
+                continue;
+            }
+            pathToSchemas.update(otherPathToSchemas);
+        }
+        List<Object> pathToItem = validationMetadata.pathToItem();
+        if (!pathToSchemas.containsKey(pathToItem)) {
+            pathToSchemas.put(validationMetadata.pathToItem(), new LinkedHashMap<>());
+        }
+        pathToSchemas.get(pathToItem).put(schemaCls, null);
+
+        return pathToSchemas;
+    }
+
    private static Object castToAllowedTypes(Object arg, List<Object> pathToItem, PathToTypeMap pathToType) {
       if (arg == null) {
          pathToType.put(pathToItem, Void.class);
@@ -89,15 +194,15 @@ public abstract class JsonSchema extends SchemaValidator {
       } else {
          PathToSchemasMap otherPathToSchemas = validate(cls, arg, validationMetadata);
          pathToSchemasMap.update(otherPathToSchemas);
-         for (LinkedHashMap<Class<?>, Void> schemas: pathToSchemasMap.values()) {
-            Class<?> firstSchema = schemas.entrySet().iterator().next().getKey();
+         for (LinkedHashMap<Class<? extends JsonSchema>, Void> schemas: pathToSchemasMap.values()) {
+            Class<? extends JsonSchema> firstSchema = schemas.entrySet().iterator().next().getKey();
             schemas.clear();
             schemas.put(firstSchema, null);
          }
          Set<List<Object>> missingPaths = new HashSet<>(pathToType.keySet());
          missingPaths.removeAll(pathToSchemasMap.keySet());
          if (!missingPaths.isEmpty()) {
-            LinkedHashMap<Class<?>, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
+            LinkedHashMap<Class<? extends JsonSchema>, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
             unsetAnyTypeSchema.put(UnsetAnyTypeJsonSchema.class, null);
             for (List<Object> pathToItem: missingPaths) {
                pathToSchemasMap.put(pathToItem, unsetAnyTypeSchema);
@@ -113,7 +218,7 @@ public abstract class JsonSchema extends SchemaValidator {
          String propertyName = (String) entry.getKey();
          List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
          propertyPathToItem.add(propertyName);
-         Class<? extends JsonSchema> propertyClass = (Class<? extends JsonSchema>) pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
+         Class<? extends JsonSchema> propertyClass = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
          Object value = entry.getValue();
          Object castValue = getNewInstance(propertyClass, value, propertyPathToItem, pathToSchemas);
          properties.put(propertyName, castValue);
@@ -127,7 +232,7 @@ public abstract class JsonSchema extends SchemaValidator {
       for (Object item: arg) {
          List<Object> itemPathToItem = new ArrayList<>(pathToItem);
          itemPathToItem.add(i);
-         Class<JsonSchema> itemClass = (Class<JsonSchema>) pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
+         Class<? extends JsonSchema> itemClass = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
          Object castItem = getNewInstance(itemClass, item, itemPathToItem, pathToSchemas);
          items.add(castItem);
          i += 1;
@@ -140,6 +245,8 @@ public abstract class JsonSchema extends SchemaValidator {
          FrozenMap<String, Object> usedArg = getProperties((Map<?,?>) arg, pathToItem, pathToSchemas);
          try {
             Method method = cls.getDeclaredMethod("getMapOutputInstance", FrozenMap.class);
+            // needed because this is a protected method, but it is across packages
+            method.setAccessible(true);
             return method.invoke(null, usedArg);
          } catch (NoSuchMethodException e) {
             return usedArg;
@@ -150,6 +257,8 @@ public abstract class JsonSchema extends SchemaValidator {
          FrozenList<Object> usedArg = getItems((List<?>) arg, pathToItem, pathToSchemas);
          try {
             Method method = cls.getDeclaredMethod("getListOutputInstance", FrozenList.class);
+            // needed because this is a protected method, but it is across packages
+            method.setAccessible(true);
             return method.invoke(null, usedArg);
          } catch (NoSuchMethodException e) {
             return usedArg;
@@ -211,7 +320,7 @@ public abstract class JsonSchema extends SchemaValidator {
 
    // todo add bytes and FileIO
 
-   private static Object validateObject(Class<? extends JsonSchema> cls, Object arg, SchemaConfiguration configuration) {
+   public static Object validateObject(Class<? extends JsonSchema> cls, Object arg, SchemaConfiguration configuration) {
       if (arg instanceof Map || arg instanceof List) {
          // todo don't run validation if the instance is one of the class generic types
       }

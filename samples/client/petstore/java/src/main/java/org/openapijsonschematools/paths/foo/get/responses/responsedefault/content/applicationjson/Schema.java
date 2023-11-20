@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.components.schemas.Foo;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.FrozenMap;
-import org.openapijsonschematools.schemas.JsonSchema;
+import org.openapijsonschematools.schemas.validation.FrozenMap;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 public class Schema {
     // nest classes so all schemas and input/output classes can be public

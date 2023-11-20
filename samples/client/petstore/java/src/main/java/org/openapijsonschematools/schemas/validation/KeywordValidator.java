@@ -2,7 +2,7 @@ package org.openapijsonschematools.schemas.validation;
 
 public interface KeywordValidator {
     PathToSchemasMap validate(
-            Class<? extends SchemaValidator> cls,
+            Class<? extends JsonSchema> cls,
             Object arg,
             Object constraint,
             ValidationMetadata validationMetadata,

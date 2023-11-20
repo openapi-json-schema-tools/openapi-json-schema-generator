@@ -1,9 +1,9 @@
-package {{{packageName}}}.schemas.validation;
+package org.openapijsonschematools.schemas.validation;
 
 import org.junit.Assert;
 import org.junit.Test;
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.configurations.SchemaConfiguration;
+import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.configurations.SchemaConfiguration;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -11,13 +11,13 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-class SomeSchema extends SchemaValidator {
+class SomeSchema extends JsonSchema {
     static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
         String.class
     ));
 }
 
-public class SchemaValidatorTest {
+public class JsonSchemaTest {
 
     @Test
     public void testValidateSucceeds() {
@@ -29,15 +29,14 @@ public class SchemaValidatorTest {
                 new PathToSchemasMap(),
                 new LinkedHashSet<>()
         );
-        PathToSchemasMap pathToSchemas = SchemaValidator.validate(
+        PathToSchemasMap pathToSchemas = JsonSchema.validate(
                 SomeSchema.class,
                 "hi",
                 validationMetadata
         );
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
-        LinkedHashMap<Class<?>, Void> validatedClasses = new LinkedHashMap<>();
+        LinkedHashMap<Class<? extends JsonSchema>, Void> validatedClasses = new LinkedHashMap<>();
         validatedClasses.put(SomeSchema.class, null);
-        validatedClasses.put(String.class, null);
         expectedPathToSchemas.put(pathToItem, validatedClasses);
         Assert.assertEquals(pathToSchemas, expectedPathToSchemas);
     }

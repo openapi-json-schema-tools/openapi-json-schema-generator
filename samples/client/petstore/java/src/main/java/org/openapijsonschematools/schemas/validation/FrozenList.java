@@ -1,4 +1,4 @@
-package {{{packageName}}}.schemas;
+package org.openapijsonschematools.schemas.validation;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.schemas.FrozenList;
 import {{{packageName}}}.schemas.StringJsonSchema;
 
 import java.util.ArrayList;
@@ -29,7 +28,7 @@ public class ItemsValidatorTest {
         FrozenList<Object> arg = new FrozenList<>(mutableList);
         final ItemsValidator validator = new ItemsValidator();
         PathToSchemasMap pathToSchemas = validator.validate(
-                SchemaValidator.class,
+                JsonSchema.class,
                 arg,
                 StringJsonSchema.class,
                 validationMetadata,
@@ -38,8 +37,7 @@ public class ItemsValidatorTest {
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
         expectedPathToItem.add(0);
-        LinkedHashMap<Class<?>, Void> expectedClasses = new LinkedHashMap<>();
-        expectedClasses.put(String.class, null);
+        LinkedHashMap<Class<? extends JsonSchema>, Void> expectedClasses = new LinkedHashMap<>();
         expectedClasses.put(StringJsonSchema.class, null);
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
         expectedPathToSchemas.put(expectedPathToItem, expectedClasses);
@@ -58,7 +56,7 @@ public class ItemsValidatorTest {
         );
         final ItemsValidator validator = new ItemsValidator();
         PathToSchemasMap pathToSchemas = validator.validate(
-                SchemaValidator.class,
+                JsonSchema.class,
                 1,
                 StringJsonSchema.class,
                 validationMetadata,
@@ -82,7 +80,7 @@ public class ItemsValidatorTest {
         FrozenList<Object> arg = new FrozenList<>(mutableList);
         final ItemsValidator validator = new ItemsValidator();
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
-                SchemaValidator.class,
+                JsonSchema.class,
                 arg,
                 StringJsonSchema.class,
                 validationMetadata,

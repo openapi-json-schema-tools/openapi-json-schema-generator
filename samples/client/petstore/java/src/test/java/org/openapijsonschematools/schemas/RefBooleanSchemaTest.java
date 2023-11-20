@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 class RefBooleanSchema {
     public class RefBooleanSchema1 extends BooleanJsonSchema{}
@@ -26,7 +27,7 @@ public class RefBooleanSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validate(
+        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validateObject(
                 RefBooleanSchema.RefBooleanSchema1.class, (Void) null, configuration
         ));
     }

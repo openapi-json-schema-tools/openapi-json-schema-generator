@@ -11,9 +11,9 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.paths.userlogin.get.responses.response200.headers.xexpiresafter.XExpiresAfterSchema;
 import org.openapijsonschematools.paths.userlogin.get.responses.response200.headers.xratelimit.content.applicationjson.XRateLimitSchema;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.FrozenMap;
-import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
+import org.openapijsonschematools.schemas.validation.FrozenMap;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 public class Headers {
     // nest classes so all schemas and input/output classes can be public

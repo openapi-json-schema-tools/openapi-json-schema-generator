@@ -11,9 +11,9 @@ import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.
 import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter13.Schema13;
 import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter9.Schema9;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.FrozenMap;
-import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
+import org.openapijsonschematools.schemas.validation.FrozenMap;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 public class PathParameters {
     // nest classes so all schemas and input/output classes can be public

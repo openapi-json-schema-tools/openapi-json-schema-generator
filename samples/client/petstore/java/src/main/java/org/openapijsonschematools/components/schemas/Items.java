@@ -3,9 +3,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.FrozenList;
-import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.MapJsonSchema;
+import org.openapijsonschematools.schemas.validation.FrozenList;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 public class Items {
     // nest classes so all schemas and input/output classes can be public

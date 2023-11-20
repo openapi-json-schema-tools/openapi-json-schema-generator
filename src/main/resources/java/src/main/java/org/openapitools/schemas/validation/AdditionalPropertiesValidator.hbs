@@ -1,7 +1,5 @@
 package {{{packageName}}}.schemas.validation;
 
-import {{{packageName}}}.schemas.JsonSchema;
-
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -11,7 +9,7 @@ import java.util.Set;
 
 public class AdditionalPropertiesValidator implements KeywordValidator {
     @Override
-    public PathToSchemasMap validate(Class<? extends SchemaValidator> cls, Object arg, Object constraint, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, Object constraint, ValidationMetadata validationMetadata, Object extra) {
         if (!(arg instanceof Map)) {
             return null;
         }
@@ -39,7 +37,7 @@ public class AdditionalPropertiesValidator implements KeywordValidator {
                 // todo add_deeper_validated_schemas
                 continue;
             }
-            PathToSchemasMap otherPathToSchemas = SchemaValidator.validate(addPropSchema, propValue, propValidationMetadata);
+            PathToSchemasMap otherPathToSchemas = JsonSchema.validate(addPropSchema, propValue, propValidationMetadata);
             pathToSchemas.update(otherPathToSchemas);
         }
         return pathToSchemas;

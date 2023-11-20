@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.schemas.FrozenMap;
 import {{{packageName}}}.schemas.StringJsonSchema;
 
 import java.util.ArrayList;
@@ -34,7 +33,7 @@ public class AdditionalPropertiesValidatorTest {
         FrozenMap<String, Object> arg = new FrozenMap<>(mutableMap);
         final AdditionalPropertiesValidator validator = new AdditionalPropertiesValidator();
         PathToSchemasMap pathToSchemas = validator.validate(
-                SchemaValidator.class,
+                JsonSchema.class,
                 arg,
                 StringJsonSchema.class,
                 validationMetadata,
@@ -43,8 +42,7 @@ public class AdditionalPropertiesValidatorTest {
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
         expectedPathToItem.add("someAddProp");
-        LinkedHashMap<Class<?>, Void> expectedClasses = new LinkedHashMap<>();
-        expectedClasses.put(String.class, null);
+        LinkedHashMap<Class<? extends JsonSchema>, Void> expectedClasses = new LinkedHashMap<>();
         expectedClasses.put(StringJsonSchema.class, null);
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
         expectedPathToSchemas.put(expectedPathToItem, expectedClasses);
@@ -63,7 +61,7 @@ public class AdditionalPropertiesValidatorTest {
         );
         final AdditionalPropertiesValidator validator = new AdditionalPropertiesValidator();
         PathToSchemasMap pathToSchemas = validator.validate(
-                SchemaValidator.class,
+                JsonSchema.class,
                 1,
                 StringJsonSchema.class,
                 validationMetadata,
@@ -91,7 +89,7 @@ public class AdditionalPropertiesValidatorTest {
         FrozenMap<String, Object> arg = new FrozenMap<>(mutableMap);
         final AdditionalPropertiesValidator validator = new AdditionalPropertiesValidator();
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
-                SchemaValidator.class,
+                JsonSchema.class,
                 arg,
                 StringJsonSchema.class,
                 validationMetadata,

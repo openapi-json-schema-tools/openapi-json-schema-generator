@@ -22,7 +22,7 @@ public class TypeValidatorTest {
                 new LinkedHashSet<>()
         );
         PathToSchemasMap pathToSchemasMap = validator.validate(
-                SchemaValidator.class,
+                JsonSchema.class,
                 "hi",
                 value,
                 validationMetadata,
@@ -43,7 +43,7 @@ public class TypeValidatorTest {
                 new LinkedHashSet<>()
         );
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
-                SchemaValidator.class,
+                JsonSchema.class,
                 1,
                 value,
                 validationMetadata,
