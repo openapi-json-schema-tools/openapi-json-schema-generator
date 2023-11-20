@@ -58,7 +58,7 @@ public class Whale {
         protected static WhaleMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new WhaleMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static WhaleMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Whale1.class, arg, configuration);
         }
     }

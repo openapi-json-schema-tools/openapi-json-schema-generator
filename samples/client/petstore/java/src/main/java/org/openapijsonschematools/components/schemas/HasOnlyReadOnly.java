@@ -45,7 +45,7 @@ public class HasOnlyReadOnly {
         protected static HasOnlyReadOnlyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new HasOnlyReadOnlyMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static HasOnlyReadOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(HasOnlyReadOnly1.class, arg, configuration);
         }
     }

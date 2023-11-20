@@ -144,7 +144,7 @@ public class ArrayTest {
         protected static ArrayTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ArrayTestMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ArrayTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayTest1.class, arg, configuration);
         }
     }

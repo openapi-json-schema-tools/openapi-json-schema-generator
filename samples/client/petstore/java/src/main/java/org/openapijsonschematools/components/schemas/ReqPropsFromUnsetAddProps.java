@@ -36,7 +36,7 @@ public class ReqPropsFromUnsetAddProps {
         protected static ReqPropsFromUnsetAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ReqPropsFromUnsetAddPropsMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ReqPropsFromUnsetAddPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ReqPropsFromUnsetAddProps1.class, arg, configuration);
         }
     }

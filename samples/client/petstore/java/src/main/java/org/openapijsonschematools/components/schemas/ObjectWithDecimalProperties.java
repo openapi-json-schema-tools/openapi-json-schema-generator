@@ -43,7 +43,7 @@ public class ObjectWithDecimalProperties {
         protected static ObjectWithDecimalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithDecimalPropertiesMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectWithDecimalPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithDecimalProperties1.class, arg, configuration);
         }
     }

@@ -101,7 +101,7 @@ public class ObjectWithInlineCompositionProperty {
         protected static ObjectWithInlineCompositionPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithInlineCompositionPropertyMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectWithInlineCompositionPropertyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithInlineCompositionProperty1.class, arg, configuration);
         }
     }

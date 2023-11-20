@@ -74,7 +74,7 @@ public class PaginatedResultMyObjectDto {
         protected static PaginatedResultMyObjectDtoMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new PaginatedResultMyObjectDtoMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static PaginatedResultMyObjectDtoMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(PaginatedResultMyObjectDto1.class, arg, configuration);
         }
     }

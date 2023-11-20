@@ -49,7 +49,7 @@ public class DanishPig {
         protected static DanishPigMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new DanishPigMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static DanishPigMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DanishPig1.class, arg, configuration);
         }
     }

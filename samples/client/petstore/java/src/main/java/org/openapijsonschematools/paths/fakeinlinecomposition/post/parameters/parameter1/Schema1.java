@@ -95,7 +95,7 @@ public class Schema1 {
         protected static SchemaMap1 getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new SchemaMap1(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static SchemaMap1 validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema11.class, arg, configuration);
         }
     }

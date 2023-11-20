@@ -43,7 +43,7 @@ public class PublicKey {
         protected static PublicKeyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new PublicKeyMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static PublicKeyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(PublicKey1.class, arg, configuration);
         }
     }

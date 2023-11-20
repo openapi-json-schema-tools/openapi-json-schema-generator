@@ -60,7 +60,7 @@ public class Apple {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Apple1.class, arg, configuration);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AppleMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Apple1.class, arg, configuration);
         }
     }}

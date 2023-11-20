@@ -49,7 +49,7 @@ public class ObjectModelWithArgAndArgsProperties {
         protected static ObjectModelWithArgAndArgsPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectModelWithArgAndArgsPropertiesMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectModelWithArgAndArgsPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectModelWithArgAndArgsProperties1.class, arg, configuration);
         }
     }

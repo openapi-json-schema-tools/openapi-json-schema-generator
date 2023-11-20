@@ -42,7 +42,7 @@ public class PathParameters {
         protected static PathParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new PathParametersMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static PathParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(PathParameters1.class, arg, configuration);
         }
     }

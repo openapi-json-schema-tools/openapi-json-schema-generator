@@ -41,7 +41,7 @@ public class NumberOnly {
         protected static NumberOnlyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new NumberOnlyMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static NumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberOnly1.class, arg, configuration);
         }
     }

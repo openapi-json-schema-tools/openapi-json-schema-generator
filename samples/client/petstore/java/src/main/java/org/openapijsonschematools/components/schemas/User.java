@@ -159,7 +159,7 @@ public class User {
         protected static UserMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new UserMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static UserMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(User1.class, arg, configuration);
         }
     }

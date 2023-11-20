@@ -54,7 +54,7 @@ public class Animal {
         protected static AnimalMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AnimalMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AnimalMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Animal1.class, arg, configuration);
         }
     }

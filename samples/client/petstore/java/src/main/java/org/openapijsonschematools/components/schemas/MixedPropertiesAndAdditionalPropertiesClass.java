@@ -37,7 +37,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         protected static MapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MapMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(MapSchema.class, arg, configuration);
         }
     }
@@ -70,7 +70,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         protected static MixedPropertiesAndAdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MixedPropertiesAndAdditionalPropertiesClassMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MixedPropertiesAndAdditionalPropertiesClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(MixedPropertiesAndAdditionalPropertiesClass1.class, arg, configuration);
         }
     }

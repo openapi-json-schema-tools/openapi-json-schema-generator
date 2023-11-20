@@ -41,7 +41,7 @@ public class ObjectModelWithRefProps {
         protected static ObjectModelWithRefPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectModelWithRefPropsMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectModelWithRefPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectModelWithRefProps1.class, arg, configuration);
         }
     }

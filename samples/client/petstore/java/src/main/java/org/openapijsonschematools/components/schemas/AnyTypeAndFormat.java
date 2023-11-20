@@ -509,7 +509,7 @@ public class AnyTypeAndFormat {
         protected static AnyTypeAndFormatMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AnyTypeAndFormatMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AnyTypeAndFormatMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AnyTypeAndFormat1.class, arg, configuration);
         }
     }

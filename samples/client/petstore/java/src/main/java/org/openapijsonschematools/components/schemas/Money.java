@@ -53,7 +53,7 @@ public class Money {
         protected static MoneyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MoneyMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MoneyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Money1.class, arg, configuration);
         }
     }

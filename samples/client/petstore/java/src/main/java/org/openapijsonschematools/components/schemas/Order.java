@@ -70,7 +70,7 @@ public class Order {
         protected static OrderMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new OrderMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static OrderMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Order1.class, arg, configuration);
         }
     }

@@ -50,7 +50,7 @@ public class ApiResponseSchema {
         protected static ApiResponseMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ApiResponseMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ApiResponseMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ApiResponseSchema1.class, arg, configuration);
         }
     }

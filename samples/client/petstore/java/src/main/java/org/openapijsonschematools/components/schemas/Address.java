@@ -37,7 +37,7 @@ public class Address {
         protected static AddressMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AddressMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AddressMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Address1.class, arg, configuration);
         }
     }

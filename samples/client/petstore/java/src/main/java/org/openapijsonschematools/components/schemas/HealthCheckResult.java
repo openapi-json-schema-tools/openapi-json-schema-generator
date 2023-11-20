@@ -52,7 +52,7 @@ public class HealthCheckResult {
         protected static HealthCheckResultMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new HealthCheckResultMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static HealthCheckResultMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(HealthCheckResult1.class, arg, configuration);
         }
     }

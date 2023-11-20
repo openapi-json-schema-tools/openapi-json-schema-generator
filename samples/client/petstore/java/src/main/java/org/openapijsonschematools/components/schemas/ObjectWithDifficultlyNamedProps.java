@@ -56,7 +56,7 @@ public class ObjectWithDifficultlyNamedProps {
         protected static ObjectWithDifficultlyNamedPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithDifficultlyNamedPropsMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectWithDifficultlyNamedPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithDifficultlyNamedProps1.class, arg, configuration);
         }
     }

@@ -38,7 +38,7 @@ public class SelfReferencingObjectModel {
         protected static SelfReferencingObjectModelMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new SelfReferencingObjectModelMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static SelfReferencingObjectModelMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(SelfReferencingObjectModel1.class, arg, configuration);
         }
     }

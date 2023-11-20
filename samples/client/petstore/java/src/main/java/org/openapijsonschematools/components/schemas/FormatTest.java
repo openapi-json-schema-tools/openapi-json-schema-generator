@@ -268,7 +268,7 @@ public class FormatTest {
         protected static FormatTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new FormatTestMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FormatTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(FormatTest1.class, arg, configuration);
         }
     }

@@ -54,7 +54,7 @@ public class Category {
         protected static CategoryMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new CategoryMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static CategoryMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Category1.class, arg, configuration);
         }
     }

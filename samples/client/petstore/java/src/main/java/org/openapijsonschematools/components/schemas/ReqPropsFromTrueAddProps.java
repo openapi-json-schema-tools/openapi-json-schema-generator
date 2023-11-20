@@ -41,7 +41,7 @@ public class ReqPropsFromTrueAddProps {
         protected static ReqPropsFromTrueAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ReqPropsFromTrueAddPropsMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ReqPropsFromTrueAddPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ReqPropsFromTrueAddProps1.class, arg, configuration);
         }
     }

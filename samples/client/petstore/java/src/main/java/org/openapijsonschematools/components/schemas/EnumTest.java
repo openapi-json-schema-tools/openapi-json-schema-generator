@@ -104,7 +104,7 @@ public class EnumTest {
         protected static EnumTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new EnumTestMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static EnumTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(EnumTest1.class, arg, configuration);
         }
     }

@@ -59,7 +59,7 @@ public class FileSchemaTestClass {
         protected static FileSchemaTestClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new FileSchemaTestClassMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FileSchemaTestClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(FileSchemaTestClass1.class, arg, configuration);
         }
     }

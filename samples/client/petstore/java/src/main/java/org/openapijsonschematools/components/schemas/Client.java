@@ -41,7 +41,7 @@ public class Client {
         protected static ClientMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ClientMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ClientMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Client1.class, arg, configuration);
         }
     }

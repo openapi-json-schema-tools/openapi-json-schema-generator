@@ -44,7 +44,7 @@ public class ObjWithRequiredProps {
         protected static ObjWithRequiredPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjWithRequiredPropsMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjWithRequiredPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjWithRequiredProps1.class, arg, configuration);
         }
     }

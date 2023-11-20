@@ -61,7 +61,7 @@ public class Capitalization {
         protected static CapitalizationMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new CapitalizationMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static CapitalizationMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Capitalization1.class, arg, configuration);
         }
     }

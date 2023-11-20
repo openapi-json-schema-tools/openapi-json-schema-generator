@@ -46,7 +46,7 @@ public class ObjectWithNonIntersectingValues {
         protected static ObjectWithNonIntersectingValuesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithNonIntersectingValuesMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectWithNonIntersectingValuesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithNonIntersectingValues1.class, arg, configuration);
         }
     }

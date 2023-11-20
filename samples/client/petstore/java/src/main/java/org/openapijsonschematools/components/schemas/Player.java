@@ -44,7 +44,7 @@ public class Player {
         protected static PlayerMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new PlayerMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static PlayerMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Player1.class, arg, configuration);
         }
     }

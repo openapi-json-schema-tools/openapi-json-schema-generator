@@ -37,7 +37,7 @@ public class StringBooleanMap {
         protected static StringBooleanMapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new StringBooleanMapMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static StringBooleanMapMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(StringBooleanMap1.class, arg, configuration);
         }
     }

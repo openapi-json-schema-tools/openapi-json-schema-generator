@@ -46,7 +46,7 @@ public class FromSchema {
         protected static FromSchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new FromSchemaMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FromSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(FromSchema1.class, arg, configuration);
         }
     }

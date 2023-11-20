@@ -43,7 +43,7 @@ public class File {
         protected static FileMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new FileMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FileMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(File1.class, arg, configuration);
         }
     }

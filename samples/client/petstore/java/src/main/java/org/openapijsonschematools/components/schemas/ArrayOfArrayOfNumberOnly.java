@@ -81,7 +81,7 @@ public class ArrayOfArrayOfNumberOnly {
         protected static ArrayOfArrayOfNumberOnlyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ArrayOfArrayOfNumberOnlyMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ArrayOfArrayOfNumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayOfArrayOfNumberOnly1.class, arg, configuration);
         }
     }

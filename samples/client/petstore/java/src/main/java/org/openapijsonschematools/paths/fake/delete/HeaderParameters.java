@@ -44,7 +44,7 @@ public class HeaderParameters {
         protected static HeaderParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new HeaderParametersMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static HeaderParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(HeaderParameters1.class, arg, configuration);
         }
     }

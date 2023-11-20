@@ -46,7 +46,7 @@ public class Tag {
         protected static TagMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new TagMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static TagMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Tag1.class, arg, configuration);
         }
     }

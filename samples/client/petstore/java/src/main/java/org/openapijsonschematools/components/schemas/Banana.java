@@ -44,7 +44,7 @@ public class Banana {
         protected static BananaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new BananaMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static BananaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Banana1.class, arg, configuration);
         }
     }

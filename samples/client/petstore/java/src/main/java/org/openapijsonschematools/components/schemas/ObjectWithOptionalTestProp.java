@@ -41,7 +41,7 @@ public class ObjectWithOptionalTestProp {
         protected static ObjectWithOptionalTestPropMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithOptionalTestPropMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectWithOptionalTestPropMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithOptionalTestProp1.class, arg, configuration);
         }
     }

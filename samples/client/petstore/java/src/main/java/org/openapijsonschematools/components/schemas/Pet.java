@@ -108,7 +108,7 @@ public class Pet {
         protected static PetMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new PetMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static PetMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Pet1.class, arg, configuration);
         }
     }

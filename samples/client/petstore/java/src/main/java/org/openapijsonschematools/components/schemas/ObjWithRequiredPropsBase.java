@@ -44,7 +44,7 @@ public class ObjWithRequiredPropsBase {
         protected static ObjWithRequiredPropsBaseMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjWithRequiredPropsBaseMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjWithRequiredPropsBaseMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjWithRequiredPropsBase1.class, arg, configuration);
         }
     }

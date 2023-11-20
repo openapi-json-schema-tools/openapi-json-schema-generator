@@ -36,7 +36,7 @@ public class AdditionalPropertiesValidator {
         protected static Schema0Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new Schema0Map(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static Schema0Map validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema0.class, arg, configuration);
         }
     }
@@ -109,7 +109,7 @@ public class AdditionalPropertiesValidator {
         protected static Schema1Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new Schema1Map(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static Schema1Map validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }
@@ -182,7 +182,7 @@ public class AdditionalPropertiesValidator {
         protected static Schema2Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new Schema2Map(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static Schema2Map validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema2.class, arg, configuration);
         }
     }

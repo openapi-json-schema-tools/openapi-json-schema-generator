@@ -47,7 +47,7 @@ public class CookieParameters {
         protected static CookieParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new CookieParametersMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static CookieParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(CookieParameters1.class, arg, configuration);
         }
     }

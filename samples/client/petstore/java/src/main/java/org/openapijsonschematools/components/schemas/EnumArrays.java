@@ -77,7 +77,7 @@ public class EnumArrays {
         protected static EnumArraysMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new EnumArraysMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static EnumArraysMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(EnumArrays1.class, arg, configuration);
         }
     }

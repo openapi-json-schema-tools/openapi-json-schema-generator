@@ -45,7 +45,7 @@ public class ScaleneTriangle {
         protected static Schema1Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new Schema1Map(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static Schema1Map validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }

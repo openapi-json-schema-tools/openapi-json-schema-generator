@@ -67,7 +67,7 @@ public class JSONPatchRequestAddReplaceTest {
         protected static JSONPatchRequestAddReplaceTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new JSONPatchRequestAddReplaceTestMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static JSONPatchRequestAddReplaceTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JSONPatchRequestAddReplaceTest1.class, arg, configuration);
         }
     }

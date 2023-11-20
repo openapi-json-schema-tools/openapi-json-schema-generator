@@ -37,7 +37,7 @@ public class Foo {
         protected static FooMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new FooMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FooMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Foo1.class, arg, configuration);
         }
     }

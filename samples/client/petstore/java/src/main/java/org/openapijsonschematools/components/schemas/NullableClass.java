@@ -249,7 +249,7 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectNullableProp.class, arg, configuration);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectNullablePropMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectNullableProp.class, arg, configuration);
         }
     }    
@@ -285,7 +285,7 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectAndItemsNullableProp.class, arg, configuration);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectAndItemsNullablePropMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectAndItemsNullableProp.class, arg, configuration);
         }
     }    
@@ -320,7 +320,7 @@ public class NullableClass {
         protected static ObjectItemsNullableMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectItemsNullableMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectItemsNullableMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectItemsNullable.class, arg, configuration);
         }
     }
@@ -363,7 +363,7 @@ public class NullableClass {
         protected static NullableClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new NullableClassMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static NullableClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NullableClass1.class, arg, configuration);
         }
     }

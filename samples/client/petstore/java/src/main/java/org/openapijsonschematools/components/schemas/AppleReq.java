@@ -56,7 +56,7 @@ public class AppleReq {
         protected static AppleReqMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AppleReqMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AppleReqMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AppleReq1.class, arg, configuration);
         }
     }

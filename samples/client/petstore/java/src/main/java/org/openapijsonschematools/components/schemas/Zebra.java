@@ -64,7 +64,7 @@ public class Zebra {
         protected static ZebraMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ZebraMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ZebraMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Zebra1.class, arg, configuration);
         }
     }

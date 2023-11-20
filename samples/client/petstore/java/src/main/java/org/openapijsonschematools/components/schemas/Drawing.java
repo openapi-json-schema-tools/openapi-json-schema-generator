@@ -62,7 +62,7 @@ public class Drawing {
         protected static DrawingMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new DrawingMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static DrawingMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Drawing1.class, arg, configuration);
         }
     }

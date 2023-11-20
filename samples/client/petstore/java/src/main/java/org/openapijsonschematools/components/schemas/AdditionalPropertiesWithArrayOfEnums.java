@@ -54,7 +54,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
         protected static AdditionalPropertiesWithArrayOfEnumsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AdditionalPropertiesWithArrayOfEnumsMap(arg);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AdditionalPropertiesWithArrayOfEnumsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalPropertiesWithArrayOfEnums1.class, arg, configuration);
         }
     }
