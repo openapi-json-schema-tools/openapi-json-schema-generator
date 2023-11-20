@@ -82,7 +82,7 @@ public abstract class JsonSchema extends SchemaValidator {
       }
    }
 
-   private static PathToSchemasMap getPathToSchemas(Class<JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, PathToTypeMap pathToType) {
+   private static PathToSchemasMap getPathToSchemas(Class<? extends JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, PathToTypeMap pathToType) {
       PathToSchemasMap pathToSchemasMap = new PathToSchemasMap();
       if (validationMetadata.validationRanEarlier(cls)) {
          // todo add deeper validated schemas
@@ -107,11 +107,10 @@ public abstract class JsonSchema extends SchemaValidator {
       return pathToSchemasMap;
    }
 
-   private static FrozenMap<String, Object> getProperties(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+   private static FrozenMap<String, Object> getProperties(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
       LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
-      Map<String, Object> castArg = (Map<String, Object>) arg;
-      for(Map.Entry<String, Object> entry: castArg.entrySet()) {
-         String propertyName = entry.getKey();
+      for(Map.Entry<?, ?> entry: arg.entrySet()) {
+         String propertyName = (String) entry.getKey();
          List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
          propertyPathToItem.add(propertyName);
          Class<JsonSchema> propertyClass = (Class<JsonSchema>) pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
@@ -122,11 +121,10 @@ public abstract class JsonSchema extends SchemaValidator {
       return new FrozenMap<>(properties);
    }
 
-   private static FrozenList<Object> getItems(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+   private static FrozenList<Object> getItems(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
       ArrayList<Object> items = new ArrayList<>();
-      List<Object> castItems = (List<Object>) arg;
       int i = 0;
-      for (Object item: castItems) {
+      for (Object item: arg) {
          List<Object> itemPathToItem = new ArrayList<>(pathToItem);
          itemPathToItem.add(i);
          Class<JsonSchema> itemClass = (Class<JsonSchema>) pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
@@ -137,13 +135,9 @@ public abstract class JsonSchema extends SchemaValidator {
       return new FrozenList<>(items);
    }
 
-   private static Object getNewInstance(Class<JsonSchema> cls, Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-      if (!(arg instanceof Map || arg instanceof List)) {
-          // str, int, float, boolean, null, FileIO, bytes
-          return arg;
-      }
+   private static Object getNewInstance(Class<? extends JsonSchema> cls, Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
       if (arg instanceof Map) {
-         FrozenMap<String, Object> usedArg = getProperties(arg, pathToItem, pathToSchemas);
+         FrozenMap<String, Object> usedArg = getProperties((Map<?,?>) arg, pathToItem, pathToSchemas);
          try {
             Method method = cls.getDeclaredMethod("getMapOutputInstance", FrozenMap.class);
             return method.invoke(null, usedArg);
@@ -153,7 +147,7 @@ public abstract class JsonSchema extends SchemaValidator {
             throw new RuntimeException(e);
          }
       } else if (arg instanceof List) {
-         FrozenList<Object> usedArg = getItems(arg, pathToItem, pathToSchemas);
+         FrozenList<Object> usedArg = getItems((List<?>) arg, pathToItem, pathToSchemas);
          try {
             Method method = cls.getDeclaredMethod("getListOutputInstance", FrozenList.class);
             return method.invoke(null, usedArg);
@@ -163,61 +157,61 @@ public abstract class JsonSchema extends SchemaValidator {
             throw new RuntimeException(e);
          }
       }
-      return null;
+      // str, int, float, boolean, null, FileIO, bytes
+      return arg;
    }
 
-   protected static Void validate(Class<?> cls, Void arg, SchemaConfiguration configuration) {
+   protected static Void validate(Class<? extends JsonSchema> cls, Void arg, SchemaConfiguration configuration) {
       return (Void) validateObject(cls, arg, configuration);
    }
 
-   protected static Boolean validate(Class<?> cls, Boolean arg, SchemaConfiguration configuration) {
+   protected static Boolean validate(Class<? extends JsonSchema> cls, Boolean arg, SchemaConfiguration configuration) {
       return (Boolean) validateObject(cls, arg, configuration);
    }
 
-   protected static Integer validate(Class<?> cls, Integer arg, SchemaConfiguration configuration) {
+   protected static Integer validate(Class<? extends JsonSchema> cls, Integer arg, SchemaConfiguration configuration) {
       return (Integer) validateObject(cls, arg, configuration);
    }
 
-   protected static Long validate(Class<?> cls, Long arg, SchemaConfiguration configuration) {
+   protected static Long validate(Class<? extends JsonSchema> cls, Long arg, SchemaConfiguration configuration) {
       return (Long) validateObject(cls, arg, configuration);
    }
 
-   protected static Float validate(Class<?> cls, Float arg, SchemaConfiguration configuration) {
+   protected static Float validate(Class<? extends JsonSchema> cls, Float arg, SchemaConfiguration configuration) {
       return (Float) validateObject(cls, arg, configuration);
    }
 
-   protected static Double validate(Class<?> cls, Double arg, SchemaConfiguration configuration) {
+   protected static Double validate(Class<? extends JsonSchema> cls, Double arg, SchemaConfiguration configuration) {
       return (Double) validateObject(cls, arg, configuration);
    }
 
-   protected static String validate(Class<?> cls, String arg, SchemaConfiguration configuration) {
+   protected static String validate(Class<? extends JsonSchema> cls, String arg, SchemaConfiguration configuration) {
       return (String) validateObject(cls, arg, configuration);
    }
 
-   protected static String validate(Class<?> cls, ZonedDateTime arg, SchemaConfiguration configuration) {
+   protected static String validate(Class<? extends JsonSchema> cls, ZonedDateTime arg, SchemaConfiguration configuration) {
       return (String) validateObject(cls, arg, configuration);
    }
 
-   protected static String validate(Class<?> cls, LocalDate arg, SchemaConfiguration configuration) {
+   protected static String validate(Class<? extends JsonSchema> cls, LocalDate arg, SchemaConfiguration configuration) {
       return (String) validateObject(cls, arg, configuration);
    }
 
-   protected static String validate(Class<?> cls, UUID arg, SchemaConfiguration configuration) {
+   protected static String validate(Class<? extends JsonSchema> cls, UUID arg, SchemaConfiguration configuration) {
       return (String) validateObject(cls, arg, configuration);
    }
 
-   protected static <T extends FrozenMap> T validate(Class<?> cls, Map<String, Object> arg, SchemaConfiguration configuration) {
+   protected static <T extends FrozenMap> T validate(Class<? extends JsonSchema> cls, Map<String, Object> arg, SchemaConfiguration configuration) {
       return (T) validateObject(cls, arg, configuration);
    }
 
-   protected static <U extends FrozenList> U validate(Class<?> cls, List<Object> arg, SchemaConfiguration configuration) {
+   protected static <U extends FrozenList> U validate(Class<? extends JsonSchema> cls, List<Object> arg, SchemaConfiguration configuration) {
       return (U) validateObject(cls, arg, configuration);
    }
 
    // todo add bytes and FileIO
 
-   private static Object validateObject(Class<?> cls, Object arg, SchemaConfiguration configuration) {
-      Class<JsonSchema> castCls = (Class<JsonSchema>) cls;
+   private static Object validateObject(Class<? extends JsonSchema> cls, Object arg, SchemaConfiguration configuration) {
       if (arg instanceof Map || arg instanceof List) {
          // todo don't run validation if the instance is one of the class generic types
       }
@@ -233,8 +227,8 @@ public abstract class JsonSchema extends SchemaValidator {
               validatedPathToSchemas,
               new LinkedHashSet<>()
       );
-      PathToSchemasMap pathToSchemasMap = getPathToSchemas(castCls, castArg, validationMetadata, pathToType);
-      return getNewInstance(castCls, castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+      PathToSchemasMap pathToSchemasMap = getPathToSchemas(cls, castArg, validationMetadata, pathToType);
+      return getNewInstance(cls, castArg, validationMetadata.pathToItem(), pathToSchemasMap);
    }
 
 }
