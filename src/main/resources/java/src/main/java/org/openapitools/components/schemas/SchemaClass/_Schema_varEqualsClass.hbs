@@ -20,7 +20,7 @@ public class {{../jsonPathPiece.camelCase}} extends {{jsonPathPiece.camelCase}} 
                 {{/with}}
             {{/if}}
         {{else}}
-public class {{jsonPathPiece.camelCase}} implements JsonSchema {
+public class {{jsonPathPiece.camelCase}} extends JsonSchema {
             {{#if refInfo.refModule}}
                 {{#with getDeepestRef}}
     {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_validate includeContainer=true }}
@@ -63,7 +63,7 @@ public class {{../jsonPathPiece.camelCase}} extends UuidJsonSchema {}
 public class {{../jsonPathPiece.camelCase}} extends DecimalJsonSchema {}
                     {{/eq}}
                     {{#eq ../format "binary"}}
-public class {{jsonPathPiece.camelCase}} implements JsonSchema {
+public class {{jsonPathPiece.camelCase}} extends JsonSchema {
     // BinarySchema
 }
                     {{/eq}}

@@ -11,9 +11,9 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.paths.userlogin.get.responses.response200.headers.xexpiresafter.XExpiresAfterSchema;
 import org.openapijsonschematools.paths.userlogin.get.responses.response200.headers.xratelimit.content.applicationjson.XRateLimitSchema;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.schemas.FrozenMap;
-import org.openapijsonschematools.schemas.JsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
+import org.openapijsonschematools.schemas.validation.FrozenMap;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 public class Headers {
     // nest classes so all schemas and input/output classes can be public
@@ -23,24 +23,36 @@ public class Headers {
         // NotAnyTypeSchema
     
     
-    public class Headers1 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public static class HeadersMap extends FrozenMap<String, Object> {
+        HeadersMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+        public static HeadersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Headers1.validate(arg, configuration);
+        }
+    }    
+    
+    public class Headers1 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("X-Rate-Limit", XRateLimitSchema.XRateLimitSchema1.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("int32", Int32JsonContentTypeHeaderSchema.Int32JsonContentTypeHeaderSchema1.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("X-Expires-After", XExpiresAfterSchema.XExpiresAfterSchema1.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("ref-content-schema-header", StringWithValidation.StringWithValidation1.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("numberHeader", NumberHeaderSchema.NumberHeaderSchema1.class)
         ));
-        static final Set<String> required = new LinkedHashSet<>(Set.of(
+        public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "X-Rate-Limit",
             "int32",
             "ref-content-schema-header"
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        protected static HeadersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new HeadersMap(arg);
+        }
+        public static HeadersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Headers1.class, arg, configuration);
         }
     }

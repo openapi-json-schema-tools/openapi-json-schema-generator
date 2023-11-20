@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.FrozenMap;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -11,78 +13,79 @@ import java.util.AbstractMap;
 import java.util.Map;
 import java.util.Set;
 
-class ObjectWithPropsSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-        FrozenMap.class
-    ));
-    static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-        new AbstractMap.SimpleEntry<String, Class<?>>("someString", StringJsonSchema.class)
-    ));
-
-    public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(ObjectWithPropsSchema.class, arg, configuration);
-    }
-}
-
-class ObjectWithAddpropsSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-        FrozenMap.class
-    ));
-    static final Class<?> additionalProperties = StringJsonSchema.class;
-
-    public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(ObjectWithAddpropsSchema.class, arg, configuration);
-    }
-}
-
-class ObjectWithPropsAndAddpropsSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-        FrozenMap.class
-    ));
-    static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-        new AbstractMap.SimpleEntry<String, Class<?>>("someString", StringJsonSchema.class)
-    ));
-    static final Class<?> additionalProperties = BooleanJsonSchema.class;
-
-    public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(ObjectWithPropsAndAddpropsSchema.class, arg, configuration);
-    }
-}
-
-class ObjectWithOutputTypeSchemaMap extends FrozenMap<String, Object> {
-    ObjectWithOutputTypeSchemaMap(FrozenMap<? extends String, ?> m) {
-        super(m);
-    }
-
-    public static ObjectWithOutputTypeSchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
-        return ObjectWithOutputTypeSchema.validate(arg, configuration);
-    }
-}
-
-
-class ObjectWithOutputTypeSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-        FrozenMap.class
-    ));
-    static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-        new AbstractMap.SimpleEntry<String, Class<?>>("someString", StringJsonSchema.class)
-    ));
-
-    public static ObjectWithOutputTypeSchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
-        return new ObjectWithOutputTypeSchemaMap(arg);
-    }
-
-    public static ObjectWithOutputTypeSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(ObjectWithOutputTypeSchema.class, arg, configuration);
-    }
-}
 
 public class ObjectTypeSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
+    public class ObjectWithPropsSchema extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenMap.class
+        ));
+        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+            new AbstractMap.SimpleEntry<String, Class<?>>("someString", StringJsonSchema.class)
+        ));
+
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ObjectWithPropsSchema.class, arg, configuration);
+        }
+    }
+
+    public class ObjectWithAddpropsSchema extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenMap.class
+        ));
+        public static final Class<?> additionalProperties = StringJsonSchema.class;
+
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ObjectWithAddpropsSchema.class, arg, configuration);
+        }
+    }
+
+    public class ObjectWithPropsAndAddpropsSchema extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenMap.class
+        ));
+        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+            new AbstractMap.SimpleEntry<String, Class<?>>("someString", StringJsonSchema.class)
+        ));
+        public static final Class<?> additionalProperties = BooleanJsonSchema.class;
+
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ObjectWithPropsAndAddpropsSchema.class, arg, configuration);
+        }
+    }
+
+    public static class ObjectWithOutputTypeSchemaMap extends FrozenMap<String, Object> {
+        ObjectWithOutputTypeSchemaMap(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+
+        public static ObjectWithOutputTypeSchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return ObjectWithOutputTypeSchema.validate(arg, configuration);
+        }
+    }
+
+
+    public class ObjectWithOutputTypeSchema extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenMap.class
+        ));
+        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+            new AbstractMap.SimpleEntry<String, Class<?>>("someString", StringJsonSchema.class)
+        ));
+
+        protected static ObjectWithOutputTypeSchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new ObjectWithOutputTypeSchemaMap(arg);
+        }
+
+        public static ObjectWithOutputTypeSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ObjectWithOutputTypeSchema.class, arg, configuration);
+        }
+    }
+
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validate(
+        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validateObject(
                 ObjectWithPropsSchema.class, (Void) null, configuration
         ));
     }

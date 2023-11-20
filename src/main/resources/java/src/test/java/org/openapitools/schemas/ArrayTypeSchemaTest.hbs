@@ -4,54 +4,57 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.FrozenList;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-class ArrayWithItemsSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-        FrozenList.class
-    ));
-    static final Class<?> items = StringJsonSchema.class;
-
-    public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(ArrayWithItemsSchema.class, arg, configuration);
-    }
-}
-
-class ArrayWithOutputClsSchemaList extends FrozenList<String> {
-    ArrayWithOutputClsSchemaList(FrozenList<? extends String> m) {
-        super(m);
-    }
-
-    public static ArrayWithOutputClsSchemaList of(List<Object> arg, SchemaConfiguration configuration) {
-        return ArrayWithOutputClsSchema.validate(arg, configuration);
-    }
-}
-
-class ArrayWithOutputClsSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-        FrozenList.class
-    ));
-    static final Class<?> items = StringJsonSchema.class;
-
-    public static ArrayWithOutputClsSchemaList getListOutputInstance(FrozenList<? extends String> arg) {
-        return new ArrayWithOutputClsSchemaList(arg);
-    }
-
-    public static ArrayWithOutputClsSchemaList validate(List<Object> arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(ArrayWithOutputClsSchema.class, arg, configuration);
-    }
-}
 
 public class ArrayTypeSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
+    public class ArrayWithItemsSchema extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenList.class
+        ));
+        public static final Class<?> items = StringJsonSchema.class;
+
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ArrayWithItemsSchema.class, arg, configuration);
+        }
+    }
+
+    public static class ArrayWithOutputClsSchemaList extends FrozenList<String> {
+        ArrayWithOutputClsSchemaList(FrozenList<? extends String> m) {
+            super(m);
+        }
+
+        public static ArrayWithOutputClsSchemaList of(List<Object> arg, SchemaConfiguration configuration) {
+            return ArrayWithOutputClsSchema.validate(arg, configuration);
+        }
+    }
+
+    public class ArrayWithOutputClsSchema extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+            FrozenList.class
+        ));
+        public static final Class<?> items = StringJsonSchema.class;
+
+        protected static ArrayWithOutputClsSchemaList getListOutputInstance(FrozenList<? extends String> arg) {
+            return new ArrayWithOutputClsSchemaList(arg);
+        }
+
+        public static ArrayWithOutputClsSchemaList validate(List<Object> arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(ArrayWithOutputClsSchema.class, arg, configuration);
+        }
+    }
+
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validate(
+        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validateObject(
                 ArrayWithItemsSchema.class, (Void) null, configuration
         ));
     }

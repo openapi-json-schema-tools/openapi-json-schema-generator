@@ -1,0 +1,343 @@
+package org.openapijsonschematools.schemas.validation;
+
+import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.configurations.SchemaConfiguration;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Field;
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+import java.util.UUID;
+
+public abstract class JsonSchema {
+    static HashMap<String, KeywordValidator> keywordToValidator = new HashMap<>(Map.ofEntries(
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("allOf", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("anyOf", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("const", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("contains", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("default", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("dependentRequired", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("dependentSchemas", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("discriminator", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("enumInfo", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("exclusiveMaximum", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("exclusiveMinimum", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("format", new FormatValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("if_", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("then", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("else_", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("maxContains", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("maxItems", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("maxLength", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("maxProperties", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("maximum", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("minContains", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("minItems", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("minLength", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("minProperties", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("minimum", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("multipleOf", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("not", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("oneOf", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("pattern", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("patternProperties", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("prefixItems", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("required", new RequiredValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("type", new TypeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("uniqueItems", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("items", new ItemsValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("unevaluatedItems", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("properties", new PropertiesValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("propertyNames", new FakeValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("additionalProperties", new AdditionalPropertiesValidator()),
+        new AbstractMap.SimpleEntry<String, KeywordValidator>("unevaluatedProperties", new FakeValidator())
+    ));
+
+    protected static PathToSchemasMap validate(
+            Class<? extends JsonSchema> schemaCls,
+            Object arg,
+            ValidationMetadata validationMetadata
+    ) {
+        HashMap<String, Object> fieldsToValues = new HashMap<>();
+        LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
+        Class<? extends JsonSchema> usedSchemaCls = schemaCls;
+        Class<?> superclass = schemaCls.getSuperclass();
+        if (superclass != JsonSchema.class) {
+            // only ref with no adjacent properties supported at this time
+            usedSchemaCls = (Class<? extends JsonSchema>) superclass;
+        }
+        Field[] fields = usedSchemaCls.getDeclaredFields();
+        for (Field field : fields) {
+            String fieldName = field.getName();
+            if (fieldName.equals("keywordToValidator")) {
+                continue;
+            }
+            if (fieldName.equals("this$0")) {
+                continue;
+            }
+            if (disabledKeywords.contains(fieldName)) {
+                continue;
+            }
+            try {
+                Object value = field.get(null);
+                fieldsToValues.put(fieldName, value);
+            } catch (IllegalAccessException | IllegalArgumentException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        Object extra = null;
+        PathToSchemasMap pathToSchemas = new PathToSchemasMap();
+        for (Map.Entry<String, Object> entry: fieldsToValues.entrySet()) {
+            String jsonKeyword = entry.getKey();
+            Object constraint = entry.getValue();
+            if (jsonKeyword.equals("additionalProperties") && fieldsToValues.containsKey("properties")) {
+                extra = fieldsToValues.get("properties");
+            }
+            KeywordValidator validatorClass = keywordToValidator.get(jsonKeyword);
+            PathToSchemasMap otherPathToSchemas = validatorClass.validate(
+                    schemaCls,
+                    arg,
+                    constraint,
+                    validationMetadata,
+                    extra
+            );
+            if (otherPathToSchemas == null) {
+                continue;
+            }
+            pathToSchemas.update(otherPathToSchemas);
+        }
+        List<Object> pathToItem = validationMetadata.pathToItem();
+        if (!pathToSchemas.containsKey(pathToItem)) {
+            pathToSchemas.put(validationMetadata.pathToItem(), new LinkedHashMap<>());
+        }
+        pathToSchemas.get(pathToItem).put(schemaCls, null);
+
+        return pathToSchemas;
+    }
+
+   private static Object castToAllowedTypes(Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+      if (arg == null) {
+         pathSet.add(pathToItem);
+         return null;
+      } else if (arg instanceof String) {
+         pathSet.add(pathToItem);
+         return arg;
+      } else if (arg instanceof Map) {
+         pathSet.add(pathToItem);
+         LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
+         for (Map.Entry<?, ?> entry: ((Map<?, ?>) arg).entrySet()) {
+            String key = (String) entry.getKey();
+            Object val = entry.getValue();
+            List<Object> newPathToItem = new ArrayList<>(pathToItem);
+            newPathToItem.add(key);
+            Object fixedVal = castToAllowedTypes(val, newPathToItem, pathSet);
+            argFixed.put(key, fixedVal);
+         }
+         return new FrozenMap<>(argFixed);
+      } else if (arg instanceof Boolean) {
+         pathSet.add(pathToItem);
+         return arg;
+      } else if (arg instanceof Integer) {
+         pathSet.add(pathToItem);
+         return arg;
+      } else if (arg instanceof Long) {
+         pathSet.add(pathToItem);
+         return arg;
+      } else if (arg instanceof Float) {
+         pathSet.add(pathToItem);
+         return arg;
+      } else if (arg instanceof Double) {
+         pathSet.add(pathToItem);
+         return arg;
+      } else if (arg instanceof List) {
+         pathSet.add(pathToItem);
+         List<Object> argFixed = new ArrayList<>();
+         int i =0;
+         for (Object item: ((List<?>) arg).toArray()) {
+            List<Object> newPathToItem = new ArrayList<>(pathToItem);
+            newPathToItem.add(i);
+            Object fixedVal = castToAllowedTypes(item, newPathToItem, pathSet);
+            argFixed.add(fixedVal);
+            i += 1;
+         }
+         return new FrozenList<>(argFixed);
+      } else if (arg instanceof ZonedDateTime) {
+         pathSet.add(pathToItem);
+         return arg.toString();
+      } else if (arg instanceof LocalDate) {
+         pathSet.add(pathToItem);
+         return arg.toString();
+      } else if (arg instanceof UUID) {
+         pathSet.add(pathToItem);
+         return arg.toString();
+      } else {
+         Class<?> argClass = arg.getClass();
+         throw new RuntimeException("Invalid type passed in got input="+arg+" type="+argClass);
+      }
+   }
+
+   private static PathToSchemasMap getPathToSchemas(Class<? extends JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, Set<List<Object>> pathSet) {
+      PathToSchemasMap pathToSchemasMap = new PathToSchemasMap();
+      if (validationMetadata.validationRanEarlier(cls)) {
+         // todo add deeper validated schemas
+      } else {
+         PathToSchemasMap otherPathToSchemas = validate(cls, arg, validationMetadata);
+         pathToSchemasMap.update(otherPathToSchemas);
+         for (LinkedHashMap<Class<? extends JsonSchema>, Void> schemas: pathToSchemasMap.values()) {
+            Class<? extends JsonSchema> firstSchema = schemas.entrySet().iterator().next().getKey();
+            schemas.clear();
+            schemas.put(firstSchema, null);
+         }
+         Set<List<Object>> missingPaths = pathSet;
+         missingPaths.removeAll(pathToSchemasMap.keySet());
+         if (!missingPaths.isEmpty()) {
+            LinkedHashMap<Class<? extends JsonSchema>, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
+            unsetAnyTypeSchema.put(UnsetAnyTypeJsonSchema.class, null);
+            for (List<Object> pathToItem: missingPaths) {
+               pathToSchemasMap.put(pathToItem, unsetAnyTypeSchema);
+            }
+         }
+      }
+      return pathToSchemasMap;
+   }
+
+   private static FrozenMap<String, Object> getProperties(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+      LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+      for(Map.Entry<?, ?> entry: arg.entrySet()) {
+         String propertyName = (String) entry.getKey();
+         List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
+         propertyPathToItem.add(propertyName);
+         Class<? extends JsonSchema> propertyClass = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
+         Object value = entry.getValue();
+         Object castValue = getNewInstance(propertyClass, value, propertyPathToItem, pathToSchemas);
+         properties.put(propertyName, castValue);
+      }
+      return new FrozenMap<>(properties);
+   }
+
+   private static FrozenList<Object> getItems(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+      ArrayList<Object> items = new ArrayList<>();
+      int i = 0;
+      for (Object item: arg) {
+         List<Object> itemPathToItem = new ArrayList<>(pathToItem);
+         itemPathToItem.add(i);
+         Class<? extends JsonSchema> itemClass = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
+         Object castItem = getNewInstance(itemClass, item, itemPathToItem, pathToSchemas);
+         items.add(castItem);
+         i += 1;
+      }
+      return new FrozenList<>(items);
+   }
+
+   private static Object getNewInstance(Class<? extends JsonSchema> cls, Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+      if (arg instanceof Map) {
+         FrozenMap<String, Object> usedArg = getProperties((Map<?,?>) arg, pathToItem, pathToSchemas);
+         try {
+            Method method = cls.getDeclaredMethod("getMapOutputInstance", FrozenMap.class);
+            // needed because this is a protected method, but it is across packages
+            method.setAccessible(true);
+            return method.invoke(null, usedArg);
+         } catch (NoSuchMethodException e) {
+            return usedArg;
+         } catch (InvocationTargetException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+         }
+      } else if (arg instanceof List) {
+         FrozenList<Object> usedArg = getItems((List<?>) arg, pathToItem, pathToSchemas);
+         try {
+            Method method = cls.getDeclaredMethod("getListOutputInstance", FrozenList.class);
+            // needed because this is a protected method, but it is across packages
+            method.setAccessible(true);
+            return method.invoke(null, usedArg);
+         } catch (NoSuchMethodException e) {
+            return usedArg;
+         } catch (InvocationTargetException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+         }
+      }
+      // str, int, float, boolean, null, FileIO, bytes
+      return arg;
+   }
+
+   protected static Void validate(Class<? extends JsonSchema> cls, Void arg, SchemaConfiguration configuration) {
+      return (Void) validateObject(cls, arg, configuration);
+   }
+
+   protected static Boolean validate(Class<? extends JsonSchema> cls, Boolean arg, SchemaConfiguration configuration) {
+      return (Boolean) validateObject(cls, arg, configuration);
+   }
+
+   protected static Integer validate(Class<? extends JsonSchema> cls, Integer arg, SchemaConfiguration configuration) {
+      return (Integer) validateObject(cls, arg, configuration);
+   }
+
+   protected static Long validate(Class<? extends JsonSchema> cls, Long arg, SchemaConfiguration configuration) {
+      return (Long) validateObject(cls, arg, configuration);
+   }
+
+   protected static Float validate(Class<? extends JsonSchema> cls, Float arg, SchemaConfiguration configuration) {
+      return (Float) validateObject(cls, arg, configuration);
+   }
+
+   protected static Double validate(Class<? extends JsonSchema> cls, Double arg, SchemaConfiguration configuration) {
+      return (Double) validateObject(cls, arg, configuration);
+   }
+
+   protected static String validate(Class<? extends JsonSchema> cls, String arg, SchemaConfiguration configuration) {
+      return (String) validateObject(cls, arg, configuration);
+   }
+
+   protected static String validate(Class<? extends JsonSchema> cls, ZonedDateTime arg, SchemaConfiguration configuration) {
+      return (String) validateObject(cls, arg, configuration);
+   }
+
+   protected static String validate(Class<? extends JsonSchema> cls, LocalDate arg, SchemaConfiguration configuration) {
+      return (String) validateObject(cls, arg, configuration);
+   }
+
+   protected static String validate(Class<? extends JsonSchema> cls, UUID arg, SchemaConfiguration configuration) {
+      return (String) validateObject(cls, arg, configuration);
+   }
+
+   protected static <T extends FrozenMap> T validate(Class<? extends JsonSchema> cls, Map<String, Object> arg, SchemaConfiguration configuration) {
+      return (T) validateObject(cls, arg, configuration);
+   }
+
+   protected static <U extends FrozenList> U validate(Class<? extends JsonSchema> cls, List<Object> arg, SchemaConfiguration configuration) {
+      return (U) validateObject(cls, arg, configuration);
+   }
+
+   // todo add bytes and FileIO
+
+   public static Object validateObject(Class<? extends JsonSchema> cls, Object arg, SchemaConfiguration configuration) {
+      if (arg instanceof Map || arg instanceof List) {
+         // todo don't run validation if the instance is one of the class generic types
+      }
+      Set<List<Object>> pathSet = new HashSet();
+      List<Object> pathToItem = new ArrayList<>();
+      pathToItem.add("args[0]");
+      Object castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+      SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+      PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
+      ValidationMetadata validationMetadata = new ValidationMetadata(
+              pathToItem,
+              usedConfiguration,
+              validatedPathToSchemas,
+              new LinkedHashSet<>()
+      );
+      PathToSchemasMap pathToSchemasMap = getPathToSchemas(cls, castArg, validationMetadata, pathSet);
+      return getNewInstance(cls, castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+   }
+
+}

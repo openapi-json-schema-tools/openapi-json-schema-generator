@@ -1,0 +1,35 @@
+
+
+{{#if mapValueSchema}}
+    {{#if mapValueSchema.refInfo.refClass}}
+public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<String, {{#with mapValueSchema}}{{!> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="]):" }}{{/with}}Object> {
+    {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<? extends String, ?> m) {
+        super(m);
+    }
+    {{else}}
+public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<String, {{#with mapValueSchema}}{{!> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule=null endChar="]):" }}{{/with}}Object> {
+    {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<? extends String, ?> m) {
+        super(m);
+    }
+    {{/if}}
+{{else}}
+public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<String, Object> {
+    {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<? extends String, ?> m) {
+        super(m);
+    }
+{{/if}}
+    {{#eq optionalProperties null}}
+        {{#eq requiredProperties null}}
+            {{#if additionalProperties}}
+                {{#if additionalProperties.isBooleanSchemaFalse}}
+    // map with no key value pairs
+                {{/if}}
+            {{/if}}
+        {{/eq}}
+    {{/eq}}
+    public static {{mapOutputJsonPathPiece.camelCase}} of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        return {{jsonPathPiece.camelCase}}.validate(arg, configuration);
+    }
+    {{!> components/schemas/__new__ }}
+    {{!> components/schemas/_object_output_properties }}
+}

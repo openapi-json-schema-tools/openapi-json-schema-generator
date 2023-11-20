@@ -1,4 +1,4 @@
-static final Set<String> required = new LinkedHashSet<>(Set.of(
+public static final Set<String> required = new LinkedHashSet<>(Set.of(
 {{#each requiredProperties}}
     "{{{@key.original}}}"{{#unless @last}},{{/unless}}
 {{/each}}

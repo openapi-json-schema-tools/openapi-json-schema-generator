@@ -1,5 +1,5 @@
 {{#if types}}
-static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
     {{#each types}}
         {{#eq this "null"}}
     Void.class{{#unless @last}},{{/unless}}

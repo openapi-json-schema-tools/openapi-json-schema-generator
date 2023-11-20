@@ -178,6 +178,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         // if another schema $refs a schema in a parameter, the json path
         // and generated module must have the same parameter index as the spec
         sortParamsByRequiredFlag = Boolean.FALSE;
+        objectIOClassNamePiece = "Map";
+        arrayIOClassNamePiece = "List";
 
 
         // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata
@@ -299,30 +301,21 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         List<String> schemaSupportingFiles = new ArrayList<>();
         schemaSupportingFiles.add("AnyTypeJsonSchema");
         schemaSupportingFiles.add("BooleanJsonSchema");
-        schemaSupportingFiles.add("CustomIsoparser");
         schemaSupportingFiles.add("DateJsonSchema");
         schemaSupportingFiles.add("DateTimeJsonSchema");
         schemaSupportingFiles.add("DecimalJsonSchema");
         schemaSupportingFiles.add("DoubleJsonSchema");
         schemaSupportingFiles.add("FloatJsonSchema");
-        schemaSupportingFiles.add("FrozenList");
-        schemaSupportingFiles.add("FrozenMap");
         schemaSupportingFiles.add("Int32JsonSchema");
         schemaSupportingFiles.add("Int64JsonSchema");
         schemaSupportingFiles.add("IntJsonSchema");
-        schemaSupportingFiles.add("JsonSchema");
         schemaSupportingFiles.add("ListJsonSchema");
         schemaSupportingFiles.add("MapJsonSchema");
         schemaSupportingFiles.add("NotAnyTypeJsonSchema");
         schemaSupportingFiles.add("NullJsonSchema");
         schemaSupportingFiles.add("NumberJsonSchema");
-        schemaSupportingFiles.add("PathToSchemasMap");
-        schemaSupportingFiles.add("PathToTypeMap");
-        schemaSupportingFiles.add("SchemaValidator");
         schemaSupportingFiles.add("StringJsonSchema");
-        schemaSupportingFiles.add("UnsetAnyTypeJsonSchema");
         schemaSupportingFiles.add("UuidJsonSchema");
-        schemaSupportingFiles.add("ValidationMetadata");
         for (String schemaSupportingFile: schemaSupportingFiles) {
             supportingFiles.add(new SupportingFile(
                     "src/main/java/org/openapitools/schemas/"+schemaSupportingFile+".hbs",
@@ -334,14 +327,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         schemaTestSupportingFiles.add("AnyTypeSchemaTest");
         schemaTestSupportingFiles.add("ArrayTypeSchemaTest");
         schemaTestSupportingFiles.add("BooleanSchemaTest");
-        schemaTestSupportingFiles.add("CustomIsoparserTest");
         schemaTestSupportingFiles.add("ListSchemaTest");
         schemaTestSupportingFiles.add("MapSchemaTest");
         schemaTestSupportingFiles.add("NullSchemaTest");
         schemaTestSupportingFiles.add("NumberSchemaTest");
         schemaTestSupportingFiles.add("ObjectTypeSchemaTest");
         schemaTestSupportingFiles.add("RefBooleanSchemaTest");
-        schemaTestSupportingFiles.add("SchemaValidatorTest");
         for (String schemaTestSupportingFile: schemaTestSupportingFiles) {
             supportingFiles.add(new SupportingFile(
                     "src/test/java/org/openapitools/schemas/"+schemaTestSupportingFile+".hbs",
@@ -349,34 +340,43 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     schemaTestSupportingFile + ".java"));
         }
 
-        // keyword validators
+        // validation
         List<String> keywordValidatorFiles = new ArrayList<>();
         keywordValidatorFiles.add("AdditionalPropertiesValidator");
+        keywordValidatorFiles.add("CustomIsoparser");
         keywordValidatorFiles.add("FakeValidator");
         keywordValidatorFiles.add("FormatValidator");
+        keywordValidatorFiles.add("FrozenList");
+        keywordValidatorFiles.add("FrozenMap");
         keywordValidatorFiles.add("ItemsValidator");
+        keywordValidatorFiles.add("JsonSchema");
         keywordValidatorFiles.add("KeywordValidator");
+        keywordValidatorFiles.add("PathToSchemasMap");
         keywordValidatorFiles.add("PropertiesValidator");
         keywordValidatorFiles.add("RequiredValidator");
         keywordValidatorFiles.add("TypeValidator");
+        keywordValidatorFiles.add("UnsetAnyTypeJsonSchema");
+        keywordValidatorFiles.add("ValidationMetadata");
         for (String keywordValidatorFile: keywordValidatorFiles) {
             supportingFiles.add(new SupportingFile(
-                    "src/main/java/org/openapitools/schemas/validators/"+keywordValidatorFile+".hbs",
-                    packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
+                    "src/main/java/org/openapitools/schemas/validation/"+keywordValidatorFile+".hbs",
+                    packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validation",
                     keywordValidatorFile + ".java"));
         }
         // tests
         List<String> keywordValidatorTestFiles = new ArrayList<>();
         keywordValidatorTestFiles.add("AdditionalPropertiesValidatorTest");
+        keywordValidatorTestFiles.add("CustomIsoparserTest");
         keywordValidatorTestFiles.add("FormatValidatorTest");
         keywordValidatorTestFiles.add("ItemsValidatorTest");
         keywordValidatorTestFiles.add("PropertiesValidatorTest");
         keywordValidatorTestFiles.add("RequiredValidatorTest");
         keywordValidatorTestFiles.add("TypeValidatorTest");
+        keywordValidatorTestFiles.add("JsonSchemaTest");
         for (String keywordValidatorTestFile: keywordValidatorTestFiles) {
             supportingFiles.add(new SupportingFile(
-                    "src/test/java/org/openapitools/schemas/validators/"+keywordValidatorTestFile+".hbs",
-                    testPackagePath() + File.separatorChar + "schemas" + File.separatorChar + "validators",
+                    "src/test/java/org/openapitools/schemas/validation/"+keywordValidatorTestFile+".hbs",
+                    testPackagePath() + File.separatorChar + "schemas" + File.separatorChar + "validation",
                     keywordValidatorTestFile + ".java"));
         }
 
@@ -1178,8 +1178,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     if (schema.isSimpleBoolean()) {
                         imports.add("import "+packageName + ".schemas.BooleanJsonSchema;");
                     } else {
-                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
-                        imports.add("import "+packageName + ".schemas.JsonSchema;");
+                        addCustomSchemaImports(imports);
                         imports.add("import java.util.LinkedHashSet;");
                         imports.add("import java.util.Set;");
                     }
@@ -1187,8 +1186,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     if (schema.isSimpleNull()) {
                         imports.add("import "+packageName + ".schemas.NullJsonSchema;");
                     } else {
-                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
-                        imports.add("import "+packageName + ".schemas.JsonSchema;");
+                        addCustomSchemaImports(imports);
                         imports.add("import java.util.LinkedHashSet;");
                         imports.add("import java.util.Set;");
                     }
@@ -1202,8 +1200,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                             imports.add("import "+packageName + ".schemas.Int64JsonSchema;");
                         }
                     } else {
-                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
-                        imports.add("import "+packageName + ".schemas.JsonSchema;");
+                        addCustomSchemaImports(imports);
                         imports.add("import java.util.LinkedHashSet;");
                         imports.add("import java.util.Set;");
                     }
@@ -1221,8 +1218,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                             imports.add("import "+packageName + ".schemas.DoubleJsonSchema;");
                         }
                     } else {
-                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
-                        imports.add("import "+packageName + ".schemas.JsonSchema;");
+                        addCustomSchemaImports(imports);
                         imports.add("import java.util.LinkedHashSet;");
                         imports.add("import java.util.Set;");
                     }
@@ -1243,11 +1239,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                             imports.add("import "+packageName + ".schemas.StringJsonSchema;");
                         } else if (schema.format.equals("binary")) {
                             // todo implement this
-                            imports.add("import "+packageName + ".schemas.JsonSchema;");
+                            imports.add("import "+packageName + ".schemas.validation.JsonSchema;");
                         }
                     } else {
-                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
-                        imports.add("import "+packageName + ".schemas.JsonSchema;");
+                        addCustomSchemaImports(imports);
                         imports.add("import java.util.LinkedHashSet;");
                         imports.add("import java.util.Set;");
                         addStringSchemaImports(imports, schema);
@@ -1256,8 +1251,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     if (schema.isSimpleObject()) {
                         imports.add("import "+packageName + ".schemas.MapJsonSchema;");
                     } else {
-                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
-                        imports.add("import "+packageName + ".schemas.JsonSchema;");
+                        addCustomSchemaImports(imports);
                         imports.add("import java.util.LinkedHashSet;");
                         imports.add("import java.util.Set;");
                         addMapSchemaImports(imports, schema);
@@ -1266,16 +1260,14 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     if (schema.isSimpleArray()) {
                         imports.add("import "+packageName + ".schemas.ListJsonSchema;");
                     } else {
-                        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
-                        imports.add("import "+packageName + ".schemas.JsonSchema;");
+                        addCustomSchemaImports(imports);
                         imports.add("import java.util.LinkedHashSet;");
                         imports.add("import java.util.Set;");
                         addListSchemaImports(imports, schema);
                     }
                 }
             } else if (schema.types.size() > 1) {
-                imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
-                imports.add("import "+packageName + ".schemas.JsonSchema;");
+                addCustomSchemaImports(imports);
                 imports.add("import java.util.LinkedHashSet;");
                 imports.add("import java.util.Set;");
                 if (schema.types.contains("string")) {
@@ -1297,14 +1289,13 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             } else if (schema.isSimpleAnyType()) {
                 imports.add("import "+packageName + ".schemas.AnyTypeJsonSchema;");
             } else {
-                imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
-                imports.add("import "+packageName + ".schemas.JsonSchema;");
+                addCustomSchemaImports(imports);
                 imports.add("import java.time.LocalDate;");
                 imports.add("import java.time.ZonedDateTime;");
                 imports.add("import java.util.UUID;");
-                imports.add("import "+packageName + ".schemas.FrozenList;");
+                imports.add("import "+packageName + ".schemas.validation.FrozenList;");
                 imports.add("import java.util.List;");
-                imports.add("import "+packageName + ".schemas.FrozenMap;");
+                imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
                 imports.add("import java.util.Map;");
                 if (schema.properties != null) {
                     imports.add("import java.util.Map;");
@@ -1320,8 +1311,14 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         return imports;
     }
 
+    private void addCustomSchemaImports(Set<String> imports) {
+        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
+        imports.add("import "+packageName + ".schemas.validation.JsonSchema;");
+    }
+
+
     private void addMapSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import "+packageName + ".schemas.FrozenMap;");
+        imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
         imports.add("import java.util.Map;");
         if (schema.properties != null) {
             imports.add("import java.util.Map;");
@@ -1335,7 +1332,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     private void addListSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import "+packageName + ".schemas.FrozenList;");
+        imports.add("import "+packageName + ".schemas.validation.FrozenList;");
         imports.add("import java.util.List;");
     }
 

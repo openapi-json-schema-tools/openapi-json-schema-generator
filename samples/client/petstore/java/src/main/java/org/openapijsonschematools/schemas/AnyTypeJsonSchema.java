@@ -1,5 +1,8 @@
 package org.openapijsonschematools.schemas;
 
+import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.validation.FrozenMap;
+import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 
 import java.time.LocalDate;
@@ -9,7 +12,7 @@ import java.util.Map;
 import java.util.UUID;
 
 
-public class AnyTypeJsonSchema implements JsonSchema {
+public class AnyTypeJsonSchema extends JsonSchema {
     public static Void validate(Void arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(AnyTypeJsonSchema.class, arg, configuration);
     }

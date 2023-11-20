@@ -9,16 +9,16 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.FrozenList;
-import org.openapijsonschematools.schemas.FrozenMap;
-import org.openapijsonschematools.schemas.JsonSchema;
+import org.openapijsonschematools.schemas.validation.FrozenList;
+import org.openapijsonschematools.schemas.validation.FrozenMap;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 public class Schema1 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Schema01 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class Schema01 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             String.class
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
@@ -26,7 +26,7 @@ public class Schema1 {
         }
     }    
     
-    public class SomeProp1 implements JsonSchema {
+    public class SomeProp1 extends JsonSchema {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(SomeProp1.class, arg, configuration);
         }
@@ -76,14 +76,26 @@ public class Schema1 {
         }
     }    
     
-    public class Schema11 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public static class SchemaMap1 extends FrozenMap<String, Object> {
+        SchemaMap1(FrozenMap<? extends String, ?> m) {
+            super(m);
+        }
+        public static SchemaMap1 of(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return Schema11.validate(arg, configuration);
+        }
+    }    
+    
+    public class Schema11 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             FrozenMap.class
         ));
-        static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
+        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("someProp", SomeProp1.class)
         ));
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        protected static SchemaMap1 getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+            return new SchemaMap1(arg);
+        }
+        public static SchemaMap1 validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema11.class, arg, configuration);
         }
     }

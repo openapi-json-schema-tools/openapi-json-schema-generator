@@ -7,16 +7,16 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
-import org.openapijsonschematools.schemas.FrozenList;
-import org.openapijsonschematools.schemas.FrozenMap;
-import org.openapijsonschematools.schemas.JsonSchema;
+import org.openapijsonschematools.schemas.validation.FrozenList;
+import org.openapijsonschematools.schemas.validation.FrozenMap;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 public class Schema0 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Schema00 implements JsonSchema {
-        static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    public class Schema00 extends JsonSchema {
+        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
             String.class
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
@@ -24,7 +24,7 @@ public class Schema0 {
         }
     }    
     
-    public class Schema01 implements JsonSchema {
+    public class Schema01 extends JsonSchema {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema01.class, arg, configuration);
         }

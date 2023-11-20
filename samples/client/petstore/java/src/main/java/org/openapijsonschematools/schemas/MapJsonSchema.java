@@ -1,18 +1,16 @@
 package org.openapijsonschematools.schemas;
 
+import org.openapijsonschematools.schemas.validation.FrozenMap;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 
-import java.time.LocalDate;
-import java.time.ZonedDateTime;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.UUID;
 
 
-public class MapJsonSchema implements JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+public class MapJsonSchema extends JsonSchema {
+    public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
         FrozenMap.class
     ));
 

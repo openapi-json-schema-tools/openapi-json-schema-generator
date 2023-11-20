@@ -6,14 +6,26 @@ public static Void validate(Void arg, SchemaConfiguration configuration) {
 }
         {{/eq}}
         {{#eq this "object"}}
+            {{#if ../mapOutputJsonPathPiece}}
+public static {{../mapOutputJsonPathPiece.camelCase}} validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
+}
+            {{else}}
 public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
     return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
+            {{/if}}
         {{/eq}}
         {{#eq this "array"}}
+            {{#if ../arrayOutputJsonPathPiece}}
+public static {{../arrayOutputJsonPathPiece.camelCase}} validate(List<Object> arg, SchemaConfiguration configuration) {
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
+}
+            {{else}}
 public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
     return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
+            {{/if}}
         {{/eq}}
         {{#eq this "string" }}
             {{#eq ../format "binary"}}

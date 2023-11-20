@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.math.BigDecimal;
 
@@ -36,7 +37,7 @@ public class NumberSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validate(
+        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validateObject(
                 NumberJsonSchema.class, (Void) null, configuration
         ));
     }
