@@ -55,7 +55,7 @@ public class JSONPatchRequestRemove {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
         ));
         public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("path", Path.class),

@@ -31,7 +31,7 @@ public class ReqPropsFromUnsetAddProps {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
         ));
         public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "invalid-name",

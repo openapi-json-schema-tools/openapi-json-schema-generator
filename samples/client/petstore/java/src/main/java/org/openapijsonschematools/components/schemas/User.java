@@ -57,7 +57,7 @@ public class User {
         new KeywordEntry("type", new TypeValidator(Set.of(
             Void.class,
             FrozenMap.class
-        ))
+        )),
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithNoDeclaredPropsNullable.class, arg, configuration);
         }
@@ -142,7 +142,7 @@ public class User {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
         ));
         public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("id", Id.class),

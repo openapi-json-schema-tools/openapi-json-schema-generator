@@ -26,9 +26,9 @@ public class FileSchemaTestClass {
     
     public class Files extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)),
+            new KeywordEntry("items", new ItemsValidator(File.File1.class)
         ));
-        public static final Class<?> items = File.File1.class;
         protected static FilesList getListOutputInstance(FrozenList<Object> arg) {
             return new FilesList(arg);
         }
@@ -54,7 +54,7 @@ public class FileSchemaTestClass {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
         ));
         public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("file", File.File1.class),

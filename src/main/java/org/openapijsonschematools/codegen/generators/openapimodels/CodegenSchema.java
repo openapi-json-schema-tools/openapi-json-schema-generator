@@ -141,10 +141,10 @@ public class CodegenSchema {
             keywords.add("format");
         }
         if (items != null) {
-            keywords.add("format");
+            keywords.add("items");
         }
         if (properties != null) {
-            keywords.add("format");
+            keywords.add("properties");
         }
         if (requiredProperties != null) {
             keywords.add("required");

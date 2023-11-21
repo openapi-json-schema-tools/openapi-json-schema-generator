@@ -19,7 +19,7 @@ public class HealthCheckResult {
         new KeywordEntry("type", new TypeValidator(Set.of(
             Void.class,
             String.class
-        ))
+        )),
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NullableMessage.class, arg, configuration);
         }
@@ -47,7 +47,7 @@ public class HealthCheckResult {
         Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
         ));
         public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("NullableMessage", NullableMessage.class)

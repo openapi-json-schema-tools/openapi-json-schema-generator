@@ -29,9 +29,9 @@ public class SelfReferencingArrayModel {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)),
+            new KeywordEntry("items", new ItemsValidator(SelfReferencingArrayModel1.class)
         ));
-        public static final Class<?> items = SelfReferencingArrayModel1.class;
         protected static SelfReferencingArrayModelList getListOutputInstance(FrozenList<Object> arg) {
             return new SelfReferencingArrayModelList(arg);
         }

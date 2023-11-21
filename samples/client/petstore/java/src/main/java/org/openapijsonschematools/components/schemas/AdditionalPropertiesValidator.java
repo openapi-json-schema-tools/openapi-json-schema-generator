@@ -34,7 +34,7 @@ public class AdditionalPropertiesValidator {
     
     public class Schema0 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static Schema0Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
@@ -107,7 +107,7 @@ public class AdditionalPropertiesValidator {
     
     public class Schema1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
         ));
         static final Class<?> additionalProperties = AdditionalProperties1.class;
         protected static Schema1Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
@@ -180,7 +180,7 @@ public class AdditionalPropertiesValidator {
     
     public class Schema2 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
         ));
         static final Class<?> additionalProperties = AdditionalProperties2.class;
         protected static Schema2Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

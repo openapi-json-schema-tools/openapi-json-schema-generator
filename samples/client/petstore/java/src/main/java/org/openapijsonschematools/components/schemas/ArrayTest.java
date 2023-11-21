@@ -31,9 +31,9 @@ public class ArrayTest {
     
     public class ArrayOfString extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)),
+            new KeywordEntry("items", new ItemsValidator(Items.class)
         ));
-        public static final Class<?> items = Items.class;
         protected static ArrayOfStringList getListOutputInstance(FrozenList<Object> arg) {
             return new ArrayOfStringList(arg);
         }
@@ -53,9 +53,9 @@ public class ArrayTest {
     
     public class Items1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)),
+            new KeywordEntry("items", new ItemsValidator(Items2.class)
         ));
-        public static final Class<?> items = Items2.class;
         protected static ItemsList getListOutputInstance(FrozenList<Object> arg) {
             return new ItemsList(arg);
         }
@@ -72,9 +72,9 @@ public class ArrayTest {
     
     public class ArrayArrayOfInteger extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)),
+            new KeywordEntry("items", new ItemsValidator(Items1.class)
         ));
-        public static final Class<?> items = Items1.class;
         protected static ArrayArrayOfIntegerList getListOutputInstance(FrozenList<Object> arg) {
             return new ArrayArrayOfIntegerList(arg);
         }
@@ -91,9 +91,9 @@ public class ArrayTest {
     
     public class Items3 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)),
+            new KeywordEntry("items", new ItemsValidator(ReadOnlyFirst.ReadOnlyFirst1.class)
         ));
-        public static final Class<?> items = ReadOnlyFirst.ReadOnlyFirst1.class;
         protected static ItemsList1 getListOutputInstance(FrozenList<Object> arg) {
             return new ItemsList1(arg);
         }
@@ -110,9 +110,9 @@ public class ArrayTest {
     
     public class ArrayArrayOfModel extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)),
+            new KeywordEntry("items", new ItemsValidator(Items3.class)
         ));
-        public static final Class<?> items = Items3.class;
         protected static ArrayArrayOfModelList getListOutputInstance(FrozenList<Object> arg) {
             return new ArrayArrayOfModelList(arg);
         }
@@ -138,7 +138,7 @@ public class ArrayTest {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
         ));
         public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("array_of_string", ArrayOfString.class),

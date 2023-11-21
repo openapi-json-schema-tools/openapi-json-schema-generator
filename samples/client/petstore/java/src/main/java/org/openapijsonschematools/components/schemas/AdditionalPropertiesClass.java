@@ -34,7 +34,7 @@ public class AdditionalPropertiesClass {
     
     public class MapProperty extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static MapPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
@@ -60,7 +60,7 @@ public class AdditionalPropertiesClass {
     
     public class AdditionalProperties1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
         ));
         static final Class<?> additionalProperties = AdditionalProperties2.class;
         protected static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
@@ -83,7 +83,7 @@ public class AdditionalPropertiesClass {
     
     public class MapOfMapProperty extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
         ));
         static final Class<?> additionalProperties = AdditionalProperties1.class;
         protected static MapOfMapPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
@@ -118,7 +118,7 @@ public class AdditionalPropertiesClass {
     
     public class MapWithUndeclaredPropertiesAnytype3 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
         ));
         static final Class<?> additionalProperties = AdditionalProperties3.class;
         protected static MapWithUndeclaredPropertiesAnytype3Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
@@ -146,7 +146,7 @@ public class AdditionalPropertiesClass {
     
     public class EmptyMap extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
         ));
         static final Class<?> additionalProperties = AdditionalProperties4.class;
         protected static EmptyMapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
@@ -172,7 +172,7 @@ public class AdditionalPropertiesClass {
     
     public class MapWithUndeclaredPropertiesString extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
         ));
         static final Class<?> additionalProperties = AdditionalProperties5.class;
         protected static MapWithUndeclaredPropertiesStringMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
@@ -201,7 +201,7 @@ public class AdditionalPropertiesClass {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
         ));
         public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("map_property", MapProperty.class),

@@ -162,9 +162,9 @@ public class FormatTest {
     
     public class ArrayWithUniqueItems extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)),
+            new KeywordEntry("items", new ItemsValidator(Items.class)
         ));
-        public static final Class<?> items = Items.class;
         protected static ArrayWithUniqueItemsList getListOutputInstance(FrozenList<Object> arg) {
             return new ArrayWithUniqueItemsList(arg);
         }
@@ -208,7 +208,7 @@ public class FormatTest {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
-            ))
+            )),
         ));
         public static final String format = "password";
         public static String validate(String arg, SchemaConfiguration configuration) {
@@ -258,7 +258,7 @@ public class FormatTest {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
         ));
         public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("integer", IntegerSchema.class),

@@ -170,7 +170,7 @@ public class Schema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
-            ))
+            )),
         ));
         public static final String format = "date-time";
         public static String validate(String arg, SchemaConfiguration configuration) {
@@ -182,7 +182,7 @@ public class Schema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
-            ))
+            )),
         ));
         public static final String format = "password";
         public static String validate(String arg, SchemaConfiguration configuration) {
@@ -204,7 +204,7 @@ public class Schema {
     
     public class Schema1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
         ));
         public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("integer", IntegerSchema.class),

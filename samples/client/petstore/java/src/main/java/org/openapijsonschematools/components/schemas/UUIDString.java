@@ -24,7 +24,7 @@ public class UUIDString {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
-            ))
+            )),
         ));
         public static final String format = "uuid";
         public static String validate(String arg, SchemaConfiguration configuration) {
