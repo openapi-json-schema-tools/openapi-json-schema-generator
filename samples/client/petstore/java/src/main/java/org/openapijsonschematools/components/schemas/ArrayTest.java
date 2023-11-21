@@ -139,11 +139,11 @@ public class ArrayTest {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("array_of_string", ArrayOfString.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("array_array_of_integer", ArrayArrayOfInteger.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("array_array_of_model", ArrayArrayOfModel.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("array_of_string", ArrayOfString.class),
+                new PropertyEntry("array_array_of_integer", ArrayArrayOfInteger.class),
+                new PropertyEntry("array_array_of_model", ArrayArrayOfModel.class)
+            ))
         ));
         protected static ArrayTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ArrayTestMap(arg);

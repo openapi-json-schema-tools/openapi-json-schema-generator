@@ -38,9 +38,9 @@ public class GrandparentAnimal {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("pet_type", PetType.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("pet_type", PetType.class)
+            )),
         ));
         public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "pet_type"

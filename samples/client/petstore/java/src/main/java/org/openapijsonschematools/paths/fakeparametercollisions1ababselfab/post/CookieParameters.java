@@ -39,13 +39,13 @@ public class CookieParameters {
     public class CookieParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("1", Schema14.Schema141.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("aB", Schema15.Schema151.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("Ab", Schema16.Schema161.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("A-B", Schema18.Schema181.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("self", Schema17.Schema171.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("1", Schema14.Schema141.class),
+                new PropertyEntry("aB", Schema15.Schema151.class),
+                new PropertyEntry("Ab", Schema16.Schema161.class),
+                new PropertyEntry("A-B", Schema18.Schema181.class),
+                new PropertyEntry("self", Schema17.Schema171.class)
+            )),
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static CookieParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

@@ -41,10 +41,10 @@ public class FromSchema {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("data", Data.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("id", Id.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("data", Data.class),
+                new PropertyEntry("id", Id.class)
+            ))
         ));
         protected static FromSchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new FromSchemaMap(arg);

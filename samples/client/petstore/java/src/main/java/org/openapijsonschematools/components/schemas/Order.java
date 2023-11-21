@@ -63,14 +63,14 @@ public class Order {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("id", Id.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("petId", PetId.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("quantity", Quantity.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("shipDate", ShipDate.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("status", Status.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("complete", Complete.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("id", Id.class),
+                new PropertyEntry("petId", PetId.class),
+                new PropertyEntry("quantity", Quantity.class),
+                new PropertyEntry("shipDate", ShipDate.class),
+                new PropertyEntry("status", Status.class),
+                new PropertyEntry("complete", Complete.class)
+            ))
         ));
         protected static OrderMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new OrderMap(arg);

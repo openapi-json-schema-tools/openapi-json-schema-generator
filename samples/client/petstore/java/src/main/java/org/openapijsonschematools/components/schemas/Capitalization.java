@@ -52,14 +52,14 @@ public class Capitalization {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("smallCamel", SmallCamel.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("CapitalCamel", CapitalCamel.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("small_Snake", SmallSnake.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("Capital_Snake", CapitalSnake.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("SCA_ETH_Flow_Points", SCAETHFlowPoints.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("ATT_NAME", ATTNAME.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("smallCamel", SmallCamel.class),
+                new PropertyEntry("CapitalCamel", CapitalCamel.class),
+                new PropertyEntry("small_Snake", SmallSnake.class),
+                new PropertyEntry("Capital_Snake", CapitalSnake.class),
+                new PropertyEntry("SCA_ETH_Flow_Points", SCAETHFlowPoints.class),
+                new PropertyEntry("ATT_NAME", ATTNAME.class)
+            ))
         ));
         protected static CapitalizationMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new CapitalizationMap(arg);

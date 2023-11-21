@@ -59,10 +59,10 @@ public class Apple {
                 Void.class,
                 FrozenMap.class
             )),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("cultivar", Cultivar.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("origin", Origin.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("cultivar", Cultivar.class),
+                new PropertyEntry("origin", Origin.class)
+            )),
         ));
         public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "cultivar"

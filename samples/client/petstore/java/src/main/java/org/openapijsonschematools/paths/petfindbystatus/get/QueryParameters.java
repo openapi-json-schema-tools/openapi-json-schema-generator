@@ -36,9 +36,9 @@ public class QueryParameters {
     public class QueryParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("status", Schema0.Schema01.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("status", Schema0.Schema01.class)
+            )),
         ));
         public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "status"

@@ -44,11 +44,11 @@ public class ApiResponseSchema {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("code", Code.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("type", Type.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("message", Message.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("code", Code.class),
+                new PropertyEntry("type", Type.class),
+                new PropertyEntry("message", Message.class)
+            ))
         ));
         protected static ApiResponseMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ApiResponseMap(arg);

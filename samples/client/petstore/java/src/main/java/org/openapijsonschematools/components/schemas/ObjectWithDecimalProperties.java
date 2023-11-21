@@ -37,11 +37,11 @@ public class ObjectWithDecimalProperties {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("length", DecimalPayload.DecimalPayload1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("width", Width.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("cost", Money.Money1.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("length", DecimalPayload.DecimalPayload1.class),
+                new PropertyEntry("width", Width.class),
+                new PropertyEntry("cost", Money.Money1.class)
+            ))
         ));
         protected static ObjectWithDecimalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithDecimalPropertiesMap(arg);

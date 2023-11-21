@@ -39,9 +39,9 @@ public class PublicKey {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("key", Key.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("key", Key.class)
+            ))
         ));
         protected static PublicKeyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new PublicKeyMap(arg);

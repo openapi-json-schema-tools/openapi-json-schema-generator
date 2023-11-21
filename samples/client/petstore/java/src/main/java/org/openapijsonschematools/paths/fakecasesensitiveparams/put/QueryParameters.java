@@ -38,11 +38,11 @@ public class QueryParameters {
     public class QueryParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("someVar", Schema0.Schema01.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("some_var", Schema2.Schema21.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("SomeVar", Schema1.Schema11.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("someVar", Schema0.Schema01.class),
+                new PropertyEntry("some_var", Schema2.Schema21.class),
+                new PropertyEntry("SomeVar", Schema1.Schema11.class)
+            )),
         ));
         public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "SomeVar",

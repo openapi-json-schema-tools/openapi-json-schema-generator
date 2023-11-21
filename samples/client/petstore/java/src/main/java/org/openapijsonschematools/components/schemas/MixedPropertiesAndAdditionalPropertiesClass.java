@@ -65,11 +65,11 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("uuid", UuidSchema.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("dateTime", DateTime.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("map", MapSchema.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("uuid", UuidSchema.class),
+                new PropertyEntry("dateTime", DateTime.class),
+                new PropertyEntry("map", MapSchema.class)
+            ))
         ));
         protected static MixedPropertiesAndAdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MixedPropertiesAndAdditionalPropertiesClassMap(arg);

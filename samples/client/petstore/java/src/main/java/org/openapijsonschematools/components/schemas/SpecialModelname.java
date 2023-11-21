@@ -39,9 +39,9 @@ public class SpecialModelname {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("a", A.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("a", A.class)
+            ))
         ));
         protected static SpecialModelnameMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new SpecialModelnameMap(arg);

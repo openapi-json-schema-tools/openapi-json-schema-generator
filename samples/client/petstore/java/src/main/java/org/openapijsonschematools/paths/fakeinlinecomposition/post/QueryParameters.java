@@ -36,10 +36,10 @@ public class QueryParameters {
     public class QueryParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("compositionAtRoot", Schema0.Schema01.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("compositionInProperty", Schema1.Schema11.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("compositionAtRoot", Schema0.Schema01.class),
+                new PropertyEntry("compositionInProperty", Schema1.Schema11.class)
+            )),
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

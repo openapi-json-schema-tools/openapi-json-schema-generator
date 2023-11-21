@@ -259,29 +259,29 @@ public class FormatTest {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("integer", IntegerSchema.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("int32", Int32.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("int32withValidations", Int32withValidations.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("int64", Int64.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("number", NumberSchema.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("float", FloatSchema.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("float32", Float32.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("double", DoubleSchema.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("float64", Float64.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("arrayWithUniqueItems", ArrayWithUniqueItems.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("string", StringSchema.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("byte", ByteSchema.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("binary", Binary.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("date", Date.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("dateTime", DateTime.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("uuid", UuidSchema.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("uuidNoExample", UuidNoExample.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("password", Password.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("pattern_with_digits", PatternWithDigits.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("pattern_with_digits_and_delimiter", PatternWithDigitsAndDelimiter.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("noneProp", NoneProp.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("integer", IntegerSchema.class),
+                new PropertyEntry("int32", Int32.class),
+                new PropertyEntry("int32withValidations", Int32withValidations.class),
+                new PropertyEntry("int64", Int64.class),
+                new PropertyEntry("number", NumberSchema.class),
+                new PropertyEntry("float", FloatSchema.class),
+                new PropertyEntry("float32", Float32.class),
+                new PropertyEntry("double", DoubleSchema.class),
+                new PropertyEntry("float64", Float64.class),
+                new PropertyEntry("arrayWithUniqueItems", ArrayWithUniqueItems.class),
+                new PropertyEntry("string", StringSchema.class),
+                new PropertyEntry("byte", ByteSchema.class),
+                new PropertyEntry("binary", Binary.class),
+                new PropertyEntry("date", Date.class),
+                new PropertyEntry("dateTime", DateTime.class),
+                new PropertyEntry("uuid", UuidSchema.class),
+                new PropertyEntry("uuidNoExample", UuidNoExample.class),
+                new PropertyEntry("password", Password.class),
+                new PropertyEntry("pattern_with_digits", PatternWithDigits.class),
+                new PropertyEntry("pattern_with_digits_and_delimiter", PatternWithDigitsAndDelimiter.class),
+                new PropertyEntry("noneProp", NoneProp.class)
+            )),
         ));
         public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "byte",

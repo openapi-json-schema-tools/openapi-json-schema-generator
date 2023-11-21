@@ -53,10 +53,10 @@ public class QuadrilateralInterface {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("shapeType", ShapeType.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("quadrilateralType", QuadrilateralType.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("shapeType", ShapeType.class),
+                new PropertyEntry("quadrilateralType", QuadrilateralType.class)
+            )),
         ));
         public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "quadrilateralType",

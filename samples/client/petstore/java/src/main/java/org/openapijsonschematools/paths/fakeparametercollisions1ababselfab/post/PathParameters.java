@@ -40,13 +40,13 @@ public class PathParameters {
     public class PathParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("1", Schema9.Schema91.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("aB", Schema10.Schema101.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("Ab", Schema11.Schema111.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("A-B", Schema13.Schema131.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("self", Schema12.Schema121.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("1", Schema9.Schema91.class),
+                new PropertyEntry("aB", Schema10.Schema101.class),
+                new PropertyEntry("Ab", Schema11.Schema111.class),
+                new PropertyEntry("A-B", Schema13.Schema131.class),
+                new PropertyEntry("self", Schema12.Schema121.class)
+            )),
         ));
         public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "1",

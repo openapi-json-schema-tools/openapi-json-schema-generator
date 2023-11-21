@@ -48,10 +48,10 @@ public class ObjectWithOnlyOptionalProps {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("a", A.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("b", B.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("a", A.class),
+                new PropertyEntry("b", B.class)
+            )),
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static ObjectWithOnlyOptionalPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

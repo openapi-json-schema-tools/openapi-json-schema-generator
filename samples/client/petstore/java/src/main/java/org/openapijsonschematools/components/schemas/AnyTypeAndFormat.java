@@ -515,17 +515,17 @@ public class AnyTypeAndFormat {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("uuid", UuidSchema.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("date", Date.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("date-time", Datetime.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("number", NumberSchema.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("binary", Binary.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("int32", Int32.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("int64", Int64.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("double", DoubleSchema.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("float", FloatSchema.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("uuid", UuidSchema.class),
+                new PropertyEntry("date", Date.class),
+                new PropertyEntry("date-time", Datetime.class),
+                new PropertyEntry("number", NumberSchema.class),
+                new PropertyEntry("binary", Binary.class),
+                new PropertyEntry("int32", Int32.class),
+                new PropertyEntry("int64", Int64.class),
+                new PropertyEntry("double", DoubleSchema.class),
+                new PropertyEntry("float", FloatSchema.class)
+            ))
         ));
         protected static AnyTypeAndFormatMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AnyTypeAndFormatMap(arg);

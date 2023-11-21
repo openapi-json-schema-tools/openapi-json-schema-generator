@@ -99,14 +99,14 @@ public class Pet {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("id", Id.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("category", Category.Category1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("name", Name.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("photoUrls", PhotoUrls.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("tags", Tags.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("status", Status.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("id", Id.class),
+                new PropertyEntry("category", Category.Category1.class),
+                new PropertyEntry("name", Name.class),
+                new PropertyEntry("photoUrls", PhotoUrls.class),
+                new PropertyEntry("tags", Tags.class),
+                new PropertyEntry("status", Status.class)
+            )),
         ));
         public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "name",

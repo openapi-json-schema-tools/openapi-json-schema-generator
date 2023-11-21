@@ -61,10 +61,10 @@ public class Zebra {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("type", Type.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("className", ClassName.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("type", Type.class),
+                new PropertyEntry("className", ClassName.class)
+            )),
         ));
         public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "className"

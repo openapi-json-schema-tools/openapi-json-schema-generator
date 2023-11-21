@@ -39,9 +39,9 @@ public class File {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("sourceURI", SourceURI.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("sourceURI", SourceURI.class)
+            ))
         ));
         protected static FileMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new FileMap(arg);

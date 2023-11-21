@@ -145,21 +145,21 @@ public class User {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("id", Id.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("username", Username.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("firstName", FirstName.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("lastName", LastName.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("email", Email.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("password", Password.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("phone", Phone.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("userStatus", UserStatus.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("objectWithNoDeclaredProps", ObjectWithNoDeclaredProps.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("objectWithNoDeclaredPropsNullable", ObjectWithNoDeclaredPropsNullable.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("anyTypeProp", AnyTypeProp.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("anyTypeExceptNullProp", AnyTypeExceptNullProp.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("anyTypePropNullable", AnyTypePropNullable.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("id", Id.class),
+                new PropertyEntry("username", Username.class),
+                new PropertyEntry("firstName", FirstName.class),
+                new PropertyEntry("lastName", LastName.class),
+                new PropertyEntry("email", Email.class),
+                new PropertyEntry("password", Password.class),
+                new PropertyEntry("phone", Phone.class),
+                new PropertyEntry("userStatus", UserStatus.class),
+                new PropertyEntry("objectWithNoDeclaredProps", ObjectWithNoDeclaredProps.class),
+                new PropertyEntry("objectWithNoDeclaredPropsNullable", ObjectWithNoDeclaredPropsNullable.class),
+                new PropertyEntry("anyTypeProp", AnyTypeProp.class),
+                new PropertyEntry("anyTypeExceptNullProp", AnyTypeExceptNullProp.class),
+                new PropertyEntry("anyTypePropNullable", AnyTypePropNullable.class)
+            ))
         ));
         protected static UserMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new UserMap(arg);

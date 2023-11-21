@@ -99,17 +99,17 @@ public class EnumTest {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("enum_string", EnumString.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("enum_string_required", EnumStringRequired.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("enum_integer", EnumInteger.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("enum_number", EnumNumber.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("stringEnum", StringEnum.StringEnum1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("IntegerEnum", IntegerEnum.IntegerEnum1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("StringEnumWithDefaultValue", StringEnumWithDefaultValue.StringEnumWithDefaultValue1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("IntegerEnumWithDefaultValue", IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("IntegerEnumOneValue", IntegerEnumOneValue.IntegerEnumOneValue1.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("enum_string", EnumString.class),
+                new PropertyEntry("enum_string_required", EnumStringRequired.class),
+                new PropertyEntry("enum_integer", EnumInteger.class),
+                new PropertyEntry("enum_number", EnumNumber.class),
+                new PropertyEntry("stringEnum", StringEnum.StringEnum1.class),
+                new PropertyEntry("IntegerEnum", IntegerEnum.IntegerEnum1.class),
+                new PropertyEntry("StringEnumWithDefaultValue", StringEnumWithDefaultValue.StringEnumWithDefaultValue1.class),
+                new PropertyEntry("IntegerEnumWithDefaultValue", IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1.class),
+                new PropertyEntry("IntegerEnumOneValue", IntegerEnumOneValue.IntegerEnumOneValue1.class)
+            )),
         ));
         public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "enum_string_required"

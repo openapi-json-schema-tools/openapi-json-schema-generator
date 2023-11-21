@@ -33,9 +33,9 @@ public class Foo {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("bar", Bar.Bar1.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("bar", Bar.Bar1.class)
+            ))
         ));
         protected static FooMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new FooMap(arg);

@@ -77,10 +77,10 @@ public class EnumArrays {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("just_symbol", JustSymbol.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("array_enum", ArrayEnum.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("just_symbol", JustSymbol.class),
+                new PropertyEntry("array_enum", ArrayEnum.class)
+            ))
         ));
         protected static EnumArraysMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new EnumArraysMap(arg);

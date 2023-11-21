@@ -56,12 +56,12 @@ public class Drawing {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("mainShape", Shape.Shape1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("shapeOrNull", ShapeOrNull.ShapeOrNull1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("nullableShape", NullableShape.NullableShape1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("shapes", Shapes.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("mainShape", Shape.Shape1.class),
+                new PropertyEntry("shapeOrNull", ShapeOrNull.ShapeOrNull1.class),
+                new PropertyEntry("nullableShape", NullableShape.NullableShape1.class),
+                new PropertyEntry("shapes", Shapes.class)
+            )),
         ));
         static final Class<?> additionalProperties = Fruit.Fruit1.class;
         protected static DrawingMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

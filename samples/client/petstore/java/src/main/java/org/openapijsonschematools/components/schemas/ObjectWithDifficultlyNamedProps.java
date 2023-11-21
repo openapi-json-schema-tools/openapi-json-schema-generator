@@ -48,11 +48,11 @@ public class ObjectWithDifficultlyNamedProps {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("$special[property.name]", Specialpropertyname.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("123-list", Schema123list.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("123Number", Schema123Number.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("$special[property.name]", Specialpropertyname.class),
+                new PropertyEntry("123-list", Schema123list.class),
+                new PropertyEntry("123Number", Schema123Number.class)
+            )),
         ));
         public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "123-list"

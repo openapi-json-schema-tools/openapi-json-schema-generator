@@ -34,9 +34,9 @@ public class SelfReferencingObjectModel {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("selfRef", SelfReferencingObjectModel1.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("selfRef", SelfReferencingObjectModel1.class)
+            )),
         ));
         static final Class<?> additionalProperties = SelfReferencingObjectModel1.class;
         protected static SelfReferencingObjectModelMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

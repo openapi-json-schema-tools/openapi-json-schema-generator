@@ -45,10 +45,10 @@ public class Money {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("amount", Amount.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("currency", Currency.Currency1.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("amount", Amount.class),
+                new PropertyEntry("currency", Currency.Currency1.class)
+            )),
         ));
         public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "amount",

@@ -202,16 +202,16 @@ public class AdditionalPropertiesClass {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("map_property", MapProperty.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("map_of_map_property", MapOfMapProperty.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("anytype_1", Anytype1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("map_with_undeclared_properties_anytype_1", MapWithUndeclaredPropertiesAnytype1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("map_with_undeclared_properties_anytype_2", MapWithUndeclaredPropertiesAnytype2.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("map_with_undeclared_properties_anytype_3", MapWithUndeclaredPropertiesAnytype3.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("empty_map", EmptyMap.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("map_with_undeclared_properties_string", MapWithUndeclaredPropertiesString.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("map_property", MapProperty.class),
+                new PropertyEntry("map_of_map_property", MapOfMapProperty.class),
+                new PropertyEntry("anytype_1", Anytype1.class),
+                new PropertyEntry("map_with_undeclared_properties_anytype_1", MapWithUndeclaredPropertiesAnytype1.class),
+                new PropertyEntry("map_with_undeclared_properties_anytype_2", MapWithUndeclaredPropertiesAnytype2.class),
+                new PropertyEntry("map_with_undeclared_properties_anytype_3", MapWithUndeclaredPropertiesAnytype3.class),
+                new PropertyEntry("empty_map", EmptyMap.class),
+                new PropertyEntry("map_with_undeclared_properties_string", MapWithUndeclaredPropertiesString.class)
+            ))
         ));
         protected static AdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AdditionalPropertiesClassMap(arg);

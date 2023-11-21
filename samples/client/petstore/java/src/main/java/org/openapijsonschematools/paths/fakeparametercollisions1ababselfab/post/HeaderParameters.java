@@ -38,12 +38,12 @@ public class HeaderParameters {
     public class HeaderParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("1", Schema5.Schema51.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("aB", Schema6.Schema61.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("A-B", Schema8.Schema81.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("self", Schema7.Schema71.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("1", Schema5.Schema51.class),
+                new PropertyEntry("aB", Schema6.Schema61.class),
+                new PropertyEntry("A-B", Schema8.Schema81.class),
+                new PropertyEntry("self", Schema7.Schema71.class)
+            )),
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static HeaderParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

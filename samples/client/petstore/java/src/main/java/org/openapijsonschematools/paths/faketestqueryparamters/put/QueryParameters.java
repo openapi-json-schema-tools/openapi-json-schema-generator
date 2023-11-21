@@ -41,14 +41,14 @@ public class QueryParameters {
     public class QueryParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("refParam", StringWithValidation.StringWithValidation1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("ioutil", Schema1.Schema11.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("context", Schema4.Schema41.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("http", Schema2.Schema21.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("pipe", Schema0.Schema01.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("url", Schema3.Schema31.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("refParam", StringWithValidation.StringWithValidation1.class),
+                new PropertyEntry("ioutil", Schema1.Schema11.class),
+                new PropertyEntry("context", Schema4.Schema41.class),
+                new PropertyEntry("http", Schema2.Schema21.class),
+                new PropertyEntry("pipe", Schema0.Schema01.class),
+                new PropertyEntry("url", Schema3.Schema31.class)
+            )),
         ));
         public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "context",

@@ -37,9 +37,9 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
     public class Schema1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("name", Name.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("name", Name.class)
+            )),
         ));
         public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "test"

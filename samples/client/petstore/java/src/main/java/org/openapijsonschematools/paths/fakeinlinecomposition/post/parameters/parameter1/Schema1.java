@@ -93,9 +93,9 @@ public class Schema1 {
     public class Schema11 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("someProp", SomeProp1.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("someProp", SomeProp1.class)
+            ))
         ));
         protected static SchemaMap1 getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new SchemaMap1(arg);

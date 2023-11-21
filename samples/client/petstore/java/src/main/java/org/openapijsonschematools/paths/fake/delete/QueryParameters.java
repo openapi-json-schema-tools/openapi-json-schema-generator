@@ -39,12 +39,12 @@ public class QueryParameters {
     public class QueryParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("required_string_group", Schema0.Schema01.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("int64_group", Schema5.Schema51.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("string_group", Schema3.Schema31.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("required_int64_group", Schema2.Schema21.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("required_string_group", Schema0.Schema01.class),
+                new PropertyEntry("int64_group", Schema5.Schema51.class),
+                new PropertyEntry("string_group", Schema3.Schema31.class),
+                new PropertyEntry("required_int64_group", Schema2.Schema21.class)
+            )),
         ));
         public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "required_int64_group",

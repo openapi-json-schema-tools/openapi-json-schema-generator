@@ -99,9 +99,9 @@ public class ObjectWithInlineCompositionProperty {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("someProp", SomeProp.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("someProp", SomeProp.class)
+            ))
         ));
         protected static ObjectWithInlineCompositionPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithInlineCompositionPropertyMap(arg);

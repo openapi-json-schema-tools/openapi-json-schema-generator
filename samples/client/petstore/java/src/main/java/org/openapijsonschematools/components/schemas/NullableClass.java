@@ -175,8 +175,8 @@ public class NullableClass {
                 Void.class,
                 FrozenList.class
             )),
+            new KeywordEntry("items", new ItemsValidator(Items.class)
         ));
-        new KeywordEntry("items", new ItemsValidator(Items.class),
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayNullableProp.class, arg, configuration);
         }
@@ -212,8 +212,8 @@ public class NullableClass {
                 Void.class,
                 FrozenList.class
             )),
+            new KeywordEntry("items", new ItemsValidator(Items1.class)
         ));
-        new KeywordEntry("items", new ItemsValidator(Items1.class),
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayAndItemsNullableProp.class, arg, configuration);
         }
@@ -380,20 +380,20 @@ public class NullableClass {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("integer_prop", IntegerProp.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("number_prop", NumberProp.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("boolean_prop", BooleanProp.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("string_prop", StringProp.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("date_prop", DateProp.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("datetime_prop", DatetimeProp.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("array_nullable_prop", ArrayNullableProp.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("array_and_items_nullable_prop", ArrayAndItemsNullableProp.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("array_items_nullable", ArrayItemsNullable.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("object_nullable_prop", ObjectNullableProp.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("object_and_items_nullable_prop", ObjectAndItemsNullableProp.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("object_items_nullable", ObjectItemsNullable.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("integer_prop", IntegerProp.class),
+                new PropertyEntry("number_prop", NumberProp.class),
+                new PropertyEntry("boolean_prop", BooleanProp.class),
+                new PropertyEntry("string_prop", StringProp.class),
+                new PropertyEntry("date_prop", DateProp.class),
+                new PropertyEntry("datetime_prop", DatetimeProp.class),
+                new PropertyEntry("array_nullable_prop", ArrayNullableProp.class),
+                new PropertyEntry("array_and_items_nullable_prop", ArrayAndItemsNullableProp.class),
+                new PropertyEntry("array_items_nullable", ArrayItemsNullable.class),
+                new PropertyEntry("object_nullable_prop", ObjectNullableProp.class),
+                new PropertyEntry("object_and_items_nullable_prop", ObjectAndItemsNullableProp.class),
+                new PropertyEntry("object_items_nullable", ObjectItemsNullable.class)
+            )),
         ));
         static final Class<?> additionalProperties = AdditionalProperties3.class;
         protected static NullableClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

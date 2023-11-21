@@ -49,10 +49,10 @@ public class Animal {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("className", ClassName.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("color", Color.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("className", ClassName.class),
+                new PropertyEntry("color", Color.class)
+            )),
         ));
         public static final Set<String> required = new LinkedHashSet<>(Set.of(
             "className"

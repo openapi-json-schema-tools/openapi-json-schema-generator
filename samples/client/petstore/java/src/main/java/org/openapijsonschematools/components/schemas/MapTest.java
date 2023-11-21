@@ -145,12 +145,12 @@ public class MapTest {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("map_map_of_string", MapMapOfString.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("map_of_enum_string", MapOfEnumString.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("direct_map", DirectMap.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("indirect_map", StringBooleanMap.StringBooleanMap1.class)
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("map_map_of_string", MapMapOfString.class),
+                new PropertyEntry("map_of_enum_string", MapOfEnumString.class),
+                new PropertyEntry("direct_map", DirectMap.class),
+                new PropertyEntry("indirect_map", StringBooleanMap.StringBooleanMap1.class)
+            ))
         ));
         protected static MapTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapTestMap(arg);
