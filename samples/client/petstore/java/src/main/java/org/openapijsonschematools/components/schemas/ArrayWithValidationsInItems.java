@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.schemas.validation.FormatValidator;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;

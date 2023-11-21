@@ -1217,6 +1217,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         imports.add("import java.util.LinkedHashMap;");
                         imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
+                        if (schema.format != null) {
+                            imports.add("import "+packageName + ".schemas.validation.FormatValidator;");
+                        }
                     }
                 } else if (schema.types.contains("number")) {
                     if (schema.isSimpleNumber()) {
@@ -1239,6 +1242,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         imports.add("import java.util.LinkedHashMap;");
                         imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
+                        if (schema.format != null) {
+                            imports.add("import "+packageName + ".schemas.validation.FormatValidator;");
+                        }
                     }
                 } else if (schema.types.contains("string")) {
                     if (schema.isSimpleString()) {
