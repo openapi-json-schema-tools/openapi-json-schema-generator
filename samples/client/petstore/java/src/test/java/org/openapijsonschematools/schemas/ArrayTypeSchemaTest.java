@@ -4,12 +4,17 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenList;
+import org.openapijsonschematools.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 
@@ -17,10 +22,10 @@ public class ArrayTypeSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
     public class ArrayWithItemsSchema extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenList.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            new KeywordEntry("items", new ItemsValidator(StringJsonSchema.class))
         ));
-        public static final Class<?> items = StringJsonSchema.class;
 
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayWithItemsSchema.class, arg, configuration);
@@ -38,10 +43,10 @@ public class ArrayTypeSchemaTest {
     }
 
     public class ArrayWithOutputClsSchema extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenList.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            new KeywordEntry("items", new ItemsValidator(StringJsonSchema.class))
         ));
-        public static final Class<?> items = StringJsonSchema.class;
 
         protected static ArrayWithOutputClsSchemaList getListOutputInstance(FrozenList<? extends String> arg) {
             return new ArrayWithOutputClsSchemaList(arg);
