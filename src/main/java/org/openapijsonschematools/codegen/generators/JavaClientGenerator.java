@@ -1332,6 +1332,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 addCustomSchemaImports(imports);
                 imports.add("import "+packageName + ".schemas.validation.KeywordEntry;");
                 imports.add("import "+packageName + ".schemas.validation.KeywordValidator;");
+                imports.add("import java.util.LinkedHashMap;");
                 imports.add("import java.time.LocalDate;");
                 imports.add("import java.time.ZonedDateTime;");
                 imports.add("import java.util.UUID;");
@@ -1347,6 +1348,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 if (schema.requiredProperties != null) {
                     imports.add("import "+packageName + ".schemas.validation.RequiredValidator;");
                     imports.add("import java.util.Set;");
+                }
+                if (schema.format != null) {
+                    imports.add("import "+packageName + ".schemas.validation.FormatValidator;");
                 }
                 if (schema.additionalProperties != null) {
                     imports.add("import "+packageName + ".schemas.validation.AdditionalPropertiesValidator;");

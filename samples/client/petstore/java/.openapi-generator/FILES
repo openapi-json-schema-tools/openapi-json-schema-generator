@@ -23,7 +23,7 @@ src/main/java/org/openapijsonschematools/components/responses/successwithjsonapi
 src/main/java/org/openapijsonschematools/components/responses/successwithjsonapiresponse/content/applicationjson/Schema.java
 src/main/java/org/openapijsonschematools/components/schemas/AbstractStepMessage.java
 src/main/java/org/openapijsonschematools/components/schemas/AdditionalPropertiesClass.java
-src/main/java/org/openapijsonschematools/components/schemas/AdditionalPropertiesValidator.java
+src/main/java/org/openapijsonschematools/components/schemas/AdditionalPropertiesSchema.java
 src/main/java/org/openapijsonschematools/components/schemas/AdditionalPropertiesWithArrayOfEnums.java
 src/main/java/org/openapijsonschematools/components/schemas/Address.java
 src/main/java/org/openapijsonschematools/components/schemas/Animal.java
