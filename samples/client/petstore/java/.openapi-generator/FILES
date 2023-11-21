@@ -370,6 +370,7 @@ src/main/java/org/openapijsonschematools/schemas/validation/KeywordEntry.java
 src/main/java/org/openapijsonschematools/schemas/validation/KeywordValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/PathToSchemasMap.java
 src/main/java/org/openapijsonschematools/schemas/validation/PropertiesValidator.java
+src/main/java/org/openapijsonschematools/schemas/validation/PropertyEntry.java
 src/main/java/org/openapijsonschematools/schemas/validation/RequiredValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/TypeValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/UnsetAnyTypeJsonSchema.java

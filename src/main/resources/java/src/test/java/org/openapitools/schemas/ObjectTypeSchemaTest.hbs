@@ -4,12 +4,16 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.schemas.validation.AdditionalPropertiesValidator;
 import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.FrozenMap;
+import {{{packageName}}}.schemas.validation.KeywordEntry;
+import {{{packageName}}}.schemas.validation.KeywordValidator;
+import {{{packageName}}}.schemas.validation.PropertiesValidator;
+import {{{packageName}}}.schemas.validation.PropertyEntry;
+import {{{packageName}}}.schemas.validation.TypeValidator;
 
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.AbstractMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -18,11 +22,11 @@ public class ObjectTypeSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
     public class ObjectWithPropsSchema extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("someString", StringJsonSchema.class)
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("someString", StringJsonSchema.class)
+            )))
         ));
 
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -31,10 +35,10 @@ public class ObjectTypeSchemaTest {
     }
 
     public class ObjectWithAddpropsSchema extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(StringJsonSchema.class))
         ));
-        public static final Class<?> additionalProperties = StringJsonSchema.class;
 
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithAddpropsSchema.class, arg, configuration);
@@ -42,13 +46,13 @@ public class ObjectTypeSchemaTest {
     }
 
     public class ObjectWithPropsAndAddpropsSchema extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("someString", StringJsonSchema.class)
+            ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(BooleanJsonSchema.class))
         ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("someString", StringJsonSchema.class)
-        ));
-        public static final Class<?> additionalProperties = BooleanJsonSchema.class;
 
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithPropsAndAddpropsSchema.class, arg, configuration);
@@ -67,11 +71,11 @@ public class ObjectTypeSchemaTest {
 
 
     public class ObjectWithOutputTypeSchema extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("someString", StringJsonSchema.class)
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("someString", StringJsonSchema.class)
+            )))
         ));
 
         protected static ObjectWithOutputTypeSchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

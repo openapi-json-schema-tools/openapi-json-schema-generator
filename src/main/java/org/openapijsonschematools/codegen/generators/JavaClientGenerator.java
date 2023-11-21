@@ -354,6 +354,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("KeywordValidator");
         keywordValidatorFiles.add("PathToSchemasMap");
         keywordValidatorFiles.add("PropertiesValidator");
+        keywordValidatorFiles.add("PropertyEntry");
         keywordValidatorFiles.add("RequiredValidator");
         keywordValidatorFiles.add("TypeValidator");
         keywordValidatorFiles.add("UnsetAnyTypeJsonSchema");
