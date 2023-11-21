@@ -1340,7 +1340,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
                 imports.add("import java.util.Map;");
                 if (schema.properties != null) {
-                    imports.add("import "+packageName + ".schemas.validation.PropertiesEntry;");
+                    imports.add("import "+packageName + ".schemas.validation.PropertyEntry;");
                     imports.add("import "+packageName + ".schemas.validation.PropertiesValidator;");
                     imports.add("import java.util.Map;");
                 }
@@ -1366,7 +1366,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
         imports.add("import java.util.Map;");
         if (schema.properties != null) {
-            imports.add("import "+packageName + ".schemas.validation.PropertiesEntry;");
+            imports.add("import "+packageName + ".schemas.validation.PropertyEntry;");
             imports.add("import "+packageName + ".schemas.validation.PropertiesValidator;");
             imports.add("import java.util.Map;");
         }

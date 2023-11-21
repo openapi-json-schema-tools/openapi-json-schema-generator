@@ -13,8 +13,8 @@ import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.RequiredValidator;
 
 public class Name {
@@ -53,10 +53,10 @@ public class Name {
                 new PropertyEntry("name", Name2.class),
                 new PropertyEntry("snake_case", SnakeCase.class),
                 new PropertyEntry("property", Property.class)
-            )),
-        ));
-        public static final Set<String> required = new LinkedHashSet<>(Set.of(
-            "name"
+            ))),
+            new KeywordEntry("required", new RequiredValidator(Set.of(
+                "name"
+            )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Name1.class, arg, configuration);

@@ -12,8 +12,8 @@ import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class ComplexQuadrilateral {
@@ -24,7 +24,7 @@ public class ComplexQuadrilateral {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
-            ))
+            )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(QuadrilateralType.class, arg, configuration);
@@ -42,10 +42,10 @@ public class ComplexQuadrilateral {
     
     public class Schema1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("quadrilateralType", QuadrilateralType.class)
-            ))
+            )))
         ));
         protected static Schema1Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new Schema1Map(arg);

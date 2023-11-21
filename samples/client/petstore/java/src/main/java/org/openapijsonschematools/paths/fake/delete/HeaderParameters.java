@@ -12,8 +12,8 @@ import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
@@ -36,14 +36,14 @@ public class HeaderParameters {
     
     public class HeaderParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("required_boolean_group", Schema1.Schema11.class),
                 new PropertyEntry("boolean_group", Schema4.Schema41.class)
-            )),
-        ));
-        public static final Set<String> required = new LinkedHashSet<>(Set.of(
-            "required_boolean_group"
+            ))),
+            new KeywordEntry("required", new RequiredValidator(Set.of(
+                "required_boolean_group"
+            ))),
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static HeaderParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

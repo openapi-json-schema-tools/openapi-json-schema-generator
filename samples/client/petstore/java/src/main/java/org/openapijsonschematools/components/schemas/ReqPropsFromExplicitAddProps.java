@@ -36,11 +36,11 @@ public class ReqPropsFromExplicitAddProps {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
-        ));
-        public static final Set<String> required = new LinkedHashSet<>(Set.of(
-            "invalid-name",
-            "validName"
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("required", new RequiredValidator(Set.of(
+                "invalid-name",
+                "validName"
+            ))),
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static ReqPropsFromExplicitAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

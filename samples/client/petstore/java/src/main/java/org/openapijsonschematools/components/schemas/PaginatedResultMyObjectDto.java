@@ -14,8 +14,8 @@ import org.openapijsonschematools.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
@@ -38,8 +38,8 @@ public class PaginatedResultMyObjectDto {
     
     public class Results extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)),
-            new KeywordEntry("items", new ItemsValidator(MyObjectDto.MyObjectDto1.class)
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            new KeywordEntry("items", new ItemsValidator(MyObjectDto.MyObjectDto1.class))
         ));
         protected static ResultsList getListOutputInstance(FrozenList<Object> arg) {
             return new ResultsList(arg);
@@ -66,15 +66,15 @@ public class PaginatedResultMyObjectDto {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("count", Count.class),
                 new PropertyEntry("results", Results.class)
-            )),
-        ));
-        public static final Set<String> required = new LinkedHashSet<>(Set.of(
-            "count",
-            "results"
+            ))),
+            new KeywordEntry("required", new RequiredValidator(Set.of(
+                "count",
+                "results"
+            ))),
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static PaginatedResultMyObjectDtoMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

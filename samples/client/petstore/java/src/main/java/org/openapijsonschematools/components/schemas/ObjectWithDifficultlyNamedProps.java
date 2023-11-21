@@ -10,8 +10,8 @@ import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
@@ -47,15 +47,15 @@ public class ObjectWithDifficultlyNamedProps {
         model with properties that have invalid names for python
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("$special[property.name]", Specialpropertyname.class),
                 new PropertyEntry("123-list", Schema123list.class),
                 new PropertyEntry("123Number", Schema123Number.class)
-            )),
-        ));
-        public static final Set<String> required = new LinkedHashSet<>(Set.of(
-            "123-list"
+            ))),
+            new KeywordEntry("required", new RequiredValidator(Set.of(
+                "123-list"
+            )))
         ));
         protected static ObjectWithDifficultlyNamedPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithDifficultlyNamedPropsMap(arg);

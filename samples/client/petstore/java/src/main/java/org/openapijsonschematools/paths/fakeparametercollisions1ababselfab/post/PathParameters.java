@@ -15,8 +15,8 @@ import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
@@ -39,21 +39,21 @@ public class PathParameters {
     
     public class PathParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("1", Schema9.Schema91.class),
                 new PropertyEntry("aB", Schema10.Schema101.class),
                 new PropertyEntry("Ab", Schema11.Schema111.class),
                 new PropertyEntry("A-B", Schema13.Schema131.class),
                 new PropertyEntry("self", Schema12.Schema121.class)
-            )),
-        ));
-        public static final Set<String> required = new LinkedHashSet<>(Set.of(
-            "1",
-            "A-B",
-            "Ab",
-            "aB",
-            "self"
+            ))),
+            new KeywordEntry("required", new RequiredValidator(Set.of(
+                "1",
+                "A-B",
+                "Ab",
+                "aB",
+                "self"
+            ))),
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static PathParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

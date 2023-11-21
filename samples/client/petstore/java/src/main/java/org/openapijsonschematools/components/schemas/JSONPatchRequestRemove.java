@@ -11,8 +11,8 @@ import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
@@ -31,7 +31,7 @@ public class JSONPatchRequestRemove {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
-            ))
+            )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Op.class, arg, configuration);
@@ -55,15 +55,15 @@ public class JSONPatchRequestRemove {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("path", Path.class),
                 new PropertyEntry("op", Op.class)
-            )),
-        ));
-        public static final Set<String> required = new LinkedHashSet<>(Set.of(
-            "op",
-            "path"
+            ))),
+            new KeywordEntry("required", new RequiredValidator(Set.of(
+                "op",
+                "path"
+            ))),
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static JSONPatchRequestRemoveMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

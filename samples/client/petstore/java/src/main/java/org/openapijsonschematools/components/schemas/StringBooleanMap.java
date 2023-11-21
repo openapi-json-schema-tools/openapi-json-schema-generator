@@ -35,7 +35,7 @@ public class StringBooleanMap {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static StringBooleanMapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

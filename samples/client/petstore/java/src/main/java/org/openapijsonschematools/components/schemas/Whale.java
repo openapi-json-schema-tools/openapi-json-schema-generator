@@ -8,8 +8,8 @@ import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
@@ -27,7 +27,7 @@ public class Whale {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
-            ))
+            )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ClassName.class, arg, configuration);
@@ -51,15 +51,15 @@ public class Whale {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("hasBaleen", HasBaleen.class),
                 new PropertyEntry("hasTeeth", HasTeeth.class),
                 new PropertyEntry("className", ClassName.class)
-            )),
-        ));
-        public static final Set<String> required = new LinkedHashSet<>(Set.of(
-            "className"
+            ))),
+            new KeywordEntry("required", new RequiredValidator(Set.of(
+                "className"
+            )))
         ));
         protected static WhaleMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new WhaleMap(arg);

@@ -15,8 +15,8 @@ import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class CookieParameters {
@@ -38,14 +38,14 @@ public class CookieParameters {
     
     public class CookieParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("1", Schema14.Schema141.class),
                 new PropertyEntry("aB", Schema15.Schema151.class),
                 new PropertyEntry("Ab", Schema16.Schema161.class),
                 new PropertyEntry("A-B", Schema18.Schema181.class),
                 new PropertyEntry("self", Schema17.Schema171.class)
-            )),
+            ))),
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static CookieParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

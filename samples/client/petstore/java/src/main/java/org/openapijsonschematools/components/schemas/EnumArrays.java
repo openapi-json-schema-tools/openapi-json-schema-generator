@@ -10,8 +10,8 @@ import org.openapijsonschematools.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class EnumArrays {
@@ -22,7 +22,7 @@ public class EnumArrays {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
-            ))
+            )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JustSymbol.class, arg, configuration);
@@ -33,7 +33,7 @@ public class EnumArrays {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
-            ))
+            )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items.class, arg, configuration);
@@ -48,8 +48,8 @@ public class EnumArrays {
     
     public class ArrayEnum extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)),
-            new KeywordEntry("items", new ItemsValidator(Items.class)
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static ArrayEnumList getListOutputInstance(FrozenList<Object> arg) {
             return new ArrayEnumList(arg);
@@ -76,11 +76,11 @@ public class EnumArrays {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("just_symbol", JustSymbol.class),
                 new PropertyEntry("array_enum", ArrayEnum.class)
-            ))
+            )))
         ));
         protected static EnumArraysMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new EnumArraysMap(arg);

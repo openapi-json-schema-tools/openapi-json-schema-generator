@@ -27,8 +27,8 @@ public class Schema0 {
     
     public class Schema01 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)),
-            new KeywordEntry("items", new ItemsValidator(Items0.class)
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            new KeywordEntry("items", new ItemsValidator(Items0.class))
         ));
         protected static SchemaList0 getListOutputInstance(FrozenList<Object> arg) {
             return new SchemaList0(arg);

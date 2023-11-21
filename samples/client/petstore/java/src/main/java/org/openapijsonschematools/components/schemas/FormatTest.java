@@ -21,8 +21,8 @@ import org.openapijsonschematools.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
@@ -37,7 +37,7 @@ public class FormatTest {
                 Long.class,
                 Float.class,
                 Double.class
-            ))
+            )))
         ));
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(IntegerSchema.class, Long.valueOf(arg), configuration);
@@ -66,7 +66,7 @@ public class FormatTest {
                 Long.class,
                 Float.class,
                 Double.class
-            )),
+            ))),
             new KeywordEntry("format", new FormatValidator("int32"))
         ));
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
@@ -96,7 +96,7 @@ public class FormatTest {
                 Long.class,
                 Float.class,
                 Double.class
-            ))
+            )))
         ));
         public static Number validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberSchema.class, arg, configuration);
@@ -122,7 +122,7 @@ public class FormatTest {
                 Long.class,
                 Float.class,
                 Double.class
-            )),
+            ))),
             new KeywordEntry("format", new FormatValidator("float"))
         ));
         public static Float validate(Float arg, SchemaConfiguration configuration) {
@@ -140,7 +140,7 @@ public class FormatTest {
                 Long.class,
                 Float.class,
                 Double.class
-            )),
+            ))),
             new KeywordEntry("format", new FormatValidator("double"))
         ));
         public static Double validate(Double arg, SchemaConfiguration configuration) {
@@ -162,8 +162,8 @@ public class FormatTest {
     
     public class ArrayWithUniqueItems extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)),
-            new KeywordEntry("items", new ItemsValidator(Items.class)
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static ArrayWithUniqueItemsList getListOutputInstance(FrozenList<Object> arg) {
             return new ArrayWithUniqueItemsList(arg);
@@ -177,7 +177,7 @@ public class FormatTest {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
-            ))
+            )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(StringSchema.class, arg, configuration);
@@ -208,7 +208,7 @@ public class FormatTest {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
-            )),
+            ))),
             new KeywordEntry("format", new FormatValidator("password"))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
@@ -220,7 +220,7 @@ public class FormatTest {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
-            ))
+            )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(PatternWithDigits.class, arg, configuration);
@@ -231,7 +231,7 @@ public class FormatTest {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
-            ))
+            )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(PatternWithDigitsAndDelimiter.class, arg, configuration);
@@ -258,7 +258,7 @@ public class FormatTest {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("integer", IntegerSchema.class),
                 new PropertyEntry("int32", Int32.class),
@@ -281,13 +281,13 @@ public class FormatTest {
                 new PropertyEntry("pattern_with_digits", PatternWithDigits.class),
                 new PropertyEntry("pattern_with_digits_and_delimiter", PatternWithDigitsAndDelimiter.class),
                 new PropertyEntry("noneProp", NoneProp.class)
-            )),
-        ));
-        public static final Set<String> required = new LinkedHashSet<>(Set.of(
-            "byte",
-            "date",
-            "number",
-            "password"
+            ))),
+            new KeywordEntry("required", new RequiredValidator(Set.of(
+                "byte",
+                "date",
+                "number",
+                "password"
+            )))
         ));
         protected static FormatTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new FormatTestMap(arg);

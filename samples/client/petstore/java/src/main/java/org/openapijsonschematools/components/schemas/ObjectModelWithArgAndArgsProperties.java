@@ -8,8 +8,8 @@ import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
@@ -40,15 +40,15 @@ public class ObjectModelWithArgAndArgsProperties {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("arg", Arg.class),
                 new PropertyEntry("args", Args.class)
-            )),
-        ));
-        public static final Set<String> required = new LinkedHashSet<>(Set.of(
-            "arg",
-            "args"
+            ))),
+            new KeywordEntry("required", new RequiredValidator(Set.of(
+                "arg",
+                "args"
+            )))
         ));
         protected static ObjectModelWithArgAndArgsPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectModelWithArgAndArgsPropertiesMap(arg);

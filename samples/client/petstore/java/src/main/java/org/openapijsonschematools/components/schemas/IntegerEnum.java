@@ -25,7 +25,7 @@ public class IntegerEnum {
                 Long.class,
                 Float.class,
                 Double.class
-            ))
+            )))
         ));
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(IntegerEnum1.class, Long.valueOf(arg), configuration);

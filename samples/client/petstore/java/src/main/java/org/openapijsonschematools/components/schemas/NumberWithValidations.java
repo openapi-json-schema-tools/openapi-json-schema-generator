@@ -25,7 +25,7 @@ public class NumberWithValidations {
                 Long.class,
                 Float.class,
                 Double.class
-            ))
+            )))
         ));
         public static Number validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberWithValidations1.class, arg, configuration);

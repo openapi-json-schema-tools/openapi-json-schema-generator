@@ -72,8 +72,8 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     
     public class Schema9 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)),
-            new KeywordEntry("items", new ItemsValidator(Items.class)
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static Schema9List getListOutputInstance(FrozenList<Object> arg) {
             return new Schema9List(arg);

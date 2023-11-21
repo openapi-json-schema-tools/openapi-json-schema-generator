@@ -23,7 +23,7 @@ public class NullableString {
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
                 String.class
-            ))
+            )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NullableString1.class, arg, configuration);

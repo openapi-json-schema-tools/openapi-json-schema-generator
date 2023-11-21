@@ -7,8 +7,8 @@ import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class ObjectModelWithRefProps {
@@ -34,12 +34,12 @@ public class ObjectModelWithRefProps {
         a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("myNumber", NumberWithValidations.NumberWithValidations1.class),
                 new PropertyEntry("myString", StringSchema.StringSchema1.class),
                 new PropertyEntry("myBoolean", BooleanSchema.BooleanSchema1.class)
-            ))
+            )))
         ));
         protected static ObjectModelWithRefPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectModelWithRefPropsMap(arg);

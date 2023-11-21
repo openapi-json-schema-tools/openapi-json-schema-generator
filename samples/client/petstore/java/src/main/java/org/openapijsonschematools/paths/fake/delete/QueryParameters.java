@@ -14,8 +14,8 @@ import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
@@ -38,17 +38,17 @@ public class QueryParameters {
     
     public class QueryParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("required_string_group", Schema0.Schema01.class),
                 new PropertyEntry("int64_group", Schema5.Schema51.class),
                 new PropertyEntry("string_group", Schema3.Schema31.class),
                 new PropertyEntry("required_int64_group", Schema2.Schema21.class)
-            )),
-        ));
-        public static final Set<String> required = new LinkedHashSet<>(Set.of(
-            "required_int64_group",
-            "required_string_group"
+            ))),
+            new KeywordEntry("required", new RequiredValidator(Set.of(
+                "required_int64_group",
+                "required_string_group"
+            ))),
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

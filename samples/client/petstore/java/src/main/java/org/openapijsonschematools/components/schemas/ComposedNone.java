@@ -24,7 +24,7 @@ public class ComposedNone {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(Void.class))
+            new KeywordEntry("type", new TypeValidator(Set.of(Void.class)))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ComposedNone1.class, arg, configuration);

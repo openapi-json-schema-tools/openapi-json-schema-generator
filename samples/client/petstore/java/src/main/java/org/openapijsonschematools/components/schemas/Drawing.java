@@ -11,8 +11,8 @@ import org.openapijsonschematools.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class Drawing {
@@ -27,8 +27,8 @@ public class Drawing {
     
     public class Shapes extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)),
-            new KeywordEntry("items", new ItemsValidator(Shape.Shape1.class)
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            new KeywordEntry("items", new ItemsValidator(Shape.Shape1.class))
         ));
         protected static ShapesList getListOutputInstance(FrozenList<Object> arg) {
             return new ShapesList(arg);
@@ -55,13 +55,13 @@ public class Drawing {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("mainShape", Shape.Shape1.class),
                 new PropertyEntry("shapeOrNull", ShapeOrNull.ShapeOrNull1.class),
                 new PropertyEntry("nullableShape", NullableShape.NullableShape1.class),
                 new PropertyEntry("shapes", Shapes.class)
-            )),
+            ))),
         ));
         static final Class<?> additionalProperties = Fruit.Fruit1.class;
         protected static DrawingMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

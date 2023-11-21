@@ -8,8 +8,8 @@ import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
@@ -21,7 +21,7 @@ public class EnumTest {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
-            ))
+            )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(EnumString.class, arg, configuration);
@@ -32,7 +32,7 @@ public class EnumTest {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
-            ))
+            )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(EnumStringRequired.class, arg, configuration);
@@ -46,7 +46,7 @@ public class EnumTest {
                 Long.class,
                 Float.class,
                 Double.class
-            )),
+            ))),
             new KeywordEntry("format", new FormatValidator("int32"))
         ));
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
@@ -73,7 +73,7 @@ public class EnumTest {
                 Long.class,
                 Float.class,
                 Double.class
-            )),
+            ))),
             new KeywordEntry("format", new FormatValidator("double"))
         ));
         public static Double validate(Double arg, SchemaConfiguration configuration) {
@@ -98,7 +98,7 @@ public class EnumTest {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("enum_string", EnumString.class),
                 new PropertyEntry("enum_string_required", EnumStringRequired.class),
@@ -109,10 +109,10 @@ public class EnumTest {
                 new PropertyEntry("StringEnumWithDefaultValue", StringEnumWithDefaultValue.StringEnumWithDefaultValue1.class),
                 new PropertyEntry("IntegerEnumWithDefaultValue", IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1.class),
                 new PropertyEntry("IntegerEnumOneValue", IntegerEnumOneValue.IntegerEnumOneValue1.class)
-            )),
-        ));
-        public static final Set<String> required = new LinkedHashSet<>(Set.of(
-            "enum_string_required"
+            ))),
+            new KeywordEntry("required", new RequiredValidator(Set.of(
+                "enum_string_required"
+            )))
         ));
         protected static EnumTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new EnumTestMap(arg);

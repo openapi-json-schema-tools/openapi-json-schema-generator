@@ -23,7 +23,7 @@ public class StringEnum {
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
                 String.class
-            ))
+            )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(StringEnum1.class, arg, configuration);

@@ -10,8 +10,8 @@ import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class MapTest {
@@ -32,7 +32,7 @@ public class MapTest {
     
     public class AdditionalProperties extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
         ));
         static final Class<?> additionalProperties = AdditionalProperties1.class;
         protected static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
@@ -55,7 +55,7 @@ public class MapTest {
     
     public class MapMapOfString extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static MapMapOfStringMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
@@ -71,7 +71,7 @@ public class MapTest {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
-            ))
+            )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
@@ -89,7 +89,7 @@ public class MapTest {
     
     public class MapOfEnumString extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
         ));
         static final Class<?> additionalProperties = AdditionalProperties2.class;
         protected static MapOfEnumStringMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
@@ -115,7 +115,7 @@ public class MapTest {
     
     public class DirectMap extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
         ));
         static final Class<?> additionalProperties = AdditionalProperties3.class;
         protected static DirectMapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
@@ -144,13 +144,13 @@ public class MapTest {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("map_map_of_string", MapMapOfString.class),
                 new PropertyEntry("map_of_enum_string", MapOfEnumString.class),
                 new PropertyEntry("direct_map", DirectMap.class),
                 new PropertyEntry("indirect_map", StringBooleanMap.StringBooleanMap1.class)
-            ))
+            )))
         ));
         protected static MapTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapTestMap(arg);

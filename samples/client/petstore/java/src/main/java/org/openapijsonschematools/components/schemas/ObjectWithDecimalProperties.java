@@ -8,8 +8,8 @@ import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class ObjectWithDecimalProperties {
@@ -36,12 +36,12 @@ public class ObjectWithDecimalProperties {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("length", DecimalPayload.DecimalPayload1.class),
                 new PropertyEntry("width", Width.class),
                 new PropertyEntry("cost", Money.Money1.class)
-            ))
+            )))
         ));
         protected static ObjectWithDecimalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithDecimalPropertiesMap(arg);

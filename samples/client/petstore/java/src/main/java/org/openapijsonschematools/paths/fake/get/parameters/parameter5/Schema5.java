@@ -20,7 +20,7 @@ public class Schema5 {
                 Long.class,
                 Float.class,
                 Double.class
-            )),
+            ))),
             new KeywordEntry("format", new FormatValidator("double"))
         ));
         public static Double validate(Double arg, SchemaConfiguration configuration) {

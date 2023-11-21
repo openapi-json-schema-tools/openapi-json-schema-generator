@@ -29,8 +29,8 @@ public class AnimalFarm {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)),
-            new KeywordEntry("items", new ItemsValidator(Animal.Animal1.class)
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            new KeywordEntry("items", new ItemsValidator(Animal.Animal1.class))
         ));
         protected static AnimalFarmList getListOutputInstance(FrozenList<Object> arg) {
             return new AnimalFarmList(arg);

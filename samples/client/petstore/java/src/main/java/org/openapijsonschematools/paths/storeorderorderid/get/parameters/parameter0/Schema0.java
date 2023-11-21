@@ -20,7 +20,7 @@ public class Schema0 {
                 Long.class,
                 Float.class,
                 Double.class
-            )),
+            ))),
             new KeywordEntry("format", new FormatValidator("int64"))
         ));
         public static Long validate(Integer arg, SchemaConfiguration configuration) {

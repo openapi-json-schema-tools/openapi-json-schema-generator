@@ -29,7 +29,7 @@ public class ComposedNumber {
                 Long.class,
                 Float.class,
                 Double.class
-            ))
+            )))
         ));
         public static Number validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ComposedNumber1.class, arg, configuration);

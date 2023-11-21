@@ -23,7 +23,7 @@ public class ArrayWithValidationsInItems {
                 Long.class,
                 Float.class,
                 Double.class
-            )),
+            ))),
             new KeywordEntry("format", new FormatValidator("int64"))
         ));
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
@@ -57,8 +57,8 @@ public class ArrayWithValidationsInItems {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)),
-            new KeywordEntry("items", new ItemsValidator(Items.class)
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static ArrayWithValidationsInItemsList getListOutputInstance(FrozenList<Object> arg) {
             return new ArrayWithValidationsInItemsList(arg);

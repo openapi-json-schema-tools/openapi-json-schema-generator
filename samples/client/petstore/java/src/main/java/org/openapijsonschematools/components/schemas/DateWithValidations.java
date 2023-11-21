@@ -24,7 +24,7 @@ public class DateWithValidations {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
-            )),
+            ))),
             new KeywordEntry("format", new FormatValidator("date"))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {

@@ -14,8 +14,8 @@ import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class HeaderParameters {
@@ -37,13 +37,13 @@ public class HeaderParameters {
     
     public class HeaderParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("1", Schema5.Schema51.class),
                 new PropertyEntry("aB", Schema6.Schema61.class),
                 new PropertyEntry("A-B", Schema8.Schema81.class),
                 new PropertyEntry("self", Schema7.Schema71.class)
-            )),
+            ))),
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static HeaderParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {

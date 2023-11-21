@@ -29,13 +29,13 @@ public class {{jsonPathPiece.camelCase}} extends JsonSchema {
         {{#eq this "properties"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_properties }}
         {{/eq}}
+        {{#eq this "required"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_required }}
+        {{/eq}}
         {{#if @last}}
     ));
         {{/if}}
     {{/each}}
-{{#if requiredProperties}}
-    {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_required }}
-{{/if}}
 {{#if additionalProperties}}
     {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_additionalProperties }}
 {{/if}}

@@ -18,8 +18,8 @@ import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
-import org.openapijsonschematools.schemas.validation.PropertiesEntry;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class User {
@@ -58,7 +58,7 @@ public class User {
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
                 FrozenMap.class
-            ))
+            )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithNoDeclaredPropsNullable.class, arg, configuration);
@@ -144,7 +144,7 @@ public class User {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)),
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("id", Id.class),
                 new PropertyEntry("username", Username.class),
@@ -159,7 +159,7 @@ public class User {
                 new PropertyEntry("anyTypeProp", AnyTypeProp.class),
                 new PropertyEntry("anyTypeExceptNullProp", AnyTypeExceptNullProp.class),
                 new PropertyEntry("anyTypePropNullable", AnyTypePropNullable.class)
-            ))
+            )))
         ));
         protected static UserMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new UserMap(arg);
