@@ -68,8 +68,8 @@ public class Zebra {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "className"
             ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static ZebraMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ZebraMap(arg);
         }

@@ -44,8 +44,8 @@ public class QueryParameters {
                 new PropertyEntry("enum_query_integer", Schema4.Schema41.class),
                 new PropertyEntry("enum_query_string_array", Schema2.Schema21.class)
             ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new QueryParametersMap(arg);
         }

@@ -35,8 +35,8 @@ public class AdditionalPropertiesClass {
     public class MapProperty extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static MapPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapPropertyMap(arg);
         }
@@ -61,8 +61,8 @@ public class AdditionalPropertiesClass {
     public class AdditionalProperties1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties2.class;
         protected static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AdditionalPropertiesMap(arg);
         }
@@ -84,8 +84,8 @@ public class AdditionalPropertiesClass {
     public class MapOfMapProperty extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties1.class;
         protected static MapOfMapPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapOfMapPropertyMap(arg);
         }
@@ -119,8 +119,8 @@ public class AdditionalPropertiesClass {
     public class MapWithUndeclaredPropertiesAnytype3 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties3.class;
         protected static MapWithUndeclaredPropertiesAnytype3Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapWithUndeclaredPropertiesAnytype3Map(arg);
         }
@@ -147,8 +147,8 @@ public class AdditionalPropertiesClass {
     public class EmptyMap extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties4.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties4.class;
         protected static EmptyMapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new EmptyMapMap(arg);
         }
@@ -173,8 +173,8 @@ public class AdditionalPropertiesClass {
     public class MapWithUndeclaredPropertiesString extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties5.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties5.class;
         protected static MapWithUndeclaredPropertiesStringMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapWithUndeclaredPropertiesStringMap(arg);
         }

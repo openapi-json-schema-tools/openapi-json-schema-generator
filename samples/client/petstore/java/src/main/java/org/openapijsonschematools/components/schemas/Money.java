@@ -53,8 +53,8 @@ public class Money {
                 "amount",
                 "currency"
             ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static MoneyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MoneyMap(arg);
         }

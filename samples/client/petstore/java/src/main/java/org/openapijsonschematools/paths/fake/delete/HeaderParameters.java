@@ -44,8 +44,8 @@ public class HeaderParameters {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "required_boolean_group"
             ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static HeaderParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new HeaderParametersMap(arg);
         }

@@ -41,8 +41,8 @@ public class ReqPropsFromExplicitAddProps {
                 "invalid-name",
                 "validName"
             ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static ReqPropsFromExplicitAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ReqPropsFromExplicitAddPropsMap(arg);
         }

@@ -75,8 +75,8 @@ public class PaginatedResultMyObjectDto {
                 "count",
                 "results"
             ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static PaginatedResultMyObjectDtoMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new PaginatedResultMyObjectDtoMap(arg);
         }

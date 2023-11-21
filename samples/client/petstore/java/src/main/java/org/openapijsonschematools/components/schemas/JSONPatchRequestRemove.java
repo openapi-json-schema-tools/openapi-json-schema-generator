@@ -64,8 +64,8 @@ public class JSONPatchRequestRemove {
                 "op",
                 "path"
             ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static JSONPatchRequestRemoveMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new JSONPatchRequestRemoveMap(arg);
         }

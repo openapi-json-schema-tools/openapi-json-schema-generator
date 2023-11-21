@@ -56,8 +56,8 @@ public class AppleReq {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "cultivar"
             ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static AppleReqMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AppleReqMap(arg);
         }

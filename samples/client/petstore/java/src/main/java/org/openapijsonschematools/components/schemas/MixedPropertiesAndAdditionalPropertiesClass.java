@@ -36,8 +36,8 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     public class MapSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Animal.Animal1.class))
         ));
-        static final Class<?> additionalProperties = Animal.Animal1.class;
         protected static MapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapMap(arg);
         }

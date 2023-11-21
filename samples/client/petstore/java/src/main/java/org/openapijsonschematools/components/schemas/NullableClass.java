@@ -274,8 +274,8 @@ public class NullableClass {
                 Void.class,
                 FrozenMap.class
             ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectNullableProp.class, arg, configuration);
         }
@@ -314,8 +314,8 @@ public class NullableClass {
                 Void.class,
                 FrozenMap.class
             ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties1.class;
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectAndItemsNullableProp.class, arg, configuration);
         }
@@ -351,8 +351,8 @@ public class NullableClass {
     public class ObjectItemsNullable extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties2.class;
         protected static ObjectItemsNullableMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectItemsNullableMap(arg);
         }
@@ -394,8 +394,8 @@ public class NullableClass {
                 new PropertyEntry("object_and_items_nullable_prop", ObjectAndItemsNullableProp.class),
                 new PropertyEntry("object_items_nullable", ObjectItemsNullable.class)
             ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties3.class;
         protected static NullableClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new NullableClassMap(arg);
         }

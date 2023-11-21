@@ -40,8 +40,8 @@ public class QueryParameters {
                 new PropertyEntry("compositionAtRoot", Schema0.Schema01.class),
                 new PropertyEntry("compositionInProperty", Schema1.Schema11.class)
             ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new QueryParametersMap(arg);
         }

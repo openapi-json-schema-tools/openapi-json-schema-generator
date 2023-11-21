@@ -52,8 +52,8 @@ public class Headers {
                 "ref-schema-header",
                 "stringHeader"
             ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static HeadersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new HeadersMap(arg);
         }

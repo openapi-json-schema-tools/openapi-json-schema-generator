@@ -33,8 +33,8 @@ public class MapTest {
     public class AdditionalProperties extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties1.class;
         protected static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AdditionalPropertiesMap(arg);
         }
@@ -56,8 +56,8 @@ public class MapTest {
     public class MapMapOfString extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static MapMapOfStringMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapMapOfStringMap(arg);
         }
@@ -90,8 +90,8 @@ public class MapTest {
     public class MapOfEnumString extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties2.class;
         protected static MapOfEnumStringMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapOfEnumStringMap(arg);
         }
@@ -116,8 +116,8 @@ public class MapTest {
     public class DirectMap extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties3.class;
         protected static DirectMapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new DirectMapMap(arg);
         }

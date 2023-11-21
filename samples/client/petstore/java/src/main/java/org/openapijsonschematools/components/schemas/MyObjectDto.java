@@ -47,8 +47,8 @@ public class MyObjectDto {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("id", Id.class)
             ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static MyObjectDtoMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MyObjectDtoMap(arg);
         }

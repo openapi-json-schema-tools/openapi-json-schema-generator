@@ -62,8 +62,8 @@ public class Drawing {
                 new PropertyEntry("nullableShape", NullableShape.NullableShape1.class),
                 new PropertyEntry("shapes", Shapes.class)
             ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Fruit.Fruit1.class))
         ));
-        static final Class<?> additionalProperties = Fruit.Fruit1.class;
         protected static DrawingMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new DrawingMap(arg);
         }

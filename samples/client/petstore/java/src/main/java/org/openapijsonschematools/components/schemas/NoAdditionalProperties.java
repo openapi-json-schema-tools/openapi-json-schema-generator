@@ -55,8 +55,8 @@ public class NoAdditionalProperties {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "id"
             ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static NoAdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new NoAdditionalPropertiesMap(arg);
         }

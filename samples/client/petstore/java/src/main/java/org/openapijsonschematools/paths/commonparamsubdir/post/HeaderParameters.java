@@ -38,8 +38,8 @@ public class HeaderParameters {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("someHeader", Schema0.Schema01.class)
             ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static HeaderParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new HeaderParametersMap(arg);
         }

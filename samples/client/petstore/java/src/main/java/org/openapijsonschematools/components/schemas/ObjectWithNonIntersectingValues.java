@@ -45,8 +45,8 @@ public class ObjectWithNonIntersectingValues {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("a", A.class)
             ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static ObjectWithNonIntersectingValuesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ObjectWithNonIntersectingValuesMap(arg);
         }

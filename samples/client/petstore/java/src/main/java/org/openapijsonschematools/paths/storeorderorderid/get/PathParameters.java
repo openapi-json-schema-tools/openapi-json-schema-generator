@@ -42,8 +42,8 @@ public class PathParameters {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "order_id"
             ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static PathParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new PathParametersMap(arg);
         }
