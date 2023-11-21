@@ -13,7 +13,9 @@ public class {{jsonPathPiece.camelCase}} extends JsonSchema {
     {{/if}}
     */
 {{/if}}
-    {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_types }}
+    public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_types }}
+    ));
 {{#if enumInfo}}
     {{!> components/schemas/schema_cls/_enum }}
 {{/if}}

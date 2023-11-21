@@ -23,11 +23,13 @@ public class ComposedNumber {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            Integer.class,
-            Long.class,
-            Float.class,
-            Double.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Integer.class,
+                Long.class,
+                Float.class,
+                Double.class
+            ))
         ));
         public static Number validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ComposedNumber1.class, arg, configuration);

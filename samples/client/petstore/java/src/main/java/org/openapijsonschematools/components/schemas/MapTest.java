@@ -31,8 +31,8 @@ public class MapTest {
     }    
     
     public class AdditionalProperties extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
         ));
         static final Class<?> additionalProperties = AdditionalProperties1.class;
         protected static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
@@ -54,8 +54,8 @@ public class MapTest {
     }    
     
     public class MapMapOfString extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static MapMapOfStringMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
@@ -68,8 +68,10 @@ public class MapTest {
     
     
     public class AdditionalProperties2 extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                String.class
+            ))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
@@ -86,8 +88,8 @@ public class MapTest {
     }    
     
     public class MapOfEnumString extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
         ));
         static final Class<?> additionalProperties = AdditionalProperties2.class;
         protected static MapOfEnumStringMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
@@ -112,8 +114,8 @@ public class MapTest {
     }    
     
     public class DirectMap extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
         ));
         static final Class<?> additionalProperties = AdditionalProperties3.class;
         protected static DirectMapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
@@ -141,8 +143,8 @@ public class MapTest {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
         ));
         public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("map_map_of_string", MapMapOfString.class),

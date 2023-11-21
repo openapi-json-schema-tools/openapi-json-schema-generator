@@ -1,5 +1,8 @@
 {{#if types}}
-public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+    {{#and (eq types.size 1) (or (contains types "null") (contains types "object") (contains types "array") (contains types "boolean"))}}
+new KeywordEntry("type", new TypeValidator(Set.of({{#contains types "null"}}Void.class{{/contains}}{{#contains types "object"}}FrozenMap.class{{/contains}}{{#contains types "array"}}FrozenList.class{{/contains}}{{#contains types  "boolean"}}Boolean.class{{/contains}}))
+    {{else}}
+new KeywordEntry("type", new TypeValidator(Set.of(
     {{#each types}}
         {{#eq this "null"}}
     Void.class{{#unless @last}},{{/unless}}
@@ -34,5 +37,6 @@ public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
     Boolean.class{{#unless @last}},{{/unless}}
         {{/eq}}
     {{/each}}
-));
+))
+    {{/and}}
 {{/if}}

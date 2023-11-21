@@ -26,8 +26,8 @@ public class Schema2 {
     }    
     
     public class Schema21 extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenList.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))
         ));
         public static final Class<?> items = Items2.class;
         protected static SchemaList2 getListOutputInstance(FrozenList<Object> arg) {

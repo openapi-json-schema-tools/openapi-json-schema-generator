@@ -33,8 +33,8 @@ public class ObjectModelWithRefProps {
     
         a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations
         */
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
         ));
         public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("myNumber", NumberWithValidations.NumberWithValidations1.class),

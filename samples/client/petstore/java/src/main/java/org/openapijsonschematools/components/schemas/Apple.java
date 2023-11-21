@@ -17,8 +17,10 @@ public class Apple {
     
     
     public class Cultivar extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                String.class
+            ))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Cultivar.class, arg, configuration);
@@ -26,8 +28,10 @@ public class Apple {
     }    
     
     public class Origin extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                String.class
+            ))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Origin.class, arg, configuration);
@@ -50,10 +54,10 @@ public class Apple {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
+        new KeywordEntry("type", new TypeValidator(Set.of(
             Void.class,
             FrozenMap.class
-        ));
+        ))
         public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("cultivar", Cultivar.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("origin", Origin.class)

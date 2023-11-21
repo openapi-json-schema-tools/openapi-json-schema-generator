@@ -28,8 +28,8 @@ public class Schema {
     }    
     
     public class Schema1 extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))
         ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static SchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
