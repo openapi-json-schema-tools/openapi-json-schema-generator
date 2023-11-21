@@ -6,6 +6,12 @@ import java.time.format.DateTimeParseException;
 import java.util.UUID;
 
 public class FormatValidator implements KeywordValidator {
+    public final String format;
+
+    public FormatValidator(String format) {
+        this.format = format;
+    }
+
     private final static BigInteger int32InclusiveMinimum = BigInteger.valueOf(-2147483648L);
     private final static BigInteger int32InclusiveMaximum = BigInteger.valueOf(2147483647L);
     private final static BigInteger int64InclusiveMinimum = BigInteger.valueOf(-9223372036854775808L);
@@ -133,19 +139,16 @@ public class FormatValidator implements KeywordValidator {
     }
 
     @Override
-    public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, Object constraint, ValidationMetadata validationMetadata, Object extra) {
-        String format = (String) constraint;
+    public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, Object extra) {
         if (arg instanceof Number) {
             validateNumericFormat(
                 (Number) arg,
-                format,
                 validationMetadata
             );
             return null;
         } else if (arg instanceof String) {
             validateStringFormat(
                 (String) arg,
-                format,
                 validationMetadata
             );
             return null;

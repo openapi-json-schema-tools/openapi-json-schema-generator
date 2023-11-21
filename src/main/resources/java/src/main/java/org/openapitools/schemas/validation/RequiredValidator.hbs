@@ -6,14 +6,19 @@ import java.util.Map;
 import java.util.Set;
 
 public class RequiredValidator implements KeywordValidator {
+    public final Set<String> required;
+
+    public RequiredValidator(Set<String> required) {
+        this.required = required;
+    }
+
     @Override
-    public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, Object constraint, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, Object extra) {
         if (!(arg instanceof Map)) {
             return null;
         }
         Map<String, Object> castArg = (Map<String, Object>) arg;
-        Set<String> requiredProperties = (Set<String>) constraint;
-        Set<String> missingRequiredProperties = new HashSet<>(requiredProperties);
+        Set<String> missingRequiredProperties = new HashSet<>(required);
         missingRequiredProperties.removeAll(castArg.keySet());
         if (!missingRequiredProperties.isEmpty()) {
             List<String> missingReqProps = missingRequiredProperties.stream().sorted().toList();
