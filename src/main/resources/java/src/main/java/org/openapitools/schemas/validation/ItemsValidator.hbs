@@ -4,13 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemsValidator implements KeywordValidator {
+    public final Class<? extends JsonSchema> items;
+
+    public ItemsValidator(Class<? extends JsonSchema> items) {
+        this.items = items;
+    }
+
     @Override
-    public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, Object constraint, ValidationMetadata validationMetadata, Object extra) {
+    public Object getConstraint() {
+        return items;
+    }
+
+    @Override
+    public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, Object extra) {
         if (!(arg instanceof List)) {
             return null;
         }
         List<Object> castArg = (List<Object>) arg;
-        Class<JsonSchema> itemsSchema = (Class<JsonSchema>) constraint;
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         // todo add handling for prefixItems
         int i = 0;
@@ -23,12 +33,12 @@ public class ItemsValidator implements KeywordValidator {
                     validationMetadata.validatedPathToSchemas(),
                     validationMetadata.seenClasses()
             );
-            if (itemValidationMetadata.validationRanEarlier(itemsSchema)) {
+            if (itemValidationMetadata.validationRanEarlier(items)) {
                 // todo add_deeper_validated_schemas
                 i +=1;
                 continue;
             }
-            PathToSchemasMap otherPathToSchemas = JsonSchema.validate(itemsSchema, itemValue, itemValidationMetadata);
+            PathToSchemasMap otherPathToSchemas = JsonSchema.validate(items, itemValue, itemValidationMetadata);
             pathToSchemas.update(otherPathToSchemas);
             i += 1;
         }

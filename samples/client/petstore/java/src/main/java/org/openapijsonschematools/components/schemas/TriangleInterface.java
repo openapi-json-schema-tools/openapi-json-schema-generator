@@ -1,9 +1,7 @@
 package org.openapijsonschematools.components.schemas;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
-import java.util.AbstractMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -13,14 +11,22 @@ import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
+import org.openapijsonschematools.schemas.validation.RequiredValidator;
+import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class TriangleInterface {
     // nest classes so all schemas and input/output classes can be public
     
     
     public class ShapeType extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                String.class
+            )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ShapeType.class, arg, configuration);
@@ -46,13 +52,15 @@ public class TriangleInterface {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("shapeType", ShapeType.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("triangleType", TriangleType.class)
-        ));
-        public static final Set<String> required = new LinkedHashSet<>(Set.of(
-            "shapeType",
-            "triangleType"
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("shapeType", ShapeType.class),
+                new PropertyEntry("triangleType", TriangleType.class)
+            ))),
+            new KeywordEntry("required", new RequiredValidator(Set.of(
+                "shapeType",
+                "triangleType"
+            )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(TriangleInterface1.class, arg, configuration);

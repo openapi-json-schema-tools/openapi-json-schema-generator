@@ -12,9 +12,9 @@ public class TypeValidatorTest {
 
     @Test
     public void testValidateSucceeds() {
-        final TypeValidator validator = new TypeValidator();
-        LinkedHashSet<Class<?>> value = new LinkedHashSet<>();
-        value.add(String.class);
+        LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+        type.add(String.class);
+        final TypeValidator validator = new TypeValidator(type);
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 new ArrayList<>(),
                 new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()),
@@ -24,7 +24,6 @@ public class TypeValidatorTest {
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 JsonSchema.class,
                 "hi",
-                value,
                 validationMetadata,
                 null
         );
@@ -33,9 +32,9 @@ public class TypeValidatorTest {
 
     @Test
     public void testValidateFailsIntIsNotString() throws RuntimeException {
-        final TypeValidator validator = new TypeValidator();
-        LinkedHashSet<Class<?>> value = new LinkedHashSet<>();
-        value.add(String.class);
+        LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
+        type.add(String.class);
+        final TypeValidator validator = new TypeValidator(type);
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 new ArrayList<>(),
                 new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()),
@@ -45,7 +44,6 @@ public class TypeValidatorTest {
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
                 JsonSchema.class,
                 1,
-                value,
                 validationMetadata,
                 null
         ));

@@ -1,15 +1,20 @@
 package org.openapijsonschematools.components.schemas;
-import java.util.AbstractMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.DecimalJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
+import org.openapijsonschematools.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
+import org.openapijsonschematools.schemas.validation.RequiredValidator;
+import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class Money {
     // nest classes so all schemas and input/output classes can be public
@@ -38,18 +43,18 @@ public class Money {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("amount", Amount.class),
+                new PropertyEntry("currency", Currency.Currency1.class)
+            ))),
+            new KeywordEntry("required", new RequiredValidator(Set.of(
+                "amount",
+                "currency"
+            ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("amount", Amount.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("currency", Currency.Currency1.class)
-        ));
-        public static final Set<String> required = new LinkedHashSet<>(Set.of(
-            "amount",
-            "currency"
-        ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static MoneyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MoneyMap(arg);
         }

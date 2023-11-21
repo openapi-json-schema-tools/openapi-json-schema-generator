@@ -225,7 +225,7 @@ All URIs are relative to the selected server
 | [Schema200Response1](docs/Model200Response.md) | model with an invalid class name for python, starts with a number |
 | [AbstractStepMessage1](docs/AbstractStepMessage.md) | Abstract Step |
 | [AdditionalPropertiesClass1](docs/AdditionalPropertiesClass.md) | |
-| [AdditionalPropertiesValidator1](docs/AdditionalPropertiesValidator.md) | |
+| [AdditionalPropertiesSchema1](docs/AdditionalPropertiesSchema.md) | |
 | [AdditionalPropertiesWithArrayOfEnums1](docs/AdditionalPropertiesWithArrayOfEnums.md) | |
 | [Address1](docs/Address.md) | |
 | [Animal1](docs/Animal.md) | |

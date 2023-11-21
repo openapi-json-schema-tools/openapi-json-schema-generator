@@ -1,9 +1,7 @@
 package org.openapijsonschematools.components.schemas;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
-import java.util.AbstractMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -14,6 +12,11 @@ import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
+import org.openapijsonschematools.schemas.validation.RequiredValidator;
 
 public class Name {
     // nest classes so all schemas and input/output classes can be public
@@ -46,13 +49,15 @@ public class Name {
     
         Model for testing model name same as property name
         */
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("name", Name2.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("snake_case", SnakeCase.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("property", Property.class)
-        ));
-        public static final Set<String> required = new LinkedHashSet<>(Set.of(
-            "name"
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("name", Name2.class),
+                new PropertyEntry("snake_case", SnakeCase.class),
+                new PropertyEntry("property", Property.class)
+            ))),
+            new KeywordEntry("required", new RequiredValidator(Set.of(
+                "name"
+            )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Name1.class, arg, configuration);

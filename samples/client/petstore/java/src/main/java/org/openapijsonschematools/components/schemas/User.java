@@ -1,9 +1,7 @@
 package org.openapijsonschematools.components.schemas;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
-import java.util.AbstractMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -18,6 +16,11 @@ import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
+import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class User {
     // nest classes so all schemas and input/output classes can be public
@@ -51,9 +54,11 @@ public class User {
     
     
     public class ObjectWithNoDeclaredPropsNullable extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            Void.class,
-            FrozenMap.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Void.class,
+                FrozenMap.class
+            )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithNoDeclaredPropsNullable.class, arg, configuration);
@@ -138,23 +143,23 @@ public class User {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("id", Id.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("username", Username.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("firstName", FirstName.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("lastName", LastName.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("email", Email.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("password", Password.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("phone", Phone.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("userStatus", UserStatus.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("objectWithNoDeclaredProps", ObjectWithNoDeclaredProps.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("objectWithNoDeclaredPropsNullable", ObjectWithNoDeclaredPropsNullable.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("anyTypeProp", AnyTypeProp.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("anyTypeExceptNullProp", AnyTypeExceptNullProp.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("anyTypePropNullable", AnyTypePropNullable.class)
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("id", Id.class),
+                new PropertyEntry("username", Username.class),
+                new PropertyEntry("firstName", FirstName.class),
+                new PropertyEntry("lastName", LastName.class),
+                new PropertyEntry("email", Email.class),
+                new PropertyEntry("password", Password.class),
+                new PropertyEntry("phone", Phone.class),
+                new PropertyEntry("userStatus", UserStatus.class),
+                new PropertyEntry("objectWithNoDeclaredProps", ObjectWithNoDeclaredProps.class),
+                new PropertyEntry("objectWithNoDeclaredPropsNullable", ObjectWithNoDeclaredPropsNullable.class),
+                new PropertyEntry("anyTypeProp", AnyTypeProp.class),
+                new PropertyEntry("anyTypeExceptNullProp", AnyTypeExceptNullProp.class),
+                new PropertyEntry("anyTypePropNullable", AnyTypePropNullable.class)
+            )))
         ));
         protected static UserMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new UserMap(arg);

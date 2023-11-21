@@ -1,7 +1,5 @@
 package org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post;
-import java.util.AbstractMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
@@ -11,8 +9,14 @@ import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.
 import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter8.Schema8;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
+import org.openapijsonschematools.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
+import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class HeaderParameters {
     // nest classes so all schemas and input/output classes can be public
@@ -32,16 +36,16 @@ public class HeaderParameters {
     }    
     
     public class HeaderParameters1 extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("1", Schema5.Schema51.class),
+                new PropertyEntry("aB", Schema6.Schema61.class),
+                new PropertyEntry("A-B", Schema8.Schema81.class),
+                new PropertyEntry("self", Schema7.Schema71.class)
+            ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("1", Schema5.Schema51.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("aB", Schema6.Schema61.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("A-B", Schema8.Schema81.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("self", Schema7.Schema71.class)
-        ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static HeaderParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new HeaderParametersMap(arg);
         }

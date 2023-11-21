@@ -1,7 +1,6 @@
 package org.openapijsonschematools.components.schemas;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
-import java.util.AbstractMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +10,10 @@ import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
 
 public class ClassModel {
     // nest classes so all schemas and input/output classes can be public
@@ -37,8 +40,10 @@ public class ClassModel {
     
         Model for testing model with "_class" property
         */
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("_class", ClassSchema.class)
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("_class", ClassSchema.class)
+            )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ClassModel1.class, arg, configuration);

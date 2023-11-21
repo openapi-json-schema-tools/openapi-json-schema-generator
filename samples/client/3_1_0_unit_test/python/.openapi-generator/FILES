@@ -1244,6 +1244,7 @@ src/unit_test_api/components/schema/uri_reference_format.py
 src/unit_test_api/components/schema/uri_template_format.py
 src/unit_test_api/components/schema/uuid_format.py
 src/unit_test_api/components/schema/validate_against_correct_branch_then_vs_else.py
+src/unit_test_api/components/schemas/__init__.py
 src/unit_test_api/configurations/__init__.py
 src/unit_test_api/configurations/api_configuration.py
 src/unit_test_api/configurations/schema_configuration.py

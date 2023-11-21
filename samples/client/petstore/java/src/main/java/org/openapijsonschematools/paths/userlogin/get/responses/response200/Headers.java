@@ -1,7 +1,5 @@
 package org.openapijsonschematools.paths.userlogin.get.responses.response200;
-import java.util.AbstractMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.components.headers.int32jsoncontenttypeheader.content.applicationjson.Int32JsonContentTypeHeaderSchema;
@@ -12,8 +10,15 @@ import org.openapijsonschematools.paths.userlogin.get.responses.response200.head
 import org.openapijsonschematools.paths.userlogin.get.responses.response200.headers.xratelimit.content.applicationjson.XRateLimitSchema;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
+import org.openapijsonschematools.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
+import org.openapijsonschematools.schemas.validation.RequiredValidator;
+import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class Headers {
     // nest classes so all schemas and input/output classes can be public
@@ -33,22 +38,22 @@ public class Headers {
     }    
     
     public class Headers1 extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("X-Rate-Limit", XRateLimitSchema.XRateLimitSchema1.class),
+                new PropertyEntry("int32", Int32JsonContentTypeHeaderSchema.Int32JsonContentTypeHeaderSchema1.class),
+                new PropertyEntry("X-Expires-After", XExpiresAfterSchema.XExpiresAfterSchema1.class),
+                new PropertyEntry("ref-content-schema-header", StringWithValidation.StringWithValidation1.class),
+                new PropertyEntry("numberHeader", NumberHeaderSchema.NumberHeaderSchema1.class)
+            ))),
+            new KeywordEntry("required", new RequiredValidator(Set.of(
+                "X-Rate-Limit",
+                "int32",
+                "ref-content-schema-header"
+            ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("X-Rate-Limit", XRateLimitSchema.XRateLimitSchema1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("int32", Int32JsonContentTypeHeaderSchema.Int32JsonContentTypeHeaderSchema1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("X-Expires-After", XExpiresAfterSchema.XExpiresAfterSchema1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("ref-content-schema-header", StringWithValidation.StringWithValidation1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("numberHeader", NumberHeaderSchema.NumberHeaderSchema1.class)
-        ));
-        public static final Set<String> required = new LinkedHashSet<>(Set.of(
-            "X-Rate-Limit",
-            "int32",
-            "ref-content-schema-header"
-        ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static HeadersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new HeadersMap(arg);
         }

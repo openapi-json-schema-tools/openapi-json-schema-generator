@@ -16,10 +16,10 @@ public class PropertiesValidatorTest {
 
     @Test
     public void testCorrectPropertySucceeds() {
-        Map<String, Class<?>> properties = new LinkedHashMap<>();
+        Map<String, Class<? extends JsonSchema>> properties = new LinkedHashMap<>();
         properties.put("someString", StringJsonSchema.class);
 
-        final PropertiesValidator validator = new PropertiesValidator();
+        final PropertiesValidator validator = new PropertiesValidator(properties);
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
@@ -34,7 +34,6 @@ public class PropertiesValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 JsonSchema.class,
                 arg,
-                properties,
                 validationMetadata,
                 null
         );
@@ -50,10 +49,10 @@ public class PropertiesValidatorTest {
 
     @Test
     public void testNotApplicableTypeReturnsNull() {
-        Map<String, Class<?>> properties = new LinkedHashMap<>();
+        Map<String, Class<? extends JsonSchema>> properties = new LinkedHashMap<>();
         properties.put("someString", StringJsonSchema.class);
 
-        final PropertiesValidator validator = new PropertiesValidator();
+        final PropertiesValidator validator = new PropertiesValidator(properties);
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
@@ -65,7 +64,6 @@ public class PropertiesValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 JsonSchema.class,
                 1,
-                properties,
                 validationMetadata,
                 null
         );
@@ -74,10 +72,10 @@ public class PropertiesValidatorTest {
 
     @Test
     public void testIncorrectPropertyValueFails() {
-        Map<String, Class<?>> properties = new LinkedHashMap<>();
+        Map<String, Class<? extends JsonSchema>> properties = new LinkedHashMap<>();
         properties.put("someString", StringJsonSchema.class);
 
-        final PropertiesValidator validator = new PropertiesValidator();
+        final PropertiesValidator validator = new PropertiesValidator(properties);
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
@@ -92,7 +90,6 @@ public class PropertiesValidatorTest {
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
                 JsonSchema.class,
                 arg,
-                properties,
                 validationMetadata,
                 null
         ));

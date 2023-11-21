@@ -13,10 +13,20 @@ public class {{jsonPathPiece.camelCase}} extends JsonSchema {
     {{/if}}
     */
 {{/if}}
-    {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_types }}
-{{#if format}}
-    {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_format }}
-{{/if}}
+    {{#each keywords}}
+        {{#if @first}}
+    public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        {{/if}}
+        {{#eq this "type"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_types }}
+        {{/eq}}
+        {{#eq this "format"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_format }}
+        {{/eq}}
+        {{#if @last}}
+    ));
+        {{/if}}
+    {{/each}}
 {{#if maximum}}
     {{!> components/schemas/schema_cls/_maximum }}
 {{/if}}

@@ -1,15 +1,20 @@
 package org.openapijsonschematools.components.schemas;
-import java.util.AbstractMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
+import org.openapijsonschematools.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
+import org.openapijsonschematools.schemas.validation.RequiredValidator;
+import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class JSONPatchRequestRemove {
     // nest classes so all schemas and input/output classes can be public
@@ -23,8 +28,10 @@ public class JSONPatchRequestRemove {
     
     
     public class Op extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                String.class
+            )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Op.class, arg, configuration);
@@ -47,18 +54,18 @@ public class JSONPatchRequestRemove {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("path", Path.class),
+                new PropertyEntry("op", Op.class)
+            ))),
+            new KeywordEntry("required", new RequiredValidator(Set.of(
+                "op",
+                "path"
+            ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("path", Path.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("op", Op.class)
-        ));
-        public static final Set<String> required = new LinkedHashSet<>(Set.of(
-            "op",
-            "path"
-        ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static JSONPatchRequestRemoveMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new JSONPatchRequestRemoveMap(arg);
         }

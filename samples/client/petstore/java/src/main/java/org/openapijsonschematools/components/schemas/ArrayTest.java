@@ -1,7 +1,5 @@
 package org.openapijsonschematools.components.schemas;
-import java.util.AbstractMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -10,7 +8,13 @@ import org.openapijsonschematools.schemas.Int64JsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
+import org.openapijsonschematools.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
+import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class ArrayTest {
     // nest classes so all schemas and input/output classes can be public
@@ -26,10 +30,10 @@ public class ArrayTest {
     }    
     
     public class ArrayOfString extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenList.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        public static final Class<?> items = Items.class;
         protected static ArrayOfStringList getListOutputInstance(FrozenList<Object> arg) {
             return new ArrayOfStringList(arg);
         }
@@ -48,10 +52,10 @@ public class ArrayTest {
     }    
     
     public class Items1 extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenList.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            new KeywordEntry("items", new ItemsValidator(Items2.class))
         ));
-        public static final Class<?> items = Items2.class;
         protected static ItemsList getListOutputInstance(FrozenList<Object> arg) {
             return new ItemsList(arg);
         }
@@ -67,10 +71,10 @@ public class ArrayTest {
     }    
     
     public class ArrayArrayOfInteger extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenList.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            new KeywordEntry("items", new ItemsValidator(Items1.class))
         ));
-        public static final Class<?> items = Items1.class;
         protected static ArrayArrayOfIntegerList getListOutputInstance(FrozenList<Object> arg) {
             return new ArrayArrayOfIntegerList(arg);
         }
@@ -86,10 +90,10 @@ public class ArrayTest {
     }    
     
     public class Items3 extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenList.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            new KeywordEntry("items", new ItemsValidator(ReadOnlyFirst.ReadOnlyFirst1.class))
         ));
-        public static final Class<?> items = ReadOnlyFirst.ReadOnlyFirst1.class;
         protected static ItemsList1 getListOutputInstance(FrozenList<Object> arg) {
             return new ItemsList1(arg);
         }
@@ -105,10 +109,10 @@ public class ArrayTest {
     }    
     
     public class ArrayArrayOfModel extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenList.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            new KeywordEntry("items", new ItemsValidator(Items3.class))
         ));
-        public static final Class<?> items = Items3.class;
         protected static ArrayArrayOfModelList getListOutputInstance(FrozenList<Object> arg) {
             return new ArrayArrayOfModelList(arg);
         }
@@ -133,13 +137,13 @@ public class ArrayTest {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("array_of_string", ArrayOfString.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("array_array_of_integer", ArrayArrayOfInteger.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("array_array_of_model", ArrayArrayOfModel.class)
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("array_of_string", ArrayOfString.class),
+                new PropertyEntry("array_array_of_integer", ArrayArrayOfInteger.class),
+                new PropertyEntry("array_array_of_model", ArrayArrayOfModel.class)
+            )))
         ));
         protected static ArrayTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ArrayTestMap(arg);

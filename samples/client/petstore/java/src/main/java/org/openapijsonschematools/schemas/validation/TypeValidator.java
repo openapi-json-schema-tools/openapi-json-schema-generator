@@ -1,18 +1,28 @@
 package org.openapijsonschematools.schemas.validation;
 
-import java.util.HashSet;
+import java.util.Set;
 
 public class TypeValidator implements KeywordValidator {
+    public final Set<Class<?>> type;
+
+    public TypeValidator(Set<Class<?>> type) {
+        this.type = type;
+    }
+
     @Override
-    public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, Object constraint, ValidationMetadata validationMetadata, Object extra) {
-        HashSet<Class<?>> types = (HashSet<Class<?>>) constraint;
+    public Object getConstraint() {
+        return type;
+    }
+
+    @Override
+    public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, Object extra) {
         Class<?> argClass;
         if (arg == null) {
             argClass = Void.class;
         } else {
             argClass = arg.getClass();
         }
-        if (!types.contains(argClass)) {
+        if (!type.contains(argClass)) {
             throw new RuntimeException("invalid type");
         }
         return null;

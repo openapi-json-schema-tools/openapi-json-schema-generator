@@ -6,6 +6,17 @@ import java.time.format.DateTimeParseException;
 import java.util.UUID;
 
 public class FormatValidator implements KeywordValidator {
+    public final String format;
+
+    public FormatValidator(String format) {
+        this.format = format;
+    }
+
+    @Override
+    public Object getConstraint() {
+        return format;
+    }
+
     private final static BigInteger int32InclusiveMinimum = BigInteger.valueOf(-2147483648L);
     private final static BigInteger int32InclusiveMaximum = BigInteger.valueOf(2147483647L);
     private final static BigInteger int64InclusiveMinimum = BigInteger.valueOf(-9223372036854775808L);
@@ -15,7 +26,7 @@ public class FormatValidator implements KeywordValidator {
     private final static BigDecimal doubleInclusiveMinimum = BigDecimal.valueOf(-1.7976931348623157E+308d);
     private final static BigDecimal doubleInclusiveMaximum = BigDecimal.valueOf(1.7976931348623157E+308d);
 
-    private Void validateNumericFormat(Number arg, String format, ValidationMetadata validationMetadata) {
+    private Void validateNumericFormat(Number arg, ValidationMetadata validationMetadata) {
         if (format.startsWith("int")) {
             // there is a json schema test where 1.0 validates as an integer
             BigInteger intArg;
@@ -87,7 +98,7 @@ public class FormatValidator implements KeywordValidator {
         return null;
     }
 
-    private Void validateStringFormat(String arg, String format, ValidationMetadata validationMetadata) {
+    private Void validateStringFormat(String arg, ValidationMetadata validationMetadata) {
         if (format.equals("uuid")) {
             try {
                 UUID.fromString(arg);
@@ -133,19 +144,16 @@ public class FormatValidator implements KeywordValidator {
     }
 
     @Override
-    public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, Object constraint, ValidationMetadata validationMetadata, Object extra) {
-        String format = (String) constraint;
+    public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, Object extra) {
         if (arg instanceof Number) {
             validateNumericFormat(
                 (Number) arg,
-                format,
                 validationMetadata
             );
             return null;
         } else if (arg instanceof String) {
             validateStringFormat(
                 (String) arg,
-                format,
                 validationMetadata
             );
             return null;

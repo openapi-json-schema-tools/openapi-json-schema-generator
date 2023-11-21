@@ -1,14 +1,19 @@
 package org.openapijsonschematools.components.schemas;
-import java.util.AbstractMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
+import org.openapijsonschematools.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
+import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class Drawing {
     // nest classes so all schemas and input/output classes can be public
@@ -21,10 +26,10 @@ public class Drawing {
     }    
     
     public class Shapes extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenList.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            new KeywordEntry("items", new ItemsValidator(Shape.Shape1.class))
         ));
-        public static final Class<?> items = Shape.Shape1.class;
         protected static ShapesList getListOutputInstance(FrozenList<Object> arg) {
             return new ShapesList(arg);
         }
@@ -49,16 +54,16 @@ public class Drawing {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("mainShape", Shape.Shape1.class),
+                new PropertyEntry("shapeOrNull", ShapeOrNull.ShapeOrNull1.class),
+                new PropertyEntry("nullableShape", NullableShape.NullableShape1.class),
+                new PropertyEntry("shapes", Shapes.class)
+            ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Fruit.Fruit1.class))
         ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("mainShape", Shape.Shape1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("shapeOrNull", ShapeOrNull.ShapeOrNull1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("nullableShape", NullableShape.NullableShape1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("shapes", Shapes.class)
-        ));
-        static final Class<?> additionalProperties = Fruit.Fruit1.class;
         protected static DrawingMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new DrawingMap(arg);
         }

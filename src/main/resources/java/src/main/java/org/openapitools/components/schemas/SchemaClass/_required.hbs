@@ -1,5 +1,5 @@
-public static final Set<String> required = new LinkedHashSet<>(Set.of(
+new KeywordEntry("required", new RequiredValidator(Set.of(
 {{#each requiredProperties}}
     "{{{@key.original}}}"{{#unless @last}},{{/unless}}
 {{/each}}
-));
+))){{#unless @last}},{{/unless}}

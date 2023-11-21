@@ -2,17 +2,22 @@ package {{{packageName}}}.schemas;
 
 import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.schemas.validation.KeywordEntry;
+import {{{packageName}}}.schemas.validation.KeywordValidator;
+import {{{packageName}}}.schemas.validation.TypeValidator;
+import {{{packageName}}}.schemas.validation.FormatValidator;
 
 import java.time.ZonedDateTime;
-import java.util.LinkedHashSet;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Set;
 
 
 public class DateTimeJsonSchema extends JsonSchema {
-    public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-        String.class
+    public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
+        new KeywordEntry("format", new FormatValidator("date-time"))
     ));
-    static final String format = "date-time";
 
     public static String validate(String arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(DateTimeJsonSchema.class, arg, configuration);

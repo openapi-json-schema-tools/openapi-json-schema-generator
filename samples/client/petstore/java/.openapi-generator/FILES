@@ -23,7 +23,7 @@ src/main/java/org/openapijsonschematools/components/responses/successwithjsonapi
 src/main/java/org/openapijsonschematools/components/responses/successwithjsonapiresponse/content/applicationjson/Schema.java
 src/main/java/org/openapijsonschematools/components/schemas/AbstractStepMessage.java
 src/main/java/org/openapijsonschematools/components/schemas/AdditionalPropertiesClass.java
-src/main/java/org/openapijsonschematools/components/schemas/AdditionalPropertiesValidator.java
+src/main/java/org/openapijsonschematools/components/schemas/AdditionalPropertiesSchema.java
 src/main/java/org/openapijsonschematools/components/schemas/AdditionalPropertiesWithArrayOfEnums.java
 src/main/java/org/openapijsonschematools/components/schemas/Address.java
 src/main/java/org/openapijsonschematools/components/schemas/Animal.java
@@ -366,9 +366,11 @@ src/main/java/org/openapijsonschematools/schemas/validation/FrozenList.java
 src/main/java/org/openapijsonschematools/schemas/validation/FrozenMap.java
 src/main/java/org/openapijsonschematools/schemas/validation/ItemsValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/JsonSchema.java
+src/main/java/org/openapijsonschematools/schemas/validation/KeywordEntry.java
 src/main/java/org/openapijsonschematools/schemas/validation/KeywordValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/PathToSchemasMap.java
 src/main/java/org/openapijsonschematools/schemas/validation/PropertiesValidator.java
+src/main/java/org/openapijsonschematools/schemas/validation/PropertyEntry.java
 src/main/java/org/openapijsonschematools/schemas/validation/RequiredValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/TypeValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/UnsetAnyTypeJsonSchema.java

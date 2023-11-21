@@ -13,16 +13,26 @@ public class {{jsonPathPiece.camelCase}} extends JsonSchema {
     {{/if}}
     */
 {{/if}}
-    {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_types }}
-    {{#if properties}}
-    {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_properties }}
-    {{/if}}
-    {{#if requiredProperties}}
-    {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_required }}
-    {{/if}}
-    {{#if additionalProperties}}
-    {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_additionalProperties }}
-    {{/if}}
+    {{#each keywords}}
+        {{#if @first}}
+    public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        {{/if}}
+        {{#eq this "type"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_types }}
+        {{/eq}}
+        {{#eq this "properties"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_properties }}
+        {{/eq}}
+        {{#eq this "required"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_required }}
+        {{/eq}}
+        {{#eq this "additionalProperties"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_additionalProperties }}
+        {{/eq}}
+        {{#if @last}}
+    ));
+        {{/if}}
+    {{/each}}
     {{#if hasDiscriminatorWithNonEmptyMapping}}
     {{!> components/schemas/schema_cls/_discriminator }}
     {{/if}}

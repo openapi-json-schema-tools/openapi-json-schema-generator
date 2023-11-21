@@ -1,7 +1,5 @@
 package org.openapijsonschematools.paths.fake.delete;
-import java.util.AbstractMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
@@ -11,8 +9,15 @@ import org.openapijsonschematools.paths.fake.delete.parameters.parameter3.Schema
 import org.openapijsonschematools.paths.fake.delete.parameters.parameter5.Schema5;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
+import org.openapijsonschematools.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
+import org.openapijsonschematools.schemas.validation.RequiredValidator;
+import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public
@@ -32,20 +37,20 @@ public class QueryParameters {
     }    
     
     public class QueryParameters1 extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("required_string_group", Schema0.Schema01.class),
+                new PropertyEntry("int64_group", Schema5.Schema51.class),
+                new PropertyEntry("string_group", Schema3.Schema31.class),
+                new PropertyEntry("required_int64_group", Schema2.Schema21.class)
+            ))),
+            new KeywordEntry("required", new RequiredValidator(Set.of(
+                "required_int64_group",
+                "required_string_group"
+            ))),
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("required_string_group", Schema0.Schema01.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("int64_group", Schema5.Schema51.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("string_group", Schema3.Schema31.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("required_int64_group", Schema2.Schema21.class)
-        ));
-        public static final Set<String> required = new LinkedHashSet<>(Set.of(
-            "required_int64_group",
-            "required_string_group"
-        ));
-        static final Class<?> additionalProperties = AdditionalProperties.class;
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new QueryParametersMap(arg);
         }

@@ -1,23 +1,31 @@
 package org.openapijsonschematools.components.schemas;
-import java.util.LinkedHashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.schemas.validation.FormatValidator;
 import org.openapijsonschematools.schemas.validation.FrozenList;
+import org.openapijsonschematools.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class ArrayWithValidationsInItems {
     // nest classes so all schemas and input/output classes can be public
     
     
     public class Items extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            Integer.class,
-            Long.class,
-            Float.class,
-            Double.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Integer.class,
+                Long.class,
+                Float.class,
+                Double.class
+            ))),
+            new KeywordEntry("format", new FormatValidator("int64"))
         ));
-        public static final String format = "int64";
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items.class, Long.valueOf(arg), configuration);
         }
@@ -48,10 +56,10 @@ public class ArrayWithValidationsInItems {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenList.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        public static final Class<?> items = Items.class;
         protected static ArrayWithValidationsInItemsList getListOutputInstance(FrozenList<Object> arg) {
             return new ArrayWithValidationsInItemsList(arg);
         }

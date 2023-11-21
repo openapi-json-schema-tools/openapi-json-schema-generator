@@ -52,7 +52,7 @@ docs/components/schema/_200_response.md
 docs/components/schema/_return.md
 docs/components/schema/abstract_step_message.md
 docs/components/schema/additional_properties_class.md
-docs/components/schema/additional_properties_validator.md
+docs/components/schema/additional_properties_schema.md
 docs/components/schema/additional_properties_with_array_of_enums.md
 docs/components/schema/address.md
 docs/components/schema/animal.md
@@ -562,7 +562,7 @@ src/petstore_api/components/schema/__init__.py
 src/petstore_api/components/schema/_return.py
 src/petstore_api/components/schema/abstract_step_message.py
 src/petstore_api/components/schema/additional_properties_class.py
-src/petstore_api/components/schema/additional_properties_validator.py
+src/petstore_api/components/schema/additional_properties_schema.py
 src/petstore_api/components/schema/additional_properties_with_array_of_enums.py
 src/petstore_api/components/schema/address.py
 src/petstore_api/components/schema/animal.py
@@ -696,6 +696,7 @@ src/petstore_api/components/schema/user.py
 src/petstore_api/components/schema/uuid_string.py
 src/petstore_api/components/schema/whale.py
 src/petstore_api/components/schema/zebra.py
+src/petstore_api/components/schemas/__init__.py
 src/petstore_api/components/security_schemes/__init__.py
 src/petstore_api/components/security_schemes/security_scheme_api_key.py
 src/petstore_api/components/security_schemes/security_scheme_api_key_query.py

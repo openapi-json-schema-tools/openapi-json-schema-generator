@@ -11,7 +11,7 @@
 
 import unittest
 
-from petstore_api.components.schema.additional_properties_validator import AdditionalPropertiesValidator
+from petstore_api.components.schema.additional_properties_schema import AdditionalPropertiesSchema
 from petstore_api import schemas, exceptions
 
 
@@ -20,12 +20,12 @@ class TestAdditionalPropertiesValidator(unittest.TestCase):
 
     def test_additional_properties_validator(self):
         with self.assertRaises(exceptions.ApiValueError):
-            AdditionalPropertiesValidator.validate({'tooShort': 'ab'})
+            AdditionalPropertiesSchema.validate({'tooShort': 'ab'})
 
         with self.assertRaises(exceptions.ApiValueError):
-            AdditionalPropertiesValidator.validate({'tooLong': 'abcdef'})
+            AdditionalPropertiesSchema.validate({'tooLong': 'abcdef'})
 
-        inst = AdditionalPropertiesValidator.validate({'addProp': 'abc'})
+        inst = AdditionalPropertiesSchema.validate({'addProp': 'abc'})
         add_prop = inst['addProp']
         assert add_prop == 'abc'
         assert isinstance(add_prop, str)

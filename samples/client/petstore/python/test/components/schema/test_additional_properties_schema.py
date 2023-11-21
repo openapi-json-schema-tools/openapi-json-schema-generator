@@ -10,12 +10,12 @@
 import unittest
 
 import petstore_api
-from petstore_api.components.schema.additional_properties_validator import AdditionalPropertiesValidator
+from petstore_api.components.schema.additional_properties_schema import AdditionalPropertiesSchema
 from petstore_api.configurations import schema_configuration
 
 
-class TestAdditionalPropertiesValidator(unittest.TestCase):
-    """AdditionalPropertiesValidator unit test stubs"""
+class TestAdditionalPropertiesSchema(unittest.TestCase):
+    """AdditionalPropertiesSchema unit test stubs"""
     configuration = schema_configuration.SchemaConfiguration(
         disabled_json_schema_keywords={'format'}
     )

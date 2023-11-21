@@ -1,7 +1,5 @@
 package org.openapijsonschematools.components.schemas;
-import java.util.AbstractMap;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -10,7 +8,14 @@ import org.openapijsonschematools.schemas.Int64JsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
+import org.openapijsonschematools.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.PropertiesValidator;
+import org.openapijsonschematools.schemas.validation.PropertyEntry;
+import org.openapijsonschematools.schemas.validation.RequiredValidator;
+import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class Pet {
     // nest classes so all schemas and input/output classes can be public
@@ -32,10 +37,10 @@ public class Pet {
     }    
     
     public class PhotoUrls extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenList.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        public static final Class<?> items = Items.class;
         protected static PhotoUrlsList getListOutputInstance(FrozenList<Object> arg) {
             return new PhotoUrlsList(arg);
         }
@@ -45,8 +50,10 @@ public class Pet {
     }    
     
     public class Status extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            String.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                String.class
+            )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Status.class, arg, configuration);
@@ -60,10 +67,10 @@ public class Pet {
     }    
     
     public class Tags extends JsonSchema {
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenList.class
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            new KeywordEntry("items", new ItemsValidator(Tag.Tag1.class))
         ));
-        public static final Class<?> items = Tag.Tag1.class;
         protected static TagsList getListOutputInstance(FrozenList<Object> arg) {
             return new TagsList(arg);
         }
@@ -90,20 +97,20 @@ public class Pet {
     
         Pet object that needs to be added to the store
         */
-        public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-            FrozenMap.class
-        ));
-        public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
-            new AbstractMap.SimpleEntry<String, Class<?>>("id", Id.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("category", Category.Category1.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("name", Name.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("photoUrls", PhotoUrls.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("tags", Tags.class),
-            new AbstractMap.SimpleEntry<String, Class<?>>("status", Status.class)
-        ));
-        public static final Set<String> required = new LinkedHashSet<>(Set.of(
-            "name",
-            "photoUrls"
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                new PropertyEntry("id", Id.class),
+                new PropertyEntry("category", Category.Category1.class),
+                new PropertyEntry("name", Name.class),
+                new PropertyEntry("photoUrls", PhotoUrls.class),
+                new PropertyEntry("tags", Tags.class),
+                new PropertyEntry("status", Status.class)
+            ))),
+            new KeywordEntry("required", new RequiredValidator(Set.of(
+                "name",
+                "photoUrls"
+            )))
         ));
         protected static PetMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new PetMap(arg);

@@ -244,7 +244,7 @@ Class | Description
 [_200Response](docs/components/schema/_200_response.md) | model with an invalid class name for python, starts with a number
 [AbstractStepMessage](docs/components/schema/abstract_step_message.md) | Abstract Step
 [AdditionalPropertiesClass](docs/components/schema/additional_properties_class.md) |
-[AdditionalPropertiesValidator](docs/components/schema/additional_properties_validator.md) |
+[AdditionalPropertiesSchema](docs/components/schema/additional_properties_schema.md) |
 [AdditionalPropertiesWithArrayOfEnums](docs/components/schema/additional_properties_with_array_of_enums.md) |
 [Address](docs/components/schema/address.md) |
 [Animal](docs/components/schema/animal.md) |

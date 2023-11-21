@@ -129,6 +129,32 @@ public class CodegenSchema {
         return maxItems != null || minItems != null || minProperties != null || maxProperties != null || minLength != null || maxLength != null || multipleOf != null || patternInfo != null || minimum != null || maximum != null || exclusiveMinimum != null || exclusiveMaximum != null || uniqueItems != null;
     }
 
+    public List<String> keywords() {
+        List<String> keywords = new ArrayList<>();
+        if (type == null && format == null && items == null && properties == null && requiredProperties == null && additionalProperties != null) {
+            return null;
+        }
+        if (type != null) {
+            keywords.add("type");
+        }
+        if (format != null) {
+            keywords.add("format");
+        }
+        if (items != null) {
+            keywords.add("items");
+        }
+        if (properties != null) {
+            keywords.add("properties");
+        }
+        if (requiredProperties != null) {
+            keywords.add("required");
+        }
+        if (additionalProperties != null) {
+            keywords.add("additionalProperties");
+        }
+        return keywords;
+    }
+
     public boolean isSimpleBoolean() {
         if (types == null) {
             return false;
