@@ -19,7 +19,7 @@ public class Schema4 {
                 Long.class,
                 Float.class,
                 Double.class
-            ))
+            )),
         ));
         public static final String format = "int32";
         public static Long validate(Integer arg, SchemaConfiguration configuration) {

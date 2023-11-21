@@ -48,6 +48,8 @@ public class Name {
     
         Model for testing model name same as property name
         */
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        ));
         public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("name", Name2.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("snake_case", SnakeCase.class),

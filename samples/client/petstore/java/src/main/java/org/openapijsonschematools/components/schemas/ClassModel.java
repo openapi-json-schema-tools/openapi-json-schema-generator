@@ -39,6 +39,8 @@ public class ClassModel {
     
         Model for testing model with "_class" property
         */
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        ));
         public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("_class", ClassSchema.class)
         ));

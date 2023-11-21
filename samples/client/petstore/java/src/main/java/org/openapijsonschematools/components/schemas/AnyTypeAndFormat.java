@@ -21,6 +21,8 @@ public class AnyTypeAndFormat {
     
     
     public class UuidSchema extends JsonSchema {
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        ));
         public static final String format = "uuid";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(UuidSchema.class, arg, configuration);
@@ -72,6 +74,8 @@ public class AnyTypeAndFormat {
     }    
     
     public class Date extends JsonSchema {
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        ));
         public static final String format = "date";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Date.class, arg, configuration);
@@ -123,6 +127,8 @@ public class AnyTypeAndFormat {
     }    
     
     public class Datetime extends JsonSchema {
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        ));
         public static final String format = "date-time";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Datetime.class, arg, configuration);
@@ -174,6 +180,8 @@ public class AnyTypeAndFormat {
     }    
     
     public class NumberSchema extends JsonSchema {
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        ));
         public static final String format = "number";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberSchema.class, arg, configuration);
@@ -225,6 +233,8 @@ public class AnyTypeAndFormat {
     }    
     
     public class Binary extends JsonSchema {
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        ));
         public static final String format = "binary";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Binary.class, arg, configuration);
@@ -276,6 +286,8 @@ public class AnyTypeAndFormat {
     }    
     
     public class Int32 extends JsonSchema {
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        ));
         public static final String format = "int32";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int32.class, arg, configuration);
@@ -327,6 +339,8 @@ public class AnyTypeAndFormat {
     }    
     
     public class Int64 extends JsonSchema {
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        ));
         public static final String format = "int64";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int64.class, arg, configuration);
@@ -378,6 +392,8 @@ public class AnyTypeAndFormat {
     }    
     
     public class DoubleSchema extends JsonSchema {
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        ));
         public static final String format = "double";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DoubleSchema.class, arg, configuration);
@@ -429,6 +445,8 @@ public class AnyTypeAndFormat {
     }    
     
     public class FloatSchema extends JsonSchema {
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        ));
         public static final String format = "float";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(FloatSchema.class, arg, configuration);

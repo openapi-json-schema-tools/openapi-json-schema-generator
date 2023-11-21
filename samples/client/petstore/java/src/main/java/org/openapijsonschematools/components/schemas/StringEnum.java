@@ -19,10 +19,12 @@ public class StringEnum {
     
         Do not edit the class manually.
         */
-        new KeywordEntry("type", new TypeValidator(Set.of(
-            Void.class,
-            String.class
-        )),
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Void.class,
+                String.class
+            ))
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(StringEnum1.class, arg, configuration);
         }

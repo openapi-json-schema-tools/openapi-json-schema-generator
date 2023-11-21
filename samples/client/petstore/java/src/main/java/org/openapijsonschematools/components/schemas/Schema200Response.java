@@ -43,6 +43,8 @@ public class Schema200Response {
     
         model with an invalid class name for python, starts with a number
         */
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        ));
         public static final LinkedHashMap<String, Class<?>> properties = new LinkedHashMap<>(Map.ofEntries(
             new AbstractMap.SimpleEntry<String, Class<?>>("name", Name.class),
             new AbstractMap.SimpleEntry<String, Class<?>>("class", ClassSchema.class)

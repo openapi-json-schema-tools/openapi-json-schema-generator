@@ -24,10 +24,12 @@ public class NullableClass {
     
     
     public class AdditionalProperties3 extends JsonSchema {
-        new KeywordEntry("type", new TypeValidator(Set.of(
-            Void.class,
-            FrozenMap.class
-        )),
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Void.class,
+                FrozenMap.class
+            ))
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties3.class, arg, configuration);
         }
@@ -37,13 +39,15 @@ public class NullableClass {
     }    
     
     public class IntegerProp extends JsonSchema {
-        new KeywordEntry("type", new TypeValidator(Set.of(
-            Void.class,
-            Integer.class,
-            Long.class,
-            Float.class,
-            Double.class
-        )),
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Void.class,
+                Integer.class,
+                Long.class,
+                Float.class,
+                Double.class
+            ))
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(IntegerProp.class, arg, configuration);
         }
@@ -65,13 +69,15 @@ public class NullableClass {
     }    
     
     public class NumberProp extends JsonSchema {
-        new KeywordEntry("type", new TypeValidator(Set.of(
-            Void.class,
-            Integer.class,
-            Long.class,
-            Float.class,
-            Double.class
-        )),
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Void.class,
+                Integer.class,
+                Long.class,
+                Float.class,
+                Double.class
+            ))
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberProp.class, arg, configuration);
         }
@@ -93,10 +99,12 @@ public class NullableClass {
     }    
     
     public class BooleanProp extends JsonSchema {
-        new KeywordEntry("type", new TypeValidator(Set.of(
-            Void.class,
-            Boolean.class
-        )),
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Void.class,
+                Boolean.class
+            ))
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(BooleanProp.class, arg, configuration);
         }
@@ -106,10 +114,12 @@ public class NullableClass {
     }    
     
     public class StringProp extends JsonSchema {
-        new KeywordEntry("type", new TypeValidator(Set.of(
-            Void.class,
-            String.class
-        )),
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Void.class,
+                String.class
+            ))
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(StringProp.class, arg, configuration);
         }
@@ -119,10 +129,12 @@ public class NullableClass {
     }    
     
     public class DateProp extends JsonSchema {
-        new KeywordEntry("type", new TypeValidator(Set.of(
-            Void.class,
-            String.class
-        )),
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Void.class,
+                String.class
+            )),
+        ));
         public static final String format = "date";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DateProp.class, arg, configuration);
@@ -133,10 +145,12 @@ public class NullableClass {
     }    
     
     public class DatetimeProp extends JsonSchema {
-        new KeywordEntry("type", new TypeValidator(Set.of(
-            Void.class,
-            String.class
-        )),
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Void.class,
+                String.class
+            )),
+        ));
         public static final String format = "date-time";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DatetimeProp.class, arg, configuration);
@@ -156,11 +170,13 @@ public class NullableClass {
     }    
     
     public class ArrayNullableProp extends JsonSchema {
-        new KeywordEntry("type", new TypeValidator(Set.of(
-            Void.class,
-            FrozenList.class
-        )),
-        new KeywordEntry("items", new ItemsValidator(Items.class)
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Void.class,
+                FrozenList.class
+            )),
+        ));
+        new KeywordEntry("items", new ItemsValidator(Items.class),
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayNullableProp.class, arg, configuration);
         }
@@ -170,10 +186,12 @@ public class NullableClass {
     }    
     
     public class Items1 extends JsonSchema {
-        new KeywordEntry("type", new TypeValidator(Set.of(
-            Void.class,
-            FrozenMap.class
-        )),
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Void.class,
+                FrozenMap.class
+            ))
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items1.class, arg, configuration);
         }
@@ -189,11 +207,13 @@ public class NullableClass {
     }    
     
     public class ArrayAndItemsNullableProp extends JsonSchema {
-        new KeywordEntry("type", new TypeValidator(Set.of(
-            Void.class,
-            FrozenList.class
-        )),
-        new KeywordEntry("items", new ItemsValidator(Items1.class)
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Void.class,
+                FrozenList.class
+            )),
+        ));
+        new KeywordEntry("items", new ItemsValidator(Items1.class),
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayAndItemsNullableProp.class, arg, configuration);
         }
@@ -203,10 +223,12 @@ public class NullableClass {
     }    
     
     public class Items2 extends JsonSchema {
-        new KeywordEntry("type", new TypeValidator(Set.of(
-            Void.class,
-            FrozenMap.class
-        )),
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Void.class,
+                FrozenMap.class
+            ))
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items2.class, arg, configuration);
         }
@@ -247,10 +269,12 @@ public class NullableClass {
     }    
     
     public class ObjectNullableProp extends JsonSchema {
-        new KeywordEntry("type", new TypeValidator(Set.of(
-            Void.class,
-            FrozenMap.class
-        )),
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Void.class,
+                FrozenMap.class
+            )),
+        ));
         static final Class<?> additionalProperties = AdditionalProperties.class;
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectNullableProp.class, arg, configuration);
@@ -261,10 +285,12 @@ public class NullableClass {
     }    
     
     public class AdditionalProperties1 extends JsonSchema {
-        new KeywordEntry("type", new TypeValidator(Set.of(
-            Void.class,
-            FrozenMap.class
-        )),
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Void.class,
+                FrozenMap.class
+            ))
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
         }
@@ -283,10 +309,12 @@ public class NullableClass {
     }    
     
     public class ObjectAndItemsNullableProp extends JsonSchema {
-        new KeywordEntry("type", new TypeValidator(Set.of(
-            Void.class,
-            FrozenMap.class
-        )),
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Void.class,
+                FrozenMap.class
+            )),
+        ));
         static final Class<?> additionalProperties = AdditionalProperties1.class;
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectAndItemsNullableProp.class, arg, configuration);
@@ -297,10 +325,12 @@ public class NullableClass {
     }    
     
     public class AdditionalProperties2 extends JsonSchema {
-        new KeywordEntry("type", new TypeValidator(Set.of(
-            Void.class,
-            FrozenMap.class
-        )),
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Void.class,
+                FrozenMap.class
+            ))
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
         }

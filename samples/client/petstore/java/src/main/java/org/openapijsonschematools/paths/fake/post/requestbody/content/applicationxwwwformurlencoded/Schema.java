@@ -54,7 +54,7 @@ public class Schema {
                 Long.class,
                 Float.class,
                 Double.class
-            ))
+            )),
         ));
         public static final String format = "int32";
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
@@ -110,7 +110,7 @@ public class Schema {
                 Long.class,
                 Float.class,
                 Double.class
-            ))
+            )),
         ));
         public static final String format = "float";
         public static Float validate(Float arg, SchemaConfiguration configuration) {
@@ -125,7 +125,7 @@ public class Schema {
                 Long.class,
                 Float.class,
                 Double.class
-            ))
+            )),
         ));
         public static final String format = "double";
         public static Double validate(Double arg, SchemaConfiguration configuration) {

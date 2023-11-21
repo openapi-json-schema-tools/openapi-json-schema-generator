@@ -54,10 +54,12 @@ public class User {
     
     
     public class ObjectWithNoDeclaredPropsNullable extends JsonSchema {
-        new KeywordEntry("type", new TypeValidator(Set.of(
-            Void.class,
-            FrozenMap.class
-        )),
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("type", new TypeValidator(Set.of(
+                Void.class,
+                FrozenMap.class
+            ))
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithNoDeclaredPropsNullable.class, arg, configuration);
         }

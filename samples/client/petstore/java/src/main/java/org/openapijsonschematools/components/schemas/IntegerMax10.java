@@ -25,7 +25,7 @@ public class IntegerMax10 {
                 Long.class,
                 Float.class,
                 Double.class
-            ))
+            )),
         ));
         public static final String format = "int64";
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
