@@ -15,6 +15,11 @@ public class AdditionalPropertiesValidator implements KeywordValidator {
     }
 
     @Override
+    public Object getConstraint() {
+        return additionalProperties;
+    }
+
+    @Override
     public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, Object extra) {
         if (!(arg instanceof Map)) {
             return null;

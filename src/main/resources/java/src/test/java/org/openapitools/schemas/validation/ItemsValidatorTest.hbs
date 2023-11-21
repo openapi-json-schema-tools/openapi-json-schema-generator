@@ -26,11 +26,10 @@ public class ItemsValidatorTest {
         List<Object> mutableList = new ArrayList<>();
         mutableList.add("a");
         FrozenList<Object> arg = new FrozenList<>(mutableList);
-        final ItemsValidator validator = new ItemsValidator();
+        final ItemsValidator validator = new ItemsValidator(StringJsonSchema.class);
         PathToSchemasMap pathToSchemas = validator.validate(
                 JsonSchema.class,
                 arg,
-                StringJsonSchema.class,
                 validationMetadata,
                 null
         );
@@ -54,11 +53,10 @@ public class ItemsValidatorTest {
                 new PathToSchemasMap(),
                 new LinkedHashSet<>()
         );
-        final ItemsValidator validator = new ItemsValidator();
+        final ItemsValidator validator = new ItemsValidator(StringJsonSchema.class);
         PathToSchemasMap pathToSchemas = validator.validate(
                 JsonSchema.class,
                 1,
-                StringJsonSchema.class,
                 validationMetadata,
                 null
         );
@@ -78,11 +76,10 @@ public class ItemsValidatorTest {
         List<Object> mutableList = new ArrayList<>();
         mutableList.add(1);
         FrozenList<Object> arg = new FrozenList<>(mutableList);
-        final ItemsValidator validator = new ItemsValidator();
+        final ItemsValidator validator = new ItemsValidator(StringJsonSchema.class);
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
                 JsonSchema.class,
                 arg,
-                StringJsonSchema.class,
                 validationMetadata,
                 null
         ));

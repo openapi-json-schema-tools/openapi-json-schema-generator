@@ -3,15 +3,18 @@ package {{{packageName}}}.schemas;
 import {{{packageName}}}.schemas.validation.FrozenMap;
 import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.schemas.validation.KeywordValidator;
+import {{{packageName}}}.schemas.validation.KeywordEntry;
+import {{{packageName}}}.schemas.validation.TypeValidator;
 
-import java.util.LinkedHashSet;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
 
 public class MapJsonSchema extends JsonSchema {
-    public static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-        FrozenMap.class
+    public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)))
     ));
 
     public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {

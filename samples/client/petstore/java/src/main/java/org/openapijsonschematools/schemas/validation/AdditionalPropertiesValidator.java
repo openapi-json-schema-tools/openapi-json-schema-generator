@@ -8,13 +8,23 @@ import java.util.Map;
 import java.util.Set;
 
 public class AdditionalPropertiesValidator implements KeywordValidator {
+    public final Class<? extends JsonSchema> additionalProperties;
+
+    public AdditionalPropertiesValidator(Class<? extends JsonSchema> additionalProperties) {
+        this.additionalProperties = additionalProperties;
+    }
+
     @Override
-    public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, Object constraint, ValidationMetadata validationMetadata, Object extra) {
+    public Object getConstraint() {
+        return additionalProperties;
+    }
+
+    @Override
+    public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, Object extra) {
         if (!(arg instanceof Map)) {
             return null;
         }
         Map<String, Object> castArg = (Map<String, Object>) arg;
-        Class<JsonSchema> addPropSchema = (Class<JsonSchema>) constraint;
         Map<String, Class<JsonSchema>> properties = (Map<String, Class<JsonSchema>>) extra;
         if (properties == null) {
             properties = new LinkedHashMap<>();
@@ -33,11 +43,11 @@ public class AdditionalPropertiesValidator implements KeywordValidator {
                     validationMetadata.validatedPathToSchemas(),
                     validationMetadata.seenClasses()
             );
-            if (propValidationMetadata.validationRanEarlier(addPropSchema)) {
+            if (propValidationMetadata.validationRanEarlier(additionalProperties)) {
                 // todo add_deeper_validated_schemas
                 continue;
             }
-            PathToSchemasMap otherPathToSchemas = JsonSchema.validate(addPropSchema, propValue, propValidationMetadata);
+            PathToSchemasMap otherPathToSchemas = JsonSchema.validate(additionalProperties, propValue, propValidationMetadata);
             pathToSchemas.update(otherPathToSchemas);
         }
         return pathToSchemas;

@@ -21,55 +21,11 @@ import java.util.Set;
 import java.util.UUID;
 
 public abstract class JsonSchema {
-    static HashMap<String, KeywordValidator> keywordToValidator = new HashMap<>(Map.ofEntries(
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("allOf", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("anyOf", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("const", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("contains", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("default", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("dependentRequired", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("dependentSchemas", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("discriminator", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("enumInfo", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("exclusiveMaximum", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("exclusiveMinimum", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("format", new FormatValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("if_", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("then", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("else_", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("maxContains", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("maxItems", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("maxLength", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("maxProperties", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("maximum", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("minContains", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("minItems", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("minLength", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("minProperties", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("minimum", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("multipleOf", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("not", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("oneOf", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("pattern", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("patternProperties", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("prefixItems", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("required", new RequiredValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("type", new TypeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("uniqueItems", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("items", new ItemsValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("unevaluatedItems", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("properties", new PropertiesValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("propertyNames", new FakeValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("additionalProperties", new AdditionalPropertiesValidator()),
-        new AbstractMap.SimpleEntry<String, KeywordValidator>("unevaluatedProperties", new FakeValidator())
-    ));
-
     protected static PathToSchemasMap validate(
             Class<? extends JsonSchema> schemaCls,
             Object arg,
             ValidationMetadata validationMetadata
     ) {
-        HashMap<String, Object> fieldsToValues = new HashMap<>();
         LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
         Class<? extends JsonSchema> usedSchemaCls = schemaCls;
         Class<?> superclass = schemaCls.getSuperclass();
@@ -77,38 +33,23 @@ public abstract class JsonSchema {
             // only ref with no adjacent properties supported at this time
             usedSchemaCls = (Class<? extends JsonSchema>) superclass;
         }
-        Field[] fields = usedSchemaCls.getDeclaredFields();
-        for (Field field : fields) {
-            String fieldName = field.getName();
-            if (fieldName.equals("keywordToValidator")) {
-                continue;
-            }
-            if (fieldName.equals("this$0")) {
-                continue;
-            }
-            if (disabledKeywords.contains(fieldName)) {
-                continue;
-            }
-            try {
-                Object value = field.get(null);
-                fieldsToValues.put(fieldName, value);
-            } catch (IllegalAccessException | IllegalArgumentException e) {
-                throw new RuntimeException(e);
-            }
-        }
+        LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>();
+       try {
+          Field keywordToValidatorField = usedSchemaCls.getField("keywordToValidator");
+          LinkedHashMap<String, KeywordValidator> entries = (LinkedHashMap<String, KeywordValidator>) keywordToValidatorField.get(null);
+          keywordToValidator.putAll(entries);
+       } catch (NoSuchFieldException | IllegalAccessException ignore) {}
         Object extra = null;
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
-        for (Map.Entry<String, Object> entry: fieldsToValues.entrySet()) {
+        for (Map.Entry<String, KeywordValidator> entry: keywordToValidator.entrySet()) {
             String jsonKeyword = entry.getKey();
-            Object constraint = entry.getValue();
-            if (jsonKeyword.equals("additionalProperties") && fieldsToValues.containsKey("properties")) {
-                extra = fieldsToValues.get("properties");
+            if (jsonKeyword.equals("additionalProperties") && keywordToValidator.containsKey("properties")) {
+                extra = keywordToValidator.get("properties").getConstraint();
             }
-            KeywordValidator validatorClass = keywordToValidator.get(jsonKeyword);
-            PathToSchemasMap otherPathToSchemas = validatorClass.validate(
+            KeywordValidator validator = entry.getValue();
+            PathToSchemasMap otherPathToSchemas = validator.validate(
                     schemaCls,
                     arg,
-                    constraint,
                     validationMetadata,
                     extra
             );

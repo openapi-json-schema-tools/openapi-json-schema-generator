@@ -31,11 +31,10 @@ public class RequiredValidatorTest {
         LinkedHashMap<String, Object> mutableMap = new LinkedHashMap<>();
         mutableMap.put("someString", "abc");
         FrozenMap<String, Object> arg = new FrozenMap<>(mutableMap);
-        final RequiredValidator validator = new RequiredValidator();
+        final RequiredValidator validator = new RequiredValidator(requiredProperties);
         PathToSchemasMap pathToSchemas = validator.validate(
                 JsonSchema.class,
                 arg,
-                requiredProperties,
                 validationMetadata,
                 null
         );
@@ -44,8 +43,8 @@ public class RequiredValidatorTest {
 
     @Test
     public void testNotApplicableTypeReturnsNull() {
-        Map<String, Class<?>> properties = new LinkedHashMap<>();
-        properties.put("someString", StringJsonSchema.class);
+        Set<String> requiredProperties = new LinkedHashSet<>();
+        requiredProperties.add("someString");
 
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");
@@ -55,11 +54,10 @@ public class RequiredValidatorTest {
                 new PathToSchemasMap(),
                 new LinkedHashSet<>()
         );
-        final RequiredValidator validator = new RequiredValidator();
+        final RequiredValidator validator = new RequiredValidator(requiredProperties);
         PathToSchemasMap pathToSchemas = validator.validate(
                 JsonSchema.class,
                 1,
-                properties,
                 validationMetadata,
                 null
         );
@@ -82,11 +80,10 @@ public class RequiredValidatorTest {
         LinkedHashMap<String, Object> mutableMap = new LinkedHashMap<>();
         mutableMap.put("aDifferentProp", 1);
         FrozenMap<String, Object> arg = new FrozenMap<>(mutableMap);
-        final RequiredValidator validator = new RequiredValidator();
+        final RequiredValidator validator = new RequiredValidator(requiredProperties);
         Assert.assertThrows(RuntimeException.class, () -> validator.validate(
                 JsonSchema.class,
                 arg,
-                requiredProperties,
                 validationMetadata,
                 null
         ));
