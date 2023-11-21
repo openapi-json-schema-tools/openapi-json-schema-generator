@@ -1,8 +1,12 @@
 package org.openapijsonschematools.paths.fake.delete.parameters.parameter4;
-import java.util.LinkedHashSet;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class Schema4 {
     // nest classes so all schemas and input/output classes can be public
