@@ -29,6 +29,7 @@ src/this_package/apis/paths/path_with_two_explicit_security.py
 src/this_package/apis/tag_to_api.py
 src/this_package/apis/tags/__init__.py
 src/this_package/apis/tags/default_api.py
+src/this_package/components/schemas/__init__.py
 src/this_package/components/security_schemes/__init__.py
 src/this_package/components/security_schemes/security_scheme_api_key.py
 src/this_package/components/security_schemes/security_scheme_bearer_test.py

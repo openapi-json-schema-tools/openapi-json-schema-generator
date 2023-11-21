@@ -14,7 +14,7 @@
 from petstore_api.components.schema._200_response import _200Response
 from petstore_api.components.schema.abstract_step_message import AbstractStepMessage
 from petstore_api.components.schema.additional_properties_class import AdditionalPropertiesClass
-from petstore_api.components.schema.additional_properties_validator import AdditionalPropertiesValidator
+from petstore_api.components.schema.additional_properties_schema import AdditionalPropertiesSchema
 from petstore_api.components.schema.additional_properties_with_array_of_enums import AdditionalPropertiesWithArrayOfEnums
 from petstore_api.components.schema.address import Address
 from petstore_api.components.schema.animal import Animal
@@ -81,6 +81,7 @@ from petstore_api.components.schema.json_patch_request_remove import JSONPatchRe
 from petstore_api.components.schema.map_test import MapTest
 from petstore_api.components.schema.mixed_properties_and_additional_properties_class import MixedPropertiesAndAdditionalPropertiesClass
 from petstore_api.components.schema.money import Money
+from petstore_api.components.schema.my_object_dto import MyObjectDto
 from petstore_api.components.schema.name import Name
 from petstore_api.components.schema.no_additional_properties import NoAdditionalProperties
 from petstore_api.components.schema.nullable_class import NullableClass
@@ -105,6 +106,7 @@ from petstore_api.components.schema.object_with_only_optional_props import Objec
 from petstore_api.components.schema.object_with_optional_test_prop import ObjectWithOptionalTestProp
 from petstore_api.components.schema.object_with_validations import ObjectWithValidations
 from petstore_api.components.schema.order import Order
+from petstore_api.components.schema.paginated_result_my_object_dto import PaginatedResultMyObjectDto
 from petstore_api.components.schema.parent_pet import ParentPet
 from petstore_api.components.schema.pet import Pet
 from petstore_api.components.schema.pig import Pig
