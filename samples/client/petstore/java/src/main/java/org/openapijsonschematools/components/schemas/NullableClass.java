@@ -134,8 +134,8 @@ public class NullableClass {
                 Void.class,
                 String.class
             )),
+            new KeywordEntry("format", new FormatValidator("date"))
         ));
-        public static final String format = "date";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DateProp.class, arg, configuration);
         }
@@ -150,8 +150,8 @@ public class NullableClass {
                 Void.class,
                 String.class
             )),
+            new KeywordEntry("format", new FormatValidator("date-time"))
         ));
-        public static final String format = "date-time";
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DatetimeProp.class, arg, configuration);
         }

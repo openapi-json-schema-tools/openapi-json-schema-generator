@@ -67,8 +67,8 @@ public class FormatTest {
                 Float.class,
                 Double.class
             )),
+            new KeywordEntry("format", new FormatValidator("int32"))
         ));
-        public static final String format = "int32";
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int32withValidations.class, Long.valueOf(arg), configuration);
         }
@@ -123,8 +123,8 @@ public class FormatTest {
                 Float.class,
                 Double.class
             )),
+            new KeywordEntry("format", new FormatValidator("float"))
         ));
-        public static final String format = "float";
         public static Float validate(Float arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(FloatSchema.class, arg, configuration);
         }
@@ -141,8 +141,8 @@ public class FormatTest {
                 Float.class,
                 Double.class
             )),
+            new KeywordEntry("format", new FormatValidator("double"))
         ));
-        public static final String format = "double";
         public static Double validate(Double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DoubleSchema.class, arg, configuration);
         }
@@ -209,8 +209,8 @@ public class FormatTest {
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
             )),
+            new KeywordEntry("format", new FormatValidator("password"))
         ));
-        public static final String format = "password";
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Password.class, arg, configuration);
         }

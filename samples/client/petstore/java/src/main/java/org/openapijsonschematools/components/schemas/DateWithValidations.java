@@ -25,8 +25,8 @@ public class DateWithValidations {
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
             )),
+            new KeywordEntry("format", new FormatValidator("date"))
         ));
-        public static final String format = "date";
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DateWithValidations1.class, arg, configuration);
         }

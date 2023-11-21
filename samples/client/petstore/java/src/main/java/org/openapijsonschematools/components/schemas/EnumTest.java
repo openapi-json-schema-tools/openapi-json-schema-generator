@@ -46,8 +46,8 @@ public class EnumTest {
                 Float.class,
                 Double.class
             )),
+            new KeywordEntry("format", new FormatValidator("int32"))
         ));
-        public static final String format = "int32";
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(EnumInteger.class, Long.valueOf(arg), configuration);
         }
@@ -73,8 +73,8 @@ public class EnumTest {
                 Float.class,
                 Double.class
             )),
+            new KeywordEntry("format", new FormatValidator("double"))
         ));
-        public static final String format = "double";
         public static Double validate(Double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(EnumNumber.class, arg, configuration);
         }

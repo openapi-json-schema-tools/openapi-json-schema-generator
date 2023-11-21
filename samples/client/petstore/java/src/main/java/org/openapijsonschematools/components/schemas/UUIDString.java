@@ -25,8 +25,8 @@ public class UUIDString {
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
             )),
+            new KeywordEntry("format", new FormatValidator("uuid"))
         ));
-        public static final String format = "uuid";
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(UUIDString1.class, arg, configuration);
         }

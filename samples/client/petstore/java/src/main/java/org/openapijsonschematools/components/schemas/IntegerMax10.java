@@ -26,8 +26,8 @@ public class IntegerMax10 {
                 Float.class,
                 Double.class
             )),
+            new KeywordEntry("format", new FormatValidator("int64"))
         ));
-        public static final String format = "int64";
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(IntegerMax101.class, Long.valueOf(arg), configuration);
         }

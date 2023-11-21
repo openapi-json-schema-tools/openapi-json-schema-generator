@@ -20,8 +20,8 @@ public class Schema4 {
                 Float.class,
                 Double.class
             )),
+            new KeywordEntry("format", new FormatValidator("int32"))
         ));
-        public static final String format = "int32";
         public static Long validate(Integer arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema41.class, Long.valueOf(arg), configuration);
         }

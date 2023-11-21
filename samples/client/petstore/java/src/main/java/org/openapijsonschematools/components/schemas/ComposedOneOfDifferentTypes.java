@@ -66,8 +66,8 @@ public class ComposedOneOfDifferentTypes {
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
             )),
+            new KeywordEntry("format", new FormatValidator("date-time"))
         ));
-        public static final String format = "date-time";
         public static String validate(String arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema6.class, arg, configuration);
         }
