@@ -1,1 +1,101 @@
-{{#eq mode "get_additional_property_"}}def get_additional_property_(self, name: str) -> {{else}}{{#eq mode "get_property"}}def {{@key.original}}(self) -> {{else}}{{#eq mode "typehint"}}{{key}}: {{#eq key "schema"}}typing_extensions.TypeAlias = {{/eq}}{{/eq}}{{/eq}}{{/eq}}{{> src/main/java/org/openapitools/components/schemas/types/_schema_output_type_base }}
+{{#each types}}
+    {{#eq this "boolean"}}
+Boolean{{{endChar}}}
+    {{else}}
+        {{#eq this "null"}}
+Void{{{endChar}}}
+        {{else}}
+            {{#eq this "string"}}
+                {{#eq format "binary"}}
+{{! todo binary types}}
+String{{{endChar}}}
+                {{else}}
+String{{{endChar}}}
+                {{/eq}}
+            {{else}}
+                {{#eq this "number"}}
+                    {{#eq ../format null}}
+Number{{{endChar}}}
+                    {{else}}
+                        {{#eq ../format "float"}}
+Float{{{endChar}}}
+                        {{else}}
+                            {{#eq ../format "double"}}
+Double{{{endChar}}}
+                                {{#eq ../format "int32"}}
+Integer{{{endChar}}}
+                                {{else}}
+                                    {{#eq ../format "int64"}}
+Long{{{endChar}}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{else}}
+                    {{#eq this "integer"}}
+                        {{#eq ../format null}}
+Long{{{endChar}}}
+                        {{else}}
+                            {{#eq ../format "int32"}}
+Integer{{{endChar}}}
+                            {{else}}
+                                {{#eq ../format "int64"}}
+Long{{{endChar}}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{else}}
+                        {{#eq this "array"}}
+                            {{#if arrayOutputJsonPathPiece}}
+                                {{#if fullRefModule}}
+                                    {{#if optional}}
+typing.Union[{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}, schemas.Unset]{{{endChar}}}
+                                    {{else}}
+{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}{{{endChar}}}
+                                    {{/if}}
+                                {{else}}
+                                    {{#if selfReference}}
+                                        {{#if optional}}
+typing.Union['{{arrayOutputJsonPathPiece.camelCase}}', schemas.Unset]{{{endChar}}}
+                                        {{else}}
+'{{arrayOutputJsonPathPiece.camelCase}}'{{{endChar}}}
+                                        {{/if}}
+                                    {{else}}
+                                        {{#if optional}}
+typing.Union[{{arrayOutputJsonPathPiece.camelCase}}, schemas.Unset]{{{endChar}}}
+                                        {{else}}
+{{arrayOutputJsonPathPiece.camelCase}}{{{endChar}}}
+                                        {{/if}}
+                                    {{/if}}
+                                {{/if}}
+                            {{else}}
+                                {{#if optional}}
+typing.Union[typing.Tuple[schemas.OUTPUT_BASE_TYPES], schemas.Unset]{{{endChar}}}
+                                {{else}}
+typing.Tuple[schemas.OUTPUT_BASE_TYPES]{{{endChar}}}
+                                {{/if}}
+                            {{/if}}
+                        {{else}}
+                            {{#eq this "object"}}
+                                {{#if mapOutputJsonPathPiece}}
+                                    {{#if optional}}
+typing.Union[{{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}}, schemas.Unset]{{{endChar}}}
+                                    {{else}}
+{{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}}{{{endChar}}}
+                                    {{/if}}
+                                {{else}}
+                                    {{#if optional}}
+typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset]{{{endChar}}}
+                                    {{else}}
+schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{{endChar}}}
+                                    {{/if}}
+                                {{/if}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{/each}}

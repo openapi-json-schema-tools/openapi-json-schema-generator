@@ -163,8 +163,8 @@ public class NullableClass {
     public class Items extends MapJsonSchema {}
     
     
-    public static class ArrayNullablePropList extends FrozenList<schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
-> {
+    public static class ArrayNullablePropList extends FrozenList<schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]> {
+
         ArrayNullablePropList(FrozenList<Object> m) {
             super(m);
         }
@@ -204,8 +204,8 @@ public class NullableClass {
     public static class ArrayAndItemsNullablePropList extends FrozenList<typing.Union[
     None,
     schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-]
-> {
+]&gt; {
+
         ArrayAndItemsNullablePropList(FrozenList<Object> m) {
             super(m);
         }
@@ -245,8 +245,8 @@ public class NullableClass {
     public static class ArrayItemsNullableList extends FrozenList<typing.Union[
     None,
     schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
-]
-> {
+]&gt; {
+
         ArrayItemsNullableList(FrozenList<Object> m) {
             super(m);
         }

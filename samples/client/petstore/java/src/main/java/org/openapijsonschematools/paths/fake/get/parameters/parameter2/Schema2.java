@@ -26,8 +26,8 @@ public class Schema2 {
         }
     }    
     
-    public static class SchemaList2 extends FrozenList<typing.Literal[">", "$"]
-> {
+    public static class SchemaList2 extends FrozenList<String> {
+
         SchemaList2(FrozenList<Object> m) {
             super(m);
         }

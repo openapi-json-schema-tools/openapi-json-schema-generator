@@ -19,8 +19,9 @@ public class ComposedArray {
     public class Items extends AnyTypeJsonSchema {}
     
     
-    public static class ComposedArrayList extends FrozenList<schemas.OUTPUT_BASE_TYPES
-> {
+    public static class ComposedArrayList extends FrozenList<schemas.OUTPUT_BASE_TYPES&gt; {
+
+
         ComposedArrayList(FrozenList<Object> m) {
             super(m);
         }

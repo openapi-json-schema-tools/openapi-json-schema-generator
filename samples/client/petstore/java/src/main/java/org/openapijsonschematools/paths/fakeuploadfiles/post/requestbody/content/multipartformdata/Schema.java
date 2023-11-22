@@ -23,8 +23,8 @@ public class Schema {
     }
     
     
-    public static class FilesList extends FrozenList<typing.Union[bytes, schemas.FileIO]
-> {
+    public static class FilesList extends FrozenList<String> {
+
         FilesList(FrozenList<Object> m) {
             super(m);
         }

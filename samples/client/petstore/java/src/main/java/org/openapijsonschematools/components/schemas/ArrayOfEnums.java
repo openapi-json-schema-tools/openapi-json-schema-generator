@@ -20,8 +20,8 @@ public class ArrayOfEnums {
     typing.Literal["placed", "approved", "delivered", "single quoted", "multiple
 lines", "double quote 
  with newline"],
-]
-> {
+]&gt; {
+
         ArrayOfEnumsList(FrozenList<Object> m) {
             super(m);
         }

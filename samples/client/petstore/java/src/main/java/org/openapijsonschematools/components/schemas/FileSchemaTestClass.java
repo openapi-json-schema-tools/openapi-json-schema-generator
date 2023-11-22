@@ -18,8 +18,8 @@ public class FileSchemaTestClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class FilesList extends FrozenList<File.FileMap
-> {
+    public static class FilesList extends FrozenList<File.FileMap> {
+
         FilesList(FrozenList<Object> m) {
             super(m);
         }

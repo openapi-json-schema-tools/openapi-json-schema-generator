@@ -32,6 +32,6 @@
 ]{{endChar}}
         {{/eq}}
     {{else}}
-{{> src/main/java/org/openapitools/components/schemas/types/_schema_output_type_single }}
+{{#eq mode "get_additional_property_"}}def get_additional_property_(self, name: str) -> {{else}}{{#eq mode "get_property"}}def {{@key.original}}(self) -> {{else}}{{#eq mode "typehint"}}{{key}}: {{#eq key "schema"}}typing_extensions.TypeAlias = {{/eq}}{{/eq}}{{/eq}}{{/eq}}{{> src/main/java/org/openapitools/components/schemas/types/_schema_output_type_base }}
     {{/if}}
 {{/if}}

@@ -30,8 +30,8 @@ public class PaginatedResultMyObjectDto {
     public class Count extends IntJsonSchema {}
     
     
-    public static class ResultsList extends FrozenList<MyObjectDto.MyObjectDtoMap
-> {
+    public static class ResultsList extends FrozenList<MyObjectDto.MyObjectDtoMap> {
+
         ResultsList(FrozenList<Object> m) {
             super(m);
         }

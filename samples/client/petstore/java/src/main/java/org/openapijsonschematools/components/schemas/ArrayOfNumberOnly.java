@@ -22,8 +22,8 @@ public class ArrayOfNumberOnly {
     public class Items extends NumberJsonSchema {}
     
     
-    public static class ArrayNumberList extends FrozenList<typing.Union[int, float]
-> {
+    public static class ArrayNumberList extends FrozenList<Number> {
+
         ArrayNumberList(FrozenList<Object> m) {
             super(m);
         }

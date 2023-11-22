@@ -16,8 +16,8 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class SchemaList extends FrozenList<User.UserMap
-> {
+    public static class SchemaList extends FrozenList<User.UserMap> {
+
         SchemaList(FrozenList<Object> m) {
             super(m);
         }

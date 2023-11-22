@@ -154,8 +154,8 @@ public class FormatTest {
     public class Items extends NumberJsonSchema {}
     
     
-    public static class ArrayWithUniqueItemsList extends FrozenList<typing.Union[int, float]
-> {
+    public static class ArrayWithUniqueItemsList extends FrozenList<Number> {
+
         ArrayWithUniqueItemsList(FrozenList<Object> m) {
             super(m);
         }
