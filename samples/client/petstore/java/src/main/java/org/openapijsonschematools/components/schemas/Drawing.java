@@ -37,6 +37,7 @@ public class Drawing {
             return new ShapesList(arg);
         }
         public static ShapesList validate(List<Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Shapes.class, arg, configuration);
         }
     }    

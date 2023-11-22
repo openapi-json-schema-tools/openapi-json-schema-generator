@@ -33,7 +33,8 @@ public class Schema {
 
             return new SchemaList(arg);
         }
-        public static SchemaList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static SchemaList validate(List<User.UserMap> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }}

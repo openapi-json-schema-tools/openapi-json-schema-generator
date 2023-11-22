@@ -38,7 +38,8 @@ public class SelfReferencingArrayModel {
 
             return new SelfReferencingArrayModelList(arg);
         }
-        public static SelfReferencingArrayModelList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static SelfReferencingArrayModelList validate(List<SelfReferencingArrayModelList> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(SelfReferencingArrayModel1.class, arg, configuration);
         }
     }}

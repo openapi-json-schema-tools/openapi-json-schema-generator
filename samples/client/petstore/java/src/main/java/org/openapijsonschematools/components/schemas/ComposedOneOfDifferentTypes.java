@@ -60,6 +60,7 @@ public class ComposedOneOfDifferentTypes {
             return new Schema5List(arg);
         }
         public static Schema5List validate(List<Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Schema5.class, arg, configuration);
         }
     }    

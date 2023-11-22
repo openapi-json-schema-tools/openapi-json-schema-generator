@@ -18,11 +18,11 @@ public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaCo
         {{/eq}}
         {{#eq this "array"}}
             {{#if ../arrayOutputJsonPathPiece}}
-public static {{../arrayOutputJsonPathPiece.camelCase}} validate(List<Object> arg, SchemaConfiguration configuration) {
+public static {{../arrayOutputJsonPathPiece.camelCase}} validate(List<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" forceNull=true endChar="> arg, SchemaConfiguration configuration) {" }}{{/with}}
     return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
             {{else}}
-public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+public static FrozenList<Object> U validate(List<Object> arg, SchemaConfiguration configuration) {
     return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
             {{/if}}

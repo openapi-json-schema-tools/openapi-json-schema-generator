@@ -47,7 +47,8 @@ public class PaginatedResultMyObjectDto {
 
             return new ResultsList(arg);
         }
-        public static ResultsList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ResultsList validate(List<MyObjectDto.MyObjectDtoMap> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Results.class, arg, configuration);
         }
     }    

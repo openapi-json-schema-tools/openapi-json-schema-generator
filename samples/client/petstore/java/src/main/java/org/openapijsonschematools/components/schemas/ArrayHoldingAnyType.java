@@ -43,6 +43,7 @@ public class ArrayHoldingAnyType {
             return new ArrayHoldingAnyTypeList(arg);
         }
         public static ArrayHoldingAnyTypeList validate(List<Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ArrayHoldingAnyType1.class, arg, configuration);
         }
     }}

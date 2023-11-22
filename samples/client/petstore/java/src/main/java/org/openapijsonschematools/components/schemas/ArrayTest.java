@@ -40,7 +40,8 @@ public class ArrayTest {
 
             return new ArrayOfStringList(arg);
         }
-        public static ArrayOfStringList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayOfStringList validate(List<String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ArrayOfString.class, arg, configuration);
         }
     }    
@@ -65,7 +66,8 @@ public class ArrayTest {
 
             return new ItemsList(arg);
         }
-        public static ItemsList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ItemsList validate(List<Long> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Items1.class, arg, configuration);
         }
     }    
@@ -87,7 +89,8 @@ public class ArrayTest {
 
             return new ArrayArrayOfIntegerList(arg);
         }
-        public static ArrayArrayOfIntegerList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfIntegerList validate(List<ItemsList> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ArrayArrayOfInteger.class, arg, configuration);
         }
     }    
@@ -109,7 +112,8 @@ public class ArrayTest {
 
             return new ItemsList1(arg);
         }
-        public static ItemsList1 validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ItemsList1 validate(List<ReadOnlyFirst.ReadOnlyFirstMap> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Items3.class, arg, configuration);
         }
     }    
@@ -131,7 +135,8 @@ public class ArrayTest {
 
             return new ArrayArrayOfModelList(arg);
         }
-        public static ArrayArrayOfModelList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfModelList validate(List<ItemsList1> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ArrayArrayOfModel.class, arg, configuration);
         }
     }    

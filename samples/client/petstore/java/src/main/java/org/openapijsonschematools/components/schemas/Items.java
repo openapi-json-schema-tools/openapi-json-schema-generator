@@ -45,7 +45,8 @@ public class Items {
 
             return new ItemsList(arg);
         }
-        public static ItemsList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ItemsList validate(List<FrozenMap<String, Object>> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Items1.class, arg, configuration);
         }
     }}

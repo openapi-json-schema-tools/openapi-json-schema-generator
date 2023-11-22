@@ -82,6 +82,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             return new Schema9List(arg);
         }
         public static Schema9List validate(List<Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Schema9.class, arg, configuration);
         }
     }    

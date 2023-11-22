@@ -34,7 +34,8 @@ public class Schema {
 
             return new SchemaList(arg);
         }
-        public static SchemaList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static SchemaList validate(List<Pet.PetMap> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }}

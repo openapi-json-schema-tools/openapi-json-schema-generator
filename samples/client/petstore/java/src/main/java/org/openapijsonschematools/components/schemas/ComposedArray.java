@@ -43,6 +43,7 @@ public class ComposedArray {
             return new ComposedArrayList(arg);
         }
         public static ComposedArrayList validate(List<Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ComposedArray1.class, arg, configuration);
         }
     }}

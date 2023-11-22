@@ -38,7 +38,8 @@ public class ArrayOfEnums {
 
             return new ArrayOfEnumsList(arg);
         }
-        public static ArrayOfEnumsList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayOfEnumsList validate(List<String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ArrayOfEnums1.class, arg, configuration);
         }
     }}

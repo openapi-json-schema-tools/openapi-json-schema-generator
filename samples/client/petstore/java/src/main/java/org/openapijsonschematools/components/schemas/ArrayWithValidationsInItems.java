@@ -66,7 +66,8 @@ public class ArrayWithValidationsInItems {
 
             return new ArrayWithValidationsInItemsList(arg);
         }
-        public static ArrayWithValidationsInItemsList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayWithValidationsInItemsList validate(List<Long> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ArrayWithValidationsInItems1.class, arg, configuration);
         }
     }}

@@ -36,7 +36,8 @@ public class Schema4 {
 
             return new SchemaList4(arg);
         }
-        public static SchemaList4 validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static SchemaList4 validate(List<String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Schema41.class, arg, configuration);
         }
     }}
