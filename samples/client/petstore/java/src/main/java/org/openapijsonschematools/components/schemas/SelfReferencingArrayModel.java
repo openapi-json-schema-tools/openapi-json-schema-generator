@@ -17,7 +17,8 @@ public class SelfReferencingArrayModel {
     
     public static class SelfReferencingArrayModelList extends FrozenList<SelfReferencingArrayModelList> {
 
-        SelfReferencingArrayModelList(FrozenList<Object> m) {
+        SelfReferencingArrayModelList(FrozenList<SelfReferencingArrayModelList> m) {
+
             super(m);
         }
     }    

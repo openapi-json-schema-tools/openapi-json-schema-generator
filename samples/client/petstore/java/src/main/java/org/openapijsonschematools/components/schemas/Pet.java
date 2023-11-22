@@ -32,7 +32,8 @@ public class Pet {
     
     public static class PhotoUrlsList extends FrozenList<String> {
 
-        PhotoUrlsList(FrozenList<Object> m) {
+        PhotoUrlsList(FrozenList<String> m) {
+
             super(m);
         }
     }    
@@ -63,7 +64,8 @@ public class Pet {
     
     public static class TagsList extends FrozenList<Tag.TagMap> {
 
-        TagsList(FrozenList<Object> m) {
+        TagsList(FrozenList<Tag.TagMap> m) {
+
             super(m);
         }
     }    

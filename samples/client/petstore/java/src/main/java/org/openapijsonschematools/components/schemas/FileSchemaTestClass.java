@@ -20,7 +20,8 @@ public class FileSchemaTestClass {
     
     public static class FilesList extends FrozenList<File.FileMap> {
 
-        FilesList(FrozenList<Object> m) {
+        FilesList(FrozenList<File.FileMap> m) {
+
             super(m);
         }
     }    

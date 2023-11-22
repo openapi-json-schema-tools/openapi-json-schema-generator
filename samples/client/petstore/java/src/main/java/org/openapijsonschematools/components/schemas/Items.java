@@ -21,7 +21,8 @@ public class Items {
     
     public static class ItemsList extends FrozenList<FrozenMap<String, Object>> {
 
-        ItemsList(FrozenList<Object> m) {
+        ItemsList(FrozenList<FrozenMap<String, Object>> m) {
+
             super(m);
         }
     }    

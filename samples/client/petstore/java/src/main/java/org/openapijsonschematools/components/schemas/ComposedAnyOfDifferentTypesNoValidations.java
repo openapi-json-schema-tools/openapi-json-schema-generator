@@ -64,10 +64,12 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     public class Items extends AnyTypeJsonSchema {}
     
     
-    public static class Schema9List extends FrozenList<schemas.OUTPUT_BASE_TYPES&gt; {
+    public static class Schema9List extends FrozenList<schemas.OUTPUT_BASE_TYPES> {
 
 
-        Schema9List(FrozenList<Object> m) {
+        Schema9List(FrozenList<schemas.OUTPUT_BASE_TYPES> m) {
+
+
             super(m);
         }
     }    

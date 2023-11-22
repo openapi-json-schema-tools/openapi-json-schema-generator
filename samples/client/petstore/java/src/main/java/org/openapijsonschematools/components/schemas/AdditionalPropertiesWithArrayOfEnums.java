@@ -19,7 +19,8 @@ public class AdditionalPropertiesWithArrayOfEnums {
     
     public static class AdditionalPropertiesList extends FrozenList<String> {
 
-        AdditionalPropertiesList(FrozenList<Object> m) {
+        AdditionalPropertiesList(FrozenList<String> m) {
+
             super(m);
         }
     }    

@@ -17,7 +17,8 @@ public class AnimalFarm {
     
     public static class AnimalFarmList extends FrozenList<Animal.AnimalMap> {
 
-        AnimalFarmList(FrozenList<Object> m) {
+        AnimalFarmList(FrozenList<Animal.AnimalMap> m) {
+
             super(m);
         }
     }    

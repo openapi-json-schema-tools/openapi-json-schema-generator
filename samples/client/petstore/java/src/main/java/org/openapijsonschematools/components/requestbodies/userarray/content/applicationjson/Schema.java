@@ -18,7 +18,8 @@ public class Schema {
     
     public static class SchemaList extends FrozenList<User.UserMap> {
 
-        SchemaList(FrozenList<Object> m) {
+        SchemaList(FrozenList<User.UserMap> m) {
+
             super(m);
         }
     }    

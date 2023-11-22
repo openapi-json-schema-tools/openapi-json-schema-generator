@@ -25,7 +25,8 @@ public class ArrayTest {
     
     public static class ArrayOfStringList extends FrozenList<String> {
 
-        ArrayOfStringList(FrozenList<Object> m) {
+        ArrayOfStringList(FrozenList<String> m) {
+
             super(m);
         }
     }    
@@ -48,7 +49,8 @@ public class ArrayTest {
     
     public static class ItemsList extends FrozenList<Long> {
 
-        ItemsList(FrozenList<Object> m) {
+        ItemsList(FrozenList<Long> m) {
+
             super(m);
         }
     }    
@@ -68,7 +70,8 @@ public class ArrayTest {
     
     public static class ArrayArrayOfIntegerList extends FrozenList<ItemsList> {
 
-        ArrayArrayOfIntegerList(FrozenList<Object> m) {
+        ArrayArrayOfIntegerList(FrozenList<ItemsList> m) {
+
             super(m);
         }
     }    
@@ -88,7 +91,8 @@ public class ArrayTest {
     
     public static class ItemsList1 extends FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> {
 
-        ItemsList1(FrozenList<Object> m) {
+        ItemsList1(FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> m) {
+
             super(m);
         }
     }    
@@ -108,7 +112,8 @@ public class ArrayTest {
     
     public static class ArrayArrayOfModelList extends FrozenList<ItemsList1> {
 
-        ArrayArrayOfModelList(FrozenList<Object> m) {
+        ArrayArrayOfModelList(FrozenList<ItemsList1> m) {
+
             super(m);
         }
     }    

@@ -22,7 +22,13 @@ lines", "double quote
  with newline"],
 ]&gt; {
 
-        ArrayOfEnumsList(FrozenList<Object> m) {
+        ArrayOfEnumsList(FrozenList<typing.Union[
+    None,
+    typing.Literal["placed", "approved", "delivered", "single quoted", "multiple
+lines", "double quote 
+ with newline"],
+]&gt; m) {
+
             super(m);
         }
     }    

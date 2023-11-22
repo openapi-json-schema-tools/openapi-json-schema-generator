@@ -28,7 +28,8 @@ public class Schema2 {
     
     public static class SchemaList2 extends FrozenList<String> {
 
-        SchemaList2(FrozenList<Object> m) {
+        SchemaList2(FrozenList<String> m) {
+
             super(m);
         }
     }    

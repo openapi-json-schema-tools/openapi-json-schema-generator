@@ -45,7 +45,8 @@ public class ArrayWithValidationsInItems {
     
     public static class ArrayWithValidationsInItemsList extends FrozenList<Long> {
 
-        ArrayWithValidationsInItemsList(FrozenList<Object> m) {
+        ArrayWithValidationsInItemsList(FrozenList<Long> m) {
+
             super(m);
         }
     }    

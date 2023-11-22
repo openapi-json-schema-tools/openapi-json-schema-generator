@@ -21,7 +21,8 @@ public class Schema3 {
     
     public static class SchemaList3 extends FrozenList<String> {
 
-        SchemaList3(FrozenList<Object> m) {
+        SchemaList3(FrozenList<String> m) {
+
             super(m);
         }
     }    

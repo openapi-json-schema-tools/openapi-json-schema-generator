@@ -3,89 +3,89 @@
         {{#eq this "boolean"}}
             {{#and ../enumInfo ../enumInfo.typeToValues.boolean}}
                 {{#if optional}}
-typing.Union[typing.Literal[{{#each ../enumInfo.typeToValues.boolean}}{{#if value}}True{{else}}False{{/if}}{{#unless @last}}, {{/unless}}{{/each}}], schemas.Unset]{{endChar}}
+typing.Union[typing.Literal[{{#each ../enumInfo.typeToValues.boolean}}{{#if value}}True{{else}}False{{/if}}{{#unless @last}}, {{/unless}}{{/each}}], schemas.Unset]{{{endChar}}}
                 {{else}}
-typing.Literal[{{#each ../enumInfo.typeToValues.boolean}}{{#if value}}True{{else}}False{{/if}}{{#unless @last}}, {{/unless}}{{/each}}]{{endChar}}
+typing.Literal[{{#each ../enumInfo.typeToValues.boolean}}{{#if value}}True{{else}}False{{/if}}{{#unless @last}}, {{/unless}}{{/each}}]{{{endChar}}}
                 {{/if}}
             {{else}}
-{{#if optional}}typing.Union[bool, schemas.Unset]{{else}}bool{{/if}}{{endChar}}
+{{#if optional}}typing.Union[bool, schemas.Unset]{{else}}bool{{/if}}{{{endChar}}}
             {{/and}}
         {{else}}
             {{#eq this "null"}}
-{{#if optional}}typing.Union[None, schemas.Unset]{{else}}None{{/if}}{{endChar}}
+{{#if optional}}typing.Union[None, schemas.Unset]{{else}}None{{/if}}{{{endChar}}}
             {{else}}
                 {{#eq this "string"}}
                     {{#eq format "binary"}}
-typing.Union[bytes, schemas.FileIO{{#if optional}}, schemas.Unset{{/if}}]{{endChar}}
+typing.Union[bytes, schemas.FileIO{{#if optional}}, schemas.Unset{{/if}}]{{{endChar}}}
                     {{else}}
                         {{#and ../enumInfo ../enumInfo.typeToValues.string}}
                             {{#if optional}}
-typing.Union[typing.Literal[{{#each ../enumInfo.typeToValues.string}}"{{{value}}}"{{#unless @last}}, {{/unless}}{{/each}}], schemas.Unset]{{endChar}}
+typing.Union[typing.Literal[{{#each ../enumInfo.typeToValues.string}}"{{{value}}}"{{#unless @last}}, {{/unless}}{{/each}}], schemas.Unset]{{{endChar}}}
                             {{else}}
-typing.Literal[{{#each ../enumInfo.typeToValues.string}}"{{{value}}}"{{#unless @last}}, {{/unless}}{{/each}}]{{endChar}}
+typing.Literal[{{#each ../enumInfo.typeToValues.string}}"{{{value}}}"{{#unless @last}}, {{/unless}}{{/each}}]{{{endChar}}}
                             {{/if}}
                         {{else}}
-{{#if optional}}typing.Union[str, schemas.Unset]{{else}}str{{/if}}{{endChar}}
+{{#if optional}}typing.Union[str, schemas.Unset]{{else}}str{{/if}}{{{endChar}}}
                         {{/and}}
                     {{/eq}}
                 {{else}}
                     {{#eq this "number"}}
-typing.Union[int, float{{#if optional}}, schemas.Unset{{/if}}]{{endChar}}
+typing.Union[int, float{{#if optional}}, schemas.Unset{{/if}}]{{{endChar}}}
                     {{else}}
                         {{#eq this "integer"}}
                             {{#and ../enumInfo ../enumInfo.typeToValues.integer}}
                                 {{#if optional}}
-typing.Union[typing.Literal[{{#each ../enumInfo.typeToValues.integer}}{{value}}{{#unless @last}}, {{/unless}}{{/each}}], schemas.Unset]{{endChar}}
+typing.Union[typing.Literal[{{#each ../enumInfo.typeToValues.integer}}{{value}}{{#unless @last}}, {{/unless}}{{/each}}], schemas.Unset]{{{endChar}}}
                                 {{else}}
-typing.Literal[{{#each ../enumInfo.typeToValues.integer}}{{value}}{{#unless @last}}, {{/unless}}{{/each}}]{{endChar}}
+typing.Literal[{{#each ../enumInfo.typeToValues.integer}}{{value}}{{#unless @last}}, {{/unless}}{{/each}}]{{{endChar}}}
                                 {{/if}}
                             {{else}}
-{{#if optional}}typing.Union[int, schemas.Unset]{{else}}int{{/if}}{{endChar}}
+{{#if optional}}typing.Union[int, schemas.Unset]{{else}}int{{/if}}{{{endChar}}}
                             {{/and}}
                         {{else}}
                             {{#eq this "array"}}
                                 {{#if arrayOutputJsonPathPiece}}
                                     {{#if fullRefModule}}
                                         {{#if optional}}
-typing.Union[{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}, schemas.Unset]{{endChar}}
+typing.Union[{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}, schemas.Unset]{{{endChar}}}
                                         {{else}}
-{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}{{endChar}}
+{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}{{{endChar}}}
                                         {{/if}}
                                     {{else}}
                                         {{#if selfReference}}
                                             {{#if optional}}
-typing.Union['{{arrayOutputJsonPathPiece.camelCase}}', schemas.Unset]{{endChar}}
+typing.Union['{{arrayOutputJsonPathPiece.camelCase}}', schemas.Unset]{{{endChar}}}
                                             {{else}}
-'{{arrayOutputJsonPathPiece.camelCase}}'{{endChar}}
+'{{arrayOutputJsonPathPiece.camelCase}}'{{{endChar}}}
                                             {{/if}}
                                         {{else}}
                                             {{#if optional}}
-typing.Union[{{arrayOutputJsonPathPiece.camelCase}}, schemas.Unset]{{endChar}}
+typing.Union[{{arrayOutputJsonPathPiece.camelCase}}, schemas.Unset]{{{endChar}}}
                                             {{else}}
-{{arrayOutputJsonPathPiece.camelCase}}{{endChar}}
+{{arrayOutputJsonPathPiece.camelCase}}{{{endChar}}}
                                             {{/if}}
                                         {{/if}}
                                     {{/if}}
                                 {{else}}
                                     {{#if optional}}
-typing.Union[typing.Tuple[schemas.OUTPUT_BASE_TYPES], schemas.Unset]{{endChar}}
+typing.Union[typing.Tuple[schemas.OUTPUT_BASE_TYPES], schemas.Unset]{{{endChar}}}
                                     {{else}}
-typing.Tuple[schemas.OUTPUT_BASE_TYPES]{{endChar}}
+typing.Tuple[schemas.OUTPUT_BASE_TYPES]{{{endChar}}}
                                     {{/if}}
                                 {{/if}}
                             {{else}}
                                 {{#eq this "object"}}
                                     {{#if mapOutputJsonPathPiece}}
                                         {{#if optional}}
-typing.Union[{{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}}, schemas.Unset]{{endChar}}
+typing.Union[{{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}}, schemas.Unset]{{{endChar}}}
                                         {{else}}
-{{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}}{{endChar}}
+{{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}}{{{endChar}}}
                                         {{/if}}
                                     {{else}}
                                         {{#if optional}}
-typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset]{{endChar}}
+typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset]{{{endChar}}}
                                         {{else}}
-schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{endChar}}
+schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{{endChar}}}
                                         {{/if}}
                                     {{/if}}
                                 {{/eq}}
@@ -98,8 +98,8 @@ schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{endChar}}
     {{/each}}
 {{else}}
     {{#if optional}}
-typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]{{endChar}}
+typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]{{{endChar}}}
     {{else}}
-schemas.OUTPUT_BASE_TYPES{{endChar}}
+schemas.OUTPUT_BASE_TYPES{{{endChar}}}
     {{/if}}
 {{/if}}

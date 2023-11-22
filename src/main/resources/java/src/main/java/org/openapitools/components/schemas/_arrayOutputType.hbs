@@ -1,7 +1,7 @@
 
 
 public static class {{arrayOutputJsonPathPiece.camelCase}} extends FrozenList<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="> {" }}{{/with}}
-    {{arrayOutputJsonPathPiece.camelCase}}(FrozenList<Object> m) {
+    {{arrayOutputJsonPathPiece.camelCase}}(FrozenList<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="> m) {" }}{{/with}}
         super(m);
     }
 }

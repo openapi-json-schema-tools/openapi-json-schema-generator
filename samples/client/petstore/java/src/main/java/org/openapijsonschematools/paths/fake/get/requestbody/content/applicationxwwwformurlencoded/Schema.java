@@ -31,7 +31,8 @@ public class Schema {
     
     public static class EnumFormStringArrayList extends FrozenList<String> {
 
-        EnumFormStringArrayList(FrozenList<Object> m) {
+        EnumFormStringArrayList(FrozenList<String> m) {
+
             super(m);
         }
     }    

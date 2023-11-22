@@ -32,7 +32,8 @@ public class PaginatedResultMyObjectDto {
     
     public static class ResultsList extends FrozenList<MyObjectDto.MyObjectDtoMap> {
 
-        ResultsList(FrozenList<Object> m) {
+        ResultsList(FrozenList<MyObjectDto.MyObjectDtoMap> m) {
+
             super(m);
         }
     }    

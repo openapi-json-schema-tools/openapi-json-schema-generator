@@ -25,7 +25,8 @@ public class Schema {
     
     public static class FilesList extends FrozenList<String> {
 
-        FilesList(FrozenList<Object> m) {
+        FilesList(FrozenList<String> m) {
+
             super(m);
         }
     }    

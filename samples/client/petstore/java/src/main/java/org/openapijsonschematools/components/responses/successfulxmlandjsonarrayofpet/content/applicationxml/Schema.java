@@ -18,7 +18,8 @@ public class Schema {
     
     public static class SchemaList extends FrozenList<Pet.PetMap> {
 
-        SchemaList(FrozenList<Object> m) {
+        SchemaList(FrozenList<Pet.PetMap> m) {
+
             super(m);
         }
     }    

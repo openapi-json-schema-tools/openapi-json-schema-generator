@@ -156,7 +156,8 @@ public class FormatTest {
     
     public static class ArrayWithUniqueItemsList extends FrozenList<Number> {
 
-        ArrayWithUniqueItemsList(FrozenList<Object> m) {
+        ArrayWithUniqueItemsList(FrozenList<Number> m) {
+
             super(m);
         }
     }    

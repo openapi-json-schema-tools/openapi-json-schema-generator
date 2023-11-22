@@ -24,7 +24,8 @@ public class ArrayOfArrayOfNumberOnly {
     
     public static class ItemsList extends FrozenList<Number> {
 
-        ItemsList(FrozenList<Object> m) {
+        ItemsList(FrozenList<Number> m) {
+
             super(m);
         }
     }    
@@ -44,7 +45,8 @@ public class ArrayOfArrayOfNumberOnly {
     
     public static class ArrayArrayNumberList extends FrozenList<ItemsList> {
 
-        ArrayArrayNumberList(FrozenList<Object> m) {
+        ArrayArrayNumberList(FrozenList<ItemsList> m) {
+
             super(m);
         }
     }    

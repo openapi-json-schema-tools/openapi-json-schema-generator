@@ -42,7 +42,8 @@ public class EnumArrays {
     
     public static class ArrayEnumList extends FrozenList<String> {
 
-        ArrayEnumList(FrozenList<Object> m) {
+        ArrayEnumList(FrozenList<String> m) {
+
             super(m);
         }
     }    

@@ -165,7 +165,8 @@ public class NullableClass {
     
     public static class ArrayNullablePropList extends FrozenList<FrozenMap<String, Object>> {
 
-        ArrayNullablePropList(FrozenList<Object> m) {
+        ArrayNullablePropList(FrozenList<FrozenMap<String, Object>> m) {
+
             super(m);
         }
     }    
@@ -206,7 +207,11 @@ public class NullableClass {
     schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
 ]&gt; {
 
-        ArrayAndItemsNullablePropList(FrozenList<Object> m) {
+        ArrayAndItemsNullablePropList(FrozenList<typing.Union[
+    None,
+    schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+]&gt; m) {
+
             super(m);
         }
     }    
@@ -247,7 +252,11 @@ public class NullableClass {
     schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
 ]&gt; {
 
-        ArrayItemsNullableList(FrozenList<Object> m) {
+        ArrayItemsNullableList(FrozenList<typing.Union[
+    None,
+    schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES],
+]&gt; m) {
+
             super(m);
         }
     }    

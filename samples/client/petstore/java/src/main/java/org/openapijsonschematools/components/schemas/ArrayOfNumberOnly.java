@@ -24,7 +24,8 @@ public class ArrayOfNumberOnly {
     
     public static class ArrayNumberList extends FrozenList<Number> {
 
-        ArrayNumberList(FrozenList<Object> m) {
+        ArrayNumberList(FrozenList<Number> m) {
+
             super(m);
         }
     }    
