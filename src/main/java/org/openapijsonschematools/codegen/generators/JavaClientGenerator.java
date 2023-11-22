@@ -1278,6 +1278,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 } else if (schema.types.contains("object")) {
                     if (schema.isSimpleObject()) {
                         imports.add("import "+packageName + ".schemas.MapJsonSchema;");
+                        // add this in case the 1 higher schema is an array of FrozenMap
+                        imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
                     } else {
                         addCustomSchemaImports(imports);
                         imports.add("import "+packageName + ".schemas.validation.KeywordEntry;");
@@ -1291,6 +1293,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 } else if (schema.types.contains("array")) {
                     if (schema.isSimpleArray()) {
                         imports.add("import "+packageName + ".schemas.ListJsonSchema;");
+                        // add this in case the 1 higher schema is a map of FrozenList
+                        imports.add("import "+packageName + ".schemas.validation.FrozenList;");
                     } else {
                         addCustomSchemaImports(imports);
                         imports.add("import "+packageName + ".schemas.validation.KeywordEntry;");
