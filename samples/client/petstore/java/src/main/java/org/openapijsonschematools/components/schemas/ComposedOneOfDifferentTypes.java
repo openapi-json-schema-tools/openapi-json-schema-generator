@@ -44,9 +44,7 @@ public class ComposedOneOfDifferentTypes {
     
     public static class Schema5List extends FrozenList<Object> {
 
-
         Schema5List(FrozenList<Object> m) {
-
 
             super(m);
         }
@@ -58,7 +56,6 @@ public class ComposedOneOfDifferentTypes {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static Schema5List getListOutputInstance(FrozenList<Object> arg) {
-
 
             return new Schema5List(arg);
         }

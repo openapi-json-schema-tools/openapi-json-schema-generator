@@ -204,9 +204,7 @@ public class NullableClass {
     
     public static class ArrayAndItemsNullablePropList extends FrozenList<FrozenMap<String, Object>> {
 
-
         ArrayAndItemsNullablePropList(FrozenList<FrozenMap<String, Object>> m) {
-
 
             super(m);
         }
@@ -245,9 +243,7 @@ public class NullableClass {
     
     public static class ArrayItemsNullableList extends FrozenList<FrozenMap<String, Object>> {
 
-
         ArrayItemsNullableList(FrozenList<FrozenMap<String, Object>> m) {
-
 
             super(m);
         }
@@ -259,7 +255,6 @@ public class NullableClass {
             new KeywordEntry("items", new ItemsValidator(Items2.class))
         ));
         protected static ArrayItemsNullableList getListOutputInstance(FrozenList<FrozenMap<String, Object>> arg) {
-
 
             return new ArrayItemsNullableList(arg);
         }
