@@ -43,7 +43,8 @@ public class ArrayWithValidationsInItems {
         }
     }    
     
-    public static class ArrayWithValidationsInItemsList extends FrozenList<Object> {
+    public static class ArrayWithValidationsInItemsList extends FrozenList<int
+> {
         ArrayWithValidationsInItemsList(FrozenList<Object> m) {
             super(m);
         }

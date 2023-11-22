@@ -19,7 +19,8 @@ public class Schema0 {
     public class Items0 extends StringJsonSchema {}
     
     
-    public static class SchemaList0 extends FrozenList<Object> {
+    public static class SchemaList0 extends FrozenList<str
+> {
         SchemaList0(FrozenList<Object> m) {
             super(m);
         }

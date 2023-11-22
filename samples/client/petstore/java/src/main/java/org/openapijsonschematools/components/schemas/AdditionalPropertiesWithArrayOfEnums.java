@@ -17,7 +17,8 @@ public class AdditionalPropertiesWithArrayOfEnums {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalPropertiesList extends FrozenList<Object> {
+    public static class AdditionalPropertiesList extends FrozenList<typing.Literal["_abc", "-efg", "(xyz)", "COUNT_1M", "COUNT_50M"]
+> {
         AdditionalPropertiesList(FrozenList<Object> m) {
             super(m);
         }

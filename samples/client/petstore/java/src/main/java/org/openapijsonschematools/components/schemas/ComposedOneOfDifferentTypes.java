@@ -42,7 +42,8 @@ public class ComposedOneOfDifferentTypes {
     public class Items extends AnyTypeJsonSchema {}
     
     
-    public static class Schema5List extends FrozenList<Object> {
+    public static class Schema5List extends FrozenList<schemas.OUTPUT_BASE_TYPES
+> {
         Schema5List(FrozenList<Object> m) {
             super(m);
         }

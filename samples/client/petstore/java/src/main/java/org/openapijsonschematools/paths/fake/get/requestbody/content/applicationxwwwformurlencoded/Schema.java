@@ -29,7 +29,8 @@ public class Schema {
         }
     }    
     
-    public static class EnumFormStringArrayList extends FrozenList<Object> {
+    public static class EnumFormStringArrayList extends FrozenList<typing.Literal[">", "$"]
+> {
         EnumFormStringArrayList(FrozenList<Object> m) {
             super(m);
         }

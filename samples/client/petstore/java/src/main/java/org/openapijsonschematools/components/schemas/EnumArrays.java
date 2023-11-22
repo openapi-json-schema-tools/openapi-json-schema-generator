@@ -40,7 +40,8 @@ public class EnumArrays {
         }
     }    
     
-    public static class ArrayEnumList extends FrozenList<Object> {
+    public static class ArrayEnumList extends FrozenList<typing.Literal["fish", "crab"]
+> {
         ArrayEnumList(FrozenList<Object> m) {
             super(m);
         }

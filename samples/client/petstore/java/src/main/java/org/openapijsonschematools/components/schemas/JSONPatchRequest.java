@@ -69,7 +69,8 @@ public class JSONPatchRequest {
         }
     }    
     
-    public static class JSONPatchRequestList extends FrozenList<Object> {
+    public static class JSONPatchRequestList extends FrozenList<schemas.OUTPUT_BASE_TYPES
+> {
         JSONPatchRequestList(FrozenList<Object> m) {
             super(m);
         }

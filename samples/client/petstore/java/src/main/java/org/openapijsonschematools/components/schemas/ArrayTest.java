@@ -23,7 +23,8 @@ public class ArrayTest {
     public class Items extends StringJsonSchema {}
     
     
-    public static class ArrayOfStringList extends FrozenList<Object> {
+    public static class ArrayOfStringList extends FrozenList<str
+> {
         ArrayOfStringList(FrozenList<Object> m) {
             super(m);
         }
@@ -45,7 +46,8 @@ public class ArrayTest {
     public class Items2 extends Int64JsonSchema {}
     
     
-    public static class ItemsList extends FrozenList<Object> {
+    public static class ItemsList extends FrozenList<int
+> {
         ItemsList(FrozenList<Object> m) {
             super(m);
         }
@@ -64,7 +66,8 @@ public class ArrayTest {
         }
     }    
     
-    public static class ArrayArrayOfIntegerList extends FrozenList<Object> {
+    public static class ArrayArrayOfIntegerList extends FrozenList<ItemsList
+> {
         ArrayArrayOfIntegerList(FrozenList<Object> m) {
             super(m);
         }
@@ -83,7 +86,8 @@ public class ArrayTest {
         }
     }    
     
-    public static class ItemsList1 extends FrozenList<Object> {
+    public static class ItemsList1 extends FrozenList<ReadOnlyFirst.ReadOnlyFirstMap
+> {
         ItemsList1(FrozenList<Object> m) {
             super(m);
         }
@@ -102,7 +106,8 @@ public class ArrayTest {
         }
     }    
     
-    public static class ArrayArrayOfModelList extends FrozenList<Object> {
+    public static class ArrayArrayOfModelList extends FrozenList<ItemsList1
+> {
         ArrayArrayOfModelList(FrozenList<Object> m) {
             super(m);
         }

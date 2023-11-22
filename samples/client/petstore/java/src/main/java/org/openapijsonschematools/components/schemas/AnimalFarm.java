@@ -15,7 +15,8 @@ public class AnimalFarm {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AnimalFarmList extends FrozenList<Object> {
+    public static class AnimalFarmList extends FrozenList<Animal.AnimalMap
+> {
         AnimalFarmList(FrozenList<Object> m) {
             super(m);
         }

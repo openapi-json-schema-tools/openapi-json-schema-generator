@@ -1,6 +1,6 @@
 
 
-public static class {{arrayOutputJsonPathPiece.camelCase}} extends FrozenList<{{#with items}}{{!> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="]):" }}{{/with}}Object> {
+public static class {{arrayOutputJsonPathPiece.camelCase}} extends FrozenList<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="" }}{{/with}}> {
     {{arrayOutputJsonPathPiece.camelCase}}(FrozenList<Object> m) {
         super(m);
     }

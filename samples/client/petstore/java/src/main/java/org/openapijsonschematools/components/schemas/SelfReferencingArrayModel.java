@@ -15,7 +15,8 @@ public class SelfReferencingArrayModel {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class SelfReferencingArrayModelList extends FrozenList<Object> {
+    public static class SelfReferencingArrayModelList extends FrozenList<SelfReferencingArrayModelList
+> {
         SelfReferencingArrayModelList(FrozenList<Object> m) {
             super(m);
         }

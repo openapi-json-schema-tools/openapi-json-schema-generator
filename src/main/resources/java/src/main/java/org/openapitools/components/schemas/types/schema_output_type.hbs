@@ -1,0 +1,37 @@
+{{#if refInfo}}
+    {{#or refInfo.refModuleAlias refInfo.refModule}}
+        {{#with refInfo.ref}}
+            {{#eq fullRefModule "" }}
+                {{#if ../refInfo.refModuleAlias}}
+{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule=../refInfo.refModuleAlias }}
+                {{else}}
+{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule=../refInfo.refModule }}
+                {{/if}}
+            {{else}}
+                {{#if ../refInfo.refModuleAlias}}
+{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule=(join fullRefModule ../refInfo.refModuleAlias ".") }}
+                {{else}}
+{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule=(join fullRefModule ../refInfo.refModule ".") }}
+                {{/if}}
+            {{/eq}}
+        {{/with}}
+    {{else}}
+        {{! self reference }}
+        {{#with refInfo.ref}}
+{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type }}
+        {{/with}}
+    {{/or}}
+{{else}}
+    {{! no more refs }}
+    {{#if types}}
+        {{#eq types.size 1}}
+{{> src/main/java/org/openapitools/components/schemas/types/_schema_output_type_single }}
+        {{else}}
+{{#eq mode "get_additional_property_"}}def get_additional_property_(self, name: str) -> {{else}}{{#eq mode "get_property"}}def {{@key.original}}(self) -> {{else}}{{#eq mode "typehint"}}{{key}}: {{#eq key "schema"}}typing_extensions.TypeAlias = {{/eq}}{{/eq}}{{/eq}}{{/eq}}typing.Union[
+    {{> src/main/java/org/openapitools/components/schemas/types/_schema_output_type_base endChar="," }}
+]{{endChar}}
+        {{/eq}}
+    {{else}}
+{{> src/main/java/org/openapitools/components/schemas/types/_schema_output_type_single }}
+    {{/if}}
+{{/if}}

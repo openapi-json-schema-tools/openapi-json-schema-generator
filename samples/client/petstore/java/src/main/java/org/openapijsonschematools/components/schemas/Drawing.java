@@ -19,7 +19,8 @@ public class Drawing {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class ShapesList extends FrozenList<Object> {
+    public static class ShapesList extends FrozenList<schemas.OUTPUT_BASE_TYPES
+> {
         ShapesList(FrozenList<Object> m) {
             super(m);
         }

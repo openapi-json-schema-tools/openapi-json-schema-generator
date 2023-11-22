@@ -15,7 +15,13 @@ public class ArrayOfEnums {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class ArrayOfEnumsList extends FrozenList<Object> {
+    public static class ArrayOfEnumsList extends FrozenList<typing.Union[
+    None,
+    typing.Literal["placed", "approved", "delivered", "single quoted", "multiple
+lines", "double quote 
+ with newline"],
+]
+> {
         ArrayOfEnumsList(FrozenList<Object> m) {
             super(m);
         }

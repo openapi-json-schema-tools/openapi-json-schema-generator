@@ -30,7 +30,8 @@ public class Pet {
     public class Items extends StringJsonSchema {}
     
     
-    public static class PhotoUrlsList extends FrozenList<Object> {
+    public static class PhotoUrlsList extends FrozenList<str
+> {
         PhotoUrlsList(FrozenList<Object> m) {
             super(m);
         }
@@ -60,7 +61,8 @@ public class Pet {
         }
     }    
     
-    public static class TagsList extends FrozenList<Object> {
+    public static class TagsList extends FrozenList<Tag.TagMap
+> {
         TagsList(FrozenList<Object> m) {
             super(m);
         }
