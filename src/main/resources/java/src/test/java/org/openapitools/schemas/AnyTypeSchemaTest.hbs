@@ -7,12 +7,12 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.FrozenList;
 import {{{packageName}}}.schemas.validation.FrozenMap;
 
-
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+
 
 public class AnyTypeSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
@@ -25,35 +25,35 @@ public class AnyTypeSchemaTest {
 
     @Test
     public void testValidateBoolean() {
-        Boolean trueValue = AnyTypeJsonSchema.validate(Boolean.TRUE, configuration);
-        Assert.assertEquals(trueValue, Boolean.TRUE);
+        boolean trueValue = AnyTypeJsonSchema.validate(true, configuration);
+        Assert.assertEquals(trueValue, true);
 
-        Boolean falseValue = AnyTypeJsonSchema.validate(Boolean.FALSE, configuration);
-        Assert.assertEquals(falseValue, Boolean.FALSE);
+        boolean falseValue = AnyTypeJsonSchema.validate(false, configuration);
+        Assert.assertEquals(falseValue, false);
     }
 
     @Test
     public void testValidateInteger() {
-        Integer validatedValue = AnyTypeJsonSchema.validate(1, configuration);
-        Assert.assertEquals(validatedValue, Integer.valueOf(1));
+        int validatedValue = AnyTypeJsonSchema.validate(1, configuration);
+        Assert.assertEquals(validatedValue, 1);
     }
 
     @Test
     public void testValidateLong() {
-        Long validatedValue = AnyTypeJsonSchema.validate(1L, configuration);
-        Assert.assertEquals(validatedValue, Long.valueOf(1));
+        long validatedValue = AnyTypeJsonSchema.validate(1L, configuration);
+        Assert.assertEquals(validatedValue, 1L);
     }
 
     @Test
     public void testValidateFloat() {
-        Float validatedValue = AnyTypeJsonSchema.validate(3.14f, configuration);
-        Assert.assertEquals(validatedValue, Float.valueOf(3.14f));
+        float validatedValue = AnyTypeJsonSchema.validate(3.14f, configuration);
+        Assert.assertEquals(Float.compare(validatedValue, 3.14f), 0);
     }
 
     @Test
     public void testValidateDouble() {
-        Double validatedValue = AnyTypeJsonSchema.validate(70.6458763d, configuration);
-        Assert.assertEquals(validatedValue, Double.valueOf(70.6458763d));
+        double validatedValue = AnyTypeJsonSchema.validate(70.6458763d, configuration);
+        Assert.assertEquals(Double.compare(validatedValue, 70.6458763d), 0);
     }
 
     @Test
