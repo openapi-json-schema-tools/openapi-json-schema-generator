@@ -1,26 +1,14 @@
 {{#if refInfo}}
-    {{#or refInfo.refModuleAlias refInfo.refModule}}
-        {{#with refInfo.ref}}
-            {{#eq fullRefModule "" }}
-                {{#if ../refInfo.refModuleAlias}}
-{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule=../refInfo.refModuleAlias }}
-                {{else}}
-{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule=../refInfo.refModule }}
-                {{/if}}
-            {{else}}
-                {{#if ../refInfo.refModuleAlias}}
-{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule=(join fullRefModule ../refInfo.refModuleAlias ".") }}
-                {{else}}
-{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule=(join fullRefModule ../refInfo.refModule ".") }}
-                {{/if}}
-            {{/eq}}
+    {{#if refInfo.refModule}}
+        {{#with getDeepestRef}}
+{{> src/main/java/org/openapitools/components/schemas/types/_schema_output_type_base fullRefModule=containerJsonPathPiece.camelCase }}
         {{/with}}
     {{else}}
         {{! self reference }}
         {{#with refInfo.ref}}
 {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type }}
         {{/with}}
-    {{/or}}
+    {{/if}}
 {{else}}
     {{! no more refs }}
     {{#if types}}

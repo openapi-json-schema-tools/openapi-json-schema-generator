@@ -17,9 +17,9 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class SchemaList extends FrozenList<RefPet.Pet.PetMap> {
+    public static class SchemaList extends FrozenList<Pet.PetMap> {
 
-        SchemaList(FrozenList<RefPet.Pet.PetMap> m) {
+        SchemaList(FrozenList<Pet.PetMap> m) {
 
             super(m);
         }

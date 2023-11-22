@@ -17,9 +17,7 @@ public class ArrayOfEnums {
     
     public static class ArrayOfEnumsList extends FrozenList<String> {
 
-
         ArrayOfEnumsList(FrozenList<String> m) {
-
 
             super(m);
         }

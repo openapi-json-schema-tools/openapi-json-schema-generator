@@ -21,9 +21,7 @@ public class Drawing {
     
     public static class ShapesList extends FrozenList<Object> {
 
-
         ShapesList(FrozenList<Object> m) {
-
 
             super(m);
         }
